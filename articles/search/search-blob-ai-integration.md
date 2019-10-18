@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: f7e264be9a02514972f9c9702adec8fa55a157bd
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434046"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529376"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>Använd AI för att förstå BLOB-data
 
@@ -40,7 +40,7 @@ Utdata är alltid ett Azure Search-index som används för snabb texts ökning, 
 
 I between är själva pipeline-arkitekturen. Pipelinen baseras på funktionen *Indexer* , som du kan använda för att tilldela en *färdigheter*, som består av en eller flera *kunskaper* som tillhandahåller AI. Syftet med pipelinen är att skapa *omfattande dokument* som anger som rå innehåll, men som hämtar ytterligare struktur, kontext och information samtidigt som du går igenom pipelinen. Omfattande dokument förbrukas under indexeringen för att skapa inverterade index och andra strukturer som används i full texts ökning eller utforskning och analys.
 
-## <a name="start-with-services-and-data"></a>Börja med tjänster och data
+## <a name="start-with-services"></a>Starta med tjänster
 
 Du behöver Azure Search och Azure Blob Storage. I Blob Storage behöver du en behållare som tillhandahåller käll innehåll.
 

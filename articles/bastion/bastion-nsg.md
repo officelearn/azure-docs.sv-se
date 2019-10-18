@@ -5,49 +5,61 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4f99b24435998fc4d0c7ab724c66a318586a80d4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 24279ff81daf0a350aa5234e78f27a99b7e4a03e
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694935"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528029"
 ---
-# <a name="working-with-nsg-access-and-azure-bastion-preview"></a>Arbeta med NSG Access och Azure skydds (för hands version)
+# <a name="working-with-nsg-access-and-azure-bastion"></a>Arbeta med NSG-åtkomst och Azure skydds
 
 När du arbetar med Azure-skydds kan du använda nätverks säkerhets grupper (NSG: er). Mer information finns i [säkerhets grupper](../virtual-network/security-overview.md). 
 
-> [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
-![Arkitektur](./media/bastion-nsg/nsg_architecture.png)
+![Arkitektur](./media/bastion-nsg/nsg-architecture.png)
 
 I det här diagrammet:
 
-* Skydds-värden har distribuerats i det virtuella nätverket.
+* Skydds-värden har distribuerats till det virtuella nätverket.
 * Användaren ansluter till Azure Portal med valfri HTML5-webbläsare.
-* Användaren väljer den virtuella dator som du vill ansluta till.
-* Med ett enda klick öppnas RDP/SSH-sessionen i webbläsaren.
+* Användaren navigerar till RDP/SSH för den virtuella Azure-datorn.
+* Ansluta integrering – RDP/SSH-session med enkel klickning i webbläsaren
 * Ingen offentlig IP-adress krävs på den virtuella Azure-datorn.
 
 ## <a name="nsg"></a>Nätverks säkerhets grupper
 
-* **AzureBastionSubnet:** Azure-skydds distribueras i den aktuella AzureBastionSubnet.  
-    * **Ingress trafik från offentlig Internet:** Azure-skydds skapar en offentlig IP-adress som behöver port 443 aktiverat på den offentliga IP-adressen för inkommande trafik. Port 3389/22 behöver inte öppnas på AzureBastionSubnet.
-    * **Utgående trafik till virtuella mål datorer:** Azure-skydds kommer att nå de virtuella mål datorerna via privat IP. NSG: er måste tillåta utgående trafik till andra mål-VM-undernät.
+I det här avsnittet visas nätverks trafiken mellan användaren och Azure-skydds och för virtuella datorer i det virtuella nätverket:
+
+### <a name="azurebastionsubnet"></a>AzureBastionSubnet
+
+Azure-skydds distribueras specifikt till AzureBastionSubnet.
+
+* **Ingress trafik:**
+
+   * **Ingress trafik från offentlig Internet:** Azure-skydds skapar en offentlig IP-adress som behöver port 443 aktiverat på den offentliga IP-adressen för inkommande trafik. Port 3389/22 behöver inte öppnas på AzureBastionSubnet.
+   * **Ingress trafik från Azure skydds Control plan:** För kontroll Plans anslutning aktiverar du port 443 inkommande från **GatewayManager** service tag. Detta gör det möjligt för kontroll planet, det vill säga att Gateway Manager kan kommunicera med Azure-skydds.
+
+* **Utgående trafik:**
+
+   * **Utgående trafik till virtuella mål datorer:** Azure-skydds kommer att nå de virtuella mål datorerna via privat IP. NSG: er måste tillåta utgående trafik till andra mål-VM-undernät för port 3389 och 22.
+   * **Utgående trafik till andra offentliga slut punkter i Azure:** Azure-skydds måste kunna ansluta till olika offentliga slut punkter i Azure (till exempel för lagring av diagnostikloggar och avläsnings loggar). Av den anledningen behöver Azure skydds utgående till 443 till **AzureCloud** service tag.
+
 * **Mål under nät för virtuell dator:** Det här är under nätet som innehåller den virtuella mål datorn som du vill ha RDP/SSH till.
-    * **Ingress trafik från Azure skydds:** Azure-skydds kommer att nå den virtuella mål datorn via privat IP. RDP/SSH-portar (portarna 3389 och 22) måste öppnas på den virtuella mål datorns sida över privat IP.
+
+   * **Ingress trafik från Azure skydds:** Azure-skydds kommer att nå den virtuella mål datorn via privat IP. RDP/SSH-portar (portarna 3389/22) måste öppnas på den virtuella mål dator sidan över privat IP. Vi rekommenderar att du lägger till IP-adressintervallet för Azure skydds-undernätet i den här regeln för att bara tillåta skydds att kunna öppna portarna på de virtuella mål datorerna i det virtuella mål dator under nätet.
 
 ## <a name="apply"></a>Tillämpa NSG: er på AzureBastionSubnet
 
-Om du använder NSG: er på **AzureBastionSubnet**ska du tillåta följande två service märken för Azures kontroll plan och infrastruktur:
+Om du skapar och använder en NSG för ***AzureBastionSubnet***kontrollerar du att du har lagt till följande regler i din NSG. Om du inte lägger till de här reglerna kommer NSG för att skapa/uppdatera inte att fungera:
 
-* **GatewayManager (endast Resource Manager)** : Den här taggen anger adressprefix för tjänsten Azure Gateway Manager. Om du anger GatewayManager för värdet tillåts eller nekas trafik till GatewayManager.  Om du skapar NSG: er på AzureBastionSubnet ska du aktivera GatewayManager-taggen för inkommande trafik.
+* **Kontroll Plans anslutning:** Inkommande den 443 från GatewayManager
+* **Diagnostikloggning och andra:** Utgående på 443 till AzureCloud. Regionala Taggar i denna service tag stöds inte än.
+* **Virtuell måldator:** Utgående för 3389 och 22 till VirtualNetwork
 
-* **AzureCloud (endast Resource Manager)** : Den här taggen anger IP-adressutrymmet för Azure, inklusive alla offentliga IP-adresser för data Center. Om du anger AzureCloud som värde tillåts eller nekas trafik till offentliga IP-adresser i Azure. Om du bara vill tillåta åtkomst till AzureCloud i en angiven region kan du ange regionen. Om du till exempel bara vill tillåta åtkomst till Azure-AzureCloud i regionen USA, östra, kan du ange AzureCloud. östra som en service tag. Om du skapar NSG: er på AzureBastionSubnet ska du aktivera AzureCloud-taggen för utgående trafik. Om du öppnar port 443 för inkommande till Internet bör du inte behöva aktivera AzureCloud-taggen för inkommande trafik.
+Ett exempel på en regel för NSG finns i den här [snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure skydds finns i [vanliga frågor och svar](bastion-faq.md)
+Mer information om Azure skydds finns i [vanliga frågor och svar](bastion-faq.md).

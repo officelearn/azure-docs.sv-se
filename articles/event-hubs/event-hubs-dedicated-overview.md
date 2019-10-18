@@ -1,5 +1,5 @@
 ---
-title: Översikt över dedikerade event hubs – Azure Event Hubs | Microsoft Docs
+title: Översikt över dedikerade Event Hub – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en översikt över dedikerade Azure-Event Hubs, som erbjuder distributioner av enskilda innehavare av Event Hub.
 services: event-hubs
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ebc6dd672fd180e22cc1edf5c9978e0985427e50
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991861"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516740"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Översikt över Event Hubs Dedicated
 
@@ -54,16 +54,16 @@ Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst
 | --- |:---:|:---:|
 | Bandbredd | 20 antal (upp till 40 antal) | 20 CUs |
 | Namnområden |  1 | 50 per CU |
-| Event Hubs |  10 per namnrymd | 1000 per namnrymd |
+| Händelsehubbar |  10 per namnrymd | 1000 per namnrymd |
 | Ingångshändelser | Betala per miljon händelser | Ingår |
 | Meddelandestorlek | 1 000 000 byte | 1 000 000 byte |
-| Partitioner | 40 per namnrymd | 2000 per CU |
+| Partitioner | 32 per Event-hubb | 1024 per Event-hubb |
 | Konsumentgrupper | 20 per Event-hubb | Ingen gräns per CU, 1000 per Event-hubb |
 | Brokered Connections | 1 000 ingår, 5 000 max | 100 KB ingår och Max |
 | Meddelandelagring | 7 dagar, 84 GB ingår per data flödes enheter | 90 dagar, 10 TB inkluderat per CU |
 | Capture | Betala per timme | Ingår |
 
-## <a name="how-to-onboard"></a>Hur vill publicera
+## <a name="how-to-onboard"></a>Publicera
 
 Den självbetjänings upplevelsen för att [skapa ett Event Hubs kluster](event-hubs-dedicated-cluster-create-portal.md) via [Azure Portal](https://aka.ms/eventhubsclusterquickstart) är nu i för hands version. Om du har några frågor eller behöver hjälp med att registrera dig Event Hubs Dedicated kan du kontakta [Event Hubs-teamet](mailto:askeventhubs@microsoft.com).
 
@@ -73,23 +73,23 @@ Den självbetjänings upplevelsen för att [skapa ett Event Hubs kluster](event-
 
 För ett Event Hubs kluster, hur mycket du kan mata in och strömma beror på olika faktorer, till exempel producenter, konsumenter, den hastighet som du matar in och bearbetar, och mycket mer. 
 
-Följande tabell visas resultaten att vi har uppnått under våra tester:
+I följande tabell visas de benchmark-resultat som vi uppnått vid testningen:
 
-| Nyttolasten form | Mottagare | Ingående bandbredd| Inkommande meddelanden | Utgående bandbredd | Utgående meddelanden | Totalt antal Dataflödesenheter | Dataflödesenheter per Kapacitetsenhet |
+| Nytto Last form | Mottagare | Ingress bandbredd| Ingress meddelanden | Utgående bandbredd | Utgående meddelanden | Totalt antal antal | Antal per CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batchar med 100x1KB | 2 | 400 MB/sek | 400k meddelanden/SEK | 800 MB/sek | 800k meddelanden/SEK | 400 Dataflödesenheter | 100 Dataflödesenheter | 
-| Batchar med 10x10KB | 2 | 666 MB/sek | 66.6 k meddelanden/SEK | 1,33 GB/sek | 133k meddelanden/SEK | 666 Dataflödesenheter | 166 Dataflödesenheter |
-| Batchar med 6x32KB | 1 | 1,05 GB/sek | 34k meddelanden/SEK | 1,05 GB/sek | 34k meddelanden/SEK | 1000 Dataflödesenheter | 250 Dataflödesenheter |
+| Batchar av 100x1KB | 2 | 400 MB/SEK | 400k meddelanden/SEK | 800 MB/SEK | 800k meddelanden/SEK | 400 antal | 100 antal | 
+| Batchar av 10x10KB | 2 | 666 MB/SEK | 66.6 k meddelanden/SEK | 1,33 GB/SEK | 133k meddelanden/SEK | 666 antal | 166 antal |
+| Batchar av 6x32KB | 1 | 1,05 GB/SEK | 34k meddelanden/SEK | 1,05 GB/SEK | 34k meddelanden/SEK | 1000 antal | 250 antal |
 
-I testet användes följande kriterier:
+I testningen användes följande kriterier:
 
 - Ett dedikerat nivå Event Hubs kluster med fyra kapacitets enheter (CUs) användes. 
-- Den händelsehubb som används för datainmatning hade 200 partitioner. 
-- De data som har samlats in togs emot av två mottagare program tar emot från alla partitioner.
+- Händelsehubben som används för inmatning hade 200 partitioner. 
+- De data som matats in togs emot av två mottagar program som tar emot från alla partitioner.
 
 #### <a name="can-i-scale-updown-my-cluster"></a>Kan jag skala upp/ned mitt kluster?
 
-Efter skapandet faktureras kluster för minst 4 timmars användning. I för hands versionen av den självbetjänings upplevelsen kan du skicka en [supportbegäran](https://ms.portal.azure.com/#create/Microsoft.Support) till Event Hubss gruppen under *teknisk > kvot > begäran om att skala upp eller* ned ett dedikerat kluster för att skala upp eller ned ett dedikerat kluster. Det kan ta upp till 7 dagar att slutföra begäran om att skala upp klustret. 
+Efter skapandet faktureras kluster för minst 4 timmars användning. I för hands versionen av den självbetjänings upplevelsen kan du skicka en [supportbegäran](https://ms.portal.azure.com/#create/Microsoft.Support) till Event Hubss gruppen under *teknisk > kvot > begäran om att skala upp eller ned ett dedikerat kluster* för att skala upp eller ned ett dedikerat kluster. Det kan ta upp till 7 dagar att slutföra begäran om att skala upp klustret. 
 
 #### <a name="how-will-geo-dr-work-with-my-cluster"></a>Hur fungerar geo-DR med mitt kluster?
 
@@ -103,5 +103,5 @@ Vi stöder för närvarande inte en automatiserad migreringsprocessen för att m
 Kontakta din Microsoft-representant eller Microsoft Support för att få mer information om Event Hubs Dedicated. Du kan också skapa ett kluster eller lära dig mer om Event Hubs pris nivåer genom att gå till följande länkar:
 
 - [Skapa ett Event Hubs-kluster via Azure Portal](https://aka.ms/eventhubsclusterquickstart) 
-- [Event Hubs Dedicated priser](https://azure.microsoft.com/pricing/details/event-hubs/). Du kan även kontakta din Microsoft-försäljare eller Microsoft Support om du vill ha mer information om Event Hubs Dedicated kapacitet.
-- Den [Event Hubs vanliga frågor och svar](event-hubs-faq.md) innehåller prisinformation och innehåller några vanliga frågor och svar om Event Hubs.
+- [Event Hubs Dedicated prissättning](https://azure.microsoft.com/pricing/details/event-hubs/). Du kan också kontakta din Microsoft-representant eller Microsoft Support för att få mer information om Event Hubs Dedicated kapacitet.
+- [Event HUBS vanliga](event-hubs-faq.md) frågor och svar innehåller pris information och svar på några vanliga frågor om Event Hubs.

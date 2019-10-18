@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: b1da7b69db20b036b69add5604f80896e5d35587
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 05794a046fdcb15a91145a75717a6a454d15a8da
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245037"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72511527"
 ---
-Azure Disk Encryption kan aktive ras och hanteras via [Azure CLI](/cli/azure) och [Azure PowerShell](/azure/new-azureps-module-az). Om du vill göra det måste du installera verktygen lokalt och ansluta till din Azure-prenumeration.
+Azure Disk Encryption kan aktive ras och hanteras via [Azure CLI](/cli/azure) och [Azure PowerShell](/powershell/azure/new-azureps-module-az). Om du vill göra det måste du installera verktygen lokalt och ansluta till din Azure-prenumeration.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -43,7 +43,7 @@ az account set --subscription "<subscription name or ID>"
 Mer information finns i [Kom igång med Azure CLI 2,0](/cli/azure/get-started-with-azure-cli). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Modulen Azure PowerShell AZ](/azure/new-azureps-module-az) innehåller en uppsättning cmdletar som använder [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) -modellen för att hantera dina Azure-resurser. Du kan använda den i din webbläsare med [Azure Cloud Shell](/azure/cloud-shell/overview), eller så kan du installera den på din lokala dator med hjälp av anvisningarna i [installera modulen Azure PowerShell](/powershell/azure/install-az-ps). 
+[Modulen Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) innehåller en uppsättning cmdletar som använder [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) -modellen för att hantera dina Azure-resurser. Du kan använda den i din webbläsare med [Azure Cloud Shell](/azure/cloud-shell/overview), eller så kan du installera den på din lokala dator med hjälp av anvisningarna i [installera modulen Azure PowerShell](/powershell/azure/install-az-ps). 
 
 Om du redan har installerat det lokalt kontrollerar du att du använder den senaste versionen av Azure PowerShell SDK-versionen för att konfigurera Azure Disk Encryption. Ladda ned den senaste versionen av [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)-versionen.
 

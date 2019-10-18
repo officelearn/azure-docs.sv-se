@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: 795b9beedabd119df98487a0bc00160bcf21507f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d43860d71b14bdac275df51695c9206539529171
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174150"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72511525"
 ---
-Den här artikeln innehåller säkerhets rekommendationer för Azure Virtual Machines. Följ dessa rekommendationer för att uppfylla de säkerhets skyldigheter som beskrivs i vår modell för delat ansvar. Rekommendationerna hjälper dig också att förbättra den övergripande säkerheten för dina webb programs lösningar. Mer information om vad Microsoft gör för att uppfylla ansvaret för service leverantörer finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
+Den här artikeln innehåller säkerhets rekommendationer för Azure Virtual Machines. Följ dessa rekommendationer för att uppfylla de säkerhets skyldigheter som beskrivs i vår modell för delat ansvar. Rekommendationerna hjälper dig också att förbättra den övergripande säkerheten för dina webb programs lösningar. Mer information om vad Microsoft gör för att uppfylla ansvaret för service leverantörer finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf).
 
 En del av den här artikelns rekommendationer kan åtgärdas automatiskt av Azure Security Center. Azure Security Center är den första försvars linjen för dina resurser i Azure. Den analyserar regelbundet säkerhets läget för dina Azure-resurser för att identifiera potentiella säkerhets risker. Sedan rekommenderar vi att du åtgärdar problemen. Mer information finns [i säkerhets rekommendationer i Azure Security Center](../articles/security-center/security-center-recommendations.md).
 

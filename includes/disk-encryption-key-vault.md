@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: e145c7af3ff3cdd6d3cca2a7b0da0fdc23a418b7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 398da52ba424c08bd1bbdc6f02641109e136f45c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245258"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72511528"
 ---
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -131,7 +131,7 @@ Om du vill använda en nyckel krypterings nyckel (KEK) för ett extra säkerhets
 
 Du kan generera en ny KEK med hjälp av kommandot för att skapa en Azure CLI- [AZ](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) , Azure PowerShell [Add-AzKeyVaultKey-](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet eller [Azure Portal](https://portal.azure.com/). Du måste generera en RSA-nyckel typ. Azure Disk Encryption har ännu inte stöd för att använda Elliptic kurv nycklar.
 
-Du kan istället importera en KEK från din lokala nyckel hanterings HSM. Mer information finns i [Key Vault-dokumentationen](/key-vault/key-vault-hsm-protected-keys). 
+Du kan istället importera en KEK från din lokala nyckel hanterings HSM. Mer information finns i [Key Vault-dokumentationen](/azure/key-vault/key-vault-hsm-protected-keys).
 
 KEK-URL: er för nyckel valvet måste ha versions hantering. Azure tillämpar den här begränsningen av versions hantering. Giltiga hemligheter och KEK-URL: er finns i följande exempel:
 

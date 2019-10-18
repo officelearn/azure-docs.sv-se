@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 394137a1b7901a3272e36f6a6d74944b87f30082
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 76337c471a4032f879bee8382b2d958f6600671e
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056494"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527064"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app som anropar webb-API: er – kod konfiguration
 
@@ -34,8 +34,8 @@ Microsoft-bibliotek som stöder daemon-appar är:
   MSAL-bibliotek | Beskrivning
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Plattformar som stöds för att bygga ett daemon-program är .NET Framework och .NET Core-plattformar (inte UWP, Xamarin. iOS och Xamarin. Android som dessa plattformar används för att bygga offentliga klient program)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Utveckling pågår – i offentlig för hands version
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Utveckling pågår – i offentlig för hands version
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL. Python | Utveckling pågår – i offentlig för hands version
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL. Programmeringsspråket | Utveckling pågår – i offentlig för hands version
 
 ## <a name="configuration-of-the-authority"></a>Behörighets konfiguration
 
@@ -43,7 +43,7 @@ Med tanke på att daemon-programmen inte använder delegerade behörigheter, men
 
 Den auktoritet som anges i program konfigurationen ska därför vara klient-Ed (ange ett klient-ID eller ett domän namn som är kopplat till din organisation).
 
-Om du är en ISV och vill tillhandahålla ett verktyg för flera innehavare kan du använda `organizations`. Men tänk på att du även måste förklara för kunderna hur de ska bevilja administrativt medgivande. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) . Det finns även en begränsning i MSAL: `organizations` tillåts bara när klientautentiseringsuppgifterna är en program hemlighet (inte ett certifikat).
+Om du är en ISV och vill tillhandahålla ett verktyg för flera innehavare kan du använda `organizations`. Men tänk på att du även måste förklara för kunderna hur de ska bevilja administrativt medgivande. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) . Det finns även en begränsning i MSAL: `organizations` tillåts endast när klientautentiseringsuppgifterna är en program hemlighet (inte ett certifikat).
 
 ## <a name="application-configuration-and-instantiation"></a>Program konfiguration och instansiering
 
@@ -103,7 +103,7 @@ När du skapar en konfidentiell klient med certifikat, kommer den att likna dett
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Här är klassen som används i msal4j dev-exempel för att konfigurera exemplen: [Testdata](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+Här är klassen som används i msal4j dev-exempel för att konfigurera exemplen: [testdata](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
 public class TestData {
@@ -126,14 +126,14 @@ Om du vill instansiera MSAL-programmet måste du:
 - Lägg till, referera till eller importera MSAL-paketet (beroende på språk)
 - Sedan är konstruktionen olika beroende på om du använder klient hemligheter eller certifikat (eller som ett avancerat scenario, signerade intyg)
 
-Daemon-appen visas av en`IConfidentialClientApplication`
+Daemon-appen visas av en `IConfidentialClientApplication`
 
 #### <a name="reference-the-package"></a>Referera till paketet
 
 # <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
 Lägg till [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet-paketet i ditt program.
-I MSAL.net representeras det konfidentiella klient programmet av `IConfidentialClientApplication` gränssnittet.
+I MSAL.NET representeras det konfidentiella klient programmet av `IConfidentialClientApplication`-gränssnittet.
 Använd MSAL.NET-namnrymd i käll koden
 
 ```CSharp
@@ -269,7 +269,7 @@ MSAL.NET har två metoder för att tillhandahålla signerade kontroller till app
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-När du använder `WithClientAssertion`måste du ange ett signerat JWT. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md)
+När du använder `WithClientAssertion` måste du ange ett signerat JWT. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md)
 
 ```CSharp
 string signedClientAssertion = ComputeAssertion();
@@ -278,7 +278,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-När du använder `WithClientClaims`, kommer MSAL.net att beräkna en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka.
+När du använder `WithClientClaims` kommer MSAL.NET att beräkna en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka.
 Här är ett kodfragment om hur du gör det:
 
 ```CSharp
@@ -295,7 +295,7 @@ Mer information finns i [klient kontroll](msal-net-client-assertions.md).
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-I MSAL python kan du ange klient anspråk med anspråken som ska signeras av den `ConfidentialClientApplication`privata nyckeln.
+I MSAL python kan du ange klient anspråk med anspråken som ska signeras av den här `ConfidentialClientApplication` privata nyckeln.
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -321,5 +321,19 @@ msal4j finns i offentlig för hands version. Signerade kontroller stöds inte ä
 
 ## <a name="next-steps"></a>Nästa steg
 
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [Daemon-app – hämtar token för appen](./scenario-daemon-acquire-token.md)
+> [Daemon-app – hämtar token för appen](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Daemon-app – hämtar token för appen](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Daemon-app – hämtar token för appen](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=java)
+
+---

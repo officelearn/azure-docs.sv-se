@@ -1,17 +1,17 @@
 ---
-title: Aktivera och begär just-in-Time-åtkomst för Azure Managed Applications
+title: Begär just-in-Time-åtkomst-Azure Managed Applications
 description: Beskriver hur utgivare av Azure Managed Applications begär just-in-Time-åtkomst till ett hanterat program.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
-ms.openlocfilehash: 0d595d4c96e9f87f1c8eece5d47bf4c8cdd58d7c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: fdd1dcf5ab6b58a91534a465a8c92c10de0d2097
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574978"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528962"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Aktivera och begär just-in-Time-åtkomst för Azure Managed Applications
 
@@ -79,7 +79,7 @@ När du definierar ditt erbjudande i Marketplace, se till att aktivera JIT-åtko
 
    ![Aktivera just-in-Time-åtkomst](./media/request-just-in-time-access/marketplace-enable.png)
 
-Du har lagt till ett konfigurations steg för JIT i användar gränssnittet och har aktiverat JIT-åtkomst i Marketplace-erbjudandet. När konsumenter distribuerar ditt hanterade program kan de [Aktivera JIT-åtkomst för](approve-just-in-time-access.md#enable-during-deployment)instansen.
+Du har lagt till ett konfigurations steg för JIT i användar gränssnittet och har aktiverat JIT-åtkomst i Marketplace-erbjudandet. När konsumenter distribuerar ditt hanterade program kan de [Aktivera JIT-åtkomst för instansen](approve-just-in-time-access.md#enable-during-deployment).
 
 ## <a name="request-access"></a>Begär åtkomst
 

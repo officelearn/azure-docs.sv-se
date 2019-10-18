@@ -4,18 +4,18 @@ description: Den här artikeln innehåller referensinformation för kommandot Az
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8786da42f000a2f13279499159a7af424aa10748
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 9e8dbbd40259c7a71f252d0d6e93dd6f135973de
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195794"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513536"
 ---
-# <a name="azcopy-jobs-resume"></a>återuppta AzCopy-jobb
+# <a name="azcopy-jobs-resume"></a>azcopy jobb-CV
 
 Återupptar det befintliga jobbet med angivet jobb-ID.
 
@@ -30,7 +30,7 @@ azcopy jobs resume [jobID] [flags]
 |Alternativ|Beskrivning|
 |--|--|
 |--mål – SAS-sträng|Mål-SAS för målet för angivet JobId.|
-|--Exkludera sträng|Synkroniseringsfilter Undanta de här misslyckade överföringarna när du återupptar jobbet. Filerna ska avgränsas med ";".|
+|--Exkludera sträng|Filtrera: exkludera de här misslyckade överföringarna när jobbet återupptas. Filerna ska avgränsas med ";".|
 |-h,--hjälp|Visa hjälp innehåll för kommandot Resume.|
 |--inkludera sträng|Filter: ta bara med de här misslyckade överföringarna när jobbet återupptas. Filerna ska avgränsas med ";".|
 |--Källa – SAS-sträng |käll-SAS för källan för angivet JobId.|

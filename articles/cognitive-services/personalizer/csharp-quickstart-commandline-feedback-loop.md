@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Klient bibliotek för en egen klient för .NET | Microsoft Docs'
+title: 'Snabb start: ett personligt klient bibliotek för .NET | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med personanpassa klient biblioteket för .NET med hjälp av en inlärnings slinga.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345230"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515593"
 ---
-# <a name="quickstart-personalize-client-library-for-net"></a>Snabbstart: Anpassa klient bibliotek för .NET
+# <a name="quickstart-personalizer-client-library-for-net"></a>Snabb start: ett personligt klient bibliotek för .NET
 
 Visa personligt innehåll i den C# här snabb starten med tjänsten personanpassa.
 
@@ -26,9 +26,9 @@ Kom igång med personanpassa klient biblioteket för .NET. Följ de här stegen 
  * Rangordna en lista med åtgärder för anpassning.
  * Rapportera belönings Poäng som indikerar att det främsta antalet rankade åtgärder lyckades.
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview)  | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer)  | [Package (NuGet)  | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -53,8 +53,8 @@ Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på
 <!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 När du har skaffat en nyckel från din utvärderings prenumeration eller resurs skapar du två [miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
-* `PERSONALIZER_RESOURCE_KEY`för resurs nyckeln.
-* `PERSONALIZER_RESOURCE_ENDPOINT`för resurs slut punkten.
+* `PERSONALIZER_RESOURCE_KEY` för resurs nyckeln.
+* `PERSONALIZER_RESOURCE_ENDPOINT` för resurs slut punkten.
 
 I Azure Portal är både nyckel-och slut punkts värden tillgängliga på sidan **snabb start** .
 
@@ -70,7 +70,7 @@ När en säkerhetsslinga först instansieras finns det ingen modell eftersom det
 
 Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE. 
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot dotNet `new` för att skapa en ny konsol app med namnet. `personalizer-quickstart` Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda käll `Program.cs`fil:. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot dotNet `new` för att skapa en ny konsol-app med namnet `personalizer-quickstart`. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda källfil: `Program.cs`. 
 
 ```console
 dotnet new console -n personalizer-quickstart
@@ -122,19 +122,19 @@ De här kodfragmenten visar hur du gör följande med personanpassa klient bibli
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
-Från projekt katalogen öppnar du **program.cs** -filen i önskat redigerings program eller IDE. Ersätt den befintliga `using` koden med följande `using` direktiv:
+Från projekt katalogen öppnar du **program.cs** -filen i önskat redigerings program eller IDE. Ersätt den befintliga `using`s koden med följande `using`-direktiv:
 
 [!code-csharp[Using statements](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=Dependencies)]
 
 ## <a name="add-personalizer-resource-information"></a>Lägg till information om personanpassa resurser
 
-I **program** -klassen skapar du variabler för din resurs Azure-nyckel och slut punkt från miljövariablerna, med `PERSONALIZER_RESOURCE_KEY` namnet `PERSONALIZER_RESOURCE_ENDPOINT`och. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
+I **program** -klassen skapar du variabler för din resurs Azure-nyckel och slut punkt som hämtats från miljövariablerna, med namnet `PERSONALIZER_RESOURCE_KEY` och `PERSONALIZER_RESOURCE_ENDPOINT`. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
 
 [!code-csharp[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=classVariables)]
 
 ## <a name="create-a-personalizer-client"></a>Skapa en personanpassa klient
 
-Skapa sedan en metod för att returnera en personanpassa klient. Parametern till-metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey `PERSONALIZER_RESOURCE_KEY`är.
+Skapa sedan en metod för att returnera en personanpassa klient. Parametern till metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey är `PERSONALIZER_RESOURCE_KEY`.
 
 [!code-csharp[Create the Personalizer client](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=authorization)]
 
@@ -146,7 +146,7 @@ Skapa sedan en metod för att returnera en personanpassa klient. Parametern till
 
 [!code-csharp[Present food taste preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createUserFeatureTastePreference)]
 
-Båda metoderna använder `GetKey` metoden för att läsa användarens val från kommando raden. 
+Båda metoderna använder metoden `GetKey` för att läsa användarens val från kommando raden. 
 
 [!code-csharp[Read user's choice from the command line](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=readCommandLine)]
 
@@ -154,7 +154,7 @@ Båda metoderna använder `GetKey` metoden för att läsa användarens val från
 
 Inlärnings-loopen för inlärning är en cykel av rang-och belönings samtal. I den här snabb starten, som varje rang anrop, för att anpassa innehållet, följs av ett belönings samtal för att berätta för personanpassa hur väl tjänsten rangordnade innehållet. 
 
-Följande kod i `main` -metoden i programmet loopar genom en cykel som ber användaren att ange sina inställningar på kommando raden, vilket skickar informationen till en person som ska rangordnas, och presentera det rankade valet för kunden att välja bland de och skicka en belöning till personligare signalera hur väl tjänsten gjorde en rangordning av valet.
+Följande kod i metoden `main` i program slinga genom en cykel som ber användaren om sina inställningar på kommando raden, vilket skickar informationen till en person som ska rangordnas, och presentera det rankade valet för kunden att välja bland listan , och sedan skicka en belöning till personligare signalering hur väl tjänsten gjorde en rangordning av valet.
 
 ```csharp
 static void Main(string[] args)
@@ -242,7 +242,7 @@ Lägg till följande metoder, som [hämtar innehålls valen](#get-content-choice
 
 ## <a name="request-a-rank"></a>Begär en rang
 
-För att slutföra ranknings förfrågan ställer programmet till användarens inställningar för att skapa ett `currentContent` av innehålls valen. Processen kan skapa innehåll som ska undantas från rangordningen, som `excludeActions`visas som. Ranknings förfrågan behöver åtgärderna, currentContext, excludeActions och ett unikt ID för ranknings händelse (som GUID) för att ta emot det rankade svaret. 
+För att slutföra ranknings förfrågan ställer programmet till användarens inställningar för att skapa en `currentContent` av innehålls valen. Processen kan skapa innehåll som ska undantas från rankningen, som visas som `excludeActions`. Ranknings förfrågan behöver åtgärderna, currentContext, excludeActions och ett unikt ID för ranknings händelse (som GUID) för att ta emot det rankade svaret. 
 
 Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och användarens mat preferenser. I produktions system kan det vara en icke-trivial sak att fastställa och [utvärdera](concept-feature-evaluation.md) [åtgärder och funktioner](concepts-features.md) .  
 
@@ -272,7 +272,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -282,5 +282,5 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 * [Vad är Personanpassare?](what-is-personalizer.md)
 * [Var kan du använda Personanpassare?](where-can-you-use-personalizer.md)
-* [Felsökning](troubleshooting.md)
+* [Troubleshooting](troubleshooting.md) (Felsökning)
 

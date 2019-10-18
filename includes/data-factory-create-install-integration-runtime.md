@@ -4,16 +4,16 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12c2f1bd2a3185d26eae02b5cd756392b5b87c16
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187812"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533267"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
-I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den till en lokal dator med SQL Server-databasen. Den lokala installationen av Integration Runtime är den komponent som kopierar data från SQL Server på din dator till Azure Blob Storage. 
+I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den till en lokal dator med SQL Server-databasen. Integration runtime med egen värd är den komponent som kopierar data från SQL Server på din dator till Azure SQL Database. 
 
 1. Skapa en variabel för namnet på din Integration Runtime. Använd ett unikt namn och anteckna det. Du använder det senare i den här självstudien. 
 
@@ -29,12 +29,12 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
    Här är exempel på utdata:
 
    ```json
-    Id                : /subscriptions/<subscription ID>/resourceGroups/ADFTutorialResourceGroup/providers/Microsoft.DataFactory/factories/onpremdf0914/integrationruntimes/myonpremirsp0914
+    Name              : <Integration Runtime name>
     Type              : SelfHosted
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
-    Name              : myonpremirsp0914
-    Description       :
+    ResourceGroupName : <ResourceGroupName>
+    DataFactoryName   : <DataFactoryName>
+    Description       : 
+    Id                : /subscriptions/<subscription ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DataFactory/factories/<DataFactoryName>/integrationruntimes/ADFTutorialIR
     ```
   
 3. Kör följande kommando för att hämta statusen för din skapade Integration Runtime. Kontrollera att värdet för egenskapen **State** är inställd på **NeedRegistration**. 
@@ -45,21 +45,25 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
    Här är exempel på utdata:
 
-   ```json
-   Nodes                     : {}
-   CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption :
-   Version                   :
+   ```json  
+   State                     : NeedRegistration
+   Version                   : 
+   CreateTime                : 9/24/2019 6:00:00 AM
+   AutoUpdate                : On
+   ScheduledUpdateDate       : 
+   UpdateDelayOffset         : 
+   LocalTimeZoneOffset       : 
+   InternalChannelEncryption : 
    Capabilities              : {}
-   ScheduledUpdateDate       :
-   UpdateDelayOffset         :
-   LocalTimeZoneOffset       :
-   AutoUpdate                :
-   ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
+   ServiceUrls               : {eu.frontend.clouddatahub.net}
+   Nodes                     : {}
+   Links                     : {}
+   Name                      : ADFTutorialIR
+   Type                      : SelfHosted
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
-   Name                      : <Integration Runtime name>
-   State                     : NeedRegistration
+   Description               : 
+   Id                        : /subscriptions/<subscription ID>/resourceGroups/<ResourceGroup name>/providers/Microsoft.DataFactory/factories/<DataFactory name>/integrationruntimes/<Integration Runtime name>
    ```
 
 4. Kör följande kommando som används för att hämta autentiseringsnycklarna för att registrera en lokal Integration Runtime med Azure Data Factory-tjänsten i molnet: 
@@ -72,8 +76,8 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
    ```json
    {
-       "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
-       "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
+    "AuthKey1": "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
+    "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
    ```    
 
@@ -92,27 +96,17 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
 6. På sidan **Klar att installera Microsoft Integration Runtime** väljer du **Installera**.
 
-7. Om du ser ett varningsmeddelande om att konfigurera datorn att övergå i strömsparläge eller viloläge när den inte används, väljer du **OK**.
+7. På sidan **Slutfört installationen av Microsoft Integration Runtime**  väljer du **Slutför**.
 
-8. Om du ser sidan **Energialternativ** stänger du den och gå till konfigurationssidan.
-
-9. På sidan **Slutfört installationen av Microsoft Integration Runtime**  väljer du **Slutför**.
-
-10. Klistra in den nyckel som du sparade i föregående avsnitt på sidan **Registrera Integration Runtime (lokal installation)** och välj **Registrera**. 
+8. Klistra in den nyckel som du sparade i föregående avsnitt på sidan **Registrera Integration Runtime (lokal installation)** och välj **Registrera**. 
 
     ![Registrera Integration Runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
-11. När integration runtime med egen värd har registrerats ser du följande meddelande:
+9. På sidan **ny integration Runtime (lokal installation) nod** väljer du **Slutför**. 
+
+10. När integration runtime med egen värd har registrerats ser du följande meddelande:
 
     ![Registered successfully (Registrerat)](media/data-factory-create-install-integration-runtime/registered-successfully.png)
-
-12. På sidan **Ny nod för Integration Runtime (lokal installation)** väljer du **Nästa**. 
-
-    ![Sidan Ny nod för Integration Runtime](media/data-factory-create-install-integration-runtime/new-integration-runtime-node-page.png)
-
-13. På sidan **Kommunikationskanal för intranät** väljer du **Hoppa över**. Välj ett TLS/SSL-certifikat för att skydda kommunikationen mellan noderna i en miljö med flera noder för Integration Runtime. 
-
-    ![Sidan Kommunikationskanal för intranät](media/data-factory-create-install-integration-runtime/intranet-communication-channel-page.png)
 
 14. På sidan **Registrera Integration Runtime (lokal installation)** väljer du **Starta konfigurationshanteraren**.
 
@@ -136,7 +130,7 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
     f. Ange användarnamnet.
 
-    g. Ange lösenordet för användarnamnet.
+    g. Ange lösen ordet som är kopplat till för användar namnet.
 
     h. Klicka på **Test** för att bekräfta att Integration Runtime kan ansluta till SQL Server. Du ser en grön bockmarkering om anslutningen är klar. Om anslutningen inte lyckats får du ett felmeddelande. Åtgärda eventuella problem och se till att Integration Runtime kan ansluta till SQL Server.    
 

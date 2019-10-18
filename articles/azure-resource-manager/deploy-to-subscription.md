@@ -1,17 +1,17 @@
 ---
-title: Skapa resurs grupper och resurser vid prenumerationen – Azure Resource Manager mall
+title: Distribuera prenumerations nivå – Azure Resource Manager mall
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 913014a9b7e24345cd21979ba20ea1a1a938d022
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001597"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532189"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
@@ -153,7 +153,7 @@ Använd [Kopiera-elementet](resource-group-create-multiple.md) med resurs gruppe
 }
 ```
 
-Information om resurs upprepning finns i [distribuera fler än en instans av en resurs eller egenskap i Azure Resource Manager mallar](./resource-group-create-multiple.md)och [Tutorial: Skapa flera resurs instanser med Resource Manager-mallar @ no__t-0.
+Information om resurs upprepning finns i [distribuera fler än en instans av en resurs eller egenskap i Azure Resource Manager mallar](./resource-group-create-multiple.md)och [Självstudier: skapa flera resurs instanser med Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-group-and-resources"></a>Resurs grupp och resurser
 

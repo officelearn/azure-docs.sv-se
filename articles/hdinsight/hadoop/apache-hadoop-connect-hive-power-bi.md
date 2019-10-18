@@ -3,24 +3,24 @@ title: Visualisera Apache Hive data med Power BI – Azure HDInsight
 description: Lär dig hur du använder Microsoft Power BI för att visualisera Hive-data som bearbetas av Azure HDInsight.
 keywords: HDInsight, Hadoop, Hive, interaktiv fråga, interaktiv Hive, LLAP, ODBC
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,
+ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: 0e8f0e6ff6ba4b280d6174b6cec231ddca782912
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.date: 10/15/2019
+ms.openlocfilehash: 9b99e24d00441f0caab4b55a46e5ccc8be9cdd64
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058604"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529529"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualisera Apache Hive data med Microsoft Power BI med ODBC i Azure HDInsight
 
 Lär dig hur du ansluter Microsoft Power BI Desktop till Azure HDInsight med ODBC och visualiserar Apache Hive data.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Du kan utnyttja Hive ODBC-drivrutinen för att importera via den allmänna ODBC-anslutningen i Power BI Desktop. Det rekommenderas dock inte för BI-arbetsbelastningar med icke-interaktiv natur för Hive-frågemotor. [Hdinsights interaktiva Query Connector](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) och [HDInsight Spark Connector](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) är bättre för deras prestanda.
 
 I den här artikeln läser du in data från en `hivesampletable` Hive-tabell till Power BI. Hive-tabellen innehåller vissa mobil telefon användnings data. Sedan kan du rita användnings data på en världs karta:
@@ -29,7 +29,7 @@ I den här artikeln läser du in data från en `hivesampletable` Hive-tabell til
 
 Informationen gäller även för den nya [interaktiva frågans](../interactive-query/apache-interactive-query-get-started.md) kluster typ. Information om hur du ansluter till en interaktiv HDInsight-fråga med direkt frågor finns i [visualisera interaktiva frågor Hive-data med Microsoft Power BI med direkt fråga i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du går igenom den här artikeln måste du ha följande objekt:
 
@@ -43,31 +43,33 @@ Se [skapa HIVE ODBC-datakälla](apache-hadoop-connect-excel-hive-odbc-driver.md#
 
 ## <a name="load-data-from-hdinsight"></a>Läs in data från HDInsight
 
-Hivesampletable Hive-tabellen innehåller alla HDInsight-kluster.
+**Hivesampletable** Hive-tabellen innehåller alla HDInsight-kluster.
 
 1. Starta Power BI Desktop.
 
-2. I den översta menyn går du till **Start** > **Hämta data** > **mer.** ...
+1. På den översta menyn går du till **start**  > **Hämta data**  > **mer.** ..
 
     ![HDInsight Excel Power BI öppna data](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
-3. I dialog rutan **Hämta data** väljer du **annan** från vänster, väljer **ODBC** från höger och väljer sedan **Anslut** längst ned.
+1. I dialog rutan **Hämta data** väljer du **annan** från vänster, väljer **ODBC** från höger och väljer sedan **Anslut** längst ned.
 
-4. I dialog rutan **från ODBC** väljer du det data käll namn som du skapade i det sista avsnittet i list rutan och väljer sedan **OK**.
+1. I dialog rutan **från ODBC** väljer du det data käll namn som du skapade i det sista avsnittet i list rutan. Välj sedan **OK**.
 
-5. I dialog rutan **navigering** expanderar du **ODBC > HIVE > standard**, väljer **hivesampletable**och väljer sedan **load**.
+1. För den första användningen öppnas en **ODBC-drivrutins** dialog ruta. Välj **standard eller anpassad** på den vänstra menyn. Välj sedan **Anslut** för att öppna **Navigator**.
 
-6. I dialog rutan **ODBC-drivrutin** väljer du **standard eller anpassad**och väljer sedan **Anslut**.
+1. I dialog rutan **navigering** expanderar du **ODBC > HIVE > standard**, väljer **hivesampletable**och väljer sedan **load**.
 
 ## <a name="visualize-data"></a>Visualisera data
 
 Fortsätt från den senaste proceduren.
 
-1. Välj **Map**i fönstret visualiseringar.  Det är en jordglob-ikon.
+1. I fönstret visualiseringar väljer du **karta**. det är en jordglob-ikon.
 
     ![Power BI anpassnings rapport för HDInsight](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png)
-2. I fönstret **fält** väljer du **land** och **devicemake**. Du kan se data som ritas på kartan.
-3. Expandera kartan.
+
+1. I fönstret **fält** väljer du **land** och **devicemake**. Du kan se data som ritas på kartan.
+
+1. Expandera kartan.
 
 ## <a name="next-steps"></a>Nästa steg
 

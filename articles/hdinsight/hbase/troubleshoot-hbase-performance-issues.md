@@ -7,118 +7,121 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: c67f21a6ed8a7697977bb7737f0e46348efb2530
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 0466b08e551a5fa9da37afe2e5ad175ef28c804e
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71266658"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529568"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Felsök problem med Apache HBase-prestanda i Azure HDInsight
 
-Det här dokumentet beskriver olika rikt linjer för prestanda justering av Apache-HBase och tips för att få optimala prestanda i Azure HDInsight. Många av de här tipsen beror på arbets belastningen och Läs-/skriv-/skannings mönstret. Testa konfigurations ändringarna noggrant innan du använder dem i en produktions miljö.
+I den här artikeln beskrivs olika rikt linjer för prestanda justering av Apache-HBase och tips för att få optimala prestanda i Azure HDInsight. Många av de här tipsen beror på arbets belastningen och Läs-/skriv-/skannings mönstret. Testa dem noggrant innan du tillämpar konfigurations ändringar i en produktions miljö.
 
-## <a name="hdinsight-hbase-performance-insights"></a>HDInsight HBase Performance Insights
+## <a name="hbase-performance-insights"></a>HBase Performance Insights
 
-Den övre Flask halsen i de flesta HBase-arbetsbelastningar är Skriv loggs loggen (WAL). Det påverkar kraftigt skriv prestanda. HDInsight-HBase har en avgränsad lagrings beräknings modell, dvs. data lagras på distans i Azure Storage men region servrarna finns på de virtuella datorerna. Till dess nyligen skrevs Skriv loggen också till Azure Storage vilket förstärker denna Flask hals i fallet med HDInsight. Funktionen [accelererade skrivningar](./apache-hbase-accelerated-writes.md) är utformad för att lösa det här problemet genom att skriva loggen i förväg till Azure Premium SSD Managed disks. Detta ger bättre skriv prestanda och hjälper många problem med vissa av de Skriv intensiva arbets belastningarna.
+Den övre Flask halsen i de flesta HBase-arbetsbelastningar är Skriv loggs loggen (WAL). Det påverkar kraftigt skriv prestanda. HDInsight-HBase har en avgränsad lagrings beräknings modell. Data lagras på distans i Azure Storage, även om virtuella datorer är värdar för region servrar. Tills det nyligen skrevs WAL skrevs även till Azure Storage. I HDInsight förstärkte detta beteende denna Flask hals. Funktionen [accelererade skrivningar](./apache-hbase-accelerated-writes.md) är utformad för att lösa det här problemet. Den skriver WAL till Azure Premium SSD-hanterade diskar. Det här fantastiska fördelarna med att skriva prestanda och det hjälper många problem med vissa av de Skriv intensiva arbets belastningarna.
 
-Använd [Premium Block Blob-lagringskonto](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) som fjärrlagring för att få en betydande förbättring av läsåtgärder. Det här alternativet är endast möjligt om funktionen Write Ahead Log är aktiverad.
+Om du vill få en betydande förbättring av Läs åtgärder använder du [Premium Block Blob Storage-konto](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) som Fjärrlagring. Det här alternativet är bara möjligt om funktionen WAL är aktive rad.
 
 ## <a name="compaction"></a>Komprimerings
 
-Komprimering är en annan potentiell Flask hals som huvudsakligen överenskommits i communityn.  Som standard är större komprimering inaktiverat i HDInsight HBase-kluster. Detta beror på att det är en resurs intensiv process som gör det möjligt för kunderna att schemalägga den enligt deras arbets belastnings egenskaper – det vill säga under låg belastnings tid. Även om vår lagring är fjärran sluten (backas upp av Azure Storage) i stället för lokal HDFS, som är vanligt på de flesta lokal instanser, är data plats inte ett problem, vilket är ett av de primära målen med större komprimering.
+Komprimering är en annan potentiell Flask hals som huvudsakligen överenskommits i communityn. Som standard är stor komprimering inaktiverat i HDInsight HBase-kluster. Komprimeringen är inaktive rad, även om det är en resurs intensiv process, har kunderna fullständig flexibilitet för att schemalägga den enligt deras arbets belastning. De kan till exempel schemalägga dem under låg belastnings tider. Det är inte heller något problem med data-platsen eftersom vår lagrings plats är fjärr (backas upp av Azure Storage) i stället för till en lokal Hadoop Distributed File System (HDFS).
 
-Antagandet är att kunden bör vara försiktig med att schemalägga den stora komprimeringen enligt deras bekvämlighet. Om det här underhållet inte är slutfört, kommer komprimeringen att kraftigt påverka Läs prestanda i lång tid.
+Kunderna bör schemalägga stor komprimering vid deras bekvämlighet. Om de inte gör det här underhållet kommer komprimeringen att påverka prestandan i den långa körningen negativt.
 
-För genomsöknings åtgärder är det särskilt en anledning att göra fördröjningar mycket högre än 100 MS. Kontrol lera om större komprimering har schemalagts korrekt.
+För skannings åtgärder bör fördröjningar som är mycket högre än 100 millisekunder vara en anledning till betänkligheter. Kontrol lera om större komprimering har schemalagts korrekt.
 
-## <a name="know-your-apache-phoenix-workload"></a>Lär dig hur du Apache Phoenix arbets belastningen
+## <a name="apache-phoenix-workload"></a>Apache Phoenix arbets belastning
 
 Genom att besvara följande frågor får du hjälp att förstå din Apache Phoenix arbets belastning bättre:
 
 * Översätts alla dina "läspaket"-översättning till genomsökningar?
     * I så fall, vilka är egenskaperna för dessa genomsökningar?
     * Har du optimerat ditt Phoenix Table-schema för de här genomsökningarna, inklusive lämplig indexering?
-* Har du använt `EXPLAIN`-satsen för att förstå frågan planerar genereringen av "läsningar".
+* Har du använt instruktionen `EXPLAIN` för att förstå frågan planerar "läsningar"-genereringen?
 * Är dina skrivningar "upsert-väljer"?
-    * I så fall kan de också göra genomsökningar. Förväntad svars tid för genomsökningar är i ordningen 100 MS i genomsnitt, i stället för 10 ms för punkt får du i HBase.  
+    * I så fall kan de också göra genomsökningar. Förväntad svars tid för skanningar genomsnitt cirka 100 millisekunder, jämfört med 10 millisekunder för punkt får i HBase.  
 
 ## <a name="test-methodology-and-metrics-monitoring"></a>Test metodik och mått övervakning
 
-Om du använder benchmarks, till exempel YCSB, JMeter eller Pherf för att testa och justera prestanda, kontrollerar du följande:
+Om du använder benchmarks, till exempel Yahoo! Molnet som betjänar benchmark, JMeter eller Pherf för att testa och justera prestandan, se till att:
 
-1. Klient datorerna blir inte en Flask hals (kontrol lera CPU-användning på klient datorer).
+- Klient datorerna blir ingen Flask hals. Det gör du genom att kontrol lera CPU-användningen på klient datorer.
 
-1. Konfigurationer på klient sidan – till exempel antalet trådar och så vidare, justeras på lämpligt sätt för att fylla-klientens bandbredd.
+- Konfigurationer på klient sidan, t. ex. antalet trådar, justeras på lämpligt sätt för att fylla-klientens bandbredd.
 
-1. Test resultaten registreras korrekt och systematiskt.
+- Test resultaten registreras korrekt och systematiskt.
 
-Om dina frågor plötsligt har börjat göra mycket sämre än tidigare – kontrollerar du om det finns möjliga buggar i program koden – är det plötsligt att generera stora mängder ogiltiga data, så att du kan öka Läs fördröjningen på ett naturligt sätt?
+Om dina frågor plötsligt börjar göra mycket sämre än tidigare, kan du söka efter potentiella buggar i program koden. Genererar den plötsligt stora mängder ogiltiga data? Om så är fallet kan den öka fördröjningen för läsning.
 
 ## <a name="migration-issues"></a>Problem med migrering
 
-Om du migrerar till Azure HDInsight bör du se till att migreringen utförs systematiskt och korrekt, helst via automatisering. Undvik manuell migrering. Kontrol lera följande:
+Om du migrerar till Azure HDInsight bör du se till att migreringen utförs systematiskt och korrekt, helst via automatisering. Undvik manuell migrering. Kontrol lera att:
 
-1. Tabellattribut – till exempel komprimering, blomma filter och så vidare, bör migreras korrekt.
+- Tabellattribut migreras korrekt. Attribut kan inkludera som komprimering, blomma filter och så vidare.
 
-1. För Phoenix-tabeller bör salt inställningarna mappas korrekt till den nya kluster storleken. Till exempel rekommenderas antalet salt buckets för att vara multipl av antalet arbetsnoder i kluster – den speciella multipeln är en faktor för mängden frekventa upptäcka.  
+- Inställningarna för saltning i Phoenix-tabellerna mappas korrekt till den nya kluster storleken. Till exempel bör antalet salt buckets vara en multipel av antalet arbetsnoder i klustret. Och du bör använda en multipel som är faktor för mängden frekventa upptäcka.
 
-## <a name="server-side-config-tunings"></a>Konfigurations justering på Server Sidan
+## <a name="server-side-configuration-tunings"></a>Konfigurations justeringar på Server Sidan
 
-I HDInsight-HBase lagras HFiles på Fjärrlagring, vilket innebär att när det finns ett cache-minne, kommer kostnaden för läsningarna att vara högre än lokal system, som har data som backas upp av Local HDFS tack vare den nätverks fördröjning som ingår. I de flesta fall är intelligent användning av HBase-cache (block-cache och Bucket cache) utformad för att kringgå det här problemet. Det kommer dock att finnas tillfälliga fall där det kan vara problem med kunden. Att använda Premium Block Blob-kontot har hjälpt detta något. Men med WASB-blobben (Windows Azure Storage driv rutin) som förlitar sig på vissa egenskaper, till exempel `fs.azure.read.request.size` för att hämta data i block baserat på vad den bestämmer sig för att vara läsnings läge (sekventiell vs slumpmässig) kan vi fortsätta att se instanser av högre latens med läsningar. Vi har hittat de empiriska experiment som ställer in block storleken för läsnings begär Anden (`fs.azure.read.request.size`) till 512 KB och matchar block storleken för HBase-tabellerna så att de blir det bästa resultatet i praktiken.
+I HDInsight-HBase lagras HFiles på Fjärrlagring. När det finns ett cache-missar är kostnaden för läsningar högre än lokala system eftersom data på lokala system backas upp av Local HDFS. I de flesta fall är intelligent användning av HBase-cache (block-cache och Bucket cache) utformad för att kringgå det här problemet. I de fall där problemet inte kringgås kan det här problemet uppstå om du använder ett Premium Block Blob-konto. Windows Azure Storage Blob-drivrutinen förlitar sig på vissa egenskaper, till exempel `fs.azure.read.request.size` för att hämta data i block baserat på vad det bestämmer sig för att vara Läs läge (sekventiella kontra slumpmässiga), så det kan även fortsättnings vis finnas instanser av högre latens med läsningar. Med empiriska experiment har vi funnit att ställa in block storleken för läsnings begär Anden (`fs.azure.read.request.size`) till 512 KB och matcha block storleken för HBase-tabellerna så att de får samma storlek som ger bäst resultat i övningen.
 
-HDInsight HBase, för de flesta kluster med stora storleks noder, ger `bucketcache` som en fil på lokal SSD som är kopplad till den virtuella datorn, vilket kör `regionservers`. Vid tillfällen kan användningen av heap-cachen i stället ge en viss förbättring. Detta har begränsningen att använda tillgängligt minne och kan vara mindre storlek än filbaserad cache, så det är inte alltid uppenbart att det är det bästa valet.
+HDInsight HBase tillhandahåller `bucketcache` som en fil på en lokal Premium SSD som är kopplad till den virtuella datorn, som kör `regionservers`, för de flesta kluster med stor storlek. Att använda cache utanför heap i stället kan ge en viss förbättring. Den här lösningen har begränsningen att använda tillgängligt minne och kan vara mindre än filbaserad cache, så det är inte alltid det bästa valet.
 
-Några av de andra speciella parametrarna som vi har justerat som verkar ha hjälpt till att variera i grader enligt nedan:
+Följande är några av de andra speciella parametrarna som vi har justerat, och som verkade hjälpa till med varierande grader:
 
-1. Öka `memstore`-storlek från standard 128 MB till 256 MB – den här inställningen rekommenderas vanligt vis för tungt Skriv scenario.
+- Öka `memstore` storleken från standard 128 MB till 256 MB. Normalt rekommenderas den här inställningen för tunga Skriv scenarier.
 
-1. Öka antalet trådar som är dedikerade för komprimering – från standardvärdet 1 till 4. Den här inställningen är relevant om vi iakttar frekventa smärre komprimeringar.
+- Öka antalet trådar som är dedikerade för komprimering, från standardinställningen **1** till **4**. Den här inställningen är relevant om vi iakttar frekventa smärre komprimeringar.
 
-1. Undvik att blockera `memstore`-tömning på grund av en lagrings gräns. `Hbase.hstore.blockingStoreFiles` kan ökas till 100 för att tillhandahålla den här bufferten.
+- Undvik att blockera `memstore`-tömning på grund av en lagrings gräns. Om du vill tillhandahålla den här bufferten ökar du `Hbase.hstore.blockingStoreFiles` inställningen till **100**.
 
-1. För att kontrol lera tömningar kan standardvärdena åtgärdas enligt nedan:
+- Använd följande inställningar om du vill kontrol lera tömningar:
 
-    1. `Hbase.regionserver.maxlogs` kan vara Upped till 140 från 32 (undvika tömningar på grund av WAL-gränser).
+    - `Hbase.regionserver.maxlogs`: **140** (förhindrar tömningar på grund av Wal-gränser)
 
-    1. `Hbase.regionserver.global.memstore.lowerLimit` = 0,55.
+    - `Hbase.regionserver.global.memstore.lowerLimit`: **0,55**
 
-    1. `Hbase.regionserver.global.memstore.upperLimit` = 0,60.
+    - `Hbase.regionserver.global.memstore.upperLimit`: **0,60**
 
-1. Phoenix-/regionsspecifika konfigurationer för inställning av trådpool:
+- Phoenix-/regionsspecifika konfigurationer för inställning av trådpoolen:
 
-    1. `Phoenix.query.queuesize` kan höjas till 10000.
+    - `Phoenix.query.queuesize`: **10000**
 
-    1. `Phoenix.query.threadpoolsize` kan höjas till 512.
+    - `Phoenix.query.threadpoolsize`: **512**
 
-1. Andra Phoenix-speciella konfigurationer:
+- Andra Phoenix-/regionsspecifika konfigurationer:
 
-    1. `Phoenix.rpc.index.handler.count` kan anges till 50 om vi har stora eller många indexs ökningar.
+    - `Phoenix.rpc.index.handler.count`: **50** (om det finns stora eller många indexs ökningar)
 
-    1. `Phoenix.stats.updateFrequency` – kan vara Upped till 1 timme från standardvärdet 15 minuter.
+    - `Phoenix.stats.updateFrequency`: **1 timme**
 
-    1. `Phoenix.coprocessor.maxmetadatacachetimetolivems` – kan vara Upped till 1 timme från 30 minuter.
+    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: **1 timme**
 
-    1. `Phoenix.coprocessor.maxmetadatacachesize` – kan vara Upped till 50 MB från 20 MB.
+    - `Phoenix.coprocessor.maxmetadatacachesize`: **50 MB**
 
-1. RPC-tidsgräns – HBase RPC-tidsgräns, timeout för klient skanner, och Phoenix-frågans tids gräns kan ökas till 3 minuter. Det är viktigt att Observera att parametern `hbase.client.scanner.caching` har angetts till ett värde som matchar vid Server slut och klient slut. Annars leder inställningen till fel relaterade till `OutOfOrderScannerException` vid klientens slut. Den här inställningen ska vara inställd på ett lågt värde för stora genomsökningar. Vi anger värdet 100.
+- RPC-tidsgräns: **3 minuter**
+
+   - RPC-timeout inkluderar HBase RPC-timeout, timeout för klient skanner och Phoenix-tidsgräns. 
+   - Se till att parametern `hbase.client.scanner.caching` är inställd på samma värde både på Server sidan och klienten slutar. Om de inte är samma, leder den här inställningen till klient slut fel som är relaterade till `OutOfOrderScannerException`. Den här inställningen ska vara inställd på ett lågt värde för stora genomsökningar. Vi anger värdet **100**.
 
 ## <a name="other-considerations"></a>Andra överväganden
 
-Några andra parametrar som ska beaktas vid justering:
+Följande är ytterligare parametrar för att överväga fin justering:
 
-1. `Hbase.rs.cacheblocksonwrite` – den här inställningen är inställd på True som standard på HDI.
+- `Hbase.rs.cacheblocksonwrite` – som standard är den här inställningen inställd på **True**för HDI.
 
-1. Inställningar som gör det möjligt att skjuta upp mindre komprimering för senare.
+- Inställningar som gör det möjligt att skjuta upp mindre komprimering för senare.
 
-1. Experimentella inställningar som att justera procent andelen av köer som är reserverade för läsnings-och skriv förfrågningar.
+- Experimentella inställningar, till exempel justera procent andelar av köer som är reserverade för läsnings-och skriv förfrågningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+Om problemet inte är löst kan du gå till någon av följande kanaler för mer information:
 
 - Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
-- Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+- Anslut till [@AzureSupport](https://twitter.com/azuresupport). Detta är det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Den ansluter Azure-communityn till rätt resurser: svar, support och experter.
 
-- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Din Microsoft Azure prenumeration innehåller åtkomst till prenumerations hantering och fakturerings support, och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 046c2308d5cef2df7e12b6185fc24b8df4f821dc
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 293d0de024ad815b4755d48833b7058c29ebcd5a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326955"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513291"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage skalbarhets-och prestanda mål för lagrings konton
 
@@ -39,15 +39,15 @@ När ditt program når gränsen för vad en partition kan hantera för arbets be
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
-## <a name="azure-files-scale-targets"></a>Azure filer skala mål
+## <a name="azure-files-scale-targets"></a>Azure Files skala mål
 
 Mer information om skalnings-och prestanda mål för Azure Files och Azure File Sync finns i [Azure Files skalbarhets-och prestanda mål](../files/storage-files-scale-targets.md).
 
 > [!IMPORTANT]
 > Lagrings konto gränser gäller för alla resurser. Det går bara att skala upp till max för lagrings konton om det bara finns en resurs per lagrings konto.
 >
-> Standard fil resurser som är större än 5 TiB finns i för hands versionen och har vissa begränsningar.
-> En lista över begränsningar och att publicera till för hands versionen av dessa större fil resurs storlekar finns i avsnittet [standard fil resurser](../files/storage-files-planning.md#standard-file-shares) i Azure Files Planning Guide.
+> Standard fil resurser som är större än 5 TiB har vissa begränsningar och regionala begränsningar.
+> En lista över begränsningar, regional information och instruktioner för att aktivera dessa större fil resurs storlekar finns i avsnittet [Publicera till större fil resurser (standard nivå)](../files/storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) i Azure Files Planning Guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -55,7 +55,7 @@ Mer information om skalnings-och prestanda mål för Azure Files och Azure File 
 
 Det finns tre typer av begränsningar att överväga för Premium-filer: lagrings konton, resurser och filer.
 
-Exempel: En enda resurs kan uppnå 100 000 IOPS och en enda fil kan skala upp till 5 000 IOPS. Om du till exempel har tre filer i en resurs är Max IOPs som du kan hämta från resursen 15 000.
+Till exempel: en enda resurs kan uppnå 100 000 IOPS och en enda fil kan skala upp till 5 000 IOPS. Om du till exempel har tre filer i en resurs är Max IOPs som du kan hämta från resursen 15 000.
 
 #### <a name="premium-file-share-limits"></a>Premium fil resurs gränser
 

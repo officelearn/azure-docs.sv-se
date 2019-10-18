@@ -1,17 +1,17 @@
 ---
-title: Flytta Azure-Virtual Machines till en ny prenumeration eller resurs grupp | Microsoft Docs
+title: Flytta virtuella Azure-datorer till en ny prenumeration eller resurs grupp
 description: Använd Azure Resource Manager för att flytta virtuella datorer till en ny resurs grupp eller prenumeration.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tomfitz
-ms.openlocfilehash: 443d6f2bcbb61d9106b079a4e63c48bb433d19c6
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: faeba1c0d7342a4c00f19d4cee8d67b8dbde8e6a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286736"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528421"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Flytta vägledning för virtuella datorer
 
@@ -35,8 +35,8 @@ Om du vill flytta virtuella datorer som kon figurer ATS med Azure Backup använd
 * Hitta platsen för den virtuella datorn.
 * Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1` till exempel AzureBackupRG_westus2_1
 * Om i Azure Portal, kontrol lera "Visa dolda typer"
-* Om i PowerShell använder du cmdleten `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Använd `az resource list -g AzureBackupRG_<location of your VM>_1` om i CLI.
+* Använd `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`-cmdleten i PowerShell
+* Använd `az resource list -g AzureBackupRG_<location of your VM>_1` för i CLI
 * Hitta resursen med typen `Microsoft.Compute/restorePointCollections` som har namngivnings mönstret `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Ta bort den här resursen. Den här åtgärden tar bara bort direkta återställnings punkter, inte säkerhetskopierade data i valvet.
 * När borttagningen är klar kan du flytta valvet och den virtuella datorn till mål prenumerationen. Efter flytten kan du fortsätta att säkerhetskopiera utan att data går förlorade.

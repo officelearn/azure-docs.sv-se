@@ -1,39 +1,76 @@
 ---
-title: Transformering av Azure Data Factory mappnings data flödet finns
-description: Så här söker du efter befintliga rader med hjälp av Data Factory-mappning av data flöden med exists-transformering
+title: Exists-transformering i Azure Data Factory mappnings data flöde | Microsoft Docs
+description: Sök efter befintliga rader med hjälp av exists-omvandlingen i Azure Data Factory mappa data flöde
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: 6048a6d30d37b9d2b46c3105c5f8eac0a9ca41c0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
-ms.translationtype: HT
+ms.date: 10/16/2019
+ms.openlocfilehash: dfd304b0c15b325208daba104bb79863fcd3f53f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387841"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527442"
 ---
-# <a name="mapping-data-flow-exists-transformation"></a>Transformering av mappnings data flödet finns
+# <a name="exists-transformation-in-mapping-data-flow"></a>Exists-transformering i mappnings data flödet
 
+Exists-omvandlingen är en omvandling för rad filtrering som kontrollerar om dina data finns i en annan källa eller Stream. Utdataströmmen innehåller alla rader i den vänstra strömmen som antingen finns eller inte finns i den högra strömmen. Exists-omvandlingen liknar ```SQL WHERE EXISTS``` och ```SQL WHERE NOT EXISTS```.
 
+## <a name="configuration"></a>Konfiguration
 
-Exists-omvandlingen är en omvandling för rad filtrering som stoppar eller tillåter att rader i dina data flödar genom. Transformeringen exists liknar ```SQL WHERE EXISTS``` och ```SQL WHERE NOT EXISTS```. När omvandlingen finns kommer de resulterande raderna från din data ström att inkludera alla rader där kolumn värden från källa 1 finns i källa 2 eller inte finns i källa 2.
+Välj vilken data ström du vill söka efter i list rutan till **höger ström** .
+
+Ange om du vill att data ska finnas eller inte finns i inställningen för **exist-typ** .
+
+Välj vilka nyckel kolumner du vill jämföra som dina villkor. Som standard söker data flödet efter likhet mellan en kolumn i varje data ström. Om du vill jämföra via ett beräknings värde hovrar du över kolumn List rutan och väljer **beräknad kolumn**.
 
 ![Finns inställningar](media/data-flow/exists.png "finns 1")
 
-Välj den andra källan så att data flödet kan jämföra värden från data strömmen 1 mot Stream 2.
+### <a name="multiple-exists-conditions"></a>Det finns flera villkor
 
-Välj kolumnen från källa 1 och från källa 2 vars värden du vill kontrol lera mot finns eller som inte finns.
+Om du vill jämföra flera kolumner från varje data ström, lägger du till ett nytt exists-villkor genom att klicka på plus ikonen bredvid en befintlig rad. Varje ytterligare villkor är anslutet av en "och"-sats. Jämförelse mellan två kolumner är samma som följande uttryck:
 
-## <a name="multiple-exists-conditions"></a>Det finns flera villkor
+`source1@column1 == source2@column1 && source1@column2 == source2@column2`
 
-Bredvid varje rad i dina kolumn villkor finns ett +-tecken tillgängligt när du hovrar över Reach-raden. På så sätt kan du lägga till flera rader för exists-villkor. Varje ytterligare villkor är "och".
+### <a name="custom-expression"></a>Anpassat uttryck
 
-## <a name="custom-expression"></a>Anpassat uttryck
+Om du vill skapa ett uttryck för en fri form som innehåller andra operatorer än "och" och "lika med", väljer du fältet **anpassat uttryck** . Ange ett anpassat uttryck via data flödets uttrycks verktyg genom att klicka på den blå rutan.
 
 ![Finns anpassade inställningar](media/data-flow/exists1.png "finns anpassad")
 
-Du kan klicka på "anpassat uttryck" för att i stället skapa ett kostnads fritt uttryck som villkoret finns eller inte finns. Genom att markera den här rutan kan du ange ett eget uttryck som ett villkor.
+## <a name="data-flow-script"></a>Skript för data flöde
+
+### <a name="syntax"></a>Syntax
+
+```
+<leftStream>, <rightStream>
+    exists(
+        <conditionalExpression>,
+        negate: { true | false },
+        broadcast: {'none' | 'left' | 'right' | 'both'}
+    ) ~> <existsTransformationName>
+```
+
+### <a name="example"></a>Exempel
+
+Exemplet nedan är en transformation med namnet `checkForChanges` som tar vänster ström `NameNorm2` och direkt uppspelnings `TypeConversions`.  Exists-villkoret är uttrycket `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` som returnerar true om både kolumnen `EMPID` och `Region` i varje data ström matchar. När vi söker efter existens är `negate` falskt. Vi aktiverar inte sändning på fliken optimera så `broadcast` har värdet `'none'`.
+
+I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
+
+![Finns exempel](media/data-flow/exists-script.png "Finns exempel")
+
+Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
+
+```
+NameNorm2, TypeConversions
+    exists(
+        NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region,
+        negate:false,
+        broadcast: 'none'
+    ) ~> checkForChanges
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5c964eaf3cae4f4f47724c59caf9ff60d9f4d2cd
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ef2319f18b6df15fd7f33e9344e8506f853f47e6
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336300"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532219"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection standard översikt
 
@@ -28,10 +28,10 @@ Distribuerade överbelastningsattacker (DDoS) är några av de största tillgän
 
 Azure DDoS Protection, kombinerat med bästa praxis för program design, ger försvar mot DDoS-attacker. Azure DDoS Protection tillhandahåller följande tjänst nivåer:
 
-- **Basic**: Aktive ras automatiskt som en del av Azure-plattformen. Always on trafikövervakning och real tids minskning av vanliga attacker på nätverks nivå, ger samma försvar som Microsofts onlinetjänster. Hela skalningen av Azures globala nätverk kan användas för att distribuera och minska angrepps trafiken mellan regioner. Skydd tillhandahålls för IPv4-och IPv6 [offentliga IP-adresser](virtual-network-public-ip-address.md)i Azure.
-- **Standard**: Innehåller ytterligare funktioner för minskning av de grundläggande tjänst nivåer som är specifika för Azure Virtual Network-resurser. DDoS Protection standard är enkelt att aktivera och kräver inga program ändringar. Skydds principer är justerade genom dedikerad trafik övervakning och Machine Learning-algoritmer. Principer tillämpas på offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk, till exempel Azure Load Balancer, Azure Application Gateway och Azure Service Fabric-instanser, men det här skyddet gäller inte för App Service miljöer. Telemetri i real tid är tillgängligt via Azure Monitor vyer under ett angrepp och för historik. Omfattande attack minsknings analyser är tillgängliga via diagnostikinställningar. Program skikts skydd kan läggas till via [brand väggen för webbaserade Azure Application Gateway](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller genom att installera en tredjeparts brand vägg från Azure Marketplace. Skydd tillhandahålls för IPv4-och IPv6 [offentliga IP-adresser](virtual-network-public-ip-address.md)i Azure.
+- **Basic**: aktive ras automatiskt som en del av Azure-plattformen. Always on trafikövervakning och real tids minskning av vanliga attacker på nätverks nivå, ger samma försvar som Microsofts onlinetjänster. Hela skalningen av Azures globala nätverk kan användas för att distribuera och minska angrepps trafiken mellan regioner. Skydd tillhandahålls för IPv4-och IPv6 [offentliga IP-adresser](virtual-network-public-ip-address.md)i Azure.
+- **Standard**: ger ytterligare funktioner för minskning av de grundläggande tjänst nivåer som är specifika för Azure Virtual Network-resurser. DDoS Protection standard är enkelt att aktivera och kräver inga program ändringar. Skydds principer är justerade genom dedikerad trafik övervakning och Machine Learning-algoritmer. Principer tillämpas på offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk, till exempel Azure Load Balancer, Azure Application Gateway och Azure Service Fabric-instanser, men det här skyddet gäller inte för App Service miljöer. Telemetri i real tid är tillgängligt via Azure Monitor vyer under ett angrepp och för historik. Omfattande attack minsknings analyser är tillgängliga via diagnostikinställningar. Program skikts skydd kan läggas till via [brand väggen för webbaserade Azure Application Gateway](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller genom att installera en tredjeparts brand vägg från Azure Marketplace. Skydd tillhandahålls för IPv4-och IPv6 [offentliga IP-adresser](virtual-network-public-ip-address.md)i Azure.
 
-|Funktion                                         |DDos Protection Basic                 |DDos Protection standard                      |
+|Funktion                                         |DDoS Protection Basic                 |DDoS Protection standard                      |
 |------------------------------------------------|--------------------------------------|----------------------------------------------|
 |Övervakning av aktiva trafik & alltid vid identifiering |Ja                                   |Ja                                           |
 |Automatiska attack åtgärder                    |Ja                                   |Ja                                           |
@@ -40,18 +40,18 @@ Azure DDoS Protection, kombinerat med bästa praxis för program design, ger fö
 |Mått och aviseringar                                |Nej                                    |Real tids angrepps mått & diagnostikloggar via Azure Monitor                                 |
 |Minsknings rapporter                              |Nej                                    |Publicera minsknings rapporter för attacker                |
 |Skydds flödes loggar                            |Nej                                    |NRT logg ström för SIEM-integrering           |
-|Anpassningar av migreringsprocessen                 |Nej                                    |Engagera DDos-experter                           |
-|Support                                         |Bästa ansträngning                           |Åtkomst till DDOs-experter under en aktiv attack|
+|Anpassningar av migreringsprocessen                 |Nej                                    |Engagera DDoS-experter                           |
+|Support                                         |Bästa ansträngning                           |Åtkomst till DDoS-experter under en aktiv attack|
 |SLA                                             |Azure-region                          |Program garanti & kostnads skydd       |
-|Prissättning                                         |Lediga                                  |Månatlig & användning baserat                         |
+|Prissättning                                         |Kostnadsfri                                  |Månatlig & användning baserat                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Typer av DDoS-attacker som DDoS Protection standard åtgärder
 
 DDoS Protection standard kan minimera följande typer av attacker:
 
 - **Volym attacker**: Angreppets mål är att överbelasta nätverks lagret med stor mängd som verkar vara legitim trafik. Den innehåller UDP-översvämmare, förstärknings belastningar och andra översvämmade paket belastningar. DDoS Protection standard minskar risken för angrepp med flera gigabyte genom att absorbera och rensa dem, med Azures globala nätverks skalning automatiskt.
-- **Protokoll attacker**: Dessa attacker återger ett mål som inte kan nås genom att utnyttja en svaghet i skikt 3-och lager 4-protokollstacken. Den innehåller, SYN översvämnings attacker, reflektions attacker och andra protokoll attacker. DDoS Protection standard minimerar dessa attacker, skiljer sig från skadlig och legitim trafik, genom att interagera med klienten och blockera skadlig trafik. 
-- **Resurs (program) lager attacker**: Dessa angrepp riktar sig mot webb program paket, för att avbryta överföring av data mellan värdar. Vid angrepp ingår HTTP-protokollfel, SQL-inmatning, skript körning över flera webbplatser och andra nivå 7-attacker. Använd [brand väggen för Azure Application Gateway Web Application](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), med DDoS Protection standard, för att ge skydd mot dessa attacker. Det finns även brand Väggs erbjudanden från tredje part som är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
+- **Protokoll attacker**: dessa attacker återger ett mål som inte kan nås genom att utnyttja en svaghet i skikt 3-och lager 4-protokollstacken. Den innehåller, SYN översvämnings attacker, reflektions attacker och andra protokoll attacker. DDoS Protection standard minimerar dessa attacker, skiljer sig från skadlig och legitim trafik, genom att interagera med klienten och blockera skadlig trafik. 
+- **Resurs (program) lager attacker**: dessa attacker riktar sig mot webb program paket, för att avbryta överföringen av data mellan värdar. Vid angrepp ingår HTTP-protokollfel, SQL-inmatning, skript körning över flera webbplatser och andra nivå 7-attacker. Använd [brand väggen för Azure Application Gateway Web Application](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), med DDoS Protection standard, för att ge skydd mot dessa attacker. Det finns även brand Väggs erbjudanden från tredje part som är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 
 DDoS Protection standard skyddar resurser i ett virtuellt nätverk, inklusive offentliga IP-adresser som är kopplade till virtuella datorer, belastningsutjämnare och programgatewayer. När den är kopplad till Application Gateway brand vägg för webbaserade program kan DDoS Protection standard tillhandahålla fullständig nivå 3-till-nivå 7-reducering.
 
@@ -67,7 +67,7 @@ DDoS Protection standard funktionerna är:
 - **Anpassningsbar justering:** Intelligent trafik profilering lär sig programmets trafik över tid och väljer och uppdaterar den profil som är lämplig för din tjänst. Profilen justeras när trafiken förändras över tid.
 - **Skydd med flera skikt:** Ger fullständig stack DDoS-skydd när det används med en brand vägg för webbaserade program.
 - **Omfattande minsknings skala:** Över 60 olika typer av attacker kan begränsas, med global kapacitet, för att skydda mot de största kända DDoS-attacker.
-- **Attack analys:** Få detaljerade rapporter i steg om fem minuter under en attack, och en fullständig sammanfattning när attacken är avslutad. Strömmande flödes flöden loggar till ett SIEM-system (offline Security information and Event Management) för övervakning i nära real tid under ett angrepp.
+- **Attack analys:** Få detaljerade rapporter i steg om fem minuter under en attack och en fullständig sammanfattning efter att attacken har avslut ATS. Strömmande flödes flöden loggar till ett SIEM-system (offline Security information and Event Management) för övervakning i nära real tid under ett angrepp.
 - **Angrepps mått:** Sammanfattade mått från varje attack är tillgängliga via Azure Monitor.
 - **Attack avisering:** Aviseringar kan konfigureras vid start och stopp av ett angrepp och under angriparens varaktighet, med hjälp av inbyggda angrepps mått. Aviseringar integreras i din operativa program vara, t. ex. Microsoft Azure övervaka loggar, Splunk, Azure Storage, e-post och Azure Portal.
 - **Kostnads garanti:** Service krediter för data överföring och skalbarhet för program för dokumenterade DDoS-attacker.
@@ -81,7 +81,7 @@ DDoS Protection standard övervakar faktisk trafik användning och jämför den 
 Under minskningen omdirigeras trafik som skickas till den skyddade resursen av DDoS Protection service och flera kontroller utförs, som följande kontroller:
 
 - Se till att paketen överensstämmer med Internet-specifikationerna och inte är felaktiga.
-- Interagera med klienten för att avgöra om trafiken kan vara ett manipulerat paket (t. ex.: SYN-auth eller SYN-cookie eller genom att släppa ett paket för källan för att överföra det igen.
+- Interagera med klienten för att avgöra om trafiken kan vara ett manipulerat paket (t. ex. SYN-auth eller SYN-cookie eller genom att släppa ett paket för källan för att överföra det igen).
 - Hastighets begränsnings paket, om ingen annan tvingande metod kan utföras.
 
 DDoS Protection blockerar attack trafik och vidarebefordrar den återstående trafiken till det avsedda målet. Inom några minuter av attack identifieringen meddelas du med Azure Monitor mått. Genom att konfigurera inloggning DDoS Protection standard telemetri kan du skriva loggarna till tillgängliga alternativ för framtida analys. Mått data i Azure Monitor för DDoS Protection standard är kvar i 30 dagar.

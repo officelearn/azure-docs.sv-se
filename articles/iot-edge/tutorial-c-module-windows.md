@@ -9,14 +9,14 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b69000e251bb71bc08ea97b24a7422daf2cd89e4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813823"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529223"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudier: Utveckla en C IoT Edge-modul för Windows-enheter
+# <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C IoT Edge-modul för Windows-enheter
 
 Använd Visual Studio för att utveckla C-kod och distribuera den till en Windows-enhet som kör Azure IoT Edge. 
 
@@ -28,7 +28,7 @@ Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementera
 > * distribuera modulen till din IoT Edge-enhet
 > * visa genererade data.
 
-IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som genereras av enheten. Den skickar enbart meddelanden uppströms om temperaturen överskrider ett angivet tröskelvärde. Den här typen av analys vid kanten är användbar när du vill minska mängden data som skickas till och lagras i molnet. 
+IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som genereras av enheten. Den skickar enbart meddelanden uppströms om temperaturen överskrider ett angivet tröskelvärde. Den här typen av analys är användbar för att minska mängden data som kommuniceras till och lagras i molnet. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,13 +38,13 @@ Den här självstudien visar hur du utvecklar en modul i **C** med **Visual Stud
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera C-moduler till Windows-enheter: 
 
-| C | Visual Studio-koden | Visual Studio 2017/2019 | 
+| C | Visual Studio-kod | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Utveckla C-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera utvecklings miljön för utveckling av Windows-behållare: [Utveckla IoT Edge-moduler för Windows-enheter](tutorial-develop-for-windows.md). När du har slutfört den här självstudien bör du ha följande krav på plats: 
+Innan du påbörjar den här självstudien bör du ha gått igenom den föregående själv studie kursen för att konfigurera utvecklings miljön för utveckling av Windows-behållare: [utveckla IoT Edge moduler för Windows-enheter](tutorial-develop-for-windows.md). När du har slutfört den här självstudien bör du ha följande krav på plats: 
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
 * En [Windows-enhet som kör Azure IoT Edge](quickstart.md).
@@ -74,7 +74,7 @@ Skapa en C-lösningsmall som du kan anpassa med din egen kod.
 
 1. Starta Visual Studio 2019 och välj **Skapa nytt projekt**.
 
-2. I fönstret nytt projekt söker du **IoT Edge** projekt och väljer **Azure IoT Edge (Windows amd64)-** projektet. Klicka på **Nästa**. 
+2. I fönstret nytt projekt söker du **IoT Edge** projekt och väljer **Azure IoT Edge (Windows amd64)-** projektet. Klicka på **Next**. 
 
    ![Skapa ett nytt Azure IoT Edge-projekt](./media/tutorial-c-module-windows/new-project.png)
 
@@ -84,7 +84,7 @@ Skapa en C-lösningsmall som du kan anpassa med din egen kod.
 
 4. I fönstret IoT Edge program och modul konfigurerar du ditt projekt med följande värden: 
 
-   | Fält | Value |
+   | Fält | Värde |
    | ----- | ----- |
    | Välj en mall | Välj **C-modul**. | 
    | Modulnamn projekt namn | Ge modulen namnet **CModule**. | 
@@ -92,7 +92,7 @@ Skapa en C-lösningsmall som du kan anpassa med din egen kod.
 
    ![Konfigurera ditt projekt för mål enheten, modultypen och behållar registret](./media/tutorial-c-module-windows/add-application-and-module.png)
 
-5. Välj **OK** för att tillämpa ändringarna. 
+5. Välj **Lägg till** för att skapa projektet. 
 
 ### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
 
@@ -138,19 +138,19 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
    4. Spara filen **CMakeLists.txt**.
 
-   5. Öppna **CModule** > **main. c**. Lägg till en ny som ska inkluderas `parson.h` för JSON-stöd längst ned i listan över include-instruktioner:
+   5. Öppna **CModule**  > **main. c**. Lägg till en ny i slutet av listan över include-instruktioner för att ta med `parson.h` för JSON-stöd:
 
       ```c
       #include "parson.h"
       ```
 
-2.  I filen **main. c** lägger du till en global variabel som `temperatureThreshold` heter bredvid variabeln messagesReceivedByInput1Queue. Variabeln anger det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub.
+2.  I filen **main. c** lägger du till en global variabel som heter `temperatureThreshold` bredvid variabeln messagesReceivedByInput1Queue. Variabeln anger det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub.
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-3. `CreateMessageInstance` Hitta funktionen i Main. c. Ersätt den inre if-else-instruktionen med följande kod som lägger till några rader med funktioner: 
+3. Hitta `CreateMessageInstance`-funktionen i Main. c. Ersätt den inre if-else-instruktionen med följande kod som lägger till några rader med funktioner: 
 
    ```c
    if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
@@ -171,7 +171,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
    De nya kodrader i Else-instruktionen lägger till en ny egenskap i meddelandet, som namnger meddelandet som en avisering. Den här koden etiketterar alla meddelanden som aviseringar, eftersom vi kommer att lägga till funktioner som bara skickar meddelanden till IoT Hub om de rapporterar höga temperaturer. 
 
-4. `InputQueue1Callback` Hitta funktionen och ersätt hela funktionen med följande kod. Den här funktionen implementerar själva meddelandefiltret. När ett meddelande tas emot kontrollerar det om den rapporterade temperaturen överskrider tröskelvärdet. Om ja, vidarebefordrar det meddelandet via kön för utdata. Annars ignorerar den meddelandet. 
+4. Hitta `InputQueue1Callback` funktionen och ersätt hela-funktionen med följande kod. Den här funktionen implementerar själva meddelandefiltret. När ett meddelande tas emot kontrollerar det om den rapporterade temperaturen överskrider tröskelvärdet. Om ja, vidarebefordrar det meddelandet via kön för utdata. Annars ignorerar den meddelandet. 
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -255,7 +255,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
     }
     ```
 
-6. `SetupCallbacksForModule` Hitta funktionen. Ersätt funktionen med följande kod som lägger till en **Else If** -instruktion för att kontrol lera om modulen har uppdaterats. 
+6. Hitta `SetupCallbacksForModule` funktionen. Ersätt funktionen med följande kod som lägger till en **Else If** -instruktion för att kontrol lera om modulen har uppdaterats. 
 
    ```c
    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
@@ -301,7 +301,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
 ## <a name="build-and-push-your-module"></a>Bygga och pusha din modul
 
-I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i **CModule** för att filtrera bort meddelanden där den rapporterade dator temperaturen är under det acceptabla tröskelvärdet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
+I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i **CModule** för att filtrera bort meddelanden där den rapporterade dator temperaturen är under det acceptabla tröskelvärdet. Nu behöver du bygga lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
 
 1. Använd följande kommando för att logga in på Docker på din utvecklings dator. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
 
@@ -315,7 +315,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i **CMo
 
 3. Välj **build-och push-IoT Edge moduler**. 
 
-   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger ut information i distributions mal len och andra lösningsfiler. Sedan körs `docker build` den för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` den för att skicka avbildnings lagrings platsen till behållar registret. 
+   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger ut information i distributions mal len och andra lösningsfiler. För det andra körs `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` för att push-överföra avbildnings lagrings platsen till behållar registret. 
 
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
@@ -364,7 +364,7 @@ Vi använde CModule-modulen för att ange temperatur tröskeln vid 25 grader. Du
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
-Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
+Om du tänker fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer du har skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du använde i den här artikeln för att undvika avgifter. 
 
@@ -378,4 +378,4 @@ I den här självstudien skapade du en IoT Edge-modul med kod för att filtrera 
 > [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
-> [Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Custom vision service](tutorial-deploy-custom-vision.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 09/14/2019
-ms.openlocfilehash: d53f422a38c21163fccb1f60eb957b014b54ad74
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 0465dcba5130f3b2dc5c615c884bfa0d3b138eb7
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273965"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514927"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
@@ -85,7 +85,7 @@ Pipelines löser det här problemet. Azure Machine Learning dirigerar automatisk
 
 Dessutom kan utdata från ett steg, om du väljer, återanvändas. Om du anger åter användning som en möjlighet och det inte finns några uppströms beroenden som utlöser omberäkningen, kommer pipelin tjänsten att använda en cachelagrad version av stegets resultat. Sådan åter användning kan avsevärt minska utvecklings tiden. Om du har en komplex data förberedelse uppgift, kör du förmodligen om den oftare än vad som är absolut nödvändigt. Pipelines befriar dig från att oroa dig: om det behövs kommer steget att köras, om det inte är det.
 
-Alla dessa beroende analyser, dirigering och aktivering hanteras av Azure Machine Learning när du instansierar ett [pipeline](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py) -objekt, skickar det till en `Experiment` och anropar `submit()`. 
+Alla dessa beroende analyser, dirigering och aktivering hanteras av Azure Machine Learning när du instansierar ett [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)) -objekt, skickar det till en `Experiment` och anropar `submit()`. 
 
 ### <a name="coordinating-the-steps-involved"></a>Samordna de steg som ingår
 
@@ -107,7 +107,7 @@ När du skapar och kör ett `Pipeline`-objekt inträffar följande steg på hög
 
 ## <a name="how-do-i-build-azure-ml-pipelines-using-the-python-sdk"></a>Hur gör jag för att skapar du Azure ML-pipelines med python SDK?
 
-I [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)är en pipeline ett python-objekt som definierats i modulen `azureml.pipeline.core`. Ett [pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) -objekt innehåller en ordnad sekvens av ett eller flera [PipelineStep](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) -objekt. Klassen `PipelineStep` är abstrakt och de faktiska stegen kommer att vara av underklasser som [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)eller [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) -klassen innehåller en återanvändbara sekvens med steg som kan delas mellan pipeliner. En `Pipeline` körs som en del av en `Experiment`.
+I [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)är en pipeline ett python-objekt som definierats i modulen `azureml.pipeline.core`. Ett [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)) -objekt innehåller en ordnad sekvens av ett eller flera [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep) -objekt. Klassen `PipelineStep` är abstrakt och de faktiska stegen kommer att vara av underklasser som [EstimatorStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep), [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep)eller [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep). [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep) -klassen innehåller en återanvändbara sekvens med steg som kan delas mellan pipeliner. En `Pipeline` körs som en del av en `Experiment`.
 
 En Azure ML-pipeline är kopplad till en Azure Machine Learning arbets yta och ett steg i pipeline-steget är associerat med ett beräknings mål som är tillgängligt i arbets ytan. Mer information finns i [skapa och hantera Azure Machine Learning arbets ytor i Azure Portal](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) eller [Vad är beräknings mål i Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
@@ -117,7 +117,7 @@ I Azure Machine Learning är ett beräknings mål den miljö där en ML-fas intr
 
 Stegen i en pipeline kan ha beroenden i andra steg. Tjänsten Azure ML pipeline gör arbetet med att analysera och dirigera dessa beroenden. Noderna i det resulterande "körnings diagrammet" är bearbetnings steg. Varje steg kan innebära att skapa eller återanvända en viss kombination av maskin vara och program vara, återanvända cachelagrade resultat och så vidare. Tjänstens dirigering och optimering av det här körnings diagrammet kan påskynda en ML-fas och minska kostnaderna. 
 
-Eftersom stegen körs oberoende, måste objekt som innehåller indata och utdata som flödar mellan stegen definieras externt. Detta är rollen för [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)och associerade klasser. Dessa data objekt är associerade med ett data [lager](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) objekt som kapslar in sin lagrings konfiguration. Bask Lassen för `PipelineStep` skapas alltid med en `name`-sträng, en lista över `inputs` och en lista över `outputs`. Vanligt vis finns det också en lista över `arguments` och det finns ofta en lista med `resource_inputs`. Underklasser har vanligt vis ytterligare argument (till exempel `PythonScriptStep` kräver fil namnet och sökvägen till skriptet som ska köras). 
+Eftersom stegen körs oberoende, måste objekt som innehåller indata och utdata som flödar mellan stegen definieras externt. Detta är rollen för [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)och associerade klasser. Dessa data objekt är associerade med ett data [lager](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) objekt som kapslar in sin lagrings konfiguration. Bask Lassen för `PipelineStep` skapas alltid med en `name`-sträng, en lista över `inputs` och en lista över `outputs`. Vanligt vis finns det också en lista över `arguments` och det finns ofta en lista över `resource_inputs`. Underklasser har vanligt vis ytterligare argument (till exempel `PythonScriptStep` kräver fil namnet och sökvägen till skriptet som ska köras). 
 
 Körnings diagrammet är acykliska, men pipelines kan köras enligt ett återkommande schema och kan köra Python-skript som kan skriva statusinformation till fil systemet, vilket gör det möjligt att skapa komplexa profiler. Om du utformar din pipeline så att vissa steg kan köras parallellt eller asynkront, hanterar Azure Machine Learning transparent analys av beroende analyser och samordningen av fläkt och fläkt. Du behöver vanligt vis inte bekymra dig om körnings diagrammets information, men det är tillgängligt via [pipeline. Graph](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes) -attributet. 
 
@@ -187,7 +187,7 @@ De främsta fördelarna med att använda pipeliner för dina Machine Learning-ar
 
 |Nyckel förmån|Beskrivning|
 |:-------:|-----------|
-|**Obevakad @ no__t-1runs**|Schemalägg steg som ska köras parallellt eller i följd på ett tillförlitligt och obevakat sätt. Förberedelse av data och modellering kan senaste dagar eller veckor, och pipelines gör att du kan fokusera på andra uppgifter medan processen körs. |
+|**Obevakad &nbsp;runs**|Schemalägg steg som ska köras parallellt eller i följd på ett tillförlitligt och obevakat sätt. Förberedelse av data och modellering kan senaste dagar eller veckor, och pipelines gör att du kan fokusera på andra uppgifter medan processen körs. |
 |**Heterogena-beräkning**|Använd flera pipelines som är tillförlitligt koordinerade över heterogena och skalbara beräknings resurser och lagrings platser. Effektiv användning av tillgängliga beräknings resurser genom att köra enskilda pipeline-steg för olika beräknings mål, till exempel HDInsight, GPU: ar för data vetenskap och Databricks.|
 |**Åter användning**|Skapa pipeline-mallar för vissa scenarier, till exempel omskolning och batch-poäng. Utlös publicerade pipelines från externa system via enkla REST-anrop.|
 |**Spårning och versions hantering**|I stället för att manuellt spåra data och resultat Sök vägar när du itererar, använder du pipelines SDK för att explicit namnge och version av data källor, indata och utdata. Du kan också hantera skript och data separat för ökad produktivitet.|

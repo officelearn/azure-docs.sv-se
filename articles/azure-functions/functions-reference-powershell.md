@@ -1,22 +1,19 @@
 ---
 title: Referens för PowerShell-utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med hjälp av PowerShell.
-services: functions
-documentationcenter: na
-author: tylerleonhardt
-manager: jeconnoc
+author: eamonoreilly
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha
-ms.reviewer: glenga
-ms.openlocfilehash: 9163f2b7943a8022b88b2ed514f4a466e61a8d98
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.author: glenga
+ms.openlocfilehash: 0d398e9848559e70883c07498057d1807651a867
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029014"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515663"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -26,7 +23,7 @@ Den här artikeln innehåller information om hur du skriver Azure Functions med 
 
 En PowerShell-funktion (funktion) i Azure representeras som ett PowerShell-skript som körs när den utlöses. Varje funktions skript har en relaterad `function.json`-fil som definierar hur funktionen fungerar, till exempel hur den utlöses och dess indata-och utdataparametrar. Mer information finns i [artikeln utlösare och bindning](functions-triggers-bindings.md). 
 
-Precis som andra typer av funktioner, tar PowerShell-skript funktioner i parametrar som matchar namnen på alla angivna bindningar i filen `function.json`. En `TriggerMetadata`-parameter skickas också som innehåller ytterligare information om utlösaren som startade funktionen.
+Precis som andra typer av funktioner, tar PowerShell-skript funktioner i parametrar som matchar namnen på alla angivna bindningar i `function.json`-filen. En `TriggerMetadata`-parameter skickas också som innehåller ytterligare information om utlösaren som startade funktionen.
 
 Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md). Du bör också ha slutfört funktionen [snabb start för PowerShell](functions-create-first-function-powershell.md) för att skapa din första PowerShell-funktion.
 
@@ -57,9 +54,9 @@ PSFunctionApp
  | - bin
 ```
 
-I projekt roten finns det en delad [`host.json`-](functions-host-json.md) fil som kan användas för att konfigurera Function-appen. Varje funktion har en mapp med en egen kod fil (. ps1) och en bindnings konfigurations fil (`function.json`). Namnet på function. JSON-filens överordnade katalog är alltid namnet på din funktion.
+I projekt roten finns det en delad [`host.json`](functions-host-json.md) -fil som kan användas för att konfigurera Function-appen. Varje funktion har en mapp med en egen kod fil (. ps1) och en bindnings konfigurations fil (`function.json`). Namnet på function. JSON-filens överordnade katalog är alltid namnet på din funktion.
 
-Vissa bindningar kräver förekomst av en `extensions.csproj`-fil. Bindnings tillägg, som krävs i [version 2. x](functions-versions.md) av Functions-körningen, definieras i filen `extensions.csproj` med de faktiska biblioteksfilerna i mappen `bin`. När du utvecklar lokalt måste du [Registrera bindnings tillägg](functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
+Vissa bindningar kräver förekomst av en `extensions.csproj`-fil. Bindnings tillägg, som krävs i [version 2. x](functions-versions.md) av Functions-körningen, definieras i `extensions.csproj`-filen, med de faktiska biblioteksfilerna i mappen `bin`. När du utvecklar lokalt måste du [Registrera bindnings tillägg](functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
 
 I PowerShell Function-appar kan du eventuellt ha en `profile.ps1` som körs när en Function-app börjar köras (på annat sätt vet som en *[kall start](#cold-start)* ). Mer information finns i [PowerShell-profil](#powershell-profile).
 
@@ -82,13 +79,13 @@ Parametern `TriggerMetadata` används för att tillhandahålla ytterligare infor
 $TriggerMetadata.sys
 ```
 
-| Egenskap   | Description                                     | type     |
+| Egenskap   | Beskrivning                                     | Typ     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | När, i UTC, utlöstes funktionen        | DateTime |
 | MethodName | Namnet på den funktion som har utlösts     | sträng   |
 | RandGuid   | ett unikt GUID för den här körningen av funktionen | sträng   |
 
-Varje utlösnings typ har en annan uppsättning metadata. Exempel: `$TriggerMetadata` för `QueueTrigger` innehåller `InsertionTime`, `Id`, `DequeueCount`, bland annat. För ytterligare information om köns utlösare metadata, gå till den [officiella dokumentationen för köade utlösare](functions-bindings-storage-queue.md#trigger---message-metadata). Läs dokumentationen om de [utlösare](functions-triggers-bindings.md) som du arbetar med för att se vad som ingår i utlösarens metadata.
+Varje utlösnings typ har en annan uppsättning metadata. @No__t_0 för `QueueTrigger` innehåller till exempel `InsertionTime`, `Id`, `DequeueCount`, bland annat. För ytterligare information om köns utlösare metadata, gå till den [officiella dokumentationen för köade utlösare](functions-bindings-storage-queue.md#trigger---message-metadata). Läs dokumentationen om de [utlösare](functions-triggers-bindings.md) som du arbetar med för att se vad som ingår i utlösarens metadata.
 
 ## <a name="bindings"></a>Bindningar
 
@@ -96,7 +93,7 @@ I PowerShell konfigureras och definieras [bindningarna](functions-triggers-bindi
 
 ### <a name="reading-trigger-and-input-data"></a>Läsa utlösare och indata
 
-Utlösare och angivna bindningar läses som parametrar som skickas till din funktion. Angivna bindningar har en `direction` inställt på `in` i function. JSON. Egenskapen `name` som definieras i `function.json` är namnet på parametern i `param`-blocket. Eftersom PowerShell använder namngivna parametrar för bindning, spelar det ingen roll för parametrarna. Det är dock en bra idé att följa ordningen på de bindningar som definierats i `function.json`.
+Utlösare och angivna bindningar läses som parametrar som skickas till din funktion. Angivna bindningar har en `direction` inställd på att `in` i function. JSON. Egenskapen `name` som definierats i `function.json` är namnet på parametern i `param` blocket. Eftersom PowerShell använder namngivna parametrar för bindning, spelar det ingen roll för parametrarna. Det är dock en bra idé att följa ordningen på de bindningar som definierats i `function.json`.
 
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
@@ -104,7 +101,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 
 ### <a name="writing-output-data"></a>Skriver utdata
 
-I functions är en utgående bindning en `direction` inställd på att `out` i funktionen. JSON. Du kan skriva till en utgående bindning med hjälp av cmdleten `Push-OutputBinding`, som är tillgänglig för functions-körningen. I samtliga fall motsvarar egenskapen `name` för bindningen enligt definitionen i `function.json` den `Name`-parametern i `Push-OutputBinding`-cmdleten.
+I functions har en utgående bindning `direction` angetts till `out` i funktionen. JSON. Du kan skriva till en utgående bindning genom att använda `Push-OutputBinding`-cmdlet, som är tillgänglig för functions-körningen. I samtliga fall motsvarar egenskapen `name` för bindningen enligt definitionen i `function.json` `Name`-parametern i `Push-OutputBinding`-cmdleten.
 
 Följande visar hur du anropar `Push-OutputBinding` i funktions skriptet:
 
@@ -122,22 +119,22 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 ```
 
-`Push-OutputBinding` fungerar annorlunda beroende på det angivna värdet för `-Name`:
+`Push-OutputBinding` beter sig på olika sätt baserat på det värde som angetts för `-Name`:
 
 * Om det angivna namnet inte kan matchas med en giltig utgående bindning, genereras ett fel.
 
 * När bindningen för utdata accepterar en samling värden kan du anropa `Push-OutputBinding` upprepade gånger för att skicka flera värden.
 
-* När bindningen för utdata bara accepterar ett singleton-värde, anropar `Push-OutputBinding` en andra gång ett fel.
+* När bindningen för utdata bara accepterar ett singleton-värde, anropar `Push-OutputBinding` en andra gång genererar ett fel.
 
-#### <a name="push-outputbinding-syntax"></a>syntax för `Push-OutputBinding`
+#### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding` syntax
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding`:
 
-| Name | type | Position | Beskrivning |
+| Namn | Typ | Position | Beskrivning |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | Sträng | 1 | Namnet på den utgående bindning som du vill ange. |
-| **`-Value`** | Object | 2 | Värdet för den utgående bindning som du vill ange, som accepteras från pipelinen ByValue. |
+| **`-Value`** | Objekt | 2 | Värdet för den utgående bindning som du vill ange, som accepteras från pipelinen ByValue. |
 | **`-Clobber`** | SwitchParameter | Följande | Valfritt Tvingar värdet att anges för en angiven utgående bindning när den anges. | 
 
 Följande vanliga parametrar stöds också: 
@@ -155,7 +152,7 @@ Mer information finns i [om CommonParameters](https://go.microsoft.com/fwlink/?L
 
 #### <a name="push-outputbinding-example-http-responses"></a>Push-OutputBinding exempel: HTTP-svar
 
-En HTTP-utlösare returnerar ett svar med hjälp av en utgående bindning med namnet `response`. I följande exempel har utgående bindningen för `response` värdet "utdata #1":
+En HTTP-utlösare returnerar ett svar med hjälp av en utgående bindning med namnet `response`. I följande exempel har utdata-bindningen för `response` värdet "utdata #1":
 
 ```powershell
 PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
@@ -173,7 +170,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 })
 ```
 
-För utdata som bara accepterar singleton-värden kan du använda parametern `-Clobber` om du vill åsidosätta det gamla värdet i stället för att försöka lägga till i en samling. I följande exempel förutsätter vi att du redan har lagt till ett värde. Genom att använda `-Clobber` åsidosätter svaret från följande exempel det befintliga värdet för att returnera värdet "utdata #3":
+För utdata som bara accepterar singleton-värden kan du använda parametern `-Clobber` för att åsidosätta det gamla värdet i stället för att försöka lägga till i en samling. I följande exempel förutsätter vi att du redan har lagt till ett värde. Genom att använda `-Clobber` åsidosätter svaret från följande exempel det befintliga värdet för att returnera värdet "utdata #3":
 
 ```powershell
 PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
@@ -182,7 +179,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 }) -Clobber
 ```
 
-#### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputBinding exempel: Utgående bindning för kö
+#### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputBinding exempel: utgående bindning för kö
 
 `Push-OutputBinding` används för att skicka data till utgående bindningar, t. ex. en [Azure Queue Storage utgående bindning](functions-bindings-storage-queue.md#output). I följande exempel har meddelandet som skrivs till kön värdet "utdata #1":
 
@@ -204,9 +201,9 @@ PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 
 När det skrivs till kön innehåller meddelandet följande fyra värden: "utdata #1", "utdata #2", "utdata #3" och "utdata #4".
 
-#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding`-cmdlet
+#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding` cmdlet
 
-Du kan använda cmdleten `Get-OutputBinding` för att hämta de värden som för närvarande är inställda för dina utgående bindningar. Denna cmdlet hämtar en hash-tabellen som innehåller namnen på utgående bindningarna med respektive värden. 
+Du kan använda `Get-OutputBinding`-cmdlet: en för att hämta de värden som för närvarande är inställda för dina utgående bindningar. Denna cmdlet hämtar en hash-tabellen som innehåller namnen på utgående bindningarna med respektive värden. 
 
 Följande är ett exempel på hur du använder `Get-OutputBinding` för att returnera aktuella bindnings värden:
 
@@ -221,7 +218,7 @@ MyQueue                        myData
 MyOtherQueue                   myData
 ```
 
-`Get-OutputBinding` innehåller även en parameter med namnet `-Name`, som kan användas för att filtrera den returnerade bindningen, som i följande exempel:
+`Get-OutputBinding` innehåller också en parameter med namnet `-Name` som kan användas för att filtrera den returnerade bindningen, som i följande exempel:
 
 ```powershell
 Get-OutputBinding -Name MyQ*
@@ -247,10 +244,10 @@ Loggning i PowerShell-funktioner fungerar som vanlig PowerShell-loggning. Du kan
 | Felsöka | **`Write-Debug`** |
 | Spårning | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
-Förutom dessa cmdlets omdirigeras allt som skrivs till pipelinen till `Information`-loggnivå och visas med standardvärdet PowerShell-format.
+Förutom dessa cmdlets omdirigeras allt som skrivs till pipelinen till `Information` loggnings nivå och visas med standardvärdet för PowerShell.
 
 > [!IMPORTANT]
-> Att använda cmdletarna `Write-Verbose` eller `Write-Debug` är inte tillräckligt för att se utförlig loggning och fel söknings nivå. Du måste också konfigurera logg nivå tröskeln, som deklarerar vilken nivå av loggar du faktiskt bryr dig om. Mer information finns i [Konfigurera Function-programmets loggnings nivå](#configure-the-function-app-log-level).
+> Det räcker inte att använda `Write-Verbose`-eller `Write-Debug`-cmdletar för att se utförlig loggning och fel söknings nivå. Du måste också konfigurera logg nivå tröskeln, som deklarerar vilken nivå av loggar du faktiskt bryr dig om. Mer information finns i [Konfigurera Function-programmets loggnings nivå](#configure-the-function-app-log-level).
 
 ### <a name="configure-the-function-app-log-level"></a>Konfigurera Function-programmets loggnings nivå
 
@@ -275,7 +272,7 @@ Mer information finns i [Host. JSON-referens].
 
 Om din Funktionsapp körs i Azure kan du använda Application Insights för att övervaka den. Läs [övervaknings Azure Functions](functions-monitoring.md) om du vill veta mer om att visa och fråga funktions loggar.
 
-Om du kör din Funktionsapp lokalt för utveckling loggar standardinställningarna i fil systemet. Om du vill se loggarna i-konsolen ställer du in miljövariabeln `AZURE_FUNCTIONS_ENVIRONMENT` på `Development` innan du startar Funktionsapp.
+Om du kör din Funktionsapp lokalt för utveckling loggar standardinställningarna i fil systemet. Om du vill se loggarna i-konsolen ställer du in `AZURE_FUNCTIONS_ENVIRONMENT` miljövariabeln på `Development` innan du startar Funktionsapp.
 
 ## <a name="triggers-and-bindings-types"></a>Typer av utlösare och bindningar
 
@@ -285,7 +282,7 @@ Alla utlösare och bindningar representeras i kod som några få verkliga data t
 
 * Hash
 * sträng
-* byte[]
+* byte []
 * int
 * double
 * HttpRequestContext
@@ -301,33 +298,33 @@ HTTP-och webhook-utlösare och HTTP-utgående bindningar använder begäran-och 
 
 #### <a name="request-object"></a>Begär ande objekt
 
-Objektet för begäran som skickades till skriptet är av typen `HttpRequestContext`, som har följande egenskaper:
+Objektet Request som skickas till skriptet är av typen `HttpRequestContext`, som har följande egenskaper:
 
-| Egenskap  | Description                                                    | type                      |
+| Egenskap  | Beskrivning                                                    | Typ                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Ett objekt som innehåller bröd texten i begäran. `Body` serialiseras till den bästa typen baserat på data. Om data till exempel är JSON, skickas de som en hash-tabell. Om datan är en sträng skickas den som en sträng. | object |
-| **`Headers`** | En ord lista som innehåller begärandehuvuden.                | Ord lista < sträng, String ><sup>*</sup> |
+| **`Body`**    | Ett objekt som innehåller bröd texten i begäran. `Body` serialiseras till den bästa typen baserat på data. Om data till exempel är JSON, skickas de som en hash-tabell. Om datan är en sträng skickas den som en sträng. | objekt |
+| **`Headers`** | En ord lista som innehåller begärandehuvuden.                | Ord listans < sträng, String ><sup> *</sup> |
 | **`Method`** | HTTP-metoden för begäran.                                | sträng                    |
-| **`Params`**  | Ett objekt som innehåller Dirigerings parametrarna för begäran. | Ord lista < sträng, String ><sup>*</sup> |
-| **`Query`** | Ett objekt som innehåller frågeparametrarna.                  | Ord lista < sträng, String ><sup>*</sup> |
+| **`Params`**  | Ett objekt som innehåller Dirigerings parametrarna för begäran. | Ord listans < sträng, String ><sup> *</sup> |
+| **`Query`** | Ett objekt som innehåller frågeparametrarna.                  | Ord listans < sträng, String ><sup> *</sup> |
 | **`Url`** | URL för begäran.                                        | sträng                    |
 
-<sup>*</sup> Alla `Dictionary<string,string>`-nycklar är Skift läges känsliga.
+<sup>*</sup> Alla `Dictionary<string,string>` nycklar är Skift läges känsliga.
 
 #### <a name="response-object"></a>Svarsobjekt
 
 Objektet Response som du ska skicka tillbaka är av typen `HttpResponseContext`, som har följande egenskaper:
 
-| Egenskap      | Description                                                 | type                      |
+| Egenskap      | Beskrivning                                                 | Typ                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Ett objekt som innehåller bröd texten i svaret.           | object                    |
+| **`Body`**  | Ett objekt som innehåller bröd texten i svaret.           | objekt                    |
 | **`ContentType`** | En kort hand för att ange innehålls typen för svaret. | sträng                    |
 | **`Headers`** | Ett objekt som innehåller svarshuvuden.               | Ord lista eller hash   |
 | **`StatusCode`**  | HTTP-statuskod för svaret.                       | sträng eller heltal             |
 
 #### <a name="accessing-the-request-and-response"></a>Åtkomst till begäran och svar
 
-När du arbetar med HTTP-utlösare kan du komma åt HTTP-begäran på samma sätt som med andra inkommande bindningar. Det är i `param`-blocket.
+När du arbetar med HTTP-utlösare kan du komma åt HTTP-begäran på samma sätt som med andra inkommande bindningar. Den finns i `param` blocket.
 
 Använd ett `HttpResponseContext`-objekt för att returnera ett svar, som du ser i följande avsnitt:
 
@@ -403,13 +400,8 @@ Du kan se den aktuella versionen genom att skriva ut `$PSVersionTable` från vil
 
 ## <a name="dependency-management"></a>Beroendehantering
 
-PowerShell Functions har stöd för att ladda ned och hantera [PowerShell Gallery](https://www.powershellgallery.com) -moduler av tjänsten. Genom att ändra Host. JSON och ange egenskapen managedDependency enabled till True kommer filen krav. psd1 att bearbetas. De angivna modulerna hämtas automatiskt och görs tillgängliga för funktionen. 
+Med funktioner kan du utnyttja [PowerShell-galleriet](https://www.powershellgallery.com) för att hantera beroenden. När beroende hantering är aktiverat används filen Requirements. psd1 för att automatiskt hämta nödvändiga moduler. Du aktiverar det här beteendet genom att ange `managedDependency` egenskapen till `true` i roten i [Host. JSON-filen](functions-host-json.md), som i följande exempel:
 
-Det maximala antalet moduler som stöds för närvarande är 10. Den syntax som stöds är MajorNumber. * eller den exakta modul versionen som visas nedan. Azure AZ-modulen ingår som standard när en ny PowerShell Function-app skapas.
-
-Språk arbetaren hämtar alla uppdaterade moduler vid en omstart.
-
-host.json
 ```json
 {
   "managedDependency": {
@@ -418,7 +410,7 @@ host.json
 }
 ```
 
-requirements.psd1
+När du skapar ett nytt PowerShell Functions-projekt aktive ras beroende hantering som standard med Azure [`Az`-modulen](/powershell/azure/new-azureps-module-az) som ingår. Det maximala antalet moduler som stöds för närvarande är 10. Den syntax som stöds är _`MajorNumber`_ `.*` eller en exakt version av modulen som visas i följande krav. psd1 exempel:
 
 ```powershell
 @{
@@ -427,32 +419,34 @@ requirements.psd1
 }
 ```
 
-Följande inställningar är tillgängliga för att ändra hur de hanterade beroendena hämtas och installeras. Din app-uppgradering kommer att starta inom MDMaxBackgroundUpgradePeriod och uppgraderings processen kommer att slutföras inom cirka MDNewSnapshotCheckPeriod.
+När du uppdaterar filen Requirements. psd1 installeras uppdaterade moduler efter en omstart.
+
+> [!NOTE]
+> Hanterade beroenden kräver åtkomst till www.powershellgallery.com för att hämta moduler. När du kör lokalt kontrollerar du att körnings miljön har åtkomst till den här URL: en genom att lägga till eventuella nödvändiga brand Väggs regler. 
+
+Följande program inställningar kan användas för att ändra hur de hanterade beroendena hämtas och installeras. Din app-uppgradering startar inom `MDMaxBackgroundUpgradePeriod` och uppgraderings processen slutförs inom ungefär `MDNewSnapshotCheckPeriod`.
 
 | Funktionsapp inställning              | Standardvärde             | Beskrivning                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| MDMaxBackgroundUpgradePeriod      | "7.00:00:00" (7 dagar)     | Varje PS-anställd initierar sökning efter modul uppgraderingar i PS-galleriet om arbets process start och varje MDMaxBackgroundUpgradePeriod efter det. Om nya versioner av modulen är tillgängliga i PS-galleriet, kommer de att installeras till fil systemet som är tillgängligt för PS-arbetare. Om du minskar det här värdet kan din Function-app Hämta nyare modul versioner tidigare, men kommer även att öka resursanvändningen för appar (nätverks-I/O, CPU, lagring). Om du ökar det här värdet minskas användningen av resurs resursen, men det kan också dröja att leverera nya modul versioner till din app.      | 
-| MDNewSnapshotCheckPeriod          | "01:00:00" (1 timme)       | Varje PS Worker måste startas om efter att de nya modulerna har installerats i fil systemet. Att starta om PS Worker kan påverka appens tillgänglighet eftersom det kan avbryta aktuella funktions anrop. Till dess att alla PS-arbetstagarna har startats om kan funktions anrop använda antingen den gamla versionen eller den nya versionen av modulen. Omstart av alla PS-arbetare kommer att slutföras inom MDNewSnapshotCheckPeriod. Om du ökar det här värdet minskas frekvensen för avbrott, men det kan också öka tids perioden när funktions anropen använder antingen den gamla eller den nya modulens versioner icke-deterministiskt. |
-| MDMinBackgroundUpgradePeriod      | "1,00:00:00" (1 dag)     | För att undvika alltför stora modul uppgraderingar vid frekventa arbets starter, utförs ingen sökning efter modul uppgraderingar om en anställd redan har initierat den senaste MDMinBackgroundUpgradePeriod. |
-
-> [!NOTE]
-> Hanterade beroenden är beroende av åtkomst till www.powershellgallery.com för att hämta moduler. Du måste se till att funktions körningen har åtkomst till denna URL genom att lägga till eventuella nödvändiga brand Väggs regler.
+| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dagar)     | Varje PowerShell-arbetsprocess initierar sökning efter modul uppgraderingar på den PowerShell-galleriet processen startar och varje `MDMaxBackgroundUpgradePeriod`. När en ny version av modulen är tillgänglig i PowerShell-galleriet, installeras den på fil systemet och görs tillgänglig för PowerShell-arbetare. Genom att minska det här värdet kan din Function-app Hämta nyare modul versioner tidigare, men det ökar också resursanvändningen för appar (nätverks-I/O, CPU, lagring). Om du ökar det här värdet minskar appens resursanvändning, men det kan också dröja att leverera nya versioner av modulen till din app. | 
+| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 timme)       | När nya versioner av modulen har installerats i fil systemet måste varje PowerShell-arbetsprocess startas om. Att starta om PowerShell-arbetskraftar påverkar appens tillgänglighet eftersom den kan avbryta den aktuella funktions körningen. Till dess att alla PowerShell-arbetsprocesser har startats om kan funktions anrop använda antingen den gamla versionen eller de nya modulerna. Omstart av alla PowerShell-anställda har slutförts inom `MDNewSnapshotCheckPeriod`. Om du ökar det här värdet minskas frekvensen för avbrott, men det kan också öka tids perioden när funktions anropen använder antingen den gamla eller den nya modulens versioner icke-deterministiskt. |
+| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 dag)     | För att undvika alltför stora modul uppgraderingar vid frekventa arbets starter, utförs ingen sökning efter modul uppgraderingar när en anställd redan har initierat den här kontrollen i den senaste `MDMinBackgroundUpgradePeriod`. |
 
 Att dra nytta av dina egna anpassade moduler är lite annorlunda än hur du gör det normalt.
 
-När du installerar modulen på den lokala datorn går den till någon av de globalt tillgängliga mapparna i `$env:PSModulePath`. Eftersom din funktion körs i Azure har du inte åtkomst till de moduler som är installerade på datorn. Detta kräver att `$env:PSModulePath` för en PowerShell Function-app skiljer sig från `$env:PSModulePath` i ett vanligt PowerShell-skript.
+Modulen installeras i någon av de globalt tillgängliga mapparna i `$env:PSModulePath` på den lokala datorn. När du kör i Azure har du inte åtkomst till de moduler som är installerade på datorn. Det innebär att `$env:PSModulePath` för en PowerShell Function-app skiljer sig från `$env:PSModulePath` i ett vanligt PowerShell-skript.
 
-I functions innehåller `PSModulePath` två sökvägar:
+I functions `PSModulePath` innehåller två sökvägar:
 
-* En `Modules`-mapp som finns i roten på din Funktionsapp.
-* En sökväg till en `Modules`-mapp som finns i PowerShell-språket.
+* En `Modules`-mapp som finns i roten för din Function-app.
+* En sökväg till en `Modules` mapp som styrs av PowerShell-språket.
 
-### <a name="function-app-level-modules-folder"></a>Mappens funktion på App-nivå `Modules`
+### <a name="function-app-level-modules-folder"></a>Funktions `Modules` mapp på program nivå
 
-Om du vill använda anpassade moduler kan du placera moduler som dina funktioner är beroende av i en `Modules`-mapp. I den här mappen är moduler automatiskt tillgängliga för functions-körningen. Alla funktioner i Function-appen kan använda dessa moduler. 
+Om du vill använda anpassade moduler kan du placera moduler som dina funktioner är beroende av i en `Modules` mapp. I den här mappen är moduler automatiskt tillgängliga för functions-körningen. Alla funktioner i Function-appen kan använda dessa moduler. 
 
 > [!NOTE]
-> Moduler som anges i filen Requirements. psd1 laddas ned automatiskt och inkluderas i sökvägen så att du inte behöver ta med dem i mappen moduler. Dessa lagras lokalt i mappen $env: LOCALAPPDATA/AzureFunctions och i mappen/data/ManagedDependencies när den körs i molnet.
+> Moduler som anges i filen Requirements. psd1 laddas ned automatiskt och inkluderas i sökvägen så att du inte behöver ta med dem i mappen moduler. Dessa lagras lokalt i mappen `$env:LOCALAPPDATA/AzureFunctions` och i mappen `/data/ManagedDependencies` när de körs i molnet.
 
 Om du vill dra nytta av funktionen för anpassad modul skapar du en `Modules`-mapp i roten för din Function-app. Kopiera modulerna som du vill använda i dina funktioner till den här platsen.
 
@@ -461,7 +455,7 @@ mkdir ./Modules
 Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-I en modules-mapp ska din Function-app ha följande mappstruktur:
+Med en `Modules` mapp ska din Function-app ha följande mappstruktur:
 
 ```
 PSFunctionApp
@@ -477,18 +471,18 @@ PSFunctionApp
  | - requirements.psd1
 ```
 
-När du startar en Function-app lägger PowerShell-språket till den här `Modules`-mappen i `$env:PSModulePath` så att du kan förlita dig på att modulen laddas automatiskt på samma sätt som i ett vanligt PowerShell-skript.
+När du startar en Function-app lägger PowerShell-språket till den här `Modules` mappen till `$env:PSModulePath` så att du kan förlita dig på att modulen laddas automatiskt upp precis som i ett vanligt PowerShell-skript.
 
-### <a name="language-worker-level-modules-folder"></a>Språk arbets nivå `Modules` mapp
+### <a name="language-worker-level-modules-folder"></a>@No__t_0 mapp för språk arbets nivå
 
-Flera moduler används ofta av PowerShell-språket. Dessa moduler definieras i den sista positionen i `PSModulePath`. 
+Flera moduler används ofta av PowerShell-språket. Dessa moduler definieras i den sista positionen för `PSModulePath`. 
 
 Den aktuella listan över moduler är följande:
 
 * [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): modulen används för att arbeta med Arkiv, t. ex. `.zip`, `.nupkg` och andra.
-* **ThreadJob**: En tråd baserad implementering av PowerShell-jobbets API: er.
+* **ThreadJob**: en tråd baserad implementering av PowerShell-jobbets API: er.
 
-Den senaste versionen av dessa moduler används av functions. Om du vill använda en speciell version av dessa moduler kan du ange den aktuella versionen i mappen `Modules` i din Function-app.
+Som standard använder funktionen den senaste versionen av dessa moduler. Om du vill använda en speciell version av en modul, ska du ange den här versionen i mappen `Modules` i din Function-app.
 
 ## <a name="environment-variables"></a>Miljövariabler
 
@@ -527,7 +521,7 @@ PowerShell är ett _enda trådat_ skript språk som standard. Samtidighet kan do
 
 Azure PowerShell använder vissa kontexter och tillstånd på _processnivå_ för att hjälpa till att spara. Men om du aktiverar samtidighet i din Function-app och anropar åtgärder som ändrar tillstånd, kan du få licens villkoren. Dessa tävlings förhållanden är svåra att felsöka eftersom ett anrop är beroende av ett visst tillstånd och det andra anropet har ändrat tillståndet.
 
-Det finns stor värde i samtidighet med Azure PowerShell eftersom vissa åtgärder kan ta lång tid. Du måste dock gå vidare med försiktighet. Om du misstänker att du råkar ut för ett konkurrens villkor ställer du in PSWorkerInProcConcurrencyUpperBound-appen på `1` och använder i stället [språket arbets process nivå isolering](functions-app-settings.md#functions_worker_process_count) för samtidighet.
+Det finns stor värde i samtidighet med Azure PowerShell eftersom vissa åtgärder kan ta lång tid. Du måste dock gå vidare med försiktighet. Om du misstänker att du råkar ut för ett tävlings villkor ställer du in appen PSWorkerInProcConcurrencyUpperBound på `1` och använder i stället [språket arbets process nivå isolering](functions-app-settings.md#functions_worker_process_count) för samtidighet.
 
 ## <a name="configure-function-scriptfile"></a>Konfigurera funktion `scriptFile`
 
@@ -544,7 +538,7 @@ FunctionApp
  | | - PSFunction.ps1
 ```
 
-I det här fallet innehåller `function.json` för `myFunction`-egenskapen en `scriptFile`-egenskap som refererar till filen med den exporterade funktionen som ska köras.
+I det här fallet innehåller `function.json` för `myFunction` en `scriptFile`-egenskap som refererar till filen med den exporterade funktionen som ska köras.
 
 ```json
 {
@@ -557,10 +551,10 @@ I det här fallet innehåller `function.json` för `myFunction`-egenskapen en `s
 
 ## <a name="use-powershell-modules-by-configuring-an-entrypoint"></a>Använd PowerShell-moduler genom att konfigurera en entryPoint
 
-Den här artikeln har visat PowerShell-funktioner i standard skript filen `run.ps1` som skapats av mallarna.
+Den här artikeln har visat PowerShell-funktioner i standard `run.ps1` skript filen som skapats av mallarna.
 Du kan dock även inkludera dina funktioner i PowerShell-moduler. Du kan referera till din speciella funktions kod i modulen med hjälp av fälten `scriptFile` och `entryPoint` i konfigurations filen function. JSON.
 
-I det här fallet `entryPoint` är namnet på en funktion eller cmdlet i PowerShell-modulen som refereras i `scriptFile`.
+I det här fallet är `entryPoint` namnet på en funktion eller cmdlet i PowerShell-modulen som refereras i `scriptFile`.
 
 Tänk på följande mappstruktur:
 
@@ -585,7 +579,7 @@ function Invoke-PSTestFunc {
 Export-ModuleMember -Function "Invoke-PSTestFunc"
 ```
 
-I det här exemplet innehåller konfigurationen för `myFunction` en `scriptFile`-egenskap som refererar till `PSFunction.psm1`, som är en PowerShell-modul i en annan mapp.  Egenskapen `entryPoint` refererar till funktionen `Invoke-PSTestFunc`, som är start punkten i modulen.
+I det här exemplet innehåller konfigurationen för `myFunction` en `scriptFile`-egenskap som refererar `PSFunction.psm1`, som är en PowerShell-modul i en annan mapp.  Egenskapen `entryPoint` refererar till funktionen `Invoke-PSTestFunc`, som är start punkten i modulen.
 
 ```json
 {
@@ -609,7 +603,7 @@ När du utvecklar Azure Functions i den [serverbaserade värd modellen](function
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Paketera moduler i stället för att använda `Install-Module`
 
-Skriptet körs vid varje anrop. Undvik att använda `Install-Module` i skriptet. Använd i stället `Save-Module` innan du publicerar så att din funktion inte behöver slösa tid åt att ladda ned modulen. Om kall startar påverkar dina funktioner, bör du överväga att distribuera din Function-app till en [App Service plan](functions-scale.md#app-service-plan) inställd på *Always on* eller till en [Premium-plan](functions-scale.md#premium-plan).
+Skriptet körs vid varje anrop. Undvik att använda `Install-Module` i skriptet. Använd i stället `Save-Module` innan du publicerar så att din funktion inte behöver slösa tid på att ladda ned modulen. Om kall startar påverkar dina funktioner, bör du överväga att distribuera din Function-app till en [App Service plan](functions-scale.md#app-service-plan) inställd på *Always on* eller till en [Premium-plan](functions-scale.md#premium-plan).
 
 ## <a name="next-steps"></a>Nästa steg
 

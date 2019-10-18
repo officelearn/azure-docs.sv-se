@@ -1,5 +1,5 @@
 ---
-title: Skapa Azure Resource Manager-mallar med beroende resurser | Microsoft Docs
+title: Azure Resource Manager mall med beroende resurser
 description: Lär dig hur du skapar en Azure Resource Manager-mall med flera resurser samt hur du distribuerar den med hjälp av Azure-portalen
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 486a13db9cf18cb44a063d37dde4a657f6dc625c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0eb4b29ffb8ae0269dbc7efd7e9ef6b720188bce
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103679"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533497"
 ---
-# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Självstudier: Skapa Azure Resource Manager-mallar med beroende resurser
+# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser
 
-Lär dig hur du skapar en Azure Resource Manager-mall för att distribuera flera resurser och konfigurera distributionsordning. När du har skapat mallen distribuerar du mallen med hjälp av Cloud Shell från Azure-portalen.
+Lär dig hur du skapar en Azure Resource Manager-mall för att distribuera flera resurser och konfigurera distributions ordningen. När du har skapat mallen distribuerar du mallen med hjälp av Cloud Shell från Azure-portalen.
 
 I den här självstudien skapar du ett lagringskonto, en virtuell dator, ett virtuellt nätverk och några andra beroende resurser. Vissa resurser kan inte distribueras förrän en annan resurs finns. Till exempel kan du inte skapa den virtuella datorn förrän dess lagringskonto och nätverksgränssnitt finns. Du kan definiera den här relationen genom att göra en resurs beroende av de andra resurserna. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i beroendeordning. När resurserna inte är beroende av varandra distribuerar Resource Manager dem parallellt. Mer information finns på sidan om att [definiera ordningen för distribution av resurser i Azure Resource Manager-mallar](./resource-group-define-dependencies.md).
 
-![Resource manager-mall beroende resurser distribution ordning diagram](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![distributions ordnings diagram för resurser i Resource Manager-mall](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -37,7 +37,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -47,7 +47,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
@@ -83,7 +83,7 @@ När du utforskar mallen i det här avsnittet kan du försöka besvara följande
    * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
    * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
 
 2. Expandera den första resursen. Det är ett lagringskonto. Jämför resursdefinitionen med [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
 

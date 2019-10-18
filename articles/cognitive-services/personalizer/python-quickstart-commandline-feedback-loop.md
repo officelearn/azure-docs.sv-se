@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: -Klient bibliotek för python | Microsoft Docs'
+title: 'Snabb start: klient biblioteket för för python | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med personanpassa klient biblioteket för python med en inlärnings slinga.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4409f04f9fd370b862ee62f9595ffca9fe6e4406
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 947ca0b603483479479285ff14636240d2ac7433
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802535"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515184"
 ---
-# <a name="quickstart-personalize-client-library-for-python"></a>Snabbstart: Anpassa klient bibliotek för python
+# <a name="quickstart-personalizer-client-library-for-python"></a>Snabb start: ett personligt klient bibliotek för python
 
 Visa personligt innehåll i den här python-snabb starten med tjänsten personanpassa.
 
@@ -26,9 +26,9 @@ Kom igång med personanpassa klient biblioteket för python. Följ de här stege
  * Rangordna en lista med åtgärder för anpassning.
  * Rapportera belönings Poäng som indikerar att det främsta antalet rankade åtgärder lyckades.
 
-[Paket (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
+[Paket (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/)  | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -54,8 +54,8 @@ Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på
 
 När du har skaffat en nyckel från din utvärderings prenumeration eller resurs skapar du två [miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
-* `PERSONALIZER_KEY`för resurs nyckeln.
-* `PERSONALIZER_ENDPOINT`för resurs slut punkten.
+* `PERSONALIZER_KEY` för resurs nyckeln.
+* `PERSONALIZER_ENDPOINT` för resurs slut punkten.
 
 I Azure Portal är både nyckel-och slut punkts värden tillgängliga på sidan **snabb start** .
 
@@ -96,7 +96,7 @@ De här kodfragmenten visar hur du gör följande med personanpassa klient bibli
 
 ## <a name="create-a-new-python-application"></a>Skapa ett nytt python-program
 
-Skapa ett nytt python-program i önskat redigerings program eller IDE `sample.py`-namn. 
+Skapa ett nytt python-program i önskat redigerings program eller IDE med namnet `sample.py`. 
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
@@ -106,7 +106,7 @@ Från projekt katalogen öppnar du **Sample.py** -filen i önskat redigerings pr
 
 ## <a name="add-personalizer-resource-information"></a>Lägg till information om personanpassa resurser
 
-Skapa variabler för resursens Azure-nyckel och slut punkt från miljövariablerna, med `PERSONALIZER_RESOURCE_KEY` namnet `PERSONALIZER_RESOURCE_ENDPOINT`och. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
+Skapa variabler för resursens Azure-nyckel och slut punkt från miljövariablerna, med namnet `PERSONALIZER_RESOURCE_KEY` och `PERSONALIZER_RESOURCE_ENDPOINT`. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
 
 Resurs namnet är en del av slut punktens URL: `https://<your-resource-name>.api.cognitive.microsoft.com/`.
 
@@ -114,7 +114,7 @@ Resurs namnet är en del av slut punktens URL: `https://<your-resource-name>.api
 
 ## <a name="create-a-personalizer-client"></a>Skapa en personanpassa klient
 
-Skapa sedan en metod för att returnera en personanpassa klient. Parametern till-metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey `PERSONALIZER_RESOURCE_KEY`är.
+Skapa sedan en metod för att returnera en personanpassa klient. Parametern till metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey är `PERSONALIZER_RESOURCE_KEY`.
 
 [!code-python[Create the Personalizer client](~/samples-personalizer/quickstarts/python/sample.py?name=Client)]
 
@@ -146,7 +146,7 @@ Lägg till följande metoder, som [hämtar innehålls valen](#get-content-choice
 
 ## <a name="request-a-rank"></a>Begär en rang
 
-För att slutföra ranknings förfrågan ställer programmet till användarens inställningar för att skapa ett `currentContent` av innehålls valen. Processen kan skapa innehåll som ska undantas från rangordningen, som `excludeActions`visas som. Ranknings förfrågan behöver åtgärderna, currentContext, excludeActions och ett unikt ID för ranknings händelse (som GUID) för att ta emot det rankade svaret. 
+För att slutföra ranknings förfrågan ställer programmet till användarens inställningar för att skapa en `currentContent` av innehålls valen. Processen kan skapa innehåll som ska undantas från rankningen, som visas som `excludeActions`. Ranknings förfrågan behöver åtgärderna, currentContext, excludeActions och ett unikt ID för ranknings händelse (som GUID) för att ta emot det rankade svaret. 
 
 Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och användarens mat preferenser. I produktions system kan det vara en icke-trivial sak att fastställa och [utvärdera](concept-feature-evaluation.md) [åtgärder och funktioner](concepts-features.md) .  
 
@@ -174,7 +174,7 @@ python sample.py
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -184,5 +184,5 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 * [Vad är Personanpassare?](what-is-personalizer.md)
 * [Var kan du använda Personanpassare?](where-can-you-use-personalizer.md)
-* [Felsökning](troubleshooting.md)
+* [Troubleshooting](troubleshooting.md) (Felsökning)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).

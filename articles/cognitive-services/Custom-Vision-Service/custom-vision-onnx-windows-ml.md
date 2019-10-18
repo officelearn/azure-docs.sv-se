@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: 65956ab9fa182794b4cb9ac1fc1800198f2dcdaa
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 025779edd1400c65d10788def17529e84349d582
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561119"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515756"
 ---
-# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Självstudier: Använda en ONNX-modell från Custom Vision med Windows ML (förhandsversion)
+# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Självstudier: Använd en ONNX-modell från Custom Vision med Windows ML (förhandsversion)
 
 Lär dig hur du använder en ONNX-modell som exporteras från Custom Vision Service med Windows ML (förhandsversion).
 
@@ -26,14 +26,14 @@ Informationen i det här dokumentet visar hur du använder en ONNX-fil som expor
 > [!div class="checklist"]
 > * Om exempelappen
 > * Hämta exempelkoden
-> * Kör exemplet
+> * Köra exemplet
 > * Använd din egen modell
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Windows 10 version 17738 eller senare
+* Windows 10 version 1809 eller senare
 
-* Windows SDK för version 17738 eller senare
+* Windows SDK för build 17763 eller högre
 
 * Visual Studio 2017 version 15.7 eller senare med arbetsbelastningen för __Universal Windows Platform-utveckling__ aktiverad.
 
@@ -45,9 +45,9 @@ Programmet är ett allmänt Windows UWP-program. Här kan du välja en bild frå
 
 ## <a name="get-the-example-code"></a>Hämta exempelkoden
 
-Exempelprogrammet som finns på [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/).
+Exempelprogrammet som finns på [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample).
 
-## <a name="run-the-example"></a>Kör exemplet
+## <a name="run-the-example"></a>Köra exemplet
 
 1. Starta programmet från Visual Studio genom att använda `F5`-tangenten. Du kan uppmanas att aktivera utvecklarläget. Mer information finns i dokumentet [Aktivera din enhet för utveckling](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
 
@@ -59,7 +59,7 @@ Om du vill använda din egen modell gör du så här:
 
 1. [Skapa och träna](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) en klassificerare med Custom Vision Service. Om du vill exportera modellen väljer du en __kompakt__ domän som **General (compact)** Allmän (kompakt)). Om du vill exportera en befintlig klassificerare konverterar du domänen till kompakt genom att välja kugghjulsikonen högst upp till höger. I __Inställningar__ väljer du en kompakt modell, spara och träna projektet.  
 
-1. [Exportera modellen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) genom att gå till fliken Prestanda. Välj en iteration med en kompakt domän så visas en ”Exportera”-knapp. Välj *Exportera*, *ONNX*, *ONNX1.2* och sedan *Exportera*. När filen är klar väljer du knappen *Ladda ned*.
+1. [Exportera modellen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) genom att gå till fliken prestanda. Välj en iteration som är utbildad med en komprimerad domän. knappen "Exportera" visas. Välj *Exportera*, *ONNX*och sedan *Exportera*. När filen är klar väljer du knappen *Ladda ned*.
 
 1. Släpp ONNX-filen i projektets mapp __Tillgångar__. 
 

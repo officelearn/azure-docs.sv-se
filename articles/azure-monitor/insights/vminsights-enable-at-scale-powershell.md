@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/09/2019
+ms.date: 10/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 1025041ae69f2048a6c5396aaebb50b5fa884f86
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.openlocfilehash: 78fe9eec757274e4262857ac0441af61c47a992b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444176"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515553"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Aktivera Azure Monitor for VMs (för hands version) med hjälp av Azure PowerShell-eller Resource Manager-mallar
 
@@ -30,20 +30,21 @@ I den här artikeln förklaras hur du aktiverar Azure Monitor for VMs (för hand
 
 Om du inte har en Log Analytics arbets yta måste du skapa en. Granska de metoder som föreslås i avsnittet [förutsättningar](vminsights-enable-overview.md#log-analytics) innan du fortsätter med stegen för att konfigurera den. Sedan kan du slutföra distributionen av Azure Monitor for VMs med hjälp av metoden Azure Resource Manager mall.
 
-### <a name="enable-performance-counters"></a>Aktivera prestandaräknare
+### <a name="enable-performance-counters"></a>Aktivera prestanda räknare
 
-Om Log Analytics-arbetsytan som refereras av lösningen inte redan har konfigurerats för att samla in prestandaräknare som krävs av lösningen, måste du aktivera dem. Det kan du göra på något av två sätt:
-* Manuellt, enligt beskrivningen i [Windows och Linux prestanda datakällor i Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+Om Log Analytics-arbetsytan som refereras till av lösningen inte redan har kon figurer ATS för att samla in de prestanda räknare som krävs för lösningen måste du aktivera dem. Det kan du göra på något av två sätt:
+* Manuellt, enligt beskrivningen i [prestanda data källor för Windows och Linux i Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * Genom att hämta och köra ett PowerShell-skript som är tillgängligt från [Azure PowerShell galleriet](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
-### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Installera ServiceMap och InfrastructureInsights lösningar
-Den här metoden innehåller en JSON-mall som anger konfigurationen för att aktivera komponenterna för lösningen i Log Analytics-arbetsytan.
+### <a name="install-the-servicemap-solution"></a>Installera ServiceMap-lösningen
+
+Den här metoden innehåller en JSON-mall som anger konfigurationen för att aktivera lösnings komponenterna i Log Analytics arbets ytan.
 
 Om du inte vet hur du distribuerar resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. Du kan identifiera din version genom att köra `az --version`. Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Kopiera och klistra in följande JSON-syntax i filen:
 
@@ -84,24 +85,6 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -109,13 +92,13 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
     }
     ```
 
-1. Spara filen som *installsolutionsforvminsights.json* till en lokal mapp.
+1. Spara filen som *installsolutionsforvminsights. JSON* i en lokal mapp.
 
-1. Avbilda värdena för *WorkspaceName*, *ResourceGroupName*och *WorkspaceLocation*. Värdet för *WorkspaceName* är namnet på din Log Analytics-arbetsyta. Värdet för *WorkspaceLocation* är den region som arbetsytan är definierad i.
+1. Avbilda värdena för *WorkspaceName*, *ResourceGroupName*och *WorkspaceLocation*. Värdet för *WorkspaceName* är namnet på din Log Analytics-arbetsyta. Värdet för *WorkspaceLocation* är den region som arbets ytan definieras i.
 
 1. Nu är det dags att distribuera den här mallen.
  
-    * Använd följande PowerShell-kommandon i den mapp som innehåller mallen:
+    * Använd följande PowerShell-kommandon i mappen som innehåller mallen:
 
         ```powershell
         New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
@@ -127,7 +110,7 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
         provisioningState       : Succeeded
         ```
 
-    * Så här kör du följande kommando med hjälp av Azure-CLI:
+    * Köra följande kommando med hjälp av Azure CLI:
     
         ```azurecli
         az login
@@ -142,6 +125,7 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
         ```
 
 ## <a name="enable-with-azure-resource-manager-templates"></a>Aktivera med Azure Resource Manager mallar
+
 Vi har skapat exempel Azure Resource Manager mallar för att publicera dina virtuella datorer och skalnings uppsättningar för virtuella datorer. Dessa mallar innehåller scenarier som du kan använda för att aktivera övervakning av en befintlig resurs och skapa en ny resurs som har övervakning aktive rad.
 
 >[!NOTE]
@@ -151,7 +135,7 @@ Om du inte vet hur du distribuerar resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. Du kan identifiera din version genom att köra `az --version`. Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="download-templates"></a>Hämta mallar
 
@@ -163,7 +147,7 @@ Nedladdnings filen innehåller följande mallar för olika scenarier:
 - **NewVmOnboarding** -mallen skapar en virtuell dator och aktiverar Azure Monitor for VMS för att övervaka den.
 - **ExistingVmssOnboarding** -mallen aktiverar Azure Monitor for VMS om den virtuella datorns skal uppsättning redan finns.
 - **NewVmssOnboarding** -mallen skapar skalnings uppsättningar för virtuella datorer och aktiverar Azure Monitor for VMS för att övervaka dem.
-- **ConfigureWorksapce** -mallen konfigurerar Log Analytics arbets ytan till att stödja Azure Monitor for VMS genom att aktivera lösningar och samling av prestanda räknare för Linux och Windows-operativsystem.
+- **ConfigureWorkspace** -mallen konfigurerar Log Analytics arbets ytan till att stödja Azure Monitor for VMS genom att aktivera lösningar och samling av prestanda räknare för Linux och Windows-operativsystem.
 
 >[!NOTE]
 >Om den virtuella datorns skalnings uppsättningar redan finns och uppgraderings principen är inställd på **manuell**, aktive ras Azure Monitor for VMS inte för instanser som standard när du har kört **ExistingVmssOnboarding** Azure Resource Manager-mallen. Du måste uppgradera instanserna manuellt.
@@ -180,6 +164,7 @@ Konfigurations ändringen kan ta några minuter att slutföra. När det är klar
 ```powershell
 provisioningState       : Succeeded
 ```
+
 ### <a name="deploy-by-using-the-azure-cli"></a>Distribuera med hjälp av Azure CLI
 
 Följande steg aktiverar övervakning med hjälp av Azure CLI.
@@ -204,11 +189,11 @@ Om du vill aktivera Azure Monitor for VMs för flera virtuella datorer eller ska
 - Den omfångs resurs grupp som anges av *ResourceGroup*. 
 - En enda virtuell dator eller en virtuell dators skalnings uppsättning som anges med *namn*.
 
-Skriptet verifierar för varje virtuell dator eller VM-skalningsuppsättning om VM-tillägget har redan installerats. Om VM-tillägget inte är installerat försöker skriptet installera det igen. Om VM-tillägget installeras, installerar de agenten Log Analytics och beroende VM-tillägg i skriptet.
+För varje virtuell dator eller skalnings uppsättning för virtuella datorer kontrollerar skriptet om VM-tillägget redan är installerat. Om VM-tillägget inte är installerat försöker skriptet installera det igen. Om VM-tillägget är installerat installerar skriptet Log Analytics och beroende agentens VM-tillägg.
 
-Kontrol lera att du använder Azure PowerShell module AZ version 1.0.0 eller senare `Enable-AzureRM` med kompatibilitets-alias aktiverade. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Kontrol lera att du använder Azure PowerShell module AZ version 1.0.0 eller senare med `Enable-AzureRM` kompatibilitets Ali Aset aktive rad. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-Om du vill hämta en lista över skriptets argumentet information och exempel på användning, kör `Get-Help`.
+Om du vill hämta en lista över skriptets argument information och exempel på användning, kör `Get-Help`.
 
 ```powershell
 Get-Help .\Install-VMInsights.ps1 -Detailed
@@ -310,7 +295,7 @@ PARAMETERS
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
-I följande exempel visas med hjälp av PowerShell-kommandon i mappen att aktivera Azure Monitor för virtuella datorer och förstå utdata som förväntas:
+Följande exempel visar hur du använder PowerShell-kommandon i mappen för att aktivera Azure Monitor for VMs och förstå förväntade utdata:
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -363,7 +348,6 @@ Failed: (0)
 
 Nu när övervakning är aktiverat för dina virtuella datorer är den här informationen tillgänglig för analys med Azure Monitor for VMs.
  
-- Information om hur du använder hälso funktionen finns i [visa Azure Monitor for VMS hälsa](vminsights-health.md). 
-- Identifierade programberoenden finns [visa Azure Monitor för virtuella datorer kartan](vminsights-maps.md). 
+- Information om hur du visar identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md). 
+
 - Information om hur du identifierar Flask halsar och övergripande användning med den virtuella datorns prestanda finns i [Visa prestanda för virtuella Azure-datorer](vminsights-performance.md). 
-- Identifierade programberoenden finns [visa Azure Monitor för virtuella datorer kartan](vminsights-maps.md).

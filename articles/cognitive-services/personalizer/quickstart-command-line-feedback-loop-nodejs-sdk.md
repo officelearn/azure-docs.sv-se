@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: För-klient bibliotek för Node. js | Microsoft Docs'
+title: 'Snabb start: ett för-klient bibliotek för Node. js | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med personanpassa klient biblioteket för Node. js med hjälp av en inlärnings slinga.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: b7ea28f98340d3c3547b0ed66771b3982a03143d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ee647668e8b5826706e8d9bb8a82acaf53fd3d8c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345241"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515203"
 ---
-# <a name="quickstart-personalize-client-library-for-nodejs"></a>Snabbstart: Anpassa klient bibliotek för Node. js
+# <a name="quickstart-personalizer-client-library-for-nodejs"></a>Snabb start: ett för-klient bibliotek för Node. js
 
 Visa personligt innehåll i den här Node. js-snabb starten med tjänsten personanpassa.
 
@@ -26,9 +26,9 @@ Kom igång med personanpassa klient biblioteket för Node. js. Följ de här ste
  * Rangordna en lista med åtgärder för anpassning.
  * Rapportera belönings Poäng som indikerar att det främsta antalet rankade åtgärder lyckades.
 
-[Exempel på biblioteks käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js) [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | 
+[Biblioteks käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)  | s[paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer)  | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [Node. js](https://nodejs.org) och NPM.
@@ -54,8 +54,8 @@ Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på
 
 När du har skaffat en nyckel från din utvärderings prenumeration eller resurs skapar du två [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
-* `PERSONALIZER_KEY`för resurs nyckeln.
-* `PERSONALIZER_ENDPOINT`för resurs slut punkten.
+* `PERSONALIZER_KEY` för resurs nyckeln.
+* `PERSONALIZER_ENDPOINT` för resurs slut punkten.
 
 I Azure Portal är både nyckel-och slut punkts värden tillgängliga på sidan **snabb start** .
 
@@ -68,7 +68,7 @@ I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny 
 mkdir myapp && cd myapp
 ```
 
-Kör kommandot för att skapa en `package.json` fil. `npm init -y` 
+Kör kommandot `npm init -y` för att skapa en `package.json`-fil. 
 
 ```console
 npm init -y
@@ -116,7 +116,7 @@ De här kodfragmenten visar hur du gör följande med det anpassade klient bibli
 
 ## <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
-Skapa ett nytt Node. js-program i önskat redigerings program eller IDE `sample.js`-namn. 
+Skapa ett nytt Node. js-program i önskat redigerings program eller IDE med namnet `sample.js`. 
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
@@ -126,13 +126,13 @@ Skapa ett nytt Node. js-program i önskat redigerings program eller IDE `sample.
 
 ## <a name="add-personalizer-resource-information"></a>Lägg till information om personanpassa resurser
 
-Skapa variabler för resursens Azure-nyckel och slut punkt från miljövariablerna, med `PERSONALIZER_KEY` namnet `PERSONALIZER_ENDPOINT`och. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
+Skapa variabler för resursens Azure-nyckel och slut punkt från miljövariablerna, med namnet `PERSONALIZER_KEY` och `PERSONALIZER_ENDPOINT`. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
 
 [!code-javascript[Add Personalizer resource information](~/samples-personalizer/quickstarts/node/sample.js?name=AuthorizationVariables)]
 
 ## <a name="create-a-personalizer-client"></a>Skapa en personanpassa klient
 
-Skapa sedan en metod för att returnera en personanpassa klient. Parametern till-metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey `PERSONALIZER_RESOURCE_KEY`är.
+Skapa sedan en metod för att returnera en personanpassa klient. Parametern till metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey är `PERSONALIZER_RESOURCE_KEY`.
 
 [!code-javascript[Create a Personalizer client](~/samples-personalizer/quickstarts/node/sample.js?name=Client)]
 
@@ -161,7 +161,7 @@ Lägg till följande metoder, som [hämtar innehålls valen](#get-content-choice
 
 ## <a name="request-a-rank"></a>Begär en rang
 
-För att slutföra ranknings förfrågan ber programmet användarens inställningar att skapa innehålls val. Processen kan skapa innehåll som ska undantas från rangordningen, som `excludeActions`visas som. Ranknings förfrågan behöver [åtgärderna](concepts-features.md#actions-represent-a-list-of-options), CurrentContext, excludeActions och ett unikt ID för ranknings händelse (som GUID) för att ta emot det rankade svaret. 
+För att slutföra ranknings förfrågan ber programmet användarens inställningar att skapa innehålls val. Processen kan skapa innehåll som ska undantas från rankningen, som visas som `excludeActions`. Ranknings förfrågan behöver [åtgärderna](concepts-features.md#actions-represent-a-list-of-options), CurrentContext, excludeActions och ett unikt ID för ranknings händelse (som GUID) för att ta emot det rankade svaret. 
 
 Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och användarens mat preferenser. I produktions system kan det vara en icke-trivial sak att fastställa och [utvärdera](concept-feature-evaluation.md) [åtgärder och funktioner](concepts-features.md) .  
 
@@ -189,7 +189,7 @@ node sample.js
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -199,5 +199,5 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 * [Vad är Personanpassare?](what-is-personalizer.md)
 * [Var kan du använda Personanpassare?](where-can-you-use-personalizer.md)
-* [Felsökning](troubleshooting.md)
+* [Troubleshooting](troubleshooting.md) (Felsökning)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js).

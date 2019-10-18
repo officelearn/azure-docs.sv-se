@@ -1,52 +1,52 @@
 ---
-title: Flytta klassiska Azure-distributionsresurser till ny prenumeration eller resursgrupp grupp
-description: Använd Azure Resource Manager för att flytta klassiska distributionsresurserna till en ny resursgrupp eller prenumeration.
+title: Flytta klassiska Azure-distributions resurser
+description: Använd Azure Resource Manager för att flytta klassiska distributions resurser till en ny resurs grupp eller prenumeration.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4770f957b6b9eea75b50776a7491b1ca479e50e2
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 783fcdca7637f3f67cf146bb827760cb4cdd7cbe
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723511"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533478"
 ---
-# <a name="move-guidance-for-classic-deployment-model-resources"></a>Flytta vägledning för klassisk modell-distributionsresurser
+# <a name="move-guidance-for-classic-deployment-model-resources"></a>Flytta vägledning för klassiska distributions modell resurser
 
-Stegen för att flytta resurser som distribueras via den klassiska modellen variera beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration.
+Stegen för att flytta resurser som distribueras via den klassiska modellen beror på om du flyttar resurserna i en prenumeration eller till en ny prenumeration.
 
 ## <a name="move-in-the-same-subscription"></a>Flytta i samma prenumeration
 
-När du flyttar resurser från en resursgrupp till en annan resursgrupp i samma prenumeration, gäller följande begränsningar:
+När du flyttar resurser från en resurs grupp till en annan resurs grupp inom samma prenumeration gäller följande begränsningar:
 
-* Virtuella nätverk (klassisk) kan inte flyttas.
-* Virtuella datorer (klassiska) måste flyttas med Molntjänsten.
-* Molntjänsten kan bara flyttas när flytten omfattar alla virtuella datorer.
-* Endast en molntjänst kan flyttas åt gången.
-* Endast en storage-konto (klassisk) kan flyttas åt gången.
-* Storage-konto (klassisk) kan inte flyttas på samma gång med en virtuell dator eller en tjänst i molnet.
+* Det går inte att flytta virtuella nätverk (klassisk).
+* Virtuella datorer (klassiska) måste flyttas med moln tjänsten.
+* Det går bara att flytta moln tjänsten när den innehåller alla virtuella datorer.
+* Det går bara att flytta en moln tjänst åt gången.
+* Det går bara att flytta ett lagrings konto i taget.
+* Lagrings kontot (klassisk) kan inte flyttas i samma åtgärd med en virtuell dator eller en moln tjänst.
 
-Flytta klassiska resurser till en ny resursgrupp i samma prenumeration genom att använda den [standard flyttåtgärder](../resource-group-move-resources.md) via portalen, Azure PowerShell, Azure CLI eller REST API. Du kan använda samma åtgärder som du använder för att flytta Resurshanterarens resurser.
+Om du vill flytta klassiska resurser till en ny resurs grupp i samma prenumeration använder du [standard flyttnings åtgärder](../resource-group-move-resources.md) via portalen, Azure PowerShell, Azure CLI eller REST API. Du använder samma åtgärder som du använder för att flytta Resource Manager-resurser.
 
-## <a name="move-across-subscriptions"></a>Flytta mellan prenumerationer
+## <a name="move-across-subscriptions"></a>Flytta över prenumerationer
 
-När du flyttar resurser till en ny prenumeration, gäller följande begränsningar:
+När du flyttar resurser till en ny prenumeration gäller följande begränsningar:
 
-* Alla klassiska resurser i prenumerationen måste flyttas på samma gång.
-* Målprenumerationen får inte ha andra klassiska resurser.
-* Flytten kan bara begäras via en separat REST-API för klassiska flyttar. Standardkommandon för Resource Manager-flytta fungerar inte när du flyttar klassiska resurser till en ny prenumeration.
+* Alla klassiska resurser i prenumerationen måste flyttas i samma åtgärd.
+* Mål prenumerationen får inte ha några andra klassiska resurser.
+* Flytten kan bara begäras via en separat REST API för klassiska flyttningar. Standard kommandona för att flytta med Resource Manager fungerar inte när du flyttar klassiska resurser till en ny prenumeration.
 
-Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtgärder som är specifika för klassiska resurser. Om du vill använda REST, gör du följande:
+Om du vill flytta klassiska resurser till en ny prenumeration använder du de REST-åtgärder som är speciella för klassiska resurser. Gör så här om du vill använda REST:
 
-1. Kontrollera om käll-prenumeration kan delta i en flytt mellan prenumerationer. Använd följande åtgärd:
+1. Kontrol lera om käll prenumerationen kan delta i en flyttning mellan prenumerationer. Använd följande åtgärd:
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
    ```
 
-     I begärandetexten, inkluderar du:
+     I begär ande texten inkluderar:
 
    ```json
    {
@@ -54,7 +54,7 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
    }
    ```
 
-     Svaret för valideringen har följande format:
+     Svaret för verifierings åtgärden är i följande format:
 
    ```json
    {
@@ -66,13 +66,13 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
    }
    ```
 
-1. Kontrollera om målprenumerationen kan delta i en flytt mellan prenumerationer. Använd följande åtgärd:
+1. Kontrol lera om mål prenumerationen kan delta i en flyttning mellan prenumerationer. Använd följande åtgärd:
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
    ```
 
-     I begärandetexten, inkluderar du:
+     I begär ande texten inkluderar:
 
    ```json
    {
@@ -80,14 +80,14 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
    }
    ```
 
-     Svaret är i samma format som datakälla prenumerationen verifieringen.
-1. Om båda prenumerationerna passerar valideringen flytta alla klassiska resurser från en prenumeration till en annan prenumeration med följande åtgärd:
+     Svaret har samma format som valideringen av käll prenumerationen.
+1. Om båda prenumerationerna klarar valideringen flyttar du alla klassiska resurser från en prenumeration till en annan prenumeration med följande åtgärd:
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
    ```
 
-    I begärandetexten, inkluderar du:
+    I begär ande texten inkluderar:
 
    ```json
    {
@@ -95,10 +95,10 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
    }
    ```
 
-Åtgärden kan ta flera minuter.
+Åtgärden kan köras i flera minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har problem med att flytta klassiska resurser kan kontakta [Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Kontakta [supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)om du har problem med att flytta klassiska resurser.
 
-Kommandon att flytta resurser finns i [flytta resurser till ny resursgrupp eller prenumeration](../resource-group-move-resources.md).
+För kommandon för att flytta resurser, se [Flytta resurser till ny resurs grupp eller prenumeration](../resource-group-move-resources.md).

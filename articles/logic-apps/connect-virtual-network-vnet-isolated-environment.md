@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 15e1f1c4c8757ca55ec27659a4ca11b1729aebc2
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 9cb86d65c84f9a315541172f5d0efa77eee3e7ed
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701935"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529307"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
@@ -40,7 +40,7 @@ Den här artikeln visar hur du utför dessa uppgifter:
 > [!IMPORTANT]
 > Logi Kap par, inbyggda utlösare, inbyggda åtgärder och anslutningar som körs i din ISE använder en pris plan som skiljer sig från den förbruknings bara pris planen. Information om hur priser och fakturering fungerar för ISEs finns i [pris modellen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris nivåer finns i [Logic Apps prissättning](../logic-apps/logic-apps-pricing.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -48,14 +48,14 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
   * Ditt virtuella nätverk måste ha fyra *tomma* undernät för att skapa och distribuera resurser i din ISE. Du kan skapa dessa undernät i förväg eller vänta tills du har skapat din ISE där du kan skapa undernät på samma tid. Läs mer om [krav för undernät](#create-subnet).
 
-  * Under näts namn måste börja med antingen ett alfabetiskt tecken eller ett under streck och får inte använda dessa tecken `<`: `>`, `%`, `&` `\\` `?`,,, `/`,. 
+  * Under näts namn måste börja med antingen ett alfabetiskt tecken eller ett under streck och kan inte använda dessa tecken: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
 
   * Kontrol lera att det virtuella nätverket [gör dessa portar tillgängliga](#ports) så att din ISE fungerar som den ska och är tillgänglig.
 
   * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), som tillhandahåller en privat anslutning till Microsofts moln tjänster, måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell som har följande väg och länka tabellen till varje undernät som används av din ISE:
 
-    **Namn**: <*Route-Name*><br>
-    Adressprefix: 0.0.0.0/0<br>
+    **Namn**: <*route-Name* ><br>
+    **Adressprefix**: 0.0.0.0/0<br>
     **Nästa hopp**: Internet
 
 * Om du vill använda anpassade DNS-servrar för ditt virtuella Azure-nätverk [konfigurerar du dessa servrar genom att följa de här stegen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) innan du distribuerar din ISE till ditt virtuella nätverk. Annars måste du starta om ISE varje gången du ändrar DNS-servern.
@@ -81,24 +81,24 @@ När du använder en ISE med ett virtuellt Azure-nätverk har ett vanligt instal
 
 Här är den tabell som beskriver de portar i ditt virtuella nätverk som används av ISE och var dessa portar används. [Resource Manager-tjänstens Taggar](../virtual-network/security-overview.md#service-tags) representerar en grupp IP-adressprefix som bidrar till att minimera komplexiteten när du skapar säkerhets regler.
 
-| Syfte | Direction | Målportar | Källtjänsttagg | Måltjänsttagg | Anteckningar |
+| Syfte | Riktning | Målportar | Käll tjänst tag gen | Måltjänsttagg | Anteckningar |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
 | Kommunikation från Azure Logic Apps | Utgående | 80, 443 | VirtualNetwork | Internet | Porten är beroende av den externa tjänst som Logic Apps tjänsten kommunicerar med |
 | Azure Active Directory | Utgående | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Azure Storage beroende | Utgående | 80, 443 | VirtualNetwork | Storage | |
+| Azure Storage beroende | Utgående | 80, 443 | VirtualNetwork | Lagring | |
 | Kommunikation mellan undernät | Inkommande & utgående | 80, 443 | VirtualNetwork | VirtualNetwork | För kommunikation mellan undernät |
-| Kommunikation till Azure Logic Apps | Inkommande | 443 | Interna åtkomst slut punkter: <br>VirtualNetwork <p><p>Externa åtkomst slut punkter: <br>Internet <p><p>**Obs!** De här slut punkterna refererar till den slut punkts inställning som [valdes vid skapande av ISE](#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | IP-adressen för datorn eller tjänsten som anropar en begär ande utlösare eller en webhook som finns i din Logic app. Om du stänger eller blockerar den här porten förhindras HTTP-anrop till Logic Apps med begär ande utlösare. |
-| Körnings historik för Logic app | Inkommande | 443 | Interna åtkomst slut punkter: <br>VirtualNetwork <p><p>Externa åtkomst slut punkter: <br>Internet <p><p>**Obs!** De här slut punkterna refererar till den slut punkts inställning som [valdes vid skapande av ISE](#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | IP-adressen för den dator från vilken du visar den logiska appens körnings historik. Även om du stänger eller blockerar den här porten hindrar dig inte från att Visa körnings historiken kan du inte Visa indata och utdata för varje steg i den här körnings historiken. |
-| Anslutnings hantering | Utgående | 443 | VirtualNetwork  | Internet | |
+| Kommunikation till Azure Logic Apps | Inkommande | 443 | Interna åtkomst slut punkter: <br>VirtualNetwork <p><p>Externa åtkomst slut punkter: <br>Internet <p><p>**Obs!** de här slut punkterna refererar till den slut punkts inställning som [valdes vid skapande av ISE](#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | IP-adressen för datorn eller tjänsten som anropar en begär ande utlösare eller en webhook som finns i din Logic app. Om du stänger eller blockerar den här porten förhindras HTTP-anrop till Logic Apps med begär ande utlösare. |
+| Körnings historik för Logic app | Inkommande | 443 | Interna åtkomst slut punkter: <br>VirtualNetwork <p><p>Externa åtkomst slut punkter: <br>Internet <p><p>**Obs!** de här slut punkterna refererar till den slut punkts inställning som [valdes vid skapande av ISE](#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | IP-adressen för den dator från vilken du visar den logiska appens körnings historik. Även om du stänger eller blockerar den här porten hindrar dig inte från att Visa körnings historiken kan du inte Visa indata och utdata för varje steg i den här körnings historiken. |
+| Anslutnings hantering | Utgående | 443 | VirtualNetwork  | AppService | |
 | Publicera diagnostikloggar & mått | Utgående | 443 | VirtualNetwork  | AzureMonitor | |
 | Kommunikation från Azure Traffic Manager | Inkommande | 443 | AzureTrafficManager | VirtualNetwork | |
 | Logic Apps designer – dynamiska egenskaper | Inkommande | 454 | Internet | VirtualNetwork | Begär Anden kommer från Logic Apps [åtkomst slut punktens inkommande IP-adresser i den regionen](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | Beroende för App Service hantering | Inkommande | 454, 455 | AppServiceManagement | VirtualNetwork | |
 | Kopplings distribution | Inkommande | 454 | AzureConnectors | VirtualNetwork | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar eller korrigeringar. |
-| Distribution av kopplings princip | Inkommande | 3443 | Internet | VirtualNetwork | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar eller korrigeringar. |
+| Distribution av kopplings princip | Inkommande | 3443 | AppService | VirtualNetwork | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar eller korrigeringar. |
 | Azure SQL-beroende | Utgående | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Utgående | 1886 | VirtualNetwork | AzureMonitor | För att publicera hälso status till Resource Health |
-| API Management hanterings slut punkt | Inkommande | 3443 | APIManagement | VirtualNetwork | |
+| API Management hanterings slut punkt | Inkommande | 3443 | API Management | VirtualNetwork | |
 | Beroende från logg till Event Hub-princip och övervaknings agent | Utgående | 5672 | VirtualNetwork | EventHub | |
 | Få åtkomst till Azure cache för Redis-instanser mellan roll instanser | Inkommande <br>Utgående | 6379-6383 | VirtualNetwork | VirtualNetwork | För att ISE ska fungera med Azure cache för Redis måste du också öppna de här [utgående och inkommande portarna som beskrivs i Azure cache för Redis vanliga frågor och svar](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 | Azure Load Balancer | Inkommande | * | AzureLoadBalancer | VirtualNetwork | |
@@ -123,17 +123,17 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    ![Ange miljö information](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Egenskap | Obligatorisk | Value | Beskrivning |
+   | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumerationen som ska användas för din miljö |
-   | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Den Azure-resurs grupp där du vill skapa din miljö |
-   | **Namn på integrerings tjänst miljö** | Ja | <*miljö namn*> | Ditt ISE-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`) och punkter (`.`). |
-   | **Location** | Ja | <*Azure-datacenter-region*> | Azure Data Center-regionen där du distribuerar din miljö |
-   | **SKU** | Ja | **Premium** eller **Developer (service avtal)** | ISE-SKU: n för att skapa och använda. För skillnader mellan dessa SKU: er, se [ISE SKU: er](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Viktigt**: Det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
-   | **Ytterligare kapacitet** | Premium: <br>Ja <p><p>Utvecklare: <br>Inte tillämpligt | Premium: <br>0 till 10 <p><p>Utvecklare: <br>Inte tillämpligt | Antalet ytterligare bearbetnings enheter som ska användas för denna ISE-resurs. Information om hur du lägger till kapacitet när du har skapat finns i [lägga till ISE-kapacitet](#add-capacity) |
-   | **Åtkomst slut punkt** | Ja | **Intern** eller **extern** | Den typ av åtkomst slut punkter som ska användas för din ISE, som avgör om begäran eller webhook-utlösare i Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. Slut punkts typen påverkar också åtkomst till indata och utdata i din Logic app kör historik. Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Viktigt**: Det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
-   | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Det virtuella Azure-nätverket där du vill mata in din miljö så att Logic Apps i den miljön kan komma åt ditt virtuella nätverk. Om du inte har ett nätverk [skapar du först ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). <p>**Viktigt**: Du kan *bara* utföra den här inmatningen när du skapar din ISE. |
-   | **Undernät** | Ja | <*undernät-resurs lista*> | En ISE kräver fyra *tomma* undernät för att skapa och distribuera resurser i din miljö. [Följ stegen i den här tabellen](#create-subnet)om du vill skapa varje undernät. |
+   | **Resursgrupp** | Ja | <*Azure-resurs-grupp-namn* > | Den Azure-resurs grupp där du vill skapa din miljö |
+   | **Namn på integrerings tjänst miljö** | Ja | <*miljö-namn* > | Ditt ISE-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`) och punkter (`.`). |
+   | **Plats** | Ja | <*Azure-datacenter-region* > | Azure Data Center-regionen där du distribuerar din miljö |
+   | **SKU** | Ja | **Premium** eller **Developer (service avtal)** | ISE-SKU: n för att skapa och använda. För skillnader mellan dessa SKU: er, se [ISE SKU: er](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Viktigt**: det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
+   | **Ytterligare kapacitet** | Premium: <br>Ja <p><p>Utvecklare: <br>Inte aktuellt | Premium: <br>0 till 10 <p><p>Utvecklare: <br>Inte aktuellt | Antalet ytterligare bearbetnings enheter som ska användas för denna ISE-resurs. Information om hur du lägger till kapacitet när du har skapat finns i [lägga till ISE-kapacitet](#add-capacity) |
+   | **Åtkomst slut punkt** | Ja | **Intern** eller **extern** | Den typ av åtkomst slut punkter som ska användas för din ISE, som avgör om begäran eller webhook-utlösare i Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. Slut punkts typen påverkar också åtkomst till indata och utdata i din Logic app kör historik. Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Viktigt**: det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
+   | **Virtuellt nätverk** | Ja | <*Azure-Virtual-Network-name* > | Det virtuella Azure-nätverket där du vill mata in din miljö så att Logic Apps i den miljön kan komma åt ditt virtuella nätverk. Om du inte har ett nätverk [skapar du först ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). <p>**Viktigt**: du kan *bara* utföra den här inmatningen när du skapar din ISE. |
+   | **Undernät** | Ja | <*undernät – resurs lista* > | En ISE kräver fyra *tomma* undernät för att skapa och distribuera resurser i din miljö. [Följ stegen i den här tabellen](#create-subnet)om du vill skapa varje undernät. |
    |||||
 
    <a name="create-subnet"></a>
@@ -144,40 +144,40 @@ I rutan Sök anger du "integration service Environment" som filter.
    
    > [!IMPORTANT]
    > 
-   > Under näts namn måste börja med antingen ett alfabetiskt tecken eller ett under streck (inga siffror) och använder inte dessa tecken: `<`, `>`, `%` `?` `&` `\\`,,,, `/`.
+   > Under näts namn måste börja med antingen ett alfabetiskt tecken eller ett under streck (inga siffror) och använder inte dessa tecken: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
    
    Dessutom måste varje undernät uppfylla följande krav:
 
    * Använder [CIDR-format (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och ett klass B-adressutrymme.
 
-   * Använder minst ett `/27` i adress utrymmet eftersom varje undernät måste ha *minst* 32 adresser som *minst.* Exempel:
+   * Använder minst en `/27` i adress utrymmet eftersom varje undernät måste ha *minst* 32 adresser som *minst.* Exempel:
 
-     * `10.0.0.0/27`har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32.
+     * `10.0.0.0/27` har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32.
 
-     * `10.0.0.0/24`har 256 adresser eftersom 2<sup>(32-24)</sup> är 2<sup>8</sup> eller 256.
+     * `10.0.0.0/24` har 256 adresser eftersom 2<sup>(32-24)</sup> är 2<sup>8</sup> eller 256.
 
-     * `10.0.0.0/28`har bara 16 adresser och är för liten eftersom 2<sup>(32-28)</sup> är 2<sup>4</sup> eller 16.
+     * `10.0.0.0/28` har bara 16 adresser och är för liten eftersom 2<sup>(32-28)</sup> är 2<sup>4</sup> eller 16.
 
      Mer information om hur du beräknar adresser finns i [IPv4 CIDR-block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md)måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell med följande väg och länka tabellen till varje undernät som används av din ISE:
 
-     **Namn**: <*Route-Name*><br>
-     Adressprefix: 0.0.0.0/0<br>
+     **Namn**: <*route-Name* ><br>
+     **Adressprefix**: 0.0.0.0/0<br>
      **Nästa hopp**: Internet
 
    1. I listan **undernät** väljer du **Hantera under näts konfiguration**.
 
-      ![Hantera konfiguration av undernät](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+      ![Hantera under näts konfiguration](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
 
    1. I fönstret **undernät** väljer du **undernät**.
 
-      ![Lägg till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![Lägga till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
 
    1. Ange den här informationen i fönstret **Lägg till undernät** .
 
-      * **Namn på**: Namnet på under nätet
-      * **Adress intervall (CIDR-block)** : Under nätets intervall i det virtuella nätverket och i CIDR-format
+      * **Namn**: namnet på under nätet
+      * **Adress intervall (CIDR-block)** : under nätets intervall i det virtuella nätverket och i CIDR-format
 
       ![Lägg till information om undernät](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 
@@ -200,7 +200,7 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    Om distributionen har slutförts visas följande meddelande i Azure:
 
-   ![Distribueringen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Distributionen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
    Annars följer du Azure Portal anvisningarna för fel sökning av distribution.
 
@@ -229,11 +229,11 @@ Premium ISE-bas enheten har fast kapacitet, så om du behöver mer data flöde k
 
    ![Visa användning för ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
 
-1. Om du vill konfigurera automatisk skalning väljer du **skala ut**under **Inställningar**. På fliken **Konfigurera** väljer du **Aktivera**autoskalning.
+1. Om du vill konfigurera automatisk skalning väljer du **skala ut**under **Inställningar**. På fliken **Konfigurera** väljer du **Aktivera autoskalning**.
 
    ![Aktivera automatisk skalning](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
 
-1. Ange ett namn för inställningen för autoskalning **inställnings namn**.
+1. Ange ett namn för inställningen för **autoskalning inställnings namn**.
 
 1. I **standard** -avsnittet väljer du antingen **skala baserat på ett mått** eller **skala till ett angivet instans antal**.
 

@@ -1,74 +1,74 @@
 ---
 title: Översikt över Service Health | Microsoft Docs
-description: Anpassad information om hur dina Azure-appar som påverkas av problem med aktuella och kommande Azure-tjänsten och underhåll.
+description: Anpassad information om hur dina Azure-appar påverkas av aktuella och framtida problem och underhåll av Azure-tjänsten.
 author: stephbaron
 ms.author: stbaron
 services: service-health
 ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a6f6288aebe599db794a7f15fc733563d26c66cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067101"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515846"
 ---
 # <a name="service-health-overview"></a>Översikt över Service Health
 
-Service Health ger dig en anpassningsbar instrumentpanel som spårar hälsotillståndet för dina Azure-tjänster i regioner där du använder. I den här instrumentpanelen kan du spåra aktiva händelser som pågående tjänstproblem, planerat underhåll eller relevanta hälsoråd. När händelser blir inaktiva, placeras de i din hälsotillståndshistoriken i upp till 90 dagar. Slutligen kan du använda Service Health-instrumentpanelen att skapa och hantera service health-aviseringar som proaktivt meddela dig när tjänstproblem påverkar dig.
+Service Health ger dig en anpassningsbar instrument panel som spårar hälso tillståndet för dina Azure-tjänster i de regioner där du använder dem. På den här instrument panelen kan du spåra aktiva händelser som kontinuerliga tjänst problem, kommande planerat underhåll eller relevanta hälso rekommendationer. När händelser blir inaktiva placeras de i hälso tillstånds historiken i upp till 90 dagar. Slutligen kan du använda Service Health-instrumentpanelen för att skapa och hantera aviseringar om tjänst hälsa som proaktivt meddelar dig när tjänst problem påverkar dig.
 
-## <a name="service-health-events"></a>Service Health-händelser
+## <a name="service-health-events"></a>Service Health händelser
 
-Tjänstehälsa spårar tre typer av health-händelser som kan påverka dina resurser:
+Service Health spårar tre typer av hälso händelser som kan påverka dina resurser:
 
-1. **Tjänsten problem** -problem i Azure-tjänster som påverkar dig just nu. 
-2. **Planerat underhåll** -kommande underhåll som kan påverka tillgängligheten för dina tjänster i framtiden.  
-3. **Hälsoråd** -ändringar i Azure-tjänster som kräver din uppmärksamhet. Exempel är när Azure-funktionerna är inaktuella eller om du överskrider en kvot för användning.
+1. **Tjänst problem** – problem i Azure-tjänster som påverkar dig just nu. 
+2. **Planerat underhåll** – kommande underhåll som kan påverka tillgängligheten för dina tjänster i framtiden.  
+3. **Hälso rekommendationer** – ändringar i Azure-tjänster som kräver din uppmärksamhet. Exempel är när Azure-funktionerna är inaktuella eller om du överskrider en användnings kvot.
 
 > [!NOTE]
-> Användarna måste ha rollen Läsare för en prenumeration om du vill visa Service Health-händelser.
+> Om du vill visa Service Health händelser måste användarna [beviljas rollen läsare](../role-based-access-control/role-assignments-portal.md) för en prenumeration.
 
 ## <a name="get-started-with-service-health"></a>Kom igång med Service Health
 
-Välj Service Health-panelen på instrumentpanelen i portalen för att starta Service Health-instrumentpanelen. Om du tidigare har tagit bort panelen eller om du använder en anpassad instrumentpanel, Sök efter Service Health-tjänsten i ”fler tjänster” (vänster på instrumentpanelen i nederkant).
+För att starta Service Health-instrumentpanelen väljer du panelen Service Health på instrument panelen för portalen. Om du tidigare har tagit bort panelen eller om du använder en anpassad instrument panel söker du efter Service Health tjänst i "fler tjänster" (längst ned till vänster på instrument panelen).
 
 ![Kom igång med Service Health](./media/service-health-overview/azure-service-health-overview-1.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Se aktuella problem som påverkar dina tjänster
 
-Den **tjänsten problem** vyn visar alla pågående problem i Azure-tjänster som påverkar dina resurser. Du kan förstå när problemet började och vilka tjänster och regioner som påverkas. Du kan också läsa den senaste uppdateringen för att förstå vad Azure gör för att lösa problemet. 
+I vyn **tjänst problem** visas eventuella pågående problem i Azure-tjänster som påverkar dina resurser. Du kan förstå när problemet började och vilka tjänster och regioner som påverkas. Du kan också läsa den senaste uppdateringen för att förstå vad Azure gör för att lösa problemet. 
 
-![Hantera problem med tjänsten](./media/service-health-overview/azure-service-health-overview-2.png)
+![Hantera tjänst problem](./media/service-health-overview/azure-service-health-overview-2.png)
 
-Välj den **potentiell påverkan** fliken för att se listan över resurser som du äger och som kan påverkas av problemet. Du kan hämta en CSV-lista över dessa resurser för att dela med ditt team.
+Välj fliken **potentiell påverkan** för att se den specifika listan med resurser som du äger som kan påverkas av problemet. Du kan ladda ned en CSV-lista över dessa resurser för att dela med ditt team.
 
-![Hantera problem med tjänsten - påverkan](./media/service-health-overview/azure-service-health-overview-4.png)
+![Hantera tjänst problem – påverkan](./media/service-health-overview/azure-service-health-overview-4.png)
 
-## <a name="get-links-and-downloadable-explanations"></a>Hämta länkar och nedladdningsbara förklaringar 
+## <a name="get-links-and-downloadable-explanations"></a>Hämta länkar och nedladdnings bara förklaringar 
 
-Du kan hämta en länk för problemet som du kan använda i problemhanteringssystemet. Du kan ladda ned PDF och ibland CSV-filer för att dela med personer som inte har åtkomst till Azure-portalen.   
+Du kan få en länk till problemet som du kan använda i problem hanterings systemet. Du kan ladda ned PDF och ibland CSV-filer för att dela med personer som inte har åtkomst till Azure Portal.   
 
-![Hantera problem med tjänsten - problemhantering](./media/service-health-overview/azure-service-health-overview-3.png)
+![Hantera tjänst problem – problem hantering](./media/service-health-overview/azure-service-health-overview-3.png)
 
 ## <a name="get-support-from-microsoft"></a>Få support från Microsoft
 
-Kontakta supporten om din resurs lämnas i felaktigt tillstånd, även när problemet är löst.  Använda support länkarna till höger på sidan.  
+Kontakta supporten om resursen är i ett felaktigt tillstånd, även när problemet har lösts.  Använd support länkarna till höger på sidan.  
 
-## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Fäst en personligt anpassade hälsotillstånd karta på instrumentpanelen
+## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Fästa en anpassad hälso karta på din instrument panel
 
-Filtrera Tjänstehälsa för att visa dina affärskritiska prenumerationer, regioner och resurstyper. Spara filtret och Fäst en personligt anpassade hälsotillstånd världskarta på instrumentpanelen i portalen. 
+Filtrera Service Health för att Visa affärs kritiska prenumerationer, regioner och resurs typer. Spara filtret och fäst en anpassad hälso världs karta till portalens instrument panel. 
 
-![Filtrera anpassade hälsotillstånd karta](./media/service-health-overview/azure-service-health-overview-6a.png)
+![Filtrera personligt hälso tillstånds karta](./media/service-health-overview/azure-service-health-overview-6a.png)
 
-![Fäst en personligt anpassade health-karta](./media/service-health-overview/azure-service-health-overview-6b.png)
+![Fästa en anpassad hälso karta](./media/service-health-overview/azure-service-health-overview-6b.png)
 
-## <a name="configure-service-health-alerts"></a>Konfigurera service health-aviseringar
+## <a name="configure-service-health-alerts"></a>Konfigurera aviseringar för tjänst hälsa
 
-Tjänstehälsa kan integreras med Azure Monitor för att meddela dig via e-post, SMS och webhook-aviseringar när dina affärskritiska resurser påverkas. Ställ in en aktivitetsloggavisering för hälsohändelsen lämplig tjänst. Dirigera den här aviseringen till rätt personer i din organisation med åtgärdsgrupper. Mer information finns i [konfigurera aviseringar för Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+Service Health integreras med Azure Monitor för att varna dig via e-post, SMS och webhook-meddelanden när affärs kritiska resurser påverkas. Konfigurera en aktivitets logg avisering för lämplig tjänst hälso händelse. Dirigera aviseringen till lämpliga personer i din organisation med hjälp av åtgärds grupper. Mer information finns i [Konfigurera aviseringar för service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ställa in aviseringar så att du blir informerad om problem med hälsotillstånd. Mer information finns i [bästa praxis för att konfigurera Azure Service Health-aviseringar](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 
+Konfigurera aviseringar så att du får ett meddelande om hälso problem. Mer information finns i [metod tips för att konfigurera Azure Service Health aviseringar](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

@@ -1,17 +1,17 @@
 ---
-title: Härledd kolumn omvandling i data flöde för mappning – Azure Data Factory | Microsoft Docs
+title: Härledd kolumn omvandling i Azure Data Factory mappnings data flöde | Microsoft Docs
 description: Lär dig hur du omvandlar data i skala i Azure Data Factory med den härledda kolumn omvandlingen för data flöde.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 5a4ee90717d46fe593d9e10083b349e069216dac
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
-ms.translationtype: HT
+ms.openlocfilehash: 60451fa6152590ed0fde51be436c867f39906acf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436768"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514809"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Härledd kolumn omvandling i data flöde för mappning
 
@@ -46,7 +46,9 @@ Om du vill lägga till ytterligare härledda kolumner, Hovra över en befintlig 
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan är en härledd kolumn med namnet `CleanData` som tar en inkommande data ström `MoviesYear` och skapar två härledda kolumner. Den första härledda kolumnen ersätter kolumnen `Rating` med gradering svärdet som en heltals typ. Den andra härledda kolumnen är ett mönster som matchar varje kolumn vars namn börjar med "filmer". För varje matchad kolumn skapar den en kolumn `movie` som är lika med värdet för den matchade kolumnen som föregås av "movie_". I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
+Exemplet nedan är en härledd kolumn med namnet `CleanData` som tar en inkommande data ström `MoviesYear` och skapar två härledda kolumner. Den första härledda kolumnen ersätter kolumnen `Rating` med gradering svärdet som en heltals typ. Den andra härledda kolumnen är ett mönster som matchar varje kolumn vars namn börjar med "filmer". För varje matchad kolumn skapar den en kolumn `movie` som är lika med värdet för den matchade kolumnen som föregås av "movie_". 
+
+I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 
 ![Härled exempel](media/data-flow/derive-script1.png "Härled exempel")
 

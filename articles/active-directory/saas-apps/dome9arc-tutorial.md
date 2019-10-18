@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb47d60f609e63e5a17fd8abd3efe420ea7fd187
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 75f0669a474c24647e71eae8b5e0e0830b7c0bef
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264095"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533095"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Check Point CloudGuard Dome9 båge
 
@@ -89,17 +89,25 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
-    > [!NOTE]
-    > Du väljer värdet för ditt företagsnamn i dome9-administratörsportalen, vilket förklaras senare i den här självstudien.
-
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska svars-URL:en och inloggnings-URL:en. Kontakta [Check Point CloudGuard Dome9 Arc client support team](mailto:Dome9@checkpoint.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska svars-URL:en och inloggnings-URL:en. Du får `<company name>`-värdet från avsnittet **Konfigurera Check Point CloudGuard Dome9 Arc SSO** , som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Check Point CloudGuard Dome9-båge kräver att roller konfigureras i Azure AD. Roll anspråk är förkonfigurerat så att du inte behöver konfigurera det, men du måste fortfarande skapa dem i Azure AD med hjälp av den här [artikeln](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+1. Check Point CloudGuard Dome9 Arc-appen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar till dina SAML token-konfiguration av attribut. I följande skärmbild visas listan över standardattribut.
+
+    ![mallar](common/edit-attribute.png)
+
+1. Utöver ovan förväntar sig CloudGuard Dome9 ARC-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
+    
+    | Namn |  Källattribut|
+    | ---------------| --------------- |
+    | memberof | user.assignedroles |
+
+    >[!NOTE]
+    >Klicka [här](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial) om du vill veta hur du skapar roller i Azure AD.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -163,7 +171,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Kontroll punkt CloudGuard Dome9 Arc Configuration](./media/dome9arc-tutorial/configure3.png)
 
-    a. Ange företagets namn i textrutan **Account ID** (Konto-ID). Det här värdet ska användas i svars-URL: en som nämns i avsnittet Azure Portal **grundläggande SAML-konfiguration** .
+    a. Ange företagets namn i textrutan **Account ID** (Konto-ID). Det här värdet ska användas i **svars** -och **inloggnings** -URL: en som nämns i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
     b. I text rutan **utfärdare** klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal.
 
@@ -221,4 +229,3 @@ När du klickar på ikonen för kontroll punktens CloudGuard Dome9 båge på åt
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Check Point CloudGuard Dome9 båge med Azure AD](https://aad.portal.azure.com/)
-

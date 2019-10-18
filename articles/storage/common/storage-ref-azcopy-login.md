@@ -4,18 +4,18 @@ description: Den här artikeln innehåller referensinformation för kommandot Az
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 2938d85becbea738acc21fc7b15991301eef759f
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 058506110a8ac4b11f272406a854f72062a1c90d
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195729"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514716"
 ---
-# <a name="azcopy-login"></a>AzCopy-inloggning
+# <a name="azcopy-login"></a>azcopy inloggning
 
 Loggar in på Azure Active Directory för att få åtkomst till Azure Storage resurser.
 
@@ -50,25 +50,25 @@ Logga in interaktivt med ett angivet klient-ID:
 azcopy login --tenant-id "[TenantID]"
 ```
 
-Logga in med en virtuell dators tilldelade identitet:
+Logga in med den systemtilldelade identiteten för en virtuell dator (VM):
 
 ```azcopy
 azcopy login --identity
 ```
 
-Logga in genom att använda en VM-tilldelad identitet med klient-ID: t för tjänstens identitet:
+Logga in med den användardefinierade identiteten för en virtuell dator och klient-ID: t för tjänstens identitet:
 
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
 
-Logga in med en VM-tilldelad identitet med objekt-ID för tjänst identiteten:
+Logga in med den användardefinierade identiteten för en virtuell dator och ett objekt-ID för tjänst identiteten:
 
 ```azcopy
 azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
-Logga in med en VM-tilldelad identitet med resurs-ID för tjänst identiteten:
+Logga in med den användardefinierade identiteten för en virtuell dator och resurs-ID: t för tjänstens identitet:
 
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"

@@ -4,15 +4,15 @@ description: Lär dig vad du ska tänka på när du planerar för en Azure Files
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 075eaaa188307e4320337ef21fd0875942e9e7e7
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249358"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514657"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -26,7 +26,7 @@ ms.locfileid: "72249358"
 
 * **Lagringskonto**: All åtkomst till Azure Storage görs genom ett lagringskonto. Se [Skalbarhets- och prestandamål](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för information om kapacitet för lagringskonton.
 
-* **Resurs**: En File Storage-resurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en överordnad resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till fil resursens totala kapacitet. För standard fil resurser är den totala kapaciteten upp till 5 TiB (GA) eller 100 TiB (för hands version) för Premium-filresurser, den totala kapaciteten är upp till 100 TiB.
+* **Resurs**: En File Storage-resurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en överordnad resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till fil resursens totala kapacitet. Den totala kapaciteten för Premium-och standard fil resurser är 100 TiB.
 
 * **Katalog:** En valfri hierarki med kataloger.
 
@@ -79,10 +79,8 @@ Azure Files erbjuder två prestanda nivåer: standard och Premium.
 
 Standard fil resurser backas upp av hård diskar (HDD). Standard fil resurser ger tillförlitlig prestanda för i/o-arbetsbelastningar som är mindre känsliga för prestanda variationer som generella fil resurser och utvecklings-och test miljöer. Standard fil resurser är bara tillgängliga i en fakturerings modell enligt principen betala per användning.
 
-Standard fil resurser på upp till 5 TiB är tillgängliga som ett GA-erbjudande. Större fil resurser, som är alla resurser som är större än 5 TiB, upp till högst 100 TiB är för närvarande tillgängliga som för hands versions erbjudande.
-
 > [!IMPORTANT]
-> Se avsnittet [Publicera till större fil resurser (standard nivån)](#onboard-to-larger-file-shares-standard-tier) för att få anvisningar om hur du integrerar, samt omfattning och begränsningar för för hands versionen.
+> Om du vill använda fil resurser som är större än 5 TiB går du till avsnittet [Publicera till större fil resurser (standard nivå)](#onboard-to-larger-file-shares-standard-tier) för att få anvisningar om hur du integrerar, samt regionala tillgänglighet och begränsningar.
 
 ### <a name="premium-file-shares"></a>Premium fil resurser
 
@@ -195,75 +193,43 @@ Tänk på följande när du bestämmer vilket replikeringsalternativ som ska anv
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>Publicera till större fil resurser (standard nivån)
 
-Det här avsnittet gäller endast för standard fil resurser. Alla Premium-filresurser är tillgängliga med 100 TiB som ett GA-erbjudande.
+Det här avsnittet gäller endast för standard fil resurser. Alla Premium-filresurser är tillgängliga med 100 TiB-kapacitet.
 
 ### <a name="restrictions"></a>Begränsningar
 
-- [Villkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för för hands versionen av Azure gäller för stora fil resurser i för hands versionen, inklusive när de används med Azure File Sync-distributioner.
-- Kräver att du skapar ett nytt lagrings konto för generell användning (det går inte att utöka befintliga lagrings konton).
-- Det går inte att konvertera ett nytt lagrings konto som skapats efter att prenumerationen har godkänts för för hands versionen av större fil resurser i LRS/ZRS till GRS/GZRS.
-
+- Det går inte att konvertera LRS/ZRS till GRS/GZRS för alla lagrings konton där stora fil resurser är aktiverade.
 
 ### <a name="regional-availability"></a>Regional tillgänglighet
 
-Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa regioner är det tillgängligt med en 100 TiB-gräns, dessa regioner visas i följande tabell:
+Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa regioner är de tillgängliga med en 100 TiB-gräns, dessa regioner visas i följande tabell:
 
-|Region |Redundans stöds |Stöder befintliga lagrings konton |Portal support * |
-|-------|---------|---------|---------|
-|Östra Australien |LRS     |Nej    |Ja|
-|Sydöstra Australien|LRS |Nej    |Ja|
-|Centrala Indien  |LRS     |Nej    |Ja|
-|Östasien      |LRS     |Nej    |Ja|
-|Östra USA        |LRS     |Nej    |Ja|
-|Centrala Frankrike |LRS, ZRS|Nej    |Ja|
-|Frankrike, södra   |LRS     |Nej    |Ja|
-|Nordeuropa   |LRS     |Nej    |Inte ännu|
-|Södra Indien    |LRS     |Nej    |Ja|
-|Sydostasien |LRS, ZRS|Nej    |Ja|
-|USA, västra centrala|LRS     |Nej    |Ja|
-|Västeuropa    |LRS, ZRS|Nej    |Ja|
-|Västra USA        |LRS     |Nej    |Ja|
-|USA, västra 2      |LRS, ZRS|Nej    |Ja|
+|Region |Redundans stöds |
+|-------|---------|
+|Australien, östra |LRS     |
+|Australien, sydöstra|LRS |
+|Indien, centrala  |LRS     |
+|Asien, östra      |LRS     |
+|USA, östra *        |LRS     |
+|Frankrike, centrala |LRS, ZRS|
+|Frankrike, södra   |LRS     |
+|Indien, södra    |LRS     |
+|Asien, sydöstra |LRS, ZRS|
+|USA, västra centrala|LRS     |
+|Västeuropa *    |LRS, ZRS|
+|USA, västra *        |LRS     |
+|USA, västra 2      |LRS, ZRS|
 
-
-\* För regioner utan Portal stöd kan du fortfarande använda PowerShell eller Azure Command Line Interface (CLI) för att skapa större än 5 TiB-resurser. Du kan också skapa en ny resurs via portalen utan att ange kvot. Då skapas en resurs med standard storleken 100 TiB, som kan uppdateras senare via PowerShell eller Azure CLI.
+\* som stöds för nya konton, har inte alla befintliga konton slutfört uppgraderings processen.
 
 För att hjälpa oss att prioritera nya regioner och funktioner kan du fylla i den här [undersökningen](https://aka.ms/azurefilesatscalesurvey).
 
-### <a name="steps-to-onboard"></a>Steg för att publicera
+### <a name="enable-and-create-larger-file-shares"></a>Aktivera och skapa större fil resurser
 
-Om du vill registrera din prenumeration på den större för hands versionen av fil resurserna måste du använda Azure PowerShell. Du kan antingen använda [Azure Cloud Shell](https://shell.azure.com/) eller installera [Azure PowerShell-modulen lokalt](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) för att köra följande PowerShell-kommandon:
-
-Kontrol lera först att den prenumeration du vill registrera i förhands granskningen är vald:
-
-```powershell
-$context = Get-AzSubscription -SubscriptionId ...
-Set-AzContext $context
-```
-
-Registrera sedan i förhands granskningen med följande kommandon:
-
-```powershell
-Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-Din prenumeration godkänns automatiskt när båda kommandona körs.
-
-Du kan köra följande kommando för att verifiera din registrerings status:
-
-```powershell
-Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-```
-
-Det kan ta upp till 15 minuter innan din status uppdateras till **registrerad**. När din status har **registrerats**bör du kunna använda funktionen.
-
-### <a name="use-larger-file-shares"></a>Använd större fil resurser
-
-Om du vill börja använda större fil resurser skapar du ett nytt lagrings konto för generell användning v2 och en ny fil resurs.
+Om du vill börja använda större fil resurser kan du läsa artikeln [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="data-growth-pattern"></a>Data tillväxt mönster
 
-Idag är den maximala storleken för en Azure-filresurs 5 TiB (100 TiB i för hands versionen). På grund av den här aktuella begränsningen måste du ta hänsyn till den förväntade data tillväxten när du distribuerar en Azure-filresurs.
+Idag är den maximala storleken för en Azure-filresurs 100 TiB. På grund av den här aktuella begränsningen måste du ta hänsyn till den förväntade data tillväxten när du distribuerar en Azure-filresurs.
 
 Det går att synkronisera flera Azure-filresurser till en enda Windows-fil server med Azure File Sync. På så sätt kan du se till att äldre och stora fil resurser som du kan ha lokala kan läggas till Azure File Sync. Mer information finns i [Planera för en Azure File Sync distribution](storage-files-planning.md).
 

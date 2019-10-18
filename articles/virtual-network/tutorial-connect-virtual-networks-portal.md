@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720046"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515709"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudier: Ansluta virtuella nätverk med peering för virtuella nätverk med hjälp av Azure Portal
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
 
 Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig att:
 
@@ -46,28 +46,25 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
-3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **Skapa**:
+3. På sidan **grundläggande** anger eller väljer du följande information och accepterar standardinställningarna för de återstående inställningarna:
 
     |Inställning|Värde|
     |---|---|
-    |Name|myVirtualNetwork1|
-    |Adressutrymme|10.0.0.0/16|
-    |Subscription| Välj din prenumeration.|
-    |Resource group| Välj **Skapa ny** och ange *myResourceGroup*.|
-    |Location| Välj **USA, östra**.|
-    |Undernätsnamn|Subnet1|
-    |Undernätsadressintervall|10.0.0.0/24|
-
-      ![Skapa ett virtuellt nätverk](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
-
-4. Utför steg 1–3 igen, med följande ändringar:
+    |Prenumeration| Välj din prenumeration.|
+    |Resursgrupp| Välj **Skapa ny** och ange *myResourceGroup*.|
+    |Region| Välj **USA, östra**.|
+    |Namn|myVirtualNetwork1|
+    ! [Konfigurera grundläggande inställningar för virtuellt nätverk] (
+4. På sidan **IP-adresser** anger du 10.0.0.0/16 för fältet **adress utrymme** . Klicka på knappen **Lägg till undernät** nedan och ange Subnet1 för **under nätets namn** och 10.0.0.0/24 för **under nätets adress intervall**.
+   
+5. Utför steg 1–3 igen, med följande ändringar:
 
     |Inställning|Värde|
     |---|---|
-    |Name|myVirtualNetwork2|
+    |Namn|myVirtualNetwork2|
     |Adressutrymme|10.1.0.0/16|
-    |Resource group| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Undernätsadressintervall|10.1.0.0/24|
+    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
+    |Adressintervall för undernät|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Peerkoppla virtuella nätverk
 
@@ -78,10 +75,10 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**.
 
-    |Inställning|Value|
+    |Inställning|Värde|
     |---|---|
     |Peer-kopplingens namn från myVirtualNetwork1 till ett virtuellt dator nätverk|myVirtualNetwork1-myVirtualNetwork2 – när sidan först läses in visas frasen "fjärran sluten virtuellt nätverk" här. När du har valt det virtuella fjärrnätverket ersätts frasen "fjärrstyrt nätverk" med namnet på det virtuella fjärrnätverket.|
-    |Subscription| Välj din prenumeration.|
+    |Prenumeration| Välj din prenumeration.|
     |Virtuellt nätverk|myVirtualNetwork2 – om du vill välja det virtuella *myVirtualNetwork2* -nätverket väljer du **virtuellt nätverk**och väljer sedan **myVirtualNetwork2 (myResourceGroup)** . Du kan välja ett virtuellt nätverk i samma region eller i en annan region.|
     |Peer-kopplingens namn från myVirtualNetwork2 till myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
@@ -105,22 +102,26 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 
     |Inställning|Värde|
     |---|---|
-    |Name|myVm1|
+    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
+    |Namn|myVm1|
+    |Plats| Välj **USA, östra**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Location| Välj **USA, östra**.|
-4. Välj en VM-storlek i **Välj en storlek**.
-5. Välj följande värden för **Inställningar** och sedan **OK**:
+    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   
+4. Välj en storlek på virtuell dator för alternativet **storlek** .
+5. Välj följande värden för under **nätverk**:
 
-    |Inställning|Value|
+    |Inställning|Värde|
     |---|---|
-    |Virtuellt nätverk| myVirtualNetwork1 – Om det inte redan är valt väljer du **Virtuellt nätverk** och sedan **myVirtualNetwork1** under **Välj ett virtuellt nätverk**.|
-    |Subnet| Subnet1 – Om det inte redan är valt väljer du **Undernät** och sedan **Subnet1** under **Välj undernät**.|
+    |Virtuellt nätverk| myVirtualNetwork1 – om det inte redan är valt väljer du **virtuellt nätverk** och väljer sedan **myVirtualNetwork1**.|
+    |Undernät| Subnet1 – om det inte redan är valt väljer du **undernät** och sedan **Subnet1**.|
     
+
     ![Inställningar för virtuella datorer](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
- 
-6. Under **Skapa** i **sammanfattningen** väljer du **Skapa** för att starta VM-distributionen.
+   
+6. Välj **nätverk**. Välj **Tillåt valda portar** för alternativet **offentliga inkommande portar** . Välj **RDP** för alternativet **Välj inkommande portar** nedan. 
+
+7. Klicka på knappen **Granska + skapa** i det nedre vänstra hörnet för att starta distributionen av den virtuella datorn.
 
 ### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
 
@@ -128,7 +129,7 @@ Utför steg 1–6 igen, med följande ändringar:
 
 |Inställning|Värde|
 |---|---|
-|Name | myVm2|
+|Namn | myVm2|
 |Virtuellt nätverk | myVirtualNetwork2|
 
 Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med återstående steg förrän båda virtuella datorerna har skapats.
@@ -171,7 +172,7 @@ Ta bort resursgruppen och alla resurser den innehåller när de inte längre beh
 
 1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
+3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

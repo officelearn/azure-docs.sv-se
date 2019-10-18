@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 23479692e815b5dda010ec2035c206df15715347
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 28a0418fd94c03f1fe308c7cd6f17b6d9a331fb0
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167416"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529365"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -74,7 +74,7 @@ Ett produktions kluster måste ha minst 5 noder på grund av följande tre orsak
 2. Vi placerar alltid en replik av en tjänst per nod, så kluster storleken är den övre gränsen för antalet repliker som en tjänst (faktiskt en partition) kan ha.
 3. Eftersom en kluster uppgradering kommer att ta minst en nod, vill vi ha en buffert på minst en nod, och vi vill därför att ett produktions kluster ska ha minst två noder *förutom* det lägsta. Minimi kravet är kvorumresursens storlek på en system tjänst enligt beskrivningen nedan.  
 
-Vi vill att klustret ska vara tillgängligt i ett samtidigt fel i två noder. För att ett Service Fabric kluster ska vara tillgängligt måste system tjänsterna vara tillgängliga. Tillstånds känsliga system tjänster som namngivnings tjänst och failover Manager-tjänst, som spårar vilka tjänster som har distribuerats till klustret och var de finns, beror på stark konsekvens. Att stark konsekvens, i sin tur, beror på möjligheten att förvärva ett *kvorum* för en eventuell uppdatering av status för dessa tjänster, där ett kvorum representerar en strikt majoritet av replikerna (N/2 + 1) för en specifik tjänst. Om vi vill vara elastiska mot Samtidig förlust av två noder (alltså samtidigt förlust av två repliker av en system tjänst) måste vi ha ClusterSize-QuorumSize > = 2, vilket tvingar den minsta storleken att vara fem. Om du vill se att klustret har N noder och det finns N repliker av en system tjänst – en på varje nod. Kvorumresursens storlek för en system tjänst är (N/2 + 1). Ovanstående olikhet ser ut som N-(N/2 + 1) > = 2. Det finns två fall att tänka på: när N är jämnt och när N är udda. Om N är jämnt, säg N = 2 @ no__t-0m där m > = 1, ser olikheten ut som 2 @ no__t-1m-(2 @ no__t-2 m/2 + 1) > = 2 eller m > = 3. Minimivärdet för N är 6 och uppnås när m = 3. Å andra sidan om N är udda, säg N = 2 @ no__t-0m + 1 där m > = 1, ser olikheten ut som 2 @ no__t-1m + 1-((2 @ no__t-2 m + 1)/2 + 1) > = 2 eller 2 @ no__t-3m + 1-(m + 1) > = 2 eller m > = 2. Minimivärdet för N är 5 och uppnås när m = 2. Därför är det bland alla värden av N som uppfyller ClusterSize-QuorumSize > = 2, minimivärdet är 5.
+Vi vill att klustret ska vara tillgängligt i ett samtidigt fel i två noder. För att ett Service Fabric kluster ska vara tillgängligt måste system tjänsterna vara tillgängliga. Tillstånds känsliga system tjänster som namngivnings tjänst och failover Manager-tjänst, som spårar vilka tjänster som har distribuerats till klustret och var de finns, beror på stark konsekvens. Att stark konsekvens, i sin tur, beror på möjligheten att förvärva ett *kvorum* för en eventuell uppdatering av status för dessa tjänster, där ett kvorum representerar en strikt majoritet av replikerna (N/2 + 1) för en specifik tjänst. Om vi vill vara elastiska mot Samtidig förlust av två noder (alltså samtidigt förlust av två repliker av en system tjänst) måste vi ha ClusterSize-QuorumSize > = 2, vilket tvingar den minsta storleken att vara fem. Om du vill se att klustret har N noder och det finns N repliker av en system tjänst – en på varje nod. Kvorumresursens storlek för en system tjänst är (N/2 + 1). Ovanstående olikhet ser ut som N-(N/2 + 1) > = 2. Det finns två fall att tänka på: när N är jämnt och när N är udda. Om N är jämnt, säg N = 2 \*m där m > = 1, ser olikheten ut som 2 \*m-(2 \*m/2 + 1) > = 2 eller m > = 3. Minimivärdet för N är 6 och uppnås när m = 3. Å andra sidan, om N är udda, säg N = 2 \*m + 1 där m > = 1, ser olikheten ut som 2 \*m + 1-((2 \*m + 1)/2 + 1) > = 2 eller 2 \*m + 1-(m + 1) > = 2 eller m > = 2. Minimivärdet för N är 5 och uppnås när m = 2. Därför är det bland alla värden av N som uppfyller ClusterSize-QuorumSize > = 2, minimivärdet är 5.
 
 Obs! i ovanstående argument har vi förmodat att varje nod har en replik av en system tjänst, vilket innebär att kvorumdisken beräknas baserat på antalet noder i klustret. Genom att ändra *TargetReplicaSetSize* skulle vi dock kunna göra kvorumloggen mindre än (N/2 + 1), vilket kan ge intryck av att vi kan ha ett kluster som är mindre än 5 noder och fortfarande ha 2 extra noder ovanför kvorumresursens storlek. Om vi till exempel anger TargetReplicaSetSize till 3 i ett kluster med fyra noder, är kvorumresursens storlek baserad på TargetReplicaSetSize (3/2 + 1) eller 2, så vi har ClusterSize-QuorumSize = 4-2 > = 2. Vi kan dock inte garantera att system tjänsten kommer att finnas på eller över kvorum om vi förlorar några noder samtidigt, men det kan bero på att de två noderna som vi förlorade var värdar för två repliker, så att system tjänsten kommer att gå förlorade i kvorum (med en enda replik kvar) a nd blir otillgängligt.
 
@@ -104,7 +104,7 @@ Om du vill skapa kluster för att testa ditt program innan det distribueras, rek
 Vi arbetar på en förbättrad upplevelse, idag, och du ansvarar för uppgraderingen. Du måste uppgradera OS-avbildningen på virtuella datorer för klustret en virtuell dator i taget. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan jag kryptera anslutna data diskar i en typ av klusternod (virtuell dators skalnings uppsättning)?
-Ja.  Mer information finns i [skapa ett kluster med anslutna data diskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [kryptera diskar (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)och [kryptera diskar (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+Ja.  Mer information finns i [skapa ett kluster med anslutna data diskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) och [Azure Disk Encryption för Virtual Machine Scale Sets](../virtual-machine-scale-sets/disk-encryption-overview.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan jag använda virtuella datorer med låg prioritet i en typ av klusternod (skalnings uppsättning för virtuella datorer)?
 Nej. Virtuella datorer med låg prioritet stöds inte. 

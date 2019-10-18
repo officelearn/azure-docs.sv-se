@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 300da59aa1a16bb2c4cfeaf8035cbe882ae83358
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f635360c5a6da19d60f3992878a8950b03c5f748
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300240"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513878"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -105,7 +105,8 @@ I följande tabell visas alla andra funktioner och verktyg som inte stöds eller
 | **Objekt nivå nivåer** |Låg frekvent lagrings nivå och Arkiv lag ring stöds av [multi-Protocol-åtkomst på data Lake Storage för](data-lake-storage-multi-protocol-access.md) hands version. <br><br> Alla andra åtkomst nivåer stöds inte ännu.|
 | **Stöd för PowerShell och CLI** | Begränsade funktioner <br><br>Hanterings åtgärder som att skapa ett konto stöds. Data Plans åtgärder som att ladda upp och ladda ned filer finns i offentlig för hands version som en del av [åtkomsten till flera protokoll på data Lake Storage](data-lake-storage-multi-protocol-access.md). Att arbeta med kataloger och ange åtkomst kontrol listor (ACL) stöds inte ännu. |
 | **Statiska webbplatser** |Stöds inte ännu <br><br>Mer specifikt möjlighet att betjäna filer till [statiska webbplatser](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
-| **Program från tredje part** | Begränsat stöd <br><br>Program från tredje part som använder REST-API: er för arbete fortsätter att fungera om du använder dem med Data Lake Storage Gen2. <br>Program som anropar BLOB-API: er kommer förmodligen att fungera med den allmänt tillgängliga för hands versionen av [multi-Protocol-åtkomst på data Lake Storage](data-lake-storage-multi-protocol-access.md). 
-| **Versions funktioner** |Stöds inte ännu <br><br>Detta inkluderar [ögonblicks bilder](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) och [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).|
+| **Program från tredje part** | Begränsat stöd <br><br>Program från tredje part som använder REST-API: er för arbete fortsätter att fungera om du använder dem med Data Lake Storage Gen2. <br>Program som anropar BLOB-API: er kommer förmodligen att fungera med den allmänt tillgängliga för hands versionen av [multi-Protocol-åtkomst på data Lake Storage](data-lake-storage-multi-protocol-access.md). |
+|**Mjuk borttagning** |Stöds inte ännu|
+| **Versions funktioner** |Stöds inte ännu <br><br>Detta inkluderar [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)och andra versions funktioner, till exempel [ögonblicks bilder](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob).|
 
 

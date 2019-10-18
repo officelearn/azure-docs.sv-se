@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 04cd5035d012e7846cc97a5a057fd71ebe103ce3
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 242cdcc07821151503dc6765f820187c0c3dfc53
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168754"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515564"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -47,7 +47,7 @@ Utför följande åtgärder innan du slutför stegen i något avsnitt i den här
      - 169.254.0.0/16 (länk-lokal)
      - 168.63.129.16/32 (intern DNS, DHCP och Azure Load Balancer [hälso avsökning](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
-     Även om du bara kan definiera ett adress intervall när du skapar det virtuella nätverket kan du lägga till fler adress intervall i adress utrymmet när det virtuella nätverket har skapats. Information om hur du lägger till ett adress intervall i ett befintligt virtuellt nätverk finns i [lägga till eller ta bort ett adress intervall](#add-or-remove-an-address-range).
+     Även om du bara kan definiera ett adress intervall när du skapar det virtuella nätverket i portalen, kan du lägga till fler adress intervall i adress utrymmet när det virtuella nätverket har skapats. Information om hur du lägger till ett adress intervall i ett befintligt virtuellt nätverk finns i [lägga till eller ta bort ett adress intervall](#add-or-remove-an-address-range).
 
      >[!WARNING]
      >Om ett virtuellt nätverk har adress intervall som överlappar ett annat virtuellt nätverk eller lokalt nätverk, kan inte de två nätverken anslutas. Innan du definierar ett adress intervall bör du fundera över om du kanske vill ansluta det virtuella nätverket till andra virtuella nätverk eller lokala nätverk i framtiden.

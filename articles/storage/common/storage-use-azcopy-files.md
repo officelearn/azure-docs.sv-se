@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 361b16ff074baaf0118ccfe6d3c2a20f0e66c623
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 8f86839a11afca746b228aa9b9c25c9813b69ec7
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273907"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528680"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fil lagring 
 
@@ -195,7 +195,7 @@ Alternativen `--include-pattern` och `--exclude-pattern` gäller endast för fil
 
 Du kan använda AzCopy för att kopiera filer till andra lagrings konton. Kopierings åtgärden är synkron så när kommandot returnerar, vilket indikerar att alla filer har kopierats.
 
-AzCopy använder [Server-till-Server-](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [API: er](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), så data kopieras direkt mellan lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd. Du kan öka data flödet för dessa åtgärder genom att ange värdet för miljövariabeln `AZCOPY_CONCURRENCY_VALUE`. Mer information finns i [optimera data flöde](storage-use-azcopy-configure.md#optimize-throughput).
+AzCopy använder [Server-till-Server-](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [API: er](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), så data kopieras direkt mellan lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd. Du kan öka data flödet för dessa åtgärder genom att ange värdet för `AZCOPY_CONCURRENCY_VALUE`-miljövariabeln. Mer information finns i [optimera data flöde](storage-use-azcopy-configure.md#optimize-throughput).
 
 Det här avsnittet innehåller följande exempel:
 
@@ -237,7 +237,7 @@ Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
 
 ## <a name="synchronize-files"></a>Synkronisera filer
 
-Du kan synkronisera innehållet i ett lokalt fil system med en fil resurs. Synkroniseringen är enkelriktad. Med andra ord kan du välja vilken av dessa två slut punkter som är källan och vilken som är målet. Synkronisering använder också server-till-Server-API: er.
+Du kan synkronisera innehållet i en fil resurs med en annan fil resurs. Du kan också synkronisera innehållet i en katalog i en fil resurs med innehållet i en katalog som finns i en annan fil resurs. Synkroniseringen är enkelriktad. Med andra ord kan du välja vilken av dessa två slut punkter som är källan och vilken som är målet. Synkronisering använder också server-till-Server-API: er.
 
 > [!NOTE]
 > För närvarande stöds det här scenariot endast för konton som inte har ett hierarkiskt namn område. Den aktuella versionen av AzCopy synkroniseras inte mellan Azure Files och Blob Storage.
@@ -248,23 +248,23 @@ Om du ställer in flaggan `--delete-destination` till `true` AzCopy ta bort file
 
 Detaljerade referens dokument finns i [AzCopy Sync](storage-ref-azcopy-sync.md).
 
-### <a name="update-a-file-share-with-changes-to-a-local-file-system"></a>Uppdatera en fil resurs med ändringar i ett lokalt fil system
+### <a name="update-a-file-share-with-changes-to-another-file-share"></a>Uppdatera en fil resurs med ändringar i en annan fil resurs
 
-I det här fallet är fil resursen målet och det lokala fil systemet är källan.
-
-|    |     |
-|--------|-----------|
-| **Uttryck** | `azcopy sync '<local-directory-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>' --recursive` |
-| **Exempel** | `azcopy sync 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/mycontainer' --recursive` |
-
-### <a name="update-a-local-file-system-with-changes-to-a-file-share"></a>Uppdatera ett lokalt fil system med ändringar i en fil resurs
-
-I det här fallet är det lokala fil systemet målet och fil resursen är källan.
+Den första fil resursen som visas i det här kommandot är källan. Den andra är målet.
 
 |    |     |
 |--------|-----------|
-| **Uttryck** | `azcopy sync 'https://<storage-account-name>.file.core.windows.net/<file-share-name>' 'C:\myDirectory' --recursive` |
-| **Exempel** | `azcopy sync 'https://mystorageaccount.file.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
+| **Uttryck** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>' --recursive` |
+| **Exempel** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myfileshare' --recursive` |
+
+### <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>Uppdatera en katalog med ändringar i en katalog i en annan fil resurs
+
+Den första katalogen som visas i det här kommandot är källan. Den andra är målet.
+
+|    |     |
+|--------|-----------|
+| **Uttryck** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name>' --recursive` |
+| **Exempel** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myFileShare/myDirectory' --recursive` |
 
 ## <a name="next-steps"></a>Nästa steg
 

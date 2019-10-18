@@ -4,35 +4,37 @@ description: Den här artikeln innehåller referensinformation för kommandot Az
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c15d188e333bea5e74fa65d2bbdf38ae7fadc246
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195742"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514772"
 ---
-# <a name="azcopy-copy"></a>AzCopy kopia
+# <a name="azcopy-copy"></a>azcopy kopiera
 
 Kopierar käll data till en målplats.
 
 ## <a name="synopsis"></a>Sammanfattning
 
-De vägvisningar som stöds är:
+Kopierar käll data till en målplats. De vägvisningar som stöds är:
 
-- lokal <-> Azure-Blob (SAS eller OAuth-autentisering)
-- lokal <-> Azure-fil (autentisering med resurs/katalog-SAS)
-- lokal <-> ADLS gen 2 (SAS, OAuth eller SharedKey-autentisering)
-- Azure Blob (SAS eller offentlig) <-> Azure Blob (SAS eller OAuth-autentisering)
-- Azure-fil (SAS) – > Azure Block Blob (SAS eller OAuth-autentisering)
-- AWS S3 (åtkomst nyckel) – > Azure Block Blob (SAS eller OAuth-autentisering)
+  - lokal <-> Azure-Blob (SAS eller OAuth-autentisering)
+  - lokal <-> Azure Files (autentisering med ASSOCIATIONer för delade/kataloger)
+  - lokal <-> ADLS gen 2 (SAS, OAuth eller SharedKey-autentisering)
+  - Azure Blob (SAS eller offentlig) – > Azure Blob (SAS eller OAuth-autentisering)
+  - Azure Blob (SAS eller offentlig) – > Azure Files (SAS)
+  - Azure Files (SAS) – > Azure Files (SAS)
+  - Azure Files (SAS) – > Azure Blob (SAS eller OAuth-autentisering)
+  - AWS S3 (åtkomst nyckel) – > Azure Block Blob (SAS eller OAuth-autentisering)
 
 Mer information finns i exemplen.
 
-### <a name="advanced"></a>Avancerat
+## <a name="advanced"></a>Advanced
 
 AzCopy identifierar automatiskt filernas innehålls typ vid överföring från den lokala disken, baserat på fil namns tillägget eller innehållet (om inget tillägg har angetts).
 
@@ -44,198 +46,193 @@ Den inbyggda uppslags tabellen är liten, men på UNIX utökas den av det lokala
 
 I Windows extraheras MIME-typer från registret. Den här funktionen kan inaktive ras med hjälp av en flagga. Läs avsnittet flagga.
 
-> [!IMPORTANT]
-> Om du anger en miljö variabel med hjälp av kommando raden, kommer den variabeln att läsas i kommando rads historiken. Överväg att ta bort variabler som innehåller autentiseringsuppgifter från din kommando rads historik. Om du vill att variablerna ska visas i historiken kan du använda ett skript för att uppmana användaren att ange sina autentiseringsuppgifter och ange miljövariabeln.
+Om du anger en miljö variabel med hjälp av kommando raden, kommer den variabeln att läsas i kommando rads historiken. Överväg att ta bort variabler som innehåller autentiseringsuppgifter från din kommando rads historik. Om du vill att variablerna ska visas i historiken kan du använda ett skript för att uppmana användaren att ange sina autentiseringsuppgifter och ange miljövariabeln.
 
-```azcopy
+```
 azcopy copy [source] [destination] [flags]
 ```
 
 ## <a name="examples"></a>Exempel
 
-Ladda upp en enstaka fil med OAuth-autentisering.
+Överför en enda fil med OAuth-autentisering. Om du ännu inte har loggat in på AzCopy kör du kommandot AzCopy login innan du kör följande kommando.
 
-Om du ännu inte har loggat in på AzCopy bör `azcopy login` du använda kommandot innan du kör följande kommando.
-
-```azcopy
-azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
-```
+- AzCopy CP "/path/to/File.txt" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]"
 
 Samma som ovan, men den här gången beräknar även MD5-hashen av fil innehållet och sparar den som blobens Content-MD5-egenskap:
 
-```azcopy
-azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
-```
+- AzCopy CP "/path/to/File.txt" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]--skicka-MD5
 
-Ladda upp en enstaka fil med en SAS:
+Ladda upp en enstaka fil med hjälp av en SAS-token:
 
-```azcopy
-azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+- AzCopy CP "/path/to/File.txt" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
 
-Ladda upp en enstaka fil med en SAS med hjälp av rör (endast block-blobbar):
+Ladda upp en enstaka fil med hjälp av en SAS-token och-rör (endast block-blobbar):
+  
+- katt "/path/to/File.txt" | AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
 
-```azcopy
-cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
-
-Ladda upp en hel katalog med en SAS:
-
-```azcopy
-azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+Ladda upp en hel katalog med hjälp av en SAS-token:
+  
+- AzCopy CP "/path/to/dir" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "--recursive = True
 
 eller
 
-```azcopy
-azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --put-md5
-```
+- AzCopy CP "/path/to/dir" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "--recursive = True--skicka-MD5
 
-Ladda upp en uppsättning filer med en SAS med jokertecken:
+Ladda upp en uppsättning filer med hjälp av en SAS-token och jokertecken (*):
 
-```azcopy
-azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
-```
+- AzCopy CP "/Path/*foo/* bar/*. pdf" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "
 
-Ladda upp filer och kataloger med en SAS med jokertecken:
+Ladda upp filer och kataloger med hjälp av en SAS-token och jokertecken (*):
 
-```azcopy
-azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+- AzCopy CP "/Path/*foo/* bar *" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "--recursive = True
 
-Hämta en enskild fil med OAuth-autentisering.
+Hämta en enda fil med hjälp av OAuth-autentisering. Om du ännu inte har loggat in på AzCopy kör du kommandot AzCopy login innan du kör följande kommando.
 
-Om du ännu inte har loggat in på AzCopy bör `azcopy login` du använda kommandot innan du kör följande kommando.
+- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]" "/path/to/File.txt"
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]" "/path/to/file.txt"
-```
+Hämta en enda fil med hjälp av en SAS-token:
 
-Hämta en enda fil med en SAS:
+- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] ""/path/to/File.txt "
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "/path/to/file.txt"
-```
+Hämta en enda fil med hjälp av en SAS-token och sedan dirigera utdata till en fil (endast block-blobbar):
+  
+- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] ">"/path/to/File.txt "
 
-Hämta en enskild fil med en SAS med hjälp av rör (endast block-blobbar):
+Ladda ned en hel katalog med hjälp av en SAS-token:
+  
+- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] ""/path/to/dir "--recursive = True
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" > "/path/to/file.txt"
-```
+En kommentar om att använda jokertecken (*) i URL: er:
 
-Ladda ned en hel katalog med en SAS:
+Det finns bara två sätt som stöds för att använda jokertecken i en URL. 
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive=true
-```
+- Du kan använda en precis efter det sista snedstrecket (/) för en URL. Detta kopierar alla filer i en katalog direkt till målet utan att placera dem i en under katalog.
 
-Hämta en uppsättning filer med en SAS med jokertecken:
+- Du kan också använda ett i namnet på en behållare så länge URL: en endast refererar till en behållare och inte till en blob. Du kan använda den här metoden för att hämta filer från en delmängd behållare.
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/foo*?[SAS]" "/path/to/dir"
-```
+Hämta innehållet i en katalog utan att kopiera den innehåller själva katalogen.
 
-Ladda ned filer och kataloger med en SAS med jokertecken:
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. net/[container]/[sökväg/till/mapp]/*? [SAS] ""/path/to/dir "
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/foo*?[SAS]" "/path/to/dir" --recursive=true
-```
+Ladda ned ett helt lagrings konto.
 
-Kopiera en enda BLOB med SAS till en annan BLOB med SAS:
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. net/" "/path/to/dir"--recursive
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+Hämta en delmängd av behållare i ett lagrings konto med hjälp av en symbol för jokertecken (*) i behållar namnet.
 
-Kopiera en enda BLOB med SAS till en annan BLOB med OAuth-token.
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. net/[container * Name]" "/path/to/dir"--recursive
 
-Om du ännu inte har loggat in på AzCopy bör `azcopy login` du använda kommandot innan du kör följande kommando. OAuth-token används för att komma åt mål lagrings kontot.
+Kopiera en enskild blob till en annan BLOB med hjälp av en SAS-token.
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
-```
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "" https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
 
-Kopiera en hel katalog från virtuell BLOB-katalog med SAS till en annan virtuell BLOB-katalog med SAS:
+Kopiera en enskild blob till en annan BLOB med hjälp av en SAS-token och en OAuth-token. Du måste använda en SAS-token i slutet av käll kontots URL, men mål kontot behöver inte vara ett om du loggar in i AzCopy med hjälp av kommandot AzCopy login. 
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "" https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB] "
 
-Kopiera en hel konto data från ett BLOB-konto med SAS till ett annat BLOB-konto med SAS:
+Kopiera en virtuell BLOB-katalog till en annan med hjälp av en SAS-token:
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
-```
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "" https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "--recursive = True
 
-Kopiera ett enskilt objekt från S3 med åtkomst nyckel till blob med SAS:
+Kopiera alla BLOB-behållare, kataloger och blobbar från lagrings kontot till ett annat med hjälp av en SAS-token:
 
-Ställ in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för S3-källan.
+- AzCopy CP "https://[srcaccount]. blob. Core. Windows. net? [SAS] "" https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
 
-```azcopy
-azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+Kopiera ett enskilt objekt till Blob Storage från Amazon Web Services (AWS) S3 med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
+  
+- AzCopy CP "https://s3.amazonaws.com/ [Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
 
-Kopiera en hel katalog från S3 med åtkomst nyckeln till BLOB-virtuell katalog med SAS:
+Kopiera en hel katalog till Blob Storage från AWS S3 med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-```azcopy
-azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+- AzCopy CP "https://s3.amazonaws.com/ [Bucket]/[mapp]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "--recursive = True
 
-I https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html lär du dig mer om vad [Folder] innebär för S3. Ställ in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för S3-källan.
+Se https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html för bättre förståelse av [Folder]-plats hållaren.
 
-Kopiera alla buckets i S3-tjänsten med åtkomst nyckeln till BLOB-kontot med SAS:
+Kopiera alla buckets till Blob Storage från Amazon Web Services (AWS) med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-Ställ in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för S3-källan.
+- AzCopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
 
-```azcopy
-azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
-```
+Kopiera alla buckets till Blob Storage från ett Amazon Web Services (AWS)-region med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-Kopiera alla buckets i en S3-region med åtkomst nyckel till BLOB-konto med SAS:
+- AzCopy CP "https://s3- [region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
 
-```azcopy
-azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
-```
+Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i Bucket-namnet. Precis som i föregående exempel behöver du en åtkomst nyckel och en SAS-token. Se till att ställa in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-Ställ in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för S3-källan.
+- AzCopy CP "https://s3.amazonaws.com/ [Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
 
 ## <a name="options"></a>Alternativ
 
-|Alternativ|Beskrivning|
-|--|--|
-|--Blob-typ sträng|Definierar typ av BLOB vid målet. Detta används för att ladda upp blobbar och när du kopierar mellan konton (standard ingen).|
-|--Block-Blob-Tier sträng|Ladda upp block-blob till Azure Storage med denna BLOB-nivå. (standard "ingen").|
-|--block-size-MB Float |Använd den här block storleken (anges i MiB) vid överföring till Azure Storage och nedladdning från Azure Storage. Standardvärdet beräknas automatiskt baserat på fil storlek. Decimal tal tillåts (till exempel: 0,25).|
-|--Cache-Control-sträng|Ange Cache-Control-huvudet. Returnerades vid nedladdning.|
-|--kontrol lera-MD5-sträng|Anger hur strikta MD5-hashar ska val IDE ras vid hämtning. Endast tillgängligt vid hämtning. Tillgängliga alternativ: Nocheck, inloggning, FailIfDifferent, FailIfDifferentOrMissing. (standard "FailIfDifferent")|
-|--innehålls-dispositions sträng|Ange huvudet för innehålls disposition. Returnerades vid nedladdning.|
-|--innehålls kodnings sträng|Ange innehålls kodnings rubriken. Returnerades vid nedladdning.|
-|--innehålls språk sträng|Ange rubrik för innehålls språk. Returnerades vid nedladdning.|
-|--innehålls typ sträng |Anger filens innehålls typ. Innebär No-gissning-MIME-type. Returnerades vid nedladdning.|
-|--Exkludera sträng|Exkludera dessa filer vid kopiering. Stöd för användning av *.|
-|--Exkludera-Blob-typ sträng|Anger alternativt vilken typ av BLOB (BlockBlob/PageBlob/AppendBlob) som ska undantas när blobbar kopieras från behållaren eller kontot. Den här flaggan kan inte användas för att kopiera data från icke-Azure-tjänst till tjänst. Mer än en BLOB ska avgränsas med;.|
-|--Följ-symlinks|Följ symboliska länkar när du laddar upp från lokalt fil system.|
-|--från-till-sträng|Anger om käll målet ska kombineras. Till exempel: LocalBlob, BlobLocal, LocalBlobFS.|
-|-h,--hjälp|Visar hjälp innehåll för kopierings kommandot. |
-|--sträng på loggnings nivå|Definiera loggens utförlighet för logg filen, tillgängliga nivåer: INFORMATION (alla begär Anden/svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information).|
-|– metadata-sträng|Ladda upp till Azure Storage med dessa nyckel/värde-par som metadata.|
-|--No-gissning-MIME-type|Förhindrar AzCopy från att identifiera innehålls typ baserat på fil namns tillägget eller innehållet i filen.|
-|--Skriv över|Skriv över de motstridiga filerna/Blobbarna på målet om den här flaggan har angetts till true. (standard är sant).|
-|--sid-BLOB-nivå sträng |Ladda upp sid-blob till Azure Storage med den här BLOB-nivån. (standard "ingen").|
-|--bevara-senaste ändrings tid|Endast tillgängligt om målet är fil system.|
-|--Skicka-MD5|skapa en MD5-hash av varje fil och spara hashen som Content-MD5-egenskapen för Målmatrisen eller-filen. (Som standard skapas inte hashen.) Endast tillgängligt vid uppladdning.|
-|--rekursivt|Titta i under kataloger rekursivt vid överföring från lokalt fil system.|
-|--S2S-detect-källa-ändrad|Kontrol lera om källan har ändrats efter uppräkningen. För S2S-kopiering, som källa är en fjär resurs, verifierar om källan har ändrats behöver ytterligare kostnader för begäran.|
-|--S2S-handle-ogiltig-metadata-sträng |Anger hur ogiltiga nycklar för nycklar hanteras. Tillgängliga alternativ: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (standard "ExcludeIfInvalid").|
-|--S2S-konserver-Access-Tier|Bevara åtkomst nivån under tjänst-till-tjänst-kopiering. Se [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md) lag rings nivåer för att säkerställa att mål lagrings kontot har stöd för att ange åtkomst nivå. I de fall då det inte finns stöd för att ange åtkomst nivå kan du använda s2sPreserveAccessTier = false för att kringgå kopiering av åtkomst nivå.  (standard är sant).|
-|--S2S-bevara-egenskaper|Behåll fullständiga egenskaper under tjänst-till-tjänst-kopiering. För S3-och Azure-filer som inte är en enskild fil källa, returnerar inte den här List åtgärden fullständiga egenskaper för objekt och filer, för att bevara fullständiga egenskaper AzCopy måste skicka ytterligare en begäran per objekt och fil. (standard är sant).|
+**--BLOB-Type** -strängen definierar BLOB-typen vid målet. Detta används för att ladda upp blobar och när du kopierar mellan konton (standard identifiering). Giltiga värden är "identifiering", "BlockBlob", "PageBlob" och "AppendBlob". När du kopierar mellan konton gör värdet "identifiera" att AzCopy använder typen av käll-BLOB för att fastställa typen av BLOB för målet. När en fil laddas upp avgör "identifiera om filen är en VHD-eller VHDX-fil baserat på fil namns tillägget. Om filen är en VHD-eller VHDX-fil behandlar AzCopy filen som en Page blob. (standard "identifiering")
+
+**--Block-Blob-Tier** sträng uppladdnings Block Blob för att Azure Storage använda denna BLOB-nivå. (standard "ingen")
+
+**--block-size-MB** float Använd den här block storleken (anges i MIB) vid överföring till Azure Storage och nedladdning från Azure Storage. Standardvärdet beräknas automatiskt baserat på fil storlek. Decimal tal tillåts (till exempel: 0,25).
+
+**--Cache-Control** -sträng ange Cache-Control-huvudet. Returnerades vid nedladdning.
+
+**--kontrol lera längd**                         Kontrol lera längden på en fil på målet efter överföringen. Om det finns ett matchnings fel mellan källan och målet markeras överföringen som misslyckad. (standard sant)
+
+**--kontrol lera-MD5-** sträng anger hur strikt MD5-hashar ska verifieras vid hämtning. Endast tillgängligt vid hämtning. Tillgängliga alternativ: nocheck, inloggning, FailIfDifferent, FailIfDifferentOrMissing. (standard "FailIfDifferent") (standard "FailIfDifferent")
+
+**--innehålls-dispositions** sträng ange innehålls-dispositions rubriken. Returnerades vid nedladdning.
+
+**--innehålls kodnings** sträng anger innehålls kodnings huvudet. Returnerades vid nedladdning.
+
+**--innehålls språk** sträng anger innehålls-språkets rubrik. Returnerades vid nedladdning.
+
+**--innehålls typ** sträng anger filens innehålls typ. Innebär No-gissning-MIME-type. Returnerades vid nedladdning.
+
+**--Decompress**                           Expandera automatiskt filer vid hämtning, om deras innehålls kodning visar att de är komprimerade. Innehålls kodnings värden som stöds är gzip och DEFLATE. Fil namns tilläggen ". gz"/". gzip" eller ". zz" är inte nödvändiga, men kommer att tas bort om det är tillgängligt.
+
+**--sträng för exkludera attribut** (endast Windows) Uteslut filer vars attribut matchar attributlistan. Till exempel: A; Na R
+
+**--exkludera-Blob-typ** sträng anger alternativt vilken typ av BLOB (BlockBlob/PageBlob/AppendBlob) som ska undantas vid kopiering av blobbar från behållaren eller kontot. Den här flaggan kan inte användas för att kopiera data från icke-Azure-tjänst till tjänst. Mer än en BLOB ska avgränsas med;.
+
+**--sträng för exkluderings Sök väg** undantar dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: min mapp, mappen subDirName/File. pdf). När de används i kombination med konto Traversal inkluderar inte sökvägar namnet på behållaren.
+
+**--exkludera-Pattern-** sträng exkludera dessa filer vid kopiering. Det här alternativet stöder jokertecken (*)
+
+**--Följ-symlinks**                      Följ symboliska länkar när du laddar upp från lokalt fil system.
+
+**--från-till-** sträng (valfritt) anger källans mål kombination. Till exempel: LocalBlob, BlobLocal, LocalBlobFS.
+
+**-h,--hjälp** för att kopiera
+
+**--include-attribut** sträng (endast Windows) inkludera filer vars attribut stämmer överens med attributlistan. Till exempel: A; Na R
+
+**--include-Path-** sträng innehåller bara dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: min mapp, mappen subDirName/File. pdf).
+
+**--Inkludera-mönster** sträng inkludera endast dessa filer vid kopiering. Det här alternativet stöder jokertecken (*). Separera filer med hjälp av en ";".
+
+**--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: info (alla begär Anden/svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information). (standard information)
+
+**--** sträng överföring av metadata till Azure Storage med dessa nyckel/värde-par som metadata.
+
+**--no-gissning-MIME-type**                   Förhindrar AzCopy från att identifiera innehålls typ baserat på fil namns tillägget eller innehållet i filen.
+
+**--Skriv över** sträng skriver över konfliktskapande filer och blobbar på målet om den här flaggan har angetts till true. (default ' true ') Möjliga värden är true, false och prompt. (standard "true")
+
+**--sid-BLOB-skiktets** sträng överförings-blob till Azure Storage att använda denna BLOB-nivå. (standard saknas). (standard "ingen")
+
+**--bevara-senaste ändrings tid**          Endast tillgängligt om målet är fil system.
+
+**--Skicka-MD5**                             Skapa en MD5-hash av varje fil och spara hashen som Content-MD5-egenskapen för Målmatrisen eller-filen. (Som standard skapas inte hashen.) Endast tillgängligt vid uppladdning.
+
+**--rekursivt**                            Titta i under kataloger rekursivt vid överföring från lokalt fil system.
+
+**--S2S-detect-källa-ändrad**           Kontrol lera om källan har ändrats efter uppräkningen.
+
+**--S2S-handle-ogiltig-metadata** -sträng anger hur ogiltiga nycklar för nycklar hanteras. Tillgängliga alternativ: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (standard ' ExcludeIfInvalid '). (standard "ExcludeIfInvalid")
+
+**--S2S-konserver-Access-Tier**             Bevara åtkomst nivån under tjänst-till-tjänst-kopiering. Se [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) lag rings nivåer för att säkerställa att mål lagrings kontot har stöd för att ange åtkomst nivå. I de fall då det inte finns stöd för att ange åtkomst nivå kan du använda s2sPreserveAccessTier = false för att kringgå kopiering av åtkomst nivå. (standard är sant).  (standard sant)
+
+**--S2S-bevara-egenskaper**              Behåll fullständiga egenskaper under tjänst-till-tjänst-kopiering. För AWS S3 och Azure File non-EnFile Source, returnerar List-åtgärden inte fullständiga egenskaper för objekt och filer. För att bevara fullständig egenskaper måste AzCopy skicka ytterligare en begäran per objekt eller fil. (standard sant)
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-|Alternativ|Beskrivning|
-|---|---|
-|--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
-|--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
+**--Cap-Mbit/s UInt32**      CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.
+
+**--Skriv** sträng format för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är ' text '. (standard text)
 
 ## <a name="see-also"></a>Se också
 

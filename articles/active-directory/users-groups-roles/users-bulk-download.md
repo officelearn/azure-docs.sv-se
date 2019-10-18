@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c59a0b40065be1554e79186227cd2e90d68e7222
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: fd0829afca05058892d3a0ceeb50c9955d792dc3
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174196"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517070"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Hämta en lista med användare (förhands granskning) i Azure Active Directory Portal
 
@@ -35,6 +35,38 @@ Du måste vara inloggad med en användare som är tilldelad en eller flera admin
 1. På sidan **Ladda ned användare** väljer du **Start** för att ta emot en CSV-fil som visar egenskaper för användar profiler. Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för Mass åtgärder. Filen innehåller orsaken för varje fel.
 
    ![Välj var du vill att listan över användare som du vill ladda ned ska hämtas](./media/users-bulk-download/bulk-download.png)
+
+   Nedladdnings filen innehåller den filtrerade listan över användare.
+
+   Följande användarattribut kommer att ingå: 
+
+   - userPrincipalName
+   - displayName
+   - surname
+   - e-post
+   - GivenName
+   - objectId
+   - userType
+   - Befattning
+   - avdelning
+   - Cachehanteraren
+   - AccountEnabled
+   - usageLocation
+   - streetAddress
+   - state
+   - Ursprungslandet
+   - physicalDeliveryOfficeName
+   - city
+   - Post nummer
+   - TelephoneNumber
+   - enheter
+   - authenticationPhoneNumber
+   - authenticationAlternativePhoneNumber
+   - authenticationEmail
+   - alternateEmailAddress
+   - ageGroup
+   - consentProvidedForMinor
+   - legalAgeGroupClassification
 
 ## <a name="check-status"></a>Kontrollera status
 

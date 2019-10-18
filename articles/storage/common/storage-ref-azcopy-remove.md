@@ -4,20 +4,20 @@ description: Den här artikeln innehåller referensinformation för kommandot Az
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0cc366ab2cdad9c7258dca905d8f4a06472119fe
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fc23afb9a407fc2e6689c5c8766cb4beba868269
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195911"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513443"
 ---
-# <a name="azcopy-remove"></a>ta bort AzCopy
+# <a name="azcopy-remove"></a>azcopy ta bort
 
-Tar bort entiteter från Azure Storage Blob, fil och Azure Data Lake Storage Gen2.
+Ta bort blobbar eller filer från ett Azure Storage-konto.
 
 ## <a name="synopsis"></a>Sammanfattning
 
@@ -57,13 +57,24 @@ Ta bort en hel virtuell katalog, men exkludera vissa blobbar från omfånget (ti
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
 ```
 
-Ta bort en enskild fil från Data Lake Storage Gen2 (inkludera och exkludera stöds inte):
+Ta bort vissa blobbar och virtuella kataloger genom att placera deras relativa sökvägar (inte URL-kodade) i en fil:
+
+```azcopy
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/dir]" --recursive=true --list-of-files=/usr/bar/list.txt
+file content:
+  dir1/dir2
+  blob1
+  blob2
+
+```
+
+Ta bort en enskild fil från ett Blob Storage konto som har ett hierarkiskt namn område (inkludera/exkludera stöds inte).
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Ta bort en enskild katalog från Data Lake Storage Gen2 (inkludera och exkludera stöds inte):
+Ta bort en enskild katalog Blob Storage konto som har ett hierarkiskt namn område (inkludera/exkludera stöds inte):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -71,13 +82,21 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Alternativ
 
-|Alternativ|Beskrivning|
-|--|--|
-|--Exkludera sträng|exkludera filer där namnet matchar mönster listan. Till exempel: *. jpg;* . PDF; exactName|
-|-h,--hjälp|Visa hjälp innehåll för kommandot Remove.|
-|--inkludera sträng|Inkludera bara filer där namnet matchar mönster listan. Till exempel: *. jpg;* . PDF; exactName|
-|--sträng på loggnings nivå|Definiera loggens utförlighet för logg filen. Tillgängliga nivåer är: INFORMATION (alla begär Anden/svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information)|
-|--rekursivt|Titta i under kataloger rekursivt vid synkronisering mellan kataloger.|
+**--exkludera-Sök vägs sträng**      Undanta de här Sök vägarna när du tar bort dem. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Till exempel: min mapp, mappen subDirName/File. pdf.
+
+**--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Till exempel: *. jpg;* . PDF; exactName
+
+**-h,--hjälp** för att ta bort
+
+**--include-Path-** sträng innehåller bara dessa sökvägar när de tas bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Till exempel: min mapp, mappen subDirName/File. pdf
+
+**--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Till exempel: *. jpg;* . PDF; exactName
+
+**--list-of-Files** -sträng definierar platsen för en fil som innehåller listan över filer och kataloger som ska tas bort. De relativa Sök vägarna ska avgränsas med rad brytningar och Sök vägarna får inte vara URL-kodade.
+
+**--sträng för logg nivå** definierar loggens utförlighet för logg filen. Tillgängliga nivåer är: INFO (alla begär Anden/svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information) (standard information)
+
+**--rekursivt**                Titta i under kataloger rekursivt vid synkronisering mellan kataloger.
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 

@@ -13,24 +13,21 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08708c23f9c8f4c4a8fc9f2f0aa5cd20d8333a42
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 9d384ea4749e2d0bc7edf8df7ac0508566f2f76b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146341"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517103"
 ---
 # <a name="bulk-remove-group-members-preview-in-azure-active-directory"></a>Mass borttagning av grupp medlemmar (förhands granskning) i Azure Active Directory
 
 Med hjälp av Azure Active Directory-portalen (Azure AD) kan du ta bort ett stort antal medlemmar från en grupp med hjälp av en fil med kommaavgränsade värden (CSV) för Mass borttagning av grupp medlemmar.
 
-> [!NOTE]
-> Azure AD Mass åtgärder är en offentlig för hands version av Azure AD och är tillgängliga med en betald Azure AD-licensserver. Mer information om användnings villkoren för för hands versioner finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versioner.
-
 ## <a name="to-bulk-remove-group-members"></a>För Mass borttagning av grupp medlemmar
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett användar administratörs konto i organisationen. Grupp ägare kan också massredigera medlemmar av grupper som de äger.
-1. I Azure AD väljer du **grupper** > **alla grupper**.
+1. I Azure AD väljer du **grupper**  > **alla grupper**.
 1. Öppna den grupp som du vill ta bort medlemmar från och välj sedan **medlemmar**.
 1. På sidan **medlemmar** väljer du **ta bort medlemmar**.
 1. På sidan **Mass borttagning av grupp medlemmar (förhands granskning)** väljer du **Hämta** för att hämta CSV-filmallen med obligatoriska grupp medlems egenskaper.

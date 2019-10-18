@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: d193dcd0c0539c2daa7220d915fdc3e02c8ea798
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828663"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512435"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Ladda upp en virtuell hård disk till Azure med Azure PowerShell
 
@@ -23,11 +23,11 @@ Om du tillhandahåller en säkerhets kopierings lösning för virtuella IaaS-dat
 
 För närvarande stöds direkt uppladdning för standard hård diskar, standard SSD och Premium SSD-hanterade diskar. Det stöds ännu inte för Ultra SSD.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ladda ned den senaste [versionen av AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installera Azure PowerShell-modul](/powershell/azure/install-Az-ps).
-- Om du tänker Ladda upp en virtuell hård disk från pem: En virtuell hård disk som [har förberetts för Azure](prepare-for-upload-vhd-image.md), lagrats lokalt.
+- Om du tänker Ladda upp en virtuell hård disk från pem: en virtuell hård disk som [har förberetts för Azure](prepare-for-upload-vhd-image.md), lagrat lokalt.
 - Eller en hanterad disk i Azure om du vill utföra en kopierings åtgärd.
 
 ## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
@@ -77,7 +77,7 @@ Den här uppladdningen har samma data flöde som motsvarande [standard-hårddisk
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
-Om din sa upphör att gälla under uppladdningen och du inte `revoke-access` har anropat ännu kan du hämta en ny SAS för att fortsätta `grant-access`med överföringen med, igen.
+Om din sa upphör att gälla under uppladdningen och du inte har anropat `revoke-access` ännu kan du hämta en ny säkerhets Association för att fortsätta med överföringen med `grant-access`.
 
 När uppladdningen är klar och du inte längre behöver skriva mer data till disken ska du återkalla SAS. Att återkalla SAS ändrar statusen för den hanterade disken och låter dig ansluta disken till en virtuell dator.
 
@@ -128,4 +128,4 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 
 Nu när du har laddat upp en virtuell hård disk till en hanterad disk kan du ansluta disken till en virtuell dator och börja använda den.
 
-Information om hur du ansluter en disk till en virtuell dator finns i vår artikel om ämnet: [Koppla en datadisk till en virtuell Windows-dator med PowerShell](attach-disk-ps.md).
+Information om hur du ansluter en datadisk till en virtuell dator finns i vår artikel om ämnet: [koppla en datadisk till en virtuell Windows-dator med PowerShell](attach-disk-ps.md). Om du vill använda disken som operativ system disk, se [skapa en virtuell Windows-dator från en specialiserad disk](create-vm-specialized.md#create-the-new-vm).

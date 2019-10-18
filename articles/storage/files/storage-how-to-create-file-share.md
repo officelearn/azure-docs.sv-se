@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 000dacb7530b52784a68663d295fde9784d50e29
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3b30df7410f56c203eb600089cce130a8de23d1b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013569"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514617"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Skapa en filresurs i Azure Files
 Du kan skapa Azure-filresurser med hjälp av  [Azure-portalen](https://portal.azure.com/), PowerShell-cmdlets för Azure Storage, klientbiblioteken för Azure Storage eller Azure Storage REST-API:et. I den här kursen lär du dig:
@@ -20,8 +20,11 @@ Du kan skapa Azure-filresurser med hjälp av  [Azure-portalen](https://portal.a
 * [Så här skapar du en Azure-filresurs med Powershell](#create-file-share-through-powershell)
 * [Så här skapar du en Azure-filresurs med CLI](#create-file-share-through-command-line-interface-cli)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill skapa en Azure-filresurs, kan du använda ett lagringskonto som redan finns eller [skapa ett nytt Azure Storage-konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du vill skapa en Azure-filresurs med PowerShell behöver du kontonyckeln och namnet på ditt lagringskonto. Du behöver en lagringskontonyckel om du avser att använda Powershell eller CLI.
+
+> [!NOTE]
+> Om du vill skapa fil resurser som är större än 5 TiB kan du läsa artikeln [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="create-a-file-share-through-the-azure-portal"></a>Skapa en filresurs via Azure-portalen
 1. **Gå till bladet Lagringskonto i Azure-portalen**:    
@@ -30,14 +33,14 @@ Om du vill skapa en Azure-filresurs, kan du använda ett lagringskonto som redan
 2. **Klicka på knappen Lägg till filresurs**:    
     ![Klicka på knappen för att lägga till filresurs](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Ange namn och kvot. Kvotens aktuella maxvärde är 5 TiB**:    
+3. **Ange namn och kvot**:    
     ![Ange ett namn och en önskad kvot för den nya filresursen](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
-4. **Visa din nya filresurs**:  ![Visa din nya filresurs](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
+4. **Se den nya filresursen**: ![Se den nya filresursen](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **Överför en fil**:  ![Överför en fil](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **Ladda upp en fil**: ![Ladda upp en fil](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
-6. **Sök i filresursen och hantera dina kataloger och filer**:  ![Sök i filresursen](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
+6. **Bläddra till filresursen och hantera dina kataloger och filer**: ![Bläddra i filresurs](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a name="create-file-share-through-powershell"></a>Skapa filresurs via PowerShell
@@ -92,6 +95,6 @@ Innan du kan använda PowerShell laddar du ned och installerar Azure PowerShell-
 
 Mer information om Azure Files finns på följande länkar.
 
-* [Vanliga frågor och svar](../storage-files-faq.md)
+* [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
 * [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Felsökning i Linux](storage-troubleshoot-linux-file-connection-problems.md)   

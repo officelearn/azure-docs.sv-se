@@ -4,15 +4,15 @@ description: Beskriver klient bibliotek som krävs för klient program och-verkt
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ea14f141ed4fa698a21da8030878b04a81f1d08
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 89f8ffc58458ce75d1acd897f224f61bab9158b4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298658"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512767"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klient bibliotek för anslutning till Azure Analysis Services
 
@@ -44,7 +44,7 @@ Analysis Services använder tre klient bibliotek, även kallade data leverantör
 
 Microsoft-klientprogram som Power BI Desktop och Excel installerar alla tre klient biblioteken och uppdaterar dem när nya versioner är tillgängliga. Beroende på version eller frekvensen av uppdateringar kanske vissa klient bibliotek inte är de senaste versionerna som krävs av Azure Analysis Services. Detsamma gäller för anpassade program eller andra gränssnitt som AsCmd, TOM, ADOMD.NET. Dessa program kräver manuell eller program mässigt installera biblioteken. Klient biblioteken för manuell installation ingår i SQL Server Feature Packs som distribuerbara paket. Dessa klient bibliotek är dock knutna till den SQL Server versionen och kanske inte är det senaste.  
 
-Klient bibliotek för klient anslutningar skiljer sig från data leverantörer som krävs för att ansluta från en Azure Analysis Services-server till en data källa. Mer information om DataSource-anslutningar finns i [DataSource-anslutningar](analysis-services-datasource.md).
+Klient bibliotek för klient anslutningar skiljer sig från data leverantörer som krävs för att ansluta från en Azure Analysis Services-server till en data källa. Mer information om anslutningar för data källor finns i [anslutningar till data källor](analysis-services-datasource.md).
 
 ## <a name="client-library-types"></a>Klient biblioteks typer
 

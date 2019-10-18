@@ -4,18 +4,18 @@ description: Den här artikeln innehåller referensinformation för kommandot Az
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fb6c3b711a89ae7e4ef403a75927c4c6172523d0
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8b4ab0e44f2432056c9c94061c59c99c89a6407d
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195768"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513414"
 ---
-# <a name="azcopy-sync"></a>AzCopy-synkronisering
+# <a name="azcopy-sync"></a>azcopy synkronisering
 
 Replikerar käll platsen till mål platsen.
 
@@ -26,19 +26,18 @@ De senast ändrade tiderna används för jämförelse. Filen hoppas över om den
 De par som stöds är:
 
 - lokal <-> Azure-Blob (SAS-eller OAuth-autentisering kan användas)
+- Azure Blob <-> Azure-Blob (källan måste innehålla en SAS eller är offentligt tillgänglig, antingen SAS-eller OAuth-autentisering kan användas för mål)
+- Azure File <-> Azure-fil (källan måste innehålla en SAS eller är offentligt tillgänglig. SAS-autentisering ska användas för mål)
 
 Kommandot Sync skiljer sig från kommandot Copy på flera sätt:
 
-  1. Den rekursiva flaggan är aktive ras som standard.
-  2. Källan och målet får inte innehålla mönster (till exempel * eller?).
-  3. Flaggorna include och exclude kan vara en lista över mönster matchningar till fil namnen. Se avsnittet exempel för illustration.
-  4. Om det finns filer eller blobbar på det mål som inte finns på källan, uppmanas användaren att ta bort dem.
+1. Som standard är den rekursiva flaggan True och Sync kopierar alla under kataloger. Sync kopierar endast filer på den översta nivån i en katalog om den rekursiva flaggan är falsk.
+2. När du synkroniserar mellan virtuella kataloger lägger du till ett avslutande snedstreck till sökvägen (se exemplen) om det finns en blob med samma namn som en av de virtuella katalogerna.
+3. Om flaggan ' deleteDestination ' har angetts till true eller prompt, kommer synkronisering att ta bort filer och blobbar på det mål som inte finns på källan.
 
-     Den här prompten kan avvisas genom att använda motsvarande flaggor för att automatiskt besvara borttagnings frågan.
+### <a name="advanced"></a>Advanced
 
-### <a name="advanced"></a>Avancerat
-
-AzCopy identifierar automatiskt filernas innehålls typ vid överföring från den lokala disken, baserat på fil namns tillägget eller innehållet (om inget tillägg har angetts).
+Om du inte anger något fil namns tillägg identifierar AzCopy automatiskt filernas innehålls typ vid överföring från den lokala disken, baserat på fil namns tillägget eller innehållet (om inget tillägg har angetts).
 
 Den inbyggda uppslags tabellen är liten, men på UNIX är den förstärkt av det lokala systemets MIME. typ fil (er) om de är tillgängliga under ett eller flera av följande namn:
 
@@ -96,22 +95,55 @@ Synkronisera en hel katalog, men undanta vissa filer från omfånget (till exemp
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
 ```
 
+Synkronisera en enskild BLOB:
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+
+Sync a virtual directory:
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=true
+```
+
+Synkronisera en virtuell katalog som har samma namn som en BLOB (Lägg till ett avslutande snedstreck till sökvägen i ordningen till disambiguate):
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/" --recursive=true
+```
+
+Synkronisera en Azure-fil katalog (samma syntax som BLOB):
+
+```azcopy
+azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]" --recursive=true
+```
+
 > [!NOTE]
-> om inkludera/utelämna-flaggor används tillsammans, kommer endast filer som matchar include-mönster att titta på, men de som matchar de uteslutna mönstren skulle alltid ignoreras.
+> Om inkludera/utelämna-flaggor används tillsammans, kommer endast filer som matchar include-mönster att titta på, men de som matchar de uteslutna mönstren skulle alltid ignoreras.
 
 ## <a name="options"></a>Alternativ
 
-|Alternativ|Beskrivning|
-|--|--|
-|--block-size-MB Float|Använd den här block storleken (anges i MiB) när du överför till Azure Storage eller laddar ned från Azure Storage. Standardvärdet beräknas automatiskt baserat på fil storlek. Decimal tal tillåts (till exempel: 0,25).|
-|--kontrol lera-MD5-sträng|Anger hur strikta MD5-hashar ska val IDE ras vid hämtning. Det här alternativet är endast tillgängligt vid hämtning. Tillgängliga värden är: Nocheck, inloggning, FailIfDifferent, FailIfDifferentOrMissing. (standard "FailIfDifferent").|
-|--Delete-destinations sträng|Anger om du vill ta bort extra filer från målet som inte finns på källan. Kan anges till true, false eller prompt. Om alternativet är inställt uppmanas användaren att ange en fråga innan de schemalägger filer och blobbar för borttagning. (standard "falskt").|
-|--Exkludera sträng|Exkludera filer där namnet matchar mönster listan. Till exempel: *. jpg;* . PDF; exactName.|
-|-h,--hjälp|Visa hjälp innehåll för Sync-kommandot.|
-|--inkludera sträng|Inkludera endast filer där namnet matchar mönster listan. Till exempel: *. jpg;* . PDF; exactName.|
-|--sträng på loggnings nivå|Definiera loggens utförlighet för logg filen, tillgängliga nivåer: INFORMATION (alla begär Anden/svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information).|
-|--Skicka-MD5|Skapa en MD5-hash av varje fil och spara hashen som Content-MD5-egenskapen för Målmatrisen eller-filen. (Som standard skapas inte hashen.) Endast tillgängligt vid uppladdning.|
-|--rekursivt|Sant som standard tittar du på under kataloger rekursivt vid synkronisering mellan kataloger. (standard är sant).|
+**--block-size-MB** float Använd den här block storleken (anges i MIB) vid överföring till Azure Storage eller nedladdning från Azure Storage. Standardvärdet beräknas automatiskt baserat på fil storlek. Decimal tal tillåts (till exempel: 0,25).
+
+**--kontrol lera-MD5-** sträng anger hur strikt MD5-hashar ska verifieras vid hämtning. Det här alternativet är endast tillgängligt vid hämtning. Tillgängliga värden är: nocheck, inloggning, FailIfDifferent, FailIfDifferentOrMissing. (standard ' FailIfDifferent '). (standard "FailIfDifferent")
+
+**--Delete-destinations** sträng anger om du vill ta bort extra filer från målet som inte finns på källan. Kan anges till true, false eller prompt. Om alternativet är inställt uppmanas användaren att ange en fråga innan de schemalägger filer och blobbar för borttagning. (standard är falskt). (standard "falskt")
+
+**--sträng för exkludera attribut** (endast Windows) Uteslut filer vars attribut matchar attributlistan. Till exempel: A; Na R
+
+**--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Till exempel: *. jpg;* . PDF; exactName
+
+**-h,--hjälp** hjälp för synkronisering
+
+**--include-attribut** sträng (endast Windows) inkludera endast filer vars attribut stämmer överens med attributlistan. Till exempel: A; Na R
+
+**--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Till exempel: *. jpg;* . PDF; exactName
+
+**--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: info (alla begär Anden och svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information). (standard information)
+
+**--Skicka-MD5**                     Skapa en MD5-hash av varje fil och spara hashen som Content-MD5-egenskapen för Målmatrisen eller-filen. (Som standard skapas inte hashen.) Endast tillgängligt vid uppladdning.
+
+**--rekursivt**                   Sant som standard tittar du på under kataloger rekursivt vid synkronisering mellan kataloger. (standard är sant). (standard sant)
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 

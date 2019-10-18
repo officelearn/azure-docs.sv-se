@@ -1,5 +1,5 @@
 ---
-title: Skapa flera resursinstanser med Azure Resource Manager | Microsoft Docs
+title: Skapa flera resurs instanser – Azure Resource Manager
 description: Lär dig hur du skapar en Azure Resource Manager-mall för att distribuera flera resurser.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf2559b280a1c43269c0cf45d77ee98dcd5ee5a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388802"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528263"
 ---
-# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Självstudier: Skapa flera resursinstanser med Resource Manager-mallar
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Självstudie: Skapa flera resursinstanser med Resource Manager-mallar
 
 Lär dig hur du upprepar en Azure Resource Manager-mall för att distribuera flera instanser av en Azure-resurs. I den här självstudien ändrar du en mall för att skapa tre lagringskontoinstanser.
 
-![Azure Resource Manager skapar diagram för flera instanser](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+![Skapa diagram med Azure Resource Manager flera instanser](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -35,7 +35,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -52,7 +52,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Välj **Öppna** för att öppna filen.
-4. Det finns en resurs med namnet ”Microsoft.Storage/storageAccounts” definierad i mallen. Jämför mallen med [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+4. Det finns en resurs med namnet ”Microsoft.Storage/storageAccounts” definierad i mallen. Jämför mallen med [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
 5. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy.json** till den lokala datorn.
 
 ## <a name="edit-the-template"></a>Redigera mallen
@@ -64,7 +64,7 @@ Från Visual Studio Code gör du följande fyra ändringar:
 ![Azure Resource Manager skapar flera instanser](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. Lägg till elementet `copy` i resursdefinitionen för lagringskontot. I kopieringselementet anger du antalet iterationer och en variabel för den här loopen. Värdet för antal måste vara ett positivt heltal och får inte överskrida 800.
-2. Funktionen `copyIndex()` returnerar den aktuella iterationen i loopen. Du kan använda indexet som namnprefix. `copyIndex()` är nollbaserat. Om du vill åsidosätta indexvärdet kan du skicka ett värde i funktionen copyIndex(). Till exempel *copyIndex(1)*.
+2. Funktionen `copyIndex()` returnerar den aktuella iterationen i loopen. Du kan använda indexet som namnprefix. `copyIndex()` är nollbaserat. Om du vill åsidosätta indexvärdet kan du skicka ett värde i funktionen copyIndex(). Till exempel *copyIndex(1)* .
 3. Ta bort elementet **variabler** eftersom det inte används längre.
 4. Ta bort element **Utdata**. Det behövs inte längre.
 

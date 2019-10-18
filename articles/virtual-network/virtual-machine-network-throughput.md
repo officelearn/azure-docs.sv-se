@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f5694e18d5743118e2b6e73708dd3acb17151198
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 68fe50c75fc25106a0f47af8bf6cfc0db562fbe5
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874928"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529114"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Nätverks bandbredd för virtuell dator
 
@@ -39,10 +39,10 @@ Virtuella Azure-datorer måste ha en, men kan ha flera nätverks gränssnitt ans
 Förväntat utgående data flöde och antalet nätverks gränssnitt som stöds av varje VM-storlek beskrivs i Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -och [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM-storlekar. Välj en typ, till exempel generell användning, och välj sedan en storleks serie på den resulterande sidan, till exempel Dv2-serien. Varje serie har en tabell med nätverks specifikationer i den sista kolumnen med rubriken, **högsta antal nätverkskort/förväntade nätverks prestanda (Mbit/s)** . 
 
 Data flödes gränsen gäller för den virtuella datorn. Data flödet påverkas inte av följande faktorer:
-- **Antal nätverks gränssnitt**: Bandbredds gränsen är ackumulerad för all utgående trafik från den virtuella datorn.
-- **Accelererat nätverk**: Även om funktionen kan vara till hjälp vid att uppnå den publicerade gränsen, ändras inte gränsen.
-- **Trafik mål**: Alla destinationer räknas mot utgående gräns.
-- **Protokoll**: All utgående trafik över alla protokoll räknas mot gränsen.
+- **Antal nätverks gränssnitt**: bandbredds gränsen är ackumulerad för all utgående trafik från den virtuella datorn.
+- **Accelererat nätverk**: även om funktionen kan vara till hjälp när du uppnår den publicerade gränsen ändras inte gränsen.
+- **Trafik mål**: alla destinationer räknas mot utgående gräns.
+- **Protokoll**: all utgående trafik över alla protokoll räknas mot gränsen.
 
 ## <a name="network-flow-limits"></a>Nätverks flödes gränser
 
@@ -60,11 +60,11 @@ Idag stöder Azure Networking stack 250 000 totala nätverks flöden med höga p
 |---|---|---|
 |<b>Bästa prestanda</b>|100 000 flöden |250 000 flöden|
 |<b>Försämrade prestanda</b>|Över 100 000 flöden|Över 250 000 flöden|
-|<b>Flödes gräns</b>|1 miljon flöden|1 miljon flöden|
+|<b>Flödes gräns</b>|500 000 flöden|500 000 flöden|
 
 Mått är tillgängliga i [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) för att spåra antalet nätverks flöden och takten för skapande av flödet på den virtuella datorn eller VMSS-instanser.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![Azure-Monitor-Flow-Metrics. png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
 Etablerings takten och termins taxan för anslutning kan också påverka nätverks prestanda som upprättande av anslutningar och avsluta delar CPU med paket bearbetnings rutiner. Vi rekommenderar att du benchmark-arbetsbelastningar mot förväntade trafik mönster och skalar ut arbets belastningar på lämpligt sätt för att matcha dina prestanda behov. 
 

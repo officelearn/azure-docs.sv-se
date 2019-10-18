@@ -16,10 +16,10 @@ ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a77c0e38db06698e714c3d0c3df0d9a5f028787b
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71672940"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
@@ -61,7 +61,7 @@ Under den här fasen planerar du migreringen av din SAP-arbetsbelastning till Az
         - För hög tillgänglighet i en zon, kontrol lera vad det önskade DBMS: t har att erbjuda i Azure. De flesta DBMS-paket erbjuder synkrona metoder för synkron snabb växling, som vi rekommenderar för produktions system. Kontrol lera också den SAP-relaterade dokumentationen för olika databaser och börja med [att tänka på för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) och relaterade dokument.
            Använd Windows Server-redundanskluster med en delad disk konfiguration för DBMS-skiktet som, till exempel, som [beskrivs för SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), inte stöds. Använd i stället lösningar som:
            - [SQL Server Always on](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
-           - [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+           - [Oracle data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
            - [HANA-systemreplikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - För haveri beredskap i Azure-regioner granskar du de lösningar som erbjuds av olika DBMS-leverantörer. De flesta av dem stöder asynkron replikering eller logg överföring.
         - För SAP-program skiktet bestämmer du om du ska köra dina Business regression-testsystem, som är idealiska för repliker av dina produktions distributioner, i samma Azure-region eller i din DR-region. I det andra fallet kan du rikta in dig på Business regression-systemet som DR-mål för dina produktions distributioner.

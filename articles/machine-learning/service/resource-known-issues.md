@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: b69eda59c9c8032510df036d3aa0d160105fbc16
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286543"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533173"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -37,7 +37,7 @@ Du kanske vill köra ett experiment endast innehåller data uppsättning för at
  
 Före korrigeringen kan du ansluta data uppsättningen till en datatransformerings-modul (Välj kolumner i data uppsättning, redigera metadata, dela data osv.) och köra experimentet. Sedan kan du visualisera data uppsättningen. 
 
-Bilden nedan visar hur: ![visulize-data @ no__t-1
+Bilden nedan visar hur: ![visulize-data ](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Installations problem för SDK
 
@@ -101,7 +101,7 @@ När du använder automatiserade maskin inlärnings funktioner på Azure Databri
 
 ### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iterationer för automatisk maskin inlärning
 
-I automatiska inställningar för maskin inlärning, om du har fler än 10 iterationer, anger du `show_output` till `False` när du skickar körningen.
+I automatiska inställningar för maskin inlärning, om du har fler än 10 iterationer, ställer du in `show_output` till `False` när du skickar körningen.
 
 ### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget för Azure Machine Learning SDK/Automatisk maskin inlärning
 
@@ -130,7 +130,7 @@ Om de här stegen inte löser problemet kan du försöka med att starta om klust
 
 Om du ser ett `FailToSendFeather`-fel vid läsning av data på Azure Databricks-kluster, se följande lösningar:
 
-* Uppgradera `azureml-sdk[automl_databricks]`-paketet till den senaste versionen.
+* Uppgradera `azureml-sdk[automl]`-paketet till den senaste versionen.
 * Lägg till `azure-dataprep` version 1.1.8 eller senare.
 * Lägg till `pyarrow` version 0,11 eller senare.
 
@@ -218,7 +218,7 @@ kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes lagrar hemligheterna i Base-64-kodat format. Du måste ange Base-64-avkoda `cert.pem`-och `key.pem`-komponenterna i hemligheterna innan de kan `attach_config.enable_ssl`. 
+>Kubernetes lagrar hemligheterna i Base-64-kodat format. Du måste basera-64-avkoda `cert.pem` och `key.pem` komponenter i hemligheterna innan de kan `attach_config.enable_ssl`. 
 
 ## <a name="recommendations-for-error-fix"></a>Rekommendationer för fel korrigering
 Här följer Azure ML-rekommendationer för att åtgärda några av de vanliga felen i Azure ML, baserat på allmän observation.
@@ -226,7 +226,7 @@ Här följer Azure ML-rekommendationer för att åtgärda några av de vanliga f
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (ingen modul med namnet)
 Om du kör i ModuleErrors när du skickar experiment i Azure ML, innebär det att utbildnings skriptet förväntar sig att ett paket ska installeras men inte läggs till. När du har angett paket namnet kommer Azure ML att installera paketet i den miljö som används för din utbildning. 
 
-Om du använder [uppskattningar](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages`-parametern i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file`or för att visa alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file`-parameter.
+Om du använder [uppskattningar](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file`or lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parameter.
 
 Azure ML tillhandahåller också Ramverks uppskattningar för Tensorflow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att Ramverks beroenden är installerade på din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
  

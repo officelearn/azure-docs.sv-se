@@ -1,17 +1,17 @@
 ---
-title: Azure Resource Manager slutfört läge borttagning efter resurs typ
+title: Borttagning av Azure Resource Manager slutfört läge
 description: Visar hur resurs typer hanterar fullständig borttagning av läge i Azure Resource Manager mallar.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: cdc00ccc61e20865e993a18c72b930d9570896f2
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: de1b5080e72f79626ca0c749efe4122721f14922
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937040"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528582"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för komplett läges distributioner
 
@@ -23,156 +23,156 @@ Resurs typerna som marker ATS med **Nej** tas inte bort automatiskt när de inte
 
 Hoppa till ett namn område för en resurs leverantör:
 > [!div class="op_single_selector"]
-> - [Microsoft.AAD](#microsoftaad)
+> - [Microsoft. AAD](#microsoftaad)
 > - [Microsoft. addons](#microsoftaddons)
 > - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft. Advisor](#microsoftadvisor)
-> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
-> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
-> - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft. AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft. AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft. API Management](#microsoftapimanagement)
 > - [Microsoft. AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft. AppPlatform](#microsoftappplatform)
 > - [Microsoft. attestering](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
-> - [Microsoft.Automation](#microsoftautomation)
+> - [Microsoft. Automation](#microsoftautomation)
 > - [Microsoft. Azconfig](#microsoftazconfig)
 > - [Microsoft. Azure. Genève](#microsoftazuregeneva)
-> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft. AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [Microsoft. AzureData](#microsoftazuredata)
-> - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Batch](#microsoftbatch)
+> - [Microsoft. AzureStack](#microsoftazurestack)
+> - [Microsoft. batch](#microsoftbatch)
 > - [Microsoft. fakturering](#microsoftbilling)
-> - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.Blockchain](#microsoftblockchain)
-> - [Microsoft.Blueprint](#microsoftblueprint)
-> - [Microsoft.BotService](#microsoftbotservice)
-> - [Microsoft.Cache](#microsoftcache)
+> - [Microsoft. Bingkartssökning](#microsoftbingmaps)
+> - [Microsoft. blockchain](#microsoftblockchain)
+> - [Microsoft. skiss](#microsoftblueprint)
+> - [Microsoft. BotService](#microsoftbotservice)
+> - [Microsoft. cache](#microsoftcache)
 > - [Microsoft. Capacity](#microsoftcapacity)
-> - [Microsoft.Cdn](#microsoftcdn)
-> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
-> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft. CDN](#microsoftcdn)
+> - [Microsoft. CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft. ClassicCompute](#microsoftclassiccompute)
 > - [Microsoft. ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
-> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
-> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
-> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft. ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft. ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft. Commerce](#microsoftcommerce)
-> - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft. Compute](#microsoftcompute)
 > - [Microsoft. förbrukning](#microsoftconsumption)
 > - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
-> - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
-> - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
-> - [Microsoft.CostManagement](#microsoftcostmanagement)
+> - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
+> - [Microsoft. container service](#microsoftcontainerservice)
+> - [Microsoft. ContentModerator](#microsoftcontentmoderator)
+> - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft. CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
-> - [Microsoft.DataBox](#microsoftdatabox)
-> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft. data-](#microsoftdatabox)
+> - [Microsoft. DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft. Databricks](#microsoftdatabricks)
-> - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataFactory](#microsoftdatafactory)
-> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
-> - [Microsoft.DataLakeStore](#microsoftdatalakestore)
-> - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft. DataCatalog](#microsoftdatacatalog)
+> - [Microsoft. DataFactory](#microsoftdatafactory)
+> - [Microsoft. DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [Microsoft. DataLakeStore](#microsoftdatalakestore)
+> - [Microsoft. data migration](#microsoftdatamigration)
 > - [Microsoft. DataShare](#microsoftdatashare)
-> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
-> - [Microsoft.DBforMySQL](#microsoftdbformysql)
-> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
-> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft. DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft. DBforMySQL](#microsoftdbformysql)
+> - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft. DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft.Devices](#microsoftdevices)
+> - [Microsoft. Devices](#microsoftdevices)
 > - [Microsoft. DevOps](#microsoftdevops)
-> - [Microsoft.DevSpaces](#microsoftdevspaces)
-> - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [Microsoft.DocumentDB](#microsoftdocumentdb)
-> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft. DevSpaces](#microsoftdevspaces)
+> - [Microsoft. DevTestLab](#microsoftdevtestlab)
+> - [Microsoft. DocumentDB](#microsoftdocumentdb)
+> - [Microsoft. DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft. DynamicsLcs](#microsoftdynamicslcs)
-> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
-> - [Microsoft.EventGrid](#microsofteventgrid)
-> - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft. EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft. EventGrid](#microsofteventgrid)
+> - [Microsoft. EventHub](#microsofteventhub)
 > - [Microsoft. features](#microsoftfeatures)
 > - [Microsoft. Gallery](#microsoftgallery)
-> - [Microsoft.Genomics](#microsoftgenomics)
+> - [Microsoft. genomik](#microsoftgenomics)
 > - [Microsoft. GuestConfiguration](#microsoftguestconfiguration)
-> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft. HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft. HardwareSecurityModules](#microsofthardwaresecuritymodules)
-> - [Microsoft.HDInsight](#microsofthdinsight)
-> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
-> - [Microsoft.HybridCompute](#microsofthybridcompute)
-> - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft. HDInsight](#microsofthdinsight)
+> - [Microsoft. HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft. HybridCompute](#microsofthybridcompute)
+> - [Microsoft. HybridData](#microsofthybriddata)
 > - [Microsoft. Hydra](#microsofthydra)
-> - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft. ImportExport](#microsoftimportexport)
 > - [Microsoft. Intune](#microsoftintune)
-> - [Microsoft.IoTCentral](#microsoftiotcentral)
-> - [Microsoft.IoTSpaces](#microsoftiotspaces)
-> - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft.Kusto](#microsoftkusto)
-> - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.Logic](#microsoftlogic)
-> - [Microsoft.MachineLearning](#microsoftmachinelearning)
-> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft. IoTCentral](#microsoftiotcentral)
+> - [Microsoft. IoTSpaces](#microsoftiotspaces)
+> - [Microsoft. nyckel valv](#microsoftkeyvault)
+> - [Microsoft. Kusto](#microsoftkusto)
+> - [Microsoft. LabServices](#microsoftlabservices)
+> - [Microsoft. Logic](#microsoftlogic)
+> - [Microsoft. MachineLearning](#microsoftmachinelearning)
+> - [Microsoft. MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft. ManagedIdentity](#microsoftmanagedidentity)
 > - [Microsoft. ManagedServices](#microsoftmanagedservices)
 > - [Microsoft. Management](#microsoftmanagement)
-> - [Microsoft.Maps](#microsoftmaps)
+> - [Microsoft. Maps](#microsoftmaps)
 > - [Microsoft. Marketplace](#microsoftmarketplace)
-> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft. MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft. MarketplaceOrdering](#microsoftmarketplaceordering)
-> - [Microsoft.Media](#microsoftmedia)
+> - [Microsoft. Media](#microsoftmedia)
 > - [Microsoft. Microservices4Spring](#microsoftmicroservices4spring)
-> - [Microsoft.Migrate](#microsoftmigrate)
+> - [Microsoft. Migrate](#microsoftmigrate)
 > - [Microsoft. MixedReality](#microsoftmixedreality)
-> - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Network](#microsoftnetwork)
-> - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft. NetApp](#microsoftnetapp)
+> - [Microsoft. Network](#microsoftnetwork)
+> - [Microsoft. NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft. ObjectStore](#microsoftobjectstore)
 > - [Microsoft. OffAzure](#microsoftoffazure)
 > - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
-> - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft. OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft. peering](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
-> - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PowerBI](#microsoftpowerbi)
-> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft. Portal](#microsoftportal)
+> - [Microsoft. PowerBI](#microsoftpowerbi)
+> - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft. RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft. Relay](#microsoftrelay)
 > - [Microsoft. RemoteApp](#microsoftremoteapp)
 > - [Microsoft. ResourceGraph](#microsoftresourcegraph)
 > - [Microsoft. ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft. Resources](#microsoftresources)
-> - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
-> - [Microsoft.Search](#microsoftsearch)
-> - [Microsoft.Security](#microsoftsecurity)
+> - [Microsoft. SaaS](#microsoftsaas)
+> - [Microsoft. Scheduler](#microsoftscheduler)
+> - [Microsoft. search](#microsoftsearch)
+> - [Microsoft. Security](#microsoftsecurity)
 > - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
 > - [Microsoft. SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
-> - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft. ServiceFabric](#microsoftservicefabric)
+> - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft. Services](#microsoftservices)
-> - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft. SignalRService](#microsoftsignalrservice)
+> - [Microsoft. SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
-> - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft. Solutions](#microsoftsolutions)
 > - [Microsoft. SQL](#microsoftsql)
-> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft.StorageCache](#microsoftstoragecache)
+> - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft. Storage](#microsoftstorage)
+> - [Microsoft. StorageCache](#microsoftstoragecache)
 > - [Microsoft. StorageReplication](#microsoftstoragereplication)
-> - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
-> - [Microsoft.StorSimple](#microsoftstorsimple)
-> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft. StorageSync](#microsoftstoragesync)
+> - [Microsoft. StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft. StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft. StorSimple](#microsoftstorsimple)
+> - [Microsoft. StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft. Subscription](#microsoftsubscription)
-> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft.Web](#microsoftweb)
+> - [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft. VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft. Web](#microsoftweb)
 > - [Microsoft. WindowsDefenderATP](#microsoftwindowsdefenderatp)
-> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft. WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft. WorkloadMonitor](#microsoftworkloadmonitor)
 
-## <a name="microsoftaad"></a>Microsoft.AAD
+## <a name="microsoftaad"></a>Microsoft. AAD
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -188,33 +188,33 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | supportProviders | Nej |
 
-## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
+## <a name="microsoftadhybridhealthservice"></a>Microsoft. ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | aadsupportcases | Nej |
 > | addsservices | Nej |
-> | Aktörer | Nej |
+> | aktörer | Nej |
 > | anonymousapiusers | Nej |
 > | konfiguration | Nej |
-> | logs | Nej |
-> | rapporter | Nej |
+> | loggar | Nej |
+> | Rapporter | Nej |
 > | servicehealthmetrics | Nej |
-> | tjänster | Nej |
+> | services | Nej |
 
-## <a name="microsoftadvisor"></a>Microsoft.Advisor
+## <a name="microsoftadvisor"></a>Microsoft. Advisor
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | konfigurationer | Nej |
+> | Konfigurationer | Nej |
 > | generateRecommendations | Nej |
 > | metadata | Nej |
-> | rekommendationer | Nej |
+> | Rekommenderade | Nej |
 > | utelämningar | Nej |
 
-## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+## <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -230,14 +230,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | smartDetectorRuntimeEnvironments | Nej |
 > | smartGroups | Nej |
 
-## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
+## <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | servrar | Ja |
 
-## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
+## <a name="microsoftapimanagement"></a>Microsoft. API Management
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -259,9 +259,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Fjäder | Ja |
+> | Spring | Ja |
 
-## <a name="microsoftattestation"></a>Microsoft.Attestation
+## <a name="microsoftattestation"></a>Microsoft. attestering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -278,7 +278,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | denyAssignments | Nej |
 > | elevateAccess | Nej |
 > | hålls | Nej |
-> | behörigheter | Nej |
+> | Åtkomst | Nej |
 > | policyAssignments | Nej |
 > | policyDefinitions | Nej |
 > | policySetDefinitions | Nej |
@@ -286,17 +286,17 @@ Hoppa till ett namn område för en resurs leverantör:
 > | roleAssignments | Nej |
 > | roleDefinitions | Nej |
 
-## <a name="microsoftautomation"></a>Microsoft.Automation
+## <a name="microsoftautomation"></a>Microsoft. Automation
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | AutomationAccounts | Ja |
+> | automationAccounts | Ja |
 > | automationAccounts/konfigurationer | Ja |
 > | automationAccounts/jobb | Nej |
 > | automationAccounts/Runbooks | Ja |
 > | automationAccounts/softwareUpdateConfigurations | Nej |
-> | automationAccounts/webhooks | Nej |
+> | automationAccounts/Webhooks | Nej |
 
 ## <a name="microsoftazconfig"></a>Microsoft. Azconfig
 
@@ -306,7 +306,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | configurationStores | Ja |
 > | configurationStores/eventGridFilters | Nej |
 
-## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
+## <a name="microsoftazuregeneva"></a>Microsoft. Azure. Genève
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -316,7 +316,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | miljöer/konton/namn områden | Nej |
 > | miljöer/konton/namn rymder/konfigurationer | Nej |
 
-## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
+## <a name="microsoftazureactivedirectory"></a>Microsoft. AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -336,7 +336,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | sqlServerRegistrations | Ja |
 > | sqlServerRegistrations/sqlServer | Nej |
 
-## <a name="microsoftazurestack"></a>Microsoft.AzureStack
+## <a name="microsoftazurestack"></a>Microsoft. AzureStack
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -352,7 +352,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | batchAccounts | Ja |
 
-## <a name="microsoftbilling"></a>Microsoft.Billing
+## <a name="microsoftbilling"></a>Microsoft. fakturering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -422,11 +422,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/produkter | Nej |
 > | billingAccounts/transaktioner | Nej |
 > | billingPeriods | Nej |
-> | BillingPermissions | Nej |
+> | billingPermissions | Nej |
 > | billingProperty | Nej |
-> | BillingRoleAssignments | Nej |
-> | BillingRoleDefinitions | Nej |
-> | CreateBillingRoleAssignment | Nej |
+> | billingRoleAssignments | Nej |
+> | billingRoleDefinitions | Nej |
+> | createBillingRoleAssignment | Nej |
 > | enheten | Nej |
 > | enrollmentAccounts | Nej |
 > | fakturor | Nej |
@@ -437,7 +437,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | överföringar/validateTransfer | Nej |
 > | validateAddress | Nej |
 
-## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
+## <a name="microsoftbingmaps"></a>Microsoft. Bingkartssökning
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -445,7 +445,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | mapApis | Ja |
 > | updateCommunicationPreference | Nej |
 
-## <a name="microsoftblockchain"></a>Microsoft.Blockchain
+## <a name="microsoftblockchain"></a>Microsoft. blockchain
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -453,7 +453,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | blockchainMembers | Ja |
 > | tittare | Ja |
 
-## <a name="microsoftblueprint"></a>Microsoft.Blueprint
+## <a name="microsoftblueprint"></a>Microsoft. skiss
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -464,20 +464,20 @@ Hoppa till ett namn område för en resurs leverantör:
 > | modeller | Nej |
 > | skisser/artefakter | Nej |
 > | skisser/versioner | Nej |
-> | blueprints/versions/artifacts | Nej |
+> | skisser/versioner/artefakter | Nej |
 
-## <a name="microsoftbotservice"></a>Microsoft.BotService
+## <a name="microsoftbotservice"></a>Microsoft. BotService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | botServices | Ja |
-> | botServices/channels | Nej |
+> | botServices/kanaler | Nej |
 > | botServices/anslutningar | Nej |
 > | Användning | Nej |
 > | mallar | Nej |
 
-## <a name="microsoftcache"></a>Microsoft.Cache
+## <a name="microsoftcache"></a>Microsoft. cache
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -485,7 +485,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Redis | Ja |
 > | RedisConfigDefinition | Nej |
 
-## <a name="microsoftcapacity"></a>Microsoft.Capacity
+## <a name="microsoftcapacity"></a>Microsoft. Capacity
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -504,13 +504,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | reservationOrders/reservationer | Nej |
 > | reservationOrders/reservationer/revisioner | Nej |
 > | reservationOrders/retur | Nej |
-> | reservationOrders/split | Nej |
+> | reservationOrders/Split | Nej |
 > | reservationOrders/växling | Nej |
-> | reservationer | Nej |
-> | resurser | Nej |
+> | reservera | Nej |
+> | Resurser | Nej |
 > | validateReservationOrder | Nej |
 
-## <a name="microsoftcdn"></a>Microsoft.Cdn
+## <a name="microsoftcdn"></a>Microsoft. CDN
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -518,13 +518,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | CdnWebApplicationFirewallManagedRuleSets | Nej |
 > | CdnWebApplicationFirewallPolicies | Ja |
 > | edgenodes | Nej |
-> | profiles | Ja |
+> | filer | Ja |
 > | profiler/slut punkter | Ja |
 > | profiler/slut punkter/customdomains | Nej |
 > | profiler/slut punkter/ursprung | Nej |
 > | validateProbe | Nej |
 
-## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
+## <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -538,7 +538,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | trådlösa | Nej |
+> | Trådlösa | Nej |
 > | Domän namn | Ja |
 > | Domän namn/funktioner | Nej |
 > | Domän namn/internalLoadBalancers | Nej |
@@ -553,7 +553,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | quotas | Nej |
 > | resourceTypes | Nej |
 > | validateSubscriptionMoveAvailability | Nej |
-> | virtualMachines | Ja |
+> | VirtualMachines | Ja |
 > | virtualMachines/diagnosticSettings | Nej |
 > | virtualMachines/metricDefinitions | Nej |
 > | virtualMachines/mått | Nej |
@@ -565,12 +565,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | classicInfrastructureResources | Nej |
 
-## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
+## <a name="microsoftclassicnetwork"></a>Microsoft. ClassicNetwork
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | trådlösa | Nej |
+> | Trådlösa | Nej |
 > | expressRouteCrossConnections | Nej |
 > | expressRouteCrossConnections/peering | Nej |
 > | gatewaySupportedDevices | Nej |
@@ -581,14 +581,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | virtualNetworks/remoteVirtualNetworkPeeringProxies | Nej |
 > | virtualNetworks/virtualNetworkPeerings | Nej |
 
-## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
+## <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | trådlösa | Nej |
-> | Diskar | Nej |
-> | avbildningar | Nej |
+> | Trådlösa | Nej |
+> | disk | Nej |
+> | images | Nej |
 > | osImages | Nej |
 > | osPlatformImages | Nej |
 > | publicImages | Nej |
@@ -600,21 +600,21 @@ Hoppa till ett namn område för en resurs leverantör:
 > | storageAccounts/mått | Nej |
 > | storageAccounts/queueServices | Nej |
 > | storageAccounts/tjänster | Nej |
-> | storageAccounts/services/diagnosticSettings | Nej |
+> | storageAccounts/tjänster/diagnosticSettings | Nej |
 > | storageAccounts/tjänster/metricDefinitions | Nej |
 > | storageAccounts/tjänster/mått | Nej |
 > | storageAccounts/tableServices | Nej |
 > | storageAccounts/vmImages | Nej |
 > | vmImages | Nej |
 
-## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
+## <a name="microsoftcognitiveservices"></a>Microsoft. CognitiveServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
 
-## <a name="microsoftcommerce"></a>Microsoft.Commerce
+## <a name="microsoftcommerce"></a>Microsoft. Commerce
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -629,7 +629,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | availabilitySets | Ja |
 > | diskEncryptionSets | Ja |
-> | Diskar | Ja |
+> | disk | Ja |
 > | gallerier | Ja |
 > | gallerier/program | Nej |
 > | gallerier/program/versioner | Nej |
@@ -637,24 +637,24 @@ Hoppa till ett namn område för en resurs leverantör:
 > | gallerier/avbildningar/versioner | Nej |
 > | hostGroups | Ja |
 > | hostGroups/värdar | Ja |
-> | avbildningar | Ja |
+> | images | Ja |
 > | proximityPlacementGroups | Ja |
 > | restorePointCollections | Ja |
 > | restorePointCollections/restorePoints | Nej |
 > | sharedVMImages | Ja |
 > | sharedVMImages/versioner | Nej |
-> | ögonblicksbilder | Ja |
-> | virtualMachines | Ja |
+> | snapshots | Ja |
+> | VirtualMachines | Ja |
 > | virtualMachines/tillägg | Ja |
 > | virtualMachines/metricDefinitions | Nej |
 > | virtualMachineScaleSets | Ja |
-> | virtualMachineScaleSets/extensions | Nej |
+> | virtualMachineScaleSets/tillägg | Nej |
 > | virtualMachineScaleSets/networkInterfaces | Nej |
 > | virtualMachineScaleSets/publicIPAddresses | Nej |
 > | virtualMachineScaleSets/virtualMachines | Nej |
 > | virtualMachineScaleSets/virtualMachines/networkInterfaces | Nej |
 
-## <a name="microsoftconsumption"></a>Microsoft.Consumption
+## <a name="microsoftconsumption"></a>Microsoft. förbrukning
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -665,7 +665,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Avgifter | Nej |
 > | CostTags | Nej |
 > | krediter | Nej |
-> | händelser | Nej |
+> | evenemang | Nej |
 > | Prognoser | Nej |
 > | samtliga | Nej |
 > | Marknads platser | Nej |
@@ -675,12 +675,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ReservationRecommendations | Nej |
 > | ReservationSummaries | Nej |
 > | ReservationTransactions | Nej |
-> | Tags | Nej |
-> | klienter | Nej |
+> | Taggar | Nej |
+> | Klienter | Nej |
 > | Villkor | Nej |
 > | UsageDetails | Nej |
 
-## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
+## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -688,7 +688,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | containerGroups | Ja |
 > | serviceAssociationLinks | Nej |
 
-## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
+## <a name="microsoftcontainerregistry"></a>Microsoft. ContainerRegistry
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -699,8 +699,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | register/build/getLogLink | Nej |
 > | register/buildTasks | Ja |
 > | register/buildTasks/steg | Nej |
-> | registries/eventGridFilters | Nej |
-> | registries/getBuildSourceUploadUrl | Nej |
+> | register/eventGridFilters | Nej |
+> | register/getBuildSourceUploadUrl | Nej |
 > | register/GetCredentials | Nej |
 > | register/importImage | Nej |
 > | register/queueBuild | Nej |
@@ -711,12 +711,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | register/körningar/Avbryt | Nej |
 > | register/scheduleRun | Nej |
 > | register/uppgifter | Ja |
-> | registries/updatePolicies | Nej |
+> | register/updatePolicies | Nej |
 > | register/Webhooks | Ja |
 > | register/Webhooks/getCallbackConfig | Nej |
 > | register/Webhooks/ping | Nej |
 
-## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
+## <a name="microsoftcontainerservice"></a>Microsoft. container service
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -725,7 +725,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | managedClusters | Ja |
 > | openShiftManagedClusters | Ja |
 
-## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
+## <a name="microsoftcontentmoderator"></a>Microsoft. ContentModerator
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -733,14 +733,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | program | Ja |
 > | updateCommunicationPreference | Nej |
 
-## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
+## <a name="microsoftcortanaanalytics"></a>Microsoft. CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
 
-## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
+## <a name="microsoftcostmanagement"></a>Microsoft. CostManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -749,11 +749,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts | Nej |
 > | Budgetar | Nej |
 > | CloudConnectors | Nej |
-> | Anslutningar | Ja |
-> | Avdelningar | Nej |
+> | Anslutningsprogram | Ja |
+> | enheten | Nej |
 > | Dimensioner | Nej |
 > | enrollmentAccounts | Nej |
-> | Exporter | Nej |
+> | Exporteras | Nej |
 > | ExternalBillingAccounts | Nej |
 > | ExternalBillingAccounts/aviseringar | Nej |
 > | ExternalBillingAccounts/dimensioner | Nej |
@@ -764,7 +764,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ExternalSubscriptions/dimensioner | Nej |
 > | ExternalSubscriptions/prognos | Nej |
 > | ExternalSubscriptions/fråga | Nej |
-> | Prognos | Nej |
+> | Prognostisering | Nej |
 > | Söka i data | Nej |
 > | Registrera dig | Nej |
 > | Reportconfigs | Nej |
@@ -778,7 +778,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Begäranden | Nej |
+> | Autentiseringsbegäran | Nej |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
 
@@ -788,14 +788,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | typer | Nej |
 > | resourceProviders | Ja |
 
-## <a name="microsoftdatabox"></a>Microsoft.DataBox
+## <a name="microsoftdatabox"></a>Microsoft. data-
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | jobb | Ja |
+> | Utskrifts | Ja |
 
-## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
+## <a name="microsoftdataboxedge"></a>Microsoft. DataBoxEdge
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -807,10 +807,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | arbetsytor | Ja |
-> | workspaces/virtualNetworkPeerings | Nej |
+> | arbets ytor | Ja |
+> | arbets ytor/virtualNetworkPeerings | Nej |
 
-## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
+## <a name="microsoftdatacatalog"></a>Microsoft. DataCatalog
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -824,7 +824,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | datacatalogs/scantargets | Nej |
 > | datacatalogs/scantargets/data uppsättningar | Nej |
 
-## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
+## <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -836,32 +836,32 @@ Hoppa till ett namn område för en resurs leverantör:
 > | fabriker | Ja |
 > | fabriker/integrationRuntimes | Nej |
 
-## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
+## <a name="microsoftdatalakeanalytics"></a>Microsoft. DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
-> | accounts/dataLakeStoreAccounts | Nej |
+> | konton/dataLakeStoreAccounts | Nej |
 > | konton/storageAccounts | Nej |
 > | konton/storageAccounts/behållare | Nej |
 > | konton/transferAnalyticsUnits | Nej |
 
-## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
+## <a name="microsoftdatalakestore"></a>Microsoft. DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
-> | accounts/eventGridFilters | Nej |
+> | konton/eventGridFilters | Nej |
 > | konton/firewallRules | Nej |
 
-## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
+## <a name="microsoftdatamigration"></a>Microsoft. data migration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | tjänster | Ja |
+> | services | Ja |
 > | tjänster/projekt | Ja |
 
 ## <a name="microsoftdatashare"></a>Microsoft. DataShare
@@ -880,7 +880,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | konton/sharesubscriptions/datasetmappings | Nej |
 > | konton/sharesubscriptions/utlösare | Nej |
 
-## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
+## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -889,11 +889,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servrar/rådgivare | Nej |
 > | servrar/queryTexts | Nej |
 > | servrar/recoverableServers | Nej |
-> | servers/topQueryStatistics | Nej |
+> | servrar/topQueryStatistics | Nej |
 > | servrar/virtualNetworkRules | Nej |
 > | servrar/waitStatistics | Nej |
 
-## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
+## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -902,11 +902,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servrar/rådgivare | Nej |
 > | servrar/queryTexts | Nej |
 > | servrar/recoverableServers | Nej |
-> | servers/topQueryStatistics | Nej |
+> | servrar/topQueryStatistics | Nej |
 > | servrar/virtualNetworkRules | Nej |
 > | servrar/waitStatistics | Nej |
 
-## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
+## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -919,12 +919,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servrar/privateLinkResources | Nej |
 > | servrar/queryTexts | Nej |
 > | servrar/recoverableServers | Nej |
-> | servers/topQueryStatistics | Nej |
+> | servrar/topQueryStatistics | Nej |
 > | servrar/virtualNetworkRules | Nej |
 > | servrar/waitStatistics | Nej |
 > | serversv2 | Ja |
 
-## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
+## <a name="microsoftdeploymentmanager"></a>Microsoft. DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -948,14 +948,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | hostpools/sessionhosts | Nej |
 > | hostpools/sessionhosts/usersessions | Nej |
 > | hostpools/usersessions | Nej |
-> | arbetsytor | Ja |
+> | arbets ytor | Ja |
 
-## <a name="microsoftdevices"></a>Microsoft.Devices
+## <a name="microsoftdevices"></a>Microsoft. Devices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | elasticPools | Ja |
+> | ElasticPools | Ja |
 > | ElasticPools/IotHubTenants | Ja |
 > | IotHubs | Ja |
 > | IotHubs/eventGridFilters | Nej |
@@ -967,16 +967,16 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | rörledningar | Ja |
+> | Pipelines | Ja |
 
-## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
+## <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | Domänkontrollanter | Ja |
 
-## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
+## <a name="microsoftdevtestlab"></a>Microsoft. DevTestLab
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -988,7 +988,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | labb/virtualMachines | Ja |
 > | scheman | Ja |
 
-## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
+## <a name="microsoftdocumentdb"></a>Microsoft. DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -996,7 +996,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | databaseAccountNames | Nej |
 > | databaseAccounts | Ja |
 
-## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
+## <a name="microsoftdomainregistration"></a>Microsoft. DomainRegistration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1007,7 +1007,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | topLevelDomains | Nej |
 > | validateDomainRegistrationInformation | Nej |
 
-## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
+## <a name="microsoftdynamicslcs"></a>Microsoft. DynamicsLcs
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1016,14 +1016,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | lcsprojects/clouddeployments | Nej |
 > | lcsprojects/kopplingar | Nej |
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | tjänster | Ja |
+> | services | Ja |
 
-## <a name="microsofteventgrid"></a>Microsoft.EventGrid
+## <a name="microsofteventgrid"></a>Microsoft. EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1032,16 +1032,16 @@ Hoppa till ett namn område för en resurs leverantör:
 > | domäner/ämnen | Nej |
 > | eventSubscriptions | Nej |
 > | extensionTopics | Nej |
-> | Avsnitt | Ja |
+> | avsnitt | Ja |
 > | topicTypes | Nej |
 
-## <a name="microsofteventhub"></a>Microsoft.EventHub
+## <a name="microsofteventhub"></a>Microsoft. EventHub
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | kluster | Ja |
-> | namnrymder | Ja |
+> | Namn områden | Ja |
 > | namnrymder/authorizationrules | Nej |
 > | namnrymder/disasterrecoveryconfigs | Nej |
 > | namnrymder/eventhubs | Nej |
@@ -1049,15 +1049,15 @@ Hoppa till ett namn område för en resurs leverantör:
 > | namnrymder/eventhubs/consumergroups | Nej |
 > | namnrymder/networkrulesets | Nej |
 
-## <a name="microsoftfeatures"></a>Microsoft.Features
+## <a name="microsoftfeatures"></a>Microsoft. features
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | funktioner | Nej |
-> | Providers | Nej |
+> | finansiär | Nej |
 
-## <a name="microsoftgallery"></a>Microsoft.Gallery
+## <a name="microsoftgallery"></a>Microsoft. Gallery
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1072,7 +1072,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | områdets/områden/galleryitems | Nej |
 > | områden/galleryitems | Nej |
 > | Registrera dig | Nej |
-> | resurser | Nej |
+> | Resurser | Nej |
 > | retrieveresourcesbyid | Nej |
 
 ## <a name="microsoftgenomics"></a>Microsoft. genomik
@@ -1082,7 +1082,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | konton | Ja |
 
-## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+## <a name="microsoftguestconfiguration"></a>Microsoft. GuestConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1093,7 +1093,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | softwareUpdateProfile | Nej |
 > | softwareUpdates | Nej |
 
-## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
+## <a name="microsofthanaonazure"></a>Microsoft. HanaOnAzure
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1101,14 +1101,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | hanaInstances | Ja |
 > | sapMonitors | Ja |
 
-## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
+## <a name="microsofthardwaresecuritymodules"></a>Microsoft. HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | dedicatedHSMs | Ja |
 
-## <a name="microsofthdinsight"></a>Microsoft.HDInsight
+## <a name="microsofthdinsight"></a>Microsoft. HDInsight
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1116,21 +1116,21 @@ Hoppa till ett namn område för en resurs leverantör:
 > | kluster | Ja |
 > | kluster/program | Nej |
 
-## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
+## <a name="microsofthealthcareapis"></a>Microsoft. HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | tjänster | Ja |
+> | services | Ja |
 
-## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+## <a name="microsofthybridcompute"></a>Microsoft. HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | datorer | Ja |
+> | faxar | Ja |
 
-## <a name="microsofthybriddata"></a>Microsoft.HybridData
+## <a name="microsofthybriddata"></a>Microsoft. HybridData
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1145,14 +1145,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Delarna | Ja |
 > | networkScopes | Ja |
 
-## <a name="microsoftimportexport"></a>Microsoft.ImportExport
+## <a name="microsoftimportexport"></a>Microsoft. ImportExport
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | jobb | Ja |
+> | Utskrifts | Ja |
 
-## <a name="microsoftintune"></a>Microsoft.Intune
+## <a name="microsoftintune"></a>Microsoft. Intune
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1160,7 +1160,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | diagnosticSettings | Nej |
 > | diagnosticSettingsCategories | Nej |
 
-## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
+## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1168,14 +1168,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | appTemplates | Nej |
 > | IoTApps | Ja |
 
-## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
+## <a name="microsoftiotspaces"></a>Microsoft. IoTSpaces
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | Graph | Ja |
 
-## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
+## <a name="microsoftkeyvault"></a>Microsoft. nyckel valv
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1199,15 +1199,15 @@ Hoppa till ett namn område för en resurs leverantör:
 > | kluster/databaser/eventhubconnections | Nej |
 > | kluster/sharedidentities | Nej |
 
-## <a name="microsoftlabservices"></a>Microsoft.LabServices
+## <a name="microsoftlabservices"></a>Microsoft. LabServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | labaccounts | Ja |
-> | Användare | Nej |
+> | användare | Nej |
 
-## <a name="microsoftlogic"></a>Microsoft.Logic
+## <a name="microsoftlogic"></a>Microsoft. Logic
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1219,7 +1219,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | isolatedEnvironments | Ja |
 > | arbetsflöden | Ja |
 
-## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
+## <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1233,10 +1233,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | arbetsytor | Ja |
+> | arbets ytor | Ja |
 > | arbets ytor/beräkningar | Nej |
 
-## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
+## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1253,31 +1253,31 @@ Hoppa till ett namn område för en resurs leverantör:
 > | registrationAssignments | Nej |
 > | registrationDefinitions | Nej |
 
-## <a name="microsoftmanagement"></a>Microsoft.Management
+## <a name="microsoftmanagement"></a>Microsoft. Management
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | getEntities | Nej |
 > | managementGroups | Nej |
-> | resurser | Nej |
+> | Resurser | Nej |
 > | startTenantBackfill | Nej |
 > | tenantBackfillStatus | Nej |
 
-## <a name="microsoftmaps"></a>Microsoft.Maps
+## <a name="microsoftmaps"></a>Microsoft. Maps
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
-> | accounts/eventGridFilters | Nej |
+> | konton/eventGridFilters | Nej |
 
-## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
+## <a name="microsoftmarketplace"></a>Microsoft. Marketplace
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | erbjudanden | Nej |
+> | budgivning | Nej |
 > | offerTypes | Nej |
 > | offerTypes/utgivare | Nej |
 > | offerTypes/utgivare/erbjudanden | Nej |
@@ -1287,11 +1287,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | offerTypes/utgivare/erbjudanden/planer/configs/importImage | Nej |
 > | privategalleryitems | Nej |
 > | läkemedle | Nej |
-> | utgivare | Nej |
+> | Utgivare | Nej |
 > | Utgivare/erbjudanden | Nej |
 > | Utgivare/erbjudanden/ändringar | Nej |
 
-## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
+## <a name="microsoftmarketplaceapps"></a>Microsoft. MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1299,7 +1299,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | classicDevServices | Ja |
 > | updateCommunicationPreference | Nej |
 
-## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
+## <a name="microsoftmarketplaceordering"></a>Microsoft. MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1307,7 +1307,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | villkor | Nej |
 > | offertypes | Nej |
 
-## <a name="microsoftmedia"></a>Microsoft.Media
+## <a name="microsoftmedia"></a>Microsoft. Media
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1315,13 +1315,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Media Services | Ja |
 > | Media Services/accountFilters | Nej |
 > | Media Services/till gångar | Nej |
-> | mediaservices/assets/assetFilters | Nej |
-> | mediaservices/contentKeyPolicies | Nej |
-> | mediaservices/eventGridFilters | Nej |
+> | Media Services/assets/assetFilters | Nej |
+> | Media Services/contentKeyPolicies | Nej |
+> | Media Services/eventGridFilters | Nej |
 > | Media Services/liveEventOperations | Nej |
 > | Media Services/liveEvents | Ja |
 > | Media Services/liveEvents/liveOutputs | Nej |
-> | mediaservices/liveOutputOperations | Nej |
+> | Media Services/liveOutputOperations | Nej |
 > | Media Services/streamingEndpointOperations | Nej |
 > | Media Services/strömnings slut punkter | Ja |
 > | Media Services/streamingLocators | Nej |
@@ -1336,7 +1336,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | appClusters | Ja |
 
-## <a name="microsoftmigrate"></a>Microsoft.Migrate
+## <a name="microsoftmigrate"></a>Microsoft. Migrate
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1345,7 +1345,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | migrateprojects | Ja |
 > | samarbetsprojekt | Ja |
 
-## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
+## <a name="microsoftmixedreality"></a>Microsoft. MixedReality
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1356,7 +1356,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | spatialAnchorsAccounts | Ja |
 > | surfaceReconstructionAccounts | Ja |
 
-## <a name="microsoftnetapp"></a>Microsoft.NetApp
+## <a name="microsoftnetapp"></a>Microsoft. NetApp
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1381,7 +1381,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | azureFirewalls | Ja |
 > | bastionHosts | Ja |
 > | bgpServiceCommunities | Nej |
-> | anslutningar | Ja |
+> | Anslutning | Ja |
 > | ddosCustomPolicies | Ja |
 > | ddosProtectionPlans | Ja |
 > | dnsOperationStatuses | Nej |
@@ -1404,7 +1404,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | expressRoutePorts | Ja |
 > | expressRouteServiceProviders | Nej |
 > | firewallPolicies | Ja |
-> | ytterdörrar | Ja |
+> | frontdoors | Ja |
 > | frontdoorWebApplicationFirewallManagedRuleSets | Nej |
 > | frontdoorWebApplicationFirewallPolicies | Ja |
 > | getDnsResourceReference | Nej |
@@ -1454,12 +1454,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | vpnSites | Ja |
 > | webApplicationFirewallPolicies | Ja |
 
-## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
+## <a name="microsoftnotificationhubs"></a>Microsoft. NotificationHubs
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | namnrymder | Ja |
+> | Namn områden | Ja |
 > | namnrymder/notificationHubs | Ja |
 
 ## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
@@ -1469,7 +1469,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | osNamespaces | Ja |
 
-## <a name="microsoftoffazure"></a>Microsoft.OffAzure
+## <a name="microsoftoffazure"></a>Microsoft. OffAzure
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1479,7 +1479,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ServerSites | Ja |
 > | VMwareSites | Ja |
 
-## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
+## <a name="microsoftoperationalinsights"></a>Microsoft. OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1488,12 +1488,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | enheter | Nej |
 > | linkTargets | Nej |
 > | storageInsightConfigs | Nej |
-> | arbetsytor | Ja |
+> | arbets ytor | Ja |
 > | arbets ytor/data källor | Nej |
 > | arbets ytor/linkedServices | Nej |
 > | arbets ytor/fråga | Nej |
 
-## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+## <a name="microsoftoperationsmanagement"></a>Microsoft. OperationsManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1501,20 +1501,20 @@ Hoppa till ett namn område för en resurs leverantör:
 > | managementassociations | Nej |
 > | managementconfigurations | Ja |
 > | lösningar | Ja |
-> | visningar | Ja |
+> | Vyer | Ja |
 
-## <a name="microsoftpeering"></a>Microsoft.Peering
+## <a name="microsoftpeering"></a>Microsoft. peering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | legacyPeerings | Nej |
 > | peerAsns | Nej |
-> | peeringar | Ja |
+> | peerings | Ja |
 > | peeringServiceProviders | Nej |
 > | peeringServices | Ja |
 
-## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
+## <a name="microsoftpolicyinsights"></a>Microsoft. PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1524,7 +1524,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | policyTrackedResources | Nej |
 > | reparationer | Nej |
 
-## <a name="microsoftportal"></a>Microsoft.Portal
+## <a name="microsoftportal"></a>Microsoft. Portal
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1533,21 +1533,21 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Instrument paneler | Ja |
 > | userSettings | Nej |
 
-## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
+## <a name="microsoftpowerbi"></a>Microsoft. PowerBI
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | workspaceCollections | Ja |
 
-## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
+## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | kapaciteter | Ja |
 
-## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
+## <a name="microsoftrecoveryservices"></a>Microsoft. RecoveryServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1555,12 +1555,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | backupProtectedItems | Nej |
 > | valv | Ja |
 
-## <a name="microsoftrelay"></a>Microsoft.Relay
+## <a name="microsoftrelay"></a>Microsoft. Relay
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | namnrymder | Ja |
+> | Namn områden | Ja |
 > | namnrymder/authorizationrules | Nej |
 > | namnrymder/hybridconnections | Nej |
 > | namnrymder/hybridconnections/authorizationrules | Nej |
@@ -1578,7 +1578,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Samlingar/securityprincipals | Nej |
 > | templateImages | Nej |
 
-## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
+## <a name="microsoftresourcegraph"></a>Microsoft. ResourceGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1586,11 +1586,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | frågor | Ja |
 > | resourceChangeDetails | Nej |
 > | resourceChanges | Nej |
-> | resurser | Nej |
+> | Resurser | Nej |
 > | resourcesHistory | Nej |
 > | subscriptionsStatus | Nej |
 
-## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
+## <a name="microsoftresourcehealth"></a>Microsoft. ResourceHealth
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1598,23 +1598,23 @@ Hoppa till ett namn område för en resurs leverantör:
 > | availabilityStatuses | Nej |
 > | childAvailabilityStatuses | Nej |
 > | childResources | Nej |
-> | händelser | Nej |
+> | evenemang | Nej |
 > | impactedResources | Nej |
 > | metadata | Nej |
-> | meddelanden | Nej |
+> | Ansökningar | Nej |
 
-## <a name="microsoftresources"></a>Microsoft.Resources
+## <a name="microsoftresources"></a>Microsoft. Resources
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | distributioner | Nej |
+> | Distributioner | Nej |
 > | distributioner/åtgärder | Nej |
-> | länkar | Nej |
+> | Länkar | Nej |
 > | notifyResourceJobs | Nej |
-> | Providers | Nej |
+> | finansiär | Nej |
 > | resourceGroups | Nej |
-> | resurser | Nej |
+> | Resurser | Nej |
 > | prenumerationer | Nej |
 > | prenumerationer/providers | Nej |
 > | prenumerationer/resourceGroups | Nej |
@@ -1622,9 +1622,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | prenumerationer/resurser | Nej |
 > | prenumerationer/tagNames | Nej |
 > | prenumerationer/tagNames/tagValues | Nej |
-> | klienter | Nej |
+> | Klienter | Nej |
 
-## <a name="microsoftsaas"></a>Microsoft.SaaS
+## <a name="microsoftsaas"></a>Microsoft. SaaS
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1632,14 +1632,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | program | Ja |
 > | saasresources | Nej |
 
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
+## <a name="microsoftscheduler"></a>Microsoft. Scheduler
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | förfrågningsåtgärder | Ja |
 
-## <a name="microsoftsearch"></a>Microsoft.Search
+## <a name="microsoftsearch"></a>Microsoft. search
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1647,7 +1647,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | resourceHealthMetadata | Nej |
 > | searchServices | Ja |
 
-## <a name="microsoftsecurity"></a>Microsoft.Security
+## <a name="microsoftsecurity"></a>Microsoft. Security
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1673,7 +1673,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | jitNetworkAccessPolicies | Nej |
 > | networkData | Nej |
 > | playbookConfigurations | Ja |
-> | principer | Nej |
+> | Rikt | Nej |
 > | prissättningar | Nej |
 > | regulatoryComplianceStandards | Nej |
 > | regulatoryComplianceStandards/regulatoryComplianceControls | Nej |
@@ -1684,13 +1684,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | securityStatuses | Nej |
 > | securityStatusesSummaries | Nej |
 > | serverVulnerabilityAssessments | Nej |
-> | inställningar | Nej |
+> | settings | Nej |
 > | underbedömningar | Nej |
 > | uppgifter | Nej |
-> | topologier | Nej |
+> | Topologier | Nej |
 > | workspaceSettings | Nej |
 
-## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
+## <a name="microsoftsecuritygraph"></a>Microsoft. SecurityGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1703,23 +1703,23 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | sammanställningar | Nej |
+> | agg regeringar | Nej |
 > | alertRules | Nej |
 > | alertRuleTemplates | Nej |
-> | Dina | Nej |
+> | dina | Nej |
 > | fall | Nej |
 > | dataConnectors | Nej |
-> | Poster | Nej |
+> | poster | Nej |
 > | entityQueries | Nej |
 > | officeConsents | Nej |
-> | inställningar | Nej |
+> | settings | Nej |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | namnrymder | Ja |
+> | Namn områden | Ja |
 > | namnrymder/authorizationrules | Nej |
 > | namnrymder/disasterrecoveryconfigs | Nej |
 > | namnrymder/eventgridfilters | Nej |
@@ -1732,7 +1732,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | namn områden/ämnen/prenumerationer/regler | Nej |
 > | premiumMessagingRegions | Nej |
 
-## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
+## <a name="microsoftservicefabric"></a>Microsoft. ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1748,9 +1748,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | secretstores | Ja |
 > | secretstores/certifikat | Nej |
 > | secretstores/hemligheter | Nej |
-> | volymer | Ja |
+> | volumes | Ja |
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+## <a name="microsoftservicefabricmesh"></a>Microsoft. ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1760,7 +1760,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | gatewayer | Ja |
 > | nätet | Ja |
 > | hemligheter | Ja |
-> | volymer | Ja |
+> | volumes | Ja |
 
 ## <a name="microsoftservices"></a>Microsoft. Services
 
@@ -1779,7 +1779,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | SignalR | Ja |
 > | SignalR/eventGridFilters | Nej |
 
-## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
+## <a name="microsoftsiterecovery"></a>Microsoft. SiteRecovery
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1793,7 +1793,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | hybridUseBenefits | Nej |
 
-## <a name="microsoftsolutions"></a>Microsoft.Solutions
+## <a name="microsoftsolutions"></a>Microsoft. Solutions
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1802,14 +1802,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | program | Ja |
 > | jitRequests | Ja |
 
-## <a name="microsoftsql"></a>Microsoft.SQL
+## <a name="microsoftsql"></a>Microsoft. SQL
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | managedInstances | Ja |
 > | managedInstances/databaser | Ja |
-> | managedInstances/databases/backupShortTermRetentionPolicies | Nej |
+> | managedInstances/databaser/backupShortTermRetentionPolicies | Nej |
 > | managedInstances/databaser/scheman/tabeller/kolumner/sensitivityLabels | Nej |
 > | managedInstances/databaser/vulnerabilityAssessments | Nej |
 > | managedInstances/databaser/vulnerabilityAssessments/regler/bas linjer | Nej |
@@ -1821,7 +1821,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servrar/administratörer | Nej |
 > | servrar/communicationLinks | Nej |
 > | servrar/databaser | Ja |
-> | servers/encryptionProtector | Nej |
+> | servrar/encryptionProtector | Nej |
 > | servrar/firewallRules | Nej |
 > | servrar/nycklar | Nej |
 > | servrar/restorableDroppedDatabases | Nej |
@@ -1829,7 +1829,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servrar/tdeCertificates | Nej |
 > | virtualClusters | Nej |
 
-## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
+## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1852,7 +1852,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | storageAccounts/tableServices | Nej |
 > | användningar | Nej |
 
-## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1868,7 +1868,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | replicationGroups | Nej |
 
-## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
+## <a name="microsoftstoragesync"></a>Microsoft. StorageSync
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1880,7 +1880,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | storageSyncServices/syncGroups/serverEndpoints | Nej |
 > | storageSyncServices/arbets flöden | Nej |
 
-## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
+## <a name="microsoftstoragesyncdev"></a>Microsoft. StorageSyncDev
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1892,7 +1892,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | storageSyncServices/syncGroups/serverEndpoints | Nej |
 > | storageSyncServices/arbets flöden | Nej |
 
-## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
+## <a name="microsoftstoragesyncint"></a>Microsoft. StorageSyncInt
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1904,33 +1904,33 @@ Hoppa till ett namn område för en resurs leverantör:
 > | storageSyncServices/syncGroups/serverEndpoints | Nej |
 > | storageSyncServices/arbets flöden | Nej |
 
-## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
+## <a name="microsoftstorsimple"></a>Microsoft. StorSimple
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | hantera | Ja |
 
-## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
+## <a name="microsoftstreamanalytics"></a>Microsoft. StreamAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | streamingjobs | Ja |
 
-## <a name="microsoftsubscription"></a>Microsoft.Subscription
+## <a name="microsoftsubscription"></a>Microsoft. Subscription
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | avbryt | Nej |
+> | Avbryt | Nej |
 > | CreateSubscription | Nej |
-> | aktivera | Nej |
-> | byt namn | Nej |
+> | Använd | Nej |
+> | Ta | Nej |
 > | SubscriptionDefinitions | Nej |
 > | SubscriptionOperations | Nej |
 
-## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
+## <a name="microsofttimeseriesinsights"></a>Microsoft. TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1940,34 +1940,34 @@ Hoppa till ett namn område för en resurs leverantör:
 > | miljöer/eventsources | Ja |
 > | miljöer/referenceDataSets | Ja |
 
-## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
+## <a name="microsoftvmwarecloudsimple"></a>Microsoft. VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | dedicatedCloudNodes | Ja |
 > | dedicatedCloudServices | Ja |
-> | virtualMachines | Ja |
+> | VirtualMachines | Ja |
 
-## <a name="microsoftweb"></a>Microsoft.Web
+## <a name="microsoftweb"></a>Microsoft. Web
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | apiManagementAccounts | Nej |
 > | apiManagementAccounts/apiAcls | Nej |
-> | apiManagementAccounts/apis | Nej |
-> | apiManagementAccounts/apis/apiAcls | Nej |
-> | apiManagementAccounts/apis/connectionAcls | Nej |
+> | apiManagementAccounts/API: er | Nej |
+> | apiManagementAccounts/API/apiAcls | Nej |
+> | apiManagementAccounts/API/connectionAcls | Nej |
 > | apiManagementAccounts/API/anslutningar | Nej |
-> | apiManagementAccounts/apis/connections/connectionAcls | Nej |
-> | apiManagementAccounts/apis/localizedDefinitions | Nej |
+> | apiManagementAccounts/API/Connections/connectionAcls | Nej |
+> | apiManagementAccounts/API/localizedDefinitions | Nej |
 > | apiManagementAccounts/connectionAcls | Nej |
 > | apiManagementAccounts/anslutningar | Nej |
 > | billingMeters | Nej |
-> | certifikat | Ja |
+> | Intyg | Ja |
 > | connectionGateways | Ja |
-> | anslutningar | Ja |
+> | Anslutning | Ja |
 > | customApis | Ja |
 > | deletedSites | Nej |
 > | functions | Nej |
@@ -1975,12 +1975,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | hostingEnvironments/multiRolePools | Nej |
 > | hostingEnvironments/workerPools | Nej |
 > | publishingUsers | Nej |
-> | rekommendationer | Nej |
+> | Rekommenderade | Nej |
 > | resourceHealthMetadata | Nej |
 > | körningar | Nej |
-> | serverFarms | Ja |
+> | Server grupper | Ja |
 > | Server grupper/eventGridFilters | Nej |
-> | webbplatser | Ja |
+> | stationer | Ja |
 > | platser/konfig  | Nej |
 > | platser/eventGridFilters | Nej |
 > | platser/hostNameBindings | Nej |
@@ -1988,13 +1988,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | platser/premieraddons | Ja |
 > | platser/platser | Ja |
 > | platser/platser/eventGridFilters | Nej |
-> | sites/slots/hostNameBindings | Nej |
+> | platser/platser/hostNameBindings | Nej |
 > | platser/platser/networkConfig | Nej |
 > | sourceControls | Nej |
 > | kontrollerar | Nej |
 > | verifyHostingEnvironmentVnet | Nej |
 
-## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
+## <a name="microsoftwindowsdefenderatp"></a>Microsoft. WindowsDefenderATP
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -2002,14 +2002,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | diagnosticSettings | Nej |
 > | diagnosticSettingsCategories | Nej |
 
-## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
+## <a name="microsoftwindowsiot"></a>Microsoft. WindowsIoT
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | DeviceServices | Ja |
 
-## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
+## <a name="microsoftworkloadmonitor"></a>Microsoft. WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |

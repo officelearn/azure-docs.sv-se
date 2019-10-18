@@ -9,18 +9,14 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4de4da63abea1c4f6ab006ffd65a58ea0e34c015
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "69997809"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529390"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning 
-
-I den här artikeln inleds en serie artiklar som hjälper organisationer att implementera en fullständig Azure Active Directory (Azure AD) hybrid identitets lösning. Den här lösningen beskrivs som [hybrid Identity-ramverk för digital omvandling](https://aka.ms/aadframework). Den täcker affärs resultat och mål organisationer kan fokusera på att implementera en robust och säker hybrid identitets lösning. 
-
-I det första affärs resultatet av ramverket kan du testa kraven för organisationer för att skydda autentiseringsprocessen när användare kommer åt molnappar. Det första affärs målet i det skyddade affärs resultatet för autentisering är att användarna kan logga in på molnappar genom att använda sina lokala användar namn och lösen ord. Den här processen för inloggning och autentisering gör allt i molnet möjligt.
 
 Att välja rätt autentiseringsmetod är det första sättet för organisationer som vill flytta sina appar till molnet. Gör inte det här beslutet lätt, av följande skäl:
 

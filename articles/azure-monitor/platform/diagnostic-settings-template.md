@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71262341"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall
@@ -59,7 +59,7 @@ Beroende på [målet](diagnostic-settings.md#destinations) för den diagnostiska
 ```
 
 ### <a name="resources"></a>Resurser
-I resurs-matrisen för den resurs som du vill skapa den diagnostiska inställningen för, lägger du till en `[resource namespace]/providers/diagnosticSettings`resurs av typen. Avsnittet egenskaper följer formatet som beskrivs i [diagnostikinställningar-Create eller Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Lägg till egenskapen för att samla in resurs mått till samma mål om [resursen stöder mått.](metrics-supported.md) `metrics`
+I resurs-matrisen för den resurs som du vill skapa den diagnostiska inställningen för lägger du till en resurs av typen `[resource namespace]/providers/diagnosticSettings`. Avsnittet egenskaper följer formatet som beskrivs i [diagnostikinställningar-Create eller Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Lägg till egenskapen `metrics` för att samla in resurs mått till samma mål om [resursen stöder mått](metrics-supported.md).
    
 ```json
 "resources": [

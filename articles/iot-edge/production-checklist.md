@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 599b5b075f32294f9e68c776c4a7744283e9c269
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d227a0b43a641ae8f5333a62d4c55f4bbb6c781c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244046"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529022"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbered för att distribuera din IoT Edge-lösning i produktion
 
@@ -93,7 +93,7 @@ Ett exempel på den här processen finns i [Konfigurera en IoT Edge enhet för a
 
 IoT Edge hubb och agent-moduler använder lokal lagring för att underhålla tillstånd och aktivera meddelanden mellan moduler, enheter och molnet. För bättre tillförlitlighet och prestanda konfigurerar du systemmodulerna för att använda lagring på värd fil systemet.
 
-Mer information finns i [värd lagring för systemmoduler](offline-capabilities.md#host-storage-for-system-modules).
+Mer information finns i [värd lagring för systemmoduler](how-to-access-host-storage-from-module.md).
 
 ### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>Minska minnes utrymmet som används av IoT Edge hubb
 
@@ -125,7 +125,7 @@ Standardvärdet för parametern timeToLiveSecs är 7200 sekunder, vilket är tv�
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Använd inte fel söknings versioner av module-avbildningar
 
-Kom ihåg att ta bort fel söknings konfigurationerna från distributions manifest när du flyttar från test scenarier till produktions scenarier. Kontrol lera att ingen av modulens bilder i distributions manifesten **@no__t har 1debug-** suffixet. Om du har lagt till skapa alternativ för att exponera portar i modulerna för fel sökning tar du även bort de här alternativen för att skapa. 
+Kom ihåg att ta bort fel söknings konfigurationerna från distributions manifest när du flyttar från test scenarier till produktions scenarier. Kontrol lera att ingen av modulens bilder i distributions manifesten har **\.debug** suffixet. Om du har lagt till skapa alternativ för att exponera portar i modulerna för fel sökning tar du även bort de här alternativen för att skapa. 
 
 ## <a name="container-management"></a>Containerhantering
 

@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcf4a0272e21a1fba3cf9adbd9158492e4318578
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452996"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527111"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Styra åtkomsten för externa användare i Azure AD-hantering av rättigheter (för hands version)
 
@@ -90,12 +90,15 @@ Du kan välja vad som händer när en extern användare, som har bjudits in till
 
 1. När en extern användare förlorar sin senaste tilldelning till några åtkomst paket, och om du vill blockera dem från att logga in till den här katalogen, ställer du in den **blockerande externa användaren från att logga in på den här katalogen** till **Ja**.
 
-1. När en extern användare förlorar sin senaste tilldelning till några åtkomst paket, om du vill ta bort deras gäst användar konto i din katalog, anger du **ta bort extern användare** till **Ja**.
+    > [!NOTE]
+    > Om en användare är blockerad från att logga in till den här katalogen, kommer användaren inte att kunna begära åtkomst paketet igen eller begära ytterligare åtkomst i den här katalogen. Konfigurera inte blockering av dem från att logga in om de senare behöver begära åtkomst till andra åtkomst paket.
+
+1. När en extern användare förlorar sin senaste tilldelning till några åtkomst paket, om du vill ta bort deras gäst användar konto i den här katalogen, anger du **ta bort extern användare** till **Ja**.
 
     > [!NOTE]
-    > Hantering av rättigheter tar bara bort konton som har bjudits in via rättighets hantering. Observera också att en användare kommer att blockeras från inloggning och tas bort från katalogen även om användaren har lagts till i resurser i din katalog som inte har åtkomst till paket tilldelningar. Om gästen fanns i din katalog innan du får tilldelningar av åtkomst paket, kommer de att vara kvar. Men om gästen har bjudits in via en tilldelning av Access-paket och efter att ha bjudits in till en OneDrive för företag-eller SharePoint Online-webbplats, kommer de fortfarande att tas bort.
+    > Hantering av rättigheter tar bara bort konton som har bjudits in via rättighets hantering. Observera också att en användare kommer att blockeras från att logga in och tas bort från den här katalogen även om användaren har lagts till i resurser i den här katalogen som inte har åtkomst till paket tilldelningar. Om gästen fanns i den här katalogen innan du får åtkomst till paket tilldelningar, kommer de att vara kvar. Men om gästen har bjudits in via en tilldelning av Access-paket och efter att ha bjudits in till en OneDrive för företag-eller SharePoint Online-webbplats, kommer de fortfarande att tas bort.
 
-1. Om du vill ta bort gäst användar kontot i din katalog kan du ange antalet dagar innan det tas bort. Om du vill ta bort gäst användar kontot så fort de förlorar sin senaste tilldelning till alla åtkomst paket, anger du **antalet dagar innan externa användare tas bort från katalogen** till **0**.
+1. Om du vill ta bort gäst användar kontot i den här katalogen kan du ange antalet dagar innan det tas bort. Om du vill ta bort gäst användar kontot så fort de förlorar sin senaste tilldelning till alla åtkomst paket, anger du **antalet dagar innan externa användare tas bort från katalogen** till **0**.
 
 1. Klicka på **Save** (Spara).
 
@@ -113,6 +116,6 @@ Du kan också ändra den här inställningen när du har skapat katalogen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [För användare som inte är i din katalog](entitlement-management-access-package-create.md#for-users-not-in-your-directory)
+- [För användare som inte är i din katalog](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Skapa och hantera en katalog med resurser](entitlement-management-catalog-create.md)
 - [Delegering och roller](entitlement-management-delegate.md)

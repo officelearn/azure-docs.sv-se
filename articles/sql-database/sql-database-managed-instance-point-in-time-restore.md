@@ -1,6 +1,6 @@
 ---
 title: SQL Database Hanterad instans-återställning av tidpunkt | Microsoft Docs
-description: Så här återställer du en databas i en SQL-hanterad instans till en tidigare tidpunkt.
+description: Återställa en SQL-databas i en hanterad instans till en tidigare tidpunkt.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,78 +11,67 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 67f13d16dcf6bbe4fa13fe3a6e78d3e4d61e1999
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 61249d8ac21c3bb698deb92e5f46a8998205ced9
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862140"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529674"
 ---
-# <a name="restore-a-sql-managed-instance-database-to-a-previous-point-in-time"></a>Återställa en SQL-hanterad instans databas till en tidigare tidpunkt
+# <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Återställa en SQL-databas i en hanterad instans till en tidigare tidpunkt
 
-Med punkt-i-tids återställning (PITR) kan du skapa en databas som en kopia av en annan databas vid en viss tidpunkt tidigare. Den här artikeln beskriver hur du utför en tidpunkts återställning av en databas i en hanterad instans.
+Använd tidpunkts återställning (PITR) för att skapa en databas som en kopia av en annan databas från en tidigare tidpunkt. Den här artikeln beskriver hur du utför en tidpunkts återställning av en databas i en Azure SQL Database Hanterad instans.
 
-Återställning av tidpunkter kan användas i återställnings scenarier, t. ex. incidenter orsakade av fel, felaktiga inlästa data, borttagning av viktiga data och andra problem, samt endast för testning eller granskning. Beroende på databas inställningarna bevaras säkerhets kopiorna under en period på mellan 7 och 35 dagar.
+Återställning efter tidpunkt är användbart i återställnings scenarier, t. ex. incidenter orsakade av fel, felaktiga inlästa data eller borttagning av viktiga data. Du kan också använda det bara för testning eller granskning. Säkerhetskopierade filer sparas i 7 till 35 dagar, beroende på dina databas inställningar.
 
-Återställning av tidpunkter kan användas för att:
+Återställning av tidpunkt kan:
 
 - Återställ en databas från en befintlig databas.
 - Återställ en databas från en borttagen databas.
 
-Med en hanterad instans kan du dessutom använda återställning på plats-i-tid för att: 
+För en hanterad instans kan du även använda tidpunkts återställning.
 
 - Återställ en databas till samma hanterade instans.
 - Återställ en databas till en annan hanterad instans.
 
-
 > [!NOTE]
-> Det går inte att återställa punkt-till-tid för en hel hanterad instans. Vad är möjligt och förklaras i den här artikeln, är en tidpunkts återställning av en databas som finns på en hanterad instans.
-
+> Det går inte att återställa punkt-till-tid för en hel hanterad instans. Den här artikeln förklarar bara vad som är möjligt: återställning vid olika tidpunkter av en databas som finns på en hanterad instans.
 
 ## <a name="limitations"></a>Begränsningar
 
-När du återställer till en annan hanterad instans måste båda instanserna finnas i samma prenumeration och region. Återställningar mellan regioner och över prenumerationer stöds inte för närvarande.
+När du återställer från en hanterad instans till en annan måste båda instanserna finnas i samma prenumeration och region. Återställning mellan regioner och över prenumerationer stöds inte för närvarande.
 
 > [!WARNING]
-> Var försiktig med lagrings storleken för din hanterade instans – beroende på storleken på att återställa data, kan du få slut på instans lagring. Om det inte finns tillräckligt med utrymme för återställda data kan du använda en annan metod.
+> Tänk på lagrings storleken för din hanterade instans. Beroende på storleken på de data som ska återställas kan du få slut på instans lagring. Om det inte finns tillräckligt med utrymme för återställda data kan du använda en annan metod.
 
-I följande tabell visas tidpunkter för återställnings scenarier för hanterade instanser:
+I följande tabell visas scenarier för återställning av tidpunkter för hanterade instanser:
 
-|           |Återställ befintlig databas| Återställ befintlig databas|Återställ utelämnad databas| Återställ utelämnad databas|
+|           |Återställ en befintlig databas till samma hanterade instans| Återställ befintlig databas till en annan hanterad instans|Återställ utelämnad databas till samma hanterade instans|Återställ släppt databas till en annan hanterad instans|
 |:----------|:----------|:----------|:----------|:----------|
-|Mål| Samma MI|En annan MI |Samma MI|En annan MI |
-|Azure Portal| Ja|Nej |Nej|Nej|
-|Azure CLI|Ja |Ja |Nej|Nej|
-|PowerShell| Ja|Ja |Ja|Ja|
+|**Azure-portalen**| Ja|Nej |Nej|Nej|
+|**Azure CLI**|Ja |Ja |Nej|Nej|
+|**PowerShell**| Ja|Ja |Ja|Ja|
 
+## <a name="restore-an-existing-database"></a>Återställa en befintlig databas
 
-## <a name="restore-existing-database"></a>Återställ befintlig databas
+Återställ en befintlig databas till samma instans med hjälp av Azure Portal, PowerShell eller Azure CLI. Om du vill återställa en databas till en annan instans använder du PowerShell eller Azure CLI så att du kan ange egenskaperna för den hanterade mål instansen och resurs gruppen. Om du inte anger dessa parametrar kommer databasen att återställas till den befintliga instansen som standard. Azure Portal har för närvarande inte stöd för återställning till en annan instans.
 
-Återställ en befintlig databas till samma instans med hjälp av Azure Portal, PowerShell eller Azure CLI. Återställ en databas till en annan instans med hjälp av PowerShell eller Azure CLI genom att ange den hanterade mål instansen och resurs gruppens egenskaper. Om dessa parametrar inte anges kommer databasen att återställas till den befintliga instansen som standard. Det finns för närvarande inte stöd för att återställa till en annan instans via Azure Portal. 
-
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
-1. Navigera till din hanterade instans och välj den databas som du vill återställa. 
-1. Välj **Återställ** på databas sidan. 
+2. Gå till din hanterade instans och välj den databas som du vill återställa.
+3. Välj **Återställ** på databas sidan:
 
-    ![Återställ befintlig databas](media/sql-database-managed-instance-point-in-time-restore/restore-database-to-mi.png)
+    ![Återställa en databas med hjälp av Azure Portal](media/sql-database-managed-instance-point-in-time-restore/restore-database-to-mi.png)
 
-1. På sidan **Återställ** väljer du tidpunkten för datum och tid i historiken som du vill återställa databasen till.
-1. Välj **Bekräfta** för att återställa databasen. Detta startar återställnings processen, som skapar en ny databas och fylls med data från den ursprungliga databasen vid önskad tidpunkt. Mer information om återställnings processen finns i [återställnings tid](sql-database-recovery-using-backups.md#recovery-time). 
-
-1. Sök efter hanterad instans
-1. Välj den databas som du vill återställa
-1. På databas-skärmen klickar du på återställnings åtgärd
-1. På skärmen Återställ väljer du datum och tid för den plats i historik som du återställer databasen till
-1. Efter att du bekräftat startar återställnings processen och, beroende på databasens storlek, kommer den nya databasen att skapas och fyllas i med data från den ursprungliga databasen vid önskad tidpunkt. För varaktighet för återställnings processen kontrol lera återställning med hjälp av säkerhets kopierings artikeln.
-
+4. På sidan **Återställ** väljer du punkten för det datum och den tid som du vill återställa databasen till.
+5. Välj **Bekräfta** för att återställa databasen. Den här åtgärden startar återställnings processen, som skapar en ny databas och fyller den med data från den ursprungliga databasen vid den angivna tidpunkten. Mer information om återställnings processen finns i [återställnings tid](sql-database-recovery-using-backups.md#recovery-time).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Om du inte redan har Azure PowerShell installerat, se [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Om du vill återställa databasen med hjälp av PowerShell uppdaterar du parametrarna med dina värden och kör följande kommando:
+Om du vill återställa-databasen med hjälp av PowerShell anger du värdena för parametrarna i följande kommando. Kör sedan kommandot:
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -91,19 +80,19 @@ $managedInstanceName = "<Managed instance name>"
 $databaseName = "<Source-database>"
 $pointInTime = "2018-06-27T08:51:39.3882806Z"
 $targetDatabase = "<Name of new database to be created>"
- 
+
 Get-AzSubscription -SubscriptionId $subscriptionId
 Select-AzSubscription -SubscriptionId $subscriptionId
- 
+
 Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -ResourceGroupName $resourceGroupName `
-                               -InstanceName $managedInstanceName `
-                               -Name $databaseName `
-                               -PointInTime $pointInTime `
-                               -TargetInstanceDatabaseName $targetDatabase `
+                              -InstanceName $managedInstanceName `
+                              -Name $databaseName `
+                              -PointInTime $pointInTime `
+                              -TargetInstanceDatabaseName $targetDatabase `
 ```
 
-Om du vill återställa databasen till en annan hanterad instans anger du namnet på mål resurs gruppen och målets hanterade instans namn.  
+Om du vill återställa databasen till en annan hanterad instans anger du även namnen på mål resurs gruppen och den hanterade instansen:  
 
 ```powershell-interactive
 $targetResourceGroupName = "<Resource group of target managed instance>"
@@ -121,21 +110,18 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
 
 Mer information finns i [restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du inte redan har installerat Azure CLI kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Om du vill återställa databasen med Azure CLI uppdaterar du parametrarna med dina värden och kör följande kommando:
-
+Om du vill återställa databasen med hjälp av Azure CLI anger du värdena för parametrarna i följande kommando. Kör sedan kommandot:
 
 ```azurecli-interactive
 az sql midb restore -g mygroupname --mi myinstancename |
 -n mymanageddbname --dest-name targetmidbname --time "2018-05-20T05:34:22"
 ```
 
-
-Om du vill återställa databasen till en annan hanterad instans anger du namnet på mål resurs gruppen och målets hanterade instans namn.  
+Om du vill återställa databasen till en annan hanterad instans anger du även namnen på mål resurs gruppen och den hanterade instansen:  
 
 ```azurecli-interactive
 az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
@@ -144,15 +130,15 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-En detaljerad förklaring av tillgängliga parametrar finns i [hanterad instans-CLI](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore). 
+En detaljerad förklaring av tillgängliga parametrar finns i [CLI-dokumentationen för att återställa en databas i en hanterad instans](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
-## <a name="restore-a-deleted-database"></a>Återställa en borttagen databas 
- 
-Det går bara att återställa en borttagen databas med PowerShell. Databasen kan återställas till samma instans eller till en annan instans. 
+## <a name="restore-a-deleted-database"></a>Återställa en borttagen databas
 
-Om du vill återställa en borttagen databas med hjälp av PowerShell uppdaterar du parametrarna med värdena och kör följande kommando:
+Det går bara att återställa en borttagen databas med hjälp av PowerShell. Databasen kan återställas till samma instans eller till en annan instans.
+
+Om du vill återställa en borttagen databas med hjälp av PowerShell anger du värdena för parametrarna i följande kommando. Kör sedan kommandot:
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -173,9 +159,7 @@ $properties | Add-Member -type NoteProperty -name RestorePointInTime -Value $poi
 $properties | Add-Member -type NoteProperty -name RestorableDroppedDatabaseId -Value $deleted_db.Id
 ```
 
-Om du vill återställa den borttagna databasen till en annan instans ändrar du resurs gruppens namn och namnet på den hanterade instansen.
-
-Plats parametern måste matcha platsen för resurs gruppen och den hanterade instansen.
+Om du vill återställa den borttagna databasen till en annan instans ändrar du namnen på resurs gruppen och den hanterade instansen. Kontrol lera också att plats parametern matchar platsen för resurs gruppen och den hanterade instansen.
 
 ```powershell-interactive
 $resourceGroupName = "<Second resource group name>"
@@ -190,39 +174,38 @@ New-AzResource -Location $location -Properties $properties `
         -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
 ```
 
-## <a name="overwrite-existing-database"></a>Skriv över befintlig databas 
- 
-Om du vill skriva över en befintlig databas måste du också:
+## <a name="overwrite-an-existing-database"></a>Skriv över en befintlig databas
 
-1. TA bort den befintliga databasen som du vill skriva över.
-1. Byt namn på den återställda data punkten till namnet på den databas som släpptes. 
+Om du vill skriva över en befintlig databas måste du:
 
+1. Ta bort den befintliga databasen som du vill skriva över.
+2. Byt namn på databasen för den tidpunkt som återställs till namnet på den databas som du har släppt.
 
-### <a name="drop-original-database"></a>SLÄPP ursprunglig databas 
- 
-Att släppa databasen kan göras med Azure Portal, PowerShell eller Azure CLI. 
+### <a name="drop-the-original-database"></a>Ta bort den ursprungliga databasen
 
-Du kan också släppa databasen genom att ansluta till den hanterade instansen direkt, starta SQL Server Management Studio (SSMS) och köra nedanstående Transact-SQL-kommando (T-SQL).
+Du kan släppa databasen med hjälp av Azure Portal, PowerShell eller Azure CLI.
+
+Du kan också släppa databasen genom att ansluta till den hanterade instansen direkt, starta SQL Server Management Studio (SSMS) och sedan köra följande Transact-SQL-kommando (T-SQL):
 
 ```sql
 DROP DATABASE WorldWideImporters;
 ```
 
-Använd någon av följande metoder för att ansluta till din hanterade instans databas: 
+Använd någon av följande metoder för att ansluta till databasen i den hanterade instansen:
 
-- [Virtuell SQL-dator](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [SSMS/Azure Data Studio via en virtuell Azure-dator](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Punkt-till-plats](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Offentlig slutpunkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Offentlig slut punkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
-I Azure Portal väljer du databasen från den hanterade instansen och väljer **ta bort**.
+I Azure Portal väljer du databasen från den hanterade instansen och väljer sedan **ta bort**.
 
-   ![Återställ befintlig databas](media/sql-database-managed-instance-point-in-time-restore/delete-database-from-mi.png)
+   ![Ta bort en databas med hjälp av Azure Portal](media/sql-database-managed-instance-point-in-time-restore/delete-database-from-mi.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Använd följande PowerShell-kommando för att släppa en befintlig databas från en hanterad instans: 
+Använd följande PowerShell-kommando för att släppa en befintlig databas från en hanterad instans:
 
 ```powershell
 $resourceGroupName = "<Resource group name>"
@@ -234,7 +217,7 @@ Remove-AzSqlInstanceDatabase -Name $databaseName -InstanceName $managedInstanceN
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Använd följande Azure CLI-kommando för att släppa en befintlig databas från en hanterad instans: 
+Använd följande Azure CLI-kommando för att släppa en befintlig databas från en hanterad instans:
 
 ```azurecli-interactive
 az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
@@ -242,23 +225,20 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 
 ---
 
+### <a name="alter-the-new-database-name-to-match-the-original-database-name"></a>Ändra det nya databas namnet så att det matchar det ursprungliga databas namnet
 
-### <a name="alter-new-database-name-to-original"></a>ÄNDRA det nya databas namnet till ursprungligt
-
-Anslut direkt till den hanterade instansen, starta SQL Server Management Studio och kör sedan följande Transact-SQL-fråga (T-SQL) för att ändra namnet på den återställda databasen till den borttagna databas som du avsåg att skriva över. 
-
+Anslut direkt till den hanterade instansen och starta SQL Server Management Studio. Kör sedan följande Transact-SQL-fråga (T-SQL). Frågan kommer att ändra namnet på den återställda databasen till den för den borttagna databas som du tänker skriva över.
 
 ```sql
 ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
+Använd någon av följande metoder för att ansluta till databasen i den hanterade instansen:
 
-Använd någon av följande metoder för att ansluta till din hanterade instans databas: 
-
-- [Virtuell SQL-dator](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [Virtuell Azure-dator](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Punkt-till-plats](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Offentlig slutpunkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Offentlig slut punkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [långsiktig kvarhållning](sql-database-long-term-retention.md) och [automatiserade säkerhets kopieringar](sql-database-automated-backups.md). 
+Lär dig mer om [automatiserade säkerhets kopieringar](sql-database-automated-backups.md).

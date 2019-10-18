@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure-anteckningsbok – Personanpassare'
+title: 'Självstudie: Azure Notebook – Personanpassare'
 titleSuffix: Azure Cognitive Services
 description: Den här självstudien simulerar en _SYSTEM i en Azure-anteckningsbok, som föreslår vilken typ av kaffe en kund ska beställa. Användarna och deras inställningar lagras i en användar data uppsättning. Information om kaffeet är också tillgänglig och lagrad i en kaffe data uppsättning.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: b724e54eb2d9e61bd576ab8a094489bbed6db20d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975410"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515166"
 ---
-# <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudier: Använda Personanpassaren i Azure Notebook
+# <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudie: använda en Personanpassare i Azure Notebook
 
 I den här självstudien körs en själv studie slinga i en Azure-anteckningsbok, som demonstrerar slut punkt till slut punkt för en själv studie slinga. 
 
@@ -29,16 +29,16 @@ Antecknings boken väljer en slumpmässig användare, tid på dag och typ av vä
 
 |Kunder – kontext funktioner|Tider på dagen|Typer av väder|
 |--|--|--|
-|Alice<br>Bob<br>Cathy<br>Dave|Morgon<br>Totalt<br>Kvällen|Solig<br>RAINY<br>Tallar| 
+|Anna<br>Bob<br>Cathy<br>Dave|Morgon<br>Totalt<br>Kvällen|Solig<br>RAINY<br>Tallar| 
 
 För att hjälpa personanpassa att lära sig, med tiden, det korrekta kaffe valet för varje person, känner _systemet_ också till information om kaffeet.
 
 |Funktioner för kaffe åtgärder|Typer av temperatur|Ursprungs platser|Typer av rostade|Ställ|
 |--|--|--|--|--|
-|Cappacino|Hot|Kenya|Mörk|Ställ|
-|Kall Brew|Kalla|Brasilien|Enstaka|Ställ|
-|Iced mocha|Kalla|Etiopien|Enstaka|Inte ekologisk|
-|Latte|Hot|Brasilien|Mörk|Inte ekologisk|
+|Cappacino|Frekvent|Kenya|Mörk|Ställ|
+|Kall Brew|Kalla|Brasilien|Ljus|Ställ|
+|Iced mocha|Kalla|Etiopien|Ljus|Inte ekologisk|
+|Latte|Frekvent|Brasilien|Mörk|Inte ekologisk|
 
 
 **Syftet** med den personliga slingan är att hitta den bästa matchningen mellan användarna och kaffe så mycket som möjligt. 
@@ -65,7 +65,7 @@ Systemet tar emot rankningen av kaffe valen och jämför sedan förutsägelsen m
 > Detta är en simulering så att algoritmen för belöningen är enkel. I ett verkligt scenario bör algoritmen använda affärs logik, möjligt vis med vikt för olika aspekter av kundens upplevelse, för att fastställa belönings poängen. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett [Azure Notebook](https://notebooks.azure.com/) -konto. 
 * En [Azures personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). 
@@ -83,10 +83,10 @@ Fil beskrivningar:
 
 I Azure Portal konfigurerar du din [personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) med **frekvensen Uppdatera modell** till 15 sekunder och en **belönings vänte tid** på 15 sekunder. De här inställningarna finns på sidan **[Inställningar](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
 
-|Inställning|Value|
+|Inställning|Värde|
 |--|--|
-|uppdaterings modell frekvens|15 sekunder|
-|vänte tid för belöning|15 sekunder|
+|uppdaterings modell frekvens|15 sekunder|
+|vänte tid för belöning|15 sekunder|
 
 Dessa värden har en mycket kort varaktighet för att kunna visa ändringar i den här självstudien. Dessa värden bör inte användas i ett produktions scenario utan att kontrol lera att de uppnår ditt mål med din personliga loop. 
 
@@ -122,7 +122,7 @@ personalization_base_url = "https://<your-resource-name>.cognitiveservices.azure
 resource_key = "<your-resource-key>"
 ```
 
-### <a name="print-current-data-and-time"></a>Skriv ut aktuella data och tid
+### <a name="print-current-date-and-time"></a>Skriv ut aktuellt datum och aktuell tid
 Använd den här funktionen för att notera start-och slut tiderna för den iterativa funktionen, iterationer.
 
 Dessa celler har inga utdata. Funktionen skriver ut aktuellt datum och tidpunkt när det anropas.
@@ -136,7 +136,7 @@ def currentDateTime():
 
 ### <a name="get-the-last-model-update-time"></a>Hämta den senaste uppdaterings tiden för modellen
 
-När funktionen `get_last_updated` anropas, skriver funktionen ut det senast ändrade datumet och tidpunkten då modellen uppdaterades. 
+När funktionen `get_last_updated`, anropas, skriver funktionen ut det senast ändrade datumet och tidpunkten då modellen uppdaterades. 
 
 Dessa celler har inga utdata. Funktionen utvärderar den senaste modell inlärnings datumet när det anropades.
 
@@ -198,10 +198,10 @@ Den här cellen
 * ställer in säkerhets huvud med hjälp av din personanpassa resurs nyckel 
 * anger det slumpmässiga Dirigerings-ID: t för rang händelse-ID
 * läser i JSON-datafilerna
-* anrop `get_last_updated` metod-inlärnings princip har tagits bort i exempel på utdata
-* anrop `get_service_settings`-metod
+* anrop `get_last_updated` metod – inlärnings princip har tagits bort i exempel på utdata
+* anrop `get_service_settings` metod
 
-Cellen har utdata från anropet till `get_last_updated`-och `get_service_settings`-funktioner.
+Cellen har utdata från anropet till `get_last_updated` och `get_service_settings` funktioner.
 
 ```python
 # build URLs
@@ -587,7 +587,7 @@ För att hitta en bättre inlärnings policy, baserat på dina data till ranknin
 1. I Azure Portal öppnar du sidan **utvärdering** av personanpassa resurs.
 1. Välj **Skapa utvärdering**.
 1. Ange nödvändiga data för utvärderings namn och datum intervall för upprepnings utvärderingen. Datum intervallet får bara innehålla de dagar som du fokuserar på för utvärderingen. 
-    ![In Azure Portal öppnar du sidan utvärdering av personanpassa resurs. Välj Skapa utvärdering. Ange utvärderings namnet och datum intervallet. ](./media/tutorial-azure-notebook/create-offline-evaluation.png)
+    ![In Azure Portal öppnar du sidan med utvärderings resursen för personanpassa resursen. Välj Skapa utvärdering. Ange utvärderings namnet och datum intervallet. ](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
     Syftet med att köra denna offline-utvärdering är att avgöra om det finns en bättre inlärnings princip för de funktioner och åtgärder som används i den här slingan. Se till att **optimerings principen** är aktive rad för att hitta den bättre inlärnings principen.
 
@@ -608,7 +608,7 @@ Läs mer om [belönings vänte tid](concept-rewards.md#reward-wait-time) och [mo
 get_service_settings()
 ```
 
-Kontrol lera att utdatan `rewardWaitTime` och `modelExportFrequency` båda är inställda på 5 minuter. 
+Kontrol lera att utdatan `rewardWaitTime` och `modelExportFrequency` båda har värdet 5 minuter. 
 ```console
 -----checking model
 <Response [200]>

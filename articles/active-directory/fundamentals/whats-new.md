@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/17/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 096c5f06c53f1e93a0c661f856ab112236c0ec60
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: c475bfc6179f3604ed6b83cafc75d34f4359513f
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373552"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532830"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
->Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in denna URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` i ![RSS feed reader-ikonen @ no__t-2-matnings läsare.
+>Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in denna URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` i ![RSS feed reader-ikonen ](./media/whats-new/feed-icon-16x16.png) feed reader.
 
 Azure AD tar emot förbättringar kontinuerligt. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
@@ -36,6 +36,20 @@ Azure AD tar emot förbättringar kontinuerligt. För att hålla dig uppdaterad 
 - Planer för ändringar
 
 Den här sidan uppdateras varje månad, så du kan uppdatera den regelbundet. Om du letar efter objekt som är äldre än sex månader kan du hitta dem i [arkivet för nyheter i Azure Active Directory](whats-new-archive.md).
+
+---
+
+## <a name="october-2019"></a>Oktober 2019
+
+### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Utfasning av identityRiskEvent-API: et för Azure AD Identity Protection risk identifieringar  
+
+**Typ:** Planera för ändring  
+**Tjänste kategori:** Identitets skydd  
+**Produkt kapacitet:** & Skydd för identitets säkerhet
+
+Azure AD Premium P2-prenumeranter kan nu utföra komplexa frågor på Azure AD Identity Protections risk identifierings data genom att använda det nya riskDetection-API: et för Microsoft Graph. Den befintliga [identityRiskEvent](https://docs.microsoft.com/en-us/graph/api/resources/identityriskevent?view=graph-rest-beta) API Beta-versionen slutar att returnera data cirka **10 januari 2020**. Om din organisation använder identityRiskEvent-API: t bör du övergå till det nya riskDetection-API: et.
+
+Mer information om det nya riskDetection-API: et finns i [referens dokumentationen för riskhantering](https://aka.ms/RiskDetectionsAPI).
 
 ---
 
@@ -50,6 +64,8 @@ Den här sidan uppdateras varje månad, så du kan uppdatera den regelbundet. Om
 Power BI är inaktuella innehålls paket från sina butiker och från och med den **1 oktober 2019**har vi inte längre stöd för Azure AD Power BI-innehålls paketet. Kunder som för närvarande använder innehålls paketet kan fortsätta att använda det även om de underliggande API: erna är äldre versioner. Som ett alternativ till detta innehålls paket kan du använda Azure AD-arbetsböcker (bygger på Log Analytics) för att få insikter om dina Azure AD-relaterade tjänster.
 
 Mer information om arbets böckerna finns i [så här använder du Azure Monitor-arbetsböcker för Azure Active Directory-rapporter](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Mer information om utfasningen av innehålls paket finns i blogg inlägget om att [presentera Power BI Template Apps allmänt tillgänglighet](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) .
+
+---
 
 ### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>Min profil byter namn på och integreras med sidan Microsoft Office konto
 
@@ -175,7 +191,7 @@ Från och med den 1 juli 2019 erbjuder Microsoft även MFA Server för nya distr
 
 ---
 
-## <a name="august-2019"></a>2019 augusti
+## <a name="august-2019"></a>Augusti 2019
 
 ### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Plan för ändring: utfasning av Power BI innehålls paket
 
@@ -444,7 +460,7 @@ Vi tar bort MFA-serverns IP-adress från [Office 365 IP-adress och URL-webbtjän
 
 Den 26 juli 2019 ändrade vi hur vi tillhandahåller app-only-token via [tilldelningen av klientens autentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow). Tidigare kunde appar Hämta token för att anropa andra appar, oavsett om klient programmet fanns i klienten. Vi har uppdaterat det här beteendet så att resurser med en enda klient, ibland kallade webb-API: er, bara kan anropas av klient program som finns i resurs klienten.
 
-Om din app inte finns i resurs klienten får du ett fel meddelande om att `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` för att åtgärda det här problemet måste du skapa klientens huvud namn för klienten i klient organisationen, antingen med hjälp av [Administratörs medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) eller [via PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell) vilket säkerställer att klienten har gett appen behörighet att köras i klienten.
+Om din app inte finns i resurs klienten får du ett fel meddelande om att `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` åtgärda problemet genom att för att åtgärda det här problemet, måste du skapa klient program tjänstens huvud namn i klienten, antingen med hjälp av [Administratörs medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) eller [via PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell) vilket säkerställer att klienten har gett appen behörighet att köras i klienten.
 
 Mer information finns i [Vad är nytt för autentisering?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant).
 
@@ -657,7 +673,7 @@ Mer information om de här uppdateringarna finns i [filtrera gransknings loggar]
 
 ---
 
-## <a name="june-2019"></a>2019 juni
+## <a name="june-2019"></a>Juni 2019
 
 ### <a name="new-riskdetections-api-for-microsoft-graph-public-preview"></a>New riskDetections-API för Microsoft Graph (offentlig för hands version)
 

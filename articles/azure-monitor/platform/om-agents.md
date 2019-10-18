@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 4b426fbc1d1b3eeed2321f86bb51c9c5d705adb4
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c8d6e949722e291eab4ac45f6abb610acfa10d68
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035617"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532396"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Anslut Operations Manager till Azure Monitor
 
@@ -34,13 +34,13 @@ Genom att integrera med System Center Operations Manager lägger du till värde 
 
 Agenter som rapporterar till Operations Manager hanterings gruppen samlar in data från dina servrar baserat på [Log Analytics data källor](agent-data-sources.md) och lösningar som du har aktiverat i din arbets yta. Beroende på vilka lösningar som har Aktiver ATS skickas deras data antingen direkt från en Operations Manager hanterings server till tjänsten, eller på grund av data mängden som samlas in på det agentbaserade systemet, skickas direkt från agenten till en Log Analytics arbets yta. Hanteringsservern vidarebefordrar data direkt till tjänsten, de skrivs aldrig till den operativa databasen eller informationslagerdatabasen. När en hanterings server förlorar anslutningen till Azure Monitor cachelagrar den data lokalt tills kommunikationen återupprättas. Om-hanterings servern är offline på grund av planerat underhåll eller oplanerat avbrott, återupptar en annan hanterings server i hanterings gruppen anslutningen till Azure Monitor.  
 
-Följande diagram visar anslutningen mellan hanterings servrar och agenter i en System Center Operations Manager hanterings grupp och Azure Monitor, inklusive riktning och portar.   
+Följande diagram visar anslutningen mellan hanterings servrar och agenter i en System Center Operations Manager hanterings grupp och Azure Monitor, inklusive riktning och portar.
 
 ![oms-operations-manager-integration-diagram](./media/om-agents/oms-operations-manager-connection.png)
 
 Om dina IT-säkerhetsprinciper inte tillåter datorer i nätverket att ansluta till Internet, kan hanterings servrar konfigureras för att ansluta till Log Analytics Gateway för att ta emot konfigurations information och skicka insamlade data beroende på lösningarna aktiva. Mer information och anvisningar om hur du konfigurerar din Operations Manager hanterings grupp för att kommunicera via en Log Analytics Gateway till Azure Monitor finns i [ansluta datorer till Azure monitor med hjälp av Log Analytics Gateway](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Läs igenom följande krav innan du börjar.
 
@@ -51,32 +51,32 @@ Läs igenom följande krav innan du börjar.
 * Du autentiserar till Azure med ett konto som är medlem i [rollen Log Analytics Contributor](manage-access.md#manage-access-using-azure-permissions).
 
 * Regioner som stöds – endast följande Azure-regioner stöds av System Center Operations Manager för att ansluta till en Log Analytics arbets yta:
-    - Västra centrala USA
+    - USA, västra centrala
     - Sydöstra Australien
-    - Västra Europa
-    - East US
+    - Europa, västra
+    - USA, östra
     - Sydostasien
-    - Östra Japan
+    - Japan, östra
     - Storbritannien, södra
     - Indien, centrala
-    - Centrala Kanada
-    - Västra USA 2
+    - Kanada, centrala
+    - USA, västra 2
 
 >[!NOTE]
 >De senaste ändringarna i Azure API: er hindrar kunder från att kunna konfigurera integration mellan hanterings gruppen och Azure Monitor för första gången. För kunder som redan har integrerat sin hanterings grupp med tjänsten påverkas du inte om du inte behöver konfigurera om den befintliga anslutningen.  
 >Ett nytt hanterings paket har släppts för följande versioner av Operations Manager:
-> - För System Center Operations Manager 2019 tillhandahålls hanterings paketet med Operations Manager-versionen.
+> - För System Center Operations Manager 2019 ingår detta hanterings paket med käll mediet och installeras under installationen av en ny hanterings grupp eller under en uppgradering.
 >- Operations Manager 1801-hanterings paketet gäller också för Operations Manager 1807.
->- För System Center Operations Manager 1801 hämtar du hanterings paketet härifrån [](https://www.microsoft.com/download/details.aspx?id=57173).
->- För System Center 2016 – Operations Manager laddar du ned hanterings paketet [](https://www.microsoft.com/download/details.aspx?id=57172)härifrån.  
->- Hämta hanterings paketet härifrån för System Center Operations Manager 2012 R2. [](https://www.microsoft.com/download/details.aspx?id=57171)  
+>- För System Center Operations Manager 1801 hämtar du hanterings paketet härifrån [.](https://www.microsoft.com/download/details.aspx?id=57173)
+>- För System Center 2016 – Operations Manager laddar du ned hanterings paketet [härifrån.](https://www.microsoft.com/download/details.aspx?id=57172)  
+>- Hämta hanterings [paketet härifrån för](https://www.microsoft.com/download/details.aspx?id=57171)System Center Operations Manager 2012 R2.  
 
 
 ### <a name="network"></a>Nätverk
 
-Informationen nedan visar den konfigurations information för proxy och brand vägg som krävs för att Operations Manager agent, hanterings servrar och drift konsol för att kommunicera med Azure Monitor. Trafik från varje komponent är utgående från nätverket till Azure Monitor.   
+Informationen nedan visar den konfigurations information för proxy och brand vägg som krävs för att Operations Manager agent, hanterings servrar och drift konsol för att kommunicera med Azure Monitor. Trafik från varje komponent är utgående från nätverket till Azure Monitor.
 
-|Resource | Portnummer| Kringgå HTTPS-kontroll|  
+|Resurs | Portnummer| Kringgå HTTPS-kontroll|  
 |---------|------|-----------------------|  
 |**Agent**|||  
 |\*.ods.opinsights.azure.com| 443 |Ja|  
@@ -100,9 +100,9 @@ Informationen nedan visar den konfigurations information för proxy och brand v�
 |api.loganalytics.io| 80 och 443||
 |docs.loganalytics.io| 80 och 443||  
 
-### <a name="tls-12-protocol"></a>TLS 1.2-protokollet
+### <a name="tls-12-protocol"></a>TLS 1,2-protokoll
 
-För att säkerställa säkerheten för data som överförs till Azure Monitor rekommenderar vi starkt att du konfigurerar agenten och hanterings gruppen så att de använder minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**. Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
+För att säkerställa säkerheten för data som överförs till Azure Monitor rekommenderar vi starkt att du konfigurerar agenten och hanterings gruppen så att de använder minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**. Mer information finns i [skicka data på ett säkert sätt med TLS 1,2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Ansluta Operations Manager till Azure Monitor
 
@@ -111,30 +111,30 @@ Utför följande steg för att konfigurera hanteringsgruppen för Operations Man
 Under den inledande registreringen av din Operations Manager hanterings grupp med en Log Analytics arbets yta är alternativet för att ange proxykonfigurationen för hanterings gruppen inte tillgängligt i drift konsolen.  Hanteringsgruppen måste registrerats med tjänsten innan det här alternativet är tillgängligt.  För att undvika detta måste du uppdatera systemproxy-konfigurationen med Netsh på systemet som kör drift konsolen från för att konfigurera integrering och alla hanterings servrar i hanterings gruppen.  
 
 1. Öppna en upphöjd kommandotolk.
-   a. Gå till **starta** och skriv **cmd**.
-   b. Högerklicka på **kommandotolk** och välj Kör som administratör **.
+   a. Gå till **Start** och skriv **cmd**.
+   b. Högerklicka på **kommando tolken** och välj Kör som administratör * *.
 1. Ange följande kommando och tryck på **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-När du har slutfört följande steg för att integrera med Azure Monitor kan du ta bort konfigurationen genom `netsh winhttp reset proxy` att köra och sedan använda alternativet **Konfigurera proxyserver** i drift konsolen för att ange proxyn eller Log Analytics Gateway-server .
+När du har slutfört följande steg för att integrera med Azure Monitor kan du ta bort konfigurationen genom att köra `netsh winhttp reset proxy` och sedan använda alternativet **Konfigurera proxyserver** i drift konsolen för att ange proxyservern eller Log Analytics Gateway-servern.
 
 1. Välj arbetsytan **Administration** i Operations Manager-konsolen.
 1. Expandera noden Operations Management Suite och klicka på **Anslutning**.
 1. Klicka på länken för att **registrera till Operations Management Suite**.
-1. I guiden **Operations Management Suite onboarding: Sidan** autentisering anger du e-postadressen eller telefonnumret och lösen ordet för det administratörs konto som är associerat med din OMS-prenumeration och klickar på **Logga**in.
+1. På sidan **Guiden Operations Management Suite Onboarding: Autentisering** anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är kopplat till din OMS-prenumeration och klickar på **Logga in**.
 
    >[!NOTE]
    >Operations Management Suite-namnet har dragits tillbaka.
 
-1. När du har autentiserat dig går du till **guiden Operations Management Suite onboarding: Sidan Välj** arbets yta uppmanas du att välja din Azure-klient, prenumeration och Log Analytics-arbetsyta. Om du har mer än en arbetsyta väljer du arbetsytan som du vill registrera med Operations Manager-hanteringsgruppen från listrutan och klickar på **Nästa**.
+1. När du har autentiserats går du till sidan **Operations Management Suite onboarding: Välj arbets yta** och du uppmanas att välja din Azure-klient, prenumeration och Log Analytics-arbetsyta. Om du har mer än en arbetsyta väljer du arbetsytan som du vill registrera med Operations Manager-hanteringsgruppen från listrutan och klickar på **Nästa**.
 
    > [!NOTE]
    > Operations Manager stöder bara en Log Analytics-arbetsyta i taget. Anslutningen och datorerna som har registrerats för Azure Monitor med den föregående arbets ytan tas bort från Azure Monitor.
    >
    >
-1. I guiden **Operations Management Suite onboarding: Sidan** sammanfattning, bekräfta dina inställningar och klicka på **skapa**om de är korrekta.
-1. I guiden **Operations Management Suite onboarding: Slutför** klickar du på **Stäng**.
+1. På sidan **Guiden Operations Management Suite Onboarding: Sammanfattning** bekräftar du dina inställningar och om de är korrekta klickar du på **Skapa**.
+1. På sidan **Guiden Operations Management Suite Onboarding: Slutför** klickar du på **Stäng**.
 
 ### <a name="add-agent-managed-computers"></a>Lägg till datorer som hanteras med agent
 
@@ -154,7 +154,7 @@ Utför följande steg om en intern proxyserver är mellan hanterings gruppen och
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 1. Expandera Operations Management Suite och klicka sedan på **Anslutningar**.
 1. I vyn OMS-anslutning klickar du på **Konfigurera proxyserver**.
-1. I **guiden Operations Management Suite: Sidan proxyserver** väljer du **Använd en proxyserver för att få åtkomst till Operations Management Suite**och anger sedan URL: en med port numret, till exempel, http://corpproxy:80 och klickar sedan på **Slutför.**
+1. På sidan med **guiden Operations Management Suite: Proxyserver** väljer du alternativet för att **använda en proxyserver för att få åtkomst till Operational Management Suite** och anger sedan webbadressen med portnumret, till exempel http://corpproxy:80 och klickar på **Slutför**.
 
 Om proxyservern kräver autentisering utför du följande steg för att konfigurera autentiseringsuppgifter och inställningar som måste spridas till hanterade datorer som rapporterar till Azure Monitor i hanterings gruppen.
 
@@ -194,7 +194,7 @@ Om du vill fortsätta att följa den befintliga processen för ändrings kontrol
 1. Följ **guiden Log Analytics onboarding** och ange e-postadressen eller telefonnumret och lösen ordet för det administratörs konto som är associerat med den nya Log Analytics-arbetsytan.
 
    > [!NOTE]
-   > Guiden **Operations Management Suite onboarding: Sidan Välj** arbets yta visar den befintliga arbets ytan som används.
+   > På sidan **Guiden Operations Management Suite Onboarding: Välj arbetsyta** visas den befintliga arbetsytan som används.
    >
    >
 
@@ -354,10 +354,10 @@ För att radera de två anslutningsprogrammen – Microsoft.SystemCenter.Advisor
     Remove-Connector $connectorName
 ```
 
-I framtiden om du planerar att återansluta din hanterings grupp till en Log Analytics arbets yta måste du importera `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` hanterings paket filen igen. Beroende på vilken version av System Center Operations Manager som har distribuerats i din miljö kan du hitta filen här:
+I framtiden om du planerar att återansluta hanterings gruppen till en Log Analytics arbets yta måste du importera `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` Management Pack-filen igen. Beroende på vilken version av System Center Operations Manager som har distribuerats i din miljö kan du hitta filen här:
 
 * På källmediet under mappen `\ManagementPacks` för System Center 2016 – Operations Manager och högre.
-* Från den senaste uppdateringen som tillämpats på din hanteringsgrupp. För Operations Manager 2012 är `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` källmappen och för 2012 R2 finns den i. `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`
+* Från den senaste uppdateringen som tillämpats på din hanteringsgrupp. För Operations Manager 2012 är källmappen `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` och för 2012 R2 finns den i `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Nästa steg
 

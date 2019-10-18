@@ -1,6 +1,6 @@
 ---
-title: Visa beroenden för appen med Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
-description: Kartan är en funktion i Azure Monitor för virtuella datorer. Automatiskt identifierar programkomponenter i Windows och Linux-system och mappar kommunikationen mellan tjänster. Den här artikeln innehåller information om hur du använder funktionen för kartan i olika scenarier.
+title: Visa program beroenden med Azure Monitor for VMs (förhands granskning) | Microsoft Docs
+description: Map är en funktion i Azure Monitor for VMs. Den identifierar automatiskt program komponenter i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Den här artikeln innehåller information om hur du använder kart funktionen i olika scenarier.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,133 +11,134 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: f6273e9b6c7ed0c4685479976343497f01201b0b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: MT
+ms.openlocfilehash: 456ed0a48db015d3c95827942a576e6916095131
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206766"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515482"
 ---
-# <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Använda funktionen karta över Azure Monitor för virtuella datorer (förhandsversion) för att förstå programkomponenter
-I Azure Monitor för virtuella datorer kan visa du identifierade programkomponenter på Windows och Linux-datorer (VM) som körs i Azure eller din miljö. Du kan se de virtuella datorerna på två sätt. Visa en karta direkt från en virtuell dator eller visa en karta från Azure Monitor för att se komponenterna i grupper med virtuella datorer. Den här artikeln hjälper dig att förstå dessa två metoder för visning och hur du använder funktionen kartan. 
+# <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Använd kart funktionen i Azure Monitor for VMs (för hands version) för att förstå program komponenter
+I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtuella Windows-och Linux-datorer (VM: ar) som körs i Azure eller i din miljö. Du kan titta på de virtuella datorerna på två sätt. Visa en karta direkt från en virtuell dator eller Visa en karta från Azure Monitor för att se komponenterna mellan grupper av virtuella datorer. Den här artikeln hjälper dig att förstå de här två visnings metoderna och hur du använder kart funktionen. 
 
-Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](vminsights-enable-overview.md).
+Information om hur du konfigurerar Azure Monitor for VMs finns i [aktivera Azure Monitor for VMS](vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="introduction-to-the-map-experience"></a>Introduktion till kartan-upplevelse
-Innan du börjar kartan upplevelse, bör du förstå hur den visas och visar information. Om du väljer funktionen kartan direkt från en virtuell dator eller från Azure Monitor, anger funktionen kartan en konsekvent upplevelse. Den enda skillnaden är att från Azure Monitor en karta visar alla medlemmar i en flera nivåer program eller ett kluster.
+## <a name="introduction-to-the-map-experience"></a>Introduktion till kart upplevelsen
+Innan du simhopp i kart upplevelsen bör du förstå hur den visar och visualiserar information. Oavsett om du väljer kart funktionen direkt från en virtuell dator eller från Azure Monitor, ger kart funktionen en konsekvent upplevelse. Den enda skillnaden är att från Azure Monitor visar en karta alla medlemmar i ett program med flera nivåer eller kluster.
 
-Funktionen kartan hjälper dig att visualisera VM-beroenden genom att identifiera processer som körs som har: 
+Funktionen Map visualiserar de virtuella datorernas beroenden genom att identifiera processer som körs och som har: 
 
-- Aktiva nätverksanslutningar mellan servrar.
-- Svarstid för inkommande och utgående anslutningar.
-- Portar för alla TCP-anslutna arkitekturer under ett angivet tidsintervall.  
+- Aktiva nätverks anslutningar mellan servrar.
+- Latens för inkommande och utgående anslutning.
+- Portar i alla TCP-anslutna arkitekturer under ett angivet tidsintervall.  
  
-Expandera en virtuell dator för att visa information om och bara de processer som kommunicerar med den virtuella datorn. Klientgruppen visar antal frontend-klienter som ansluter till den virtuella datorn. Server-port-grupper visas antalet backend-servrar som den virtuella datorn ansluter till. Expandera en server-port grupp om du vill se en detaljerad lista över servrar som ansluter via den porten.  
+Expandera en virtuell dator för att Visa process information och bara de processer som kommunicerar med den virtuella datorn. Klient gruppen visar antalet klient dels klienter som ansluter till den virtuella datorn. Server Port grupper visar antalet backend-servrar som den virtuella datorn ansluter till. Expandera en server-port-grupp om du vill se en detaljerad lista över servrar som ansluter över den porten.  
 
-När du väljer den virtuella datorn, den **egenskaper** till höger visar den Virtuella datorns egenskaper. Egenskaper för omfattar systeminformation som rapporteras av operativsystemet, egenskaper för virtuell Azure-dator och ett ringdiagram som sammanfattar de identifierade anslutningarna. 
+När du väljer den virtuella datorn visas egenskaperna för den virtuella datorn i rutan **Egenskaper** till höger. Egenskaperna omfattar system information som rapporteras av operativ systemet, egenskaperna för den virtuella Azure-datorn och ett ring diagram som sammanfattar de identifierade anslutningarna. 
 
-![Egenskapsrutan](./media/vminsights-maps/properties-pane-01.png)
+![Fönstret Egenskaper](./media/vminsights-maps/properties-pane-01.png)
 
-På höger sida av fönstret, Välj **logghändelser** att visa en lista över data som den virtuella datorn har skickats till Azure Monitor. Dessa data är tillgängliga för frågor.  Välj valfri typ av post att öppna den **loggar** sidan där du ser resultatet för den posttypen. Du kan också se en förkonfigurerad fråga som har filtrerats mot den virtuella datorn.  
+På höger sida av fönstret väljer du **logg händelser** för att visa en lista med data som den virtuella datorn har skickat till Azure Monitor. Dessa data är tillgängliga för frågor.  Välj valfri posttyp för att öppna sidan **loggar** där du ser resultatet för den post typen. Du kan också se en förkonfigurerad fråga som är filtrerad mot den virtuella datorn.  
 
-![Fönstret logghändelser](./media/vminsights-maps/properties-pane-logs-01.png)
+![Fönstret logg händelser](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Stäng den **loggar** sidan och gå tillbaka till den **egenskaper** fönstret. Där väljer **aviseringar** att visa aviseringar för VM-health-villkor. Funktionen kartan kan integreras med Azure-aviseringar att visa aviseringar för den valda servern i det valda tidsintervallet. Servern visas en ikon för aktuella aviseringar och **datorn aviseringar** rutan visas aviseringarna. 
+Stäng sidan **loggar** och gå tillbaka till fönstret **Egenskaper** . Där väljer du **aviseringar** för att visa aviseringar om hälso villkor för virtuella datorer. Kart funktionen integreras med Azure-aviseringar för att visa aviseringar för den valda servern i det valda tidsintervallet. Servern visar en ikon för aktuella aviseringar så visas aviseringarna i fönstret **dator aviseringar** . 
 
-![Aviseringspanelen](./media/vminsights-maps/properties-pane-alerts-01.png)
+![Fönstret aviseringar](./media/vminsights-maps/properties-pane-alerts-01.png)
 
-Skapa en aviseringsregel som gäller för en specifik dator för att göra funktionen kartan för att visa relevanta aviseringar:
+Om du vill att kart funktionen ska visa relevanta aviseringar skapar du en varnings regel som gäller för en speciell dator:
 
-- Innehåller en instruktion i gruppen aviseringar per dator (till exempel **datorn intervall 1 minut**).
+- Inkludera en sats för att gruppera aviseringar efter dator (till exempel **efter dator intervall 1 minut**).
 - Basera aviseringen på ett mått.
 
-Läs mer om Azure-aviseringar och skapa Varningsregler [Unified aviseringar i Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+Mer information om Azure-aviseringar och hur du skapar aviserings regler finns [i enhetliga aviseringar i Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
 
-I det övre högra hörnet i **förklaring** alternativet beskrivs symboler och roller på kartan. Använd zoom-kontroller för en närmare titt på kartan och flytta runt i det nedre högra hörnet. Du kan ange zoomnivån och passa in kartan till storleken på sidan.  
+I det övre högra hörnet beskriver **förklarings** alternativet symboler och roller på kartan. Titta närmare på kartan och flytta den runt genom att använda zoomnings kontrollerna i det nedre högra hörnet. Du kan ställa in zoomnings nivån och passa kartan på sidans storlek.  
 
-## <a name="connection-metrics"></a>Anslutningsmått
-Den **anslutningar** fönstret visar standardmått för den valda anslutningen från den virtuella datorn via TCP-port. Mått är svarstid, begäranden per minut, genomflöde och länkar.  
+## <a name="connection-metrics"></a>Anslutnings mått
+Fönstret **anslutningar** visar standard mått för den valda anslutningen från den virtuella datorn via TCP-porten. Måtten omfattar svars tid, begär Anden per minut, trafik data flöde och länkar.  
 
-![Network connectivity diagram i fönstret anslutningar](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
+![Diagram över nätverks anslutning i fönstret anslutningar](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
 
 ### <a name="failed-connections"></a>Misslyckade anslutningar
-Kartan visar misslyckade anslutningar för processer och datorer. En röd streckad linje anger ett klientsystem kan inte nå en process eller port. Agenten rapporterar om misslyckade anslutningsförsök för system som använder beroendeagenten. Funktionen kartan övervakar en process genom att följa TCP uttag som det gick inte att upprätta en anslutning. Det här felet kan bero på en brandvägg kan en felaktig konfiguration i klienten eller servern eller en otillgänglig fjärrtjänsten.
+Kartan visar misslyckade anslutningar för processer och datorer. En streckad röd linje indikerar att ett klient system inte kan komma åt en process eller port. För system som använder beroende agenten rapporterar agenten om misslyckade anslutnings försök. Kart funktionen övervakar en process genom att kontrol lera TCP-socketar som inte upprättar en anslutning. Det här felet kan bero på en brand vägg, en felaktig konfiguration på klienten eller servern eller en fjärran sluten tjänst som inte är tillgänglig.
 
 ![En misslyckad anslutning på kartan](./media/vminsights-maps/map-group-failed-connection-01.png)
 
-Förstå misslyckade anslutningar kan hjälpa dig att felsöka, verifiera migrering, analysera säkerhet och beskriver den övergripande arkitekturen i tjänsten. Misslyckade anslutningar är ibland ofarliga, men de pekar ofta på ett problem. Anslutningar misslyckas, till exempel när en redundans miljö blir plötsligt kan inte nås eller när två nivåer av programmet inte kan kommunicera med varandra efter en molnmigrering.
+Att förstå misslyckade anslutningar kan hjälpa dig att felsöka, verifiera migrering, analysera säkerhet och förstå den övergripande arkitekturen för tjänsten. Misslyckade anslutningar är ibland ofarliga, men de pekar ofta på ett problem. Anslutningar kan till exempel Miss Miss inträffat, till exempel när en växlings miljö plötsligt blir otillgänglig eller när två program nivåer inte kan kommunicera med varandra efter en molnbaserad migrering.
 
-### <a name="client-groups"></a>Klientgrupper
-På kartan representerar klientgrupper klientdatorer som ansluter till den mappade datorn. En enskild klientgrupp representerar klienter för en enskild process eller dator.
+### <a name="client-groups"></a>Klient grupper
+På kartan representerar klient grupper klient datorer som ansluter till den mappade datorn. En enda klient grupp representerar klienterna för en enskild process eller dator.
 
-![En klientgrupp på kartan](./media/vminsights-maps/map-group-client-groups-01.png)
+![En klient grupp på kartan](./media/vminsights-maps/map-group-client-groups-01.png)
 
-Välj gruppen om du vill se de övervakade klienterna och IP-adresser för system i en klientgrupp. Innehållet i gruppen visas nedan.  
+Välj gruppen om du vill se de övervakade klienterna och IP-adresserna för systemen i en klient grupp. Gruppens innehåll visas nedan.  
 
-![En klientgrupp lista med IP-adresser på kartan](./media/vminsights-maps/map-group-client-group-iplist-01.png)
+![En klient grupps lista med IP-adresser på kartan](./media/vminsights-maps/map-group-client-group-iplist-01.png)
 
-Om gruppen innehåller övervakade och oövervakade klienter, kan du välja lämpligt avsnitt i den gruppen ringdiagram att filtrera klienterna.
+Om gruppen innehåller övervakade och oövervakade klienter kan du filtrera klienterna genom att välja lämpligt avsnitt i gruppens ring diagram.
 
-### <a name="server-port-groups"></a>Serverport grupper
-Serverport säkerhetsgrupper som representerar portar på servrar som har inkommande anslutningar från den mappade datorn. Gruppen innehåller server-port och en uppräkning av antalet servrar som har anslutningar till porten. Välj gruppen som du vill visa enskilda servrar och anslutningar. 
+### <a name="server-port-groups"></a>Server-Port grupper
+Server Port grupper representerar portar på servrar som har inkommande anslutningar från den mappade datorn. Gruppen innehåller Server porten och antalet servrar som har anslutningar till den porten. Välj gruppen om du vill se enskilda servrar och anslutningar. 
 
-![En grupp för server-port på kartan](./media/vminsights-maps/map-group-server-port-groups-01.png)  
+![En server port grupp på kartan](./media/vminsights-maps/map-group-server-port-groups-01.png)  
 
-Om gruppen innehåller övervakade och oövervakade servrar, kan du välja lämpligt avsnitt i den gruppen ringdiagram att filtrera servrarna.
+Om gruppen innehåller övervakade och oövervakade servrar kan du filtrera servrarna genom att välja lämpligt avsnitt i gruppens ring diagram.
 
 ## <a name="view-a-map-from-a-vm"></a>Visa en karta från en virtuell dator 
 
-Öppna Azure Monitor för virtuella datorer direkt från en virtuell dator:
+Så här får du åtkomst till Azure Monitor for VMs direkt från en virtuell dator:
 
-1. I Azure-portalen väljer du **virtuella datorer**. 
-2. Välj en virtuell dator i listan. I den **övervakning** väljer **Insights (förhandsversion)** .  
-3. Välj den **kartan** fliken.
+1. I Azure Portal väljer du **Virtual Machines**. 
+2. Välj en virtuell dator i listan. I avsnittet **övervakning** väljer du **insikter (för hands version)** .  
+3. Välj fliken **karta** .
 
-Kartan visar den Virtuella datorns beroenden genom att identifiera kör processgrupper och processer som har aktiva nätverksanslutningar under ett angivet tidsintervall.  
+Kartan visualiserar de virtuella datorernas beroenden genom att identifiera kör process grupper och processer som har aktiva nätverks anslutningar under ett visst tidsintervall.  
 
-Kartan visas som standard de senaste 30 minuterna. Om du vill se hur beroenden tittat tidigare kan du fråga efter historiska tidsintervall på upp till en timme. Kör frågan med den **TimeRange** väljare i det övre vänstra hörnet. Du kan köra en fråga, exempelvis under en incident eller vill se status innan en ändring.  
+Som standard visar kartan de senaste 30 minuterna. Om du vill se hur beroenden som såg ut tidigare kan du fråga efter historiska tidsintervall på upp till en timme. Om du vill köra frågan använder du **TimeRange** -väljaren i det övre vänstra hörnet. Du kan köra en fråga, till exempel under en incident eller för att se status innan en ändring.  
 
-![Direct VM: översikt](./media/vminsights-maps/map-direct-vm-01.png)
+![Översikt över mappning av direkt virtuell dator](./media/vminsights-maps/map-direct-vm-01.png)
 
-## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Visa en karta från en VM-skalningsuppsättning
+## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Visa en karta från en skalnings uppsättning för virtuella datorer
 
-Komma åt Azure Monitor för virtuella datorer direkt från en VM-skalningsuppsättning:
+Få åtkomst till Azure Monitor for VMs direkt från en skalnings uppsättning för virtuella datorer:
 
-1. I Azure-portalen väljer du **VM-skalningsuppsättningar**.
-2. Välj en virtuell dator i listan. I den **övervakning** väljer **Insights (förhandsversion)** .  
-3. Välj den **kartan** fliken.
+1. I Azure Portal väljer du **skalnings uppsättningar för virtuella datorer**.
+2. Välj en virtuell dator i listan. I avsnittet **övervakning** väljer du **insikter (för hands version)** .  
+3. Välj fliken **karta** .
 
-Kartan visualiserar alla instanser i skalningsuppsättningen som en gruppnod tillsammans med gruppens beroenden. Noden expanderade visar instanserna i skalningsuppsättningen. Du kan bläddra igenom dessa instanser 10 i taget. 
+Kartan visualiserar alla instanser i skalnings uppsättningen som en gruppnod tillsammans med gruppens beroenden. Den expanderade noden listar instanserna i skalnings uppsättningen. Du kan bläddra igenom instanserna 10 i taget. 
 
-Läs in en karta för en viss instans genom att först välja instansen på kartan. Välj sedan den **ellipsen** knappen (...) till höger och välj **Läs in Servermappning**. Kartan som visas, visas processgrupper och processer som har aktiva nätverksanslutningar under ett angivet tidsintervall. 
+Om du vill läsa in en karta för en speciell instans väljer du först den instansen på kartan. Välj sedan knappen med **tre punkter** (...) till höger och välj **Läs in Server karta**. I kartan som visas ser du process grupper och processer som har aktiva nätverks anslutningar under ett angivet tidsintervall. 
 
-Kartan visas som standard de senaste 30 minuterna. Om du vill se hur beroenden tittat tidigare kan du fråga efter historiska tidsintervall på upp till en timme. Kör frågan med den **TimeRange** väljare. Du kan köra en fråga, exempelvis under en incident eller vill se status innan en ändring.
+Som standard visar kartan de senaste 30 minuterna. Om du vill se hur beroenden som såg ut tidigare kan du fråga efter historiska tidsintervall på upp till en timme. Använd **TimeRange** -väljaren för att köra frågan. Du kan köra en fråga, till exempel under en incident eller för att se status innan en ändring.
 
-![Direct VM: översikt](./media/vminsights-maps/map-direct-vmss-01.png)
+![Översikt över mappning av direkt virtuell dator](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Du kan också komma åt en karta för en specifik instans från den **instanser** vyn för din skalningsuppsättning för virtuell dator. I den **inställningar** går du till avsnittet **instanser** > **Insights (förhandsversion)** .
+>Du kan också komma åt en karta för en angiven instans från vyn **instanser** för skalnings uppsättningen för den virtuella datorn. I avsnittet **Inställningar** går du till **instanser**  > **insikter (för hands version)** .
 
 ## <a name="view-a-map-from-azure-monitor"></a>Visa en karta från Azure Monitor
-Funktionen karta innehåller en global vy över dina virtuella datorer och deras beroenden i Azure Monitor. Öppna kartan-funktionen i Azure Monitor:
 
-1. I Azure-portalen väljer du **övervakaren**. 
-2. I den **Insights** väljer **virtuella datorer (förhandsversion)** .
-3. Välj den **kartan** fliken.
+I Azure Monitor tillhandahåller Map-funktionen en global vy över dina virtuella datorer och deras beroenden. För att få åtkomst till Map-funktionen i Azure Monitor:
 
-   ![Azure Monitor-översikten över flera virtuella datorer](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
+1. I Azure Portal väljer du **övervaka**. 
+2. I avsnittet **insikter** väljer du **Virtual Machines (för hands version)** .
+3. Välj fliken **karta** .
 
-Välj en arbetsyta med hjälp av den **arbetsytan** Väljaren överst på sidan. Om du har fler än en Log Analytics-arbetsyta väljer du den arbetsyta som har aktiverats med lösningen och som har virtuella datorer som rapporterar till den. 
+   ![Översikt över Azure Monitor översikt över flera virtuella datorer](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Den **grupp** väljare returnerar prenumerationer, resursgrupper, [datorgrupper](../../azure-monitor/platform/computer-groups.md), och VM scale sets med datorer som är relaterade till den valda arbetsytan. Ditt val gäller enbart för funktionen kartan och sprids inte till prestanda och hälsa.
+Välj en arbets yta genom att använda **arbets ytans** väljare överst på sidan. Om du har fler än en arbets yta för Log Analytics väljer du den arbets yta som är aktive rad med lösningen och som har virtuella datorer som rapporterar till den. 
 
-Kartan visas som standard de senaste 30 minuterna. Om du vill se hur beroenden tittat tidigare kan du fråga efter historiska tidsintervall på upp till en timme. Kör frågan med den **TimeRange** väljare. Du kan köra en fråga, exempelvis under en incident eller vill se status innan en ändring.  
+**Grupp** väljaren returnerar prenumerationer, resurs grupper, [dator grupper](../../azure-monitor/platform/computer-groups.md)och virtuella datorers skalnings uppsättningar för datorer som är relaterade till den valda arbets ytan. Ditt val gäller endast för kart funktionen och kan inte överföras till prestanda eller hälsa.
+
+Som standard visar kartan de senaste 30 minuterna. Om du vill se hur beroenden som såg ut tidigare kan du fråga efter historiska tidsintervall på upp till en timme. Använd **TimeRange** -väljaren för att köra frågan. Du kan köra en fråga, till exempel under en incident eller för att se status innan en ändring.  
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs hur du använder funktionen hälsotillstånd i [visa Azure VM-hälsa](vminsights-health.md). 
-- Om du vill identifiera flaskhalsar, kontrollera prestanda, och förstå övergripande användning av dina virtuella datorer, se [visa prestandatillstånd för Azure Monitor för virtuella datorer](vminsights-performance.md). 
+
+För att identifiera Flask halsar, kontrol lera prestanda och förstå den övergripande användningen av dina virtuella datorer, se [Visa prestanda status för Azure Monitor for VMS](vminsights-performance.md). 

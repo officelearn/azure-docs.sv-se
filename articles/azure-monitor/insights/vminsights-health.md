@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: b9b4a33e5aee92a4e8caa7a1128538cb2f1a8a7e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: MT
+ms.openlocfilehash: 65ad9e1f5ef62ab2dd9f37a13d3c18871c30e603
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933124"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515502"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Förstå hälso tillståndet för dina virtuella Azure-datorer
 
@@ -36,7 +36,7 @@ Information om hur du konfigurerar Azure Monitor for VMs finns i [aktivera Azure
 
 Det här avsnittet beskriver standard hälso villkoren för att övervaka virtuella datorer i Azure Windows och Linux. Alla hälso kriterier är förkonfigurerade för att skicka en avisering när de identifierar ett ohälsosamt tillstånd.
 
-| Övervakarens namn | Frekvens (min) | Lookback varaktighet (min) | Operator | Tröskelvärde | Avisering om tillstånd | severity | Arbets belastnings kategori | 
+| Övervakarens namn | Frekvens (min) | Lookback varaktighet (min) | Operator | Fastställd | Avisering om tillstånd | Allvarsgrad | Arbets belastnings kategori | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
 | Logisk disk online | 5 | 15 | <> | 1 (sant) | Kritiskt | Sev1 | Linux | 
 | Ledigt utrymme på logisk disk | 5 | 15 | < | 200 MB (varning)<br> 100 MB (kritiskt) | Varning | Sev1<br> Sev2 | Linux | 
@@ -44,9 +44,9 @@ Det här avsnittet beskriver standard hälso villkoren för att övervaka virtue
 | Ledigt utrymme i procent för logisk disk | 5 | 15 | < | 5 % | Kritiskt | Sev1 | Linux | 
 | Status för nätverkskort | 5 | 15 | <> | 1 (sant) | Varning | Sev2 | Linux | 
 | Tillgängligt minne i megabyte för operativ system | 5 | 10 | < | 2,5 MB | Kritiskt | Sev1 | Linux | 
-| Disk medel. S/diskläsning | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
-| Disk medel. S/disköverföring | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
-| Disk medel. S/diskskrivning | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
+| Disk medel s/disk läsning | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
+| Disk medel s/disk överföring | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
+| Disk medel s/disk skrivning | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
 | Disk status | 5 | 25 | <> | 1 (sant) | Kritiskt | Sev1 | Linux | 
 | Total processor tid i procent för operativ system | 5 | 10 | >= | 95% | Kritiskt | Sev1 | Linux | 
 | Total processor användning i procent | 5 | 10 | >= | 95% | Kritiskt | Sev1 | Windows | 
@@ -58,9 +58,9 @@ Det här avsnittet beskriver standard hälso villkoren för att övervaka virtue
 | Ledigt utrymme på logisk disk (MB) | 15 | 60 | > | varning om 500 MB<br> 300 MB kritiskt | Kritiskt | Sev1<br> Sev2 | Windows | 
 | Ledigt utrymme på logisk disk (%) | 15 | 60 | > | 10% varning<br> 5% kritiskt | Kritiskt | Sev1<br> Sev2 | Windows |
 | Ledig tid i procent för logisk disk | 15 | 360 | <= | 20 % | Varning | Sev2 | Windows | 
-| Procent läst Använd bandbredd | 5 | 60 | >= | 60% | Varning | Sev2 | Windows | 
+| Procent läst Använd bandbredd | 5 | 60 | >= | 60 % | Varning | Sev2 | Windows | 
 | Total mängd bandbredd som används | 5 | 60 | >= | 75% | Varning | Sev2 | Windows | 
-| Procent Använd bandbredds skrivning | 5 | 60 | >= | 60% | Varning | Sev2 | Windows | 
+| Procent Använd bandbredds skrivning | 5 | 60 | >= | 60 % | Varning | Sev2 | Windows | 
 | DHCP-klient Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
 | DNS-klient Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
 | Windows händelse logg Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
@@ -105,7 +105,7 @@ Om du väljer tillståndet bredvid komponenten öppnas hälso Diagnoss upplevels
 
 De hälso tillstånd som definierats för en virtuell dator beskrivs i följande tabell:
 
-|Ikon |Hälsotillstånd |Betydelse |
+|Icon |Hälso tillstånd |Betydelse |
 |-----|-------------|---------------|
 | |Felfri |Den virtuella datorn ligger inom de definierade hälso villkoren. Det här läget anger att inga problem har identifierats och att den virtuella datorn fungerar normalt. Med en överordnad sammanslagnings Övervakare samlar hälso tillståndet upp och återspeglar det bästa fallet eller det värsta fallet för det underordnade.|
 | |Kritiskt |Tillståndet ligger inte inom det definierade hälso tillståndet, vilket tyder på att ett eller flera kritiska problem har identifierats. De här problemen måste åtgärdas för att återställa normala funktioner. Med en överordnad sammanslagnings Övervakare samlar hälso tillståndet upp och återspeglar det bästa fallet eller sämsta fall tillståndet för det underordnade.|
@@ -117,7 +117,7 @@ Ett okänt hälso tillstånd kan orsakas av följande problem:
 - Agenten konfigurerades om och rapporterades inte längre till arbets ytan som angavs när Azure Monitor for VMs aktiverades. Om du vill konfigurera agenten att rapportera till arbets ytan ser du [lägga till eller ta bort en arbets yta](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - Den virtuella datorn har tagits bort.
 - Arbets ytan som är kopplad till Azure Monitor for VMs har tagits bort. Du kan återställa arbets ytan om du har Premier Support-förmåner. Gå till [Premier](https://premier.microsoft.com/) och öppna en support förfrågan.
-- Lösningens beroenden har tagits bort. Om du vill återaktivera ServiceMap-och InfrastructureInsights-lösningarna på arbets ytan Log Analytics installerar du om dessa lösningar med hjälp av [Azure Resource Manager-mallen](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). Du kan också använda alternativet Konfigurera arbets yta som finns på fliken kom igång.
+- Lösningens beroenden har tagits bort. Om du vill återaktivera ServiceMap-och InfrastructureInsights-lösningarna på arbets ytan Log Analytics installerar du om ServiceMap-lösningen med hjälp av [Azure Resource Manager-mallen](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). Om du vill installera om InfastructureInsights-lösningen, e-vminsights@microsoft.com. 
 - Den virtuella datorn stängdes av.
 - Tjänsten Azure VM är inte tillgänglig eller underhåll utförs.
 - Dagliga data för arbets ytan [eller gränsen för kvarhållning](../platform/manage-cost-storage.md) uppfylldes.
@@ -214,13 +214,13 @@ Alla hälso kriterier som har definierats för en komponent, till exempel logisk
 
 Villkors kategorin kan också visas bredvid kolumnen **hälso villkor** . Om villkoret inte matchar den valda kategorin visas ett meddelande om att **inga hälso kriterier som är tillgängliga för den valda kategorin** visas i kolumnen **hälso kriterier** .
 
-Tillståndet för ett hälso villkor definieras av en av fyra typer: **Kritisk**, **Varning**, **felfri**och **okänd**. De första tre kan konfigureras, vilket innebär att du kan ändra tröskelvärdena för övervakarna direkt i konfigurations fönstret för **hälso kriterier** . Detta är också möjligt med hjälp av åtgärden Azure Monitor [övervakare](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)för REST API uppdatering. **Okänd** kan inte konfigureras och är reserverat för vissa scenarier.
+Tillståndet för ett hälso villkor definieras av en av fyra typer: **kritisk**, **Varning**, **felfri**och **okänd**. De första tre kan konfigureras, vilket innebär att du kan ändra tröskelvärdena för övervakarna direkt i konfigurations fönstret för **hälso kriterier** . Detta är också möjligt med hjälp av åtgärden Azure Monitor [övervakare](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)för REST API uppdatering. **Okänd** kan inte konfigureras och är reserverat för vissa scenarier.
 
 Sidan **hälsodiagnostik** har tre huvud avsnitt:
 
-* Komponentmodell
+* Komponent modell
 * Hälsovillkor
-* Tillståndsändringar
+* Tillstånds ändringar
 
 ![Avsnitt på sidan hälso diagnos](./media/vminsights-health/health-diagnostics-page-02.png)
 
@@ -282,7 +282,7 @@ De tre kolumnerna är sammanlänkade med varandra. När du väljer en instans i 
 
 Om du till exempel väljer *disk-1 D:* från listan under **komponent modell** **filter filter** till *disk-1d:* och **tillstånds ändringar** , visar tillstånds ändringen baserat på tillgängligheten för *disk-1 D:* .
 
-Om du vill se ett uppdaterat hälso tillstånd kan du uppdatera sidan hälso diagnos genom att välja länken **Uppdatera** . Om det finns en uppdatering av hälso kriteriets hälso tillstånd baserat på det fördefinierade avsöknings intervallet kan du undvika att vänta och återspegla det senaste hälso tillståndet. **Tillståndet för hälso** tillstånd är ett filter som du kan använda för att begränsa resultatet baserat på det valda hälso tillståndet: Felfri, varning, kritisk, okänd och allt. **Senast uppdaterad** tid i det övre högra hörnet motsvarar den senaste gången sidan för hälsodiagnostik uppdaterades.
+Om du vill se ett uppdaterat hälso tillstånd kan du uppdatera sidan hälso diagnos genom att välja länken **Uppdatera** . Om det finns en uppdatering av hälso kriteriets hälso tillstånd baserat på det fördefinierade avsöknings intervallet kan du undvika att vänta och återspegla det senaste hälso tillståndet. **Tillståndet för hälso** tillstånd är ett filter som gör att du kan begränsa resultaten baserat på det valda hälso tillståndet: felfri, varning, kritisk, okänd och alla. **Senast uppdaterad** tid i det övre högra hörnet motsvarar den senaste gången sidan för hälsodiagnostik uppdaterades.
 
 ## <a name="alerts"></a>Aviseringar
 
@@ -304,14 +304,14 @@ Du kan filtrera den här vyn genom att välja värden i de nedrullningsbara meny
 
 |Kolumn |Beskrivning |
 |-------|------------|
-|Subscription |Välj en Azure-prenumeration. Endast aviseringar i den valda prenumerationen ingår i vyn. |
+|Prenumeration |Välj en Azure-prenumeration. Endast aviseringar i den valda prenumerationen ingår i vyn. |
 |Resursgrupp |Välj en enskild resurs grupp. Endast aviseringar med mål i den valda resurs gruppen ingår i vyn. |
 |Resurstyp |Välj en eller flera resurs typer. Som standard är endast aviseringar för **virtuella mål datorer** markerade och ingår i den här vyn. Den här kolumnen är bara tillgänglig efter att en resurs grupp har angetts. |
-|Resource |Välj en resurs. Endast aviseringar med den resursen som mål ingår i vyn. Den här kolumnen är bara tillgänglig efter att en resurs typ har angetts. |
-|severity |Välj en allvarlighets grad för aviseringar eller Välj **alla** om du vill inkludera aviseringar för alla allvarlighets grader. |
-|Övervakningsvillkor |Välj ett övervaknings villkor för att filtrera aviseringar om de har Aktiver ATS eller lösts av systemet om villkoret inte längre är aktivt. Eller Välj **alla** om du vill inkludera varningar om alla villkor. |
-|Aviseringstillstånd |Välj ett aviserings tillstånd, **nytt**, **Bekräfta**, **stängt**eller **alla** för att inkludera aviseringar för alla tillstånd. |
-|Övervaka tjänsten |Välj en tjänst eller Välj **alla** om du vill inkludera alla tjänster. Endast aviseringar från VM Insights stöds för den här funktionen.|
+|Resurs |Välj en resurs. Endast aviseringar med den resursen som mål ingår i vyn. Den här kolumnen är bara tillgänglig efter att en resurs typ har angetts. |
+|Allvarsgrad |Välj en allvarlighets grad för aviseringar eller Välj **alla** om du vill inkludera aviseringar för alla allvarlighets grader. |
+|Övervaknings villkor |Välj ett övervaknings villkor för att filtrera aviseringar om de har Aktiver ATS eller lösts av systemet om villkoret inte längre är aktivt. Eller Välj **alla** om du vill inkludera varningar om alla villkor. |
+|Aviserings tillstånd |Välj ett aviserings tillstånd, **nytt**, **Bekräfta**, **stängt**eller **alla** för att inkludera aviseringar för alla tillstånd. |
+|Övervaka tjänst |Välj en tjänst eller Välj **alla** om du vill inkludera alla tjänster. Endast aviseringar från VM Insights stöds för den här funktionen.|
 |Tidsintervall| Endast aviseringar som har utlösts inom den valda tids perioden tas med i vyn. De värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. |
 
 När du väljer en avisering visas sidan **aviserings information** . Den här sidan innehåller information om aviseringen och gör att du kan ändra dess tillstånd.
@@ -441,4 +441,5 @@ Azure Monitor for VMs hälsa stöder SMS-och e-postaviseringar när aviseringar 
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du identifierar begränsningar och övergripande prestanda för virtuella datorer finns i [Visa prestanda](vminsights-performance.md)för virtuella Azure-datorer.
+
 - Information om identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md).

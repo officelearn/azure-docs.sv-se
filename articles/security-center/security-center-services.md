@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 275598aa50c252512348f4a04543e1beaf538626
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331148"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529477"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funktioner som stöds i Azure Security Center
 
@@ -96,14 +96,14 @@ Följande PaaS-resurser stöds av Azure Security Center:
 |MySQL|✔| ✔|
 |CosmosDB|X| ✔|
 |Blobb-lagring|✔| ✔|
-|Lagringskonto|✔| Ej tillämpligt|
+|Lagringskonto|✔| X|
 |App Service|✔| ✔|
 |Funktion|✔| X|
 |Molntjänst|✔| X|
-|VNet|✔| Ej tillämpligt|
-|Undernät|✔| Ej tillämpligt|
-|NIC|✔| Ej tillämpligt|
-|NSG|✔| Ej tillämpligt|
+|VNet|✔| X|
+|Undernät|✔| X|
+|NIC|✔| X|
+|NSG|✔| X|
 |Prenumeration|✔ * *| ✔|
 |Batch-konto|✔| X|
 |Service Fabric-konto|✔| X|
@@ -114,14 +114,14 @@ Följande PaaS-resurser stöds av Azure Security Center:
 |Stream analytics|✔| X|
 |Namnområde för händelsehubb|✔| X|
 |Logikappar|✔| X|
-|Redis|✔| Ej tillämpligt|
+|Redis|✔| X|
 |Data Lake Analytics|✔| X|
 |Datasjölagring|✔| X|
 |Nyckelvalv|✔| X|
 
 \* dessa funktioner stöds för närvarande i offentlig för hands version.
 
-\* @ no__t-1 Azure Active Directory (Azure AD) rekommendationer är bara tillgängliga för standard prenumerationer.
+rekommendationer för \* \* Azure Active Directory (Azure AD) är endast tillgängliga för standard prenumerationer.
 
 ## <a name="next-steps"></a>Nästa steg
 

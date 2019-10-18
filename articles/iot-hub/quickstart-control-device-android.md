@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: d125328d903b419aa81c54ffecf1f549d4cb4fe2
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: d607608167e1287c7df35157ccb9870f40f22943
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330793"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516706"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (Android)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet och hantera dina enheter från molnet. I den här snabbstarten använder du en *direktmetod* för att styra en simulerad enhet som är ansluten till IoT Hub. Du kan använda direktmetoder för att fjärrändra beteendet hos en enhet ansluten till IoT Hub.
+IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och mata in stora mängder enhets telemetri till molnet för lagring eller bearbetning. I den här snabbstarten använder du en *direktmetod* för att styra en simulerad enhet som är ansluten till IoT Hub. Du kan använda direkta metoder för att fjärrändra beteendet hos en enhet ansluten till din IoT-hubb.
 
 Snabbstarten använder två färdiga Java-program:
 
@@ -33,19 +33,19 @@ Snabbstarten använder två färdiga Java-program:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Android Studio från https://developer.android.com/studio/. Mer information om Android Studio-installationen finns i [android-installation](https://developer.android.com/studio/install).
+* Android Studio från https://developer.android.com/studio/. Mer information om Android Studio-installationen finns i [Android-installation](https://developer.android.com/studio/install).
 
 * Android SDK-27 används av exemplet i den här artikeln.
 
-* Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS) för vissa kommandon i Azure CLI.
+* Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
 
-* Två exempelprogram krävs av den här snabbstarten: [Android-exempelprogrammet för enhets-SDK](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) och [Android-exempelprogrammet för tjänst-SDK](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Båda dessa exempel är en del av lagringsplatsen azure-iot-samples-java på GitHub. Ladda ned eller klona lagringsplatsen [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+* Två exempelprogram krävs för den här snabbstarten: [Android-exempelprogrammet för enhets-SDK](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) och [Android-exempelprogrammet för tjänst-SDK](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Båda dessa exempel är en del av lagringsplatsen azure-iot-samples-java på GitHub. Ladda ned eller klona lagringsplatsen [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -55,28 +55,28 @@ Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet ti
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
-Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-android.md) kan du hoppa över det här steget och använda samma enhet som registrerades i föregående snabbstart.
+Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-android.md) kan du hoppa över det här steget och använda samma enhet som registrerats i föregående snabbstart.
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
-1. Kör följande kommando i Azure Cloud Shell för att skapa enhetens identitet.
+1. Kör följande kommando i Azure Cloud Shell för att skapa enhets identiteten.
 
-   **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-   **MyAndroidDevice**: Det här värdet är det namn som du angav för den registrerade enheten. Använd MyAndroidDevice enligt bilden. Om du väljer ett annat namn för din enhet kan det hända att du även behöver använda det namnet i hela artikeln och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyAndroidDevice**: det här är namnet på enheten som du registrerar. Vi rekommenderar att du använder **MyAndroidDevice** som det visas. Om du väljer ett annat namn på din enhet måste du också använda det namnet i den här artikeln och uppdatera enhets namnet i exempel programmen innan du kör dem.
 
     ```azurecli-interactive
     az iot hub device-identity create \
-      --hub-name YourIoTHubName --device-id MyAndroidDevice
+      --hub-name {YourIoTHubName} --device-id MyAndroidDevice
     ```
 
 2. Kör följande kommandon i Azure Cloud Shell för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
 
-   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      --hub-name YourIoTHubName \
+      --hub-name {YourIoTHubName} \
       --device-id MyAndroidDevice \
       --output table
     ```
@@ -91,27 +91,27 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 Du behöver även ha en _tjänstanslutningssträng_ för att kunna aktivera tjänstprogrammet för serverdelen och ansluta till din IoT-hubb för att köra metoder och hämta meddelanden. Följande kommando hämtar tjänstanslutningssträngen för din IoT-hubb:
 
-**YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
+**YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
+az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
 ```
 
 Anteckna tjänstanslutningssträngen. Den ser ut ungefär som:
 
 `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-Du kommer att använda det här värdet senare i snabbstarten. Tjänstanslutningssträngen skiljer sig från enhetsanslutningssträngen.
+Du kommer att använda det här värdet senare i snabbstarten. Den här tjänst anslutnings strängen skiljer sig från den enhets anslutnings sträng som du antecknade i föregående steg.
 
 ## <a name="listen-for-direct-method-calls"></a>Lyssna efter direkta metodanrop
 
-Exempelprogrammet för enhets-SDK kan köras på en fysisk Android-enhet eller en Android-emulator. Exemplet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb, skickar simulerad telemetri och lyssnar efter direkta metodanrop från din hubb. I den här snabbstarten uppmanar det direkta metodanropet från hubben enheten att ändra det intervall med vilket den skickar telemetri. Den simulerade enheten skickar tillbaka en bekräftelse till din hubb när den har kört den direkta metoden.
+Exempelprogrammet för enhets-SDK kan köras på en fysisk Android-enhet eller en Android-emulator. Exemplet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb, skickar simulerad telemetri och lyssnar efter direkta metodanrop från din hubb. I den här snabbstarten uppmanar det direkta metodanropet från hubben enheten att ändra det intervall med vilket den skickar telemetri. Den simulerade enheten skickar en bekräftelse tillbaka till hubben när den har kört den direkta metoden.
 
 1. Öppna Android-exempelprojektet från GitHub i Android Studio. Projektet finns i följande katalog för din klonade eller nedladdade kopia av lagringsplatsen [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
-2. I Android Studio öppnar du *gradle.properties* för exempelprojektet och ersätter platshållaren **Device_Connection_String** med enhetens anslutningssträng som du antecknade tidigare.
+2. I Android Studio öppnar du *gradle. Properties* för exempelprojektet och ersätter plats hållaren **Device_Connection_String** med enhets anslutnings strängen som du antecknade tidigare.
 
     ```
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
@@ -120,50 +120,50 @@ Exempelprogrammet för enhets-SDK kan köras på en fysisk Android-enhet eller e
 3. I Android Studio klickar du på **Arkiv** > **Synkronisera projekt med Gradle-filer**. Kontrollera att bygget slutförs.
 
    > [!NOTE]
-   > Om projektet synkroniseringen misslyckas, kan det bero på något av följande orsaker:
+   > Om Project-synkroniseringen Miss lyckas kan det bero på någon av följande orsaker:
    >
-   > * Versioner av Android Gradle-plugin-programmet och Gradle som refereras till i projektet har upphört att gälla för din version av Android Studio. Följ [instruktionerna](https://developer.android.com/studio/releases/gradle-plugin) att referera till och installera rätt version av plugin-programmet och Gradle för installationen.
-   > * Licensavtalet för Android SDK har inte signerats. Följ instruktionerna i resultatet från att logga i detta avtal och ladda ned SDK.
+   > * De versioner av Android Gradle-plugin-programmet och Gradle som refereras i projektet är inaktuella för din version av Android Studio. Följ [dessa instruktioner](https://developer.android.com/studio/releases/gradle-plugin) om du vill referera till och installera rätt versioner av plugin-och Gradle för din installation.
+   > * Licens avtalet för Android SDK har inte signerats. Följ instruktionerna i build-utdata för att signera licens avtalet och Hämta SDK: n.
 
 4. När bygget har slutförts klickar du på **Kör** > **Kör app**. Konfigurera appen att köras på en fysisk Android-enhet eller en Android-emulator. Mer information om att köra en Android-app på en fysisk enhet eller emulator finns i [Köra appen](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. När appen har lästs in klickar du på knappen **Starta** för att börja skicka telemetri till din IoT-hubb:
 
-    ![Exempel Skärmbild av enheten android-klientappen](media/quickstart-control-device-android/sample-screenshot.png)
+    ![Exempel skärm bild av en Android-app för klient enheter](media/quickstart-control-device-android/sample-screenshot.png)
 
-Den här appen måste fortsätta köras körs på en fysisk enhet eller emulator medan du kör exemplet för tjänst-SDK för att uppdatera telemetriintervallet under körningen.
+Den här appen måste köras på en fysisk enhet eller emulator när du kör Service SDK-exemplet för att uppdatera telemetri-intervallet under körningen.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
 
-I det här avsnittet använder du Azure Cloud Shell med [IoT-tillägget](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) för att övervaka de enhetsmeddelanden som skickas av Android-enheten.
+I det här avsnittet ska du använda Azure Cloud Shell med IoT- [tillägget](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) för att övervaka de meddelanden som skickas av Android-enheten.
 
 1. Med Azure Cloud Shell kör du följande kommando för att ansluta och läsa meddelanden från IoT-hubben:
 
-   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
     ```
 
     Följande skärmbild visar utdata när IoT-hubben tar emot telemetri som skickas av Android-enheten:
 
       ![Läsa enhetsmeddelanden med hjälp av Azure CLI](media/quickstart-control-device-android/read-data.png)
 
-Som standard skickar telemetriappen telemetri från Android-enheten var 5:e sekund. I nästa avsnitt använder du ett direktmetodsanrop för att uppdatera telemetriintervallet för Android IoT-enheten.
+Som standard skickar telemetri-appen telemetri från Android-enheten var femte sekund. I nästa avsnitt använder du ett direktmetodsanrop för att uppdatera telemetriintervallet för Android IoT-enheten.
 
 ## <a name="call-the-direct-method"></a>Anropa den direkta metoden
 
-Tjänstprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hubb. Programmet gör direkta metodanrop till en enhet via din IoT-hubb och lyssnar efter bekräftelser.
+Tjänstprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hubb. Programmet gör direkta metod anrop till en enhet via din IoT Hub och lyssnar efter bekräftelser.
 
 Kör den här appen på en separat fysisk Android-enhet eller en Android-emulator.
 
-Ett IoT-hubbtjänstprogram för serverdel körs vanligtvis i molnet, där det är enklare att minska riskerna med den känsliga anslutningssträng som styr alla enheter på en IoT-hubb. I det här exemplet kör vi det som en Android-app endast i demonstrationssyfte. De andra språkversionerna av den här snabbstarten innehåller andra exempel som bättre överensstämmer med ett tjänstprogram för serverdel.
+Ett IoT Hub backend-tjänstprogrammet körs vanligt vis i molnet, där det är enklare att minimera riskerna som är kopplade till den känsliga anslutnings strängen som styr alla enheter på en IoT Hub. I det här exemplet kör vi det som en Android-app endast i demonstrationssyfte. De andra språk versionerna av den här snabb starten innehåller exempel som är mer likt ett typiskt Server dels tjänst program.
 
 1. Öppna Android-tjänstexempelprojektet från GitHub i Android Studio. Projektet finns i följande katalog för din klonade eller nedladdade kopia av lagringsplatsen [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
         \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
 
-2. I Android Studio öppnar du *gradle.properties* för exempelprojektet och uppdaterar värdet för egenskaperna **ConnectionString** och **DeviceId** med den tjänstanslutningssträng som du antecknade tidigare och det Android-enhets-ID som du har registrerat.
+2. Öppna *gradle. Properties* för exempelprojektet i Android Studio. Uppdatera värdena för **ConnectionString** -och **DeviceID** -egenskaperna med den anslutnings sträng som du noterade tidigare och det Android-enhets-ID som du har registrerat.
 
     ```
     ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}
@@ -173,10 +173,10 @@ Ett IoT-hubbtjänstprogram för serverdel körs vanligtvis i molnet, där det ä
 3. I Android Studio klickar du på **Arkiv** > **Synkronisera projekt med Gradle-filer**. Kontrollera att bygget slutförs.
 
    > [!NOTE]
-   > Om projektet synkroniseringen misslyckas, kan det bero på något av följande orsaker:
+   > Om Project-synkroniseringen Miss lyckas kan det bero på någon av följande orsaker:
    >
-   > * Versioner av Android Gradle-plugin-programmet och Gradle som refereras till i projektet har upphört att gälla för din version av Android Studio. Följ [instruktionerna](https://developer.android.com/studio/releases/gradle-plugin) att referera till och installera rätt version av plugin-programmet och Gradle för installationen.
-   > * Licensavtalet för Android SDK har inte signerats. Följ instruktionerna i resultatet från att logga i detta avtal och ladda ned SDK.
+   > * De versioner av Android Gradle-plugin-programmet och Gradle som refereras i projektet är inaktuella för din version av Android Studio. Följ [dessa instruktioner](https://developer.android.com/studio/releases/gradle-plugin) om du vill referera till och installera rätt versioner av plugin-och Gradle för din installation.
+   > * Licens avtalet för Android SDK har inte signerats. Följ instruktionerna i build-utdata för att signera licens avtalet och Hämta SDK: n.
 
 4. När bygget har slutförts klickar du på **Kör** > **Kör app**. Konfigurera appen att köras på en separat fysisk Android-enhet eller en Android-emulator. Mer information om att köra en Android-app på en fysisk enhet eller emulator finns i [Köra appen](https://developer.android.com/training/basics/firstapp/running-app).
 
@@ -186,9 +186,9 @@ Ett IoT-hubbtjänstprogram för serverdel körs vanligtvis i molnet, där det ä
 
     ![Ange telemetriintervall](media/quickstart-control-device-android/enter-telemetry-interval.png)
 
-6. Appen får en bekräftelse som anger huruvida metoden kördes korrekt.
+6. Appen får en bekräftelse som anger om metoden har körts eller inte.
 
-    ![Bekräftelse för direktmetod](media/quickstart-control-device-android/direct-method-ack.png)
+    ![Bekräftelse av direkt metod](media/quickstart-control-device-android/direct-method-ack.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -201,4 +201,4 @@ I den här snabbstarten har du anropat en direktmetod på en enhet från ett ser
 Om du vill lära dig mer om hur man skickar enhet-till-molnet-meddelanden till olika mål i molnet går du vidare till nästa självstudier.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Skicka telemetri till olika slutpunkter för bearbetning](tutorial-routing.md)
+> [Självstudier: Skicka telemetri till olika slutpunkter för bearbetning](tutorial-routing.md)

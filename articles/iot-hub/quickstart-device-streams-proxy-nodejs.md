@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 83339273d9161c3947df191d10e788980db39b28
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 4a6fd7dd40905a8a81a104c9d6ef22040ff88f15
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "67445983"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516294"
 ---
-# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Snabbstart: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett Node. js-proxyprogram (för hands version)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett Node. js-proxyprogram (för hands version)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en förhands [gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. 
 
@@ -37,12 +37,12 @@ I den här artikeln beskrivs inställningarna för SSH (med port 22) och hur du 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * Centrala USA
-  * USA, centrala – EUAP
+  * USA, centrala
+  * Centrala USA-EUAP
 
 * Om du vill köra det lokala programmet i den här snabb starten behöver du Node. js v10. x. x eller senare på din utvecklings dator.
   * Hämta [Node. js](https://nodejs.org) för flera plattformar.
@@ -62,36 +62,36 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md). Du kan hoppa över det här steget.
+Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md) kan du hoppa över det här steget.
 
 [!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
-Om du har [slutfört snabb starten: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md). Du kan hoppa över det här steget.
+Om du har slutfört [snabb starten: skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md)kan du hoppa över det här steget.
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det här avsnittet använder du Azure Cloud Shell för att registrera en simulerad enhet.
 
 1. Skapa enhets identiteten genom att köra följande kommando i Cloud Shell:
 
    > [!NOTE]
-   > * Ersätt plats hållaren *YourIoTHubName* med det namn du väljer för din IoT Hub.
-   > * Använd min *enhet*som det visas. Det är det namn som angetts för den registrerade enheten. Om du väljer ett annat namn på enheten använder du det namnet i den här artikeln och uppdaterar enhets namnet i exempel programmen innan du kör dem.
+   > * Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.
+   > * För namnet på enheten som du registrerar rekommenderar vi att du använder min *enhet* som visas. Om du väljer ett annat namn på enheten använder du det namnet i den här artikeln och uppdaterar enhets namnet i exempel programmen innan du kör dem.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Om du vill aktivera backend-programmet för att ansluta till din IoT-hubb och hämta meddelandena måste du också ha en *anslutnings sträng för tjänsten*. Följande kommando hämtar strängen för din IoT-hubb:
 
    > [!NOTE]
-   > Ersätt plats hållaren *YourIoTHubName* med det namn du väljer för din IoT Hub.
+   > Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Observera det returnerade värdet för senare användning i den här snabb starten. Det ser ut som i följande exempel:
+   Observera den returnerade tjänst anslutnings strängen för senare användning i den här snabb starten. Det ser ut som i följande exempel:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -110,25 +110,25 @@ Innan du fortsätter till nästa steg måste du kontrol lera att programmet enhe
 
 ### <a name="run-the-service-local-proxy-application"></a>Köra tjänstlokalt proxyprogram
 
-Med det enhets lokala proxy-programmet igång kör du det tjänst lokala proxy-programmet som är skrivet i Node. js genom att göra följande:
+Med det enhets lokala proxy-programmet igång kör du det tjänst lokala proxy-programmet som är skrivet i Node. js genom att göra följande i ett lokalt terminalfönster:
 
 1. För miljövariabler anger du autentiseringsuppgifterna för tjänsten, mål enhets-ID: t där SSH-daemonen körs och port numret för den proxy som körs på enheten.
 
    ```
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
    export PROXY_PORT=2222
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    SET PROXY_PORT=2222
    ```
 
-   Ändra föregående värden så att de matchar enhets-ID och anslutnings sträng.
+   Ändra plats hållaren ServiceConnectionString så att den matchar din tjänst anslutnings sträng och att **enheten** matchar ditt enhets-ID om du har gett ditt eget namn.
 
-1. Gå till katalogen *snabb starter/Device-Streams-service* i den ej zippade projektmappen och kör det tjänst lokala proxy-programmet.
+1. Navigera till `Quickstarts/device-streams-service` katalogen i den zippade projektmappen. Använd följande kod för att köra det service-lokala proxy-programmet:
 
    ```
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
@@ -143,13 +143,13 @@ Med det enhets lokala proxy-programmet igång kör du det tjänst lokala proxy-p
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>SSH till din enhet via enhetsströmmar
 
-I Linux kör du SSH genom att `ssh $USER@localhost -p 2222` använda på en Terminal. I Windows använder du din favorit-SSH-klient (till exempel, SparaTillFil).
+I Linux kör du SSH genom att använda `ssh $USER@localhost -p 2222` på en Terminal. I Windows använder du din favorit-SSH-klient (till exempel, SparaTillFil).
 
 Konsol utdata på den lokala tjänsten efter att SSH-sessionen har upprättats (det service lokala proxy-programmet lyssnar på port 2222):
 
 ![Utdata från SSH-Terminal](./media/quickstart-device-streams-proxy-nodejs/service-console-output.png)
 
-Konsol utmatningen av SSH-klientprogrammet (SSH-klienten kommunicerar med SSH-daemon genom att ansluta till port 22, som det lokala proxy-programmet lyssnar på):
+Konsolens utdata från SSH-klientprogrammet (SSH-klienten kommunicerar med SSH-daemon genom att ansluta till port 22, där tjänstens lokala proxy-program lyssnar):
 
 ![Utdata för SSH-klient](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.png)
 
@@ -168,7 +168,7 @@ Använd nu RDP-klientprogrammet och Anslut till Tjänstproxyn på port 2222, en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du konfigurerat en IoT-hubb, registrerat en enhet och distribuerat ett proxy-program för att aktivera RDP och SSH på en IoT-enhet. RDP-och SSH-trafiken dirigeras via en enhets ström via IoT Hub. Den här processen eliminerar behovet av direkt anslutning till enheten.
+I den här snabb starten skapar du en IoT-hubb, registrerat en enhet och distribuerat ett proxy-program för att aktivera RDP och SSH på en IoT-enhet. RDP-och SSH-trafiken kommer att tunnlas via en enhets ström via IoT Hub. Den här processen eliminerar behovet av direkt anslutning till enheten.
 
 Mer information om enhets strömmar finns i:
 

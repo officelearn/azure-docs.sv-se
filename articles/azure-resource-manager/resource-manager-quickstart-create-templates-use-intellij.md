@@ -1,5 +1,5 @@
 ---
-title: Skapa och distribuera en Azure Resource Manager-mall med hjälp av IntelliJ-idén | Microsoft Docs
+title: Distribuera Azure Resource Manager-mall – IntelliJ idé
 description: Lär dig hur du skapar din första Azure Resource Manager-mall med hjälp av IntelliJ-idén och hur du distribuerar den.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
 ms.author: yucwan
-ms.openlocfilehash: d25a5720e3aaa8ad6306a72d2db8d3ca2e89861b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 137a87ad0314fad08f9af0eb567e1d31032ddcb9
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169451"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533656"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Snabb start: skapa och Distribuera Azure Resource Manager mallar med hjälp av IntelliJ-idén
 
@@ -76,7 +76,7 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
     ![Redigera distribution av Resource Manager-mall](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
-1. När uppdaterings distributionen har slutförts kan du kontrol lera på portalen att det skapade lagrings kontot har ändrats till `Standard_GRS`.
+1. När uppdaterings distributionen har slutförts kan du kontrol lera att det skapade lagrings kontot har ändrats till `Standard_GRS` på portalen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

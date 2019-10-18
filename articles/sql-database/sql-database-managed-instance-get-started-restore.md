@@ -11,14 +11,14 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ca0dcc850b2db513c8d85d43ad76bc75053c0d04
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744405"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514020"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Snabbstart: Återställa en databas till en hanterad instans
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Snabb start: återställa en databas till en hanterad instans
 
 I den här snabbstarten ska du använda SQL Server Management Studio (SSMS) för att återställa en databas (Wide World Importers – standardsäkerhetskopian) från Azure Blob Storage till en [hanterad instans](sql-database-managed-instance.md) för Azure SQL Database.
 
@@ -28,7 +28,7 @@ I den här snabbstarten ska du använda SQL Server Management Studio (SSMS) för
 > Mer information om migrering med hjälp av Azure Database Migration Service (DMS) finns i avsnittet [Migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 > Mer information om de olika migreringsmetoderna finns i [SQL Server-instansmigrering till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här snabbstarten:
 
@@ -37,10 +37,10 @@ Den här snabbstarten:
 - Kräver att du använder SSMS för att kunna ansluta till din hanterade instans. Läs följande snabbstarter om hur man ansluter:
   - [Connect to an Azure SQL Database Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md) (Ansluta till en hanterad Azure SQL Database-instans från en virtuell Azure-dator)
   - [Konfigurera en punkt-till-plats-anslutning till en hanterad Azure SQL Database-instans lokalt](sql-database-managed-instance-configure-p2s.md).
-- Kräver Azure Blob Storage-konto (till exempel Standard_LRS v2) på **offentlig IP-** skyddad med SAS- `rw` **autentiseringsuppgifter** som har behörighet. [Privata IP-adresser för blob-lagring som skyddas av brand vägg](https://docs.microsoft.com/azure/storage/common/storage-network-security) och Azure Blob Storage tjänst slut punkter stöds inte för närvarande.
+- Kräver Azure Blob Storage-konto (till exempel Standard_LRS v2) på **offentlig IP-** skyddad med **SAS-autentiseringsuppgifter** som har `rw` behörighet. [Privata IP-adresser för blob-lagring som skyddas av brand vägg](https://docs.microsoft.com/azure/storage/common/storage-network-security) och Azure Blob Storage tjänst slut punkter stöds inte för närvarande.
 
 > [!NOTE]
-> Mer information om hur du säkerhetskopierar och återställer en SQL Server-databas med hjälp av Azure Blob Storage och en [SAS-nyckel](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) finns i [SQL Server-säkerhetskopiering till URL](sql-database-managed-instance-get-started-restore.md).
+> Mer information om hur du säkerhetskopierar och återställer en SQL Server-databas med hjälp av Azure Blob Storage och en [SAS-nyckel](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) finns i [SQL Server-säkerhetskopiering till URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-the-database-from-a-backup-file"></a>Återställ databasen från en säkerhetskopia
 
@@ -92,4 +92,4 @@ Den här snabbstarten:
 
 - Information om hur du felsöker säkerhetskopiering till en URL finns i avsnittet [Metodtips och felsökning för säkerhetskopiering av SQL-server till en URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - En översikt över appanslutningsalternativ finns i [Ansluta dina program till hanterad instans](sql-database-managed-instance-connect-app.md).
-- Information om hur du ställer frågor med dina favoritverktyg och språk finns i [Snabbstart: Azure SQL Database-anslutning och fråga](sql-database-connect-query.md).
+- Om du vill fråga med hjälp av dina favorit verktyg eller språk, se [snabb starter: Azure SQL Database Anslut och fråga](sql-database-connect-query.md).

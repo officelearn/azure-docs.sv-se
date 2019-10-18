@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: ab6c381e779ddc19211f183b9bc80e586f58e804
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90fb3fe732889f3ba3965210cd8a681a0487f78e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261414"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514985"
 ---
-# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabbstart: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp C# av ett proxy-program (för hands version)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med C# hjälp av ett proxy-program (för hands version)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
@@ -26,7 +26,7 @@ Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förha
 
 Den här artikeln beskriver först inställningarna för SSH (med port 22) och beskriver hur du ändrar installations port för RDP. Eftersom enhets strömmar är program-och protokoll-oberoende kan samma exempel ändras för att hantera andra typer av program trafik. Ändringen avser vanligt vis bara att ändra kommunikations porten till den som används av det avsedda programmet.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Följande bild illustrerar hur enhets lokala och lokala proxy-program i det här exemplet möjliggör slut punkt till slut punkt mellan SSH-klienten och SSH-daemon-processer. Här förutsätter vi att Daemon körs på samma enhet som enhetens lokala proxy-program.
 
@@ -47,14 +47,14 @@ Följande bild illustrerar hur enhets lokala och lokala proxy-program i det här
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * Centrala USA
-  * USA, centrala – EUAP
+  * USA, centrala
+  * Centrala USA-EUAP
 
-* De två exempel programmen som du kör i den här snabb starten skrivs med C#hjälp av. Du behöver .NET Core SDK 2.1.0 eller senare på din utvecklings dator.
+* De två exempel programmen som du kör i den här snabb starten är C#skrivna. Du behöver .NET Core SDK 2.1.0 eller senare på din utvecklings dator.
 
   Du kan hämta [.net Core SDK för flera plattformar från .net](https://www.microsoft.com/net/download/all).
 
@@ -85,36 +85,36 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 1. Skapa enhets identiteten genom att köra följande kommando i Cloud Shell:
 
    > [!NOTE]
-   > * Ersätt plats hållaren *YourIoTHubName* med det namn du väljer för din IoT Hub.
-   > * Använd min *enhet*som det visas. Det är det namn som angetts för den registrerade enheten. Om du väljer ett annat namn på enheten använder du det namnet i den här artikeln och uppdaterar enhets namnet i exempel programmen innan du kör dem.
+   > * Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.
+   > * För namnet på enheten som du registrerar rekommenderar vi att du använder min *enhet* som visas. Om du väljer ett annat namn på enheten använder du det namnet i den här artikeln och uppdaterar enhets namnet i exempel programmen innan du kör dem.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Kör följande kommandon i Cloud Shell för att hämta *enhets anslutnings strängen* för den enhet som du just har registrerat:
 
    > [!NOTE]
-   > Ersätt plats hållaren *YourIoTHubName* med det namn du väljer för din IoT Hub.
+   > Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Observera enhets anslutnings strängen för senare användning i den här snabb starten. Det ser ut som i följande exempel:
+    Observera den returnerade enhets anslutnings strängen för senare användning i den här snabb starten. Det ser ut som i följande exempel:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
 1. Om du vill ansluta till din IoT-hubb och upprätta en enhets ström behöver du även *tjänst anslutnings strängen* från din IoT-hubb för att aktivera program på tjänst sidan. Följande kommando hämtar det här värdet för din IoT-hubb:
 
    > [!NOTE]
-   > Ersätt plats hållaren *YourIoTHubName* med det namn du väljer för din IoT Hub.
+   > Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Observera det returnerade värdet för senare användning i den här snabb starten. Det ser ut som i följande exempel:
+    Observera den returnerade tjänst anslutnings strängen för senare användning i den här snabb starten. Det ser ut som i följande exempel:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -124,15 +124,15 @@ I det här avsnittet upprättar du en slutpunkt-till-slutpunkt-ström för att d
 
 ### <a name="run-the-device-local-proxy-application"></a>Kör det enhetslokala proxyprogrammet
 
-Gå till katalogen *Device-Streams-proxy/Device* i mappen unzippad Project. Ha följande information till hands:
+I ett lokalt terminalfönster navigerar du till `device-streams-proxy/device` katalogen i den zippade projektmappen. Ha följande information till hands:
 
 | Argumentnamn | Argumentvärde |
 |----------------|-----------------|
-| `deviceConnectionString` | Anslutnings strängen för den enhet som du skapade tidigare. |
-| `targetServiceHostName` | IP-adressen där SSH-servern lyssnar. Adressen är `localhost` om den var samma IP-adress där enhetens lokala proxy-program körs. |
+| `DeviceConnectionString` | Enhets anslutnings strängen för den enhet som du skapade tidigare. |
+| `targetServiceHostName` | IP-adressen där SSH-servern lyssnar. Adressen skulle vara `localhost` om den var samma IP-adress där enhetens lokala proxy-program körs. |
 | `targetServicePort` | Den port som används av ditt program protokoll (för SSH är som standard port 22).  |
 
-Kompilera och kör koden på följande sätt:
+Kompilera och kör koden med följande kommandon:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device/
@@ -142,23 +142,23 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $deviceConnectionString localhost 22
+dotnet run ${DeviceConnectionString} localhost 22
 
 # In Windows
-dotnet run %deviceConnectionString% localhost 22
+dotnet run {DeviceConnectionString} localhost 22
 ```
 
 ### <a name="run-the-service-local-proxy-application"></a>Köra tjänstlokalt proxyprogram
 
-Gå till `device-streams-proxy/service` i den uppackade projektmappen. Du behöver ha följande information till hands:
+I ett annat lokalt terminalfönster navigerar du till `device-streams-proxy/service` i den zippade projektmappen. Ha följande information till hands:
 
 | Parameternamn | Parametervärde |
 |----------------|-----------------|
-| `iotHubConnectionString` | Tjänstanslutningssträngen för din IoT-hubb. |
-| `deviceId` | Identifieraren för den enhet som du skapade tidigare. |
+| `ServiceConnectionString` | Tjänstanslutningssträngen för din IoT-hubb. |
+| `MyDevice` | Identifieraren för den enhet som du skapade tidigare. |
 | `localPortNumber` | En lokal port som SSH-klienten ska ansluta till. Vi använder port 2222 i det här exemplet, men du kan använda andra godtyckliga siffror. |
 
-Kompilera och kör koden på följande sätt:
+Kompilera och kör koden med följande kommandon:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -168,10 +168,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-the-ssh-client"></a>Kör SSH-klienten
@@ -179,7 +179,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 Använd nu ditt SSH-klientcertifikat och Anslut till tjänstens lokala proxy-program på port 2222 (i stället för SSH daemon direkt).
 
 ```
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 I det här läget kommer du att bli ombedd att ange dina autentiseringsuppgifter i SSH-inloggnings fönstret.
@@ -198,42 +198,42 @@ Konsolens utdata från SSH-klientprogrammet. SSH-klienten kommunicerar med SSH-d
 
 ## <a name="rdp-to-a-device-via-device-streams"></a>RDP till en enhet via enhetsströmmar
 
-Installationen av RDP liknar inställningarna för SSH (se ovan). Du använder RDP-målets IP-adress och port 3389 i stället och använder RDP-klienten (i stället för SSH-klienten).
+Installations programmet för RDP liknar inställningarna för SSH (se ovan). Du använder RDP-målets IP-adress och port 3389 i stället och använder RDP-klienten (i stället för SSH-klienten).
 
 ### <a name="run-the-device-local-proxy-application-rdp"></a>Kör enhet – lokalt proxy-program (RDP)
 
-Gå till katalogen *Device-Streams-proxy/Device* i mappen unzippad Project. Ha följande information till hands:
+I ett lokalt terminalfönster navigerar du till `device-streams-proxy/device` katalogen i den zippade projektmappen. Ha följande information till hands:
 
 | Argumentnamn | Argumentvärde |
 |----------------|-----------------|
-| `DeviceConnectionString` | Anslutnings strängen för den enhet som du skapade tidigare. |
-| `targetServiceHostName` | Värd namnet eller IP-adressen som RDP-servern kör. Adressen är `localhost` om den var samma IP-adress där enhetens lokala proxy-program körs. |
+| `DeviceConnectionString` | Enhets anslutnings strängen för den enhet som du skapade tidigare. |
+| `targetServiceHostName` | Värd namnet eller IP-adressen som RDP-servern kör. Adressen skulle vara `localhost` om den var samma IP-adress där enhetens lokala proxy-program körs. |
 | `targetServicePort` | Den port som används av ditt program protokoll (för RDP är som standard port 3389).  |
 
-Kompilera och kör koden på följande sätt:
+Kompilera och kör koden med följande kommandon:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device
 
 # Run the application
 # In Linux or macOS
-dotnet run $DeviceConnectionString localhost 3389
+dotnet run ${DeviceConnectionString} localhost 3389
 
 # In Windows
-dotnet run %DeviceConnectionString% localhost 3389
+dotnet run {DeviceConnectionString} localhost 3389
 ```
 
 ### <a name="run-the-service-local-proxy-application-rdp"></a>Kör tjänst-Local proxy-programmet (RDP)
 
-Gå till `device-streams-proxy/service` i den uppackade projektmappen. Du behöver ha följande information till hands:
+I ett annat lokalt terminalfönster navigerar du till `device-streams-proxy/service` i den zippade projektmappen. Ha följande information till hands:
 
 | Parameternamn | Parametervärde |
 |----------------|-----------------|
-| `iotHubConnectionString` | Tjänstanslutningssträngen för din IoT-hubb. |
-| `deviceId` | Identifieraren för den enhet som du skapade tidigare. |
+| `ServiceConnectionString` | Tjänstanslutningssträngen för din IoT-hubb. |
+| `MyDevice` | Identifieraren för den enhet som du skapade tidigare. |
 | `localPortNumber` | En lokal port som SSH-klienten ska ansluta till. Vi använder port 2222 i det här exemplet, men du kan ändra detta till andra godtyckliga nummer. |
 
-Kompilera och kör koden på följande sätt:
+Kompilera och kör koden med följande kommandon:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -243,10 +243,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-rdp-client"></a>Köra RDP-klient
@@ -261,7 +261,7 @@ Använd nu RDP-klientprogrammet och Anslut till det lokala proxy-programmet på 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du konfigurerat en IoT-hubb, registrerat en enhet, en distribuerad enhet-lokal och tjänst-lokal Proxy för att upprätta en enhets ström via IoT Hub och använde proxy-programmen för att dirigera SSH-eller RDP-trafik. Samma paradigm kan hantera andra klient-server-protokoll, där servern körs på enheten (till exempel SSH daemon).
+I den här snabb starten skapar du en IoT-hubb, registrerat en enhet, distribuerade enhets lokala och tjänst lokala proxyservrar för att upprätta en enhets ström via IoT Hub och använde proxy-programmen för att dirigera SSH-eller RDP-trafik. Samma paradigm kan hantera andra klient-server-protokoll, där servern körs på enheten (till exempel SSH daemon).
 
 Mer information om enhets strömmar finns i:
 

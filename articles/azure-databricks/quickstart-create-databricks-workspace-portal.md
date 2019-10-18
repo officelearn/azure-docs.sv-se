@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 4ace735d116ef73e8a6fee8c0a244d520e730189
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 21a3e8541441e6139c1c84138870b3ffaf3cacc1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312155"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515801"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -39,11 +39,11 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
-    ![Databricks på Azure-portalen](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure-portalen")
+    ![Databricks på Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
 2. Under **Azure Databricks Service** (Azure Databricks-tjänsten) fyller du i värdena för att skapa en Databricks-arbetsyta.
 
-    ![Skapa en arbetsyta för Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Skapa en arbetsyta för Azure Databricks")
+    ![Skapa en Azure Databricks-arbetsyta](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Skapa en Azure Databricks-arbetsyta")
 
     Ange följande värden:
     
@@ -54,12 +54,13 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
     |**Plats**     | Välj **Västra USA 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
     |**Prisnivå**     |  Välj mellan **standard**, **Premium**eller **utvärdering**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Virtual Network**     |  Välj att distribuera en Azure Databricks arbets yta i din egen Virtual Network (VNet). Mer information finns i [distribuera Azure Databricks i Azure-Virtual Network (VNet-insprutning)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Klicka på **Skapa**.
+    Välj **Skapa**.
 
 4. Det tar några minuter att skapa arbetsytan. När du skapar arbets ytan kan du Visa distributions status i **meddelanden**.
 
-    ![Distributionspanel för Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Distributionspanel för Databricks")
+    ![Databricks distributions panel](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks distributions panel")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 
@@ -92,11 +93,11 @@ Utför följande uppgifter för att skapa en antecknings bok i Databricks, konfi
 
 1. I den vänstra rutan väljer du **Azure Databricks**. Välj **ny antecknings bok**från **vanliga uppgifter**.
 
-    ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
 
 2. I dialog rutan **skapa antecknings bok** anger du ett namn, väljer **python** som språk och väljer det Spark-kluster som du skapade tidigare.
 
-    ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Skapa antecknings bok i Databricks")
 
     Välj **Skapa**.
 
@@ -136,15 +137,15 @@ Utför följande uppgifter för att skapa en antecknings bok i Databricks, konfi
 
 5. Du ser en tabellvy som i följande skärmbild (endast vissa kolumner visas):
 
-    ![Exempel på data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "exempel JSON-data")
+    ![Exempeldata](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Exempel på JSON-data")
 
 6. Nu skapar du en visuell representation av dessa data för att visa hur många säkerhets händelser som rapporteras med hjälp av medborgarna Anslut app-och stads Worker-appen i stället för andra källor. Längst ned i tabellens utdata **väljer du stapeldiagram** och klickar sedan på **rit alternativ**.
 
-    ![Skapa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Skapa stapeldiagram")
+    ![Skapa liggande stapeldiagram](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Skapa liggande stapeldiagram")
 
 8. I **Anpassa ritning** drar och släpper du värden enligt skärmbilden.
 
-    Anpassa ![cirkel diagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
+    ![Anpassa cirkel diagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
 
    * Ange **nycklar** till **källa**.
    * Ange **värden** för att **< \id >** .

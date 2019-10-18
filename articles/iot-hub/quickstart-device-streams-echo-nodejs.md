@@ -1,6 +1,6 @@
 ---
 title: Kommunicera med en enhets app i Node. js via IoT Hub enhets strömmar (förhands granskning) | Microsoft Docs
-description: I den här snabbstarten kör du ett Node.js-program på tjänstsidan som kommunicerar med en IoT-enhet via en enhetsström.
+description: I den här snabb starten ska du köra ett Node. js-program på tjänst sidan som kommunicerar med en IoT-enhet via en enhets ström.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: e85f2ea849aca9deeb92da7d7b2381d6c2b1b725
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c7257ec35f9a53f84edebd5e15b7144c49daf682
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802437"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514951"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med ett enhetsprogram i Node.js via IoT Hub-enhetsströmmar (förhandsversion)
+# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Snabb start: kommunicera med ett enhets program i Node. js via IoT Hub enhets strömmar (för hands version)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -40,7 +40,7 @@ Koden visar initierings processen för en enhets ström, samt hur du kan använd
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
 
@@ -48,7 +48,7 @@ För hands versionen av enhets strömmar stöds för närvarande bara för IoT-h
 
 *  **Centrala USA-EUAP**
 
-För att köra programmet på tjänst sidan i den här snabb starten behöver du Node. js v10. x. x eller senare på din utvecklings dator.
+Om du vill köra programmet på tjänst sidan i den här snabb starten behöver du Node. js v10. x. x eller senare på din utvecklings dator.
 
 Du kan hämta Node. js för flera plattformar från [NodeJS.org](https://nodejs.org).
 
@@ -58,7 +58,7 @@ Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med f
 node --version
 ```
 
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT-kommandon (Device Provisioning service) till Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -68,35 +68,35 @@ Ladda ned Node.js-exempelprojektet från https://github.com/Azure-Samples/azure-
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md). Du kan hoppa över det här steget.
+Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md) kan du hoppa över det här steget.
 
 [!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
-Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md). Du kan hoppa över det här steget.
+Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md) kan du hoppa över det här steget.
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
 1. Kör följande kommando i Azure Cloud Shell för att skapa enhets identiteten.
 
-   **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-   **MyDevice**: Det här är det namn du angav för den registrerade enheten. Använd MyDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   Min **enhet**: det här är namnet på enheten som du registrerar. Vi rekommenderar att du använder min **enhet** som det visas. Om du väljer ett annat namn på din enhet måste du också använda det namnet i den här artikeln och uppdatera enhets namnet i exempel programmen innan du kör dem.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 2. Du måste också ha en *tjänstanslutningssträng* för att kunna aktivera serverdelsprogrammet och ansluta till din IoT-hubb och hämta meddelanden. Följande kommando hämtar tjänstanslutningssträngen för din IoT-hubb:
 
-    **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
+    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Anteckna det returnerade värdet, som ser ut så här:
+    Observera den returnerade tjänst anslutnings strängen för senare användning i den här snabb starten. Det ser ut som i följande exempel:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -106,7 +106,7 @@ I det här avsnittet ska du köra både program på enhets sidan och programmet 
 
 ### <a name="run-the-device-side-application"></a>Köra programmet på enhetssidan
 
-Som tidigare nämnts stöder IoT Hub Node.js SDK endast enhetsströmmar på tjänstsidan. För program på enhets sidan använder du det medföljande enhets programmet som är tillgängligt i någon av följande snabb starter:
+Som tidigare nämnts stöder IoT Hub Node.js SDK endast enhetsströmmar på tjänstsidan. För ett program på enhets sidan använder du en av de medföljande enhets programmen som finns i följande snabb starter:
 
    * [Kommunicera med enhetens appar i C via IoT Hub enhets strömmar](./quickstart-device-streams-echo-c.md)
 
@@ -116,21 +116,21 @@ Se till att programmet på enhetssidan körs innan du fortsätter till nästa st
 
 ### <a name="run-the-service-side-application"></a>Köra programmet på tjänstsidan
 
-Förutsatt att programmet på enhetssidan körs följer du stegen nedan för att köra programmet på tjänstsidan som skrivits i Node.js:
+Förutsatt att programmet på enhets sidan körs följer du stegen nedan i ett lokalt terminalfönster för att köra programmet på tjänst sidan i Node. js:
 
 * Ange autentiseringsuppgifter för tjänsten och enhets-ID som miljövariabler.
  
    ```cmd/sh
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    ```
   
-   Ändra `MyDevice` till det enhets-ID som du har valt för enheten.
+   Ändra plats hållaren ServiceConnectionString så att den matchar din tjänst anslutnings sträng och att **enheten** matchar ditt enhets-ID om du har gett ditt eget namn.
 
 * Gå till `Quickstarts/device-streams-service` i den uppackade projektmappen och kör exempelkoden med hjälp av noden.
 
@@ -144,7 +144,7 @@ Förutsatt att programmet på enhetssidan körs följer du stegen nedan för att
    node echo.js
    ```
 
-I slutet av det sista steget initierar programmet på tjänstsidan en dataström till enheten, och när den har upprättats skickas en strängbuffert till tjänsten via dataströmmen. I det här exemplet läser `stdin` programmet på tjänst sidan bara på terminalen och skickar det till enheten, som sedan skickar den tillbaka. Detta demonstrerar lyckad dubbelriktad kommunikation mellan de två programmen.
+I slutet av det sista steget initierar programmet på tjänstsidan en dataström till enheten, och när den har upprättats skickas en strängbuffert till tjänsten via dataströmmen. I det här exemplet läser programmet på tjänst sidan helt enkelt `stdin` på terminalen och skickar det till enheten, som sedan upprepar den igen. Detta demonstrerar lyckad dubbelriktad kommunikation mellan de två programmen.
 
 ![Utdata för konsol på tjänst Sidan](./media/quickstart-device-streams-echo-nodejs/service-console-output.png)
 
@@ -156,7 +156,7 @@ Du kan sedan avsluta programmet genom att trycka på Retur igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du konfigurerat en IoT-hubb, registrerat en enhet, upprättat en enhetsström mellan program på enhetssidan och tjänstsidan samt använt dataströmmen för att skicka data fram och tillbaka mellan programmen.
+I den här snabb starten skapar du en IoT-hubb, registrerat en enhet, upprättat en enhets ström mellan program på enhets-och tjänst sidan och använde data strömmen för att skicka data fram och tillbaka mellan programmen.
 
 Använd länkarna nedan om du vill läsa mer om enhetsströmmar:
 

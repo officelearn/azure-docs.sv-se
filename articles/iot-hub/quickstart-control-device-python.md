@@ -1,6 +1,6 @@
 ---
 title: Snabbstart – Kontrollera en enhet från Azure IoT Hub (Python) | Microsoft Docs
-description: I den här snabbstarten kör du två Python-exempelprogram. Ett program är en serverdelsprogram som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb som kan fjärrstyras.
+description: I den här snabbstarten kör du två Python-exempelprogram. Ett program är en serverdelsprogram som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb och som kan fjärrstyras.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -10,18 +10,18 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 6a3be3733c5041576d5db49256056ac4f0c03a7f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 13652b287da94adff5bdf2235900734e5908c56f
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003027"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516653"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Styra en enhet som är ansluten till en IoT Hub (python)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT-hubb (Python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet och hantera dina enheter från molnet. I den här snabbstarten använder du en *direktmetod* för att styra en simulerad enhet som är ansluten till IoT Hub. Du kan använda direkta metoder för att fjärrändra beteendet hos en enhet ansluten till din IoT-hubb.
+IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och mata in stora mängder enhets telemetri till molnet för lagring eller bearbetning. I den här snabbstarten använder du en *direktmetod* för att styra en simulerad enhet som är ansluten till IoT Hub. Du kan använda direkta metoder för att fjärrändra beteendet hos en enhet ansluten till din IoT-hubb.
 
 Snabbstarten använder två färdiga Python-program:
 
@@ -33,7 +33,7 @@ Snabbstarten använder två färdiga Python-program:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
 
@@ -45,32 +45,32 @@ Ladda ned Python-exempelprojektet från https://github.com/Azure-Samples/azure-i
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-python.md). Du kan hoppa över det här steget.
+Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-python.md) kan du hoppa över det här steget.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
-Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-python.md). Du kan hoppa över det här steget.
+Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-python.md) kan du hoppa över det här steget.
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
 1. Kör följande kommando i Azure Cloud Shell för att skapa enhets identiteten.
 
-    **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
+    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-    **MyPythonDevice**: Det här är det namn du angav för den registrerade enheten. Använd MyPythonDevice som visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+    **MyPythonDevice**: det här är namnet på enheten som du registrerar. Vi rekommenderar att du använder **MyPythonDevice** som det visas. Om du väljer ett annat namn på din enhet måste du också använda det namnet i den här artikeln och uppdatera enhets namnet i exempel programmen innan du kör dem.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
 2. Kör följande kommandon i Azure Cloud Shell för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
 
-    **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
+    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     Anteckna enhetsanslutningssträngen. Den ser ut ungefär som:
@@ -81,12 +81,12 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 3. Du måste också ha en _tjänstanslutningssträng_ för att kunna aktivera serverdelsprogrammet och ansluta till din IoT-hubb och hämta meddelanden. Följande kommando hämtar tjänstanslutningssträngen för din IoT-hubb:
 
-    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName \
       --policy-name service \
+      --name {YourIoTHubName} \
       --output table
     ```
 
@@ -94,7 +94,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    Du kommer att använda det här värdet senare i snabbstarten. Tjänstanslutningssträngen skiljer sig från enhetsanslutningssträngen.
+    Du kommer att använda det här värdet senare i snabbstarten. Den här tjänst anslutnings strängen skiljer sig från den enhets anslutnings sträng som du antecknade i föregående steg.
 
 ## <a name="listen-for-direct-method-calls"></a>Lyssna efter direkta metodanrop
 
@@ -104,7 +104,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
 1. Öppna filen **SimulatedDevice.py** i en valfri textredigerare.
 
-    Ersätt värdet för `CONNECTION_STRING`-variabeln med den enhetsanslutningssträng du antecknade tidigare. Spara dina ändringar i filen **SimulatedDevice.py**.
+    Ersätt värdet för variabeln `CONNECTION_STRING` med enhets anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **SimulatedDevice.py**.
 
 1. Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 
@@ -130,7 +130,7 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
 
 1. Öppna filen **BackEndApplication.py** i en valfri textredigerare.
 
-    Ersätt värdet för `CONNECTION_STRING`-variabeln med den tjänstanslutningssträng du antecknade tidigare. Spara dina ändringar i filen **BackEndApplication.py**.
+    Ersätt värdet för `CONNECTION_STRING`-variabeln med tjänst anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **BackEndApplication.py**.
 
 1. Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 
@@ -138,7 +138,7 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
     pip install azure-iothub-service-client future
     ```
 
-1. I det lokala terminalfönstret kör du följande kommandon för att köra serverdelsprogrammet:
+1. Kör serverdelsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 
     ```cmd/sh
     python BackEndApplication.py
@@ -163,4 +163,4 @@ I den här snabbstarten har du anropat en direktmetod på en enhet från ett ser
 Om du vill lära dig mer om hur man skickar enhet-till-molnet-meddelanden till olika mål i molnet går du vidare till nästa självstudier.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Skicka telemetri till olika slutpunkter för bearbetning](tutorial-routing.md)
+> [Självstudier: Skicka telemetri till olika slutpunkter för bearbetning](tutorial-routing.md)

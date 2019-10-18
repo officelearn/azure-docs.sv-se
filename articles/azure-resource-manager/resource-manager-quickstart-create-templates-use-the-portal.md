@@ -1,5 +1,5 @@
 ---
-title: Skapa och distribuera en Azure Resource Manager-mall via Azure-portalen | Microsoft Docs
+title: Distribuera Resource Manager-mall – Azure Portal
 description: Lär dig hur du skapar din första Azure Resource Manager-mall med Azure-portalen och hur du distribuerar den.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 708656ee88f5bacaa498bcd84fde34d69228d28b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 109c838d903faee7510441a8b3d502a7e95d8bb4
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170270"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533665"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen
 
@@ -45,7 +45,7 @@ Många erfarna mallar för utvecklare använder den här metoden för att skapa 
     |Namn|Värde|
     |----|----|
     |**Resursgrupp**|Välj **Skapa ny**och ange ett valfritt resurs grupps namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser. |
-    |**Namn**|Ge lagringskontot ett unikt namn. Lagrings kontots namn måste vara unikt i hela Azure och det får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken. Om du får ett fel meddelande om att "lagrings konto namnet" mystorage1016 "redan är upptaget" försöker du med **&lt;your namn > Storage @ no__t-2Today's date i MMDD >** , till exempel **johndolestorage1016**. Mer information finns i [namngivnings regler och begränsningar](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
+    |**Namn**|Ge lagringskontot ett unikt namn. Lagrings kontots namn måste vara unikt i hela Azure och det får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken. Om du får ett fel meddelande om att "lagrings konto namnet" mystorage1016 "redan är upptaget" kan du prova att använda **&lt;your namn > lagrings &lt;Today datum i MMDD >** , till exempel **johndolestorage1016**. Mer information finns i [namngivnings regler och begränsningar](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
 
     Du kan använda standardvärdena för resten av egenskaperna.
 

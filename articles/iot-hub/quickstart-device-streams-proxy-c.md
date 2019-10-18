@@ -9,26 +9,26 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 23a005ebb16f4786c7dde9ec5b2a7ae7c5685cb8
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4474a36c2b87a618a9f755d2f42e330e837568f4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377231"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516498"
 ---
-# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabbstart: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett C proxy-program (för hands version)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett C proxy-program (för hands version)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-Azure IoT Hub stöder för närvarande enhets strömmar som en förhands [gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. En översikt över installationen finns i [exempel sidan lokal Proxy](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 I den här snabb starten beskrivs inställningarna för SSH-trafik (Secure Shell) i tunnel trafik (med port 22) genom enhets strömmar. Installationen av RDP-trafik (Remote Desktop Protocol) är snarlik och kräver en enkel konfigurations ändring. Eftersom enhets strömmar är program-och protokoll-oberoende kan du ändra den här snabb starten för att hantera andra typer av program trafik.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
-Följande bild illustrerar hur enhets-och tjänst lokala proxy-program möjliggör slutpunkt-till-slutpunkt-anslutningar mellan SSH-klienten och SSH-daemon-processer. Under den offentliga för hands versionen stöder C SDK endast enhets strömmar på enhets sidan. Därför täcker den här snabb starten instruktioner för att endast köra enhetens lokala proxy-program. Du bör köra ett av följande snabb starter på service sidan:
+Följande bild illustrerar hur enhets-och tjänst lokala proxy-program möjliggör slutpunkt-till-slutpunkt-anslutningar mellan SSH-klienten och SSH-daemon-processer. Under den offentliga för hands versionen stöder C SDK endast enhets strömmar på enhets sidan. Därför täcker den här snabb starten instruktioner för att endast köra enhetens lokala proxy-program. Följ anvisningarna i något av följande snabb starter för att skapa och köra det medföljande programmet på tjänst sidan:
 
 * [SSH/RDP över IoT Hub enhets strömmar C# med proxy](./quickstart-device-streams-proxy-csharp.md)
 * [SSH/RDP över IoT Hub enhets strömmar med NodeJS proxy](./quickstart-device-streams-proxy-nodejs.md).
@@ -50,12 +50,12 @@ Följande bild illustrerar hur enhets-och tjänst lokala proxy-program möjligg�
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * Centrala USA
-  * USA, centrala – EUAP
+  * USA, centrala
+  * Centrala USA-EUAP
 
 * Installera [Visual Studio 2019](https://www.visualstudio.com/vs/) med [Skriv bords utveckling C++ med](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat arbets belastning.
 * Installera den senaste versionen av [Git](https://git-scm.com/download/).
@@ -123,23 +123,23 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det h
 1. Skapa enhets identiteten genom att köra följande kommando i Cloud Shell:
 
    > [!NOTE]
-   > * Ersätt plats hållaren *YourIoTHubName* med det namn du väljer för din IoT Hub.
-   > * Använd min *enhet*som det visas. Det är det namn som angetts för den registrerade enheten. Om du väljer ett annat namn på enheten använder du det namnet i den här artikeln och uppdaterar enhets namnet i exempel programmen innan du kör dem.
+   > * Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.
+   > * För namnet på enheten som du registrerar rekommenderar vi att du använder min *enhet* som visas. Om du väljer ett annat namn på enheten använder du det namnet i den här artikeln och uppdaterar enhets namnet i exempel programmen innan du kör dem.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Kör följande kommandon i Cloud Shell för att hämta *enhets anslutnings strängen* för den enhet som du just har registrerat:
 
    > [!NOTE]
-   > Ersätt plats hållaren *YourIoTHubName* med det namn du väljer för din IoT Hub.
+   > Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Observera enhets anslutnings strängen för senare användning i den här snabb starten. Det ser ut som i följande exempel:
+    Observera den returnerade enhets anslutnings strängen för senare användning i den här snabb starten. Det ser ut som i följande exempel:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,12 +149,12 @@ I det här avsnittet upprättar du en slutpunkt-till-slutpunkt-ström för att d
 
 ### <a name="run-the-device-local-proxy-application"></a>Kör det enhetslokala proxyprogrammet
 
-1. Redigera käll filen *iothub_client_c2d_streaming_proxy_sample. c* i mappen *iothub_client/samples/iothub_client_c2d_streaming_proxy_sample*och ange enhets anslutnings strängen, mål enhetens IP/värdnamn och SSH-porten 22.2
+1. Redigera käll filen **iothub_client_c2d_streaming_proxy_sample. c** i mappen `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` och ange enhets anslutnings strängen, mål enhetens IP/värdnamn och SSH-port 22:
 
    ```C
-   /* Paste in your iothub connection string  */
-   static const char* connectionString = "[Connection string of IoT Hub]";
-   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   /* Paste in your device connection string  */
+   static const char* connectionString = "{DeviceConnectionString}";
+   static const char* localHost = "{IP/Host of your target machine}"; // Address of the local server to connect to.
    static const size_t localPort = 22; // Port of the local server to connect to.
    ```
 
@@ -198,12 +198,12 @@ Som det beskrivs i avsnittet "hur det fungerar" måste en lokal Proxy i varje sl
 När både enhets-och tjänstelokala proxyservrar körs använder du SSH-klientprogrammet och ansluter till den lokala proxyn på port 2222 (i stället för SSH daemon direkt).
 
 ```cmd/sh
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 I det här läget kommer du att bli ombedd att ange dina autentiseringsuppgifter i SSH-inloggnings fönstret.
 
-Följande bild visar konsolens utdata på enhetens lokala proxy, som ansluter till SSH-daemonen på `IP_address:22`:
+Följande bild visar konsolens utdata på den enhets lokala proxyservern, som ansluter till SSH-daemon på `IP_address:22`:
 
 ![Enhet – lokal Proxy-utdata](./media/quickstart-device-streams-proxy-c/device-console-output.png)
 
@@ -217,7 +217,7 @@ Följande bild visar konsolens utdata från SSH-klientprogrammet. SSH-klienten k
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du konfigurerat en IoT-hubb, registrerat en enhet, distribuerat ett enhets-och ett tjänst lokalt proxy-program för att upprätta en enhets ström via IoT Hub och använde proxyservrarna för att dirigera SSH-trafik.
+I den här snabb starten skapar du en IoT-hubb, registrerat en enhet, distribuerat ett enhets-och ett tjänst lokalt proxy-program för att upprätta en enhets ström via IoT Hub och använde proxyservrarna för att dirigera SSH-trafik.
 
 Mer information om enhets strömmar finns i:
 

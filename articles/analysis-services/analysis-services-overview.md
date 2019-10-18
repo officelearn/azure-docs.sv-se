@@ -4,15 +4,15 @@ description: Få en helhetsbild av Analysis Services i Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 25366a550887461c6d36d4870a2c9062120ede47
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294765"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512606"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -79,17 +79,17 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Södra Brasilien     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
-|Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|Östra USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Östra USA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Östra USA 2     |     S8, S9, S8v2, S9v2   |    1    |
-|Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Södra centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Brasilien, södra     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
+|Kanada, centrala    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
+|USA, östra     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|USA, östra 2     |     S8, S9, S8v2, S9v2   |    1    |
+|USA, norra centrala     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|USA, centrala     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|USA, södra centrala     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |USA, västra centrala   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|Västra USA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|Västra USA     |    S8, S9, S8v2, S9v2   |    2  |
+|USA, västra     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|USA, västra     |    S8, S9, S8v2, S9v2   |    2  |
 |USA, västra 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
 |USA, västra 2    |    S8, S9, S8v2, S9v2  |    1     |
 
@@ -97,22 +97,22 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Nordeuropa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Nordeuropa     |    S8v2, S9v2      |    3     |
+|Europa, norra     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|Europa, norra     |    S8v2, S9v2      |    3     |
 |Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Västeuropa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Västeuropa    |   S8, S9, S8v2, S9v2  |  1  |
+|Europa, västra     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Europa, västra    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asien och stillahavsområdet 
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Östra Australien     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
-|Östra Australien     |    S8, S9, S8v2, S9v2    |    1     |
-|Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Östra Japan     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
-|Västra Indien     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Australien, östra     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Australien, östra     |    S8, S9, S8v2, S9v2    |    1     |
+|Australien, sydöstra     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japan, östra     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Asien, sydöstra     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov
 
@@ -138,7 +138,7 @@ Azure Analysis Services är kompatibelt med många fantastiska funktioner som re
 
 Tabellmodeller både i minnet och DirectQuery-lägena stöds. Tabellmodeller i InMemory-läge (standard) har stöd för flera datakällor. Eftersom modelldata är mycket komprimerat och cachelagrade i minnet ger det här läget snabbast frågesvar över stora mängder data. Det ger också störst flexibilitet för komplexa datauppsättningar och frågor. Partitionering möjliggör stegvis inläsning, ökar parallellisering och minskar minnesanvändningen. Andra avancerade funktioner för datamodeller såsom beräknade tabeller samt alla DAX-funktioner stöds. InMemory-modeller måste uppdateras (bearbetas) för att uppdatera cachelagrade data från datakällor. Tack vare Azures stöd för tjänsthuvudnamn får du en flexibel oövervakad uppdatering med PowerShell, TOM, TMSL och REST, vilket innebär att du alltid kan vara säker på att dina modelldata är aktuella. 
 
-DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Extremt stora datauppsättningar i en enkel SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle och Teradata-datakällor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns vissa begränsningar, till exempel begränsade datakälltyper, DAX-formelbegränsningar, och vissa avancerade funktioner för datamodeller stöds inte. Se [Direkt frågeläge](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
+DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Extremt stora datauppsättningar i en enkel SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle och Teradata-datakällor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns även vissa begränsningar, till exempel begränsade typer av data källor, begränsningar för DAX-formler och vissa avancerade data modellerings funktioner stöds inte. Se [Direkt frågeläge](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
 
 \* Funktionstillgänglighet beror på nivån.
 
@@ -200,7 +200,7 @@ Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Utveckla och distribuera modeller med kostnadsfria [SQL Server Data Tools (SSDT) för Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). SSDT innehåller Analysis Services-projektmallar som du kommer igång med snabbare. SSDT innehåller nu den moderna Get Data-datakällfrågan och kombinationsfunktioner för 1400-tabellmodeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. 
+Utveckla och distribuera modeller med kostnadsfria [SQL Server Data Tools (SSDT) för Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). SSDT innehåller Analysis Services-projektmallar som du kommer igång med snabbare. SSDT innehåller nu fråga för modern hämta data data källa och kombinations program för tabell 1400-modeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. 
 
 Om du använder Visual Studio 2017 eller senare är Microsoft Analysis Services-projekt tillgängliga som ett kostnads fritt installerbart VSIX-paket. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 

@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: a5c4ffde886735e096c4c4a96a648c997d1e7dec
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 7187bc7a42971a86b31d663f0a3754a061a2421a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050162"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515054"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med ett enhetsprogram i C via IoT Hub-enhetsströmmar (förhandsversion)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snabb start: kommunicera med ett enhets program i C via IoT Hub enhets strömmar (för hands version)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Azure IoT Hub stöder för närvarande enhets strömmar som en förhands [gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IoT Hub-enhetsströmmar](iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. Under den offentliga för hands versionen stöder C SDK endast enhets strömmar på enhets sidan. Därför täcker den här snabb starten instruktioner för att endast köra program på enhets sidan. Information om hur du kör ett motsvarande program på tjänst sidan finns i följande artiklar:
 
@@ -40,7 +40,7 @@ Koden visar initierings processen för en enhets ström, samt hur du kan använd
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande krav:
 
@@ -56,9 +56,9 @@ Du behöver följande krav:
 
 För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-* Centrala USA
+* USA, centrala
 
-* USA, centrala – EUAP
+* Centrala USA-EUAP
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
@@ -121,23 +121,23 @@ Du måste registrera en enhet med IoT Hub innan den kan ansluta. I det här avsn
 1. Skapa enhets identiteten genom att köra följande kommando i Cloud Shell:
 
    > [!NOTE]
-   > * Ersätt plats hållaren *YourIoTHubName* med det namn du väljer för din IoT Hub.
-   > * Använd min *enhet*som det visas. Det är det namn som angetts för den registrerade enheten. Om du väljer ett annat namn på enheten använder du det namnet i den här artikeln och uppdaterar enhets namnet i exempel programmen innan du kör dem.
+   > * Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.
+   > * För namnet på enheten som du registrerar rekommenderar vi att du använder min *enhet* som visas. Om du väljer ett annat namn på enheten använder du det namnet i den här artikeln och uppdaterar enhets namnet i exempel programmen innan du kör dem.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Kör följande kommando i Cloud Shell för att hämta *enhets anslutnings strängen* för den enhet som du just har registrerat:
 
    > [!NOTE]
-   > Ersätt plats hållaren *YourIoTHubName* med det namn du väljer för din IoT Hub.
+   > Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Observera enhets anslutnings strängen för senare användning i den här snabb starten. Det ser ut som i följande exempel:
+    Observera den returnerade enhets anslutnings strängen för senare användning i den här snabb starten. Det ser ut som i följande exempel:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,14 +149,14 @@ I det här avsnittet ska du köra både program på enhets sidan och programmet 
 
 Följ dessa steg om du vill köra programmet på enhets sidan:
 
-1. Ange autentiseringsuppgifter för enheten genom att redigera käll filen *iothub_client_c2d_streaming_sample. c* i mappen *iothub_client/samples/iothub_client_c2d_streaming_sample* och sedan tillhandahålla enhets anslutnings strängen.
+1. Ange autentiseringsuppgifter för enheten genom att redigera käll filen **iothub_client_c2d_streaming_sample. c** i mappen `iothub_client/samples/iothub_client_c2d_streaming_sample` och lägga till enhets anslutnings strängen.
 
    ```C
    /* Paste in your iothub connection string  */
-   static const char* connectionString = "[device connection string]";
+   static const char* connectionString = "{DeviceConnectionString}";
    ```
 
-1. Kompilera koden på följande sätt:
+1. Kompilera koden med följande kommandon:
 
    ```bash
    # In Linux
@@ -186,7 +186,7 @@ Följ dessa steg om du vill köra programmet på enhets sidan:
 
 ### <a name="run-the-service-side-application"></a>Köra programmet på tjänstsidan
 
-Som tidigare nämnts stöder IoT Hub C SDK endast enhets strömmar på enhets sidan. Om du vill skapa och köra programmet på tjänst sidan följer du anvisningarna i någon av följande snabb starter:
+Som tidigare nämnts stöder IoT Hub C SDK endast enhets strömmar på enhets sidan. Följ anvisningarna i något av följande snabb starter för att skapa och köra det medföljande programmet på tjänst sidan:
 
 * [Kommunicera med en enhets app C# i via IoT Hub enhets strömmar](./quickstart-device-streams-echo-csharp.md)
 
@@ -198,7 +198,7 @@ Som tidigare nämnts stöder IoT Hub C SDK endast enhets strömmar på enhets si
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du konfigurerat en IoT-hubb, registrerat en enhet, upprättat en enhets ström mellan ett C-program på enheten och ett annat program på tjänst sidan, och använde data strömmen för att skicka data fram och tillbaka mellan programmen.
+I den här snabb starten skapar du en IoT-hubb, registrerat en enhet, upprättat en enhets ström mellan ett C-program på enheten och ett annat program på tjänst sidan, och använde data strömmen för att skicka data fram och tillbaka mellan programmen.
 
 Mer information om enhets strömmar finns i:
 

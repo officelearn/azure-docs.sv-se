@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 63ed2c5c334aef8f6281ee34ec4ed6e47ca8521a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3b427f785848fa70ba17ed415bda7292a787c998
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569106"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533789"
 ---
-# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Snabbstarter: Azure SQL Database-anslutning och fråga
+# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Snabb starter: Azure SQL Database Anslut och fråga
 
 Följande dokument innehåller länkar till Azure-exempel som beskriver hur du ansluter till och frågar en Azure SQL-databas. Det innehåller också några rekommendationer för TLS (Transport Level Security).
 
@@ -28,7 +28,7 @@ Följande dokument innehåller länkar till Azure-exempel som beskriver hur du a
 |---|---|
 |[SQL Server Management Studio](sql-database-connect-query-ssms.md)|Den här snabbstarten visar hur du använder SSMS för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att skicka frågor mot, infoga, uppdatera och ta bort data i databasen.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Den här snabbstarten visar hur du använder Azure Data Studio för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-instruktioner (T-SQL) till att skapa den TutorialDB som används i självstudierna för Azure Data Studio.|
-|[Azure Portal](sql-database-connect-query-portal.md)|Den här snabbstarten visar hur du ansluter till en SQL-databas med frågeredigeraren och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
+|[Azure-portalen](sql-database-connect-query-portal.md)|Den här snabbstarten visar hur du ansluter till en SQL-databas med frågeredigeraren och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|Den här snabbstarten visar hur du använder Visual Studio Code för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.|
 |[.NET med Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|Den här snabbstarten visar hur du använder .NET Framework till att skapa ett C#-program med Visual Studio för anslutning till en Azure SQL-databas och använder Transact-SQL-instruktioner till att köra frågor mot data.|
 |[.NET core](sql-database-connect-query-dotnet-core.md)|Den här snabbstarten beskriver hur du använder .NET Core i Windows/Linux/Mac OS för att skapa ett C#-program som ansluter till en Azure SQL-databas och använder Transact-SQL-instruktioner till att köra frågor mot data.|
@@ -59,14 +59,14 @@ Du kan använda olika bibliotek och ramverk för att ansluta till Azure SQL Data
 
 I följande tabell ser du vilka anslutningsbibliotek eller *drivrutiner* som klientprogram kan använda i olika språk för att ansluta till och använda SQL Server lokalt eller i molnet. Du kan använda dem i Linux, Windows och Docker när du vill ansluta till Azure SQL Database eller Azure SQL Data Warehouse. 
 
-| Språk | Plattform | Ytterligare resurser | Ladda ned | Kom igång |
+| Språk | Plattform | Ytterligare resurser | Ladda ned | Kom i gång |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [PHP SQL-drivrutin för SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Ladda ned](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
-| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Installera](https://msdn.microsoft.com/library/mt652094.aspx) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Python SQL-drivrutin](https://msdn.microsoft.com/library/mt652092.aspx) | Installationsval: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Installera](https://msdn.microsoft.com/library/mt711041.aspx) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [PHP SQL-drivrutin för SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Ladda ned](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
+| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Installera](https://msdn.microsoft.com/library/mt652094.aspx) |  [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Python SQL-drivrutin](https://msdn.microsoft.com/library/mt652092.aspx) | Installationsval: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Installera](https://msdn.microsoft.com/library/mt711041.aspx) | [Komma igång](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Microsoft ODBC-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Ladda ned](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
 I följande tabell visas exempel på ORM-ramverk (objektrelationell mappning) och webbramverk som klientprogram kan använda när SQL Server körs lokalt eller i molnet. Du kan använda ramverken i Linux, Windows och Docker när du vill ansluta till SQL Database eller SQL Data Warehouse. 

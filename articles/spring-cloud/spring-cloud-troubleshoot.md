@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: ebb960085691206b096090813636ef56366e6536
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
-ms.translationtype: MT
+ms.openlocfilehash: 51062437b4fc1169ce166eb27067e56b9de262e6
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72039030"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554372"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Fel söknings guide för vanliga problem
 
@@ -37,7 +37,7 @@ Tjänst bindningar kan också orsaka fel i program starten. Använd nyckelord so
 
 `java.sql.SQLException: The server time zone value 'Coordinated Universal Time' is unrecognized or represents more than one time zone.`
 
-Åtgärda felet genom att gå till `server parameters` i MySql-instansen och ändra `time_zone` från `SYSTEM` till `+0:00`.
+Åtgärda felet genom att gå till `server parameters` av MySql-instansen och ändra `time_zone` från `SYSTEM` till `+0:00`.
 
 
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>Mina program kraschar eller genererar ett oväntat fel
@@ -49,11 +49,11 @@ När du felsöker program krascher startar du genom att kontrol lera programmets
 * Om identifierings statusen är _upp_går du till _mått_ för att kontrol lera programmets hälso tillstånd. Kontrol lera följande mått:
 
 
-  - `TomcatErrorCount` (_tomcat.global.error_): Alla undantag för Spring-program räknas upp här. Om det här talet är stort går du till _Azure Log Analytics_ för att kontrol lera program loggarna.
+  - `TomcatErrorCount` (_Tomcat. global. error_): alla våren Application-undantag kommer att räknas här. Om det här talet är stort går du till _Azure Log Analytics_ för att kontrol lera program loggarna.
 
-  - `AppMemoryMax` (_jvm.memory.max_): Maximal mängd minne som är tillgängligt för programmet. Det kan vara odefinierat eller ändra över tid om det har definierats. Mängden använt och allokerat minne är alltid mindre än eller lika med max om den har definierats. Dock kan en minnesallokering misslyckas med `OutOfMemoryError` om den försöker öka det använda minnet så att använt minne > allokerat, även om använt <= max fortfarande gäller. I sådana fall kan du försöka öka den maximala heap-storleken via parametern `-Xmx`.
+  - `AppMemoryMax` (_JVM. Memory. Max_): den maximala mängden minne som är tillgängligt för programmet. Det kan vara odefinierat eller ändra över tid om det har definierats. Mängden använt och allokerat minne är alltid mindre än eller lika med max om den har definierats. Dock kan en minnesallokering misslyckas med `OutOfMemoryError` om den försöker öka det använda minnet så att använt minne > allokerat, även om använt <= max fortfarande gäller. I sådana fall kan du försöka öka den maximala heap-storleken via parametern `-Xmx`.
 
-  - `AppMemoryUsed` (_jvm.memory.used_): Mängden minne i byte som för närvarande används av programmet. För ett Java-program med normal belastning bildar den här måttserien ett ”sågtandsmönster” där minnesanvändningen stadigt ökar och minskar i små steg och sedan minskas kraftigt och plötsligt. Detta mönster upprepas. Detta beror på skräp insamlingen i Java Virtual Machine, där samlings åtgärder representeras på "sawteeth".
+  - `AppMemoryUsed` (_JVM. Memory. används_): mängden minne i byte som för närvarande används av programmet. För ett Java-program med normal belastning bildar den här måttserien ett ”sågtandsmönster” där minnesanvändningen stadigt ökar och minskar i små steg och sedan minskas kraftigt och plötsligt. Detta mönster upprepas. Detta beror på skräp insamlingen i Java Virtual Machine, där samlings åtgärder representeras på "sawteeth".
     Det här måttet är viktigt för att identifiera minnes problem, t. ex.: * minnes explosion i det allra första början * överspännings minnes tilldelning för en angiven logisk sökväg * gradvis minnes läckor
 
   Mer information finns på [mått](spring-cloud-concept-metrics.md).
@@ -107,7 +107,7 @@ Men om du försöker etablera _Azure våren Cloud_ service-instansen via [Azure 
 
 Om du försöker etablera _Azure våren Cloud_ service-instansen via Resource Manager-mallen går du till https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates för att kontrol lera mallens syntax.
 
-Namnet på _Azure våren Cloud_ service-instansen kommer att användas för att begära ett under domän namn under `azureapps.io`, så att etableringen Miss kommer om namnet står i konflikt med ett befintligt namn. Det finns mer information i aktivitetsloggarna.
+Namnet på _Azure våren Cloud_ service-instansen kommer att användas för att begära ett under domän namn under `azureapps.io`, så det går inte att etablera om namnet står i konflikt med en befintlig. Det finns mer information i aktivitetsloggarna.
 
 ### <a name="i-cannot-deploy-a-jar-package"></a>Jag kan inte distribuera ett JAR-paket
 
@@ -147,11 +147,51 @@ Du kan också kontrol lera klient loggar för _tjänst registret_ i _Azure Log A
 
 Besök [den här kom igång-artikeln](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) för att komma igång med _Azure Log Analytics_. Fråga loggarna med [Kusto-frågespråket](https://docs.microsoft.com/azure/kusto/query/).
 
+### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Jag vill kontrol lera miljö variabler för mitt program
+
+Miljövariabler meddelar Azure våren Cloud Framework, så att Azure förstår var och hur du konfigurerar de tjänster som utgör ditt program.  Att se till att dina miljövariabler är korrekta är ett nödvändigt första steg i fel sökning av eventuella problem.  Du kan använda den fjädrande start manövrerings punkten för att granska miljövariablerna.  
+
+[!WARNING]
+> Den här proceduren kan exponera dina miljövariabler.  Fortsätt inte om din test-slutpunkt är offentligt tillgänglig eller om du har tilldelat ett domän namn till ditt program.
+
+1. Navigera till denna URL: `https://<your application test endpoint>/actuator/health`.  
+    - Ett svar som liknar `{"status":"UP"}` anger att slut punkten har Aktiver ATS.
+    - Om svaret är negativt inkluderar du följande beroende i `POM.xml`:
+
+        ```xml
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+        ```
+
+1. När Start punktens slut punkt är aktive rad går du till Azure Portal och söker efter konfigurations sidan för ditt program.  Lägg till en miljö variabel med namnet `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value ` * '. 
+
+1. Starta om programmet.
+
+1. Navigera till `https://<the test endpoint of your app>/actuator/env` och kontrol lera svaret.  Det bör se ut så här:
+
+    ```json
+    {
+        "activeProfiles": [],
+        "propertySources": {,
+            "name": "server.ports",
+            "properties": {
+                "local.server.port": {
+                    "value": 1025
+                }
+            }
+        }
+    }
+    ```
+
+Hitta den underordnade noden som heter `systemEnvironment`.  Den här noden innehåller programmets miljövariabler.
+
 ### <a name="i-cannot-find-metrics-or-logs-for-my-application"></a>Jag hittar inga mått eller loggar för mitt program
 
 Gå till _app Management_ för att kontrol lera att programmet _körs_ och _är igång._
 
-Om du kan se mått från _JVM_ men inga mått från _Tomcat_kontrollerar du om @ no__t-2-beroendet är aktiverat i programpaketet och startas.
+Om du kan se mått från _JVM_ men inga mått från _Tomcat_kontrollerar du om det `spring-boot-actuator` beroendet är aktiverat i programpaketet och startas.
 
 ```xml
 <dependency>

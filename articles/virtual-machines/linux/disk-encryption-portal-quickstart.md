@@ -6,14 +6,14 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 0249867a6af16505a692e7090639807ed3d239c9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031079"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550311"
 ---
-# <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Snabbstart: Skapa och kryptera en virtuell dator med Azure Portal
+# <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Snabb start: skapa och kryptera en virtuell dator med Azure Portal
 
 Det går att skapa virtuella Azure-datorer via Azure Portal. Azure-portalen är ett webbläsarbaserat användargränssnitt för att skapa virtuella datorer och alla relaterade resurser. I den här snabb starten ska du använda Azure Portal för att distribuera en virtuell Linux-dator (VM) som kör Ubuntu 18,04 LTS, skapa ett nyckel valv för lagringen av krypterings nycklar och kryptera den virtuella datorn.
 
@@ -21,7 +21,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
@@ -60,8 +60,8 @@ Logga in på [Azure Portal](https://portal.azure.com).
 1. För **region**väljer du samma region som du använde när du gjorde ditt nyckel valv ovan (t. ex. **USA, östra**).
 1. Kontrol lera att **storleken** är *standard D2s v3*.
 1. Under **administratörs konto**väljer du **lösen ord**. Ange ett användar namn och ett lösen ord.
-    @no__t 0ResourceGroup skapa skärmen @ no__t-1
-1. Välj fliken "hantering" och kontrol lera att du har ett konto för diagnostik-lagring. Om du inte har några lagrings konton väljer du "Skapa ny", ger ditt nya konto ett namn och väljer "OK" @no__t 0ResourceGroup skapa skärm @ no__t-1
+    skärm ](./media/disk-encryption/portal-qs-vm-creation.png) för ![ResourceGroup skapande
+1. Välj fliken "hantering" och kontrol lera att du har ett konto för diagnostik-lagring. Om du inte har några lagrings konton väljer du "Skapa ny", ger ditt nya konto ett namn och väljer OK ![ResourceGroup skärmen för att skapa ](./media/disk-encryption/portal-qs-vm-creation-storage.png)
 1. Klicka på granska + skapa.
 1. På sidan **Skapa en virtuell dator** kan du se information om den virtuella datorn som du håller på att skapa. När du är klar väljer du **Skapa**.
 
@@ -77,7 +77,7 @@ Det tar några minuter för den virtuella datorn att distribueras. När distribu
 
 1. Välj **operativ system och data diskar**under **diskar som ska krypteras**på sidan kryptering.
 1. Klicka på Välj ett nyckel valv och nyckel för kryptering under **krypterings inställningar**.
-1. I den högra sid panelen väljer du namnet på nyckel valvet som du skapade tidigare som värde för * Key Vault * * och klickar på **Välj**.
+1. I den högra sid panelen väljer du namnet på nyckel valvet som du skapade tidigare som värde för **Key Vault**och klickar på **Välj**.
 
     ![Val av diskar och kryptering](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
 1. Klicka på "Spara" överst på krypterings skärmen. En popup varnar dig om att den virtuella datorn startas om. Klicka på **Ja**.

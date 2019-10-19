@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 092da53c3179d939ebf0472219338b8d8392fda6
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116575"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554268"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Skapa en interaktiv sökkarta med hjälp av Azure Maps
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-account-and-get-your-key"></a>Skapa ett konto och hämta din nyckel
 
@@ -43,7 +43,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
      ![Skapa ett Azure Maps-konto på portalen](./media/quick-demo-map-app/create-account.png)
 
-5. När kontot har skapats öppnar du det och går till inställningarna på kontomenyn. Välj **Nycklar** för att granska de primära och sekundära prenumerationsnycklarna för ditt Azure Maps-konto. Kopiera värdet för **Primär nyckel** till din lokala Urklipp för användning i följande avsnitt.
+5. När kontot har skapats öppnar du det och går till inställningarna på kontomenyn. Välj **autentisering** om du vill visa de primära och sekundära nycklarna för ditt Azure Maps konto. Kopiera värdet för **Primär nyckel** till din lokala Urklipp för användning i följande avsnitt.
 
 ## <a name="download-the-application"></a>Hämta programmet
 
@@ -55,7 +55,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna filen **AzureMapDemo.html** i en webbläsare.
 2. Observera kartan som visas för staden Los Angeles. Zooma in och ut om du vill se hur kartan automatiskt återges med mer eller mindre information beroende på zoomnivån. 
-3. Ändra kartans standardmittpunkt. I filen **AzureMapDemo.html** söker du efter variabeln med namnet **center**. Ersätt variabelns parvärde för longitud, latitud med de nya värdena **[-74.0060, 40.7128]**. Spara filen och uppdatera webbläsaren.
+3. Ändra kartans standardmittpunkt. I filen **AzureMapDemo.html** söker du efter variabeln med namnet **center**. Ersätt variabelns parvärde för longitud, latitud med de nya värdena **[-74.0060, 40.7128]** . Spara filen och uppdatera webbläsaren.
 4. Prova den interaktiva sökupplevelsen. I sökrutan i det övre vänstra hörnet i demowebbappen söker du efter **restauranger**.
 5. Flytta musen över listan med adresser och platser som visas under sökrutan. Observera hur motsvarande nål på kartan visar information om den platsen. Observera att namnen och adresserna som visas är fiktiva för att skydda privata företag.
 
@@ -70,7 +70,7 @@ Självstudierna förklarar hur du använder och konfigurerar Azure Maps med ditt
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ditt Azure Maps-konto och en demonstrationsapp. Ta en titt på följande självstudiekurser och lär dig mer om Azure Maps:
+I den här snabbstarten skapade du ditt Azure Maps-konto och en demonstrationsapp. Ta en titt på följande självstudier om du vill lära dig mer om Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Söka efter orienteringspunkter i närheten med hjälp av Azure Maps](tutorial-search-location.md)

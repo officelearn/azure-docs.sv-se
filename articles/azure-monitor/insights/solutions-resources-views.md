@@ -1,56 +1,50 @@
 ---
-title: Vyer i lösningar för hantering av | Microsoft Docs
-description: 'Hanteringslösningar har vanligtvis vyer en eller flera om du vill visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av Vydesigner och inkludera den i en lösning. '
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
+title: Vyer i hanterings lösningar | Microsoft Docs
+description: 'Hanterings lösningar innehåller vanligt vis en eller flera vyer för att visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av View Designer och inkluderar den i en hanterings lösning. '
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/16/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cefb83d5336bb99fd09001b5ea369a0b8fc4b942
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/16/2018
+ms.openlocfilehash: 473d10bbec6ca056554f7223800a32e9ca93578e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596631"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553900"
 ---
-# <a name="views-in-management-solutions-preview"></a>Vyer i lösningar för hantering (förhandsversion)
+# <a name="views-in-management-solutions-preview"></a>Vyer i hanterings lösningar (förhands granskning)
 > [!NOTE]
-> Det här är preliminära dokumentationen för att skapa lösningar för hantering som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.    
+> Det här är en preliminär dokumentation för att skapa hanterings lösningar som för närvarande finns i för hands version. Alla scheman som beskrivs nedan kan komma att ändras.    
 
 
-[Lösningar för hantering av](solutions.md) inkluderar vanligtvis en eller flera vyer för att visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av den [Vydesigner](../../azure-monitor/platform/view-designer.md) och inkludera den i en lösning.  
+[Hanterings lösningar](solutions.md) innehåller vanligt vis en eller flera vyer för att visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av [View Designer](../../azure-monitor/platform/view-designer.md) och inkluderar den i en hanterings lösning.  
 
 > [!NOTE]
-> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure](solutions-creating.md)
+> I exemplen i den här artikeln används parametrar och variabler som antingen är obligatoriska eller vanliga för hanterings lösningar och som beskrivs i [utforma och skapa en hanterings lösning i Azure](solutions-creating.md)
 >
 >
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Den här artikeln förutsätter att du redan är bekant med hur du [skapa en lösning för](solutions-creating.md) och strukturen för en lösningsfil.
+## <a name="prerequisites"></a>Krav
+Den här artikeln förutsätter att du redan är bekant med hur du [skapar en hanterings lösning](solutions-creating.md) och strukturen för en lösnings fil.
 
 ## <a name="overview"></a>Översikt
-För att inkludera en vy i en lösning för hantering, skapar du en **resource** för den i den [lösningsfilen](solutions-creating.md).  Den JSON som beskriver den visa detaljerad konfiguration är komplex men och inte något att en typisk lösning författare skulle kunna skapa manuellt.  Den vanligaste metoden är att skapa en vy med hjälp av den [Vydesigner](../../azure-monitor/platform/view-designer.md), exportera det och sedan lägga till den detaljerade konfigurationen i lösningen.
+Om du vill inkludera en vy i en hanterings lösning skapar du en **resurs** för den i [lösnings filen](solutions-creating.md).  JSON som beskriver vyns detaljerade konfiguration är vanligt vis komplex, men inte något som en typisk lösnings författare kan skapa manuellt.  Det vanligaste sättet är att skapa vyn med hjälp av [View Designer](../../azure-monitor/platform/view-designer.md), exportera den och sedan lägga till den detaljerade konfigurationen i lösningen.
 
-De grundläggande stegen för att lägga till en vy i en lösning är som följer.  Varje steg beskrivs mer ingående i avsnitten nedan.
+De grundläggande stegen för att lägga till en vy i en lösning är som följer.  Varje steg beskrivs i detalj i avsnittet nedan.
 
 1. Exportera vyn till en fil.
-2. Skapa vy resursen i lösningen.
-3. Lägg till Visa information.
+2. Skapa vyn resurs i lösningen.
+3. Lägg till vyn information.
 
 ## <a name="export-the-view-to-a-file"></a>Exportera vyn till en fil
-Följ anvisningarna på [Log Analytics-Vydesigner](../../azure-monitor/platform/view-designer.md) att exportera en vy till en fil.  Den exporterade filen kommer att i JSON-format med samma [element som lösningsfilen](solutions-solution-file.md).  
+Följ instruktionerna på [Log Analytics View Designer](../../azure-monitor/platform/view-designer.md) för att exportera en vy till en fil.  Den exporterade filen är i JSON-format med samma [element som lösnings filen](solutions-solution-file.md).  
 
-Den **resurser** element i Vyfilen har en resurs med en typ av **Microsoft.OperationalInsights/workspaces** som representerar Log Analytics-arbetsytan.  Det här elementet har ett underelement med en typ av **vyer** som representerar vyn och innehåller detaljerade konfigurationen.  Du kopierar informationen på det här elementet och kopiera den till din lösning.
+Resurs **elementet i** visnings filen har en resurs med en typ av **Microsoft. OperationalInsights/arbets ytor** som representerar arbets ytan Log Analytics.  Det här elementet har ett under element med en typ av **vyer** som representerar vyn och innehåller den detaljerade konfigurationen.  Du kommer att kopiera information om det här elementet och sedan kopiera det till din lösning.
 
-## <a name="create-the-view-resource-in-the-solution"></a>Skapa vy resursen i lösningen
-Lägg till följande vy resursen till den **resurser** element i din lösningsfilen.  Här används variabler som beskrivs nedan att du måste också lägga till.  Observera att den **instrumentpanelen** och **OverviewTile** egenskaper är platshållare som skrivs med motsvarande egenskaper från den exporterade visa filen.
+## <a name="create-the-view-resource-in-the-solution"></a>Skapa vyn resurs i lösningen
+Lägg till följande vy-resurs till **resurs elementet i** lösnings filen.  Detta använder variabler som beskrivs nedan. du måste också lägga till.  Observera att egenskaperna **Dashboard** och **OverviewTile** är plats hållare som du kommer att skriva över med motsvarande egenskaper från den exporterade View-filen.
 
     {
         "apiVersion": "[variables('LogAnalyticsApiVersion')]",
@@ -72,39 +66,39 @@ Lägg till följande vy resursen till den **resurser** element i din lösningsfi
         }
     }
 
-Lägg till följande variabler i elementet variabler i lösningsfilen och ersätter värdena som dem för din lösning.
+Lägg till följande variabler i elementet variabler i lösnings filen och ersätt värdena med dem för din lösning.
 
     "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
 
-Observera att du kan kopiera hela vyn resursen från den exporterade visa filen, men behöver du göra följande ändringar att fungera i din lösning.  
+Observera att du kan kopiera hela vyn resurs från den exporterade View-filen, men du måste göra följande ändringar för att den ska fungera i din lösning.  
 
-* Den **typ** för vyn resurs ska ändras från **vyer** till **Microsoft.OperationalInsights/workspaces**.
-* Den **namn** för visa-resursen måste ändras för att inkludera namnet på arbetsytan.
-* Beroende på arbetsytans måste tas bort eftersom den arbetsyteresursen inte är definierad i lösningen.
-* **DisplayName** egenskapen måste läggas till vyn.  Den **Id**, **namn**, och **DisplayName** måste matcha alla.
-* Parameternamn måste ändras för att matcha de obligatoriska parametrar.
-* Variabler ska definieras i lösningen och används i egenskaperna.
+* **Typen** för vyn Visa resurs måste ändras från **vyer** till **Microsoft. OperationalInsights/arbets ytor**.
+* **Namn** egenskapen för vyn Visa resurs måste ändras för att inkludera namnet på arbets ytan.
+* Beroendet på arbets ytan måste tas bort eftersom arbets ytans resurs inte har definierats i lösningen.
+* Egenskapen **DisplayName** måste läggas till i vyn.  **ID**, **namn**och **DisplayName** måste matcha.
+* Parameter namn måste ändras för att matcha den obligatoriska parameter uppsättningen.
+* Variabler bör definieras i lösningen och användas i lämpliga egenskaper.
 
-### <a name="log-analytics-api-version"></a>Log Analytics-API-version
-Alla Log Analytics-resurser som definierats i en Resource Manager-mallen har en egenskap **apiVersion** som definierar versionen av API: et som resursen ska använda.  Den här versionen är olika för vyer med frågor som använder den [äldre system och det uppgraderade frågespråket](../../azure-monitor/log-query/log-query-overview.md).  
+### <a name="log-analytics-api-version"></a>Log Analytics API-version
+Alla Log Analytics resurser som definierats i en Resource Manager-mall har en egenskaps- **API version** som definierar den version av API som resursen ska använda.  Den här versionen är annorlunda för vyer med frågor som använder det [äldre och det uppgraderade frågespråket](../../azure-monitor/log-query/log-query-overview.md).  
 
- I följande tabell anger Log Analytics API-versioner för vyer i äldre och uppgraderade arbetsytor: 
+ I följande tabell anges Log Analytics API-versioner för vyer i äldre och uppgraderade arbets ytor: 
 
-| Arbetsyteversion | API-version | Fråga |
+| Arbetsyte version | API-version | Söka i data |
 |:---|:---|:---|
-| V1 (äldre)   | 2015-11-01-preview | Äldre format.<br> Exempel: Typ = händelse EventLevelName = fel  |
-| v2 (uppgraderade) | 2015-11-01-preview | Äldre format.  Konverteras till uppgraderade format vid installation.<br> Exempel: Typ = händelse EventLevelName = fel<br>Konverteras till: Händelsen &#124; där EventLevelName == ”Error”  |
-| v2 (uppgraderade) | 2017-03-03-förhandsversion | Uppgradera format. <br>Exempel: Händelsen &#124; där EventLevelName == ”Error”  |
+| v1 (bakåtkompatibelt)   | 2015-11-01 – för hands version | Äldre format.<br> Exempel: Type = Event EventLevelName = Error  |
+| v2 (uppgraderat) | 2015-11-01 – för hands version | Äldre format.  Konverterat till uppgraderat format vid installation.<br> Exempel: Type = Event EventLevelName = Error<br>Konverterad till: &#124; händelse där EventLevelName = = "Error"  |
+| v2 (uppgraderat) | 2017-03-03 – för hands version | Uppgraderings format. <br>Exempel: händelse &#124; där EventLevelName = = "Error"  |
 
 
-## <a name="add-the-view-details"></a>Lägg till Visa detaljer
-Visa resurs i den exporterade Visa fil innehåller två element i den **egenskaper** element med namnet **instrumentpanelen** och **OverviewTile** som innehåller detaljerade konfiguration av vyn.  Kopiera dessa två element och deras innehåll till den **egenskaper** element i Visa-resurs i din lösningsfilen.
+## <a name="add-the-view-details"></a>Lägg till vyn Detaljer
+Vyn Visa resursen i den exporterade View-filen innehåller två element i **Properties** -elementet med namnet **instrument panel** och **OverviewTile** som innehåller den detaljerade konfigurationen av vyn.  Kopiera de här två elementen och deras innehåll till elementet **Properties** (Visa resurs) i din lösnings fil.
 
 ## <a name="example"></a>Exempel
-I följande exempel visas till exempel en enkel lösning-fil med en vy.  Ellipserna (...) visas för den **instrumentpanelen** och **OverviewTile** innehållet utrymme skäl.
+Följande exempel visar till exempel en enkel lösnings fil med en vy.  Ellipser (...) visas för **instrument panelen** och **OverviewTile** -innehållet av utrymmes skäl.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -187,5 +181,5 @@ I följande exempel visas till exempel en enkel lösning-fil med en vy.  Ellipse
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer information för att skapa [hanteringslösningar](solutions-creating.md).
-* Inkludera [Automation-runbooks i din lösning för](solutions-resources-automation.md).
+* Läs mer om hur du skapar [hanterings lösningar](solutions-creating.md).
+* Inkludera [Automation-runbooks i hanterings lösningen](solutions-resources-automation.md).

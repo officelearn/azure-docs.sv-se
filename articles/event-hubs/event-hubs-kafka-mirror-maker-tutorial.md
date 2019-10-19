@@ -1,25 +1,25 @@
 ---
-title: Använd MirrorMaker för Apache Kafka – Azure Event Hubs | Microsoft Docs
-description: Den här artikeln innehåller information om hur du använder Kafka MirrorMaker för spegling av ett Kafka-kluster i AzureEvent Hubs.
+title: Använd Apache Kafka MirrorMaker – Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller information om hur du använder Kafka-MirrorMaker för att spegla ett Kafka-kluster i AzureEvent-hubbar.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 43a32177280361bb0c2a433af0cb5dd3cfc6b9d3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.author: shvija
+ms.openlocfilehash: 6d1596cf0a50ed5dcb896896282178b6fc12c1a1
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967591"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555101"
 ---
-# <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Använd MirrorMaker för Kafka med Event Hubs för Apache Kafka
+# <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Använd Kafka-MirrorMaker med Event Hubs för Apache Kafka
 
-Den här självstudien visar hur du speglar en Kafka-meddelandeköer i en Kafka aktiverade händelsehubb med hjälp av Kafka MirrorMaker.
+Den här självstudien visar hur du speglar en Kafka-Broker i en Kafka-aktiverad händelsehubben med Kafka MirrorMaker.
 
    ![Kafka MirrorMaker med Event Hubs](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
@@ -32,15 +32,15 @@ I den här guiden får du lära dig att:
 > * Skapa ett Event Hubs-namnområde
 > * Klona exempelprojektet
 > * Konfigurera ett Kafka-kluster
-> * Konfigurera Kafka MirrorMaker
-> * Kör Kafka MirrorMaker
+> * Konfigurera Kafka-MirrorMaker
+> * Kör Kafka-MirrorMaker
 
 ## <a name="introduction"></a>Introduktion
-En är större skala för moderna molnappar möjligheten att uppdatera, förbättra och ändra infrastrukturen utan att avbryta tjänsten. Den här kursen visar hur en Kafka-aktiverade event hub och Kafka MirrorMaker kan integrera en befintlig pipeline för Kafka i Azure genom att ”spegla” Kafka Indataströmmen i Event Hubs-tjänsten. 
+En stor övervägande för modern moln skalnings program är möjligheten att uppdatera, förbättra och ändra infrastrukturen utan att avbryta tjänsten. I den här självstudien visas hur en Kafka-aktiverad Event Hub-och Kafka-MirrorMaker kan integrera en befintlig Kafka-pipeline i Azure genom att "spegla" Kafka-indataströmmen i Event Hubs-tjänsten. 
 
-En Kafka för Azure Event Hubs-slutpunkt kan du ansluta till Azure Event Hubs med Kafka-protokollet (det vill säga Kafka-klienter). Genom att göra minimala ändringar till ett Kafka-program, kan du ansluta till Azure Event Hubs och dra nytta av fördelarna med Azure-ekosystemet. Kafka aktiverat Event Hubs stöder för närvarande Kafka version 1.0 och senare.
+Med en Azure Event Hubs Kafka-slutpunkt kan du ansluta till Azure Event Hubs med Kafka-protokollet (Kafka-klienter). Genom att göra minimala ändringar i ett Kafka-program kan du ansluta till Azure Event Hubs och dra nytta av fördelarna med Azure-eko systemet. Kafka-aktiverade Event Hubs stöder för närvarande Kafka-versionerna 1,0 och senare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -49,18 +49,18 @@ För att kunna följa den här självstudien måste du ha:
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.
     * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
-* [Ladda ned](https://maven.apache.org/download.cgi) och [installera](https://maven.apache.org/install.html) ett Maven-binärarkiv
+* [Hämta](https://maven.apache.org/download.cgi) och [Installera](https://maven.apache.org/install.html) ett maven-binärt Arkiv
     * I Ubuntu kan du köra `apt-get install maven` för att installera Maven.
 * [Git](https://www.git-scm.com/downloads)
     * I Ubuntu kan du köra `sudo apt-get install git` för att installera Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-En Event Hubs-namnrymd krävs för att skicka och ta emot från Event Hubs-tjänster. Instruktioner om hur du skaffar en Event Hubs Kafka-slutpunkt finns i avsnittet om att [skapa en Kafka-aktiverad händelsehubb](event-hubs-create.md). Se till att kopiera anslutningssträngen Event Hubs för senare användning.
+En Event Hubs-namnrymd krävs för att skicka och ta emot från Event Hubs-tjänster. Instruktioner om hur du skaffar en Event Hubs Kafka-slutpunkt finns i avsnittet om att [skapa en Kafka-aktiverad händelsehubb](event-hubs-create.md). Se till att kopiera Event Hubs anslutnings strängen för senare användning.
 
 ## <a name="clone-the-example-project"></a>Klona exempelprojektet
 
-Nu när du har aktiverat en Kafka Event Hubs anslutningssträng, klona Azure Event Hubs för Kafka-lagringsplats och navigera till den `mirror-maker` undermappen:
+Nu när du har en Kafka aktive rad Event Hubs anslutnings sträng klonar du Azure-Event Hubs för Kafka-lagringsplatsen och navigerar till `mirror-maker`-undermappen:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -69,21 +69,21 @@ cd azure-event-hubs-for-kafka/tutorials/mirror-maker
 
 ## <a name="set-up-a-kafka-cluster"></a>Konfigurera ett Kafka-kluster
 
-Använd den [Kafka Snabbstartsguide](https://kafka.apache.org/quickstart) att konfigurera ett kluster med de önskade inställningarna (eller använda ett befintligt Kafka-kluster).
+Använd [snabb starts guiden för Kafka](https://kafka.apache.org/quickstart) för att konfigurera ett kluster med önskade inställningar (eller använda ett befintligt Kafka-kluster).
 
-## <a name="configure-kafka-mirrormaker"></a>Konfigurera Kafka MirrorMaker
+## <a name="configure-kafka-mirrormaker"></a>Konfigurera Kafka-MirrorMaker
 
-Kafka MirrorMaker kan ”databasspegling” av en dataström. Angivna käll- och Kafka-kluster, MirrorMaker säkerställer att alla meddelanden som skickas till källklustret tas emot av både käll- och mål-kluster. Det här exemplet visar hur du speglar källdatorn Kafka-kluster med ett mål Kafka-aktiverade händelsehubb. Det här scenariot kan användas för att skicka data från en befintlig Kafka-pipeline till Event Hubs utan att avbryta flödet av data. 
+Kafka-MirrorMaker aktiverar "spegling" av en data ström. Med käll-och mål Kafka-kluster ser MirrorMaker till att meddelanden som skickas till käll klustret tas emot av både käll-och mål kluster. Det här exemplet visar hur du speglar ett Kafka-kluster med en Kafka-aktiverad Event Hub. Det här scenariot kan användas för att skicka data från en befintlig Kafka-pipeline till Event Hubs utan att avbryta data flödet. 
 
-Mer detaljerad information om Kafka MirrorMaker finns i den [Kafka spegling/MirrorMaker guide](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330).
+Mer detaljerad information om Kafka-MirrorMaker finns i [Kafka speglings-/MirrorMaker-guiden](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330).
 
-Om du vill konfigurera Kafka MirrorMaker, ge den ett Kafka-kluster som konsument/källa och en Kafka-aktiverade händelsehubb som producent/mål.
+Om du vill konfigurera Kafka MirrorMaker ger du det ett Kafka-kluster som dess konsument/källa och en Kafka-aktiverad händelsehubben som dess tillverkare/destination.
 
-#### <a name="consumer-configuration"></a>Konsument-konfiguration
+#### <a name="consumer-configuration"></a>Konsument konfiguration
 
-Uppdatera konfigurationsfilen för konsument `source-kafka.config`, som anger MirrorMaker egenskaperna för källan Kafka-kluster.
+Uppdatera konsument konfigurations filen `source-kafka.config`, som talar om för MirrorMaker egenskaperna för Kafka-klustret.
 
-##### <a name="source-kafkaconfig"></a>käll-kafka.config
+##### <a name="source-kafkaconfig"></a>Källa – Kafka. config
 
 ```
 bootstrap.servers={SOURCE.KAFKA.IP.ADDRESS1}:{SOURCE.KAFKA.PORT1},{SOURCE.KAFKA.IP.ADDRESS2}:{SOURCE.KAFKA.PORT2},etc
@@ -92,11 +92,11 @@ exclude.internal.topics=true
 client.id=mirror_maker_consumer
 ```
 
-#### <a name="producer-configuration"></a>Producent-konfiguration
+#### <a name="producer-configuration"></a>Producer-konfiguration
 
-Nu uppdatera konfigurationsfilen producent `mirror-eventhub.config`, som anger MirrorMaker för att skicka duplicerade (eller ”speglade”) data till Event Hubs-tjänsten. Mer specifikt kan ändra `bootstrap.servers` och `sasl.jaas.config` så att den pekar till Event Hubs Kafka-slutpunkten. Event Hubs-tjänsten kräver säker (SASL)-kommunikation som uppnås genom att ange de senaste tre egenskaperna i följande konfiguration: 
+Uppdatera konfigurations filen för producenten `mirror-eventhub.config`, vilket instruerar MirrorMaker att skicka de duplicerade (eller "speglade") data till Event Hubss tjänsten. Mer specifikt, ändra `bootstrap.servers` och `sasl.jaas.config` för att peka på din Event Hubs Kafka-slutpunkt. Den Event Hubs tjänsten kräver säker kommunikation (SASL), som uppnås genom att ställa in de sista tre egenskaperna i följande konfiguration: 
 
-##### <a name="mirror-eventhubconfig"></a>spegling eventhub.config
+##### <a name="mirror-eventhubconfig"></a>Mirror-eventhub. config
 
 ```
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -108,17 +108,17 @@ security.protocol=SASL_SSL
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
-## <a name="run-kafka-mirrormaker"></a>Kör Kafka MirrorMaker
+## <a name="run-kafka-mirrormaker"></a>Kör Kafka-MirrorMaker
 
-Kör skriptet Kafka MirrorMaker från roten Kafka-katalog med hjälp av nya uppdaterade filerna. Se till att kopiera config-filer till roten Kafka directory eller uppdatera sökvägarna i följande kommando.
+Kör Kafka MirrorMaker-skriptet från rot Kafka-katalogen med de nyligen uppdaterade konfigurationsfilerna. Se till att antingen kopiera config-filerna till rot katalogen Kafka eller uppdatera Sök vägarna i följande kommando.
 
 ```shell
 bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 --producer.config mirror-eventhub.config --whitelist=".*"
 ```
 
-Om du vill kontrollera att händelser ansluter till Kafka-aktiverade event hub, se inkommande statistik i den [Azure-portalen](https://azure.microsoft.com/features/azure-portal/), eller kör en konsument mot event hub.
+För att kontrol lera att händelser når Kafka-aktiverade händelsehubben, se ingångs statistik i [Azure Portal](https://azure.microsoft.com/features/azure-portal/)eller kör en konsument mot händelsehubben.
 
-Eventuella händelser som skickats till källan Kafka-kluster tas emot av både Kafka-klustret med MirrorMaker som körs, och den speglade Kafka aktiverat event hub-tjänsten. Genom att använda MirrorMaker och en Event Hubs Kafka-slutpunkt kan migrera du en befintlig Kafka-pipeline till hanterade Azure Event Hubs-tjänsten utan att ändra det befintliga klustret eller att avbryta alla pågående dataflöde.
+När MirrorMaker körs tas alla händelser som skickas till Kafka-klustret emot av både Kafka-klustret och den speglade Kafka-aktiverade Event Hub-tjänsten. Genom att använda MirrorMaker och en Event Hubs Kafka-slutpunkt kan du migrera en befintlig Kafka-pipeline till den hanterade Azure Event Hubs-tjänsten utan att ändra det befintliga klustret eller avbryta pågående data flöde.
 
 ## <a name="samples"></a>Exempel
 Se följande exempel på GitHub:
@@ -133,8 +133,8 @@ I den här guiden får du lära dig att:
 > * Skapa ett Event Hubs-namnområde
 > * Klona exempelprojektet
 > * Konfigurera ett Kafka-kluster
-> * Konfigurera Kafka MirrorMaker
-> * Kör Kafka MirrorMaker
+> * Konfigurera Kafka-MirrorMaker
+> * Kör Kafka-MirrorMaker
 
 Läs mer om Event Hubs och Event Hubs för Kafka i följande ämne:  
 

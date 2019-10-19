@@ -170,6 +170,7 @@
       items:
         - name: VS-projekt med pipelines
           href: vs-resource-groups-project-devops-pipelines.md
+          displayName: DevOps
     - name: Exportera mall
       href: export-template-portal.md
     - name: Flytta

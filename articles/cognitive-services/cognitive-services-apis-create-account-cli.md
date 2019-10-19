@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972674"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595323"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
@@ -25,7 +25,7 @@ I den här snabb starten får du lära dig hur du registrerar dig för Azure Cog
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En giltig Azure-prenumeration – [skapa en](https://azure.microsoft.com/free/) kostnads fri.
 * [Kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -74,40 +74,47 @@ az group create \
 
 När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill använda, tillsammans med den [pris nivå](https://azure.microsoft.com/pricing/details/cognitive-services/) (eller SKU) som du vill använda. Du kommer att använda den här och andra information som parametrar när du skapar resursen.
 
+### <a name="multi-service"></a>Multi-service
+
+| Tjänst                    | metod                      |
+|----------------------------|---------------------------|
+| Flera tjänster. Mer information finns på sidan med [pris](https://azure.microsoft.com/pricing/details/cognitive-services/) information.            | `CognitiveServices`     |
+
+
 > [!NOTE]
-> Många kognitiva tjänster har en kostnads fri nivå som du kan använda för att testa tjänsten. Använd `F0` som SKU för din resurs för att använda den kostnads fria nivån.
+> Många av de Cognitive Servicesna nedan har en kostnads fri nivå som du kan använda för att testa tjänsten. Använd `F0` som SKU för resursen för att använda den kostnads fria nivån.
 
 ### <a name="vision"></a>Visuellt innehåll
 
-| Tjänsten                    | Typ                      |
+| Tjänst                    | metod                      |
 |----------------------------|---------------------------|
 | Visuellt innehåll            | `ComputerVision`          |
 | Custom Vision förutsägelse | `CustomVision.Prediction` |
 | Custom Vision-utbildning   | `CustomVision.Training`   |
-| Ansikts-API                   | `Face`                    |
+| API för ansiktsigenkänning                   | `Face`                    |
 | Formigenkänning            | `FormRecognizer`          |
 | Handskriftsigenkänning             | `InkRecognizer`           |
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 
-| Tjänsten            | Typ                  |
+| Tjänst            | metod                  |
 |--------------------|-----------------------|
 | Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
-| Anpassad sökning i Bing | `Bing.CustomSearch`   |
+| Bing Custom Search | `Bing.CustomSearch`   |
 | Entitetssökning i Bing | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
+| Bing-sökning        | `Bing.Search.v7`      |
 | Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Tal
 
-| Tjänsten            | Typ                 |
+| Tjänst            | metod                 |
 |--------------------|----------------------|
-| Speech Services    | `SpeechServices`     |
+| Taltjänster    | `SpeechServices`     |
 | Taligenkänning | `SpeakerRecognition` |
 
 ### <a name="language"></a>Språk
 
-| Tjänsten            | Typ                |
+| Tjänst            | metod                |
 |--------------------|---------------------|
 | Formulär förståelse | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -117,7 +124,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="decision"></a>Beslut
 
-| Tjänsten           | Typ               |
+| Tjänst           | metod               |
 |-------------------|--------------------|
 | Avvikelseidentifiering  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |

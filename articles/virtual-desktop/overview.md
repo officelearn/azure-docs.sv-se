@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e1ae0501e2a558967b7d53229dc629e035c5e067
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676556"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597907"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -66,8 +66,8 @@ Vi planerar att lägga till stöd för följande operativ system, så se till at
 
 |OS|Nödvändig licens|
 |---|---|
-|Windows 10 Enterprise multi-session eller Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multi-session eller Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, företag<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, företag<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Klient åtkomst licens för fjärr skrivbords tjänster med Software Assurance|
 
 Infrastrukturen behöver följande saker för att stödja Windows Virtual Desktop:
@@ -76,14 +76,14 @@ Infrastrukturen behöver följande saker för att stödja Windows Virtual Deskto
 * En Windows Server-Active Directory som synkroniseras med Azure Active Directory. Detta kan aktive ras via:
   * Azure AD Connect
   * Azure AD Domain Services
-  >[!NOTE]
-  >Det virtuella Windows-skrivbordet stöder bara Azure AD Domain Services användare som har ursprung Azure Active Directory. Användare som har ursprung i Windows Server AD stöds inte för tillfället.
+     >[!NOTE]
+     >Om du använder Azure AD Domain Services måste användarna vara källor från Azure Active Directory. Det finns inte stöd för att använda Azure AD Domain Services med användare som har ursprung från Windows Server AD för tillfället.
 * En Azure-prenumeration som innehåller ett virtuellt nätverk som antingen innehåller eller är anslutet till Windows Server-Active Directory
   
 De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste vara:
 
 * [Standard domän ansluten](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) eller [hybrid AD-ansluten](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtuella datorer kan inte vara Azure AD-anslutna.
-* Köra en av följande OS-avbildningar som [stöds](#supported-virtual-machine-os-images).
+* Köra en av följande [OS-avbildningar som stöds](#supported-virtual-machine-os-images).
 
 >[!NOTE]
 >Om du behöver en Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version av en månad](https://azure.microsoft.com/free/). Om du använder den kostnads fria utvärderings versionen av Azure bör du använda Azure AD Domain Services för att hålla Windows Server-Active Directory synkroniserad med Azure Active Directory.
@@ -92,7 +92,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 
 * *. wvd.microsoft.com
 * *.blob.core.windows.net
-* *.core.windows.net
+* *. core.windows.net
 * *.servicebus.windows.net
 * prod.warmpath.msftcloudes.com
 * catalogartifact.azureedge.net

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383521"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595523"
 ---
 # <a name="dynamic-packaging"></a>Dynamisk paketering
 
@@ -98,7 +98,7 @@ Information om Direktsänd strömning i Media Services v3 finns i [Översikt öv
 Dynamisk paketering stöder MP4-filer som innehåller video som är kodad med [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC eller avc1) eller [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (hevc, hev1 eller hvc1).
 
 > [!NOTE]
-> Upplösningar på upp till 4K och bild hastigheter på upp till 60 bild rutor per sekund har testats med dynamisk paketering. [Premium-kodaren](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) stöder kodning till H. 265, via äldre v2-API: er. Kontakta amshelp@microsoft.com om du har frågor om det här ämnet. 
+> Upplösningar på upp till 4K och bild hastigheter på upp till 60 bild rutor per sekund har testats med dynamisk paketering. [Premium-kodaren](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) stöder kodning till H. 265, via äldre v2-API: er.
 
 ## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Audio-codecenheter som stöds av dynamisk paketering
 
@@ -124,7 +124,7 @@ Dynamisk paketering stöder flera ljud spår med bindestreck eller HLS (version 
 Dynamisk paketering stöder inte filer som innehåller [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) -ljud (AC3) (det är en äldre codec).
 
 > [!NOTE]
-> [Premium-kodaren](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) stöder kodning till Dolby Digital Plus, via äldre v2-API: er. Kontakta amshelp@microsoft.com om du har frågor om det här ämnet. 
+> [Premium-kodaren](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) stöder kodning till Dolby Digital Plus, via äldre v2-API: er. 
 
 ## <a name="manifests"></a>Manifest 
  
@@ -242,7 +242,7 @@ Mer information finns i exempel på [hur du signalerar ett beskrivande ljud spå
 
 #### <a name="smooth-streaming-manifest"></a>Smooth Streaming manifest
 
-Om du spelar upp en Smooth Streaming data ström skulle manifestet ha värden i `Accessibility`-och `Role`-attribut för ljud spåret. @No__t-2 skulle till exempel läggas till i `StreamIndex`-elementet för att indikera att det är en ljud beskrivning.
+Om du spelar upp en Smooth Streaming data ström skulle manifestet ha värden i `Accessibility` och `Role` attribut för det ljud spåret. @No__t_2 skulle till exempel läggas till i `StreamIndex`-elementet för att indikera att det är en ljud beskrivning.
 
 #### <a name="dash-manifest"></a>STRECK manifest
 
@@ -272,6 +272,10 @@ Du kan använda *dynamisk kryptering* för att dynamiskt kryptera din direktsän
 ## <a name="more-information"></a>Mer information
 
 Kolla [Azure Media Services community](media-services-community.md) för att se olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+
+## <a name="need-help"></a>Behöver du hjälp?
+
+Du kan öppna ett support ärende genom att gå till [nytt support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Nästa steg
 

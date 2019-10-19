@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 51062437b4fc1169ce166eb27067e56b9de262e6
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: ee51841046962a6896b4c16e651f85ff761a69fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554372"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592473"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Fel söknings guide för vanliga problem
 
@@ -151,8 +151,8 @@ Besök [den här kom igång-artikeln](https://docs.microsoft.com/azure/azure-mon
 
 Miljövariabler meddelar Azure våren Cloud Framework, så att Azure förstår var och hur du konfigurerar de tjänster som utgör ditt program.  Att se till att dina miljövariabler är korrekta är ett nödvändigt första steg i fel sökning av eventuella problem.  Du kan använda den fjädrande start manövrerings punkten för att granska miljövariablerna.  
 
-[!WARNING]
-> Den här proceduren kan exponera dina miljövariabler.  Fortsätt inte om din test-slutpunkt är offentligt tillgänglig eller om du har tilldelat ett domän namn till ditt program.
+> [!WARNING]
+> Den här proceduren visar dina miljövariabler med hjälp av test slut punkten.  Fortsätt inte om din test-slutpunkt är offentligt tillgänglig eller om du har tilldelat ett domän namn till ditt program.
 
 1. Navigera till denna URL: `https://<your application test endpoint>/actuator/health`.  
     - Ett svar som liknar `{"status":"UP"}` anger att slut punkten har Aktiver ATS.
@@ -186,6 +186,9 @@ Miljövariabler meddelar Azure våren Cloud Framework, så att Azure förstår v
     ```
 
 Hitta den underordnade noden som heter `systemEnvironment`.  Den här noden innehåller programmets miljövariabler.
+
+> [!IMPORTANT]
+> Kom ihåg att återställa miljö variablernas exponering innan du gör programmet tillgängligt för allmänheten.  Gå till Azure Portal, leta upp konfigurations sidan för ditt program och ta bort denna miljö variabel: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
 
 ### <a name="i-cannot-find-metrics-or-logs-for-my-application"></a>Jag hittar inga mått eller loggar för mitt program
 

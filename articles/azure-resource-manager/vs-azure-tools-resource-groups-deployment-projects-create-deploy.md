@@ -4,14 +4,14 @@ description: Använd Visual Studio för att skapa ett Azure-resursgruppsprojekt 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.date: 06/20/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ae7ff9370bd289dfdec578e6daeb471bbd53a072
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170243"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597715"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 
@@ -23,7 +23,8 @@ Den här artikeln visar hur du använder [Visual Studio 2019 eller senare med ar
 
 I det här avsnittet skapar du ett Azure-resurs grupps projekt med en mall för **webbappar** .
 
-1. I Visual Studio väljer du **Arkiv**, **nytt**och **projekt**. Välj projekt mal len för **Azure-resurs gruppen** och klicka **sedan på nästa**.
+1. I Visual Studio väljer du **arkiv** >**nytt** >**projekt**.
+1. Välj projekt mal len för **Azure-resurs gruppen** och klicka **sedan på nästa**.
 
     ![Skapa projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 
@@ -247,7 +248,7 @@ Den bör se ut så här:
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Observera i föregående exempel att det inte finns något `'/',` mellan **parametrar (' _artifactsLocation ')** och **parametrar (' ExampleAppPackageFolder ')** .
+Observera att i föregående exempel finns det ingen `'/',` mellan **parametrar (' _artifactsLocation ')** och **parametrar (' ExampleAppPackageFolder ')** .
 
 Återskapa projektet. Genom att skapa projektet ser du till att filerna du behöver distribuera läggs till i mellanlagringsmappen.
 

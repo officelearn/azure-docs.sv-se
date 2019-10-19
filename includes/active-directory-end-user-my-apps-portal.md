@@ -9,13 +9,13 @@ ms.date: 03/06/2019
 ms.author: lizross
 ms.custom: include file
 ms.openlocfilehash: e7e993cddbf675cab67cb9fc7ea5fc9446bc449b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "67187924"
 ---
 | |
 |--|
-|Om vad du ser på skärmen inte matchar vad som ingår i den här artikeln, innebär det att administratören har stängt på den nya **min profil** (förhandsversionen). Om du vill använda den nya upplevelsen, du måste följa anvisningar och information i den [min profil (förhandsversion) portalöversikt](https://docs.microsoft.com/azure/active-directory/user-help/myprofile-portal-overview) avsnittet.|
+|Om det du ser på skärmen inte stämmer överens med vad som beskrivs i den här artikeln, innebär det att din administratör har aktiverat den nya **min profil** (för hands versionen). Om du vill använda den nya upplevelsen måste du följa anvisningarna och informationen i avsnittet [Översikt över portalen min profil (för hands version)](https://docs.microsoft.com/azure/active-directory/user-help/myprofile-portal-overview) .|
 | |

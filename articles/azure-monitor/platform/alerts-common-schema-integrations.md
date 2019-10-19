@@ -1,19 +1,18 @@
 ---
 title: Så här integrerar du det vanliga aviserings schemat med Logic Apps
 description: Lär dig hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar.
-author: ananthradhakrishnan
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 569b97ecc24306741c3323ce5bc526f88645c1dd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: ananthradhakrishnan
+ms.author: robb
+ms.date: 05/27/2019
+ms.openlocfilehash: 50a6067d271ad824f17df1ece36c3dd919c7b55b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702954"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555644"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Så här integrerar du det vanliga aviserings schemat med Logic Apps
 
@@ -24,7 +23,7 @@ Den här artikeln visar hur du skapar en Logi Kap par som utnyttjar det gemensam
 Det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs) innehåller ett standardiserat och utöknings Bart JSON-schema över alla dina olika aviserings typer. Det vanliga aviserings schemat är mest användbart när du använder program mässigt – via Webhooks, Runbooks och Logic Apps. I den här artikeln visar vi hur du kan använda en enda Logic-app för att hantera alla aviseringar. Samma principer kan tillämpas på andra programmerings metoder. Logic-appen som beskrivs i den här artikeln skapar väldefinierade variabler för [fälten "viktigt"](alerts-common-schema-definitions.md#essentials)och beskriver hur du kan hantera en viss logik för [aviserings typen](alerts-common-schema-definitions.md#alert-context) .
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Den här artikeln förutsätter att läsaren är bekant med 
 * Konfigurera aviserings regler ([mått](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [logg](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
@@ -35,13 +34,13 @@ Den här artikeln förutsätter att läsaren är bekant med
 
 1. Följ [stegen som beskrivs för att skapa din Logic app](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
 
-1.  Välj utlösaren: **När en HTTP-begäran tas emot**.
+1.  Välj utlösaren: **när en HTTP-begäran tas emot**.
 
-    ![Logic app-utlösare](media/action-groups-logic-app/logic-app-triggers.png "Logic app-utlösare")
+    ![Logic app-utlösare](media/action-groups-logic-app/logic-app-triggers.png "Utlösare för logikappar")
 
 1.  Välj **Redigera** för att ändra utlösaren för http-begäran.
 
-    ![Utlösare för http-begäran](media/action-groups-logic-app/http-request-trigger-shape.png "Utlösare för http-begäran")
+    ![Utlösare för HTTP-begäran](media/action-groups-logic-app/http-request-trigger-shape.png "Utlösare för HTTP-begäran")
 
 
 1.  Kopiera och klistra in följande schema:
@@ -115,7 +114,7 @@ Den här artikeln förutsätter att läsaren är bekant med
 
 1. Välj **+** **nytt steg** och välj sedan **Lägg till en åtgärd**.
 
-    ![Lägg till en åtgärd](media/action-groups-logic-app/add-action.png "Lägg till en åtgärd")
+    ![Lägg till en åtgärd](media/action-groups-logic-app/add-action.png "Lägga till en åtgärd")
 
 1. I det här skedet kan du lägga till en mängd anslutningar (Microsoft Teams, slack, Salesforce osv.) utifrån dina specifika affärs behov. Du kan använda den "nödvändiga fälten" i-rutan. 
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: 726d04cdfbc21c21a52945f11d3b5097978c5d1d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d9d135136efea72017399b5888bc6591582ffe67
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168837"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553554"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker skapa distributions stöd i Azure Service Fabric (för hands version)
 
 Docker använder filen [filen Docker. yml](https://docs.docker.com/compose) för att definiera program med flera behållare. För att göra det lättare för kunder att bekanta sig med Docker för att dirigera befintliga behållar program på Azure Service Fabric har vi inkluderat för hands versions stöd för Docker-distribution inbyggt i plattformen. Service Fabric kan acceptera version 3 och senare av `docker-compose.yml`-filer. 
 
-Eftersom detta stöds i för hands versionen stöds endast en delmängd av skapa-direktiv. Till exempel stöds inte program uppgraderingar. Du kan dock alltid ta bort och distribuera program i stället för att uppgradera dem.
+Eftersom detta stöds i för hands versionen stöds endast en delmängd av skapa-direktiv.
 
 Om du vill använda den här för hands versionen skapar du klustret med version 5,7 eller senare av Service Fabric körningen genom Azure Portal tillsammans med motsvarande SDK. 
 
@@ -146,7 +146,7 @@ Ange antingen http-eller HTTPS-protokollet i avsnittet portar som ska användas 
 
 ## <a name="servicednsname-computation"></a>ServiceDnsName-beräkning
 
-Om tjänst namnet som du anger i en Skriv fil är ett fullständigt kvalificerat domän namn (det innehåller en punkt [.]), är DNS-namnet som registreras av Service Fabric `<ServiceName>` (inklusive punkten). Om inte, blir varje Sök vägs segment i program namnet en domän etikett i tjänstens DNS-namn, där det första Sök vägs segmentet blir den översta domän etiketten.
+Om tjänst namnet som du anger i en Skriv fil är ett fullständigt kvalificerat domän namn (dvs. det innehåller en punkt [.]), är DNS-namnet som registreras av Service Fabric `<ServiceName>` (inklusive punkten). Om inte, blir varje Sök vägs segment i program namnet en domän etikett i tjänstens DNS-namn, där det första Sök vägs segmentet blir den översta domän etiketten.
 
 Om det angivna program namnet till exempel är `fabric:/SampleApp/MyComposeApp`, blir `<ServiceName>.MyComposeApp.SampleApp` det registrerade DNS-namnet.
 

@@ -1,57 +1,51 @@
 ---
-title: Hanteringslösning i Metodtips för Azure | Microsoft Docs
+title: Hanterings lösning i Azure Best Practices | Microsoft Docs
 description: ''
-services: operations-management-suite
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: a4f982f6265d1c8cab2ae666b9d6e2e33beb5064
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.date: 04/27/2017
+ms.openlocfilehash: 28ae01fe28b1b2d6af95567e529c7c9ae17920e4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672929"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553928"
 ---
-# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Metodtips för att skapa lösningar för hantering i Azure (förhandsversion)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Metod tips för att skapa hanterings lösningar i Azure (för hands version)
 > [!NOTE]
-> Det här är preliminära dokumentationen för att skapa lösningar för hantering i Azure som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.  
+> Det här är en preliminär dokumentation för att skapa hanterings lösningar i Azure som för närvarande är en för hands version. Alla scheman som beskrivs nedan kan komma att ändras.  
 
-Den här artikeln innehåller metodtips för [skapar en fil för lösningen](solutions-solution-file.md) i Azure.  Den här informationen kommer att uppdateras när ytterligare metoder identifieras.
+Den här artikeln innehåller metod tips för att [skapa en hanterings lösnings fil](solutions-solution-file.md) i Azure.  Den här informationen kommer att uppdateras eftersom ytterligare metod tips identifieras.
 
 ## <a name="data-sources"></a>Datakällor
-- Datakällor kan vara [konfigurerats med en Resource Manager-mall](../../azure-monitor/platform/template-workspace-configuration.md), men de bör inte ingå i en lösningsfil.  Orsaken är att konfigurera datakällor inte för närvarande är idempotenta, vilket innebär att din lösning kan du skriva över befintliga konfiguration i användarens arbetsyta.<br><br>Din lösning kan exempelvis kräva varnings- och händelser från programmets händelselogg.  Om du anger detta som en datakälla i din lösning, riskerar du tar bort händelser för Information om användaren hade detta konfigurerat på sin arbetsyta.  Om du ingår alla händelser, det kan du samla överdriven informationshändelser i användarens arbetsyta.
+- Data källor kan [konfigureras med en Resource Manager-mall](../../azure-monitor/platform/template-workspace-configuration.md), men de bör inte tas med i en lösnings fil.  Orsaken är att konfiguration av data källor för närvarande inte idempotenta innebär att din lösning kan skriva över den befintliga konfigurationen i användarens arbets yta.<br><br>Din lösning kan till exempel kräva varnings-och fel händelser från program händelse loggen.  Om du anger det här som en data källa i din lösning riskerar du att ta bort informations händelser om användaren hade konfigurerat den i arbets ytan.  Om du inkluderar alla händelser kan du samla in alltför stora informations händelser på användarens arbets yta.
 
-- Om din lösning kräver data från en av datakällorna som standard, bör du definiera detta som ett krav.  Tillstånd att kunden måste konfigurera datakällan på egen hand i dokumentationen.  
-- Lägg till en [Flow dataverifieringen](../../azure-monitor/platform/view-designer-tiles.md) meddelandet till alla vyer i din lösning för att instruera användaren på datakällor som måste konfigureras för nödvändiga data samlas in.  Det här meddelandet visas på panelen i vyn när det går inte att hitta nödvändiga data.
+- Om din lösning kräver data från en av standard data källorna bör du definiera den som en förutsättning.  Tillstånd i dokumentation som kunden måste konfigurera data källan på egen hand.  
+- Lägg till ett [data flödes verifierings](../../azure-monitor/platform/view-designer-tiles.md) meddelande i alla vyer i din lösning för att instruera användaren om data källor som måste konfigureras för att nödvändiga data ska samlas in.  Det här meddelandet visas på panelen i vyn när det inte går att hitta nödvändiga data.
 
 
 ## <a name="runbooks"></a>Runbooks
-- Lägg till en [Automation schema](../../automation/automation-schedules.md) för varje runbook i din lösning som ska köras enligt ett schema.
-- Inkludera den [IngestionAPI modulen](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) i din lösning som ska användas av runbooks som skriver data till Log Analytics-databasen.  Konfigurera lösningen till [referens](solutions-solution-file.md#solution-resource) den här resursen så att den finns kvar om lösningen har tagits bort.  På så sätt kan flera metoder för att modulen.
-- Använd [automationsvariabler](../../automation/automation-schedules.md) ange värden i lösningen som användare kan ändra senare.  Även om lösningen har konfigurerats så att den innehåller variabeln, kan så är dess värde fortfarande ändras.
+- Lägg till ett [Automation-schema](../../automation/automation-schedules.md) för varje Runbook i din lösning som måste köras enligt ett schema.
+- Inkludera [modulen IngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) i din lösning som ska användas av Runbooks som skriver data till Log Analytics-lagringsplatsen.  Konfigurera lösningen så att den [refererar](solutions-solution-file.md#solution-resource) till den här resursen så att den förblir om lösningen tas bort.  På så sätt kan flera lösningar dela modulen.
+- Använd [Automation-variabler](../../automation/automation-schedules.md) för att ange värden för den lösning som användarna kan vilja ändra senare.  Även om lösningen har kon figurer ATS för att innehålla variabeln, kan dess värde fortfarande ändras.
 
 ## <a name="views"></a>Vyer
-- Alla lösningar bör innehålla en enda vy som visas i användarens-portalen.  Vyn kan innehålla flera [visualisering delar](../../azure-monitor/platform/view-designer-parts.md) att illustrera olika uppsättningar av data.
-- Lägg till en [Flow dataverifieringen](../../azure-monitor/platform/view-designer-tiles.md) meddelandet till alla vyer i din lösning för att instruera användaren på datakällor som måste konfigureras för nödvändiga data samlas in.
-- Konfigurera lösningen till [innehålla](solutions-solution-file.md#solution-resource) vyn så att den är tas bort om lösningen har tagits bort.
+- Alla lösningar bör innehålla en enda vy som visas i användarens Portal.  Vyn kan innehålla flera [visualiserings delar](../../azure-monitor/platform/view-designer-parts.md) för att illustrera olika uppsättningar med data.
+- Lägg till ett [data flödes verifierings](../../azure-monitor/platform/view-designer-tiles.md) meddelande i alla vyer i din lösning för att instruera användaren om data källor som måste konfigureras för att nödvändiga data ska samlas in.
+- Konfigurera lösningen så att den [innehåller](solutions-solution-file.md#solution-resource) vyn så att den tas bort om lösningen tas bort.
 
 ## <a name="alerts"></a>Aviseringar
-- Definiera mottagarlistan som en parameter i lösningsfilen så att du kan definiera dem när de installerar lösningen.
-- Konfigurera lösningen till [referens](solutions-solution-file.md#solution-resource) aviseringsregler så att användaren kan ändra sin konfiguration.  De kanske vill göra ändringar, till exempel ändra mottagarlistan, ändra tröskelvärdet för aviseringen eller inaktivera varningsregeln. 
+- Definiera listan mottagare som en parameter i lösnings filen så att användaren kan definiera dem när de installerar lösningen.
+- Konfigurera lösningen så att den [refererar](solutions-solution-file.md#solution-resource) till varnings regler så att användarens konfiguration kan ändras.  De kan vilja göra ändringar som att ändra mottagar listan, ändra tröskelvärdet för aviseringen eller inaktivera varnings regeln. 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Gå igenom den grundläggande processen för [utforma och skapa en lösning för](solutions-creating.md).
-* Lär dig hur du [skapa en lösningsfil](solutions-solution-file.md).
-* [Lägg till sparade sökningar och aviseringar](solutions-resources-searches-alerts.md) till din lösning.
-* [Lägga till vyer](solutions-resources-views.md) till din lösning.
-* [Lägg till Automation-runbooks och andra resurser](solutions-resources-automation.md) till din lösning.
+* Gå igenom den grundläggande processen för att [utforma och skapa en hanterings lösning](solutions-creating.md).
+* Lär dig hur du [skapar en lösnings fil](solutions-solution-file.md).
+* [Lägg till sparade sökningar och aviseringar](solutions-resources-searches-alerts.md) i hanterings lösningen.
+* [Lägg till vyer](solutions-resources-views.md) i hanterings lösningen.
+* [Lägg till Automation-runbooks och andra resurser](solutions-resources-automation.md) i hanterings lösningen.
 

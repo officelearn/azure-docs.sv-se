@@ -1,24 +1,18 @@
 ---
 title: Aktivera Azure Monitor (för hands version) för en hybrid miljö | Microsoft Docs
 description: I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för en hybrid moln miljö som innehåller en eller flera virtuella datorer.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f4c483c36dc7a19e3e16dcaabab10af03cdfe17e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/15/2019
+ms.openlocfilehash: e9e5504125920cedaf383f8fa4299a4b1b1d60ed
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515511"
+ms.locfileid: "72553865"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Aktivera Azure Monitor for VMs (för hands version) för en hybrid miljö
 

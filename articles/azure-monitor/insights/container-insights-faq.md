@@ -1,25 +1,22 @@
 ---
 title: Azure Monitor för behållare vanliga frågor och svar | Microsoft Docs
 description: Azure Monitor for containers är en lösning som övervakar hälso tillståndet för dina AKS-kluster och Container Instances i Azure. I den här artikeln besvaras vanliga frågor.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f8d763f8bb228a0d4d83a3776f818d59939b942d
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.date: 08/14/2019
+ms.openlocfilehash: bda64dd555f1970b70878d827f6be1dab3f1e2d5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559073"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555427"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor för behållare vanliga frågor och svar
 
-Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor för behållare. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
+Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor för behållare. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga ofta är tillfrågad, lägger vi till den i den här artikeln så att den snabbt och enkelt kan hittas.
 
 ## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>Kan jag övervaka mitt AKS-kluster med Azure Monitor för behållare?
 
@@ -75,16 +72,16 @@ En detaljerad översikt över problemet finns i följande [GitHub-länk](https:/
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Hur gör jag för att lösa Azure AD-fel när jag aktiverar Live-loggar? 
 
-Följande fel kan visas: Svars-URL: en som **anges i begäran matchar inte de svars-URL: er som har kon\>figurer ats för programmet: < program-ID**. Lösningen för att lösa problemet finns i artikeln [så här visar du behållar loggar real tid med Azure Monitor för behållare](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+Följande fel kan visas: svars-URL: en som **anges i begäran matchar inte de svars-URL: er som har kon figurer ATS för programmet: < program-ID \>** . Lösningen för att lösa problemet finns i artikeln [så här visar du behållar loggar real tid med Azure Monitor för behållare](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Varför kan jag inte uppgradera klustret efter onboarding?
 
 Om du när du har aktiverat Azure Monitor för behållare för ett AKS-kluster tar du bort arbets ytan Log Analytics som klustret skickade data till, vid försök att uppgradera klustret. För att undvika detta måste du inaktivera övervakning och sedan återaktivera den till en annan giltig arbets yta i din prenumeration. När du försöker utföra kluster uppgraderingen igen bör den bearbetas och slutföras.  
 
 ## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Vilka portar och domäner behöver jag öppna/vitlista för agenten?
-- *.ods.opinsights.azure.com   443
-- *.oms.opinsights.azure.com   443
-- *.blob.core.windows.net      443
+- *. ods.opinsights.azure.com 443
+- *. oms.opinsights.azure.com 443
+- *. blob.core.windows.net 443
 - dc.services.visualstudio.com 443
 - *. microsoftonline.com 443
 - *. monitoring.azure.com 443
@@ -92,4 +89,4 @@ Om du när du har aktiverat Azure Monitor för behållare för ett AKS-kluster t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill börja övervaka ditt AKS-kluster, granska [hur att publicera Azure övervakar för behållare](container-insights-onboard.md) att förstå de krav och tillgängliga metoder för att aktivera övervakning. 
+Om du vill börja övervaka ditt AKS-kluster granskar du [hur du kan publicera Azure Monitor för behållare](container-insights-onboard.md) för att förstå kraven och tillgängliga metoder för att aktivera övervakning. 

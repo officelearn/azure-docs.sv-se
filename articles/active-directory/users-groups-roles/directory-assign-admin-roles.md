@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 09/20/2019
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb424866a681316af23e9d2bba28a8da8c3a6f78
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
-ms.translationtype: MT
+ms.openlocfilehash: 6f6e1ab2c2b02ab4279e95840135bdc87710cd66
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286795"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551656"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -49,10 +49,15 @@ Följande administratörs roller är tillgängliga:
 
 ### <a name="application-administratorapplication-administrator-permissions"></a>[Programadministratör](#application-administrator-permissions)
 
-Användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och program behörigheter exklusive Microsoft Graph och Azure AD Graph. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
+Användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Observera att användare som har tilldelats den här rollen inte har lagts till som ägare när de skapar nya program registreringar eller företags program.
 
 > [!IMPORTANT]
 > Den här rollen ger möjlighet att hantera programautentiseringsuppgifter. Användare som har tilldelats den här rollen kan lägga till autentiseringsuppgifter i ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Om programmets identitet har beviljats åtkomst till Azure Active Directory, till exempel möjligheten att skapa eller uppdatera användare eller andra objekt, kan en användare som tilldelats rollen utföra dessa åtgärder samtidigt som programmet personifieras. Den här möjligheten att personifiera programmets identitet kan vara en höjning av privilegier över vad användaren kan göra via sina roll tilldelningar i Azure AD. Det är viktigt att förstå att tilldelning av en användare till rollen program administratör ger dem möjlighet att personifiera ett programs identitet.
+
+Den här rollen ger också _möjlighet att godkänna_ delegerade behörigheter och program behörigheter, med undantag för behörigheter på Microsoft Graph och Azure AD-grafen.
+
+> [!IMPORTANT]
+> Detta undantag innebär att du fortfarande kan godkänna behörigheter för _andra_ appar (t. ex. appar från tredje part eller appar som du har registrerat), men inte behörigheterna för själva Azure AD. Du kan fortfarande _begära_ de här behörigheterna som en del av appens registrering, men om du _beviljar_ de här behörigheterna krävs en Azure AD-administratör. Det innebär att en obehörig användare inte enkelt kan höja sina behörigheter, till exempel genom att skapa och samtycka till en app som kan skriva till hela katalogen och genom att den appens behörigheter höjer sig själva till en global administratör.
 
 ### <a name="application-developerapplication-developer-permissions"></a>[Programutvecklare](#application-developer-permissions)
 

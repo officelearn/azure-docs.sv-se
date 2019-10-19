@@ -1,24 +1,18 @@
 ---
 title: Vad är Azure Monitor for VMs (för hands version)? | Microsoft Docs
 description: Azure Monitor for VMs är en funktion i Azure Monitor som kombinerar hälso-och prestanda övervakning av operativ systemet på den virtuella Azure-datorn samt identifierar program komponenter och beroenden automatiskt med andra resurser och mappar kommunikationen mellan dem. Den här artikeln innehåller en översikt.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 3569247ad560f985c041eeb11a7d274e15bfeb4c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/15/2019
+ms.openlocfilehash: 2364218a9ccbde1cbfc276e3354cb93e42e5ce0b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515370"
+ms.locfileid: "72553748"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor for VMs (för hands version)?
 

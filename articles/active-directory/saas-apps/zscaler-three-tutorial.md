@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Zscaler tre | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Zscaler tre | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zscaler tre.
 services: active-directory
 documentationCenter: na
@@ -13,146 +13,134 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/24/2019
+ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5fba7498f724c13297d05fc66fc57e331f096188
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b23abcf9a39ce7f6d77bc40e7143505bc68e8b72
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68825651"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554983"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Självstudier: Azure Active Directory-integrering med Zscaler tre
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Zscaler tre
 
-I den här självstudien får du lära dig att integrera Zscaler tre med Azure Active Directory (Azure AD).
-Att integrera Zscaler tre med Azure AD ger följande fördelar:
+I den här självstudien får du lära dig att integrera Zscaler tre med Azure Active Directory (Azure AD). När du integrerar Zscaler tre med Azure AD kan du:
 
-* Du kan styra Azure AD som har åtkomst till Zscaler tre.
-* Du kan göra det möjligt för användarna att logga in automatiskt till Zscaler tre (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till Zscaler tre.
+* Gör det möjligt för användarna att logga in automatiskt för att Zscaler tre med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Zscaler tre behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
-* Zscaler tre enkel inloggning aktive rad prenumeration
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Zscaler tre enkel inloggnings prenumeration (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Zscaler tre stöder **SP** -INITIERAd SSO
 
 * Zscaler tre stöder **just-in-Time** User-etablering
 
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+
 ## <a name="adding-zscaler-three-from-the-gallery"></a>Lägga till Zscaler tre från galleriet
 
 Om du vill konfigurera integreringen av Zscaler tre i Azure AD måste du lägga till Zscaler tre från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Zscaler tre från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Skriv **Zscaler tre** i sökrutan i avsnittet **Lägg till från galleriet** .
+1. Välj **Zscaler tre** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler-three"></a>Konfigurera och testa enkel inloggning med Azure AD för Zscaler tre
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+Konfigurera och testa Azure AD SSO med Zscaler tre med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Zscaler tre.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Om du vill konfigurera och testa Azure AD SSO med Zscaler tre slutför du följande Bygg stenar:
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera Zscaler tre SSO](#configure-zscaler-three-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Zscaler tre test User](#create-zscaler-three-test-user)** -om du vill ha en motsvarighet till B. Simon i Zscaler tre som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-    ![Knappen Nytt program](common/add-new-app.png)
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-4. I rutan Sök skriver du **Zscaler tre**, väljer **Zscaler tre** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Zscaler 3** program integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-     ![Zscaler tre i resultat listan](common/search-new-app.png)
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-
-I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Zscaler tre baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i Zscaler tre.
-
-Om du vill konfigurera och testa enkel inloggning med Zscaler tre i Azure AD måste du slutföra följande Bygg stenar:
-
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Zscaler tre enkla inloggningar](#configure-zscaler-three-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Zscaler tre test användare](#create-zscaler-three-test-user)** – om du vill ha en motsvarighet till Britta Simon i Zscaler tre som är länkad till Azure AD-representation av användare.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zscaler tre:
-
-1. I [Azure Portal](https://portal.azure.com/)väljer du **enkel inloggning**på sidan **Zscaler tre** program integration.
-
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
-
-    ![Zscaler tre information om enkel inloggning för domäner och URL: er](common/sp-intiated.png)
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
     I rutan **Inloggnings-URL** anger du en URL: `https://login.zscalerthree.net/sfc_sso`
 
-5. Ditt Zscaler tre-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
+1. Ditt Zscaler tre-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
-6. Utöver ovan förväntar sig Zscaler tre program att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+6. Utöver ovan förväntar sig Zscaler tre program att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
     
     | Namn | Källattribut |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
-    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-
-    c. Lämna **Namnrymd** tom.
-
-    d. Välj Källa som **Attribut**.
-
-    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-    
-    f. Klicka på **Spara**.
-
     > [!NOTE]
     > Klicka på [här](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) för att få veta hur du konfigurerar rollen i Azure AD
 
-7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-8. I avsnittet **Konfigurera Zscaler tre** kopierar du lämpliga URL: er enligt ditt krav.
+1. I avsnittet **Konfigurera Zscaler tre** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-    b. Microsoft Azure Active Directory-identifierare
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-    c. Utloggnings-URL
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **Ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
-### <a name="configure-zscaler-three-single-sign-on"></a>Konfigurera Zscaler tre enkel inloggning
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Zscaler tre.
+
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Zscaler tre**.
+1. I dialogrutan **Användare och grupper** väljer du användaren **Britta Simon** i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+    ![mallar](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
+
+1. I dialogrutan **Välj roll** väljer du lämplig användarroll i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+    ![mallar](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+
+1. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
+
+    ![mallar](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+
+## <a name="configure-zscaler-three-sso"></a>Konfigurera Zscaler tre SSO
 
 1. Om du vill automatisera konfigurationen i Zscaler tre måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
 
@@ -160,13 +148,13 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zs
 
 2. När du har lagt till tillägg i webbläsaren kan du klicka på **Konfigurera Zscaler tre** för att dirigera dig till Zscaler tre-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Zscaler tre. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-6.
 
-    ![Konfigurera SSO](common/setup-sso.png)
+    ![Konfiguration](common/setup-sso.png)
 
 3. Om du vill konfigurera Zscaler tre manuellt öppnar du ett nytt webbläsarfönster och loggar in på din Zscaler tre företags webbplats som administratör och utför följande steg:
 
 4. Gå till **Administration > Autentisering > Autentiseringsinställningar** och utför följande steg:
    
-    ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
+    ![Administrationsverktyg](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
     a. Under autentiseringstyp väljer du **SAML**.
 
@@ -174,7 +162,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zs
 
 5. I fönstret **Redigera SAML** utför du följande steg och klickar på Spara.  
             
-    ![Hantera användare och autentisering](./media/zscaler-three-tutorial/ic800208.png "Hantera användare och autentisering")
+    ![Hantera användare & autentisering](./media/zscaler-three-tutorial/ic800208.png "Hantera användare & autentisering")
     
     a. I textrutan för **URL:en för SAML-portalen** klistrar du in **inloggnings-URL:en** som du har kopierat från Azure-portalen.
 
@@ -190,7 +178,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zs
 
     g. I textrutan för **avdelningsnamnattribut** anger du **department** om du vill aktivera automatisk SAML-etablering för department-attribut.
 
-    h. Klicka på **Spara**.
+    h. Klicka på **Save** (Spara).
 
 6. I dialogrutan **Konfigurera användarautentisering** utför du följande steg:
 
@@ -207,7 +195,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zs
 
 2. Välj **Internetalternativ** i menyn **Verktyg** för att öppna dialogrutan **Internetalternativ**.   
     
-     ![Internetalternativ](./media/zscaler-three-tutorial/ic769492.png "Internetalternativ")
+     ![Internet alternativ](./media/zscaler-three-tutorial/ic769492.png "Internet alternativ")
 
 3. Klicka på fliken **Anslutningar**.   
   
@@ -231,80 +219,26 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zs
 
 6. Klicka på **OK** för att stänga dialogrutan **Internetalternativ**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
-
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
-
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I `brittasimon@yourcompanydomain.extension`fältet **användar namn** . Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Zscaler tre.
-
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Zscaler tre**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-2. I listan program väljer du **Zscaler tre**.
-
-    ![Zscaler tre-länk i program listan](common/all-applications.png)
-
-3. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du användaren **Britta Simon** i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
-
-6. I dialogrutan **Välj roll** väljer du lämplig användarroll i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
-
-7. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
-
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
-
 ### <a name="create-zscaler-three-test-user"></a>Skapa Zscaler tre test användare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Zscaler tre. Zscaler tre stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Zscaler tre skapas en ny när du försöker komma åt Zscaler tre.
+I det här avsnittet skapas en användare som heter B. Simon i Zscaler tre. Zscaler tre stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Zscaler tre skapas en ny när du försöker komma åt Zscaler tre.
 
 >[!Note]
 >Om du behöver skapa en användare manuellt kontaktar du [Zscaler tre support team](https://www.zscaler.com/company/contact).
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på den tre panelen Zscaler på åtkomst panelen, bör du loggas in automatiskt på den Zscaler tre som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på den tre panelen Zscaler på åtkomst panelen, bör du loggas in automatiskt på den Zscaler tre som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova Zscaler tre med Azure AD](https://aad.portal.azure.com/)
 

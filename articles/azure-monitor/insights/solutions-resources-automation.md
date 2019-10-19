@@ -1,56 +1,50 @@
 ---
-title: Azure Automation-resurser i lösningar för hantering av | Microsoft Docs
-description: Lösningar för hantering av inkluderar vanligtvis runbooks i Azure Automation för att automatisera processer, till exempel samla in och bearbetning av övervakningsdata.  Den här artikeln beskriver hur du inkluderar runbooks och deras relaterade resurser i en lösning.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
+title: Azure Automation resurser i hanterings lösningar | Microsoft Docs
+description: Hanterings lösningar innehåller vanligt vis Runbooks i Azure Automation för att automatisera processer som insamling och bearbetning av övervaknings data.  I den här artikeln beskrivs hur du inkluderar Runbooks och deras relaterade resurser i en lösning.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63e09bacd1ce70f05f04798f092d3eb4b3e36ab5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110369"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555239"
 ---
-# <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Att lägga till Azure Automation-resurser i en lösning för hantering (förhandsversion)
+# <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Lägga till Azure Automation resurser i en hanterings lösning (för hands version)
 > [!NOTE]
-> Det här är preliminära dokumentationen för att skapa lösningar för hantering som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.   
+> Det här är en preliminär dokumentation för att skapa hanterings lösningar som för närvarande finns i för hands version. Alla scheman som beskrivs nedan kan komma att ändras.   
 
 
-[Lösningar för hantering av]( solutions.md) inkluderar vanligtvis runbooks i Azure Automation för att automatisera processer, till exempel samla in och bearbetning av övervakningsdata.  Automation-konton innehåller förutom runbooks, tillgångar som variabler och scheman som har stöd för runbooks som används i lösningen.  Den här artikeln beskriver hur du inkluderar runbooks och deras relaterade resurser i en lösning.
+[Hanterings lösningar]( solutions.md) innehåller vanligt vis runbooks i Azure Automation för att automatisera processer som insamling och bearbetning av övervaknings data.  Förutom Runbooks innehåller Automation-konton till gångar, till exempel variabler och scheman som stöder Runbooks som används i lösningen.  I den här artikeln beskrivs hur du inkluderar Runbooks och deras relaterade resurser i en lösning.
 
 > [!NOTE]
-> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure]( solutions-creating.md) 
+> I exemplen i den här artikeln används parametrar och variabler som antingen är obligatoriska eller vanliga för hanterings lösningar och som beskrivs i [utforma och skapa en hanterings lösning i Azure]( solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du redan är bekant med följande information.
 
-- Så här [skapa en lösning för]( solutions-creating.md).
-- Strukturen för en [lösningsfilen]( solutions-solution-file.md).
-- Så här [skapar Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md)
+- Så här [skapar du en hanterings lösning]( solutions-creating.md).
+- Strukturen för en [lösnings fil]( solutions-solution-file.md).
+- Så här [skapar du Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Automation-konto
-Alla resurser i Azure Automation finns i en [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview).  Mer information finns i [Log Analytics-arbetsytan och Automation-kontot]( solutions.md#log-analytics-workspace-and-automation-account) Automation-kontot ingår inte i hanteringslösningen men måste finnas innan lösningen är installerad.  Lösningen installationen misslyckas om den inte är tillgänglig.
+Alla resurser i Azure Automation finns i ett [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview).  Som det beskrivs i [Log Analytics arbets yta och Automation-konto]( solutions.md#log-analytics-workspace-and-automation-account) ingår inte Automation-kontot i hanterings lösningen, men det måste finnas innan lösningen installeras.  Om den inte är tillgänglig kommer lösningen inte att installeras.
 
-Namnet på varje Automation-resursen innehåller namnet på dess Automation-konto.  Detta görs i lösningen med den **accountName** parameter som i följande exempel för en runbook-resurs.
+Namnet på varje Automation-resurs innehåller namnet på Automation-kontot.  Detta görs i lösningen med parametern **accountName** som i följande exempel för en Runbook-resurs.
 
     "name": "[concat(parameters('accountName'), '/MyRunbook'))]"
 
 
 ## <a name="runbooks"></a>Runbooks
-Du bör innehålla alla runbooks som används av lösningen i lösningsfilen så att de skapas när lösningen har installerats.  Du får inte innehålla brödtexten i en runbook i mallen, så att du ska publicera runbook på en allmän plats där den kan nås av alla användare som installerar din lösning.
+Du bör inkludera alla Runbooks som används av lösningen i lösnings filen så att de skapas när lösningen installeras.  Du kan inte ta med bröd texten i Runbook i mallen, så du bör publicera runbooken på en offentlig plats där den kan nås av alla användare som installerar lösningen.
 
-[Azure Automation-runbook](../../automation/automation-runbook-types.md) resurser har en typ av **Microsoft.Automation/automationAccounts/runbooks** och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
+[Azure Automation Runbook](../../automation/automation-runbook-types.md) -resurser har en typ av **Microsoft. Automation/automationAccounts/Runbooks** och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen. 
 
     {
         "name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
@@ -73,21 +67,21 @@ Du bör innehålla alla runbooks som används av lösningen i lösningsfilen så
     }
 
 
-I följande tabell beskrivs egenskaperna för runbooks.
+Egenskaperna för Runbooks beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| runbookType |Anger vilka typer av runbook. <br><br> Skript - PowerShell-skript <br>PowerShell – PowerShell-arbetsflöde <br> GraphPowerShell - grafiska PowerShell script-runbook <br> GraphPowerShellWorkflow - grafiskt PowerShell-Arbetsflödesbaserade runbook |
-| logProgress |Anger om [vidare poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbook. |
-| logVerbose |Anger om [utförliga poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbook. |
-| description |Valfri beskrivning för runbook. |
-| publishContentLink |Anger innehållet i runbooken. <br><br>URI - Uri för att innehållet i runbooken.  Det här är en .ps1-fil för runbooks med PowerShell och skript och en exporterade grafiska runbook-fil för en runbook i diagrammet.  <br> version - versionen av runbooken för dina egna spårning. |
+| runbookType |Anger typerna av Runbook. <br><br> Skript – PowerShell-skript <br>PowerShell – PowerShell-arbetsflöde <br> GraphPowerShell – grafisk PowerShell-skript Runbook <br> GraphPowerShellWorkflow – grafisk PowerShell Workflow-Runbook |
+| logProgress |Anger om [status poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbooken. |
+| logVerbose |Anger om [utförliga poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbooken. |
+| beskrivning |Valfri beskrivning för runbooken. |
+| publishContentLink |Anger Runbook-innehållet. <br><br>URI-URI till Runbook-innehållet.  Detta är en. ps1-fil för PowerShell-och skript-Runbooks och en exporterad grafisk Runbook-fil för en graf-Runbook.  <br> version – Runbook-versionen för din egen spårning. |
 
 
 ## <a name="automation-jobs"></a>Automation-jobb
-När du startar en runbook i Azure Automation, skapar ett automation-jobb.  Du kan lägga till en resurs för automation-jobb i lösningen att automatiskt starta en runbook när lösningen installeras.  Den här metoden används vanligtvis för att starta runbooks som används för inledande konfiguration av lösningen.  Om du vill starta en runbook med jämna mellanrum, skapa en [schema](#schedules) och en [Jobbschema](#job-schedules)
+När du startar en Runbook i Azure Automation skapas ett Automation-jobb.  Du kan lägga till en automatiserings jobb resurs till din lösning för att automatiskt starta en runbook när hanterings lösningen är installerad.  Den här metoden används vanligt vis för att starta Runbooks som används för inledande konfiguration av lösningen.  Om du vill starta en Runbook med jämna mellanrum skapar du ett [schema](#schedules) och ett [jobb schema](#job-schedules)
 
-Jobbresurser har en typ av **Microsoft.Automation/automationAccounts/jobs** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
+Jobb resurser har en typ av **Microsoft. Automation/automationAccounts/Jobs** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen. 
 
     {
       "name": "[concat(parameters('accountName'), '/', parameters('Runbook').JobGuid)]",
@@ -109,20 +103,20 @@ Jobbresurser har en typ av **Microsoft.Automation/automationAccounts/jobs** och 
       }
     }
 
-I följande tabell beskrivs egenskaperna för automation-jobb.
+Egenskaperna för Automation-jobb beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| runbook |Namn på enskild entitet med namnet på runbook att starta. |
-| parameters |Entitet för varje parametervärde som krävs av runbook. |
+| runbooken |Entitet med enskilt namn med namnet på den Runbook som ska startas. |
+| parameters |Entitet för varje parameter värde som krävs av runbooken. |
 
-Jobbet innehåller namn på runbook och alla parametervärden som ska skickas till runbooken.  Jobbet ska [beror på]( solutions-solution-file.md#resources) runbooken som startar sedan runbook måste skapas innan jobbet.  Om du har flera runbooks som ska startas kan du definiera deras inbördes ordning genom att använda ett jobb som är beroende av andra jobb som ska köras första.
+Jobbet innehåller Runbook-namn och eventuella parameter värden som ska skickas till runbooken.  Jobbet bör [vara beroende]( solutions-solution-file.md#resources) av den Runbook som det startar sedan runbooken måste skapas innan jobbet.  Om du har flera Runbooks som ska startas kan du definiera deras ordning genom att låta ett jobb vara beroende av andra jobb som ska köras först.
 
-Namnet på en resurs för jobbet måste innehålla ett GUID som tilldelas vanligtvis av en parameter.  Du kan läsa mer om GUID-parametrar i [skapar en fil för lösningen i Azure]( solutions-solution-file.md#parameters).  
+Namnet på en jobb resurs måste innehålla ett GUID som vanligt vis tilldelas av en parameter.  Du kan läsa mer om GUID-parametrar i [skapa en hanterings lösnings fil i Azure]( solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Certifikat
-[Azure Automation-certifikat](../../automation/automation-certificates.md) har en typ av **Microsoft.Automation/automationAccounts/certificates** och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
+[Azure Automation certifikat](../../automation/automation-certificates.md) har typen **Microsoft. Automation/automationAccounts/certificates** och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
@@ -140,17 +134,17 @@ Namnet på en resurs för jobbet måste innehålla ett GUID som tilldelas vanlig
 
 
 
-Egenskaper för certifikat resurser beskrivs i följande tabell.
+Egenskaperna för certifikat resurser beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| base64Value |Base 64-värde för certifikatet. |
-| thumbprint |Tumavtryck för certifikatet. |
+| base64Value |Bas 64-värde för certifikatet. |
+| begäran |Tumavtryck för certifikatet. |
 
 
 
 ## <a name="credentials"></a>Autentiseringsuppgifter
-[Autentiseringsuppgifter för Azure Automation](../../automation/automation-credentials.md) har en typ av **Microsoft.Automation/automationAccounts/credentials** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
+[Azure Automation autentiseringsuppgifter](../../automation/automation-credentials.md) har en typ av **Microsoft. Automation/automationAccounts/credentials** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen. 
 
 
     {
@@ -167,16 +161,16 @@ Egenskaper för certifikat resurser beskrivs i följande tabell.
       }
     }
 
-Egenskaper för autentiseringsuppgifter resurser beskrivs i följande tabell.
+Egenskaperna för resurser för autentiseringsuppgifter beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| userName |Användarnamn för autentiseringsuppgifter. |
-| password |Lösenordet för autentiseringsuppgifterna. |
+| Användar |Användar namn för autentiseringsuppgiften. |
+| lösenord |Lösen ord för autentiseringsuppgiften. |
 
 
 ## <a name="schedules"></a>Scheman
-[Azure Automation-scheman](../../automation/automation-schedules.md) har en typ av **Microsoft.Automation/automationAccounts/schedules** och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
+[Azure Automation scheman](../../automation/automation-schedules.md) har en typ av **Microsoft. Automation/automationAccounts/-scheman** och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
@@ -195,26 +189,26 @@ Egenskaper för autentiseringsuppgifter resurser beskrivs i följande tabell.
       }
     }
 
-Egenskaper för schema resurser beskrivs i följande tabell.
+Egenskaperna för schema resurser beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| description |Valfri beskrivning för schemat. |
-| startTime |Anger starttiden för ett schema som ett datum/tid-objekt. En sträng kan anges om den kan konverteras till en giltig DateTime. |
-| isEnabled |Anger om schemat är aktiverad. |
-| interval |Typ av intervall för schemat.<br><br>dag<br>timme |
-| frequency |Frekvensen som schemat ska utlösas i antal dagar eller timmar. |
+| beskrivning |Valfri beskrivning av schemat. |
+| startTime |Anger start tiden för ett schema som ett DateTime-objekt. En sträng kan anges om den kan konverteras till ett giltigt DateTime-värde. |
+| isEnabled |Anger om schemat är aktiverat. |
+| interval |Typ av intervall för schemat.<br><br>dagen<br>timme |
+| frequency |Hur ofta schemat ska utlösas i antal dagar eller timmar. |
 
-Måste ha en starttid med ett värde som är större än den aktuella tiden.  Du kan inte ange det här värdet med en variabel eftersom du behöver inget sätt att veta när det kommer att installeras.
+Scheman måste ha en start tid med ett värde som är större än den aktuella tiden.  Du kan inte ange det här värdet med en variabel eftersom du inte skulle kunna veta när det ska installeras.
 
-Använd någon av följande två strategier när du använder schemat resurser i en lösning.
+Använd någon av följande två strategier när du använder schema resurser i en lösning.
 
-- Använd en parameter för starttiden för schemat.  Detta uppmanar användaren att ange ett värde när de installerar lösningen.  Om du har flera scheman, kan du använda en enda parameter-värdet för mer än en av dem.
-- Skapa scheman med hjälp av en runbook som startar när lösningen är installerad.  Detta eliminerar behovet av användaren som anger en tid, men du får inte innehålla schemat i din lösning så att den tas bort när lösningen har tagits bort.
+- Använd en parameter för start tiden för schemat.  Detta kommer att uppmana användaren att ange ett värde när de installerar lösningen.  Om du har flera scheman kan du använda ett enda parameter värde för fler än en av dem.
+- Skapa scheman med en Runbook som startar när lösningen installeras.  Detta tar bort kravet på att användaren ska ange en tid, men du kan inte ange schemat i lösningen så att det tas bort när lösningen tas bort.
 
 
 ### <a name="job-schedules"></a>Jobbscheman
-Schema för jobbresurser länkar en runbook med ett schema.  De har en typ av **Microsoft.Automation/automationAccounts/jobSchedules** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
+Jobb schema resurser länka en Runbook med ett schema.  De har en typ av **Microsoft. Automation/automationAccounts/jobSchedules** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
@@ -238,17 +232,17 @@ Schema för jobbresurser länkar en runbook med ett schema.  De har en typ av **
     }
 
 
-I följande tabell beskrivs egenskaperna för scheman för datalagerjobb.
+Egenskaperna för jobb scheman beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| schedule name |Enkel **name** entitet med namnet på schemat. |
-| runbook name  |Enkel **name** entitet med namnet på runbooken.  |
+| Schema namn |Entitet med enskilt **namn** med namnet på schemat. |
+| Runbook-namn  |Entitet med enskilt **namn** med namnet på runbooken.  |
 
 
 
 ## <a name="variables"></a>Variabler
-[Azure Automation-variabler](../../automation/automation-variables.md) har en typ av **Microsoft.Automation/automationAccounts/variables** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen.
+[Azure Automation variabler](../../automation/automation-variables.md) har en typ av **Microsoft. Automation/automationAccounts/variabler** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
@@ -265,31 +259,31 @@ I följande tabell beskrivs egenskaperna för scheman för datalagerjobb.
       }
     }
 
-I följande tabell beskrivs egenskaperna för variabeln resurser.
+Egenskaperna för variabla resurser beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| description | Valfri beskrivning för variabeln. |
-| isEncrypted | Anger om variabeln ska vara krypterat. |
-| type | Den här egenskapen har för närvarande ingen effekt.  Datatypen för variabeln bestäms av det inledande värdet. |
-| value | Värdet för variabeln. |
+| beskrivning | Valfri beskrivning för variabeln. |
+| isEncrypted | Anger om variabeln ska krypteras. |
+| typ | Den här egenskapen har för närvarande ingen påverkan.  Data typen för variabeln bestäms av det initiala värdet. |
+| värde | Värde för variabeln. |
 
 > [!NOTE]
-> Den **typ** egenskapen har ingen effekt på variabeln som skapas.  Datatypen för variabeln bestäms av värdet.  
+> Egenskapen **Type** har för närvarande ingen inverkan på variabeln som skapas.  Data typen för variabeln bestäms av värdet.  
 
-Om du ställer in det initiala värdet för variabeln måste den konfigureras som rätt datatyp.  Följande tabell innehåller de olika datatyperna som är tillåtna och deras syntax.  Observera att värdena i JSON förväntas alltid stå inom citattecken med några specialtecken inom citattecken.  Till exempel ett strängvärde skulle anges med citattecken runt strängen (med hjälp av escape-tecknet (\\)) när ett numeriskt värde anges med en uppsättning citattecken.
+Om du anger det ursprungliga värdet för variabeln måste det konfigureras som rätt datatyp.  I följande tabell visas de olika data typerna som är tillåtna och deras syntax.  Observera att värden i JSON förväntas alltid stå inom citat tecken med specialtecken inom citat tecken.  Ett sträng värde skulle till exempel anges med citat tecken runt strängen (med escape-tecken (\\)) medan ett numeriskt värde anges med en uppsättning citat tecken.
 
 | Datatyp | Beskrivning | Exempel | Matchar |
 |:--|:--|:--|:--|
-| string   | Ange värdet inom dubbla citattecken.  | "\"Hello world\"" | "Hello world" |
-| numeric  | Numeriskt värde med enkla citattecken.| "64" | 64 |
-| boolean  | **true** eller **false** inom citattecken.  Observera att det här värdet måste vara gemener. | ”true” | true |
-| datetime | Serialiserade datumvärdet.<br>Du kan använda cmdleten ConvertTo-Json i PowerShell för att skapa det här värdet för ett visst datum.<br>Exempel: get-date ”5/24/2017 13:14:57” \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| sträng   | Omge värde med dubbla citat tecken.  | "\"Hello World \"" | "Hello World" |
+| nummer  | Numeriskt värde med enkla citat tecken.| "64" | 64 |
+| boolesk  | **Sant** eller **falskt** inom citat tecken.  Observera att det här värdet måste vara gemener. | värdet | sant |
+| datetime | Serialiserat datum värde.<br>Du kan använda cmdleten ConvertTo-JSON i PowerShell för att generera det här värdet för ett visst datum.<br>Exempel: get-date "5/24/2017 13:14:57" \| ConvertTo-JSON | "\\/Date (1495656897378) \\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduler
-Din lösning inte behöver definiera [globala modulerna](../../automation/automation-integration-modules.md) används av dina runbooks eftersom de kommer alltid att vara tillgängliga i ditt Automation-konto.  Du behöver att inkludera en resurs för alla moduler som används av dina runbooks.
+Din hanterings lösning behöver inte definiera [globala moduler](../../automation/automation-integration-modules.md) som används av dina runbooks eftersom de alltid kommer att vara tillgängliga i ditt Automation-konto.  Du måste inkludera en resurs för alla andra moduler som används av dina runbooks.
 
-[Integreringsmoduler](../../automation/automation-integration-modules.md) har en typ av **Microsoft.Automation/automationAccounts/modules** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen.
+[Integrerings moduler](../../automation/automation-integration-modules.md) har en typ av **Microsoft. Automation/automationAccounts/modules** och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
@@ -305,35 +299,35 @@ Din lösning inte behöver definiera [globala modulerna](../../automation/automa
     }
 
 
-I följande tabell beskrivs egenskaperna för modulen resurser.
+Egenskaperna för module-resurser beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| contentLink |Anger innehållet i modulen. <br><br>URI - Uri för att innehållet i modulen.  Det här är en .ps1-fil för runbooks med PowerShell och skript och en exporterade grafiska runbook-fil för en runbook i diagrammet.  <br> version - versionen av modulen för dina egna spårning. |
+| contentLink |Anger innehållet i modulen. <br><br>URI-URI till innehållet i modulen.  Detta är en. ps1-fil för PowerShell-och skript-Runbooks och en exporterad grafisk Runbook-fil för en graf-Runbook.  <br> version-versionen av modulen för din egen spårning. |
 
-Runbook bör vara beroende av resursen modulen så att den har skapats innan runbook.
+Runbooken bör vara beroende av modulens resurs för att säkerställa att den skapas före runbooken.
 
-### <a name="updating-modules"></a>Uppdatera moduler
-Om du uppdaterar en lösning som innehåller en runbook som använder ett schema, och den nya versionen av din lösning har en ny modul som används av runbook, kan runbook använda den gamla versionen av modulen.  Du bör inkludera följande runbooks i din lösning och skapa ett jobb för att köra dem innan andra runbooks.  Detta säkerställer att uppdateras alla moduler som krävs innan runbooks har lästs in.
+### <a name="updating-modules"></a>Uppdaterar moduler
+Om du uppdaterar en hanterings lösning som innehåller en Runbook som använder ett schema och den nya versionen av lösningen har en ny modul som används av denna Runbook, kan runbooken använda den gamla versionen av modulen.  Du bör inkludera följande Runbooks i lösningen och skapa ett jobb för att köra dem före andra Runbooks.  På så sätt kan du se till att alla moduler uppdateras efter behov innan Runbooks läses in.
 
-* [Uppdatera ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/) säkerställer att alla moduler som används av runbooks i din lösning är den senaste versionen.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/) ska registrera om alla resurser schema så att runbooks som är kopplad till dem till användning de senaste modulerna.
+* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/) ser till att alla moduler som används av Runbooks i din lösning är den senaste versionen.  
+* [ReRegisterAutomationSchedule-MS-MGMT](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/) omregistrerar alla schema resurser för att säkerställa att de Runbooks som är kopplade till dem med använder de senaste modulerna.
 
 
 
 
 ## <a name="sample"></a>Exempel
-Nedan följer ett exempel på en lösning som omfattar som innehåller följande resurser:
+Följande är ett exempel på en lösning som omfattar följande resurser:
 
-- Runbook.  Det här är en exempel-runbook som lagras i en offentlig GitHub-lagringsplats.
-- Automation-jobb som startar en runbook när lösningen är installerad.
-- Schemat och schema för att starta runbooken med jämna mellanrum.
-- certifikat.
-- Autentiseringsuppgifter.
-- Variabeln.
-- Modul.  Det här är den [OMSIngestionAPI modulen](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) för att skriva data till Log Analytics. 
+- Runbooken.  Det här är ett exempel på en Runbook som lagras i en offentlig GitHub-lagringsplats.
+- Automation-jobb som startar runbooken när lösningen installeras.
+- Schemalägg och jobb schema för att starta runbooken med jämna mellanrum.
+- Certifikatmallens.
+- Certifiering.
+- Variabel.
+- Modulen.  Detta är [OMSIngestionAPI-modulen](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) för att skriva data till Log Analytics. 
 
-I exemplet används [standardlösning parametrar]( solutions-solution-file.md#parameters) variabler som ofta används i en lösning till skillnad från hardcoding värden i resursdefinitionerna.
+Exemplet använder variabler för [standardlösnings parametrar]( solutions-solution-file.md#parameters) som vanligt vis används i en lösning i stället för hårdkoda-värden i resurs definitionerna.
 
 
     {
@@ -650,4 +644,4 @@ I exemplet används [standardlösning parametrar]( solutions-solution-file.md#pa
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Lägga till en vy i lösningen]( solutions-resources-views.md) att visualisera insamlade data.
+* [Lägg till en vy till din lösning]( solutions-resources-views.md) för att visualisera insamlade data.

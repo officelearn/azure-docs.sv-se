@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/12/2019
-ms.openlocfilehash: 11e3a9931d424433f2e3fd1f64e2e95a5835b65c
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.date: 10/16/2019
+ms.openlocfilehash: 82409bbe2f40e42a8331cd801649b93987a923d2
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960471"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550698"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory autentisering med SQL
 
@@ -42,7 +42,7 @@ Mer information finns i [Integrera dina lokala identiteter med Azure Active Dire
 1. Koppla din Azure-prenumeration till Azure Active Directory genom att göra katalogen till en betrodd katalog för Azure-prenumerationen som är värd för databasen. Mer information finns i [hur Azure-prenumerationer är associerade med Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 2. Använd katalogen växlaren i Azure Portal för att växla till den prenumeration som är kopplad till domänen.
 
-   **Ytterligare information:** Alla Azure-prenumerationer har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Den här förtroenderelationen mellan en prenumeration och en katalog skiljer sig från relationen mellan en prenumeration och alla andra resurser i Azure (webbplatser, databaser och så vidare), som är mer som underordnade resurser till en prenumeration. Om en prenumeration går ut stoppas även åtkomsten till de resurser som är associerade med prenumerationen. Men katalogen finns kvar i Azure och du kan associera en annan prenumeration med katalogen och fortsätta hantera kataloganvändarna. Mer information om resurser finns i [förstå resurs åtkomst i Azure](../active-directory/active-directory-b2b-admin-add-users.md). Mer information om den här betrodda relationen finns i [så här kopplar du eller lägger till en Azure-prenumeration i Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+   **Ytterligare information:** Varje Azure-prenumeration har en förtroende relation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Den här förtroenderelationen mellan en prenumeration och en katalog skiljer sig från relationen mellan en prenumeration och alla andra resurser i Azure (webbplatser, databaser och så vidare), som är mer som underordnade resurser till en prenumeration. Om en prenumeration går ut stoppas även åtkomsten till de resurser som är associerade med prenumerationen. Men katalogen finns kvar i Azure och du kan associera en annan prenumeration med katalogen och fortsätta hantera kataloganvändarna. Mer information om resurser finns i [förstå resurs åtkomst i Azure](../active-directory/active-directory-b2b-admin-add-users.md). Mer information om den här betrodda relationen finns i [så här kopplar du eller lägger till en Azure-prenumeration i Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Skapa en Azure AD-administratör för Azure SQL Server
 
@@ -56,7 +56,7 @@ När du använder Azure Active Directory med geo-replikering måste Azure Active
 ## <a name="provision-an-azure-active-directory-administrator-for-your-managed-instance"></a>Etablera en Azure Active Directory administratör för din hanterade instans
 
 > [!IMPORTANT]
-> Följ bara de här stegen om du konfigurerar en hanterad instans. Den här åtgärden kan bara utföras av global/företags administratör i Azure AD. Följande steg beskriver hur du beviljar behörigheter för användare med olika behörigheter i katalogen.
+> Följ bara de här stegen om du konfigurerar en hanterad instans. Den här åtgärden kan bara utföras av en global/företags administratör eller en privilegie rad roll administratör i Azure AD. Följande steg beskriver hur du beviljar behörigheter för användare med olika behörigheter i katalogen.
 
 Din hanterade instans måste ha behörighet att läsa Azure AD för att kunna utföra uppgifter som autentisering av användare via säkerhets grupp medlemskap eller skapande av nya användare. För att detta ska fungera måste du bevilja behörigheter till hanterad instans för att läsa Azure AD. Det finns två sätt att göra det: från portalen och PowerShell. Följande steg båda metoderna.
 
@@ -73,8 +73,8 @@ Din hanterade instans måste ha behörighet att läsa Azure AD för att kunna ut
     ![bevilja behörigheter – Portal](./media/sql-database-aad-authentication/grant-permissions.png)
 
     ```powershell
-    # Gives Azure Active Directory read permission to a Service Principal representing the Managed Instance.
-    # Can be executed only by a "Company Administrator" or "Global Administrator" type of user.
+    # Gives Azure Active Directory read permission to a Service Principal representing the managed instance.
+    # Can be executed only by a "Company Administrator", "Global Administrator", or "Privileged Role Administrator" type of user.
 
     $aadTenant = "<YourTenantId>" # Enter your tenant ID
     $managedInstanceName = "MyManagedInstance"
@@ -128,21 +128,21 @@ Din hanterade instans måste ha behörighet att läsa Azure AD för att kunna ut
 
 5. När åtgärden har slutförts visas följande meddelande i det övre högra hörnet:
 
-    ![success](./media/sql-database-aad-authentication/success.png)
+    ![lyckades](./media/sql-database-aad-authentication/success.png)
 
 6. Nu kan du välja din Azure AD-administratör för din hanterade instans. På sidan Active Directory administratör väljer du **Ange admin** -kommando.
 
-    ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
+    ![Ange administratör](./media/sql-database-aad-authentication/set-admin.png)
 
 7. På sidan AAD-administratör söker du efter en användare, väljer den användare eller grupp som ska vara administratör och väljer sedan **Välj**.
 
    På sidan Active Directory admin visas alla medlemmar och grupper av din Active Directory. Det går inte att välja användare eller grupper som är nedtonade eftersom de inte stöds som Azure AD-administratörer. Se listan över administratörer som stöds i [funktioner och begränsningar i Azure AD](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomst kontroll (RBAC) gäller endast för Azure Portal och sprids inte till SQL Server.
 
-    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+    ![Lägg till administratör](./media/sql-database-aad-authentication/add-admin.png)
 
 8. Välj **Spara**längst upp på sidan Active Directory administratör.
 
-    ![spara](./media/sql-database-aad-authentication/save.png)
+    ![Spara](./media/sql-database-aad-authentication/save.png)
 
     Processen med att ändra administratör kan ta några minuter. Sedan visas den nya administratören i rutan Active Directory administratör.
 
@@ -151,6 +151,54 @@ Efter etableringen av en Azure AD-administratör för din hanterade instans kan 
 > [!TIP]
 > Om du senare vill ta bort en administratör väljer du **ta bort administratör**längst upp på sidan Active Directory administratör och väljer sedan **Spara**.
 
+### <a name="powershell-for-sql-managed-instance"></a>PowerShell för SQL-hanterad instans
+
+Om du vill köra PowerShell-cmdlets måste Azure PowerShell vara installerad och igång. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Om du vill etablera en Azure AD-administratör kör du följande Azure PowerShell-kommandon:
+
+- Anslut – AzAccount
+- Select-AzSubscription
+
+Cmdletar som används för att etablera och hantera Azure AD-administratör för SQL-hanterad instans:
+
+| Cmdlet-namn | Beskrivning |
+| --- | --- |
+| [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Etablerar en Azure AD-administratör för SQL-hanterad instans i den aktuella prenumerationen. (Måste vara från den aktuella prenumerationen)|
+| [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Tar bort en Azure AD-administratör för SQL-hanterad instans i den aktuella prenumerationen. |
+| [Get-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlinstanceactivedirectoryadministrator) |Returnerar information om en Azure AD-administratör för SQL-hanterad instans i den aktuella prenumerationen.|
+
+### <a name="powershell-examples-for-managed-instance"></a>PowerShell-exempel för hanterad instans
+
+Följande kommando hämtar information om en Azure AD-administratör för en hanterad instans med namnet ManagedInstance01 som är associerad med en resurs grupp med namnet ResourceGroup01.
+
+```powershell
+Get-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstance01"
+```
+
+Följande kommando etablerar en Azure AD-administratörs grupp med namnet databas administratörer för den hanterade instansen med namnet ManagedInstance01. Den här servern är kopplad till resurs gruppen ResourceGroup01.
+
+```powershell
+Set-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstance01" -DisplayName "DBAs" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353b"
+```
+
+Följande kommando tar bort Azure AD-administratören för den hanterade instansen med namnet ManagedInstanceName01 som är kopplad till resurs gruppen ResourceGroup01.
+
+```powershell
+Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstanceName01" -Confirm -PassThru
+```
+
+### <a name="cli-for-sql-managed-instance"></a>CLI för SQL-hanterad instans
+
+Du kan också etablera en Azure AD-administratör för SQL-hanterad instans genom att anropa följande CLI-kommandon:
+
+| Kommando | Beskrivning |
+| --- | --- |
+|[AZ SQL mi AD-admin Create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) |Etablerar en Azure Active Directory administratör för SQL-hanterad instans. (Måste vara från den aktuella prenumerationen) |
+|[AZ SQL mi AD-admin Delete](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) |Tar bort en Azure Active Directory administratör för SQL-hanterad instans. |
+|[AZ SQL mi AD-admin List](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-list) |Returnerar information om en Azure Active Directory administratör som för närvarande har kon figurer ATS för SQL-hanterad instans. |
+|[AZ SQL mi AD-Admin Update](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) |Uppdaterar Active Directory administratör för en SQL-hanterad instans. |
+
+Mer information om CLI-kommandon finns i [AZ SQL mi](https://docs.microsoft.com/cli/azure/sql/mi). 
+
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Etablera en Azure Active Directory-administratör för din Azure SQL Database-server
 
 > [!IMPORTANT]
@@ -158,21 +206,21 @@ Efter etableringen av en Azure AD-administratör för din hanterade instans kan 
 
 Följande två procedurer visar hur du etablerar en Azure Active Directory administratör för din Azure SQL-Server i Azure Portal och med hjälp av PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
-1. På [Azure-portalen](https://portal.azure.com/) väljer du din anslutning i det övre högra hörnet för att visa en lista över möjliga Active Directories. Välj rätt Active Directory som standard-Azure AD. Det här steget länkar prenumerationsassocierad Active Directory till Azure SQL-servern, vilket gör att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL Server kan vara värd för antingen Azure SQL Database eller Azure SQL Data Warehouse.) ![choose-AD @ no__t-1
+1. På [Azure-portalen](https://portal.azure.com/) väljer du din anslutning i det övre högra hörnet för att visa en lista över möjliga Active Directories. Välj rätt Active Directory som standard-Azure AD. Det här steget länkar prenumerationsassocierad Active Directory till Azure SQL-servern, vilket gör att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL Server kan vara värd för antingen Azure SQL Database eller Azure SQL Data Warehouse.)  ![choose AD ][8]
 
 2. I den vänstra banderollen väljer du **alla tjänster**och i filter typen i **SQL Server**. Välj **SQL-servrar**.
 
-    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)
+    ![sqlservers. png](media/sql-database-aad-authentication/sqlservers.png)
 
     >[!NOTE]
     > På den här sidan, innan du väljer **SQL-servrar**, kan du välja **stjärnan** bredvid namnet för att *favorit* kategorin och lägga till **SQL-servrar** i det vänstra navigerings fältet.
 
 3. Välj **Active Directory admin**på **SQL Server** sida.
-4. På sidan **Active Directory administratör** väljer du **Ange administratör**.  ![select Active Directory @ no__t-3  
+4. På sidan **Active Directory administratör** väljer du **Ange administratör**.   ![select Active Directory ](./media/sql-database-aad-authentication/select-active-directory.png)  
 
-5. på sidan **Lägg till administratör** söker du efter en användare, väljer den användare eller den grupp som ska vara administratör och väljer sedan **Välj**. (Active Directory-administratörssidan visar alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. (Se listan över administratörer som stöds i avsnittet om **Azure AD-funktioner och begränsningar** i artikeln om att [använda Azure Active Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication.md).) Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server.
+5. på sidan **Lägg till administratör** söker du efter en användare, väljer den användare eller den grupp som ska vara administratör och väljer sedan **Välj**. (Active Directory-administratörssidan visar alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. (Se listan över administratörer som stöds i avsnittet **funktioner och begränsningar i Azure AD** i [Använd Azure Active Directory autentisering för autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication.md).) Rollbaserad åtkomst kontroll (RBAC) gäller bara för portalen och har inte spridits till SQL Server.
     ![välja admin](./media/sql-database-aad-authentication/select-admin.png)  
 
 6. Längst upp på sidan **Active Directory-administratör** väljer du **SPARA**.
@@ -185,22 +233,24 @@ Processen med att ändra administratör kan ta några minuter. Sedan visas den n
 
 Om du senare vill ta bort en administratör väljer du **ta bort administratör**längst upp på sidan **Active Directory administratör** och väljer sedan **Spara**.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell-for-azure-sql-database-and-azure-sql-data-warehouse"></a>PowerShell för Azure SQL Database och Azure SQL Data Warehouse
 
 Om du vill köra PowerShell-cmdlets måste Azure PowerShell vara installerad och igång. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Om du vill etablera en Azure AD-administratör kör du följande Azure PowerShell-kommandon:
 
 - Anslut – AzAccount
 - Select-AzSubscription
 
-Cmdletar som används för att etablera och hantera Azure AD-administratör:
+Cmdletar som används för att etablera och hantera Azure AD-administratör för Azure SQL Database och Azure SQL Data Warehouse:
 
 | Cmdlet-namn | Beskrivning |
 | --- | --- |
-| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Etablerar en Azure Active Directory administratör för Azure SQL Server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen.) |
+| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Etablerar en Azure Active Directory administratör för Azure SQL Server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Tar bort en Azure Active Directory administratör för Azure SQL Server eller Azure SQL Data Warehouse. |
 | [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Returnerar information om en Azure Active Directory administratör som för närvarande har kon figurer ATS för Azure SQL Server eller Azure SQL Data Warehouse. |
 
-Använd PowerShell-kommandot Get-Help för att se mer information om vart och ett av dessa kommandon, till exempel ``get-help Set-AzSqlServerActiveDirectoryAdministrator``.
+Använd PowerShell-kommandot Get-Help för att se mer information om vart och ett av dessa kommandon. Till exempel ``get-help Set-AzSqlServerActiveDirectoryAdministrator``.
+
+### <a name="powershell-examples-for-azure-sql-database-and-azure-sql-data-warehouse"></a>PowerShell-exempel för Azure SQL Database och Azure SQL Data Warehouse
 
 Följande skript etablerar en Azure AD-administratörs grupp med namnet **DBA_Group** (objekt-ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`) för **demo_server** -servern i en resurs grupp med namnet **Group-23**:
 
@@ -209,7 +259,7 @@ Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-Indataparametern **DisplayName** -Indataparametern accepterar antingen visnings namnet för Azure AD eller användarens huvud namn. Till exempel, ``DisplayName="John Smith"`` och ``DisplayName="johns@contoso.com"``. Endast Azure AD-visnings namn stöds för Azure AD-grupper.
+Indataparametern **DisplayName** -Indataparametern accepterar antingen visnings namnet för Azure AD eller användarens huvud namn. Till exempel ``DisplayName="John Smith"`` och ``DisplayName="johns@contoso.com"``. Endast Azure AD-visnings namn stöds för Azure AD-grupper.
 
 > [!NOTE]
 > Azure PowerShell kommandot ```Set-AzSqlServerActiveDirectoryAdministrator``` förhindrar inte att du konfigurerar Azure AD-administratörer för användare som inte stöds. En användare som inte stöds kan vara etablerad, men kan inte ansluta till en databas.
@@ -236,20 +286,21 @@ Följande exempel tar bort en Azure AD-administratör:
 Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-Du kan också etablera en Azure Active Directory administratör med hjälp av REST-API: er. Mer information finns i [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
+> [!NOTE]
+> Du kan också etablera en Azure Active Directory administratör med hjälp av REST-API: er. Mer information finns i [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
 
-### <a name="cli"></a>CLI  
+### <a name="cli-for-azure-sql-database-and-azure-sql-data-warehouse"></a>CLI för Azure SQL Database och Azure SQL Data Warehouse
 
 Du kan också etablera en Azure AD-administratör genom att anropa följande CLI-kommandon:
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[AZ SQL Server AD-admin Create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Etablerar en Azure Active Directory administratör för Azure SQL Server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen.) |
+|[AZ SQL Server AD-admin Create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Etablerar en Azure Active Directory administratör för Azure SQL Server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen) |
 |[AZ SQL Server AD-admin Delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Tar bort en Azure Active Directory administratör för Azure SQL Server eller Azure SQL Data Warehouse. |
 |[AZ SQL Server AD-admin-lista](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) |Returnerar information om en Azure Active Directory administratör som för närvarande har kon figurer ATS för Azure SQL Server eller Azure SQL Data Warehouse. |
 |[AZ SQL Server AD-Admin Update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) |Uppdaterar Active Directory administratör för en Azure SQL-Server eller Azure SQL Data Warehouse. |
 
-Mer information om CLI-kommandon finns i [SQL-AZ SQL](https://docs.microsoft.com/cli/azure/sql/server).  
+Mer information om CLI-kommandon finns i [AZ SQL Server](https://docs.microsoft.com/cli/azure/sql/server).
 
 ## <a name="configure-your-client-computers"></a>Konfigurera klient datorerna
 
@@ -347,14 +398,14 @@ Använd den här metoden om du är inloggad i Windows med dina Azure Active Dire
 
     ![Välj databas namnet][13]
 
-## <a name="active-directory-password-authentication"></a>Autentisering av Active Directory-lösenord
+## <a name="active-directory-password-authentication"></a>Active Directory lösenordsautentisering
 
 Använd den här metoden vid anslutning med ett huvud namn för Azure AD med hjälp av den hanterade Azure AD-domänen. Du kan också använda den för federerade konton utan åtkomst till domänen, till exempel när du arbetar fjärran slutet.
 
 Använd den här metoden för att autentisera till SQL DB/DW med Azure AD för interna eller federerade Azure AD-användare. En inbyggd användare skapas explicit i Azure AD och autentiseras med hjälp av användar namn och lösen ord, medan en federerad användare är en Windows-användare vars domän är federerad med Azure AD. Den senare metoden (med hjälp av användar & lösen ord) kan användas när en användare vill använda sina Windows-autentiseringsuppgifter, men den lokala datorn är inte ansluten till domänen (till exempel med hjälp av fjärråtkomst). I det här fallet kan en Windows-användare ange sitt domän konto och lösen ord och kan autentisera till SQL DB/DW med federerade autentiseringsuppgifter.
 
 1. Starta Management Studio eller data verktyg och i dialog rutan **Anslut till Server** (eller **Anslut till databas motor**) i rutan **autentisering** väljer du **Active Directory-Password**.
-2. Skriv ditt Azure Active Directory användar namn i formatet **username\@domain.com**i rutan **användar namn** . Användar namn måste vara ett konto från Azure Active Directory eller ett konto från en domän Federer med Azure Active Directory.
+2. I rutan **användar namn** anger du ditt Azure Active Directory användar namn i formatet användar namn **\@domain. com**. Användar namn måste vara ett konto från Azure Active Directory eller ett konto från en domän Federer med Azure Active Directory.
 3. I rutan **lösen ord** skriver du ditt användar lösen ord för det Azure Active Directory kontot eller det federerade domän kontot.
 
     ![Välj AD Password Authentication][12]
@@ -379,7 +430,7 @@ conn.Open();
 
 Nyckelordet för anslutnings strängen ``Integrated Security=True`` stöds inte för att ansluta till Azure SQL Database. När du skapar en ODBC-anslutning måste du ta bort blank steg och ange autentiseringen till ' ActiveDirectoryIntegrated '.
 
-### <a name="active-directory-password-authentication"></a>Autentisering av Active Directory-lösenord
+### <a name="active-directory-password-authentication"></a>Active Directory lösenordsautentisering
 
 Om du vill ansluta till en databas med integrerad autentisering och en Azure AD-identitet måste nyckelordet autentisering anges till Active Directory lösen ord. Anslutnings strängen måste innehålla användar-ID/UID och lösen ord/PWD-nyckelord och-värden. I följande C# kod exempel används ADO .net.
 

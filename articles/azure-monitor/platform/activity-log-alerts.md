@@ -1,19 +1,18 @@
 ---
 title: Aktivitets logg aviseringar i Azure Monitor
 description: Meddelas via SMS, webhook, SMS, e-post och mer, när vissa händelser inträffar i aktivitets loggen.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/17/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: b24f24edf2a3a0df8cb8ef9687f205a4a8868537
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 09/17/2018
+ms.openlocfilehash: d3cb075d5ec0607453ca21f2574df7def02a4453
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675220"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553722"
 ---
 # <a name="alerts-on-activity-log"></a>Aviseringar i aktivitets loggen 
 
@@ -36,17 +35,17 @@ Du kan konfigurera en aktivitets logg avisering baserat på valfri toppnivå ege
 
 Aktivitets logg aviseringar har några vanliga alternativ:
 
-- **Kategori**: Administrativ, Service Health, autoskalning, säkerhet, policy och rekommendation. 
-- **Omfång**: En enskild resurs eller resurs uppsättning som aviseringen för aktivitets loggen har definierats för. Omfattningen för en aktivitets logg avisering kan definieras på olika nivåer:
-    - Resurs nivå: Till exempel för en enskild virtuell dator
-    - Resurs grupps nivå: Till exempel alla virtuella datorer i en speciell resurs grupp
-    - Prenumerations nivå: Till exempel alla virtuella datorer i en prenumeration (eller) alla resurser i en prenumeration
-- **Resursgrupp**: Som standard sparas varnings regeln i samma resurs grupp som det angivna målet i definitions området. Användaren kan också definiera resurs gruppen där varnings regeln ska lagras.
-- **Resurstyp**: Resource Manager-definierad namnrymd för målet för aviseringen.
-- **Åtgärds namn**: Det [Azure Resource Manager åtgärds](../../role-based-access-control/resource-provider-operations.md) namn som används för rollbaserad Access Control. Åtgärder som inte har registrerats med Azure Resource Manager kan inte användas i en varnings regel för aktivitets logg.
-- **Nivå**: Händelsens allvarlighets grad (utförlig information, varning, fel eller kritisk).
-- **Status**: Händelsens status, vanligt vis startad, misslyckades eller lyckades.
-- **Händelse som initieras av**: Kallas även för "anroparen". E-postadressen eller Azure Active Directory identifieraren för den användare som utförde åtgärden.
+- **Kategori**: administrativ, service Health, autoskalning, säkerhet, princip och rekommendation. 
+- **Omfattning**: den enskilda resurs eller resurs uppsättning som aviseringen för aktivitets loggen har definierats för. Omfattningen för en aktivitets logg avisering kan definieras på olika nivåer:
+    - Resurs nivå: till exempel för en enskild virtuell dator
+    - Resurs grupps nivå: till exempel alla virtuella datorer i en speciell resurs grupp
+    - Prenumerations nivå: till exempel alla virtuella datorer i en prenumeration (eller) alla resurser i en prenumeration
+- **Resurs grupp**: som standard sparas varnings regeln i samma resurs grupp som det angivna målet i definitions området. Användaren kan också definiera resurs gruppen där varnings regeln ska lagras.
+- **Resurs typ**: Resource Manager-definierad namnrymd för målet för aviseringen.
+- **Åtgärds namn**: [Azure Resource Manager åtgärds](../../role-based-access-control/resource-provider-operations.md) namn som används för rollbaserad Access Control. Åtgärder som inte har registrerats med Azure Resource Manager kan inte användas i en varnings regel för aktivitets logg.
+- **Nivå**: händelsens allvarlighets grad (utförlig information, varning, fel eller kritisk).
+- **Status**: händelsens status, vanligt vis startad, misslyckades eller lyckades.
+- **Händelse som initieras av**: kallas även för anroparen. E-postadressen eller Azure Active Directory identifieraren för den användare som utförde åtgärden.
 
 > [!NOTE]
 > I en prenumeration på upp till 100 kan du skapa aviserings regler för en aktivitet av scope på något av följande: en enda resurs, alla resurser i resurs gruppen (eller) hela prenumerations nivån.

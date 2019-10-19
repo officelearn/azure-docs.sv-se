@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/08/2019
-ms.author: azcspmt;jonbeck;cynthn;joelpell
+ms.date: 10/17/2019
+ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 55f82344956af7d6096fce7dbc3d7023589daa69
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 82d12d3f88199a11ec3c53da50b755d90be373d3
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428031"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72560607"
 ---
 Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och processor som är bra för Relations databas servrar, medel stora och stora cacheminnen och minnes intern analys. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för varje storlek i den här gruppen.
 
@@ -21,7 +21,7 @@ Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och 
 
 * Förhands gransknings storlekarna för Eav3-serien och Easv3-serien använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache, vilket ökar alternativen för att köra de flesta minnesoptimerade arbets belastningar.  Eav3-serien och Easv3-serien har samma minnes-och diskkonfigurationer som Ev3 & Esv3-serien.
 
-* Mv2-serien erbjuder det högsta antalet vCPU (upp till 208 virtuella processorer) och störst minne (upp till 5,7 TiB) för virtuella datorer i molnet. Serien är det perfekta valet för mycket stora databaser eller andra program som har nytta av många virtuella processorer och stora mängder minne.
+* Mv2-serien erbjuder det högsta antalet vCPU (upp till 416 virtuella processorer) och störst minne (upp till 8,19 TiB) för virtuella datorer i molnet. Serien är det perfekta valet för mycket stora databaser eller andra program som har nytta av många virtuella processorer och stora mängder minne.
 
 * M-serien erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne.
 
@@ -45,14 +45,14 @@ Instanser av ESv3-serien använder Intel® Xeon® 8171M 2,1 GHz (Skylake) eller 
 | Storlek             | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4000/32 (50)                                                       | 3200/48                                | 2/1 000                                   |
-| Standard_E4s_v3 @ no__t-0<sup>2</sup> | 4      | 32          | 64             | 8              | 8000/64 (100)                                                      | 6400/96                                | 2/2 000                                   |
-| Standard_E8s_v3 @ no__t-0<sup>2</sup> | 8      | 64          | 128            | 16             | 16000/128 (200)                                                    | 12800/192                              | 4 / 4000                                       |
-| Standard_E16s_v3 @ no__t-0<sup>2</sup> | 16     | 128         | 256            | 32             | 32000/256 (400)                                                    | 25600/384                              | 8 / 8000                                       |
+| Standard_E4s_v3 &nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8000/64 (100)                                                      | 6400/96                                | 2/2 000                                   |
+| Standard_E8s_v3 &nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16000/128 (200)                                                    | 12800/192                              | 4 / 4000                                       |
+| Standard_E16s_v3 &nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32000/256 (400)                                                    | 25600/384                              | 8 / 8000                                       |
 | Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 40000/320 (400)                                                    | 32000/480                              | 8 / 10000                                       |
-| Standard_E32s_v3 @ no__t-0<sup>2</sup> | 32     | 256         | 512            | 32             | 64000/512 (800)                                                    | 51200/768                              | 8/16 000                             |
-| Standard_E48s_v3 @ no__t-0<sup>2</sup> | 48     | 384         | 768            | 32             | 96000/768 (1200)                                                   | 76800/1152                             | 8 / 24000                             |
-| Standard_E64s_v3 @ no__t-0<sup>2</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 80000/1200                             | 8 / 30000                             |
-| Standard_E64is_v3 @ no__t-0<sup>3</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 80000/1200                             | 8 / 30000                             |
+| Standard_E32s_v3 &nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64000/512 (800)                                                    | 51200/768                              | 8/16 000                             |
+| Standard_E48s_v3 &nbsp;<sup>2</sup> | 48     | 384         | 768            | 32             | 96000/768 (1200)                                                   | 76800/1152                             | 8 / 24000                             |
+| Standard_E64s_v3 &nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 80000/1200                             | 8 / 30000                             |
+| Standard_E64is_v3 &nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 80000/1200                             | 8 / 30000                             |
 
 
 <sup>1</sup> Esv3 för virtuell dator i serien Intel® Hyper-Threading-teknik.
@@ -69,7 +69,7 @@ Premium Storage caching: stöds
 
 Easv3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en förstärkt Fmax på 3.35 GHz och använda Premium Storage. Easv3-seriens storlek är idealiska för minnes intensiva företags program.
 
-[Klicka här för att registrera dig för för hands versionen](http://aka.ms/azureamdpreview).
+[Registrera dig för förhandsversionen](http://aka.ms/azureamdpreview).
 
 | Storlek | vCPU | Minne: GiB | Temp-lagring (SSD): GiB |
 |---|---|---|---|
@@ -104,7 +104,7 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48 000/750/375                                            | 8/16 000                 |
 | Standard_E48_v3 | 48        | 384         | 1200            | 32             | 96 000/1 000/500                                            | 8 / 24000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96 000/1 000/500                                           | 8 / 30000           |
-| Standard_E64i_v3 @ no__t-0<sup>2, &nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96 000/1 000/500                                           | 8 / 30000           |
+| Standard_E64i_v3 &nbsp;<sup>2, &nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96 000/1 000/500                                           | 8 / 30000           |
 
 <sup>1</sup> Ev3 för virtuell dator i serien Intel® Hyper-Threading-teknik.
 
@@ -120,7 +120,7 @@ Premium Storage caching: stöds inte
 
 Eav3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en förstärkt Fmax på 3.35 GHz och använda Premium Storage. Eav3-seriens storlek är idealiska för minnes intensiva företags program. Datadisklagring faktureras separat från virtuella datorer. Om du vill använda Premium Storage-diskar använder du Easv3-seriens storlekar. Pris-och debiterings mätare för Easv3-storlekar är samma som för Eav3-serien.
 
-[Klicka här för att registrera dig för för hands versionen](http://aka.ms/azureamdpreview).
+[Registrera dig för förhandsversionen](http://aka.ms/azureamdpreview).
 
 | Storlek             | vCPU | Minne: GiB | Temp-lagring (SSD): GiB |
 |------------------|------|-------------|-------------------------|
@@ -134,63 +134,28 @@ Eav3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processor
 
 ## <a name="mv2-series"></a>Mv2-serien
 
+ACU: 188-280<sup>1</sup>
+
 Premium Storage: stöds
 
 Premium Storage caching: stöds
 
 Skrivningsaccelerator: [stöds](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-Mv2-serien har högt data flöde, låg latens, direkt mappad lokal NVMe-lagring som körs på en Hyper-threadd Intel® Xeon-® platina-processor med 8180M 2.5 GHz (Skylake) med en alla grund frekvens på 2,5 GHz och en maximal Turbo frekvens på 3,8 GHz. Alla storlekar för virtuella datorer i Mv2-serien kan använda både standard-och Premium-diskar. Mv2-seriens instanser är minnesoptimerade VM-storlekar som ger oöverträffade beräknings prestanda för att stödja stora minnes databaser och arbets belastningar, med ett högt förhållande mellan minne och CPU som är idealiskt för Relations databas servrar, stora cacheminnen och minnes intern tjänstprogrammet. 
+Mv2-serien har högt data flöde, låg latens-plattform som körs på en Hyper-threadd Intel® Xeon® platina Intel Xeon-processor med en alla grund frekvens på 2,5 GHz och en maximal Turbo frekvens på 3,8 GHz. Alla storlekar för virtuella datorer i Mv2-serien kan använda både standard-och Premium-diskar. Mv2-seriens instanser är minnesoptimerade VM-storlekar som ger oöverträffade beräknings prestanda för att stödja stora minnes databaser och arbets belastningar, med ett högt förhållande mellan minne och CPU som är idealiskt för Relations databas servrar, stora cacheminnen och minnes intern tjänstprogrammet.
 
 |Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8/16 000 |
-| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8/16 000 |
+| Standard_M208ms_v2<sup>2</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8/16 000 |
+| Standard_M208s_v2<sup>2</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8/16 000 |
+| Standard_M416ms_v2<sup>2, 3</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 / 32000 |
+| Standard_M416s_v2<sup>2, 3</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 / 32000 |
 
-Mv2-seriens funktion Intel® Hyper-Threading-teknik  
+<sup>1</sup> Mv2 för virtuell dator i serien Intel® Hyper-Threading-teknik
 
-<sup>1</sup> dessa stora virtuella datorer kräver en av följande gäst operativ system: windows Server 2016, windows Server 2019, SLES 12 SP4, SLES 15.
+<sup>2</sup> virtuella datorer i Mv2-serien är endast generation 2. Om du använder Linux, se [stöd för virtuella datorer i generation 2 på Azure](../articles/virtual-machines/linux/generation-2.md) för instruktioner om hur du hittar och väljer en avbildning.
 
-<sup>2</sup> virtuella datorer i Mv2-serien är endast generation 2. Om du använder Linux, se följande avsnitt för att hitta och välja en SUSE Linux-avbildning.
-
-#### <a name="find-a-suse-image"></a>Hitta en SUSE-bild
-
-Välj en lämplig SUSE Linux-avbildning i Azure Portal: 
-
-1. I Azure Portal väljer du **skapa en resurs** 
-1. Sök efter "SUSE SAP" 
-1. SLES för SAP generation 2-avbildningar är tillgängliga som antingen betala per användning eller ta med din egen prenumeration (BYOS). I Sök resultaten expanderar du önskad bild kategori:
-
-    * SUSE Linux Enterprise Server (SLES) för SAP
-    * SUSE Linux Enterprise Server (SLES) för SAP (BYOS)
-    
-1. SUSE-bilder som är kompatibla med Mv2-serien föregås av namnet `GEN2:`. Följande SUSE-avbildningar är tillgängliga för virtuella datorer i Mv2-serien:
-
-    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 för SAP-program
-    * GEN2: SUSE Linux Enterprise Server (SLES) 15 för SAP-program
-    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 för SAP-program (BYOS)
-    * GEN2: SUSE Linux Enterprise Server (SLES) 15 för SAP-program (BYOS)
-
-#### <a name="select-a-suse-image-via-azure-cli"></a>Välj en SUSE avbildning via Azure CLI
-
-Om du vill se en lista över tillgängliga SLES för SAP-avbildningar för virtuella datorer med Mv2-serien använder du följande [`az vm image list`-](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) kommando:
-
-```azurecli
-az vm image list --output table --publisher SUSE --sku gen2 --all
-```
-
-Kommandot matar ut tillgängliga virtuella datorer i generation 2 som är tillgängliga från SUSE för virtuella datorer i Mv2-serien. 
-
-Exempel på utdata:
-
-```
-Offer          Publisher  Sku          Urn                                        Version
--------------  ---------  -----------  -----------------------------------------  ----------
-SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
-SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
-SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
-SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
-```
+<sup>3</sup> för M416ms_v2-och M416s_v2-storlekarna noterar du att det inte finns något första stöd för följande avbildning: "GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 för SAP-program."
 
 ## <a name="m-series"></a>M-serien 
 
@@ -206,20 +171,20 @@ Skrivningsaccelerator: [stöds](https://docs.microsoft.com/azure/virtual-machine
 
 | Storlek            | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M8ms @ no__t-0<sup>3</sup>    | 8  | 218,75 | 256  | 8  | 10000/100 (793)  | 5000/125 | 4/2 000 |
-| Standard_M16ms @ no__t-0<sup>3</sup>   | 16 | 437,5  | 512  | 16 | 20000/200 (1587) | 10000/250 | 8/4 000 |
+| Standard_M8ms &nbsp;<sup>3</sup>    | 8  | 218,75 | 256  | 8  | 10000/100 (793)  | 5000/125 | 4/2 000 |
+| Standard_M16ms &nbsp;<sup>3</sup>   | 16 | 437,5  | 512  | 16 | 20000/200 (1587) | 10000/250 | 8/4 000 |
 | Standard_M32ts | 32 | 192    | 1024 | 32 | 40000/400 (3174) | 20000/500 | 8 / 8000 |
 | Standard_M32ls | 32 | 256    | 1024 | 32 | 40000/400 (3174) | 20000/500 | 8 / 8000 |
-| Standard_M32ms @ no__t-0<sup>3</sup>   | 32 | 875    | 1024 | 32 | 40000/400 (3174) | 20000/500 | 8 / 8000 |
+| Standard_M32ms &nbsp;<sup>3</sup>   | 32 | 875    | 1024 | 32 | 40000/400 (3174) | 20000/500 | 8 / 8000 |
 | Standard_M64s  | 64 | 1024   | 2048 | 64 | 80000/800 (6348)| 40000/1000 | 8/16 000          |
 | Standard_M64ls  | 64 | 512    | 2048 | 64 | 80000/800 (6348) | 40000/1000 | 8/16 000 |
-| Standard_M64ms @ no__t-0<sup>3</sup>  | 64   | 1792 | 2048 | 64 | 80000/800 (6348)| 40000/1000 | 8/16 000          |
-| Standard_M128s @ no__t-0<sup>2</sup> | 128  | 2048        | 4096  | 64 | 160000/1600 (12696) | 80000/2000                            | 8 / 30000          |
-| Standard_M128ms @ no__t-0<sup>2, &nbsp;3, &nbsp;4</sup> | 128  | 3892  | 4096 | 64 | 160000/1600 (12696) | 80000/2000                            | 8 / 30000          |
+| Standard_M64ms &nbsp;<sup>3</sup>  | 64   | 1792 | 2048 | 64 | 80000/800 (6348)| 40000/1000 | 8/16 000          |
+| Standard_M128s &nbsp;<sup>2</sup> | 128  | 2048        | 4096  | 64 | 160000/1600 (12696) | 80000/2000                            | 8 / 30000          |
+| Standard_M128ms &nbsp;<sup>2, &nbsp;3, &nbsp;4</sup> | 128  | 3892  | 4096 | 64 | 160000/1600 (12696) | 80000/2000                            | 8 / 30000          |
 | Standard_M64   | 64  | 1024 | 7168  | 64 | 80000/800 (1228) | 40000/1000 | 8/16 000 |
 | Standard_M64m  | 64  | 1792 | 7168  | 64 | 80000/800 (1228) | 40000/1000 | 8/16 000 |
-| Standard_M128 @ no__t-0 @ no__t-12  | 128 | 2048 | 14336 | 64 | 250000/1600 (2456) | 80000/2000 | 8 / 32000 |
-| Standard_M128m @ no__t-0 @ no__t-12 | 128 | 3892 | 14336 | 64 | 250000/1600 (2456) | 80000/2000 | 8 / 32000 |
+| Standard_M128 &nbsp; <sup>2  | 128 | 2048 | 14336 | 64 | 250000/1600 (2456) | 80000/2000 | 8 / 32000 |
+| Standard_M128m &nbsp; <sup>2 | 128 | 3892 | 14336 | 64 | 250000/1600 (2456) | 80000/2000 | 8 / 32000 |
 
 
 
@@ -245,11 +210,11 @@ DSv2-seriens storlekar körs på Intel® Xeon® 8171M 2,1 GHz (Skylake) eller In
 
 | Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11_v2 @ no__t-0<sup>3</sup> |2 |14 |28 |8 |8000/64 (72) |6400/96 |2/1 500 |
-| Standard_DS12_v2 @ no__t-0<sup>3</sup> |4 |28 |56 |16 |16000/128 (144) |12800/192 |4/3 000 |
-| Standard_DS13_v2 @ no__t-0<sup>3</sup> |8 |56 |112 |32 |32000/256 (288) |25600/384 |8/6 000 |
-| Standard_DS14_v2 @ no__t-0<sup>3</sup>|16 |112 |224 |64 |64000/512 (576) |51200/768 |8 / 12000 |
-| Standard_DS15_v2 @ no__t-0<sup>2</sup> |20 |140 |280 |64 |80000/640 (720) |64000/960 |8/25000 @ no__t-0<sup>4</sup>
+| Standard_DS11_v2 &nbsp;<sup>3</sup> |2 |14 |28 |8 |8000/64 (72) |6400/96 |2/1 500 |
+| Standard_DS12_v2 &nbsp;<sup>3</sup> |4 |28 |56 |16 |16000/128 (144) |12800/192 |4/3 000 |
+| Standard_DS13_v2 &nbsp;<sup>3</sup> |8 |56 |112 |32 |32000/256 (288) |25600/384 |8/6 000 |
+| Standard_DS14_v2 &nbsp;<sup>3</sup>|16 |112 |224 |64 |64000/512 (576) |51200/768 |8 / 12000 |
+| Standard_DS15_v2 &nbsp;<sup>2</sup> |20 |140 |280 |64 |80000/640 (720) |64000/960 |8/25000 &nbsp;<sup>4</sup>
 
 <sup>1</sup> det maximala disk data flödet (IOPS eller Mbit/s) möjligt med en virtuell dator i DSv2-serien kan begränsas av antalet, storlek och striping av de anslutna diskarna.  Mer information finns i [utforma för hög prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).  
 <sup>2</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.  
@@ -274,7 +239,7 @@ DSv2-seriens storlekar körs på Intel® Xeon® 8171M 2,1 GHz (Skylake) eller In
 | Standard_D12_v2   | 4         | 28          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/3 000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/6 000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48 000 / 750 / 375                                        | 64/64x500                       | 8 / 12000          |
-| Standard_D15_v2 @ no__t-0<sup>1</sup> | 20        | 140         | 1 000          | 60 000 / 937 / 468                                        | 64/64x500                       | 8/25000 @ no__t-0<sup>2</sup> |
+| Standard_D15_v2 &nbsp;<sup>1</sup> | 20        | 140         | 1 000          | 60 000 / 937 / 468                                        | 64/64x500                       | 8/25000 &nbsp;<sup>2</sup> |
 
 <sup>1</sup> instans är isolerad till maskin vara som är dedikerad till en enda kund.  
 <sup>2</sup> 25000 Mbit/s med accelererat nätverk. 

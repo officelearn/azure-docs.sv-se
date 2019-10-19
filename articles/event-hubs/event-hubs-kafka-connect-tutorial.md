@@ -3,19 +3,19 @@ title: Integrera med Apache Kafka Connect – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du använder Apache Spark med Azure Event Hubs för Kafka.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 2ed4432aec9b833efe6b521b4452177088d21d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: shvija
+ms.openlocfilehash: 84220d5dda26c25f40138629e2be1f10d57fe3c4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821542"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555125"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrera stöd för Apache Kafka Connect stöd i Azure Event Hubs (förhandsversion)
 När inmatning för företagsbehov ökar så ökas även kraven för inmatning av olika externa källor och kanalmottagare. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) innehåller sådana ramverk för att ansluta och importera/exportera data från/till externa system såsom MySQL, HDFS och filsystem via ett Kafka-kluster. Den här självstudien beskriver hur du använder Kafka Connect-ramverket med Kafka-aktiverade händelsehubbar.
@@ -34,7 +34,7 @@ I den här självstudien gör du följande:
 > * Köra Kafka Connect
 > * Skapa anslutningsappar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 För att kunna slutföra den här genomgången behöver du följande:
 
 - En Azure-prenumeration. Om du inte har en [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/).

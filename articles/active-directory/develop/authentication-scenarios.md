@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2201b7701dae90b43a01a6fb45decd94e45bab74
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 40d0cd29452b5473d16851451a88c93e78ef3f36
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430005"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554435"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
@@ -35,7 +35,7 @@ Den här artikeln beskriver många av de autentiseringsmetoder du behöver känn
 
 **Auktorisering** innebär att ge en autentiserad part behörighet att göra något. Den anger vilka data du får åtkomst till och vad du kan göra med dessa data. Auktorisering förkortas ibland AuthZ.
 
-I stället för att skapa appar som var och en upprätthåller sin egen användar namn och lösen ords information, vilket innebär en hög administrativ börda när du har flera appar och behöver lägga till eller ta bort användare på dem, kan appar delegera det ansvaret till en centraliserad identitetsprovider.
+I stället för att skapa appar som var och en upprätthåller sin egen användar namn och lösen ords information, vilket innebär en hög administrativ börda när du behöver lägga till eller ta bort användare över flera appar, kan appar delegera det ansvaret till en centraliserad identitets leverantör.
 
 Azure Active Directory (Azure AD) är en centraliserad identifierings leverantör i molnet. Genom att delegera autentisering och auktorisering till det kan du använda scenarier som principer för villkorlig åtkomst som kräver att en användare befinner sig på en speciell plats, användning av Multi-Factor Authentication, samt att göra det möjligt för en användare att logga in en gång och sedan automatiskt loggat in på alla webbappar som delar samma centrala katalog. Den här funktionen kallas enkel inloggning (SSO).
 
@@ -43,7 +43,7 @@ En centraliserad identitets leverantör är ännu viktigare för appar som har a
 
 Microsoft Identity Platform fören klar autentiseringen för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect, samt bibliotek med öppen källkod för olika plattformar som hjälper dig att snabbt börja koda. Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter, får tokens för att anropa Microsoft Graph, andra Microsoft API:er eller API:er som utvecklare har byggt. Mer information finns i [utvecklingen av Microsoft Identity Platform](about-microsoft-identity-platform.md).
 
-## <a name="tenants"></a>Klienter
+### <a name="tenants"></a>Klienter
 
 En moln identitets leverantör hanterar många organisationer. För att användarna ska vara åtskilda från olika organisationer är Azure AD partitionerad i klienter, med en klient organisation per organisation.
 
@@ -76,7 +76,7 @@ Tokens är bara giltiga under en begränsad tid. Vanligt vis tillhandahåller ST
 
 Åtkomsttoken skickas till ett webb-API som Bearer-token i `Authenticate`-huvudet. En app kan tillhandahålla en uppdateringstoken till STS, och om användarens åtkomst till appen inte har återkallats kommer den att få tillbaka en ny åtkomsttoken och en ny uppdateringstoken. Detta är hur scenariot för någon som lämnar företaget hanteras. När STS tar emot uppdateringstoken, utfärdar den ingen annan giltig åtkomsttoken om användaren inte längre är auktoriserad.
 
-### <a name="applications"></a>Appar
+## <a name="application-model"></a>Programmodell
 
 Program kan logga in användare själva eller delegera inloggning till en identitets leverantör. Se [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md) för att lära dig om inloggnings scenarier som stöds av Azure AD.
 
@@ -90,18 +90,16 @@ För en identitets leverantör att veta att en användare har åtkomst till en v
 
 När programmet har registrerats får du ett GUID som appen delar med Azure AD när den begär token. Om appen är ett konfidentiellt klient program, kommer den också att dela hemligheten eller den offentliga nyckeln, beroende på om certifikat eller hemligheter användes.
 
-### <a name="application-model"></a>Programmodell
-
 Microsoft Identity Platform representerar program som använder en modell som uppfyller två huvud funktioner:
 
-**Identifiera appen av de autentiseringsprotokoll som den stöder och ange alla identifierare, URL: er, hemligheter och relaterad information som behövs för att autentisera.**
+Identifiera appen av de autentiseringsprotokoll som den stöder och ange alla identifierare, URL: er, hemligheter och relaterad information som behövs för att autentisera.
 Microsoft Identity Platform:
 
 * Innehåller alla data som krävs för att stödja autentisering vid körning.
 * Innehåller alla data för att bestämma vilka resurser som en app kan behöva komma åt och under vilka omständigheter en specifik begäran ska uppfyllas.
 * Innehåller en infrastruktur för att implementera app-etablering i appens utvecklares klient organisation och till en annan Azure AD-klient.
 
-**Hantera användar medgivande under Tokenbegäran och underlättar dynamisk etablering av appar över klient organisationer** Medgivande är processen hos en resurs ägare som beviljar auktorisering till ett klient program för att komma åt skyddade resurser, under specifika behörigheter för resurs ägarens räkning. Microsoft Identity Platform:
+Hantera användarens medgivande under Tokenbegäran och underlättar dynamisk etablering av appar över klient organisations medgivande är en resurs ägare som beviljar auktorisering till ett klient program för att komma åt skyddade resurser, under specifika behörigheter på resurs ägarens räkning. Microsoft Identity Platform:
 
 * Möjliggör för användare och administratörer att dynamiskt bevilja eller neka medgivande för appen att få åtkomst till resurser för deras räkning.
 * Möjliggör för administratörer att i slutänden bestämma vilka appar som tillåts göra vad och vilka användare som kan använda specifika appar samt hur åtkomsten till katalogresurserna går till.
@@ -154,7 +152,7 @@ Användarautentisering sker via webbläsaren. OpenID-protokollet använder vanli
 - Omdirigeringen tillhandahålls av webb programmet i form av en omdirigerings-URI. Den här omdirigerings-URI: n har registrerats med objektet Azure AD-program. Det kan finnas flera omdirigerings-URI: er eftersom programmet kan distribueras på flera URL: er. Webbappen måste också ange den omdirigerings-URi som ska användas.
 - Azure AD kontrollerar att den omdirigerings-URI som skickas av webbappen är en av de registrerade omdirigerings-URI: erna för appen.
 
-## <a name="generalization-to-desktop-and-mobile-apps"></a>Generalisering till station ära och mobila appar
+## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Skriv bords-och mobilappar med Azure AD
 
 Flödet som beskrivs ovan gäller, med små skillnader, för Station ära och mobila program.
 

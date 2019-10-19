@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 4e2cd3b66385d37815d0fc51a70ca31aba25db29
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
-ms.translationtype: HT
+ms.openlocfilehash: aab5d9a4cb7527e8a2085f826febc64bbd74854c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528623"
+ms.locfileid: "72551964"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -1437,68 +1437,78 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 
 |Mått|Mått visnings namn|Enhet|Sammansättnings typ|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
-|log_write_percent|Logg IO-procent|Procent|Medel|Logg IO-procent. Ej tillämpligt för data lager.|Inga dimensioner|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent. Gäller för DTU-baserade databaser.|Inga dimensioner|
-|lagring|Använt data utrymme|Skickade|Maximal|Total databas storlek. Ej tillämpligt för data lager.|Inga dimensioner|
-|connection_successful|Lyckade anslutningar|Antal|Totalt|Lyckade anslutningar|Inga dimensioner|
-|connection_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga dimensioner|
-|blocked_by_firewall|Blockerad av brand väggen|Antal|Totalt|Blockerad av brand väggen|Inga dimensioner|
-|Hamn|Låsningar|Antal|Totalt|Låsningar. Ej tillämpligt för data lager.|Inga dimensioner|
-|storage_percent|Använt data utrymme i procent|Procent|Maximal|Storlek i procent för databasen. Ej tillämpligt för data lager eller storskaliga databaser.|Inga dimensioner|
-|xtp_storage_percent|Minnes intern OLTP-lagring i procent|Procent|Medel|Minnes intern OLTP-lagring i procent. Ej tillämpligt för data lager.|Inga dimensioner|
-|workers_percent|Arbetare i procent|Procent|Medel|Arbetare i procent. Ej tillämpligt för data lager.|Inga dimensioner|
-|sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent. Ej tillämpligt för data lager.|Inga dimensioner|
-|dtu_limit|DTU-gräns|Antal|Medel|DTU-gräns. Gäller för DTU-baserade databaser.|Inga dimensioner|
-|dtu_used|Använt DTU|Antal|Medel|DTU används. Gäller för DTU-baserade databaser.|Inga dimensioner|
-|cpu_limit|PROCESSOR gräns|Antal|Medel|PROCESSOR gräns. Gäller för vCore-baserade databaser.|Inga dimensioner|
-|cpu_used|Använd CPU|Antal|Medel|Använd CPU. Gäller för vCore-baserade databaser.|Inga dimensioner|
-|dwu_limit|DWU-gräns|Antal|Maximal|DWU-gräns. Gäller endast för data lager.|Inga dimensioner|
-|dwu_consumption_percent|DWU procent|Procent|Maximal|DWU procent. Gäller endast för data lager.|Inga dimensioner|
-|dwu_used|DWU som används|Antal|Maximal|DWU som används. Gäller endast för data lager.|Inga dimensioner|
-|dw_cpu_percent|DW CPU-procent för nodenivå|Procent|Medel|DW CPU-procent för nodenivå|DwLogicalNodeId|
-|dw_physical_data_read_percent|Data IO-procent för DW Node Level|Procent|Medel|Data IO-procent för DW Node Level|DwLogicalNodeId|
-|cache_hit_percent|Procent andel cacheträffar|Procent|Maximal|Procent av cacheträffar. Gäller endast för data lager.|Inga dimensioner|
-|cache_used_percent|Procent andel som används|Procent|Maximal|Procent andel som används. Gäller endast för data lager.|Inga dimensioner|
-|local_tempdb_usage_percent|Lokal tempdb-procent|Procent|Medel|Lokal tempdb-procent. Gäller endast för data lager.|Inga dimensioner|
+|allocated_data_storage|Allokerat data utrymme|Skickade|Medel|Allokerat data utrymme. Ej tillämpligt för data lager.|Inga dimensioner|
 |app_cpu_billed|App-CPU fakturerad|Antal|Totalt|App-CPU fakturerad. Gäller databaser utan server.|Inga dimensioner|
 |app_cpu_percent|CPU-procent för app|Procent|Medel|CPU-procent för app. Gäller databaser utan server.|Inga dimensioner|
 |app_memory_percent|Procent andel använt program minne|Procent|Medel|Procent andel använt program minne. Gäller databaser utan server.|Inga dimensioner|
-|allocated_data_storage|Allokerat data utrymme|Skickade|Medel|Allokerat data utrymme. Ej tillämpligt för data lager.|Inga dimensioner|
+|blocked_by_firewall|Blockerad av brand väggen|Antal|Totalt|Blockerad av brand väggen|Inga dimensioner|
+|cache_hit_percent|Procent andel cacheträffar|Procent|Maximal|Procent av cacheträffar. Gäller endast för data lager.|Inga dimensioner|
+|cache_used_percent|Procent andel som används|Procent|Maximal|Procent andel som används. Gäller endast för data lager.|Inga dimensioner|
+|connection_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga dimensioner|
+|connection_successful|Lyckade anslutningar|Antal|Totalt|Lyckade anslutningar|Inga dimensioner|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
+|cpu_limit|PROCESSOR gräns|Antal|Medel|PROCESSOR gräns. Gäller för vCore-baserade databaser.|Inga dimensioner|
+|cpu_used|Använd CPU|Antal|Medel|Använd CPU. Gäller för vCore-baserade databaser.|Inga dimensioner|
+|Hamn|Låsningar|Antal|Totalt|Låsningar. Ej tillämpligt för data lager.|Inga dimensioner|
+|dtu_limit|DTU-gräns|Antal|Medel|DTU-gräns. Gäller för DTU-baserade databaser.|Inga dimensioner|
+|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent. Gäller för DTU-baserade databaser.|Inga dimensioner|
+|dtu_used|Använt DTU|Antal|Medel|DTU används. Gäller för DTU-baserade databaser.|Inga dimensioner|
+|dw_cpu_percent|DW CPU-procent för nodenivå|Procent|Medel|DW CPU-procent för nodenivå|DwLogicalNodeId|
+|dw_physical_data_read_percent|Data IO-procent för DW Node Level|Procent|Medel|Data IO-procent för DW Node Level|DwLogicalNodeId|
+|dwu_consumption_percent|DWU procent|Procent|Maximal|DWU procent. Gäller endast för data lager.|Inga dimensioner|
+|dwu_limit|DWU-gräns|Antal|Maximal|DWU-gräns. Gäller endast för data lager.|Inga dimensioner|
+|dwu_used|DWU som används|Antal|Maximal|DWU som används. Gäller endast för data lager.|Inga dimensioner|
+|local_tempdb_usage_percent|Lokal tempdb-procent|Procent|Medel|Lokal tempdb-procent. Gäller endast för data lager.|Inga dimensioner|
+|log_write_percent|Logg IO-procent|Procent|Medel|Logg IO-procent. Ej tillämpligt för data lager.|Inga dimensioner|
+|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
+|sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent. Ej tillämpligt för data lager.|Inga dimensioner|
+|sqlserver_process_core_percent|SQL Server process kärn procent|Procent|Maximal|Det här måttet är en plats hållare som inte har fyllts i för tillfället.|Inga dimensioner|
+|sqlserver_process_memory_percent|SQL Server process minne i procent|Procent|Maximal|Det här måttet är en plats hållare som inte har fyllts i för tillfället.|Inga dimensioner|
+|lagring|Använt data utrymme|Skickade|Maximal|Total databas storlek. Ej tillämpligt för data lager.|Inga dimensioner|
+|storage_percent|Använt data utrymme i procent|Procent|Maximal|Storlek i procent för databasen. Ej tillämpligt för data lager eller storskaliga databaser.|Inga dimensioner|
+|tempdb_data_size|Data fil storlek i tempdb i KB|Antal|Maximal|Data fil storlek för tempdb i KB. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller.|Inga dimensioner|
+|tempdb_log_size|TempDB-logg fils storlek kilobyte|Antal|Maximal|TempDB-logg fils storlek kilobyte. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller.|Inga dimensioner|
+|tempdb_log_used_percent|Procent använt tempdb-logg|Procent|Maximal|TempDB procent logg används. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller.|Inga dimensioner|
+|workers_percent|Arbetare i procent|Procent|Medel|Arbetare i procent. Ej tillämpligt för data lager.|Inga dimensioner|
+|xtp_storage_percent|Minnes intern OLTP-lagring i procent|Procent|Medel|Minnes intern OLTP-lagring i procent. Ej tillämpligt för data lager.|Inga dimensioner|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft. SQL/Servers/elasticPools
 
 |Mått|Mått visnings namn|Enhet|Sammansättnings typ|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
-|log_write_percent|Logg IO-procent|Procent|Medel|Logg IO-procent|Inga dimensioner|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent. Gäller för DTU-baserade elastiska pooler.|Inga dimensioner|
-|storage_percent|Använt data utrymme i procent||Procent|Medel|Lagrings procent|Inga dimensioner|
-|workers_percent|Arbetare i procent|Procent|Medel|Arbetare i procent|Inga dimensioner|
-|sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent|Inga dimensioner|
-|eDTU_limit|eDTU-gräns|Antal|Medel|eDTU-gräns. Gäller för DTU-baserade elastiska pooler.|Inga dimensioner|
-|storage_limit|Max storlek för data|Skickade|Medel|Lagrings gräns|Inga dimensioner|
-|eDTU_used|eDTU använt|Antal|Medel|eDTU används. Gäller för DTU-baserade elastiska pooler.|Inga dimensioner|
-|storage_used|Använt data utrymme|Skickade|Medel|Använt lagringsutrymme|Inga dimensioner|
-|xtp_storage_percent|Minnes intern OLTP-lagring i procent|Procent|Medel|Minnes intern OLTP-lagring i procent|Inga dimensioner|
-|cpu_limit|PROCESSOR gräns|Antal|Medel|PROCESSOR gräns. Gäller vCore-baserade elastiska pooler.|Inga dimensioner|
-|cpu_used|Använd CPU|Antal|Medel|Använd CPU. Gäller vCore-baserade elastiska pooler.|Inga dimensioner|
 |allocated_data_storage|Allokerat data utrymme|Skickade|Medel|Allokerat data utrymme|Inga dimensioner|
 |allocated_data_storage_percent|Allokerat data utrymme i procent|Procent|Maximal|Allokerat data utrymme i procent|Inga dimensioner|
+|cpu_limit|PROCESSOR gräns|Antal|Medel|PROCESSOR gräns. Gäller vCore-baserade elastiska pooler.|Inga dimensioner|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
+|cpu_used|Använd CPU|Antal|Medel|Använd CPU. Gäller vCore-baserade elastiska pooler.|Inga dimensioner|
+|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent. Gäller för DTU-baserade elastiska pooler.|Inga dimensioner|
+|eDTU_limit|eDTU-gräns|Antal|Medel|eDTU-gräns. Gäller för DTU-baserade elastiska pooler.|Inga dimensioner|
+|eDTU_used|eDTU använt|Antal|Medel|eDTU används. Gäller för DTU-baserade elastiska pooler.|Inga dimensioner|
+|log_write_percent|Logg IO-procent|Procent|Medel|Logg IO-procent|Inga dimensioner|
+|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
+|sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent|Inga dimensioner|
+|storage_limit|Max storlek för data|Skickade|Medel|Lagrings gräns|Inga dimensioner|
+|storage_percent|Använt data utrymme i procent||Procent|Medel|Lagrings procent|Inga dimensioner|
+|storage_used|Använt data utrymme|Skickade|Medel|Använt lagringsutrymme|Inga dimensioner|
+|sqlserver_process_core_percent|SQL Server process kärn procent|Procent|Maximal|Det här måttet är en plats hållare som inte har fyllts i för tillfället.|Inga dimensioner|
+|sqlserver_process_memory_percent|SQL Server process minne i procent|Procent|Maximal|Det här måttet är en plats hållare som inte har fyllts i för tillfället.|Inga dimensioner|
+|tempdb_data_size|Data fil storlek i tempdb i KB|Antal|Maximal|Data fil storlek för tempdb i KB. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller.|Inga dimensioner|
+|tempdb_log_size|TempDB-logg fils storlek kilobyte|Antal|Maximal|TempDB-logg fils storlek kilobyte. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller.|Inga dimensioner|
+|tempdb_log_used_percent|Procent använt tempdb-logg|Procent|Maximal|TempDB procent logg används. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller.|Inga dimensioner|
+|workers_percent|Arbetare i procent|Procent|Medel|Arbetare i procent|Inga dimensioner|
+|xtp_storage_percent|Minnes intern OLTP-lagring i procent|Procent|Medel|Minnes intern OLTP-lagring i procent|Inga dimensioner|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft. SQL/managedInstances
 
 |Mått|Mått visnings namn|Enhet|Sammansättnings typ|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|virtual_core_count|Antal virtuella kärnor|Antal|Medel|Antal virtuella kärnor|Inga dimensioner|
 |avg_cpu_percent|Genomsnittlig CPU-procent|Procent|Medel|Genomsnittlig CPU-procent|Inga dimensioner|
+|io_bytes_read|Lästa IO-byte|Skickade|Medel|Lästa IO-byte|Inga dimensioner|
+|io_requests|Antal IO-begäranden|Antal|Medel|Antal IO-begäranden|Inga dimensioner|
+|io_bytes_written|Skrivna IO-byte|Skickade|Medel|Skrivna IO-byte|Inga dimensioner|
 |reserved_storage_mb|Reserverat lagrings utrymme|Antal|Medel|Reserverat lagrings utrymme|Inga dimensioner|
 |storage_space_used_mb|Använt lagrings utrymme|Antal|Medel|Använt lagrings utrymme|Inga dimensioner|
-|io_requests|Antal IO-begäranden|Antal|Medel|Antal IO-begäranden|Inga dimensioner|
-|io_bytes_read|Lästa IO-byte|Skickade|Medel|Lästa IO-byte|Inga dimensioner|
-|io_bytes_written|Skrivna IO-byte|Skickade|Medel|Skrivna IO-byte|Inga dimensioner|
+|virtual_core_count|Antal virtuella kärnor|Antal|Medel|Antal virtuella kärnor|Inga dimensioner|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 

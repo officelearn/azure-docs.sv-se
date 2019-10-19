@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 780e639ad6e1ee721820749da2df9ea6efa07bd6
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: b97db5fcebeea67cc593a4d2c1fd677a55ad8559
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273732"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550171"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera Azure Time Series Insights för hands versions miljön
 
@@ -54,7 +54,7 @@ För att starta måste du ha tre ytterligare objekt:
 Om du vill skapa en ny Time Series Insights miljö väljer du ett Time Series-ID. Detta fungerar som logisk partition för dina data. Se till att dina Time Series ID är klara.
 
 > [!IMPORTANT]
-> Time Series-ID: n är *oföränderliga* och *kan inte ändras senare*. Verifiera var och en innan du väljer den sista och Använd den första.
+> Time Series-ID: n *kan inte ändras senare*. Verifiera var och en innan du väljer den sista och Använd den första.
 
 Du kan välja upp till tre nycklar för att unikt särskilja dina resurser. Mer information finns [i metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md) och [lagrings utrymme](./time-series-insights-update-storage-ingress.md).
 

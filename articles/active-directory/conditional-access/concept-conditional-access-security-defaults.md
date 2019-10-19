@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory säkerhets inställningar
-description: Säkerhets principer som är utformade för att skydda organisationer från vanliga attacker
+description: Säkerhets standard principer som skyddar organisationer från vanliga attacker
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,57 +11,67 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4921f0605f16a601f6e2ee9a15b71b50d253201
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 502fb8b49770b4933c44aa1eb447abb746943c0d
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453048"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554822"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
-Det kan vara svårt att hantera säkerhet om vanliga attacker, till exempel sprayning av lösen ord, uppspelning och nätfiske, blir mer och mer populära. Att skapa ett enklare sätt att göra din organisation mer skyddad från dessa vanliga attacker är målet med säkerhets inställningar i Azure Active Directory (AD). Med säkerhets inställningar blir det enklare att skydda din organisation från vanliga attacker. Säkerhets standarder innehåller förkonfigurerade säkerhets inställningar för dessa vanliga attacker. Microsoft skapar säkerhets inställningar som är tillgängliga för alla. Målet är att säkerställa att alla organisationer har en grundläggande säkerhets nivå som är aktive rad utan extra kostnad.
+Det kan vara svårt att hantera säkerhet när vanliga problem med identitets attacker blir mer populära. Bland dessa attacker ingår lösen ords spridning, uppspelning och nätfiske.
 
-![Skärm bild av den nya säkerhets standarden UX](./media/concept-conditional-access-security-defaults/security-defaults-azure-ad-portal.png)
+Standardvärden för säkerhet i Azure Active Directory (Azure AD) gör det enklare att skydda din organisation. Säkerhets standarder innehåller förkonfigurerade säkerhets inställningar för vanliga attacker. 
+
+Microsoft skapar säkerhets inställningar som är tillgängliga för alla. Målet är att säkerställa att alla organisationer har en grundläggande säkerhets nivå som är aktive rad utan extra kostnad. Du aktiverar säkerhets inställningarna i Azure Portal.
+
+![Skärm bild av Azure Portal med växla för att aktivera säkerhets inställningar](./media/concept-conditional-access-security-defaults/security-defaults-azure-ad-portal.png)
  
 Följande säkerhetskonfigurationer aktive ras i din klient organisation. 
 
-## <a name="unified-mfa-registration"></a>Enhetlig MFA-registrering
+## <a name="unified-multi-factor-authentication-registration"></a>Enhetlig Multi-Factor Authentication registrering
 
-Alla användare i din klient organisation behöver registreras för Azure Multi-Factor Authentication (MFA). Användare kommer att ha 14 dagar på sig att registrera sig för Azure MFA med hjälp av Microsoft Authenticator-appen. När 14 dagar har passerat kommer användaren inte att kunna logga in förrän MFA-registreringen har slutförts.
+Alla användare i din klient organisation måste registrera sig för multifaktorautentisering (MFA) i form av Azure Multi-Factor Authentication-tjänsten. Användare har 14 dagar på sig att registrera sig för Multi-Factor Authentication med hjälp av Microsoft Authenticator-appen. När 14 dagar har passerat kan användaren inte logga in förrän Multi-Factor Authentication registreringen är klar.
 
-Vi förstår att vissa användare kan vara frånvarande och/eller att de inte kommer att logga in under 14 dagar direkt efter att säkerhets inställningarna aktive ras. För att se till att alla användare får rimlig tid att registrera sig för MFA är 14-dagars perioden unik för varje användare. En användares 14-dagars period börjar efter sin första lyckade interaktiva inloggning när säkerhets inställningarna är aktiverade.
+Vi förstår att vissa användare kan vara frånvarande eller att inte logga in under 14 dagar omedelbart efter att säkerhets inställningarna har Aktiver ATS. För att säkerställa att varje användare har rimlig tid att registrera sig för Multi-Factor Authentication, är 14-dagars perioden unik för varje användare. En användares 14-dagars period börjar efter sin första lyckade interaktiva inloggning när du har aktiverat säkerhets inställningarna.
 
-## <a name="mfa-enforcement"></a>MFA-tvång
+## <a name="multi-factor-authentication-enforcement"></a>Multi-Factor Authentication tillämpning
 
 ### <a name="protecting-administrators"></a>Skydda administratörer
 
-Användare med åtkomst till privilegierade konton har ökat åtkomst till din miljö. På grund av den kraft de här kontona har måste du behandla dem med särskild omsorg. En gemensam metod för att förbättra skyddet av privilegierade konton är att kräva en starkare form av konto verifiering när de används för inloggning. I Azure Active Directory kan du få en bättre konto verifiering genom att kräva Multi-Factor Authentication.
+Användare med åtkomst till privilegierade konton har ökat åtkomst till din miljö. På grund av den kraft de här kontona har måste du behandla dem med särskild omsorg. En gemensam metod för att förbättra skyddet av privilegierade konton är att kräva en starkare form av konto verifiering för inloggning. I Azure AD kan du få en bättre konto verifiering genom att kräva Multi-Factor Authentication.
 
-När MFA-registreringen har slutförts krävs följande nio Azure AD-administratörs roller för att utföra MFA varje gång de loggar in.
+När registreringen med Multi-Factor Authentication har avslut ATS krävs följande nio Azure AD-administratörs roller för att utföra ytterligare autentisering varje gång de loggar in:
 
 - Global administratör
 - SharePoint-administratör
 - Exchange-administratör
 - Administratör för villkorlig åtkomst
 - Säkerhetsadministratör
-- Administratör för supportavdelningen/lösen ords administratör
+- Administratör för supportavdelningen eller lösen ords administratör
 - Faktureringsadministratör
 - Användar administratör
 - Administratör för autentisering
 
 ### <a name="protecting-all-users"></a>Skydda alla användare
 
-Vi rekommenderar att du tror att administratörs konton är de enda konton som behöver skydd med Multi-Factor Authentication (MFA). Administratörer har bred åtkomst till känslig information och kan göra ändringar i inställningarna för hela prenumerationen. Dåliga aktörer brukar dock vara mål för slutanvändare. När du har fått åtkomst kan de här Felaktiga aktörerna begära åtkomst till privilegie rad information å den ursprungliga konto innehavarens vägnar eller ladda ned hela katalogen för att utföra en nätfiske-attack i hela organisationen. En gemensam metod för att förbättra skyddet för alla användare är att kräva en starkare form av konto verifiering, till exempel Multi Factor Authentication (MFA) för alla. När MFA-registreringen har slutförts uppmanas användarna att ange MFA när det är nödvändigt.
+Vi tenderar att tro att administratörs konton är de enda konton som behöver extra lager av autentisering. Administratörer har bred åtkomst till känslig information och kan göra ändringar i inställningarna för hela prenumerationen. Men angripare brukar riktas mot slutanvändare. 
+
+När angripare får åtkomst kan de begära åtkomst till privilegie rad information å den ursprungliga konto innehavarens vägnar. De kan till och med Ladda ned hela katalogen för att utföra en nätfiske-attack på hela organisationen. 
+
+En gemensam metod för att förbättra skyddet för alla användare är att kräva en starkare form av konto verifiering, till exempel Multi-Factor Authentication, för alla. När användarna har slutfört Multi-Factor Authentication registreringen uppmanas de att ange ytterligare autentisering när det behövs.
 
 ### <a name="blocking-legacy-authentication"></a>Blockerar äldre autentisering
 
-Azure Active Directory (Azure AD) stöder en mängd olika autentiseringsprotokoll, inklusive äldre autentisering, för att ge dina användare enkel åtkomst till dina molnappar. Äldre autentisering är en term som hänvisar till en autentiseringsbegäran som görs av:
+För att ge dina användare enkel åtkomst till dina molnappar stöder Azure AD olika autentiseringsprotokoll, inklusive äldre autentisering. *Äldre autentisering* är en term som hänvisar till en autentiseringsbegäran som görs av:
 
-- Äldre Office-klienter som inte använder modern autentisering (till exempel Office 2010-klienten)
-- Alla klienter som använder äldre e-postprotokoll som IMAP/SMTP/POP3
+- Äldre Office-klienter som inte använder modern autentisering (till exempel en Office 2010-klient).
+- Alla klienter som använder äldre e-postprotokoll som IMAP, SMTP eller POP3.
 
-Idag kommer majoriteten av alla kompromissade inloggnings försök från äldre autentisering. Äldre autentisering stöder inte Multi-Factor Authentication (MFA). Även om du har en MFA-princip aktive rad i din katalog, kan en felaktig aktör autentisera med ett äldre protokoll och kringgå MFA. När säkerhets inställningarna har Aktiver ATS i din klient kommer alla autentiseringsbegäranden som gjorts av ett äldre protokoll att blockeras. Säkerhets standarder blockerar inte Exchange ActiveSync.
+Idag kommer majoriteten av att kompromissa inloggnings försök komma från äldre autentisering. Äldre autentisering stöder inte Multi-Factor Authentication. Även om du har aktiverat en Multi-Factor Authentication princip i din katalog kan en angripare autentisera med hjälp av ett äldre protokoll och kringgå Multi-Factor Authentication. 
+
+När säkerhets inställningarna har Aktiver ATS i din klient kommer alla autentiseringsbegäranden som gjorts av ett äldre protokoll att blockeras. Säkerhets standarder blockerar inte Exchange ActiveSync.
 
 ### <a name="protecting-privileged-actions"></a>Skydda privilegierade åtgärder
 
@@ -71,28 +81,34 @@ Organisationer använder en mängd olika Azure-tjänster som hanteras via Azure 
 - Azure PowerShell 
 - Azure CLI
 
-Att använda Azure Resource Manager för att hantera dina tjänster är en mycket privilegie rad åtgärd. Azure Resource Manager kan ändra konfigurationer för hela klienten, till exempel tjänst inställningar och fakturering av prenumerationer. Autentisering med en enda faktor är utsatt för en rad olika attacker, t. ex. nätfiske och lösen ords spridning. Därför är det viktigt att verifiera identiteten för användare som vill komma åt Azure Resource Manager och uppdatera konfigurationer genom att kräva Multi-Factor Authentication innan åtkomst tillåts.
+Att använda Azure Resource Manager för att hantera dina tjänster är en mycket privilegie rad åtgärd. Azure Resource Manager kan ändra konfigurationer för hela klienten, till exempel tjänst inställningar och fakturering av prenumerationer. Autentisering med en faktor är utsatt för en rad olika attacker, t. ex. nätfiske och lösen ords sprayning. 
 
-När säkerhets inställningarna har Aktiver ATS i din klient, krävs alla användare som har åtkomst till Azure Portal, Azure PowerShell eller Azure CLI för att slutföra Multi-Factor Authentication. Den här principen gäller för alla användare som har åtkomst till Azure Resource Manager, oavsett om de är en administratör eller en användare. Om användaren inte är registrerad för MFA måste användaren registrera sig med hjälp av Microsoft Authenticator-appen för att kunna fortsätta. Ingen 14 dagars MFA-registrerings period kommer att tillhandahållas.
+Det är viktigt att du verifierar identiteten för användare som vill komma åt Azure Resource Manager och uppdatera konfigurationer. Du verifierar identiteten genom att kräva ytterligare autentisering innan du tillåter åtkomst.
+
+När du har aktiverat säkerhets inställningarna i din klient, måste alla användare som har åtkomst till Azure Portal, Azure PowerShell eller Azure CLI slutföra ytterligare autentisering. Den här principen gäller för alla användare som har åtkomst till Azure Resource Manager, oavsett om de är en administratör eller en användare. 
+
+Om användaren inte har registrerats för Multi-Factor Authentication måste användaren registrera sig med hjälp av Microsoft Authenticator-appen för att kunna fortsätta. Ingen 14-dagars Multi-Factor Authentication registrerings period kommer att tillhandahållas.
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-Följande är några ytterligare överväganden som rör distribution av säkerhets inställningar för din klient organisation.
+Följande ytterligare överväganden är relaterade till distribution av säkerhets inställningar för din klient.
 
-### <a name="legacy-protocols"></a>Äldre protokoll
+### <a name="older-protocols"></a>Äldre protokoll
 
-Bakåtkompatibla autentiseringsprotokoll (IMAP, SMTP, POP3 osv.) används av e-postklienter för att göra autentiseringsbegäranden. Dessa protokoll stöder inte MFA. De flesta konto kompromisser som visas av Microsoft orsakas av felaktiga aktörer som utför attacker mot äldre protokoll som försöker kringgå MFA. För att säkerställa att MFA krävs vid inloggning på ett administrativt konto och felaktiga aktörer inte kan kringgå MFA, blockerar säkerhets standardvärden alla autentiseringsbegäranden som görs till administratörs konton från äldre protokoll.
+E-postklienter använder äldre autentiseringsprotokoll (t. ex. IMAP, SMTP och POP3) för att göra autentiseringsbegäranden. Dessa protokoll stöder inte Multi-Factor Authentication. De flesta konto kompromisser som Microsoft ser är från attacker mot äldre protokoll som försöker kringgå Multi-Factor Authentication. 
+
+För att säkerställa att Multi-Factor Authentication krävs för att logga in på ett administrativt konto och att angripare inte kan kringgå det, blockerar säkerhets standardvärden alla autentiseringsbegäranden till administratörs konton från äldre protokoll.
 
 > [!WARNING]
-> Innan du aktiverar den här inställningen bör du kontrol lera att dina administratörer inte använder bakåtkompatibla autentiseringsprotokoll. Mer information finns i artikeln [så här flyttar du bort från äldre autentisering](concept-conditional-access-block-legacy-authentication.md).
+> Innan du aktiverar den här inställningen ser du till att administratörer inte använder äldre autentiseringsprotokoll. Mer information finns i [så här flyttar du bort från äldre autentisering](concept-conditional-access-block-legacy-authentication.md).
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
 
-Villkorlig åtkomst kan användas för att konfigurera principer som ger samma beteende som säkerhets inställningar. Om du använder villkorlig åtkomst och har principer för villkorlig åtkomst aktive rad i din miljö, är säkerhets inställningarna inte tillgängliga för dig. Om du har en licens som ger villkorlig åtkomst men inte har några principer för villkorlig åtkomst aktive rad i din miljö, är du välkommen att använda säkerhets inställningar tills du aktiverar CA-principer.
+Du kan använda villkorlig åtkomst för att konfigurera principer som ger samma beteende som säkerhets inställningar. Om du använder villkorlig åtkomst och har principer för villkorlig åtkomst aktive rad i din miljö är säkerhets inställningar inte tillgängliga för dig. Om du har en licens som ger villkorlig åtkomst men inte har några principer för villkorlig åtkomst aktive rad i din miljö, är du välkommen att använda säkerhets inställningar tills du aktiverar principer för villkorlig åtkomst.
 
-![Säkerhets standarder eller villkorlig åtkomst inte båda](./media/concept-conditional-access-security-defaults/security-defaults-conditional-access.png)
+![Varnings meddelande om att du kan ha säkerhets inställningar eller villkorlig åtkomst inte båda](./media/concept-conditional-access-security-defaults/security-defaults-conditional-access.png)
 
-Här följer stegvisa guider om hur villkorlig åtkomst kan användas för att konfigurera likvärdiga principer:
+Här följer stegvisa guider om hur du kan använda villkorlig åtkomst för att konfigurera likvärdiga principer:
 
 - [Kräv MFA för administratörer](howto-conditional-access-policy-admin-mfa.md)
 - [Kräv MFA för Azure-hantering](howto-conditional-access-policy-azure-management.md)
@@ -103,10 +119,10 @@ Här följer stegvisa guider om hur villkorlig åtkomst kan användas för att k
 Så här aktiverar du säkerhets inställningar i din katalog:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) As en säkerhets administratör, en administratör för villkorlig åtkomst eller global administratör.
-1. Bläddra till **Azure Active Directory**  @ no__t-2 **Egenskaper**
-1. Välj **hantera säkerhets inställningar**
+1. Bläddra till **Azure Active Directory**   > **Egenskaper**.
+1. Välj **hantera säkerhets inställningar**.
 1. Ställ in **Aktivera säkerhets inställningar** växla till **Ja**.
-1. Klicka på Spara.
+1. Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

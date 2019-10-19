@@ -1,56 +1,50 @@
 ---
-title: Så här uppdaterar du Azure Monitor för behållare för mått | Microsoft Docs
-description: Den här artikeln beskriver hur du uppdaterar Azure Monitor för behållare om du vill aktivera funktionen för anpassade mått som stöder utforska och aviseringar på aggregerade mätvärden.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
+title: Uppdatera Azure Monitor för behållare för mått | Microsoft Docs
+description: I den här artikeln beskrivs hur du uppdaterar Azure Monitor för behållare för att aktivera funktionen anpassade mått som stöder utforska och aviserar på sammansatta mått.
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/06/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/06/2019
+ms.openlocfilehash: dd1618151b97ab4f958bfd5d50333b9551014f0f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148861"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554065"
 ---
-# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Så här uppdaterar du Azure Monitor för behållare för att aktivera mätvärden
-Azure Monitor för behållare presenterar stöd för att samla in mått från Azure Kubernetes Services (AKS) kluster noder och poddar och sparar dem i arkivet för Azure Monitor-mått. Den här ändringen är avsedd att leverera förbättrad skyndsamhet när du presenterar sammanställd beräkningar (Avg, Count, Max, Min, summan) i prestandadiagram, fästa prestandadiagram i Azure portal-instrumentpaneler, support och stöd för aviseringar för mått.
+# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Så här uppdaterar du Azure Monitor för behållare för att aktivera mått
+Azure Monitor for containers introducerar stöd för att samla in mått från Azure Kubernetes Services (AKS)-kluster noder och poddar och skriva dem till Azure Monitor statistik lager. Den här ändringen är avsedd att ge förbättrad tids linje när du presenterar agg regerings beräkningar (medelvärde, antal, Max, min, summa) i prestanda diagram, stöd för att fästa prestanda diagram i Azure Portal instrument paneler och stöd för mått aviseringar.
 
 Följande mått är aktiverade som en del av den här funktionen:
 
-| Metrisk namnområde | Mått | Beskrivning |
+| Mått namn område | Mått | Beskrivning |
 |------------------|--------|-------------|
-| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Det här är *nod* mått och inkludera *värden* eftersom en dimension och de innehåller också den<br> nodnamn som värde för den *värden* dimension. |
-| Insights.container/pods | podCount | Det här är *pod* mått och inkluderar följande som dimensioner - ControllerName, Kubernetes namnområdes, namn, fas. |
+| Insights. container/Nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Detta är *nod* -mått och inkluderar *värd* som en dimension, och de innehåller också<br> nodens namn som värde för *värd* dimensionen. |
+| Insights. container/poddar | podCount | Dessa är *Pod* mått och inkluderar följande som dimensioner – ControllerName, Kubernetes-namnrymd, namn, fas. |
 
-Uppdaterar kluster för att stödja de här nya funktionerna kan utföras från Azure-portalen, Azure PowerShell eller med Azure CLI. Med Azure PowerShell och CLI kan du aktivera den här per kluster eller för alla kluster i din prenumeration. Nya distributioner av AKS inkluderar automatiskt den här konfigurationsändring och funktioner.
+Uppdatering av klustret för att stödja de här nya funktionerna kan utföras från Azure Portal, Azure PowerShell eller med Azure CLI. Med Azure PowerShell och CLI kan du aktivera detta per-kluster eller för alla kluster i din prenumeration. Nya distributioner av AKS kommer automatiskt att inkludera den här konfigurations ändringen och-funktionerna.
 
-Antingen bearbetar tilldelar den **övervakning mått Publisher** rollen till klustrets tjänstens huvudnamn, så att data som samlas in av agenten kan publiceras till kluster-resursen. Övervaka mått utgivaren har behörighet att endast push-mått till resursen, den kan inte ändra några tillstånd, uppdatera resursen eller läsa alla data. Mer information om rollen finns i [övervakning mått utgivarroll](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Antingen tilldelar den **övervaknings mått utgivar** rollen rollen som övervaknings mått till klustrets huvud namn, så att data som samlas in av agenten kan publiceras i kluster resursen. Övervaknings mått utgivare har bara behörighet att skicka mått till resursen, den kan inte ändra något tillstånd, uppdatera resursen eller läsa data. Mer information om rollen finns i [övervaknings mått utgivar rollen](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
-Innan du börjar bör du se till att du är medlem i den **[ägare](../../role-based-access-control/built-in-roles.md#owner)** -rollen på AKS-klusterresursen för att aktivera insamling av noden och pod anpassade prestandamått. 
+## <a name="prerequisites"></a>Krav 
+Innan du börjar ska du se till att du är medlem i **[ägar](../../role-based-access-control/built-in-roles.md#owner)** rollen i AKS-klusterresursen för att aktivera insamling av nod-och Pod anpassade prestanda mått. 
 
-Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.59 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Uppgradera ett kluster från Azure portal
+## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Uppgradera ett kluster från Azure Portal
 
-Befintliga AKS-kluster som övervakas av Azure Monitor för behållare kan du efter att välja klustret för att visa dess hälsa från vyn flera kluster i Azure Monitor eller direkt från klustret genom att välja **Insights** från den vänstra fönstret visas en banderoll överst på portalen.
+För befintliga AKS-kluster som övervakas av Azure Monitor för behållare, när du har valt klustret för att Visa hälsan från vyn multi-cluster i Azure Monitor eller direkt från klustret genom att välja **insikter** från den vänstra rutan, bör du se en banderoll överst i portalen.
 
-![Uppgradera AKS-kluster banderoll i Azure-portalen](./media/container-insights-update-metrics/portal-banner-enable-01.png)
+![Uppgradera AKS Cluster banderoll i Azure Portal](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 
-Klicka på **aktivera** initierar processen för att uppgradera klustret. Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under meddelanden från menyn.
+När du klickar på **Aktivera** startas processen för att uppgradera klustret. Den här processen kan ta flera sekunder att slutföra och du kan följa förloppet under meddelanden på menyn.
 
-## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>Uppgradera alla kluster med Bash i Azure-kommandogränssnittet
-Utför följande steg för att uppdatera alla kluster i din prenumeration med Bash i Azure-kommandogränssnittet.
+## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>Uppgradera alla kluster med bash i Azure Command Shell
+Utför följande steg för att uppdatera alla kluster i din prenumeration med bash i Azure Command Shell.
 
-1. Kör följande kommando med hjälp av Azure CLI.  Redigera värdet för **subscriptionId** med värdet från den **översikt över AKS** för AKS-klustret.
+1. Kör följande kommando med hjälp av Azure CLI.  Redigera värdet för **subscriptionId** med värdet från **översikts sidan AKS** för AKS-klustret.
 
     ```azurecli
     az login
@@ -58,16 +52,16 @@ Utför följande steg för att uppdatera alla kluster i din prenumeration med Ba
     curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
-    Konfigurationsändringen kan ta några sekunder att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
+    Konfigurations ändringen kan ta några sekunder att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
     ```azurecli
     completed role assignments for all AKS clusters in subscription: <subscriptionId>
     ```
 
 ## <a name="upgrade-per-cluster-using-azure-cli"></a>Uppgradera per kluster med Azure CLI
-Utför följande steg för att uppdatera ett specifikt kluster i din prenumeration med Azure CLI.
+Utför följande steg för att uppdatera ett särskilt kluster i din prenumeration med Azure CLI.
 
-1. Kör följande kommando med hjälp av Azure CLI. Redigera värdena för **subscriptionId**, **resourceGroupName**, och **clusterName** med hjälp av värdena på den **översikt över AKS** för den AKS-kluster.  Att hämta värdet för **clientIdOfSPN**, returneras när du kör kommandot `az aks show` som visas i exemplet nedan.
+1. Kör följande kommando med hjälp av Azure CLI. Redigera värdena för **subscriptionId**, **resourceGroupName**och **kluster** namn med hjälp av värdena på **översikts** sidan för AKS för AKS-klustret.  För att hämta värdet för **clientIdOfSPN**returneras det när du kör kommandot `az aks show` som du ser i exemplet nedan.
 
     ```azurecli
     az login
@@ -77,7 +71,7 @@ Utför följande steg för att uppdatera ett specifikt kluster i din prenumerati
     ``` 
 
 ## <a name="upgrade-all-clusters-using-azure-powershell"></a>Uppgradera alla kluster med Azure PowerShell
-Utför följande steg för att uppdatera alla kluster i din prenumeration med hjälp av Azure PowerShell.
+Utför följande steg för att uppdatera alla kluster i prenumerationen med hjälp av Azure PowerShell.
 
 1. Kopiera och klistra in följande skript i filen:
 
@@ -319,20 +313,20 @@ Utför följande steg för att uppdatera alla kluster i din prenumeration med hj
     Write-Host("Completed adding role assignment for the aks clusters in subscriptionId :$SubscriptionId")   
     ```
 
-2. Spara filen som **onboard_metrics_atscale.ps1** till en lokal mapp.
-3. Kör följande kommando med hjälp av Azure PowerShell.  Redigera värdet för **subscriptionId** med värdet från den **översikt över AKS** för AKS-klustret.
+2. Spara filen som **onboard_metrics_atscale. ps1** i en lokal mapp.
+3. Kör följande kommando med hjälp av Azure PowerShell.  Redigera värdet för **subscriptionId** med värdet från **översikts sidan AKS** för AKS-klustret.
 
     ```powershell
     .\onboard_metrics_atscale.ps1 subscriptionId
     ```
-    Konfigurationsändringen kan ta några sekunder att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
+    Konfigurations ändringen kan ta några sekunder att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
     ```powershell
     Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
     ```
 
 ## <a name="upgrade-per-cluster-using-azure-powershell"></a>Uppgradera per kluster med Azure PowerShell
-Utför följande steg för att uppdatera ett specifikt kluster med Azure PowerShell.
+Utför följande steg för att uppdatera ett enskilt kluster med hjälp av Azure PowerShell.
 
 1. Kopiera och klistra in följande skript i filen:
 
@@ -568,18 +562,18 @@ Utför följande steg för att uppdatera ett specifikt kluster med Azure PowerSh
     }
     ```
 
-2. Spara filen som **onboard_metrics.ps1** till en lokal mapp.
-3. Kör följande kommando med hjälp av Azure PowerShell. Redigera värdena för **subscriptionId**, **resourceGroupName**, och **clusterName** med hjälp av värdena på den **översikt över AKS** för den AKS-kluster.
+2. Spara filen som **onboard_metrics. ps1** i en lokal mapp.
+3. Kör följande kommando med hjälp av Azure PowerShell. Redigera värdena för **subscriptionId**, **resourceGroupName**och **kluster** namn med hjälp av värdena på **översikts** sidan för AKS för AKS-klustret.
 
     ```powershell
     .\onboard_metrics.ps1 subscriptionId <subscriptionId> resourceGroupName <resourceGroupName> clusterName <clusterName>
     ```
 
-    Konfigurationsändringen kan ta några sekunder att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
+    Konfigurations ändringen kan ta några sekunder att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
     ```powershell
     Successfully added Monitoring Metrics Publisher role assignment to cluster : <clusterName>
     ```
 
-## <a name="verify-update"></a>Kontrollera update 
-När du initierar uppdateringen med någon av de metoder som beskrivs ovan, kan du använda Azure Monitor metrics explorer och verifiera från den **mått namnområde** som **insights** visas. Om det är detta anger du kan gå vidare och börjar konfigurera [måttaviseringar](../platform/alerts-metric.md) eller fästa diagram på [instrumentpaneler](../../azure-portal/azure-portal-dashboards.md).  
+## <a name="verify-update"></a>Verifiera uppdatering 
+När du har initierat uppdateringen med hjälp av någon av metoderna som beskrivs ovan kan du använda Azure Monitor Metrics Explorer och verifiera från **mått namn området** som **insikter** visas. Om det är det betyder det att du kan gå vidare och börja konfigurera [mått varningar](../platform/alerts-metric.md) eller fästa dina diagram på [instrument paneler](../../azure-portal/azure-portal-dashboards.md).  

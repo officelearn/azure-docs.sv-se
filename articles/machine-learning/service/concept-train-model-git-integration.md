@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: db96663ef3d901546e1b32362a9eb9c9ae09dd21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1ef9f3f847cb74aca0cae66dc8354838d28a645f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377517"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553643"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Git-integrering för Azure Machine Learning
 
@@ -26,15 +26,15 @@ Eftersom Azure Machine Learning spårar information från en lokal git-lagrings 
 
 När du skickar en utbildning som körs från python SDK eller Machine Learning CLI överförs filerna som behövs för att träna modellen till din arbets yta. Om kommandot `git` är tillgängligt i utvecklings miljön använder överförings processen för att kontrol lera om filerna lagras på en git-lagringsplats. I så fall, överförs information från git-lagringsplatsen också som en del av övnings körningen. Den här informationen lagras i följande egenskaper för övnings körningen:
 
-| Egenskap | Beskrivning |
-| ----- | ----- |
-| `azureml.git.repository_uri` | Den URI som din lagrings plats har kopierats från. |
-| `mlflow.source.git.repoURL` | Den URI som din lagrings plats har kopierats från. |
-| `azureml.git.branch` | Den aktiva grenen när körningen skickades. |
-| `mlflow.source.git.branch` | Den aktiva grenen när körningen skickades. |
-| `azureml.git.commit` | Bekräfta hashen för den kod som skickades för körningen. |
-| `mlflow.source.git.commit` | Bekräfta hashen för den kod som skickades för körningen. |
-| `azureml.git.dirty` | `True`, om genomförandet är smutsig; Annars, `false`. |
+| Egenskap | Git-kommando som används för att hämta värdet | Beskrivning |
+| ----- | ----- | ----- |
+| `azureml.git.repository_uri` | `git ls-remote --get-url` | Den URI som din lagrings plats har kopierats från. |
+| `mlflow.source.git.repoURL` | `git ls-remote --get-url` | Den URI som din lagrings plats har kopierats från. |
+| `azureml.git.branch` | `git symbolic-ref --short HEAD` | Den aktiva grenen när körningen skickades. |
+| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | Den aktiva grenen när körningen skickades. |
+| `azureml.git.commit` | `git rev-parse HEAD` | Bekräfta hashen för den kod som skickades för körningen. |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | Bekräfta hashen för den kod som skickades för körningen. |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`, om grenen/genomförandet är smutsig; annars `false`. |
 
 Den här informationen skickas för körningar som använder en uppskattnings-, maskin inlärnings-pipeline eller skript körning.
 
@@ -49,7 +49,9 @@ Git-informationen lagras i egenskaperna för en utbildnings körning. Du kan vis
 1. Välj din arbets yta från [Azure Portal](https://portal.azure.com).
 1. Välj __experiment__och välj sedan ett av experimenten.
 1. Välj en av körningarna från kolumnen __Kör nummer__ .
-1. Välj __loggar__och expandera sedan __loggarna__ och __azureml__ -posterna. Välj den länk som börjar med __### @ no__t-2azure__.
+1. Välj __loggar__och expandera sedan __loggarna__ och __azureml__ -posterna. Välj den länk som börjar med __### \_azure__.
+
+    ![Posten # # #_azure i portalen](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
 Den loggade informationen innehåller text som liknar följande JSON:
 

@@ -1,19 +1,18 @@
 ---
 title: Smarta grupper
 description: Smarta grupper är agg regeringar för aviseringar som hjälper dig att minska aviserings bruset
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/15/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 08657163eb170b8d3185ce15bd724f1f55bbe2bd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 05/15/2018
+ms.openlocfilehash: 83ea68ad92a6c78ccf56483e1f0c2cbcbcd7d22a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702860"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552361"
 ---
 # <a name="smart-groups"></a>Smarta grupper
 En vanlig utmaning vid hantering av aviseringar är att gå igenom bruset och ta reda på vad som egentligen är viktigt – smarta grupper är avsedda att vara lösningen på det problemet.  
@@ -29,11 +28,11 @@ Smart Group State är ett liknande koncept som aviserings tillstånd, vilket gö
 
 Följande Smart Group-tillstånd stöds.
 
-| State | Beskrivning |
+| Status | Beskrivning |
 |:---|:---|
-| Ny | Problemet har precis identifierats och har ännu inte granskats. |
+| Nytt | Problemet har precis identifierats och har ännu inte granskats. |
 | Godkänt | En administratör har granskat den smarta gruppen och börjat arbeta med den. |
-| Stängd | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
+| kopplade | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
 
 [Lär dig hur du ändrar status för din smart grupp.](https://aka.ms/managing-alert-smart-group-states)
 

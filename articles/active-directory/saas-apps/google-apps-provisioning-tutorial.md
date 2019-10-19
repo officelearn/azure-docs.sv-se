@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera G Suite för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du automatiskt etablera och avetablera användarkonton från Azure AD till G Suite.
+title: 'Självstudie: Konfigurera G Suite för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du automatiskt etablerar och avetablerar användar konton från Azure AD till G Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,170 +15,200 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0187d17f8210800aef1c68def0614ce26913e09a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60276999"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555031"
 ---
-# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudier: Konfigurera G Suite för automatisk användaretablering
+# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera G Suite för automatisk användar etablering
 
-Målet med den här självstudien är att visa dig hur du automatiskt etablera och avetablera användarkonton från Azure Active Directory (AD Azure) till G Suite.
+Syftet med den här självstudien är att demonstrera de steg som utförs i G Suite och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper i G Suite.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+> [!NOTE]
+> G Suite Connector uppdaterades nyligen den 2019 oktober. Ändringar som görs i G Suite Connector inkluderar:
+- Stöd har lagts till för ytterligare användar-och Gruppattribut i G Suite. 
+- Uppdaterade G Suite-målattribut för att matcha vad som definieras [här]().
+- Uppdaterade mappningar av standardattribut.
+
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med G Suite, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En prenumeration med enkel inloggning med G Suite aktiverat
-- En Google Apps-prenumeration eller Google Cloud Platform-prenumeration.
+- En Azure AD-klient
+- [En G Suite-klient](https://gsuite.google.com/pricing.html)
+- Ett användar konto i en G-Svit med administratörs behörighet.
 
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
+## <a name="assign-users-to-g-suite"></a>Tilldela användare G Suite
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver ha till gång till G Suite. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till G Suite genom att följa anvisningarna här:
 
-## <a name="assign-users-to-g-suite"></a>Tilldela användare till G Suite
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD.
+### <a name="important-tips-for-assigning-users-to-g-suite"></a>Viktiga tips för att tilldela användare G Suite
 
-Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare eller grupper i Azure AD behöver åtkomst till din app. När du har gjort detta beslut, du kan tilldela dessa användare till din app genom att följa instruktionerna i [tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+* Vi rekommenderar att en enda Azure AD-användare tilldelas G Suite för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-> [!IMPORTANT]
-> Vi rekommenderar att en enda Azure AD-användare tilldelas till G Suite för att testa etablering konfigurationen. Du kan tilldela ytterligare användare och grupper senare.
-> 
-> När du tilldelar en användare till G Suite, väljer du den **användaren** eller **grupp** roll i dialogrutan tilldelning. Den **standard åtkomst** rollen fungerar inte för etablering.
+* När du tilldelar en användare till G Suite måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk användaretablering
+## <a name="setup-g-suite-for-provisioning"></a>Konfigurera G Suite för etablering
 
-Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD till det användarkonto som etablerar API för G Suite. Du kan dessutom konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i G Suite baserat på användare och grupptilldelning i Azure AD.
+Innan du konfigurerar G Suite för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering på G Suite.
 
->[!TIP]
->Du kan också välja att aktivera SAML-baserad enkel inloggning för G-paket genom att följa anvisningarna i den [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
-
-### <a name="configure-automatic-user-account-provisioning"></a>Konfigurera automatisk användarens kontoetablering
-
-> [!NOTE]
-> En annan genomförbart alternativ för att automatisera användaretablering för G Suite är att använda [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS etablerar din lokala Active Directory-identiteter på G Suite. Lösningen i den här självstudien etablerar däremot din Azure Active Directory (moln)-användare och e-postaktiverade grupper till G Suite. 
-
-1. Logga in på den [Google Apps-administratörskonsolen](https://admin.google.com/) med ditt administratörskonto och välj sedan **Security**. Om du inte ser länken, kan den vara dold den **fler kontroller** menyn längst ned på skärmen.
+1. Logga in på administratörs [konsolen för G Suite](https://admin.google.com/) med ditt administratörs konto och välj sedan **säkerhet**. Om du inte ser länken kan den vara dold under menyn **fler kontroller** längst ned på skärmen.
 
     ![Välj säkerhet.][10]
 
-1. På den **Security** väljer **API-referens**.
+2. På sidan **säkerhet** väljer du **API-referens**.
 
     ![Välj API-referens.][15]
 
-1. Välj **aktivera API-åtkomst**.
+3. Välj **Aktivera API-åtkomst**.
 
     ![Välj API-referens.][16]
 
    > [!IMPORTANT]
-   > För varje användare som du vill etablera till G Suite sina användarnamn i Azure Active Directory *måste* vara bundna till en anpassad domän. Exempelvis användarens namn som bob@contoso.onmicrosoft.com tillåts inte av G Suite. Å andra sidan bob@contoso.com accepteras. Du kan ändra en befintlig användares domän genom att redigera deras egenskaper i Azure AD. Innehåller instruktioner för hur du ställer in en anpassad domän för både Azure Active Directory och G Suite i följande steg.
+   > För varje användare som du tänker etablera till G Suite **måste** deras användar namn i Azure AD vara knutet till en anpassad domän. Till exempel godkänns inte användar namn som liknar bob@contoso.onmicrosoft.com av G Suite. Å andra sidan godkänns bob@contoso.com. Du kan ändra en befintlig användares domän genom att följa instruktionerna [här](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
 
-1. Om du inte har lagt till ett anpassat domännamn till Azure Active Directory ännu, gör du följande:
-  
-    a. I den [Azure-portalen](https://portal.azure.com), i det vänstra navigeringsfönstret väljer **Active Directory**. I kataloglistan väljer du din katalog.
+4.  När du har lagt till och verifierat önskade anpassade domäner med Azure AD måste du verifiera dem igen med G Suite. Se följande steg för att verifiera domäner i G Suite:
 
-    b. Välj **domännamn** på den vänstra navigeringsfönstret och välj sedan **Lägg till**.
-
-    ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
-
-    ![Lägg till domän](./media/google-apps-provisioning-tutorial/domain_2.png)
-
-    c. Skriv ditt domännamn till den **domännamn** fält. Det här domännamnet måste vara samma domännamn som du planerar att använda för G Suite. Välj sedan den **Lägg till domän** knappen.
-
-    ![Domännamn](./media/google-apps-provisioning-tutorial/domain_3.png)
-
-    d. Välj **nästa** att gå till sidan för verifiering. Kontrollera att du äger den här domänen genom att redigera domänens DNS-poster enligt de värden som finns på den här sidan. Du kan välja att verifiera genom att använda antingen **MX-poster** eller **TXT-poster**, beroende på vad du väljer för den **posttypen** alternativet.
-
-    Mer omfattande information om hur du verifierar domännamn med Azure AD finns [lägga till ditt eget domännamn i Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
-
-    ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
-
-    e. Upprepa föregående steg för alla domäner som du vill lägga till i din katalog.
-
-    > [!NOTE]
-    > Den anpassade domänen måste matcha domännamnet för Azure AD-källan för etableringen av användare. Om de inte matchar kanske du kan lösa problemet genom att implementera attributet mappning anpassning.
-
-1. Nu när du har verifierat dina domäner med Azure AD, måste du kontrollera dem igen med Google Apps. För varje domän som inte redan har registrerats med Google, gör du följande:
-
-    a. I den [Google Apps-administratörskonsolen](https://admin.google.com/)väljer **domäner**.
+    a. I [Administratörs konsolen för G Suite](https://admin.google.com/)väljer du **domäner**.
 
     ![Välj domäner][20]
 
-    b. Välj **lägga till en domän eller en domän alias**.
+    b. Välj **Lägg till en domän eller ett domän Ali Aset**.
 
     ![Lägg till en ny domän][21]
 
-    c. Välj **lägga till en annan domän**, och skriv sedan namnet på den domän som du vill lägga till.
+    c. Välj **Lägg till en annan domän**och skriv sedan namnet på den domän som du vill lägga till.
 
-    ![Skriv ditt domännamn][22]
+    ![Ange ditt domän namn][22]
 
-    d. Välj **Fortsätt och verifiera domänägarskap**. Följ stegen för att verifiera att du äger domännamnet. Omfattande anvisningar för hur du verifierar din domän med Google, se [verifiera ditt platsägarskap med Google Apps](https://support.google.com/webmasters/answer/35179).
+    d. Välj **Fortsätt och verifiera domän ägarskap**. Följ sedan stegen för att kontrol lera att du äger domän namnet. Omfattande instruktioner för hur du verifierar din domän med Google finns i [Verifiera din webbplats ägarskap](https://support.google.com/webmasters/answer/35179).
 
-    e. Upprepa föregående steg för eventuella ytterligare domäner som du vill lägga till i Google Apps.
+    e. Upprepa föregående steg för eventuella ytterligare domäner som du vill lägga till i G Suite.
 
-    > [!WARNING]
-    > Om du ändrar den primära domänen för din G Suite-klient, och om du redan har konfigurerat enkel inloggning med Azure AD, måste du upprepa steg #3 under steg 2: Aktivera enkel inloggning.
+5. Bestäm sedan vilket administratörs konto som du vill använda för att hantera användar etablering i G Suite. Gå till **Administratörs roller**.
 
-1. I den [Google Apps-administratörskonsolen](https://admin.google.com/)väljer **Administratörsrollerna**.
+    ![Välj Google Apps][26]
+    
+6. Redigera **behörigheterna** för den rollen för **Administratörs rollen** för kontot. Se till att aktivera alla **Administratörs-API-privilegier** så att det här kontot kan användas för etablering.
 
-    ![Select Google Apps][26]
+    ![Välj Google Apps][27]
 
-1. Avgör vilket administratörskonto som du vill använda för att hantera etableringen av användare. För den **administratörsroll** för kontot, redigera den **privilegier** för rollen. Se till att aktivera alla **API administratörsprivilegier** så att det här kontot kan användas för etablering.
+## <a name="add-g-suite-from-the-gallery"></a>Lägg till G Suite från galleriet
 
-    ![Select Google Apps][27]
+Om du vill konfigurera G Suite för automatisk användar etablering med Azure AD måste du lägga till G Suite från Azure AD-programgalleriet i listan över hanterade SaaS-program. 
 
-    > [!NOTE]
-    > Om du konfigurerar en produktionsmiljö är det bästa sättet att skapa ett administratörskonto i G Suite specifikt för det här steget. Dessa konton måste ha en administratörsroll som är associerade med dem som har de nödvändiga privilegierna för API: et.
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory** > **Företagsappar** > **alla program** avsnittet.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Om du redan har konfigurerat G Suite för enkel inloggning kan du söka efter din G Suite-instans med hjälp av sökfältet. Annars väljer **Lägg till**, och söker sedan efter **G Suite** eller **Google Apps** i programgalleriet. Välj din app från sökresultaten och sedan lägga till den i listan med program.
+2. Gå till **företags program**och välj sedan **alla program**.
 
-1. Välj din instans av G Suite och välj sedan den **etablering** fliken.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Ange den **Etableringsläge** till **automatisk**. 
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
-    ![Etablering](./media/google-apps-provisioning-tutorial/provisioning.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
-1. Under den **administratörsautentiseringsuppgifter** väljer **auktorisera**. Det öppnar en dialogruta för Google-auktorisering i ett nytt webbläsarfönster.
+4. I rutan Sök anger du **g Suite**, väljer **g Suite** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
-1. Bekräfta att du vill ge Azure Active Directory-behörighet att göra ändringar i din G Suite-klient. Välj **Acceptera**.
+    ![G Suite i resultatlistan](common/search-new-app.png)
+
+## <a name="configuring-automatic-user-provisioning-to-g-suite"></a>Konfigurera automatisk användar etablering i G Suite 
+
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i G Suite utifrån användar-och/eller grupp tilldelningar i Azure AD.
+
+> [!TIP]
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för G Suite genom att följa anvisningarna i [självstudien g Suite enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+
+### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Konfigurera automatisk användar etablering för G Suite i Azure AD:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan program väljer du **G Suite**.
+
+    ![G Suite-länken i programlistan](common/all-applications.png)
+
+3. Välj fliken **etablering** .
+
+    ![Fliken etablering](common/provisioning.png)
+
+4. Ställ in **etablerings läget** på **automatiskt**.
+
+    ![Fliken etablering](common/provisioning-automatic.png)
+
+5. Under avsnittet **admin credentials** väljer du **auktorisera**. Den öppnar dialog rutan Google Authorization i ett nytt webbläsarfönster.
+
+    ![G Suite-auktorisering](media/google-apps-provisioning-tutorial/authorize.png)
+
+6. Bekräfta att du vill ge Azure AD-behörighet för att göra ändringar i G Suite-klienten. Välj **Acceptera**.
 
     ![Bekräfta behörigheter.][28]
 
-1. I Azure-portalen väljer du **Testanslutningen** så att Azure AD kan ansluta till din app. Om anslutningen misslyckas, kan du kontrollera att ditt G Suite-konto har administratörsbehörigheter för teamet. Försök sedan den **auktorisera** steg igen.
+7. I Azure Portal väljer du **Testa anslutning** för att se till att Azure AD kan ansluta till din app. Om anslutningen Miss lyckas kontrollerar du att ditt G Suite-konto har team administratörs behörighet. Försök sedan att **godkänna** steget igen.
 
-1. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fält. Markera sedan kryssrutan.
+8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-1. Välj **Spara.**
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
-1. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Google Apps**.
+8. Klicka på **Save** (Spara).
 
-1. I den **attributmappningar** går du igenom användarattribut som synkroniseras från Azure AD till G Suite. Attribut som är **matchande** egenskaper som används för att matcha användarkonton i G Suite för uppdateringsåtgärder. Välj **spara** att genomföra ändringarna.
+9. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till G Suite**.
 
-1. Om du vill aktivera den Azure AD-etableringstjänsten för G Suite, ändra den **Etableringsstatus** till **på** i **inställningar**.
+    ![G användar mappningar för Suite](media/google-apps-provisioning-tutorial/usermappings.png)
 
-1. Välj **Spara**.
+10. Granska de användarattribut som synkroniseras från Azure AD till G Suite i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i G Suite för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-Den här processen startar den första synkroniseringen av alla användare eller grupper som är kopplade till G Suite i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär varje 40 minuter medan tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar. Dessa loggar beskrivs alla åtgärder som utförs av etableringstjänsten i din app.
+    ![G Suite-användarattribut](media/google-apps-provisioning-tutorial/userattributes.png)
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+11. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till G Suite**.
+
+    ![G grupp mappningar för Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
+
+12. Granska gruppattributen som synkroniseras från Azure AD till G Suite i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i G Suite för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+
+    ![Attribut för G Suite-grupp](media/google-apps-provisioning-tutorial/groupattributes.png)
+
+13. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+14. Om du vill aktivera Azure AD Provisioning-tjänsten för G Suite ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+
+15. Definiera de användare och/eller grupper som du vill etablera till G Suite genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+
+    ![Etablerings omfång](common/provisioning-scope.png)
+
+16. När du är redo att etablera klickar du på **Spara**.
+
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på G Suite.
+
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+
+> [!NOTE]
+> Ett annat användbart alternativ för att automatisera användar etablering till G Suite är att använda [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en). Det här alternativet tillhandahåller dina lokala Active Directory identiteter för G Suite.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](tutorial-list.md)
+* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera enkel inloggning](google-apps-tutorial.md)
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+
 
 <!--Image references-->
 

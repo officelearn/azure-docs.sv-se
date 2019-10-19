@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: lahugh
-ms.openlocfilehash: 314056b6e55838d32c70d81570cdeaf7a84b6671
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1b906a9e3ce803b7f319a920f29b5a60f62c47b1
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300633"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550166"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Stöd för virtuella datorer i generation 2 (för hands version) på Azure
 
@@ -50,6 +50,9 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure. Azure erbj
 * [NCv2-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) och [NCv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
 * [ND-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
 * [NVv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
+
+> [!NOTE]
+> Användningen av virtuella datorer i generation 2 för virtuella datorer i Mv2-serien är allmänt tillgänglig eftersom Mv2-serien fungerar med generation 2 VM-avbildningar exklusivt. Generation 1 VM-avbildningar stöds inte på virtuella datorer i Mv2-serien. 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Generation 2 VM-avbildningar på Azure Marketplace
 

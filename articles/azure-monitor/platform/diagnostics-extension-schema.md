@@ -1,28 +1,26 @@
 ---
 title: Versions historik för Azure-diagnostik tilläggets konfigurations schema
 description: Relevant för att samla in prestanda räknare i Azure Virtual Machines VM Scale Sets, Service Fabric och Cloud Services.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: reference
-ms.date: 09/04/2019
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 09/04/2019
+ms.openlocfilehash: fe07c93ada2e8635d0f64caf8451ccdf530f6a22
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735093"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552136"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure-diagnostik tilläggs konfiguration schema versioner och historik
 Den här sidan indexerar Azure-diagnostik tilläggs schema versioner som ingår i Microsoft Azure SDK.  
 
 > [!NOTE]
 > Azure-diagnostik-tillägget är den komponent som används för att samla in prestanda räknare och annan statistik från:
-> - Azure virtuella maskiner
-> - Virtual Machine Scale Sets
+> - Azure Virtual Machines
+> - Skalningsuppsättningar för virtuell dator
 > - Service Fabric
 > - Cloud Services
 > - Nätverkssäkerhetsgrupper
@@ -35,18 +33,18 @@ Azure-diagnostik-tillägget används med andra Microsoft-diagnostiska produkter 
 
 |Azure SDK-version | Version för diagnostik-tillägg | Modell|  
 |------------------|-------------------------------|------|  
-|1.x               |1.0                            |plug-in|  
-|2.0 - 2.4         |1.0                            |plug-in|  
+|1.x               |1.0                            |plugin-program|  
+|2,0 – 2,4         |1.0                            |plugin-program|  
 |2.5               |1.2                            |utöka|  
-|2.6               |1.3                            |"|  
-|2.7               |1.4                            |"|  
-|2.8               |1.5                            |"|  
-|2.9               |1.6                            |"|
-|2.96              |1.7                            |"|
-|2.96              |1.8                            |"|
-|2.96              |1.8.1                          |"|
-|2.96              |1.9                            |"|
-|2.96              |1,11                           |"|
+|2,6               |1.3                            |"|  
+|2,7               |1,4                            |"|  
+|2,8               |1.5                            |"|  
+|2,9               |1,6                            |"|
+|2,96              |1,7                            |"|
+|2,96              |1,8                            |"|
+|2,96              |1.8.1                          |"|
+|2,96              |1,9                            |"|
+|2,96              |1,11                           |"|
 
 
  Azure-diagnostik version 1,0 först levererades i en plugin-modell, vilket innebär att när du installerade Azure SDK fick du den version av Azure Diagnostics som levererades med den.  
@@ -62,7 +60,7 @@ Olika versioner av Azure Diagnostics använder olika konfigurations scheman. Sch
 Stöd har lagts till för Azure Monitor mottagare. Denna mottagare kan bara användas för prestanda räknare. Möjliggör sändning av prestanda räknare som samlas in på din virtuella dator, VMSS eller moln tjänst till Azure Monitor som anpassade mått. Azure Monitor-mottagaren stöder:
 * Hämta alla prestanda räknare som skickats till Azure Monitor via [API: er för Azure Monitor mått.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 * Aviseringar om alla prestanda räknare som skickas till Azure Monitor via den nya [enhetliga aviserings upplevelsen](../../azure-monitor/platform/alerts-overview.md) i Azure Monitor
-* Behandlar operator med jokertecken i prestanda räknare som "instance"-dimensionen på måttet. Om du till exempel har samlat in räknaren "logisk disk (\*)/DiskWrites/SEC" kan du filtrera och dela på "instance"-dimensionen för att rita eller varna på disk skrivningar/s för varje logisk disk (C:, D: osv.)
+* Behandlar operator med jokertecken i prestanda räknare som "instance"-dimensionen på måttet. Om du till exempel har samlat in räknaren "logisk disk (\*)/DiskWrites/sec" kan du filtrera och dela på "instance"-dimensionen för att rita eller Varna vid disk skrivningar/s för varje logisk disk (C:, D: osv.)
 
 Definiera Azure Monitor som ny mottagare i konfiguration av diagnostiska tillägg
 ```json
@@ -195,7 +193,7 @@ När du migrerar från Azure SDK 2,5 till Azure SDK 2,6 eller senare, om du hade
 #### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>Vad gör "uppdatera utvecklings lagrings anslutnings strängarna..." kryss rutan gör?
 Kryss rutan för att **Uppdatera utvecklings lagrings anslutnings strängar för diagnostik och cachelagring med Microsoft Azure lagrings konto uppgifter vid publicering till Microsoft Azure** ger dig ett bekvämt sätt att uppdatera alla utvecklings lagrings konton anslutnings strängar med det Azure Storage-konto som angavs under publiceringen.
 
-Anta till exempel att du markerar den här kryss rutan och att anslutnings strängen `UseDevelopmentStorage=true`för diagnostik anger. När du publicerar projektet till Azure uppdaterar Visual Studio automatiskt den diagnostiska anslutnings strängen med det lagrings konto som du angav i publicerings guiden. Men om ett verkligt lagrings konto har angetts som anslutnings sträng för diagnostik, används detta konto i stället.
+Anta till exempel att du markerar den här kryss rutan och att anslutnings strängen för diagnostik anger `UseDevelopmentStorage=true`. När du publicerar projektet till Azure uppdaterar Visual Studio automatiskt den diagnostiska anslutnings strängen med det lagrings konto som du angav i publicerings guiden. Men om ett verkligt lagrings konto har angetts som anslutnings sträng för diagnostik, används detta konto i stället.
 
 ### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Skillnader i diagnostiken mellan Azure SDK 2,4 och tidigare och Azure SDK 2,5 och senare
 Om du uppgraderar projektet från Azure SDK 2,4 till Azure SDK 2,5 eller senare bör du tänka på följande skillnader i diagnostiken.

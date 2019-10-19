@@ -1,24 +1,18 @@
 ---
 title: Konfigurera Azure Monitor för behållare agent data insamling | Microsoft Docs
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare agent för att styra logg insamling för STDOUT/stderr och miljövariabler.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/08/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: dfa823955cccba4ac7ec6859894a4562f0810d76
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 10/08/2019
+ms.openlocfilehash: 2b72252c5c85679c1c65fa2dcf9c5acc6c54003c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248760"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554215"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agent data insamling för Azure Monitor för behållare
 
@@ -45,11 +39,11 @@ Följande är de inställningar som kan konfigureras för att styra data insamli
 |----|----------|------|------------|
 |`schema-version` |Sträng (Skift läges känslig) |v1 |Det här är den schema version som används av agenten vid parsning av den här ConfigMap. Schema version som stöds för närvarande är v1. Det finns inte stöd för att ändra det här värdet och kommer att avvisas när ConfigMap utvärderas.|
 |`config-version` |Sträng | | Stöder möjlighet att hålla koll på den här konfigurations filens version i käll kontroll systemet/lagrings platsen. Maximalt antal tillåtna tecken är 10 och alla andra tecken trunkeras. |
-|`[log_collection_settings.stdout] enabled =` |Boolesk | Sant eller falskt | Kontrollerar om STDOUT container logg samling är aktive rad. När värdet är inställt på `true` och inga namn områden exkluderas för STDOUT logg samling (`log_collection_settings.stdout.exclude_namespaces` nedan) samlas STDOUT-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är standardvärdet `enabled = true`. |
+|`[log_collection_settings.stdout] enabled =` |Boolesk | Sant eller falskt | Kontrollerar om STDOUT container logg samling är aktive rad. När värdet är inställt på `true` och inga namn områden utesluts för STDOUT logg samling (`log_collection_settings.stdout.exclude_namespaces` inställningen nedan) samlas STDOUT-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är standardvärdet `enabled = true`. |
 |`[log_collection_settings.stdout] exclude_namespaces =`|Sträng | Kommaavgränsad matris |Matris med Kubernetes-namnområden som StdOut-loggar inte ska samlas in för. Den här inställningen gäller endast om `log_collection_settings.stdout.enabled` är inställt på `true`. Om inget värde anges i ConfigMap är standardvärdet `exclude_namespaces = ["kube-system"]`.|
-|`[log_collection_settings.stderr] enabled =` |Boolesk | Sant eller falskt |Anger om stderr container logg samling är aktive rad. När värdet är inställt på `true` och inga namn områden exkluderas för STDOUT logg samling (`log_collection_settings.stderr.exclude_namespaces`-inställning) samlas stderr-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är standardvärdet `enabled = true`. |
+|`[log_collection_settings.stderr] enabled =` |Boolesk | Sant eller falskt |Anger om stderr container logg samling är aktive rad. När värdet är inställt på `true` och inga namn områden exkluderas för STDOUT logg samling (`log_collection_settings.stderr.exclude_namespaces` inställningen) samlas stderr-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är standardvärdet `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |Sträng |Kommaavgränsad matris |Matris med Kubernetes-namnområden som stderr-loggar inte ska samlas in för. Den här inställningen gäller endast om `log_collection_settings.stdout.enabled` är inställt på `true`. Om inget värde anges i ConfigMap är standardvärdet `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolesk | Sant eller falskt | Den här inställningen styr samlingen av miljövariabler över alla poddar/noder i klustret och standardvärdet är `enabled = true` när det inte anges i ConfigMaps. Om samlingen av miljövariabler är globalt aktive rad, kan du inaktivera den för en speciell behållare genom att ange miljövariabeln `AZMON_COLLECT_ENV` till **falskt** antingen med en Dockerfile-inställning eller i [konfigurations filen för Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under  **avsnittet miljö:** . Om insamlingen av miljövariabler är globalt inaktive rad kan du inte aktivera samling för en speciell behållare (det vill säga den enda åsidosättning som kan tillämpas på behållar nivån är att inaktivera samlingen när den redan är aktive rad globalt.). |
+| `[log_collection_settings.env_var] enabled =` |Boolesk | Sant eller falskt | Den här inställningen styr samlingen av miljövariabler över alla poddar/noder i klustret och standardvärdet är `enabled = true` när det inte anges i ConfigMaps. Om samlingen av miljövariabler är globalt aktive rad kan du inaktivera den för en speciell behållare genom att ställa in miljövariabeln `AZMON_COLLECT_ENV` på **falskt** antingen med en Dockerfile-inställning eller i [konfigurations filen för Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under  **avsnittet miljö:** . Om insamlingen av miljövariabler är globalt inaktive rad kan du inte aktivera samling för en speciell behållare (det vill säga den enda åsidosättning som kan tillämpas på behållar nivån är att inaktivera samlingen när den redan är aktive rad globalt.). |
 
 ### <a name="prometheus-scraping-settings"></a>Prometheus OLE-inställningar
 
@@ -96,7 +90,7 @@ Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigu
 
     - Om du vill undanta vissa namn rymder för STDOUT-logg samling konfigurerar du nyckeln/värdet med hjälp av följande exempel: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
-    - Om du vill inaktivera en miljö variabel samling för en speciell behållare ställer du in nyckeln/Value `[log_collection_settings.env_var] enabled = true` för att aktivera variabel insamling globalt och följer sedan stegen [här](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) för att slutföra konfigurationen av den angivna behållaren.
+    - Om du vill inaktivera en miljö variabel samling för en speciell behållare ställer du in nyckel/värde-`[log_collection_settings.env_var] enabled = true` så att variabel samlingen aktive ras globalt och följer sedan stegen [här](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) för att slutföra konfigurationen av den angivna behållaren.
     
     - Om du vill inaktivera stderr-logg samling i hela klustret konfigurerar du nyckeln/värdet med hjälp av följande exempel: `[log_collection_settings.stderr] enabled = false`.
     

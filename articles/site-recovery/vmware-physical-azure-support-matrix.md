@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 75b2c08ab02ef41ee4d196d8f81c633aeb46a14e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 7d46773ce45cb3ef8b70d3c6074b9f1c771e9e24
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390060"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554637"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -76,8 +76,8 @@ Windows Server 2008 med SP2 eller senare (64-bitars/32-bitars) |  Stöds endast 
 Windows 10, Windows 8,1, Windows 8 | Stöds.
 Windows 7 med SP1 64-bitars | Stöds från samlad [uppdatering 36](https://support.microsoft.com/help/4503156) (version 9,22 av mobilitets tjänsten) och senare. </br></br> Från version 9.30. x (förväntad version från november 2019) av mobilitets tjänst agenten behöver du [underhålla stack uppdatering (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdateringen](https://support.microsoft.com/help/4474419) som är installerad på datorer med Windows 7 SP1.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
 Linux | Endast 64-bitars system stöds. 32-bitars system stöds inte.<br/><br/>Alla Linux-servrar måste ha en installation av [Linux Integration Services (LIS)-komponenter](https://www.microsoft.com/download/details.aspx?id=55106) . Det krävs för att starta-servern i Azure efter redundanstestning/redundans. Om LIS-komponenter saknas, se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för de datorer som ska startas i Azure. <br/><br/> Site Recovery dirigerar redundans till att köra Linux-servrar i Azure. Linux-leverantörer kan dock begränsa stödet till endast distributions versioner som inte har uppnått livs längd.<br/><br/> I Linux-distributioner stöds bara de lager kärnor som ingår i distributionens lägre versions version/uppdatering.<br/><br/> Det finns inte stöd för att uppgradera skyddade datorer över stora versioner av Linux-distribution. För att uppgradera, inaktivera replikering, uppgradera operativ systemet och aktivera sedan replikering igen.<br/><br/> [Läs mer](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) om stöd för Linux och teknik med öppen källkod i Azure.
-Linux Red Hat Enterprise | 5,2 till 5.11 @ no__t-0<br/> 6,1 till 6.10 @ no__t-0<br/> 7,0 till 7,6<br/> <br/> Servrar som kör Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 har inte välinstallerade [komponenterna för Linux integrations tjänster (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för datorerna för start i Azure.
-Linux: CentOS | 5,2 till 5.11 @ no__t-0<br/> 6,1 till 6.10 @ no__t-0<br/> 7,0 till 7,6<br/> <br/> Servrar som kör CentOS 5.2 – 5.11 & 6.1 – 6.10 har inte välinstallerade [komponenter för Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för datorerna för start i Azure.
+Linux Red Hat Enterprise | 5,2 till 5,11 </b><br/> 6,1 till 6,10 </b><br/> 7,0 till 7,7<br/> <br/> Servrar som kör Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 har inte välinstallerade [komponenterna för Linux integrations tjänster (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för datorerna för start i Azure.
+Linux: CentOS | 5,2 till 5,11 </b><br/> 6,1 till 6,10 </b><br/> 7,0 till 7,7<br/> <br/> Servrar som kör CentOS 5.2 – 5.11 & 6.1 – 6.10 har inte välinstallerade [komponenter för Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för datorerna för start i Azure.
 Ubuntu | Ubuntu 14,04 LTS [-Server (granska stödda kernel-versioner)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16,04 LTS [-Server (granska stödda kernel-versioner)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(granska stödda kernel-versioner)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(granska de kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Det finns inte stöd för att uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4. Om du vill uppgradera inaktiverar du replikeringen och aktiverar den igen efter uppgraderingen.

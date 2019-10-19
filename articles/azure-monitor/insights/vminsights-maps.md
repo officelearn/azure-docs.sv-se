@@ -1,24 +1,18 @@
 ---
 title: Visa program beroenden med Azure Monitor for VMs (förhands granskning) | Microsoft Docs
 description: Map är en funktion i Azure Monitor for VMs. Den identifierar automatiskt program komponenter i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Den här artikeln innehåller information om hur du använder kart funktionen i olika scenarier.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 456ed0a48db015d3c95827942a576e6916095131
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/15/2019
+ms.openlocfilehash: f886ce4ed1b9396cf90bf98626e0cfd2424b2eac
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515482"
+ms.locfileid: "72553777"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Använd kart funktionen i Azure Monitor for VMs (för hands version) för att förstå program komponenter
 I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtuella Windows-och Linux-datorer (VM: ar) som körs i Azure eller i din miljö. Du kan titta på de virtuella datorerna på två sätt. Visa en karta direkt från en virtuell dator eller Visa en karta från Azure Monitor för att se komponenterna mellan grupper av virtuella datorer. Den här artikeln hjälper dig att förstå de här två visnings metoderna och hur du använder kart funktionen. 

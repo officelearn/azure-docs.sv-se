@@ -1,6 +1,6 @@
 ---
-title: Ladda upp eller kopiera en anpassad Linux VM med Azure CLI | Microsoft Docs
-description: Ladda upp eller kopiera en anpassad virtuell dator med hjälp av Resource Manager-distributionsmodellen och Azure CLI
+title: Ladda upp eller kopiera en anpassad virtuell Linux-dator med Azure CLI | Microsoft Docs
+description: Ladda upp eller kopiera en anpassad virtuell dator med hjälp av distributions modellen för Resource Manager och Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,59 +13,51 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/17/2018
+ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 026cab6a5749f556d6f748c80e492d1c920767d1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6cc01266bb6e7f122868257e8a5b9e88e78dddea
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708394"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553501"
 ---
-# <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Skapa en Linux VM från en anpassad disk med Azure CLI
+# <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Skapa en virtuell Linux-dator från en anpassad disk med Azure CLI
 
 <!-- rename to create-vm-specialized -->
 
-Den här artikeln visar hur du överför en anpassad virtuell hårddisk (VHD) och hur du kopierar en befintlig virtuell Hårddisk i Azure. Den nyligen skapade virtuella Hårddisken används sedan för att skapa nya virtuella Linux-datorer (VM). Du kan installera och konfigurera en Linux-distribution enligt dina behov och sedan använda den virtuella Hårddisken för att skapa en ny Azure-dator.
+Den här artikeln visar hur du laddar upp en anpassad virtuell hård disk (VHD) och hur du kopierar en befintlig virtuell hård disk i Azure. Den nyligen skapade virtuella hård disken används sedan för att skapa nya virtuella Linux-datorer. Du kan installera och konfigurera en Linux-distribution på dina krav och sedan använda den virtuella hård disken för att skapa en ny virtuell Azure-dator.
 
-Om du vill skapa flera virtuella datorer från den anpassade disken, skapa en avbildning från din virtuella dator eller VHD. Mer information finns i [skapa en anpassad avbildning av en Azure-dator med hjälp av CLI](tutorial-custom-images.md).
+Skapa flera virtuella datorer från din anpassade disk genom att först skapa en avbildning från din virtuella dator eller VHD. Mer information finns i [skapa en anpassad avbildning av en virtuell Azure-dator med hjälp av CLI](tutorial-custom-images.md).
 
-Du har två alternativ för att skapa en anpassad disk:
-* Ladda upp en virtuell hårddisk
-* Kopiera en befintlig Azure VM
+Det finns två alternativ för att skapa en anpassad disk:
+* Överför en virtuell hårddisk
+* Kopiera en befintlig virtuell Azure-dator
 
-## <a name="quick-commands"></a>Snabbkommandon
-
-När du skapar en ny virtuell dator med [az vm skapa](/cli/azure/vm#az-vm-create) från en anpassad eller specialiserad disk du **bifoga** disken (--bifoga-os-disk) i stället för att ange en anpassad eller marketplace-avbildning (--bild). I följande exempel skapas en virtuell dator med namnet *myVM* med hjälp av hanterad disk med namnet *myManagedDisk* skapas från en anpassad virtuell Hårddisk:
-
-```azurecli
-az vm create --resource-group myResourceGroup --location eastus --name myVM \
-   --os-type linux --attach-os-disk myManagedDisk
-```
 
 ## <a name="requirements"></a>Krav
-För att slutföra följande steg behöver du:
+För att utföra följande steg behöver du:
 
-* En Linux-dator som har förberetts för användning i Azure. Den [förbereda den virtuella datorn](#prepare-the-vm) i den här artikeln beskriver hur du hittar distribution-specifik information om hur du installerar Azure Linux-agenten (waagent), vilket krävs att ansluta till en virtuell dator med SSH.
-* VHD-filen från en befintlig [Azure-godkända Linux-distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (eller se [information om icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) på en virtuell disk i VHD-format. Det finns flera verktyg för att skapa en virtuell dator och virtuell Hårddisk:
-  * Installera och konfigurera [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) eller [KVM](https://www.linux-kvm.org/page/RunningKVM), och ser till att använda virtuella Hårddisken som bildformat. Om det behövs kan du [konvertera en bild](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) med `qemu-img convert`.
-  * Du kan också använda Hyper-V [i Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) eller [på Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+- En virtuell Linux-dator som har förberetts för användning i Azure. Avsnittet [förbereda den virtuella datorn](#prepare-the-vm) i den här artikeln beskriver hur du hittar distribution information om hur du installerar Azure Linux-agenten (waagent), vilket krävs för att du ska kunna ansluta till en virtuell dator med SSH.
+- VHD-filen från en befintlig [Azure-godkänd Linux-distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (eller Visa [information om icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) till en virtuell disk i VHD-format. Det finns flera verktyg för att skapa en virtuell dator och en virtuell hård disk:
+  - Installera och konfigurera [qemu](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) eller [kvm](https://www.linux-kvm.org/page/RunningKVM)och ta hand om att använda VHD som avbildnings format. Om det behövs kan du [konvertera en bild](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) med `qemu-img convert`.
+  - Du kan också använda Hyper-V [på Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) eller [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
-> Nyare VHDX-formatet stöds inte i Azure. När du skapar en virtuell dator kan du ange VHD som formatet. Om det behövs kan du konvertera VHDX-diskar till virtuell Hårddisk med [qemu img konvertera](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) eller [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) PowerShell-cmdlet. Azure har inte stöd för att ladda upp dynamiska virtuella hårddiskar, så måste du konvertera dessa diskar till statiska virtuella hårddiskar innan du laddar upp. Du kan använda verktyg som [Azure VHD-verktyg för GO](https://github.com/Microsoft/azure-vhd-utils-for-go) konverterar dynamiska diskar under processen att överföra dem till Azure.
+> Det nya VHDX-formatet stöds inte i Azure. När du skapar en virtuell dator anger du VHD som format. Vid behov kan du konvertera VHDX-diskar till en virtuell hård disk med [qemu-img-konvertering](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) eller PowerShell-cmdleten [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) . Azure stöder inte uppladdning av dynamiska virtuella hård diskar, så du måste konvertera sådana diskar till statiska virtuella hård diskar innan du laddar upp. Du kan använda verktyg som [Azure VHD-verktyg för att gå](https://github.com/Microsoft/azure-vhd-utils-for-go) till konvertera dynamiska diskar under processen med att ladda upp dem till Azure.
 > 
 > 
 
 
-* Se till att du har senast [Azure CLI](/cli/azure/install-az-cli2) installerat och du är inloggad på ett Azure-konto med [az-inloggning](/cli/azure/reference-index#az-login).
+- Kontrol lera att du har den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index#az-login).
 
-I följande exempel ersätter exempel parameternamn med dina egna värden som *myResourceGroup*, *mystorageaccount*, och *mydisks*.
+I följande exempel ersätter du parameter namn med egna värden, till exempel `myResourceGroup`, `mystorageaccount` och `mydisks`.
 
 <a id="prepimage"> </a>
 
 ## <a name="prepare-the-vm"></a>Förbereda den virtuella datorn
 
-Azure har stöd för olika Linux-distributioner (se [godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). I följande artiklar beskriver hur du förbereder de olika Linux-distributioner som stöds på Azure:
+Azure har stöd för olika Linux-distributioner (se godkända [distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). I följande artiklar beskrivs hur du förbereder de olika Linux-distributioner som stöds i Azure:
 
 * [CentOS-baserade distributioner](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -73,112 +65,30 @@ Azure har stöd för olika Linux-distributioner (se [godkända distributioner](e
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES och openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Övrigt: Icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Andra: icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Se även de [Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes) mer allmänna tips om hur du förbereder Linux-avbildningar för Azure.
+Mer information om hur du förbereder Linux-avbildningar för Azure finns också i [Linux-installationsprogrammet](create-upload-generic.md#general-linux-installation-notes) .
 
 > [!NOTE]
-> Den [Azure-plattformen SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) gäller för datorer som kör Linux endast när en av de godkända distributionerna används med konfigurationsinformation som anges under ”versioner som stöds” [Linux på Azure-godkända Distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [Service avtalet för Azure-plattformen](https://azure.microsoft.com/support/legal/sla/virtual-machines/) gäller endast virtuella datorer som kör Linux när en av de godkända distributionerna används med konfigurations informationen som anges under "versioner som stöds" i [Linux på Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Alternativ 1: Ladda upp en virtuell hårddisk
+## <a name="option-1-upload-a-vhd"></a>Alternativ 1: Ladda upp en virtuell hård disk
 
-Du kan överföra en anpassad virtuell Hårddisk som du har som körs på en lokal dator eller som du exporterade från ett annat moln. Om du vill använda en virtuell Hårddisk för att skapa en ny virtuell Azure-dator, måste du överföra den virtuella Hårddisken till ett lagringskonto och skapa en hanterad disk från den virtuella Hårddisken. Mer information finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md).
+Du kan nu ladda upp VHD direkt till en hanterad disk. Instruktioner finns i [Ladda upp en virtuell hård disk till Azure med Azure CLI](disks-upload-vhd-to-managed-disk-cli.md).
 
-### <a name="create-a-resource-group"></a>Skapa en resursgrupp
+## <a name="option-2-copy-an-existing-vm"></a>Alternativ 2: kopiera en befintlig virtuell dator
 
-Innan du överför din anpassade disk och skapa virtuella datorer, måste du skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az-group-create).
+Du kan också skapa en anpassad virtuell dator i Azure och sedan kopiera OS-disken och koppla den till en ny virtuell dator för att skapa en ny kopia. Detta är bra för testning, men om du vill använda en befintlig virtuell Azure-dator som modell för flera nya virtuella datorer skapar du en *avbildning* i stället. Mer information om hur du skapar en avbildning från en befintlig virtuell Azure-dator finns i [skapa en anpassad avbildning av en virtuell Azure-dator med hjälp av CLI](tutorial-custom-images.md).
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Om du vill kopiera en befintlig virtuell dator till en annan region kanske du vill använda AzCopy för att [skap en kopia av en disk i en annan region](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
 
-```azurecli
-az group create \
-    --name myResourceGroup \
-    --location eastus
-```
-
-### <a name="create-a-storage-account"></a>skapar ett lagringskonto
-
-Skapa ett lagringskonto för din anpassade disk och virtuella datorer med [az storage-konto skapar](/cli/azure/storage/account). I följande exempel skapas ett lagringskonto med namnet *mystorageaccount* i resursgruppen som skapades tidigare:
-
-```azurecli
-az storage account create \
-    --resource-group myResourceGroup \
-    --location eastus \
-    --name mystorageaccount \
-    --kind Storage \
-    --sku Standard_LRS
-```
-
-### <a name="list-storage-account-keys"></a>Lista nycklar för lagringskonto
-Azure skapar två 512-bitars åtkomstnycklar för varje lagringskonto. Åtkomstnycklarna används vid autentisering till lagringskontot, till exempel när utför skrivåtgärder. Mer information finns i [hantera åtkomst till lagring](../../storage/common/storage-account-manage.md#access-keys). 
-
-Du visar åtkomstnycklarna med [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#az-storage-account-keys-list). Till exempel om du vill visa konto åtkomstnycklar för lagring som du skapade:
-
-```azurecli
-az storage account keys list \
-    --resource-group myResourceGroup \
-    --account-name mystorageaccount
-```
-
-Utdatan liknar följande:
-
-```azurecli
-info:    Executing command storage account keys list
-+ Getting storage account keys
-data:    Name  Key                                                                                       Permissions
-data:    ----  ----------------------------------------------------------------------------------------  -----------
-data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINApdSGQ94H9zkszYyxpe8erw==  Full
-data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
-info:    storage account keys list command OK
-```
-Anteckna **key1** eftersom du ska använda för att interagera med ditt lagringskonto i nästa steg.
-
-### <a name="create-a-storage-container"></a>Skapa en lagringsbehållare
-På samma sätt som du skapar olika kataloger för att organisera logiskt ditt lokala filsystem, ska du skapa behållare i ett lagringskonto för att organisera dina diskar. Ett lagringskonto kan innehålla många behållare. Skapa en behållare med [az storage container skapa](/cli/azure/storage/container#az-storage-container-create).
-
-I följande exempel skapas en behållare med namnet *mydisks*:
-
-```azurecli
-az storage container create \
-    --account-name mystorageaccount \
-    --name mydisks
-```
-
-### <a name="upload-the-vhd"></a>Ladda upp den virtuella Hårddisken
-Ladda upp den anpassa disken med [az storage blob uppladdning](/cli/azure/storage/blob#az-storage-blob-upload). Du överföra och lagra dina anpassade disk som en sidblobb.
-
-Ange din åtkomstnyckel, behållaren som du skapade i föregående steg och sökvägen till den anpassa disken på den lokala datorn:
-
-```azurecli
-az storage blob upload --account-name mystorageaccount \
-    --account-key key1 \
-    --container-name mydisks \
-    --type page \
-    --file /path/to/disk/mydisk.vhd \
-    --name myDisk.vhd
-```
-Ladda upp den virtuella Hårddisken kan det ta en stund.
-
-### <a name="create-a-managed-disk"></a>Skapa en hanterad disk
-
-
-Skapa en hanterad disk från den virtuella Hårddisken med [az disk skapa](/cli/azure/disk#az-disk-create). I följande exempel skapas en hanterad disk med namnet *myManagedDisk* från den virtuella Hårddisken som du överfört till din namngivna lagringskontot och behållaren:
-
-```azurecli
-az disk create \
-    --resource-group myResourceGroup \
-    --name myManagedDisk \
-  --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
-```
-## <a name="option-2-copy-an-existing-vm"></a>Alternativ 2: Kopiera en befintlig virtuell dator
-
-Du kan också skapa en anpassad virtuell dator i Azure och sedan kopiera OS-disken och koppla den till en ny virtuell dator att skapa en annan kopia. Detta är bra för testning, men om du vill använda en befintlig Azure VM som modell för flera nya virtuella datorer, skapa en *bild* i stället. Läs mer om hur du skapar en avbildning från en befintlig Azure VM, [skapa en anpassad avbildning av en Azure-dator med hjälp av CLI](tutorial-custom-images.md).
+Annars bör du ta en ögonblicks bild av den virtuella datorn och sedan skapa en ny OS-VHD från ögonblicks bilden.
 
 ### <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
-Det här exemplet skapar en ögonblicksbild av en virtuell dator med namnet *myVM* i resursgruppen *myResourceGroup* och skapar en ögonblicksbild med namnet *osDiskSnapshot*.
+Det här exemplet skapar en ögonblicks bild av en virtuell dator med namnet *myVM* i resurs gruppen *myResourceGroup* och skapar en ögonblicks bild med namnet *osDiskSnapshot*.
 
 ```azure-cli
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -187,17 +97,17 @@ az snapshot create \
     --source "$osDiskId" \
     --name osDiskSnapshot
 ```
-###  <a name="create-the-managed-disk"></a>Skapa hanterad disk
+###  <a name="create-the-managed-disk"></a>Skapa den hanterade disken
 
-Skapa en ny hanterad disk från ögonblicksbilden.
+Skapa en ny hanterad disk från ögonblicks bilden.
 
-Hämta ID för ögonblicksbilden. I det här exemplet heter ögonblicksbilden *osDiskSnapshot* och den är i den *myResourceGroup* resursgrupp.
+Hämta ögonblicks bildens ID. I det här exemplet heter ögonblicks bilden *osDiskSnapshot* och finns i resurs gruppen *myResourceGroup* .
 
 ```azure-cli
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)
 ```
 
-Skapa den hantera disken. I det här exemplet skapar vi en hanterad disk med namnet *myManagedDisk* från våra ögonblicksbild där disken är i standardlagring och storlek på 128 GB.
+Skapa den hanterade disken. I det här exemplet ska vi skapa en hanterad disk med namnet *myManagedDisk* från vår ögonblicks bild, där disken är i standard lagring och storlek 128 GB.
 
 ```azure-cli
 az disk create \
@@ -210,7 +120,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Skapa den virtuella datorn med [az vm skapa](/cli/azure/vm#az-vm-create) och bifoga (--bifoga-os-disk) hanterad disk som OS-disk. I följande exempel skapas en virtuell dator med namnet *myNewVM* hanterade diskar som du skapade från den överförda virtuella Hårddisken:
+Skapa din virtuella dator med [AZ VM Create](/cli/azure/vm#az-vm-create) and attach (--Attach-OS-disk) den hanterade disken som operativ system disk. I följande exempel skapas en virtuell dator med namnet *myNewVM* med den hanterade disk som du skapade från den uppladdade virtuella hård disken:
 
 ```azurecli
 az vm create \
@@ -221,7 +131,7 @@ az vm create \
     --attach-os-disk myManagedDisk
 ```
 
-Du bör kunna att SSH till den virtuella datorn med autentiseringsuppgifter från den Virtuella källdatorn. 
+Du bör kunna SSH till den virtuella datorn med autentiseringsuppgifterna från den virtuella käll datorn. 
 
 ## <a name="next-steps"></a>Nästa steg
-När du har förberett och överföra din anpassade virtuella hårddisk kan du läsa mer om [med Resource Manager och mallar](../../azure-resource-manager/resource-group-overview.md). Du kanske också vill [lägga till en datadisk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) till din nya virtuella datorer. Om du har program som körs på dina virtuella datorer som du behöver komma åt, måste du [öppna portar och slutpunkter](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+När du har för berett och överfört din anpassade virtuella disk kan du läsa mer om hur du [använder Resource Manager och mallar](../../azure-resource-manager/resource-group-overview.md). Du kanske också vill [lägga till en datadisk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) till de nya virtuella datorerna. Om du har program som körs på dina virtuella datorer som du behöver åtkomst till, måste du [öppna portar och slut punkter](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

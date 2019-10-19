@@ -1,20 +1,18 @@
 ---
 title: Strömma Azure-diagnostik data till Event Hubs
 description: Konfigurera Azure-diagnostik med Event Hubs slut punkt till slut punkt, inklusive vägledning för vanliga scenarier.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 07/13/2017
+ms.openlocfilehash: 2b24618e4d7c12366db5e72226c6f94924d4d3a5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "64922808"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555539"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Strömma Azure-diagnostik data i den aktiva sökvägen med Event Hubs
 Azure-diagnostik ger flexibla sätt att samla in mått och loggar från virtuella datorer i moln tjänster och överföra resultat till Azure Storage. Med början i tids ramen 2016 mars (SDK 2,9) kan du skicka diagnostik till anpassade data källor och överföra frekventa Sök vägs data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -24,7 +22,7 @@ Data typer som stöds är:
 * ETW-händelser (Event Tracing for Windows)
 * Prestandaräknare
 * Windows-händelseloggar
-* Programloggar
+* Program loggar
 * Azure Diagnostics-infrastrukturloggar
 
 Den här artikeln visar hur du konfigurerar Azure-diagnostik med Event Hubs från slut punkt till slut punkt. Vägledning finns också för följande vanliga scenarier:
@@ -34,7 +32,7 @@ Den här artikeln visar hur du konfigurerar Azure-diagnostik med Event Hubs frå
 * Visa Event Hubs strömmande data
 * Så här felsöker du anslutningen  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Event Hubs att ta emot data från Azure-diagnostik stöds i Cloud Services, virtuella datorer, Virtual Machine Scale Sets och Service Fabric som börjar i Azure SDK 2,9 och motsvarande Azure-verktyg för Visual Studio.
 
 * Azure-diagnostik tillägget 1,6 ([Azure SDK för .net 2,9 eller senare](https://azure.microsoft.com/downloads/) riktar detta som standard)
@@ -45,7 +43,7 @@ Event Hubs att ta emot data från Azure-diagnostik stöds i Cloud Services, virt
 * Event Hubs namn område som tillhandahålls per artikel, [Kom igång med Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Ansluta Azure-diagnostik till Event Hubs mottagare
-Som standard skickar Azure-diagnostik alltid loggar och mått till ett Azure Storage konto. Ett program kan också skicka data till Event Hubs genom att lägga till ett nytt Sinks-avsnitt under **PublicConfig** / **WadCfg** -elementet i *. wadcfgx* -filen. I Visual Studio lagras *. wadcfgx* -filen på följande sökväg: > **Rolename-diagnostik (**  > Cloud Service Project**roles** > ).**wadcfgx** -filen.
+Som standard skickar Azure-diagnostik alltid loggar och mått till ett Azure Storage konto. Ett program kan också skicka data till Event Hubs genom att lägga till ett nytt **Sinks** -avsnitt under elementet **PublicConfig**  / **WadCfg** i *. wadcfgx* -filen. I Visual Studio lagras *. wadcfgx* -filen i följande sökväg: **Cloud Service Project**  > **roles**  >  **(rolename)**  > **Diagnostics. wadcfgx** -filen.
 
 ```xml
 <SinksConfig>
@@ -100,7 +98,7 @@ Event Hubs Sink måste också deklareras och definieras i avsnittet **PrivateCon
 }
 ```
 
-Värdet måste matcha en nyckel och princip för signatur för delad åtkomst (SAS) som har definierats i Event Hubs-namnområdet. `SharedAccessKeyName` Bläddra till Event Hubs instrument panelen i [Azure Portal](https://portal.azure.com), klicka på fliken **Konfigurera** och konfigurera en namngiven princip (till exempel "SendRule") som har *send* -behörighet. **StorageAccount** har också deklarerats i **PrivateConfig**. Du behöver inte ändra värdena här om de fungerar. I det här exemplet lämnar vi värdena tomma, vilket är ett tecken på att en efterföljande till gång kommer att ange värdena. Till exempel anger miljö konfigurations filen *ServiceConfiguration. Cloud. cscfg* miljö-lämpliga namn och nycklar.  
+@No__t_0-värdet måste matcha en nyckel och princip för signatur för delad åtkomst (SAS) som har definierats i namn området **Event Hubs** . Bläddra till Event Hubs instrument panelen i [Azure Portal](https://portal.azure.com), klicka på fliken **Konfigurera** och konfigurera en namngiven princip (till exempel "SendRule") som har *send* -behörighet. **StorageAccount** har också deklarerats i **PrivateConfig**. Du behöver inte ändra värdena här om de fungerar. I det här exemplet lämnar vi värdena tomma, vilket är ett tecken på att en efterföljande till gång kommer att ange värdena. Till exempel anger miljö konfigurations filen *ServiceConfiguration. Cloud. cscfg* miljö-lämpliga namn och nycklar.  
 
 > [!WARNING]
 > Event Hubs SAS-nyckeln lagras som oformaterad text i *. wadcfgx* -filen. Den här nyckeln är ofta incheckad till käll kods kontroll eller är tillgänglig som en till gång i din build-Server, så du bör skydda den efter behov. Vi rekommenderar att du använder en SAS-nyckel här med *endast skicka* behörigheter så att en obehörig användare kan skriva till händelsehubben, men inte lyssna på den eller hantera den.
@@ -184,7 +182,7 @@ I ovanstående exempel tillämpas sinken på den överordnade **PerformanceCount
 }
 ```
 
-I föregående exempel används sinken bara för tre räknare: **Begär anden i kö**, **begär Anden**avvisade och **% processor tid**.  
+I det föregående exemplet tillämpas sinken på endast tre räknare: **begär anden i kö**, **begär Anden avvisade**och **% processor tid**.  
 
 I följande exempel visas hur en utvecklare kan begränsa mängden data som skickas till kritiska mått som används för den här tjänstens hälsa.  
 
@@ -202,7 +200,7 @@ I följande exempel visas hur en utvecklare kan begränsa mängden data som skic
 I det här exemplet används sinken för loggar och filtreras endast till spårning på fel nivå.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Distribuera och uppdatera ett Cloud Services program och diagnostik-konfiguration
-Visual Studio är den enklaste sökvägen till att distribuera program-och Event Hubs Sink-konfigurationen. Om du vill visa och redigera filen öppnar du *. wadcfgx* -filen i Visual Studio, redigerar den och sparar den. Sökvägen är**rolename-diagnostik (**  >  **Cloud Service Project** > **roles** > ) **. wadcfgx**.  
+Visual Studio är den enklaste sökvägen till att distribuera program-och Event Hubs Sink-konfigurationen. Om du vill visa och redigera filen öppnar du *. wadcfgx* -filen i Visual Studio, redigerar den och sparar den. Sökvägen är **Cloud Service Project**  > **roles**  >  **(rolename)**  > **Diagnostics. wadcfgx**.  
 
 Nu är alla distributions-och distributions uppdaterings åtgärder i Visual Studio, Visual Studio Team system och alla kommandon eller skript som baseras på MSBuild och använder kommandot **/t: Publish:** *. wadcfgx* i förpacknings processen. Distributioner och uppdateringar distribuerar dessutom filen till Azure med hjälp av lämpligt Azure-diagnostik agent tillägg på dina virtuella datorer.
 
@@ -316,12 +314,12 @@ namespace EventHubListener
     Kontrol lera först att händelsehubben och konfigurations informationen är korrekt enligt beskrivningen ovan. Ibland återställs **PrivateConfig** i en distributions uppdatering. Den rekommenderade korrigeringen är att göra alla ändringar i *. wadcfgx* i projektet och sedan skicka en fullständig program uppdatering. Om detta inte är möjligt kontrollerar du att uppdateringen av diagnostiken pushar en fullständig **PrivateConfig** som innehåller SAS-nyckeln.  
 * Jag försökte förslaget, och händelsehubben fungerar fortfarande inte.
 
-    Försök att leta i Azure Storages tabellen som innehåller loggar och fel för Azure-diagnostik sig själv: **WADDiagnosticInfrastructureLogsTable**. Ett alternativ är att använda ett verktyg som [Azure Storage Explorer](https://www.storageexplorer.com) för att ansluta till det här lagrings kontot, Visa den här tabellen och lägga till en fråga för timestamp under de senaste 24 timmarna. Du kan använda verktyget för att exportera en. csv-fil och öppna den i ett program, till exempel Microsoft Excel. Excel gör det enkelt att söka efter telefon korts strängar, till exempel **EventHubs**, för att se vilket fel som rapporteras.  
+    Försök att titta i Azure Storages tabellen som innehåller loggar och fel för Azure-diagnostik sig själv: **WADDiagnosticInfrastructureLogsTable**. Ett alternativ är att använda ett verktyg som [Azure Storage Explorer](https://www.storageexplorer.com) för att ansluta till det här lagrings kontot, Visa den här tabellen och lägga till en fråga för timestamp under de senaste 24 timmarna. Du kan använda verktyget för att exportera en. csv-fil och öppna den i ett program, till exempel Microsoft Excel. Excel gör det enkelt att söka efter telefon korts strängar, till exempel **EventHubs**, för att se vilket fel som rapporteras.  
 
 ## <a name="next-steps"></a>Nästa steg
 • [Läs mer om Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
-## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Fjärde Slutför Azure-diagnostik konfigurations fil (. wadcfgx)-exempel
+## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Bilaga: fullständig Azure-diagnostik konfigurations fil (. wadcfgx)-exempel
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -508,7 +506,7 @@ Skyddade inställningar:
 ## <a name="next-steps"></a>Nästa steg
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Event Hubs-översikt](../../event-hubs/event-hubs-about.md)
+* [Översikt över Event Hubs](../../event-hubs/event-hubs-about.md)
 * [Skapa en Event Hub](../../event-hubs/event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](../../event-hubs/event-hubs-faq.md)
 

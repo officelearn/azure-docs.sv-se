@@ -1,23 +1,18 @@
 ---
 title: Hanterings lösning för Office 365 i Azure | Microsoft Docs
 description: Den här artikeln innehåller information om konfiguration och användning av Office 365-lösningen i Azure.  Den innehåller en detaljerad beskrivning av de Office 365-poster som skapats i Azure Monitor.
-services: operations-management-suite
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/13/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.date: 08/13/2019
+ms.openlocfilehash: 032d52961b4867cad94d06802adb0a1f3eb00f5f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061704"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553955"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
@@ -42,7 +37,7 @@ Med hanterings lösningen för Office 365 kan du övervaka din Office 365-miljö
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs innan den här lösningen installeras och konfigureras.
 
@@ -66,16 +61,16 @@ Samla in följande information innan du påbörjar den här proceduren.
 
 Från din Log Analytics arbets yta:
 
-- Namn på arbets yta: Arbets ytan där Office 365-data kommer att samlas in.
-- Resurs grupps namn: Den resurs grupp som innehåller arbets ytan.
-- ID för Azure-prenumeration: Prenumerationen som innehåller arbets ytan.
+- Namn på arbets yta: arbets ytan där Office 365-data kommer att samlas in.
+- Resurs grupp namn: den resurs grupp som innehåller arbets ytan.
+- Azure-prenumerations-ID: prenumerationen som innehåller arbets ytan.
 
 Från din Office 365-prenumeration:
 
-- Användar E-postadress för ett administratörs konto.
-- Klient-ID: Unikt ID för Office 365-prenumeration.
-- Klient-ID: 16 tecken sträng som representerar Office 365-klienten.
-- Klient hemlighet: Krypterad sträng som krävs för autentisering.
+- Användar namn: e-postadressen för ett administratörs konto.
+- Klient-ID: unikt ID för Office 365-prenumeration.
+- Klient-ID: 16-tecken sträng som representerar Office 365-klienten.
+- Klient hemlighet: krypterad sträng som krävs för autentisering.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Skapa ett Office 365-program i Azure Active Directory
 
@@ -104,7 +99,7 @@ Det första steget är att skapa ett program i Azure Active Directory att hanter
 
     ![Välj API](media/solution-office-365/select-api.png)
 
-1. Under **vilken typ av behörighet kräver ditt program?** Välj följande alternativ för både **program behörigheter** och delegerade **behörigheter**:
+1. Under **vilken typ av behörighet kräver ditt program?** Välj följande alternativ för både **program behörigheter** och **delegerade behörigheter**:
    - Läs information om tjänst hälsa för din organisation
    - Läs aktivitets data för din organisation
    - Läs aktivitets rapporter för din organisation
@@ -373,7 +368,7 @@ Det sista steget är att prenumerera på programmet till din Log Analytics-arbet
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troubleshooting"></a>Felsökning
+### <a name="troubleshooting"></a>Felsöka
 
 Följande fel kan visas om ditt program redan prenumererar på den här arbets ytan eller om klienten prenumererar på en annan arbets yta.
 
@@ -514,7 +509,7 @@ Det kan ta några timmar innan data samlas in från början. När den börjar sa
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
 När du lägger till Office 365-lösningen i din Log Analytics arbets yta läggs **office 365** -panelen till på instrument panelen. Den här panelen visar antal och en grafisk representation av antalet datorer i din miljö och deras uppdateringskompatibilitet.<br><br>
-![Sammanfattnings panel för Office 365](media/solution-office-365/tile.png)  
+Sammanfattnings panel för ![Office 365 ](media/solution-office-365/tile.png)  
 
 Klicka på panelen **office 365** för att öppna **Office 365** -instrumentpanelen.
 
@@ -524,8 +519,8 @@ Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn listar
 
 | Kolumn | Beskrivning |
 |:--|:--|
-| Åtgärder | Innehåller information om aktiva användare från alla övervakade Office 365-prenumerationer. Du kommer också att kunna se antalet aktiviteter som sker över tid.
-| Exchange | Visar en uppdelning av Exchange Server-aktiviteter som Add-Mailbox-behörighet eller ange-Mailbox. |
+| Operations | Innehåller information om aktiva användare från alla övervakade Office 365-prenumerationer. Du kommer också att kunna se antalet aktiviteter som sker över tid.
+| Utbyt | Visar en uppdelning av Exchange Server-aktiviteter som Add-Mailbox-behörighet eller ange-Mailbox. |
 | SharePoint | Visar de viktigaste aktiviteterna som användare utför i SharePoint-dokument. När du ökar detalj nivån från den här panelen visar Sök sidan information om dessa aktiviteter, till exempel mål dokumentet och platsen för aktiviteten. För en fil som används, kan du till exempel se det dokument som har åtkomst till, dess associerade konto namn och IP-adress. |
 | Azure Active Directory | Omfattar de vanligaste användar aktiviteterna, till exempel återställning av användar lösen ord och inloggnings försök. När du ökar detalj nivån kommer du att kunna se information om dessa aktiviteter, till exempel resultat status. Detta är mest användbart om du vill övervaka misstänkta aktiviteter på din Azure Active Directory. |
 
@@ -540,18 +535,18 @@ Alla poster som skapats i arbets ytan Log Analytics i Azure Monitor av Office 36
 
 Följande egenskaper är gemensamma för alla Office 365-poster.
 
-| Egenskap | Description |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| type | *OfficeActivity* |
-| ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas antingen i ett IPv4-eller IPv6-adress format. |
-| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
+| Typ | *OfficeActivity* |
+| clientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas antingen i ett IPv4-eller IPv6-adress format. |
+| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Utbyt<br>SharePoint|
 | Åtgärd | Namnet på användaren eller administratörs aktiviteten.  |
 | OrganizationId | GUID för organisationens Office 365-klient. Det här värdet är alltid detsamma för din organisation, oavsett Office 365-tjänsten där det sker. |
 | RecordType | Typ av åtgärd som utförs. |
 | ResultStatus | Anger om åtgärden (anges i egenskapen operation) lyckades eller inte. Möjliga värden är lyckades, PartiallySucceeded eller misslyckades. För Exchange admin-aktivitet är värdet antingen sant eller falskt. |
-| UserId | UPN (User Principal Name) för den användare som utförde åtgärden som resulterade i att posten loggades. till exempel my_name@my_domain_name. Observera att poster för aktivitet som utförs av system konton (t. ex. SHAREPOINT\system eller NTAUTHORITY\SYSTEM) också ingår. | 
-| UserKey | Ett alternativt ID för den användare som identifierats i UserId-egenskapen.  Till exempel fylls den här egenskapen i med Passport-unikt ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan också ange samma värde som UserID-egenskapen för händelser som inträffar i andra tjänster och händelser som utförs av system konton|
-| UserType | Typ av användare som utförde åtgärden.<br><br>Admin<br>Program<br>DcAdmin<br>Normal<br>Reserverad<br>ServicePrincipal<br>System |
+| userId | UPN (User Principal Name) för den användare som utförde åtgärden som resulterade i att posten loggades. till exempel my_name@my_domain_name. Observera att poster för aktivitet som utförs av system konton (t. ex. SHAREPOINT\system eller NTAUTHORITY\SYSTEM) också ingår. | 
+| userKey | Ett alternativt ID för den användare som identifierats i UserId-egenskapen.  Till exempel fylls den här egenskapen i med Passport-unikt ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan också ange samma värde som UserID-egenskapen för händelser som inträffar i andra tjänster och händelser som utförs av system konton|
+| userType | Typ av användare som utförde åtgärden.<br><br>Innehavaradministration<br>Program<br>DcAdmin<br>Reguljära<br>Reserverad<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory bas
@@ -563,7 +558,7 @@ Följande egenskaper är gemensamma för alla Azure Active Directory poster.
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AzureActiveDirectory_EventType | Typ av Azure AD-händelse. |
-| ExtendedProperties | Utökade egenskaper för Azure AD-händelsen. |
+| extendedProperties | Utökade egenskaper för Azure AD-händelsen. |
 
 
 ### <a name="azure-active-directory-account-logon"></a>Azure Active Directory konto inloggning
@@ -589,7 +584,7 @@ Dessa poster skapas när ändringar eller tillägg görs till Azure Active Direc
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AADTarget | Användaren som åtgärden (identifieras av egenskapen operation) utfördes på. |
-| Aktör | Användaren eller tjänstens huvud namn som utförde åtgärden. |
+| Aktörs | Användaren eller tjänstens huvud namn som utförde åtgärden. |
 | ActorContextId | GUID för den organisation som aktören tillhör. |
 | ActorIpAddress | Aktörens IP-adress i IPV4-eller IPV6-adress format. |
 | InterSystemsId | GUID som spårar åtgärder mellan komponenter i Office 365-tjänsten. |
@@ -620,11 +615,11 @@ Dessa poster skapas när ändringar görs i Exchange-konfigurationen.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyt |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Anger om cmdleten kördes av en användare i din organisation, av Microsoft Data Center-personal eller ett Data Center tjänst konto eller av en delegerad administratör. Värdet FALSE anger att cmdleten kördes av någon i din organisation. Värdet true anger att cmdleten kördes av data Center personal, ett Data Center tjänst konto eller en delegerad administratör. |
 | ModifiedObjectResolvedName |  Detta är användarvänligt namn på objektet som ändrades av cmdleten. Detta loggas endast om cmdleten ändrar objektet. |
-| Organisationsnamn | Namnet på klienten. |
+| OrganizationName | Namnet på klienten. |
 | OriginatingServer | Namnet på den server från vilken cmdleten kördes. |
 | Parametrar | Namnet och värdet för alla parametrar som användes med cmdleten som identifierades i egenskapen Operations. |
 
@@ -635,7 +630,7 @@ Dessa poster skapas när ändringar eller tillägg görs i Exchange-postlådor.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyt |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Information om e-postklienten som användes för att utföra åtgärden, till exempel en webb läsar version, Outlook-version och information om mobila enheter. |
 | Client_IPAddress | IP-adressen för den enhet som användes när åtgärden loggades. IP-adressen visas antingen i ett IPv4-eller IPv6-adress format. |
@@ -658,7 +653,7 @@ Dessa poster skapas när en post lådas gransknings post skapas.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyt |
 | RecordType     | ExchangeItem |
 | Objekt | Representerar objektet som åtgärden utfördes på | 
 | SendAsUserMailboxGuid | Exchange-GUID för den post låda som användes för att skicka e-post som. |
@@ -673,7 +668,7 @@ Dessa poster skapas när ändringar eller tillägg görs i Exchange-grupper.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyt |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Information om varje objekt i gruppen. |
 | CrossMailboxOperations | Anger om åtgärden involverar fler än en post låda. |
@@ -694,16 +689,16 @@ De här egenskaperna är gemensamma för alla SharePoint-poster.
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
-| EventSource | Anger att en händelse har inträffat i SharePoint. Möjliga värden är SharePoint eller ObjectModel. |
+| eventSource | Anger att en händelse har inträffat i SharePoint. Möjliga värden är SharePoint eller ObjectModel. |
 | ItemType | Typ av objekt som har öppnats eller ändrats. Se tabellen ItemType för information om objekt typer. |
 | MachineDomainInfo | Information om synkronisering av enhets åtgärder. Den här informationen rapporteras endast om den finns i begäran. |
 | MachineId |   Information om synkronisering av enhets åtgärder. Den här informationen rapporteras endast om den finns i begäran. |
-| Site_ | GUID för den plats där filen eller mappen som används av användaren finns. |
+| Plats | GUID för den plats där filen eller mappen som används av användaren finns. |
 | Source_Name | Den entitet som utlöste den granskade åtgärden. Möjliga värden är SharePoint eller ObjectModel. |
 | UserAgent | Information om användarens klient eller webbläsare. Den här informationen tillhandahålls av klienten eller webbläsaren. |
 
 
-### <a name="sharepoint-schema"></a>SharePoint Schema
+### <a name="sharepoint-schema"></a>SharePoint-schema
 
 Dessa poster skapas när konfigurations ändringar görs i SharePoint.
 

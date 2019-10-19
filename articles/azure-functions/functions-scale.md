@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180099"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550638"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
-När du skapar en Function-app i Azure måste du välja en värd plan för din app. Det finns tre värd planer som är tillgängliga för Azure Functions: [Förbruknings plan](#consumption-plan), [Premium plan](#premium-plan)och [App Service plan](#app-service-plan).
+När du skapar en Function-app i Azure måste du välja en värd plan för din app. Det finns tre värd planer för Azure Functions: [förbruknings plan](#consumption-plan), [Premium plan](#premium-plan)och [App Service plan](#app-service-plan).
 
 Värd planen du väljer styr följande beteenden:
 
@@ -45,10 +45,10 @@ Funktions stödet ingår i följande två kategorier:
 
 Följande tabell visar den aktuella support nivån för de tre värd planerna, när de körs på antingen Windows eller Linux:
 
-| | Förbrukningsplan | Premiumplan | Dedikerad plan |
+| | Förbrukningsplan | Premium-plan | Dedikerad plan |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | Allmän tillgänglighet (GA) | förhandsversion | Allmän tillgänglighet (GA) |
-| Linux | Allmän tillgänglighet (GA) | förhandsversion | Allmän tillgänglighet (GA) |
+| Windows | Allmänt tillgänglig | förhandsversion | Allmänt tillgänglig |
+| Linux | Allmänt tillgänglig | förhandsversion | Allmänt tillgänglig |
 
 ## <a name="consumption-plan"></a>Förbrukningsplan
 
@@ -78,11 +78,12 @@ När du använder Premium-planen läggs instanser av Azure Functions-värden til
 
 Information om hur du kan konfigurera de här alternativen finns i [Azure Functions Premium plan-dokumentet](functions-premium-plan.md).
 
-I stället för fakturering per körning och använt minne baseras faktureringen för Premium-avtalet på antalet kärn sekunder, körnings tid och minne som används över nödvändiga och reserverade instanser.  Minst en instans måste vara varm vid alla tillfällen. Det innebär att det finns en fast månatlig kostnad per aktiv plan, oavsett antalet körningar.
+I stället för fakturering per körning och använt minne baseras faktureringen för Premium-prenumerationen på det antal kärn sekunder och minne som används för alla nödvändiga och förvärmade instanser. Minst en instans måste vara varm vid alla tidpunkter per plan. Det innebär att det finns en lägsta månatlig kostnad per aktiv plan, oavsett antalet körningar. Tänk på att alla funktions program i en Premium plan delar förvärmade och aktiva instanser.
 
 Överväg Azure Functions Premium-planen i följande situationer:
 
 * Dina Function-appar körs kontinuerligt eller nästan kontinuerligt.
+* Du har ett stort antal små körningar och har en hög körnings faktura men låg GB andra fakturor i förbruknings planen.
 * Du behöver fler processor-eller minnes alternativ än vad som tillhandahålls av förbruknings planen.
 * Din kod måste köras längre än den [maximala körnings tiden som tillåts](#timeout) i förbruknings planen.
 * Du behöver funktioner som bara är tillgängliga i en Premium-plan, till exempel VNET/VPN-anslutning.
@@ -112,7 +113,7 @@ Om du kör på en App Service plan bör du aktivera inställningen **Always on**
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 
-Även om Always On är aktiverat, styrs körningens tids gräns för enskilda `functionTimeout` funktioner av inställningen i filen [Host. JSON](functions-host-json.md#functiontimeout) -projekt.
+Även om Always On är aktiverat, kontrol leras tids gränsen för körningar för enskilda funktioner av `functionTimeout` inställningen i [Host. JSON](functions-host-json.md#functiontimeout) -projektfilen.
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Fastställa värd planen för ett befintligt program
 
@@ -127,7 +128,7 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-När utdata från det här kommandot är `dynamic`är din Function-app i förbruknings planen. När utdata från det här kommandot är `ElasticPremium`är din Function-app i Premium-planen. Alla andra värden indikerar olika nivåer för en App Service plan.
+När utdata från det här kommandot är `dynamic` är din Function-app i förbruknings planen. När utdata från det här kommandot är `ElasticPremium`, är din Function-app i Premium-planen. Alla andra värden indikerar olika nivåer för en App Service plan.
 
 ## <a name="storage-account-requirements"></a>Krav för lagringskonto
 

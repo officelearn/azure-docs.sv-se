@@ -1,45 +1,39 @@
 ---
-title: Skapa en fil för lösningen i Azure | Microsoft Docs
-description: Lösningar för hantering ger paketerade hanteringsscenarier som kunder kan lägga till deras Azure-miljön.  Den här artikeln innehåller information om hur du kan skapa lösningar för hantering som ska användas i din egen miljö eller göras tillgängligt för dina kunder.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
+title: Skapa en hanterings lösnings fil i Azure | Microsoft Docs
+description: Hanterings lösningar tillhandahåller paketlösningar för hantering av paket som kunder kan lägga till i sin Azure-miljö.  Den här artikeln innehåller information om hur du kan skapa hanterings lösningar som ska användas i din egen miljö eller som görs tillgängliga för dina kunder.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595773"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553856"
 ---
-# <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en fil för lösningen i Azure (förhandsversion)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en hanterings lösnings fil i Azure (för hands version)
 > [!NOTE]
-> Det här är preliminära dokumentationen för att skapa lösningar för hantering i Azure som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.  
+> Det här är en preliminär dokumentation för att skapa hanterings lösningar i Azure som för närvarande är en för hands version. Alla scheman som beskrivs nedan kan komma att ändras.  
 
-Lösningar för hantering i Azure implementeras som [Resource Manager-mallar](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Viktigaste uppgiften i lära dig hur du skapar lösningar för hantering av learning så [skapar en mall](../../azure-resource-manager/resource-group-authoring-templates.md).  Den här artikeln innehåller unika detaljer mallar som används för lösningar och hur du konfigurerar vanliga lösningsresurser.
+Hanterings lösningar i Azure implementeras som [Resource Manager-mallar](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Den viktigaste uppgiften i hur du skapar hanterings lösningar är att lära dig hur du [skapar en mall](../../azure-resource-manager/resource-group-authoring-templates.md).  Den här artikeln innehåller unik information om mallar som används för lösningar och hur du konfigurerar typiska lösnings resurser.
 
 
 ## <a name="tools"></a>Verktyg
 
-Du kan använda valfri textredigerare för att arbeta med lösningsfiler, men vi rekommenderar att utnyttja funktionerna i Visual Studio eller Visual Studio Code, enligt beskrivningen i följande artiklar.
+Du kan använda valfri text redigerare för att arbeta med lösningsfiler, men vi rekommenderar att du använder de funktioner som finns i Visual Studio eller Visual Studio Code enligt beskrivningen i följande artiklar.
 
-- [Skapa och distribuera Azure-resursgrupper via Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Arbeta med Azure Resource Manager-mallar i Visual Studio Code](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-
-
+- [Skapa och Distribuera Azure-resurs grupper via Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+- [Arbeta med Azure Resource Manager mallar i Visual Studio Code](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
-## <a name="structure"></a>struktur
-Den grundläggande strukturen i en fil för lösningen är samma som en [Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md#template-format), som ser ut så.  Vart och ett av avsnitten nedan beskrivs de översta elementen och deras innehåll i en lösning.  
+
+
+## <a name="structure"></a>hierarkistruktur
+Den grundläggande strukturen i en hanterings lösnings fil är samma som en [Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md#template-format), vilket är följande.  I följande avsnitt beskrivs de översta elementen och deras innehåll i en lösning.  
 
     {
        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -51,12 +45,12 @@ Den grundläggande strukturen i en fil för lösningen är samma som en [Resourc
     }
 
 ## <a name="parameters"></a>Parametrar
-[Parametrar](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) är värden som du behöver från användaren när de installerar hanteringslösningen.  Det finns standardparametrar som har alla lösningar och du kan lägga till ytterligare parametrar som krävs för din lösning.  Hur användare ange parametervärden när de installerar din lösning beror på en viss parameter och hur lösningen installeras.
+[Parametrar](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) är värden som du behöver från användaren när de installerar hanterings lösningen.  Det finns standard parametrar som alla lösningar kommer att ha och du kan lägga till ytterligare parametrar som krävs för din specifika lösning.  Hur användarna kommer att ange parameter värden när de installerar lösningen beror på den specifika parametern och hur lösningen installeras.
 
-När en användare [installerar din lösning](solutions.md#install-a-monitoring-solution) via Azure Marketplace eller Azure QuickStart-mallar uppmanas de att välja en [Log Analytics-arbetsytan och Automation-kontot](solutions.md#log-analytics-workspace-and-automation-account).  De används för att fylla i värdena för var och en av parametrarna standard.  Användaren behöver inte ange direkt ange värden för parametrarna standard, men de uppmanas att ange värden för alla ytterligare parametrar.
+När en användare [installerar din hanterings lösning](solutions.md#install-a-monitoring-solution) via Azure Marketplace eller Azures snabb starts mallar uppmanas de att välja en [Log Analytics arbets yta och ett Automation-konto](solutions.md#log-analytics-workspace-and-automation-account).  Dessa används för att fylla i värdena för var och en av standard parametrarna.  Användaren uppmanas inte att ange värden för standard parametrarna direkt, men de uppmanas att ange värden för eventuella ytterligare parametrar.
 
 
-En exempel-parameter visas nedan.  
+En exempel parameter visas nedan.  
 
     "startTime": {
         "type": "string",
@@ -70,30 +64,30 @@ I följande tabell beskrivs attributen för en parameter.
 
 | Attribut | Beskrivning |
 |:--- |:--- |
-| type |Datatypen för parametern. Den indatakontroll som visas för användaren är beroende av datatypen.<br><br>bool - listrutan<br>sträng - textrutan<br>int - textrutan<br>SecureString - lösenordsfältet<br> |
-| category |Valfri kategori för parametern.  Parametrarna i samma kategori grupperas tillsammans. |
-| control |Ytterligare funktioner för strängparametrar.<br><br>datetime - Datetime kontroll visas.<br>GUID – Guid-värde genereras automatiskt och parametern visas inte. |
-| description |Valfri beskrivning för parametern.  Visas i en information pratbubblor bredvid parametern. |
+| typ |Parameterns datatyp. Den inmatnings kontroll som visas för användaren beror på data typen.<br><br>bool-List rutan<br>sträng – text ruta<br>int-text ruta<br>SecureString – lösen ords fält<br> |
+| category |Valfri kategori för parametern.  Parametrar i samma kategori grupperas tillsammans. |
+| Reglering |Ytterligare funktioner för sträng parametrar.<br><br>datetime-datetime-kontrollen visas.<br>GUID-GUID-värdet genereras automatiskt och parametern visas inte. |
+| beskrivning |Valfri beskrivning för parametern.  Visas i en informations prat bubbla bredvid parametern. |
 
-### <a name="standard-parameters"></a>Standardparametrar
-I följande tabell visas standardparametrar för alla lösningar för hantering.  Dessa värden är ifyllda i stället för att fråga om dem när lösningen har installerats från Azure Marketplace eller Quickstart-mallar.  Användaren måste ange värden för dem om lösningen är installerat med någon annan metod.
+### <a name="standard-parameters"></a>Standard parametrar
+I följande tabell visas standard parametrarna för alla hanterings lösningar.  Dessa värden fylls i i stället för att fråga efter dem när din lösning installeras från Azure Marketplace eller snabb starts mallar.  Användaren måste ange värden för dem om lösningen installeras med en annan metod.
 
 > [!NOTE]
-> Användargränssnittet i Azure Marketplace och snabbstartsmallar förväntar sig parameternamnen i tabellen.  Om du använder olika parameternamn sedan användaren uppmanas att dem och de är inte automatiskt ifyllda.
+> Användar gränssnittet i Azure Marketplace och snabb starts mal vägar förväntar sig parameter namnen i tabellen.  Om du använder olika parameter namn kommer användaren att uppmanas att ange dem och de fylls inte i automatiskt.
 >
 >
 
 | Parameter | Typ | Beskrivning |
 |:--- |:--- |:--- |
-| accountName |string |Azure Automation-kontonamn. |
-| pricingTier |string |Prisnivån för både Log Analytics-arbetsytan och Azure Automation-konto. |
-| regionId |string |Region för Azure Automation-kontot. |
-| solutionName |string |Namnet på lösningen.  Om du distribuerar din lösning med Quickstart-mallar, bör sedan du definiera solutionName som en parameter så att du kan definiera en sträng i stället eftersom användaren måste ange en. |
-| workspaceName |string |Log Analytics-Arbetsytenamn. |
-| workspaceRegionId |string |Region för Log Analytics-arbetsytan. |
+| Konto |sträng |Azure Automation konto namn. |
+| pricingTier |sträng |Pris nivå för både Log Analytics arbets yta och Azure Automation konto. |
+| regionId |sträng |Azure Automation kontots region. |
+| solutionName |sträng |Lösningens namn.  Om du distribuerar din lösning via snabb starts mallar bör du definiera solutionName som en parameter så att du kan definiera en sträng som kräver att användaren anger en sträng. |
+| workspaceName |sträng |Log Analytics arbets ytans namn. |
+| workspaceRegionId |sträng |Region i Log Analytics-arbetsytan. |
 
 
-Nedan följer strukturen för standardparametrar som du kan kopiera och klistra in i din lösningsfilen.  
+Följande är strukturen för de standard parametrar som du kan kopiera och klistra in i lösnings filen.  
 
     "parameters": {
         "workspaceName": {
@@ -129,12 +123,12 @@ Nedan följer strukturen för standardparametrar som du kan kopiera och klistra 
     }
 
 
-Du refererar till parametervärden i andra element i lösningen med syntaxen **parametrar (parametern name)** .  Till exempel för att komma åt arbetsytans namn om du använder **parameters('workspaceName')**
+Du refererar till parameter värden i andra element i lösningen med hjälp av syntaxen **Parameters (parameter namn)** .  Om du till exempel vill komma åt arbets ytans namn använder du **parametrar (' workspaceName ')**
 
 ## <a name="variables"></a>Variabler
-[Variabler](../../azure-resource-manager/resource-group-authoring-templates.md#variables) är värden som du ska använda i resten av hanteringslösningen.  Dessa värden exponeras inte för den användare som installerar lösningen.  De är avsedda att ge författaren med en enda plats där de kan hantera värden som kan användas flera gånger i hela lösningen. Du bör placera värden specifika i din lösning i variabler istället för hårdkoda dem i den **resurser** element.  Detta gör koden lättare att läsa och gör att du kan enkelt ändra dessa värden i senare versioner.
+[Variabler](../../azure-resource-manager/resource-group-authoring-templates.md#variables) är värden som du kommer att använda i resten av hanterings lösningen.  Dessa värden exponeras inte för den användare som installerar lösningen.  De är avsedda att ge upphovs mannen en enda plats där de kan hantera värden som kan användas flera gånger i lösningen. Du bör ange värden som är unika för din lösning i variabler i stället för att hårdkoda dem i **resurs** elementet.  Detta gör koden mer lättläst och gör att du enkelt kan ändra dessa värden i senare versioner.
 
-Följande är ett exempel på en **variabler** element med vanliga parametrar som används i lösningar.
+Följande är ett exempel på ett **variabel** element med typiska parametrar som används i lösningar.
 
     "variables": {
         "SolutionVersion": "1.1",
@@ -144,9 +138,9 @@ Följande är ett exempel på en **variabler** element med vanliga parametrar so
         "AutomationApiVersion": "2015-10-31"
     },
 
-Du refererar till variabelvärden genom lösningen med syntaxen **variabler (variabeln namn)** .  Till exempel för att komma åt SolutionName variabeln, använder du **variables('SolutionName')** .
+Du refererar till variabel värden via lösningen med syntax **-variablerna ("variabel namn")** .  Om du till exempel vill komma åt variabeln SolutionName använder du **variabler (' SolutionName ')** .
 
-Du kan också definiera komplex variabler som flera uppsättningar med värden.  Det här är särskilt användbart i lösningar för hantering av där du definierar flera egenskaper för olika typer av resurser.  Du kan till exempel omstrukturera lösningen variablerna som visas ovan för att följande.
+Du kan också definiera komplexa variabler som flera uppsättningar med värden.  Dessa är särskilt användbara i hanterings lösningar där du definierar flera egenskaper för olika typer av resurser.  Du kan till exempel strukturera om de lösnings variabler som visas ovan till följande.
 
     "variables": {
         "Solution": {
@@ -158,21 +152,21 @@ Du kan också definiera komplex variabler som flera uppsättningar med värden. 
         "AutomationApiVersion": "2015-10-31"
     },
 
-I det här fallet du hänvisa till variabeln genom lösningen med syntaxen **variables('variable name').property**.  Till exempel för att komma åt lösningsnamn variabeln, använder du **variables('Solution'). Namn på**.
+I det här fallet refererar du till variabel värden genom lösningen med syntax **-variablerna (variabel namn). egenskap**.  Om du till exempel vill komma åt variabeln lösnings namn använder du **variabler ("lösning"). Namn**.
 
 ## <a name="resources"></a>Resurser
-[Resurser](../../azure-resource-manager/resource-group-authoring-templates.md#resources) definierar de olika resurser som din lösning ska installeras och konfigureras.  Det här är den största och mest avancerade delen av mallen.  Du kan hämta struktur och fullständig beskrivning av resursen element i [redigera Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md#resources).  Olika resurser som du vanligtvis definierar beskrivs i andra artiklar i den här dokumentationen. 
+[Resurser](../../azure-resource-manager/resource-group-authoring-templates.md#resources) definierar de olika resurser som din hanterings lösning kommer att installera och konfigurera.  Detta är den största och mest komplexa delen av mallen.  Du kan hämta strukturen och fullständig beskrivning av resurs element i [redigera Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md#resources).  Olika resurser som du definierar ofta beskrivs i andra artiklar i den här dokumentationen. 
 
 
 ### <a name="dependencies"></a>Beroenden
-Den **dependsOn** elementet anger en [beroende](../../azure-resource-manager/resource-group-define-dependencies.md) på en annan resurs.  När lösningen har installerats kan en resurs skapas inte förrän alla dess beroenden har skapats.  Till exempel din lösning kan [startar en runbook](solutions-resources-automation.md#runbooks) när den är installerad med hjälp av en [jobbet resource](solutions-resources-automation.md#automation-jobs).  Jobb-resursen skulle vara beroende av runbook-resursen för att se till att runbooken har skapats innan jobbet har skapats.
+**DependsOn** -elementet anger ett [beroende](../../azure-resource-manager/resource-group-define-dependencies.md) för en annan resurs.  När lösningen har installerats skapas ingen resurs förrän alla dess beroenden har skapats.  Din lösning kan till exempel [starta en Runbook](solutions-resources-automation.md#runbooks) när den installeras med en [jobb resurs](solutions-resources-automation.md#automation-jobs).  Jobb resursen är beroende av Runbook-resursen för att se till att runbooken skapas innan jobbet skapas.
 
-### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-arbetsytan och Automation-konto
-Lösningar för hantering av kräver en [Log Analytics-arbetsyta](../../azure-monitor/platform/manage-access.md) innehålla vyer och en [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) som innehåller runbooks och relaterade resurser.  Dessa måste vara tillgängliga innan resurserna i lösningen skapas och ska inte definieras i själva lösningen.  Användaren kommer att [ange en arbetsyta och konto](solutions.md#log-analytics-workspace-and-automation-account) när de distribuerar din lösning, men som författare bör du överväga följande punkter.
+### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics arbets yta och Automation-konto
+Hanterings lösningar kräver att en [Log Analytics arbets yta](../../azure-monitor/platform/manage-access.md) innehåller vyer och ett [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) för att innehålla Runbooks och relaterade resurser.  Dessa måste vara tillgängliga innan resurserna i lösningen skapas och ska inte definieras i själva lösningen.  Användaren [anger en arbets yta och ett konto](solutions.md#log-analytics-workspace-and-automation-account) när de distribuerar din lösning, men som författare bör du tänka på följande saker.
 
 
-## <a name="solution-resource"></a>Lösningen resurs
-Varje lösning kräver att en resurs i den **resurser** -element som definierar själva lösningen.  Detta har en typ av **Microsoft.OperationsManagement/solutions** och har följande struktur. Detta inkluderar [standardparametrar](#parameters) och [variabler](#variables) som används vanligtvis för att definiera egenskaperna för lösningen.
+## <a name="solution-resource"></a>Lösnings resurs
+Varje lösning kräver en resurs post i resurs **elementet som** definierar själva lösningen.  Detta kommer att ha en typ av **Microsoft. OperationsManagement/-lösningar** och ha följande struktur. Detta inkluderar [standard parametrar](#parameters) och [variabler](#variables) som vanligt vis används för att definiera egenskaper för lösningen.
 
 
     {
@@ -206,34 +200,34 @@ Varje lösning kräver att en resurs i den **resurser** -element som definierar 
 
 
 ### <a name="dependencies"></a>Beroenden
-Lösningen resursen måste ha en [beroende](../../azure-resource-manager/resource-group-define-dependencies.md) på alla andra resurser i lösningen eftersom de måste finnas innan du kan skapa lösningen.  Du gör detta genom att lägga till en post för varje resurs i den **dependsOn** element.
+Lösnings resursen måste ha ett [beroende](../../azure-resource-manager/resource-group-define-dependencies.md) på alla andra resurser i lösningen eftersom de måste finnas innan lösningen kan skapas.  Du gör detta genom att lägga till en post för varje resurs i **dependsOn** -elementet.
 
 ### <a name="properties"></a>Egenskaper
-Lösningen-resursen har egenskaperna i följande tabell.  Detta omfattar de resurser som refererar till och ingår i lösningen som definierar hur resursen hanteras när lösningen har installerats.  Varje resurs i lösningen bör visas i antingen den **referencedResources** eller **containedResources** egenskapen.
+Lösnings resursen har egenskaperna i följande tabell.  Detta inkluderar de resurser som refereras och ingår i lösningen som definierar hur resursen hanteras när lösningen har installerats.  Varje resurs i lösningen ska visas i antingen **referencedResources** eller egenskapen **containedResources** .
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| workspaceResourceId |ID för Log Analytics-arbetsytan i formuläret  *\<resursgrupps-ID > /providers/Microsoft.OperationalInsights/workspaces/\<Arbetsytenamn\>* . |
-| referencedResources |Listan över resurser i den lösning som inte ska tas bort när lösningen har tagits bort. |
-| containedResources |Lista över resurser i lösningen som ska tas bort när lösningen har tagits bort. |
+| workspaceResourceId |ID för arbets ytan Log Analytics i formatet *\<Resource grupp-id >/providers/Microsoft.OperationalInsights/workspaces/\<Workspace namn \>* . |
+| referencedResources |Lista över resurser i lösningen som inte ska tas bort när lösningen tas bort. |
+| containedResources |Lista med resurser i lösningen som ska tas bort när lösningen tas bort. |
 
-I exemplet ovan är för en lösning med en runbook, ett schema och visa.  Schemat och runbook är *refererade* i den **egenskaper** element så att de inte tas bort när lösningen har tagits bort.  Vyn är *innehöll* så tas den bort när lösningen har tagits bort.
+Exemplet ovan är för en lösning med en Runbook, ett schema och en vy.  Schemat och Runbook-flödet *refereras* till i **Properties** -elementet så att de inte tas bort när lösningen tas bort.  Vyn *finns så att* den tas bort när lösningen tas bort.
 
-### <a name="plan"></a>Planera
-Den **plan** entitet av lösningen resursen har egenskaperna i följande tabell.
+### <a name="plan"></a>Plan
+**Plan** -entiteten för lösnings resursen har egenskaperna i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| name |Namnet på lösningen. |
-| version |Version av lösningen systemets författaren. |
-| product |Unik sträng att identifiera lösningen. |
-| publisher |Utgivare av lösningen. |
+| namn |Lösningens namn. |
+| version |Version av lösningen som definieras av författaren. |
+| produkt |Unik sträng för att identifiera lösningen. |
+| Förläggare |Utgivare av lösningen. |
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Lägg till sparade sökningar och aviseringar](solutions-resources-searches-alerts.md) till din lösning.
-* [Lägga till vyer](solutions-resources-views.md) till din lösning.
-* [Lägg till runbooks och andra Automation-resurser](solutions-resources-automation.md) till din lösning.
-* Mer information om [redigera Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md).
-* Sök [Azure-Snabbstartsmallar](https://azure.microsoft.com/documentation/templates) exempel på olika Resource Manager-mallar.
+* [Lägg till sparade sökningar och aviseringar](solutions-resources-searches-alerts.md) i hanterings lösningen.
+* [Lägg till vyer](solutions-resources-views.md) i hanterings lösningen.
+* [Lägg till runbooks och andra Automation-resurser](solutions-resources-automation.md) i hanterings lösningen.
+* Läs mer om hur du [redigerar Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Sök i [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates) efter exempel på olika Resource Manager-mallar.

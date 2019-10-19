@@ -2,7 +2,6 @@
 title: Skapa en virtuell Windows-dator från en specialiserad virtuell hård disk i Azure | Microsoft Docs
 description: Skapa en ny virtuell Windows-dator genom att koppla en specialiserad hanterad disk som OS-disk med hjälp av distributions modellen för Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
 editor: ''
@@ -12,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: be773779b25a32a5904012ae31950b18c33341dc
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390592"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553426"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en specialiserad disk med hjälp av PowerShell
 
@@ -63,100 +62,15 @@ Använd den virtuella hård disken som-är för att skapa en ny virtuell dator.
   * Se till att den virtuella datorn är konfigurerad för att hämta IP-adressen och DNS-inställningarna från DHCP. Detta säkerställer att servern får en IP-adress i det virtuella nätverket när den startas. 
 
 
-### <a name="get-the-storage-account"></a>Hämta lagrings kontot
-Du behöver ett lagrings konto i Azure för att lagra den uppladdade virtuella hård disken. Du kan antingen använda ett befintligt lagrings konto eller skapa ett nytt. 
+### <a name="upload-the-vhd"></a>Ladda upp den virtuella hård disken
 
-Visa tillgängliga lagrings konton.
-
-```powershell
-Get-AzStorageAccount
-```
-
-Om du vill använda ett befintligt lagrings konto går du vidare till avsnittet [Ladda upp VHD](#upload-the-vhd-to-your-storage-account) .
-
-Skapa ett lagringskonto.
-
-1. Du behöver namnet på resurs gruppen där lagrings kontot kommer att skapas. Använd Get-AzResourceGroup för att se alla resurs grupper som finns i din prenumeration.
-   
-    ```powershell
-    Get-AzResourceGroup
-    ```
-
-    Skapa en resurs grupp med namnet *myResourceGroup* i regionen *USA, västra* .
-
-    ```powershell
-    New-AzResourceGroup `
-       -Name myResourceGroup `
-       -Location "West US"
-    ```
-
-2. Skapa ett lagrings konto med namnet *mystorageaccount* i den nya resurs gruppen genom att använda cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) .
-   
-    ```powershell
-    New-AzStorageAccount `
-       -ResourceGroupName myResourceGroup `
-       -Name mystorageaccount `
-       -Location "West US" `
-       -SkuName "Standard_LRS" `
-       -Kind "Storage"
-    ```
-
-### <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella hård disken till ditt lagrings konto 
-Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp den virtuella hård disken till en behållare i ditt lagrings konto. I det här exemplet överförs filen *myVHD. VHD* från "C:\Users\Public\Documents\Virtual Hard disks @ no__t-1 till ett lagrings konto med namnet *mystorageaccount* i resurs gruppen *myResourceGroup* . Filen lagras i behållaren *som heter* behållaren och det nya fil namnet kommer att vara *myUploadedVHD. VHD*.
-
-```powershell
-$resourceGroupName = "myResourceGroup"
-$urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $resourceGroupName `
-   -Destination $urlOfUploadedVhd `
-   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-Om kommandona lyckas får du ett svar som ser ut ungefär så här:
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-Det här kommandot kan ta en stund att slutföra, beroende på din nätverks anslutning och storleken på VHD-filen.
-
-### <a name="create-a-managed-disk-from-the-vhd"></a>Skapa en hanterad disk från den virtuella hård disken
-
-Skapa en hanterad disk från den specialiserade virtuella hård disken i ditt lagrings konto med hjälp av [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Det här exemplet använder *myOSDisk1* för disk namnet, placerar disken i *Standard_LRS* Storage och använder *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* som URI för den virtuella käll hård disken.
-
-Skapa en ny resurs grupp för den nya virtuella datorn.
-
-```powershell
-$destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzResourceGroup -Location $location `
-   -Name $destinationResourceGroup
-```
-
-Skapa den nya OS-disken från den uppladdade virtuella hård disken. 
-
-```powershell
-$sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
-$osDiskName = 'myOsDisk'
-$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
-    (New-AzDiskConfig -AccountType Standard_LRS  `
-    -Location $location -CreateOption Import `
-    -SourceUri $sourceUri) `
-    -ResourceGroupName $destinationResourceGroup
-```
+Nu kan du ladda upp en virtuell hård disk direkt till en hanterad disk. Instruktioner finns i [Ladda upp en virtuell hård disk till Azure med Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 ## <a name="option-3-copy-an-existing-azure-vm"></a>Alternativ 3: kopiera en befintlig virtuell Azure-dator
 
 Du kan skapa en kopia av en virtuell dator som använder hanterade diskar genom att ta en ögonblicks bild av den virtuella datorn och sedan använda ögonblicks bilden för att skapa en ny hanterad disk och en ny virtuell dator.
 
+Om du vill kopiera en befintlig virtuell dator till en annan region kanske du vill använda AzCopy för att [skap en kopia av en disk i en annan region](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Ta en ögonblicks bild av OS-disken
 
@@ -204,7 +118,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Om du vill använda den här ögonblicks bilden för att skapa en virtuell dator som måste vara hög, lägger du till parametern `-AccountType Premium_LRS` till kommandot New-AzSnapshotConfig. Den här parametern skapar ögonblicks bilden så att den lagras som en Premium-hanterad disk. Premium Managed Disks är dyrare än standard, så se till att du behöver Premium innan du använder den här parametern.
+Om du vill använda den här ögonblicks bilden för att skapa en virtuell dator som behöver köras med hög prestanda lägger du till parametern `-AccountType Premium_LRS` till kommandot New-AzSnapshotConfig. Den här parametern skapar ögonblicks bilden så att den lagras som en Premium-hanterad disk. Premium Managed Disks är dyrare än standard, så se till att du behöver Premium innan du använder den här parametern.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Skapa en ny disk från ögonblicks bilden
 

@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: feec6a695ad867d26d32904d020648b029f9da35
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: da27f818bf368108568287f1ed1bbdae4c3902d4
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187433"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72560606"
 ---
-## <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
+## <a name="create-a-media-services-account"></a>Skapa ett medietjänstkonto
 
-Du måste först skapa ett Media Services-konto. Det här avsnittet visas vad du behöver för att skapa för kontot med hjälp av Azure CLI.
+Du måste först skapa ett Media Services-konto. I det här avsnittet visas vad du behöver för att skapa ett konto med hjälp av Azure CLI.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Använd följande kommando för att skapa en resursgrupp. En Azure-resursgrupp är en logisk container där resurser som Azure Media Services-konton och associerade Storage-konton distribueras och hanteras.
 
-Du kan ersätta `amsResourceGroup` med värdet.
+Du kan ersätta `amsResourceGroup` med ditt värde.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -37,7 +37,7 @@ Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekund�
 
 I det här exemplet skapar vi ett General Purpose v2, Standard LRS-konto. Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du överväga `--sku Standard_RAGRS`, som ger geografisk replikering för affärskontinuitet. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
-Följande kommando skapar ett lagringskonto som ska associeras med Media Services-kontot. I skriptet nedan kan du ersätta `storageaccountforams` med ditt värde. `amsResourceGroup` måste överensstämma med värdet som du gav för resursgruppen i föregående steg. Lagringskontonamnet måste ha en längd som är mindre än 24.
+Följande kommando skapar ett lagringskonto som ska associeras med Media Services-kontot. I skriptet nedan kan du ersätta `storageaccountforams` med ditt värde. `amsResourceGroup` måste matcha det värde som du gav för resurs gruppen i föregående steg. Lagrings kontots namn får inte vara längre än 24.
 
 ```azurecli
 az storage account create --name storageaccountforams \  
@@ -47,12 +47,12 @@ az storage account create --name storageaccountforams \
   -g amsResourceGroup
 ```
 
-### <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
+### <a name="create-a-media-services-account"></a>Skapa ett medietjänstkonto
 
 Följande Azure CLI-kommando skapar ett nytt Media Services-konto. Du kan ersätta följande värden: `amsaccount` `storageaccountforams` (måste matcha värdet som du gav för ditt lagringskonto) och `amsResourceGroup` (måste matcha värdet som du gav för resursgruppen).
 
 ```azurecli
 az ams account create --name amsaccount \
-  -l westus2 \
-  -g amsResourceGroup --storage-account storageaccountforams
+   -g amsResourceGroup --storage-account storageaccountforams \
+   -l westus2 
 ```

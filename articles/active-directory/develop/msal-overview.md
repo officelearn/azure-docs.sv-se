@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a53de919960902fcc89a53293f31a07baa88cf32
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: bec22381d1961c47ce257666177b5faf918cea56
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268555"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554403"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Översikt över Microsoft Authentication Library (MSAL)
 Med Microsoft Authentication Library (MSAL) kan utvecklare Hämta [tokens](developer-glossary.md#security-token) från slut punkten för Microsoft Identity Platform för att få åtkomst till säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från tredje part eller ditt eget webb-API. MSAL är tillgängligt för .NET, Java Script, Android och iOS, som har stöd för många olika program arkitekturer och plattformar.
@@ -55,8 +55,8 @@ MSAL kan användas i många program scenarier, inklusive följande:
 | Bibliotek | Plattformar och ramverk som stöds|
 | --- | --- | 
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universell Windows-plattform|
-| [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Java Script/TypeScript-ramverk som AngularJS, maskininlärning. js eller Durandal. js|
-| [MSAL för Android (för hands version)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
+| [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Java Script/TypeScript-ramverk som AngularJS, maskininlärning. js eller Durandal. js|
+| [MSAL för Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL för iOS och macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS och macOS|
 | [MSAL4J för hands version](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
 

@@ -1,35 +1,34 @@
 ---
-title: Azure Monitoring REST API-genomgång
-description: Så här autentisera begäranden och använda Azure Monitor REST API för att hämta tillgängliga definitioner av mätvärden och måttvärden.
-author: rboucher
-services: azure-monitor
+title: Genom gång av Azure Monitoring REST API
+description: Autentisera begär Anden och Använd Azure Monitor REST API för att hämta tillgängliga mått definitioner och mät värden.
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/19/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 03/19/2018
+ms.openlocfilehash: 68c90f6c763fe7cd634aee886c5c8c6b8153253e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205636"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551824"
 ---
-# <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API-genomgång
+# <a name="azure-monitoring-rest-api-walkthrough"></a>Genom gång av Azure Monitoring REST API
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Den här artikeln visar hur du utför autentisering så att din kod kan använda den [Microsoft Azure Monitor REST API-referens](https://docs.microsoft.com/rest/api/monitor/).
+Den här artikeln visar hur du utför autentisering så att din kod kan använda [Microsoft Azure Monitor REST API referens](https://docs.microsoft.com/rest/api/monitor/).
 
-Azure Monitor-API gör det möjligt att du kan hämta den tillgängliga standarddefinitioner av mätvärden och kornighet måttvärden. Data kan sparas i ett separat datalager som Azure SQL Database, Azure Cosmos DB eller Azure Data Lake. Därifrån kan du utföra ytterligare analys efter behov.
+Azure Monitor-API: et gör det möjligt att program mässigt Hämta tillgängliga standard mått definitioner, granularitet och mät värden. Data kan sparas i ett separat data lager, till exempel Azure SQL Database, Azure Cosmos DB eller Azure Data Lake. Du kan utföra ytterligare analyser efter behov.
 
-Förutom att arbeta med olika mått datapunkter, gör övervaka API: et det också möjligt att lista Varningsregler, visa aktivitetsloggar och mycket mer. En fullständig lista över tillgängliga åtgärder finns i den [Microsoft Azure Monitor REST API-referens](https://docs.microsoft.com/rest/api/monitor/).
+Förutom att arbeta med olika mått data punkter gör övervakarens API också det möjligt att lista aviserings regler, Visa aktivitets loggar och mycket mer. En fullständig lista över tillgängliga åtgärder finns i referens för [Microsoft Azure övervakare REST API](https://docs.microsoft.com/rest/api/monitor/).
 
-## <a name="authenticating-azure-monitor-requests"></a>Den autentiserande Azure Monitor-begäranden
+## <a name="authenticating-azure-monitor-requests"></a>Autentisera Azure Monitor begär Anden
 
 Det första steget är att autentisera begäran.
 
-Alla aktiviteter som körs mot Azure Monitor-API använder Azure Resource Manager-autentiseringsmodellen. Därför måste alla begäranden autentiseras med Azure Active Directory (AD Azure). En metod för att autentisera klientprogrammet är att skapa en Azure AD-tjänstens huvudnamn och hämta token för autentisering (JWT). Följande exempelskript visar skapar en Azure AD-tjänsten huvudnamn via PowerShell. En mer detaljerad genomgång finns i dokumentationen på [använder Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Det går också att [skapa ett huvudnamn för tjänsten via Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+Alla aktiviteter som utförs mot Azure Monitor-API: et använder modellen Azure Resource Manager autentisering. Därför måste alla begär Anden autentiseras med Azure Active Directory (Azure AD). En metod för att autentisera klient programmet är att skapa ett Azure AD-tjänstens huvud namn och hämta autentiseringen (JWT)-token. Följande exempel skript visar hur du skapar ett tjänst huvud namn för Azure AD via PowerShell. Mer detaljerad information finns i dokumentationen om hur du [använder Azure PowerShell för att skapa ett huvud namn för tjänsten för att få åtkomst till resurser](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Det är också möjligt att [skapa ett huvud namn för tjänsten via Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```powershell
 $subscriptionId = "{azure-subscription-id}"
@@ -58,7 +57,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Om du vill fråga API: et för Azure Monitor bör klientprogrammet använda tidigare skapade tjänstens huvudnamn för autentisering. I följande exempel PowerShell-skript visas en itu med den [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) för att hämta JWT-token för autentisering. Detta JWT-token skickas som en del av en HTTP-auktorisering parameter i begäranden till REST-API i Azure Monitor.
+Om du vill fråga Azure Monitor-API: t bör klient programmet använda det tidigare skapade tjänstens huvud namn för att autentisera. Följande exempel på PowerShell-skript visar ett tillvägagångs sätt med hjälp av [Active Directory-autentiseringsbibliotek](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) för att hämta JWT-autentiseringstoken. JWT-token skickas som en del av en HTTP-auktoriseringsregel i begär anden till Azure Monitor REST API.
 
 ```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -82,25 +81,25 @@ $authHeader = @{
 }
 ```
 
-När de har autentiserat, kan frågor sedan köras mot REST-API i Azure Monitor. Det finns två bra frågor:
+Efter autentiseringen kan frågor sedan utföras mot Azure Monitor REST API. Det finns två användbara frågor:
 
-1. Lista över måttdefinitioner för en resurs
+1. Visa en lista med mått definitioner för en resurs
 2. Hämta mått värden
 
 > [!NOTE]
-> Mer information om autentisering med Azure REST-API och finns i den [Azure REST API-referens](https://docs.microsoft.com/rest/api/azure/).
+> Mer information om hur du autentiserar med Azure REST API finns i [referens för azure REST API](https://docs.microsoft.com/rest/api/azure/).
 >
 >
 
-## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Hämta Måttdefinitioner (flerdimensionella API)
+## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Hämta mått definitioner (Multi-dimensionell API)
 
-Använd den [REST API för Azure Monitor måttdefinitioner](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) att komma åt listan över mått som är tillgängliga för en tjänst.
+Använd [Azure Monitor mått definitioner REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) för att få åtkomst till listan över mått som är tillgängliga för en tjänst.
 
-**Metoden**: HÄMTA
+**Metod**: Hämta
 
-**Begärande-URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
+**Begärande-URI**: https: \/ \/management. Azure.com/Subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/Microsoft.Insights/metricDefinitions? API-version = *{API version}*
 
-Till exempel för att hämta måttdefinitioner för ett Azure Storage-konto, skulle begäran visas på följande sätt:
+Om du till exempel vill hämta mått definitionerna för ett Azure Storage konto ser begäran ut så här:
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
@@ -114,11 +113,11 @@ Invoke-RestMethod -Uri $request `
 ```
 
 > [!NOTE]
-> Använd ”2018-01-01” för att hämta definitioner av mått med hjälp av den flerdimensionella mätvärden för Azure Monitor REST API, som API-versionen.
+> Om du vill hämta mått definitioner med flerdimensionella Azure Monitor mått REST API använder du "2018-01-01" som API-version.
 >
 >
 
-Resulterande JSON svarstexten skulle vara liknar följande exempel: (Observera att andra mått har dimensioner)
+Den resulterande JSON-svars texten liknar följande exempel: (Observera att det andra måttet har dimensioner)
 
 ```JSON
 {
@@ -229,22 +228,22 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel: (Observera a
 }
 ```
 
-## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Hämta dimensionsvärden (flerdimensionella API)
+## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Hämta dimensions värden (Multi-dimensionellt API)
 
-När de tillgängliga definitionerna av mått är kända, kan det finnas vissa mått med dimensioner. Innan du frågar efter måttet kan du identifiera vilka värdeintervallet har en dimension. Baserat på dessa dimensionsvärden som du kan sedan välja att filtrera eller segment som mått som baseras på dimensionsvärden vid fråga till för mått.  Använd den [Azure Monitor Metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics) att uppnå detta.
+När de tillgängliga mått definitionerna är kända kan det finnas några mått som har dimensioner. Innan du frågar efter måttet kanske du vill identifiera det värde intervall som en dimension har. Baserat på dessa dimensions värden kan du sedan välja att filtrera eller segmentera måtten baserat på dimensions värden vid frågor om mått.  Använd [Azure Monitor mått REST API](https://docs.microsoft.com/rest/api/monitor/metrics) för att uppnå detta.
 
-Använd den måttet namnet 'value' (inte den ' localizedValue') för alla begäranden som filtrerande. Om inga filter har angetts, returneras Standardmåttet. Användningen av denna API tillåter endast en dimension har ett jokertecken-filtret.
+Använd måttets namn värde (inte localizedValue) för alla filtrerings begär Anden. Om inga filter anges returneras standard måttet. Användningen av detta API tillåter bara en dimension att ha ett Wildcard-filter.
 
 > [!NOTE]
-> Använd ”2018-01-01” för att hämta värden med hjälp av Azure Monitor REST API, som API-versionen.
+> Om du vill hämta dimensions värden med hjälp av Azure Monitor REST API använder du "2018-01-01" som API-version.
 >
 >
 
-**Metoden**: HÄMTA
+**Metod**: Hämta
 
-**Begärande-URI**: https\://management.azure.com/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{ resurs-provider-namespace}* / *{resurstypen}* / *{resurs-name}* /providers/microsoft.insights/metrics? metricnames = *{mått}* & timespan = *{starttime/endtime}* & $filter = *{filter}* & resultType = metadata & api-version = *{apiVersion}*
+**Begärande-URI**: https \://*Management.Azure.com/Subscriptions/{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/ *{Resource-Provider-namespace}* / *{resurs typ}* / *{Resource-Name}* /providers/Microsoft.Insights/Metrics? metricnames = *{Metric}* & TimeSpan = *{StartTime/* slut tid} & $filter = *{filter}* & resultType = metadata & API-version = *{ API version}*
 
-Till exempel för att hämta listan över dimensionsvärden som har genererats för ”API-namn dimensionen' för måttet 'Transaktioner” där dimensionen GeoType = ”primär” under det angivna tidsintervallet begäran skulle vara följande:
+Om du till exempel vill hämta listan med dimensions värden som har genererats för "API-namnets dimension" för måttet "transaktioner", där typen dimension = "primär" under det angivna tidsintervallet, skulle begäran vara följande:
 
 ```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
@@ -256,7 +255,7 @@ Invoke-RestMethod -Uri $request `
     -Verbose
 ```
 
-Resulterande JSON svarstexten skulle vara liknar följande exempel:
+Den resulterande JSON-svars texten liknar följande exempel:
 
 ```JSON
 {
@@ -302,22 +301,22 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel:
 }
 ```
 
-## <a name="retrieve-metric-values-multi-dimensional-api"></a>Hämta måttvärden (flerdimensionella API)
+## <a name="retrieve-metric-values-multi-dimensional-api"></a>Hämta mått värden (Multi-dimensionellt API)
 
-När tillgängliga definitioner av mätvärden och möjliga värden är kända, har det möjligt att hämta relaterad måttvärden.  Använd den [Azure Monitor Metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics) att uppnå detta.
+När de tillgängliga mått definitionerna och möjliga dimensions värden är kända, är det möjligt att hämta relaterade mått värden.  Använd [Azure Monitor mått REST API](https://docs.microsoft.com/rest/api/monitor/metrics) för att uppnå detta.
 
-Använd den måttet namnet 'value' (inte den ' localizedValue') för alla begäranden som filtrerande. Om inga dimensionsfilter har anges, returneras upplyfta sammansatta måttet. Om en måttfråga returnerar flera timeseries, kan du använda parametrarna ”längst upp' och 'OrderBy-fråga för att returnera en begränsad sorterad lista över timeseries.
+Använd måttets namn värde (inte localizedValue) för alla filtrerings begär Anden. Om inga dimensions filter anges returneras det upplyfta aggregerade måttet. Om en mått fråga returnerar flera timeseries kan du använda parametrarna Top och OrderBy för att returnera en begränsad sorterad lista med timeseries.
 
 > [!NOTE]
-> Använd ”2018-01-01” för att hämta flerdimensionella mått värden med hjälp av Azure Monitor REST-API, som API-versionen.
+> Om du vill hämta flerdimensionella mått värden med Azure Monitor REST API använder du "2018-01-01" som API-version.
 >
 >
 
-**Metoden**: HÄMTA
+**Metod**: Hämta
 
-**Begärande-URI**: https://management.azure.com/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resurs-provider-namespace}* / *{resurstypen}* / *{resurs-name}* /providers/microsoft.insights/metrics?metricnames= *{mått}* & timespan = *{starttime/endtime}* & $filter = *{filter}* & intervall = *{timeGrain}* & aggregering = *{ aggreation}* & api-version = *{apiVersion}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/ *{Resource-Provider-namespace}* / *{Resource-Type}* / *{Resource-Name}* /providers/ Microsoft. Insights/mått? metricnames = *{Metric}* & TimeSpan = *{StartTime/* slut tid} & $filter = *{filter}* & intervall = *{timeGrain}* & agg regering = *{aggreation}* & API-version = *{API version}*
 
-Till exempel för att hämta de 3 främsta API: er, i fallande värde, av hur många transaktioner om du under flera 5 min där GeotType var primär, begäran skulle vara följande:
+För att till exempel hämta de tre främsta API: erna, i fallande värde, efter antalet ' transaktioner ' under en 5 minuters intervall, där GeotType var "primär", skulle begäran vara följande:
 
 ```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
@@ -329,7 +328,7 @@ Invoke-RestMethod -Uri $request `
     -Verbose
 ```
 
-Resulterande JSON svarstexten skulle vara liknar följande exempel:
+Den resulterande JSON-svars texten liknar följande exempel:
 
 ```JSON
 {
@@ -388,15 +387,15 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel:
 }
 ```
 
-## <a name="retrieve-metric-definitions"></a>Hämta måttdefinitioner
+## <a name="retrieve-metric-definitions"></a>Hämta mått definitioner
 
-Använd den [REST API för Azure Monitor måttdefinitioner](https://msdn.microsoft.com/library/mt743621.aspx) att komma åt listan över mått som är tillgängliga för en tjänst.
+Använd [Azure Monitor mått definitioner REST API](https://msdn.microsoft.com/library/mt743621.aspx) för att få åtkomst till listan över mått som är tillgängliga för en tjänst.
 
-**Metoden**: HÄMTA
+**Metod**: Hämta
 
-**Begärande-URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
+**Begärande-URI**: https: \/ \/management. Azure.com/Subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/Microsoft.Insights/metricDefinitions? API-version = *{API version}*
 
-Till exempel för att hämta måttdefinitioner för en Azure Logic App skulle begäran visas på följande sätt:
+Om du till exempel vill hämta mått definitionerna för en Azure Logic-app ser begäran ut så här:
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01"
@@ -409,11 +408,11 @@ Invoke-RestMethod -Uri $request `
 ```
 
 > [!NOTE]
-> Om du vill hämta definitioner av mått med hjälp av REST-API i Azure Monitor, använder du ”2016-03-01” som API-versionen.
+> Om du vill hämta mått definitioner med Azure Monitor REST API använder du "2016-03-01" som API-version.
 >
 >
 
-Resulterande JSON svarstexten skulle vara liknar följande exempel:
+Den resulterande JSON-svars texten liknar följande exempel:
 
 ```JSON
 {
@@ -454,22 +453,22 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel:
 }
 ```
 
-Mer information finns i den [lista måttdefinitioner för en resurs i Azure Monitor REST API](https://msdn.microsoft.com/library/azure/mt743621.aspx) dokumentation.
+Mer information finns i [listan mått definitioner för en resurs i Azure Monitor REST API](https://msdn.microsoft.com/library/azure/mt743621.aspx) dokumentation.
 
-## <a name="retrieve-metric-values"></a>Hämta måttvärden
+## <a name="retrieve-metric-values"></a>Hämta mått värden
 
-När de tillgängliga definitionerna av mått är kända har det möjligt att hämta relaterad måttvärden. Använda den måttet namnet 'value' (inte den ' localizedValue') för alla begäranden som filtrerande (till exempel hämta 'CpuTime' och 'Begär' mått datapunkter). Om inga filter har angetts, returneras Standardmåttet.
+När de tillgängliga mått definitionerna är kända är det möjligt att hämta relaterade mått värden. Använd måttets namn värde (inte localizedValue) för alla filtrerings begär Anden (till exempel hämta mått data punkter "CpuTime" och "begär Anden"). Om inga filter anges returneras standard måttet.
 
 > [!NOTE]
-> Använd ”2016-09-01” för att hämta mått värden med hjälp av Azure Monitor REST-API, som API-versionen.
+> Om du vill hämta mått värden med Azure Monitor REST API använder du "2016-09-01" som API-version.
 >
 >
 
-**Metoden**: HÄMTA
+**Metod**: Hämta
 
-**Begärande-URI**: https://management.azure.com/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resurs-provider-namespace}* / *{resurstypen}* / *{resurs-name}* /providers/microsoft.insights/metrics?$filter= *{filter}* & api-version = *{apiVersion}*
+**Begärande-URI**: https://management.azure.com/subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/ *{Resource-Provider-namespace}* / *{Resource-Type}* / *{Resource-Name}* /providers/ Microsoft. Insights/Metrics? $filter = *{filter}* & API-version = *{API version}*
 
-Till exempel om du vill hämta RunsSucceeded mått datapunkter för det angivna tidsintervallet och för ett tidskorn 1 timme skulle begäran vara följande:
+För att till exempel hämta RunsSucceeded Mät data punkter för det aktuella tidsintervallet och för en tids kornig het på 1 timme så skulle begäran vara följande:
 
 ```powershell
 $filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2017-08-18T19:00:00 and endTime eq 2017-08-18T23:00:00 and timeGrain eq duration'PT1H'"
@@ -481,7 +480,7 @@ Invoke-RestMethod -Uri $request `
     -Verbose
 ```
 
-Resulterande JSON svarstexten skulle vara liknar följande exempel:
+Den resulterande JSON-svars texten liknar följande exempel:
 
 ```JSON
 {
@@ -517,7 +516,7 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel:
 }
 ```
 
-Om du vill hämta flera punkter för data eller aggregering, lägga till måttdefinition namn och aggregeringstyper filtret, som visas i följande exempel:
+Om du vill hämta flera data eller agg regerings platser lägger du till mått definitions namnen och sammansättnings typerna i filtret, som du ser i följande exempel:
 
 ```powershell
 $filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2017-08-18T21:00:00 and endTime eq 2017-08-18T21:30:00 and timeGrain eq duration'PT1M'"
@@ -529,7 +528,7 @@ Invoke-RestMethod -Uri $request `
     -Verbose
 ```
 
-Resulterande JSON svarstexten skulle vara liknar följande exempel:
+Den resulterande JSON-svars texten liknar följande exempel:
 
 ```JSON
 {
@@ -580,16 +579,16 @@ Resulterande JSON svarstexten skulle vara liknar följande exempel:
 }
 ```
 
-### <a name="use-armclient"></a>Använda ARMClient
+### <a name="use-armclient"></a>Använd ARMClient
 
-En ytterligare metod är att använda [ARMClient](https://github.com/projectkudu/armclient) på din Windows-dator. ARMClient hanterar automatiskt Azure AD-autentisering (och resulterande JWT-token). Följande steg beskriver användningen av ARMClient för att hämta måttdata:
+En annan metod är att använda [ARMClient](https://github.com/projectkudu/armclient) på din Windows-dator. ARMClient hanterar Azure AD-autentiseringen (och den resulterande JWT-token) automatiskt. Följande steg beskriver hur du använder ARMClient för att hämta mått data:
 
-1. Installera [Chocolatey](https://chocolatey.org/) och [ARMClient](https://github.com/projectkudu/armclient).
-2. Skriv i ett terminalfönster *armclient.exe inloggning*. Då uppmanas du att logga in på Azure.
-3. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
-4. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*
+1. Installera [choklad](https://chocolatey.org/) och [ARMClient](https://github.com/projectkudu/armclient).
+2. Skriv *armclient. exe-inloggning*i ett terminalfönster. Om du gör det blir du ombedd att logga in på Azure.
+3. Skriv *ARMCLIENT get [your_resource_id]/providers/Microsoft.Insights/metricdefinitions? API-version = 2016-03-01*
+4. Skriv *ARMCLIENT get [your_resource_id]/providers/Microsoft.Insights/Metrics? API-version = 2016-09-01*
 
-Till exempel för att hämta måttdefinitioner för en specifik Logikapp, kör du följande kommando:
+Om du till exempel vill hämta mått definitionerna för en speciell Logi Kap par utfärdar du följande kommando:
 
 ```
 armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
@@ -597,39 +596,39 @@ armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 
 ## <a name="retrieve-the-resource-id"></a>Hämta resurs-ID
 
-Med hjälp av REST-API kan verkligen tillgängliga definitioner av mätvärden, kornighet och de relaterade värden. Att informationen är användbar när du använder den [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+Med hjälp av REST API kan du verkligen hjälpa till att förstå tillgängliga mått definitioner, granularitet och relaterade värden. Informationen är användbar när du använder [Azures hanterings bibliotek](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
-För den föregående koden är resurs-ID för att använda den fullständiga sökvägen till den önskade Azure-resursen. Till exempel om du vill fråga mot ett Azure Web Apps, skulle resurs-ID vara:
+I föregående kod är resurs-ID: t som används den fullständiga sökvägen till önskad Azure-resurs. Om du till exempel vill fråga mot en Azure-webbapp blir resurs-ID:
 
-*/subscriptions/{Subscription-ID}/resourceGroups/{Resource-group-name}/providers/Microsoft.Web/Sites/{Site-Name}/*
+*/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
-I följande lista innehåller några exempel på resurs-ID-formaten för olika Azure-resurser:
+Följande lista innehåller några exempel på resurs-ID-format för olika Azure-resurser:
 
-* **IoT Hub** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Devices/IotHubs/ *{iot-hub-name}*
-* **SQL-Databaspool** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Sql/servers/ *{pool-db}* /elasticpools/ *{sql-pool-name}*
-* **SQL-databas (v12)** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Sql/servers/ *{servernamnet}* /databases/ *{databas-name}*
-* **Service Bus** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.ServiceBus/ *{namnområdet}* / *{servicebus-name}*
-* **VM-skalningsuppsättningar** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-name}*
-* **Virtuella datorer** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Compute/virtualMachines/ *{vm-name}*
-* **Händelsehubbar** -/subscriptions/ *{prenumerations-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.EventHub/namespaces/ *{ eventhub-namespace}*
+* **IoT Hub** -/Subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/Microsoft.Devices/IotHubs/ *{IoT-hubb-Name}*
+* **Elastisk SQL-pool** – */Subscriptions/{Subscription-ID}* /resourceGroups/ *{resurs grupp-namn}* /providers/Microsoft.SQL/Servers/ *{pool-DB}* /elasticpools/ *{SQL-pool-Name}*
+* **SQL Database (V12)** -/Subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs grupp-namn}* /providers/Microsoft.SQL/Servers/ *{Server-Name}* /databases/ *{Database-Name}*
+* **Service Bus** -/Subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/Microsoft.ServiceBus/ *{namespace}* / *{Service Bus-Name}*
+* **Skalnings uppsättningar för virtuella datorer** -/Subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/Microsoft.Compute/virtualMachineScaleSets/ *{VM-Name}*
+* **VM** -/Subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/Microsoft.Compute/virtualMachines/ *{VM-Name}*
+* **Event Hubs** -/Subscriptions/ *{Subscription-ID}* /resourceGroups/ *{resurs-grupp-Name}* /providers/Microsoft.EventHub/Namespaces/ *{EventHub-namespace}*
 
-Det finns alternativa metoder för att hämta resurs-ID, inklusive användning av Azure Resource Explorer, visa önskad resurs i Azure-portalen och via PowerShell eller Azure CLI.
+Det finns alternativa metoder för att hämta resurs-ID: t, inklusive att använda Azure Resource Explorer, visa önskad resurs i Azure Portal och via PowerShell eller Azure CLI.
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
-För att hitta resurs-ID för en önskad resurs, en bra metod är att använda den [Azure Resource Explorer](https://resources.azure.com) verktyget. Navigera till önskad resurs och titta sedan på det ID som visas som i följande skärmbild:
+För att hitta resurs-ID för en önskad resurs, är det en bra idé att använda [Azure Resource Explorer](https://resources.azure.com) -verktyget. Navigera till önskad resurs och titta sedan på det ID som visas, som i följande skärm bild:
 
-![ALT ”Azure Resource Explorer”](./media/rest-api-walkthrough/azure_resource_explorer.png)
+![Alt "Azure Resource Explorer"](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
-Resurs-ID kan också hämtas från Azure-portalen. Du gör detta genom att gå till önskad resurs och välj Egenskaper. Resurs-ID visas i avsnittet egenskaper som visas i följande skärmbild:
+Resurs-ID: t kan också hämtas från Azure Portal. Det gör du genom att navigera till önskad resurs och sedan välja egenskaper. Resurs-ID visas i avsnittet egenskaper, som visas på följande skärm bild:
 
-![ALT ”resurs-ID visas i bladet egenskaper i Azure portal”](./media/rest-api-walkthrough/resourceid_azure_portal.png)
+![Alt "resurs-ID som visas på bladet egenskaper i Azure Portal"](./media/rest-api-walkthrough/resourceid_azure_portal.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Resurs-ID kan hämtas med hjälp av Azure PowerShell-cmdlets. Till exempel för att hämta resurs-ID för ett Azure Logic Apps, kör du cmdleten Get-AzureLogicApp, som i följande exempel:
+Resurs-ID: t kan hämtas med hjälp av Azure PowerShell-cmdletar också. Om du till exempel vill hämta resurs-ID för en Azure Logic-app kör du cmdleten Get-AzureLogicApp, som i följande exempel:
 
 ```powershell
 Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
@@ -657,7 +656,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Hämta resurs-ID för ett Azure Storage-konto med hjälp av Azure CLI genom att köra den `az storage account show` kommandot, som visas i följande exempel:
+Om du vill hämta resurs-ID för ett Azure Storage konto med hjälp av Azure CLI kör du kommandot `az storage account show`, som du ser i följande exempel:
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
@@ -702,13 +701,13 @@ Resultatet bör likna följande exempel:
 ```
 
 > [!NOTE]
-> Med Azure Logic Apps ännu inte tillgänglig via Azure CLI, så ett Azure Storage-konto visas i föregående exempel.
+> Azure Logic Apps är ännu inte tillgängliga via Azure CLI, vilket innebär att ett Azure Storage-konto visas i föregående exempel.
 >
 >
 
-## <a name="retrieve-activity-log-data"></a>Hämta aktivitetsloggdata
+## <a name="retrieve-activity-log-data"></a>Hämta aktivitets logg data
 
-Förutom definitioner av mätvärden och relaterade värden är det också möjligt att använda Azure Monitor REST API för att hämta ytterligare intressanta insikter som är relaterade till Azure-resurser. Exempelvis är det möjligt att frågan [aktivitetsloggen](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. I följande exempel visar hur du använder Azure Monitor REST API för att fråga aktivitetsloggdata inom ett visst datumintervall för en Azure-prenumeration:
+Förutom mått definitioner och relaterade värden är det också möjligt att använda Azure Monitor REST API för att hämta ytterligare intressanta insikter relaterade till Azure-resurser. Som exempel är det möjligt att fråga efter [aktivitets logg](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. Följande exempel visar hur du använder Azure Monitor REST API för att fråga efter aktivitets logg data inom ett visst datum intervall för en Azure-prenumeration:
 
 ```powershell
 $apiVersion = "2015-04-01"
@@ -722,7 +721,7 @@ Invoke-RestMethod -Uri $request `
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska den [översikt över övervakning](../../azure-monitor/overview.md).
-* Visa den [stöds mått med Azure Monitor](metrics-supported.md).
-* Granska den [övervaka REST API-referens för Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
-* Granska den [bibliotek för Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+* Granska [översikten över övervakningen](../../azure-monitor/overview.md).
+* Visa de [mått som stöds med Azure Monitor](metrics-supported.md).
+* Granska [Microsoft Azure övervakare REST API referens](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+* Granska [Azures hanterings bibliotek](https://msdn.microsoft.com/library/azure/mt417623.aspx).

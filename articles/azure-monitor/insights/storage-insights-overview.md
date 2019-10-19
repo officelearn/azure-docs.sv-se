@@ -1,24 +1,18 @@
 ---
 title: Övervaka Azure Storage tjänster med Azure Monitor för lagring (för hands version) | Microsoft Docs
 description: Den här artikeln beskriver Azure Monitor för lagrings funktionen som ger lagrings administratörer en snabb förståelse för prestanda-och användnings problem med deras Azure Storage-konton.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 1ab49d17ebf10a1ae0277768ddbd1878195d835d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.date: 08/15/2019
+ms.openlocfilehash: e5738b9f7cca03898d3bb5c593004bb316aa0b23
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212760"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553879"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring (för hands version)
 
@@ -53,7 +47,7 @@ Från Azure Monitor kan du Visa information om transaktion, svars tid och kapaci
 
 Utför följande steg för att visa användning och tillgänglighet för dina lagrings konton för alla dina prenumerationer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Välj **övervaka** i rutan till vänster i Azure Portal och välj **lagrings konton (förhands granskning)** under avsnittet **insikter** .
 
@@ -195,7 +189,7 @@ Du kan utföra samma ändringar mot något av de förbyggda **felen**, **prestan
 
 4. Vi kommer att ta bort kolumnen **Använd kapacitets tids linje för kontot** så välj **kolumn inställningar** i mått rutnätet.
 
-    ![Redigera kolumninställningar](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
+    ![Redigera kolumn inställningar](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
 5. I fönstret **Redigera kolumn inställningar** väljer du under avsnittet **kolumner** **Microsoft. Storage/Storageaccounts-Capacity-UsedCapacity Timeline $ | Konto för Använd kapacitet tids linje $** och välj **dold**under List rutans **kolumn åter givning** . 
 
@@ -233,7 +227,7 @@ I det här exemplet arbetar vi med arbets boken lagrings konto kapacitet och dem
 
 7. Välj **Spara som** från kommando fältet för att spara en kopia av arbets boken med dina anpassningar och klicka sedan på **klar redigering** för att återgå till läsläge.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för lagring (för hands version). Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
 

@@ -1,19 +1,18 @@
 ---
 title: Översikt över autoskalning i Virtual Machines, Cloud Services och Web Apps
 description: Autoskalning i Microsoft Azure. Gäller för Virtual Machines skalnings uppsättningar för virtuella datorer, Cloud Services och Web Apps.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 3c70d11b83a116a9ce29ce202edeac6fe9464674
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 09/24/2018
+ms.openlocfilehash: 2aeb0bc174eb5a94d485f4eafe000ecb3f693e5f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959047"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552282"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över autoskalning i Microsoft Azure Virtual Machines, Cloud Services och Web Apps
 Den här artikeln beskriver vad Microsoft Azure autoskalning är, dess fördelar och hur du kommer igång med det.  
@@ -43,7 +42,7 @@ Skalnings uppsättningar för virtuella datorer använder telemetridata från Az
 ## <a name="custom-metrics"></a>Anpassade mått
 Du kan också använda dina egna anpassade mått som dina program kan skickas till. Om du har konfigurerat dina program så att de skickar mått till Application Insights kan du utnyttja dessa mått för att fatta beslut om att skala eller inte.
 
-## <a name="time"></a>Time
+## <a name="time"></a>Tid
 Schemabaserade regler baseras på UTC. Du måste ange din tidszon korrekt när du konfigurerar reglerna.  
 
 ## <a name="rules"></a>Regler
@@ -95,21 +94,21 @@ Den lodräta skalningen är däremot annorlunda. Det behåller samma antal virtu
 ## <a name="methods-of-access"></a>Åtkomst metoder
 Du kan ställa in autoskalning via
 
-* [Azure Portal](../../azure-monitor/platform/autoscale-get-started.md)
+* [Azure-portalen](../../azure-monitor/platform/autoscale-get-started.md)
 * [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Plattformsoberoende kommandoradsgränssnitt (CLI):](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Tjänster som stöds för autoskalning
-| Tjänsten | Schema & dokument |
+| Tjänst | Schema & dokument |
 | --- | --- |
 | Web Apps |[Skalnings Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
 | Cloud Services |[Autoskala en moln tjänst](../../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Virtuella datorer: Klassisk |[Skala klassiska tillgänglighets uppsättningar för virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtuella datorer: Windows skalnings uppsättningar |[Skala skalnings uppsättningar för virtuella datorer i Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
-| Virtuella datorer: Linux-skalnings uppsättningar |[Skala skalnings uppsättningar för virtuella datorer i Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Virtuella datorer: Windows-exempel |[Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
-| API Management-tjänst|[Skala en Azure API Management-instans automatiskt](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| Virtual Machines: klassisk |[Skala klassiska tillgänglighets uppsättningar för virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Virtual Machines: Windows Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Virtual Machines: Linux Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
+| Virtual Machines: Windows-exempel |[Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| API Management tjänst|[Skala en Azure API Management-instans automatiskt](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om autoskalning använder du genom gången av autoskalning som listas tidigare eller hänvisar till följande resurser:

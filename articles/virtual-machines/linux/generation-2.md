@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/16/2019
 ms.author: lahugh
-ms.openlocfilehash: 6f787760c1224172982e0818d8592ce0d36b5e2c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
-ms.translationtype: HT
+ms.openlocfilehash: 3d4585e032d92049a4f087cd510bdef963025250
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527287"
+ms.locfileid: "72550145"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Stöd för virtuella datorer i generation 2 (för hands version) på Azure
 
@@ -52,8 +52,8 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure. Azure erbj
 * [NVv3-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 
->[!NOTE]
->Användningen av generation 2 VM-avbildningar för Mv2-serien är allmänt tillgänglig eftersom Mv2-serien fungerar med generation 2 VM-avbildningar exklusivt. Generation 1 VM-avbildningar fungerar inte med Mv2-serien. 
+> [!NOTE]
+> Användningen av virtuella datorer i generation 2 för virtuella datorer i Mv2-serien är allmänt tillgänglig eftersom Mv2-serien fungerar med generation 2 VM-avbildningar exklusivt. Generation 1 VM-avbildningar stöds inte på virtuella datorer i Mv2-serien. 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Generation 2 VM-avbildningar på Azure Marketplace
 

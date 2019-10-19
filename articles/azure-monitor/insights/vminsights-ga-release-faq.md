@@ -1,21 +1,18 @@
 ---
 title: Vanliga frågor och svar om Azure Monitor for VMs (GA) | Microsoft Docs
 description: Azure Monitor for VMs är en lösning i Azure som kombinerar hälso-och prestanda övervakning av operativ systemet på den virtuella Azure-datorn samt identifierar program komponenter och beroenden automatiskt med andra resurser och mappar kommunikationen mellan objekten. I den här artikeln besvaras vanliga frågor om GA-versionen.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: cb21d3bed1efc8f6ee7e16a0976ce46d03404983
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 10/07/2019
+ms.openlocfilehash: 523fb2d3a3b148afc9219e666c2fbe7fa40d58ad
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275970"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553796"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor for VMs allmänt tillgängliga (GA)
 
@@ -46,11 +43,11 @@ När vi uppdaterar vårt användar gränssnitt för att använda data i Insights
 [!NOTE]
 >Om du har varnings regler som refererar till dessa räknare i tabellen perf måste du uppdatera dem för att referera till de nya data i tabellen `InsightsMetrics`.  Se vår dokumentation för exempel på logg frågor som du kan använda för att referera till den här tabellen.
 
-Om du bestämmer dig för att hålla prestanda räknarna aktiverade debiteras du för de data som samlas in och bevaras i tabellen prestanda baserat på [Log Analytics priser [(https://azure.microsoft.com/pricing/details/monitor/).
+Om du bestämmer dig för att hålla prestanda räknarna aktiverade debiteras du för de data som matas in och bevaras i tabellen prestanda baserat på [Log Analytics priser [(https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>Hur påverkar den här ändringen mina varnings regler?
 
-Om du har skapat [logg aviseringar](../platform/alerts-unified-log.md) som frågar `Perf` tabell mål prestanda räknare som har Aktiver ATS på arbets ytan, bör du uppdatera reglerna så att de refererar till `InsightsMetrics`-tabellen i stället. Den här vägledningen gäller även för alla logg Sök regler som använder `ServiceMapComputer_CL` och `ServiceMapProcess_CL`, eftersom dessa data uppsättningar flyttas till `VMComputer`-och `VMProcess`-tabeller.
+Om du har skapat [logg aviseringar](../platform/alerts-unified-log.md) som frågar `Perf` tabell mål prestanda räknare som har Aktiver ATS på arbets ytan, bör du uppdatera reglerna så att de refererar till `InsightsMetrics`-tabellen i stället. Den här vägledningen gäller även för alla logg Sök regler som använder `ServiceMapComputer_CL` och `ServiceMapProcess_CL`, eftersom dessa data uppsättningar flyttas till `VMComputer` och `VMProcess` tabeller.
 
 Vi kommer att uppdatera dessa vanliga frågor och svar och vår dokumentation för att inkludera exempel på loggs öknings varningar för de data uppsättningar som vi samlar in.
 
@@ -72,9 +69,9 @@ Om du väljer att inte uppgradera till **VMInsights** -lösningen kommer vi fort
 
 ## <a name="will-the-service-map-data-sets-also-be-stored-in-insightsmetrics"></a>Kommer Tjänstkarta data uppsättningar också att lagras i InsightsMetrics?
 
-Data uppsättningarna kommer inte att dupliceras om du använder båda lösningarna. Båda erbjudandena delar de data uppsättningar som ska lagras i `VMComputer` (tidigare ServiceMapComputer_CL), `VMProcess` (tidigare ServiceMapProcess_CL), `VMConnection`-och `VMBoundPort`-tabeller för att lagra de kart data uppsättningar som vi samlar in.  
+Data uppsättningarna kommer inte att dupliceras om du använder båda lösningarna. Båda erbjudandena delar de data uppsättningar som ska lagras i `VMComputer` (tidigare ServiceMapComputer_CL), `VMProcess` (tidigare ServiceMapProcess_CL), `VMConnection` och `VMBoundPort` tabeller för att lagra de kart data uppsättningar som vi samlar in.  
 
-@No__t-0-tabellen kommer att användas för att lagra data uppsättningar för virtuella datorer, processer och tjänster som vi samlar in och kommer bara att fyllas i om du använder Azure Monitor for VMs.
+@No__t_0 tabellen används för att lagra data uppsättningar för virtuella datorer, processer och tjänster som vi samlar in och kommer bara att fyllas i om du använder Azure Monitor for VMs.
 
 ## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-on-my-workspace"></a>Får jag dubbla avgifter om jag har Tjänstkarta-och VMInsights-lösningar på min arbets yta?
 

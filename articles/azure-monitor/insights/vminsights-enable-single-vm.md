@@ -1,89 +1,83 @@
 ---
-title: Aktivera Azure Monitor för virtuella datorer (förhandsversion) för utvärdering | Microsoft Docs
-description: Lär dig att utvärdera Azure Monitor för virtuella datorer på en enda Azure-dator eller på en VM-skalningsuppsättning.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
+title: Aktivera Azure Monitor for VMs (för hands version) för utvärdering | Microsoft Docs
+description: Lär dig hur du utvärderar Azure Monitor for VMs på en virtuell Azure-dator eller på en virtuell dators skalnings uppsättning.
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ec909bcd16f923bbd7036f6a69df2bbb07e561b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/09/2019
+ms.openlocfilehash: 1182f48d2d05c90cc90b1832f9305001dd2d1211
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122458"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553817"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Aktivera Azure Monitor för virtuella datorer (förhandsversion) för utvärdering
+# <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Aktivera Azure Monitor for VMs (för hands version) för utvärdering
 
-Du kan utvärdera Azure Monitor för virtuella datorer (förhandsversion) på ett litet antal virtuella Azure-datorer (VM) eller på en enda virtuell dator eller virtuell dator skala. Det enklaste och snabbaste sättet att aktivera övervakning är från Azure-portalen. Målet är att övervaka dina virtuella datorer och identifiera prestanda eller tillgänglighetsproblem. 
+Du kan utvärdera Azure Monitor for VMs (för hands version) på ett litet antal virtuella datorer i Azure (VM) eller på en enskild virtuell dator eller skalnings uppsättning för virtuella datorer. Det enklaste och mest direkta sättet att aktivera övervakning är från Azure Portal. Målet är att övervaka dina virtuella datorer och identifiera eventuella prestanda-och tillgänglighets problem. 
 
-Innan du börjar bör du granska den [krav](vminsights-enable-overview.md) och kontrollera att din prenumeration och resurser som uppfyller kraven.  
+Innan du börjar [granskar du kraven och kontrollerar](vminsights-enable-overview.md) att din prenumeration och dina resurser uppfyller kraven.  
 
-## <a name="enable-monitoring-for-a-single-azure-vm"></a>Aktivera övervakning för en virtuell Azure-dator
-För att övervaka dina virtuella Azure-datorn:
+## <a name="enable-monitoring-for-a-single-azure-vm"></a>Aktivera övervakning för en enskild virtuell Azure-dator
+Så här aktiverar du övervakning av den virtuella Azure-datorn:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Välj **virtuella datorer**.
+1. Välj **Virtual Machines**.
 
 1. Välj en virtuell dator i listan.
 
-1. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)** .
+1. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)** .
 
-1. På den **Insights (förhandsversion)** väljer **Prova nu**.
+1. Välj **Testa nu**på sidan **Insights (för hands version)** .
 
-    ![Aktivera Azure Monitor för virtuella datorer för en virtuell dator](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Aktivera Azure Monitor for VMs för en virtuell dator](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
 
-1. På den **Azure Monitor insikter Onboarding** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration, markerar du den i den nedrullningsbara listan.  
+1. Om du har en befintlig Log Analytics arbets yta i samma prenumeration på sidan **Azure Monitor Insights-onboarding** väljer du den i list rutan.  
 
-    Listan förväljer standardarbetsyta och plats där den virtuella datorn har distribuerats i prenumerationen. 
+    I listan förväljs standard arbets ytan och den plats där den virtuella datorn distribueras i prenumerationen. 
 
     >[!NOTE]
-    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervakningsdata från den virtuella datorn, [skapa en Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md). Log Analytics-arbetsytan måste tillhöra en av de [regioner som stöds](vminsights-enable-overview.md#log-analytics).
+    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervaknings data från den virtuella datorn, se [skapa en Log Analytics arbets yta](../../azure-monitor/learn/quick-create-workspace.md). Din Log Analytics-arbetsyta måste tillhöra en av de [regioner som stöds](vminsights-enable-overview.md#log-analytics).
 
-När du har aktiverat övervakning, kan du behöva vänta i ungefär 10 minuter innan du kan visa hälsotillstånd mått för den virtuella datorn.
+När du har aktiverat övervakning kan du behöva vänta cirka 10 minuter innan du kan visa hälso måtten för den virtuella datorn.
 
-![Aktivera Azure Monitor för virtuella datorer övervakning distributionsbearbetning](./media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Aktivera Azure Monitor for VMs övervakning av distributions bearbetning](./media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
 
-## <a name="enable-monitoring-for-a-single-virtual-machine-scale-set"></a>Aktivera övervakning för en enda VM-skalningsuppsättning
+## <a name="enable-monitoring-for-a-single-virtual-machine-scale-set"></a>Aktivera övervakning för en enskild virtuell dators skalnings uppsättning
 
-Aktivera övervakning av din Azure VM-skalningsuppsättning:
+Så här aktiverar du övervakning av din skalnings uppsättning för virtuella Azure-datorer:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Välj **Virtual Machine Scale Sets**.
 
-3. I listan, Välj en virtual machine scale Sets.
+3. Välj en skalnings uppsättning för virtuell dator i listan.
 
-4. På den virtuella datorn scale Sets-sidan i den **övervakning** väljer **Insights (förhandsversion)** .
+4. På sidan skalnings uppsättning för virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)** .
 
-5. På den **Insights (förhandsversion)** om du vill använda en befintlig Log Analytics-arbetsyta, markerar du den i den nedrullningsbara listan.
+5. På sidan **insikter (för hands version)** , om du vill använda en befintlig Log Analytics arbets yta, väljer du den i list rutan.
 
-    Listan förväljer standardarbetsytan och plats som den virtuella datorn har distribuerats till i prenumerationen. 
+    I listan förväljs standard arbets ytan och platsen som den virtuella datorn distribueras till i prenumerationen. 
 
-    ![Aktivera Azure Monitor för virtuella datorer för en VM-skalningsuppsättning](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
+    ![Aktivera Azure Monitor for VMs för en skalnings uppsättning för virtuell dator](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
 
     >[!NOTE]
-    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervakningsdata från virtuella datorns skalningsuppsättning [skapa en Log Analytics-arbetsyta](../learn/quick-create-workspace.md). Log Analytics-arbetsytan måste tillhöra en av de [regioner som stöds](vminsights-enable-overview.md#log-analytics).
+    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervaknings data från den virtuella datorns skal uppsättning, se [skapa en Log Analytics arbets yta](../learn/quick-create-workspace.md). Din Log Analytics-arbetsyta måste tillhöra en av de [regioner som stöds](vminsights-enable-overview.md#log-analytics).
 
-När du har aktiverat övervakning, kan du behöva vänta i ungefär 10 minuter innan du kan visa övervakningsdata för skalningsuppsättningen.
+När du har aktiverat övervakning kan du behöva vänta cirka 10 minuter innan du kan visa övervaknings data för skalnings uppsättningen.
 
 >[!NOTE]
->Om du använder en manuell uppgradering modell för din skalningsuppsättning, uppgradera instanser för att slutföra installationen. Du kan starta uppgraderingar från den **instanser** sidan den **inställningar** avsnittet.
+>Om du använder en manuell uppgraderings modell för din skalnings uppsättning uppgraderar du instanserna för att slutföra installationen. Du kan starta uppgraderingar från sidan **instanser** i avsnittet **Inställningar** .
 
-![Aktivera Azure Monitor för virtuella datorer övervakning distributionsbearbetning](./media/vminsights-enable-single-vm/onboard-vminsights-vmss-portal-status-01.png)
+![Aktivera Azure Monitor for VMs övervakning av distributions bearbetning](./media/vminsights-enable-single-vm/onboard-vminsights-vmss-portal-status-01.png)
 
-Nu när du har aktiverat övervakning för din skalningsuppsättning för virtuell dator eller virtuell dator kan är övervakningsinformation tillgängliga för analys i Azure Monitor för virtuella datorer. 
+Nu när du har aktiverat övervakning av den virtuella datorn eller skalnings uppsättningen för virtuella datorer är övervaknings informationen tillgänglig för analys i Azure Monitor for VMs. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs hur du använder funktionen hälsotillstånd i [förstå hälsotillståndet för dina virtuella datorer i Azure Monitor](vminsights-health.md). 
-* Identifierade programberoenden finns [Använd Azure Monitor för virtuella datorer kartan](vminsights-maps.md). 
-* För att identifiera flaskhalsar, totala användningen och den Virtuella datorns prestanda, se [visa Azure VM prestanda](vminsights-performance.md).
+* Information om hur du använder hälso funktionen finns i [förstå hälso tillståndet för dina Azure Monitor virtuella datorer](vminsights-health.md). 
+* Om du vill visa identifierade program beroenden, se [använd Azure Monitor for VMS karta](vminsights-maps.md). 
+* Information om hur du identifierar Flask halsar, övergripande användning och den virtuella datorns prestanda finns i [Visa prestanda för virtuella Azure-datorer](vminsights-performance.md).

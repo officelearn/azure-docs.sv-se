@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62ea1761cef48ab7808a352789963ab55129d2f8
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162391"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554401"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
@@ -24,7 +24,7 @@ Personer ansluter till organisations resurser i allt större komplicerade scenar
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) hjälper till att skydda åtkomsten till data och program. Det ger ett extra säkerhets lager med hjälp av en andra form av autentisering. Organisationer kan använda [villkorlig åtkomst](../conditional-access/overview.md) för att se till att lösningen passar deras speciella behov.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar en distribution av Azure Multi-Factor Authentication finns det nödvändiga objekt som bör övervägas.
 
@@ -44,7 +44,7 @@ Din plan för MFA-distribution ska innehålla en pilot distribution som följs a
 
 Det är viktigt att informera användarna, i planerad kommunikation, om kommande ändringar, registrerings krav för Azure MFA och eventuella nödvändiga användar åtgärder. Vi rekommenderar att kommunikationen utvecklas i samförstånd med representanter från din organisation, till exempel en kommunikation, en ändrings hanterings avdelning eller personalavdelningen.
 
-Microsoft tillhandahåller [kommunikations mallar](https://aka.ms/mfatemplates) och [dokumentation](../user-help/security-info-setup-signin.md) för slutanvändare för att hjälpa till att formulera kommunikationen. Du kan skicka användare till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) att registrera direkt genom att välja länkarna för **säkerhets information** på sidan.
+Microsoft tillhandahåller [kommunikations mallar](https://aka.ms/mfatemplates) och [dokumentation för slutanvändare](../user-help/security-info-setup-signin.md) för att hjälpa till att formulera kommunikationen. Du kan skicka användare till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) för att registrera dem direkt genom att välja länkarna för **säkerhets information** på sidan.
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
@@ -52,7 +52,7 @@ Azure Multi-Factor Authentication distribueras genom att tvinga principer med vi
 
 * Alla användare, en speciell användare, medlem i en grupp eller tilldelad roll
 * Specifika moln program som ska användas
-* Enhetsplattform
+* Enhets plattform
 * Enhetens tillstånd
 * Nätverks plats eller geo-lokaliserad IP-adress
 * Klientprogram
@@ -71,7 +71,7 @@ Principer för villkorlig åtkomst framtvingar registrering, vilket kräver att 
 
 * Läckta autentiseringsuppgifter
 * Inloggningar från anonyma IP-adresser
-* Omöjligt att resa till ovanliga platser
+* Omöjliga resor till ovanliga platser
 * Inloggningar från okända platser
 * Inloggningar från angripna enheter
 * Inloggningar från IP-adresser med misstänkta aktiviteter
@@ -109,11 +109,11 @@ Ett push-meddelande skickas till Microsoft Authenticator-appen på din mobila en
 > [!NOTE]
 > Om din organisation har personal som arbetar i eller reser i Kina fungerar inte **meddelandet via mobilappen** på **Android-enheter** i det landet. Alternativa metoder bör göras tillgängliga för dessa användare.
 
-### <a name="verification-code-from-mobile-app"></a>Verifieringskod från mobilapp
+### <a name="verification-code-from-mobile-app"></a>Verifierings kod från mobilapp
 
 En mobilapp som Microsoft Authenticator-appen genererar en ny OATH-verifierings kod var 30: e sekund. Användaren anger verifierings koden i inloggnings gränssnittet. Alternativet mobil app kan användas om telefonen har en data-eller mobilen signal.
 
-### <a name="call-to-phone"></a>Samtal till telefon
+### <a name="call-to-phone"></a>Ring till telefon
 
 Ett automatiskt röst samtal placeras till användaren. Användaren svarar på anropet och trycker **#** på telefon tangent bordet för att godkänna deras autentisering. Samtal till telefon är en bra säkerhets kopierings metod för meddelande-eller verifierings kod från en mobilapp.
 
@@ -176,32 +176,6 @@ Om dina användare har Aktiver ATS med alternativet per användare aktiverat och
 Kör PowerShell i ett ISE-fönster eller Spara som. PS1-fil som ska köras lokalt.
 
 ```PowerShell
-# Disable MFA for all users, keeping their MFA methods intact
-Get-MsolUser -All | Disable-MFA -KeepMethods
-
-# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
-function Disable-MFA {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipeline=$True)]
-        $User,
-        [switch] $KeepMethods
-    )
-
-    Process {
-
-        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
-        $User | Set-MfaState -State Disabled
-
-        if ($KeepMethods) {
-            # Restore the MFA methods which got cleared when disabling MFA
-            Set-MsolUser -ObjectId $User.ObjectId `
-                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
-        }
-    }
-}
-
 # Sets the MFA requirement state
 function Set-MfaState {
 
@@ -231,6 +205,8 @@ function Set-MfaState {
     }
 }
 
+# Disable MFA for all users
+Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 ## <a name="plan-conditional-access-policies"></a>Planera principer för villkorlig åtkomst
@@ -250,11 +226,11 @@ Det är viktigt att du förhindrar oavsiktligt låst av din Azure AD-klient. Du 
    * Markera kryss rutan för **användare och grupper** på fliken **exkludera** och välj sedan återställnings konton.
    * Klicka på **Klar**.
 1. Under **molnappar**väljer du alternativ knappen **alla molnappar** .
-   * DU KAN OCKSÅ På fliken **exkludera** väljer du de molnappar som din organisation inte behöver MFA för.
+   * Alternativt: på fliken **exkludera** väljer du de molnappar som din organisation inte behöver MFA för.
    * Klicka på **Klar**.
 1. Avsnittet **villkor** :
-   * DU KAN OCKSÅ Om du har aktiverat Azure Identity Protection kan du välja att utvärdera inloggnings risker som en del av principen.
-   * DU KAN OCKSÅ Om du har konfigurerat betrodda platser eller namngivna platser kan du ange att de platserna ska tas med eller undantas från principen.
+   * Du kan också välja att utvärdera inloggnings risker som en del av principen om du har aktiverat Azure Identity Protection.
+   * Om du har konfigurerat betrodda platser eller namngivna platser kan du ange att de platserna ska tas med eller undantas från principen.
 1. Under **bevilja**, se till att alternativ knappen **bevilja åtkomst** är markerad.
     * Markera kryss rutan för att **kräva Multi-Factor Authentication**.
     * Klicka på **Välj**.
@@ -293,13 +269,13 @@ NPS-tillägget fungerar som ett kort mellan RADIUS och molnbaserad Azure MFA fö
 
 #### <a name="implementing-your-nps-server"></a>Implementera NPS-servern
 
-Om du har en distribuerad NPS-instans och redan använder, integrerar du [din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Om du konfigurerar NPS för första gången, se [nätverks Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) för instruktioner. Fel söknings vägledning hittar du i artikeln [lösa fel meddelanden från NPS-tillägget för Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
+Om du har en distribuerad NPS-instans och redan använder, [integrerar du din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Om du konfigurerar NPS för första gången, se [nätverks Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) för instruktioner. Fel söknings vägledning hittar du i artikeln [lösa fel meddelanden från NPS-tillägget för Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Förbered NPS för användare som inte har registrerats för MFA
 
 Välj vad som ska hända när användare som inte är registrerade med MFA försöker autentisera sig. Använd register inställningen `REQUIRE_USER_MATCH` i register Sök vägen `HKLM\Software\Microsoft\AzureMFA` för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ.
 
-| Nyckel | Value | Standard |
+| Nyckel | Värde | Standard |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -339,7 +315,7 @@ På varje AD FS-server finns det ett självsignerat Azure MFA-certifikat med tit
 
 Om giltighets tiden för dina certifikat snart upphör att gälla, [genererar och verifierar du ett nytt MFA-certifikat på varje AD FS server](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-Följande anvisningar beskriver hur du hanterar Azure MFA-certifikat på dina AD FS-servrar. När du konfigurerar AD FS med Azure MFA är de certifikat som genereras via `New-AdfsAzureMfaTenantCertificate` PowerShell-cmdleten giltiga i två år. Förnya och installera de förnyade certifikaten innan de upphör att gälla för ovoid-avbrott i MFA-tjänsten.
+Följande anvisningar beskriver hur du hanterar Azure MFA-certifikat på dina AD FS-servrar. När du konfigurerar AD FS med Azure MFA är de certifikat som genereras via PowerShell-cmdleten för `New-AdfsAzureMfaTenantCertificate` giltiga i två år. Förnya och installera de förnyade certifikaten innan de upphör att gälla för ovoid-avbrott i MFA-tjänsten.
 
 ## <a name="implement-your-plan"></a>Implementera din plan
 
@@ -357,11 +333,11 @@ Nu när du har planerat din lösning kan du implementera genom att följa stegen
 1. Konfigurera din princip för MFA-registrering
    1. [Kombinera MFA och SSPR](howto-registration-mfa-sspr-combined.md)
    1. Med [identitets skydd](../identity-protection/howto-mfa-policy.md)
-1. Skicka användar kommunikation och få användare att registrera sig[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
+1. Skicka användar kommunikation och få användare att registrera sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Håll koll på vem som har registrerats](#identify-non-registered-users)
 
 > [!TIP]
-> Statliga moln användare kan registrera sig på[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+> Offentliga moln användare kan registrera sig på [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>Hantera din lösning
 
@@ -369,7 +345,7 @@ Rapporter för Azure MFA
 
 Azure Multi-Factor Authentication ger rapporter via Azure Portal:
 
-| Rapport | Location | Beskrivning |
+| Rapport | Plats | Beskrivning |
 | --- | --- | --- |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 

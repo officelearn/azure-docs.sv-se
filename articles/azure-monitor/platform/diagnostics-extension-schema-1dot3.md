@@ -1,26 +1,24 @@
 ---
 title: Konfigurations schema för Azure-diagnostik-tillägg 1,3 och senare
 description: Schema version 1,3 och senare Azure-diagnostik levereras som en del av Microsoft Azure SDK 2,4 och senare.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: reference
-ms.date: 09/20/2018
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: e303fe5ca1869249d57373aab9c60a5f92b7ea9c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 09/20/2018
+ms.openlocfilehash: 1d378571a02f30c223338eef5c7d142ed02ff4c8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735107"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555545"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Konfigurations schema för Azure-diagnostik 1,3 och senare
 > [!NOTE]
 > Azure-diagnostik-tillägget är den komponent som används för att samla in prestanda räknare och annan statistik från:
-> - Azure virtuella maskiner
-> - Virtual Machine Scale Sets
+> - Azure Virtual Machines
+> - Skalningsuppsättningar för virtuell dator
 > - Service Fabric
 > - Cloud Services
 > - Nätverkssäkerhetsgrupper
@@ -406,7 +404,7 @@ PublicConfig och PrivateConfig separeras eftersom i de flesta JSON-användnings 
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration-element  
- *Dekompositionsträdet Rot – DiagnosticsConfiguration*
+ *Träd: rot-DiagnosticsConfiguration*
 
 Tillagt i version 1,3.  
 
@@ -418,38 +416,38 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**PublicConfig**|Obligatoriskt. Se beskrivningen på en annan plats på den här sidan.|  
-|**PrivateConfig**|Valfritt. Se beskrivningen på en annan plats på den här sidan.|  
+|**PublicConfig**|Krävs. Se beskrivningen på en annan plats på den här sidan.|  
+|**PrivateConfig**|Valfri. Se beskrivningen på en annan plats på den här sidan.|  
 |**IsEnabled**|Booleskt. Se beskrivningen på en annan plats på den här sidan.|  
 
 ## <a name="publicconfig-element"></a>PublicConfig-element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration – PublicConfig*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig*
 
  Beskriver konfigurationen för den offentliga diagnostiken.  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**WadCfg**|Obligatoriskt. Se beskrivningen på en annan plats på den här sidan.|  
+|**WadCfg**|Krävs. Se beskrivningen på en annan plats på den här sidan.|  
 |**StorageAccount**|Namnet på det Azure Storage konto som data ska lagras i. Kan också anges som en parameter när cmdleten Set-AzureServiceDiagnosticsExtension körs.|  
 |**StorageType**|Kan vara *Table*, *BLOB*eller *TableAndBlob*. Tabellen är standard. När TableAndBlob väljs skrivs diagnostikdata två gånger – en gång till varje typ.|  
-|**LocalResourceDirectory**|Katalogen på den virtuella datorn där övervaknings agenten lagrar händelse data. Om inte, ange, används standard katalogen:<br /><br /> För en Worker/Web-roll:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökväg** – katalogen i systemet som ska användas av Azure-diagnostik.<br /><br /> - **expandEnvironment** – styr om miljövariablerna expanderas i Sök vägs namnet.|  
+|**LocalResourceDirectory**|Katalogen på den virtuella datorn där övervaknings agenten lagrar händelse data. Om inte, ange, används standard katalogen:<br /><br /> För en Worker/Web-roll: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökväg** – katalogen i systemet som ska användas av Azure-diagnostik.<br /><br /> - **expandEnvironment** – styr om miljövariabler expanderas i Sök vägs namnet.|  
 
-## <a name="wadcfg-element"></a>WadCFG Element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG*
+## <a name="wadcfg-element"></a>WadCFG-element  
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG*
 
  Identifierar och konfigurerar telemetri-data som ska samlas in.  
 
 
-## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration*
+## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration-element
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration*
 
- Obligatorisk
+ Krävs
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Den maximala mängd lokalt disk utrymme som kan användas av de olika typerna av diagnostikdata som samlas in av Azure-diagnostik. Standardvärdet är 4096 MB.<br />
 |**useProxyServer** | Konfigurera Azure-diagnostik att använda inställningarna för proxyservern som anges i IE-inställningar.|
-|**mottagare** | Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata för alla underordnade element som stöder mottagare. Sink-exemplet är Application Insights eller Event Hubs.|  
+|**mottagare** | Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata för alla underordnade element som stöder mottagare. Sink-exemplet är Application Insights eller Event Hubs.|  
 
 
 <br /> <br />
@@ -468,22 +466,22 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="crashdumps-element"></a>CrashDumps-element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-CrashDumps*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-CrashDumps*
 
  Aktivera samlingen av krasch dum par.  
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
-|**containerName**|Valfritt. Namnet på BLOB-behållaren i Azure Storage kontot som ska användas för att lagra krasch dum par.|  
-|**crashDumpType**|Valfritt.  Konfigurerar Azure-diagnostik att samla in mini-eller fullständiga krasch dum par.|  
-|**directoryQuotaPercentage**|Valfritt.  Konfigurerar procent andelen av **overallQuotaInMB** som ska reserveras för krasch dum par på den virtuella datorn.|  
+|**containerName**|Valfri. Namnet på BLOB-behållaren i Azure Storage kontot som ska användas för att lagra krasch dum par.|  
+|**crashDumpType**|Valfri.  Konfigurerar Azure-diagnostik att samla in mini-eller fullständiga krasch dum par.|  
+|**directoryQuotaPercentage**|Valfri.  Konfigurerar procent andelen av **overallQuotaInMB** som ska reserveras för krasch dum par på den virtuella datorn.|  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Obligatoriskt. Definierar konfigurations värden för varje process.<br /><br /> Följande attribut krävs också:<br /><br /> **processName** – namnet på den process som du vill Azure-diagnostik för att samla in en kraschdump för.|  
+|**CrashDumpConfiguration**|Krävs. Definierar konfigurations värden för varje process.<br /><br /> Följande attribut krävs också:<br /><br /> **processName** – namnet på den process som du vill Azure-diagnostik för att samla in en kraschdump för.|  
 
 ## <a name="directories-element"></a>Katalog element
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-kataloger*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-kataloger*
 
  Aktiverar insamling av innehållet i en katalog, IIS nekade åtkomst till begär ande loggar och/eller IIS-loggar.  
 
@@ -499,32 +497,32 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="datasources-element"></a>Data källa element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-kataloger-data källor*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-kataloger-data källor*
 
  En lista över kataloger som ska övervakas.  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Obligatoriskt. Nödvändigt attribut:<br /><br /> **containerName** – namnet på BLOB-behållaren i Azure Storage-kontot som ska användas för att lagra loggfilerna.|  
+|**DirectoryConfiguration**|Krävs. Nödvändigt attribut:<br /><br /> **containerName** – namnet på BLOB-behållaren i Azure Storage-kontot som ska användas för att lagra loggfilerna.|  
 
 
 
 
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration-element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-kataloger-data källor-DirectoryConfiguration*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-kataloger-data källor-DirectoryConfiguration*
 
  Kan innehålla antingen det **absoluta** eller **LocalResource** -elementet, men inte båda.  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**Absolutvärde**|Den absoluta sökvägen till den katalog som ska övervakas. Följande attribut krävs:<br /><br /> - **Sökväg** – den absoluta sökvägen till den katalog som ska övervakas.<br /><br /> - **expandEnvironment** – konfigurerar om miljövariabler i sökvägen ska expanderas.|  
-|**LocalResource**|Sökvägen i förhållande till en lokal resurs som ska övervakas. Obligatoriska attribut är:<br /><br /> - **Namn** – den lokala resurs som innehåller den katalog som ska övervakas<br /><br /> - **relativePath** – sökvägen är relativ till det namn som innehåller den katalog som ska övervakas|  
+|**Absolutvärde**|Den absoluta sökvägen till den katalog som ska övervakas. Följande attribut krävs:<br /><br /> - **sökväg** – den absoluta sökvägen till den katalog som ska övervakas.<br /><br /> - **expandEnvironment** – konfigurerar om miljövariabler i sökvägen ska expanderas.|  
+|**LocalResource**|Sökvägen i förhållande till en lokal resurs som ska övervakas. Obligatoriska attribut är:<br /><br /> - **namn** – den lokala resurs som innehåller den katalog som ska övervakas<br /><br /> - **relativePath** – sökvägen är relativ till namnet som innehåller den katalog som ska övervakas|  
 
 
 
 ## <a name="etwproviders-element"></a>EtwProviders-element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders*
 
  Konfigurerar insamling av ETW-händelser från EventSource och/eller ETW-manifest baserade providers.  
 
@@ -535,8 +533,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwEventSourceProviderConfiguration*
+## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration-element  
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwEventSourceProviderConfiguration*
 
  Konfigurerar insamling av händelser som genereras från [EventSource-klassen](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
@@ -547,8 +545,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwManifestProviderConfiguration*
+## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration-element  
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwManifestProviderConfiguration*
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
@@ -558,11 +556,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="metrics-element"></a>Mått element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-Metrics*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-Metrics*
 
  Gör att du kan generera en prestanda räknar tabell som är optimerad för snabba frågor. Varje prestanda räknare som definieras i **PerformanceCounters** -elementet lagras i mått tabellen förutom prestanda räknar tabellen.  
 
- Attributet **resourceId** måste anges.  Resurs-ID för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn som du distribuerar Azure-diagnostik till. Hämta **resourceID** från [Azure Portal](https://portal.azure.com). Välj **Bläddra** -> **resurs grupper** ->  **< namn.\>** Klicka på panelen **Egenskaper** och kopiera värdet från fältet **ID** .  
+ Attributet **resourceId** måste anges.  Resurs-ID för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn som du distribuerar Azure-diagnostik till. Hämta **resourceID** från [Azure Portal](https://portal.azure.com). Välj **bläddra**  -> **resurs grupper**  ->  **< namn \>** . Klicka på panelen **Egenskaper** och kopiera värdet från fältet **ID** .  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
@@ -571,7 +569,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="performancecounters-element"></a>PerformanceCounters-element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-PerformanceCounters*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-PerformanceCounters*
 
  Aktiverar insamling av prestanda räknare.  
 
@@ -581,14 +579,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** – namnet på prestanda räknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf`.<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren.|
-|**mottagare** | Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Azure Monitor eller Event Hubs.|    
+|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** -namnet på prestanda räknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf`.<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren.|
+|**mottagare** | Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Azure Monitor eller Event Hubs.|    
 
 
 
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog-element
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-WindowsEventLog*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-WindowsEventLog*
 
  Aktiverar insamling av händelse loggar i Windows.  
 
@@ -602,21 +600,21 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="logs-element"></a>Loggar element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-Logs*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-Logs*
 
  Förekommer i version 1,0 och 1,1. Saknas i 1,2. Lades tillbaka i 1,3.  
 
  Definierar buffertens konfiguration för grundläggande Azure-loggar.  
 
-|Attribut|type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Valfritt. Anger den maximala mängden fil system lagring som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferLogLevelFilter**|**string**|Valfritt. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
-|**scheduledTransferPeriod**|**Varaktighet**|Valfritt. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
-|**mottagare** |**string**| Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
+|**bufferQuotaInMB**|**unsignedInt**|Valfri. Anger den maximala mängden fil system lagring som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
+|**scheduledTransferLogLevelFilter**|**nollängd**|Valfri. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**scheduledTransferPeriod**|**giltighet**|Valfri. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**mottagare** |**nollängd**| Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
 
  Tillagt i 1,9.
 
@@ -625,56 +623,56 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Spelarna**|Instruerar systemet att samla in statistik för Docker-behållare|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig-element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig*
 
  En lista med platser för att skicka diagnostikdata till och konfigurationen som är kopplad till dessa platser.  
 
 |Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**mottagare**|Se beskrivningen på en annan plats på den här sidan.|  
+|**Sjönk**|Se beskrivningen på en annan plats på den här sidan.|  
 
 ## <a name="sink-element"></a>Sink-element
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink*
+ *Träd: root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink*
 
  Tillagt i version 1,5.  
 
  Definierar platser för att skicka diagnostikdata till. Till exempel tjänsten Application Insights.  
 
-|Attribut|type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**name**|sträng|En sträng som identifierar sinkname.|  
+|**Namn**|sträng|En sträng som identifierar sinkname.|  
 
-|Element|type|Beskrivning|  
+|Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
 |**Application Insights**|sträng|Används endast när du skickar data till Application Insights. Innehåller Instrumentation-nyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
 |**Kanal**|sträng|En för varje ytterligare filtrering som strömmar som du|  
 
 ## <a name="channels-element"></a>Element för kanaler  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels*
+ *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels*
 
  Tillagt i version 1,5.  
 
  Definierar filter för data strömmar av loggdata som passerar genom en mottagare.  
 
-|Element|type|Beskrivning|  
+|Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
 |**Kanalig**|sträng|Se beskrivningen på en annan plats på den här sidan.|  
 
 ## <a name="channel-element"></a>Kanal element
- *Dekompositionsträdet Root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels-Channel*
+ *Träd: root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels-Channel*
 
  Tillagt i version 1,5.  
 
  Definierar platser för att skicka diagnostikdata till. Till exempel tjänsten Application Insights.  
 
-|Attribut|type|Beskrivning|  
+|Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**logLevel**|**string**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
-|**name**|**string**|Ett unikt namn på den kanal som ska referera till|  
+|**logLevel**|**nollängd**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**Namn**|**nollängd**|Ett unikt namn på den kanal som ska referera till|  
 
 
-## <a name="privateconfig-element"></a>PrivateConfig Element
- *Dekompositionsträdet Rot-DiagnosticsConfiguration – PrivateConfig*
+## <a name="privateconfig-element"></a>PrivateConfig-element
+ *Träd: rot-DiagnosticsConfiguration-PrivateConfig*
 
  Tillagt i version 1,3.  
 
@@ -684,11 +682,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**StorageAccount**|Det lagrings konto som ska användas. Följande attribut krävs<br /><br /> - **namn** – namnet på lagrings kontot.<br /><br /> - **nyckel** – nyckeln till lagrings kontot.<br /><br /> - **slut punkt** – slut punkten för åtkomst till lagrings kontot. <br /><br /> -**sasToken** (lade till 1.8.1) – du kan ange en SAS-token i stället för en lagrings konto nyckel i den privata konfigurationen. Om det här alternativet anges ignoreras lagrings konto nyckeln. <br />Krav för SAS-token: <br />– Stöder endast SAS-token för konto <br />- *b*, *t* . ex. krävs tjänst typer. <br /> - *a*, *c*, *u*, *w* behörigheter krävs. <br /> - *c*, *o* resurs typer krävs. <br /> -Stöder endast HTTPS-protokollet <br /> -Start-och utgångs tid måste vara giltiga.|  
+|**StorageAccount**|Det lagrings konto som ska användas. Följande attribut krävs<br /><br /> - **namn** – namnet på lagrings kontot.<br /><br /> - **nyckel** – nyckeln till lagrings kontot.<br /><br /> - **slut punkt** – slut punkten för att komma åt lagrings kontot. <br /><br /> -**sasToken** (lades till 1.8.1) – du kan ange en SAS-token i stället för en lagrings konto nyckel i den privata konfigurationen. Om det här alternativet anges ignoreras lagrings konto nyckeln. <br />Krav för SAS-token: <br />– Stöder endast SAS-token för konto <br />i - *b*krävs *t* . ex. tjänst typer. <br /> - *a*, *c*, *u*, *w* behörigheter krävs. <br /> - *c*, *o* resurs typer krävs. <br /> -Stöder endast HTTPS-protokollet <br /> -Start-och utgångs tid måste vara giltiga.|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled-element  
- *Dekompositionsträdet Rot-DiagnosticsConfiguration – IsEnabled*
+ *Träd: rot-DiagnosticsConfiguration-IsEnabled*
 
- Booleskt. Använd `true` om du vill aktivera diagnostiken eller `false` inaktivera diagnostiken.
+ Booleskt. Använd `true` för att aktivera diagnostiken eller `false` för att inaktivera diagnostiken.
 

@@ -1,79 +1,73 @@
 ---
-title: Riktar in sig på övervakningslösningar i Azure Monitor | Microsoft Docs
-description: Riktar in sig på övervakningslösningar kan du begränsa övervakningslösningar till en specifik uppsättning med agenter.  Den här artikeln beskriver hur du skapar en omfattningskonfigurationen och tillämpa den på en lösning.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
+title: Mål för övervaknings lösningar i Azure Monitor | Microsoft Docs
+description: Med mål övervaknings lösningar kan du begränsa övervaknings lösningar till en angiven uppsättning agenter.  Den här artikeln beskriver hur du skapar en omfattnings konfiguration och tillämpar den på en lösning.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/27/2017
+ms.openlocfilehash: 04b47cb6079d9213c1a20425f62286f1b2aa778b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110352"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555308"
 ---
-# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Riktar in sig på övervakningslösningar i Azure Monitor (förhandsversion)
-Den distribueras automatiskt som standard att alla Windows- och Linux-agenter är anslutna till Log Analytics-arbetsytan när du lägger till en övervakningslösning till din prenumeration.  Du kanske vill hantera dina kostnader och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning med agenter.  Den här artikeln beskriver hur du använder **Lösningsmål** som är en funktion som gör att du kan använda ett omfång för dina lösningar.
+# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Mål för övervaknings lösningar i Azure Monitor (för hands version)
+När du lägger till en övervaknings lösning i din prenumeration distribueras den automatiskt som standard till alla Windows-och Linux-agenter som är anslutna till din Log Analytics-arbetsyta.  Du kanske vill hantera dina kostnader och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning agenter.  Den här artikeln beskriver hur du använder **lösnings mål** som är en funktion som gör att du kan använda ett omfång för dina lösningar.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="how-to-target-a-solution"></a>Hur du rikta en lösning
-Det finns tre steg för att riktar in sig på en lösning som beskrivs i följande avsnitt. 
+## <a name="how-to-target-a-solution"></a>Så här riktar du en lösning
+Det finns tre steg för att rikta en lösning enligt beskrivningen i följande avsnitt. 
 
 
-### <a name="1-create-a-computer-group"></a>1. Skapa en datorgrupp
-Ange de datorer som du vill ska ingå i en omfattning genom att skapa en [datorgrupp](../platform/computer-groups.md) i Azure Monitor.  Datorgruppen kan baserat på en loggfråga eller importeras från andra källor, till exempel Active Directory eller WSUS-grupper. Som [som beskrivs nedan](#solutions-and-agents-that-cant-be-targeted), bara datorer som är anslutna direkt till Azure Monitor kommer att inkluderas i omfånget.
+### <a name="1-create-a-computer-group"></a>1. skapa en dator grupp
+Du anger de datorer som du vill ska ingå i ett omfång genom att skapa en [dator grupp](../platform/computer-groups.md) i Azure Monitor.  Dator gruppen kan baseras på en logg fråga eller importeras från andra källor, till exempel Active Directory eller WSUS-grupper. Som [beskrivs nedan](#solutions-and-agents-that-cant-be-targeted)kommer endast datorer som är direkt anslutna till Azure monitor att ingå i omfånget.
 
-När du har den datorgrupp som skapats i din arbetsyta och sedan ska du inkludera den i en scope-konfiguration som kan tillämpas på en eller flera lösningar.
+När du har skapat dator gruppen i din arbets yta inkluderar du den i en omfattnings konfiguration som kan tillämpas på en eller flera lösningar.
  
  
-### <a name="2-create-a-scope-configuration"></a>2. Skapa en omfattningskonfiguration
- En **Omfattningskonfigurationen** innehåller en eller flera datorgrupper och kan tillämpas på en eller flera lösningar. 
+### <a name="2-create-a-scope-configuration"></a>2. skapa en omfattnings konfiguration
+ En **omfattnings konfiguration** inkluderar en eller flera dator grupper och kan tillämpas på en eller flera lösningar. 
  
- Skapa en omfattningskonfiguration på följande sätt.  
+ Skapa en omfattnings konfiguration med följande process.  
 
- 1. I Azure-portalen går du till **Log Analytics-arbetsytor** och välj din arbetsyta.
- 2. I egenskaperna för arbetsytan under **datakällor för arbetsyta** Välj **Omfattningskonfigurationer**.
- 3. Klicka på **Lägg till** att skapa en ny omfattningskonfigurationen.
- 4. Ange ett **namn** för konfigurationen.
- 5. Klicka på **Välj datorgrupper**.
- 6. Välj datorgruppen som du skapade och eventuellt andra grupper för att lägga till i konfigurationen.  Klicka på **Välj**.  
- 6. Klicka på **OK** att skapa omfattningskonfigurationen. 
+ 1. I Azure Portal navigerar du till **Log Analytics arbets ytor** och väljer din arbets yta.
+ 2. I egenskaperna för arbets ytan under **arbets ytans data källor** väljer du **scope-konfigurationer**.
+ 3. Klicka på **Lägg till** för att skapa en ny omfattnings konfiguration.
+ 4. Ange ett **namn** för omfattnings konfigurationen.
+ 5. Klicka på **Välj dator grupper**.
+ 6. Välj den dator grupp som du skapade och eventuellt andra grupper som ska läggas till i konfigurationen.  Klicka på **Välj**.  
+ 6. Klicka på **OK** för att skapa omfattnings konfigurationen. 
 
 
-### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Gäller konfigurationen för en lösning.
-När du har en omfattningskonfigurationen kan tillämpa du den på en eller flera lösningar.  Observera att en enda scope-konfiguration kan användas av flera lösningar, varje lösning kan bara använda en av omfattningskonfigurationen.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Använd omfattnings konfigurationen för en lösning.
+När du har en omfattnings konfiguration kan du tillämpa den på en eller flera lösningar.  Observera att även om du kan använda en enda omfattnings konfiguration med flera lösningar kan varje lösning bara använda en omfattnings konfiguration.
 
-Tillämpa en omfattningskonfiguration på följande sätt.  
+Använd en omfattnings konfiguration med följande process.  
 
- 1. I Azure-portalen går du till **Log Analytics-arbetsytor** och välj din arbetsyta.
- 2. I egenskaperna för arbetsytan väljer **lösningar**.
- 3. Klicka på den lösning du vill omfång.
- 4. I egenskaperna för lösningen under **datakällor för arbetsyta** Välj **Lösningsmål**.  Om alternativet inte är tillgängligt sedan [den här lösningen kan inte riktas](#solutions-and-agents-that-cant-be-targeted).
- 5. Klicka på **Lägg till omfattningskonfiguration**.  Om du redan har en konfiguration som tillämpas på den här lösningen och sedan på det här alternativet inte tillgängligt.  Du måste ta bort den befintliga konfigurationen innan du lägger till en annan.
- 6. Klicka på konfigurationen som du skapade.
- 7. Titta på den **Status** av konfigureringen för att se till att den visar **lyckades**.  Om statusen indikerar ett fel, klickar du på ellipsen till höger om konfiguration och välj **redigera omfattningskonfiguration** att göra ändringar.
+ 1. I Azure Portal navigerar du till **Log Analytics arbets ytor** och väljer din arbets yta.
+ 2. I egenskaperna för arbets ytan väljer du **lösningar**.
+ 3. Klicka på den lösning som du vill använda som definitions område.
+ 4. I egenskaperna för lösningen under **data källor för arbets ytor** väljer du **lösnings mål**.  Om alternativet inte är tillgängligt [kan den här lösningen inte riktas mot målet](#solutions-and-agents-that-cant-be-targeted).
+ 5. Klicka på **Lägg till omfattnings konfiguration**.  Om du redan har en konfiguration som tillämpas på den här lösningen kommer det här alternativet att vara otillgängligt.  Du måste ta bort den befintliga konfigurationen innan du lägger till en ny.
+ 6. Klicka på den omfattnings konfiguration som du skapade.
+ 7. Se **status** för konfigurationen för att kontrol lera att den visas **korrekt**.  Om statusen indikerar ett fel klickar du på ellipsen till höger om konfigurationen och väljer **Redigera omfattnings konfiguration** för att göra ändringar.
 
-## <a name="solutions-and-agents-that-cant-be-targeted"></a>Lösningar och agenter som inte kan riktas
-Följande är villkoren för agenter och lösningar som inte kan användas med lösningsmål.
+## <a name="solutions-and-agents-that-cant-be-targeted"></a>Lösningar och agenter som inte kan riktas till
+Följande är kriterier för agenter och lösningar som inte kan användas med lösnings mål.
 
-- Lösningsmål gäller endast för lösningar som distribueras till agenter.
-- Lösningsmål gäller endast för lösningar som tillhandahålls av Microsoft.  Den gäller inte för lösningar [skapats av dig själv eller partner](solutions-creating.md).
-- Du kan bara filtrera ut agents som ansluter direkt till Azure Monitor.  Lösningar distribuerar automatiskt till alla eventuella agenter som en del av en ansluten hanteringsgrupp för Operations Manager oavsett om de är med i en av omfattningskonfigurationen.
+- Lösnings mål gäller endast för lösningar som distribuerar till agenter.
+- Lösnings mål gäller endast för lösningar som tillhandahålls av Microsoft.  Den gäller inte för lösningar [som skapats av dig själv eller partner](solutions-creating.md).
+- Du kan bara filtrera ut agenter som ansluter direkt till Azure Monitor.  Lösningar distribueras automatiskt till alla agenter som ingår i en ansluten Operations Manager hanterings grupp oavsett om de ingår i en omfattnings konfiguration eller inte.
 
 ### <a name="exceptions"></a>Undantag
-Lösningsmål kan inte användas med följande lösningar trots att de passar de angivna villkoren.
+Lösnings mål kan inte användas med följande lösningar även om de uppfyller de angivna kriterierna.
 
-- Agenten bedömningen av replikeringstillståndet
+- Agenthälsa utvärdering
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om hur du övervakar lösningar, inklusive de lösningar som är tillgängliga för installation i miljön vid [lägga till Azure Log Analytics övervakningslösningar till din arbetsyta](solutions.md).
-- Läs mer om hur du skapar datorgrupper i [datorgrupper i Azure Monitor logga frågor](../platform/computer-groups.md).
+- Lär dig mer om övervaknings lösningar inklusive de lösningar som är tillgängliga för installation i din miljö genom [att lägga till Azure Log Analytics Monitoring-lösningar på din arbets yta](solutions.md).
+- Lär dig mer om att skapa dator grupper [i dator grupper i Azure Monitor logg frågor](../platform/computer-groups.md).

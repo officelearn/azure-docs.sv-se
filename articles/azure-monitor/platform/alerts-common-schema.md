@@ -1,19 +1,18 @@
 ---
 title: Vanliga aviserings schema för aviseringar i Azure Monitor
 description: Förstå det vanliga aviserings schemat, varför du bör använda det och hur du aktiverar det
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 9b142e00543d425b73c4102914bba2dd92c75b8b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 03/14/2019
+ms.openlocfilehash: ff5c0d96bd4bc87f36a69ca7e8014e118ac7b7bf
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702896"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552449"
 ---
 # <a name="common-alert-schema"></a>Vanligt aviseringsschema
 
@@ -24,8 +23,8 @@ I den här artikeln beskrivs det vanliga aviserings schemat, fördelarna med att
 Det vanliga aviserings schemat standardiserar användnings upplevelsen för aviserings meddelanden i Azure idag. Tidigare var de tre aviserings typerna i Azure idag (Metric, loggen och aktivitets loggen) haft egna e-postmallar, webhook-scheman osv. Med det gemensamma aviserings schemat kan du nu få aviserings meddelanden med ett konsekvent schema.
 
 Alla varnings instanser beskriver **den resurs som påverkades** och **orsaken till aviseringen**, och dessa instanser beskrivs i det gemensamma schemat i följande avsnitt:
-* **Essentials**: En uppsättning **standardiserade fält**, gemensamma för alla aviserings typer, som beskriver **vilken resurs** som aviseringen är på samt ytterligare vanliga aviserings-metadata (till exempel allvarlighets grad eller beskrivning). 
-* **Aviserings kontext**: En uppsättning fält som beskriver **orsaken till aviseringen**, med fält som varierar **beroende på aviserings typen**. Till exempel skulle en mått avisering ha fält som Metric-namn och mått värde i aviserings kontexten, medan en aktivitets logg avisering skulle ha information om händelsen som genererade aviseringen. 
+* **Essentials**: en uppsättning **standardiserade fält**, gemensamma för alla aviserings typer, som beskriver **vilken resurs** som aviseringen är på samt ytterligare vanliga aviserings-metadata (till exempel allvarlighets grad eller beskrivning). 
+* **Aviserings kontext**: en uppsättning fält som beskriver **orsaken till aviseringen**, med fält som varierar **beroende på aviserings typen**. Till exempel skulle en mått avisering ha fält som Metric-namn och mått värde i aviserings kontexten, medan en aktivitets logg avisering skulle ha information om händelsen som genererade aviseringen. 
 
 De typiska integrerings scenarierna som vi hör från kunder innebär att aviserings instansen vidarebefordras till den berörda gruppen baserat på en pivot (t. ex. resurs grupp), efter vilken det ansvariga teamet börjar arbeta på den. Med det gemensamma aviserings schemat kan du ha standardiserad cirkulations logik över aviserings typer genom att använda de viktigaste fälten, lämna kontext fälten som det är för de berörda teamen att undersöka vidare.
 
@@ -35,10 +34,10 @@ Det innebär att du kan ha färre integrationer, vilket gör att du kan hantera 
 
 Det vanliga aviserings schemat kommer huvudsakligen att manifesta sig själva i aviserings aviseringarna. De förbättringar som du ser visas nedan:
 
-| Action | Förbättringar|
+| Åtgärd | Funktioner|
 |:---|:---|
 | SMS | En konsekvent SMS-mall för alla aviserings typer. |
-| Email | En konsekvent och detaljerad e-postmall som gör det enkelt att snabbt diagnostisera problem. Inbäddade djup länkar till aviserings instansen på portalen och den berörda resursen garanterar att du snabbt kan gå vidare till reparations processen. |
+| E-post | En konsekvent och detaljerad e-postmall som gör det enkelt att snabbt diagnostisera problem. Inbäddade djup länkar till aviserings instansen på portalen och den berörda resursen garanterar att du snabbt kan gå vidare till reparations processen. |
 | Webhook/Logic app/Azure Function/Automation Runbook | En konsekvent JSON-struktur för alla aviserings typer, vilket gör att du enkelt kan bygga integreringar över olika aviserings typer. |
 
 Det nya schemat kommer också att aktivera en rikare aviserings användning i både Azure Portal och Azure-mobilapp i omedelbar framtid. 

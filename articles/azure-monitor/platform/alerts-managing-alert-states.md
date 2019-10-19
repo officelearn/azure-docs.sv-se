@@ -1,19 +1,18 @@
 ---
 title: Hantera tillstånd för aviseringar och smarta grupper
 description: Hantera tillstånd för aviseringen och de smarta grupp instanserna
-author: anantr
-services: monitoring
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: f72abd1168d14cae703f7fcfc7b58eaa56bdc592
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 09/24/2018
+ms.openlocfilehash: fd2a2a4b7d5033ecd35d02baa240bc7586e7a25d
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702939"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555662"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Hantera tillstånd för aviseringar och smarta grupper
 Aviseringar i Azure Monitor har nu ett [aviserings tillstånd och ett övervaknings villkor](https://aka.ms/azure-alerts-overview) och kan, på samma sätt, smarta grupper ha ett [smart grupp tillstånd](https://aka.ms/smart-groups). Ändringar av statusen samlas nu in i historik som är associerade med respektive avisering eller smart grupp. Den här artikeln vägleder dig genom processen att ändra tillstånd, för både en avisering och en smart grupp.

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: f6323501fc0078677c4c0e2cd0e43a15583df29b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.openlocfilehash: 3e6af57840cf60516aba994a6b5728bfb7b35f09
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513982"
+ms.locfileid: "72553520"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestanda justering med cachelagring av resultat uppsättningar  
 När cachelagring av resultat uppsättningar är aktiverat cachelagrar Azure SQL Data Warehouse automatiskt frågeresultat i användar databasen för upprepad användning.  Detta gör att efterföljande fråge körningar kan hämta resultat direkt från det sparade cacheminnet så att omberäkning inte behövs.   Cachelagring av resultat uppsättningar förbättrar prestanda för frågor och minskar användningen av beräknings resurser.  Dessutom använder frågor som använder cachelagrade resultat uppsättningar inte några samtidiga platser och räknas därför inte över mot befintliga samtidighets gränser. Användare kan bara komma åt de cachelagrade resultaten om de har samma data åtkomst behörigheter som de användare som skapar de cachelagrade resultaten.  
@@ -34,11 +34,10 @@ När cachelagring av resultat uppsättningar är aktiverat cachelagrar Azure SQL
 När cachelagring av resultat uppsättningar har Aktiver ATS för en databas cachelagras resultaten för alla frågor tills cachen är full, förutom följande frågor:
 - Frågor som använder icke-deterministiska funktioner som DateTime. Now ()
 - Frågor med användardefinierade funktioner
+- Frågor som använder tabeller med säkerhet på radnivå eller på kolumn nivå har Aktiver ATS
 - Frågor som returnerar data med en rad storlek som är större än 64 KB
 
 Frågor med stora resultat uppsättningar (till exempel > 1 000 000 rader) kan uppleva sämre prestanda under den första körningen när resultat-cachen skapas.
-
-Säkerhet på radnivå stöds inte i cachelagring av resultat uppsättningar.  
 
 ## <a name="when-cached-results-are-used"></a>När cachelagrade resultat används
 

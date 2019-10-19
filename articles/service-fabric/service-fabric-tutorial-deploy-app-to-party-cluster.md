@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: d637b01eb9e4d1664def9eb537b810603eea18ea
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4767f43171e8576fcf35ba7304c48b05b85745c4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598807"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553585"
 ---
-# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Självstudier: Distribuera en Service Fabric-app till ett kluster i Azure
+# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Självstudie: Distribuera en Service Fabric-app till ett kluster i Azure
 
 Den här självstudien är del två i en serie. Här får du se hur du distribuerar ett Azure Service Fabric-program till ett nytt kluster i Azure.
 
@@ -39,13 +39,16 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Installera Visual Studio 2019](https://www.visualstudio.com/)och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md).
+
+> [!NOTE]
+> Ett kostnads fritt konto kanske inte uppfyller kraven för att skapa en virtuell dator. På så sätt kan du inte slutföra självstudien.
 
 ## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet för röstning
 
@@ -82,11 +85,11 @@ Högerklicka på **Voting** i Solution Explorer och välj **Publicera**.
 
 I **Connection Endpoint** (Anslutningsslutpunkt) väljer du **Skapa ett nytt kluster**.  Om du distribuerar till ett befintligt kluster väljer du kluster slut punkten i listan.  Dialogrutan Skapa Service Fabric-kluster öppnas.
 
-På fliken **Kluster** anger du **klusternamnet** (till exempel ”mytestcluster”), väljer din prenumeration, väljer en region för klustret (till exempel USA, södra centrala), anger antalet klusternoder (vi rekommenderar att tre noder för ett testkluster) och anger en resursgrupp (till exempel ”mytestclustergroup”). Klicka på **Nästa**.
+På fliken **Kluster** anger du **klusternamnet** (till exempel ”mytestcluster”), väljer din prenumeration, väljer en region för klustret (till exempel USA, södra centrala), anger antalet klusternoder (vi rekommenderar att tre noder för ett testkluster) och anger en resursgrupp (till exempel ”mytestclustergroup”). Klicka på **Next**.
 
 ![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-På fliken **Certifikat** anger du sökvägen för lösenord och utdata för klustercertifikatet. Ett självsignerat certifikat har skapats som en PFX-fil och sparats i den angivna utdatasökvägen.  Certifikatet används för både nod till nod- och klient till nod-säkerhet.  Använd inte ett självsignerat certifikat för produktions kluster.  Det här certifikatet används av Visual Studio för att autentisera med klustret och distribuera program. Välj **Importera certifikat** för att installera PFX i certifikatarkivet CurrentUser\My på din dator.  Klicka på **Nästa**.
+På fliken **Certifikat** anger du sökvägen för lösenord och utdata för klustercertifikatet. Ett självsignerat certifikat har skapats som en PFX-fil och sparats i den angivna utdatasökvägen.  Certifikatet används för både nod till nod- och klient till nod-säkerhet.  Använd inte ett självsignerat certifikat för produktions kluster.  Det här certifikatet används av Visual Studio för att autentisera med klustret och distribuera program. Välj **Importera certifikat** för att installera PFX i certifikatarkivet CurrentUser\My på din dator.  Klicka på **Next**.
 
 ![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

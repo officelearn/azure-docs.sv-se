@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor for VMs integration med System Center Operations Manager | Microsoft Docs
 description: Azure Monitor for VMs identifierar automatiskt program komponenter i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Den här artikeln beskriver hur du använder Map-funktionen för att automatiskt skapa distribuerade program diagram i Operations Manager.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: b16505eb2c12819532b8675472cf0e6f4177f7bf
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 07/12/2019
+ms.openlocfilehash: 3523756e89506e90407090db105fdced5853d9d9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489726"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553977"
 ---
 # <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>System Center Operations Manager integration med Azure Monitor for VMs kart funktion
 
@@ -27,7 +21,7 @@ I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtue
 >[!NOTE]
 >Om du redan har distribuerat Tjänstkarta kan du Visa dina kartor i Azure Monitor for VMs, som innehåller ytterligare funktioner för att övervaka hälso tillstånd och prestanda för virtuella datorer. Kart funktionen i Azure Monitor for VMs är avsedd att ersätta den fristående Tjänstkarta-lösningen. Läs mer i [Azure Monitor for VMS översikt](vminsights-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En System Center Operations Manager hanterings grupp (2012 R2 eller senare).
 * En Log Analytics arbets yta som har kon figurer ATS för att stödja Azure Monitor for VMs.
@@ -78,7 +72,7 @@ Gör så här för att konfigurera Azure Monitor for VMs Map-integrering:
 
      ![Konfigurations gruppen Operations Manager](media/service-map-scom/scom-config-group.png)
 
-6. Valfritt: Klicka på resurspoolen för alla hanterings servrar för att kommunicera med Log Analytics och klicka sedan på **Lägg till arbets yta**.
+6. Valfritt: Välj resurspoolen för alla hanterings servrar för att kommunicera med Log Analytics och klicka sedan på **Lägg till arbets yta**.
 
     ![Operations Manager-konfigurationens resurspool](media/service-map-scom/scom-config-pool.png)
 
@@ -94,26 +88,26 @@ När Log Analytics arbets ytan är ansluten visas en ny mapp Tjänstkarta i **ö
 
 Mappen Tjänstkarta innehåller fyra noder:
 
-* **Aktiva aviseringar**: Visar alla aktiva aviseringar om kommunikationen mellan Operations Manager och Azure Monitor.  
+* **Aktiva aviseringar**: visar alla aktiva aviseringar om kommunikationen mellan Operations Manager och Azure Monitor.  
 
   >[!NOTE]
   >De här aviseringarna är inte Log Analytics-aviseringar som synkroniseras med Operations Manager, de genereras i hanterings gruppen baserat på arbets flöden som definierats i Tjänstkarta hanterings paketet.
 
-* **Servrar**: Visar en lista över övervakade servrar som är konfigurerade för synkronisering från Azure Monitor for VMs Map-funktion.
+* **Servrar**: visar de övervakade servrar som är konfigurerade för synkronisering från Azure Monitor for VMS Map-funktion.
 
     ![Fönstret Operations Manager övervaknings servrar](media/service-map-scom/scom-monitoring-servers.png)
 
-* **Vyer för dator grupp beroende**: Visar en lista över alla dator grupper som synkroniseras från MAP-funktionen. Du kan klicka på valfri grupp om du vill visa dess diagram över distribuerade program.
+* **Dator grupp beroende vyer**: visar alla dator grupper som synkroniseras från kart funktionen. Du kan klicka på valfri grupp om du vill visa dess diagram över distribuerade program.
 
     ![Diagrammet för Operations Manager distribuerade program](media/service-map-scom/scom-group-dad.png)
 
-* **Vyer för Server beroende**: Visar alla servrar som har synkroniserats från kart funktionen. Du kan klicka på valfri server om du vill visa det distribuerade program diagrammet.
+* **Vyer för Server beroende**: visar en lista över alla servrar som har synkroniserats från kart funktionen. Du kan klicka på valfri server om du vill visa det distribuerade program diagrammet.
 
     ![Diagrammet för Operations Manager distribuerade program](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Redigera eller ta bort arbets ytan
 
-Du kan redigera eller ta bort den konfigurerade arbets ytan **via tjänstkarta översikts** fönstret (administrations fönstret > **Operations Management Suite** > **tjänstkarta**).
+Du kan redigera eller ta bort den konfigurerade arbets ytan via **tjänstkarta översikts** fönstret (**administrations** fönstret > **operations Management Suite**  > **tjänstkarta**).
 
 >[!NOTE]
 >[Operations Management Suite var en samling tjänster](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) som innehöll Log Analytics, som nu ingår i [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -129,9 +123,9 @@ En regel, *Microsoft. System Center. ServiceMapImport. Rule*, hämtar regelbunde
 ![Fönstret Operations Manager åsidosätter egenskaper](media/service-map-scom/scom-overrides.png)
 
 * **Aktive rad**: Aktivera eller inaktivera automatiska uppdateringar.
-* **IntervalMinutes**: Anger tiden mellan uppdateringar. Standard intervallet är en timme. Om du vill synkronisera Maps oftare kan du ändra värdet.
-* **TimeoutSeconds**: Anger efter hur lång tid en begäran har nått tids gränsen.
-* **TimeWindowMinutes**: Anger tids perioden för att fråga efter data. Standardvärdet är 60 minuter, vilket är det högsta tillåtna intervallet.
+* **IntervalMinutes**: anger tiden mellan uppdateringar. Standard intervallet är en timme. Om du vill synkronisera Maps oftare kan du ändra värdet.
+* **TimeoutSeconds**: anger efter hur lång tid tids gränsen för begäran ska utföras.
+* **TimeWindowMinutes**: anger tidsintervallet för att fråga efter data. Standardvärdet är 60 minuter, vilket är det högsta tillåtna intervallet.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 967988d802a1b3d33ff50f578650e44794015583
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170665"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550859"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions nätverks alternativ
 
@@ -33,11 +33,11 @@ Du kan vara värd för funktions appar på ett par olika sätt:
 
 |                |[Förbruknings plan](functions-scale.md#consumption-plan)|[Premium-plan (för hands version)](functions-scale.md#premium-plan)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Inkommande IP-begränsningar & åtkomst till privata platser](#inbound-ip-restrictions)|✅ Ja|✅ Ja|✅ Ja|✅ Ja|
-|[Integrering med virtuellt nätverk](#virtual-network-integration)|❌ Nej|✅ Ja (regional)|✅ Ja (regional och gateway)|✅ Ja|
-|[Virtuella nätverks utlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌ Nej| ❌ Nej|✅ Ja|✅ Ja|
-|[Hybridanslutningar](#hybrid-connections)|❌ Nej|❌ Nej|✅ Ja|✅ Ja|
-|[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌ Nej| ❌ Nej|❌ Nej|✅ Ja|
+|[Inkommande IP-begränsningar & åtkomst till privata platser](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Integrering med virtuellt nätverk](#virtual-network-integration)|❌No|✅Yes (regional)|✅Yes (regional och gateway)|✅Yes|
+|[Virtuella nätverks utlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
+|[Hybridanslutningar](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 
 ## <a name="inbound-ip-restrictions"></a>Inkommande IP-begränsningar
@@ -52,7 +52,7 @@ Läs mer i [Azure App Service statiska åtkomst begränsningar](../app-service/a
 ## <a name="private-site-access"></a>Åtkomst till privat plats
 
 Åtkomst till privata webbplatser syftar bara på att göra appen tillgänglig från ett privat nätverk, till exempel från ett virtuellt Azure-nätverk. 
-* Åtkomst till privata webbplatser är tillgängligt i [Premium](./functions-premium-plan.md)- [](functions-scale.md#consumption-plan) , förbruknings-och [App Service plan](functions-scale.md#app-service-plan) när **tjänst slut punkter** konfigureras. 
+* Åtkomst till privata webbplatser är tillgängligt i [Premium](./functions-premium-plan.md), [förbrukning], (Function-Scale. MD # förbrukning-plan) och [App Service plan](functions-scale.md#app-service-plan) när **tjänst slut punkter** konfigureras. 
     * Tjänstens slut punkter kan konfigureras per app under plattforms funktioner > nätverks > Konfigurera åtkomst begränsningar > Lägg till regel. Virtuella nätverk kan väljas nu som "typ" för en regel.
     * Mer information finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md)
         * Tänk på att med tjänst slut punkter har din funktion fortfarande fullständig utgående åtkomst till Internet, även om du har konfigurerat Virtual Network-integrering.
@@ -87,8 +87,8 @@ Oavsett vilken version som används ger VNet-integration din app-åtkomst till r
 Funktionen för VNet-integrering:
 
 * Kräver en standard-, Premium-eller PremiumV2-App Service plan
-* Stöder TCP och UDP
-* Fungerar med App Service appar och Function-appar
+* stöder TCP och UDP
+* fungerar med App Service appar och Function-appar
 
 Det finns vissa saker som VNet-integrering inte stöder, inklusive:
 
@@ -102,12 +102,20 @@ Integrering av virtuella nätverk i functions använder delad infrastruktur med 
 
 Mer information om hur du använder integrering med virtuella nätverk finns i [integrera en Function-app med ett virtuellt Azure-nätverk](functions-create-vnet.md).
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk
+## <a name="connecting-to-service-endpoint-secured-resources"></a>Ansluter till tjänst slut punktens säkra resurser
 
 > [!note] 
-> Tillfälligt kan det ta upp till 12 timmar innan ditt lagrings konto blir tillgängligt för din Function-app när du har konfigurerat åtkomst begränsningar för det lagrings kontot. Under den här tiden kommer programmet att bli helt offline.
+> Tillfälligt kan det ta upp till 12 timmar innan nya tjänst slut punkter blir tillgängliga för din Function-app när du konfigurerar åtkomst begränsningar för den underordnade resursen. Under den här tiden är resursen helt otillgänglig för din app.
 
-För att tillhandahålla en högre säkerhets nivå kan du begränsa programmets lagrings konto till ett virtuellt nätverk. Du måste sedan integrera din webbplats med det virtuella nätverket för att komma åt ditt lagrings konto. Den här konfigurationen stöds på alla planer som stöder integrering av virtuella nätverk.
+För att tillhandahålla en högre säkerhets nivå kan du begränsa ett antal Azure-tjänster till ett virtuellt nätverk med hjälp av tjänst slut punkter. Du måste sedan integrera din Function-app med det virtuella nätverket för att få åtkomst till resursen. Den här konfigurationen stöds på alla planer som stöder integrering av virtuella nätverk.
+
+[Läs mer om tjänst slut punkter för virtuella nätverk här.](../virtual-network/virtual-network-service-endpoints-overview.md)
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk
+När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring. Det går för närvarande inte att använda några begränsningar för virtuella nätverk på det här kontot. Om du konfigurerar en tjänst slut punkt för virtuellt nätverk på det lagrings konto som du använder för din Function-app kommer appen att brytas.
+
+[Läs mer om krav för lagrings konton här.](./functions-create-function-app-portal.md#storage-account-requirements
+) 
 
 ## <a name="virtual-network-triggers-non-http"></a>Virtuella nätverks utlösare (icke-HTTP)
 
@@ -115,7 +123,7 @@ För att kunna använda andra funktions utlösare än HTTP i ett virtuellt nätv
 
 Om du till exempel vill konfigurera Azure Cosmos DB för att endast acceptera trafik från ett virtuellt nätverk måste du distribuera din Function-app i en app service-plan med virtuell nätverks integrering med det virtuella nätverket för att konfigurera Azure Cosmos DB utlösare från den resursen. Under för hands versionen tillåter konfiguration av VNET-integrering inte att Premium planen utlöses av den Azure Cosmos DB resursen.
 
-Kontrol lera [den här listan för alla icke-http-](./functions-triggers-bindings.md#supported-bindings) utlösare för att kontrol lera vad som stöds.
+Kontrol lera [den här listan för alla icke-http-utlösare](./functions-triggers-bindings.md#supported-bindings) för att kontrol lera vad som stöds.
 
 ## <a name="hybrid-connections"></a>Hybridanslutningar
 

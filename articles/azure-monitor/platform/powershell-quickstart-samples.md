@@ -1,19 +1,18 @@
 ---
 title: Snabb starts exempel för Azure Monitor PowerShell
 description: Använd PowerShell för att få åtkomst till Azure Monitor funktioner som autoskalning, aviseringar, Webhooks och sökning av aktivitets loggar.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 2/14/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 886eb8578e004eba3b6fabc1deb42db0fb7fac70
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 2/14/2018
+ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350257"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551849"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Snabb starts exempel för Azure Monitor PowerShell
 Den här artikeln visar exempel på PowerShell-kommandon som hjälper dig att komma åt Azure Monitor-funktioner.
@@ -101,7 +100,7 @@ Get-AzLog -MaxRecord 10
 `Get-AzLog` stöder många andra parametrar. Mer information finns i referensen för `Get-AzLog`.
 
 > [!NOTE]
-> `Get-AzLog` ger endast 15 dagars historik. Med parametern **-maxRecords** kan du fråga de senaste N händelserna, efter 15 dagar. Om du vill få åtkomst till händelser som är äldre än 15 dagar använderC# du REST API eller SDK (exempel med hjälp av SDK). Om du inte inkluderar **StartTime**, är standardvärdet slut **tid** minus en timme. Om du **inte inkluderar slut tid är**standardvärdet aktuell tid. Alla tider är i UTC-tid.
+> `Get-AzLog` innehåller endast 15 dagars historik. Med parametern **-maxRecords** kan du fråga de senaste N händelserna, efter 15 dagar. Om du vill få åtkomst till händelser som är äldre än 15 dagar använderC# du REST API eller SDK (exempel med hjälp av SDK). Om du inte inkluderar **StartTime**, är standardvärdet slut **tid** minus en timme. Om du **inte inkluderar slut tid är**standardvärdet aktuell tid. Alla tider är i UTC-tid.
 > 
 > 
 
@@ -112,13 +111,13 @@ Om du vill visa alla aviserings händelser kan du fråga Azure Resource Manager 
 Get-AzLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 2015-03-01
 ```
 
-Om du vill visa historiken för en speciell aviserings regel kan du använda cmdleten `Get-AzAlertHistory` och skicka aviserings regelns resurs-ID.
+Om du vill visa historiken för en speciell aviserings regel kan du använda `Get-AzAlertHistory`-cmdleten och skicka aviserings regelns resurs-ID.
 
 ```powershell
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
-Cmdleten `Get-AzAlertHistory` stöder olika parametrar. Mer information finns i [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
+@No__t_0 cmdlet stöder olika parametrar. Mer information finns i [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
 
 ## <a name="retrieve-information-on-alert-rules"></a>Hämta information om aviserings regler
 Alla följande kommandon fungerar på en resurs grupp med namnet "montest".
@@ -144,24 +143,24 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 `Get-AzAlertRule` stöder andra parametrar. Mer information finns i [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) .
 
 ## <a name="create-metric-alerts"></a>Skapa måttaviseringar
-Du kan använda cmdleten `Add-AlertRule` för att skapa, uppdatera eller inaktivera en varnings regel.
+Du kan använda `Add-AlertRule`-cmdlet för att skapa, uppdatera eller inaktivera en varnings regel.
 
-Du kan skapa e-post och webhook-egenskaper med `New-AzAlertRuleEmail` och `New-AzAlertRuleWebhook`. I aviserings regelns cmdlet tilldelar du dessa egenskaper som åtgärder till egenskapen **åtgärder** för varnings regeln.
+Du kan skapa e-post och webhook-egenskaper med `New-AzAlertRuleEmail` respektive `New-AzAlertRuleWebhook`. I aviserings regelns cmdlet tilldelar du dessa egenskaper som åtgärder till egenskapen **åtgärder** för varnings regeln.
 
 I följande tabell beskrivs de parametrar och värden som används för att skapa en avisering med hjälp av ett mått.
 
-| ProfileServiceApplicationProxy | value |
+| ProfileServiceApplicationProxy | värde |
 | --- | --- |
-| Name |simpletestdiskwrite |
-| Plats för den här aviserings regeln |East US |
-| Resursgrupp |montest |
+| Namn |simpletestdiskwrite |
+| Plats för den här aviserings regeln |USA, östra |
+| ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName för den avisering som skapas |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
-| operator |GreaterThan |
+| MetricName för den avisering som skapas |\PhysicalDisk (_ total) \ disk skrivningar/s. Se `Get-MetricDefinitions`-cmdleten om hur du hämtar de exakta mått namnen |
+| Operator |GreaterThan |
 | Tröskelvärde (antal/SEK i för det här måttet) |1 |
 | WindowSize (hh: mm: SS-format) |00:05:00 |
-| aggregator (statistik för måttet, som använder genomsnitts antal, i det här fallet) |Average |
-| anpassade e-postmeddelanden (sträng mat ris) |'foo@example.com','bar@example.com' |
+| aggregator (statistik för måttet, som använder genomsnitts antal, i det här fallet) |Medel |
+| anpassade e-postmeddelanden (sträng mat ris) |foo@example.com, bar@example.com |
 | Skicka e-post till ägare, deltagare och läsare |-SendToServiceOwners |
 
 Skapa en e-poståtgärd
@@ -191,7 +190,7 @@ Get-AzAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 I Lägg till aviserings-cmdlet uppdateras även regeln om det redan finns en varnings regel för de tilldelade egenskaperna. Om du vill inaktivera en varnings regel inkluderar du parametern **-DisableRule**.
 
 ## <a name="get-a-list-of-available-metrics-for-alerts"></a>Hämta en lista över tillgängliga mått för aviseringar
-Du kan använda cmdleten `Get-AzMetricDefinition` om du vill visa en lista över alla mått för en speciell resurs.
+Du kan använda `Get-AzMetricDefinition`-cmdlet: en om du vill visa en lista över alla mått för en speciell resurs.
 
 ```powershell
 Get-AzMetricDefinition -ResourceId <resource_id>
@@ -206,7 +205,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 En fullständig lista över tillgängliga alternativ för `Get-AzMetricDefinition` finns på [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-activity-log-alerts"></a>Skapa och hantera aktivitets logg aviseringar
-Du kan använda cmdleten `Set-AzActivityLogAlert` för att ange en aktivitets logg avisering. En aktivitets logg avisering kräver att du först definierar dina villkor som ord listor och sedan skapar en avisering som använder dessa villkor.
+Du kan använda `Set-AzActivityLogAlert` cmdlet för att ange en aktivitets logg avisering. En aktivitets logg avisering kräver att du först definierar dina villkor som ord listor och sedan skapar en avisering som använder dessa villkor.
 
 ```powershell
 
@@ -229,7 +228,7 @@ Här är de steg du ska använda:
 
 1. Skapa regel (er).
 2. Skapa profil (er) mappar de regler som du skapade tidigare till profilerna.
-3. Valfritt: Skapa meddelanden för autoskalning genom att konfigurera webhook och e-postegenskaper.
+3. Valfritt: skapa meddelanden för autoskalning genom att konfigurera webhook och e-postegenskaper.
 4. Skapa en inställning för autoskalning med ett namn på mål resursen genom att mappa de profiler och meddelanden som du skapade i föregående steg.
 
 I följande exempel visas hur du kan skapa en inställning för autoskalning för en skalnings uppsättning för virtuella datorer för ett Windows-operativsystem baserat på användnings måttet för processor användning.
@@ -279,7 +278,7 @@ I följande exempel visas hur du kan visa senaste automatiska skalnings-och avis
 Get-AzLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
 ```
 
-Du kan använda cmdleten `Get-AzAutoScaleHistory` för att hämta historik för autoskalning.
+Du kan använda `Get-AzAutoScaleHistory` cmdlet för att hämta historik för autoskalning.
 
 ```powershell
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
@@ -288,7 +287,7 @@ Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/provid
 Mer information finns i [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
 
 ### <a name="view-details-for-an-autoscale-setting"></a>Visa information om en autoskalningsinställning
-Du kan använda cmdleten `Get-Autoscalesetting` för att hämta mer information om den automatiska skalnings inställningen.
+Du kan använda `Get-Autoscalesetting`-cmdlet för att hämta mer information om den automatiska skalnings inställningen.
 
 I följande exempel visas information om alla inställningar för autoskalning i resurs gruppen "myrg1".
 
@@ -303,7 +302,7 @@ Get-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting -DetailedOu
 ```
 
 ### <a name="remove-an-autoscale-setting"></a>Ta bort en autoskalningsinställning
-Du kan använda cmdleten `Remove-Autoscalesetting` för att ta bort en inställning för autoskalning.
+Du kan använda `Remove-Autoscalesetting` cmdlet för att ta bort en inställning för autoskalning.
 
 ```powershell
 Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
@@ -313,7 +312,7 @@ Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 Du kan skapa en *logg profil* och exportera data från aktivitets loggen till ett lagrings konto och du kan konfigurera datakvarhållning av data. Alternativt kan du också strömma data till händelsehubben. Den här funktionen är för närvarande en för hands version och du kan bara skapa en logg profil per prenumeration. Du kan använda följande cmdletar med din aktuella prenumeration för att skapa och hantera logg profiler. Du kan också välja en viss prenumeration. Även om PowerShell är standardvärdet för den aktuella prenumerationen kan du alltid ändra som använder `Set-AzContext`. Du kan konfigurera aktivitets loggen för att dirigera data till valfritt lagrings konto eller Händelsehubben i den prenumerationen. Data skrivs som BLOB-filer i JSON-format.
 
 ### <a name="get-a-log-profile"></a>Hämta en logg profil
-Använd cmdleten `Get-AzLogProfile` för att hämta dina befintliga logg profiler.
+Använd `Get-AzLogProfile`-cmdleten om du vill hämta dina befintliga logg profiler.
 
 ### <a name="add-a-log-profile-without-data-retention"></a>Lägg till en logg profil utan data kvarhållning
 ```powershell
@@ -389,7 +388,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-in
 
 ```
 
-Observera att egenskapen WorkspaceId tar arbets ytans *resurs-ID* . Du kan hämta resurs-ID för Log Analytics-arbetsytan med följande kommando:
+Observera att egenskapen WorkspaceId tar arbets ytans *resurs-ID* . Du kan hämta resurs-ID för din Log Analytics-arbetsyta med hjälp av följande kommando:
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId

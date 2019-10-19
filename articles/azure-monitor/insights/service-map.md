@@ -1,28 +1,22 @@
 ---
 title: Använda Tjänstkarta lösning i Azure | Microsoft Docs
-description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information för att distribuera Service Map i din miljö och använder den på en mängd olika scenarier.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
+description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information om hur du distribuerar Tjänstkarta i din miljö och använder den i flera olika scenarier.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 98bf38a6c293f6d339413b5395bb32d74bcb30c0
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 07/24/2019
+ms.openlocfilehash: 00bb58c88b7dc535bf76e1a96e9748a2c366b338
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905718"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554010"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Använda Tjänstkarta lösning i Azure
 
-Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du se dina servrar på samma sätt som du tänker på dem, dvs. som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
+Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du visa dina servrar på samma sätt som du ser på dem: som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
 
 I den här artikeln beskrivs hur du onboarding och använder Tjänstkarta. Information om hur du konfigurerar krav för den här lösningen finns i [aktivera Azure Monitor for VMS översikt](vminsights-enable-overview.md#prerequisites). För att sammanfatta behöver du följande:
 
@@ -44,15 +38,15 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 1. Aktivera Tjänstkarta-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervaknings lösningar från Lösningsgalleriet](solutions.md).
 1. [Installera beroende agenten på Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) eller [Installera beroende agenten i Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) på varje dator där du vill hämta data. Beroendeagenten kan övervaka anslutningar till omedelbara grannar, så du behöver kanske inte ha en agent på varje dator.
 
-Du kommer åt Tjänstkarta i Azure Portal från arbets ytan Log Analytics och väljer alternativ **lösningar** i den vänstra rutan.<br><br> ![Alternativet Välj lösningar på arbets](./media/service-map/select-solution-from-workspace.png)ytan.<br> I listan med lösningar väljer du **ServiceMap (workspaceName)** och på översikts sidan för tjänstkarta lösning klickar du på panelen sammanfattning av tjänstkarta.<br><br> ![Panelen](./media/service-map/service-map-summary-tile.png)tjänstkarta Sammanfattning.
+Du kommer åt Tjänstkarta i Azure Portal från arbets ytan Log Analytics och väljer alternativ **lösningar** i den vänstra rutan.<br><br> ![Select lösnings alternativ i arbets ytans ](./media/service-map/select-solution-from-workspace.png).<br> I listan med lösningar väljer du **ServiceMap (workspaceName)** och på översikts sidan för tjänstkarta lösning klickar du på panelen sammanfattning av tjänstkarta.<br><br> ![Service kartans sammanfattnings panel ](./media/service-map/service-map-summary-tile.png).
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Användnings fall: Gör din IT-process beroende medveten
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Användnings fall: gör din IT-process beroende medveten
 
 ### <a name="discovery"></a>Identifiering
 
 Tjänstkarta skapar automatiskt en gemensam referens karta över beroenden för dina servrar, processer och tjänster från tredje part. Den identifierar och mappar alla TCP-beroenden, identifierar överrasknings anslutningar, fjärranslutna system från tredje part som du är beroende av och beroenden till traditionella mörka delar av nätverket, till exempel Active Directory. Tjänstkarta identifierar misslyckade nätverks anslutningar som hanteras av dina hanterade system, vilket hjälper dig att identifiera potentiell Server fel konfiguration, avbrott i tjänsten och nätverks problem.
 
-### <a name="incident-management"></a>incidenthantering
+### <a name="incident-management"></a>Incident hantering
 
 Tjänstkarta hjälper till att undvika att isolera problem genom att visa hur systemen är anslutna och påverkar varandra. Förutom att identifiera misslyckade anslutningar hjälper det till att identifiera felkonfigurerade belastningsutjämnare, överraskande eller överdriven belastning på kritiska tjänster och falska klienter, till exempel utvecklare som utvecklar datorer som kommunicerar med produktions systemen. Genom att använda integrerade arbets flöden med Ändringsspårning kan du också se om en ändrings händelse på en backend-dator eller-tjänst förklarar rotor saken till en incident.
 
@@ -60,7 +54,7 @@ Tjänstkarta hjälper till att undvika att isolera problem genom att visa hur sy
 
 Genom att använda Tjänstkarta kan du effektivt planera, påskynda och validera Azure-migreringar, vilket hjälper till att se till att inget är kvar bakom och oväntade avbrott sker inte. Du kan identifiera alla beroende system som behöver migreras tillsammans, utvärdera systemets konfiguration och kapacitet och identifiera om ett system som är igång fortfarande betjänar användare eller är en kandidat för avställning i stället för migrering. När flyttningen är klar kan du kontrol lera klient belastning och identitet för att kontrol lera att test system och kunder ansluter. Om under nätets planering och brand Väggs definitioner har problem, misslyckade anslutningar i Tjänstkarta Maps, pekar du på de system som behöver anslutning.
 
-### <a name="business-continuity"></a>Verksamhetskontinuitet
+### <a name="business-continuity"></a>Kontinuitet i verksamheten
 
 Om du använder Azure Site Recovery och behöver hjälp med att definiera återställnings ordningen för din program miljö kan Tjänstkarta automatiskt visa hur systemen förlitar sig på varandra för att säkerställa att din återställnings plan är tillförlitlig. Genom att välja en kritisk Server eller grupp och visa dess klienter kan du identifiera vilka klient dels system som ska återställas efter att servern har återställts och är tillgänglig. Genom att titta på kritiska servrars backend-beroenden kan du identifiera vilka system som ska återställas innan dina fokus system återställs.
 
@@ -120,7 +114,7 @@ När du har skapat några grupper kan du visa dem genom att välja fliken gruppe
 ![Fliken grupper](media/service-map/machine-groups-tab.png)
 
 Välj sedan grupp namnet för att visa kartan för den dator gruppen.
-![Dator grupp](media/service-map/machine-group.png) de datorer som tillhör gruppen beskrivs i vitt i kartan.
+![Machine grupp ](media/service-map/machine-group.png) de datorer som tillhör gruppen anges i vitt i kartan.
 
 Om du expanderar gruppen visas en lista över de datorer som utgör dator gruppen.
 
@@ -165,7 +159,7 @@ Vissa processer har särskilda roller på datorer: webb servrar, program servrar
 |:--|:--|
 | ![Webbserver](media/service-map/role-web-server.png) | Webbserver |
 | ![App Server](media/service-map/role-application-server.png) | Program Server |
-| ![Databasserver](media/service-map/role-database.png) | Databasserver |
+| ![Databas server](media/service-map/role-database.png) | Databas server |
 | ![LDAP-server](media/service-map/role-ldap.png) | LDAP-server |
 | ![SMB-server](media/service-map/role-smb.png) | SMB-server |
 
@@ -180,11 +174,11 @@ Misslyckade anslutningar visas i Tjänstkarta Maps för processer och datorer, m
 
 Att förstå misslyckade anslutningar kan hjälpa till med fel sökning, verifiering av migrering, säkerhets analys och övergripande arkitektur förståelse. Misslyckade anslutningar är ibland ofarliga, men de leder ofta direkt till ett problem, t. ex. en växlings miljö som plötsligt inte går att komma åt, eller två program nivåer som inte kan kommunicera efter en molnbaserad migrering.
 
-## <a name="client-groups"></a>Klientgrupper
+## <a name="client-groups"></a>Klient grupper
 
 Klient grupper är rutor på kartan som representerar klient datorer som inte har beroende agenter. En enda klient grupp representerar klienterna för en enskild process eller dator.
 
-![Klientgrupper](media/service-map/client-groups.png)
+![Klient grupper](media/service-map/client-groups.png)
 
 Välj gruppen om du vill se IP-adresserna för servrarna i en klient grupp. Innehållet i gruppen visas i fönstret **Egenskaper för klient grupp** .
 
@@ -250,7 +244,7 @@ Tjänstkarta integreras med loggs ökningen för att visa antalet tillgängliga 
 
 Tjänstkarta integration med Anslutningsprogram för hantering av IT-tjänster (ITSM) sker automatiskt när båda lösningarna är aktiverade och konfigurerade i din Log Analytics-arbetsyta. Integrationen i Tjänstkarta är märkt med "Service Desk". Mer information finns i [Central hantering av ITSM arbets objekt med hjälp av anslutningsprogram för hantering av IT-tjänster (ITSM)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
-Skriv bords fönstret för **Machine service** visar alla IT Service Management-händelser för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella objekt och dator tjänstens Skriv bords fönster visar dem.
+**Skriv bords fönstret för Machine service** visar alla IT Service Management-händelser för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella objekt och dator tjänstens Skriv bords fönster visar dem.
 
 ![Skriv bords fönstret för Machine service](media/service-map/service-desk.png)
 
@@ -280,16 +274,16 @@ Fönstret **dator prestanda** visar standard prestanda mått för den valda serv
 Om du vill visa prestanda data kan du behöva [Aktivera lämpliga Log Analytics prestanda räknare](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  De räknare som du vill aktivera:
 
 Windows:
-- Processor (*)\\% processor tid
-- Minne\\% allokerade byte som används
-- Nätverkskort (*)\\skickade byte per sekund
-- Nätverkskort (*)\\mottagna byte/SEK
+- Processor (*) \\% processor tid
+- Minnes \\% allokerade byte som används
+- Nätverkskort (*) \\Bytes skickade/SEK
+- Nätverkskort (*) \\Bytes mottagna/SEK
 
 Linux:
-- Processor (*)\\% processor tid
-- Minne (*)\\% använt minne
-- Nätverkskort (*)\\skickade byte per sekund
-- Nätverkskort (*)\\mottagna byte/SEK
+- Processor (*) \\% processor tid
+- Minne (*) \\% använt minne
+- Nätverkskort (*) \\Bytes skickade/SEK
+- Nätverkskort (*) \\Bytes mottagna/SEK
 
 Om du vill hämta data om nätverks prestanda måste du också ha aktiverat Wire Data 2.0-lösningen i din arbets yta.
  
@@ -320,8 +314,8 @@ En post skapas per timme för varje unik dator och process, förutom de poster s
 
 Det finns internt genererade egenskaper som du kan använda för att identifiera unika processer och datorer:
 
-- Persondator Använd *ResourceID* eller *ResourceName_s* för att unikt identifiera en dator i en Log Analytics-arbetsyta.
-- Processen: Använd *ResourceID* för att unikt identifiera en process inom en Log Analytics-arbetsyta. *ResourceName_s* är unikt inom kontexten för den dator där processen körs (MachineResourceName_s) 
+- Dator: Använd *ResourceID* eller *ResourceName_s* för att unikt identifiera en dator i en Log Analytics-arbetsyta.
+- Process: Använd *ResourceID* för att unikt identifiera en process inom en Log Analytics-arbetsyta. *ResourceName_s* är unikt inom kontexten för den dator där processen körs (MachineResourceName_s) 
 
 Eftersom det kan finnas flera poster för en angiven process och dator inom ett angivet tidsintervall, kan frågor returnera fler än en post för samma dator eller process. Om du bara vill ta med den senaste posten lägger du till | deduplicera ResourceId "till frågan.
 
@@ -410,7 +404,7 @@ Varje RemoteIp-egenskap i *VMConnection* -tabellen kontrol leras mot en uppsätt
 
 ### <a name="servicemapcomputer_cl-records"></a>ServiceMapComputer_CL-poster
 
-Poster med en typ av *ServiceMapComputer_CL* har inventerings data för servrar med tjänstkarta agenter. Dessa poster har egenskaper i följande tabell:
+Poster med en typ av *ServiceMapComputer_CL* har inventerings data för servrar med tjänstkarta agenter. Dessa poster har egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--|:--|
@@ -436,7 +430,7 @@ Poster med en typ av *ServiceMapComputer_CL* har inventerings data för servrar 
 
 ### <a name="servicemapprocess_cl-type-records"></a>ServiceMapProcess_CL-typ poster
 
-Poster med en typ av *ServiceMapProcess_CL* har inventerings data för TCP-anslutna processer på servrar med tjänstkarta agenter. Dessa poster har egenskaper i följande tabell:
+Poster med en typ av *ServiceMapProcess_CL* har inventerings data för TCP-anslutna processer på servrar med tjänstkarta agenter. Dessa poster har egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--|:--|
@@ -492,7 +486,7 @@ ServiceMapProcess_CL | där MachineResourceName_s = = "m-559dbcd8-3130-454d-8d1d
 
 ### <a name="list-all-computers-running-sql"></a>Lista alla datorer som kör SQL
 
-ServiceMapComputer_CL | där ResourceName_s i ((Sök i (ServiceMapProcess_CL) "\*SQL\*" | DISTINCT MachineResourceName_s)) | DISTINCT ComputerName_s
+ServiceMapComputer_CL | där ResourceName_s i ((Sök i (ServiceMapProcess_CL) "\*sql \*" | DISTINCT MachineResourceName_s)) | distinkt ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Visa en lista med alla unika produkt versioner av sväng i mitt Data Center
 
@@ -549,47 +543,47 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 Alla Server-, process-och beroende data i Tjänstkarta är tillgängliga via [Tjänstkarta REST API](https://docs.microsoft.com/rest/api/servicemap/).
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata
+## <a name="diagnostic-and-usage-data"></a>Diagnostik-och användnings data
 
-Microsoft samlar automatiskt in användnings- och data till din användning av tjänsten Tjänstkarta. Microsoft använder dessa data för att tillhandahålla och förbättra kvaliteten, säkerheten och integriteten för tjänsten Tjänstkarta. För att tillhandahålla korrekta och effektiva fel söknings funktioner innehåller data information om konfigurationen av program varan, till exempel operativ system och version, IP-adress, DNS-namn och arbets Stations namn. Microsoft samlar inte in namn, adresser eller annan kontakt information.
+Microsoft samlar automatiskt in användnings-och prestanda data via din användning av tjänsten Tjänstkarta. Microsoft använder dessa data för att tillhandahålla och förbättra kvaliteten, säkerheten och integriteten i Tjänstkartas tjänsten. För att tillhandahålla korrekta och effektiva fel söknings funktioner innehåller data information om konfigurationen av program varan, till exempel operativ system och version, IP-adress, DNS-namn och arbets Stations namn. Microsoft samlar inte in namn, adresser eller annan kontakt information.
 
-Mer information om insamling och användning finns i den [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+Mer information om insamling och användning av data finns i [sekretess policy för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [loggs ökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att hämta data som samlas in av tjänstkarta.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
-Om du får problem med installeras eller köras Tjänstkarta kan i det här avsnittet hjälpa dig. Kontakta Microsoft Support om du fortfarande inte kan lösa problemet.
+Om du har problem med att installera eller köra Tjänstkarta kan det här avsnittet hjälpa dig. Om du fortfarande inte kan lösa problemet kan du kontakta Microsoft Support.
 
-### <a name="dependency-agent-installation-problems"></a>Problem med beroende agenten installationen
+### <a name="dependency-agent-installation-problems"></a>Installations problem för beroende agent
 
-#### <a name="installer-prompts-for-a-reboot"></a>Installationsprogrammet frågar efter en omstart
-Beroende agenten kräver *vanligt vis* ingen omstart vid installation eller borttagning. I vissa sällsynta fall kräver dock Windows Server startas om för att fortsätta med en installation. Detta inträffar när ett beroende, vanligt vis krävs en omstart C++ av Microsoft Visual Redistributable Library på grund av en låst fil.
+#### <a name="installer-prompts-for-a-reboot"></a>Installations program för omstart
+Beroende agenten kräver *vanligt vis* ingen omstart vid installation eller borttagning. I vissa sällsynta fall kräver dock Windows Server en omstart för att fortsätta med en installation. Detta inträffar när ett beroende, vanligt vis krävs en omstart C++ av Microsoft Visual Redistributable Library på grund av en låst fil.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Meddelandet "Det gick inte att installera beroende agenten: Det gick inte att installera Visual Studio runtime-bibliotek (kod = [code_number]) "visas
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Meddelandet "Det gick inte att installera beroende agenten: Visual Studio runtime-bibliotek kunde inte installeras (kod = [code_number])" visas
 
-Agenten Microsoft Dependency bygger på bibliotek för Microsoft Visual Studio-körning. Du får ett meddelande om ett problem har uppstått under installationen av biblioteken. 
+Microsofts beroende agent bygger på Microsoft Visual Studio runtime-biblioteken. Du får ett meddelande om det uppstår problem under installationen av biblioteken. 
 
-Installationsprogram för runtime-biblioteket skapar loggarna i mappen %LOCALAPPDATA%\temp. Filen är `dd_vcredist_arch_yyyymmddhhmmss.log`, där " *båge* " `x86` är `amd64` eller och *yyyymmddhhmmss* är datum och tid (24-timmarsformat) när loggen skapades. Loggen innehåller information om problem som blockerar installation.
+Installations program för körnings bibliotek skapar loggar i%LOCALAPPDATA%\temp-mappen. Filen är `dd_vcredist_arch_yyyymmddhhmmss.log`, där *båge* är `x86` eller `amd64` och *yyyymmddhhmmss* är datum och tid (24-timmarsformat) när loggen skapades. Loggen innehåller information om det problem som blockerar installationen.
 
 Det kan vara praktiskt att installera de [senaste körnings biblioteken](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) först.
 
-I följande tabell visas kodnummer och rekommenderade lösningar.
+I följande tabell visas kod nummer och föreslagna lösningar.
 
-| Kod | Beskrivning | Lösning |
+| Programmera | Beskrivning | Upplösning |
 |:--|:--|:--|
-| 0x17 | Installationsprogrammet biblioteket kräver en Windows-uppdatering som inte är installerad. | Titta i den senaste biblioteket installer-loggen.<br><br>Om en referens till `Windows8.1-KB2999226-x64.msu` följs av en rad `Error 0x80240017: Failed to execute MSU package,` uppfyller du inte kraven för att installera KB2999226. Följ anvisningarna i avsnittet krav i [Universal C runtime i Windows](https://support.microsoft.com/kb/2999226) -artikeln. Du kan behöva köra Windows Update och starta om flera gånger för att kunna installera nödvändiga komponenter.<br><br>Kör installationsprogrammet för Microsoft Dependency agenten igen. |
+| 0x17 | Biblioteks installations programmet kräver en Windows-uppdatering som inte har installerats. | Titta i den senaste biblioteks installations loggen.<br><br>Om en referens till `Windows8.1-KB2999226-x64.msu` följs av en rad `Error 0x80240017: Failed to execute MSU package,` du inte kraven för att installera KB2999226. Följ anvisningarna i avsnittet krav i [Universal C runtime i Windows](https://support.microsoft.com/kb/2999226) -artikeln. Du kan behöva köra Windows Update och starta om flera gånger för att kunna installera kraven.<br><br>Kör installations programmet för Microsoft-beroende Agent igen. |
 
-### <a name="post-installation-issues"></a>Efter installationen problem
+### <a name="post-installation-issues"></a>Problem efter installationen
 
 #### <a name="server-doesnt-appear-in-service-map"></a>Servern visas inte i Tjänstkarta
 
 Om beroende Agent installationen lyckades, men du inte ser datorn i Tjänstkarta-lösningen:
-* Beroendeagenten installeras? Du kan kontrollera detta genom att markera om du vill se om tjänsten är installerad och körs.<br><br>
-**Windows**: Sök efter tjänsten **Microsoft Dependency agent**.
-**Linux**: Leta efter processen **Microsoft-Dependency-agent**som körs.
+* Har beroende agenten installerats? Du kan verifiera detta genom att kontrol lera om tjänsten är installerad och körs.<br><br>
+**Windows**: Sök efter tjänsten med namnet **Microsoft Dependency agent**.
+**Linux**: leta efter den process som körs av **Microsoft-beroende-agenten**.
 
 * Är du på den [Log Analytics kostnads fria nivån](https://azure.microsoft.com/pricing/details/monitor/)? Den kostnads fria planen tillåter upp till fem unika Tjänstkarta datorer. Eventuella efterföljande datorer visas inte i Tjänstkarta, även om de fem föregående fem inte längre skickar data.
 
@@ -599,13 +593,13 @@ Om beroende Agent installationen lyckades, men du inte ser datorn i Tjänstkarta
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Fick du en rad olika händelser i resultaten? Är data de senaste? I så fall fungerar din Log Analytics-agenten som den ska och kommunicerar med arbets ytan. Om inte, kontrollerar du agenten på datorn: [Log Analytics agent för Windows fel sökning](../platform/agent-windows-troubleshoot.md) eller [Log Analytics agent för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
+Fick du flera olika händelser i resultatet? Är data nyligen? I så fall fungerar din Log Analytics-agenten som den ska och kommunicerar med arbets ytan. Om inte, kontrol lera agenten på datorn: [Log Analytics agent för Windows fel sökning](../platform/agent-windows-troubleshoot.md) eller [Log Analytics agent för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
 
-#### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servern visas i Service Map men innehåller inga processer
+#### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servern visas i Tjänstkarta men saknar processer
 
 Om du ser datorn i Tjänstkarta, men inte har någon process-eller anslutnings data, som anger att beroende agenten är installerad och körs, men kernel-drivrutinen inte lästes in. 
 
-`/var/opt/microsoft/dependency-agent/log/service.log file` Kontrol lera `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) eller (Linux). De sista raderna i filen ska indikera varför kernel lästes inte in. Till exempel kanske kernel inte kan användas i Linux om du har uppdaterat din kernel.
+Kontrol lera `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) eller `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). De sista raderna i filen bör ange varför kerneln inte lästes in. Till exempel kanske kärnan inte stöds på Linux om du har uppdaterat din kernel.
 
 ## <a name="feedback"></a>Feedback
 

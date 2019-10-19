@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 55ff134bfa76634250b7495120432d7310b07c06
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 4674dede5912dc1dc64bd0e092e28461f30bebcd
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431871"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554218"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -170,7 +170,7 @@ Om du vill ändra kvarhållning går du till sidan **användning och uppskattade
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
 
-Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. 
+Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. 
 
 När faktureringen börjar för längre kvarhållning i början av december 2019 faktureras data som är längre än 90 dagar som samma pris som för närvarande faktureras för Azure Log Analytics data kvarhållning. Läs mer på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Håll dig uppdaterad om varierande behållnings förlopp genom [röstning för det här förslaget](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 

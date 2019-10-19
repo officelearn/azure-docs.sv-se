@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
-ms.translationtype: MT
+ms.openlocfilehash: 0acdf1496151df57d4097ce5bc71d782dc465873
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035106"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554546"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestanda justering med ordnat grupperat columnstore-index  
 
@@ -119,16 +119,20 @@ Här är ett exempel på en ordnad tabell distribution som har noll segment som 
 ## <a name="create-ordered-cci-on-large-tables"></a>Skapa beställda CCI i stora tabeller
 Att skapa en ordnad CCI är en offline-åtgärd.  För tabeller som inte har några partitioner är data inte tillgängliga för användarna förrän den ordnade CCI-processen har skapats.   För partitionerade tabeller, eftersom motorn skapar den beställda CCI-partitionen per partition, kan användarna fortfarande komma åt data i partitioner där ordnade CCI inte har skapats.   Du kan använda det här alternativet för att minimera stillestånds tiden när du skapar ordnade CCI i stora tabeller: 
 
-1.  Skapa partitioner på den stora mål tabellen (kallas tabell A).
-2.  Skapa en tom ordnad CCI-tabell (kallas tabell B) med samma tabell-och partition schema som tabell A.
+1.  Skapa partitioner på den stora mål tabellen (kallas Table_A).
+2.  Skapa en tom sorterad CCI-tabell (kallas Table_B) med samma tabell-och partitions schema som tabell A.
 3.  Växla en partition från tabell A till tabell B.
-4.  Kör ALTER INDEX < Ordered_CCI_Index > Rebuild PARTITION = < Partition_ID > i tabell B för att återskapa den switchade partitionen.  
-5.  Upprepa steg 3 och 4 för varje partition i tabell A.
-6.  När alla partitioner har växlats från tabell A till tabell B och har återskapats, tar du bort tabell A och byter namn på tabell B till tabell A. 
+4.  Kör ALTER INDEX < Ordered_CCI_Index > på < Table_B > återskapa PARTITION = < Partition_ID > på tabell B för att återskapa den switchade partitionen.  
+5.  Upprepa steg 3 och 4 för varje partition i Table_A.
+6.  När alla partitioner har växlats från Table_A till Table_B och har återskapats, tar du bort Table_A och byter namn på Table_B till Table_A. 
+
+>[!NOTE]
+>Under för hands versionen av det ordnade columnstore-indexet (CCI) i Azure SQL Data Warehouse kan duplicerade data skapas om de ordnade CCI skapas eller återskapas via skapa GRUPPERat COLUMNSTORE-INDEX i en partitionerad tabell. Ingen data förlust berörs. En korrigering av det här problemet kommer snart att vara tillgänglig. För en lösning kan användarna skapa beställda CCI i en partitionerad tabell med kommandot CTAS
+
 
 ## <a name="examples"></a>Exempel
 
-**A. Så här söker du efter ordnade kolumner och ordnings tal:**
+**A. för att kontrol lera sorterade kolumner och ordnings nummer:**
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
@@ -136,7 +140,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. Om du vill ändra kolumn ordnings tal, lägga till eller ta bort kolumner från order listan eller ändra från CCI till ordnade CCI:**
+**B. om du vill ändra kolumn ordnings tal, lägga till eller ta bort kolumner från order listan eller ändra från CCI till ordnade CCI:**
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)

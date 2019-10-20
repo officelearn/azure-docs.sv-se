@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 87c438403934df34a02678c805d3622956654b4e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 5d2608d1c374fadac18cebc093ce50ef93f9656a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172061"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597388"
 ---
 Den här tabellen visar de bindningar som stöds i de två huvud versionerna av Azure Functions Runtime:
 
-| type | 1.x | 2.x<sup>1</sup> | Utlösare | Indata | Output |
+| Typ | 1.x | 2. x<sup>1</sup> | Utlösare | Indata | Resultat |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
@@ -21,11 +21,11 @@ Den här tabellen visar de bindningar som stöds i de två huvud versionerna av 
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
 | [HTTP &-Webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
 | [IoT Hub](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
-| [Microsoft Graph<br/>Excel-tabeller](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
-| [Microsoft Graph<br/>OneDrive-filer](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
-| [Microsoft Graph<br/>Outlook-e-post](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
-| [Microsoft Graph<br/>händelser](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
-| [Microsoft Graph<br/>auth-token](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
+| [Microsoft Graph <br/>Excel tabeller](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
+| [Microsoft Graph <br/>OneDrive filer](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
+| [Microsoft Graph <br/>Outlook e-post](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
+| [Microsoft Graph <br/>events](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
+| [Microsoft Graph <br/>Auth tokens](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
 | [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
@@ -36,4 +36,4 @@ Den här tabellen visar de bindningar som stöds i de två huvud versionerna av 
 | [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> i 2. x måste alla bindningar utom http och timer registreras. Se [Registrera bindnings tillägg](../articles/azure-functions/functions-bindings-register.md).
+<sup>1</sup> i version 2. x-körningen måste alla bindningar utom http och timer registreras. Se [Registrera bindnings tillägg](../articles/azure-functions/functions-bindings-register.md). Alla 2. x-bindningar som stöds stöds också i version 3. x, om inget annat anges.   

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/17/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1f02cf3abaae7d67ba3d204dc9419d9fbfa4a86d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374490"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597085"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -132,6 +132,7 @@ Fakturerings konton för Microsofts kund avtal har följande omfång:
 
 Till skillnad från EA-fakturerings omfattningar _är_ kund avtals fakturerings konton kopplade till en enda katalog och kan inte ha prenumerationer i flera Azure AD-kataloger.
 
+Fakturerings omfång för kund avtal gäller inte för partner. Partner roller och behörigheter dokumenteras i [Tilldela användar roller och behörigheter](/partner-center/permissions-overview).
 
 Fakturerings omfattningar för kund avtal har stöd för följande roller:
 
@@ -159,11 +160,25 @@ När AWS-integreringen är klar kan du läsa mer i [Konfigurera och konfigurera 
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>Omfattningar för Cloud Solution Provider (CSP)
 
-Leverantörer av moln lösningar (CSP) stöds inte i Cost Management idag. I stället kan du använda [partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Följande omfattningar stöds för CSP: er med kunder i ett Microsoft-kund avtal:
+
+- **Fakturerings konto** – representerar ett kund avtal för flera produkter och tjänster från Microsoft. Fakturerings konton för kund avtal fungerar inte på samma sätt som EA-registreringar. EA-registreringar är mer noggrant justerade för fakturerings profiler.
+
+    Resurs typ: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+
+- **Fakturerings profil** – definierar de prenumerationer som ingår i en faktura. Fakturerings profiler är den funktionella motsvarigheten till en EA-registrering, eftersom det är det omfång som fakturor genereras på. På samma sätt är inköp som inte används (till exempel Marketplace och reservationer) bara tillgängliga i det här omfånget.
+
+    Resurs typ: `Microsoft.Billing/billingAccounts/billingProfiles`
+
+- **Kund** – representerar en grupp prenumerationer som är kopplade till en specifik kund som har publicerats till ett kund avtal från Microsoft av en partner.
+
+Endast användare med rollen *Global administratör* och *administratör* kan hantera och Visa kostnader för fakturerings konton, fakturerings profiler och kunder direkt i partnerns Azure-klient. Mer information om Partner Center-roller finns i [Tilldela användar roller och behörigheter](/partner-center/permissions-overview).
+
+Azure Cost Management stöder bara CSP-partner kunder om kunderna har ett Microsoft-kundavtal. För CSP som har stöd för kunder som ännu inte har ett kund avtal från Microsoft, se [partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Växla mellan omfattningar i Cost Management
 
-Alla Cost Management vyer i Azure Portal innehåller en **omfattnings** markerings Pill längst upp till vänster i vyn. Använd den för att snabbt ändra omfattningen. Öppna omfattnings väljaren genom att klicka på **området** Pill. Det visar fakturerings konton, rot hanterings gruppen och eventuella prenumerationer som inte är kapslade under rot hanterings gruppen. Om du vill välja ett omfång klickar du på bakgrunden för att markera den och klickar sedan på **Välj** längst ned. Om du vill öka detalj nivån till kapslade omfattningar, t. ex. resurs grupper i en prenumeration, klickar du på länken omfångs namn. Om du vill välja överordnat omfång på valfri kapslad nivå klickar du på **Välj den här &lt;scope @ no__t-2** överst i omfattnings väljaren.
+Alla Cost Management vyer i Azure Portal innehåller en **omfattnings** markerings Pill längst upp till vänster i vyn. Använd den för att snabbt ändra omfattningen. Öppna omfattnings väljaren genom att klicka på **området** Pill. Det visar fakturerings konton, rot hanterings gruppen och eventuella prenumerationer som inte är kapslade under rot hanterings gruppen. Om du vill välja ett omfång klickar du på bakgrunden för att markera den och klickar sedan på **Välj** längst ned. Om du vill öka detalj nivån till kapslade omfattningar, t. ex. resurs grupper i en prenumeration, klickar du på länken omfångs namn. Om du vill välja ett överordnat omfång på en kapslad nivå klickar du på **Välj den här &lt;scope &gt;** överst i omfattnings väljaren.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identifiera resurs-ID för ett omfång
 

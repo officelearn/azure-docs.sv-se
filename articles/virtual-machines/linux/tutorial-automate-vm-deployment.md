@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f053cc7646a2a4f41c57010f7e43a3fe3255b7e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 8bc396611f2e6f611de5a41de9525ba71287b363
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931799"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595108"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Självstudiekurs – Så här använder du cloud-init för att anpassa en virtuell Linux-dator i Azure vid den första starten
 
-I en tidigare självstudiekurs lärde du dig hur du anslöt till en virtuell dator med SSH och installerade NGINX manuellt. Om du vill skapa virtuella datorer på ett snabbt och konsekvent sätt, kan det vara användbart med någon form av automatisering. Ett vanligt sätt att anpassa en virtuell dator första gången den startar är att använda [cloud-init](https://cloudinit.readthedocs.io). I den här självstudiekursen får du lära du dig att:
+I en tidigare självstudiekurs lärde du dig hur du anslöt till en virtuell dator med SSH och installerade NGINX manuellt. Om du vill skapa virtuella datorer på ett snabbt och konsekvent sätt, kan det vara användbart med någon form av automatisering. Ett vanligt sätt att anpassa en virtuell dator första gången den startar är att använda [cloud-init](https://cloudinit.readthedocs.io). I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en cloud-init-konfigurationsfil
@@ -42,9 +42,9 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
 
 Vi arbetar med våra partners och försöker göra så att cloud-init inkluderas och fungerar i de avbildningar de tillhandahåller till Azure. Den här tabellen beskriver den aktuella tillgängligheten när det gäller cloud-init på Azure plattformsavbildningar:
 
-| Utgivare | Erbjudande | SKU | Version | cloud-init är klara |
+| Utgivare | Erbjudande | SKU | Version | moln-init Ready |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |latest |ja | 
+|Canonical |UbuntuServer |18.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
 |CoreOS |CoreOS |Stable |senaste |ja |
@@ -56,7 +56,7 @@ Vi arbetar med våra partners och försöker göra så att cloud-init inkluderas
 ## <a name="create-cloud-init-config-file"></a>Skapa en cloud-init-konfigurationsfil
 Om du vill se hur cloud-init fungerar i praktiken skapar du en virtuell dator som installerar NGINX och kör en enkel ”Hello World” Node.js-app. Den här cloud-init-konfigurationen installerar de paket som krävs, skapar en Node.js-app och initierar och startar appen.
 
-I bash-prompten eller på Cloud Shell skapar du en fil med namnet *init. txt* och klistrar in följande konfiguration. Skriv `sensible-editor cloud-init.txt` till exempel om du vill skapa filen och visa en lista över tillgängliga redigerare. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
+I bash-prompten eller på Cloud Shell skapar du en fil med namnet *init. txt* och klistrar in följande konfiguration. Skriv till exempel `sensible-editor cloud-init.txt` för att skapa filen och visa en lista över tillgängliga redigerare. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 
 ```azurecli-interactive
 #cloud-config
@@ -126,11 +126,11 @@ Det tar några minuter innan den virtuella datorn skapas, paketen installeras oc
 För att låta webbtrafik nå din virtuella dator öppnar du port 80 från Internet med [az vm open-port](/cli/azure/vm#az-vm-open-port):
 
 ```azurecli-interactive
-az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
+az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAutomatedVM
 ```
 
 ## <a name="test-web-app"></a>Testa webbappen
-Nu kan du öppna en webbläsare och ange *http:\/\/\<publicIpAddress >* i adress fältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Din Node.js-app visas som den visas i det här exemplet:
+Nu kan du öppna en webbläsare och ange *http: \/ \/ \<publicIpAddress >* i adress fältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Din Node.js-app visas som den visas i det här exemplet:
 
 ![Visa NGINX-webbplats som körs](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -165,7 +165,7 @@ För produktion bör du importera ett giltigt certifikat som är signerat av en 
 az keyvault certificate create \
     --vault-name $keyvault_name \
     --name mycert \
-    --policy "$(az keyvault certificate get-default-policy)"
+    --policy "$(az keyvault certificate get-default-policy --output json)"
 ```
 
 
@@ -177,14 +177,14 @@ secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm secret format --secret "$secret")
+vm_secret=$(az vm secret format --secret "$secret" --output json)
 ```
 
 
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Skapa en cloud-init-konfiguration för att skydda NGINX
 När du skapar en virtuella dator lagras certifikat och nycklar i den skyddade katalogen */var/lib/waagent/* . Om du vill automatisera inmatningen av certifikatet i den virtuella datorn och konfigurera NGINX kan du använda en uppdaterad cloud-init-konfigurationsfil från föregående exempel.
 
-Skapa en fil med namnet *cloud-init-secured.txt* och klistra in följande konfiguration. Om du använder Cloud Shell skapar du konfigurations filen för Cloud-Init där och inte på den lokala datorn. Skriv `sensible-editor cloud-init-secured.txt` till exempel om du vill skapa filen och visa en lista över tillgängliga redigerare. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
+Skapa en fil med namnet *cloud-init-secured.txt* och klistra in följande konfiguration. Om du använder Cloud Shell skapar du konfigurations filen för Cloud-Init där och inte på den lokala datorn. Skriv till exempel `sensible-editor cloud-init-secured.txt` för att skapa filen och visa en lista över tillgängliga redigerare. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
@@ -256,12 +256,12 @@ För att låta säker webbtrafik nå din virtuella dator ska du öppna port 443 
 ```azurecli-interactive
 az vm open-port \
     --resource-group myResourceGroupAutomate \
-    --name myVMSecured \
+    --name myVMWithCerts \
     --port 443
 ```
 
 ### <a name="test-secure-web-app"></a>Testa säker webbapp
-Nu kan du öppna en webbläsare och ange *https:\/\/\<publicIpAddress >* i adress fältet. Ange din egen offentliga IP-adress som visas i utdata från den tidigare Skapa virtuell dator-processen. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
+Nu kan du öppna en webbläsare och ange *https: \/ \/ \<publicIpAddress >* i adress fältet. Ange din egen offentliga IP-adress som visas i utdata från den tidigare Skapa virtuell dator-processen. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
 
 ![Acceptera webbläsarens säkerhetsvarning](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

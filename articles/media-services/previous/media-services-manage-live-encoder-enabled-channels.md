@@ -1,6 +1,6 @@
 ---
 title: Direkt uppspelning med Azure Media Services för att skapa data strömmar med flera bit hastigheter | Microsoft Docs
-description: 'I det här avsnittet beskrivs hur du konfigurerar en kanal som tar emot en enda bit hastighets ström från en lokal kodare och sedan utför live encoding på en anpassad bit hastighets ström med Media Services. Data strömmen kan sedan levereras till klientens uppspelnings program via en eller flera slut punkter för direkt uppspelning med något av följande anpassningsbara strömnings protokoll: HLS, slät ström, MPEG-streck.'
+description: 'I det här avsnittet beskrivs hur du konfigurerar en kanal som tar emot en enda bit hastighets ström från en lokal kodare och sedan utför live encoding på en anpassad bit hastighets ström med Media Services. Data strömmen kan sedan levereras till klientens uppspelnings program via en eller flera slut punkter för direkt uppspelning med något av följande anpassningsbara direkt uppspelnings protokoll: HLS, slät ström, MPEG-datastreck.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: a828d03093c73d5c65a92ccf899fbaa1ef622bd6
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 4131e9b0ec057c16516f5a656debcf7053c2c1fe
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016494"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598302"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -31,7 +31,7 @@ ms.locfileid: "69016494"
 I Azure Media Services (AMS) representerar en **kanal** en pipeline för bearbetning av direktsänd strömmande innehåll. En **kanal** tar emot direktsända indata strömmar på något av två sätt:
 
 * En lokal Live-kodare skickar en data ström med en bit hastighet till den kanal som är aktive rad för att utföra direktsänd kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
-* En lokal Live-kodare skickar en **RTMP** med flera bit hastigheter eller **Smooth Streaming** (fragmenterad MP4) till den kanal som inte är aktive rad för att utföra direktsänd kodning med AMS. De inmatade strömmarna passerar genom **kanal**s utan ytterligare bearbetning. Den här metoden kallas **genom strömning**. Du kan använda följande Live-kodare som utdata Smooth Streaming med flera bit hastigheter: MediaExcel, Ateme, Föreställ dig kommunikation, Envivio, Cisco och grundämne. Följande Live-kodare utdata RTMP: Adobe Flash Media Live Encoder (FMLE), Wirecast, Haivision, Teradek och TriCaster Encoder.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
+* En lokal Live-kodare skickar en **RTMP** med flera bit hastigheter eller **Smooth Streaming** (fragmenterad MP4) till den kanal som inte är aktive rad för att utföra direktsänd kodning med AMS. De inmatade strömmarna passerar genom **kanal**s utan ytterligare bearbetning. Den här metoden kallas **genom strömning**. Du kan använda följande Live-kodare som utvärderar multi-bitrs Smooth Streaming: MediaExcel, Ateme, Föreställing Communications, Envivio, Cisco och grundämne. Följande Live-kodare utdata RTMP: Adobe Flash Media Live Encoder (FMLE), Wirecast, Haivision, Teradek och TriCaster Encoder.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
 
   > [!NOTE]
   > Att använda en direkt metod är det mest ekonomiska sättet att göra Direktsänd strömning.
@@ -46,7 +46,7 @@ Från och med Media Services 2,10-versionen när du skapar en kanal, kan du ange
 > [!NOTE]
 > I det här avsnittet diskuteras attribut för kanaler som är aktiverade för att utföra Live encoding (**standard** kodnings typ). Information om hur du arbetar med kanaler som inte är aktiverade för att utföra direktsänd kodning finns i [Direktsänd strömning med lokala kodare som skapar strömmar med flera bit](media-services-live-streaming-with-onprem-encoders.md)hastigheter.
 > 
-> Se till att gå igenom [](media-services-manage-live-encoder-enabled-channels.md#Considerations) avsnittet överväganden.
+> Se till att gå igenom avsnittet [överväganden](media-services-manage-live-encoder-enabled-channels.md#Considerations) .
 > 
 > 
 
@@ -71,8 +71,8 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 | Kanaltillstånd | Portalgränssnittsindikatorer | Faktureras det? |
 | --- | --- | --- |
 | Startar |Startar |Nej (övergångsläge) |
-| Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |JA |
-| Stoppar |Stoppar |Nej (övergångsläge) |
+| Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |Ja |
+| Stoppas |Stoppas |Nej (övergångsläge) |
 | Stoppad |Stoppad |Nej |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Automatisk avstängning för oanvända kanaler
@@ -89,7 +89,9 @@ Följande diagram visar ett Live streaming-arbetsflöde där en kanal tar emot e
 Följande steg är allmänna steg som ingår i att skapa vanliga program för direktsänd strömning.
 
 > [!NOTE]
-> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amshelp@microsoft.com om du behöver köra en kanal under en längre tidsperiod. Det finns en fakturerings påverkan för Live encoding och du bör komma ihåg att om du lämnar en Live encoding-kanal i läget "körs" debiteras fakturerings avgifter per timme.  Vi rekommenderar att du omedelbart stoppar dina kanaler som körs när din Live streaming-händelse är klar för att undvika extra Tim debiteringar. 
+> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar.
+>
+> Det finns en fakturerings påverkan för Live encoding och du bör komma ihåg att om du lämnar en Live encoding-kanal i läget "körs" debiteras fakturerings avgifter per timme. Vi rekommenderar att du omedelbart stoppar dina kanaler som körs när din Live streaming-händelse är klar för att undvika extra Tim debiteringar. 
 
 1. Anslut en videokamera till en dator. Starta och konfigurera en lokal Live-kodare som kan mata ut en **enda** bit ström i ett av följande protokoll: RTMP eller Smooth Streaming. 
 
@@ -156,14 +158,14 @@ Använd lokala Live-kodare från leverantörer som grundämne-teknik, Ericsson, 
 
 Samma som för [RTMP med enkel bit hastighet](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
-#### <a name="other-considerations"></a>Annat att tänka på
+#### <a name="other-considerations"></a>Andra överväganden
 * Du kan inte ändra indataprotokollet när kanalen eller dess associerade program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje indataprotokoll.
 * Den maximala upplösningen för den inkommande video strömmen är 1920x1080 och högst 60 fält/sekund om den är sammanflätad eller 30 bild rutor per sekund om progressivt.
 
 ### <a name="ingest-urls-endpoints"></a>Inmatnings-URL: er (slut punkter)
 En kanal tillhandahåller en inmatnings slut punkt (inmatnings-URL) som du anger i Live-kodaren, så att kodaren kan skicka strömmar till dina kanaler.
 
-Du kan hämta inmatnings-URL: er när du har skapat en kanal. För att hämta dessa URL: er behöver kanalen inte vara i körnings läge. När du är redo att börja skicka data till kanalen måste den vara i **Kör** tillstånd. När kanalen börjar mata in data kan du förhandsgranska data strömmen via URL: en för för hands versionen.
+Du kan hämta inmatnings-URL: er när du har skapat en kanal. För att hämta dessa URL: er behöver kanalen inte vara i **körnings** läge. När du är redo att börja skicka data till kanalen måste den vara i **Kör** tillstånd. När kanalen börjar mata in data kan du förhandsgranska data strömmen via URL: en för för hands versionen.
 
 Du kan välja att mata in fragmenterad MP4 (Smooth Streaming) Live Stream via en SSL-anslutning. För att mata in via SSL, se till att uppdatera inmatnings-URL: en till HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.  
 
@@ -172,11 +174,11 @@ Du kan definiera de IP-adresser som tillåts att publicera video till den här k
 
 Om inga IP-adresser har angetts och det saknas regeldefinitioner kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 
-## <a name="channel-preview"></a>Förhandsgranskning av kanal
+## <a name="channel-preview"></a>Kanal för hands version
 ### <a name="preview-urls"></a>Förhandsgranska URL: er
 Kanaler tillhandahåller en förhands gransknings slut punkt (för hands version) som du använder för att förhandsgranska och validera data strömmen innan ytterligare bearbetning och leverans.
 
-Du kan hämta URL: en för för hands versionen när du skapar kanalen. Kanalen behöver inte vara i körnings läge för att hämta URL: en .
+Du kan hämta URL: en för för hands versionen när du skapar kanalen. Kanalen behöver inte vara i **körnings** läge för att hämta URL: en.
 
 När kanalen börjar mata in data kan du förhandsgranska data strömmen.
 
@@ -211,13 +213,11 @@ Språk identifieraren för ljud strömmen, som följer ISO 639-2, till exempel E
 ### <a id="preset"></a>System förval
 Anger den för inställning som ska användas av direktsänd kodare i den här kanalen. För närvarande är det enda tillåtna värdet **Default720p** (standard).
 
-Observera att om du behöver anpassade för inställningar bör du kontakta amshelp@microsoft.comdig.
-
 **Default720p** kommer att koda videon till följande 6 lager.
 
 #### <a name="output-video-stream"></a>Video ström för utdata
 
-| Hastigheten | Bredd | Höjd | MaxFPS | Profil | Namn på utdataström |
+| Hastigheten | LED | Våghöjd | MaxFPS | Profil | Namn på utdataström |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Hög |Video_1280x720_3500kbps |
 | 2200 |960 |540 |30 |Hög |Video_960x540_2200kbps |
@@ -240,7 +240,7 @@ När din kanal har Live Encoding aktive rad har du en komponent i din pipeline s
 
 Här följer de egenskaper som du kan ange vid signalering av annonser. 
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Längd
 Tiden, i sekunder, för det kommersiella avbrott. Det måste vara ett positivt värde som inte är noll för att kunna starta den kommersiella rasten. När en kommersiell rast pågår och varaktigheten är inställd på noll med CueId som matchar den pågående kommersiella rasten, avbryts den rasten.
 
 ### <a name="cueid"></a>CueId
@@ -256,11 +256,11 @@ Live-kodaren i kanalen kan signaleras för att växla till en bakgrunds bild. De
 
 Live-kodaren kan konfigureras för att växla till en bakgrunds bild och dölja den inkommande video signalen i vissa situationer, till exempel under en AD Break. Om en sådan inte är konfigurerad, maskeras inte inmatad video under denna AD Break.
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Längd
 Sidans varaktighet i sekunder. Det måste vara ett positivt värde som inte är noll för att starta sidan. Om det finns ett pågående Skriv sätt och en varaktighet på noll anges, avslutas den pågående ingångs perioden.
 
-### <a name="insert-slate-on-ad-marker"></a>Infoga bakgrundsbild vid reklammarkör
-När värdet är true konfigurerar den här inställningen att Live-kodaren ska infoga en bakgrunds bild under en annons rast. Standardvärdet är sant. 
+### <a name="insert-slate-on-ad-marker"></a>Infoga Skriv platta på AD-markör
+När värdet är true konfigurerar den här inställningen att Live-kodaren ska infoga en bakgrunds bild under en annons rast. Standardvärdet är true. 
 
 ### <a id="default_slate"></a>Standardformat till gångs-ID
 
@@ -270,13 +270,12 @@ Valfri. Anger till gångs-ID för den Media Services till gång som innehåller 
 > [!NOTE] 
 > Innan du skapar kanalen ska du ladda upp bild bakgrunds bilden med följande begränsningar (inga andra filer ska vara i den här till gången). Den här bilden används endast när Live-kodaren infogar en bakgrunds bild på grund av en annons rast eller om den uttryckligen har signaler ATS till att infoga en Skriv platta. Det finns för närvarande inget alternativ för att använda en anpassad avbildning när Live-kodaren går in i en sådan status. Du kan rösta på den här funktionen [här](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
-
 * Högst 1920x1080 lösning.
 * Högst 3 megabyte i storlek.
 * Fil namnet måste ha fil namns tillägget *. jpg.
 * Avbildningen måste överföras till en till gång som den enda AssetFile i den till gången och denna AssetFile ska vara markerad som primär fil. Till gången kan inte krypteras.
 
-Om standardvärdet för mitt **till gångs-ID** inte anges och **Infoga på-sidan på AD-markören** är inställt på **sant**, används en standard Azure Media Services-avbildning för att dölja indata-videoströmmen. Ljudet stängs också av. 
+Om **standardvärdet för mitt till gångs-ID** inte anges och **Infoga på-sidan på AD-markören** är inställt på **sant**, används en standard Azure Media Services-avbildning för att dölja indata-videoströmmen. Ljudet stängs också av. 
 
 ## <a name="channels-programs"></a>Kanalens program
 En kanal är associerad till program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar program. Kanal-och program relationen påminner mycket om traditionella medier där en kanal har en konstant ström med innehåll och ett program är begränsad till en viss tids period på den kanalen.
@@ -315,7 +314,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 | --- | --- | --- |
 | Startar |Startar |Nej (övergångsläge) |
 | Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |Ja |
-| Stoppar |Stoppar |Nej (övergångsläge) |
+| Stoppas |Stoppas |Nej (övergångsläge) |
 | Stoppad |Stoppad |Nej |
 
 > [!NOTE]
@@ -326,12 +325,12 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 ## <a id="Considerations"></a>Angående
 * När en kanal med **standard** kodnings typ får en förlust av inmatnings källa/bidrags flöden, kompenseras det genom att ersätta käll videon/ljudet med fel på Skriv-och-ljud. Kanalen fortsätter att generera en arbets gång tills inmatnings-/bidrags flödet återupptas. Vi rekommenderar att en Live-kanal inte lämnas i ett sådant tillstånd längre än 2 timmar. Utöver den punkten garanteras inte beteendet för kanalen vid åter anslutning av inaktivitet, varken dess beteende som svar på ett återställnings kommando. Du måste stoppa kanalen, ta bort den och skapa en ny.
 * Du kan inte ändra indataprotokollet när kanalen eller dess associerade program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje indataprotokoll.
-* Varje gång du konfigurerar om Live-kodaren anropar du återställnings metoden i kanalen. Innan du återställer kanalen måste du stoppa programmet. Starta om programmet när du har återställt kanalen.
+* Varje gång du konfigurerar om Live-kodaren anropar du **återställnings** metoden i kanalen. Innan du återställer kanalen måste du stoppa programmet. Starta om programmet när du har återställt kanalen.
 * En kanal kan bara stoppas när den är i körnings läge och alla program på kanalen har stoppats.
 * Som standard kan du bara lägga till 5 kanaler till ditt Media Services-konto. Detta är en mjuk kvot för alla nya konton. Mer information finns i [kvoter och begränsningar](media-services-quotas-and-limitations.md).
 * Du kan inte ändra indataprotokollet när kanalen eller dess associerade program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje indataprotokoll.
-* Du faktureras bara när din kanal är i körnings läge. Mer information finns i [det här](media-services-manage-live-encoder-enabled-channels.md#states) avsnittet.
-* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amshelp@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
+* Du faktureras bara när din kanal är i **körnings** läge. Mer information finns i [det här](media-services-manage-live-encoder-enabled-channels.md#states) avsnittet.
+* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. 
 * Se till att ha den slut punkt för direkt uppspelning som du vill strömma innehåll i **körnings** läge för.
 * Kodnings för inställningen använder begreppet "Max bild frekvens" av 30 fps. Så om indatamängden är 60FPS/59.94 i, släpps/deflätas de till 30/29.97 fps. Om indatamängden är 50fps/50i, släpps/deflätas de till 25 fps. Om indata är 25 fps förblir utdata kvar vid 25 fps.
 * Glöm inte att stoppa KANALERna när du är färdig. Om du inte gör det fortsätter faktureringen.
@@ -341,7 +340,12 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 * Skriv platta bilder bör följa begränsningar som beskrivs [här](media-services-manage-live-encoder-enabled-channels.md#default_slate). Om du försöker skapa en kanal med en standard sida som är större än 1920x1080, kommer begäran att bli fel.
 * En gång till.... Glöm inte att stoppa KANALERna när du är färdig med strömningen. Om du inte gör det fortsätter faktureringen.
 
+## <a name="need-help"></a>Behöver du hjälp?
+
+Du kan öppna ett support ärende genom att gå till [nytt support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+
 ## <a name="next-step"></a>Nästa steg
+
 Granska sökvägarna för Media Services-utbildning.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

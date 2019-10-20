@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a76b83218a194c2b5cbf3ce582e8094014004123
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: b7e5b0725049fa5de95f435c848502c36a3a1726
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803385"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598131"
 ---
 # <a name="list-blob-containers-with-net"></a>Lista BLOB-behållare med .NET
 
@@ -30,21 +30,21 @@ Om du vill lista behållare i ditt lagrings konto, anropa någon av följande me
 
 ### <a name="manage-how-many-results-are-returned"></a>Hantera hur många resultat som returneras
 
-Som standard returnerar en List åtgärd upp till 5000 resultat i taget. Om du vill returnera en mindre uppsättning resultat anger du ett värde som inte är `maxresults` noll för parametern när du anropar en av **ListContainerSegmented** -metoderna.
+Som standard returnerar en List åtgärd upp till 5000 resultat i taget. Om du vill returnera en mindre uppsättning resultat anger du ett värde som inte är noll för parametern `maxresults` när du anropar en av **ListContainerSegmented** -metoderna.
 
-Om ditt lagrings konto innehåller fler än 5000 behållare, eller om du har angett ett `maxresults` värde för en sådan att List åtgärden returnerar en delmängd av behållare i lagrings kontot, Azure Storage returnerar en fortsättnings- *token* med lista över behållare. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
+Om ditt lagrings konto innehåller fler än 5000 behållare, eller om du har angett ett värde för `maxresults` så att List åtgärden returnerar en delmängd av behållare i lagrings kontot, Azure Storage returnerar en *fortsättnings-token* med listan över artiklar. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
 
 I din kod kontrollerar du värdet för fortsättnings-token för att avgöra om det är null. När tilläggs-token är null slutförs uppsättningen av resultat. Om tilläggs-token inte är null anropar du **ListContainersSegmented** eller **ListContainersSegmentedAsync** igen och skickar i fortsättnings-token för att hämta nästa uppsättning resultat, tills den fortsatta token är null.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrera resultat med ett prefix
 
-Om du vill filtrera listan över behållare anger du en sträng för `prefix` parametern. Prefixlängden kan innehålla ett eller flera tecken. Azure Storage returnerar sedan bara de behållare vars namn börjar med prefixet.
+Om du vill filtrera listan över behållare anger du en sträng för parametern `prefix`. Prefixlängden kan innehålla ett eller flera tecken. Azure Storage returnerar sedan bara de behållare vars namn börjar med prefixet.
 
-### <a name="return-container-metadata"></a>Returnera metadata för behållare
+### <a name="return-metadata"></a>Returnera metadata
 
-Om du vill returnera metadata för containern med resultaten anger du värdet för **metadata** för [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) -uppräkningen. Azure Storage innehåller metadata med varje behållare som returneras, så du behöver inte också anropa en av **FetchAttributes** -metoderna för att hämta containerns metadata.
+Om du vill returnera metadata för containern med resultaten anger du värdet för **metadata** för [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) -uppräkningen. Azure Storage innehåller metadata med varje behållare som returneras, så du behöver inte också anropa en av **FetchAttributes** -metoderna för att hämta containerns metadata.
 
-## <a name="example-list-containers"></a>Exempel: Visa en lista med containrar
+## <a name="example-list-containers"></a>Exempel: list behållare
 
 I följande exempel visas en asynkron lista över behållare i ett lagrings konto som börjar med ett angivet prefix. Exemplet visar behållare i steg om fem resultat i taget, och använder en fortsättnings-token för att hämta nästa resultat segment. Exemplet returnerar även containerns metadata med resultaten.
 
@@ -99,5 +99,5 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 ## <a name="see-also"></a>Se också
 
-[List behållare](/rest/api/storageservices/list-containers2)
-,[räkna upp BLOB-resurser](/rest/api/storageservices/enumerating-blob-resources)
+[Lista behållare](/rest/api/storageservices/list-containers2) 
+[räkna upp BLOB-resurser](/rest/api/storageservices/enumerating-blob-resources)

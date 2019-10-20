@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016636"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598333"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services-community  
 
@@ -36,11 +36,11 @@ På den här Azure Media Services (AMS) community-sidan beskrivs olika sätt att
 ## <a name="provide-feedback-and-make-suggestions"></a>Ge feedback och gör förslag
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="discussion"></a>Diskussion
+## <a name="discussion"></a>Uppför
 
 ### <a name="twitter"></a>Twitter
 
-[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Använd Twitter-referensen för att kontakta oss eller följ uppdateringar på Twitter. Du kan använda [@AzureSupport](https://twitter.com/azuresupport) Twitter-referensen för att begära support på Twitter.  
+Använd [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter-referens för att kontakta oss eller följ uppdateringar på Twitter. Du kan använda [@AzureSupport](https://twitter.com/azuresupport) Twitter-referens för att begära support på Twitter.  
 
 ### <a name="online-forums"></a>Onlineforum
 
@@ -54,9 +54,9 @@ Teamet övervakar också frågor som taggats på Stack Overflow med "Azure-Media
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## <a name="contact-the-team"></a>Kontakta teamet
+## <a name="need-help"></a>Behöver du hjälp?
 
-Azure Media Services Primary support-e- **amshelp@microsoft.com** post är:.
+Du kan öppna ett support ärende genom att gå till [nytt support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Nästa steg
 

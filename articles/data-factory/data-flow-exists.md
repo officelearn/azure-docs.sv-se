@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: dfd304b0c15b325208daba104bb79863fcd3f53f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527442"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596501"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Exists-transformering i mappnings data flödet
 
@@ -20,11 +20,10 @@ Exists-omvandlingen är en omvandling för rad filtrering som kontrollerar om di
 
 ## <a name="configuration"></a>Konfiguration
 
-Välj vilken data ström du vill söka efter i list rutan till **höger ström** .
-
-Ange om du vill att data ska finnas eller inte finns i inställningen för **exist-typ** .
-
-Välj vilka nyckel kolumner du vill jämföra som dina villkor. Som standard söker data flödet efter likhet mellan en kolumn i varje data ström. Om du vill jämföra via ett beräknings värde hovrar du över kolumn List rutan och väljer **beräknad kolumn**.
+1. Välj vilken data ström du vill söka efter i list rutan till **höger ström** .
+1. Ange om du vill att data ska finnas eller inte finns i inställningen för **exist-typ** .
+1. Välj om du vill använda ett **anpassat uttryck**eller inte.
+1. Välj vilka nyckel kolumner du vill jämföra som dina villkor. Som standard söker data flödet efter likhet mellan en kolumn i varje data ström. Om du vill jämföra via ett beräknat värde hovrar du över kolumn List rutan och väljer **beräknad kolumn**.
 
 ![Finns inställningar](media/data-flow/exists.png "finns 1")
 

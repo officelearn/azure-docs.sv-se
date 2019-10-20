@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 642b99e3eaaf73844d30d1cd464ae0b777b0b3fa
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 30398b5f81ac1893129ba222c5f1a2d762ad1e7f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71957811"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595068"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
@@ -49,7 +49,7 @@ Ja. Du kan distribuera en [virtuell nätverks installation i WAN Optimization](h
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Vilka verktyg använder jag för att skapa ett virtuellt nätverk?
 Du kan använda följande verktyg för att skapa eller konfigurera ett VNet:
 
-* Azure Portal
+* Azure portal
 * PowerShell
 * Azure CLI
 * En nätverks konfigurations fil (netcfg – endast för klassisk virtuella nätverk). Se artikeln [Konfigurera ett VNet med hjälp av en nätverks konfigurations fil](virtual-networks-using-network-configuration-file.md) .
@@ -63,17 +63,17 @@ Alla IP-adressintervall definieras i [RFC 1918](https://tools.ietf.org/html/rfc1
 * 168.63.129.16/32 (intern DNS)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Kan jag ha offentliga IP-adresser i min virtuella nätverk?
-Ja. Mer information om offentliga IP-adressintervall finns i [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network). Offentliga IP-adresser kan inte nås direkt från internet.
+Ja. Mer information om offentliga IP-adressintervall finns i [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network). Offentliga IP-adresser är inte direkt tillgängliga från Internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Finns det en gräns för antalet undernät i mitt VNet?
 Ja. Mer information finns i [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) . Under näts adress utrymmen får inte överlappa varandra.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Finns det några begränsningar för att använda IP-adresser i dessa undernät?
 Ja. Azure reserverar 5 IP-adresser i varje undernät. Detta är x. x. x. 0-x. x. x. 3 och den sista adressen i under nätet. x. x. x. 1-x. x. x är reserverad i varje undernät för Azure-tjänster.   
-- x. x. x. 0: Nätverks adress
-- x. x. x. 1: Reserverad av Azure för standard-gateway
-- x. x. x. 2, x. x. x. 3: Reserverad av Azure för att mappa Azure DNS IP-adresser till VNet-utrymmet
-- x. x. x. 255: Nätverks sändnings adress
+- x. x. x. 0: nätverks adress
+- x. x. x. 1: reserverad av Azure för standard-gatewayen
+- x. x. x. 2, x. x. x: reserverad av Azure för att mappa Azure DNS-IP-adresser till VNet-utrymmet
+- x. x. x. 255: nätverks-broadcast-adress
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Hur liten och hur stor kan virtuella nätverk och undernät vara?
 Det minsta under nätet som stöds är/29 och det största är/8 (med hjälp av CIDR-underdefinitioner).
@@ -117,7 +117,7 @@ Nej. Ett VNet är begränsat till en enda region. Ett virtuellt nätverk gör do
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Kan jag ansluta ett VNet till ett annat VNet i Azure?
 Ja. Du kan ansluta ett VNet till ett annat VNet med hjälp av något av följande:
 - **Peering för virtuellt nätverk**: Mer information finns i [Översikt över VNet-peering](virtual-network-peering-overview.md)
-- **Ett Azure-VPN gateway**: Mer information finns i [Konfigurera en VNet-till-VNET-anslutning](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **En Azure-VPN gateway**: Mer information finns i [Konfigurera en VNet-till-VNET-anslutning](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Namn matchning (DNS)
 
@@ -131,7 +131,7 @@ Ja. Du kan ange DNS-serverns IP-adresser i VNet-inställningarna. Inställningen
 Referens för [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>Kan jag ändra mina DNS-servrar när jag har skapat nätverket?
-Ja. Du kan när som helst ändra listan över DNS-servrar för ditt VNet. Om du ändrar listan över DNS-servrar måste du starta om var och en av de virtuella datorerna i ditt VNet för att de ska kunna hämta den nya DNS-servern.
+Ja. Du kan när som helst ändra listan över DNS-servrar för ditt VNet. Om du ändrar listan över DNS-servrar måste du utföra en förnyelse av DHCP-lån på alla virtuella datorer som påverkas i VNet för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta genom att skriva `ipconfig /renew` direkt på den virtuella datorn. Information om andra operativ system typer finns i dokumentationen för DHCP-lånet för den angivna OS-typen. 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>Vad är Azure-tillhandahållit DNS och fungerar det med virtuella nätverk?
 Azure-tillhandahöll DNS är en DNS-tjänst för flera innehavare som erbjuds av Microsoft. Azure registrerar alla virtuella datorer och moln tjänst roll instanser i den här tjänsten. Den här tjänsten tillhandahåller namn matchning efter värdnamn för virtuella datorer och roll instanser i samma moln tjänst och av FQDN för virtuella datorer och roll instanser i samma VNet. Mer information om DNS finns i [namn matchning för virtuella datorer och Cloud Services roll instanser](virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -150,12 +150,12 @@ Nej. Du kan inte ange ett anpassat DNS-suffix för din virtuella nätverk.
 Ja. Alla nätverks gränssnitt (NIC) som är anslutna till en virtuell dator som distribueras via Resource Manager-distributions modellen måste vara anslutna till ett VNet. Virtuella datorer som distribueras via den klassiska distributions modellen kan också anslutas till ett VNet.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Vilka är de olika typerna av IP-adresser jag kan tilldela till virtuella datorer?
-* **Personligt** Tilldelas varje nätverkskort i varje virtuell dator. Adressen tilldelas antingen med den statiska eller dynamiska metoden. Privata IP-adresser tilldelas från det intervall som du har angett i under näts inställningarna för ditt VNet. Resurser som distribueras via den klassiska distributions modellen tilldelas privata IP-adresser, även om de inte är anslutna till ett VNet. Metoden för allokeringsmetod är olika beroende på om en resurs har distribuerats med Resource Manager eller den klassiska distributions modellen: 
+* **Privat:** Tilldelas varje nätverkskort i varje virtuell dator. Adressen tilldelas antingen med den statiska eller dynamiska metoden. Privata IP-adresser tilldelas från det intervall som du har angett i under näts inställningarna för ditt VNet. Resurser som distribueras via den klassiska distributions modellen tilldelas privata IP-adresser, även om de inte är anslutna till ett VNet. Metoden för allokeringsmetod är olika beroende på om en resurs har distribuerats med Resource Manager eller den klassiska distributions modellen: 
 
-  - **Resource Manager**: En privat IP-adress som tilldelats med den dynamiska eller statiska metoden förblir tilldelad till en virtuell dator (Resource Manager) tills resursen har tagits bort. Skillnaden är att du väljer den adress som ska tilldelas när du använder statisk, och Azure väljer när du använder dynamisk. 
-  - **Klassisk**: En privat IP-adress som tilldelats med den dynamiska metoden kan ändras när en virtuell dator (klassisk) startas om efter att ha varit i läget Stoppad (Frigjord). Om du behöver se till att den privata IP-adressen för en resurs som distribueras via den klassiska distributions modellen aldrig ändras, tilldelar du en privat IP-adress med den statiska metoden.
+  - **Resource Manager**: en privat IP-adress som tilldelats med den dynamiska eller statiska metoden förblir tilldelad till en virtuell dator (Resource Manager) tills resursen har tagits bort. Skillnaden är att du väljer den adress som ska tilldelas när du använder statisk, och Azure väljer när du använder dynamisk. 
+  - **Klassisk**: en privat IP-adress som tilldelats med den dynamiska metoden kan ändras när en virtuell dator (klassisk) startas om efter att ha varit i läget Stoppad (Frigjord). Om du behöver se till att den privata IP-adressen för en resurs som distribueras via den klassiska distributions modellen aldrig ändras, tilldelar du en privat IP-adress med den statiska metoden.
 
-* **Folkhälsan** Kan tilldelas till nätverkskort som är anslutna till virtuella datorer som distribueras via Azure Resource Manager distributions modell. Adressen kan tilldelas med metoden för statisk eller dynamisk allokering. Alla virtuella datorer och Cloud Services roll instanser som distribueras via den klassiska distributions modellen finns i en moln tjänst, som tilldelas en *dynamisk*, offentlig virtuell IP-adress (VIP). En offentlig *statisk* IP-adress, som kallas en [reserverad IP-adress](virtual-networks-reserved-public-ip.md), kan alternativt tilldelas som VIP. Du kan tilldela offentliga IP-adresser till enskilda virtuella datorer eller Cloud Services roll instanser som distribueras via den klassiska distributions modellen. Dessa adresser kallas [offentliga IP-adresser på instans nivå (ILPIP-](virtual-networks-instance-level-public-ip.md) adresser och kan tilldelas dynamiskt).
+* **Offentlig:** Kan tilldelas till nätverkskort som är anslutna till virtuella datorer som distribueras via Azure Resource Manager distributions modell. Adressen kan tilldelas med metoden för statisk eller dynamisk allokering. Alla virtuella datorer och Cloud Services roll instanser som distribueras via den klassiska distributions modellen finns i en moln tjänst, som tilldelas en *dynamisk*, offentlig virtuell IP-adress (VIP). En offentlig *statisk* IP-adress, som kallas en [reserverad IP-adress](virtual-networks-reserved-public-ip.md), kan alternativt tilldelas som VIP. Du kan tilldela offentliga IP-adresser till enskilda virtuella datorer eller Cloud Services roll instanser som distribueras via den klassiska distributions modellen. Dessa adresser kallas [offentliga IP-adresser på instans nivå (ILPIP-](virtual-networks-instance-level-public-ip.md) adresser och kan tilldelas dynamiskt).
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Kan jag reservera en privat IP-adress för en virtuell dator som jag ska skapa vid ett senare tillfälle?
 Nej. Du kan inte reservera en privat IP-adress. Om en privat IP-adress är tillgänglig, tilldelas den en virtuell dator eller roll instans av DHCP-servern. Den virtuella datorn kanske inte är den som du vill att den privata IP-adressen är tilldelad till. Du kan dock ändra den privata IP-adressen för en redan skapad virtuell dator till valfri tillgänglig privat IP-adress.
@@ -248,13 +248,13 @@ Följande resurser använder grundläggande belastnings utjämning, vilket inneb
 - Redis Cache 
 - SKU för Application Gateway (v1)
 - Service Fabric
-- SQL MI
+- SQL-MI
 - API Management
 - Active Directory-domän tjänst (lägger till)
-- Logic Apps
+- Logikappar
 - HDInsight
 -   Azure Batch
-- App Service-miljön
+- Miljö för App Service
 
 Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
@@ -405,9 +405,9 @@ Det finns ingen gräns för det totala antalet VNet-slutpunkter i ett virtuellt 
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|
-|Azure KeyVault|    127|
+|Azure-valv|    127|
 |Azure Cosmos DB|   64|
-|Azure händelsehubb|   128|
+|Azure Event Hub|   128|
 |Azure Service Bus| 128|
 |Azure Data Lake Store v1|  100|
  

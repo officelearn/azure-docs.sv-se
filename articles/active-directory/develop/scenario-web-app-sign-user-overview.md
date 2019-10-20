@@ -15,18 +15,18 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 68d47d4233aec62ec5f1955e52025b0d55221af8
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086558"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596706"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>Scenario: Webbapp som loggar in användare
+# <a name="scenario-web-app-that-signs-in-users"></a>Scenario: webb program som loggar in användare
 
 Lär dig allt du behöver för att bygga en webbapp som loggar in användare med Microsoft Identity Platform.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -37,28 +37,28 @@ Lär dig allt du behöver för att bygga en webbapp som loggar in användare med
 Följ den här snabb starten om du vill skapa dina första bärbara (ASP.NET Core)-webbappar som loggar in användare:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: ASP.NET Core-webbapp som loggar in användare](quickstart-v2-aspnet-core-webapp.md)
+> [Snabb start: ASP.NET Core webbapp som loggar in användare](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 f du vill lära dig hur du lägger till inloggning i ett äldre ASP.NET-webbprogram, prova följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: ASP.NET-webbapp som loggar in användare](quickstart-v2-aspnet-webapp.md)
+> [Snabb start: ASP.NET-webbapp som loggar in användare](quickstart-v2-aspnet-webapp.md)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 Om du är en Java-utvecklare kan du prova följande snabb start:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Lägg till inloggning med Microsoft i en Java-webbapp](quickstart-v2-java-webapp.md)
+> [Snabb start: lägga till inloggning med Microsoft i en Java-webbapp](quickstart-v2-java-webapp.md)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 Om du utvecklar med python kan du prova:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Lägg till inloggning med Microsoft i en python-webbapp](quickstart-v2-python-webapp.md)
+> [Snabb start: lägga till inloggning med Microsoft i en python-webbapp](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -81,5 +81,24 @@ Som en andra fas kan du också aktivera ditt program så att det anropar webb-AP
 
 ## <a name="next-steps"></a>Nästa steg
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 > [!div class="nextstepaction"]
-> [Appregistrering](scenario-web-app-sign-user-app-registration.md)
+> [Appregistrering](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore?tabs=aspnetcore)
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+> [!div class="nextstepaction"]
+> [Appregistrering](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnet)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Appregistrering](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=java)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Appregistrering](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=python)
+
+---

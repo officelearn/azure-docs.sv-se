@@ -16,16 +16,16 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef28520edd8500be0da52996e6484a0407fb03c8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 605614265d033647bfcf22bb99d45c89f275298b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056448"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596381"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app som anropar webb-API: er – hämta en token
 
-När det konfidentiella klient programmet har skapats kan du hämta en token för appen genom att ``AcquireTokenForClient``anropa, skicka omfattningen och framtvinga eller inte uppdatera token.
+När det konfidentiella klient programmet har skapats kan du hämta en token för appen genom att anropa ``AcquireTokenForClient``, skicka omfånget och framtvinga eller inte uppdatera token.
 
 ## <a name="scopes-to-request"></a>Omfattningar som ska begäras
 
@@ -62,11 +62,11 @@ Det omfång som används för klientens autentiseringsuppgifter ska alltid vara 
 
 > [!IMPORTANT]
 > För MSAL som frågar en åtkomsttoken för en resurs som accepterar en v 1.0-åtkomsttoken parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID.
-> Om till exempel Azure SQL ( **https://database.windows.net** ) förväntar sig en mål grupp som slutar med ett snedstreck (för Azure SQL: `https://database.windows.net/` ), måste du begära ett omfånget `https://database.windows.net//.default` (Observera det dubbla snedstrecket). Se även MSAL.NET problem [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-haveriet.
+> Om t. ex. Azure SQL ( **https://database.windows.net** )-resursen förväntar sig en mål grupp som slutar med ett snedstreck (för Azure SQL: `https://database.windows.net/` ) måste du begära ett omfång för `https://database.windows.net//.default` (Observera det dubbla snedstrecket). Se även MSAL.NET problem [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient-API
 
-Om du vill hämta en token för appen använder `AcquireTokenForClient` du eller motsvarande, beroende på plattformarna.
+Om du vill hämta en token för appen använder du `AcquireTokenForClient` eller motsvarande beroende på plattformarna.
 
 # <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
@@ -148,11 +148,11 @@ future.join();
 
 ---
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protokoll
 
 Om du ännu inte har ett bibliotek för ditt språk väljer du att använda protokollet direkt:
 
-#### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fallet: Åtkomstbegäran med en delad hemlighet
+#### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fallet: begäran om åtkomsttoken med en delad hemlighet
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -165,7 +165,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials
 ```
 
-#### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fallet: Begäran om åtkomsttoken med ett certifikat
+#### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: åtkomsttoken för begäran med ett certifikat
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
@@ -179,17 +179,17 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-Mer information finns i protokoll dokumentationen: [Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter flöde](v2-oauth2-client-creds-grant-flow.md).
+Mer information finns i protokoll dokumentationen: [Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter Flow](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="application-token-cache"></a>Cache för program-token
 
-`AcquireTokenForClient` I MSAL.net använder **Application token cache** (alla andra AcquireTokenXX-metoder använder token-cachen) anropa `AcquireTokenSilent` inte innan anrop `AcquireTokenForClient` som `AcquireTokenSilent` använder **användartoken** . `AcquireTokenForClient`kontrollerar cacheminnet för **program** -token och uppdaterar det.
+I MSAL.NET använder `AcquireTokenForClient` token **cache för program** (alla andra AcquireTokenXX-metoder använder user token cache) anropar inte `AcquireTokenSilent` innan du anropar `AcquireTokenForClient` som `AcquireTokenSilent` **använder token** cache. `AcquireTokenForClient` kontrollerar cacheminnet för **program** -token och uppdaterar det.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Har du använt Resource/. default-omfånget?
 
-Om du får ett fel meddelande om att du har använt ett ogiltigt omfång använder `resource/.default` du antagligen inte omfattningen.
+Om du får ett fel meddelande om att du har använt ett ogiltigt omfång, använder du förmodligen inte `resource/.default` omfattningen.
 
 ### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Glömde du att ge administratörs tillåtelse? Daemon-appar behöver!
 
@@ -212,5 +212,19 @@ Content: {
 
 ## <a name="next-steps"></a>Nästa steg
 
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [Daemon-app – anropar ett webb-API](scenario-daemon-call-api.md)
+> [Daemon-app – anropar ett webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Daemon-app – anropar ett webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Daemon-app – anropar ett webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+
+---

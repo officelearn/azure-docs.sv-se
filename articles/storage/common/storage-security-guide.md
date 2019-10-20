@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 72e695762f2e45309787e6f62fa97aae4c959f34
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299617"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598092"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage säkerhets guide
 
@@ -25,7 +25,7 @@ Azure Storage innehåller en omfattande uppsättning säkerhetsfunktioner som ti
     - Du kan tilldela RBAC-roller som är begränsade till lagrings kontot för säkerhets objekt och använda Azure AD för att auktorisera resurs hanterings åtgärder, till exempel nyckel hantering.
     - Azure AD-integrering stöds för blob-och Queue data-åtgärder. Du kan tilldela RBAC-roller begränsade till en prenumeration, en resurs grupp, ett lagrings konto eller en enskild behållare eller kö till ett säkerhets objekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory](storage-auth-aad.md).   
 - Data kan skyddas vid överföring mellan ett program och Azure med hjälp av [kryptering på klient sidan](../storage-client-side-encryption.md), https eller SMB 3,0.  
-- Operativ system och data diskar som används av virtuella Azure-datorer kan krypteras med hjälp av [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+- Operativ system och data diskar som används av virtuella Azure-datorer kan krypteras med hjälp av [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).
 - Delegerad åtkomst till data objekt i Azure Storage kan beviljas med hjälp av en signatur för delad åtkomst. Mer information finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
 
 Den här artikeln innehåller en översikt över de säkerhets funktioner som kan användas med Azure Storage. Det finns länkar till artiklar som innehåller information om varje funktion så att du enkelt kan utföra ytterligare undersökningar på varje ämne.
@@ -328,7 +328,7 @@ Lösningen har inte stöd för följande scenarier, funktioner och teknik i vers
 Den här funktionen ser till att alla data på de virtuella dator diskarna krypteras i vila i Azure Storage.
 
 #### <a name="resources"></a>Resurser
-* [Azure Disk Encryption för virtuella Windows-och Linux IaaS-datorer](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
+* [Azure Disk Encryption för virtuella Windows-och Linux IaaS-datorer](../../security/fundamentals/encryption-overview.md)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Jämförelse av Azure Disk Encryption, SSE och kryptering på klient Sidan
 
@@ -389,7 +389,7 @@ En artikel som listas i resurserna nedan innehåller en lista över de många f�
 
 ![Ögonblicks bild av fält i en loggfil](./media/storage-security-guide/image3.png)
 
-Vi är intresserade av posterna för GetBlob och hur de är auktoriserade, så vi måste leta efter poster med åtgärds typen "Get-BLOB" och kontrol lera status för begäran (fjärde @ no__t-0-kolumnen) och kolumnen Authorization (åttonde @ no__t-1).
+Vi är intresserade av posterna för GetBlob, och hur de är auktoriserade, så vi måste leta efter poster med åtgärds typ "Get-BLOB" och kontrol lera status för begäran (fjärde </sup> kolumn) och typen Authorization (åttonde </sup>).
 
 I de första raderna i listan ovan är till exempel begäran-status "lyckades" och behörighets typen är "autentiserad". Det innebär att begäran auktoriserades med hjälp av lagrings konto nyckeln.
 

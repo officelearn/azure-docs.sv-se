@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b714559c6c009139da97c7d90425011fb3130ef8
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263325"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596864"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host. JSON-referens för Azure Functions 2. x  
 
@@ -69,7 +69,7 @@ Följande exempel på *Host. JSON* -filer har alla möjliga alternativ angivna.
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 5
+              "maxTelemetryItemsPerSecond" : 20
             }
         }
     },
@@ -104,7 +104,7 @@ Styr [samplings funktionen i Application Insights](./functions-monitoring.md#con
     "applicationInsights": {
         "samplingSettings": {
           "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
+          "maxTelemetryItemsPerSecond" : 20
         }
     }
 }
@@ -116,7 +116,7 @@ Styr [samplings funktionen i Application Insights](./functions-monitoring.md#con
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |isEnabled|sant|Aktiverar eller inaktiverar sampling.| 
-|maxTelemetryItemsPerSecond|5|Tröskelvärdet då samplingen börjar.| 
+|maxTelemetryItemsPerSecond|20|Tröskelvärdet då samplingen börjar.| 
 |EnableLiveMetrics |sant|Aktiverar insamling av Live-mått.|
 |EnableDependencyTracking|sant|Aktiverar beroende spårning.|
 |EnablePerformanceCountersCollection|sant|Aktiverar insamling av kudu prestanda räknare.|

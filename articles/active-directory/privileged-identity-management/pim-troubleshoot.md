@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7fc3508f7f672e277577f92218ff1860b676cb
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: f54382d652c3fc59b8ff462d41ec8c0fbdbe8498
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559481"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596695"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Felsöka ett problem med Privileged Identity Management
 
@@ -28,7 +28,7 @@ Har du problem med Privileged Identity Management (PIM) i Azure Active Directory
 
 ### <a name="problem"></a>Problem
 
-Du får ett auktoriseringsfel när du försöker göra en användare tillgänglig för en administratörs roll för Azure AD och du inte kan komma åt Azure-resurser under Privileged Identity Management. Du kan inte komma åt Azure-resurser under Privileged Identity Management även om du är global administratör och Prenumerationens ägare.
+Som en aktiv ägare eller administratör för användar åtkomst för en Azure-resurs kan du se din resurs inuti Privileged Identity Management men inte utföra några åtgärder som att göra en berättigad tilldelning eller Visa en lista över roll tilldelningar från resursen översikts sida. Alla dessa åtgärder resulterar i ett auktoriseringsfel.
 
 ### <a name="cause"></a>Orsak
 

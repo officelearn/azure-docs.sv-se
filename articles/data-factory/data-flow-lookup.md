@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387861"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596592"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning av data flödes uppslags omvandling
 
@@ -29,6 +29,20 @@ Transformationen lookup utför motsvarigheten till en vänster yttre koppling. S
 
 Efter omvandlingen av sökningar kan du använda efterföljande omvandlingar för att granska resultaten av varje matchnings rad genom att använda Expression-funktionen `isMatch()` för att göra ytterligare val i din logik baserat på om sökningen resulterade i en rad matchning eller inte.
 
+![Sök mönster](media/data-flow/lookup111.png "Sök mönster")
+
+När du har använt lookup-omvandlingen kan du lägga till en villkorlig delning för omvandling i ```isMatch()``` funktionen. I exemplet ovan går matchande rader genom den översta strömmen och icke-matchande rader flödar genom ```NoMatch``` strömmen.
+
+## <a name="first-or-last-value"></a>Första eller sista värdet
+
+Om du har flera matchningar från sökningen kanske du vill minska de flera matchade raderna genom att antingen välja den första eller sista matchningen. Du kan göra detta med hjälp av en aggregerad omvandling efter sökningen.
+
+I det här fallet används den sammanställda omvandlingen ```PickFirst``` för att välja det första värdet från söknings matchningarna.
+
+![Slå samman mängd](media/data-flow/lookup333.png "Slå samman mängd")
+
+![Sök först](media/data-flow/lookup444.png "Sök först")
+
 ## <a name="optimizations"></a>Optimeringar
 
 I Data Factory körs data flöden i uppskalade Spark-miljöer. Om din data uppsättning kan anpassas till arbets ytans minnes utrymme kan vi optimera dina uppslags prestanda.
@@ -45,4 +59,5 @@ Du kan också ange partitionering av dina data genom att välja "Ange partitione
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anslut](data-flow-join.md) och [existerar](data-flow-exists.md) transformeringar utför liknande uppgifter i data flöden för ADF-mappning. Ta en titt på dessa omvandlingar härnäst.
+* [Anslut](data-flow-join.md) och [existerar](data-flow-exists.md) transformeringar utför liknande uppgifter i data flöden för ADF-mappning. Ta en titt på dessa omvandlingar härnäst.
+* Använd en [villkorlig delning](data-flow-conditional-split.md) med ```isMatch()``` för att dela upp rader för matchande och icke-matchande värden

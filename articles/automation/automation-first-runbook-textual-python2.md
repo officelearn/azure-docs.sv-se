@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 626f446c18acf1f07f458fb1b4238f182546e479
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265091"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596934"
 ---
 # <a name="my-first-python-runbook"></a>Min första python-Runbook
 
@@ -29,9 +29,9 @@ Den här självstudien vägleder dig genom skapandet av en [python-Runbook](auto
 > [!NOTE]
 > Det finns inte stöd för att använda en webhook för att starta en python-Runbook.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att kunna genomföra den här kursen behöver du följande:
+Följande krävs för att kunna genomföra kursen:
 
 - En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ett [Automation-konto för Azure](automation-offering-get-started.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
@@ -173,8 +173,8 @@ Testa och kör runbooken igen för att se att den startar den virtuella datorn.
 Runbooken använder för närvarande hårdkodade värden för namnen på resurs gruppen och den virtuella datorn.
 Nu ska vi lägga till kod som hämtar dessa värden från indataparametrar.
 
-Du kan använda `sys.argv` variabeln för att hämta parameter värden.
-Lägg till följande kod i Runbook omedelbart efter de andra `import` -satserna:
+Du kan använda variabeln `sys.argv` för att hämta parameter värden.
+Lägg till följande kod i Runbook omedelbart efter de andra `import`-satserna:
 
 ```python
 import sys
@@ -183,7 +183,7 @@ resource_group_name = str(sys.argv[1])
 vm_name = str(sys.argv[2])
 ```
 
-Detta importerar `sys` modulen och skapar två variabler för att lagra resurs gruppen och namn på virtuella datorer.
+Detta importerar `sys`-modulen och skapar två variabler för att lagra resurs gruppen och namn på virtuella datorer.
 Observera att elementet i argument listan `sys.argv[0]`, är namnet på skriptet och inte indata från användaren.
 
 Nu kan du ändra de två sista raderna i runbooken så att de använder värdena för Indataparametern i stället för att använda hårdkodade värden:
@@ -198,13 +198,37 @@ När du startar en python-Runbook (antingen på **test** sidan eller som en publ
 
 När du börjar ange ett värde i den första rutan visas en sekund, och så att du kan ange så många parameter värden som behövs.
 
-Värdena är tillgängliga för skriptet som `sys.argv` matrisen som i den kod som du nyss lade till.
+Värdena är tillgängliga för skriptet som `sys.argv` matris som i den kod som du nyss lade till.
 
 Ange namnet på din resurs grupp som värde för den första parametern, och namnet på den virtuella dator som ska starta som värdet för den andra parametern.
 
 ![Ange parameter värden](media/automation-first-runbook-textual-python/runbook-python-params.png)
 
 Starta runbooken genom att klicka på **OK** . Runbooken körs och startar den virtuella dator som du har angett.
+
+## <a name="error-handling-in-python"></a>Fel hantering i python
+
+Du kan också använda följande konventioner för att hämta olika strömmar från dina python-Runbooks, inklusive **varnings**-, **fel**-och fel **söknings** strömmar.
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+I följande exempel visas den här konventionen som används i ett `try...except`-block.
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> **sys. stderr** stöds inte i Azure Automation.
 
 ## <a name="next-steps"></a>Nästa steg
 

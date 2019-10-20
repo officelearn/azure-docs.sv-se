@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 5fc9262dd53f390dbc43646626cc324d8655f1de
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387781"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596531"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Sink-transformering för ett data flöde
 
@@ -61,6 +61,10 @@ När du inaktiverar automatisk mappning kan du välja att lägga till en kolumnb
 När du väljer regelbaserade mappning instruerar du ADF att utvärdera matchnings uttrycket så att det matchar inkommande mönster regler och definierar de utgående fält namnen. Du kan lägga till valfri kombination av både fält-och regelbaserade mappningar. Fält namn genereras sedan vid körning med ADF baserat på inkommande metadata från källan. Du kan visa namnen på de genererade fälten under fel sökning och i fönstret data förhands granskning.
 
 Information om mönster matchning finns i [kolumn mönster dokumentation](concepts-data-flow-column-pattern.md).
+
+Du kan också ange mönster för reguljära uttryck när du använder regel baserad matchning genom att expandera raden och ange ett reguljärt uttryck bredvid "namn matchningar:".
+
+![Regex-mappning](media/data-flow/scdt1g4.png "Regex-mappning")
 
 ## <a name="file-name-options"></a>Alternativ för fil namn
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: aef9eaebc2da12e322ab6eda97385aa9cf14998a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387764"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596484"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Käll omvandling för att mappa data flöde 
 
@@ -53,6 +53,8 @@ När du har lagt till en källa konfigurerar du via fliken **käll inställninga
 
 **Sampling:** Aktivera sampling för att begränsa antalet rader från källan. Använd den här inställningen när du testar eller samplar data från källan för fel sökning.
 
+**Flera rader:** Välj flera rader om käll text filen innehåller sträng värden som sträcker sig över flera rader, d.v.s. newlines inuti ett värde.
+
 Verifiera att källan är korrekt konfigurerad genom att aktivera fel söknings läge och hämta en data förhands granskning. Mer information finns i [fel söknings läge](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
@@ -77,7 +79,7 @@ Jokertecken exempel:
 
 * ```/data/sales/**/*.csv``` hämtar alla CSV-filer under/data/Sales
 * ```/data/sales/20??/**``` hämtar alla filer i 20-talet
-* ```/data/sales/2004/*/12/[XY]1?.csv``` får alla CSV-filer i 2004 i december som börjar med X eller Y som föregås av ett tvåsiffrigt tal
+* ```/data/sales/2004/*/12/[XY]1?.csv``` hämtar alla CSV-filer i 2004 i december som börjar med X eller Y som föregås av ett tvåsiffrigt tal
 
 **Partitionens rot Sök väg:** Om du har partitionerade mappar i din fil källa med ```key=value```-format (till exempel Year = 2019) kan du tilldela den översta nivån i det partitionens mappträd till ett kolumn namn i data flödet för data flödet.
 

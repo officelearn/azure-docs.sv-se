@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: d16e37849ce8ba043fdb1fddb13df2abe8732cda
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: dfcf9ea61a1f0fb5fd2d3b613c2449480753b3a1
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71717176"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595101"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Ladda upp en virtuell hård disk till Azure med Azure CLI
 
@@ -24,12 +24,12 @@ Om du tillhandahåller en säkerhets kopierings lösning för virtuella IaaS-dat
 
 För närvarande stöds direkt uppladdning för standard hård diskar, standard SSD och Premium SSD-hanterade diskar. Det stöds ännu inte för Ultra SSD.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ladda ned den senaste [versionen av AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installera Azure CLI](/cli/azure/install-azure-cli).
 - En VHD-fil, lagrad lokalt
-- Om du tänker Ladda upp en virtuell hård disk från pem: En virtuell hård disk som [har förberetts för Azure](../windows/prepare-for-upload-vhd-image.md), lagrats lokalt.
+- Om du tänker Ladda upp en virtuell hård disk från pem: en virtuell hård disk som [har förberetts för Azure](../windows/prepare-for-upload-vhd-image.md), lagrat lokalt.
 - Eller en hanterad disk i Azure om du vill utföra en kopierings åtgärd.
 
 ## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
@@ -81,7 +81,7 @@ Den här uppladdningen har samma data flöde som motsvarande [standard-hårddisk
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
 
-Om din SAS går ut under uppladdningen och du inte `revoke-access` har anropat ännu kan du hämta en ny SAS för att fortsätta `grant-access`med överföringen med hjälp av igen.
+Om din SAS går ut under uppladdningen och du inte har anropat `revoke-access` ännu, kan du hämta en ny SAS för att fortsätta med överföringen med `grant-access`.
 
 När uppladdningen är klar och du inte längre behöver skriva mer data till disken ska du återkalla SAS. Att återkalla SAS ändrar statusen för den hanterade disken och låter dig ansluta disken till en virtuell dator.
 
@@ -98,7 +98,7 @@ Följ skriptet gör detta åt dig, processen liknar de steg som beskrivs ovan, m
 > [!IMPORTANT]
 > Du måste lägga till en förskjutning på 512 när du tillhandahåller disk storleken i byte för en hanterad disk från Azure. Detta beror på att Azure utelämnar sidfoten när den returnerar disk storleken. Kopieringen Miss kommer om du inte gör det. Följande skript använder redan det här.
 
-Ersätt `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>` och `<yourTargetLocationHere>` (ett exempel på ett plats värde skulle vara uswest2) med dina värden och kör sedan följande skript för att kopiera en hanterad disk.
+Ersätt `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>` och `<yourTargetLocationHere>` (ett exempel på ett plats värde är uswest2) med dina värden och kör sedan följande skript för att kopiera en hanterad disk.
 
 ```bash
 sourceDiskName = <sourceDiskNameHere>
@@ -109,11 +109,11 @@ targetLocale = <yourTargetLocationHere>
 
 sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[uniqueId]' -o tsv)
 
-az disk create -n $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
 targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 
-sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g $sourceRG --duration-in-seconds 86400 --query [acessSas] -o tsv)
+sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
 .\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
 

@@ -1,22 +1,18 @@
 ---
 title: Azure-hantering och Operations Management Suite (OMS) | Microsoft Docs
 description: Översikt över hanteringsområden för Azure-program och -resurser med länkar till innehåll om Azure-hanteringsverktyg som tidigare fanns med i paketet för Operations Management Suite (OMS).
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 4096ee477dc1d40ff6b98b20dd384c6ffad17e5f
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 09/07/2018
+ms.openlocfilehash: 7f515c1c5d44058e14f02f7681bfbb7fd2787c6f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779276"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597355"
 ---
 # <a name="azure-management---monitoring"></a>Azure-hantering – övervakning
 
@@ -42,11 +38,11 @@ Konfiguration syftar på den första distributionen och konfigurationen av progr
 ## <a name="govern"></a>Styrning
 Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure.  Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.  Styrning i Azure implementeras främst genom två tjänster.  [Azure Policy](../governance/policy/overview.md) gör det möjligt att skapa, tilldela och hantera principdefinitioner som tillämpar olika regler och åtgärder på resurserna, så att resurserna följer företagets standarder och serviceavtal. Med [Azure Cost Management](../cost-management/overview-cost-mgt.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer, inklusive AWS och Google.
 
-## <a name="secure"></a>Skydda
+## <a name="secure"></a>Säkert
 Hantering av säkerhet för program, resurser och data innefattar en kombination av att bedöma hot, samla in och analysera säkerhetsdata och att säkerställa att program och resurser är utformade och konfigurerade på ett säkert sätt.  Säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar.  Du bör även läsa [Introduktion till Azure-säkerhet](../security/fundamentals/overview.md) för mer utförlig information om säkerhet i Azure och för att få hjälp med att konfigurera Azure-resurser på ett säkert sätt.
 
 
-## <a name="protect"></a>skydda
+## <a name="protect"></a>Skydda
 Skydd refererar till att säkerställa att program och data alltid är tillgängliga, även vid avbrott som du inte kan styra över.  Skydd i Azure tillhandahålls av två tjänster.  [Azure Backup](../backup/backup-introduction-to-azure-backup.md) tillhandahåller säkerhetskopiering och återställning av data, antingen i molnet eller lokalt.    [Azure Site Recovery](../site-recovery/site-recovery-overview.md) säkerställer hög tillgänglighet för ditt program genom att tillhandahålla verksamhetskontinuitet och omedelbar återställning vid haveri.
 
 ## <a name="migrate"></a>Migrera 

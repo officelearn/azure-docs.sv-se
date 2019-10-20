@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ad7bdfd3abc4d3b4b672f5471ea826d4cef0f3fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294355"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596874"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet för Azure Functions
 
-Den här artikeln innehåller rikt linjer för att förbättra prestanda och tillförlitlighet för dina program utan [Server](https://azure.microsoft.com/solutions/serverless/) funktioner. 
+Den här artikeln innehåller rikt linjer för att förbättra prestanda och tillförlitlighet för dina program utan [Server](https://azure.microsoft.com/solutions/serverless/) funktioner.  
 
 ## <a name="general-best-practices"></a>Allmän bästa praxis
 
@@ -100,7 +100,7 @@ Asynkron programmering är en rekommenderad metod. Undvik dock alltid att refere
 
 Vissa utlösare som Event Hub aktiverar att ta emot en batch med meddelanden på ett enda anrop.  Batching-meddelanden har mycket bättre prestanda.  Du kan konfigurera Max storleken för batch i `host.json`-filen enligt beskrivningen i [Host. JSON-referens dokumentation](functions-host-json.md)
 
-För C# funktioner kan du ändra typen till en starkt angiven matris.  I stället för `EventData sensorEvent` kan exempelvis metoden signatur vara `EventData[] sensorEvent`.  För andra språk måste du uttryckligen ange egenskapen kardinalitet i din `function.json` till `many` för att aktivera batchering [som visas här](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+För C# funktioner kan du ändra typen till en starkt angiven matris.  I stället för att `EventData sensorEvent` metoden signaturen kan `EventData[] sensorEvent`.  För andra språk måste du uttryckligen ange egenskapen kardinalitet i din `function.json` till `many` för att aktivera batchering [som visas här](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Konfigurera värd beteenden för att bättre hantera samtidighet
 

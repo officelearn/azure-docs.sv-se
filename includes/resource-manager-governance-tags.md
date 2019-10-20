@@ -8,25 +8,28 @@ ms.topic: include
 ms.date: 07/11/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 099bca7483100da1a4ee2f8f10057c416ad145b0
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: a9a837d8a486e10ea2a62be69b889e657b1dbc05
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67841424"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72601157"
 ---
-Du lägga till taggar till Azure-resurser så att metadata för att organisera dem logiskt i en taxonomi. Varje tagg består av ett namn och ett värde-par. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
+Du kan använda taggar till dina Azure-resurser för att logiskt organisera dem i en taxonomi. Varje tagg består av ett namn och ett värde-par. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
-När du har lagt till taggar kan du hämta alla resurserna i din prenumeration med det taggnamnet och taggvärdet. Taggarna gör att du kan hämta relaterade resurser från olika resursgrupper. Den här metoden är användbar när du behöver organisera resurser för fakturering eller hantering.
+När du har lagt till taggar kan du hämta alla resurserna i din prenumeration med det taggnamnet och taggvärdet. Med taggar kan du hämta relaterade resurser från olika resurs grupper. Den här metoden är användbar när du behöver organisera resurser för fakturering eller hantering.
 
-Din taxonomi bör en självbetjäning metadata taggning strategi förutom en automatisk märkning strategi för att minska belastningen på användare och öka tillförlitligheten.
+Din taxonomi bör överväga en strategi för att tagga en egen metadata utöver en strategi för automatisk taggning för att minska belastningen på användare och öka noggrannheten.
 
 Följande begränsningar gäller för taggar:
 
-* Inte alla resurstyper stöder taggar. För att avgöra om du kan använda en tagg för en resurstyp, se [tagga stöd för Azure-resurser](../articles/azure-resource-manager/tag-support.md).
-* Varje resurs eller resursgrupp kan ha högst 50 taggen namn/värde-par. För närvarande lagringskonton endast stöder 15 taggar, men denna gräns kommer att ökas till 50 i en framtida version. Om du vill lägga till fler taggar än det högsta tillåtna antalet kan du använda en JSON-sträng för Taggvärdet. JSON-strängen kan innehålla många värden som tillämpas på ett enda taggnamn. En resursgrupp kan innehålla många resurser som har 50 taggen namn/värde-par.
+* Inte alla resurs typer stöder taggar. Information om hur du kan använda en tagg för en resurs typ finns i [tagga stöd för Azure-resurser](../articles/azure-resource-manager/tag-support.md).
+* Varje resurs eller resurs grupp får innehålla högst 50 taggnamn/värdepar. För närvarande stöder lagrings konton endast 15 taggar, men den gränsen höjs till 50 i en framtida version. Om du behöver använda fler taggar än det högsta tillåtna antalet använder du en JSON-sträng för värdet. JSON-strängen kan innehålla många värden som tillämpas på ett enda taggnamn. En resurs grupp kan innehålla många resurser som var och en har 50 tagg namn/värde-par.
 * Taggnamnet är begränsat till 512 tecken och taggvärdet är begränsat till 256 tecken. För lagringskonton är taggnamnet begränsat till 128 tecken och taggvärdet till 256 tecken.
-* Generaliserad virtuella datorer stöder inte taggar.
+* Generaliserade virtuella datorer stöder inte taggar.
 * Taggar som lagts till för en resursgrupp ärvs inte av resurserna i den resursgruppen.
-* Taggar kan inte tillämpas på klassiska resurser, till exempel molntjänster.
-* Taggen får inte innehålla följande tecken: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+* Det går inte att använda taggar för klassiska resurser som Cloud Services.
+* Taggnamn får inte innehålla följande tecken: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > För närvarande Azure DNS zoner och Traffic Manager-tjänster inte heller att använda blank steg i taggen. 

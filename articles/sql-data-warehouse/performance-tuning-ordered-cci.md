@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0acdf1496151df57d4097ce5bc71d782dc465873
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554546"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595372"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestanda justering med ordnat grupperat columnstore-index  
 
@@ -125,10 +125,6 @@ Att skapa en ordnad CCI är en offline-åtgärd.  För tabeller som inte har nå
 4.  Kör ALTER INDEX < Ordered_CCI_Index > på < Table_B > återskapa PARTITION = < Partition_ID > på tabell B för att återskapa den switchade partitionen.  
 5.  Upprepa steg 3 och 4 för varje partition i Table_A.
 6.  När alla partitioner har växlats från Table_A till Table_B och har återskapats, tar du bort Table_A och byter namn på Table_B till Table_A. 
-
->[!NOTE]
->Under för hands versionen av det ordnade columnstore-indexet (CCI) i Azure SQL Data Warehouse kan duplicerade data skapas om de ordnade CCI skapas eller återskapas via skapa GRUPPERat COLUMNSTORE-INDEX i en partitionerad tabell. Ingen data förlust berörs. En korrigering av det här problemet kommer snart att vara tillgänglig. För en lösning kan användarna skapa beställda CCI i en partitionerad tabell med kommandot CTAS
-
 
 ## <a name="examples"></a>Exempel
 

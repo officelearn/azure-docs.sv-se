@@ -1,27 +1,26 @@
 ---
 layout: HubPage
 hide_bc: false
-title: Dokumentation om Azure Monitor Log-Data | Microsoft Docs
-description: Azure Monitor kan samla in olika källor som loggdata och lagra den för korrelation och analys med dess frågespråk.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
+title: Azure Monitor dokumentation om logg data | Microsoft Docs
+description: Azure Monitor kan samla in olika källor som loggdata och lagra dem för korrelation och analys med hjälp av dess frågespråk.
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: hub-page
-ms.date: 01/29/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ced88f973ff26f7c8990c1c80bf8532949ef9ae8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/29/2019
+ms.openlocfilehash: 407e18008c947f95204ea073db31b5f2279a5a4c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640114"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597330"
 ---
 <div id="main" class="v2">
     <div class="container">
-        <h1>Azure Monitor log data-dokumentation</h1>
-        <p>Azure Monitor kan samla in olika källor som loggdata och lagra den för korrelation och analys med dess frågespråk.</p>
-        <p>Utforska våra mest populära innehåll om hur du planerar, samla in och analysera loggdata.</p>
+        <h1>Dokumentation om Azure Monitor logg data</h1>
+        <p>Azure Monitor kan samla in olika källor som loggdata och lagra dem för korrelation och analys med hjälp av dess frågespråk.</p>
+        <p>Utforska det mest populära innehållet om hur du planerar, samlar in och analyserar logg data.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
             <li>
@@ -49,9 +48,9 @@ ms.locfileid: "60640114"
                                                                     <h3>Lär dig grunderna</h3> 
                                                                     <p> 
                                                                         <a href="/azure/azure-monitor/overview">Vad är Azure Monitor?</a><br/>
-                                                                        <a href="/azure/azure-monitor/azure-monitor-rebrand">Profileringsändringar</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/data-sources">Övervakning av datakällor</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/service-providers">Designöverväganden för tjänsteleverantörer</a><br/>
+                                                                        <a href="/azure/azure-monitor/azure-monitor-rebrand">Anpassnings ändringar</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/data-sources">Övervaka data källor</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/service-providers">Design överväganden för tjänst leverantörer</a><br/>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -73,16 +72,16 @@ ms.locfileid: "60640114"
                                                                     <h3>Förstå säkerhet</h3> 
                                                                     <p>
                                                                         <a href="/azure/azure-monitor/platform/data-security">Loggdata</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/personal-data-mgmt">Personliga log datahantering</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/roles-permissions-security">Rollbehörigheter och säkerhet</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/personal-data-mgmt">Personlig logg data hantering</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/roles-permissions-security">Roll behörigheter och säkerhet</a><br/>
                                                                     </p>
                                                                     <br>
-                                                                     <h3>Hantera arbetsyta</h3>
+                                                                     <h3>Hantera arbets yta</h3>
                                                                     <p>
-                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace">Skapa arbetsyta i Azure portal</a><br/>
-                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">Skapa arbetsyta med Azure CLI</a><br/>
-                                                                   <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">Skapa arbetsyta med Azure PowerShell</a><br/>
-                                                                  <a href="/azure/azure-monitor/platform/delete-workspace">Ta bort arbetsyta</a><br/>
+                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace">Skapa arbets yta i Azure Portal</a><br/>
+                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">Skapa arbets yta med Azure CLI</a><br/>
+                                                                   <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">Skapa arbets yta med Azure PowerShell</a><br/>
+                                                                  <a href="/azure/azure-monitor/platform/delete-workspace">Ta bort arbets yta</a><br/>
                                                                  </p>
                                                                 </div>
                                                             </div>
@@ -100,14 +99,14 @@ ms.locfileid: "60640114"
                                                     <h3>Övervakning</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-collection">Mått och loggar</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">Logga datainmatning tid</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">Hämtnings tid för logg data</a><br/>
                                                         </p>
                                                         <br>
                                                         <h3>Datakällor</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/data-sources">Översikt över<br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources">Overview<br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-windows-events">Windows-händelser</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-performance-counters">Prestandaräknare för Windows och Linux</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-performance-counters">Prestanda räknare för Windows och Linux</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-linux-applications">Programprestanda på Linux</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-json">Anpassade JSON-data</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-collectd">Insamlade prestandadata</a><br/>
@@ -116,7 +115,7 @@ ms.locfileid: "60640114"
                                                             <a href="/azure/azure-monitor/platform/data-sources-iis-logs">IIS-loggar</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-custom-logs">Anpassade loggar</a><br/>
                                                             <a href="/azure/azure-monitor/platform/custom-fields">Anpassade fält</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-collector-api">API för datainsamling</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-collector-api">API för data insamling</a><br/>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -136,18 +135,18 @@ ms.locfileid: "60640114"
                                                         <h3>Analysera data</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/log-query/get-started-queries">Kom igång med frågor</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/search-queries">Förstå loggfrågor</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/portals">Logga fråga portaler</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/query-language">Frågespråksreferens för log</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/cross-workspace-query">Fråga mellan resurser</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/search-queries">Förstå logg frågor</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/portals">Logg fråga portaler</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/query-language">Språk referens för logg fråga</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/cross-workspace-query">Fråga över resurser</a><br/>
                                                         </p>
                                                         <br>
                                                         <h3>Incidenthantering</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/alerts-overview">Översikt över aviseringar</a><br/>
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Automatisk skalning</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/alerts-unified-log">Loggaviseringar</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/alerts-activity-log">Aktivitetsloggaviseringar</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-unified-log">Logg aviseringar</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-activity-log">Aktivitets logg aviseringar</a><br/>
                                                             <a href="/azure/azure-monitor/platform/action-groups">Åtgärdsgrupper</a><br/>
                                                         </p>
                                                     </div>

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 5d69e29c83bcbe433b800d6877ba1c7440eceedc
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387976"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597096"
 ---
 # <a name="monitor-data-flows"></a>Övervaka data flöden
 
@@ -24,7 +24,7 @@ När du kör din pipeline kan du övervaka pipelinen och alla aktiviteter som fi
 
 ![Dataflödesövervakning](media/data-flow/mon001.png "Dataflödesövervakning")
 
-Statistik visas på den här nivån, inklusive körnings tider och-status. Körnings-ID: t på aktivitets nivån skiljer sig från körnings-ID: t på pipeline-nivån. Körnings-ID: t på den föregående nivån är för pipelinen. Genom att klicka på glasögon får du djupgående information om din data flödes körning.
+Statistik på den här nivån visas även med körnings tider och-status. Körnings-ID: t på aktivitets nivån skiljer sig från körnings-ID: t på pipeline-nivån. Körnings-ID: t på den föregående nivån är för pipelinen. Genom att klicka på glasögon får du djupgående information om din data flödes körning.
 
 ![Dataflödesövervakning](media/data-flow/mon002.png "Dataflödesövervakning")
 
@@ -47,6 +47,11 @@ När ditt data flöde körs i Spark, fastställer Azure Data Factory optimala ko
   * Beräknad: du använder kolumnen för villkorlig bearbetning eller inom ett uttryck i ditt data flöde, men vill inte landa den i mottagaren
   * Härlett: kolumnen är en ny kolumn som du har genererat i ditt flöde, d.v.s. den fanns inte i källan
   * Mappad: kolumnen kommer från källan och din mappas till fältet mottagare
+  * Data flödes status: aktuell status för din körning
+  * Kluster start tid: hur lång tid det tar att hämta JIT Spark Compute-miljön för data flödes körning
+  * Antal transformeringar: hur många omvandlings steg som körs i ditt flöde
+  
+![Övervakning av ACiT data flöde](media/data-flow/monitornew.png "Data flödes övervakning New")  
   
 ## <a name="monitor-icons"></a>Övervaka ikoner
 

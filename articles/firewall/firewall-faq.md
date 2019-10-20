@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 10/19/2019
 ms.author: victorh
-ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f64e9717a1e6391c15ee5207c7566114f2bf9f8f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130213"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596787"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -25,7 +25,7 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 * Tillståndskänslig brandvägg som en tjänst
 * Inbyggd hög tillgänglighet med obegränsad skalbarhet i molnet
 * FQDN-filtrering
-* Taggar för fullständigt domännamn
+* FQDN-taggar
 * Regler för filtrering av nätverkstrafik
 * Stöd för utgående SNAT
 * Stöd för inkommande DNAT
@@ -40,7 +40,7 @@ Fördelen med den här modellen är möjligheten att centralt utöva kontroll ö
 
 ## <a name="how-can-i-install-the-azure-firewall"></a>Hur kan jag installera Azure-brandväggen?
 
-Du kan konfigurera Azure-brandväggen med hjälp av Azure Portal, PowerShell, REST API eller med hjälp av mallar. Se [Självstudier: Distribuera och konfigurera Azure-brandväggen med hjälp](tutorial-firewall-deploy-portal.md) av Azure Portal för stegvisa instruktioner.
+Du kan konfigurera Azure-brandväggen med hjälp av Azure Portal, PowerShell, REST API eller med hjälp av mallar. Se [självstudie: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure Portal](tutorial-firewall-deploy-portal.md) för stegvisa instruktioner.
 
 ## <a name="what-are-some-azure-firewall-concepts"></a>Vilka är några Azure Firewall-koncept?
 
@@ -50,7 +50,7 @@ Det finns tre typer av regel samlingar:
 
 * *Program regler*: Konfigurera fullständigt kvalificerade domän namn (FQDN) som kan nås från ett undernät.
 * *Nätverks regler*: Konfigurera regler som innehåller käll adresser, protokoll, mål portar och mål adresser.
-* *NAT-regler*: Konfigurera DNAT-regler för att tillåta inkommande anslutningar.
+* *NAT-regler*: Konfigurera DNAt-regler för att tillåta inkommande anslutningar.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Stöder Azure-brandväggen inkommande trafik filtrering?
 
@@ -58,7 +58,7 @@ Azure-brandväggen stöder inkommande och utgående filtrering. Inkommande skydd
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Vilka loggnings-och analys tjänster stöds av Azure-brandväggen?
 
-Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera brand Väggs loggar. Loggar kan skickas till Log Analytics, Azure Storage eller Event Hubs. De kan analyseras i Log Analytics eller av olika verktyg som Excel och Power BI. Mer information finns i [Självstudie: Övervaka Azure Firewall-](tutorial-diagnostics.md)loggar.
+Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera brand Väggs loggar. Loggar kan skickas till Log Analytics, Azure Storage eller Event Hubs. De kan analyseras i Log Analytics eller av olika verktyg som Excel och Power BI. Mer information finns i [Självstudier: övervaka Azure Firewall-loggar](tutorial-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Hur fungerar Azure Firewall annorlunda jämfört med befintliga tjänster som NVA på Marketplace?
 
@@ -145,7 +145,7 @@ Nej. NAT-regler lägger implicit till en motsvarande nätverks regel för att ti
 
 Om du konfigurerar * **. contoso.com**tillåts *anyvalue*. contoso.com, men inte contoso.com (domän Apex). Om du vill tillåta domän Apex måste du uttryckligen konfigurera den som en mål-FQDN.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>Vad innebär *etablerings status: Misslyckades* betyder?
+## <a name="what-does-provisioning-state-failed-mean"></a>Vad är *etablerings status: misslyckades,* betyder?
 
 När en konfigurations ändring används försöker Azure-brandväggen uppdatera alla underliggande Server dels instanser. I sällsynta fall kan en av dessa Server dels instanser Miss lyckas med att uppdatera med den nya konfigurationen och uppdaterings processen stoppas med ett misslyckat etablerings tillstånd. Din Azure-brandvägg fungerar fortfarande, men den tillämpade konfigurationen kan vara i ett inkonsekvent tillstånd, där vissa instanser har den tidigare konfigurationen där andra har den uppdaterade regel uppsättningen. Om detta inträffar kan du försöka att uppdatera konfigurationen en gång tills åtgärden lyckas och brand väggen har statusen *slutförd* etablering.
 
@@ -163,6 +163,14 @@ Azure-brandväggen måste etablera fler virtuella dator instanser när den skala
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>Måste brand Väggs under näts storleken ändras när tjänsten skalas?
 
 Nej. Azure-brandväggen behöver inte ett undernät som är större än/26.
+
+## <a name="how-can-i-increase-my-firewall-throughput"></a>Hur kan jag öka mitt brand Väggs flöde?
+
+Den första data flödes kapaciteten i Azure Firewall är 2,5-3 Gbit/s. Skala ut baseras för närvarande endast på CPU-användning. I vissa fall skalas bara en brand vägg med nätverks regler upp för att öka data flödet eftersom nätverks reglerna inte påverkar CPU-användningen betydligt. Om du behöver högre data flöde för brand väggen kan du kontakta supporten för att öka brand väggens första kapacitet för data flödet.
+
+## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Hur lång tid tar det för Azure-brandväggen att skala ut?
+
+För närvarande tar det mellan fem och sju minuter för Azure-brandvägg att skala ut. Om du har burst-överföring som kräver en snabbare autoskalning, kan du kontakta supporten för att öka brand väggens första kapacitet för data flödet.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Tillåter Azure-brandväggen åtkomst till Active Directory som standard?
 

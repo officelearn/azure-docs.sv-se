@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71262341"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597292"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall
 [Plattforms loggar](platform-logs-overview.md) i Azure ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. Den här artikeln innehåller information om hur du använder en [Azure Resource Manager mall](../../azure-resource-manager/resource-group-authoring-templates.md) för att konfigurera diagnostikinställningar för att samla in plattforms loggar till olika mål. På så sätt kan du automatiskt börja samla in plattforms loggar när en resurs skapas.
@@ -53,7 +53,7 @@ Beroende på [målet](diagnostic-settings.md#destinations) för den diagnostiska
 "workspaceId":{
   "type": "string",
   "metadata": {
-    "description": "Azure Resource ID of the Log Analytics workspace for the Log Analytics workspace to which logs will be sent."
+    "description": "Azure Resource ID of the Log Analytics workspace to which logs will be sent."
   }
 }
 ```

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: ef46c1a631a79dd1c50b2bf7d263538298de233f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3305590f2d8abf0d894bc1df42b84edcc96a2b2d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333318"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598222"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Vanliga frågor och svar om Azure Network Watcher
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -tjänsten innehåller en uppsättning verktyg för att övervaka, diagnostisera, Visa mått och aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. I den här artikeln besvaras vanliga frågor om tjänsten.
@@ -54,16 +54,26 @@ Besök [sidan med priser](https://azure.microsoft.com/pricing/details/network-wa
 ### <a name="which-regions-is-network-watcher-available-in"></a>Vilka regioner är Network Watcher tillgängliga i?
 Du kan visa den senaste regionala tillgängligheten på [sidan tillgänglighet för Azure-tjänsten](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
+### <a name="what-are-resource-limits-on-network-watcher"></a>Vad är resurs gränser på Network Watcher?
+Se sidan [tjänst begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) för alla gränser.  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Varför är bara en instans av Network Watcher tillåtet per region?
+Network Watcher behöver bara aktive ras en gång för att en prenumeration på IT-funktioner ska fungera, är detta inte en tjänst gräns.
+
 ## <a name="nsg-flow-logs"></a>NSG flödes loggar
 
 ### <a name="what-does-nsg-flow-logs-do"></a>Vad gör NSG Flow-loggarna?
 Azure nätverks resurser kan kombineras och hanteras via [nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/security-overview). Med NSG Flow-loggar kan du logga 5 tuple-flödes information om all trafik via din NSG: er. Obehandlade flödes loggar skrivs till ett Azure Storage-konto där de kan bearbetas, analyseras, efter frågas eller exporteras efter behov.
 
-### <a name="are-there-caveats-for-using-nsg-flow-logs"></a>Finns det varningar om att använda NSG Flow-loggar?
+### <a name="are-there-any-caveats-to-using-nsg-flow-logs"></a>Finns det några varningar om att använda NSG Flow-loggar?
 Det finns inga för hands krav för att använda NSG Flow-loggar. Det finns dock två begränsningar
 - **Tjänst slut punkter får inte finnas i ditt VNet**: NSG flödes loggar genereras från agenter på dina virtuella datorer till lagrings konton. I dag kan du dock bara generera loggar direkt till lagrings konton och kan inte använda en tjänst slut punkt som lagts till i ditt VNET.
 
-Det finns två sätt att åtgärda detta:
+- **Lagrings kontot får inte vara i brand väggen**: på grund av interna begränsningar måste lagrings konton vara tillgängliga via det offentliga Internet för att NSG flödes loggar för att arbeta med dem. Trafiken kommer fortfarande att dirigeras via Azure internt och du får inga extra avgifter för utgående trafik.
+
+Se följande två frågor för instruktioner om hur du kan lösa problemen. Båda dessa begränsningar förväntas finnas i januari 2020.
+
+### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints"></a>Hur gör jag för att använda flödes loggar för NSG med tjänst slut punkter?
 
 *Alternativ 1: konfigurera om NSG flödes loggar för att generera till Azure Storage konto utan VNET-slutpunkter*
 
@@ -88,8 +98,7 @@ Du kan kontrollera lagringsloggarna efter några minuter och bör se en uppdater
 
 Om Microsoft.Storage-tjänstslutpunkterna krävs måste du inaktivera NSG-flödesloggar.
 
-
-- **Lagrings konton får inte vara brand väggar**: på grund av interna begränsningar måste lagrings konton vara tillgängliga via det offentliga Internet för att NSG flödes loggar för att arbeta med dem. Trafiken kommer fortfarande att dirigeras via Azure internt och du får inga extra avgifter för utgående trafik.
+### <a name="how-do-i-disable-the--firewall-on-my-storage-account"></a>Hur gör jag för att inaktivera brand väggen på mitt lagrings konto?
 
 Problemet löses genom att aktivera alla nätverk för att komma åt lagrings kontot:
 
@@ -97,8 +106,6 @@ Problemet löses genom att aktivera alla nätverk för att komma åt lagrings ko
 * Gå till lagringskontot genom att skriva lagringskontots namn i den globala sökningen i portalen
 * Under avsnittet **INSTÄLLNINGAR** väljer du **Brandväggar och virtuella nätverk**
 * Välj **Alla nätverk** och spara det. Om det redan är valt behövs ingen ändring.  
-
-Båda dessa begränsningar förväntas finnas i januari 2020.
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Vad är skillnaden mellan flödes loggar version 1 & 2?
 Flödes loggar version 2 introducerar konceptet *flödes tillstånd* & lagrar information om byte och paket som överförs. [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

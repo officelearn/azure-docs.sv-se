@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f30174f6271a3aa85ecf277531b34ff932644e3
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1a1cba2c4572b2f898f631aefbbf316fae1195ac
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518400"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596362"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Enhets identitet och skriv bords virtualisering
 
@@ -87,4 +87,4 @@ När du distribuerar icke-permanent VDI bör IT-administratörerna betala nära 
  
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera hybrid Azure AD-anslutning för domänanslutna Windows-enheter som är federerade med ADFS](manage-stale-devices.md)
+[Konfigurera hybrid Azure Active Directorys anslutning för federerad miljö](hybrid-azuread-join-federated-domains.md)

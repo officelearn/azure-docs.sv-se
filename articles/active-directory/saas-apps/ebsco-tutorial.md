@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med EBSCO | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med EBSCO | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och EBSCO.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/24/2019
+ms.date: 10/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebaf3a1d877025cafe8829bc937ef032a3c95d03
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f37085744b9a0e7785ef3a411d53e4df5d15e494
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163459"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595015"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med EBSCO
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med EBSCO
 
 I den här självstudien får du lära dig hur du integrerar EBSCO med Azure Active Directory (Azure AD). När du integrerar EBSCO med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar EBSCO med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -48,7 +48,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * EBSCO stöder **just-in-Time** User-etablering
 
 > [!NOTE]
-> Eftersom ID: t för det här programmet är ett fast sträng värde kan endast en instans konfigureras i en klient.
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-ebsco-from-the-gallery"></a>Lägga till EBSCO från galleriet
 
@@ -68,10 +68,10 @@ Konfigurera och testa Azure AD SSO med EBSCO med hjälp av en test användare so
 Om du vill konfigurera och testa Azure AD SSO med EBSCO, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera Ebsco SSO](#configure-ebsco-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa Ebsco test User](#create-ebsco-test-user)** -om du vill ha en motsvarighet till B. Simon i Ebsco som är länkad till Azure AD-representation av användare.
+    * **[Skapa Ebsco test User](#create-ebsco-test-user)** -om du vill ha en motsvarighet till B. Simon i Ebsco som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
@@ -101,9 +101,24 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     o **Profile** = klienter kan skräddarsy länken för att dirigera användare till en speciell profil (beroende på vad de köper från Ebsco). De kan ange ett angivet profil-ID. Huvud-ID: t är EDS (EBSCO Discovery service) och eHost (EBSOCOhost-databaser). Instruktioner för samma anges [här](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
+1. EBSCO-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
+
+    ![mallar](common/default-attributes.png)
+
+    > [!Note]
+    > Namnattributet **är** obligatoriskt och det mappas med namn- **ID-värdet** i Ebsco-programmet. Detta läggs till som standard, så du behöver inte lägga till det manuellt.
+
+1. Utöver ovan förväntar sig EBSCO-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+
+    | Namn | Källattribut|
+    | ---------------| --------------- |
+    | FirstName   | user.givenname |
+    | LastName   | user.surname |
+    | E-post   | user.mail |
+
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 1. I avsnittet **Konfigurera Ebsco** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -114,14 +129,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till EBSCO.
 
@@ -129,7 +144,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **Ebsco**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -141,7 +156,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-ebsco-sso"></a>Konfigurera EBSCO SSO
 
-Om du vill konfigurera enkel inloggning på **Ebsco** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Ebsco](mailto:support@ebsco.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Ebsco** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Ebsco](mailto:support@ebsco.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-ebsco-test-user"></a>Skapa EBSCO test användare
 
@@ -151,15 +166,15 @@ När det gäller EBSCO är användar etableringen automatisk.
 
 Azure AD överför nödvändiga data till EBSCO-program. Användar etableringen för EBSCO kan vara automatisk eller kräver ett formulär med en tids period. Det beror på om klienten har massor av redan befintliga EBSCOhost-konton med personliga inställningar sparade. Samma sak kan diskuteras med [Ebsco support team](mailto:support@ebsco.com) under implementeringen. Oavsett hur behöver klienten inte skapa några EBSCOhost-konton innan testningen.
 
-   >[!Note]
-   >Du kan automatisera EBSCOhost användar etablering/anpassning. Kontakta [Ebsco support team](mailto:support@ebsco.com) om just-in-Time-etablering av användare.
+   > [!Note]
+   > Du kan automatisera EBSCOhost användar etablering/anpassning. Kontakta [Ebsco support team](mailto:support@ebsco.com) om just-in-Time-etablering av användare.
 
 ## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
 1. När du klickar på panelen EBSCO på åtkomst panelen, bör du få automatiskt inloggad till ditt EBSCO-program.
-Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+I [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md) får du mer information.
 
 1. När du har loggat in på programmet klickar du på knappen **Logga in** i det övre högra hörnet.
 
@@ -180,4 +195,3 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova EBSCO med Azure AD](https://aad.portal.azure.com/)
-

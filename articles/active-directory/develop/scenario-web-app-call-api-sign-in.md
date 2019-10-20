@@ -15,12 +15,12 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3036f8cb72f2a07673743a77e8be37614002563f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2cb0190f76ddce79012a5bf97e2d813f40f9f018
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720205"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596369"
 ---
 # <a name="web-app-that-calls-web-apis---sign-in"></a>Webbapp som anropar webb-API: er – logga in
 
@@ -30,11 +30,11 @@ Vad är det som är annorlunda, är att när användaren har loggat ut, från de
 
 ## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Avlyssna återanrop efter utloggning – enkel utloggning
 
-Ditt program kan fånga efter `logout`-händelse, till exempel ta bort posten för det token-cache som är associerat med kontot som loggade ut. Webbapp lagrar åtkomsttoken för användaren i ett cacheminne. När återanropet efter `logout` fångas upp kan ditt webb program ta bort användaren från token-cachen.
+Ditt program kan fånga efter `logout` händelse, till exempel rensa posten för det token-cache som är associerat med det konto som loggade ut. Webbapp lagrar åtkomsttoken för användaren i ett cacheminne. Om du fångar upp efter `logout` motringning kan ditt webb program ta bort användaren från token-cachen.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Den här mekanismen illustreras i metoden `AddMsal()` i [WebAppServiceCollectionExtensions. cs # L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157)
+Den här mekanismen illustreras i `AddMsal()`-metoden för [WebAppServiceCollectionExtensions. cs # L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157)
 
 I den **utloggnings-URL** som du har registrerat för ditt program kan du implementera enkel utloggning. Microsoft Identity Platform `logout`-slutpunkten anropar den **utloggnings-URL** som är registrerad i ditt program. Det här anropet sker om utloggningen initierades från din webbapp, eller från en annan webbapp eller webbläsaren. Mer information finns i [enkel utloggning](v2-protocols-oidc.md#single-sign-out).
 
@@ -80,5 +80,24 @@ Python-exemplet tar inte bort konton från cachen vid global utloggning
 
 ## <a name="next-steps"></a>Nästa steg
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 > [!div class="nextstepaction"]
-> [Hämta en token för webb programmet](scenario-web-app-call-api-acquire-token.md)
+> [Hämta en token för webb programmet](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+> [!div class="nextstepaction"]
+> [Hämta en token för webb programmet](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnet)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Hämta en token för webb programmet](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=java)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Hämta en token för webb programmet](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=python)
+
+---

@@ -10,17 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/12/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122231"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597235"
 ---
-# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudier: Kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines
+# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines
 
 Lär dig hur du använder Azure pipelines för att kontinuerligt bygga och Distribuera Azure Resource Manager mal Lav projekt.
 
@@ -43,7 +43,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -91,7 +91,7 @@ Den här lagrings platsen kallas för en *fjärrlagringsplats*. Varje utvecklare
 
     Ersätt **[YourAccountName]** med namnet på ditt GitHub-konto och Ersätt **[YourGitHubRepositoryName]** med ditt databas namn som du skapade i föregående procedur.
 
-    Följande skärm dum par visar ett exempel.
+    Följande skärm bild visar ett exempel.
 
     ![Azure Resource Manager Azure-pipeline för Azure DevOps skapa GitHub bash](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
 
@@ -126,7 +126,7 @@ Azuredeploy. JSON har lagts till i den lokala lagrings platsen. Sedan laddar du 
     ```
 
     Du kan få en varning om LF. Du kan ignorera varningen. **Master** är huvud grenen.  Du skapar vanligt vis en gren för varje uppdatering. För att förenkla självstudien använder du huvud grenen direkt.
-1. Bläddra till GitHub-lagringsplatsen från en webbläsare.  URL: en är  **https://github.com/ [YourAccountName]/[YourGitHubRepository]** . Du ska se mappen **CreateAzureStorage** och **Azuredeploy. JSON** i mappen.
+1. Bläddra till GitHub-lagringsplatsen från en webbläsare.  URL: en är **https://github.com/ [YourAccountName]/[YourGitHubRepository]** . Du ska se mappen **CreateAzureStorage** och **Azuredeploy. JSON** i mappen.
 
 Hittills har du skapat en GitHub-lagringsplats och laddat upp en mall till lagrings platsen.
 
@@ -158,7 +158,7 @@ Skapa en tjänst anslutning som används för att distribuera projekt till Azure
     * **Anslutnings namn**: Ange ett anslutnings namn. Till exempel **AzureRmPipeline-ansluten**. Skriv ned det här namnet. du behöver namnet när du skapar din pipeline.
     * **Omfattnings nivå**: Välj **prenumeration**.
     * **Prenumeration**: Välj din prenumeration.
-    * **Resursgrupp**: Lämna tomt.
+    * **Resurs grupp**: lämna det tomt.
     * **Tillåt alla pipeliner att använda den här anslutningen**. välja
 1. Välj **OK**.
 
@@ -183,9 +183,11 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 
     ```yaml
     steps:
-    - task: AzureResourceGroupDeployment@2
+    - task: AzureResourceManagerTemplateDeployment@3
       inputs:
-        azureSubscription: '[YourServiceConnectionName]'
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: '[EnterYourServiceConnectionName]'
+        subscriptionName: '[EnterTheTargetSubscriptionID]'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'Central US'
@@ -200,14 +202,16 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 
     Gör följande ändringar:
 
-    * **azureSubscription**: uppdatera värdet med tjänst anslutningen som skapades i föregående procedur.
+    * **deloymentScope**: Välj distributions område från alternativen: `Management Group` `Subscription` och `Resource Group`. Använd **resurs grupp** i den här självstudien. Mer information om omfattningarna finns i [distributions omfång](./resource-group-template-deploy-rest.md#deployment-scope).
+    * **ConnectedServiceName**: Ange namnet på tjänst anslutningen som du skapade tidigare.
+    * **SubscriptionName**: Ange PRENUMERATIONS-ID för mål.
     * **åtgärd**: åtgärden **skapa eller uppdatera resurs grupp** utför 2 åtgärder-1. skapa en resurs grupp om ett nytt resurs grupps namn har angetts. 11.2. distribuera den angivna mallen.
     * **resourceGroupName**: Ange ett nytt resurs grupps namn. Till exempel **AzureRmPipeline-RG**.
     * **plats**: Ange platsen för resurs gruppen.
     * **templateLocation**: när den **länkade artefakten** anges söker aktiviteten efter mallfilen direkt från den anslutna lagrings platsen.
     * **csmFile** är sökvägen till mallfilen. Du behöver inte ange en mallparametrar-fil eftersom alla parametrar som definierats i mallen har standardvärden.
 
-    Mer information om uppgiften finns i [distributions uppgift för Azure Resource Group](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+    Mer information om uppgiften finns i [distributions uppgiften för Azure Resource Group](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)och [Azure Resource Manager för mall distribution](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
 1. Välj **Spara och kör**.
 1. Välj **Spara och kör** igen. En kopia av YAML-filen sparas i den anslutna lagrings platsen. Du kan se YAML-filen genom att bläddra till din lagrings plats.
 1. Kontrol lera att pipelinen har körts.
@@ -216,10 +220,10 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Öppna resurs gruppen. Namnet är det du angav i YAML-filen för pipelinen.  Du ska se ett lagrings konto som skapats.  Lagrings kontots namn börjar med **Store**.
 1. Välj lagrings kontots namn för att öppna det.
-1. Välj **egenskaper**. Observera att **SKU: n** är **Standard_LRS**.
+1. Välj **Egenskaper**. Observera att **SKU: n** är **Standard_LRS**.
 
     ![Azure Resource Manager Azure-pipeline för Azure-DevOps Azure](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 

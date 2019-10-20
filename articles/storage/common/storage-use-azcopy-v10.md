@@ -4,15 +4,15 @@ description: AzCopy är ett kommando rads verktyg som du kan använda för att k
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
-ms.translationtype: MT
+ms.openlocfilehash: d26535d18233533d1d72c02ad997008cba536fce
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274642"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595171"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -146,7 +146,7 @@ Om du vill veta mer om tjänstens huvud namn i allmänhet, se [program-och tjän
 
 ##### <a name="using-a-client-secret"></a>Använda en klient hemlighet
 
-Börja med att ställa in miljövariabeln `AZCOPY_SPA_CLIENT_SECRET` till klient hemligheten för tjänstens huvud namn för program registrering.
+Börja med att ställa in `AZCOPY_SPA_CLIENT_SECRET`-miljövariabeln på klient hemligheten för tjänstens huvud namn för appen.
 
 > [!NOTE]
 > Se till att ange det här värdet från kommando tolken och inte i miljö variabel inställningarna för ditt operativ system. På så sätt är värdet bara tillgängligt för den aktuella sessionen.
@@ -174,7 +174,7 @@ Om du föredrar att använda dina egna autentiseringsuppgifter för auktoriserin
 
 Förutom att ladda upp ditt certifikat till din app-registrering måste du också ha en kopia av certifikatet som har sparats på datorn eller den virtuella dator där AzCopy ska köras. Den här kopian av certifikatet bör vara i. PFX eller. PEM-format och måste innehålla den privata nyckeln. Den privata nyckeln bör vara lösenordsskyddad. Om du använder Windows och ditt certifikat bara finns i ett certifikat Arkiv, måste du exportera certifikatet till en PFX-fil (inklusive den privata nyckeln). Vägledning finns i [export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
 
-Ange sedan miljövariabeln `AZCOPY_SPA_CERT_PASSWORD` till certifikatets lösen ord.
+Ange sedan `AZCOPY_SPA_CERT_PASSWORD`-miljövariabeln till certifikatets lösen ord.
 
 > [!NOTE]
 > Se till att ange det här värdet från kommando tolken och inte i miljö variabel inställningarna för ditt operativ system. På så sätt är värdet bara tillgängligt för den aktuella sessionen.
@@ -293,7 +293,7 @@ URL: en visas i kommandots utdata. Skriptet kan sedan hämta AzCopy med hjälp a
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Escape-specialtecken i SAS-token
 
-I kommandofiler som har tillägget `.cmd` måste du undanta de `%` tecken som visas i SAS-token. Du kan göra det genom att lägga till ett additions `%`-tecken bredvid befintliga `%`-tecken i SAS-token-strängen.
+I kommandofiler som har `.cmd` tillägget måste du undanta de `%` tecknen som visas i SAS-token. Du kan göra det genom att lägga till ett additions `%` tecken bredvid befintliga `%` tecken i SAS-token-strängen.
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Använd AzCopy i Storage Explorer
 

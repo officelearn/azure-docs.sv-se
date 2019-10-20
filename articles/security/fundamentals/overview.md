@@ -4,7 +4,7 @@ description: Lär dig om Azure-säkerhet, dess tjänster och hur det fungerar.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: c01931268642aebbf87c54080c292b105af15665
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: ed345fdf564c62e2d323b33013da784344c7a461
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262766"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595393"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
 Vi vet att säkerheten är ett jobb i molnet och hur viktigt det är att du hittar korrekt och tidsödande information om Azure-säkerhet. Ett av de bästa orsakerna till att använda Azure för dina program och tjänster är att dra nytta av dess breda uppsättning säkerhets verktyg och funktioner. Med dessa verktyg och funktioner kan du skapa säkra lösningar på den säkra Azure-plattformen. Microsoft Azure ger konfidentialitet, integritet och tillgänglighet för kund information, samtidigt som du aktiverar transparent ansvars rätt.
 
-För att hjälpa dig att bättre förstå samlingen av säkerhets kontroller som implementeras i Microsoft Azure från både kundens och Microsoft Operations-perspektiv, är white paper, "Introduktion till Azure Security", skrivna för att ge ett omfattande utseende säkerhet som är tillgänglig med Microsoft Azure.
+Den här artikeln innehåller en omfattande översikt över säkerheten i Azure.
 
-### <a name="azure-platform"></a>Azure-plattform
+### <a name="azure-platform"></a>Azure-plattformen
 Azure är en offentlig moln tjänst plattform som har stöd för ett brett urval av operativ system, programmeringsspråk, ramverk, verktyg, databaser och enheter. Den kan köra Linux-behållare med Docker-integrering, Bygg appar med Java Script, python, .NET, PHP, Java och Node. js. Bygg Server delar för iOS-, Android-och Windows-enheter.
 
 Azures offentliga moln tjänster har stöd för samma teknik miljon tals utvecklare och IT-proffs är redan förlitande på och litar på. När du bygger på, eller migrerar IT-tillgångar till, förlitar sig en offentlig moln tjänst leverantör på organisationens möjligheter att skydda dina program och data med tjänsterna och de kontroller som de tillhandahåller för att hantera säkerheten för dina molnbaserade till gångar.
@@ -40,39 +40,27 @@ Dessutom ger Azure dig en mängd olika konfigurerbara säkerhets alternativ och 
 > [!Note]
 > Det primära fokuset i det här dokumentet är av kundbaserade kontroller som du kan använda för att anpassa och öka säkerheten för dina program och tjänster.
 >
-> Vi ger viss översikts information, men för detaljerad information om hur Microsoft skyddar själva Azure-plattformen, se information som finns i [Microsoft säkerhets Center](https://www.microsoft.com/TrustCenter/default.aspx).
+> Information om hur Microsoft skyddar själva Azure-plattformen finns i säkerhet för [Azure-infrastrukturen](infrastructure.md).
 
-### <a name="abstract"></a>Abstrakt
-Som inlednings vis utfördes migreringen av offentliga moln av kostnads besparingar och flexibilitet för att kunna förnyas. Säkerhet ansågs vara ett större problem under en viss tid, och även en Visa propp, för offentlig moln migrering. Säkerheten i det offentliga molnet har dock övergått till en av driv rutinerna för molnbaserad migrering. Rationellt bakom detta är den överlägsna möjligheten för stora offentliga moln tjänst leverantörer att skydda program och data för molnbaserade till gångar.
+## <a name="summary-of-azure-security-capabilities"></a>Översikt över funktioner i Azure
 
-Allt i Azures infrastruktur, från anläggning till tillämpningar, är utformat för att fungera som värd för miljoner kunder samtidigt, och den tillhandahåller en säker grund som företaget kan använda sig av för att möta de interna säkerhetsbehoven. Dessutom ger Azure dig en mängd olika konfigurerbara säkerhets alternativ och möjligheten att kontrol lera dem så att du kan anpassa säkerheten för att uppfylla de unika kraven för dina distributioner för att uppfylla dina IT-regler och följa externa fattning.
+### <a name="features-to-secure-the-azure-platform"></a>Funktioner för att skydda Azure-plattformen
+Följande funktioner är funktioner som du kan granska för att garantera att Azure-plattformen hanteras på ett säkert sätt. Det finns länkar till mer information om hur Microsoft hanterar frågor om kund förtroende på fyra områden: säker plattform, sekretess & kontroller, efterlevnad och transparens.
 
-Det här dokumentet beskriver Microsofts metod för säkerhet inom Microsoft Azure moln plattform:
-* Säkerhetsfunktioner som implementeras av Microsoft för att skydda Azure-infrastrukturen, kund information och program.
-* Azure-tjänster och säkerhetsfunktioner som du kan använda för att hantera säkerheten för tjänsterna och dina data i dina Azure-prenumerationer.
-
-## <a name="summary-azure-security-capabilities"></a>Sammanfattning av Azure-säkerhetsfunktioner
-Tabellen nedan innehåller en kort beskrivning av säkerhetsfunktionerna som implementeras av Microsoft för att skydda Azure-infrastrukturen, kund information och säkra program.
-### <a name="security-features-implemented-to-secure-the-azure-platform"></a>Säkerhetsfunktioner som implementeras för att skydda Azure-plattformen:
-De funktioner som anges nedan är funktioner som du kan granska för att tillhandahålla den garanti att Azure-plattformen hanteras på ett säkert sätt. Det finns länkar till mer information om hur Microsoft tar itu med vanliga frågor om kund förtroende i fyra områden: Säker plattform, sekretess & kontroller, efterlevnad och transparens.
-
-
-| [Säker plattform](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Sekretess & kontroller](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Efterlevnad](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Oh](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
+| [Säker plattform](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [Sekretess & kontroller](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[Efterlevnad](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [Oh](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
-| [Säkerhets utvecklings cykel](https://www.microsoft.com/en-us/sdl/), interna granskningar | [Hantera dina data hela tiden](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Hur Microsoft skyddar kund information i Azure-tjänster](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Obligatorisk säkerhetsutbildning, bakgrunds kontroller](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Kontroll på data plats](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Hubb för vanliga kontroller](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Hur Microsoft hanterar data platser i Azure-tjänster](https://azuredatacentermap.azurewebsites.net/)|
-| [Testning av inträngande](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [intrångs identifiering, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [granskningar & loggning](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Ge data åtkomst på dina villkor](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Check lista för Cloud Services förfallna noggrannhet](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Vem i Microsoft kan komma åt dina data på vilka villkor](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
-| [Tillstånd för konst Data Center](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), fysisk säkerhet, [säkert nätverk](network-overview.md) | [Svara på juridisk tillämpning](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Efterlevnad per tjänst, plats & bransch](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Hur Microsoft skyddar kund information i Azure-tjänster](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
-|  [Svar på säkerhets incidenter](https://aka.ms/SecurityResponsepaper), [delat ansvar](https://aka.ms/sharedresponsibility) |[Stränga sekretess standarder](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Granska certifiering för Azure-tjänster, OH-hubb](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
+| [Säkerhets utvecklings cykel](https://www.microsoft.com/sdl/), interna granskningar | [Hantera dina data hela tiden](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) | [Säkerhetscenter](https://www.microsoft.com/trustcenter/default.aspx) |[Hur Microsoft skyddar kund information i Azure-tjänster](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
+| [Obligatorisk säkerhetsutbildning, bakgrunds kontroller](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Kontroll på data plats](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [Hubb för vanliga kontroller](https://www.microsoft.com/trustcenter/Common-Controls-Hub) |[Hur Microsoft hanterar data platser i Azure-tjänster](https://azuredatacentermap.azurewebsites.net/)|
+| [Testning av inträngande](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [intrångs identifiering, DDoS](https://www.microsoft.com/trustcenter/Security/ThreatManagement), [granskningar & loggning](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging) | [Ge data åtkomst på dina villkor](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Check lista för Cloud Services förfallna noggrannhet](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist) |[Vem i Microsoft kan komma åt dina data på vilka villkor](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
+| [Tillstånd för konst Data Center](https://www.microsoft.com/cloud-platform/global-datacenters), fysisk säkerhet, [säkert nätverk](network-overview.md) | [Svara på juridisk tillämpning](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Efterlevnad per tjänst, plats & bransch](https://www.microsoft.com/trustcenter/Compliance/default.aspx) |[Hur Microsoft skyddar kund information i Azure-tjänster](https://www.microsoft.com/trustcenter/Transparency/default.aspx)|
+|  [Svar på säkerhets incidenter](https://aka.ms/SecurityResponsepaper), [delat ansvar](https://aka.ms/sharedresponsibility) |[Stränga sekretess standarder](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Granska certifiering för Azure-tjänster, OH-hubb](https://www.microsoft.com/trustcenter/Compliance/default.aspx)|
 
-
-
-### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Säkerhetsfunktioner som erbjuds av Azure för att skydda data och program
+### <a name="features-to-secure-data-and-application"></a>Funktioner för att skydda data och program
 Beroende på moln tjänst modellen finns det varierande ansvar för vem som ansvarar för att hantera säkerheten för programmet eller tjänsten. Det finns funktioner som är tillgängliga i Azure-plattformen för att hjälpa dig att uppfylla dessa ansvars områden via inbyggda funktioner och genom partner lösningar som kan distribueras till en Azure-prenumeration.
 
-De inbyggda funktionerna organiseras i sex (6) funktions områden: Åtgärder, program, lagring, nätverk, beräkning och identitet. Ytterligare information om de funktioner och funktioner som är tillgängliga i Azure-plattformen med sex (6) områden finns i sammanfattnings information.
+De inbyggda funktionerna är ordnade i sex funktionella områden: åtgärder, program, lagring, nätverk, beräkning och identitet. Ytterligare information om de funktioner och funktioner som är tillgängliga i Azure-plattformen i de här sex områdena finns i sammanfattnings information.
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 Det här avsnittet innehåller ytterligare information om viktiga funktioner i säkerhets åtgärder och sammanfattnings information om dessa funktioner.
 
 ### <a name="security-and-audit-dashboard"></a>Säkerhet och granskning instrument panel
@@ -104,16 +92,16 @@ Azure Monitor-loggar kan vara ett användbart verktyg i kriminal tekniska och an
 [Azure Advisor](../../advisor/index.yml) är en anpassad moln konsult som hjälper dig att optimera dina Azure-distributioner. Den analyserar din resurskonfiguration och användningstelemetri. Det rekommenderar sedan lösningar för att förbättra [prestanda](../../advisor/advisor-performance-recommendations.md), [säkerhet](../../advisor/advisor-security-recommendations.md)och [hög tillgänglighet](../../advisor/advisor-high-availability-recommendations.md) för dina resurser samtidigt som du letar efter möjligheter att [minska dina totala Azure-utgifter](../../advisor/advisor-cost-recommendations.md). Azure Advisor ger säkerhets rekommendationer, vilket avsevärt kan förbättra den övergripande säkerhets position för lösningar som du distribuerar i Azure. Dessa rekommendationer hämtas från säkerhets analys som utförs av [Azure Security Center.](../../security-center/security-center-intro.md)
 
 ### <a name="azure-security-center"></a>Azure Security Center
-Med hjälp av [Azure Security Center](../../security-center/security-center-intro.md) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+[Security Center](../../security-center/security-center-intro.md) hjälper dig att förhindra, identifiera och svara på hot med ökad insyn i och kontroll över säkerheten för dina Azure-resurser. Härifrån kan du övervaka och hantera principer för alla Azureprenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
-Dessutom kan Azure Security Center hjälpa till med säkerhets åtgärder genom att tillhandahålla en enda instrument panel som innehåller aviseringar och rekommendationer som kan utföras direkt. Ofta kan du åtgärda problem med ett enda klick i Azure Security Center-konsolen.
-## <a name="applications"></a>Program
+Dessutom kan Security Center hjälpa till med säkerhets åtgärder genom att tillhandahålla en enda instrument panel som innehåller aviseringar och rekommendationer som kan utföras direkt. Ofta kan du åtgärda problem med ett enda klick i Security Center-konsolen.
+## <a name="applications"></a>Appar
 Avsnittet innehåller ytterligare information om viktiga funktioner i program säkerhet och sammanfattnings information om dessa funktioner.
 
 ### <a name="web-application-vulnerability-scanning"></a>Genomsökning av webb program sårbarhet
 Ett av de enklaste sätten att komma igång med att testa om säkerhets risker i [App Service-appen](../../app-service/overview.md) är att använda [integrering med TINFOIL-säkerhet](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) för att utföra en sårbarhets sökning i ett enda klick i din app. Du kan visa test resultaten i en lättanvänd rapport och lära dig hur du åtgärdar varje sårbarhet med stegvisa instruktioner.
 
-### <a name="penetration-testing"></a>Genomslagstestning
+### <a name="penetration-testing"></a>Penetrationstester
 Om du föredrar att utföra dina egna inläsnings test eller om du vill använda ett annat skanner paket eller en annan leverantör måste du följa [godkännande processen för Azure-inträngning](https://docs.microsoft.com/azure/security/fundamentals/pen-testing ) och få ett tidigare godkännande för att kunna utföra önskade inläsnings test.
 
 ### <a name="web-application-firewall"></a>Brand vägg för webbaserade program
@@ -150,7 +138,7 @@ I Programdiagnostik kan du Visa händelser grupperade på följande sätt:
 -   Program fel (visar undantags händelser)
 -   Prestanda (visar prestanda händelser)
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 Avsnittet innehåller ytterligare information om viktiga funktioner i Azure Storage Security och sammanfattnings information om dessa funktioner.
 
 ### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
@@ -190,6 +178,7 @@ För många organisationer är data kryptering i vila ett obligatoriskt steg mot
 [Resurs delning mellan ursprung (CORS)](https://docs.microsoft.com/rest/api/storageservices/fileservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) är en mekanism som gör det möjligt för domäner att ge varandra behörigheter för åtkomst till var and ras resurser. Användar agenten skickar extra huvuden för att säkerställa att JavaScript-koden som läses in från en viss domän får åtkomst till resurser som finns i en annan domän. Den senare domänen svarar sedan med extra huvuden som tillåter eller nekar den ursprungliga domänen åtkomst till resurserna.
 
 Azure Storage-tjänster stöder nu CORS så att när du har angett CORS-reglerna för tjänsten utvärderas en korrekt autentiserad begäran mot tjänsten från en annan domän för att avgöra om den är tillåten enligt de regler som du har angett.
+
 ## <a name="networking"></a>Nätverk
 Avsnittet innehåller ytterligare information om viktiga funktioner i Azure nätverks säkerhet och sammanfattnings information om dessa funktioner.
 
@@ -212,7 +201,6 @@ Tvingad tunnel trafik används ofta för att tvinga utgående trafik till Intern
 Även om nätverks säkerhets grupper, användardefinierade vägar och Tvingad tunnel trafik tillhandahåller en säkerhets nivå för nätverks-och transport skikt i [OSI-modellen](https://en.wikipedia.org/wiki/OSI_model), kan det finnas tillfällen när du vill aktivera säkerhet på högre nivåer i stacken. Du kan komma åt dessa utökade nätverks säkerhetsfunktioner med hjälp av en Azure-partner nätverks säkerhetsenhets lösning. Du hittar de mest aktuella Azure Partner Network Security-lösningarna genom att gå till [Azure Marketplace](https://azure.microsoft.com/marketplace/) och söka efter "säkerhet" och "nätverks säkerhet".
 
 ### <a name="azure-virtual-network"></a>Azure Virtual Network
-
 Ett virtuellt Azure-nätverk (VNet) är en representation av ditt eget nätverk i molnet. Det är en logisk isolering av Azure Network Fabric som är dedikerad för din prenumeration. Du kan helt styra IP-adressblocken, DNS-inställningarna, säkerhetsprinciperna och routingtabellerna inom det här nätverket. Du kan segmentera ditt VNet i undernät och placera virtuella Azure IaaS-datorer (VM) och/eller [moln tjänster (PaaS roll instanser)](../../cloud-services/cloud-services-choose-me.md) i virtuella Azure-nätverk.
 
 Du kan dessutom ansluta det virtuella nätverket till ditt lokala nätverk med ett av [anslutningsalternativen](../../vpn-gateway/index.yml) som finns i Azure. I princip kan du expandera ditt nätverk till Azure, med fullständig kontroll över IP-adressblock och de fördelar som Azure på företagsnivå erbjuder.
@@ -251,10 +239,10 @@ Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden
 
 Programmet innehåller många ADC-funktioner (Application Delivery Controller), inklusive HTTP-belastnings utjämning, cookie-baserad sessionsgräns, [Secure Sockets Layer (SSL)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) avlastning, anpassade hälso avsökningar, stöd för flera platser och många andra.
 
-### <a name="web-application-firewall"></a>Brandvägg för webbaserade program
+### <a name="web-application-firewall"></a>Web Application Firewall
 Brand väggen för webbaserade program är en funktion i [Azure Application Gateway](../../application-gateway/overview.md) som ger skydd till webb program som använder Application Gateway för standard funktioner för program leverans kontroll (ADC). Brandvägg för webbaserade program gör detta genom att skydda dem mot de flesta av de 10 vanligaste OWASP-säkerhetsproblemen.
 
-![Brandvägg för webbaserade program](./media/overview/azure-security-fig1.png)
+![Web Application Firewall](./media/overview/azure-security-fig1.png)
 
 -   Skydd mot SQL-inmatning
 
@@ -268,19 +256,19 @@ Brand väggen för webbaserade program är en funktion i [Azure Application Gate
 
 -   Identifiering av vanliga program konfigurationer (dvs. Apache, IIS osv.)
 
-
 En centraliserad brandvägg mot webbattacker underlättar säkerhetshanteringen och håller programmet bättre skyddat mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en programgateway med brandvägg för webbprogram.
 
 ### <a name="traffic-manager"></a>Traffic Manager
 Med Microsoft [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) kan du styra distributionen av användar trafik för tjänst slut punkter i olika data Center. Tjänst slut punkter som stöds av Traffic Manager inkluderar virtuella Azure-datorer, Web Apps och moln tjänster. Du kan även använda Traffic Manager med externa slutpunkter som inte tillhör Azure. Traffic Manager använder Domain Name System (DNS) för att dirigera klient begär anden till den lämpligaste slut punkten baserat på en [Traffic-routningsmetod](../../traffic-manager/traffic-manager-routing-methods.md) och tillståndet för slut punkterna.
 
 Traffic Manager tillhandahåller en mängd metoder för trafik cirkulation som passar olika program behov, [övervakning](../../traffic-manager/traffic-manager-monitoring.md)av slut punkts hälsa och automatisk redundans. Traffic Manager har bra återhämtningsförmåga i händelse av fel, inklusive fel som påverkar en hel Azure-region.
+
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) levererar hög tillgänglighet och nätverksprestanda till dina program. Det är en belastningsutjämnare för Layer 4 (TCP, UDP) som distribuerar inkommande trafik mellan felfria instanser av tjänster som definierats i en belastningsutjämnad uppsättning. Azure Load Balancer kan konfigureras för att:
 
 -   Belastningsutjämna inkommande Internet trafik till virtuella datorer. Den här konfigurationen kallas för [belastnings utjämning mot Internet](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
 
--   Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk, mellan virtuella datorer i moln tjänster eller mellan lokala datorer och virtuella datorer i ett virtuellt nätverk mellan olika platser. Den här konfigurationen kallas [intern belastnings utjämning](../../load-balancer/load-balancer-overview.md#internalloadbalancer). 
+-   Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk, mellan virtuella datorer i moln tjänster eller mellan lokala datorer och virtuella datorer i ett virtuellt nätverk mellan olika platser. Den här konfigurationen kallas [intern belastnings utjämning](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
 
 - Vidarebefordra extern trafik till en enskild virtuell dator
 
@@ -289,18 +277,18 @@ Du kan hantera listan över DNS-servrar som används i ett VNet i Hanteringsport
 
 ### <a name="azure-dns"></a>Azure DNS
 [Domain Name System](https://technet.microsoft.com/library/bb629410.aspx)eller DNS ansvarar för översättning (eller matchning) av en webbplats eller ett tjänst namn till dess IP-adress. [Azure DNS](../../dns/dns-overview.md) är en värd tjänst för DNS-domäner som ger namn matchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster. DNS stöder tillgänglighets aspekten för säkerhets Triad "CIA".
+
 ### <a name="azure-monitor-logs-nsgs"></a>Azure Monitor loggar NSG: er
 Du kan aktivera följande diagnostiska logg kategorier för NSG: er:
--   Händelse Innehåller poster för vilka NSG-regler tillämpas på virtuella datorer och instans roller baserade på MAC-adress. Status för dessa regler samlas in var 60: e sekund.
 
--   Regel räknare: Innehåller poster för hur många gånger varje NSG-regel används för att neka eller tillåta trafik.
+-   Händelse: innehåller poster för vilka NSG-regler tillämpas på virtuella datorer och instans roller baserade på MAC-adress. Status för dessa regler samlas in var 60: e sekund.
 
-### <a name="azure-security-center"></a>Azure Security Center
+-   Regel räknare: innehåller poster för hur många gånger varje NSG-regel används för att neka eller tillåta trafik.
 
+### <a name="security-center"></a>Säkerhetscenter
 [Azure Security Center](../../security-center/security-center-intro.md) fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den [rekommendationer](../../security-center/security-center-recommendations.md) som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
 
-## <a name="compute"></a>Compute
-
+## <a name="compute"></a>Databearbetning
 Avsnittet innehåller ytterligare information om viktiga funktioner i det här området och sammanfattnings information om dessa funktioner.
 
 ### <a name="antimalware--antivirus"></a>Antivirus program & antivirus
@@ -332,17 +320,14 @@ Virtuella datorer behöver nätverks anslutning. För att stödja detta krav kr�
 Uppdaterings uppdateringar ger grunden för att hitta och åtgärda potentiella problem och förenkla hanteringen av program uppdaterings processen, både genom att minska antalet program uppdateringar som du måste distribuera i företaget och öka din möjlighet att övervaka efterlevnad.
 
 ### <a name="security-policy-management-and-reporting"></a>Hantering och rapportering av säkerhets principer
-[Azure Security Center](../../security-center/security-center-intro.md) hjälper dig att förhindra, identifiera och svara på hot, och ger dig ökad insyn i och kontroll över säkerheten för dina Azure-resurser. Den ger integrerad säkerhetsövervakning och princip hantering över dina Azure-prenumerationer, hjälper till att upptäcka hot som annars kan gå vidare och fungerar med ett brett eko system med säkerhetslösningar.
-
-### <a name="azure-security-center"></a>Azure Security Center
-Med hjälp av Security Center kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+[Security Center](../../security-center/security-center-intro.md) hjälper dig att förhindra, identifiera och svara på hot, och ger dig ökad insyn i och kontroll över säkerheten för dina Azure-resurser. Den ger integrerad säkerhetsövervakning och princip hantering över dina Azure-prenumerationer, hjälper till att upptäcka hot som annars kan gå vidare och fungerar med ett brett eko system med säkerhetslösningar.
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
-
 Att skydda system, program och data börjar med identitetsbaserade åtkomst kontroller. Funktionerna för identitets-och åtkomst hantering som är inbyggda i Microsofts affärs produkter och tjänster hjälper till att skydda din organisations och personliga information från obehörig åtkomst och göra den tillgänglig för legitima användare närhelst och var de än är behöver det.
 
 ### <a name="secure-identity"></a>Skydda identitet
 Microsoft använder flera säkerhets metoder och tekniker för sina produkter och tjänster för att hantera identitet och åtkomst.
+
 -   [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) kräver att användare använder flera metoder för åtkomst, lokalt och i molnet. Den ger stark autentisering med en rad enkla verifierings alternativ, samtidigt som användarna får en enkel inloggnings process.
 
 -   [Microsoft Authenticator](https://aka.ms/authenticator) ger en användarvänlig Multi-Factor Authentication upplevelse som fungerar med både Microsoft Azure Active Directory-och Microsoft-konton och har stöd för wearables-och finger avtrycks-baserade godkännanden.
@@ -378,14 +363,7 @@ Microsoft använder flera säkerhets metoder och tekniker för sina produkter oc
 - [Azure Active Directory-programproxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) ger enkel inloggning och säker fjärråtkomst för webb program som finns lokalt.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Komma igång med Microsoft Azure säkerhet](https://docs.microsoft.com/azure/security)
 
-Azure-tjänster och -funktioner som du kan använda för att skydda dina tjänster och data i Azure
+- Förstå ditt [delade ansvar i molnet](shared-responsibility.md).
 
-- [Azure Security Center](https://azure.microsoft.com/services/security-center/)
-
-Förhindra, upptäck och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Azure-resurser
-
-- [Övervakning av säkerhetshälsa i Azure Security Center](../../security-center/security-center-monitoring.md)
-
-Övervaknings funktionerna i Azure Security Center för att övervaka kompatibilitet med principer.
+- Lär dig hur [Azure Security Center](https://azure.microsoft.com/services/security-center/) kan hjälpa dig att förhindra, identifiera och svara på hot med ökad insyn och kontroll över säkerheten för dina Azure-resurser.

@@ -4,16 +4,16 @@ description: Konfigurera, optimera och Felsök AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 42d2dae148b83687ff06d4ed321a881bcb9e7ae0
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273936"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595134"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -32,7 +32,7 @@ Om du vill konfigurera proxyinställningarna för AzCopy anger du miljövariabel
 
 | Operativsystem | Kommando  |
 |--------|-----------|
-| **Windows** | I en kommando tolk använder du: `set https_proxy=<proxy IP>:<proxy port>`<br> I PowerShell använder du: `$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | Använd följande i en kommando tolk: `set https_proxy=<proxy IP>:<proxy port>`<br> I PowerShell använder du: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -68,7 +68,7 @@ Du kan använda flaggan `cap-mbps` för att placera ett tak på data flödets da
 azcopy cap-mbps 10
 ```
 
-Data flödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ange miljövariabeln `AZCOPY_CONCURRENCY_VALUE`. Den här variabeln anger antalet samtidiga begär Anden som kan utföras.  
+Data flödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ange `AZCOPY_CONCURRENCY_VALUE`-miljövariabeln. Den här variabeln anger antalet samtidiga begär Anden som kan utföras.  
 
 Om datorn har färre än 5 processorer anges värdet för den här variabeln till `32`. Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här variabeln är `3000`, men du kan ange det här värdet högre eller lägre. 
 
@@ -84,7 +84,7 @@ Innan du anger den här variabeln rekommenderar vi att du kör ett benchmark-tes
 
 ### <a name="optimize-memory-use"></a>Optimera minnes användning
 
-Ange miljövariabeln `AZCOPY_BUFFER_GB` om du vill ange den maximala mängd system minne som du vill att AzCopy ska använda när du laddar ned och laddar upp filer.
+Ange den `AZCOPY_BUFFER_GB` miljövariabeln för att ange den maximala mängd system minne som du vill att AzCopy ska använda när du laddar ned och laddar upp filer.
 Express detta värde i gigabyte (GB).
 
 | Operativsystem | Kommando  |
@@ -99,7 +99,7 @@ AzCopy skapar logg-och plan-filer för varje jobb. Du kan använda loggarna för
 
 Loggarna innehåller status för ett haveri (`UPLOADFAILED`, `COPYFAILED` och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till problemet.
 
-Som standard finns logg-och plan-filerna i katalogen `%USERPROFILE$\.azcopy` i Windows-eller `$HOME$\.azcopy`-katalogen på Mac och Linux, men du kan ändra platsen om du vill.
+Som standard finns logg-och plan-filerna i katalogen `%USERPROFILE$\.azcopy` i Windows eller `$HOME$\.azcopy` Directory på Mac och Linux, men du kan ändra platsen om du vill.
 
 > [!IMPORTANT]
 > När du skickar en begäran till Microsoft Support (eller fel sökning av problemet som berör tredje part) delar du den avvisade versionen av kommandot som du vill köra. Detta säkerställer att SAS inte delas av misstag med vem. Du kan hitta den avvisade versionen i början av logg filen.
@@ -151,7 +151,7 @@ När du återupptar ett jobb tittar AzCopy på jobb Plans filen. Plan filen visa
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Ändra placeringen av plan-och loggfilerna
 
-Som standard finns plan-och loggfiler i katalogen `%USERPROFILE$\.azcopy` i Windows eller i `$HOME$\.azcopy`-katalogen på Mac och Linux. Du kan ändra den här platsen.
+Som standard finns plan-och loggfiler i `%USERPROFILE$\.azcopy`-katalogen i Windows eller i `$HOME$\.azcopy`-katalogen på Mac och Linux. Du kan ändra den här platsen.
 
 ### <a name="change-the-location-of-plan-files"></a>Ändra placeringen av plan filer
 

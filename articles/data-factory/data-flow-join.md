@@ -1,77 +1,127 @@
 ---
-title: Transformering av koppling till Azure Data Factory data flöde
-description: Transformering av koppling till Azure Data Factory data flöde
+title: Koppla omvandling i Azure Data Factory mappa data flöde | Microsoft Docs
+description: Kombinera data från två data källor med hjälp av kopplings omvandlingen i Azure Data Factory mappa data flöde
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/17/2019
+ms.openlocfilehash: 78de9f2bedfc36add567053e1de47e8893bfaf3c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387227"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597047"
 ---
-# <a name="mapping-data-flow-join-transformation"></a>Mappa transformering av data flödes koppling
+# <a name="join-transformation-in-mapping-data-flow"></a>Koppla omvandling i data flöde för mappning
 
-
-
-Använd Join för att kombinera data från två tabeller i ditt data flöde. Klicka på den omvandling som ska vara den vänstra relationen och Lägg till en kopplings omvandling från verktygs lådan. Inuti kopplings omvandlingen väljer du en annan data ström från ditt data flöde för att vara rätt relation.
-
-![Koppla omvandling](media/data-flow/join.png "Slå ihop")
+Använd kopplings omvandlingen för att kombinera data från två källor eller strömmar i ett data flöde för mappning. Utdataströmmen tar med alla kolumner från båda källorna som matchas baserat på ett kopplings villkor. 
 
 ## <a name="join-types"></a>Kopplings typer
 
-Det krävs ett urval av kopplings typ för kopplings omvandlingen.
+Mappning av data flöden stöder för närvarande fem olika kopplings typer.
 
 ### <a name="inner-join"></a>Inre koppling
 
-Inre koppling passerar bara genom de rader som matchar kolumn villkoren från båda tabellerna.
+Inre koppling matar bara ut rader som har matchande värden båda tabellerna.
 
 ### <a name="left-outer"></a>Vänster yttre
 
-Alla rader från den vänstra strömmen som inte uppfyller kopplings villkoret skickas vidare och utdatakolumner från den andra tabellen anges till NULL förutom alla rader som returneras av den inre kopplingen.
+Vänster yttre koppling returnerar alla rader från den vänstra strömmen och matchade poster från den högra data strömmen. Om en rad från den vänstra data strömmen inte har någon matchning, anges utdatakolumner från den högra data strömmen till NULL. Utdata blir de rader som returneras av en inre koppling och de omatchade raderna från den vänstra data strömmen.
 
 ### <a name="right-outer"></a>Höger yttre
 
-Alla rader från den högra strömmen som inte uppfyller kopplings villkoret skickas vidare, och utdatakolumner som motsvarar den andra tabellen är inställt på NULL, förutom alla rader som returneras av den inre kopplingen.
+Vänster yttre koppling returnerar alla rader från den högra strömmen och matchade poster från den vänstra data strömmen. Om en rad från den högra data strömmen saknar matchning, anges utdatakolumner från den högra data strömmen till NULL. Utdata blir de rader som returneras av en inre koppling och de omatchade raderna från den högra strömmen.
 
 ### <a name="full-outer"></a>Fullständig yttre
 
-Med fullständig yttre skapas alla kolumner och rader från båda sidor med NULL-värden för kolumner som inte finns i den andra tabellen.
+Fullständig yttre koppling visar alla kolumner och rader från båda sidor med NULL-värden för kolumner som inte matchar.
 
 ### <a name="cross-join"></a>Kors koppling
 
-Ange den kors produkten av de två strömmarna med ett uttryck. Du kan använda detta för att skapa anpassade kopplings villkor.
+Kors koppling matar ut den kors produkten av de två strömmarna baserat på ett villkor. Om du använder ett villkor som inte är lika anger du ett anpassat uttryck som kors kopplings villkor. Utdataströmmen är alla rader som uppfyller kopplings villkoret. Om du vill skapa en kartesiska-produkt som matar ut varje rad kombination anger du `true()` som kopplings villkor.
 
-## <a name="specify-join-conditions"></a>Ange kopplings villkor
+## <a name="configuration"></a>Konfiguration
 
-Det vänstra kopplings villkoret är från data strömmen som är ansluten till vänster om kopplingen. Det högra kopplings villkoret är den andra data strömmen som är ansluten till din koppling längst ned, som antingen är en direkt anslutning till en annan ström eller en referens till en annan ström.
+1. Välj vilken data ström som du ansluter till med i list rutan till **höger ström** .
+1. Välj **Anslutnings typ**
+1. Välj vilka nyckel kolumner som du vill matcha på för dig som kopplings villkor. Som standard söker data flödet efter likhet mellan en kolumn i varje data ström. Om du vill jämföra via ett beräknat värde hovrar du över kolumn List rutan och väljer **beräknad kolumn**.
 
-Du måste ange minst 1 (1.. n) kopplings villkor. De kan vara fält som antingen refereras till direkt, väljs från den nedrullningsbara menyn eller uttryck.
+![Koppla omvandling](media/data-flow/join.png "Slå ihop")
 
-## <a name="join-performance-optimizations"></a>Delta i prestanda optimering
+## <a name="optimizing-join-performance"></a>Optimera anslutningens prestanda
 
-Till skillnad från sammanfognings koppling i verktyg som SSIS, är sammanfogning i ADF-dataflöde inte en obligatorisk sammanfognings kopplings åtgärd. Kopplings nycklarna behöver därför inte sorteras först. Kopplings åtgärden sker baserat på den optimala kopplings åtgärden i Spark: sändning/mappning på kopplings sidan:
+Till skillnad från sammanfognings koppling i verktyg som SSIS är Join-omvandlingen inte en obligatorisk sammanfognings kopplings åtgärd. Kopplings nycklarna behöver inte sorteras. Join-åtgärden sker baserat på den optimala kopplings åtgärden i Spark, antingen broadcast eller koppling på kopplings sidan.
 
 ![Optimering av kopplings omvandling](media/data-flow/joinoptimize.png "Delta i optimering")
 
-Om din data uppsättning kan anpassas till arbetsnodens minne kan vi optimera dina kopplings prestanda. Du kan också ange partitionering av dina data i Join-åtgärden för att skapa uppsättningar med data som passar bättre i minnet per arbets plats.
+Om en eller båda data strömmarna passar in i arbetsnodens minne kan du optimera prestanda ytterligare genom att aktivera **sändning** på fliken optimera. Du kan också partitionera om dina data på kopplings åtgärden så att de passar bättre i minnet per arbets kraft.
 
 ## <a name="self-join"></a>Själv koppling
 
-Du kan få självkopplings villkor i ADF-dataflödet genom att använda Välj omvandling för att ange alias för en befintlig data ström. Skapa först en "ny gren" från en data ström och Lägg sedan till en Välj för att ange alias för hela den ursprungliga strömmen.
+Om du själv vill ansluta en data ström med sig själv kan du ange ett alias för en befintlig ström med en SELECT-omvandling. Skapa en ny gren genom att klicka på plus ikonen bredvid en omvandling och välja **ny gren**. Lägg till en SELECT-omvandling för att ange alias för den ursprungliga strömmen. Lägg till en kopplings omvandling och välj den ursprungliga data strömmen som **vänster ström** och välj omvandlingen som **rätt data ström**.
 
 ![Själv koppling](media/data-flow/selfjoin.png "Själv koppling")
 
-I diagrammet ovan är Select Transform överst. Allt det gör är att aliasa den ursprungliga strömmen till "OrigSourceBatting". I den markerade kopplings transformeringen nedan kan du se att vi använder den här valda Ali Aset som höger koppling, så att vi kan referera till samma nyckel i både den vänstra & högra sidan av den inre kopplingen.
+## <a name="testing-join-conditions"></a>Testa kopplings villkor
 
-## <a name="composite-and-custom-keys"></a>Sammansatta och anpassade nycklar
+När du testar kopplings Transformationerna med data förhands granskning i fel söknings läge, använder du en liten uppsättning kända data. När du samplar rader från en stor data uppsättning kan du inte förutsäga vilka rader och nycklar som ska läsas för testning. Resultatet är icke-deterministiskt, vilket innebär att dina kopplings villkor inte kan returnera några träffar.
 
-Du kan bygga anpassade och sammansatta nycklar direkt i Join-omvandlingen. Lägg till rader för ytterligare kopplings kolumner med plus tecknet (+) bredvid varje Relations rad. Eller beräkna ett nytt nyckel värde i uttrycks verktyget för ett kopplings värde på farten.
+## <a name="data-flow-script"></a>Skript för data flöde
+
+### <a name="syntax"></a>Syntax
+
+```
+<leftStream>, <rightStream>
+    join(
+        <conditionalExpression>,
+        joinType: { 'inner'> | 'outer' | 'left_outer' | 'right_outer' | 'cross' }
+        broadcast: { 'none' | 'left' | 'right' | 'both' }
+    ) ~> <joinTransformationName>
+```
+
+### <a name="inner-join-example"></a>Exempel på inre koppling
+
+Exemplet nedan är en JOIN-omvandling med namnet `JoinMatchedData` som tar vänster ström `TripData` och direkt uppspelnings `TripFare`.  Kopplings villkoret är det uttryck `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` som returnerar true om kolumnerna `hack_license`, `medallion`, `vendor_id` och `pickup_datetime` i varje data ström matchar. @No__t_0 är `'inner'`. Vi aktiverar sändning i endast den vänstra strömmen så `broadcast` har ett värde `'left'`.
+
+I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
+
+![Exempel på koppling](media/data-flow/join-script1.png "Exempel på koppling")
+
+Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
+
+```
+TripData, TripFare
+    join(
+        hack_license == { hack_license}
+        && TripData@medallion == TripFare@medallion
+        && vendor_id == { vendor_id}
+        && pickup_datetime == { pickup_datetime},
+        joinType:'inner',
+        broadcast: 'left'
+    )~> JoinMatchedData
+```
+
+### <a name="cross-join-example"></a>Exempel på kors koppling
+
+Exemplet nedan är en JOIN-omvandling med namnet `CartesianProduct` som tar vänster ström `TripData` och direkt uppspelnings `TripFare`. Den här omvandlingen tar i två strömmar och returnerar en kartesiska-produkt av sina rader. Kopplings villkoret är `true()` eftersom en fullständig kartesiska-produkt matas ut. @No__t_0 i `cross`. Vi aktiverar sändning i endast den vänstra strömmen så `broadcast` har ett värde `'left'`.
+
+I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
+
+![Exempel på koppling](media/data-flow/join-script2.png "Exempel på koppling")
+
+Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
+
+```
+TripData, TripFare
+    join(
+        true(),
+        joinType:'cross',
+        broadcast: 'left'
+    )~> CartesianProduct
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har anslutit till data kan du [skapa nya kolumner och lägga](data-flow-derived-column.md) [till data i ett mål data lager](data-flow-sink.md).
+När du har anslutit till data skapar du en [härledd kolumn](data-flow-derived-column.md) och [sinkar](data-flow-sink.md) dina data till ett mål data lager.

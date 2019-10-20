@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1453821561ab7bb361fbb3e5d57634cf23a7be2c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: f558ecf583c96f36b8bbee19c7c9cbb2ee57aa31
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310065"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596733"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Webbapp som loggar in användare – kod konfiguration
 
@@ -41,7 +41,7 @@ Välj den flik som motsvarar den plattform som du är intresse rad av:
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Kodfragment i den här artikeln och följande extraheras från den stegvisa självstudien för [ASP.net Core Web App, kapitel 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg).
+Kodfragment i den här artikeln och följande extraheras från den [stegvisa självstudien för ASP.net Core Web App, kapitel 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg).
 
 Du kanske vill referera till den här självstudien för fullständig implementerings information.
 
@@ -69,11 +69,11 @@ Du kanske vill referera till det här exemplet för fullständig implementerings
 
 Webb program som loggar in användare med Microsoft Identity Platform konfigureras vanligt vis via konfigurationsfiler. De inställningar som du behöver fylla i är:
 
-- molnet `Instance` om du vill att din app ska köras (till exempel i nationella moln)
-- mål gruppen i`tenantId`
+- moln `Instance` om du vill att din app ska köras (till exempel i nationella moln)
+- mål gruppen i `tenantId`
 - `clientId` för ditt program, som kopieras från Azure Portal.
 
-Ibland kan program parametrized av `authority`, som är sammanfogningen `instance` av och`tenantId`
+Ibland kan program parametrized av `authority`, vilket är `instance`s sammanfogning och `tenantId`
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -104,7 +104,7 @@ I ASP.NET Core finns de här inställningarna i filen [appSettings. JSON](https:
 }
 ```
 
-I ASP.net Core finns det en annan fil- [properties\launchSettings.JSON](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7) som innehåller URL:`applicationUrl`en () och SSL-`sslPort`porten () för ditt program och olika profiler.
+I ASP.NET Core finns det en annan fil- [properties\launchSettings.JSON](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7) som innehåller URL: en (`applicationUrl`) och SSL-porten (`sslPort`) för ditt program och olika profiler.
 
 ```Json
 {
@@ -136,7 +136,7 @@ I ASP.net Core finns det en annan fil- [properties\launchSettings.JSON](https://
 }
 ```
 
-I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. det vill säga för de två konfigurationsfilerna ovan skulle de vara `https://localhost:44321/signin-oidc` som `http://localhost:3110` applicationUrl, `sslPort` men `CallbackPath` har angetts (44321) och är `/signin-oidc` enligt definitionen i `appsettings.json`.
+I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. det vill säga för de två konfigurationsfilerna ovan, `https://localhost:44321/signin-oidc` att applicationUrl är `http://localhost:3110` men `sslPort` anges (44321) och `CallbackPath` är `/signin-oidc` enligt definitionen i `appsettings.json`.
   
 På samma sätt skulle utloggnings-URI: n vara inställd på `https://localhost:44321/signout-callback-oidc`.
 
@@ -164,11 +164,11 @@ I ASP.NET konfigureras programmet via [Web. config-](https://github.com/Azure-Sa
   </appSettings>
 ```
 
-I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. det vill säga. `https://localhost:44326/`
+I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. Det är `https://localhost:44326/`.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-I Java finns konfigurationen i filen [Application. Properties](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/resources/application.properties) , som finns under`src/main/resources`
+I Java finns konfigurationen i filen [Application. Properties](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/resources/application.properties) , som finns under `src/main/resources`
 
 ```Java
 aad.clientId=Enter_the_Application_Id_here
@@ -178,7 +178,7 @@ aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
 aad.redirectUriGraphUsers=http://localhost:8080/msal4jsample/graph/users
 ```
 
-I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha de redirectUris som definieras av programmet, det `http://localhost:8080/msal4jsample/secure/aad` vill säga och`http://localhost:8080/msal4jsample/graph/users`
+I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha de redirectUris som definieras av programmet, vilket är `http://localhost:8080/msal4jsample/secure/aad` och `http://localhost:8080/msal4jsample/graph/users`
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -210,11 +210,11 @@ Initierings koden skiljer sig beroende på plattform. För ASP.NET Core-och ASP.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-I ASP.net Core Web Apps (och webb-API: er) skyddas programmet eftersom du har ett `[Authorize]` attribut på styrenheterna eller styrenhets åtgärderna. Det här attributet kontrollerar att användaren är autentiserad. Koden som gör att programmet initieras finns i `Startup.cs` filen och, för att lägga till autentisering med Microsoft Identity Platform (tidigare Azure AD v 2.0), måste du lägga till följande kod. Kommentarerna i koden bör vara själv för klar Ande.
+I ASP.NET Core Web Apps (och webb-API: er) skyddas programmet eftersom du har ett `[Authorize]`-attribut på styrenheterna eller styrenhets åtgärderna. Det här attributet kontrollerar att användaren är autentiserad. Koden som gör att programmet initieras finns i `Startup.cs`-filen och för att lägga till autentisering med Microsoft Identity Platform (tidigare Azure AD v 2.0) måste du lägga till följande kod. Kommentarerna i koden bör vara själv för klar Ande.
 
   > [!NOTE]
-  > Om du startar ditt projekt med standard ASP.net Core-webbprojektet i Visual Studio `dotnet new mvc` eller använder `AddAzureAD` -metoden är tillgänglig som standard eftersom de relaterade paketen läses in automatiskt.
-  > Men om du skapar ett projekt från grunden och försöker använda koden nedan rekommenderar vi att du lägger till NuGet-paketet **"Microsoft. AspNetCore. Authentication. AzureAD. UI"** i projektet för att göra `AddAzureAD` metoden tillgängligt.
+  > Om du startar projektet med standard ASP.NET Core-webbprojektet i Visual Studio eller använder `dotnet new mvc` metoden `AddAzureAD` är tillgänglig som standard eftersom de relaterade paketen läses in automatiskt.
+  > Men om du skapar ett projekt från grunden och försöker använda koden nedan rekommenderar vi att du lägger till NuGet-paketet **"Microsoft. AspNetCore. Authentication. AzureAD. UI"** i projektet för att göra `AddAzureAD`-metoden tillgänglig.
   
 Följande kod är tillgänglig från [Start. cs # L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34)
 
@@ -241,7 +241,7 @@ public class Startup
     }
 ```
 
-Är en tilläggs metod som definieras i [Microsoft. Identity. Web/WebAppServiceCollectionExtensions. cs # L23.](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23) `AddMicrosoftIdentityPlatformAuthentication` Företaget
+@No__t_0 är en tilläggs metod som definierats i [Microsoft. Identity. Web/WebAppServiceCollectionExtensions. cs # L23](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23). Företaget
 
 - lägger till Autentiseringstjänsten
 - Konfigurera alternativ för att läsa konfigurations filen
@@ -252,7 +252,7 @@ public class Startup
 Förutom konfigurationen kan du ange när du anropar `AddMicrosoftIdentityPlatformAuthentication`:
 
 - namnet på konfigurations avsnittet (som standard AzureAD)
-- Om du vill spåra OpenIdConnect mellanprogram, som kan hjälpa dig att felsöka ditt webb program om autentiseringen inte fungerar: inställningen `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` till `true` visar hur information ska visas med en uppsättning ASP.net Core mellanprogram vara när den fortskrider från HTTP-svaret till användarens identitet i `HttpContext.User`.
+- Om du vill spåra OpenIdConnect mellanprogram, som kan hjälpa dig att felsöka ditt webb program om autentiseringen inte fungerar: om du anger `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` till `true` visas hur information skapas av en uppsättning ASP.NET Core mellanprogram som den förloppet från HTTP-svaret till användarens identitet i `HttpContext.User`.
 
 ```CSharp
 /// <summary>
@@ -313,7 +313,7 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
   ...
 ```
 
-`AadIssuerValidator` Klassen aktiverar att utfärdaren av token verifieras i många fall (v 1.0 eller v 2.0-token, en enskild klient eller flera klient program eller program som loggar in användare med sina personliga Microsoft-konton, i det offentliga Azure-molnet eller nationella moln). Den är tillgänglig från [Microsoft. Identity. Web/Resource/AadIssuerValidator. cs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
+@No__t_0-klassen gör att utfärdaren av token verifieras i många fall (v 1.0 eller v 2.0-token, en enskild klient eller ett program eller program för flera innehavare som loggar in användare med sina personliga Microsoft-konton, i det offentliga Azure-molnet eller i National moln). Den är tillgänglig från [Microsoft. Identity. Web/Resource/AadIssuerValidator. cs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -343,17 +343,17 @@ Koden som är relaterad till autentisering i ASP.NET webb program/webb-API: er f
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Java-exemplet använder våren-ramverket. Programmet skyddas eftersom du implementerar ett `Filter`, vilket fångar varje http-svar. I snabb starten av Java-webbappen finns `AuthFilter` `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`det här filtret. Filtret bearbetar OAuth 2,0 Authorization Code Flow och därför:
+Java-exemplet använder våren-ramverket. Programmet skyddas eftersom du implementerar ett `Filter`, vilket fångar varje HTTP-svar. I snabb starten av Java-webbappen är det här filtret `AuthFilter` i `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`. Filtret bearbetar OAuth 2,0 Authorization Code Flow och därför:
 
 - verifierar om användaren är autentiserad (`isAuthenticated()` metod)
 - Om användaren inte är autentiserad, beräknar den URL: en för Azure AD-auktoriserans slut punkter och omdirigerar webbläsaren till denna URI
 - När svaret anländer, som innehåller det auth Code-flöde som kan msal4j förvärva token.
 - När den slutligen tar emot token från token-slutpunkten (på omdirigerings-URI: n) är användaren inloggad.
 
-Mer information finns `doFilter()` i metoden i [AuthFilter. java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)
+Mer information finns i `doFilter()`-metoden i [AuthFilter. java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)
 
 > [!NOTE]
-> Koden för `doFilter()` är skriven i en något annorlunda ordning, men flödet är det som beskrivs.
+> Koden för `doFilter()` skrivs i en något annorlunda ordning, men flödet är det som beskrivs.
 
 Se [Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow](v2-oauth2-auth-code-flow.md) för information om auktoriseringskod som utlöses av den här metoden
 
@@ -381,5 +381,24 @@ Session(app)
 
 I nästa artikel får du lära dig hur du utlöser inloggning och utloggning.
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 > [!div class="nextstepaction"]
-> [Logga in och logga ut](scenario-web-app-sign-user-sign-in.md)
+> [Logga in och logga ut](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+> [!div class="nextstepaction"]
+> [Logga in och logga ut](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Logga in och logga ut](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Logga in och logga ut](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
+
+---

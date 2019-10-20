@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/17/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5b6ec913226f44a47bfa5c734e0c20ef3a87ca67
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1480418a70166887e7327452d407f78c2c992378
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329434"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597307"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar
 
@@ -191,7 +191,7 @@ Om din Log Analytics arbets yta har åtkomst till äldre pris nivåer kan du än
 2. Välj **pris nivå**under **Allmänt**i fönstret arbets yta.  
 
 3. Välj en pris nivå under **pris nivå**och klicka sedan på **Välj**.  
-    ![Selected pris plan @ no__t-1
+    ![Selected pris plan ](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
 Du kan också [ställa in pris nivån via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) med parametern `sku` (`pricingTier` i arm-mallen). 
 
@@ -229,7 +229,7 @@ Heartbeat | where TimeGenerated > startofday(ago(31d))
 | render timechart
 ```
 
-Om du vill hämta en lista över datorer som kommer att faktureras som noder om arbets ytan är i pris nivån bakåtkompatibelt per nod, letar du efter noder som skickar **fakturerings data typer** (vissa data typer är kostnads fria). Det gör du genom att använda [egenskapen](log-standard-properties.md#_isbillable) `_IsBillable` och använda fältet längst till vänster i det fullständigt kvalificerade domän namnet. Detta returnerar listan över datorer med fakturerade data:
+Om du vill hämta en lista över datorer som kommer att faktureras som noder om arbets ytan är i pris nivån bakåtkompatibelt per nod, letar du efter noder som skickar **fakturerings data typer** (vissa data typer är kostnads fria). Det gör du genom att använda `_IsBillable` [egenskap](log-standard-properties.md#_isbillable) och använda fältet längst till vänster i det fullständigt kvalificerade domän namnet. Detta returnerar listan över datorer med fakturerade data:
 
 ```kusto
 union withsource = tt * 
@@ -268,7 +268,7 @@ På sidan **användning och uppskattade kostnader** visar diagrammet *data inmat
 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 Observera att satsen "Where fakturerbar = true" filtrerar bort data typer från vissa lösningar som det inte finns någon inmatnings avgift för. 
@@ -278,7 +278,7 @@ Du kan öka detalj nivån för att se data trender för vissa data typer, till e
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 ### <a name="data-volume-by-computer"></a>Data volym per dator
@@ -322,7 +322,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-För data från noder som finns i Azure kan du få **storleken** på fakturerbara händelser __per Azure-prenumeration__, parsa egenskapen `_ResourceId` som:
+För data från noder som finns i Azure kan du få **storleken** på fakturerbara händelser __per Azure-prenumeration__, parsa `_ResourceId`-egenskapen som:
 
 ```kusto
 union withsource = tt * 
@@ -428,7 +428,7 @@ Följande fråga har ett resultat när det finns fler än 100 GB data som har sa
 ```kusto
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type 
+| extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type 
 | where DataGB > 100
 ```
 
@@ -438,7 +438,7 @@ Följande fråga använder en enkel formel för att förutsäga när mer än 100
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
 | extend Type = $table 
-| summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type 
+| summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type 
 | where EstimatedGB > 100
 ```
 
@@ -451,7 +451,7 @@ När du skapar aviseringen för den första frågan--när det finns fler än 100
 - **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
 - **Aviseringskriterier** ange följande:
    - **Signalnamn** välj **Anpassad loggsökning**
-   - **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`
    - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
    - **Tidsperiod** på *1440* minuter och **Aviseringsfrekvens** var *60*:e minut eftersom användningsdata bara uppdateras en gång i timmen.
 - **Definiera aviseringsinformation** ange följande:
@@ -465,7 +465,7 @@ När du skapar aviseringen för den andra frågan--när mer än 100 GB data på 
 - **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
 - **Aviseringskriterier** ange följande:
    - **Signalnamn** välj **Anpassad loggsökning**
-   - **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`
    - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
    - **Tidsperiod** på *180* minuter och **Aviseringsfrekvens** var *60*:e minut eftersom användningsdata bara uppdateras en gång i timmen.
 - **Definiera aviseringsinformation** ange följande:

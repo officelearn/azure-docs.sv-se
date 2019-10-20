@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6e1ab2c2b02ab4279e95840135bdc87710cd66
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 56e5fb986431ec47a34b81491bc61b4c38a24e31
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551656"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592893"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -224,12 +224,14 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 > [!NOTE]
 > Global läsar roll har några begränsningar just nu –
 >
->* Administrations Center för SharePoint – administrations Center för SharePoint har inte stöd för rollen global läsare. Du ser inte SharePoint i det vänstra fönstret under administrations Center i [Microsoft 365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage)och du får åtkomst nekad när du försöker gå till *https://{Azure AD-organisationens namn}-admin.SharePoint.com*.
+>* Administrations Center för SharePoint – administrations Center för SharePoint har inte stöd för rollen global läsare. Du ser inte SharePoint i det vänstra fönstret under administrations Center i [Microsoft 365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>* [Administrations Center för OneDrive](https://admin.onedrive.com/) – administrations Center för OneDrive stöder inte rollen global läsare.
 >* [Azure AD-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) – den globala läsaren kan inte läsa etablerings läget för en företags app.
 >* [M365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage) – den globala läsaren kan inte läsa förfrågningar om kundsäkerhet. Du hittar inte fliken **Customer Locked-begäranden** under **stöd** i den vänstra rutan i M365 administrations Center.
 >* [M365 Security Center](https://security.microsoft.com/homepage) – den globala läsaren kan inte läsa känslighets-och lagrings etiketter. Du hittar inte **känslighets etiketter**, **lagrings etiketter**och **etikett Analytics** -flikar i den vänstra rutan i M365 Security Center.
 >* [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln**, analysera **& rapporter**, **hantering av IP-telefon enheter** och **program katalog**.
 >* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) stöder inte rollen global läsare.
+>* [Azure information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – global läsare stöds endast för [Central rapportering](https://docs.microsoft.com/azure/information-protection/reports-aip) och när din klient inte finns på den [enhetliga etiketterande plattformen](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > Dessa funktioner håller på att utvecklas.
 >

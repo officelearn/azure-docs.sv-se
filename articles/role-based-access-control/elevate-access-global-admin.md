@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 10/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 984284fa185d4d8454b1689a62ca9e08c342e33b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2fec017f80758dbcf2a155c3535b9a3e028e4bd9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195113"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592702"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Utöka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper
 
@@ -47,7 +47,7 @@ Du bör ta bort den här utökade åtkomsten när du har gjort ändringarna som 
 
 ![Öka åtkomsten](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 Följ de här stegen för att öka åtkomsten för en global administratör med hjälp av Azure Portal.
 
@@ -65,6 +65,9 @@ Följ de här stegen för att öka åtkomsten för en global administratör med 
 
    När du ställer in växla till **Nej**tas rollen administratör för användar åtkomst i Azure RBAC bort från ditt användar konto. Du kan inte längre tilldela roller i alla Azure-prenumerationer och hanterings grupper som är associerade med den här Azure AD-katalogen. Du kan bara visa och hantera de Azure-prenumerationer och hanterings grupper som du har beviljats åtkomst till.
 
+    > [!NOTE]
+    > Om du använder [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)ändrar du inte växlingen till **Nej**om du inaktiverar roll tilldelningen. Om du vill behålla minst privilegie rad åtkomst rekommenderar vi att du ställer in den här växlingen på **Nej** innan du inaktiverar din roll tilldelning.
+    
 1. Spara inställningen genom att klicka på **Spara** .
 
    Den här inställningen är inte en global egenskap och gäller endast för den inloggade användaren. Du kan inte öka åtkomsten för alla medlemmar i rollen global administratör.
@@ -108,7 +111,7 @@ CanDelegate        : False
 
 ### <a name="remove-a-role-assignment-at-the-root-scope-"></a>Ta bort en roll tilldelning i rot omfånget (/)
 
-Följ dessa steg om du vill ta bort roll tilldelningen administratör för användar åtkomst för`/`en användare i rot omfånget ().
+Följ dessa steg om du vill ta bort roll tilldelningen administratör för användar åtkomst för en användare vid rot omfånget (`/`).
 
 1. Logga in som en användare som kan ta bort utökad åtkomst. Detta kan vara samma användare som användes för att höja åtkomsten eller en annan global administratör med utökad åtkomst i rot omfånget.
 
@@ -126,7 +129,7 @@ Följ dessa steg om du vill ta bort roll tilldelningen administratör för anvä
 
 Använd följande grundläggande steg för att öka åtkomsten för en global administratör med hjälp av REST API.
 
-1. Med rest, anrop `elevateAccess`, som ger dig rollen som administratör för användar åtkomst i rot omfånget (`/`).
+1. Använd REST, anropa `elevateAccess`, som ger dig rollen som administratör för användar åtkomst i rot omfånget (`/`).
 
    ```http
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
@@ -147,7 +150,7 @@ Använd följande grundläggande steg för att öka åtkomsten för en global ad
    }
    ```
 
-1. En administratör för användar åtkomst kan också ta bort roll tilldelningar i rot omfånget`/`().
+1. En administratör för användar åtkomst kan också ta bort roll tilldelningar i rot omfånget (`/`).
 
 1. Ta bort administratörs behörigheterna för användar åtkomst tills de behövs igen.
 
@@ -163,9 +166,9 @@ Du kan visa en lista över alla roll tilldelningar för en användare i rot omf�
 
 ### <a name="list-deny-assignments-at-the-root-scope-"></a>Visa lista över neka tilldelningar i rot omfånget (/)
 
-Du kan visa en lista över alla neka-tilldelningar för en användare vid rot`/`omfånget ().
+Du kan visa en lista över alla neka-tilldelningar för en användare vid rot omfånget (`/`).
 
-- Anropa get denyAssignments där `{objectIdOfUser}` är objekt-ID: t för den användare vars neka-tilldelningar du vill hämta.
+- Anropa GET denyAssignments där `{objectIdOfUser}` är objekt-ID: t för den användare vars neka-tilldelningar du vill hämta.
 
    ```http
    GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
@@ -173,7 +176,7 @@ Du kan visa en lista över alla neka-tilldelningar för en användare vid rot`/`
 
 ### <a name="remove-elevated-access"></a>Ta bort utökad åtkomst
 
-När du anropar `elevateAccess`skapar du en roll tilldelning för dig själv, så att du kan återkalla de behörigheterna som krävs för att ta bort tilldelningen.
+När du anropar `elevateAccess` skapar du en roll tilldelning för dig själv, så att du kan återkalla de behörigheter som krävs för att ta bort tilldelningen.
 
 1. Anropa [Get roleDefinitions](/rest/api/authorization/roledefinitions/get) där `roleName` är lika med administratör för användar åtkomst för att fastställa namn-ID för administratörs rollen för användar åtkomst.
 
@@ -216,18 +219,18 @@ När du anropar `elevateAccess`skapar du en roll tilldelning för dig själv, s�
     }
     ```
 
-    Spara ID: t från `name` parametern, i det här `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`fallet.
+    Spara ID: t från parametern `name`, i det här fallet `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. Du måste också ange roll tilldelningen för katalog administratören i katalog omfånget. Visa en lista med alla tilldelningar i `principalId` katalog omfånget för katalog administratören som gjorde höjningen av åtkomst anropet. Visar alla tilldelningar i katalogen för ObjectID.
+2. Du måste också ange roll tilldelningen för katalog administratören i katalog omfånget. Visa en lista med alla tilldelningar i katalog omfånget för `principalId` av katalog administratören som gjorde det utökade åtkomst anropet. Visar alla tilldelningar i katalogen för ObjectID.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >En katalog administratör bör inte ha många tilldelningar, om föregående fråga returnerar för många tilldelningar, kan du även fråga efter alla tilldelningar precis på katalogens omfattnings nivå och sedan filtrera resultaten:`GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >En katalog administratör bör inte ha många tilldelningar, om föregående fråga returnerar för många tilldelningar, kan du även fråga efter alla tilldelningar precis på katalogens omfattnings nivå och sedan filtrera resultaten: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-   1. Föregående anrop returnerar en lista över roll tilldelningar. Hitta roll tilldelningen där omfånget `"/"` är `roleDefinitionId` och slutar med det roll namn-ID som du hittade i steg `principalId` 1 och matchar katalog administratörens ObjectID. 
+   1. Föregående anrop returnerar en lista över roll tilldelningar. Hitta roll tilldelningen där omfånget är `"/"` och `roleDefinitionId` slutar med det roll namn-ID som du hittade i steg 1 och `principalId` matchar katalog administratörens objectId. 
     
       Exempel roll tilldelning:
 
@@ -253,9 +256,9 @@ När du anropar `elevateAccess`skapar du en roll tilldelning för dig själv, s�
        }
        ```
         
-      Spara sedan ID: t från `name` parametern, i det här fallet e7dd75bc-06F6-4E71-9014-ee96a929d099.
+      Spara sedan ID: t från `name`-parametern, i det här fallet e7dd75bc-06F6-4E71-9014-ee96a929d099.
 
-   1. Använd slutligen roll tilldelnings-ID: t för att ta bort `elevateAccess`tilldelningen som lagts till av:
+   1. Använd slutligen roll tilldelnings-ID: t för att ta bort tilldelningen som lagts till av `elevateAccess`:
 
       ```http
       DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01

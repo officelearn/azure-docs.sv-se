@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 10/17/2019
+ms.openlocfilehash: ab543ee8e379b89aaa9a1133bb75387ed9904002
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166219"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598402"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Övervaka Azure Database for MariaDB prestanda med Query Store
 
@@ -70,6 +70,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 ```
 
 ## <a name="finding-wait-queries"></a>Hitta väntande frågor
+
+> [!NOTE]
+> Väntande statistik bör inte aktive ras under arbets belastningen med hög belastning eller aktive ras på obestämd tid för känsliga arbets belastningar. <br>För arbets belastningar som körs med hög processor användning eller på servrar som kon figurer ATS med lägre virtuella kärnor bör du vara försiktig när du aktiverar väntande statistik. Den bör inte aktive ras på obestämd tid. 
 
 Väntande händelse typer kombinerar olika vänte händelser till buckets efter likhet. Frågearkivet innehåller vänte händelse typ, ett särskilt namn på wait-händelsen och frågan i fråga. Om du vill korrelera denna wait-information med frågans körnings statistik innebär det att du får en djupare förståelse för vad som bidrar till att fråga prestanda egenskaperna.
 
@@ -171,10 +174,10 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
-- Om en MariaDB-Server har parametern `default_transaction_read_only` på kan Frågearkivet inte samla in data.
+- Om en MariaDB-Server har parametern `default_transaction_read_only` på, kan Query Store inte samla in data.
 - Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor (\> = 6000 byte).
 - Kvarhållningsperioden för väntande statistik är 24 timmar.
-- Väntande statistik använder exempel på Värdejämföring för att avbilda en bråkdel av händelser. Frekvensen kan ändras med parametern `query_store_wait_sampling_frequency`.
+- Väntande statistik använder exempel på Värdejämföring för att avbilda en bråkdel av händelser. Frekvensen kan ändras med hjälp av parametern `query_store_wait_sampling_frequency`.
 
 ## <a name="next-steps"></a>Nästa steg
 

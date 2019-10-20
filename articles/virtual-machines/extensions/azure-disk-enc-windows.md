@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 11394f692765cc1df5db0eb5c0dd06425026505d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 00891122015bb3e6adb500b6f6c30fa031161b92
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092650"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598003"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption för Windows (Microsoft. Azure. Security. AzureDiskEncryption)
 
@@ -26,25 +26,19 @@ ms.locfileid: "70092650"
 
 Azure Disk Encryption utnyttjar BitLocker för att tillhandahålla fullständig disk kryptering på virtuella Azure-datorer som kör Windows.  Den här lösningen är integrerad med Azure Key Vault för att hantera disk krypterings nycklar och hemligheter i Key Vault-prenumerationen. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-En fullständig lista över krav finns i [Azure Disk Encryption](
-../../security/azure-security-disk-encryption-prerequisites.md)förutsättningar.
+En fullständig lista över krav finns i [Azure Disk Encryption för virtuella Linux-datorer](../linux/disk-encryption-overview.md), särskilt i följande avsnitt:
 
-### <a name="operating-system"></a>Operativsystem
-
-En lista över Windows-versioner som för närvarande finns i [Azure Disk Encryption förutsättningar](../../security/azure-security-disk-encryption-prerequisites.md).
-
-### <a name="internet-connectivity"></a>Internetanslutning
-
-Azure Disk Encryption kräver Internet anslutning för åtkomst till Active Directory-, Key Vault-, lagrings-och paket hanterings slut punkter.  Mer information om nätverks säkerhets inställningar finns i [Azure Disk Encryption](
-../../security/azure-security-disk-encryption-prerequisites.md)förutsättningar.
+- [Azure Disk Encryption för virtuella Linux-datorer](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Nätverks krav](../windows/disk-encryption-overview.md#networking-requirements)
+- [grupprincip krav](../windows/disk-encryption-overview.md#group-policy-requirements)
 
 ## <a name="extension-schemata"></a>Scheman för tillägg
 
 Det finns två scheman för Azure Disk Encryption: v 1.1, ett senare, rekommenderat schema som inte använder Azure Active Directory (AAD) egenskaper och v 0,1, ett äldre schema som kräver AAD-egenskaper. Du måste använda den schema version som motsvarar det tillägg som du använder: schema v 1.1 för AzureDiskEncryption-tillägget version 1,1, schema v 0,1 för AzureDiskEncryption-tillägget version 0,1.
 
-### <a name="schema-v11-no-aad-recommended"></a>Schema v 1.1: Ingen AAD (rekommenderas)
+### <a name="schema-v11-no-aad-recommended"></a>Schema v 1.1: ingen AAD (rekommenderas)
 
 Schemat v 1.1 rekommenderas och kräver inte Azure Active Directory egenskaper.
 
@@ -75,7 +69,7 @@ Schemat v 1.1 rekommenderas och kräver inte Azure Active Directory egenskaper.
 
 ### <a name="schema-v01-with-aad"></a>Schema v 0,1: med AAD 
 
-Schemat 0,1 kräver `aadClientID` och, antingen `aadClientSecret` eller `AADClientCertificate`.
+Schemat för 0,1 kräver `aadClientID` och antingen `aadClientSecret` eller `AADClientCertificate`.
 
 Använda `aadClientSecret`:
 
@@ -138,25 +132,25 @@ Använda `AADClientCertificate`:
 ```
 
 
-### <a name="property-values"></a>Egenskapsvärden
+### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värdet / exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
+| apiVersion | 2015-06-15 | datum |
+| Förläggare | Microsoft. Azure. Security | sträng |
+| typ | AzureDiskEncryptionForLinux | sträng |
 | typeHandlerVersion | 0,1, 1,1 | int |
-| (0,1-schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (0,1-schema) AADClientSecret | password | string |
-| (0,1-schema) AADClientCertificate | begäran | string |
-| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON-ordlista |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | url | string |
-| KeyVaultURL | url | string |
-| (valfritt) Passphrase | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| (0,1-schema) AADClientID | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | LED | 
+| (0,1-schema) AADClientSecret | lösenord | sträng |
+| (0,1-schema) AADClientCertificate | begäran | sträng |
+| DiskFormatQuery | {"dev_path": "", "namn": "", "FILE_SYSTEM": ""} | JSON-ordlista |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | sträng | 
+| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | sträng |
+| keyEncryptionKeyURL | url | sträng |
+| keyVaultURL | url | sträng |
+| valfritt Fraser | lösenord | sträng | 
+| sequenceVersion | uniqueidentifier | sträng |
+| volumeType | OS, data, alla | sträng |
 
 ## <a name="template-deployment"></a>Malldistribution
 Ett exempel på en mall distribution finns i [skapa en ny krypterad virtuell Windows-dator från Galleri avbildningen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
@@ -165,15 +159,15 @@ Ett exempel på en mall distribution finns i [skapa en ny krypterad virtuell Win
 
 Instruktioner finns i den senaste [Azure CLI-dokumentationen](/cli/azure/vm/encryption?view=azure-cli-latest). 
 
-## <a name="troubleshoot-and-support"></a>Felsökning och support
+## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Läs mer i [fel söknings guiden för Azure Disk Encryption](../../security/azure-security-disk-encryption-tsg.md).
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/community/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/community/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om tillägg finns i [tillägg för virtuella datorer och funktioner för Windows](features-windows.md).

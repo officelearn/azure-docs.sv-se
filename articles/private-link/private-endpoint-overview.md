@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937362"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592383"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -22,15 +22,15 @@ Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat 
  En privat slut punkt anger följande egenskaper: 
 
 
-|Egenskap  |Description |
+|Egenskap  |Beskrivning |
 |---------|---------|
-|Name    |    Ett unikt namn inom resurs gruppen.      |
-|Subnet    |  Under nätet för att distribuera och allokera privata IP-adresser från ett virtuellt nätverk. För under näts krav, se avsnittet begränsningar i den här artikeln.         |
+|Namn    |    Ett unikt namn inom resurs gruppen.      |
+|Undernät    |  Under nätet för att distribuera och allokera privata IP-adresser från ett virtuellt nätverk. För under näts krav, se avsnittet begränsningar i den här artikeln.         |
 |Privat länk resurs    |   Den privata länk resursen för att ansluta med resurs-ID eller alias i listan över tillgängliga typer. Ett unikt nätverks-ID skapas för all trafik som skickas till den här resursen.       |
 |Mål under resurs   |      Den under resurs som ska anslutas. Varje privat länk resurs typ har olika alternativ för att välja baserat på preferens.    |
 |Metod för godkännande av anslutning    |  Automatisk eller manuell. Utifrån rollbaserad åtkomst kontroll (RBAC) behörigheter kan din privata slut punkt godkännas automatiskt. Om du försöker ansluta till en privat länk resurs utan RBAC använder du den manuella metoden för att tillåta resursens ägare att godkänna anslutningen.        |
 |Begär ande meddelande     |  Du kan ange ett meddelande för begärda anslutningar som ska godkännas manuellt. Det här meddelandet kan användas för att identifiera en speciell begäran.        |
-|Anslutningsstatus   |   En skrivskyddad egenskap som anger om den privata slut punkten är aktiv. Endast privata slut punkter i ett godkänt tillstånd kan användas för att skicka trafik. Ytterligare tillstånd är tillgängliga: <br>-**Godkänd**: Anslutningen godkändes automatiskt eller manuellt och är redo att användas.</br><br>-**Väntar**: Anslutningen skapades manuellt och väntar på att godkännas av ägaren till den privata länk resursen.</br><br>-**Avvisad**: Anslutningen avvisades av ägaren till den privata länk resursen.</br><br>-**Frånkopplad**: Anslutningen togs bort av ägaren till den privata länk resursen. Den privata slut punkten blir informativ och bör tas bort för rensning. </br>|
+|Anslutningsstatus   |   En skrivskyddad egenskap som anger om den privata slut punkten är aktiv. Endast privata slut punkter i ett godkänt tillstånd kan användas för att skicka trafik. Ytterligare tillstånd är tillgängliga: <br>-**godkänd**: anslutningen godkändes automatiskt eller manuellt och är redo att användas.</br><br>-**väntar**: anslutningen skapades manuellt och väntar på att godkännas av ägaren till den privata länk resursen.</br><br>-**avvisad**: anslutningen avvisades av resurs ägaren för privata länkar.</br><br>-**frånkopplad**: anslutningen togs bort av ägaren till den privata länk resursen. Den privata slut punkten blir informativ och bör tas bort för rensning. </br>|
 
 Här följer några viktiga uppgifter om privata slut punkter: 
 - Med privat slut punkt kan du ansluta mellan konsumenter från samma VNet, regionalt peer-virtuella nätverk, globalt peered virtuella nätverk och lokalt med hjälp av [VPN](https://azure.microsoft.com/services/vpn-gateway/) eller [Express Route](https://azure.microsoft.com/services/expressroute/) och tjänster som drivs av en privat länk.
@@ -52,9 +52,9 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
  
 |Resurs namn för privat länk  |Resurstyp   |Under resurser  |
 |---------|---------|---------|
-|**Privat länk tjänst** (Din egen tjänst)   |  Microsoft. Network/privateLinkServices       | saknas |
-|**Azure SQL Database** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
-|**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
+|**Privat länk tjänst** (din egen tjänst)   |  Microsoft. Network/privateLinkServices       | saknas |
+|**Azure SQL Database** | Microsoft. SQL/Servers    |  SQL Server (sqlServer)        |
+|**Azure SQL Data Warehouse** | Microsoft. SQL/Servers    |  SQL Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)       |
  
@@ -121,7 +121,7 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 
 |Begränsning |Beskrivning |Åtgärd  |
 |---------|---------|---------|
-|Regler för nätverks säkerhets grupper (NSG) gäller inte för privat slut punkt    |NSG stöds inte för privata slut punkter. Medan undernät som innehåller den privata slut punkten kan ha NSG kopplade till sig, gäller inte reglerna för trafik som bearbetas av den privata slut punkten. Du måste ha [aktiverat tvingande nätverks principer](disable-private-endpoint-network-policy.md) för att distribuera privata slut punkter i ett undernät. NSG tillämpas fortfarande på andra arbets belastningar som finns i samma undernät.   | Styr trafiken genom att använda NSG regler för utgående trafik på käll klienter.        |
+|Regler för nätverks säkerhets gruppen (NSG) och användardefinierade vägar gäller inte för privat slut punkt    |NSG stöds inte för privata slut punkter. Medan undernät som innehåller den privata slut punkten kan ha NSG kopplade till sig, gäller inte reglerna för trafik som bearbetas av den privata slut punkten. Du måste ha [aktiverat tvingande nätverks principer](disable-private-endpoint-network-policy.md) för att distribuera privata slut punkter i ett undernät. NSG tillämpas fortfarande på andra arbets belastningar som finns i samma undernät. Vägar i alla klient under nät kommer att använda ett/32-prefix, och om du ändrar standarduppförandet för routning krävs ett liknande UDR  | Styr trafiken genom att använda NSG regler för utgående trafik på käll klienter. Distribuera enskilda vägar med/32-prefix för att åsidosätta privata slut punkts flöden        |
 |Det går inte att skapa privata slut punkter i undernät som är aktiverade för tjänst slut punkt eller specialiserade arbets belastningar    |Det går inte att distribuera privata slut punkter på undernät som är aktiverade för tjänst slut punkter eller undernät som har delegerats till specialiserade arbets belastningar|  Skapa ett separat undernät för att distribuera de privata slut punkterna.        |
 |privat slut punkt kan bara mappas till privata länk tjänst (kundens ägare) i samma region    |   Det går inte att ansluta till en privat länk tjänst från en annan region       |  Under för hands versionen måste du distribuera din privata länk tjänst i samma region.        |
 |  Peer-Virtual Network med enbart privata slut punkter stöds inte   |   När du ansluter till privata slut punkter på en peer-Virtual Network utan någon annan arbets belastning stöds inte       | Distribuera en enskild virtuell dator på peer-Virtual Network för att aktivera anslutningen |

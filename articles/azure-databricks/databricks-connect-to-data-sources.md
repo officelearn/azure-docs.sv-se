@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: c77d1d1a66d3ee92f5ad3f2016d2160831fa3ad9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9b44db3e8ffc02d211f7f97404f0cdd8d319fe03
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299311"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597495"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Anslut till data källor från Azure Databricks
 
@@ -31,9 +31,9 @@ I följande lista visas de data källor i Azure som du kan använda med Azure Da
 - [Azure SQL Database](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     Den här länken ger DataFrame-API: et för att ansluta till SQL-databaser med JDBC och hur du styr den parallella läsningen med hjälp av JDBC-gränssnittet. Det här avsnittet innehåller detaljerade exempel med Scala-API: et, med förkortade python-och Spark SQL-exempel i slutet.
-- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
+- [Azure Data Lake Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
-    Den här länken innehåller exempel på hur du använder Azure Active Directory tjänstens huvud namn för att autentisera med Data Lake Store. Den innehåller också anvisningar om hur du kommer åt data i Data Lake Store från Azure Databricks.
+    Den här länken innehåller exempel på hur du använder Azure Active Directory tjänstens huvud namn för att autentisera med Azure Data Lake Storage. Den innehåller också anvisningar om hur du kommer åt data i Azure Data Lake Storage från Azure Databricks.
 
 - [Azure Blob Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)
 

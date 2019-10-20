@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
 ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "70085672"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions distributions platser
@@ -33,16 +33,16 @@ Följande visar hur funktioner påverkas av växlings platser:
 
 Det finns ett antal fördelar med att använda distributions platser. I följande scenarier beskrivs vanliga användnings områden för fack:
 
-- **Olika miljöer för olika syfte**: Genom att använda olika platser får du möjlighet att särskilja App-instanser innan du växlar till produktion eller mellanlagrings plats.
-- Förvärmar: Att distribuera till en plats i stället för direkt till produktion gör att appen kan värmas innan Live. Dessutom minskar svars tiden för HTTP-utlösta arbets belastningar med hjälp av platser. Instanser värms upp före distributionen, vilket minskar kall starten för nyligen distribuerade funktioner.
-- **Enkel återgång**: Efter en växling med produktion har platsen med en tidigare mellanlagrad app nu den tidigare produktions appen. Om ändringarna som utbyts till produktions platsen inte är som du förväntar dig, kan du omedelbart omvända växlingen för att få din "senast fungerande instans" tillbaka.
+- **Olika miljöer i olika syfte**: med olika platser får du möjlighet att särskilja App-instanser innan du växlar till produktion eller mellanlagringsplats.
+- Att **förvärma**: distribution till en plats i stället för direkt till produktion gör att appen kan värmas innan Live. Dessutom minskar svars tiden för HTTP-utlösta arbets belastningar med hjälp av platser. Instanser värms upp före distributionen, vilket minskar kall starten för nyligen distribuerade funktioner.
+- **Enkel återgång**: efter en byte med produktion har platsen med en tidigare mellanlagrad app nu den tidigare produktions appen. Om ändringarna som utbyts till produktions platsen inte är som du förväntar dig, kan du omedelbart omvända växlingen för att få din "senast fungerande instans" tillbaka.
 
 ## <a name="swap-operations"></a>Växlings åtgärder
 
 Under en växling anses en plats vara källan och den andra målet. Käll platsen har instansen av programmet som används på mål platsen. Följande steg säkerställer att mål platsen inte upplever drift stopp under en växling:
 
 1. **Tillämpa inställningar:** Inställningar från mål platsen tillämpas på alla instanser av käll platsen. Produktions inställningarna tillämpas till exempel på mellanlagringsplatsen. De tillämpade inställningarna omfattar följande kategorier:
-    - [](#manage-settings) Platsspecifika appinställningar och anslutnings strängar (om tillämpligt)
+    - [Platsspecifika appinställningar och](#manage-settings) anslutnings strängar (om tillämpligt)
     - Inställningar för [kontinuerlig distribution](../app-service/deploy-continuous-deployment.md) (om aktive rad)
     - [App Service autentiseringsinställningar](../app-service/overview-authentication-authorization.md) (om den är aktive rad)
 
@@ -52,7 +52,7 @@ Under en växling anses en plats vara källan och den andra målet. Käll platse
 
 1. **Upprepa åtgärd:** Nu när käll platsen har för hands växlings appen tidigare på mål platsen, utför du samma åtgärd genom att tillämpa alla inställningar och starta om instanserna för käll platsen.
 
-Tänk på följande:
+Tänk på följande punkter:
 
 - Vid alla tidpunkter på växlings åtgärden sker initieringen av de växlade apparna på käll platsen. Mål platsen är online medan käll platsen förbereds, om växlingen lyckas eller inte.
 
@@ -111,8 +111,8 @@ Du kan växla mellan platser via [CLI](https://docs.microsoft.com/cli/azure/func
 
 1. Navigera till Function-appen
 1. Klicka på det käll plats namn som du vill byta
-1. På fliken *Översikt* klickar du på växlings knappen ![växling Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Verifiera konfigurations inställningarna för din växling och klicka ![på växlings växling Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. På fliken *Översikt* klickar du på **växlings** knappen ![Swap Azure Functions distributions plats ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. Kontrol lera konfigurations inställningarna för din växling och klicka på **byt** ![Swap Azure Functions distributions plats ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 Åtgärden kan ta en stund medan växlings åtgärden körs.
 
@@ -169,22 +169,22 @@ Använd följande steg för att ändra en platss App Service-plan:
 Azure Functions distributions fack har följande begränsningar:
 
 - Antalet tillgängliga fack för en app beror på planen. Förbruknings planen tillåts bara en distributions plats. Det finns ytterligare platser för appar som körs under App Service plan.
-- När en plats byts ut återställs nycklar för appar som har `AzureWebJobsSecretStorageType` en app-inställning `files`som är lika med.
+- När en plats byts ut återställs nycklar för appar som har en inställning för `AzureWebJobsSecretStorageType` app som är lika med `files`.
 - Det finns inga tillgängliga platser för Linux-förbruknings planen.
 
 ## <a name="support-levels"></a>Supportnivåer
 
 Det finns två nivåer av stöd för distributions platser:
 
-- **Allmän tillgänglighet (ga)** : Fullständigt stöd och godkänts för produktions användning.
-- För **hands version**: Stöds inte ännu, men förväntas komma att uppnå GA-status i framtiden.
+- **Allmän tillgänglighet (ga)** : fullständigt stöd för och godkänd användning av produktion.
+- För **hands version**: stöds inte ännu, men förväntas komma att uppnå GA-status i framtiden.
 
 | Operativ system/värd plan           | Support nivå     |
 | ------------------------- | -------------------- |
 | Windows-förbrukning       | Allmän tillgänglighet |
 | Windows Premium (för hands version) | Förhandsversion              |
 | Windows-dedikerad         | Allmän tillgänglighet |
-| Linux-förbrukning         | Stöds inte          |
+| Linux-förbrukning         | Stöd saknas          |
 | Linux Premium (för hands version)   | Förhandsversion              |
 | Linux-dedikerad           | Allmän tillgänglighet |
 

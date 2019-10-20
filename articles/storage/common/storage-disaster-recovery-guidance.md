@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671085"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595192"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Haveri beredskap och lagrings konto redundans (för hands version) i Azure Storage
 
@@ -47,16 +47,16 @@ Andra Azure Storage alternativ för redundans inkluderar zoner-redundant lagring
 
 Det är viktigt att utforma ditt program för hög tillgänglighet från start. Se dessa Azure-resurser för att få hjälp med att utforma ditt program och planera för haveri beredskap:
 
-* [Utforma elastiska program för Azure](https://docs.microsoft.com/azure/architecture/resiliency/): En översikt över viktiga begrepp för att utforma program med hög tillgänglighet i Azure.
-* [Tillgänglighets check lista](https://docs.microsoft.com/azure/architecture/checklist/availability): En check lista för att kontrol lera att ditt program implementerar bästa design praxis för hög tillgänglighet.
-* [Utforma hög tillgängliga program med RA-GRS](storage-designing-ha-apps-with-ragrs.md): Design Guide för att skapa program för att dra nytta av RA-GRS.
-* [Självstudier: Bygg ett program med hög tillgänglighet med Blob Storage @ no__t-0: En själv studie kurs som visar hur du skapar ett program med hög tillgänglighet som automatiskt växlar mellan slut punkter som fel och återställningar simuleras. 
+* [Utforma elastiska program för Azure](https://docs.microsoft.com/azure/architecture/resiliency/): en översikt över viktiga begrepp för att utforma program med hög tillgänglighet i Azure.
+* [Tillgänglighets check lista](https://docs.microsoft.com/azure/architecture/checklist/availability): en check lista för att kontrol lera att ditt program implementerar bästa design praxis för hög tillgänglighet.
+* [Utforma hög tillgängliga program med hjälp av RA-GRS](storage-designing-ha-apps-with-ragrs.md): design rikt linjer för att skapa program för att dra nytta av RA-GRS.
+* [Självstudie: skapa ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md): en själv studie kurs som visar hur du skapar ett program med hög tillgänglighet som automatiskt växlar mellan slut punkter som fel och återställningar simuleras. 
 
 Tänk också på följande rekommendationer för att upprätthålla hög tillgänglighet för dina Azure Storage data:
 
-* **Disk** Använd [Azure Backup](https://azure.microsoft.com/services/backup/) för att säkerhetskopiera de virtuella dator diskar som används av dina virtuella Azure-datorer. Överväg också att använda [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) för att skydda dina virtuella datorer i händelse av en regional katastrof.
+* **Diskar:** Använd [Azure Backup](https://azure.microsoft.com/services/backup/) för att säkerhetskopiera de virtuella dator diskar som används av dina virtuella Azure-datorer. Överväg också att använda [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) för att skydda dina virtuella datorer i händelse av en regional katastrof.
 * **Blockera blobbar:** Aktivera [mjuk borttagning](../blobs/storage-blob-soft-delete.md) för att skydda mot borttagningar på objekt nivå och skriv över eller kopiera block-blobar till ett annat lagrings konto i en annan region [med AZCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)eller [Azure Data flyttnings bibliotek](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* **Projektfiler** Använd [AzCopy](storage-use-azcopy.md) eller [Azure PowerShell](storage-powershell-guide-full.md) för att kopiera filer till ett annat lagrings konto i en annan region.
+* **Filer:** Använd [AzCopy](storage-use-azcopy.md) eller [Azure PowerShell](storage-powershell-guide-full.md) för att kopiera filer till ett annat lagrings konto i en annan region.
 * **Tabeller:** Använd [AzCopy](storage-use-azcopy.md) för att exportera tabell data till ett annat lagrings konto i en annan region.
 
 ## <a name="track-outages"></a>Spåra avbrott
@@ -119,8 +119,14 @@ Du kan starta ett konto vid fel från Azure Portal, PowerShell, Azure CLI eller 
 
 Det finns ett konto för redundans för alla kunder som använder GRS eller RA-GRS med Azure Resource Manager-distributioner. Generell användning v1, General-Purpose v2 och Blob Storage-konto typer stöds. redundansväxling av kontot är för närvarande tillgängligt i följande regioner:
 
-- USA, västra 2
+- Asien, östra
+- Sydostasien
+- Australien, östra
+- Australien, sydöstra
+- USA, centrala
+- USA, östra 2
 - USA, västra centrala
+- USA, västra 2
 
 För hands versionen är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
 
@@ -143,7 +149,7 @@ Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace
 
 Granska ytterligare överväganden som beskrivs i det här avsnittet för att förstå hur dina program och tjänster kan påverkas när du tvingar fram en redundansväxling under för hands versions perioden.
 
-#### <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
+#### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
 Virtuella Azure-datorer (VM) växlar inte över som en del av en redundansväxling av kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansväxlingen. 
 
@@ -170,7 +176,7 @@ Följande funktioner och tjänster stöds inte för för hands versionen av kont
 - Azure File Sync stöder inte redundans för lagrings konto. Lagrings konton som innehåller Azure-filresurser som används som moln slut punkter i Azure File Sync får inte växlas över. Om du gör det upphör synkroniseringen att fungera och det kan också leda till oväntad data förlust när det gäller nynivåbaserade filer.  
 - Det går inte att redundansväxla ett lagrings konto som innehåller arkiverade blobbar. Underhåll arkiverade blobbar i ett separat lagrings konto som du inte planerar att redundansväxla.
 - Det går inte att redundansväxla ett lagrings konto som innehåller Premium block-blobar. Lagrings konton som stöder Premium block-blobbar har för närvarande inte stöd för GEO-redundans.
-- När redundansväxlingen är klar slutar följande funktioner att fungera om den ursprungligen är aktive rad: [Händelse prenumerationer](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [livs cykel principer](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [Lagringsanalys loggning](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- När redundansväxlingen är klar slutar följande funktioner att fungera om den ursprungligen har Aktiver ATS: [händelse prenumerationer](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [livs cykel principer](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [Lagringsanalys loggning](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Kopiera data som ett alternativ till redundans
 
@@ -184,4 +190,4 @@ I extrema fall där en region försvinner på grund av en betydande katastrof ka
 
 * [Initiera en konto redundansväxling (för hands version)](storage-initiate-account-failover.md)
 * [Utforma högtillgängliga program med hjälp av RA GRS](storage-designing-ha-apps-with-ragrs.md)
-* [Självstudier: Bygg ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md) 
+* [Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md) 

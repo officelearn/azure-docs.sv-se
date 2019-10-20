@@ -1,23 +1,18 @@
 ---
 title: Visualisera data från Azure Monitor | Microsoft Docs
 description: Innehåller en översikt över tillgängliga metoder för att visualisera mått-och loggdata som lagras i Azure Monitor.
-author: bwren
-manager: carmonm
-editor: ''
-services: azure-monitor
-documentationcenter: azure-monitor
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 11/24/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6390384220830d473b56f4082a98dfaa8aa686d1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.date: 11/24/2018
+ms.openlocfilehash: c350cb1f8e7343f6d8e7a416aa0bba71388eaa86
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984194"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597841"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en översikt över tillgängliga metoder för att visualisera logg-och mått data som lagras i Azure Monitor.
@@ -74,7 +69,7 @@ Med [vyer i Azure Monitor](platform/view-designer.md) kan du skapa anpassade vis
 ## <a name="workbooks"></a>Arbetsböcker
 [Arbets böcker](../azure-monitor/app/usage-workbooks.md) är interaktiva dokument som ger djupgående insikter om dina data, undersökningar och samarbete i teamet. Vissa exempel där arbets böcker är användbara är fel söknings guider och incident Postmortem.
 
-![Arbetsbok](media/visualizations/workbook.png)
+![Boken](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Fördelar
 - Stöder både mått och loggar.

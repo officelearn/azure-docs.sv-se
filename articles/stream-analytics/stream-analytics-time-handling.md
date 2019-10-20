@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: c8517d4754d10b61f7ee4c8075830860e1d22864
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 10d300638f95fe275a23dfbc239f8f961f46b127
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172982"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598020"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Förstå tids hantering i Azure Stream Analytics
 
@@ -22,11 +22,11 @@ I den här artikeln diskuterar vi hur du kan göra design val för att lösa pra
 
 För att skapa en bättre bild av diskussionen, ska vi definiera vissa bakgrunds begrepp:
 
-- **Händelse tid**: Den tidpunkt då den ursprungliga händelsen inträffade. Till exempel när en rörlig bil på motorväg närmar sig en väg på väg.
+- **Händelse tid**: den tidpunkt då den ursprungliga händelsen inträffade. Till exempel när en rörlig bil på motorväg närmar sig en väg på väg.
 
-- **Bearbetnings tid**: Tiden då händelsen når bearbetnings systemet och observeras. Till exempel när en väg givare ser bilen och dator systemet tar en stund att bearbeta data.
+- **Bearbetnings tid**: den tidpunkt då händelsen når bearbetnings systemet och observeras. Till exempel när en väg givare ser bilen och dator systemet tar en stund att bearbeta data.
 
-- **Vattenstämpel**: En händelse tids markör som visar upp till vilka punkt händelser som har inträffat för strömnings processorn. Vattenstämplar gör att systemet visar klart förloppet för att mata in händelser. När data strömmar är av typen stoppa stoppas inkommande händelse data aldrig, så vattenstämplar anger förloppet till en viss punkt i data strömmen.
+- **Vattenstämpel**: en händelse tids markör som visar upp till vilka punkt händelser som har inträffat för strömnings processorn. Vattenstämplar gör att systemet visar klart förloppet för att mata in händelser. När data strömmar är av typen stoppa stoppas inkommande händelse data aldrig, så vattenstämplar anger förloppet till en viss punkt i data strömmen.
 
    Begreppet vattenstämpel är viktigt. Med vattenstämplar kan Stream Analytics fastställa när systemet kan producera fullständiga, korrekta och upprepnings bara resultat som inte behöver dras tillbaka. Bearbetningen kan göras på ett garanterat sätt som kan förutsägas och upprepas. Om till exempel en omräkning måste göras för vissa fel hanterings villkor är vattenstämplar säkra start-och slut punkter.
 
@@ -42,7 +42,7 @@ Stream Analytics ger användare två alternativ för att välja händelse tid:
 
    Användnings tiden är standard beteendet och används bäst för data lagrings scenarier där det inte finns någon temporal logik nödvändig.
 
-2. **Program tid** (även namngiven händelse tid)
+2. **Tillämpnings tid** (även namngiven händelse tid)
 
    Programmets tid tilldelas när händelsen genereras och är en del av händelse nytto lasten. Om du vill bearbeta händelser efter program tid använder du **timestamp by** -satsen i Select-frågan. Om **timestamp by** -satsen saknas bearbetas händelser efter införsel tid.
 
@@ -86,7 +86,7 @@ Som en del av justeringen anges händelsens **system. timestamp** till det nya v
 
 Den mekanism för generering av heuristisk vattenstämpel som beskrivs här fungerar bra i de flesta fall där tiden oftast är synkroniserad mellan olika händelse avsändare. I real tid, särskilt i många IoT-scenarier, har systemet emellertid lite kontroll över klockan på händelse avsändarna. Händelse avsändare kan vara alla typer av enheter i fältet, t. ex. olika versioner av maskin vara och program vara.
 
-I stället för att använda en global vattenstämpel för alla händelser i en indatamask, Stream Analytics har en annan mekanism som kallas under strömmar för att hjälpa dig. Du kan använda under strömmar i jobbet genom att skriva en jobb fråga som använder [**timestamp by**](/stream-analytics-query/timestamp-by-azure-stream-analytics) -satsen och nyckelordet **över**. Om du vill ange under data strömmen anger du ett nyckel kolumn namn efter **över** -nyckelordet, `deviceid`t. ex. ett, så att systemet använder tids principer för den kolumnen. Varje under data ström får sin egen oberoende vattenstämpel. Den här mekanismen är användbar för att tillåta generering av utdata i rätt tid vid hantering av stora klockor eller nätverks fördröjningar mellan händelse avsändare.
+I stället för att använda en global vattenstämpel för alla händelser i en indatamask, Stream Analytics har en annan mekanism som kallas under strömmar för att hjälpa dig. Du kan använda under strömmar i jobbet genom att skriva en jobb fråga som använder [**timestamp by**](/stream-analytics-query/timestamp-by-azure-stream-analytics) -satsen och nyckelordet **över**. Om du vill ange under data strömmen anger du ett nyckel kolumn namn efter **över** -nyckelordet, till exempel en `deviceid`, så att systemet tillämpar tids principer för den kolumnen. Varje under data ström får sin egen oberoende vattenstämpel. Den här mekanismen är användbar för att tillåta generering av utdata i rätt tid vid hantering av stora klockor eller nätverks fördröjningar mellan händelse avsändare.
 
 Under strömmar är en unik lösning som tillhandahålls av Azure Stream Analytics och som inte erbjuds av andra data behandlings system för strömning. Stream Analytics använder fönstret för sent införsel tolerans för inkommande händelser när under strömmar används. Standardvärdet (5 sekunder) är troligen för litet för enheter med Divergent-tidsstämplar. Vi rekommenderar att du börjar med 5 minuter och gör justeringar enligt mönster för enhets klock skevning.
 
@@ -137,7 +137,7 @@ Du kan se ett antal tids toleranss effekter för händelse ordning genom [Stream
 
 ## <a name="watermark-delay-details"></a>Fördröjnings information för vattenstämpel
 
-Fördröjnings måttet för **vattenstämpeln** beräknas som den tid då den bearbetade nodens klock klocka minus den största vatten märket har sett hittills. Mer information finns i [blogg inlägget](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/)för vattenstämpelns fördröjning.
+**Fördröjnings** måttet för vattenstämpeln beräknas som den tid då den bearbetade nodens klock klocka minus den största vatten märket har sett hittills. Mer information finns i [blogg inlägget för vattenstämpelns fördröjning](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/).
 
 Det kan finnas flera orsaker till att Metric-värdet är större än 0 under normal drift:
 
@@ -171,7 +171,7 @@ Följande bilder visar hur vattenstämplar fortskrider under olika förhållande
 
 I den här tabellen visas exempel data som visas i diagrammet nedan. Observera att händelse tiden och tiden för införseln varierar, ibland matchning och ibland inte.
 
-| Händelsetid | Införsel tid | DeviceId |
+| Tid för händelsen | Införsel tid | deviceId |
 | --- | --- | --- |
 | 12:07 | 12:07 | device1
 | 12:08 | 12:08 | device2
@@ -208,7 +208,7 @@ I den här bilden används följande toleranser:
 
    4. När den sjätte händelsen (device3) bearbetas, är ankomst tiden (12:17) och händelse tiden (12:12) under vatten märkes nivån. Händelse tiden justeras mot vatten märkes nivån (12:17).
 
-   5. När den nionde händelsen (device3) bearbetas, är ankomst tiden (12:27) 6 minuter före händelse tiden (12:21). Principen för sen införsel tillämpas. Händelse tiden justeras (12:22), som är ovanför vattenstämpeln (12:21), så att ingen ytterligare justering tillämpas.
+   5. När den tolfte händelsen (device3) bearbetas, är ankomst tiden (12:27) 6 minuter före händelse tiden (12:21). Principen för sen införsel tillämpas. Händelse tiden justeras (12:22), som är ovanför vattenstämpeln (12:21), så att ingen ytterligare justering tillämpas.
 
 2. Den andra illustrationen av vattenstämpeln förloppet utan en tidig införsel princip:
 

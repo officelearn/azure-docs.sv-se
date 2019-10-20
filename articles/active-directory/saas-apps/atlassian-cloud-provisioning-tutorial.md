@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Atlassian Cloud för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Atlassian Cloud för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Atlassian-molnet.
 services: active-directory
 documentationcenter: ''
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 0c3173841de25a30b84870332c7334a81773e84d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "68561584"
 ---
-# <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Atlassian Cloud för automatisk användar etablering
+# <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Atlassian Cloud för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i Atlassian-molnet och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Atlassian-molnet.
 
@@ -30,7 +30,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 > I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -53,7 +53,7 @@ Innan du konfigurerar Atlassian Cloud för automatisk användar etablering med A
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -65,7 +65,7 @@ Innan du konfigurerar Atlassian Cloud för automatisk användar etablering med A
 
 ## <a name="assigning-users-to-atlassian-cloud"></a>Tilldela användare till Atlassian-molnet
 
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Atlassian-molnet. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Atlassian-molnet genom att följa anvisningarna här:
 
@@ -82,7 +82,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Atlassian-molnet baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Atlassian-molnet genom att följa anvisningarna i självstudien om [Atlassian Cloud Single Sign-on](atlassian-cloud-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Atlassian-molnet genom att följa anvisningarna i [självstudien om Atlassian Cloud Single Sign-on](atlassian-cloud-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Konfigurera automatisk användar etablering för Atlassian Cloud i Azure AD:
 
@@ -104,13 +104,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för ditt Atlassian-molns konto. Exempel på dessa värden är:
 
-   * I fältet **klient-URL** fyller du i den angivna klient slut punkten som du tar emot från Atlassian, enligt beskrivningen i steg 6. Till exempel: `https://api.atlassian.com/scim/directory/{directoryId}`.
+   * I fältet **klient-URL** fyller du i den angivna klient slut punkten som du tar emot från Atlassian, enligt beskrivningen i steg 6. Exempel: `https://api.atlassian.com/scim/directory/{directoryId}`.
 
    * I fältet **hemlig token** fyller du i den hemliga token enligt beskrivningen i steg 6.
 
-6. Navigera till [Atlassian organisations chef](https://admin.atlassian.com) **> användar etablering** och klicka på **skapa en token**. Kopiera **URL: en för katalog basen** och Bearer-token till **klient-URL:** en och fältet för **hemliga token** .
+6. Navigera till [Atlassian organisations chef](https://admin.atlassian.com) **> användar etablering** och klicka på **skapa en token**. Kopiera **URL: en för katalog basen** och **Bearer-token** till **klient-URL:** en och fältet för **hemliga token** .
 
-    ![Atlassian Cloud etableringen](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian Cloud devisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
+    ![Atlassian moln etablering ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian moln etablering ](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
@@ -122,9 +122,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 
-10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Atlassian**-molnet.
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Atlassian-molnet**.
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
 
@@ -132,7 +132,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
 
-12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Atlassian**-molnet.
+12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Atlassian-molnet**.
 
     ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
 
@@ -156,7 +156,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Atlassian-molnet.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 

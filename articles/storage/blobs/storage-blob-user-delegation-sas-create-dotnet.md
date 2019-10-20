@@ -5,89 +5,58 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 59de768e75a88d7cfa5b68fa306d0e83f1aa0ba3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: c75a13a20c1dbb222db69145e24838deb111fb66
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671332"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595219"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med .NET (för hands version)
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-autentiseringsuppgifter för att skapa en användar Delegerings-sa för en behållare eller BLOB med [Azure Storage klient biblioteket för .net](https://www.nuget.org/packages/Azure.Storage.Blobs).
+Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-autentiseringsuppgifter för att skapa en användar Delegerings-sa för en behållare eller BLOB med Azure Storage klient biblioteket för .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
+## <a name="authenticate-with-the-azure-identity-library-preview"></a>Autentisera med Azure Identity Library (för hands version)
+
+Klient biblioteket för Azure Identity för .NET (för hands version) autentiserar ett säkerhets objekt. När din kod körs i Azure är säkerhets objekt en hanterad identitet för Azure-resurser.
+
+När din kod körs i utvecklings miljön kan autentiseringen hanteras automatiskt, eller så kan det krävas en webb läsar inloggning, beroende på vilka verktyg du använder. Microsoft Visual Studio stöder enkel inloggning (SSO), så att det aktiva Azure AD-användarkontot används automatiskt för autentisering. Mer information om SSO finns i [enkel inloggning till program](../../active-directory/manage-apps/what-is-single-sign-on.md).
+
+Andra utvecklingsverktyg kan bli ombedd att logga in via en webbläsare. Du kan också använda ett huvud namn för tjänsten för att autentisera från utvecklings miljön. Mer information finns i [skapa identitet för Azure-appen i portalen](../../active-directory/develop/howto-create-service-principal-portal.md).
+
+Efter autentiseringen får klient biblioteket för Azure Identity ett token-autentiseringsuppgifter. Den här token-autentiseringsuppgiften kapslas sedan i det tjänst klient objekt som du skapar för att utföra åtgärder mot Azure Storage. Biblioteket hanterar detta för sömlöst genom att hämta rätt autentiseringsuppgifter för token.
+
+Mer information om klient biblioteket för Azure Identity finns i [klient biblioteket för Azure Identity för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+
+## <a name="assign-rbac-roles-for-access-to-data"></a>Tilldela RBAC-roller för åtkomst till data
+
+När ett Azure AD-säkerhetsobjekt försöker få åtkomst till BLOB-data måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en RBAC-roll som ger åtkomst till BLOB-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **tilldela RBAC-roller för åtkomst rättigheter** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+
 ## <a name="install-the-preview-packages"></a>Installera för hands versions paketen
 
-I exemplen i den här artikeln används den senaste för hands versionen av Azure Storage klient biblioteket för Blob Storage. För att installera för hands versions paketet kör du följande kommando från NuGet Package Manager-konsolen:
+I exemplen i den här artikeln används den senaste för hands versionen av [Azure Storage klient biblioteket för Blob Storage](https://www.nuget.org/packages/Azure.Storage.Blobs). För att installera för hands versions paketet kör du följande kommando från NuGet Package Manager-konsolen:
 
-```
+```powershell
 Install-Package Azure.Storage.Blobs -IncludePrerelease
 ```
 
-I exemplen i den här artikeln används även den senaste för hands versionen av [klient biblioteket för Azure Identity för .net](https://www.nuget.org/packages/Azure.Identity/) för att autentisera med Azure AD-autentiseringsuppgifter. Klient biblioteket för Azure Identity autentiserar ett säkerhets objekt. Autentiserade säkerhets objekt kan sedan skapa användar Delegerings-SAS. Mer information om klient biblioteket för Azure Identity finns i [klient biblioteket för Azure Identity för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+I exemplen i den här artikeln används även den senaste för hands versionen av [klient biblioteket för Azure Identity för .net](https://www.nuget.org/packages/Azure.Identity/) för att autentisera med Azure AD-autentiseringsuppgifter. För att installera för hands versions paketet kör du följande kommando från NuGet Package Manager-konsolen:
 
-```
+```powershell
 Install-Package Azure.Identity -IncludePrerelease
 ```
 
-## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
-
-Om du vill autentisera med Azure AD-autentiseringsuppgifter via klient biblioteket för Azure Identity, använder du antingen ett tjänstens huvud namn eller en hanterad identitet som säkerhets objekt, beroende på var koden körs. Om din kod körs i en utvecklings miljö använder du ett huvud namn för tjänsten i test syfte. Om din kod körs i Azure använder du en hanterad identitet. Den här artikeln förutsätter att du kör kod från utvecklings miljön och visar hur du använder ett huvud namn för tjänsten för att skapa användar Delegerings-SAS.
-
-Om du vill skapa ett huvud namn för tjänsten med Azure CLI och tilldela en RBAC-roll, anropar du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Ange en Azure Storage data åtkomst roll som ska tilldelas det nya huvud namnet för tjänsten. Rollen måste omfatta åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Mer information om de inbyggda roller som finns för Azure Storage finns [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
-
-Ange dessutom omfånget för roll tilldelningen. Tjänstens huvud namn skapar användar Delegerings nyckeln, som är en åtgärd som utförs på lagrings kontots nivå, så att roll tilldelningen ska begränsas på lagrings kontots, resurs gruppens eller prenumerationens nivå. Mer information om RBAC-behörigheter för att skapa en användar Delegerings-SAS finns i avsnittet **tilldela behörigheter med RBAC** i [skapa en användar delegering SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
-
-Om du inte har tillräcklig behörighet för att tilldela en roll till tjänstens huvud namn kan du behöva be kontots ägare eller administratör att utföra roll tilldelningen.
-
-I följande exempel används Azure CLI för att skapa ett nytt huvud namn för tjänsten och tilldela rollen **Storage BLOB data Reader** till den med konto omfånget
-
-```azurecli-interactive
-az ad sp create-for-rbac \
-    --name <service-principal> \
-    --role "Storage Blob Data Reader" \
-    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
-```
-
-Kommandot `az ad sp create-for-rbac` returnerar en lista över egenskaper för tjänstens huvud namn i JSON-format. Kopiera värdena så att du kan använda dem för att skapa de miljövariabler som krävs i nästa steg.
-
-```json
-{
-    "appId": "generated-app-ID",
-    "displayName": "service-principal-name",
-    "name": "http://service-principal-uri",
-    "password": "generated-password",
-    "tenant": "tenant-ID"
-}
-```
-
-> [!IMPORTANT]
-> Det kan ta några minuter att sprida RBAC-roll tilldelningar.
-
-## <a name="set-environment-variables"></a>Ange miljövariabler
-
-Klient biblioteket för Azure Identity läser värden från tre miljövariabler vid körning för att autentisera tjänstens huvud namn. I följande tabell beskrivs det värde som ska anges för varje miljö variabel.
-
-|Miljövariabel|Value
-|-|-
-|`AZURE_CLIENT_ID`|App-ID för tjänstens huvud namn
-|`AZURE_TENANT_ID`|Tjänstens huvud namn för Azure AD-klient
-|`AZURE_CLIENT_SECRET`|Lösen ordet som genereras för tjänstens huvud namn
-
-> [!IMPORTANT]
-> När du har ställt in miljövariablerna stänger du och öppnar konsol fönstret igen. Om du använder Visual Studio eller en annan utvecklings miljö kan du behöva starta om utvecklings miljön för att den ska kunna registrera nya miljövariabler.
-
 ## <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
 
-Lägg till följande `using`-direktiv i koden för att använda för hands versionerna av Azure Identity och Azure Storage klient bibliotek.
+Lägg till följande `using` direktiv i din kod för att använda för hands versionerna av Azure Identity och Azure Storage klient bibliotek.
 
 ```csharp
 using System;
@@ -100,11 +69,11 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## <a name="authenticate-the-service-principal"></a>Autentisera tjänstens huvud namn
+## <a name="get-an-authenticated-token-credential"></a>Hämta autentiseringsuppgifter för autentiserad token
 
-Om du vill autentisera tjänstens huvud namn skapar du en instans av klassen [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . Konstruktorn `DefaultAzureCredential` läser de miljövariabler som du skapade tidigare.
+Skapa en instans av klassen [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) om du vill hämta en token-autentiseringsuppgifter som din kod kan använda för att auktorisera begär anden till Azure Storage.
 
-Följande kodfragment visar hur du hämtar autentiserade autentiseringsuppgifter och använder den för att skapa en tjänst klient för Blob Storage
+Följande kodfragment visar hur du hämtar autentiseringsuppgifter för autentiserade token och använder den för att skapa en tjänst klient för Blob Storage:
 
 ```csharp
 string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
@@ -221,7 +190,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 }
 ```
 
-## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Exempel: Läsa en blob med en användar Delegerings-SAS
+## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Exempel: läsa en blob med en användar Delegerings-SAS
 
 I följande exempel testas de användar Delegerings-SAS som skapades i föregående exempel från ett simulerat klient program. Om SAS är giltig kan klient programmet läsa innehållet i blobben. Om SAS är ogiltig, till exempel om den har upphört att gälla, returnerar Azure Storage felkod 403 (förbjuden).
 

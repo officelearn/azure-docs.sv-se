@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: b281344084cb558ab490e9e3c24774311ede7866
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: cba7102c39f9e5231a3fe726f2e4c74e814109f1
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529429"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597984"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera SQL Server kluster instans med Premium-filresurs på Azure Virtual Machines
 
@@ -45,7 +45,7 @@ Dessutom bör du ha en allmän förståelse för följande tekniker:
 - [Resurs grupper i Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med läget för [förenklad](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) hantering i [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Om du vill ändra från det fullständiga tilläggets läge till Lightweight tar du bort resursen "SQL Virtual Machine" för de virtuella correspinding-datorerna och registrerar dem sedan med resurs leverantören för SQL-VM i `lightweight` läge. När du tar bort en "SQL virtuell dator"-resurs med Azure Portal se till att avmarkera den aktuella virtuella datorn. Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för virtuella SQL-datorer när agenten har installerats om i läget för förenklad hantering.
+> För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med läget för [förenklad](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) hantering i [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Om du vill ändra från fullständigt tillägg till Lightweight tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med resurs leverantören för SQL-VM i [Lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) -läge. När du tar bort den **virtuella SQL-datorns** resurs med hjälp av Azure Portal avmarkerar du kryss rutan bredvid rätt virtuell dator. Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för virtuella SQL-datorer när agenten har installerats om i läget för [förenklad](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) hantering.
 
 ### <a name="workload-consideration"></a>Arbets belastnings överväganden
 

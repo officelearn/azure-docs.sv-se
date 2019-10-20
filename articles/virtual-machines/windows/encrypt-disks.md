@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: bee4b108d2747e8c386abe41dc61b5b19aecf4f5
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 87777d3a6abfeaeac74fd69126cc3e71e11be825
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828691"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597854"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Kryptera virtuella diskar på en virtuell Windows-dator
-Virtuella diskar i Azure kan krypteras för förbättrad säkerhet och efterlevnad för virtuella datorer. Diskar krypteras med hjälp av kryptografiska nycklar som skyddas i en Azure Key Vault. Du styr dessa kryptografiska nycklar och kan granska deras användning. Den här artikeln beskriver hur du krypterar virtuella diskar på en virtuell Windows-dator med hjälp av Azure PowerShell. Du kan också [kryptera en virtuell Linux-dator med hjälp av Azure CLI](../linux/disk-encryption-overview.md).
+Virtuella diskar i Azure kan krypteras för förbättrad säkerhet och efterlevnad för virtuella datorer. Diskar krypteras med hjälp av kryptografiska nycklar som skyddas i en Azure Key Vault. Du styr dessa kryptografiska nycklar och kan granska deras användning. Den här artikeln beskriver hur du krypterar virtuella diskar på en virtuell Windows-dator med hjälp av Azure PowerShell. Du kan också [kryptera virtuella Linux-datorer](../linux/disk-encryption-overview.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -146,4 +146,4 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur du hanterar en Azure Key Vault finns i [Konfigurera en Key Vault för virtuella datorer](key-vault-setup.md).
-* Mer information om disk kryptering, till exempel förbereda en krypterad virtuell dator som ska överföras till Azure finns i [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+* Mer information om disk kryptering, till exempel förbereda en krypterad virtuell dator som ska överföras till Azure finns i [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 78a5b180d6e1531ca3ea15fbd6ec040a90d75e5c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 9a21242cbb16466ed4c12746ff64bd7352925fed
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330771"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592801"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -67,7 +67,7 @@ En Lägg till-funktion har endast en **informations** mat ris, vilket krävs. So
 
 ### <a name="append-examples"></a>Lägg till exempel
 
-Exempel 1: ett **fält/värde** -par med ett icke- **[\*]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** för att ange IP-regler för ett lagrings konto. När aliaset som inte är **[\*]** är en matris, lägger effekterna till **värdet** som hela matrisen. Om matrisen redan finns inträffar en Deny-händelse från konflikten.
+Exempel 1: ett **fält/värde** -par med ett icke- **[\*]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. När det icke- **[\*]** aliaset är en matris, lägger effekterna till **värdet** som hela matrisen. Om matrisen redan finns inträffar en Deny-händelse från konflikten.
 
 ```json
 "then": {
@@ -82,7 +82,7 @@ Exempel 1: ett **fält/värde** -par med ett icke- **[\*]** - [alias](definition
 }
 ```
 
-Exempel 2: ett **fält/värde** -par med ett **[\*]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** för att ange IP-regler för ett lagrings konto. Genom att använda **[\*]** aliaset lägger du till **värdet** i en befintlig matris som kan användas. Om matrisen inte finns kommer den att skapas.
+Exempel 2: ett **fält/värde** -par med ett **[\*]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. Genom att använda **[\*]** -aliaset lägger du till **värdet** i en befintlig matris som kan användas. Om matrisen inte finns kommer den att skapas.
 
 ```json
 "then": {
@@ -152,7 +152,7 @@ Med egenskapen för **drifts** egenskaper kan du ändra flera taggar på olika s
         {
             "operation": "addOrReplace",
             "field": "tags['Dept']",
-            "field": "[parameters('DeptName')]"
+            "value": "[parameters('DeptName')]"
         }
     ]
 }
@@ -275,7 +275,7 @@ Egenskapen **information** för AuditIfNotExists-effekterna har alla under egens
   - Om **information. Type** är en resurs typ under **IF** -villkor-resursen, frågar principen efter resurser av den här **typen** inom omfånget för den utvärderade resursen. I annat fall är princip frågorna inom samma resurs grupp som den utvärderade resursen.
 - **Namn** (valfritt)
   - Anger det exakta namnet på resursen som ska matchas och gör att principen hämtar en specifik resurs i stället för alla resurser av den angivna typen.
-  - När villkors värden för **IF. Field. Type** och **then.** Type matchar, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]`. En [gransknings](#audit) funktion bör dock beaktas i stället.
+  - När villkors värden för **IF. Field. Type** och **then. details. Type** match, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]`. En [gransknings](#audit) funktion bör dock beaktas i stället.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchning av den relaterade resursen att komma från en annan resurs grupp.
   - Gäller inte om **typen** är en resurs som skulle ligga under villkors resursen **IF** .
@@ -346,7 +346,7 @@ Egenskapen **information** för DeployIfNotExists-effekterna har alla under egen
   - Startar genom att försöka hämta en resurs under villkors resursen **IF** , och sedan frågar i samma resurs grupp som villkors resursen **om** .
 - **Namn** (valfritt)
   - Anger det exakta namnet på resursen som ska matchas och gör att principen hämtar en specifik resurs i stället för alla resurser av den angivna typen.
-  - När villkors värden för **IF. Field. Type** och **then.** Type matchar, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]`.
+  - När villkors värden för **IF. Field. Type** och **then. details. Type** match, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]`.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchning av den relaterade resursen att komma från en annan resurs grupp.
   - Gäller inte om **typen** är en resurs som skulle ligga under villkors resursen **IF** .

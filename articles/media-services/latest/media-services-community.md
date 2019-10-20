@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: b8d3a26d015c129a04e54ba9633aa5d1ccfcacf8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f241ac3e1369e32a1f2a4b9ac80492094105ff8c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "69016115"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598350"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services-community  
 
@@ -28,11 +28,11 @@ På den här Azure Media Services community-sidan beskrivs olika sätt att stäl
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="discussion"></a>Diskussion
+## <a name="discussion"></a>Uppför
 
 ### <a name="twitter"></a>Twitter
 
-Du kan använda [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter-referensen för att kontakta oss eller följa uppdateringar på Twitter. [@AzureSupport](https://twitter.com/azuresupport) Använd Twitter-referensen för att begära support på Twitter.  
+Du kan använda [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter-referens för att kontakta oss eller följa uppdateringar på Twitter. Använd [@AzureSupport](https://twitter.com/azuresupport) Twitter-referens för att begära support på Twitter.  
 
 ### <a name="online-forums"></a>Onlineforum
 
@@ -45,10 +45,6 @@ MSDN är för närvarande Media Services Teams primära community-forum.
 Teamet övervakar också frågor som taggats på Stack Overflow med "Azure-Media-Services".
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
-
-## <a name="contact-the-team"></a>Kontakta teamet
-
-Azure Media Services Primary support-e-post är: **amshelp\@Microsoft.com**.
 
 ## <a name="next-steps"></a>Nästa steg
 

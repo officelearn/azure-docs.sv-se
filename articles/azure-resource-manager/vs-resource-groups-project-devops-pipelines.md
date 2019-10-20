@@ -4,14 +4,14 @@ description: Beskriver hur du konfigurerar en kontinuerlig integrering i Azure-p
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: ae896fa0820fbd25ed3f2d29c89fbcd56e7fd6f5
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9306ff8787a4e2b873cb11458a4cf9a10589bf6b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982446"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597505"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Integrera Resource Manager-mallar med Azure-pipeline
 
@@ -39,7 +39,7 @@ Den här artikeln förutsätter att Visual Studio-projektet och Azure DevOps-org
 
 ## <a name="create-pipeline"></a>Skapa pipeline
 
-1. Om du inte har lagt till en pipeline tidigare måste du skapa en ny pipeline. Välj pipeliner och **ny pipeline**från din Azure DevOps-organisation.
+1. Om du inte har lagt till en pipeline tidigare måste du skapa en ny pipeline. Välj **pipeliner** och **ny pipeline**från din Azure DevOps-organisation.
 
    ![Lägg till ny pipeline](./media/vs-resource-groups-project-devops-pipelines/new-pipeline.png)
 
@@ -71,25 +71,25 @@ steps:
   inputs:
     azureSubscription: 'demo-deploy-sp'
     ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' 
+    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
     azurePowerShellVersion: LatestVersion
 ```
 
-När du anger uppgiften till `AzurePowerShell@3`, använder pipelinen kommandon från AzureRM-modulen för att autentisera anslutningen. PowerShell-skriptet i Visual Studio-projektet använder som standard AzureRM-modulen. Om du har uppdaterat skriptet för att använda [AZ-modulen](/powershell/azure/new-azureps-module-az)anger du uppgiften till `AzurePowerShell@4`.
+När du ställer in uppgiften till `AzurePowerShell@3`, använder pipelinen kommandon från modulen AzureRM för att autentisera anslutningen. PowerShell-skriptet i Visual Studio-projektet använder som standard AzureRM-modulen. Om du har uppdaterat skriptet för att använda [AZ-modulen](/powershell/azure/new-azureps-module-az)anger du uppgiften till `AzurePowerShell@4`.
 
 ```yaml
 steps:
 - task: AzurePowerShell@4
 ```
 
-För `azureSubscription`, anger du namnet på den tjänst anslutning som du har skapat.
+Ange namnet på den tjänst anslutning som du har skapat för `azureSubscription`.
 
 ```yaml
 inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-För `scriptPath`anger du den relativa sökvägen från pipeline-filen till skriptet. Du kan titta på lagrings platsen för att se sökvägen.
+För `scriptPath` anger du den relativa sökvägen från pipeline-filen till skriptet. Du kan titta på lagrings platsen för att se sökvägen.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -139,7 +139,7 @@ Du kan välja den pipeline som körs för tillfället för att se information om
 
 ## <a name="copy-and-deploy-tasks"></a>Kopiera och distribuera uppgifter
 
-I det här avsnittet visas hur du konfigurerar kontinuerlig distribution genom att använda två aktiviteter för att mellanlagra artefakterna och distribuera mallen. 
+I det här avsnittet visas hur du konfigurerar kontinuerlig distribution genom att använda två aktiviteter för att mellanlagra artefakterna och distribuera mallen.
 
 Följande YAML visar [Azure File Copy-aktiviteten](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
 
@@ -157,13 +157,13 @@ Följande YAML visar [Azure File Copy-aktiviteten](/azure/devops/pipelines/tasks
     sasTokenTimeOutInMinutes: '240'
 ```
 
-Det finns flera delar av den här uppgiften att ändra för din miljö. `SourcePath` Anger platsen för artefakterna i förhållande till pipelin filen. I det här exemplet finns filerna i en mapp med namnet `AzureResourceGroup1` som är namnet på projektet.
+Det finns flera delar av den här uppgiften att ändra för din miljö. @No__t_0 anger platsen för artefakterna i förhållande till pipelin filen. I det här exemplet finns filerna i en mapp med namnet `AzureResourceGroup1` som var namnet på projektet.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
 ```
 
-För `azureSubscription`, anger du namnet på den tjänst anslutning som du har skapat.
+Ange namnet på den tjänst anslutning som du har skapat för `azureSubscription`.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
@@ -176,35 +176,45 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-Följande YAML visar distributions [uppgiften Azure-resurs grupp](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops):
+Följande YAML visar [distributions uppgiften för Azure Resource Manager mallar](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
   displayName: 'Deploy template'
   inputs:
-    azureSubscription: 'demo-deploy-sp'
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: 'demo-deploy-sp'
+    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'centralus'
+    location: 'Central US'
     templateLocation: 'URL of the file'
     csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
     csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    deploymentMode: 'Incremental'
 ```
 
-Det finns flera delar av den här uppgiften att ändra för din miljö. För `azureSubscription`, anger du namnet på den tjänst anslutning som du har skapat.
+Det finns flera delar av den här uppgiften att ändra för din miljö.
 
-```yaml
-azureSubscription: '<your-connection-name>'
-```
+- `deploymentScope`: Välj distributions område från alternativen: `Management Group`, `Subscription` och `Resource Group`. Använd **resurs grupp** i den här genom gången. Mer information om omfattningarna finns i [distributions omfång](./resource-group-template-deploy-rest.md#deployment-scope).
 
-För `resourceGroupName` och`location`anger du namn och plats för den resurs grupp som du vill distribuera till. Aktiviteten skapar resurs gruppen om den inte finns.
+- `ConnectedServiceName`: Ange namnet på den tjänst anslutning som du har skapat.
 
-```yaml
-resourceGroupName: '<resource-group-name>'
-location: '<location>'
-```
+    ```yaml
+    ConnectedServiceName: '<your-connection-name>'
+    ```
 
-Distributions aktiviteten länkar till en mall med `WebSite.json` namnet och en parameter fil med namnet webbplats. Parameters. JSON. Använd namnen på din mall och parameter-filer.
+- `subscriptionName`: ange prenumerations-ID för mål. Den här egenskapen gäller endast för distributions omfånget för resurs gruppen och bilden för prenumerations distribution.
+
+- `resourceGroupName` och `location`: Ange namn och plats för den resurs grupp som du vill distribuera till. Aktiviteten skapar resurs gruppen om den inte finns.
+
+    ```yaml
+    resourceGroupName: '<resource-group-name>'
+    location: '<location>'
+    ```
+
+Distributions aktiviteten länkar till en mall med namnet `WebSite.json` och en parameter fil med namnet webbplats. Parameters. JSON. Använd namnen på din mall och parameter-filer.
 
 Nu när du förstår hur du skapar aktiviteterna ska vi gå igenom stegen för att redigera pipelinen.
 
@@ -226,16 +236,20 @@ Nu när du förstår hur du skapar aktiviteterna ska vi gå igenom stegen för a
        outputStorageUri: 'artifactsLocation'
        outputStorageContainerSasToken: 'artifactsLocationSasToken'
        sasTokenTimeOutInMinutes: '240'
-   - task: AzureResourceGroupDeployment@2
-     displayName: 'Deploy template'
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       resourceGroupName: demogroup
-       location: 'centralus'
-       templateLocation: 'URL of the file'
-       csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-       csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-       overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    - task: AzureResourceGroupDeployment@2
+      displayName: 'Deploy template'
+      inputs:
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: 'demo-deploy-sp'
+        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'demogroup'
+        location: 'Central US'
+        templateLocation: 'URL of the file'
+        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
+        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
+        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+        deploymentMode: 'Incremental'
    ```
 
 1. Välj **Spara**.
@@ -250,4 +264,4 @@ Du kan välja den pipeline som körs för tillfället för att se information om
 
 ## <a name="next-steps"></a>Nästa steg
 
-Steg för steg-processen för att använda Azure-pipeliner med Resource Manager-mallar finns [i självstudie: Kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipeliner](resource-manager-tutorial-use-azure-pipelines.md).
+Stegvisa anvisningar för hur du använder Azure-pipeliner med Resource Manager-mallar finns i [självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipeliner](resource-manager-tutorial-use-azure-pipelines.md).

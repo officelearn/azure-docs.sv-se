@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6361814a30cc7d1bc9703dae8ddb14d955c1582d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514657"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598031"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -219,13 +219,13 @@ Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa 
 |USA, västra *        |LRS     |
 |USA, västra 2      |LRS, ZRS|
 
-\* som stöds för nya konton, har inte alla befintliga konton slutfört uppgraderings processen.
+\* som stöds för nya konton, har inte alla befintliga konton slutfört uppgraderings processen. Du kan kontrol lera om dina befintliga lagrings konton har slutfört uppgraderings processen genom att försöka [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
 
 För att hjälpa oss att prioritera nya regioner och funktioner kan du fylla i den här [undersökningen](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="enable-and-create-larger-file-shares"></a>Aktivera och skapa större fil resurser
 
-Om du vill börja använda större fil resurser kan du läsa artikeln [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
+Om du vill börja använda större fil resurser kan du läsa artikeln [så här aktiverar och skapar du stora fil resurser](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="data-growth-pattern"></a>Data tillväxt mönster
 

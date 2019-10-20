@@ -1,6 +1,6 @@
 ---
-title: Konfigurera princip för export för en NFS-volymen med hjälp av Azure NetApp filer | Microsoft Docs
-description: Beskriver hur du konfigurerar export för att styra åtkomsten till en NFS-volymen med hjälp av Azure NetApp filer
+title: Konfigurera export princip för en NFS-volym med Azure NetApp Files | Microsoft Docs
+description: Beskriver hur du konfigurerar export policy för att kontrol lera åtkomsten till en NFS-volym med hjälp av Azure NetApp Files
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: d73ac199df03f4d789db0634be1e926afc77e623
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61086195"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597554"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Konfigurera exportprincipen för en NFS-volym
 
-Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en Azure NetApp Files-volym. Exportera principen stöds endast för NFS-volymer. 
+Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en Azure NetApp Files-volym. Azure NetApp Files export policy stöder endast NFS-volymer.  Både NFSv3 och NFSv4 stöds. 
 
 ## <a name="steps"></a>Steg 
 
@@ -44,10 +44,6 @@ Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en 
         * Ingen åtkomst 
         * Läs- och skriv
         * Skrivskyddad
-
-    * **Protokoll**   
-        Ange vilket protokoll som ska användas för exportpolicyn.   
-        Azure NetApp Files exportera principen stöder för närvarande endast NFSv3.
 
     ![Exportpolicy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

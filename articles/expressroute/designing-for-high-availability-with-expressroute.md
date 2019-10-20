@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4984b30daf6170873cad9472bfed2d879af57efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "67466654"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Design för hög tillgänglighet med ExpressRoute
@@ -87,9 +87,9 @@ I den här artikeln diskuterade vi hur du utformar för hög tillgänglighet fö
 För design överväganden för att skapa Geo-redundant nätverks anslutning till Microsoft-stamnät som kan motstå katastrofer, som påverkar en hel region, se [design för haveri beredskap med ExpressRoute privat peering][DR].
 
 <!--Image References-->
-[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png  "Rekommenderat sätt att ansluta med ExpressRoute"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png  "Bästa senaste mil anslutnings anslutning"
-[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png  "NAT-alternativ"
+[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "rekommenderat sätt att ansluta med ExpressRoute"
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "bästa senaste mil anslutning"
+[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "NAT-alternativ"
 
 
 <!--Link References-->

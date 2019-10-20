@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 5823bed08e0fc2ed67dbbf3c58c39982f3a1897e
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: da6903aa9f51fbba00ca599805ff3213e9388dd1
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037273"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597939"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudier: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudie: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache HBase-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till olika kolumnserier i en HBase-tabell.
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 
 * Skapa ett [HDInsight HBase-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 
@@ -86,7 +86,7 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apac
 4. Visa tabellens innehåll:
     
     ```hbaseshell
-    scan 'Contacts'
+    scan 'Customers'
     ```
 
     ![HDInsight Hadoop HBase Shell-utdata](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
@@ -133,7 +133,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
    |---------|---------|
    |Principnamn  |  marketing_customers_contact   |
    |HBase-tabell   |  Kunder |
-   |HBase-kolumnserie   |  Kontakta |
+   |HBase-kolumnserie   |  Kontakt |
    |HBase-kolumn   |  * |
    |Välj grupp  | |
    |Välj användare  | marketing_user1 |
@@ -161,7 +161,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
    kinit sales_user1
    ```
 
-2. Öppna HBase-gränssnittet och Genomsök tabellen `Customers`.
+2. Öppna HBase-gränssnittet och skanna tabellen `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -203,7 +203,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
    kinit marketing_user1
    ```
 
-1. Öppna HBase-gränssnittet och Genomsök tabellen `Customers`:
+1. Öppna HBase-gränssnittet och skanna tabellen `Customers`:
 
     ```hbaseshell
     hbase shell
@@ -235,7 +235,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
 
 Om du inte planerar att fortsätta använda det här programmet tar du bort det HBase-kluster som du skapade med följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. I rutan **Sök** längst upp skriver du **HDInsight**. 
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 

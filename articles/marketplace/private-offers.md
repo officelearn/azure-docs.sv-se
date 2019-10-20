@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: 3d97fd167f0f946239d4de24bb180796ebb498d3
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: cd61a30ccc9de08c3f0950d811d0d10ec5cd842a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885871"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598379"
 ---
 # <a name="private-offers"></a>Privata erbjudanden
 
@@ -23,7 +23,7 @@ Privata erbjudanden på [Microsoft Azure Marketplace](https://azuremarketplace.m
 
 Företags kunder kan använda marknads platser online för att hitta, prova och köpa moln lösningar. Nu med privata erbjudanden kan utgivare använda Marketplace för privat delning av anpassade lösningar med riktade kunder med funktioner som företag kräver:
 
-- Med förhandlad *prissättning* kan utgivare utöka rabatter och priser utanför listan från offentligt tillgängliga erbjudanden.
+- Med *förhandlad prissättning* kan utgivare utöka rabatter och priser utanför listan från offentligt tillgängliga erbjudanden.
 - *Privata allmänna* villkor gör det möjligt för utgivare att skräddarsy villkor för en specifik kund.
 - *Specialiserade konfigurationer* gör att utgivare skräddarsyr sina Virtual Machines, Azure-program och SaaS-appar till en enskild kunds behov. Det här alternativet gör det också möjligt för utgivare att tillhandahålla för hands versions åtkomst till nya produkt funktioner innan de lanseras för alla kunder.
 
@@ -49,6 +49,9 @@ Privata erbjudanden kan bara upptäckas via [Azure Portal](https://azure.microso
 ![[Privata erbjudanden]](./media/marketplace-publishers-guide/private-offer.png)
 
 Privata erbjudanden visas också i Sök resultaten. Titta bara efter "privat"-märket.
+
+>[!Note]
+>Privata erbjudanden stöds inte med prenumerationer som upprättats via en åter försäljare av Cloud Solution Provider-programmet (CSP).
 
 ## <a name="next-steps"></a>Nästa steg
 

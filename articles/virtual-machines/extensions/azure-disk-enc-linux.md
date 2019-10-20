@@ -13,36 +13,31 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 6a81f105f9632a7ca7e2bf7188e358274020c78f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1801ca8bd59153de81ef680253da229e2bd4a338
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084772"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597874"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption för Linux (Microsoft. Azure. Security. AzureDiskEncryptionForLinux)
 
 ## <a name="overview"></a>Översikt
 
-Azure Disk Encryption utnyttjar del systemet dm-crypt i Linux för att tillhandahålla fullständig disk kryptering på [utvalda Azure Linux](https://aka.ms/adelinux)-distributioner.  Den här lösningen är integrerad med Azure Key Vault för att hantera disk krypterings nycklar och hemligheter.
+Azure Disk Encryption utnyttjar del systemet dm-crypt i Linux för att tillhandahålla fullständig disk kryptering på [utvalda Azure Linux-distributioner](https://aka.ms/adelinux).  Den här lösningen är integrerad med Azure Key Vault för att hantera disk krypterings nycklar och hemligheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-En fullständig lista över krav finns i [Azure Disk Encryption](
-../../security/azure-security-disk-encryption-prerequisites.md)förutsättningar.
+En fullständig lista över krav finns i [Azure Disk Encryption för virtuella Linux-datorer](../linux/disk-encryption-overview.md), särskilt i följande avsnitt:
 
-### <a name="operating-system"></a>Operativsystem
-
-Azure Disk Encryption stöds för närvarande på utvalda distributioner och versioner.  Se Azure Disk Encryption [operativ system som stöds: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) för listan över Linux-distributioner som stöds.
-
-### <a name="internet-connectivity"></a>Internetanslutning
-
-Azure Disk Encryption för Linux kräver Internet anslutning för åtkomst till Active Directory, Key Vault, lagring och paket hanterings slut punkter.  Mer information finns i [Azure Disk Encryption förutsättningar](../../security/azure-security-disk-encryption-prerequisites.md).
+- [Azure Disk Encryption för virtuella Linux-datorer](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Ytterligare krav för virtuell dator](../linux/disk-encryption-overview.md#additional-vm-requirements)
+- [Nätverks krav](../linux/disk-encryption-overview.md#networking-requirements)
 
 ## <a name="extension-schemata"></a>Scheman för tillägg
 
 Det finns två scheman för Azure Disk Encryption: v 1.1, ett senare, rekommenderat schema som inte använder Azure Active Directory (AAD) egenskaper och v 0,1, ett äldre schema som kräver AAD-egenskaper. Du måste använda den schema version som motsvarar det tillägg som du använder: schema v 1.1 för AzureDiskEncryptionForLinux-tillägget version 1,1, schema v 0,1 för AzureDiskEncryptionForLinux-tillägget version 0,1.
-### <a name="schema-v11-no-aad-recommended"></a>Schema v 1.1: Ingen AAD (rekommenderas)
+### <a name="schema-v11-no-aad-recommended"></a>Schema v 1.1: ingen AAD (rekommenderas)
 
 Schemat v 1.1 rekommenderas och kräver inte Azure Active Directory egenskaper.
 
@@ -72,7 +67,7 @@ Schemat v 1.1 rekommenderas och kräver inte Azure Active Directory egenskaper.
 
 ### <a name="schema-v01-with-aad"></a>Schema v 0,1: med AAD 
 
-Schemat 0,1 kräver `aadClientID` och, antingen `aadClientSecret` eller `AADClientCertificate`.
+Schemat för 0,1 kräver `aadClientID` och antingen `aadClientSecret` eller `AADClientCertificate`.
 
 Använda `aadClientSecret`:
 
@@ -135,25 +130,25 @@ Använda `AADClientCertificate`:
 ```
 
 
-### <a name="property-values"></a>Egenskapsvärden
+### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värdet / exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
+| apiVersion | 2015-06-15 | datum |
+| Förläggare | Microsoft. Azure. Security | sträng |
+| typ | AzureDiskEncryptionForLinux | sträng |
 | typeHandlerVersion | 0,1, 1,1 | int |
-| (0.1-schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (0,1-schema) AADClientSecret | password | string |
-| (0,1-schema) AADClientCertificate | begäran | string |
-| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON-ordlista |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | url | string |
-| valfritt KeyVaultURL | url | string |
-| Passphrase | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| (0,1-schema) AADClientID | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | LED | 
+| (0,1-schema) AADClientSecret | lösenord | sträng |
+| (0,1-schema) AADClientCertificate | begäran | sträng |
+| DiskFormatQuery | {"dev_path": "", "namn": "", "FILE_SYSTEM": ""} | JSON-ordlista |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | sträng | 
+| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | sträng |
+| keyEncryptionKeyURL | url | sträng |
+| valfritt KeyVaultURL | url | sträng |
+| Fraser | lösenord | sträng | 
+| sequenceVersion | uniqueidentifier | sträng |
+| volumeType | OS, data, alla | sträng |
 
 ## <a name="template-deployment"></a>Malldistribution
 
@@ -163,15 +158,15 @@ Ett exempel på en mall distribution finns i [Aktivera kryptering på en virtuel
 
 Instruktioner finns i den senaste [Azure CLI-dokumentationen](/cli/azure/vm/encryption?view=azure-cli-latest). 
 
-## <a name="troubleshoot-and-support"></a>Felsökning och support
+## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Information om fel sökning finns i [fel söknings guiden för Azure Disk Encryption](../../security/azure-security-disk-encryption-tsg.md).
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/community/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/community/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -269,6 +269,8 @@
         - name: Azure-pipelines för CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Schemalägga ML-pipelines i Python
+          href: how-to-schedule-pipelines.md
     - name: Hantera resurskvoter
       displayName: limits
       href: how-to-manage-quotas.md

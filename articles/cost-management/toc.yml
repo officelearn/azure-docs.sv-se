@@ -32,6 +32,8 @@
       items:
         - name: Tilldela åtkomst till data
           href: assign-access-acm-data.md
+        - name: Använda kostnadsanalys för vanliga uppgifter
+          href: cost-analysis-common-uses.md
         - name: Använda kostnadsaviseringar
           href: cost-mgt-alerts-monitor-usage-spending.md
         - name: Installera och konfigurera AWS-integrering

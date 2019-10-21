@@ -75,9 +75,9 @@
       href: functions-cli-samples.md
 - name: Begrepp
   items:
-    - name: Jämför version 1.x and 2.x
+    - name: Jämföra CLR-versioner
       href: functions-versions.md
-      displayName: 'migrate, migration'
+      displayName: 'migrate, migration, v3'
     - name: Premiumplan
       href: functions-premium-plan.md
     - name: Distributioner

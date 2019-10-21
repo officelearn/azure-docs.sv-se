@@ -39,6 +39,8 @@
           href: cache-best-practices.md
         - name: Metodtips för cachelagring på Azure-arkitektur
           href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+    - name: Så här fungerar redundans och korrigering
+      href: cache-failover.md
 - name: Instruktionsguider
   items:
     - name: Planera

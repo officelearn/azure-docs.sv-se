@@ -44,39 +44,8 @@
           href: data-encryption-best-practices.md
         - name: Vilande datakryptering
           href: encryption-atrest.md
-        - name: Diskkryptering för virtuella IaaS-datorer
-          items:
-            - name: Om Azure Disk Encryption
-              displayName: 'BitLocker, bek'
-              href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: Azure Disk Encryption
-              items:
-                - name: Krav för diskkryptering
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites'
-                - name: Diskkryptering för virtuella Windows-datorer
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows'
-                - name: Diskkryptering för virtuella Linux-datorer
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux'
-                - name: Diskkryptering med ordningsföljd för VM-skalningsuppsättningstillägg
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-extension-sequencing'
-                - name: Bilaga för diskkryptering
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-appendix'
-                - name: Vanliga frågor och svar om diskkryptering
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq'
-                - name: Felsökning
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg'
-                - name: Azure Disk Encryption med Azure AD-appen (tidigare version)
-                  displayName: active directory
-                  items:
-                    - name: Förutsättningar för diskkryptering med Azure AD-appen
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad'
-                    - name: Diskkryptering med Azure AD-appen för virtuella Windows-datorer
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows-aad'
-                    - name: Diskkryptering med Azure AD-appen för virtuella Linux-datorer
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad'
+        - name: Azure Disk Encryption för virtuella datorer och VM-skalningsuppsättningar
+          href: azure-disk-encryption-vms-vmss.md
     - name: Lagringssäkerhetsguide
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Customer Lockbox
@@ -154,13 +123,6 @@
           href: paas-applications-using-sql.md
     - name: IoT
       href: iot-overview.md
-      items:
-        - name: Metodtips för IoT-säkerhet
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-security-best-practices?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
-        - name: IoT-säkerhet
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-security-architecture?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
-        - name: Skydda distributionen av IoT
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-security-deployment?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Azure Service Fabric-säkerhet
       href: service-fabric-overview.md
       items:
@@ -273,8 +235,8 @@
           href: ../blueprints/ukofficial-iaaswa-overview.md
         - name: PaaS-webbprogram
           href: ../blueprints/ukofficial-paaswa-overview.md
-- name: White paper-faktablad
-  href: white-papers.md
+- name: Faktablad om säkerhet
+  href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
 - name: Säkerhetstjänster i Azure
   href: services-technologies.md
 - name: Tekniska översikter

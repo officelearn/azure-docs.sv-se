@@ -65,6 +65,8 @@
           href: notifications.md
         - name: Ta bort en hanterad domän
           href: delete-aadds.md
+        - name: Migrera från en klassisk distribution (förhandsversion)
+          href: migrate-from-classic-vnet.md
     - name: Säker Azure AD DS
       items:
         - name: Skydda din hanterade domän

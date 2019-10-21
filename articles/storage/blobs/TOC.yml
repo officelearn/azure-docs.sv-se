@@ -248,6 +248,16 @@
               href: storage-blob-containers-list.md
             - name: Hantera egenskaper och metadata (.NET)
               href: storage-blob-container-properties-metadata.md
+        - name: Skapa och hantera blobar
+          items:
+            - name: Visa en lista över blobar (.NET)
+              href: storage-blobs-list.md
+            - name: Hantera egenskaper och metadata för blobar (.NET)
+              href: storage-blob-properties-metadata.md
+            - name: Kopiera en blob (.NET)
+              href: storage-blob-copy.md
+            - name: Skapa och hantera ögonblicksbilder av blobar (.NET)
+              href: storage-blob-snapshots.md
         - name: Skydda blobdata
           items:
             - name: Bevilja åtkomst till blobdata

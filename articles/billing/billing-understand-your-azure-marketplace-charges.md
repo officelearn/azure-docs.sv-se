@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43986ce57b8d320beeae748d3b848cf9ef38744d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2803f8d659726ac95bcefa6191a816ed2b2dcb2d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718728"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375424"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Förstå dina kostnader för externa Azure-tjänster
 Externa tjänster publiceras av tredjepartsleverantörer av programvara på Azure Marketplace. Till exempel är SendGrid en extern tjänst som du kan köpa i Azure, men som inte publiceras av Microsoft. Vissa Microsoft-produkter säljs dock via Azure Marketplace.
 
 ## <a name="how-external-services-are-billed"></a>Så debiteras externa tjänster
 
-- Om du har ett [kundavtal med Microsoft](#check-access) debiteras dina tjänster från tredje part med resten av dina Azure-tjänster.
-- Om du inte har ett Microsoft-kundavtal debiteras dina externa tjänster separat från dina Azure-tjänster.
+- Om du har ett Microsoft-kundavtal (MCA) eller ett Microsoft-partneravtal debiteras dina tjänster från tredje part med resten av dina Azure-tjänster. [Kontrollera din typ av faktureringskonto](#check-billing-account-type) för att se om du har åtkomst till ett MCA eller MPA.
+- Om du inte har ett MCA eller MPA debiteras dina externa tjänster separat från dina Azure-tjänster.
 - Varje extern tjänst har en specifik faktureringsmodell. Vissa tjänster debiteras med användningsbaserad betalning, medan andra har fasta månadsavgifter.
 - Du kan inte använda månatliga kostnadsfria krediter för externa tjänster. Om du använder en Azure-prenumeration som ger rätt till [kostnadsfria krediter](https://azure.microsoft.com/pricing/spending-limits/) kan de inte användas för debiteringar från externa tjänster. När du etablerar en ny extern tjänst eller resurs visas en varning:
 
@@ -48,11 +48,11 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## <a name="view-and-download-invoices"></a>Visa och ladda ned fakturor
+## <a name="view-and-download-invoices-for-external-services"></a>Visa och ladda ned fakturor för externa tjänster
 
-Om du har ett [kundavtal med Microsoft](#check-access) finns dina avgifter från tredjepartsleverantörer på samma faktura som dina Azure-kostnader. Lär dig hur du [visar och laddar ned din Azure-faktura](billing-download-azure-invoice.md) från Azure-portalen för att se dina kostnader från tredjepartsleverantörer.
+Om du har ett Microsoft-kundavtal (MCA) eller ett Microsoft-partneravtal debiteras dina tjänster från tredje part med resten av dina Azure-tjänster. [Kontrollera din typ av faktureringskonto](#check-billing-account-type) för att se om du har åtkomst till ett MCA eller MPA. Om du har det kan du [visa och ladda ned fakturor från Azure-portalen](billing-download-azure-invoice.md) för att se dina kostnader från tredjepartsleverantörer.
 
-Om du inte har något Microsoft-kundavtal får du separata fakturor för avgifter från tredjepartsleverantörer. Du kan visa och ladda ned dina Azure Marketplace-fakturor från Azure-portalen genom att följa dessa steg:
+Om du inte har något MCA eller MPA får du separata fakturor för avgifter från tredjepartsleverantörer. Du kan visa och ladda ned dina Azure Marketplace-fakturor från Azure-portalen genom att följa dessa steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter **Kostnadshantering + fakturering**.
@@ -108,8 +108,8 @@ Om du vill avbryta en beställning av en externa tjänst tar du bort resursen p�
     ![Ta bort resurs](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
 1. Klicka på **Ta bort**.
 
-## <a name="check-access"></a>Kontrollera åtkomst
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-billing-account-type"></a>Kontrollera typen av faktureringskonto
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

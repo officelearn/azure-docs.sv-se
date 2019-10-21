@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806340"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390164"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -40,11 +40,11 @@ För virtuella Windows-datorer och SQL Database kan du täcka licenskostnaderna 
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Vem är berättigad att köpa en reservation?
 
-Om du vill köpa en plan måste du ha en prenumerationsägarroll i en företagsprenumeration (MS-AZR-0017P eller MS-AZR-0148P) eller Betala per användning-prenumeration (MS-AZR-0003P eller MS-AZR-0023P). Molnlösningsleverantörer kan använda Azure-portalen eller  [Partnercenter](/partner-center/azure-reservations) för att köpa Azure-reservationer.
+Om du vill köpa en plan måste du ha rollen som prenumerationsägare för en Enterprise-prenumeration (MS-AZR-0017P eller MS-AZR-0148P), en Betala per användning-prenumeration (MS-AZR-0003P eller MS-AZR-0023P) eller en MCA-prenumeration (Microsoft-kundavtal). Molnlösningsleverantörer kan använda Azure-portalen eller  [Partnercenter](/partner-center/azure-reservations) för att köpa Azure-reservationer.
 
 Enterprise-avtalskunder (EA) kan begränsa köp till EA-administratörer genom att inaktivera alternativet **Lägg till reserverade instanser** i EA-portalen. EA-administratörer måste vara prenumerationsägare för minst en EA-prenumeration för att kunna köpa en reservation. Alternativet är användbart för företag som vill att ett centraliserat team ska köpa reservationer för olika kostnadsställen. Efter köpet kan centraliserade team lägga till ägare för kostnadsställe till reservationerna. Ägarna kan sedan omfångsanpassa reservationen till sina prenumerationer. Det centrala teamet behöver inte ha åtkomst som prenumerationsägare där reservationen köps.
 
-En reservationsrabatt gäller bara för resurser som är kopplade till prenumerationer som köpts via Enterprise- eller CSP-planer (Cloud Solution Provider) eller enskilda planer med Betala per användning-priser.
+En reservationsrabatt gäller bara för resurser som är kopplade till prenumerationer som köpts via Enterprise-, CSP-planer (Cloud Solution Provider), Microsoft-kundavtal eller individuella planer med Betala per användning-priser.
 
 ## <a name="scope-reservations"></a>Omfångsanpassa reservationer
 
@@ -55,8 +55,8 @@ Du kan omfångsanpassa en reservation till en prenumeration eller till resursgru
 Med omfångsanpassning av en reservation för resursgrupp har du tre alternativ beroende på dina behov:
 
 - **Omfång för enskild resursgrupp** – tillämpar reservationsrabatten på de matchande resurserna enkom i den valda resursgruppen.
-- **Omfång för enskild prenumeration** – tillämpar reservationsrabatten på de matchande resurserna i den valda prenumerationen.
-- **Delat omfång** – tillämpar reservationsrabatten på matchande resurser i berättigade prenumerationer som finns i faktureringskontexten. För Enterprise-avtalskunder utgörs faktureringskontexten av registreringen. För enskilda prenumerationer med Betala per användning-priser är faktureringsomfånget alla berättigade prenumerationer som skapats av kontoadministratören.
+- **Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.
+- **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För Enterprise-avtalskunder är det registreringen som är faktureringskontext. För kunder med Microsoft-kundavtal är faktureringsomfånget samma som faktureringsprofilen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
 
 När Azure tillämpar reservationsrabatter för din användning bearbetas reservationen i följande ordning:
 
@@ -84,7 +84,7 @@ Du kan alltid uppdatera omfånget efter att du har köpt en reservation. Det gö
 
 Du kan övervaka reservationsanvändningen på flera sätt – via Azure-portalen, API:er eller användningsdata. Om du vill se alla reservationer som du har åtkomst till går du till **Reservationer** i Azure-portalen. Reservationsrutnätet visar reservationens senast registrerade användningsprocentandel. Klicka på reservationen om du vill se dess långsiktiga användning.
 
-Du kan även få reservationsanvändning med hjälp av [API:er](billing-reservation-apis.md#see-reservation-usage) och från dina [användningsdata](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) om du är Enterprise-avtalskund.
+Du kan även få reservationsanvändning med hjälp av [API:er](billing-reservation-apis.md#see-reservation-usage) och från dina [användningsdata](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) om du är Enterprise-avtalskund eller har ett Microsoft-kundavtal.
 
 Om du märker att användningen av din reservation som omfångsanpassats för resursgrupp är låg kan du uppdatera reservationens omfång till enstaka prenumeration eller dela den över faktureringskontexten. Du kan även dela reservationen och tillämpa de resulterande reservationerna på olika resursgrupper.
 
@@ -99,6 +99,7 @@ Ett reservationsomfång uppdateras inte automatiskt om du flyttar resursgruppen 
 Reservationsrabatter gäller för följande berättigade prenumerationer och erbjudandetyper.
 
 - Enterprise-avtal (erbjudandenummer: MS-AZR-0017P eller MS-AZR-0148P)
+- MCA-prenumerationer (Microsoft-kundavtal).
 - Enskilda prenumerationsavtal med priser enligt principen betala per användning (erbjudandenummer: MS-AZR-0003P eller MS-AZR-0023P)
 - CSP-prenumerationer
 
@@ -106,7 +107,7 @@ Resurser som körs i en prenumeration med andra erbjudandetyper får inte reserv
 
 ## <a name="how-is-a-reservation-billed"></a>Hur faktureras en reservation?
 
-En reservation debiteras enligt den betalningsmetod som är kopplad till prenumerationen. Om du har en Enterprise-prenumeration dras reservationskostnaden från ditt saldo för ekonomiskt åtagande. När ditt saldo för ekonomiskt åtagande inte täcker kostnaden för reservationen debiteras du för överförbrukningen. Om du har en prenumeration från en enskild plan med Betala per användning-priser debiteras det kreditkort som du har på ditt konto omedelbart för förskottsköp. Månatliga betalningar visas på din faktura, och ditt kreditkort debiteras månatligen. När du faktureras per faktura visas avgifterna på nästa faktura.
+En reservation debiteras enligt den betalningsmetod som är kopplad till prenumerationen. Reservationskostnaden dras av från ditt saldo för ekonomiskt åtagande i förekommande fall. När ditt saldo för ekonomiskt åtagande inte täcker kostnaden för reservationen debiteras du för överförbrukningen. Om du har en prenumeration från en enskild plan med Betala per användning-priser debiteras det kreditkort som du har på ditt konto omedelbart för förskottsköp. Månatliga betalningar visas på din faktura, och ditt kreditkort debiteras månatligen. När du faktureras per faktura visas avgifterna på nästa faktura.
 
 ## <a name="how-reservation-discount-is-applied"></a>Så tillämpas reservationsrabatten
 
@@ -120,7 +121,7 @@ Du kan till exempel skapa en resurs senare och ha en matchande reservation som u
 
 Om de virtuella datorerna körs i olika prenumerationer i din registrering/ditt konto väljer du omfånget som delat. Delat omfång gör att reservationsrabatten kan tillämpas mellan prenumerationer. Du kan ändra omfånget efter att du har köpt en reservation. Mer information finns i [Hantera Azure-reservationer](billing-manage-reserved-vm-instance.md).
 
-En reservationsrabatt gäller bara för resurser som är kopplade till Enterprise- eller CSP-prenumerationer, eller prenumerationer med Betala per användning-priser. Resurser som körs i en prenumeration med andra erbjudandetyper får inte reservationsrabatten.
+En reservationsrabatt gäller bara för resurser som är kopplade till Enterprise-avtal, Microsoft-kundavtal, CSP:er eller prenumerationer med Betala per användning-priser. Resurser som körs i en prenumeration med andra erbjudandetyper får inte reservationsrabatten.
 
 ## <a name="when-the-reservation-term-expires"></a>När reservationsperioden upphör att gälla
 

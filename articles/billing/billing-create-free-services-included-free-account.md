@@ -10,19 +10,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ed69775de71a371153a888749efc9069389e61d5
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 90fa6b0db180ca93d9b57178c32c5e156ecc3bb0
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709693"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375810"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Skapa tjänster som ingår i det kostnadsfria Azure-kontot
 
-Ett kostnadsfritt Azure-konto innehåller en begränsad mängd kostnadsfria tjänster i 12 månader. Mer information finns i [Vad är ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/free-account-faq/). Azure håller koll på din användning av varje tjänst och debiterar inte dig såvida du inte överskrider gränserna. Inom dessa gränser får du av det kostnadsfria Azure-kontot flexibiliteten att använda olika tjänstkonfigurationer för att uppfylla dina behov.
+Ditt kostnadsfria Azure-konto har en begränsad mängd kostnadsfria tjänster under 12 månader. Inom dessa gränser kan du använda de kostnadsfria tjänsterna i olika konfigurationer för att uppfylla dina behov.
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Skapa kostnadsfria tjänster i Azure-portalen
-Vi rekommenderar att du använder [sidan för kostnadsfria tjänster](https://go.microsoft.com/fwlink/?linkid=859151) för att skapa nya tjänster. Eller så kan du logga in på [Azure-portalen](https://portal.azure.com), välja **Alla tjänster** till vänster och söka efter **kostnadsfria tjänster**.
+Vi rekommenderar att du använder länken till [sidan med kostnadsfria tjänster](https://go.microsoft.com/fwlink/?linkid=859151) när du ska skapa kostnadsfria tjänster. Eller så kan du logga in i [Azure-portalen](https://portal.azure.com) och söka efter **kostnadsfria tjänster**. När du skapar tjänster från sidan med kostnadsfria tjänster är de flesta av fälten förvalda så att du enkelt kan skapa kostnadsfria tjänster.
+
+![Skärmbild som visar sidan med kostnadsfria tjänster](./media/billing-create-free-services-included-free-account/billing-freeservices-grid.png)
 
 ## <a name="services-can-be-created-in-any-region"></a>Tjänster kan skapas i vilken region som helst
 Så länge som du är inom gränserna kan du skapa tjänster kostnadsfritt i valfri region där tjänsterna är tillgängliga. Du får till exempel 750 timmar med en virtuell B1S Windows-dator kostnadsfritt varje månad med ett kostnadsfritt Azure-konto. Du kan skapa den virtuella datorn i valfri region där virtuella datorer i B-serien är tillgängliga. Azure debiterar inte dig såvida du inte överskrider 750 timmar. Till exempel kan en kund i USA etablera en virtuell B1S Windows-dator i Europa, västra och använda den i 750 timmar utan kostnad.
@@ -37,5 +39,5 @@ Du kan skapa flera instanser av tjänster kostnadsfritt så länge summan av anv
 Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
-
+- Läs mer om att [Kontrollera användningen av kostnadsfria tjänster som ingår i ditt kostnadsfria Azure-konto](billing-check-free-service-usage.md).
 - Lär dig hur du [undviker att debiteras för ditt kostnadsfria Azure-konto](billing-avoid-charges-free-account.md).

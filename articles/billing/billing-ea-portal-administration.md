@@ -4,16 +4,16 @@ description: I den här artikeln förklaras några vanliga uppgifter som adminis
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f344436b1e1f1a97b981c1ead469d965b06a12ce
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035216"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329342"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -62,7 +62,7 @@ Tänk på följande när du ska överföra ett företagskonto till en ny registr
 
 Det effektiva överföringsdatumet kan vara antingen startdatumet för registreringen du vill överföra till eller något senare datum. Den registrering du överför till är _målregistreringen_. När kontot har överförts behålls all användningsinformation för kontot från tiden innan det effektiva överföringsdatumet i registreringen du överför från. Registreringen du överför från är _källregistreringen_.  Användning i källregistreringen debiteras mot det ekonomiska åtagandet eller som en överförbrukning. Användning efter det effektiva överföringsdatumet överförs till den nya registreringen och debiteras där.
 
-Du kan retroaktivt tidigarelägga en kontoöverföring ända tillbaka till målregistreringens startdatum. Alternativt till källregistreringens effektiva startdatum.
+Du kan retroaktivt tidigarelägga en registreringsöverföring ända tillbaka till målregistreringens startdatum. Alternativt ända till källregistreringens effektiva startdatum.
 
 ### <a name="monetary-commitment"></a>Ekonomiskt åtagande
 
@@ -212,12 +212,11 @@ Om ett meddelande till en användare uteblir gör du så här för att kontrolle
 ![Exempel som visar rutan Lägg till kontakt ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Azure-sponsringserbjudandet
+
 Azure-sponsringserbjudandet är ett begränsat, sponsrat Microsoft Azure-konto. Inbjudan skickas via e-post till ett begränsat antal kunder som väljs ut av Microsoft. Om du är berättigad till Microsoft Azure-sponsringserbjudandet så har du fått en e-postinbjudan till ditt konto-id.
+
 Mer information finns i:
 
-- Översikt över sponsringserbjudandet – https://azure.microsoft.com/en-us/offers/ms-azr-0143p/
-- Portalen för sponsringssaldon – https://www.microsoftazuresponsorships.com/balance  
-- Vanliga frågor och svar om sponsring – https://azuresponsorships-staging.azurewebsites.net/faq
 - Supportbegäran angående aktivering av sponsring – http://aka.ms/azrsponsorship
 
 ## <a name="next-steps"></a>Nästa steg

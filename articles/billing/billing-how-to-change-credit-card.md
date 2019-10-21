@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: banders
-ms.openlocfilehash: f89f9a08feb2ea2bcb7a9e8180002557df1d2b56
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e652237e6faa705aa3ea09e7cf80c4eb692acc98
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300299"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375594"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kreditkort för Azure
 
@@ -131,7 +131,7 @@ Om du vill byta standardbetalningsmetoden till check/banköverföring lär du di
 1. Välj ett befintligt kort eller lägg till ett nytt.
 
 ## <a name="troubleshooting"></a>Felsökning
-Om fel uppstår när du lägger till eller uppdaterar ditt kreditkort kan du prova att öppna webbläsaren i privat läge.
+Du kan inte använda virtuella eller förbetalda kort. Om du får felmeddelanden när du lägger till eller uppdaterar ett giltigt kreditkort kan du prova att öppna webbläsaren i privat läge.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 I följande avsnitt besvaras vanliga frågor om att ändra kreditkortsinformation.

@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 10/18/2019
 ms.author: spelluru
-ms.openlocfilehash: e2831191905da1b9e0ad55131be9eaa7aa13950e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842392ab425628a1c82a39e25a65066064747211
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777632"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675782"
 ---
-# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Självstudier: Spåra användning av ett labb i Azure Lab Services
+# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Självstudie: Spåra användning av ett labb i Azure Lab Services
 Den här kursen visar hur en labbskapare/ägare kan spåra användningen av ett labb.
 
-I de här självstudierna gör du följande:
+I den här självstudien gör du följande:
 
 > [!div class="checklist"]
 > * Visa användare som har registrerats med ditt labb
@@ -49,18 +49,11 @@ I de här självstudierna gör du följande:
     ![VM-användning](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Hantera virtuella studentdatorer 
-När du hovrar musen över en rad i listan med virtuella datorer ser du kontroller för att utföra följande uppgifter (enligt bilden i föregående avsnitt): 
-
-- Ansluta till en virtuell dator
-- Starta en virtuell dator
-- Stoppa en virtuell dator
-- Ta bort en virtuell dator
-
+På den här sidan kan du starta, stoppa eller återställa elev-VM: ar genom att antingen använda List rutan i kolumnen **status** eller knapparna i verktygsfältet. 
 
 ![Kontroller för virtuella datorer](../media/tutorial-track-usage/vm-controls.png)
 
 Du kan även använda verktygsfältsknappar för att starta, stoppa eller ta bort en virtuell dator. 
-
 
 
 ## <a name="next-steps"></a>Nästa steg

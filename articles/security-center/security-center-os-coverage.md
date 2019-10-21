@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bdb0322083f842922359f0c91da77f5df81613cb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201631"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675816"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -41,15 +41,15 @@ I följande avsnitt listas de serveroperativ system som stöds och som [Log Anal
 
 ### Windows Server-operativsystem<a name="os-windows"></a>
 
-* Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
-
-> [!NOTE]
-> Integrering med Microsoft Defender ATP stöder endast Windows Server 2012 R2 och Windows Server 2016.
+[!div class="mx-tableFixed"]
+|OS|Stöds av Azure Security Center|Stöd för integrering med Microsoft Defender ATP|
+|---|---|---|
+|Windows Server 2019|✔|X|
+|Windows Server 2016|✔|✔|
+|Windows Server 2012 R2|✔|✔|
+|Windows Server 2012|✔|✔|
+|Windows Server 2008 R2|✔|✔|
+|Windows Server 2008|✔|✔|
 
 Mer information om vilka funktioner som stöds för Windows-operativsystem som anges ovan finns i [funktioner för virtuell dator/server som stöds](security-center-services.md##vm-server-features).
 
@@ -94,25 +94,25 @@ Följande Azure PaaS-resurser stöds av Azure Security Center:
 * MySQL
 * CosmosDB
 * Lagringskonto
-* Apptjänst
+* App Service
 * Funktion
 * Molntjänst
-* Virtuellt nätverk
-* Subnet
-* Nätverkskort
+* VNet
+* Undernät
+* NIC
 * NSG
 * Batch-konto
 * Service Fabric-konto
 * Automation-konto
-* Lastbalanserare
-* Search
-* service bus namnrymd
-* Stream Analytics
-* Namnrymd för händelshubb
+* Load Balancer
+* Sök
+* Service Bus-namnrymd
+* Stream analytics
+* Namnområde för händelsehubb
 * Logikappar
 * Redis
 * Data Lake Analytics
-* Data Lake Store
+* Datasjölagring
 * Nyckelvalv
 
 Mer information om vilka funktioner som stöds för ovanstående lista över PaaS-resurser finns i [PaaS Services-funktioner som stöds](security-center-services.md#paas-services).

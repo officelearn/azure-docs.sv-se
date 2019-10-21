@@ -1,5 +1,5 @@
 ---
-title: Vad är parallella dokument? – Anpassade Translator
+title: Vad är parallella dokument? – Anpassad översättare
 titleSuffix: Azure Cognitive Services
 description: Parallella dokument är par med dokument där det ena är översättningen av det andra. Ett dokument i paret innehåller meningar i käll språket och det andra dokumentet innehåller de meningarna översatta till mål språket.
 author: swmachan
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595441"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675472"
 ---
 # <a name="what-are-parallel-documents"></a>Vad är parallella dokument?
 
@@ -23,7 +23,7 @@ Det spelar ingen roll vilket språk som har marker ATS som "källa" och vilket s
 
 ## <a name="requirements"></a>Krav
 
-Du behöver minst 10 000 unika parallella meningar för att träna ett system. Som bästa praxis kan du kontinuerligt lägga till mer Parallel-innehåll och omträna, för att förbättra kvaliteten på översättnings systemet.
+Du behöver minst 10 000 unika justerade parallella meningar för att träna ett system. Den här begränsningen är ett säkerhets nät för att se till att dina parallella meningar innehåller tillräckligt med unik vokabulär för att kunna träna en översättnings modell. Bästa praxis är att kontinuerligt lägga till mer Parallel-innehåll och omträna för att förbättra kvaliteten på ditt översättnings system. Se [menings justering](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
 Microsoft kräver att dokument som överförs till den anpassade översättaren inte bryter mot en tredje parts upphovs rätt eller immateriell egendom. Mer information finns i [användnings villkoren](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Att ladda upp ett dokument med hjälp av portalen ändrar inte ägande rätten till den immateriella egendomen i själva dokumentet.

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: iainfou
-ms.openlocfilehash: c0744335dd13a0e8c35826c9b7da6fa71094e01e
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
-ms.translationtype: HT
+ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600038"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674910"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>För hands version – migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager
 
@@ -40,7 +40,7 @@ I *migreringstabellen* kopieras de underliggande virtuella diskarna för domän 
 
 När du flyttar en Azure AD DS-hanterad domän med den här migreringsprocessen undviker du att behöva ansluta datorer till den hanterade domänen eller ta bort Azure AD DS-instansen och skapa en från grunden. De virtuella datorerna fortsätter att vara anslutna till den Azure AD DS-hanterade domänen i slutet av migreringsprocessen.
 
-Efter migreringen tillhandahåller Azure AD DS många funktioner som bara är tillgängliga för domäner som använder i virtuella Resource Manager-nätverk, till exempel:
+Efter migrering tillhandahåller Azure AD DS många funktioner som bara är tillgängliga för domäner som använder virtuella Resource Manager-nätverk, till exempel:
 
 * Stöd för detaljerade lösen ords principer.
 * Skydd för AD-konto utelåsning.
@@ -55,7 +55,8 @@ Azure AD DS-hanterade domäner som använder ett virtuellt Resource Manager-nät
 
 Några vanliga scenarier för migrering av en Azure AD DS-hanterad domän innehåller följande exempel.
 
-[!NOTE] Konvertera inte det klassiska virtuella nätverket förrän du har bekräftat en lyckad migrering. Att konvertera det virtuella nätverket tar bort alternativet att återställa eller återställa den hanterade Azure AD DS-domänen om det uppstår problem under migreringen och verifierings faserna.
+> [!NOTE]
+> Konvertera inte det klassiska virtuella nätverket förrän du har bekräftat en lyckad migrering. Att konvertera det virtuella nätverket tar bort alternativet att återställa eller återställa den hanterade Azure AD DS-domänen om det finns några problem under migreringen och verifierings faserna.
 
 ### <a name="migrate-azure-ad-ds-to-an-existing-resource-manager-virtual-network-recommended"></a>Migrera Azure AD DS till ett befintligt virtuellt Resource Manager-nätverk (rekommenderas)
 
@@ -133,7 +134,7 @@ Om du misstänker att vissa konton kan vara utelåsta efter migreringen beskrive
 
 ### <a name="roll-back-and-restore"></a>Återställa och återställa
 
-Om migreringen inte lyckas finns det en process för att återställa eller återställa en Azure AD DS-hanterad domän. Rollback är ett självbetjänings alternativ för att omedelbart returnera statusen för den hanterade domänen till innan migreringen. Azure-support tekniker kan också återställa en hanterad domän från en säkerhets kopia som en sista utväg. Mer information finns i återställa [eller återställa från en misslyckad migrering](#roll-back-and-restore).
+Om migreringen inte lyckas finns det en process för att återställa eller återställa en Azure AD DS-hanterad domän. Rollback är ett självbetjänings alternativ för att omedelbart returnera statusen för den hanterade domänen till innan migreringen. Azure-support tekniker kan också återställa en hanterad domän från en säkerhets kopia som en sista utväg. Mer information finns i återställa [eller återställa från en misslyckad migrering](#roll-back-and-restore-from-migration).
 
 ### <a name="restrictions-on-available-virtual-networks"></a>Begränsningar för tillgängliga virtuella nätverk
 
@@ -153,9 +154,9 @@ Migreringen till distributions modellen för Resource Manager och det virtuella 
 | Steg    | Utförd genom  | Beräknad tid  | Avbrott  | Återställa/återställa? |
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Steg 1 – uppdatera och leta upp det nya virtuella nätverket](#update-and-verify-virtual-network-settings) | Azure portal | 15 minuter | Ingen stillestånds tid krävs | Gäller inte |
-| [Steg 2 – förbereda den Azure AD DS-hanterade domänen för migrering](#prepare-the-managed-domain-for-migration) | PowerShell | 15 – 30 minuter i genomsnitt | Stillestånds tiden för Azure AD DS startar när kommandot har slutförts. | Återställa och återställa tillgängligt |
-| [Steg 3 – flytta den hanterade Azure AD DS-domänen till ett befintligt virtuellt nätverk](#migrate-the-managed-domain) | PowerShell | 1 – 3 timmar i genomsnitt | En domänkontrollant är tillgänglig när kommandot har slutförts. avbrotts tiden är slut. | Återställ endast |
-| [Steg 4 – testa och vänta på replik domänkontrollanten](#test-and-verify-connectivity-after-the-migration)| PowerShell och Azure Portal | 1 timme eller mer, beroende på antalet tester | Båda domän kontrol Lanterna är tillgängliga och bör fungera normalt. | Återställ endast |
+| [Steg 2 – förbereda den Azure AD DS-hanterade domänen för migrering](#prepare-the-managed-domain-for-migration) | PowerShell | 15 – 30 minuter i genomsnitt | Stillestånds tiden för Azure AD DS startar när kommandot har slutförts. | Återställa och återställa tillgängligt. |
+| [Steg 3 – flytta den hanterade Azure AD DS-domänen till ett befintligt virtuellt nätverk](#migrate-the-managed-domain) | PowerShell | 1 – 3 timmar i genomsnitt | En domänkontrollant är tillgänglig när kommandot har slutförts. avbrotts tiden är slut. | Vid ett haveri är både återställningen (självbetjäning) och återställning tillgängliga. |
+| [Steg 4 – testa och vänta på replik domänkontrollanten](#test-and-verify-connectivity-after-the-migration)| PowerShell och Azure Portal | 1 timme eller mer, beroende på antalet tester | Båda domän kontrol Lanterna är tillgängliga och bör fungera normalt. | Ej tillämpligt. När den första virtuella datorn har migrerats finns det inget alternativ för att återställa eller återställa. |
 | [Steg 5 – valfria konfigurations steg](#optional-post-migration-configuration-steps) | Azure Portal och virtuella datorer | Gäller inte | Ingen stillestånds tid krävs | Gäller inte |
 
 > [!IMPORTANT]
@@ -171,7 +172,7 @@ Innan du påbörjar migreringen slutför du följande inledande kontroller och u
 
 1. Skapa eller Välj ett befintligt virtuellt Resource Manager-nätverk.
 
-    Kontrol lera att nätverks inställningarna inte blockerar nödvändiga portar som krävs för Azure AD DS. Portarna måste vara öppna både i det klassiska virtuella nätverket och i det virtuella Resource Manager-nätverket. De här inställningarna omfattar routningstabeller och nätverks säkerhets grupper.
+    Kontrol lera att nätverks inställningarna inte blockerar nödvändiga portar som krävs för Azure AD DS. Portarna måste vara öppna både i det klassiska virtuella nätverket och i det virtuella Resource Manager-nätverket. De här inställningarna inkluderar routningstabeller (även om det inte rekommenderas att använda routningstabeller) och nätverks säkerhets grupper.
 
     Om du vill visa de portar som krävs, se [nätverks säkerhets grupper och nödvändiga portar][network-ports]. För att minimera nätverks kommunikations problem rekommenderar vi att du väntar och tillämpar en nätverks säkerhets grupp eller en routningstabell i det virtuella Resource Manager-nätverket när migreringen har slutförts.
 
@@ -189,7 +190,7 @@ Azure PowerShell används för att förbereda den Azure AD DS-hanterade domänen
 
 Slutför följande steg för att förbereda den Azure AD DS-hanterade domänen för migrering:
 
-1. Installera `Migrate-Aaads`-modulen från [PowerShell-galleriet][powershell-script]. Detta PowerShell-migreringsjobb är ett digitalt signerat av Azure AD Engineering-teamet.
+1. Installera `Migrate-Aaads`-skriptet från [PowerShell-galleriet][powershell-script]. Detta PowerShell-migreringsjobb är ett digitalt signerat av Azure AD Engineering-teamet.
 
     ```powershell
     Install-Script -Name Migrate-Aadds
@@ -246,7 +247,7 @@ Migreringsprocessen fortsätter att köras, även om du avslutar PowerShell-skri
 
 När migreringen är klar kan du Visa den första domänkontrollantens IP-adress i Azure Portal eller genom Azure PowerShell. En tids uppskattning på den andra domänkontrollanten som är tillgänglig visas också.
 
-Som det här steget kan du flytta andra befintliga resurser från den klassiska distributions modellen och det virtuella nätverket. Eller så kan du behålla resurserna i den klassiska distributions modellen och peer-koppla de virtuella nätverken till varandra när Azure AD DS-migreringen är klar.
+I det här skedet kan du också flytta andra befintliga resurser från den klassiska distributions modellen och det virtuella nätverket. Eller så kan du behålla resurserna i den klassiska distributions modellen och peer-koppla de virtuella nätverken till varandra när Azure AD DS-migreringen är klar.
 
 ## <a name="test-and-verify-connectivity-after-the-migration"></a>Testa och verifiera anslutningen efter migreringen
 
@@ -266,7 +267,7 @@ Testa nu den virtuella nätverks anslutningen och namn matchningen. På en virtu
 1. Verifiera namn matchning för den hanterade domänen, till exempel `nslookup contoso.com`
     * Ange DNS-namnet för din egen Azure AD DS-hanterade domän för att kontrol lera att DNS-inställningarna är korrekta och att de löses.
 
-Den andra domänkontrollanten bör vara tillgänglig 1-2 timmar efter att migreringen av cmdleten har slutförts. Kontrol lera om den andra domänkontrollanten är tillgänglig genom att titta på **egenskaps** sidan för den hanterade Azure AD DS-domänen i Azure Portal. Om två IP-adresser visas är den andra domänkontrollanten klar.
+Den andra domänkontrollanten bör vara tillgänglig 1-2 timmar efter att migrerings-cmdleten har slutförts. Kontrol lera om den andra domänkontrollanten är tillgänglig genom att titta på **egenskaps** sidan för den hanterade Azure AD DS-domänen i Azure Portal. Om två IP-adresser visas är den andra domänkontrollanten klar.
 
 ## <a name="optional-post-migration-configuration-steps"></a>Valfria konfigurations steg efter migreringen
 
@@ -294,16 +295,16 @@ Vid behov kan du uppdatera den detaljerade lösen ords principen så att den är
 
 #### <a name="creating-a-network-security-group"></a>Skapa en nätverks säkerhets grupp
 
-Azure AD DS skapar en nätverks säkerhets grupp som öppnar de portar som behövs för den hanterade domänen och blockerar all annan inkommande trafik. Den här nätverks säkerhets gruppen fungerar som ett extra skydds lager för att låsa åtkomsten till den hanterade domänen. Den här nätverks säkerhets gruppen ska skapas automatiskt. Om inte, eller om du behöver öppna ytterligare portar går du igenom följande steg:
+Azure AD DS behöver en nätverks säkerhets grupp för att skydda de portar som behövs för den hanterade domänen och blockera all annan inkommande trafik. Den här nätverks säkerhets gruppen fungerar som ett extra skydds lager för att låsa åtkomsten till den hanterade domänen och skapas inte automatiskt. Granska följande steg för att skapa nätverks säkerhets gruppen och öppna de portar som krävs:
 
-1. I Azure Portal väljer du din Azure AD DS-resurs. På sidan Översikt visas en knapp för att skapa en nätverks säkerhets grupp om ingen är kopplad till Azure AD Domain Services
+1. I Azure Portal väljer du din Azure AD DS-resurs. På sidan Översikt visas en knapp för att skapa en nätverks säkerhets grupp om ingen är kopplad till Azure AD Domain Services.
 1. Om du använder säker LDAP lägger du till en regel i nätverks säkerhets gruppen för att tillåta inkommande trafik för *TCP* -port *636*. Mer information finns i [Konfigurera säker LDAP][secure-ldap].
 
-## <a name="roll-back-and-restore"></a>Återställa och återställa
+## <a name="roll-back-and-restore-from-migration"></a>Återställa och återställa från migrering
 
 ### <a name="roll-back"></a>Återställ
 
-Om PowerShell-cmdleten för att förbereda för migrering i steg 2 Miss lyckas kan den hanterade Azure AD DS-domänen återställa till den ursprungliga konfigurationen. Det ursprungliga klassiska virtuella nätverket krävs för att återställa den här återställningen. Observera att IP-adresserna kanske fortfarande ändras efter återställningen.
+Om det uppstår ett fel när du kör PowerShell-cmdleten för att förbereda migrering i steg 2 eller för migreringen i steg 3 kan den hanterade Azure AD DS-domänen återställa till den ursprungliga konfigurationen. Det ursprungliga klassiska virtuella nätverket krävs för att återställa den här återställningen. Observera att IP-adresserna kanske fortfarande ändras efter återställningen.
 
 Kör cmdleten `Migrate-Aadds` med parametern *-abort* . Ange *-ManagedDomainFqdn* för din egen Azure AD DS-hanterade domän som förbereds i ett tidigare avsnitt, t. ex. *contoso.com*:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: d73ac199df03f4d789db0634be1e926afc77e623
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
-ms.translationtype: HT
+ms.openlocfilehash: d323bd0b9684cfe4930d8c779a6728fcfd3836fb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597554"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674932"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Konfigurera exportprincipen för en NFS-volym
 
@@ -27,7 +27,7 @@ Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en 
 
 ## <a name="steps"></a>Steg 
 
-1.  Klicka på bladet **Skapa exportpolicy** från bladet Hantera volym. 
+1.  Klicka på **Exportera princip** i Azure NetApp Files navigerings fönstret. 
 
 2.  Ange information för följande fält för att skapa en exportpolicyregel:   
     *  **Index**   

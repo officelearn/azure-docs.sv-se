@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: d26535d18233533d1d72c02ad997008cba536fce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
-ms.translationtype: HT
+ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595171"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675869"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -294,6 +294,14 @@ URL: en visas i kommandots utdata. Skriptet kan sedan hämta AzCopy med hjälp a
 ### <a name="escape-special-characters-in-sas-tokens"></a>Escape-specialtecken i SAS-token
 
 I kommandofiler som har `.cmd` tillägget måste du undanta de `%` tecknen som visas i SAS-token. Du kan göra det genom att lägga till ett additions `%` tecken bredvid befintliga `%` tecken i SAS-token-strängen.
+
+### <a name="run-scripts-by-using-jenkins"></a>Köra skript med Jenkins
+
+Om du planerar att använda [Jenkins](https://jenkins.io/) för att köra skript, se till att placera följande kommando i början av skriptet.
+
+```
+/usr/bin/keyctl new_session
+```
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Använd AzCopy i Storage Explorer
 

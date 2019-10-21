@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: d25596884acdb356779eafa4348240239855ce37
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308456"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675731"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera PostMan för Media Services REST API-anrop
 
-Den här artikeln visar hur du konfigurerar **Postman** så att den kan användas för att anropa Azure Media Services REST-API: er för (AMS). Artikeln visar hur du importerar miljö-och samlings filer till **Postman**. Samlingen innehåller grupperade definitioner av HTTP-begäranden som anropar Azure Media Services (AMS) REST-API: er. Miljö filen innehåller variabler som används av samlingen.
+Den här artikeln visar hur du konfigurerar **Postman** så att den kan användas för att anropa Azure Media Services REST-API: er för (AMS). Artikeln visar hur du importerar miljö-och samlings filer till **Postman**. Samlingen innehåller grupperade definitioner av HTTP-begäranden som anropar Azure Media Services (AMS) REST-API: er. Miljöfilen innehåller variabler som används av samlingen.
 
 Innan du börjar utveckla bör du läsa [utveckla med Media Services v3-API: er](media-services-apis-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
 - Hämta information som krävs för att [få åtkomst till API: er](access-api-cli-how-to.md)
 - Installera [Postman](https://www.getpostman.com/) REST-klienten för att köra REST API:er som visas i några AMS REST-självstudierna. 
 
@@ -47,11 +47,9 @@ Klona en GitHub-lagringsplats som innehåller Postman-samlingen och miljöfilern
 
 ## <a name="configure-postman"></a>Konfigurera Postman
 
-Det här avsnittet konfigurerar Postman.
-
 ### <a name="configure-the-environment"></a>Konfigurera miljön 
 
-1. Öppna **Postman**.
+1. Öppna **Postman** -appen.
 2. På höger sida om skärmen, väljer du alternativet **Hantera miljö**.
 
     ![Hantera miljö](./media/develop-with-postman/postman-import-env.png)
@@ -80,7 +78,7 @@ Det här avsnittet konfigurerar Postman.
 
 Innan du börjar ändra AMS v3-resurser måste du hämta och ange Azure AD-token för autentisering av tjänstens huvud namn.
 
-1. I det vänstra fönstret i Postman, väljer du ”Steg 1: Hämta AAD-autentiseringstoken”.
+1. I det vänstra fönstret i Postman-appen väljer du "steg 1: Hämta AAD auth-token".
 2. Välj sedan Hämta Azure AD-token för autentisering för tjänstens huvudnamn.
 3. Tryck på **Skicka**.
 
@@ -103,4 +101,4 @@ Innan du börjar ändra AMS v3-resurser måste du hämta och ange Azure AD-token
 ## <a name="next-steps"></a>Nästa steg
 
 - [Strömma filer med rest](stream-files-tutorial-with-rest.md).  
-- [Självstudier: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)
+- [Självstudie: koda en fjärrfil baserat på URL och strömma videon REST](stream-files-tutorial-with-rest.md)

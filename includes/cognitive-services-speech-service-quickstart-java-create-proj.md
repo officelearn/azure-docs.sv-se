@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: d6ee5f432321753b9a09749ccf45c9a5bda5300d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 89db2c9e1cac7337b0f3bcd9fdf733e8db410d02
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802478"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675530"
 ---
 1. Starta Eclipse.
 
@@ -17,7 +17,7 @@ ms.locfileid: "71802478"
 
    ![Skärmbild av Eclipse-startfönstret](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng välkomstskärmen om en sådan visas.
+1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng **välkomst** skärmen om en sådan finns.
 
 1. På Eclipse-menyraden skapar du ett nytt projekt genom att välja **Arkiv** > **Nytt** > **Projekt**.
 
@@ -25,7 +25,7 @@ ms.locfileid: "71802478"
 
    ![Skärmbild av dialogrutan Nytt projekt, med Java-projekt markerat](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-02-select-wizard.png)
 
-1. Guiden Nytt Java-projekt startar. I fältet **Projektnamn** anger du **quickstart** (snabbstart) och väljer **JavaSE 1.8** som körningsmiljö. Välj **Slutför**.
+1. Guiden **nytt Java-projekt** startar. I fältet **Projektnamn** anger du **quickstart** (snabbstart) och väljer **JavaSE 1.8** som körningsmiljö. Välj **Slutför**.
 
    ![Skärmbild av guiden Nytt Java-projekt](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-03-create-java-project.png)
 
@@ -35,18 +35,18 @@ ms.locfileid: "71802478"
 
    ![Skärmbild av Paketutforskaren](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. Fönstret **Create new POM** (Skapa ny POM) visas. I fältet **Grupp-ID** anger du **com.microsoft.cognitiveservices.speech.samples** och i fältet **Artifact Id** (Artefakt-ID) anger du **quickstart**. Välj sedan **Slutför**.
+1. Fönstret **Create new POM** (Skapa ny POM) visas. I fältet **grupp-ID** anger du *com. Microsoft. cognitiveservices. Speech. Samples*och i fältet **artefakt-ID** anger du *snabb start*. Välj sedan **Slutför**.
 
    ![Skärmbild av fönstret Create new POM (Skapa ny POM)](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
-1. Öppna filen **pom.xml** och redigera den.
+1. Öppna filen *pom.xml* och redigera den.
 
    * I slutet av filen, före sluttaggen `</project>`, skapar du ett `repositories`-element med en referens till Maven-databasen för Speech SDK, som du ser här:
 
-     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
+     [!code-xml[POM repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
    * Lägg också till ett `dependencies`-element med tal SDK-versionen 1.7.0 som ett beroende:
 
-     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+     [!code-xml[POM dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
    * Spara ändringarna.

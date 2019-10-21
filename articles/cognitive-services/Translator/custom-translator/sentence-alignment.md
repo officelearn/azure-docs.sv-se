@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e9bc5c876da6bd2be1b22b389b819e51330b2e50
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: adbc21c3e963a98a8482de0c26bf5e257f43013e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595470"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675460"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Menings koppling och justering i parallella dokument
 
@@ -26,20 +26,25 @@ Anpassad översättare lär sig översättningar av meningar en mening i taget. 
 
 ## <a name="pre-aligned-documents"></a>Dokument som är justerade
 
-Om du vet att du har parallella dokument kan du åsidosätta menings justeringen genom att ange textfiler som är justerade för text. Du kan extrahera alla meningar från båda dokumenten till text filen, ordnade en mening per rad och ladda `.align` upp med ett tillägg. `.align` Tillägget signalerar den anpassade översättare som det ska hoppa över menings justeringen.
+Om du vet att du har parallella dokument kan du åsidosätta menings justeringen genom att ange textfiler som är justerade för text. Du kan extrahera alla meningar från båda dokumenten till textfil, ordnade en mening per rad och överföra med ett `.align`-tillägg. @No__t_0-tillägget signalerar anpassad översättare om att det ska hoppa över menings justeringen.
 
 För bästa resultat bör du försöka se till att du har en mening per rad i dina filer. Det finns inte några tecken för ny rad i en mening eftersom detta ger dåliga justeringar.
 
-## <a name="suggested-minimum-number-of-extracted-and-aligned-sentences"></a>Föreslaget minsta antal extraherade och justerade meningar
+## <a name="suggested-minimum-number-of-sentences"></a>Föreslaget minsta antal meningar
 
-För att en utbildning ska lyckas visar tabellen nedan det minsta antalet extraherade meningar och justerade meningar som krävs i varje data uppsättning. Det föreslagna minsta antalet extraherade meningar är mycket högre än det föreslagna minsta antalet justerade meningar för att ta hänsyn till att menings justeringen kanske inte kan justera alla extraherade meningar korrekt.
+För att en utbildning ska lyckas visar tabellen nedan det minsta antalet meningar som krävs för varje dokument typ. Den här begränsningen är ett säkerhets nät för att se till att dina parallella meningar innehåller tillräckligt med unik vokabulär för att kunna träna en översättnings modell. Den allmänna rikt linjen har flera parallella meningar av mänsklig översättning för mänsklig översättnings kvalitet bör ge bättre kvalitets modeller.
 
-| Data uppsättning   | Föreslaget minsta antal extraherade meningar | Föreslaget minsta justerade menings antal | Maximalt antal justerade meningar |
-|------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Utbildning   | 10 000                                     | 2,000                                    | Ingen övre gräns                 |
-| Anpassa     | 2,000                                      | 500                                      | 2,500                          |
-| Testning    | 2,000                                      | 500                                      | 2,500                          |
-| Ordlista | 0                                          | 0                                        | Ingen övre gräns                 |
+| Dokumenttyp   | Föreslaget minsta antal meningar | Maximalt antal meningar |
+|------------|--------------------------------------------|--------------------------------|
+| Utbildning   | 10 000                                     | Ingen övre gräns                 |
+| Anpassa     | 5 000                                      | 2 500                          |
+| Testning    | 5 000                                      | 2 500                          |
+| Ordlista | 0                                          | Ingen övre gräns                 |
+
+> [!NOTE]
+> - Träningen kommer inte att starta och kommer att Miss klaras om 10 000 det lägsta antalet meningar för träning inte är uppfyllt. 
+> - Justering och testning är valfria. Om du inte anger dem kommer systemet att ta bort en lämplig procent andel av träningen som används för validering och testning. 
+> - Du kan träna en modell med endast data från en ord lista. Se [ord listan](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
 
 ## <a name="next-steps"></a>Nästa steg
 

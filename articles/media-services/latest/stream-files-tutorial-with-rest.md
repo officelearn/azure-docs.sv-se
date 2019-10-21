@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb62a28798010d3e18c5f19fa0062001a70b9622
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055297"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675658"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudier: Koda en fjärrfil baserat på URL och strömma video – REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon REST
 
 Med Azure Media Services kan du koda dina mediefiler till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Innan du strömmar, bör du koda dina högkvalitativa digitala mediafiler. Vägledning om kodning finns i [Kodningskoncept](encoding-concept.md).
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig att koda en fil baserat på en URL oc
 I den här självstudiekursen lär du dig att:    
 
 > [!div class="checklist"]
-> * Skapa ett Media Services-konto
+> * Skapa ett medietjänstkonto
 > * Åtkomst till Media Services API
 > * Hämta Postman-filer
 > * Konfigurera Postman
@@ -40,7 +40,7 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
@@ -62,11 +62,9 @@ Klona en GitHub-lagringsplats som innehåller Postman-samlingen och miljöfilern
 
 ## <a name="configure-postman"></a>Konfigurera Postman
 
-Det här avsnittet konfigurerar Postman.
-
 ### <a name="configure-the-environment"></a>Konfigurera miljön 
 
-1. Öppna **Postman**.
+1. Öppna **Postman** -appen.
 2. På höger sida om skärmen, väljer du alternativet **Hantera miljö**.
 
     ![Hantera miljö](./media/develop-with-postman/postman-import-env.png)
@@ -107,7 +105,7 @@ I det här avsnittet skickar vi begäranden som är relevanta för att koda och 
 
 ### <a name="get-azure-ad-token"></a>Hämta Azure AD-token 
 
-1. I det vänstra fönstret i Postman, väljer du ”Steg 1: Hämta AAD-autentiseringstoken”.
+1. I det vänstra fönstret i Postman-appen väljer du "steg 1: Hämta AAD auth-token".
 2. Välj sedan Hämta Azure AD-token för autentisering för tjänstens huvudnamn.
 3. Tryck på **Skicka**.
 
@@ -125,7 +123,7 @@ I det här avsnittet skickar vi begäranden som är relevanta för att koda och 
 
 [Utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av ditt kodningsjobb. 
 
-1. I det vänstra fönstret i Postman, väljer du Tillgångar.
+1. I det vänstra fönstret i Postman-appen väljer du "till gångar".
 2. Välj därefter Skapa eller uppdatera en tillgång.
 3. Tryck på **Skicka**.
 
@@ -156,7 +154,7 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
 > [!Note]
 > När du skapar en [Transformering](https://docs.microsoft.com/rest/api/media/transforms) bör du först kontrollera om det redan finns en med **Get**-metoden. Den här kursen förutsätter att du skapar transformeringen med ett unikt namn.
 
-1. I det vänstra fönstret i Postman, väljer du Kodning och analys.
+1. I det vänstra fönstret i Postman-appen väljer du kodning och analys.
 2. Välj sedan Skapa transformering.
 3. Tryck på **Skicka**.
 
@@ -189,9 +187,9 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
 
 Ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är den faktiska begäran till Media Services om att tillämpa den skapade **Transformeringen** på en given indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan.
 
-I det här exemplet jobbets indata baseras på en HTTPS-URL (”https: \/ /nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/”).
+I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https: \//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
-1. I det vänstra fönstret i Postman, väljer du Kodning och analys.
+1. I det vänstra fönstret i Postman-appen väljer du kodning och analys.
 2. Välj därefter Skapa eller uppdatera jobbet.
 3. Tryck på **Skicka**.
 
@@ -222,9 +220,9 @@ I det här exemplet jobbets indata baseras på en HTTPS-URL (”https: \/ /nimbu
         }
         ```
 
-Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
+Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt anpassade källor. Enkel, HTTP-baserad reaktiv händelsehantering gör det enklare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
 
-**Jobbet** går vanligtvis igenom följande tillstånd: **Schemalagd**, **I kö**, **Bearbetar**, **Slutfört** (sluttillstånd). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
+**Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
 #### <a name="job-error-codes"></a>Jobbfelkoder
 
@@ -236,14 +234,14 @@ När kodningsjobbet är klart, är nästa steg att göra videon i **utdatatillg�
 
 Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
 
-När du skapar en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators), måste du ange den önskade **StreamingPolicyName**. I det här exemplet ska du direktuppspelning i klartext (eller icke-krypterade) innehåll, så den fördefinierade rensningsprincip strömmande ”Predefined_ClearStreamingOnly” används.
+När du skapar en [strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators)måste du ange önskad **StreamingPolicyName**. I det här exemplet kommer du att strömma i det-rensade (eller icke-krypterade) innehållet, så den fördefinierade rensnings principen "Predefined_ClearStreamingOnly" används.
 
 > [!IMPORTANT]
 > Om du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. 
 
 Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du bör inte skapa en ny **strömningsprincip** för varje **positionerare för direktuppspelning**.
 
-1. I det vänstra fönstret i Postman, väljer du Strömningsprinciper.
+1. Välj "strömmande principer" i det vänstra fönstret i Postman-appen.
 2. Välj därefter Skapa en positionerare.
 3. Tryck på **Skicka**.
 
@@ -269,7 +267,7 @@ Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du b
 
 Nu när [positioneraren för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna
 
-1. I det vänstra fönstret i Postman, väljer du Strömningsprinciper.
+1. Välj "strömmande principer" i det vänstra fönstret i Postman-appen.
 2. Välj sedan Lista sökvägar.
 3. Tryck på **Skicka**.
 
@@ -364,9 +362,9 @@ Kör följande CLI-kommando:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
-Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

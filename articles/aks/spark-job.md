@@ -6,15 +6,15 @@ author: lenadroid
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 647cb0573922bb53232dbce3f3a7a2557553d47d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: c4fca9b8f4c8a01124074396985b1ec3f1c896c6
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263892"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675147"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Köra Apache Spark jobb på AKS
 
@@ -43,10 +43,16 @@ Skapa en resurs grupp för klustret.
 az group create --name mySparkCluster --location eastus
 ```
 
-Skapa AKS-klustret med noder som är i storlek `Standard_D3_v2`.
+Skapa ett huvud namn för tjänsten för klustret. När den har skapats behöver du tjänstens huvud namn (appId) och lösen ordet för nästa kommando.
 
 ```azurecli
-az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
+az ad sp create-for-rbac --name SparkSP
+```
+
+Skapa AKS-klustret med noder som är i storlek `Standard_D3_v2`, och värdena appId och Password som skickats som tjänst-Principal-och klient hemlighets parametrar.
+
+```azurecli
+az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
 ```
 
 Anslut till AKS-klustret.
@@ -64,7 +70,7 @@ Innan du kör Spark-jobb på ett AKS-kluster måste du bygga Spark-källkoden oc
 Klona Spark-projektfilen till utvecklings systemet.
 
 ```bash
-git clone -b branch-2.3 https://github.com/apache/spark
+git clone -b branch-2.4 https://github.com/apache/spark
 ```
 
 Ändra till katalogen för den klonade lagrings platsen och spara sökvägen till Spark-källan till en variabel.
@@ -74,7 +80,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-Om du har flera JDK-versioner installerade anger du `JAVA_HOME` om du vill använda version 8 för den aktuella sessionen.
+Om du har flera installerade JDK-versioner anger du `JAVA_HOME` att använda version 8 för den aktuella sessionen.
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -136,7 +142,7 @@ Kör följande kommandon för att lägga till ett SBT-plugin-program som gör de
 
 ```bash
 touch project/assembly.sbt
-echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")' >> project/assembly.sbt
 ```
 
 Kör dessa kommandon för att kopiera exempel koden till det nyskapade projektet och lägga till alla nödvändiga beroenden.
@@ -151,7 +157,7 @@ cat <<EOT >> build.sbt
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
 EOT
 
-sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11"/' build.sbt
 sed -ie 's/name.*/name := "SparkPi",/' build.sbt
 ```
 
@@ -214,6 +220,13 @@ Gå tillbaka till roten av Spark-lagringsplatsen.
 cd $sparkdir
 ```
 
+Skapa ett tjänst konto som har tillräcklig behörighet för att köra ett jobb.
+
+```bash
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+```
+
 Skicka jobbet med `spark-submit`.
 
 ```bash
@@ -223,6 +236,7 @@ Skicka jobbet med `spark-submit`.
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
+  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
   --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```

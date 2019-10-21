@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 97b954ee5e00c13211a3b2a2254b6d34bccb780c
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243282"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674946"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -28,7 +28,7 @@ Exempel projekt för fristående funktioner i python finns i [exempel på python
 
 ## <a name="programming-model"></a>Programmeringsmodell
 
-Azure Functions förväntar sig att en funktion är en tillstånds lös metod i python-skriptet som bearbetar indata och genererar utdata. Som standard förväntar sig körningen att metoden ska implementeras som en global metod som kallas `main()` i filen `__init__.py`. Du kan också [Ange en alternativ Start punkt](#alternate-entry-point).
+Azure Functions förväntar sig att en funktion är en tillstånds lös metod i python-skriptet som bearbetar indata och genererar utdata. Som standard förväntar sig körningen att metoden ska implementeras som en global metod som kallas `main()` i `__init__.py`s filen. Du kan också [Ange en alternativ Start punkt](#alternate-entry-point).
 
 Data från utlösare och bindningar är kopplade till funktionen via attribut med hjälp av egenskapen `name` som definierats i *Function. JSON* -filen. _Funktionen. JSON_ nedan beskriver till exempel en enkel funktion som utlöses av en http-begäran med namnet `req`:
 
@@ -50,7 +50,7 @@ Data från utlösare och bindningar är kopplade till funktionen via attribut me
 }
 ```
 
-Filen `__init__.py` innehåller följande funktions kod:
+@No__t_0-filen innehåller följande funktions kod:
 
 ```python
 def main(req):
@@ -250,7 +250,7 @@ Mer information om loggning finns i [övervaka Azure Functions](functions-monito
 
 ## <a name="http-trigger-and-bindings"></a>HTTP-utlösare och bindningar
 
-HTTP-utlösaren definieras i filen function. Jon. @No__t-0 för bindningen måste matcha den namngivna parametern i funktionen. I föregående exempel används ett bindnings namn `req`. Den här parametern är ett [HttpRequest] -objekt och ett [HttpResponse] -objekt returneras.
+HTTP-utlösaren definieras i filen function. Jon. Bindningens `name` måste matcha den namngivna parametern i funktionen. I föregående exempel används ett bindnings namn `req`. Den här parametern är ett [HttpRequest] -objekt och ett [HttpResponse] -objekt returneras.
 
 Du kan hämta begärandehuvuden, frågeparametrar, väg parametrar och meddelande texten från [HttpRequest] -objektet. 
 
@@ -398,22 +398,15 @@ pip install -r requirements.txt
 
 När du är redo att publicera ser du till att alla beroenden visas i filen *Requirements. txt* , som finns i rot katalogen i projekt katalogen. Azure Functions kan [bygga](functions-deployment-technologies.md#remote-build) dessa beroenden på distans.
 
-Projektfiler och mappar som undantas från publicering, inklusive mappen för virtuella miljöer, visas i. funcignore-filen.  
+Projektfiler och mappar som undantas från publicering, inklusive mappen för virtuella miljöer, visas i. funcignore-filen. 
 
-Använd följande kommando för att distribuera till Azure och utföra en fjärran sluten version:
+Både [Azure Functions Core tools](functions-run-local.md#v2) och [Azure Functions tillägget för vs Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) utför en fjärran sluten version som standard. Använd till exempel följande kommando:
 
 ```bash
-func azure functionapp publish <app name> --build remote
+func azure functionapp publish <app name>
 ```
 
-Om du inte använder fjärran sluten version och använder ett paket som kräver en kompilerare och inte stöder installationen av många Linux-kompatibla hjul från PyPI, kommer publicering till Azure utan att det går att skapa lokalt att Miss förklaras med följande fel:
-
-```
-There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
-The terminal process terminated with exit code: 1
-```
-
-Om du vill skapa ett lokalt och konfigurera de binärfiler som krävs [installerar du Docker](https://docs.docker.com/install/) på den lokala datorn och kör följande kommando för att publicera med hjälp av [Azure Functions Core tools](functions-run-local.md#v2) (Func). Kom ihåg att ersätta `<app name>` med namnet på din Function-app i Azure. 
+Om du vill skapa din app lokalt i stället för i Azure, [installerar du Docker](https://docs.docker.com/install/) på den lokala datorn och kör följande kommando för att publicera med hjälp av [Azure Functions Core tools](functions-run-local.md#v2) (Func). Kom ihåg att ersätta `<app name>` med namnet på din Function-app i Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps

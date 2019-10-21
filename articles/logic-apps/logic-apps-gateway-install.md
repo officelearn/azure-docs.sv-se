@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 09/01/2019
-ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.date: 10/18/2019
+ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309858"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675688"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -29,19 +29,23 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+* Ett Azure-konto och prenumeration. Om du inte har ett Azure-konto med en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-  * Du måste använda samma Azure-konto för att installera och administrera gatewayen. Under installationen kan du använda det här Azure-kontot för att koppla gatewayen på din dator till en Azure-prenumeration. Senare använder du samma Azure-konto när du skapar en Azure-resurs i Azure Portal för gateway-installationen. 
+  * Du måste använda samma Azure-konto för att installera och administrera gatewayen på den lokala datorn.
 
-  * Du måste logga in med antingen ett arbets konto eller skol konto, även kallat ett *organisations* konto, som ser ut `username@contoso.com`så här. Du kan inte använda Azure B2B-konton (gäst) eller personliga Microsoft-konton @hotmail.com , @outlook.comtill exempel eller.
+    Under Gateway-installationen loggar du in med ditt Azure-konto, som länkar din gateway-installation till ditt Azure-konto och bara det kontot. Senare i Azure Portal måste du använda samma Azure-konto för att skapa en Azure gateway-resurs som registrerar och anlitar din gateway-installation. I Azure Logic Apps använder lokala utlösare och åtgärder sedan Gateway-resursen för att ansluta till lokala data källor.
+
+    > [!NOTE]
+    > Du kan bara länka en gateway-installation och en Azure gateway-resurs till varandra. Du kan inte länka samma Gateway-installation till flera Azure-konton eller Azure gateway-resurser. Ett Azure-konto kan dock länka till flera gateway-installationer och Azure gateway-resurser. I en lokal utlösare eller åtgärd kan du välja bland dina olika Azure-prenumerationer och sedan välja en associerad gateway-resurs.
+
+  * Du måste logga in med antingen ett arbets konto eller skol konto, även kallat ett *organisations* konto, som ser ut som `username@contoso.com`. Du kan inte använda Azure B2B-konton (gäst) eller personliga Microsoft-konton, till exempel @hotmail.com eller @outlook.com.
 
     > [!TIP]
-    > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din e-postadress för arbetet kan din `username@domain.onmicrosoft.com`adress se ut. Ditt konto lagras i en klient i en Azure Active Directory (Azure AD). I de flesta fall är användarens huvud namn (UPN) för ditt Azure AD-konto detsamma som din e-postadress.
+    > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din e-postadress för arbetet kan din adress se ut som `username@domain.onmicrosoft.com`. Ditt konto lagras i en klient i en Azure Active Directory (Azure AD). I de flesta fall är användarens huvud namn (UPN) för ditt Azure AD-konto detsamma som din e-postadress.
     >
-    > Om du vill använda en [Visual Studio Standard-prenumeration](https://visualstudio.microsoft.com/vs/pricing/) som är associerad med en Microsoft-konto måste du först [skapa en klient i Azure AD](../active-directory/develop/quickstart-create-new-tenant.md)eller använda standard katalogen. Lägg till en användare med ett lösen ord till katalogen och ge sedan användaren åtkomst till din prenumeration. 
-    > Sedan kan du logga in under Gateway-installationen med det här användar namnet och lösen ordet.
+    > Om du vill använda en [Visual Studio Standard-prenumeration](https://visualstudio.microsoft.com/vs/pricing/) som är länkad till en Microsoft-konto måste du först [skapa en klient i Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) eller använda standard katalogen. Lägg till en användare med ett lösen ord till katalogen och ge sedan användaren åtkomst till din Azure-prenumeration. Sedan kan du logga in under Gateway-installationen med det här användar namnet och lösen ordet.
 
 * Här följer krav för den lokala datorn:
 
@@ -75,7 +79,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
   * Gatewayen har två lägen: standard läge och personligt läge, som endast gäller för Power BI. Du kan inte ha mer än en gateway som körs i samma läge på samma dator.
 
-  * Azure Logic Apps stöder Skriv åtgärder, inklusive infogningar och uppdateringar via gatewayen. Dessa åtgärder har dock [gränser för deras nytto Last storlek](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * Azure Logic Apps stöder Läs-och skriv åtgärder via gatewayen. Dessa åtgärder har dock [gränser för deras nytto Last storlek](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -95,15 +99,15 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
    ![Granska krav och godkänn användnings villkoren](./media/logic-apps-gateway-install/accept-terms.png)
 
-1. När gatewayen har installerats anger du e-postadressen för ditt organisations konto och väljer sedan **Logga**in, till exempel:
+1. När gatewayen har installerats, ange e-postadressen för ditt Azure-konto och välj sedan **Logga**in, till exempel:
 
    ![Logga in med arbets-eller skol konto](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   Du är nu inloggad på ditt konto.
+   Gateway-installationen kan bara länka till ett Azure-konto.
 
-1. Välj **Registrera en ny gateway på den här datorn** > **Nästa**. Det här steget registrerar din gateway-installation med [moln tjänsten Gateway](#gateway-cloud-service).
+1. Välj **Registrera en ny gateway på den här datorn** > **härnäst**. Det här steget registrerar din gateway-installation med [moln tjänsten Gateway](#gateway-cloud-service).
 
-   ![Registrera gateway](./media/logic-apps-gateway-install/register-gateway.png)
+   ![Registrera Gateway](./media/logic-apps-gateway-install/register-gateway.png)
 
 1. Ange den här informationen för din gateway-installation:
 
@@ -155,7 +159,7 @@ Den lokala datagatewayen är beroende av [Azure Service Bus](../service-bus-mess
 
 För att undvika enskilda fel punkter för lokal data åtkomst kan du ha flera gateway-installationer (endast standard läge) med var och en på en annan dator och ange dem som ett kluster eller en grupp. På så sätt kan data begär Anden dirigeras till den andra gatewayen, och så vidare, om den primära gatewayen inte är tillgänglig. Eftersom du bara kan installera en standard-gateway på en dator måste du installera varje ytterligare gateway i klustret på en annan dator. Alla anslutningar som fungerar med den lokala datagatewayen stöder hög tillgänglighet.
 
-* Du måste redan ha minst en gateway-installation i samma Azure-prenumeration som den primära gatewayen och återställnings nyckeln för den installationen.
+* Du måste redan ha minst en gateway-installation med samma Azure-konto som den primära gatewayen och återställnings nyckeln för den installationen.
 
 * Din primära Gateway måste köra Gateway-uppdateringen från november 2017 eller senare.
 
@@ -175,7 +179,7 @@ Om du måste ändra gatewayens plats, flytta Gateway-installationen till en ny d
 
 1. När installations programmet har öppnats loggar du in med samma Azure-konto som användes för att installera gatewayen.
 
-1. Välj **migrera, Återställ eller ta över en befintlig gateway** > **härnäst**, till exempel:
+1. Välj **migrera, Återställ eller överköps en befintlig gateway**  > **Nästa**, till exempel:
 
    ![Välj "migrera, Återställ eller överköps en befintlig gateway"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
@@ -195,7 +199,7 @@ För att få insyn i alla lokala datagatewayer i en Azure AD-klient kan globala 
 
 ## <a name="restart-gateway"></a>Starta om Gateway
 
-Som standard körs Gateway-installationen på den lokala datorn som ett Windows-tjänst konto med namnet "lokal datagateway-tjänst". Gateway-installationen använder `NT SERVICE\PBIEgwService` dock namnet på "logga in som"-autentiseringsuppgifter och har behörighet att logga in som en tjänst.
+Som standard körs Gateway-installationen på den lokala datorn som ett Windows-tjänst konto med namnet "lokal datagateway-tjänst". Gateway-installationen använder dock `NT SERVICE\PBIEgwService` namnet för inloggnings uppgifterna "logga in som" och har behörighet att logga in som en tjänst.
 
 > [!NOTE]
 > Ditt Windows-tjänstkonto skiljer sig från det konto som används för att ansluta till lokala data källor och från det Azure-konto som du använder när du loggar in på Cloud Services.
@@ -235,19 +239,19 @@ Dessa steg beskriver vad som händer när du interagerar med ett element som är
 
 En lagrad autentiseringsuppgift används för att ansluta från gatewayen till lokala data källor. Oavsett användare använder gatewayen lagrade autentiseringsuppgifter för att ansluta. Det kan finnas autentiserings undantag för vissa tjänster, till exempel DirectQuery och LiveConnect för Analysis Services i Power BI.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
-Microsoft Cloud Services använder [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) för att autentisera användare. En Azure AD-klient innehåller användar namn och säkerhets grupper. Normalt är e-postadressen som du använder för inloggning detsamma som användarens huvud namn (UPN) för ditt konto.
+Microsofts moln tjänster använder [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) för att autentisera användare. En Azure AD-klient innehåller användar namn och säkerhets grupper. Normalt är e-postadressen som du använder för inloggning detsamma som användarens huvud namn (UPN) för ditt konto.
 
 ### <a name="what-is-my-upn"></a>Vad är mitt UPN?
 
-Om du inte är en domän administratör kanske du inte känner till ditt UPN. Om du vill hitta UPN för ditt konto kör `whoami /upn` du kommandot från din arbets Station. Även om resultatet ser ut som en e-postadress, är resultatet UPN för ditt lokala domän konto.
+Om du inte är en domän administratör kanske du inte känner till ditt UPN. Du hittar UPN för ditt konto genom att köra kommandot `whoami /upn` från din arbets Station. Även om resultatet ser ut som en e-postadress, är resultatet UPN för ditt lokala domän konto.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-active-directory"></a>Synkronisera en lokal Active Directory med Azure Active Directory
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synkronisera en lokal Active Directory med Azure AD
 
-UPN för lokala Active Directory-konton och Azure AD-konton måste vara samma. Se därför till att varje lokalt Active Directory konto matchar ditt Azure AD-konto. Moln tjänsterna vet bara om konton i Azure AD. Så du behöver inte lägga till ett konto i din lokala Active Directory. Om kontot inte finns i Azure AD kan du inte använda det kontot. 
+UPN för lokala Active Directory-konton och Azure AD-konton måste vara samma. Se därför till att varje lokalt Active Directory konto matchar ditt Azure AD-konto. Moln tjänsterna vet bara om konton i Azure AD. Så du behöver inte lägga till ett konto i din lokala Active Directory. Om kontot inte finns i Azure AD kan du inte använda det kontot.
 
-Här är några sätt som du kan matcha dina lokala Active Directory-konton med Azure AD. 
+Här är några sätt som du kan matcha dina lokala Active Directory-konton med Azure AD.
 
 * Lägg till konton manuellt i Azure AD.
 

@@ -11,16 +11,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b69eda59c9c8032510df036d3aa0d160105fbc16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533173"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675636"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstår när du använder Azure Machine Learning.
+
+## <a name="upcoming-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Kommande SR-IOV-uppgradering till NCv3-datorer i AmlCompute
+
+Azure Compute uppdaterar NCv3 SKU: er som startar tidigt november för att ge stöd för alla MPI-implementeringar och-versioner, samt RDMA-verb för InfiniBand-utrustade virtuella datorer. Detta kräver kort stillestånds tid – [Läs mer om SR-IOV-uppgraderingen](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+
+Som kund av Azure Machine Learnings hanterade Compute-erbjudande (AmlCompute) behöver du inte göra några ändringar för tillfället. Utifrån [uppdaterings schemat](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) skulle du behöva planera för en kort rast i utbildningen. Tjänsten tar ansvar för att uppdatera VM-avbildningarna på klusternoderna och skala automatiskt upp klustret. När uppgraderingen är klar kan du använda alla andra MPI-discibutions (t. ex. OpenMPI med Pytorch), förutom att få större InfiniBand-bandbredd, lägre fördröjning och bättre prestanda för distribuerade program.
 
 ## <a name="visual-interface-issues"></a>Problem med visuella gränssnitt
 

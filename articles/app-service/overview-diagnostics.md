@@ -11,15 +11,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: c9d6bc8802b54e970fe863ed6a7283f01c947916
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5631b34fee64c6ad0917b95ec68fcd586717a1b0
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066862"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675178"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Översikt över Azure App Service diagnostik
 
@@ -37,7 +37,7 @@ För Azure Functions navigerar du till din Function-app. i det övre navigerings
 
 På Start sidan för App Service diagnostik kan du välja den kategori som bäst beskriver problemet med din app med hjälp av nyckelorden på varje start sida. Den här sidan är också där du kan hitta **diagnostikverktyg** för Windows-appar. Se [diagnostikverktyg (endast för Windows-app)](#diagnostic-tools-only-for-windows-app).
 
-![Startsida](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+![Start](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>Interaktivt gränssnitt
 
@@ -78,7 +78,7 @@ Eftersom många app-problem är relaterade till problem i din program kod, integ
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 
-Om du vill visa Application Insights undantag och beroenden väljer du genvägar till webbappens **ned-** eller webbappens **långsamma** panel.
+Om du vill visa Application Insights undantag och beroenden väljer du genvägar till **webbappens ned-** eller **webbappens långsamma** panel.
 
 ### <a name="troubleshooting-steps-only-for-windows-app"></a>Fel söknings steg (endast för Windows-app)
 
@@ -92,17 +92,17 @@ Diagnostikverktygen innehåller mer avancerade diagnostikverktyg som hjälper di
 
 ### <a name="proactive-cpu-monitoring"></a>Proaktiv CPU-övervakning
 
-Proaktiv CPU-övervakning ger dig ett enkelt, proaktivt sätt att vidta en åtgärd när din app eller underordnade process för din app förbrukar höga processor resurser. Du kan ställa in egna CPU-regler för att tillfälligt minimera ett högt CPU-problem tills den faktiska orsaken till det oväntade problemet har påträffats.
+Proaktiv CPU-övervakning ger dig ett enkelt, proaktivt sätt att vidta en åtgärd när din app eller underordnade process för din app förbrukar höga processor resurser. Du kan ställa in egna CPU-regler för att tillfälligt minimera ett högt CPU-problem tills den faktiska orsaken till det oväntade problemet har påträffats. Mer information finns i [minska dina CPU-problem innan de inträffar](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html). Proaktiv CPU-övervakning ger dig ett enkelt, proaktivt sätt att vidta en åtgärd när din app eller underordnade process för din app förbrukar höga processor resurser. Du kan ställa in egna CPU-regler för att tillfälligt minimera ett högt CPU-problem tills den faktiska orsaken till det oväntade problemet har påträffats.
 
 ![Proaktiv CPU-övervakning](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
 ### <a name="auto-healing-and-proactive-auto-healing"></a>Automatisk återställning och proaktiv automatisk återställning
 
-Automatisk återställning är en åtgärd som du kan vidta när din app har oväntat beteende. Du kan ställa in egna regler baserat på antalet begär Anden, långsam begäran, minnes gräns och HTTP-statuskod för att utlösa åtgärder. Använd verktyget för att tillfälligt minimera ett oväntat beteende tills du hittar rotor saken.
+Automatisk återställning är en åtgärd som du kan vidta när din app har oväntat beteende. Du kan ställa in egna regler baserat på antalet begär Anden, långsam begäran, minnes gräns och HTTP-statuskod för att utlösa åtgärder. Använd verktyget för att tillfälligt minimera ett oväntat beteende tills du hittar rotor saken. Mer information finns i avsnittet [om att presentera den nya automatiska lagnings upplevelsen i App Service Diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
 ![Auto-healing](./media/app-service-diagnostics/auto-healing-10.png)
 
-Precis som proaktiv CPU-övervakning är proaktiv automatisk återställning en lösning för att åtgärda oväntade beteenden i din app. Proaktiv automatisk återställning startar om appen när App Service bestämmer att appen är i ett oåterkalleligt tillstånd. Mer information finns i avsnittet [om att presentera den nya automatiska lagnings upplevelsen i App Service Diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Precis som proaktiv CPU-övervakning är proaktiv automatisk återställning en lösning för att åtgärda oväntade beteenden i din app. Proaktiv automatisk återställning startar om appen när App Service bestämmer att appen är i ett oåterkalleligt tillstånd. Mer information finns i [Introduktion till proaktiv automatisk läka](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html).
 
 ## <a name="navigator-and-change-analysis-only-for-windows-app"></a>Navigering och ändrings analys (endast för Windows-app)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Implementera data Lake Capture-mönstret för att uppdatera en Azure Databricks delta tabell | Microsoft Docs'
+title: 'Självstudie: Implementera Data Lake Capture-mönstret för att uppdatera en Azure Databricks delta tabell | Microsoft Docs'
 description: Den här självstudien visar hur du använder en Event Grid-prenumeration, en Azure-funktion och ett Azure Databricks-jobb för att infoga data rader i en tabell som lagras i Azure DataLake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,13 +9,13 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71326997"
 ---
-# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Självstudier: Implementera data Lake Capture-mönstret för att uppdatera en Databricks delta tabell
+# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Självstudie: Implementera Data Lake Capture-mönstret för att uppdatera en Databricks delta tabell
 
 Den här självstudien visar hur du hanterar händelser i ett lagrings konto som har ett hierarkiskt namn område.
 
@@ -30,7 +30,7 @@ I den här kursen ska du:
 
 Vi bygger den här lösningen i omvänd ordning, från och med Azure Databricks arbets ytan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -38,16 +38,16 @@ Vi bygger den här lösningen i omvänd ordning, från och med Azure Databricks 
 
   Se [skapa ett Azure Data Lake Storage Gen2-konto](data-lake-storage-quickstart-create-account.md).
 
-* Skapa ett huvudnamn för tjänsten. Se [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Skapa ett huvudnamn för tjänsten. Se [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
   Det finns några saker som du måste göra när du utför stegen i den här artikeln.
 
-  :heavy_check_mark: När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln ska du tilldela rollen **Storage Blob Data-deltagare** till tjänstens huvudnamn.
+  : heavy_check_mark: när du utför stegen i avsnittet [tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln, se till att tilldela rollen **Storage BLOB data Contributor** till tjänstens huvud namn.
 
   > [!IMPORTANT]
   > Se till att tilldela rollen i omfånget för Data Lake Storage Gen2-lagringskontot. Du kan tilldela en roll till den överordnade resursgruppen eller prenumerationen, men du får behörighetsrelaterade fel tills de rolltilldelningarna propageras till lagringskontot.
 
-  :heavy_check_mark: När du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och lösen ords värden i en textfil. Du behöver dessa värden senare.
+  : heavy_check_mark: när du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och lösen ords värden i en textfil. Du behöver dessa värden senare.
 
 ## <a name="create-a-sales-order"></a>Skapa en försäljnings order
 
@@ -55,7 +55,7 @@ Skapa först en CSV-fil som beskriver en försäljnings order och överför seda
 
 1. Öppna Azure Storage Explorer. Gå sedan till ditt lagrings konto och skapa en ny behållare med namnet **data**i avsnittet **BLOB-behållare** .
 
-   mapp för ![datamapp]-(./media/data-lake-storage-events/data-container.png "data")
+   ![data-mapp](./media/data-lake-storage-events/data-container.png "data-mapp")
 
    Mer information om hur du använder Storage Explorer finns i [använda Azure Storage Explorer för att hantera data i ett Azure Data Lake Storage Gen2-konto](data-lake-storage-explorer.md).
 
@@ -86,13 +86,13 @@ I det här avsnittet ska du utföra följande uppgifter:
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
-    ![Databricks på Azure-portalen](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks på Azure-portalen")
+    ![Databricks på Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
-2. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
+2. Under **Azure Databricks Service** (Azure Databricks-tjänsten) fyller du i värdena för att skapa en Databricks-arbetsyta.
 
-    ![Skapa en arbetsyta för Azure Databricks](./media/data-lake-storage-events/new-databricks-service.png "Skapa en arbetsyta för Azure Databricks")
+    ![Skapa en Azure Databricks-arbetsyta](./media/data-lake-storage-events/new-databricks-service.png "Skapa en Azure Databricks-arbetsyta")
 
     Det tar några minuter att skapa arbetsytan. Du kan övervaka åtgärdsstatusen i förloppsindikatorn längst upp.
 
@@ -121,11 +121,11 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
 1. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
-    ![Skapa anteckningsbok i Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
 
 2. Ge anteckningsboken ett namn i dialogrutan **Skapa anteckningsbok**. Välj **Python** som språk och välj sedan det Spark-kluster du skapade tidigare.
 
-    ![Skapa anteckningsbok i Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Skapa antecknings bok i Databricks")
 
     Välj **Skapa**.
 
@@ -133,7 +133,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
 1. I den antecknings bok som du har skapat kopierar du och klistrar in följande kodblock i den första cellen, men kör inte den här koden ännu.  
 
-   Ersätt värdena `appId`, `password`, `tenant` placeholder i det här kod blocket med de värden som du samlade in när du slutförde kraven i den här självstudien.
+   Ersätt `appId`, `password` `tenant` plats hållarens värden i det här kod blocket med de värden som du samlade in när du slutförde kraven för den här själv studie kursen.
 
     ```Python
     dbutils.widgets.text('source_file', "", "Source File")
@@ -152,7 +152,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
     Den här koden skapar en widget med namnet **source_file**. Senare kommer du att skapa en Azure-funktion som anropar den här koden och skickar en fil Sök väg till widgeten.  Den här koden autentiserar också tjänstens huvud namn med lagrings kontot och skapar vissa variabler som du kommer att använda i andra celler.
 
     > [!NOTE]
-    > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. <br><br>I stället för att använda den här kodraden: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")` använder du till exempel följande kodrad: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>När du har slutfört den här kursen kan du se exempel på den här metoden i [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artikeln på Azure Databricks webbplats.
+    > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. <br><br>Till exempel, i stället för att använda den här kodraden: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`, använder du följande kodrad: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>När du har slutfört den här kursen kan du se exempel på den här metoden i [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artikeln på Azure Databricks webbplats.
 
 2. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
@@ -241,9 +241,9 @@ Skapa ett jobb som kör den antecknings bok som du skapade tidigare. Senare komm
 
 2. På sidan **jobb** klickar du på **skapa jobb**.
 
-3. Ge jobbet ett namn och välj sedan arbets boken `upsert-order-data`.
+3. Ge jobbet ett namn och välj sedan `upsert-order-data` arbets bok.
 
-   Skapa ![ett jobb](./media/data-lake-storage-events/create-spark-job.png "skapa ett jobb")
+   ![Skapa ett jobb](./media/data-lake-storage-events/create-spark-job.png "Skapa ett jobb")
 
 ## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
@@ -251,7 +251,7 @@ Skapa en Azure-funktion som kör jobbet.
 
 1. I det övre hörnet av arbets ytan Databricks väljer du ikonen personer och väljer sedan **användar inställningar**.
 
-   ![Hantera](./media/data-lake-storage-events/generate-token.png "användar inställningar") för kontot
+   ![Hantera kontot](./media/data-lake-storage-events/generate-token.png "Användar inställningar")
 
 2. Klicka på knappen **generera ny token** och sedan på knappen **generera** .
 
@@ -259,15 +259,15 @@ Skapa en Azure-funktion som kör jobbet.
   
 3. Välj knappen **skapa en resurs** i det övre vänstra hörnet av Azure Portal och välj sedan **Compute > Funktionsapp**.
 
-   ![Skapa en Azure Function](./media/data-lake-storage-events/function-app-create-flow.png "Skapa Azure Function")
+   ![Skapa en Azure-funktion](./media/data-lake-storage-events/function-app-create-flow.png "Skapa Azure Function")
 
 4. På sidan **skapa** i Funktionsapp, se till att välja **.net Core** för körnings stacken och se till att konfigurera en Application Insights instans.
 
-   ![Konfigurera Function-appen](./media/data-lake-storage-events/new-function-app.png "Konfigurera Function") -appen
+   ![Konfigurera Function-appen](./media/data-lake-storage-events/new-function-app.png "Konfigurera funktionsappen")
 
 5. På sidan **Översikt** i Funktionsapp klickar du på **konfiguration**.
 
-   ![Konfigurera Function-appen](./media/data-lake-storage-events/configure-function-app.png "Konfigurera Function") -appen
+   ![Konfigurera Function-appen](./media/data-lake-storage-events/configure-function-app.png "Konfigurera funktionsappen")
 
 6. På sidan **program inställningar** väljer du knappen **ny program inställning** för att lägga till varje inställning.
 
@@ -275,14 +275,14 @@ Skapa en Azure-funktion som kör jobbet.
 
    Lägg till följande inställningar:
 
-   |Inställningsnamn | Value |
+   |Inställningsnamn | Värde |
    |----|----|
    |**DBX_INSTANCE**| Regionen för din databricks-arbetsyta. Exempel: `westus2.azuredatabricks.net`|
    |**DBX_PAT**| Den personliga åtkomsttoken som du skapade tidigare. |
    |**DBX_JOB_ID**|Identifierare för det jobb som körs. I vårt fall är det här värdet `1`.|
 7. På sidan Översikt i Function-appen klickar du på knappen **ny funktion** .
 
-   ![Ny funktion](./media/data-lake-storage-events/new-function.png "ny") funktion
+   ![Ny funktion](./media/data-lake-storage-events/new-function.png "Ny funktion")
 
 8. Välj **Azure Event Grid utlösare**.
 
@@ -344,11 +344,11 @@ I det här avsnittet ska du skapa en Event Grid-prenumeration som anropar Azure-
 
 1. På sidan funktions kod klickar du på knappen **Lägg till Event Grid prenumeration** .
 
-   Ny(./media/data-lake-storage-events/new-event-subscription.png "händelse prenumeration för") ![händelse prenumeration]
+   ![Ny händelse prenumeration](./media/data-lake-storage-events/new-event-subscription.png "Ny händelse prenumeration")
 
 2. På sidan **Skapa händelse prenumeration** namnger du prenumerationen och använder sedan fälten på sidan för att välja ditt lagrings konto.
 
-   Ny(./media/data-lake-storage-events/new-event-subscription-2.png "händelse prenumeration för") ![händelse prenumeration]
+   ![Ny händelse prenumeration](./media/data-lake-storage-events/new-event-subscription-2.png "Ny händelse prenumeration")
 
 3. Välj den **blob som skapats**i list rutan **filtrera till händelse typer** och **ta bort BLOB** -händelser och klicka sedan på knappen **skapa** .
 
@@ -369,11 +369,11 @@ I det här avsnittet ska du skapa en Event Grid-prenumeration som anropar Azure-
 
 4. Välj jobbet för att öppna jobb sidan.
 
-   Spark ![jobb](./media/data-lake-storage-events/spark-job.png "Spark-jobb")
+   ![Spark-jobb](./media/data-lake-storage-events/spark-job.png "Spark-jobb")
 
    När jobbet har slutförts visas en status för slut för ande.
 
-   ![Jobbet](./media/data-lake-storage-events/spark-job-completed.png "har") slutförts
+   ![Jobbet har slutförts](./media/data-lake-storage-events/spark-job-completed.png "Jobbet har slutförts")
 
 5. I en ny arbets boks cell kör du den här frågan i en cell för att se den uppdaterade delta tabellen.
 
@@ -383,7 +383,7 @@ I det här avsnittet ska du skapa en Event Grid-prenumeration som anropar Azure-
 
    Den returnerade tabellen visar den senaste posten.
 
-   Den ![senaste posten visas i]den(./media/data-lake-storage-events/final_query.png "senaste tabell posten visas i tabellen")
+   ![Den senaste posten visas i tabellen](./media/data-lake-storage-events/final_query.png "Den senaste posten visas i tabellen")
 
 6. Om du vill uppdatera posten skapar du en fil med namnet `customer-order-update.csv`, klistrar in följande information i filen och sparar den på den lokala datorn.
 
@@ -396,7 +396,7 @@ I det här avsnittet ska du skapa en Event Grid-prenumeration som anropar Azure-
 
 7. I Storage Explorer laddar du upp den här filen till mappen **indata** för ditt lagrings konto.
 
-8. Kör frågan `select` igen om du vill se den uppdaterade delta tabellen.
+8. Kör den `select` frågan igen för att visa den uppdaterade delta tabellen.
 
    ```
    %sql select * from customer_data
@@ -404,7 +404,7 @@ I det här avsnittet ska du skapa en Event Grid-prenumeration som anropar Azure-
 
    Den returnerade tabellen visar den uppdaterade posten.
 
-   Den ![uppdaterade posten visas i tabellens](./media/data-lake-storage-events/final_query-2.png "uppdaterade post visas i tabellen")
+   ![Den uppdaterade posten visas i tabellen](./media/data-lake-storage-events/final_query-2.png "Den uppdaterade posten visas i tabellen")
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

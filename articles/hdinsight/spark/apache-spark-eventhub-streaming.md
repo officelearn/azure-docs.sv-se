@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
 ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266196"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Självstudie: bearbeta tweets med Azure Event Hubs och Apache Spark i HDInsight
@@ -74,7 +74,7 @@ Du använder den här händelsehubben för att lagra tweets.
 
 3. Under **Sakernas Internet**väljer du **Event Hubs**. 
 
-    ![Skapa Event Hub för Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "skapa händelsehubben för Spark streaming-exempel")
+    ![Exempel på Skapa händelsehubben för Spark streaming](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Exempel på Skapa händelsehubben för Spark streaming")
 
 4. Välj **+ Lägg till**.
 
@@ -90,7 +90,7 @@ Du använder den här händelsehubben för att lagra tweets.
     |Aktivera automatisk ökning (valfritt) |Automatisk ökning skalar automatiskt antalet data flödes enheter som tilldelats Event Hubs namn området när trafiken överskrider kapaciteten hos de data flödes enheter som tilldelats den.  |
     |Högsta antal data flödes enheter automatiskt (valfritt)|Det här skjutreglaget visas bara om du markerar **Aktivera automatisk**ökning.  |
 
-    ![Ange ett Event Hub-namn för Spark streaming-exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Ange ett händelsehubben för Spark streaming-exempel")
+    ![Ange ett Event Hub-namn för Spark streaming-exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Ange ett Event Hub-namn för Spark streaming-exempel")
 
 6. Välj **skapa** för att skapa namn området.  Distributionen kommer att slutföras på några minuter.
 
@@ -112,7 +112,7 @@ Skapa en Event Hub när Event Hubs namn rymden har distribuerats.  Från portale
 
     - **Kvarhållning av meddelande**: 1.   
    
-      ![Ange information om Event Hub för Spark streaming-exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "innehåller information om händelsehubben för Spark streaming-exempel")
+      ![Ange information om händelsehubben för Spark streaming-exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Ange information om händelsehubben för Spark streaming-exempel")
 
 1. Välj **Skapa**.  Distributionen bör slutföras inom några sekunder och du kommer tillbaka till sidan Event Hubs namn område.
 
@@ -124,7 +124,7 @@ Skapa en Event Hub när Event Hubs namn rymden har distribuerats.  Från portale
 
 1. Spara värdena för **primär nyckel** och **anslutnings sträng – primär nyckel** för att använda senare i självstudien.
 
-     ![Visa princip nycklar för Event Hub för Spark streaming-exemplet](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Visa händelse hubb princip nycklar för exemplet på Spark-direktuppspelning")
+     ![Visa princip nycklar för Event Hub för exemplet på Spark-direktuppspelning](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Visa princip nycklar för Event Hub för exemplet på Spark-direktuppspelning")
 
 
 ## <a name="send-tweets-to-the-event-hub"></a>Skicka tweets till händelsehubben
@@ -252,7 +252,7 @@ Med HDInsight lagras dina data i Azure Storage eller Azure Data Lake Storage, s�
 
 Öppna klustret i Azure Portal och välj **Ta bort**.
 
-![HDInsight Azure Portal ta bort kluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "ta bort HDInsight-kluster")
+![HDInsight Azure Portal ta bort kluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
 
 Du kan också välja det resursgruppnamn som ska öppna resursgruppsidan och sedan välja **Ta bort resursgrupp**. När resursgruppen tas bort, tas även HDInsight Spark-klustret och standardkontot för lagring bort.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 36f26808b94893990ceec65e114b11113dbafd6f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 72549a2df3490344987567d1e62c65f76f151097
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177488"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693255"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
 
@@ -96,7 +96,7 @@ Du kan använda olika typer av loggar i Azure för att hantera och felsöka prog
 
 * **Aktivitets logg**: du kan använda [Azure aktivitets loggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare kallade drift loggar och gransknings loggar) för att visa alla åtgärder som skickas till din Azure-prenumeration och deras status. Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
 * **Åtkomst logg**: du kan använda den här loggen för att Visa Application Gateway åtkomst mönster och analysera viktig information. Detta inkluderar anroparens IP, begärd URL, svars svars tid, retur kod och byte in och ut. En åtkomst logg samlas in var 300: e sekund. Den här loggen innehåller en post per instans av Application Gateway. Application Gateway-instansen identifieras av egenskapen instanceId.
-* **Prestanda logg**: du kan använda den här loggen för att se hur Application Gateway instanser presterar. Den här loggen samlar in prestanda information för varje instans, inklusive totalt antal betjänade begär Anden, data flöde i byte, totalt antal begär Anden, misslyckade begär Anden, antal misslyckade och felfria backend-instanser. En prestanda logg samlas in var 60: e sekund.
+* **Prestanda logg**: du kan använda den här loggen för att se hur Application Gateway instanser presterar. Den här loggen samlar in prestanda information för varje instans, inklusive totalt antal betjänade begär Anden, data flöde i byte, totalt antal begär Anden, misslyckade begär Anden, antal misslyckade och felfria backend-instanser. En prestanda logg samlas in var 60: e sekund. Prestanda loggen är endast tillgänglig för v1 SKU. Använd [mått](application-gateway-metrics.md) för prestanda data för v2-SKU: n.
 * **Brand Väggs logg**: du kan använda den här loggen för att visa de begär Anden som loggas via antingen identifierings-eller skydds läget för en Programgateway som är konfigurerad med brand väggen för webbaserade program.
 
 > [!NOTE]
@@ -112,11 +112,11 @@ Du har tre alternativ för att lagra dina loggar:
 
 Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Du måste aktivera åtkomst-och prestanda loggning för att kunna börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning:
 
-1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet är av formatet:/Subscriptions/\<subscriptionId @ no__t-1/resourceGroups/\<resource Group name @ no__t-3/providers/Microsoft. Storage/storageAccounts/\<storage konto namn @ no__t-5. Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal.
+1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet är av formatet:/Subscriptions/\<subscriptionId \>/resourceGroups/\<resource grupp namn \>/providers/Microsoft.Storage/storageAccounts/\<storage konto namn \>. Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal.
 
     ![Portal: resurs-ID för lagrings konto](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Anteckna det resurs-ID för Application Gateway som loggning har Aktiver ATS för. Det här värdet är av formatet:/Subscriptions/\<subscriptionId @ no__t-1/resourceGroups/\<resource Group name @ no__t-3/providers/Microsoft. Network/applicationGateways/\<application Gateway Name @ no__t-5. Du hittar den här informationen i Azure Portal.
+2. Anteckna det resurs-ID för Application Gateway som loggning har Aktiver ATS för. Det här värdet är av formatet:/Subscriptions/\<subscriptionId \>/resourceGroups/\<resource grupp namn \>/providers/Microsoft.Network/applicationGateways/\<application Gateway-namn \>. Du hittar den här informationen i Azure Portal.
 
     ![Portal: resurs-ID för Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
@@ -252,7 +252,7 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 
 ### <a name="performance-log"></a>Prestanda logg
 
-Prestanda loggen skapas endast om du har aktiverat den på varje Application Gateway instans, enligt beskrivningen i föregående steg. Data lagras i det lagrings konto som du angav när du aktiverade loggningen. Prestanda logg data genereras i intervall på 1 minut. Följande data loggas:
+Prestanda loggen skapas endast om du har aktiverat den på varje Application Gateway instans, enligt beskrivningen i föregående steg. Data lagras i det lagrings konto som du angav när du aktiverade loggningen. Prestanda logg data genereras i intervall på 1 minut. Den är endast tillgänglig för v1 SKU. Använd [mått](application-gateway-metrics.md) för prestanda data för v2-SKU: n. Följande data loggas:
 
 
 |Värde  |Beskrivning  |

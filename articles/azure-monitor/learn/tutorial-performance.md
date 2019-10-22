@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
 ms.openlocfilehash: 9768191d98bf1987ac24564869107cdd6bf19e8d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69032199"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
@@ -28,7 +28,7 @@ Azure Application Insights samlar in telemetri från ditt program för att analy
 > * analysera information om sidvisningar med frågespråk.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
@@ -79,7 +79,7 @@ Application Insights samlar in prestandainformation för de olika åtgärderna i
 ## <a name="use-logs-data-for-server"></a>Använd loggdata för servern
  Loggar innehåller ett rikt frågespråk som gör att du kan analysera alla data som samlas in av Application Insights. Du kan använda det till att utföra djupanalys på data om förfrågningar och prestanda.
 
-1. Gå tillbaka till panelen åtgärds information och ![Klicka på loggarna ikon](media/tutorial-performance/app-viewinlogs-icon.png)**i loggar (analys)**
+1. Gå tillbaka till panelen åtgärds information och klicka på ![Logs ikonvy](media/tutorial-performance/app-viewinlogs-icon.png)**i loggar (analys)**
 
 2. Loggar öppnas med en fråga för var och en av vyerna i panelen.  Du kan köra dessa frågor som de är eller ändra dem efter dina behov.  Den första frågan visar åtgärdens varaktighet över tid.
 
@@ -100,11 +100,11 @@ Förutom att identifiera serverprocesser att optimera så kan Application Insigh
 ## <a name="use-logs-data-for-client"></a>Använd loggar data för klienten
 Precis som de data som samlas in för Server prestanda gör Application Insights alla klient data tillgängliga för djup analys med hjälp av loggar.
 
-1. Gå tillbaka till webb läsar sammanfattningen och](media/tutorial-performance/app-viewinlogs-icon.png) Klicka på ![loggarna **Visa i loggar (analys)**
+1. Gå tillbaka till webb läsar sammanfattningen och klicka på ![Logs ikon ](media/tutorial-performance/app-viewinlogs-icon.png) **vy i loggar (analys)**
 
 2. Loggar öppnas med en fråga för var och en av vyerna i panelen. Den första frågan visar varaktigheten för olika sidvisningar över tid.
 
-    ![Loggar fråga](media/tutorial-performance/10-page-view-logs.png)
+    ![loggar fråga](media/tutorial-performance/10-page-view-logs.png)
 
 3.  Smart diagnostik är en funktion i loggar som identifierar unika mönster i data. När du klickar på punkten Smart Diagnostics i linjediagrammet körs samma fråga utan de poster som orsakade avvikelsen. Information om de posterna visas i frågans kommentarsavsnitt så att du kan identifiera egenskaperna för de sidvisningar som orsakar den långa varaktigheten.
 

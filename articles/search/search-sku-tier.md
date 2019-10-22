@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
 ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331199"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en pris nivå för Azure Search
@@ -41,7 +41,7 @@ Nivån som du väljer avgör fakturerings priset. Följande skärm bild från Az
 
 **Kostnads fri** skapar en begränsad Sök tjänst i ett kluster som delas med andra prenumeranter. Du kan slutföra små projekt, inklusive snabb starter och självstudier, men du kan inte skala tjänsten eller köra betydande arbets belastningar. **Basic** och **standard** är de vanligaste fakturerbara nivåerna, med **standard standarden** .
 
-![Pris nivåer för Azure Search](media/search-sku-tier/tiers.png "pris nivåer för Azure Search")
+![Pris nivåer för Azure Search](media/search-sku-tier/tiers.png "Pris nivåer för Azure Search")
 
 Vissa nivåer är optimerade för vissa typer av arbete. Till exempel är **standard 3 hög densitet (S3 HD)** ett *värd läge* för S3, där den underliggande maskin varan är optimerad för ett stort antal mindre index och är avsedd för flera organisationers scenarier. S3 HD har samma kostnad per enhet som S3, men maskin varan är optimerad för snabba fil läsningar på ett stort antal mindre index.
 

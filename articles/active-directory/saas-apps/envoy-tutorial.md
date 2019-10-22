@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med mottagare | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med mottagare | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Envoy.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28f3fca731c9ceb28f66ecd1c178e5c025f80ede
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70163533"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med mottagare
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med mottagare
 
 I den här självstudien får du lära dig hur du integrerar mottagare med Azure Active Directory (Azure AD). När du integrerar mottagare med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar mottagare med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -70,7 +70,7 @@ Om du vill konfigurera och testa Azure AD SSO med mottagare, slutför du följan
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera mottagare SSO](#configure-envoy-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa mottagare test User](#create-envoy-test-user)** -om du vill ha en motsvarighet till B. Simon i mottagare som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -109,14 +109,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till mottagare.
 
@@ -124,7 +124,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I programlistan väljer du **Envoy**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -148,11 +148,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. I verktygsfältet längst upp klickar du på **Inställningar**.
 
-    ![Envoy](./media/envoy-tutorial/ic776782.png "Envoy")
+    ![Mottagare](./media/envoy-tutorial/ic776782.png "Envoy")
 
 5. Klicka på **Företag**.
 
-    ![Företag](./media/envoy-tutorial/ic776783.png "Företag")
+    ![Firm](./media/envoy-tutorial/ic776783.png "Företag")
 
 6. Klicka på **SAML**.
 
@@ -169,7 +169,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     
     b. Klistra in det värde för **inloggnings-URL** som du har kopierat från Azure-portalen i textrutan **IDENTITY PROVIDER HTTP SAML URL** (identitetsproviderns HTTP SAML-URL).
     
-    c. Klicka på **spara ändringar**.
+    c. Klicka på **Spara ändringar**.
 
 ### <a name="create-envoy-test-user"></a>Skapa Envoy-testanvändare
 
@@ -177,9 +177,9 @@ I det här avsnittet skapas en användare som kallas Britta Simon i mottagare. M
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Envoy-panelen i åtkomstpanelen bör du automatiskt loggas in på Envoy som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Envoy-panelen i åtkomstpanelen bör du automatiskt loggas in på Envoy som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

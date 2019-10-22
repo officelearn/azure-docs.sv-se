@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med Onit | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Onit | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Onit.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e908cb76a57f027494230edc648b69da0730ac27
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70164232"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Onit
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Onit
 
 I den här självstudien får du lära dig hur du integrerar Onit med Azure Active Directory (Azure AD). När du integrerar Onit med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Onit med Azure Acti
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -65,7 +65,7 @@ Om du vill konfigurera och testa Azure AD SSO med Onit, slutför du följande By
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera ONIT SSO](#configure-onit-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa Onit test User](#create-onit-test-user)** -om du vill ha en motsvarighet till B. Simon i Onit som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -87,7 +87,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<sub-domain>.onit.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Onit client support team](https://www.onit.com/support) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Kontakta [Onit client support team](https://www.onit.com/support) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
 
@@ -106,14 +106,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Onit.
 
@@ -121,7 +121,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **Onit**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -137,7 +137,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på **Administration**i menyn högst upp.
    
-    ![Administration](./media/onit-tutorial/IC791174.png "Administration")
+    ![Administrationsverktyg](./media/onit-tutorial/IC791174.png "Administration")
 
 3. Klicka på **Redigera Corporation**.
    
@@ -149,13 +149,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 5. Utför följande steg på fliken **säkerhet** :
 
-    ![Enkel inloggning](./media/onit-tutorial/IC791177.png "Enkel inloggning")
+    ![Enkel inloggning](./media/onit-tutorial/IC791177.png "för Aha!")
 
     a. Som **strategi för autentisering**väljer du **enkel inloggning och lösen ord**.
     
-    b. I text rutan för **IDP mål-URL** klistrar du in värdet för inloggnings- **URL: en**som du har kopierat från Azure Portal.
+    b. I text rutan för **IDP mål-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
-    c. I text rutan för IDP-utloggnings **webb adress** klistrar du in värdet för **URL för utloggning**som du har kopierat från Azure Portal.
+    c. I text rutan för **IDP-utloggnings webb adress** klistrar du in värdet för **URL för utloggning**som du har kopierat från Azure Portal.
 
     d. I text rutan **IDP cert finger avtryck (SHA1)** klistrar du in **tumavtrycket** för certifikat, som du har kopierat från Azure Portal.
 
@@ -167,15 +167,15 @@ För att Azure AD-användare ska kunna logga in på Onit måste de tillhandahål
 
 1. Logga in på din **Onit** -företags webbplats som administratör.
 
-2. Klicka på **lägga till användare**.
+2. Klicka på **Lägg till användare**.
 
-    ![Administration](./media/onit-tutorial/IC791180.png "Administration")
+    ![Administrationsverktyg](./media/onit-tutorial/IC791180.png "Administration")
 
 3. Utför följande steg på dialog sidan **Lägg till användare** :
 
     ![Lägg till användare](./media/onit-tutorial/IC791181.png "Lägg till användare")
 
-    a. Skriv **namnet** och **e-** postadressen för ett giltigt Azure AD-konto som du vill etablera i de relaterade text rutorna.
+    a. Skriv **namnet** och **e-postadressen** för ett giltigt Azure AD-konto som du vill etablera i de relaterade text rutorna.
 
     b. Klicka på **Skapa**.
 
@@ -184,9 +184,9 @@ För att Azure AD-användare ska kunna logga in på Onit måste de tillhandahål
 
 ## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Onit på åtkomst panelen, bör du loggas in automatiskt på den Onit som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Onit på åtkomst panelen, bör du loggas in automatiskt på den Onit som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa en instans för Azure Network Watcher | Microsoft Docs
+title: Skapa en Azure Network Watcher-instans | Microsoft Docs
 description: Lär dig hur du aktiverar Network Watcher i en Azure-region.
 services: network-watcher
 documentationcenter: na
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c97f6dff17896b8a58c17aed9063e0b2b5733503
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd293c2815721295715c5e02846c55d4cdb74a32
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681567"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693476"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Skapa en Azure Network Watcher-instans
 
-Network Watcher är en regional tjänst som hjälper dig att övervaka och diagnostisera villkor på nätverksnivå, till och från Azure. Scenariot på övervakning kan du diagnostisera problem på vyn för slutpunkt till slutpunkt. Nätverksdiagnostik- och visualiseringsverktyg för Network Watcher hjälper dig att förstå, diagnostisera och få information om ditt nätverk i Azure. Network Watcher aktiveras genom att skapa en Network Watcher-resurs. Den här resursen kan du använda Network Watcher-funktioner.
+Network Watcher är en regional tjänst som gör att du kan övervaka och diagnostisera villkor på en nätverks scenario nivå i, till och från Azure. Med övervakning av scenarionivå kan du diagnostisera problem på en slutpunkt-till-slutpunkt-vy på nätverks nivå. Diagnostikverktyg för nätverk och visualiserings verktyg som är tillgängliga med Network Watcher hjälpa dig att förstå, diagnostisera och få insikter om ditt nätverk i Azure. Network Watcher aktive ras genom att en Network Watcher-resurs skapas. Med den här resursen kan du använda Network Watcher-funktioner.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher aktiveras automatiskt
+## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher aktive ras automatiskt
 När du skapar eller uppdaterar ett virtuellt nätverk i din prenumeration aktiveras Network Watcher automatiskt i din virtuella nätverksregion. Dina resurser påverkas inte av den automatiska aktiveringen av Network Watcher, och inga kostnader tillkommer.
 
-#### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Avstår från automatisk aktivering av Network Watcher
-Om du vill välja bort automatisk aktivering av Network Watcher kan göra du det genom att köra följande kommandon:
+#### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Inaktivera Network Watcher automatisk aktivering
+Om du vill inaktivera Network Watcher automatisk aktivering kan du göra det genom att köra följande kommandon:
 
 > [!WARNING]
-> Väljer ut av automatisk aktivering av Network Watcher är en permanent förändring. När du inte välja bort du kan anmäla sig utan [att kontakta supporten](https://azure.microsoft.com/support/options/)
+> Väljer-Network Watcher automatisk aktivering är en permanent ändring. När du har avanmält dig kan du inte välja utan att [kontakta supporten](https://azure.microsoft.com/support/options/)
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
@@ -51,19 +51,19 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Skapa en Network Watcher i portalen
 
-Gå till **alla tjänster** > **nätverk** > **Network Watcher**. Du kan välja de prenumerationer som du vill aktivera Network Watcher för. Den här åtgärden skapar en Network Watcher i varje region som är tillgänglig.
+Gå till **alla tjänster**  > **nätverks**  > **Network Watcher**. Du kan välja alla prenumerationer som du vill aktivera Network Watcher för. Den här åtgärden skapar en Network Watcher i varje region som är tillgänglig.
 
-![Skapa en network watcher](./media/network-watcher-create/figure1.png)
+![skapa en nätverks övervakare](./media/network-watcher-create/figure1.png)
 
-När du aktiverar Network Watcher med hjälp av portalen, namnet på instansen av Network Watcher ställs automatiskt in *NetworkWatcher_region_name* där *region_name* motsvarar den Azure-regionen där instansen är aktiverat. Till exempel en Network Watcher aktiverat i regionen USA, västra centrala heter *NetworkWatcher_westcentralus*.
+När du aktiverar Network Watcher med hjälp av portalen anges namnet på Network Watcher-instansen automatiskt till *NetworkWatcher_region_name* där *Region_name* motsvarar den Azure-region där instansen är aktive rad. Till exempel heter en Network Watcher som är aktive rad i regionen västra centrala USA namnet *NetworkWatcher_westcentralus*.
 
-Network Watcher-instans skapas automatiskt i en resursgrupp med namnet *NetworkWatcherRG*. Resursgruppen skapas om den inte redan finns.
+Network Watcher-instansen skapas automatiskt i en resurs grupp med namnet *NetworkWatcherRG*. Resurs gruppen skapas om den inte redan finns.
 
-Om du vill anpassa namnet på en Network Watcher-instans och resursgruppen har placerats i kan du använda Powershell, Azure CLI, REST API eller ARMClient metoder som beskrivs i avsnitten som följer. I varje alternativ, måste resursgruppens namn finnas innan du skapar en Network Watcher i den.  
+Om du vill anpassa namnet på en Network Watcher-instans och resurs gruppen som den placeras i, kan du använda PowerShell, Azure CLI, REST API eller ARMClient metoder som beskrivs i avsnitten som följer. I varje alternativ måste resurs gruppen finnas innan du skapar en Network Watcher.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>Skapa en Network Watcher med PowerShell
 
-Om du vill skapa en instans av Network Watcher, kör du följande exempel:
+Kör följande exempel för att skapa en instans av Network Watcher:
 
 ```powershell
 New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
@@ -71,15 +71,15 @@ New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "Ne
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>Skapa en Network Watcher med Azure CLI
 
-Om du vill skapa en instans av Network Watcher, kör du följande exempel:
+Kör följande exempel för att skapa en instans av Network Watcher:
 
 ```azurecli
 az network watcher configure --resource-group NetworkWatcherRG --locations westcentralus --enabled
 ```
 
-## <a name="create-a-network-watcher-with-the-rest-api"></a>Skapa en Network Watcher med REST-API
+## <a name="create-a-network-watcher-with-the-rest-api"></a>Skapa en Network Watcher med REST API
 
-ARMclient används för att anropa REST-API med hjälp av PowerShell. ARMClient hittas på chocolatey på [ARMClient på Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient används för att anropa REST API med hjälp av PowerShell. ARMClient finns på choklad på [ARMClient på choklad](https://chocolatey.org/packages/ARMClient)
 
 ### <a name="log-in-with-armclient"></a>Logga in med ARMClient
 
@@ -87,7 +87,7 @@ ARMclient används för att anropa REST-API med hjälp av PowerShell. ARMClient 
 armclient login
 ```
 
-### <a name="create-the-network-watcher"></a>Skapa nätverksbevakaren
+### <a name="create-the-network-watcher"></a>Skapa nätverks bevakaren
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -103,16 +103,36 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
+## <a name="delete-a-network-watcher-in-the-portal"></a>Ta bort ett Network Watcher i portalen
+
+Gå till **alla tjänster**  > **nätverks**  > **Network Watcher**.
+
+Välj fliken Översikt om du inte redan är där. Använd List rutan för att välja den prenumeration som du vill inaktivera nätverks övervakaren i.
+Expandera listan över regioner för din valda prenumeration genom att klicka på pilen. Använd de 3 punkterna till höger för att få åtkomst till snabb menyn.
+Klicka på "inaktivera Network Watcher" för att börja inaktivera. Du uppmanas att bekräfta det här steget. Klicka på Ja för att fortsätta.
+På portalen måste du göra detta individuellt för varje region i varje prenumeration.
+
+
+## <a name="delete-a-network-watcher-with-powershell"></a>Ta bort en Network Watcher med PowerShell
+
+Om du vill ta bort en instans av Network Watcher kör du följande exempel:
+
+```powershell
+New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus
+New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG -Location westcentralus
+Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en instans av Network Watcher lär du dig mer om tillgängliga funktioner:
+Nu när du har en instans av Network Watcher kan du läsa mer om tillgängliga funktioner:
 
 * [Topologi](network-watcher-topology-overview.md)
-* [Paketfångsten](network-watcher-packet-capture-overview.md)
+* [Paket fångst](network-watcher-packet-capture-overview.md)
 * [Verifiera IP-flöde](network-watcher-ip-flow-verify-overview.md)
 * [Nästa hopp](network-watcher-next-hop-overview.md)
 * [Säkerhetsgruppvy](network-watcher-security-group-view-overview.md)
-* [NSG-flödesloggar](network-watcher-nsg-flow-logging-overview.md)
-* [Felsökning av virtuell nätverksgateway](network-watcher-troubleshoot-overview.md)
+* [NSG flödes loggning](network-watcher-nsg-flow-logging-overview.md)
+* [Virtual Network Gateway-felsökning](network-watcher-troubleshoot-overview.md)
 
-När en instans av Network Watcher är kan aktivera du infångade paket på virtuella datorer i. Att lära dig hur genom att läsa [skapar en avisering utlösta paketfångsten](network-watcher-alert-triggered-packet-capture.md)
+När en Network Watcher instans är kan du aktivera paket fångst i virtuella datorer. Mer information finns i [skapa en avisering om utlöst paket avbildning](network-watcher-alert-triggered-packet-capture.md)

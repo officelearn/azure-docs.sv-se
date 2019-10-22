@@ -1,5 +1,5 @@
 ---
-title: 'Tillämpa omvandling: Modulreferens'
+title: 'Tillämpa omvandling: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen Använd omvandling i Azure Machine Learning-tjänsten för att ändra en indata-datauppsättning baserat på en tidigare beräknad omvandling.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b4ec9e71d9ce932a7b206467db91760f4a4fc47
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: adb2477fe2b7eea0dd0a98c7240843d90411d832
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128971"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693868"
 ---
-# <a name="apply-transformation-module"></a>Tillämpa omvandling modul
+# <a name="apply-transformation-module"></a>Använd omvandlings modul
 
 I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
@@ -27,14 +27,14 @@ Om du till exempel använde z-poängen för att normalisera dina utbildnings dat
 Azure Machine Learning ger stöd för att skapa och använda många olika typer av anpassade transformeringar. Du kanske till exempel vill spara och återanvända omvandlingar till:  
   
 - Ta bort eller Ersätt saknade värden med **rensade data som saknas**
-- Normalisera data med normaliserade **data**
+- Normalisera data med **normaliserade data**
   
 
 ## <a name="how-to-use-apply-transformation"></a>Använda tillämpa omvandling  
   
-1. Lägg till modulen **Använd omvandling** i experimentet. Du hittar den här modulen under **Machine Learning**i kategorin **Poäng** . 
+1. Lägg till modulen **Använd omvandling** i din pipeline. Du hittar den här modulen under **Machine Learning**i kategorin **Poäng** . 
   
-2. Leta upp en befintlig omvandling som ska användas som inmatad.  Tidigare sparade omvandlingar finns i gruppen Transforms i det vänstra navigerings fönstret.  
+2. Leta upp en befintlig omvandling som ska användas som inmatad.  Tidigare sparade omvandlingar finns i gruppen **Transforms** i det vänstra navigerings fönstret.  
   
    
   
@@ -42,7 +42,7 @@ Azure Machine Learning ger stöd för att skapa och använda många olika typer 
   
 4. Inga andra parametrar måste anges eftersom all anpassning utförs när omvandlingen definieras.  
   
-5. Om du vill tillämpa en omvandling på den nya data uppsättningen kör du experimentet.  
+5. Om du vill tillämpa en omvandling på den nya data uppsättningen kör du pipelinen.  
 
 ## <a name="next-steps"></a>Nästa steg
 

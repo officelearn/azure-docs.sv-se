@@ -1,5 +1,5 @@
 ---
-title: 'Skog med flera klasser: Modulreferens'
+title: 'Besluts skog i flera klasser: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen för besluts skogar i flera klasser i Azure Machine Learning-tjänsten för att skapa en Machine Learning-modell som baseras på algoritmen för *besluts skogar* .
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b56f08dfd1a14ffedffb612bb8974086ee08ede7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 80d8fc886ec62cf6abea7620f0c5763b619b5de4
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128619"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692770"
 ---
 # <a name="multiclass-decision-forest-module"></a>Modul för besluts skog för flera klasser
 
@@ -41,15 +41,15 @@ Besluts skogens klassificerare i Azure Machine Learning består av en ensemble i
 
 
 
-1. Lägg till modulen **besluts skog** för flera klasser i experimentet i gränssnittet. Du kan hitta den här modulen under **Machine Learning**, **initiera modell**och **klassificering**.
+1. Lägg till modulen **besluts skog** för flera klasser i din pipeline i gränssnittet. Du kan hitta den här modulen under **Machine Learning**, **initiera modell**och **klassificering**.
 
 2. Dubbelklicka på modulen för att öppna fönstret **Egenskaper** .
 
 3. För **metoden**för att sampla om väljer du den metod som används för att skapa enskilda träd.  Du kan välja mellan bagage eller replikering.
 
-    + **Bagage**: Bagaget kallas även *bootstrap-aggregering*. I den här metoden odlas varje träd på ett nytt exempel som skapats genom att slumpmässigt sampla den ursprungliga data uppsättningen med ersättning tills du har en data uppsättning som är den ursprungliga storleken. Modellernas utdata kombineras med *röstning*, vilket är en form av agg regering. Mer information finns i Wikipedia-posten för start agg regering.
+    + **Bagage**: bagage kallas även *Start agg regering*. I den här metoden odlas varje träd på ett nytt exempel som skapats genom att slumpmässigt sampla den ursprungliga data uppsättningen med ersättning tills du har en data uppsättning som är den ursprungliga storleken. Modellernas utdata kombineras med *röstning*, vilket är en form av agg regering. Mer information finns i Wikipedia-posten för start agg regering.
 
-    + **Replikera**: I replikering tränas varje träd på exakt samma indata. Bestämning av vilka delade predikat som används för varje trädnod förblir slumpmässiga och skapar olika träd.
+    + **Replikera**: i replikering tränas varje träd på exakt samma indata. Bestämning av vilka delade predikat som används för varje trädnod förblir slumpmässiga och skapar olika träd.
 
    
 
@@ -62,11 +62,11 @@ Besluts skogens klassificerare i Azure Machine Learning består av en ensemble i
 
     Det här värdet styr också antalet träd som visas i resultaten vid visualisering av den tränade modellen. Om du vill se eller skriva ut ett enda träd kan du ange värdet till 1. Det innebär dock att endast ett träd kan skapas (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
 
-6. **Maximalt djup för besluts träden**: Ange ett tal för att begränsa det maximala djupet för ett besluts träd. Att öka djupet i trädet kan öka precisionen på risken för viss överanpassning och ökad inlärnings tid.
+6. **Högsta djup för besluts träden**: Ange ett tal för att begränsa det maximala djupet för besluts träd. Att öka djupet i trädet kan öka precisionen på risken för viss överanpassning och ökad inlärnings tid.
 
 7. **Antal slumpmässiga delningar per nod**: Ange antalet delningar som ska användas när du skapar varje nod i trädet. En *delning* innebär att funktionerna i varje nivå i trädet (noden) är slumpmässigt uppdelade.
 
-8. **Minsta antal sampel per lövnod**: Ange det minsta antal fall som krävs för att skapa en Terminal-nod (löv) i ett träd. Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler.
+8. **Minsta antal sampel per lövnod**: Ange det minsta antal fall som krävs för att skapa en terminalsession (löv) i ett träd. Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler.
 
     Till exempel, med standardvärdet 1, kan ett enda ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste tränings data innehålla minst fem fall som uppfyller samma villkor.
 
@@ -74,9 +74,9 @@ Besluts skogens klassificerare i Azure Machine Learning består av en ensemble i
 
 10. Anslut en etikettad data uppsättning och en av modulerna för utbildning:
 
-    + Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](./train-model.md) .
+    + Om du ställer in **skapa utbildare** för **en parameter**använder du modulen [träna modell](./train-model.md) .
 
-11. Kör experimentet.
+11. Köra en pipeline.
 
 ## <a name="results"></a>Resultat
 

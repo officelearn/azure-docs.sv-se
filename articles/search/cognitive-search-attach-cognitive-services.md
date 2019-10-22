@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265935"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Bifoga en Cognitive Services resurs med en färdigheter i Azure Search 
@@ -28,7 +28,7 @@ Du kan utöka ett begränsat antal dokument kostnads fritt. Eller så kan du kop
 
 ## <a name="same-region-requirement"></a>Krav för samma region
 
-Vi kräver att Azure Search och Azure Cognitive Services finns inom samma region. Annars får du det här meddelandet vid körning:`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Vi kräver att Azure Search och Azure Cognitive Services finns inom samma region. Annars får du det här meddelandet vid körning: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 Det finns inget sätt att flytta en tjänst mellan regioner. Om du får det här felet bör du skapa en ny Cognitive Services-resurs i samma region som Azure Search.
 
@@ -51,7 +51,7 @@ Kostnads fria (begränsade berikade) resurser är begränsade till 20 dokument p
 
    ![Utöka Cognitive Services avsnittet](./media/cognitive-search-attach-cognitive-services/attach1.png "Utöka Cognitive Services avsnittet")
 
-1. Fortsätt till nästa steg, **Lägg till anrikninger**. En beskrivning av tillgängliga kunskaper i portalen finns [i steg 2: Lägg till kognitiva kunskaper](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) i snabb start för kognitiv sökning.
+1. Fortsätt till nästa steg, **Lägg till anrikninger**. En beskrivning av de kunskaper som är tillgängliga i portalen finns i [steg 2: Lägg till kognitiva kunskaper](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) i snabb start för kognitiv sökning.
 
 ## <a name="use-billable-resources"></a>Använd fakturerbara resurser
 
@@ -63,7 +63,7 @@ Du debiteras bara för färdigheter som anropar API:er för Cognitive Services. 
 
 1. Expandera **bifoga Cognitive Services** och välj sedan **Skapa ny Cognitive Services resurs**. En ny flik öppnas så att du kan skapa resursen:
 
-   ![Skapa en Cognitive Services resurs](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Skapa en Cognitive Services resurs")
+   ![Skapa en Cognitive Services resurs](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Skapa en -resurs för Cognitive Services")
 
 1. I listan **plats** väljer du den region där Azure Searchs tjänsten finns. Se till att använda den här regionen av prestanda skäl. Om du använder den här regionen annulleras även utgående bandbredds avgifter mellan regioner.
 
@@ -81,7 +81,7 @@ Du debiteras bara för färdigheter som anropar API:er för Cognitive Services. 
 
    ![Välj den Cognitive Services resursen](./media/cognitive-search-attach-cognitive-services/attach2.png "Välj den Cognitive Services resursen")
 
-1. Expandera avsnittet **Lägg till berikare** och välj de speciella kognitiva färdigheter som du vill köra på dina data. Slutför resten av guiden. En beskrivning av tillgängliga kunskaper i portalen finns [i steg 2: Lägg till kognitiva kunskaper](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) i snabb start för kognitiv sökning.
+1. Expandera avsnittet **Lägg till berikare** och välj de speciella kognitiva färdigheter som du vill köra på dina data. Slutför resten av guiden. En beskrivning av de kunskaper som är tillgängliga i portalen finns i [steg 2: Lägg till kognitiva kunskaper](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) i snabb start för kognitiv sökning.
 
 ## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>Koppla en befintlig färdigheter till en Cognitive Services-resurs
 
@@ -99,9 +99,9 @@ Om du har en befintlig färdigheter kan du koppla den till en ny eller annan Cog
 
 ## <a name="attach-cognitive-services-programmatically"></a>Bifoga Cognitive Services program mässigt
 
-När du definierar färdigheter program mässigt lägger du till ett `cognitiveServices` avsnitt i färdigheter. I avsnittet inkluderar du nyckeln för den Cognitive Services resurs som du vill associera med färdigheter. Kom ihåg att resursen måste finnas i samma region som din Azure Search-resurs. Ta även `@odata.type`med och ange det som `#Microsoft.Azure.Search.CognitiveServicesByKey`.
+När du definierar färdigheter program mässigt lägger du till ett `cognitiveServices`-avsnitt i färdigheter. I avsnittet inkluderar du nyckeln för den Cognitive Services resurs som du vill associera med färdigheter. Kom ihåg att resursen måste finnas i samma region som din Azure Search-resurs. Ta även med `@odata.type` och ange det som `#Microsoft.Azure.Search.CognitiveServicesByKey`.
 
-I följande exempel visas det här mönstret. Lägg märke `cognitiveServices` till avsnittet i slutet av definitionen.
+I följande exempel visas det här mönstret. Lägg märke till avsnittet `cognitiveServices` i slutet av definitionen.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
@@ -137,7 +137,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="example-estimate-costs"></a>Exempel: Beräkna kostnader
+## <a name="example-estimate-costs"></a>Exempel: uppskatta kostnader
 
 Om du vill beräkna de kostnader som är kopplade till kognitiv söknings indexering börjar du med en uppfattning om hur mycket ett genomsnittligt dokument ser ut så att du kan köra vissa tal. Du kan till exempel approximera:
 

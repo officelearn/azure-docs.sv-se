@@ -1,7 +1,7 @@
 ---
-title: 'Exempel på visuella gränssnitt #4: Klassificering för att förutsäga kredit risk (kostnads känsligt)'
+title: 'Exempel på visuella gränssnitt #4: klassificering till förutsägelse av kredit risk (kostnads känsligt)'
 titleSuffix: Azure Machine Learning
-description: Den här artikeln visar hur du skapar ett komplext dator inlärnings experiment med hjälp av det visuella gränssnittet. Du lär dig hur du implementerar anpassade Python-skript och jämför flera modeller för att välja det bästa alternativet.
+description: Den här artikeln visar hur du skapar en komplex pipeline för maskin inlärning med hjälp av det visuella gränssnittet. Du lär dig hur du implementerar anpassade Python-skript och jämför flera modeller för att välja det bästa alternativet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,52 +9,52 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: c06da0fd325f6b79bc0e14c4e6a246497f86a900
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 7196e9522695a28a5560faa77860073bd08e25ee
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131914"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693518"
 ---
-# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)
+# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exempel 4 – klassificering: förutsägelse kredit risk (kostnads känsligt)
 
-Den här artikeln visar hur du skapar ett komplext dator inlärnings experiment med hjälp av det visuella gränssnittet. Du lär dig hur du implementerar anpassad logik med python-skript och jämför flera modeller för att välja det bästa alternativet.
+Den här artikeln visar hur du skapar en komplex pipeline för maskin inlärning med hjälp av det visuella gränssnittet. Du lär dig hur du implementerar anpassad logik med python-skript och jämför flera modeller för att välja det bästa alternativet.
 
 Det här exemplet tränar en klassificerare till att förutsäga kredit risken med hjälp av kredit information, till exempel kredit historik, ålder och antal kredit kort. Du kan dock använda begreppen i den här artikeln för att ta itu med dina egna maskin inlärnings problem.
 
 Om du precis har kommit igång med Machine Learning kan du ta en titt på det [grundläggande klassificerar exemplet](how-to-ui-sample-classification-predict-credit-risk-basic.md) först.
 
-Här är det färdiga diagrammet för det här experimentet:
+Här är det färdiga diagrammet för den här pipelinen:
 
-[![Diagram över experimentet](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[pipeline-![Graph](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Välj knappen **Öppna** för exempel fyra experiment:
+4. Välj knappen **Öppna** för exempel 4 pipelinen:
 
-    ![Öppna experimentet](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
+    ![Öppna pipelinen](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
 ## <a name="data"></a>Data
 
-I det här exemplet används det tyska kredit kortets data uppsättning från UC Irvine-lagringsplatsen. Den här data uppsättningen innehåller 1 000-exempel med 20 funktioner och 1 etikett. Varje exempel representerar en person. De 20 funktionerna omfattar numeriska och kategoriska funktioner. Mer information om data uppsättningen finns på sidan för [webb-och webb sidor](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). Den sista kolumnen är etiketten, som anger kredit risken och bara har två möjliga värden: hög kredit risk = 2 och låg kredit risk = 1.
+I det här exemplet används det tyska kredit kortets data uppsättning från UC Irvine-lagringsplatsen. Den innehåller 1 000 exempel med 20 funktioner och 1 etikett. Varje exempel representerar en person. De 20 funktionerna omfattar numeriska och kategoriska funktioner. Mer information om data uppsättningen finns på sidan för [webb-och webb sidor](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). Den sista kolumnen är etiketten, som anger kredit risken och bara har två möjliga värden: hög kredit risk = 2 och låg kredit risk = 1.
 
-## <a name="experiment-summary"></a>Experiment Sammanfattning
+## <a name="pipeline-summary"></a>Sammanfattning av pipeline
 
-I det här experimentet jämför du två olika metoder för att skapa modeller för att lösa det här problemet:
+I den här pipelinen jämför du två olika metoder för att skapa modeller för att lösa det här problemet:
 
 - Utbildning med den ursprungliga data uppsättningen.
 - Utbildning med en replikerad data uppsättning.
 
-Med båda metoderna utvärderar du modeller genom att använda test data uppsättningen med replikering för att säkerställa att resultaten justeras med funktionen cost. Testa två klassificerare med båda metoderna: **Dubbelriktad dubbelriktad dator** och **besluts träd med två klasser**.
+Med båda metoderna utvärderar du modeller genom att använda test data uppsättningen med replikering för att säkerställa att resultaten justeras med funktionen cost. Testa två klassificerare med båda metoderna: **dubbelriktad Vector-dator** och **besluts träd med två klasser**.
 
 Kostnaden för att klassificera ett litet risk exempel som hög är 1, och kostnaden för att klassificera ett högrisk exempel som lägsta är 5. Vi använder en **execute python-skriptfil** för att redovisa den här felklassificerings kostnaden.
 
-Här är grafen till experimentet:
+Här är diagrammet över pipelinen:
 
-[![Diagram över experimentet](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[pipeline-![Graph](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Databearbetning
 
@@ -89,7 +89,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ### <a name="feature-engineering"></a>Funktionstekniker
 
-Den **dubbelriktade supporten för Vector Machine** kräver normaliserade data. Använd **normaliserings data** module för att normalisera intervallen för alla numeriska funktioner med en `tanh` omvandling. En `tanh` omvandling konverterar alla numeriska funktioner till värden inom ett intervall på 0 och 1, samtidigt som den övergripande fördelningen av värden bevaras.
+Den **dubbelriktade supporten för Vector Machine** kräver normaliserade data. Använd **normaliserings data** module för att normalisera intervallen för alla numeriska funktioner med en `tanh` omvandling. En `tanh` omvandling konverterar alla numeriska funktioner till värden inom ett intervall på 0 och 1 och bevarar den övergripande fördelningen av värden.
 
 Den **dubbelriktade metoden Vector Machine** module hanterar sträng funktioner, konverterar dem till kategoriska-funktioner och sedan till binära funktioner med värdet 0 eller 1. Det innebär att du inte behöver normalisera de här funktionerna.
 
@@ -108,11 +108,11 @@ I det här exemplet används standard arbets flödet för data vetenskap för at
 1. Använd **träna modell** för att tillämpa algoritmen på data och skapa den faktiska modellen.
 1. Använd **Poäng modellen** för att skapa poäng med hjälp av test exemplen.
 
-I följande diagram visas en del av det här experimentet där de ursprungliga och replikerade tränings uppsättningarna används för att träna två olika SVM-modeller. **Träna modellen** är ansluten till inlärnings uppsättningen och **Poäng modellen** är ansluten till test uppsättningen.
+I följande diagram visas en del av den här pipelinen där de ursprungliga och replikerade tränings uppsättningarna används för att träna två olika SVM-modeller. **Träna modellen** är ansluten till inlärnings uppsättningen och **Poäng modellen** är ansluten till test uppsättningen.
 
-![Experiment diagram](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Pipeline-diagram](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-I utvärderings fasen av experimentet beräknar du precisionen för var och en av de fyra modellerna. För det här experimentet använder du **utvärdera modell** för att jämföra exempel som har samma felklassificerings kostnad.
+I utvärderings fasen av pipelinen beräknar du precisionen för var och en av de fyra modellerna. För den här pipelinen använder du **utvärdera modell** för att jämföra exempel som har samma felklassificerings kostnad.
 
 Modulen **utvärdera modell** kan beräkna prestanda måtten för så många som två poäng modeller. Så du kan använda en **utvärderings modell** för att utvärdera de två SVM-modellerna och en annan instans av **utvärdera modell** för att utvärdera de två bättre besluts träds modellerna.
 
@@ -142,12 +142,14 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>Resultat
 
-Om du vill visa resultatet av experimentet högerklickar du på visualisera utdata för den sista **Välj kolumner i data uppsättnings** modulen.
+Om du vill visa resultatet av pipelinen högerklickar du på visualisera utdata för den sista **Välj kolumner i data uppsättnings** modulen.
 
 ![Visualisera utdata](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 Den första kolumnen visar vilken Machine Learning-algoritm som används för att generera modellen.
+
 Den andra kolumnen visar typen av inlärnings uppsättning.
+
 Den tredje kolumnen innehåller det kostnads känsliga precision svärdet.
 
 Från dessa resultat kan du se att den bästa precisionen tillhandahålls av modellen som skapades med **dubbelriktad Vector-dator** och utbildad på den replikerade träning-datauppsättningen.
@@ -160,8 +162,9 @@ Från dessa resultat kan du se att den bästa precisionen tillhandahålls av mod
 
 Utforska de andra exempel som är tillgängliga för det visuella gränssnittet:
 
-- [Exempel 1 – regression: Förutsäga ett bils pris](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Exempel 2 – regression: Jämför algoritmer för bilpris förutsägelser för bilar](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exempel 3 – klassificering: Förutsägelse kredit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-- [Exempel 5 – klassificering: Förutsäg omsättning](how-to-ui-sample-classification-predict-churn.md)
-- [Exempel 6 – klassificering: Förutsäg fördröjningar i flygning](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exempel 1 – regression: förutsäga ett bils pris](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+- [Exempel 2-regression: jämför algoritmer för bil förutsägelse av bilar](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exempel 3 – klassificering: förutsägelse kredit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Exempel 5 – klassificering: förutsägelse omsättning](how-to-ui-sample-classification-predict-churn.md)
+- [Exempel 6 – klassificering: förutsäga flyg fördröjningar](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exempel 7 – text klassificering: bok granskningar](how-to-ui-sample-text-classification.md)

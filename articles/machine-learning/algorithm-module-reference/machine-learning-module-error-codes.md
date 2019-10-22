@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: dc383d302fb3e9920ee8ef2d7d908a5b406ea1da
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: a1a6817c08223b360c08804e0595f12f2947ea5f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128667"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693078"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Undantag och felkoder för algoritmen & module-referens
 
@@ -32,15 +32,15 @@ Om fel meddelande texten inte är användbar, skicka oss information om kontexte
 ## <a name="error-0001"></a>Fel 0001  
  Undantag uppstår om en eller flera angivna kolumner med data uppsättningen inte kunde hittas.  
   
- Du får det här felet om ett kolumn val görs för en modul, men den eller de markerade kolumnerna finns inte i inmatnings data uppsättningen. Det här felet kan inträffa om du har angett ett kolumn namn manuellt eller om kolumn väljaren har angett en föreslagen kolumn som inte fanns i data uppsättningen när du körde experimentet.  
+ Du får det här felet om ett kolumn val görs för en modul, men den eller de markerade kolumnerna finns inte i inmatnings data uppsättningen. Det här felet kan inträffa om du har angett ett kolumn namn manuellt eller om kolumn väljaren har angett en föreslagen kolumn som inte fanns i data uppsättningen när du körde pipelinen.  
   
-**Lösning** Gå tillbaka i modulen för att lösa detta undantag och kontrol lera att kolumn namn eller namn är korrekta och att alla refererade kolumner finns.  
+**Lösning:** Gå tillbaka i modulen för att lösa detta undantag och kontrol lera att kolumn namn eller namn är korrekta och att alla refererade kolumner finns.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att hitta en eller flera angivna kolumner|  
-|Det gick inte att hitta kolumnen{0}med namnet eller indexet|  
-|Kolumnen med namnet eller indexet{0}finns inte i{1}|  
+|Det gick inte att hitta kolumnen med namnet eller indexet {0}|  
+|Kolumnen med namnet eller indexet {0} finns inte i {1}|  
  
 
 ## <a name="error-0002"></a>Fel 0002  
@@ -48,16 +48,16 @@ Om fel meddelande texten inte är användbar, skicka oss information om kontexte
   
  Det här felet uppstår i Azure Machine Learning när du anger en parameter som inmatad och värdetyp skiljer sig från den förväntade typen, och implicit konvertering kan inte utföras.  
   
-**Lösning** Kontrol lera modulens krav och Bestäm vilken Värdetyp som krävs (sträng, heltal, dubbelt osv.)  
+**Lösning:** Kontrol lera modulens krav och Bestäm vilken Värdetyp som krävs (sträng, heltal, dubbelt osv.)  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att parsa parametern|  
-|Det gick inte att{0}parsa parametern|  
-|Det gick inte att parsa parametern{0}(Convert) till{1}|  
-|Det gick inte att{0}konvertera "" parameter{1}från "till{2}" "|  
-|Det gick inte att{0}konvertera "" parameter{1}värde "från{2}" "till{3}" "|  
-|Det gick inte att konvertera{0}värdet "" i{1}kolumnen från "{2}" till{4}"{3}" med användning av formatet "" tillhandahölls|  
+|Det gick inte att parsa parametern {0}|  
+|Det gick inte att parsa (konvertera) "{0}"-parametern till "{1}"|  
+|Det gick inte att konvertera parametern {0} från {1} till {2}|  
+|Det gick inte att konvertera värdet för parametern {0} "{1}" från "{2}" till "{3}"|  
+|Det gick inte att konvertera värdet "{0}" i kolumnen "{1}" från "{2}" till "{3}" med användningen av formatet "{4}" som anges|  
   
 
 ## <a name="error-0003"></a>Fel 0003  
@@ -76,7 +76,7 @@ Om fel meddelande texten inte är användbar, skicka oss information om kontexte
 |Undantags meddelanden|  
 |------------------------|  
 |En eller flera indata är null eller tomma|  
-|{0}Indatamängden är null eller tom|  
+|Inmatade {0} är null eller tomt|  
   
 
 ## <a name="error-0004"></a>Fel 0004  
@@ -84,13 +84,13 @@ Om fel meddelande texten inte är användbar, skicka oss information om kontexte
   
  Du får det här felet i Azure Machine Learning om parametern i meddelandet är under ett begränsat värde som krävs för att modulen ska bearbeta data.  
   
-**Lösning** Gå tillbaka i modulen som utlöser undantaget och ändra parametern så att den är större än det angivna värdet.  
+**Lösning:** Gå tillbaka i modulen som utlöser undantaget och ändra parametern så att den är större än det angivna värdet.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Parametern måste vara större än det giltiga värdet.|  
-|Parameterns värde måste vara större än {1}.{0}|  
-|Parametern har ett{1}värde som ska vara större än{0}{2}|  
+|Värdet för parametern "{0}" måste vara större än {1}.|  
+|Parametern "{0}" har värdet "{1}" som ska vara större än {2}|  
   
 
 
@@ -99,13 +99,13 @@ Om fel meddelande texten inte är användbar, skicka oss information om kontexte
   
  Du får det här felet i Azure Machine Learning om parametern i meddelandet är under eller lika med ett begränsat värde som krävs för att modulen ska bearbeta data.  
   
-**Lösning** Gå tillbaka i modulen som utlöser undantaget och ändra parametern så att den är större än eller lika med det angivna värdet.  
+**Lösning:** Gå tillbaka i modulen som utlöser undantaget och ändra parametern så att den är större än eller lika med det angivna värdet.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Parametern måste vara större än eller lika med ett begränsat värde.|  
-|Parameterns värde måste vara större än eller {1}lika med.{0}|  
-|Parametern har ett{1}värde som måste vara {2}större än eller lika med.{0}|  
+|Värdet för parametern "{0}" måste vara större än eller lika med {1}.|  
+|Parametern "{0}" har värdet "{1}" som ska vara större än eller lika med {2}.|  
   
 
 ## <a name="error-0006"></a>Fel 0006  
@@ -113,13 +113,13 @@ Om fel meddelande texten inte är användbar, skicka oss information om kontexte
   
  Du får det här felet i Azure Machine Learning om parametern i meddelandet är större än eller lika med ett begränsat värde som krävs för att modulen ska bearbeta data.  
   
-**Lösning** Gå tillbaka i modulen som utlöser undantaget och ändra parametern så att den är mindre än det angivna värdet.  
+**Lösning:** Gå tillbaka i modulen som utlöser undantaget och ändra parametern så att den är mindre än det angivna värdet.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Parameter matchnings fel. En av parametrarna måste vara mindre än en annan.|  
-|Parameterns värde måste vara mindre än{1}parameterns värde.{0}|  
-|Parametern har värdet som ska vara mindre än {2}.{1}{0}|  
+|Värdet för parametern "{0}" måste vara mindre än värdet för parametern "{1}".|  
+|Parametern {0} har värdet {1} som ska vara mindre än {2}.|  
   
 
 ## <a name="error-0007"></a>Fel 0007  
@@ -140,8 +140,8 @@ Om fel meddelande texten inte är användbar, skicka oss information om kontexte
 |Undantags meddelanden|  
 |------------------------|  
 |Parameter matchnings fel. En av parametrarna måste vara mindre än eller lika med en annan.|  
-|Parameterns värde måste vara mindre än eller lika med värdet för{1}parametern.{0}|  
-|Parametern har värdet som ska vara {2}mindre än eller lika med.{1}{0}|  
+|Värdet för parametern "{0}" måste vara mindre än eller lika med värdet för parametern "{1}".|  
+|Parametern "{0}" har värdet "{1}" som ska vara mindre än eller lika med {2}.|  
   
 
 ## <a name="error-0008"></a>Fel 0008  
@@ -151,13 +151,13 @@ Om fel meddelande texten inte är användbar, skicka oss information om kontexte
   
  Det här felet visas till exempel om du försöker använda [Lägg till rader](add-rows.md) för att kombinera två data uppsättningar som har ett annat antal kolumner.  
   
-**Lösning** Gå tillbaka i modulen som utlöser undantaget och ändra parametern så att den ligger inom det angivna intervallet.  
+**Lösning:** Gå tillbaka i modulen som utlöser undantaget och ändra parametern så att den ligger inom det angivna intervallet.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Parametervärdet är inte inom det angivna intervallet.|  
-|Värdet för parametern ""ärinteinomintervallet.{0}|  
-|Värdet för parametern måste vara i intervallet [{1}, {2}].{0}|  
+|Värdet för parametern "{0}" är inte inom intervallet.|  
+|Värdet för parametern {0} måste ligga i intervallet [{1}, {2}].|  
   
 
 ## <a name="error-0009"></a>Fel 0009  
@@ -188,7 +188,7 @@ Om den fullständiga sökvägen till en BLOB har angetts kontrollerar du att sö
 |Undantags meddelanden|  
 |------------------------|  
 |Namnet på Azure Storage-kontot eller containern är felaktigt.|  
-|Namnet på Azure Storage-kontot{0}"" eller container namnet{1}"" är felaktigt, ett behållar namn för format container/BLOB förväntades.|  
+|Namnet på Azure Storage-kontot "{0}" eller container namnet "{1}" är felaktigt. ett behållar namn för format containern/blobben förväntades.|  
   
 
 ## <a name="error-0010"></a>Fel 0010  
@@ -196,12 +196,12 @@ Om den fullständiga sökvägen till en BLOB har angetts kontrollerar du att sö
   
  Det här felet visas i Azure Machine Learning om kolumn indexet i meddelandet har olika kolumn namn i de två data uppsättningarna.  
   
-**Lösning** Använd [Redigera metadata](edit-metadata.md) eller ändra den ursprungliga data uppsättningen till samma kolumn namn för det angivna kolumn indexet.  
+**Lösning:** Använd [Redigera metadata](edit-metadata.md) eller ändra den ursprungliga data uppsättningen till samma kolumn namn för det angivna kolumn indexet.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Kolumner med motsvarande index i indata-datauppsättningar har olika namn.|  
-|Kolumn namn är inte desamma för kolumn {0} (nollbaserat) för indata {2} -datauppsättningar{1} (respektive).|  
+|Kolumn namnen är inte desamma för Column {0} (noll-baserad) för indata-datauppsättningar ({1} respektive {2}).|  
   
 
 ## <a name="error-0011"></a>Fel 0011  
@@ -211,33 +211,33 @@ Om den fullständiga sökvägen till en BLOB har angetts kontrollerar du att sö
   
  Du kan också få det här felet om du inte har valt en kolumn och minst en kolumn krävs för att modulen ska fungera.  
   
-**Lösning** Ändra kolumn valet i modulen så att den kommer att gälla för kolumnerna i data uppsättningen.  
+**Lösning:** Ändra kolumn valet i modulen så att den kommer att gälla för kolumnerna i data uppsättningen.  
   
  Om modulen kräver att du väljer en viss kolumn, till exempel en etikett kolumn, kontrollerar du att den högra kolumnen är markerad.  
   
- Om olämpliga kolumner är markerade tar du bort dem och kör experimentet igen.  
+ Om olämpliga kolumner är markerade tar du bort dem och kör pipelinen igen.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Angiven kolumn uppsättning gäller inte för någon av data mängds kolumnerna.|  
-|Angiven kolumn uppsättning{0}gäller inte för någon av data mängds kolumnerna.|  
+|Den angivna kolumn uppsättningen {0} gäller inte för någon av data mängds kolumnerna.|  
   
 
 ## <a name="error-0012"></a>Fel 0012  
  Undantag uppstår om det inte gick att skapa en instans av klassen med den angivna argument uppsättningen.  
   
-**Lösning** Det här felet är inte åtgärds bara av användaren och kommer att bli inaktuell i en framtida version.  
+**Lösning:** Det här felet är inte åtgärds bara av användaren och kommer att bli inaktuell i en framtida version.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Modell som inte är tränad, träna modell först.|  
-|Modell med en modell ({0}) som inte tränas () används tränad modell.|  
+|Modell som inte är tränad ({0}), Använd tränad modell.|  
   
 
 ## <a name="error-0013"></a>Fel 0013  
  Undantag uppstår om den som har skickats till modulen är en ogiltig typ.  
   
- Felet uppstår när en utbildad modell inte är kompatibel med den anslutna bedömnings modulen. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the experiment is run.  -->
+ Felet uppstår när en utbildad modell inte är kompatibel med den anslutna bedömnings modulen. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the pipeline is run.  -->
   
 **Lösning**
 
@@ -246,7 +246,7 @@ Ta reda på vilken typ av elev som produceras av modulen utbildning och Bestäm 
 Om modellen tränas med någon av de specialiserade inlärnings modulerna ansluter du bara den tränade modellen till motsvarande anpassade bedömnings modell. 
 
 
-|Modelltypen|Modul för utbildning| Bedömnings modul|
+|Modell typ|Modul för utbildning| Bedömnings modul|
 |----|----|----|
 |alla klassificerare|[Träna modell](train-model.md) |[Poäng modell](score-model.md)|
 |Regressions modell|[Träna modell](train-model.md) |[Poäng modell](score-model.md)|
@@ -264,7 +264,7 @@ Om modellen tränas med någon av de specialiserade inlärnings modulerna anslut
 |Undantags meddelanden|  
 |------------------------|  
 |En elev av en ogiltig typ har skickats.|  
-|{0}Eleven har en ogiltig typ.|  
+|Eleven "{0}" har en ogiltig typ.|  
 
 
 ## <a name="error-0014"></a>Fel 0014  
@@ -287,7 +287,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet unika kolumn värden är större än vad som tillåts.|  
-|Antalet unika värden i kolumnen: "{0}" överskrider antalet tupler för. {1}|  
+|Antal unika värden i kolumnen: "{0}" överskrider antalet tupler {1}.|  
   
 
 ## <a name="error-0015"></a>Fel 0015  
@@ -295,12 +295,12 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
   
  Du får det här felet om du anger ett felaktigt SQL-kontonamn, ett lösen ord, en databas server eller ett databas namn, eller om det inte går att upprätta en anslutning till databasen på grund av problem med databasen eller servern.  
   
-**Lösning** Kontrol lera att konto namnet, lösen ordet, databas servern och databasen har angetts korrekt och att det angivna kontot har rätt behörighets nivå. Kontrol lera att databasen är tillgänglig för närvarande.  
+**Lösning:** Kontrol lera att konto namnet, lösen ordet, databas servern och databasen har angetts korrekt och att det angivna kontot har rätt behörighets nivå. Kontrol lera att databasen är tillgänglig för närvarande.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att ansluta till databasen.|  
-|Det gick inte att ansluta {0}till databasen:.|  
+|Det gick inte att ansluta till databasen: {0}.|  
   
 
 
@@ -309,13 +309,13 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
   
  Du får det här felet i Azure Machine Learning om kolumn typerna som skickas i två eller flera data uppsättningar inte är kompatibla med varandra.  
   
-**Lösning** Använd [Redigera metadata](edit-metadata.md) eller ändra den ursprungliga indata-datauppsättningen<!--, or use [Convert to Dataset](convert-to-dataset.md)--> för att säkerställa att kolumn typerna är kompatibla.  
+**Lösning:** Använd [Redigera metadata](edit-metadata.md) eller ändra den ursprungliga indata-datauppsättningen<!--, or use [Convert to Dataset](convert-to-dataset.md)--> för att säkerställa att kolumn typerna är kompatibla.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Kolumner med motsvarande index i indata-datauppsättningar har inkompatibla typer.|  
-|Kolumner {0} och{1} är inkompatibla.|  
-|Kolumn element typerna är inte kompatibla för kolumn {0} (nollbaserat) för indata {2} -datauppsättningar{1} (respektive).|  
+|Kolumnerna {0} och {1} är inkompatibla.|  
+|Kolumn element typerna är inte kompatibla för kolumn {0} (noll-baserad) för indata-datauppsättningar ({1} respektive {2}).|  
   
 
 ## <a name="error-0017"></a>Fel 0017  
@@ -339,15 +339,15 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 |Undantags meddelanden|  
 |------------------------|  
 |Det går inte att bearbeta kolumnen av den aktuella typen. Typen stöds inte av modulen.|  
-|Det går inte att bearbeta {0}kolumnen av typen. Typen stöds inte av modulen.|  
-|Det går inte att{1}bearbeta kolumnen " {0}" av typen. Typen stöds inte av modulen.|  
-|Det går inte att{1}bearbeta kolumnen " {0}" av typen. Typen stöds inte av modulen. Parameter namn:{2}|  
+|Det går inte att bearbeta kolumnen av typen {0}. Typen stöds inte av modulen.|  
+|Det går inte att bearbeta kolumnen {1} av typen {0}. Typen stöds inte av modulen.|  
+|Det går inte att bearbeta kolumnen {1} av typen {0}. Typen stöds inte av modulen. Parameter namn: {2}|  
   
 
 ## <a name="error-0018"></a>Fel 0018  
  Undantaget inträffar om indata-datauppsättningen är ogiltig.  
   
-**Lösning** Det här felet i Azure Machine Learning kan visas i många sammanhang, så det finns ingen enskild lösning. I allmänhet anger felet att data som angetts som indata till en modul har fel antal kolumner eller att data typen inte överensstämmer med kraven för modulen. Exempel:  
+**Lösning:** Det här felet i Azure Machine Learning kan visas i många sammanhang, så det finns ingen enskild lösning. I allmänhet anger felet att data som angetts som indata till en modul har fel antal kolumner eller att data typen inte överensstämmer med kraven för modulen. Exempel:  
   
 -   Modulen kräver en etikett kolumn, men ingen kolumn har marker ATS som en etikett eller så har du inte valt en etikett kolumn ännu.  
   
@@ -367,8 +367,8 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 |Undantags meddelanden|  
 |------------------------|  
 |Data uppsättningen är ogiltig.|  
-|{0}innehåller ogiltiga data.|  
-|{0}och {1} bör vara konsekvent kolumn.|  
+|{0} innehåller ogiltiga data.|  
+|{0} och {1} bör vara konsekvent kolumn.|  
   
 
 ## <a name="error-0019"></a>Fel 0019  
@@ -376,13 +376,13 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
   
  Du får det här felet i Azure Machine Learning om de angivna kolumn värdena är i fel ordning.  
   
-**Lösning** Sortera kolumnvärdena genom att manuellt ändra data uppsättningen för indata och köra modulen igen.  
+**Lösning:** Sortera kolumnvärdena genom att manuellt ändra data uppsättningen för indata och köra modulen igen.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Värdena i kolumnen sorteras inte.|  
-|Värdena i kolumnen{0}sorteras inte.|  
-|Värdena i kolumnen{0}för{1}data uppsättningen sorteras inte.|  
+|Värdena i kolumnen {0} sorteras inte.|  
+|Värdena i kolumnen {0} för data uppsättningen {1} sorteras inte.|  
   
 
 ## <a name="error-0020"></a>Fel 0020  
@@ -390,13 +390,13 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
   
  Du får det här felet i Azure Machine Learning om inte tillräckligt många kolumner har valts för en modul.  
   
-**Lösning** Gå tillbaka i modulen och se till att kolumn väljaren har rätt antal valda kolumner.  
+**Lösning:** Gå tillbaka i modulen och se till att kolumn väljaren har rätt antal valda kolumner.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet kolumner i indata-datauppsättningen är mindre än det tillåtna minimivärdet.|  
-|Antalet kolumner i indata-datauppsättningen är mindre än {0} det tillåtna minimivärdet för kolumn (er).|  
-|Antalet kolumner i indata-datamängden "{0}" är mindre än det tillåtna minimivärdet för {1} kolumn (er).|
+|Antalet kolumner i indata-datauppsättningen är mindre än det tillåtna minimivärdet för {0} kolumn (er).|  
+|Antalet kolumner i indata-datamängden {0} är mindre än det tillåtna minimivärdet för {1} kolumn (er).|
 
 ## <a name="error-0021"></a>Fel 0021  
  Undantag uppstår om antalet rader i några av data uppsättningarna som skickats till modulen är för litet.  
@@ -425,7 +425,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
   
 -   Du har angett en kommaavgränsad lista med värden för indata, men antalet värden matchar inte, eller så stöds inte flera indata.  
   
-**Lösning** Gå tillbaka i modulen och markera kolumn markeringen för att se till att rätt antal kolumner är markerat. Verifiera utdata från överordnade moduler och kraven för efterföljande åtgärder.  
+**Lösning:** Gå tillbaka i modulen och markera kolumn markeringen för att se till att rätt antal kolumner är markerat. Verifiera utdata från överordnade moduler och kraven för efterföljande åtgärder.  
   
  Om du använde något av alternativen för kolumn val som kan markera flera kolumner (kolumn index, alla funktioner, alla numeriska osv.), verifierar du det exakta antalet kolumner som returneras av markeringen.  
   
@@ -438,9 +438,9 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet markerade kolumner i indata-datamängden är inte lika med det förväntade talet.|  
-|Antalet markerade kolumner i indata-datamängden är {0}inte lika med.|  
-|Kolumn markerings mönster{0}"" tillhandahåller antalet markerade kolumner i indata-dataset som {1}inte är lika med.|  
-|Kolumn markerings mönster{0}"" förväntas {1} tillhandahålla markerade kolumner i data uppsättningen, men {2} kolumn (er) har angetts.|  
+|Antalet markerade kolumner i indata-datamängden är inte lika med {0}.|  
+|Kolumn markerings mönster "{0}" tillhandahåller antalet markerade kolumner i indata-dataset som inte är lika med {1}.|  
+|Kolumn markerings mönster "{0}" förväntas tillhandahålla {1} kolumn (er) som har marker ATS i indata-datauppsättningen, men {2} kolumn (er) har angetts.|  
 
 
 
@@ -449,13 +449,13 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
   
  Det här felet uppstår i Azure Machine Learning om mål kolumnen (som valts i modulen Module) inte är av en giltig datatyp, innehåller alla saknade värden eller inte kategoriska som förväntat.  
   
-**Lösning** Gå tillbaka till modulens inmatade för att kontrol lera innehållet i kolumnen etikett/mål. Kontrol lera att det inte har alla värden som saknas. Om modulen förväntar sig att mål kolumnen ska vara kategoriska kontrollerar du att det finns fler än ett distinkt värde i kolumnen Target.  
+**Lösning:** Gå tillbaka till modulens inmatade för att kontrol lera innehållet i kolumnen etikett/mål. Kontrol lera att det inte har alla värden som saknas. Om modulen förväntar sig att mål kolumnen ska vara kategoriska kontrollerar du att det finns fler än ett distinkt värde i kolumnen Target.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Den angivna data uppsättningen innehåller en mål kolumn som inte stöds.|  
-|Den angivna data uppsättningen innehåller en mål kolumn{0}som inte stöds.|  
-|Indata-datauppsättningen innehåller en mål{0}kolumn som inte stöds för en {1}typ av information.|  
+|Den angivna data uppsättningen innehåller en mål kolumn som inte stöds {0}.|  
+|Den angivna data uppsättningen innehåller en mål kolumn som inte stöds {0} för att lära av typen {1}.|  
  
 
 ## <a name="error-0024"></a>Fel 0024  
@@ -483,13 +483,13 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
   
  Det här felet uppstår i Azure Machine Learning om indatamängden till evaluate-modellen inte innehåller giltiga Poäng kolumner. Användaren försöker till exempel utvärdera en data uppsättning innan den beskrevs med en korrekt tränad modell, eller så släpptes kolumnen poäng direkt. Detta undantag uppstår även om poängen i de två data uppsättningarna är inkompatibla. Du kan till exempel försöka jämföra noggrannheten i en linjär modellerings regressor med en binär klassificerare.  
   
-**Lösning** Gå tillbaka till indatamängden för utvärdera modellen och Undersök om den innehåller en eller flera Poäng kolumner. Om inte, har data uppsättningen inte betyget eller så har inga poäng kolumner släppts i en överordnad modul.  
+**Lösning:** Gå tillbaka till indatamängden för utvärdera modellen och Undersök om den innehåller en eller flera Poäng kolumner. Om inte, har data uppsättningen inte betyget eller så har inga poäng kolumner släppts i en överordnad modul.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det finns ingen Poäng kolumn i data uppsättningen.|  
 |Det finns ingen Poäng kolumn i "{0}".|  
-|Det finns ingen Poäng kolumn i "{0}" som skapas av en "{1}". Poäng data uppsättningen med rätt typ av lära.|  
+|Det finns ingen resultat kolumn i "{0}" som skapas av en "{1}". Poäng data uppsättningen med rätt typ av lära.|  
   
 
 ## <a name="error-0026"></a>Fel 0026  
@@ -497,12 +497,12 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
   
  Det här felet i Azure Machine Learning uppstår om flera kolumner har samma namn. Ett sätt som du kan få det här felet är om data uppsättningen inte har någon rubrik rad och kolumn namn tilldelas automatiskt: Col0, Col1 osv.  
   
-**Lösning** Om kolumner har samma namn, infogar du en modul för att [Redigera metadata](edit-metadata.md) mellan indata-datauppsättningen och modulen. Använd kolumn väljaren i [Redigera metadata](edit-metadata.md) för att välja kolumner att byta namn på, skriva de nya namnen i text rutan **nya kolumn namn** .  
+**Lösning:** Om kolumner har samma namn, infogar du en modul för att [Redigera metadata](edit-metadata.md) mellan indata-datauppsättningen och modulen. Använd kolumn väljaren i [Redigera metadata](edit-metadata.md) för att välja kolumner att byta namn på, skriva de nya namnen i text rutan **nya kolumn namn** .  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Samma kolumn namn anges i argument. Samma kolumn namn tillåts inte i modulen.|  
-|Samma kolumn namn i argumenten{0}"" och{1}"" är inte tillåtna. Ange olika namn.|  
+|Samma kolumn namn i argumenten "{0}" och "{1}" tillåts inte. Ange olika namn.|  
   
 
 ## <a name="error-0027"></a>Fel 0027  
@@ -510,7 +510,7 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
   
  Detta är ett vanligt fel i Azure Machine Learning och kan orsakas av många villkor.  
   
-**Lösning** Det finns ingen enskild lösning. Du kan dock söka efter villkor som följande:  
+**Lösning:** Det finns ingen enskild lösning. Du kan dock söka efter villkor som följande:  
   
 -   Om du byter namn på kolumner, se till att varje lista (kolumnerna och listan med nya namn) har samma antal objekt.  
   
@@ -521,7 +521,7 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
 |Undantags meddelanden|  
 |------------------------|  
 |Storleken på överförda objekt är inkonsekvent.|  
-|Storleken på "{0}" är inkonsekvent med storleken på "{1}".|  
+|Storleken på {0} är inkonsekvent med storleken "{1}".|  
   
 
 ## <a name="error-0028"></a>Fel 0028  
@@ -529,12 +529,12 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
   
  Det här felet uppstår i Azure Machine Learning när kolumn namn är duplicerade; Detta är inte unikt.  
   
-**Lösning** Om några kolumner har samma namn, lägger du till en instans av [Redigera metadata](edit-metadata.md) mellan indata-datauppsättningen och modulen som upphöjer felet. Använd kolumn väljaren i [Redigera metadata](edit-metadata.md) för att välja kolumner att byta namn på och Skriv de nya kolumn namnen i text rutan **nya kolumn namn** . Om du byter namn på flera kolumner kontrollerar du att värdena som du skriver i de **nya kolumn namnen** är unika.  
+**Lösning:** Om några kolumner har samma namn, lägger du till en instans av [Redigera metadata](edit-metadata.md) mellan indata-datauppsättningen och modulen som upphöjer felet. Använd kolumn väljaren i [Redigera metadata](edit-metadata.md) för att välja kolumner att byta namn på och Skriv de nya kolumn namnen i text rutan **nya kolumn namn** . Om du byter namn på flera kolumner kontrollerar du att värdena som du skriver i de **nya kolumn namnen** är unika.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Kolumn uppsättningen innehåller ett eller flera kolumn namn.|  
-|Namnet "{0}" är dubblerat.|  
+|Namnet "{0}" är dubbletter.|  
 |Namnet "{0}" är dubblerat i "{1}".|  
   
 
@@ -553,7 +553,7 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
   
 -   URL: en kan inte matchas av fjär källan.  
   
-**Lösning** Gå tillbaka i modulen och kontrol lera formatet för URI: n. Om data källan är en webb adress via HTTP kontrollerar du att den avsedda källan inte är en fil eller en loopback-URI (localhost).  
+**Lösning:** Gå tillbaka i modulen och kontrol lera formatet för URI: n. Om data källan är en webb adress via HTTP kontrollerar du att den avsedda källan inte är en fil eller en loopback-URI (localhost).  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -565,7 +565,7 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
   
  Detta undantag i Azure Machine Learning inträffar när det inte går att hämta en fil. Du får det här undantaget när ett försök att läsa från en HTTP-källa misslyckades efter tre (3) nya försök.  
   
-**Lösning** Kontrol lera att URI: n till HTTP-källan är korrekt och att platsen är tillgänglig via Internet.  
+**Lösning:** Kontrol lera att URI: n till HTTP-källan är korrekt och att platsen är tillgänglig via Internet.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -578,19 +578,19 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
   
  Det här felet uppstår i Azure Machine Learning om antalet valda kolumner är mindre än vad som behövs.  Du får det här felet om det minsta antalet kolumner som krävs inte är markerat.  
   
-**Lösning** Lägg till ytterligare kolumner i kolumn urvalet med hjälp av **kolumn väljaren**.  
+**Lösning:** Lägg till ytterligare kolumner i kolumn urvalet med hjälp av **kolumn väljaren**.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet kolumner i kolumn uppsättningen är mindre än vad som krävs.|  
-|{0}kolumn (er) måste anges. Det faktiska antalet angivna kolumner är {1}.|  
+|Du måste ange {0} kolumn (er). Det faktiska antalet angivna kolumner är {1}.|  
 
 ## <a name="error-0032"></a>Fel 0032  
  Undantag inträffar om argumentet inte är ett tal.  
   
  Du får det här felet i Azure Machine Learning om argumentet är Double eller NaN.  
   
-**Lösning** Ändra det angivna argumentet så att det använder ett giltigt värde.  
+**Lösning:** Ändra det angivna argumentet så att det använder ett giltigt värde.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -601,9 +601,9 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
 ## <a name="error-0033"></a>Fel 0033  
  Undantaget inträffar om argumentet är oändligt.  
   
- Det här felet uppstår i Azure Machine Learning om argumentet är oändligt. Du får det här felet om argumentet är antingen `double.NegativeInfinity` eller. `double.PositiveInfinity`  
+ Det här felet uppstår i Azure Machine Learning om argumentet är oändligt. Du får det här felet om argumentet är antingen `double.NegativeInfinity` eller `double.PositiveInfinity`.  
   
-**Lösning** Ändra det angivna argumentet till ett giltigt värde.  
+**Lösning:** Ändra det angivna argumentet till ett giltigt värde.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -616,12 +616,12 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
   
  Det här felet i Azure Machine Learning uppstår i rekommendationen om ett användar objekt par har fler än ett klassificerings värde.  
   
-**Lösning** Se till att paret User-item har ett enda klassificerings värde.  
+**Lösning:** Se till att paret User-item har ett enda klassificerings värde.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det finns fler än en klassificering för värdena i data uppsättningen.|  
-|Fler än en klassificering för användare {0} och objekt {1} i data tabellen för förutsägelse förutsägelse.|  
+|Fler än en klassificering för användar {0} och objekt {1} i data tabellen klassificerings förutsägelse.|  
   
 
 ## <a name="error-0035"></a>Fel 0035  
@@ -647,7 +647,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |Undantags meddelanden|  
 |------------------------|  
 |Inga funktioner har angetts för en obligatorisk användare eller ett objekt.|  
-|Funktioner för {0} obligatorisk men inte angivet.|  
+|Funktioner för {0} krävs men har inte angetts.|  
   
 
 ## <a name="error-0036"></a>Fel 0036  
@@ -655,12 +655,12 @@ For general information about how the Matchbox recommendation algorithm works, a
   
  Det här felet uppstår i Azure Machine Learning om en funktions vektor har definierats mer än en gång.  
   
-**Lösning** Se till att funktions vektorn inte har definierats mer än en gång.  
+**Lösning:** Se till att funktions vektorn inte har definierats mer än en gång.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Duplicera funktions definition för en användare eller ett objekt.|  
-|Duplicerad funktions definition {0}för.|  
+|Duplicerad funktions definition för {0}.|  
   
 
 ## <a name="error-0037"></a>Fel 0037  
@@ -668,7 +668,7 @@ For general information about how the Matchbox recommendation algorithm works, a
   
  Det här felet uppstår i Azure Machine Learning om fler än en kolumn har valts som den nya etikett kolumnen. De flesta övervakade Learning-algoritmer kräver att en kolumn markeras som mål eller etikett.  
   
-**Lösning** Se till att välja en enskild kolumn som den nya etikett kolumnen.  
+**Lösning:** Se till att välja en enskild kolumn som den nya etikett kolumnen.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -680,13 +680,13 @@ For general information about how the Matchbox recommendation algorithm works, a
   
  Det här felet uppstår i Azure Machine Learning om antalet förväntade element ska vara ett exakt värde, men inte.  Det här felet visas om antalet element inte är lika med det giltiga förväntade värdet.  
   
-**Lösning** Ändra inmatarna så att de har rätt antal element.  
+**Lösning:** Ändra inmatarna så att de har rätt antal element.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet element är inte giltigt.|  
-|Antalet element i "{0}" är inte giltigt.|  
-|Antalet element i "{0}" är inte lika med det giltiga {1} antalet element.|  
+|Antalet element i {0} är inte giltigt.|  
+|Antalet element i {0} är inte lika med giltigt antal {1} element.|  
   
 
 ## <a name="error-0039"></a>Fel 0039  
@@ -694,7 +694,7 @@ For general information about how the Matchbox recommendation algorithm works, a
   
  Det här felet uppstår i Azure Machine Learning när en intern åtgärd inte kan slutföras.  
   
-**Lösning** Det här felet orsakas av många villkor och det finns ingen speciell påföljd.  
+**Lösning:** Det här felet orsakas av många villkor och det finns ingen speciell påföljd.  
  Följande tabell innehåller allmänna meddelanden för det här felet, som följs av en speciell Beskrivning av villkoret. 
  
  Om det inte finns någon information, [Skicka feedback](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) och ange information om de moduler som orsakade felet och relaterade villkor.
@@ -710,12 +710,12 @@ For general information about how the Matchbox recommendation algorithm works, a
   
  Det här felet i Azure Machine Learning skapas när du anropar en föråldrad modul.  
   
-**Lösning** Ersätt den inaktuella modulen med en som stöds. I modulen för utdata i modulen finns information om vilken modul som ska användas i stället.  
+**Lösning:** Ersätt den inaktuella modulen med en som stöds. I modulen för utdata i modulen finns information om vilken modul som ska användas i stället.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Åtkomst till föråldrad modul.|  
-|Modulen "{0}" är föråldrad. Använd modulen{1}i stället.|  
+|Modulen "{0}" är föråldrad. Använd modulen "{1}" i stället.|  
  
 
 ## <a name="error-0041"></a>Fel 0041  
@@ -723,12 +723,12 @@ For general information about how the Matchbox recommendation algorithm works, a
   
  Det här felet i Azure Machine Learning skapas när du anropar en föråldrad modul.  
   
-**Lösning** Ersätt den inaktuella modulen med en uppsättning som stöds. Den här informationen ska vara synlig i utdata-loggen för modulen.  
+**Lösning:** Ersätt den inaktuella modulen med en uppsättning som stöds. Den här informationen ska vara synlig i utdata-loggen för modulen.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Åtkomst till föråldrad modul.|  
-|Modulen "{0}" är föråldrad. Använd modulerna{1}för begärd funktionalitet.|  
+|Modulen "{0}" är föråldrad. Använd modulerna "{1}" för de begärda funktionerna.|  
  
 
 ## <a name="error-0042"></a>Fel 0042  
@@ -764,9 +764,9 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 |Undantags meddelanden|  
 |------------------------|  
 |Tillåts inte konvertering.|  
-|Det gick inte att konvertera kolumnen {0} av typen till kolumnen {1}av typen.|  
-|Det gick inte att konvertera{2}kolumnen "" {0} av typen till kolumnen {1}av typen.|  
-|Det gick inte att konvertera{2}kolumnen "" {0} av typen till{3}kolumnen av typen {1}.|  
+|Det gick inte att konvertera kolumnen av typen {0} till kolumnen av typen {1}.|  
+|Det gick inte att konvertera kolumnen "{2}" av typen {0} till kolumnen av typen {1}.|  
+|Det gick inte att konvertera kolumnen "{2}" av typen {0} till kolumnen "{3}" av typen {1}.|  
   
 
 ## <a name="error-0043"></a>Fel 0043  
@@ -774,12 +774,12 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet i Azure Machine Learning används inte och kommer att vara inaktuellt.  
   
-**Lösning** Ingen.  
+**Lösning:** Alternativet.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det finns ingen tillgänglig explicit metod som är lika med.|  
-|Det går inte att jämföra \\värden{0}för kolumnen\\av {1}typen. Det finns ingen tillgänglig explicit metod som är lika med.|  
+|Det går inte att jämföra värden för kolumnen \\ "{0} \\" av typen {1}. Det finns ingen tillgänglig explicit metod som är lika med.|  
 
 
 ## <a name="error-0044"></a>Fel 0044  
@@ -787,13 +787,13 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet uppstår i Azure Machine Learning när det inte går att härleda typen av en kolumn eller kolumner i en data uppsättning. Detta inträffar vanligt vis när två eller flera data uppsättningar sammanfogas med olika element typer. Om Azure Machine Learning inte kan fastställa en gemensam typ som kan representera alla värden i en kolumn eller kolumner utan att information går förlorad, genereras det här felet.  
   
-**Lösning** Se till att alla värden i en kolumn i båda data uppsättningarna kombineras antingen av samma typ (numeriska, booleska, kategoriska, sträng, datum osv.) eller kan tvingas till samma typ.  
+**Lösning:** Se till att alla värden i en kolumn i båda data uppsättningarna kombineras antingen av samma typ (numeriska, booleska, kategoriska, sträng, datum osv.) eller kan tvingas till samma typ.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det går inte att härleda element typen för kolumnen.|  
-|Det går inte att härleda element typen{0}för kolumnen ""--alla element är null-referenser.|  
-|Det går inte att härleda element typen{0}för kolumnen ""{1}för data uppsättningen "--alla element är null-referenser.|  
+|Det går inte att härleda element typen för kolumnen {0}--alla element är null-referenser.|  
+|Det går inte att härleda element typen för kolumnen {0} för data mängden {1}--alla element är null-referenser.|  
   
 
 ## <a name="error-0045"></a>Fel 0045  
@@ -801,12 +801,12 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet i Azure Machine Learning skapas när element typerna för två data uppsättningar som kombineras är olika.  
   
-**Lösning** Se till att alla värden i en specifik kolumn i båda data uppsättningarna kombineras av samma typ (numeriska, booleska, kategoriska, sträng, datum osv.).  
+**Lösning:** Se till att alla värden i en specifik kolumn i båda data uppsättningarna kombineras av samma typ (numeriska, booleska, kategoriska, sträng, datum osv.).  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det går inte att skapa en kolumn med blandade element typer.|  
-|Det går inte att skapa kolumnen{0}med ID: t för blandade element typer: \ n\tType{1}av {0}data [ {2},] {4}är \n\tType{3}data {0}[,].|  
+|Det går inte att skapa en kolumn med ID "{0}" för blandade element typer: \ n\tType av data [{1} {0}] är {2} \n\tType data [{3}, {0}] {4}.|  
   
 
 ## <a name="error-0046"></a>Fel 0046  
@@ -814,12 +814,12 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet uppstår i Azure Machine Learning när det inte går att skapa en katalog på den angivna sökvägen. Du får det här felet om någon del av sökvägen till utdata-katalogen för en Hive-fråga är felaktig eller inte går att komma åt.  
   
-**Lösning** Gå tillbaka i modulen och kontrol lera att katalog Sök vägen är korrekt formaterad och att den är tillgänglig med de aktuella autentiseringsuppgifterna.  
+**Lösning:** Gå tillbaka i modulen och kontrol lera att katalog Sök vägen är korrekt formaterad och att den är tillgänglig med de aktuella autentiseringsuppgifterna.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Ange en giltig utmatnings katalog.|  
-|Katalog: {0} kan inte skapas. Ange en giltig sökväg.|  
+|Katalog: det går inte att skapa {0}. Ange en giltig sökväg.|  
   
 
 ## <a name="error-0047"></a>Fel 0047  
@@ -827,13 +827,13 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet i Azure Machine Learning uppstår om data uppsättningen för indata till träning inte innehåller det minsta antalet kolumner som krävs av algoritmen. Vanligt vis är antingen data uppsättningen tom eller innehåller bara utbildnings kolumner.  
   
-**Lösning** Gå tillbaka till data uppsättningen för indata för att se till att en eller flera kolumner skiljer sig från kolumnen etikett.  
+**Lösning:** Gå tillbaka till data uppsättningen för indata för att se till att en eller flera kolumner skiljer sig från kolumnen etikett.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet funktions kolumner i indata-datauppsättningen är mindre än det tillåtna minimivärdet.|  
-|Antalet funktions kolumner i indata-datauppsättningen är mindre än {0} det tillåtna minimivärdet för kolumn (er).|  
-|Antalet funktions kolumner i indata-datamängden{0}"" är mindre än det tillåtna minimivärdet för {1} kolumn (er).|  
+|Antalet funktions kolumner i indata-datauppsättningen är mindre än det tillåtna minimivärdet för {0} kolumn (er).|  
+|Antalet funktions kolumner i indata-datauppsättningen {0} är mindre än det tillåtna minimivärdet för {1} kolumn (er).|  
   
 
 ## <a name="error-0048"></a>Fel 0048  
@@ -847,7 +847,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
 -   Filen är för stor för att kunna läsas eller fel format  
   
-**Lösning** Gå tillbaka till modulen och filen som du försöker läsa.  
+**Lösning:** Gå tillbaka till modulen och filen som du försöker läsa.  
   
  Kontrol lera att namnen på behållaren och filen är korrekta.  
   
@@ -866,7 +866,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet uppstår i Azure Machine Learning när det inte går att parsa en fil. Du får det här felet om fil formatet som valts i modulen [Importera data](import-data.md) inte matchar det faktiska formatet för filen, eller om filen innehåller ett okänt.  
   
-**Lösning** Gå tillbaka till modulen och korrigera fil formats valet om den inte matchar fil formatet. Om möjligt bör du kontrol lera att filen inte innehåller några ogiltiga tecken.  
+**Lösning:** Gå tillbaka till modulen och korrigera fil formats valet om den inte matchar fil formatet. Om möjligt bör du kontrol lera att filen inte innehåller några ogiltiga tecken.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -877,7 +877,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 ## <a name="error-0050"></a>Fel 0050  
  Undantag inträffar i fallet när indata-och utdatafiler är desamma.  
   
-**Lösning** Det här felet i Azure Machine Learning används inte och kommer att vara inaktuellt.  
+**Lösning:** Det här felet i Azure Machine Learning används inte och kommer att vara inaktuellt.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -887,7 +887,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 ## <a name="error-0051"></a>Fel 0051  
  Undantag inträffar i fallet när flera utdatafiler är desamma.  
   
-**Lösning** Det här felet i Azure Machine Learning används inte och kommer att vara inaktuellt.  
+**Lösning:** Det här felet i Azure Machine Learning används inte och kommer att vara inaktuellt.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -901,7 +901,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Mer information om hur du hämtar nyckeln för ett Azure Storage-konto finns i [Visa, kopiera och återskapa lagrings åtkomst nycklar](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
   
-**Lösning** Gå tillbaka modulen och kontrol lera att Azure Storage-nyckeln är korrekt för kontot. Kopiera nyckeln igen från den klassiska Azure-portalen om det behövs.  
+**Lösning:** Gå tillbaka modulen och kontrol lera att Azure Storage-nyckeln är korrekt för kontot. Kopiera nyckeln igen från den klassiska Azure-portalen om det behövs.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -913,7 +913,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet i Azure Machine Learning skapas när det inte går att hitta en funktions vektor.  
   
-**Lösning** Se till att det finns en funktions vektor i indata-datauppsättningen.  
+**Lösning:** Se till att det finns en funktions vektor i indata-datauppsättningen.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -922,13 +922,13 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 ## <a name="error-0054"></a>Fel 0054  
  Undantaget inträffar om det finns för få distinkta värden i kolumnen för att slutföra åtgärden.  
   
-**Lösning** Det här felet i Azure Machine Learning används inte och kommer att vara inaktuellt.  
+**Lösning:** Det här felet i Azure Machine Learning används inte och kommer att vara inaktuellt.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Data har för få distinkta värden i den angivna kolumnen för att slutföra åtgärden.|  
 |Data har för få distinkta värden i den angivna kolumnen för att slutföra åtgärden. Det obligatoriska minimivärdet är {0} element.|  
-|Data har för få distinkta värden i kolumnen "{1}" för att slutföra åtgärden. Det obligatoriska minimivärdet är {0} element.|  
+|Data har för få distinkta värden i kolumnen {1} för att slutföra åtgärden. Det obligatoriska minimivärdet är {0} element.|  
   
 
 ## <a name="error-0055"></a>Fel 0055  
@@ -963,13 +963,13 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 |Undantags meddelanden|  
 |------------------------|  
 |En eller flera valda kolumner fanns inte i en tillåten kategori.|  
-|Kolumnen med namnet "{0}" är inte i en tillåten kategori.|  
+|Kolumnen med namnet {0} finns inte i en tillåten kategori.|  
   
 
 ## <a name="error-0057"></a>Fel 0057  
  Ett undantag uppstår vid försök att skapa en fil eller BLOB som redan finns.  
   
- Detta undantag uppstår när du använder modulen [Exportera data](export-data.md) eller annan modul för att spara resultaten av ett experiment i Azure Machine Learning till Azure Blob Storage, men du försöker skapa en fil eller BLOB som redan finns.   
+ Detta undantag uppstår när du använder modulen [Exportera data](export-data.md) eller annan modul för att spara resultaten av en pipeline i Azure Machine Learning till Azure Blob Storage, men du försöker skapa en fil eller BLOB som redan finns.   
   
 **Lösning**
  
@@ -989,7 +989,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Detta undantag kan också inträffa när den angivna etikett kolumnen inte matchar data eller datatyp som förväntas av en elev eller har fel värden. Detta undantag skapas till exempel när du använder en kolumn med Real värdes etiketter när du tränar en binär klassificerare.  
   
-**Lösning** Upplösningen beror på den eller de utbildare som du använder och data typerna för kolumnerna i data uppsättningen. Kontrol lera först kraven för Machine Learning-algoritmen eller modulen utbildning.  
+**Lösning:** Upplösningen beror på den eller de utbildare som du använder och data typerna för kolumnerna i data uppsättningen. Kontrol lera först kraven för Machine Learning-algoritmen eller modulen utbildning.  
   
  Gå tillbaka till indata-datauppsättningen. Kontrol lera att kolumnen du förväntar dig att behandlas som etikett har rätt datatyp för den modell som du skapar.  
   
@@ -1000,7 +1000,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 |Undantags meddelanden|  
 |------------------------|  
 |Etikett kolumnen är inte som förväntat|  
-|Etikett kolumnen är inte som förväntat i{0}"".|  
+|Etikett kolumnen är inte som förväntat i {0}.|  
 |Etikett kolumnen "{0}" förväntas inte i "{1}".|  
   
 
@@ -1009,12 +1009,12 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet uppstår i Azure Machine Learning om ett kolumn index som anges när du använder kolumn väljaren inte kan parsas.  Det här felet visas när kolumn indexet har ett ogiltigt format som inte går att parsa.  
   
-**Lösning** Ändra kolumn indexet så att det använder ett giltigt index värde.  
+**Lösning:** Ändra kolumn indexet så att det använder ett giltigt index värde.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att parsa ett eller flera angivna kolumn index eller index intervall.|  
-|Det gick inte att parsa kolumn indexet eller området{0}.|  
+|Det gick inte att parsa kolumn indexet eller området {0}.|  
   
 
 ## <a name="error-0060"></a>Fel 0060  
@@ -1022,7 +1022,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet uppstår i Azure Machine Learning när ett kolumn intervall utanför intervallet anges i kolumn väljaren. Det här felet visas om kolumn intervallet i kolumn väljaren inte motsvarar kolumnerna i data uppsättningen.  
   
-**Lösning** Ändra kolumn intervallet i kolumn väljaren så att det motsvarar kolumnerna i data uppsättningen.  
+**Lösning:** Ändra kolumn intervallet i kolumn väljaren så att det motsvarar kolumnerna i data uppsättningen.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1035,7 +1035,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet uppstår i Azure Machine Learning när du försöker lägga till en rad i en data uppsättning som har ett annat antal kolumner än data uppsättningen.  Du får det här felet om den rad som läggs till i data uppsättningen har ett annat antal kolumner från indata-datauppsättningen.  Det går inte att lägga till raden i data uppsättningen om antalet kolumner är olika.  
   
-**Lösning** Ändra indata-datauppsättningen till att ha samma antal kolumner som den tillagda raden, eller ändra raden som lagts till i har samma antal kolumner som data uppsättningen.  
+**Lösning:** Ändra indata-datauppsättningen till att ha samma antal kolumner som den tillagda raden, eller ändra raden som lagts till i har samma antal kolumner som data uppsättningen.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1047,7 +1047,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet i Azure Machine Learning skapas när utvärderings måtten för två olika Poäng data uppsättningar inte kan jämföras. I det här fallet är det inte möjligt att jämföra effektiviteten hos de modeller som används för att producera de två poäng data uppsättningarna.  
   
-**Lösning** Kontrol lera att resultat resultaten produceras av samma typ av Machine Learning-modell (binära klassificering, regression, klassificering av flera klasser, rekommendation, klustring, avvikelse identifiering osv.) Alla modeller som du jämför måste ha samma elev typ.  
+**Lösning:** Kontrol lera att resultat resultaten produceras av samma typ av Machine Learning-modell (binära klassificering, regression, klassificering av flera klasser, rekommendation, klustring, avvikelse identifiering osv.) Alla modeller som du jämför måste ha samma elev typ.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1066,7 +1066,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 1. In Azure Machine Learning Studio, right-click the module that has the error, and select **View Log**.
 2. Examine the standard error log of the module, which contains the stack trace.
     + Lines beginning with [ModuleOutput] indicate output from R.
-    + Messages from R marked as **warnings** typically do not cause the experiment to fail.
+    + Messages from R marked as **warnings** typically do not cause the pipeline to fail.
 3. Resolve script issues.  
     + Check for R syntax errors. Check for variables that are defined but never populated.
     + Review the input data and the script to determine if either the data or variables in the script use characters not supported by Azure Machine Learning.
@@ -1074,19 +1074,19 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
     + Check whether your code loads required libraries that are not loaded by default.
     + Check whether the required packages are the correct version.
     + Make sure that any dataset that you want to output is converted to a data frame.  
-4.  Resubmit the experiment.
+4.  Resubmit the pipeline.
 
  <!--
 > [!NOTE]
-> These topics contains examples of R code that you can use, as well as links to experiments in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com) that use R script.
+> These topics contains examples of R code that you can use, as well as links to pipelines in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com) that use R script.
 > + [Execute R Script](execute-r-script.md)
 > + [Create R Model](create-r-model.md)
 -->  
 |Undantags meddelanden|  
 |------------------------|  
 |Fel vid utvärdering av R-skript.|  
-|Följande fel uppstod under utvärderingen av R-skriptet:----------början av fel meddelandet från r---------- {0} -----------slutet av fel meddelandet från r-----------|  
-|Följande fel inträffade under utvärderingen av R{1}-skriptet "":----------början av fel meddelandet från r---------- {0} -----------slutet av fel meddelandet från r-----------|  
+|Följande fel uppstod under utvärderingen av R-skriptet:----------början av fel meddelandet från R----------{0}-----------slutet av fel meddelandet från R-----------|  
+|Följande fel inträffade under utvärderingen av R-skriptet {1}:----------början av fel meddelandet från R----------{0}-----------slutet av fel meddelandet från R-----------|  
   
 
 
@@ -1095,12 +1095,12 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet uppstår i Azure Machine Learning om namnet eller lagrings nyckeln för Azure Storage-kontot har angetts felaktigt. Du får det här felet om du anger ett felaktigt konto namn eller lösen ord för lagrings kontot. Detta kan inträffa om du anger konto namnet eller lösen ordet manuellt. Det kan också inträffa om kontot har tagits bort.  
   
-**Lösning** Kontrol lera att konto namnet och lösen ordet har angetts korrekt och att kontot finns.  
+**Lösning:** Kontrol lera att konto namnet och lösen ordet har angetts korrekt och att kontot finns.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Namnet på Azure Storage-kontot eller lagrings nyckeln är felaktigt.|  
-|Namnet på Azure Storage-kontot{0}"" eller lagrings nyckeln för konto namnet är felaktigt.|  
+|Namnet på Azure Storage-kontot "{0}" eller lagrings nyckeln för konto namnet är felaktigt.|  
   
 
 ## <a name="error-0065"></a>Fel 0065  
@@ -1116,12 +1116,12 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
 -   En SAS-URI innehåller inte namnet på en giltig blob.  
   
-**Lösning** När du går tillbaka till modulen utlöses undantaget. Kontrol lera att den angivna blobben finns i behållaren i lagrings kontot och att du kan se blobben i den behörigheten. Kontrol lera att indatafilen har formatet **ContainerName/filename** om du har Excel eller CSV med kodnings format. Kontrol lera att en SAS-URI innehåller namnet på en giltig blob.  
+**Lösning:** När du går tillbaka till modulen utlöses undantaget. Kontrol lera att den angivna blobben finns i behållaren i lagrings kontot och att du kan se blobben i den behörigheten. Kontrol lera att indatafilen har formatet **ContainerName/filename** om du har Excel eller CSV med kodnings format. Kontrol lera att en SAS-URI innehåller namnet på en giltig blob.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Azure Storage-blobben är felaktig.|  
-|Namnet på Azure Storage-blobben{0}"" är felaktigt|  
+|Namnet på Azure Storage-blobben "{0}" är felaktigt|  
   
 
 ## <a name="error-0066"></a>Fel 0066  
@@ -1129,12 +1129,12 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet uppstår i Azure Machine Learning om en resurs inte kunde överföras till en Azure-blob.  <!--You will receive this message if [Train Vowpal Wabbit 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) encounters an error attempting to save either the model or the hash created when training the model.--> Båda sparas i samma Azure Storage-konto som kontot som innehåller indatafilen.  
   
-**Lösning** Gå tillbaka i modulen. Kontrol lera att namnet på Azure-kontot, lagrings nyckeln och behållaren är korrekta och att kontot har behörighet att skriva till behållaren.  
+**Lösning:** Gå tillbaka i modulen. Kontrol lera att namnet på Azure-kontot, lagrings nyckeln och behållaren är korrekta och att kontot har behörighet att skriva till behållaren.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att överföra resursen till Azure Storage.|  
-|Det gick inte{0}att ladda upp filen till Azure Storage som. {1}|  
+|Filen "{0}" kunde inte överföras till Azure Storage som {1}.|  
   
 
 ## <a name="error-0067"></a>Fel 0067  
@@ -1142,12 +1142,12 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
   
  Det här felet uppstår i Azure Machine Learning om en data uppsättning har ett annat antal kolumner än förväntat.  Du får det här felet när antalet kolumner i data uppsättningen skiljer sig från antalet kolumner som modulen förväntar sig under körningen.  
   
-**Lösning** Ändra indata-datauppsättningen eller parametrarna.  
+**Lösning:** Ändra indata-datauppsättningen eller parametrarna.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Ett oväntat antal kolumner i DataTable.|  
-|Kolumner förväntades, men kolumnerna{1}hittades i stället.{0}|  
+|@No__t_0 kolumner förväntades men {1} kolumner hittades i stället.|  
   
 
 ## <a name="error-0068"></a>Fel 0068  
@@ -1176,7 +1176,7 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
 |Undantags meddelanden|  
 |------------------------|  
 |Hive-skriptet är felaktigt.|  
-|Hive- {0} skriptet är felaktigt.|  
+|Hive-skriptet {0} är felaktigt.|  
   
 
 ## <a name="error-0069"></a>Fel 0069  
@@ -1186,20 +1186,20 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
  
  Du får det här felet om SQL-motorn påträffar ett fel när frågan eller skriptet körs. SQL-felmeddelande rapporteras normalt igen i fel loggen så att du kan vidta åtgärder baserat på det specifika felet.  
   
-**Lösning** Gå tillbaka i modulen och granska SQL-frågan för misstag.  
+**Lösning:** Gå tillbaka i modulen och granska SQL-frågan för misstag.  
   
  Kontrol lera att frågan fungerar korrekt utanför Azure ML genom att logga in på databas servern direkt och köra frågan.  
   
  Om det finns ett SQL-genererat meddelande som rapporter ATS av ett modul undantag, vidta åtgärder baserat på det rapporterade felet. Fel meddelandena innehåller till exempel ibland speciell vägledning om det troliga felet:
 + *Ingen sådan kolumn eller saknad databas*, vilket indikerar att du har angett ett kolumn namn som fel. Om du är säker på att kolumn namnet är korrekt kan du prova att använda hakparenteser eller citat tecken för att omsluta kolumn-ID: n.
-+ *SQL Logic-fel \<nära SQL\>-nyckelord*, vilket indikerar att du kan ha ett syntaxfel innan det angivna nyckelordet
++ *SQL Logic-fel nära \<SQL nyckelord \>* , vilket tyder på att du kan ha ett syntaxfel före det angivna nyckelordet
 
   
 |Undantags meddelanden|  
 |------------------------|  
 |SQL-skriptet är felaktigt.|  
-|SQL-frågan{0}"" är felaktig.|  
-|SQL-frågan{0}"" är felaktig:{1}|  
+|SQL-frågan "{0}" är felaktig.|  
+|SQL-frågan "{0}" är felaktig: {1}|  
   
 
 ## <a name="error-0070"></a>Fel 0070  
@@ -1207,12 +1207,12 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
   
  Det här felet uppstår Azure Machine Learning när du försöker komma åt en Azure-tabell som inte finns. Du får det här felet om du anger en tabell i Azure Storage, som inte finns när du läser från eller skriver till Azure Table Storage. Detta kan inträffa om du skriver in namnet på den önskade tabellen eller om du har ett matchnings fel mellan mål namnet och lagrings typen. Du kan till exempel läsa från en tabell men ange namnet på en BLOB i stället.  
   
-**Lösning** Gå tillbaka i modulen för att kontrol lera att namnet på tabellen är korrekt.  
+**Lösning:** Gå tillbaka i modulen för att kontrol lera att namnet på tabellen är korrekt.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Azure-tabellen finns inte.|  
-|Azure-tabellen{0}"" finns inte.|  
+|Azure-tabellen {0} finns inte.|  
   
 ## <a name="error-0071"></a>Fel 0071  
  Undantag uppstår om de angivna autentiseringsuppgifterna är felaktiga.  
@@ -1221,7 +1221,7 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
   
  Du kan också få det här felet om modulen inte kan ansluta till ett HDInsight-kluster.  
   
-**Lösning** Granska indata till modulen och kontrol lera konto namnet och lösen ordet.  
+**Lösning:** Granska indata till modulen och kontrol lera konto namnet och lösen ordet.  
   
  Sök efter följande problem som kan orsaka ett fel:  
   
@@ -1238,7 +1238,7 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
 |Undantags meddelanden|  
 |------------------------|  
 |Felaktiga autentiseringsuppgifter har skickats.|  
-|Felaktigt användar namn{0}"" eller lösen ord har skickats|  
+|Felaktigt användar namn {0} eller lösen ord har skickats|  
   
 
 ## <a name="error-0072"></a>Fel 0072  
@@ -1246,7 +1246,7 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
   
  Det här felet uppstår i Azure Machine Learning när tids gränsen för anslutningen uppnåddes. Du får det här felet om det finns problem med anslutningen till data källan eller målet, t. ex. långsam Internet anslutning, eller om data uppsättningen är stor och/eller om SQL-frågan för att läsa i data utför komplicerad bearbetning.  
   
-**Lösning** Ta reda på om det finns problem med långsamma anslutningar till Azure Storage eller Internet.  
+**Lösning:** Ta reda på om det finns problem med långsamma anslutningar till Azure Storage eller Internet.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1258,12 +1258,12 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
   
  Det här felet uppstår i Azure Machine Learning när det inte går att konvertera kolumnen till en annan typ.  Det här felet visas om en modul kräver en viss typ och det inte går att konvertera kolumnen till den nya typen.  
   
-**Lösning** Ändra indata-datauppsättningen så att kolumnen kan konverteras baserat på det inre undantaget.  
+**Lösning:** Ändra indata-datauppsättningen så att kolumnen kan konverteras baserat på det inre undantaget.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att konvertera kolumnen.|  
-|Det gick inte att konvertera {0}kolumnen till.|  
+|Det gick inte att konvertera kolumnen till {0}.|  
   
 
 ## <a name="error-0074"></a>Fel 0074  
@@ -1300,12 +1300,12 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
   
  Det här felet uppstår i Azure Machine Learning om ett ogiltigt argument skickas i specifikationerna för en BLOB-fil eller källa.  
   
-**Lösning** I nästan alla moduler som importerar eller exporterar data till och från Azure Blob Storage, tilldelas parameter värden som styr skrivnings läget med hjälp av en nedrullningsbar listruta. Därför är det inte möjligt att skicka ett ogiltigt värde och det här felet bör inte visas. Det här felet kommer att vara inaktuellt i en senare version.  
+**Lösning:** I nästan alla moduler som importerar eller exporterar data till och från Azure Blob Storage, tilldelas parameter värden som styr skrivnings läget med hjälp av en nedrullningsbar listruta. Därför är det inte möjligt att skicka ett ogiltigt värde och det här felet bör inte visas. Det här felet kommer att vara inaktuellt i en senare version.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |BLOB-skrivnings läget stöds inte.|  
-|BLOB-skrivnings läge som inte {0}stöds:.|  
+|BLOB-skrivnings läge som inte stöds: {0}.|  
   
 
 ## <a name="error-0078"></a>Fel 0078  
@@ -1313,7 +1313,7 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
   
  Det här felet uppstår i Azure Machine Learning när HTTP-alternativet för [Importera data](import-data.md) får en 3xx (301, 302, 304 osv.) som anger omdirigering. Du får det här felet om du försöker ansluta till en HTTP-källa som omdirigerar webbläsaren till en annan sida. Av säkerhets skäl är det inte tillåtet att omdirigera webbplatser som data källor för Azure Machine Learning.  
   
-**Lösning** Om webbplatsen är en betrodd webbplats anger du den omdirigerade URL: en direkt.  
+**Lösning:** Om webbplatsen är en betrodd webbplats anger du den omdirigerade URL: en direkt.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1325,12 +1325,12 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
   
  Felet i Azure Machine Learning uppstår om namnet på Azure Storage-behållaren är felaktigt angivet. Du får det här felet om du inte har angett både behållaren och blob-namnet (fil) med hjälp **av sökvägen till bloben som börjar med container** -alternativet när du skriver till Azure Blob Storage.  
   
-**Lösning** Gå tillbaka till modulen [Exportera data](export-data.md) och kontrol lera att den angivna sökvägen till blobben innehåller både behållaren och fil namnet i formatet **container/filename**.  
+**Lösning:** Gå tillbaka till modulen [Exportera data](export-data.md) och kontrol lera att den angivna sökvägen till blobben innehåller både behållaren och fil namnet i formatet **container/filename**.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Namnet på Azure Storage-behållaren är felaktigt.|  
-|Namnet på Azure Storage-behållaren{0}"" är felaktigt. ett behållar namn för format containern/blobben förväntades.|  
+|Namnet på Azure Storage-behållaren "{0}" är felaktigt. ett behållar namn för format containern/blobben förväntades.|  
   
 
 ## <a name="error-0080"></a>Fel 0080  
@@ -1338,12 +1338,12 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
   
  Det här felet i Azure Machine Learning skapas när en eller flera av kolumnerna som används av modulen innehåller alla värden som saknas. Om en modul exempelvis beräknar sammanställd statistik för varje kolumn, kan den inte användas i en kolumn som inte innehåller några data. I sådana fall stoppas modul körningen med detta undantag.  
   
-**Lösning** Gå tillbaka till indata-datauppsättningen och ta bort alla kolumner som innehåller alla saknade värden.  
+**Lösning:** Gå tillbaka till indata-datauppsättningen och ta bort alla kolumner som innehåller alla saknade värden.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Kolumner med värden som saknas är inte tillåtna.|  
-|Kolumnen {0} har alla värden som saknas.|  
+|Kolumn {0} saknar värden.|  
   
 
 ## <a name="error-0081"></a>Fel 0081  
@@ -1351,7 +1351,7 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
   
  Det här felet i Azure Machine Learning skapas om följande villkor uppfylls: (a) data uppsättningen för indata innehåller minst en null-optimerad kolumn och (b) det slutgiltiga antalet dimensioner som krävs är samma som antalet ingångs dimensioner.  
   
-**Lösning** Överväg att minska antalet dimensioner i utdatan till färre än antalet dimensioner i indata. Detta är vanligt i program av PCA.   <!--For more information, see [Principal Component Analysis](principal-component-analysis.md).  -->
+**Lösning:** Överväg att minska antalet dimensioner i utdatan till färre än antalet dimensioner i indata. Detta är vanligt i program av PCA.   <!--For more information, see [Principal Component Analysis](principal-component-analysis.md).  -->
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1363,7 +1363,7 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
   
  Det här felet uppstår i Azure Machine Learning när en sparad Machine Learning-modell eller-transformering inte kan läsas in med en nyare version av Azure Machine Learning runtime som ett resultat av en brytande ändring.  
   
-**Lösning** Det utbildnings experiment som skapade modellen eller omvandlingen måste köras igen och modellen eller transformeringen måste sparas på nytt.  
+**Lösning:** Den utbildnings pipelinen som skapade modellen eller omvandlingen måste köras igen och modellen eller transformeringen måste sparas på nytt.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1375,13 +1375,13 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
   
  Det här felet i Azure Machine Learning skapas när data uppsättningen är inkompatibel med den elev som tränas. Data uppsättningen kan till exempel innehålla minst ett värde som saknas i varje rad, och därför skulle hela data uppsättningen hoppas över under träningen. I andra fall förväntas inte några Machine Learning-algoritmer, till exempel avvikelse identifiering, etiketter visas och kan utlösa detta undantag om det finns etiketter i data uppsättningen.  
   
-**Lösning** Läs dokumentationen för den handare som används för att kontrol lera kraven för data uppsättningen för indata. Granska kolumnerna för att se att alla obligatoriska kolumner finns.  
+**Lösning:** Läs dokumentationen för den handare som används för att kontrol lera kraven för data uppsättningen för indata. Granska kolumnerna för att se att alla obligatoriska kolumner finns.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Data uppsättningen som används för träning är ogiltig.|  
-|{0}innehåller ogiltiga data för träning.|  
-|{0}innehåller ogiltiga data för träning. Elev typ: {1}.|  
+|{0} innehåller ogiltiga data för träning.|  
+|{0} innehåller ogiltiga data för träning. Elev typ: {1}.|  
   
 
 ## <a name="error-0084"></a>Fel 0084  
@@ -1401,12 +1401,12 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
   
  Det här felet uppstår Azure Machine Learning när du kör anpassade skript som innehåller syntaxfel.  
   
-**Lösning** Granska koden i ett externt redigerings program och Sök efter fel.  
+**Lösning:** Granska koden i ett externt redigerings program och Sök efter fel.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Fel vid utvärdering av skript.|  
-|Följande fel uppstod under skript utvärderings loggen för mer information:----------start av fel meddelande från {0} tolken---------- {1} ----------slutet av fel meddelandet från {0} tolken---- ------|  
+|Följande fel uppstod under skript utvärderingen. Visa utgående logg för mer information:----------start av fel meddelande från {0} tolken----------{1}----------slutet av fel meddelandet från {0} tolk----------|  
   
 
 ## <a name="error-0086"></a>Fel 0086  
@@ -1414,7 +1414,7 @@ Fel hantering för den här händelsen introducerades i en tidigare version av A
   
  Det här felet uppstår i Azure Machine Learning när du väljer en omvandling som baseras på en Count-tabell, men den valda transformeringen är inkompatibel med aktuella data eller med den nya Count-tabellen.  
   
-**Lösning** Modulen stöder sparande av de antal och regler som utgör omvandlingen i två olika format. Om du sammanfogar Count-tabeller kontrollerar du att båda tabellerna som du vill sammanfoga använder samma format.  
+**Lösning:** Modulen stöder sparande av de antal och regler som utgör omvandlingen i två olika format. Om du sammanfogar Count-tabeller kontrollerar du att båda tabellerna som du vill sammanfoga använder samma format.  
   
 I allmänhet kan en räknad transformering endast tillämpas på data uppsättningar som har samma schema som den data uppsättning som transformationen ursprungligen skapades på.  
   
@@ -1429,8 +1429,8 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
 |Undantags meddelanden|  
 |------------------------|  
 |Ogiltig uppräknings transformering har angetts.|  
-|Räknings omvandlingen vid Indataporten{0}är ogiltig.|  
-|Det går inte att sammanfoga räknings{0}omvandlingen vid Indataporten med Indataporten i Indataporten.{1} Kontrol lera vilka metadata som används för att räkna antalet matchningar.|  
+|Räknings omvandlingen vid Indataporten {0} är ogiltig.|  
+|Det går inte att sammanfoga räknings omvandlingen vid Indataporten {0} med Indataporten för Indataporten {1}. Kontrol lera vilka metadata som används för att räkna antalet matchningar.|  
   
 
 ## <a name="error-0087"></a>Fel 0087  
@@ -1438,7 +1438,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår Azure Machine Learning när du försöker importera en befintlig Count-tabell, men tabellen är inkompatibel med aktuella data eller med den nya Count-tabellen.  
   
-**Lösning** Det finns olika format för att spara de antal och regler som utgör omvandlingen. Om du sammanfogar Count-tabeller kontrollerar du att båda använder samma format.  
+**Lösning:** Det finns olika format för att spara de antal och regler som utgör omvandlingen. Om du sammanfogar Count-tabeller kontrollerar du att båda använder samma format.  
   
  I allmänhet kan en räknad transformering endast tillämpas på data uppsättningar som har samma schema som den data uppsättning som transformationen ursprungligen skapades på.  
   
@@ -1450,7 +1450,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår Azure Machine Learning när du försöker använda en annan inventerings metod än vad som stöds för Count-baserade funktionalisering.  
   
-**Lösning** I allmänhet väljs inventerings metoder från en listruta, så du bör inte se det här felet.  
+**Lösning:** I allmänhet väljs inventerings metoder från en listruta, så du bör inte se det här felet.  
   
   <!--For general information, see [Learning with Counts](data-transformation-learning-with-counts.md). For requirements specific to creating and merging count-based features, see these topics:  
   
@@ -1463,7 +1463,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
 |Undantags meddelanden|  
 |------------------------|  
 |Ogiltig inventerings typ har angetts.|  
-|Den angivna inventerings typen{0}är inte en giltig inventerings typ.|  
+|Den angivna inventerings typen {0} är inte en giltig beräknings typ.|  
   
 
 ## <a name="error-0089"></a>Fel 0089  
@@ -1471,7 +1471,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår i Azure Machine Learning när du skapar en Count-tabell och kolumnen Label innehåller ett annat antal klasser än du angav i modulens parametrar.  
   
-**Lösning** Kontrol lera din data uppsättning och ta reda på exakt hur många distinkta värden (möjliga klasser) som finns i kolumnen etikett. När du skapar Count-tabellen måste du ange minst det här antalet klasser.  
+**Lösning:** Kontrol lera din data uppsättning och ta reda på exakt hur många distinkta värden (möjliga klasser) som finns i kolumnen etikett. När du skapar Count-tabellen måste du ange minst det här antalet klasser.  
   
  Count-tabellen kan inte automatiskt fastställa antalet tillgängliga klasser.  
   
@@ -1480,7 +1480,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet klasser är felaktigt. Kontrol lera att antalet klasser som du anger i parameter fönstret är större än eller lika med antalet klasser i kolumnen etikett.|  
-|Antalet angivna klasser är{0}, vilket inte är större än ett etikett{1}värde i den data mängd som används för att räkna. Kontrol lera att antalet klasser som du anger i parameter fönstret är större än eller lika med antalet klasser i kolumnen etikett.|  
+|Antalet angivna klasser är {0}, vilket inte är större än ett etikett värde {1} i den data mängd som används för att räkna. Kontrol lera att antalet klasser som du anger i parameter fönstret är större än eller lika med antalet klasser i kolumnen etikett.|  
   
 
 ## <a name="error-0090"></a>Fel 0090  
@@ -1488,23 +1488,23 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår i Azure Machine Learning när du använder [export data](export-data.md) eller ett annat alternativ för att spara data i ett HDInsight-kluster och det inte går att skapa den angivna Hive-tabellen.  
   
-**Lösning** Kontrol lera namnet på det Azure Storage-konto som är associerat med klustret och kontrol lera att du använder samma konto i egenskaperna för modulen.  
+**Lösning:** Kontrol lera namnet på det Azure Storage-konto som är associerat med klustret och kontrol lera att du använder samma konto i egenskaperna för modulen.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att skapa Hive-tabellen. För ett HDInsight-kluster ser du till att namnet på det Azure Storage-konto som är associerat med klustret är detsamma som det som skickas genom parametern modul.|  
-|Det gick inte att{0}skapa Hive-tabellen. För ett HDInsight-kluster ser du till att namnet på det Azure Storage-konto som är associerat med klustret är detsamma som det som skickas genom parametern modul.|  
-|Det gick inte att{0}skapa Hive-tabellen. För ett HDInsight-kluster kontrollerar du att namnet på Azure Storage-kontot som är{1}associerat med klustret är "".|  
+|Det gick inte att skapa Hive-tabellen "{0}". För ett HDInsight-kluster ser du till att namnet på det Azure Storage-konto som är associerat med klustret är detsamma som det som skickas genom parametern modul.|  
+|Det gick inte att skapa Hive-tabellen "{0}". För ett HDInsight-kluster ser du till att namnet på det Azure Storage-konto som är associerat med klustret är "{1}".|  
  
 
 ## <a name="error-0100"></a>Fel 0100  
  Undantag inträffar när ett språk som inte stöds har angetts för en anpassad modul.  
   
- Det här felet uppstår i Azure Machine Learning när en anpassad modul skapas och egenskapen Name för **språk** elementet i en XML-definitions fil för anpassad modul har ett ogiltigt värde. För närvarande är `R`det enda giltiga värdet för den här egenskapen. Exempel:  
+ Det här felet uppstår i Azure Machine Learning när en anpassad modul skapas och egenskapen Name för **språk** elementet i en XML-definitions fil för anpassad modul har ett ogiltigt värde. För närvarande är det enda giltiga värdet för den här egenskapen `R`. Exempel:  
   
  `<Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />`  
   
-**Lösning** Kontrol lera att namn egenskapen för **språk** elementet i XML-konfigurationsfilen för anpassad modul har angetts till `R`. Spara filen, uppdatera zip-paketet för den anpassade modulen och försök att lägga till den anpassade modulen igen.  
+**Lösning:** Kontrol lera att namn egenskapen för **språk** elementet i XML-konfigurationsfilen för anpassad modul har angetts till `R`. Spara filen, uppdatera zip-paketet för den anpassade modulen och försök att lägga till den anpassade modulen igen.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1516,12 +1516,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår i Azure Machine Learning när en eller flera portar eller parametrar tilldelas samma ID-värde i en XML-definitions fil för en anpassad modul.  
   
-**Lösning** Kontrol lera att ID-värdena för alla portar och parametrar är unika. Spara XML-filen, uppdatera zip-paketet för den anpassade modulen och försök att lägga till den anpassade modulen igen.  
+**Lösning:** Kontrol lera att ID-värdena för alla portar och parametrar är unika. Spara XML-filen, uppdatera zip-paketet för den anpassade modulen och försök att lägga till den anpassade modulen igen.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Alla port-och parameter-ID för en modul måste vara unika|  
-|{0}Modulen har dubbla port-/argument-ID: n. Alla port-/argument-ID: n måste vara unika för en modul.|  
+|Modulen {0} har dubbla port-/argument-ID: n. Alla port-/argument-ID: n måste vara unika för en modul.|  
   
 
 ## <a name="error-0102"></a>Fel 0102  
@@ -1529,7 +1529,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår i Azure Machine Learning när du importerar ett zippat paket med fil namns tillägget. zip, men paketet är inte en zip-fil, eller så använder filen inte ett zip-format som stöds.  
   
-**Lösning** Kontrol lera att den valda filen är en giltig. zip-fil och att den har komprimerats med hjälp av någon av de algoritmer som stöds.  
+**Lösning:** Kontrol lera att den valda filen är en giltig. zip-fil och att den har komprimerats med hjälp av någon av de algoritmer som stöds.  
   
  Om du får det här felet när du importerar data uppsättningar i komprimerat format måste du kontrol lera att alla filer som finns i filen använder något av de fil format som stöds och att de är i Unicode-format.  <!--For more information, see [Unpack Zipped Datasets](unpack-zipped-datasets.md).  -->
   
@@ -1545,7 +1545,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår i Azure Machine Learning när zip-paketet för den anpassade modulen inte innehåller några modul definitions-filer (. xml). Dessa filer måste finnas i roten i zip-paketet (till exempel inte i en undermapp.)  
   
-**Lösning** Kontrol lera att en eller flera definitions filer för XML-modul finns i rotmappen i zip-paketet genom att extrahera den till en tillfällig mapp på disk enheten. Alla XML-filer ska vara direkt i den mapp som du extraherade zip-paketet till. Se till att du skapar zip-paketet som du inte väljer en mapp som innehåller XML-filer till zip eftersom detta skapar en underordnad mapp i zip-paketet med samma namn som den mapp som du valde att zippa.  
+**Lösning:** Kontrol lera att en eller flera definitions filer för XML-modul finns i rotmappen i zip-paketet genom att extrahera den till en tillfällig mapp på disk enheten. Alla XML-filer ska vara direkt i den mapp som du extraherade zip-paketet till. Se till att du skapar zip-paketet som du inte väljer en mapp som innehåller XML-filer till zip eftersom detta skapar en underordnad mapp i zip-paketet med samma namn som den mapp som du valde att zippa.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1559,12 +1559,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  `<Language name="R" sourceFile="myScripts/CustomAddRows.R" entryPoint="CustomAddRows" />`  
   
-**Lösning** Kontrol lera att värdet för egenskapen **sourceFile** i **språk** elementet i XML-definitionen för anpassad modul är korrekt och att käll filen finns i rätt relativ sökväg i zip-paketet.  
+**Lösning:** Kontrol lera att värdet för egenskapen **sourceFile** i **språk** elementet i XML-definitionen för anpassad modul är korrekt och att käll filen finns i rätt relativ sökväg i zip-paketet.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Den refererade R-skript filen finns inte.|  
-|Det går inte att hitta den{0}refererade R-skript filen. Se till att den relativa sökvägen till filen är korrekt från definitions platsen.|  
+|Det gick inte att hitta den refererade R Script-filen {0}. Se till att den relativa sökvägen till filen är korrekt från definitions platsen.|  
 
 
 ## <a name="error-0105"></a>Fel 0105  
@@ -1572,12 +1572,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet i Azure Machine Learning skapas när du skapar en XML-definition för en anpassad modul och typen av parameter eller argument i definitionen inte matchar en typ som stöds.  
   
-**Lösning** Se till att type-egenskapen för ett **arg** -element i XML-definitions filen för anpassad modul är en typ som stöds.  
+**Lösning:** Se till att type-egenskapen för ett **arg** -element i XML-definitions filen för anpassad modul är en typ som stöds.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Parameter typen stöds inte.|  
-|Parameter typen som inte stöds har{0}angetts.|  
+|Parameter typen {0} som inte stöds har angetts.|  
 
 
 ## <a name="error-0106"></a>Fel 0106  
@@ -1585,12 +1585,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet i Azure Machine Learning skapas när typen för en indataport i en XML-definition för en anpassad modul inte matchar en typ som stöds.  
   
-**Lösning** Kontrol lera att typ egenskapen för ett indata-element i XML-definitions filen för anpassad modul är en typ som stöds.  
+**Lösning:** Kontrol lera att typ egenskapen för ett indata-element i XML-definitions filen för anpassad modul är en typ som stöds.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Indatatypen stöds inte.|  
-|Indatatypen som inte stöds{0}har angetts.|  
+|Indatatypen som inte stöds {0} anges.|  
 
 
 ## <a name="error-0107"></a>Fel 0107  
@@ -1598,12 +1598,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet i Azure Machine Learning skapas när typen för en utdataport i en XML-definition för en anpassad modul inte matchar en typ som stöds.  
   
-**Lösning** Kontrol lera att typ egenskapen för ett utdata-element i XML-definitions filen för den anpassade modulen är en typ som stöds.  
+**Lösning:** Kontrol lera att typ egenskapen för ett utdata-element i XML-definitions filen för den anpassade modulen är en typ som stöds.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Utdatatypen stöds inte.|  
-|Utdatatypen som inte stöds{0}har angetts.|  
+|Den utdatatyp som inte stöds {0} anges.|  
 
 
 ## <a name="error-0108"></a>Fel 0108  
@@ -1611,19 +1611,19 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet i Azure Machine Learning skapas när för många indata-eller utgående portar definieras i en XML-definition för en anpassad modul.  
   
-**Lösning** Kontrollerar att det maximala antalet portar för indata och utdata som definieras i XML-definitionen för anpassade moduler inte överskrider det högsta antalet portar som stöds.  
+**Lösning:** Kontrollerar att det maximala antalet portar för indata och utdata som definieras i XML-definitionen för anpassade moduler inte överskrider det högsta antalet portar som stöds.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet indata-eller utgående portar som stöds har överskridits.|  
-|Antalet portar som stöds{0}har överskridits. Högsta tillåtna antal{0}portar{1}är.| 
+|Antalet {0}-portar som stöds överskreds. Det högsta tillåtna antalet {0}-portar är {1}.| 
 
 ## <a name="error-0109"></a>Fel 0109  
  Genereras när en modul definitions fil definierar en kolumn väljare felaktigt  
   
  Det här felet i Azure Machine Learning skapas när syntaxen för ett kolumn väljare-argument innehåller ett fel i en anpassad XML-definition för modul.  
   
-**Lösning** Det här felet skapas när syntaxen för ett kolumn väljare-argument innehåller ett fel i en anpassad XML-definition för modul.  
+**Lösning:** Det här felet skapas när syntaxen för ett kolumn väljare-argument innehåller ett fel i en anpassad XML-definition för modul.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1635,12 +1635,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet i Azure Machine Learning skapas när egenskapen *portId* i elementet Properties för ett arg av typen ColumnPicker inte matchar ID-värdet för en indataport.  
   
-**Lösning** Kontrol lera att egenskapen portId matchar ID-värdet för en indataport som definierats i XML-definitionen för den anpassade modulen.  
+**Lösning:** Kontrol lera att egenskapen portId matchar ID-värdet för en indataport som definierats i XML-definitionen för den anpassade modulen.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Kolumn väljaren refererar till ett obefintligt indataports-ID.|  
-|Kolumn väljaren refererar till ett obefintligt indataports{0}-ID.|  
+|Kolumn väljaren refererar till en obefintlig indataports-ID {0}.|  
   
 
 ## <a name="error-0111"></a>Fel 0111  
@@ -1648,12 +1648,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet i Azure Machine Learning skapas när en ogiltig egenskap tilldelas ett element i XML-definitionen för den anpassade modulen.  
   
-**Lösning** Kontrol lera att egenskapen stöds av elementet för den anpassade modulen.  
+**Lösning:** Kontrol lera att egenskapen stöds av elementet för den anpassade modulen.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Egenskaps definitionen är ogiltig.|  
-|Egenskaps definitionen{0}är ogiltig.|  
+|Egenskaps definitionen {0} är ogiltig.|  
   
 
 ## <a name="error-0112"></a>Fel 0112  
@@ -1661,12 +1661,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet i Azure Machine Learning skapas när det finns ett fel i XML-format som förhindrar att XML-definitionen för anpassad modul parsas som en giltig XML-fil.  
   
-**Lösning** Se till att varje element öppnas och stängs korrekt. Kontrol lera att det inte finns några fel i XML-formateringen.  
+**Lösning:** Se till att varje element öppnas och stängs korrekt. Kontrol lera att det inte finns några fel i XML-formateringen.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att parsa modul definitions filen.|  
-|Det gick inte att parsa modulens definitions fil{0}.|  
+|Det gick inte att parsa modulens definitions fil {0}.|  
   
 
 ## <a name="error-0113"></a>Fel 0113  
@@ -1674,13 +1674,13 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet i Azure Machine Learning skapas när XML-definitions filen för den anpassade modulen kan parsas, men innehåller fel, till exempel definition av element som inte stöds av anpassade moduler.  
   
-**Lösning** Kontrol lera att definitions filen för den anpassade modulen definierar element och egenskaper som stöds av anpassade moduler.  
+**Lösning:** Kontrol lera att definitions filen för den anpassade modulen definierar element och egenskaper som stöds av anpassade moduler.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Modul definitions filen innehåller fel.|  
-|Modul definitions filen{0}innehåller fel.|  
-|Modul definitions filen{0}innehåller fel. [https://doi.org/10.13012/J8PN93H8]({1})|  
+|Modul definitions filen {0} innehåller fel.|  
+|Modul definitions filen {0} innehåller fel. {1}|  
   
 
 ## <a name="error-0114"></a>Fel 0114  
@@ -1688,12 +1688,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet i Azure Machine Learning skapas när en anpassad version av modulen Miss lyckas. Detta inträffar när en eller flera anpassade module-relaterade fel påträffas när den anpassade modulen läggs till. De ytterligare felen rapporteras i det här fel meddelandet.  
   
-**Lösning** Lös felen som rapporteras i det här undantags meddelandet.  
+**Lösning:** Lös felen som rapporteras i det här undantags meddelandet.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att bygga den anpassade modulen.|  
-|Skapande av anpassade moduler misslyckades med fel:{0}|  
+|Skapande av anpassade moduler misslyckades med fel: {0}|  
   
 
 ## <a name="error-0115"></a>Fel 0115  
@@ -1701,12 +1701,12 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår i Azure Machine Learning när du anger ett skript för en anpassad modul som använder ett okänt fil namns tillägg.  
   
-**Lösning** Kontrol lera fil formatet och fil namns tillägget för alla skriptfiler som ingår i den anpassade modulen.  
+**Lösning:** Kontrol lera fil formatet och fil namns tillägget för alla skriptfiler som ingår i den anpassade modulen.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Omfattningen stöds inte för standard skriptet.|  
-|Fil omfattningen {0} stöds inte för standard skriptet.|  
+|Fil utsträcknings {0} som inte stöds för standard skriptet.|  
   
 
 ## <a name="error-0121"></a>Fel 0121  
@@ -1723,7 +1723,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
 |Undantags meddelanden|  
 |------------------------|  
 |Ansluten till servern, det går inte att skriva till tabellen.|  
-|Det går inte att skriva till SQL-tabell:{0}|  
+|Det går inte att skriva till SQL-tabell: {0}|  
 
 
 ## <a name="error-0122"></a>Fel 0122  
@@ -1731,7 +1731,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår i Azure Machine Learning när för många kolumner har valts som vikt kolumner.  
   
-**Lösning** Granska indata-datauppsättningen och dess metadata. Se till att endast en kolumn innehåller vikter.  
+**Lösning:** Granska indata-datauppsättningen och dess metadata. Se till att endast en kolumn innehåller vikter.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1743,7 +1743,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Felet i Azure Machine Learning uppstår om du använder en Vector som etikett kolumn.  
   
-**Lösning** Ändra kolumnens data format om det behövs eller Välj en annan kolumn.  
+**Lösning:** Ändra kolumnens data format om det behövs eller Välj en annan kolumn.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1776,18 +1776,18 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet skapas när användaren anger en SQL-domän som inte stöds i Azure Machine Learning. Du får det här felet om du försöker ansluta till en databas server i en domän som inte är vit listas. För närvarande är de tillåtna SQL-domänerna: ". database.windows.net", ". cloudapp.net" eller ". database.secure.windows.net". Det vill säga att servern måste vara en Azure SQL-Server eller en server på en virtuell dator i Azure.  
   
-**Lösning** Gå tillbaka i modulen. Verifiera att SQL Database-servern tillhör en av de godkända domänerna:  
+**Lösning:** Gå tillbaka i modulen. Verifiera att SQL Database-servern tillhör en av de godkända domänerna:  
   
 -   . database.windows.net  
   
--   .cloudapp.net  
+-   . cloudapp.net  
   
 -   . database.secure.windows.net  
   
 |Undantags meddelanden|  
 |------------------------|  
 |SQL-domänen stöds inte.|  
-|SQL-domänen {0} stöds för närvarande inte i Azure ml|  
+|SQL-domänens {0} stöds för närvarande inte i Azure ML|  
   
 
 ## <a name="error-0127"></a>Fel 0127  
@@ -1805,7 +1805,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
 |Undantags meddelanden|  
 |------------------------|  
 |Bild punkts storleken överskrider den tillåtna gränsen.|  
-|Bild punkts storleken i filen{0}överskrider den tillåtna gränsen:{1}|  
+|Bild punkts storleken i filen {0} överskrider den tillåtna gränsen: {1}|  
 
 
 ## <a name="error-0128"></a>Fel 0128  
@@ -1816,7 +1816,7 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet villkorsstyrda sannolikheter för kategoriska-kolumner överskrider gränsen.|  
-|Antalet villkorsstyrda sannolikheter för kategoriska-kolumner överskrider gränsen. Kolumnerna{1}och är de{0}problematiska paret.|  
+|Antalet villkorsstyrda sannolikheter för kategoriska-kolumner överskrider gränsen. Kolumnerna "{0}" och "{1}" är det problematiska paret.|  
 
 
 ## <a name="error-0129"></a>Fel 0129  
@@ -1827,15 +1827,15 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet kolumner i data uppsättningen överskrider den tillåtna gränsen.|  
-|Antalet kolumner i data uppsättningen i{0}' ' överskrider tillåtet. '|  
-|Antalet kolumner i data uppsättningen i{0}överskrider den tillåtna gränsen{1}på.|  
-|Antalet kolumner i data uppsättningen i{0}' ' överskrider{1}tillåten gräns för{2}' '. '|  
+|Antalet kolumner i data uppsättningen i {0} överskrider tillåtet.|  
+|Antalet kolumner i data uppsättningen i {0} överskrider den tillåtna gränsen på {1}.|  
+|Antalet kolumner i data uppsättningen i {0} överskrider tillåtet {1} gräns på {2}.|  
 ## <a name="error-0130"></a>Fel 0130  
  Undantag inträffar när alla rader i träning-datauppsättningen innehåller saknade värden.  
   
  Detta inträffar när en kolumn i träning-datauppsättningen är tom.  
   
-**Lösning** Använd modulen [Rensa data som saknas](clean-missing-data.md) för att ta bort kolumner med alla saknade värden.  
+**Lösning:** Använd modulen [Rensa data som saknas](clean-missing-data.md) för att ta bort kolumner med alla saknade värden.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -1847,13 +1847,13 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet uppstår när en eller flera data uppsättningar i en zip-fil inte kan avzippas och läsas korrekt. Du får det här felet om uppackningen Miss lyckas eftersom själva zip-filen eller en av filerna i filen är skadad eller om det uppstår ett systemfel vid försök att packa upp och expandera en fil.  
   
-**Lösning** Använd informationen i fel meddelandet för att avgöra hur du ska fortsätta.  
+**Lösning:** Använd informationen i fel meddelandet för att avgöra hur du ska fortsätta.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att överföra zippade data uppsättningar|  
-|Zippad {0} data uppsättning misslyckades med följande meddelande:{1}|  
-|Zippad {0} data uppsättning misslyckades {1} med ett undantags fel med meddelandet:{2}|  
+|Zippade data uppsättnings {0} misslyckades med följande meddelande: {1}|  
+|Zippade data uppsättnings {0} misslyckades med ett {1}-undantag med meddelande: {2}|  
   
 
 ## <a name="error-0132"></a>Fel 0132  
@@ -1861,25 +1861,25 @@ I allmänhet kan en räknad transformering endast tillämpas på data uppsättni
   
  Det här felet skapas när inget fil namn har angetts för uppackning. flera filer hittades i zip-filen. Du får det här felet om. zip-filen innehåller fler än en komprimerad fil, men du angav inte någon fil för extrahering i text rutan **data uppsättning att packa upp** i rutan **egenskap** i modulen. För närvarande kan endast en fil extraheras varje gången modulen körs.  
   
-**Lösning** Fel meddelandet innehåller en lista över de filer som finns i. zip-filen. Kopiera namnet på den önskade filen och klistra in den i text rutan **data uppsättning att packa upp** .  
+**Lösning:** Fel meddelandet innehåller en lista över de filer som finns i. zip-filen. Kopiera namnet på den önskade filen och klistra in den i text rutan **data uppsättning att packa upp** .  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Zip-filen innehåller flera filer. Du måste ange filen som ska expanderas.|  
-|Filen innehåller fler än en fil. Ange den fil som ska expanderas. Följande filer hittades:{0}|  
+|Filen innehåller fler än en fil. Ange den fil som ska expanderas. Följande filer hittades: {0}|  
   
 
 ## <a name="error-0133"></a>Fel 0133  
  Det gick inte att hitta den angivna filen i zip-filen  
   
- Det här felet skapas när fil namnet som angavs i fältet **data uppsättning till** avpackas i **egenskaps** fönstret inte matchar namnet på någon fil som finns i. zip-filen. De vanligaste orsakerna till det här felet är ett skrivfel eller att söka i fel Arkiv filen för filen som ska expanderas.  
+ Det här felet skapas när fil namnet som angavs i fältet **data uppsättning till avpackas** i **egenskaps** fönstret inte matchar namnet på någon fil som finns i. zip-filen. De vanligaste orsakerna till det här felet är ett skrivfel eller att söka i fel Arkiv filen för filen som ska expanderas.  
   
-**Lösning** Gå tillbaka i modulen. Om namnet på filen som du vill expandera visas i listan med filer, kopierar du fil namnet och klistrar in det i rutan **data uppsättning till packa upp** . Om du inte ser det önskade fil namnet i listan kontrollerar du att du har rätt. zip-fil och rätt namn för önskad fil.  
+**Lösning:** Gå tillbaka i modulen. Om namnet på filen som du vill expandera visas i listan med filer, kopierar du fil namnet och klistrar in det i rutan **data uppsättning till packa upp** . Om du inte ser det önskade fil namnet i listan kontrollerar du att du har rätt. zip-fil och rätt namn för önskad fil.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att hitta den angivna filen int zip-filen.|  
-|Det gick inte att hitta den angivna filen. Hittade följande fil (er):{0}|  
+|Det gick inte att hitta den angivna filen. Hittade följande fil (er): {0}|  
   
 
 ## <a name="error-0134"></a>Fel 0134
@@ -1906,7 +1906,7 @@ Lösning:
 ## <a name="error-0135"></a>Fel 0135  
  Endast centroid-baserade kluster stöds.  
   
-**Lösning** Du kan stöta på det här fel meddelandet om du har försökt utvärdera en kluster modell som baseras på en anpassad klustrad algoritm som inte använder centroids för att initiera klustret.  
+**Lösning:** Du kan stöta på det här fel meddelandet om du har försökt utvärdera en kluster modell som baseras på en anpassad klustrad algoritm som inte använder centroids för att initiera klustret.  
   
   <!--You can use [Evaluate Model](evaluate-model.md) to evaluate clustering models that are based on the  [K-Means Clustering](k-means-clustering.md) module. For custom algorithms, use the [Execute R Script](execute-r-script.md) module to create a custom evaluation script.  -->
   
@@ -1933,14 +1933,14 @@ Lösning:
 |Undantags meddelanden|  
 |------------------------|  
 |Konverterings fel mellan Azure Table Storage-egenskap och data uppsättnings kolumn.|  
-|Konverterings fel mellan Azure Table Storage-egenskap och data uppsättnings kolumn. Ytterligare information:{0}|  
+|Konverterings fel mellan Azure Table Storage-egenskap och data uppsättnings kolumn. Ytterligare information: {0}|  
 
 ## <a name="error-0138"></a>Fel 0138  
  Minnet har tömts, det går inte att slutföra körningen av modulen. Nedsampling av data uppsättningen kan hjälpa till att minska problemet.  
   
  Felet uppstår när modulen som kör kräver mer minne än vad som är tillgängligt i Azure-behållaren. Detta kan inträffa om du arbetar med en stor data uppsättning och den aktuella åtgärden inte ryms i minnet.  
   
-**Lösning** Om du försöker läsa en stor data uppsättning och åtgärden inte kan slutföras kan det hjälpa att göra en nedsampling av data uppsättningen.  
+**Lösning:** Om du försöker läsa en stor data uppsättning och åtgärden inte kan slutföras kan det hjälpa att göra en nedsampling av data uppsättningen.  
   
   <!--If you use the visualizations on datasets to check the cardinality of columns, only some rows are sampled. To get a full report, use [Summarize Data](summarize-data.md). You can also use the [Apply SQL Transformation](apply-sql-transformation.md) to check for the number of unique values in each column.  
   
@@ -1978,18 +1978,18 @@ Lösning:
 |Undantags meddelanden|  
 |------------------------|  
 |Tillåts inte konvertering.|  
-|Det gick inte att {0}konvertera:.|  
-|Det gick inte att {0}konvertera:, {1}på rad.|  
-|Det gick inte att konvertera kolumnen {0} av typen till kolumnen {1} av typen {2}på raden.|  
-|Det gick inte att konvertera{2}kolumnen "" {0} av typen till kolumnen {1} av typen {3}på raden.|  
-|Det gick inte att konvertera{2}kolumnen "" {0} av typen till{3}kolumnen "" {1} av typen {4}på raden.| 
+|Det gick inte att konvertera: {0}.|  
+|Det gick inte att konvertera: {0} på rad {1}.|  
+|Det gick inte att konvertera kolumnen av typen {0} till kolumn av typen {1} på rad {2}.|  
+|Det gick inte att konvertera kolumnen "{2}" av typen {0} till kolumnen av typen {1} på rad {3}.|  
+|Det gick inte att konvertera kolumnen "{2}" av typen {0} till kolumnen "{3}" av typen {1} på rad {4}.| 
 
 ## <a name="error-0140"></a>Fel 0140  
  Ett undantag inträffar om det skickade kolumn uppsättnings argumentet inte innehåller andra kolumner förutom kolumnen etikett.  
   
  Det här felet uppstår om du har anslutit en data uppsättning till en modul som kräver flera kolumner, inklusive funktioner, men som du har angett endast kolumnen etikett.  
   
-**Lösning** Välj minst en funktions kolumn som ska tas med i data uppsättningen.  
+**Lösning:** Välj minst en funktions kolumn som ska tas med i data uppsättningen.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -2001,7 +2001,7 @@ Lösning:
   
  Det här felet uppstår i Azure Machine Learning när det inte finns tillräckligt många unika värden i den markerade kolumnen för att utföra åtgärden.  
   
-**Lösning** Vissa åtgärder utför statistiska åtgärder på funktions-och kategoriska kolumner, och om det inte finns tillräckligt med värden kan åtgärden Miss lyckas eller returnera ett ogiltigt resultat. Kontrol lera din data uppsättning för att se hur många värden som finns i kolumnerna Feature och Label, och Fastställ om åtgärden du försöker utföra är statistiskt giltig.  
+**Lösning:** Vissa åtgärder utför statistiska åtgärder på funktions-och kategoriska kolumner, och om det inte finns tillräckligt med värden kan åtgärden Miss lyckas eller returnera ett ogiltigt resultat. Kontrol lera din data uppsättning för att se hur många värden som finns i kolumnerna Feature och Label, och Fastställ om åtgärden du försöker utföra är statistiskt giltig.  
   
  Om käll data uppsättningen är giltig kan du också kontrol lera om någon överordnad data behandling eller metadata har ändrat data och tagit bort vissa värden.  
   
@@ -2010,7 +2010,7 @@ Lösning:
 |Undantags meddelanden|  
 |------------------------|  
 |Antalet markerade numeriska kolumner och unika värden i kolumnerna kategoriska och String är för litet.|  
-|Det totala antalet markerade numeriska kolumner och unika värden i kolumnerna kategoriska och String (för närvarande {0}) måste vara minst{1}|  
+|Det totala antalet markerade numeriska kolumner och unika värden i kategoriska-och sträng kolumnerna (för närvarande {0}) måste vara minst {1}|  
   
 
 ## <a name="error-0142"></a>Fel 0142  
@@ -2021,7 +2021,7 @@ Lösning:
 |Undantags meddelanden|  
 |------------------------|  
 |Det går inte att läsa in certifikatet.|  
-|Det går {0} inte att läsa in certifikatet. Dess tumavtryck är {1}.|  
+|Det gick inte att läsa in certifikat {0}. Dess tumavtryck är {1}.|  
   
 
 ## <a name="error-0143"></a>Fel 0143  
@@ -2029,24 +2029,24 @@ Lösning:
   
  Felet i Azure Machine Learning uppstår när du anger en ogiltig URL och modulen kräver en giltig GitHub-URL.  
   
-**Lösning** Verifiera att URL: en refererar till en giltig GitHub-lagringsplats. Andra webbplats typer stöds inte.  
+**Lösning:** Verifiera att URL: en refererar till en giltig GitHub-lagringsplats. Andra webbplats typer stöds inte.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |URL: en är inte från github.com.|  
-|URL: en är inte från github.com:{0}|  
+|URL: en är inte från github.com: {0}|  
 
 ## <a name="error-0144"></a>Fel 0144  
  Den förväntade GitHub saknas i den förväntade webb adressen för användaren.  
   
  Det här felet uppstår i Azure Machine Learning när du anger en GitHub fil källa med ett ogiltigt URL-format.  
   
-**Lösning** Kontrol lera att URL: en för GitHub-lagringsplatsen är giltig och slutar med\\\blob\ eller \tree.  
+**Lösning:** Kontrol lera att URL: en för GitHub-lagringsplatsen är giltig och slutar med \blob\ eller \tree \\.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det går inte att parsa GitHub-URL.|  
-|Det går inte att parsa GitHub-URL\\(förväntar\\"\blob" eller "\tree" efter databas namnet):{0}|  
+|Det går inte att parsa GitHub-URL (förväntar ' \blob \\ ' eller ' \tree \\ ' efter lagrings platsens namn): {0}|  
 
 ## <a name="error-0145"></a>Fel 0145  
  Det går inte att skapa någon anledning till replikerings katalogen.  
@@ -2065,7 +2065,7 @@ Lösning:
   
  Det här felet uppstår i Azure Machine Learning när du extraherar filer men vissa fil namn är för långa för att zippas.  
   
-**Lösning** Redigera fil namnen, till exempel att kombinerade sökvägen och fil namnet inte är längre än 248 tecken.  
+**Lösning:** Redigera fil namnen, till exempel att kombinerade sökvägen och fil namnet inte är längre än 248 tecken.  
   
 |Undantags meddelanden|  
 |------------------------|  
@@ -2076,12 +2076,12 @@ Lösning:
   
  Det här felet uppstår i Azure Machine Learning när du inte kan läsa eller hämta de angivna filerna från GitHub.  
   
-**Lösning** Problemet kan vara tillfälligt. Du kan försöka komma åt filerna vid ett senare tillfälle. Eller kontrol lera att du har de behörigheter som krävs och att källan är giltig.  
+**Lösning:** Problemet kan vara tillfälligt. Du kan försöka komma åt filerna vid ett senare tillfälle. Eller kontrol lera att du har de behörigheter som krävs och att källan är giltig.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Åtkomst fel för GitHub.|  
-|Åtkomst fel för GitHub. [https://doi.org/10.13012/J8PN93H8]({0})|  
+|Åtkomst fel för GitHub. {0}|  
   
 
 ## <a name="error-0148"></a>Fel 0148  
@@ -2106,7 +2106,7 @@ Lösning:
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att hitta GitHub-filen.|  
-|Det gick inte att hitta GitHub-filen.:{0}|  
+|Det gick inte att hitta GitHub-filen.: {0}|  
   
 
 ## <a name="error-0150"></a>Fel 0150  
@@ -2126,12 +2126,12 @@ Lösning:
   
  Det här felet uppstår i Azure Machine Learning när modulen försöker skriva data till moln lagring, men URL: en är inte tillgänglig eller ogiltig.  
   
-Lösning: Kontrol lera webb adressen och kontrol lera att den är skrivbar.  
+Lösning: kontrol lera webb adressen och kontrol lera att den är skrivbar.  
   
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att skriva till moln lagring (eventuellt en felaktig URL).|  
-|Det gick inte att skriva till {0}moln lagring:. Kontrol lera URL: en.|  
+|Det gick inte att skriva till moln lagring: {0}. Kontrol lera URL: en.|  
   
 ## <a name="error-0152"></a>Fel 0152  
  Azures moln typ angavs felaktigt i modulens kontext.  
@@ -2139,7 +2139,7 @@ Lösning: Kontrol lera webb adressen och kontrol lera att den är skrivbar.
 |Undantags meddelanden|  
 |------------------------|  
 |Felaktig moln typ i Azure|  
-|Dålig Azure-moln typ:{0}|  
+|Felaktig typ av Azure-moln: {0}|  
   
 ## <a name="error-0153"></a>Fel 0153  
  Den angivna lagrings slut punkten är ogiltig.  
@@ -2147,7 +2147,7 @@ Lösning: Kontrol lera webb adressen och kontrol lera att den är skrivbar.
 |Undantags meddelanden|  
 |------------------------|  
 |Felaktig moln typ i Azure|  
-|Felaktig slut punkt för lagring:{0}|  
+|Felaktig lagrings slut punkt: {0}|  
 
 ## <a name="error-0154"></a>Fel 0154  
  Det gick inte att matcha det angivna Server namnet  
@@ -2155,7 +2155,7 @@ Lösning: Kontrol lera webb adressen och kontrol lera att den är skrivbar.
 |Undantags meddelanden|  
 |------------------------|  
 |Det gick inte att matcha det angivna Server namnet|  
-|Det gick inte {0}att matcha den angivna servern. Documents.Azure.com|
+|Det gick inte att matcha den angivna servern {0}. documents.azure.com|
 
 ## <a name="error-0155"></a>Fel 0155  
  DocDb-klienten utlöste ett undantag  
@@ -2163,7 +2163,7 @@ Lösning: Kontrol lera webb adressen och kontrol lera att den är skrivbar.
 |Undantags meddelanden|  
 |------------------------|  
 |DocDb-klienten utlöste ett undantag|  
-|DocDb-klient:{0}|
+|DocDb-klient: {0}|
 
 ## <a name="error-0156"></a>Fel 0156  
  Felaktigt svar för HCatalog-Server.  
@@ -2171,7 +2171,7 @@ Lösning: Kontrol lera webb adressen och kontrol lera att den är skrivbar.
 |Undantags meddelanden|  
 |------------------------|  
 |Felaktigt svar för HCatalog-Server. Kontrol lera att alla tjänster körs.|  
-|Felaktigt svar för HCatalog-Server. Kontrol lera att alla tjänster körs. Felinformation: {0}|
+|Felaktigt svar för HCatalog-Server. Kontrol lera att alla tjänster körs. Fel information: {0}|
 
 ## <a name="error-0157"></a>Fel 0157  
  Ett fel uppstod vid läsning från Azure Cosmos DB på grund av inkonsekventa eller olika dokument scheman. Läsaren kräver att alla dokument har samma schema.  
@@ -2190,5 +2190,5 @@ För att få mer hjälp rekommenderar vi att du skickar det detaljerade meddelan
 |Undantags meddelanden|  
 |------------------------|  
 |Biblioteks undantag.|  
-|Biblioteks undantag:{0}|  
-|{0}biblioteks undantag:{1}|  
+|Biblioteks undantag: {0}|  
+|undantag för {0} bibliotek: {1}|  

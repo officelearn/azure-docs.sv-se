@@ -1,5 +1,5 @@
 ---
-title: 'Träna modell: Modulreferens'
+title: 'Träna modell: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen **träna modell** i Azure Machine Learning-tjänsten för att träna en klassificerings-eller Regressions modell.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 08b551e766632949db350478fa8d3725906c8af8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f9717c39388c85ced889744722899b78a5df8453
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128451"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693693"
 ---
-# <a name="train-model-module"></a>Train-modell
+# <a name="train-model-module"></a>Träna modell modul
 
 I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
@@ -37,13 +37,13 @@ I Azure Machine Learning är det vanligt vis en tre stegs process att skapa och 
     
     Du kan också Visa modellens egenskaper. Mer information finns i avsnittet resultat.
 
-3. När utbildningen har slutförts använder du den tränade modellen med en [](./score-model.md)av poängsättnings-modulerna för att göra förutsägelser på nya data.
+3. När utbildningen har slutförts använder du den tränade modellen med en av [poängsättnings-modulerna](./score-model.md)för att göra förutsägelser på nya data.
 
 ## <a name="how-to-use-train-model"></a>Använda **träna modell**  
   
 1.  I Azure Machine Learning konfigurerar du en klassificerings modell eller Regressions modell.
     
-2. Lägg till modulen **träna modell** i experimentet.  Du hittar den här modulen under kategorin **Machine Learning** . Expandera **träna**och dra modulen **träna modell** till experimentet.
+2. Lägg till modulen **träna modell** i pipelinen.  Du hittar den här modulen under kategorin **Machine Learning** . Expandera **träna**och dra modulen **träna modell** till din pipeline.
   
 3.  Koppla det nedtränade läget till vänster. Koppla data uppsättningen utbildning till den högra indatan för **träna modell**.
 
@@ -62,16 +62,16 @@ I Azure Machine Learning är det vanligt vis en tre stegs process att skapa och 
     > [!TIP] 
     > Om du har problem med att använda kolumn Väljaren kan du läsa mer i artikeln [Välj kolumner i data uppsättning](./select-columns-in-dataset.md) . I den här artikeln beskrivs några vanliga scenarier och tips för att använda alternativen **med regler** och **efter namn** .
   
-5.  Kör experimentet. Om du har stora mängder data kan det ta en stund.
+5.  Köra en pipeline. Om du har stora mängder data kan det ta en stund.
 
 ## <a name="bkmk_results"></a>Gör
 
 När modellen har tränats:
 
 + Om du vill visa modell parametrar och funktions vikter högerklickar du på utdata och väljer **visualisera**.
-+ Om du vill använda modellen i andra experiment högerklickar du på modellen och väljer **Spara modell**. Ange ett namn för modellen. 
++ Om du vill använda modellen i andra pipeliner högerklickar du på modellen och väljer **Spara modell**. Ange ett namn för modellen. 
 
-    Detta sparar modellen som en ögonblicks bild som inte uppdateras genom upprepade körningar av experimentet.
+    Detta sparar modellen som en ögonblicks bild som inte uppdateras genom upprepade körningar av pipelinen.
 + Om du vill använda modellen för att förutsäga nya värden ansluter du den till modulen [Poäng modell](./score-model.md) tillsammans med nya indata.
 
 

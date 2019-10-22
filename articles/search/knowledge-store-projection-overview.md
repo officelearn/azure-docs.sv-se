@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.openlocfilehash: c5fb547b18bc4014f91341070f49c4af84c01005
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265190"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Arbeta med projektioner i ett kunskaps lager i Azure Search
@@ -29,9 +29,9 @@ Projektioner kan vara tabell, med data som lagras i rader och kolumner i Azure T
 
 Kunskaps lagret stöder två typer av projektioner:
 
-+ **Tabeller**: För data som bäst visas som rader och kolumner kan du med tabell projektioner definiera en schematiserade-form eller projektion i Table Storage. 
++ **Tabeller**: för data som bäst visas som rader och kolumner kan du med tabell projektioner definiera en schematiserade-form eller projektion i Table Storage. 
 
-+ **Objekt**: När du behöver en JSON-representation av dina data och hur de ska berikas, sparas objekt projektion som blobbar.
++ **Objekt**: när du behöver en JSON-representation av dina data och hur de ska berikas, sparas objekt projektion som blobbar.
 
 Om du vill se projektioner som definierats i sammanhanget steg [för steg hur du kommer igång med kunskaps lager](knowledge-store-howto.md).
 
@@ -64,18 +64,18 @@ Du kan projicera ett enskilt dokument i ditt index i flera tabeller och bevara r
 
 ### <a name="defining-a-table-projection"></a>Definiera en tabell projektion
 
-När du definierar en tabell projektion i `knowledgeStore` färdigheter-elementet, börjar du med att mappa en nod i berikande träd till tabell källan. Den här noden är vanligt vis resultatet av en **formaren** -färdighet som du har lagt till i listan med kunskaper för att skapa en speciell form som du behöver i projektet i tabeller. Den nod du väljer till projekt kan segmenteras till projekt i flera tabeller. Tabell definitionen är en lista över tabeller som du vill projicera. 
+När du definierar en tabell projektion i `knowledgeStore` element i din färdigheter börjar du med att mappa en nod i berikande träd till tabell källan. Den här noden är vanligt vis resultatet av en **formaren** -färdighet som du har lagt till i listan med kunskaper för att skapa en speciell form som du behöver i projektet i tabeller. Den nod du väljer till projekt kan segmenteras till projekt i flera tabeller. Tabell definitionen är en lista över tabeller som du vill projicera. 
 
 #### <a name="projection-slicing"></a>Segmentering av projektion
 När du definierar en tabell projektions grupp kan en enda nod i ett berikande träd segmenteras i flera relaterade tabeller. Om du lägger till en tabell med en käll Sök väg som är underordnad en befintlig tabell projektion kommer den underordnade noden att bli segmenterad från den överordnade noden och projiceras i den nya ännu relaterade tabellen. På så sätt kan du definiera en enskild nod i en formaren-färdighet som kan vara källa för alla tabell projektioner.
 
 Varje tabell kräver tre egenskaper:
 
-+ TableName Namnet på tabellen i Azure Storage.
++ tableName: namnet på tabellen i Azure Storage.
 
-+ generatedKeyName: Kolumn namnet för den nyckel som unikt identifierar den här raden.
++ generatedKeyName: kolumn namnet för den nyckel som unikt identifierar den här raden.
 
-+ Källicensservern Noden från det anriknings träd du kan använda för att du ska kunna använda. Detta är vanligt vis resultatet av en formaren, men det kan vara utdata från någon av färdigheterna.
++ Källa: noden från det berikande trädet som du kan använda för att kunna använda. Detta är vanligt vis resultatet av en formaren, men det kan vara utdata från någon av färdigheterna.
 
 Här är ett exempel på tabell projektioner.
 
@@ -154,9 +154,9 @@ Objekt projektioner är JSON-representationer av det berikande trädet som kan h
 
 Att skapa en objekt projektion kräver några objektattribut:
 
-+ storageContainer: Den behållare där objekten ska sparas
-+ Källicensservern Sökvägen till noden i det berikande trädet som är roten för projektionen
-+ Knapp En sökväg som representerar en unik nyckel för det objekt som ska lagras. Den kommer att användas för att skapa namnet på blobben i behållaren.
++ storageContainer: den behållare där objekten ska sparas
++ Källa: sökvägen till noden i det berikande trädet som är roten för projektionen
++ nyckel: en sökväg som representerar en unik nyckel för det objekt som ska lagras. Den kommer att användas för att skapa namnet på blobben i behållaren.
 
 ## <a name="projection-lifecycle"></a>Projekt livs cykel
 

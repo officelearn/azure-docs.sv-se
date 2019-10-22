@@ -15,10 +15,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70095682"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
@@ -42,7 +42,7 @@ I Azure Batch refererar ett *program* till en uppsättning versioner av binärfi
 
 ![Diagram över program och programpaket på hög nivå][1]
 
-### <a name="applications"></a>Program
+### <a name="applications"></a>Appar
 Ett program i batch innehåller ett eller flera programpaket och anger konfigurations alternativ för programmet. Ett program kan till exempel ange standard versionen för programpaket som ska installeras på Compute-noder och om dess paket kan uppdateras eller tas bort.
 
 ### <a name="application-packages"></a>Programpaket
@@ -84,7 +84,7 @@ Om du vill använda programpaket måste du först länka ett [Azure Storage-kont
 
 ![Varningen "inget lagrings konto har kon figurer ATS" i Azure Portal][9]
 
-Batch-tjänsten använder det associerade lagrings kontot för att lagra dina programpaket. När du har länkat de två kontona kan batch automatiskt distribuera paketen som lagras i det länkade lagrings kontot till dina Compute-noder. Om du vill länka ett lagrings konto till ditt batch-konto klickar du på **lagrings konto** i varnings fönstret och klickar sedan på **lagrings konto** igen.
+Batch-tjänsten använder det associerade lagrings kontot för att lagra dina programpaket. När du har länkat de två kontona kan batch automatiskt distribuera paketen som lagras i det länkade lagrings kontot till dina Compute-noder. Om du vill länka ett lagrings konto till ditt batch-konto klickar du på **lagrings konto** i **varnings** fönstret och klickar sedan på **lagrings konto** igen.
 
 ![Välj bladet lagrings konto i Azure Portal][10]
 
@@ -109,9 +109,9 @@ När du väljer det här meny alternativet öppnas fönstret **program** :
 
 I det här fönstret visas ID: t för varje program i ditt konto och följande egenskaper:
 
-* **Paket**: Antalet versioner som är associerade med det här programmet.
-* **Standard version**: Program versionen som installeras om du inte anger en version när du anger programmet för en pool. Den här inställningen är valfri.
-* **Tillåt uppdateringar**: Värdet som anger om paket uppdateringar, borttagningar och tillägg är tillåtna. Om detta är inställt på **Nej**, inaktive ras paket uppdateringar och borttagningar för programmet. Det går bara att lägga till nya programpaket versioner. Standardinställningen är **Ja**.
+* **Paket**: antalet versioner som är associerade med det här programmet.
+* **Standard version**: program versionen som installeras om du inte anger en version när du anger programmet för en pool. Den här inställningen är valfri.
+* **Tillåt uppdateringar**: det värde som anger om paket uppdateringar, borttagningar och tillägg är tillåtna. Om detta är inställt på **Nej**, inaktive ras paket uppdateringar och borttagningar för programmet. Det går bara att lägga till nya programpaket versioner. Standardinställningen är **Ja**.
 
 Om du vill se fil strukturen för programpaketet på din Compute-nod går du till ditt batch-konto i portalen. Gå till **pooler**på ditt batch-konto. Välj den pool som innehåller de Compute-noder som du är intresse rad av.
 
@@ -129,8 +129,8 @@ Om du vill se information om ett program väljer du programmet i fönstret **pro
 I programinformationen kan du konfigurera följande inställningar för ditt program.
 
 * **Tillåt uppdateringar**: Ange om program paketen kan uppdateras eller tas bort. Se "uppdatera eller ta bort ett programpaket" senare i den här artikeln.
-* **Standard version**: Ange ett standard programpaket som ska distribueras till Compute-noder.
-* **Visnings namn**: Ange ett eget namn som din batch-lösning kan använda när den visar information om programmet, till exempel i användar gränssnittet för en tjänst som du skickar till dina kunder via batch.
+* **Standard version**: Ange ett standard-programpaket som ska distribueras till Compute-noder.
+* **Visnings namn**: Ange ett eget namn som din batch-lösning kan använda när den visar information om programmet, till exempel i användar gränssnittet för en tjänst som du tillhandahåller till dina kunder via batch.
 
 ### <a name="add-a-new-application"></a>Lägg till ett nytt program
 Om du vill skapa ett nytt program lägger du till ett programpaket och anger ett nytt, unikt program-ID. Det första applikations paketet som du lägger till med det nya program-ID: t skapar också det nya programmet.
@@ -171,20 +171,20 @@ När du har valt en fil, klickar du på **OK** för att starta överföringen ti
 > 
 
 ### <a name="add-a-new-application-package"></a>Lägg till ett nytt programpaket
-Om du vill lägga till en programpaket version för ett befintligt program väljer du ett program i fönstren **program** och klickar på **paket** > **Lägg till**.
+Om du vill lägga till en programpaket version för ett befintligt program väljer du ett program i fönstren **program** och klickar på **paket**  > **Lägg till**.
 
 ![Bladet Lägg till programpaket i Azure Portal][8]
 
 Som du kan se matchar fälten de i fönstret **nytt program** , men rutan **program-ID** är inaktive rad. När du har gjort det nya programmet anger du **versionen** för ditt nya paket, bläddrar till din **programpaket** . zip-fil och klickar sedan på **OK** för att ladda upp paketet.
 
 ### <a name="update-or-delete-an-application-package"></a>Uppdatera eller ta bort ett programpaket
-Om du vill uppdatera eller ta bort ett befintligt programpaket öppnar du informationen för programmet, klickar på **paket**, klickar på ellipsen i raden i det programpaket som du vill ändra och väljer den åtgärd som du vill utföra.
+Om du vill uppdatera eller ta bort ett befintligt programpaket öppnar du informationen för programmet, klickar på **paket**, klickar på **ellipsen** i raden i det programpaket som du vill ändra och väljer den åtgärd som du vill utföra.
 
 ![Uppdatera eller ta bort paket i Azure Portal][7]
 
 **Uppdatering**
 
-När du klickar på **Uppdatera**visas **uppdaterings paketets** fönster. Det här fönstret liknar det **nya** fönstret programpaket, men endast fältet för val av paket är aktiverat, så att du kan ange en ny zip-fil att ladda upp.
+När du klickar på **Uppdatera**visas **uppdaterings paketets** fönster. Det här fönstret liknar det **nya fönstret programpaket** , men endast fältet för val av paket är aktiverat, så att du kan ange en ny zip-fil att ladda upp.
 
 ![Bladet uppdatera paket i Azure Portal][11]
 
@@ -251,7 +251,7 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 ```
 
 ## <a name="execute-the-installed-applications"></a>Kör de installerade programmen
-De paket som du har angett för en pool eller aktivitet laddas ned och extraheras till en namngiven `AZ_BATCH_ROOT_DIR` katalog i noden. Batch skapar också en miljö variabel som innehåller sökvägen till den namngivna katalogen. Dina aktivitets kommando rader använder den här miljövariabeln för att referera till programmet på noden. 
+De paket som du har angett för en pool eller aktivitet laddas ned och extraheras till en namngiven katalog i nodens `AZ_BATCH_ROOT_DIR`. Batch skapar också en miljö variabel som innehåller sökvägen till den namngivna katalogen. Dina aktivitets kommando rader använder den här miljövariabeln för att referera till programmet på noden. 
 
 På Windows-noder har variabeln följande format:
 
@@ -267,7 +267,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID`och `version` är värden som motsvarar den program-och paket version som du har angett för distribution. Om du till exempel har angett att version 2,7 av program *blandning* ska installeras på Windows-noder, använder dina aktivitets kommando rader denna miljö variabel för att komma åt dess filer:
+`APPLICATIONID` och `version` är värden som motsvarar den program-och paket version som du har angett för distribution. Om du till exempel har angett att version 2,7 av program *blandning* ska installeras på Windows-noder, använder dina aktivitets kommando rader denna miljö variabel för att komma åt dess filer:
 
 ```
 Windows:

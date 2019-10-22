@@ -1,5 +1,5 @@
 ---
-title: 'Lägg till rader: Modulreferens'
+title: 'Lägg till rader: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen Lägg till rader i Azure Machine Learning-tjänsten för att sammanfoga två data uppsättningar.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: c25f555fd7870afa4e75a3d1e490914e85118d20
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c8d8b6a873ee17d1658b0cb47de830848b215b89
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129013"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693237"
 ---
 # <a name="add-rows-module"></a>Lägg till Rows-modul
 
@@ -32,11 +32,11 @@ Sammanfogning av rader är användbart i scenarier som dessa:
 
 Om du vill sammanfoga rader från två data uppsättningar måste raderna ha exakt samma schema. Det innebär att samma antal kolumner och samma typ av data i kolumnerna.
 
-1.  Dra modulen **Lägg till rader** till experimentet. du hittar den under **data omvandling**i kategorin för **manipulering** .
+1.  Dra modulen **Lägg till rader** till din pipeline. du hittar den under **datatransformering**i kategorin för **manipulering** .
 
 2. Anslut data uppsättningarna till de två portarna för indata. Den data uppsättning som du vill lägga till ska vara ansluten till den andra (högra) porten. 
   
-3.  Kör experimentet. Antalet rader i data uppsättningen för utdata ska vara lika med summan av raderna i båda data uppsättningarna.
+3.  Köra en pipeline. Antalet rader i data uppsättningen för utdata ska vara lika med summan av raderna i båda data uppsättningarna.
 
     Om du lägger till samma data uppsättning i båda indata för modulen **Lägg till rader** dupliceras data uppsättningen. 
 

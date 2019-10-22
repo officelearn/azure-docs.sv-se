@@ -10,10 +10,10 @@ ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69650067"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Skala partitioner och repliker för att köra frågor och indexera arbets belastningar i Azure Search
@@ -29,7 +29,7 @@ Att använda färre SUs-resultat i en proportionellt lägre faktura. Fakturering
 ## <a name="terminology-replicas-and-partitions"></a>Terminologi: repliker och partitioner
 Repliker och partitioner är de primära resurser som återställer en Sök tjänst.
 
-| Resource | Definition |
+| Resurs | Definition |
 |----------|------------|
 |*Partitioner* | Tillhandahåller index lagring och I/O för Läs-och skriv åtgärder (till exempel när du återskapar eller uppdaterar ett index).|
 |*Repliker* | Instanserna av Sök tjänsten används främst för att belastningsutjämna frågor. Varje replik är alltid värd för en kopia av ett index. Om du har 12 repliker får du 12 kopior av varje index som har lästs in i tjänsten.|
@@ -92,7 +92,7 @@ Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande ko
 | **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Gäller inte |
 | **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Gäller inte |
 | **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Gäller inte |
-| **12 repliker** |12 SU |24 SU |36 SU |Gäller inte |Saknas |Gäller inte |
+| **12 repliker** |12 SU |24 SU |36 SU |Gäller inte |Gäller inte |Gäller inte |
 
 SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).
 

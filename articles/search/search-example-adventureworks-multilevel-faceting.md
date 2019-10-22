@@ -1,5 +1,5 @@
 ---
-title: 'Exempel: Facets på flera nivåer – Azure Search'
+title: 'Exempel: Azure Search på flera nivåer –'
 description: Lär dig hur du skapar aspekt strukturer för taxonomier på flera nivåer, skapa en kapslad navigerings struktur som du kan ta med på program sidor.
 author: HeidiSteen
 manager: nitinme
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70274088"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>Exempel: Fasetter på flera nivåer i Azure Search
+# <a name="example-multi-level-facets-in-azure-search"></a>Exempel: flera nivåer i Azure Search
 
 Azure Search-scheman stöder inte explicita kategoriserings kategorier med flera nivåer, men du kan uppskatta dem genom att ändra innehåll före indexeringen och sedan använda viss särskild hantering av resultaten. 
 
@@ -41,15 +41,15 @@ LEFT JOIN
 
 I indexet som innehåller den här strukturen skapar du ett **samlings fält (EDM. String)** i Azure Search-schemat för att lagra dessa data och kontrollerar att Field-attributen är sökbara, filter bara, aspekt bara och hämtnings bara.
 
-När du har indexerat innehåll som refererar till en viss taxonomi kategori skickar du taxonomin som en matris med text från varje nivå i taxonomin. För en entitet med `ProductCategoryId = 5 (Mountain Bikes)`skickar du till exempel fältet som`[ "Bikes", "Bikes|Mountain Bikes"]`
+När du har indexerat innehåll som refererar till en viss taxonomi kategori skickar du taxonomin som en matris med text från varje nivå i taxonomin. För en entitet med `ProductCategoryId = 5 (Mountain Bikes)` skickar du till exempel fältet som `[ "Bikes", "Bikes|Mountain Bikes"]`
 
 Observera att den överordnade kategorin "cyklar" ingår i den underordnade kategorins värde "Mountain Bikes". Varje under kategori ska bädda in hela sökvägen i förhållande till rot elementet. Pipe Character-avgränsaren är godtycklig, men måste vara konsekvent och ska inte visas i käll texten. Avgränsnings tecknet används i program koden för att återskapa taxonomi trädet från fasett-resultat.
 
 ## <a name="construct-the-query"></a>Konstruera frågan
 
-Vid utfärdande av frågor inkluderar du följande aspekt specifikation (där taxonomi är ditt fasettable-fält för taxonomi):`facet = taxonomy,count:50,sort:value`
+Vid utfärdande av frågor inkluderar du följande aspekt specifikation (där taxonomi är ditt fasettable-fält för taxonomi): `facet = taxonomy,count:50,sort:value`
 
-Count-värdet måste vara tillräckligt högt för att returnera alla möjliga taxonomi värden. AdventureWorks-data innehåller 41 distinkta värden för taxonomi, `count:50` så det räcker.
+Count-värdet måste vara tillräckligt högt för att returnera alla möjliga taxonomi värden. AdventureWorks-data innehåller 41 distinkta värden för taxonomi, så `count:50` räcker.
 
   ![Fasett-filter](./media/search-example-adventureworks/facet-filter.png "Fasett-filter")
 
@@ -90,13 +90,13 @@ Objektet **Kategorier** kan nu användas för att återge ett komprimerbart trä
 Varje länk i trädet bör använda det relaterade filtret. Exempel:
 
 + **taxonomi/alla** `(x:x eq 'Accessories')` returnerar alla dokument i tillbehörs grenen
-+ **taxonomi/alla** `(x:x eq 'Accessories|Bike Racks')` returnerar bara dokumenten med en under kategori av cykel rack under tillbehörs grenen.
++ **taxonomi/** `(x:x eq 'Accessories|Bike Racks')` returnerar bara dokumenten med en under kategori av cykel rack under tillbehörs grenen.
 
-Den här tekniken kommer att skalas för att avse mer komplexa scenarier som djupare taxonomi träd och duplicerade under kategorier som sker under olika överordnade kategorier ( `Bike Components|Forks` till `Camping Equipment|Forks`exempel och).
+Den här tekniken kommer att skalas för att avse mer komplexa scenarier som djupare taxonomi träd och duplicerade under kategorier som sker under olika överordnade kategorier (till exempel `Bike Components|Forks` och `Camping Equipment|Forks`).
 
 > [!TIP]
 > Frågans hastighet påverkas av antalet ansikte som returneras. Om du vill ha stöd för mycket stora taxonomi uppsättningar kan du lägga till ett aspekt bara **EDM. String** -fält för att lagra det översta taxonomi-värdet för varje dokument. Använd sedan samma metod ovan, men utför bara insamlings aspekt frågan (filtrerat i fältet rot taxonomi) när användaren utökar en nod på den översta nivån. Eller, om 100% återkallande inte krävs, minska antalet fasetter till ett rimligt tal och se till att aspekt posterna sorteras efter antal.
 
 ## <a name="see-also"></a>Se också
 
-[Exempel: Modellera AdventureWorks Inventory Database för Azure Search](search-example-adventureworks-modeling.md)
+[Exempel: utforma AdventureWorks Inventory Database för Azure Search](search-example-adventureworks-modeling.md)

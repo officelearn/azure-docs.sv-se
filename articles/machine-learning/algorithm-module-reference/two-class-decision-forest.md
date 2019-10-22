@@ -1,5 +1,5 @@
 ---
-title: 'Besluts skog med två klasser: Modulreferens'
+title: 'Besluts skog med två klasser: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder besluts skogen i två klasser i Azure Machine Learning service för att skapa en Machine Learning-modell som baseras på algoritmen för besluts skogar.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 37a2ce77e438145219df9cb553d1881626e8a2c6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 243f1774069f048d0e8a1ce11e3ac42e4e73f58b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128399"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693623"
 ---
 # <a name="two-class-decision-forest-module"></a>Modul för besluts skog i två klass
 
@@ -49,23 +49,23 @@ Mer information finns i [besluts skogar](https://go.microsoft.com/fwlink/?LinkId
 
 ## <a name="how-to-configure"></a>Så här konfigurerar du
   
-1.  Lägg till modulen **besluts skog i två klasser** till ditt experiment i Azure Machine Learning och öppna rutan **Egenskaper** för modulen. 
+1.  Lägg till modulen **besluts skog i två klasser** till din pipeline i Azure Machine Learning och öppna rutan **Egenskaper** för modulen. 
 
     Du kan hitta modulen under **Machine Learning**. Expandera **initiera**och sedan **klassificering**.  
   
 2.  För **metoden**för att sampla om väljer du den metod som används för att skapa enskilda träd.  Du kan välja mellan **bagage** eller **Replikera**.  
   
-    -   **Bagage**: Bagaget kallas även *bootstrap-aggregering*. I den här metoden odlas varje träd på ett nytt exempel som skapats genom att slumpmässigt sampla den ursprungliga data uppsättningen med ersättning tills du har en data uppsättning som är den ursprungliga storleken.  
+    -   **Bagage**: bagage kallas även *Start agg regering*. I den här metoden odlas varje träd på ett nytt exempel som skapats genom att slumpmässigt sampla den ursprungliga data uppsättningen med ersättning tills du har en data uppsättning som är den ursprungliga storleken.  
   
          Modellernas utdata kombineras med *röstning*, vilket är en form av agg regering. Varje träd i en klassificering besluts skog utvärderar ett normaliserat frekvens histogram med etiketter. Aggregation är att summera dessa histogram och normalisera för att få "sannolikhet" för varje etikett. På det här sättet kommer de träd som har hög förutsägelse tillförlitlighet att ha en större vikt i det slutliga beslutet av ensemblen.  
   
          Mer information finns i Wikipedia-posten för start agg regering.  
   
-    -   **Replikera**: I replikering tränas varje träd på exakt samma indata. Bestämning av vilket delat predikat som används för varje trädnod förblir slumpmässigt och träden är olika.   
+    -   **Replikera**: i replikering tränas varje träd på exakt samma indata. Bestämning av vilket delat predikat som används för varje trädnod förblir slumpmässigt och träden är olika.   
   
 3.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: Om du vet hur du vill konfigurera modellen kan du ange en speciell uppsättning värden som argument.
+    -   **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.
   
 4.  För **antal besluts träd**anger du det maximala antalet besluts träd som kan skapas i ensemblen. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.  
   
@@ -86,7 +86,7 @@ Mer information finns i [besluts skogar](https://go.microsoft.com/fwlink/?LinkId
   
 9. Bifoga en etikettad data uppsättning och en av [inlärnings modulerna](module-reference.md):  
   
-    -   Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](./train-model.md) .  
+    -   Om du ställer in **skapa utbildare** för **en parameter**använder du modulen [träna modell](./train-model.md) .  
   
     
 ## <a name="results"></a>Resultat
@@ -97,9 +97,9 @@ När utbildningen är klar:
   
     Klicka på varje träd för att öka detalj nivån i delningarna och se reglerna för varje nod.
 
-+ Om du vill spara en ögonblicks bild av modellen högerklickar du på den tränade modellens utdata och väljer **Spara modell**. Den sparade modellen uppdateras inte vid efterföljande körningar av experimentet.
++ Om du vill spara en ögonblicks bild av modellen högerklickar du på den **tränade modellens** utdata och väljer **Spara modell**. Den sparade modellen uppdateras inte vid efterföljande körningar av pipelinen.
 
-+ Om du vill använda modellen för poängsättning lägger du till modulen **Poäng modell** i ett experiment.
++ Om du vill använda modellen för poängsättning lägger du till modulen **Poäng modell** i en pipeline.
 
 
 ## <a name="next-steps"></a>Nästa steg

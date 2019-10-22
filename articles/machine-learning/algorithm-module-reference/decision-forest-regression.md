@@ -1,5 +1,5 @@
 ---
-title: 'Besluts skogs regression: Modulreferens'
+title: 'Besluts skogs regression: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder besluts skogs Regressions modulen i Azure Machine Learning-tjänsten för att skapa en Regressions modell som baseras på en ensemble i besluts träd.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b8bb3285aecb6aff399606e6263f014027a86581
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128893"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693179"
 ---
 # <a name="decision-forest-regression-module"></a>Besluts skogs Regressions modul
 
@@ -24,7 +24,7 @@ Använd den här modulen för att skapa en Regressions modell som baseras på en
 
 När du har konfigurerat modellen måste du träna modellen med hjälp av en etikettad data uppsättning och modulen [träna modell](./train-model.md) .  Den tränade modellen kan sedan användas för att göra förutsägelser. 
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Besluts träd är icke-parameter modeller som utför en sekvens med enkla tester för varje instans, och som påbörjar en binär träd data struktur tills en lövnod (beslut) har nåtts.
 
@@ -38,21 +38,21 @@ Besluts träd har följande fördelar:
 
 Denna Regressions modell består av en ensemble i besluts träd. Varje träd i en Regressions besluts skog matar ut en Gaussisk-distribution som en förutsägelse. En agg regering utförs över ensemblen i träd för att hitta en Gaussisk-distribution som är närmast den kombinerade distributionen för alla träd i modellen.
 
-Mer information om det teoretiska ramverket för den här algoritmen och dess implementering finns i den här artikeln: [Besluts skogar: Ett enhetligt ramverk för klassificering, regression, densitets uppskattning, plattforms inlärning och delvis övervakad inlärning](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Mer information om det teoretiska ramverket för den här algoritmen och dess implementering finns i den här artikeln: [besluts skogar: ett enhetligt ramverk för klassificering, regression, densitets beräkning, plattforms inlärning och delvis övervakad inlärning ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Konfigurera Regressions modellen för besluts skogar
 
-1. Lägg till **besluts skogs Regressions** modulen i experimentet. Du kan hitta modulen i gränssnittet under **Machine Learning**, **initiera modellen**och **regression**.
+1. Lägg till **besluts skogs Regressions** modulen i pipelinen. Du kan hitta modulen i gränssnittet under **Machine Learning**, **initiera modellen**och **regression**.
 
-2. Öppna egenskaperna för modulen och välj den metod som används för att skapa enskilda träd för omsamplings **metod**.  Du kan välja mellan **bagage** eller **Replikera**.
+2. Öppna egenskaperna för modulen och välj den metod som används för att skapa enskilda träd för **omsamplings metod**.  Du kan välja mellan **bagage** eller **Replikera**.
 
-    - **Bagage**: Bagaget kallas även *bootstrap-aggregering*. Varje träd i en Regressions besluts skog matar ut en Gaussisk fördelning genom förutsägelse. Aggregation är att hitta en Gaussisk vars första två moment motsvarar momentet av en blandning av Gaussisk som anges genom att kombinera alla Gaussisk som returneras av enskilda träd.
+    - **Bagage**: bagage kallas även *Start agg regering*. Varje träd i en Regressions besluts skog matar ut en Gaussisk fördelning genom förutsägelse. Aggregation är att hitta en Gaussisk vars första två moment motsvarar momentet av en blandning av Gaussisk som anges genom att kombinera alla Gaussisk som returneras av enskilda träd.
 
          Mer information finns i Wikipedia-posten för [Start agg regering](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Replikera**: I replikering tränas varje träd på exakt samma indata. Bestämning av vilket delat predikat som används för varje trädnod förblir slumpmässigt och träden är olika.
+    - **Replikera**: i replikering tränas varje träd på exakt samma indata. Bestämning av vilket delat predikat som används för varje trädnod förblir slumpmässigt och träden är olika.
 
-         Mer information om inlärnings processen med alternativet **Replikera** finns i [besluts skogar för visuellt innehåll och medicinsk bild analys. Criminisi och J. Shotton. Springer 2013. ](https://research.microsoft.com/projects/decisionforests/).
+         Mer information om inlärnings processen med alternativet **Replikera** finns i [besluts skogar för visuellt innehåll och medicinsk bild analys. Criminisi och J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
 
 3. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .
 
@@ -82,7 +82,7 @@ Mer information om det teoretiska ramverket för den här algoritmen och dess im
 
    
 
-10. Kör experimentet.
+10. Köra en pipeline.
 
 ### <a name="results"></a>Resultat
 
@@ -92,7 +92,7 @@ När utbildningen är klar:
 
 + Om du vill se reglerna för varje nod klickar du på varje träd och ökar detalj nivån i delningarna.
 
-+ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på utdata från modulen utbildning och väljer **Spara som utbildad modell**. Den här kopian av modellen uppdateras inte vid efterföljande körningar av experimentet. 
++ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på utdata från modulen utbildning och väljer **Spara som utbildad modell**. Den här kopian av modellen uppdateras inte vid efterföljande körningar av pipelinen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

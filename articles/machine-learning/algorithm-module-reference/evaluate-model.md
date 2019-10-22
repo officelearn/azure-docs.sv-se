@@ -1,5 +1,5 @@
 ---
-title: 'Utvärdera modell: Modulreferens'
+title: 'Utvärdera modell: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen utvärdera modell i Azure Machine Learning-tjänsten för att mäta noggrannheten i en utbildad modell.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 17263c8e7300f427b7d82aea65e1f83edf6d6fc4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128857"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693806"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -30,7 +30,7 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
 
 
 > [!TIP]
-> Om du inte har använt modell utvärderingen rekommenderar vi video serien av Dr. Stephen Elston, som en del av [Machine Learning-kursen](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) från EDX. 
+> Om du inte har använt modell utvärderingen rekommenderar vi video serien av Dr. Stephen Elston som en del av [Machine Learning-kursen](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) från EDX. 
 
 
 Det finns tre sätt att använda modulen **utvärdera modell** :
@@ -44,7 +44,7 @@ Det finns tre sätt att använda modulen **utvärdera modell** :
 Om du vill utvärdera en modell måste du ansluta en data uppsättning som innehåller en uppsättning kolumner och resultat.  Om inga andra data är tillgängliga kan du använda den ursprungliga data uppsättningen.
 
 1. Anslut poängen för **data uppsättningen** i [Poäng modellen](./score-model.md) till indata för **utvärdera modell**. 
-2. Klicka på **utvärdera modell** modul och kör experimentet för att generera utvärderings poängen.
+2. Klicka på **utvärdera modell** modul och kör pipelinen för att generera utvärderings poängen.
 
 ## <a name="use-testing-data"></a>Använd test data
 

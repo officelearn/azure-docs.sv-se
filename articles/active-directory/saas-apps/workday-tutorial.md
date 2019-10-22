@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med Workday | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Workday | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbets dagar.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69891964"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Workday
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Workday
 
 I den här självstudien får du lära dig hur du integrerar Workday med Azure Active Directory (Azure AD). När du integrerar Workday med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Workday med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -62,8 +62,8 @@ Konfigurera och testa Azure AD SSO med arbets dagar med en test användare som h
 Om du vill konfigurera och testa Azure AD SSO med Workday slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD](#create-an-azure-ad-test-user)** -testanvändare för att testa enkel inloggning i Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testanvändaren att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa enkel inloggning i Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** att aktivera B. Simon för att använda enkel inloggning i Azure AD.
 2. **[Konfigurera arbets dagar](#configure-workday)** för att konfigurera SSO-inställningarna på program sidan.
     1. **[Skapa en arbets dag test användare](#create-workday-test-user)** som ska ha en motsvarighet till B. Simon på arbets dagen som är länkad till Azure AD-representation av användare.
 3. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
@@ -84,28 +84,28 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **Identifierare** skriver du en URL med följande mönster: `http://www.workday.com`
 
-    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml.htmld`
+    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml.htmld`
 
     > [!NOTE]
     > De här värdena är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en och svars-URL: en. Svars-URL: en måste ha en under domän till exempel: www, WD2, WD3, WD3-implementering, WD5, WD5-implementering).
-    > Använd något som `http://www.myworkday.com` liknar Works `http://myworkday.com` men inte. Kontakta [support teamet för Workday](https://www.workday.com/en-us/partners-services/services/support.html) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Användning av något som liknar `http://www.myworkday.com` fungerar men `http://myworkday.com` inte. Kontakta [support teamet för Workday](https://www.workday.com/en-us/partners-services/services/support.html) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. Ditt Workday-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Workday-programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, **UPN**osv. så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
     > [!NOTE]
     > Här har vi mappat namn-ID med UPN (User. UserPrincipalName) som standard. Du måste mappa namn-ID: t med det faktiska användar-ID: t i ditt Workday-konto (din e-post, UPN osv.) för att lyckas med att arbeta med SSO.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-   ![Länk för hämtning av certifikat](common/certificatebase64.png)
+   ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. Om du vill ändra signerings alternativen enligt ditt krav klickar du på knappen **Redigera** för att öppna dialog rutan **certifikat för SAML-signering** .
+1. Om du vill ändra **signerings** alternativen enligt ditt krav klickar du på knappen **Redigera** för att öppna dialog rutan certifikat för **SAML-signering** .
 
-    ![image](common/edit-certificate.png) 
+    ![mallar](common/edit-certificate.png) 
 
-    ![image](./media/workday-tutorial/signing-option.png)
+    ![mallar](./media/workday-tutorial/signing-option.png)
 
     a. Välj **signera SAML-svar och bekräftelse** för **signerings alternativ**.
 
@@ -120,14 +120,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till arbets dagar.
 
@@ -135,7 +135,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **arbets dag**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -153,21 +153,21 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Redigera klient säkerhet](./media/workday-tutorial/IC782925.png "Redigera klient säkerhet")
 
-3. I avsnittet omdirigerings- **URL: er** , utför följande steg:
+3. I avsnittet **omdirigerings-URL: er** , utför följande steg:
 
-    ![URL: er] för omdirigering (./media/workday-tutorial/IC7829581.png "URL: er") för omdirigering
+    ![URL: er för omdirigering](./media/workday-tutorial/IC7829581.png "URL: er för omdirigering")
 
     a. Klicka på **Lägg till rad**.
 
-    b. I rutan **inloggnings-URL**för omdirigering, **timeout för URL** och **mobil omdirigering** , klistra in inloggnings- **URL:** en som du har kopierat från avsnittet **Konfigurera arbets dagar** i Azure Portal.
+    b. I rutan **inloggnings-URL**för omdirigering, **timeout för URL** och **mobil omdirigering** , klistra in **inloggnings-URL:** en som du har kopierat från avsnittet **Konfigurera arbets dagar** i Azure Portal.
 
-    c. I text rutan utloggnings omdirigerings- **URL** klistrar du in den **URL för utloggning** som du har kopierat från avsnittet **Konfigurera arbets dagar** i Azure Portal.
+    c. I text rutan **utloggnings omdirigerings-URL** klistrar du in den **URL för utloggning** som du har kopierat från avsnittet **Konfigurera arbets dagar** i Azure Portal.
 
     d. I text rutan **används för miljöer** väljer du miljö namnet.  
 
    > [!NOTE]
    > Värdet för attributet Environment är kopplat till värdet för klient-URL:  
-   > – Om domän namnet för arbets dagarnas klient-URL börjar med implementering, till exempel: *https\/:\</\>impl.workday.com/Tenant/login-SAML2.Flex*) , måste miljöattributet anges till implementation.  
+   > – Om domän namnet för arbets dag innehavarens URL börjar med implementering, till exempel: *https: \//impl.workday.com/\<tenant \>/login-SAML2.Flex*), måste **miljöattributet** anges till implementation.  
    > – Om domän namnet börjar med något annat måste du kontakta [support teamet för Workday-klienten](https://www.workday.com/en-us/partners-services/services/support.html) för att hämta det matchande **miljö** värdet.
 
 4. I avsnittet **SAML-installation** utför du följande steg:
@@ -184,29 +184,29 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     a. I text rutan **namn på identitetsprovider** anger du ett providernamn (till exempel: *SPInitiatedSSO*).
 
-    b. I Azure Portal, i avsnittet **Konfigurera arbets dagar** , kopierar du värdet för **Azure AD** -identifieraren och klistrar in det i text rutan utfärdare.
+    b. I Azure Portal, i avsnittet **Konfigurera arbets dagar** , kopierar du värdet för **Azure AD-identifieraren** och klistrar in det i text rutan **utfärdare** .
 
     ![SAML Identity providers](./media/workday-tutorial/IC7829272.png "SAML Identity providers")
 
-    c. I Azure Portal går du till avsnittet **Konfigurera arbets dag** , kopierar URL-värdet för **utloggning** och klistrar in det i text rutan för utloggnings **svarets URL** .
+    c. I Azure Portal går du till avsnittet **Konfigurera arbets dag** , kopierar URL-värdet för **utloggning** och klistrar in det i text rutan för **utloggnings svarets URL** .
 
-    d. I Azure Portal i avsnittet **Konfigurera arbets dagar** kopierar du värdet för inloggnings- **URL** och klistrar in det i text rutan för **IDP SSO-tjänstens URL** .
+    d. I Azure Portal i avsnittet **Konfigurera arbets dagar** kopierar du värdet för **inloggnings-URL** och klistrar in det i text rutan för **IDP SSO-tjänstens URL** .
 
     e. I text rutan **används för miljöer** väljer du miljö namnet.
 
     f. Klicka på **certifikat för offentlig nyckel för identitets leverantör**och klicka sedan på **skapa**.
 
-    ![Skapa](./media/workday-tutorial/IC782928.png "Skapa")
+    ![Skapa](./media/workday-tutorial/IC782928.png "Create")
 
     g. Klicka på **skapa X509 offentlig nyckel**.
 
-    ![Skapa](./media/workday-tutorial/IC782929.png "Skapa")
+    ![Skapa](./media/workday-tutorial/IC782929.png "Create")
 
 6. I avsnittet **Visa den offentliga nyckeln för x509** , utför följande steg:
 
     ![Visa offentlig x509-nyckel](./media/workday-tutorial/IC782930.png "Visa offentlig x509-nyckel")
 
-    a. I text rutan **namn** anger du ett namn för ditt certifikat (till exempel: *PPE\_SP*).
+    a. I text rutan **namn** anger du ett namn för ditt certifikat (till exempel: *skyddsutrustning \_SP*).
 
     b. I text rutan **giltig från** anger du det giltiga värdet från attributvärdet för ditt certifikat.
 
@@ -221,13 +221,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     e.  I text rutan **certifikat** klistrar du in innehållet i Urklipp.
 
-    f.  Klicka på **OK**.
+    f.  Klicka på **OK**
 
 7. Utför följande steg:
 
     ![SSO-konfiguration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO-konfiguration")
 
-    a.  I text rutan **Service Provider-ID** skriver **http://www.workday.com** du.
+    a.  I text rutan **Service Provider-ID** skriver du **http://www.workday.com** .
 
     b. Välj **gör inte om den SP-initierade autentiseringsbegäran**.
 
@@ -235,9 +235,9 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Metodsignatur för autentiseringsbegäran](./media/workday-tutorial/WorkdaySSOConfiguration.png "Metodsignatur för autentiseringsbegäran") 
 
-    d. Klicka på **OK**.
+    d. Klicka på **OK**
 
-    ![OK](./media/workday-tutorial/IC782933.png "OK")
+    ![Okej](./media/workday-tutorial/IC782933.png "OK")
 
     > [!NOTE]
     > Kontrol lera att du har konfigurerat enkel inloggning på rätt sätt. Om du aktiverar enkel inloggning med felaktig konfiguration kanske du inte kan ange programmet med dina autentiseringsuppgifter och bli utelåst. I den här situationen tillhandahåller arbets dagar en säkerhets kopierings-URL där användare kan logga in med sitt normala användar namn och lösen ord i följande format: [din Workday-URL]/login.Flex? Redirect = n
@@ -248,11 +248,11 @@ I det här avsnittet skapar du en användare som heter B. Simon på arbets dagen
 
 ## <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen arbets dag i åtkomst panelen, bör du loggas in automatiskt på den arbets dag som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen arbets dag i åtkomst panelen, bör du loggas in automatiskt på den arbets dag som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

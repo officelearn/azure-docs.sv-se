@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69647374"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Skapa ett grundläggande index i Azure Search
@@ -146,7 +146,7 @@ Schematiskt är ett Azure Search index består av följande element.
 När du definierar ett schema måste du ange namnet, typen och attributet för varje fält i ditt index. Fälttypen klassificerar de data som lagras i fältet. Attribut anges för enskilda fält och definierar hur fältet används. Följande tabeller innehåller de typer och attribut som du kan ange.
 
 ### <a name="data-types"></a>Datatyper
-| type | Beskrivning |
+| Typ | Beskrivning |
 | --- | --- |
 | *Edm.String* |Text som kan, om du vill, använda en token för full texts ökning (ord brytning, ord och så vidare). |
 | *Collection(Edm.String)* |En lista med strängar som kan tokeniseras för textsökning. Det finns ingen teoretisk övre gräns för antalet objekt i en samling, men den övre gränsen på 16 MB för nyttolasten gäller för samlingar. |
@@ -154,7 +154,7 @@ När du definierar ett schema måste du ange namnet, typen och attributet för v
 | *Edm.Int32* |32-bitars heltalsvärden. |
 | *Edm.Int64* |64-bitars heltalsvärden. |
 | *Edm.Double* |Numeriska data med dubbel precision. |
-| *Edm.DateTimeOffset* |Datum/tid-värden som representeras i OData v4- `yyyy-MM-ddTHH:mm:ss.fffZ` formatet `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`(till exempel eller). |
+| *Edm.DateTimeOffset* |Datum/tid-värden som representeras i OData v4-formatet (till exempel `yyyy-MM-ddTHH:mm:ss.fffZ` eller `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |En punkt som representerar en geografisk plats i världen. |
 
 Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
@@ -185,7 +185,7 @@ Indexet baseras på den inbyggda exempel data källan för [fastighets fastighet
 
 ![Index storlek baserat på val av attribut](./media/search-what-is-an-index/realestate-index-size.png "Index storlek baserat på val av attribut")
 
-Även om de här varianterna av index är artificiella kan vi referera till dem för att se hur attribut påverkar lagringen. Ställer in den hämtnings bara index storleken? Nej. Lägger du till fält till en förslags öknings index storlek? Ja.
+Även om de här varianterna av index är artificiella kan vi referera till dem för att se hur attribut påverkar lagringen. Ställer in den **hämtnings** bara index storleken? Nej. Lägger du till fält till en **förslags** öknings index storlek? Ja.
 
 Index som stöder filtrering och sortering är proportionerligt större än index som stöder bara fullständig texts ökning. Anledningen är att filtrera och sortera frågor om exakta matchningar, så att dokument lagras intakt. Sökbara fält som stöder full text och fuzzy search använder inverterade index, som är ifyllda med token-termer som förbrukar mindre utrymme än hela dokument.
 
@@ -197,7 +197,7 @@ En förslags ställare är en del av schemat som definierar vilka fält i ett in
 
 Fält som läggs till i en förslags lista används för att generera typ kommande Sök villkor. Alla Sök termer skapas vid indexering och lagras separat. Mer information om hur du skapar en förslags struktur finns i [lägga till förslag](index-add-suggesters.md).
 
-## <a name="scoring-profiles"></a>Bedömningsprofiler
+## <a name="scoring-profiles"></a>Poängprofiler
 
 En [bedömnings profil](index-add-scoring-profiles.md) är en del av schemat som definierar anpassade bedömnings beteenden som låter dig påverka vilka objekt som visas högre upp i Sök resultaten. Bedömnings profiler består av fält vikter och-funktioner. Om du vill använda dem anger du en profil efter namn i frågesträngen.
 
@@ -213,15 +213,15 @@ Java Script på klient sidan kan inte anropa några API: er som standard efterso
 
 Följande alternativ kan ställas in för CORS:
 
-+ **allowedOrigins** (krävs): Det här är en lista över ursprung som ska beviljas åtkomst till ditt index. Det innebär att alla JavaScript-koder som hanteras från dessa ursprung kommer att kunna fråga ditt index (förutsatt att det innehåller rätt API-nyckel). Varje ursprung är vanligt vis ett formulär `protocol://<fully-qualified-domain-name>:<port>` , `<port>` men det är ofta utelämnat. Se [resurs delning mellan ursprung (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) om du vill ha mer information.
++ **allowedOrigins** (obligatoriskt): det här är en lista över ursprung som ska beviljas åtkomst till ditt index. Det innebär att alla JavaScript-koder som hanteras från dessa ursprung kommer att kunna fråga ditt index (förutsatt att det innehåller rätt API-nyckel). Varje ursprung är vanligt vis formuläret `protocol://<fully-qualified-domain-name>:<port>`, även om `<port>` har utelämnats ofta. Se [resurs delning mellan ursprung (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) om du vill ha mer information.
 
-  Om du vill tillåta åtkomst till alla ursprung, inkludera `*` som ett enskilt objekt i **allowedOrigins** -matrisen. *Detta är inte en rekommenderad metod för produktions Sök tjänster* , men det är ofta användbart för utveckling och fel sökning.
+  Om du vill tillåta åtkomst till alla ursprung inkluderar du `*` som ett enskilt objekt i **allowedOrigins** -matrisen. *Detta är inte en rekommenderad metod för produktions Sök tjänster* , men det är ofta användbart för utveckling och fel sökning.
 
-+ **maxAgeInSeconds** (valfritt): Webbläsare använder det här värdet för att fastställa varaktigheten (i sekunder) för att cachelagra CORS-svar. Detta måste vara ett icke-negativt heltal. Ju större det här värdet är, desto bättre prestanda blir, men det längre tar för CORS-principens ändringar att börja gälla. Om den inte anges används en standard varaktighet på 5 minuter.
++ **maxAgeInSeconds** (valfritt): webbläsare använder det här värdet för att fastställa varaktigheten (i sekunder) för att cachelagra CORS preflight-svar. Detta måste vara ett icke-negativt heltal. Ju större det här värdet är, desto bättre prestanda blir, men det längre tar för CORS-principens ändringar att börja gälla. Om den inte anges används en standard varaktighet på 5 minuter.
 
 ## <a name="encryption-key"></a>Krypterings nyckel
 
-Alla Azure Search-index krypteras som standard med hjälp av Microsoft-hanterade nycklar, och index kan konfigureras för att krypteras med Kundhanterade **nycklar** i Key Vault. Mer information finns i [Hantera krypterings nycklar i Azure Search](search-security-manage-encryption-keys.md).
+Alla Azure Search-index krypteras som standard med hjälp av Microsoft-hanterade nycklar, och index kan konfigureras för att krypteras med **Kundhanterade nycklar** i Key Vault. Mer information finns i [Hantera krypterings nycklar i Azure Search](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

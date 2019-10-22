@@ -1,7 +1,7 @@
 ---
-title: 'Linjär regression: Modulreferens'
+title: 'Linjär regression: modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder modulen linjär regression i Azure Machine Learning service för att skapa en linjär Regressions modell för användning i ett experiment.
+description: Lär dig hur du använder modulen linjär regression i Azure Machine Learning-tjänsten för att skapa en linjär Regressions modell för användning i en pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,17 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 506f37a2e01f428ccadc0368bd2efb6b58c9106c
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 9c1dc34743d3fe65d50559d1b75aab1a0530d24c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128682"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693700"
 ---
 # <a name="linear-regression-module"></a>Linjär Regressions modul
 I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
-Använd den här modulen för att skapa en linjär Regressions modell för användning i ett experiment.  Linjär regression försöker upprätta en linjär relation mellan en eller flera oberoende variabler och ett numeriskt resultat, eller en beroende variabel. 
+Använd den här modulen för att skapa en linjär Regressions modell för användning i en pipeline.  Linjär regression försöker upprätta en linjär relation mellan en eller flera oberoende variabler och ett numeriskt resultat, eller en beroende variabel. 
 
 Du använder den här modulen för att definiera en linjär Regressions metod och sedan träna en modell med hjälp av en etikettad data uppsättning. Den tränade modellen kan sedan användas för att göra förutsägelser.
 
@@ -63,15 +63,15 @@ Den här modulen stöder två metoder för att anpassa en Regressions modell med
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a>Skapa en Regressions modell med minsta möjliga kvadratmetoden
 
-1. Lägg till modulen **linjär Regressions modell** för ditt experiment i gränssnittet.
+1. Lägg till modulen **linjär Regressions modell** till din pipeline i gränssnittet.
 
-    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra sedan modulen **linjär Regressions modell** till experimentet.
+    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra sedan modulen **linjär Regressions modell** till din pipeline.
 
 2. I rutan **Egenskaper** går du till List rutan **lösnings metod** och väljer **vanliga minsta kvadratmetoden**. Det här alternativet anger den beräknings metod som används för att hitta Regressions linjen.
 
 3. I **L2-regulariseringshastigheten vikt**anger du det värde som ska användas som vikt för L2-regulariseringshastigheten. Vi rekommenderar att du använder ett värde som inte är noll för att undvika överanpassning.
 
-     Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-Regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
 
 4. Välj alternativet, **Inkludera spärr villkor**, om du vill visa villkoret för skärningen.
 
@@ -79,12 +79,12 @@ Den här modulen stöder två metoder för att anpassa en Regressions modell med
 
 5. Du kan ange ett värde för att dirigera den slumpmässiga nummer generatorn som används av modellen om du vill använda **slumpmässig numrering**.
 
-    Att använda ett Seed-värde är användbart om du vill behålla samma resultat för olika körningar av samma experiment. Annars är standardvärdet att använda ett värde från system klockan.
+    Att använda ett Seed-värde är användbart om du vill behålla samma resultat för olika körningar av samma pipeline. Annars är standardvärdet att använda ett värde från system klockan.
 
 
-7. Lägg till modulen [träna modell](./train-model.md) i experimentet och Anslut en etikettad data uppsättning.
+7. Lägg till modulen [träna modell](./train-model.md) i din pipeline och Anslut en etikettad data uppsättning.
 
-8. Kör experimentet.
+8. Köra en pipeline.
 
 ## <a name="results-for-ordinary-least-squares-model"></a>Resultat för vanlig minsta kvadratmetoden
 
@@ -97,22 +97,22 @@ När utbildningen är klar:
 
 ## <a name="bkmk_GradientDescent"></a>Skapa en Regressions modell med brantaste för online-gradient
 
-1. Lägg till modulen **linjär Regressions modell** för ditt experiment i gränssnittet.
+1. Lägg till modulen **linjär Regressions modell** till din pipeline i gränssnittet.
 
-    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra modulen **linjär Regressions modell** till experimentet
+    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra modulen **linjär Regressions modell** till din pipeline
 
 2. I rutan **Egenskaper** i list rutan **lösnings metod** väljer du brantaste för **online-toning** som den beräknings metod som används för att hitta Regressions linjen.
 
-3. För **skapa**utbildare-läge anger du om du vill träna modellen med en fördefinierad uppsättning parametrar, eller om du vill optimera modellen med hjälp av en parameter rensning.
+3. För **skapa utbildare-läge**anger du om du vill träna modellen med en fördefinierad uppsättning parametrar, eller om du vill optimera modellen med hjälp av en parameter rensning.
 
-    + **Enskild parameter**: Om du vet hur du vill konfigurera ett linjärt Regressions nätverk kan du ange en speciell uppsättning värden som argument.
+    + **Enskild parameter**: om du vet hur du vill konfigurera ett linjärt Regressions nätverk kan du ange en viss uppsättning värden som argument.
 
    
 4. För **inlärnings frekvens**anger du den inledande inlärnings takten för Stochastic gradient brantaste optimering.
 
 5. Ange ett värde som anger hur många gånger algoritmen ska iterera genom exempel i **antal utbildnings epoker**. För data uppsättningar med ett litet antal exempel bör det här talet vara stort för att uppnå konvergens.
 
-6. **Normaliserings funktioner**: Om du redan har normaliserat numeriska data som används för att träna modellen kan du avmarkera det här alternativet. Som standard normaliserar modulen alla numeriska indata till ett intervall mellan 0 och 1.
+6. **Normaliserings funktioner**: om du redan har normaliserat numeriska data som används för att träna modellen kan du avmarkera det här alternativet. Som standard normaliserar modulen alla numeriska indata till ett intervall mellan 0 och 1.
 
     > [!NOTE]
     > 
@@ -120,19 +120,19 @@ När utbildningen är klar:
 
 7. I **L2-regulariseringshastigheten vikt**anger du det värde som ska användas som vikt för L2-regulariseringshastigheten. Vi rekommenderar att du använder ett värde som inte är noll för att undvika överanpassning.
 
-    Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-Regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+    Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
 
 
 9. Välj alternativet för att **minska inlärnings**takten om du vill att inlärnings takten ska minska allteftersom iterationer fortskrider.  
 
-10. Du kan ange ett värde för att dirigera den slumpmässiga nummer generatorn som används av modellen om du vill använda **slumpmässig numrering**. Att använda ett Seed-värde är användbart om du vill behålla samma resultat för olika körningar av samma experiment.
+10. Du kan ange ett värde för att dirigera den slumpmässiga nummer generatorn som används av modellen om du vill använda **slumpmässig numrering**. Att använda ett Seed-värde är användbart om du vill behålla samma resultat för olika körningar av samma pipeline.
 
 
 12. Lägg till en etikettad data uppsättning och en av inlärnings modulerna.
 
     Om du inte använder en parameter rensning använder du modulen [träna modell](train-model.md) .
 
-13. Kör experimentet.
+13. Köra en pipeline.
 
 ## <a name="results-for-online-gradient-descent"></a>Resultat för brantaste för online-toning
 

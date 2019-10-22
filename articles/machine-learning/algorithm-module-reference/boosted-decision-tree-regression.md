@@ -1,5 +1,5 @@
 ---
-title: 'Regressions analys av besluts träd: Modulreferens'
+title: 'Förstärkt besluts träds regression: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder den förstärkta besluts träds Regressions modulen i Azure Machine Learning-tjänsten för att skapa en ensemble med Regressions träd med förstärkning.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 5f26dfbdd8d3ef094ed380b7bd00ab0169152502
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208161"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693839"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Regressions modul för besluts träd
 
@@ -46,34 +46,34 @@ Mer information finns i följande artiklar:
   
 -  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
-    Microsoft Research: Från RankNet till LambdaRank till LambdaMART: En översikt. Av J.C. Burges.
+    Microsoft Research: från RankNet till LambdaRank till LambdaMART: en översikt. Av J.C. Burges.
 
-Metoden för tonings förstärkning kan också användas för klassificerings problem genom att minska dem till regression med lämplig förlust funktion. Mer information om implementerade träd för klassificerings aktiviteter finns i besluts [trädet i två klasser](./two-class-boosted-decision-tree.md).  
+Metoden för tonings förstärkning kan också användas för klassificerings problem genom att minska dem till regression med lämplig förlust funktion. Mer information om implementerade träd för klassificerings aktiviteter finns i [besluts trädet i två klasser](./two-class-boosted-decision-tree.md).  
 
 ## <a name="how-to-configure-boosted-decision-tree-regression"></a>Så här konfigurerar du Regressions trädet för besluts träd
 
-1.  Lägg till modulen för **besluts trädet** i experimentet. Du hittar den här modulen under **Machine Learning**, **initiera**under Regressions kategorin. 
+1.  Lägg till modulen för **besluts träd med högre** till din pipeline. Du hittar den här modulen under **Machine Learning**, **initiera**under **Regressions** kategorin. 
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en speciell uppsättning värden som argument.  
+    -   **Enskild parameter**: Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en viss uppsättning värden som argument.  
    
   
-3. **Maximalt antal löv per träd**: Ange det maximala antalet terminalserversessioner (löv) som kan skapas i alla träd.  
+3. **Maximalt antal löv per träd**: Ange det maximala antalet terminalservrar (löv) som kan skapas i alla träd.  
 
     Genom att öka det här värdet kan du öka storleken på trädet och få bättre precision vid överanpassning och längre inlärnings tid.  
 
-4. **Minsta antal sampel per lövnod**: Ange det minsta antal fall som krävs för att skapa en Terminal-nod (löv) i ett träd.
+4. **Minsta antal sampel per lövnod**: Ange det minsta antal fall som krävs för att skapa en terminalsession (löv) i ett träd.
 
     Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler. Till exempel, med standardvärdet 1, kan ett enda ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste tränings data innehålla minst 5 fall som uppfyller samma villkor.
 
-5. **Inlärnings frekvens**: Ange ett tal mellan 0 och 1 som definierar steg storleken medan du lär dig. Inlärnings frekvensen avgör hur snabbt eller långsamt en elev konvergerar på den optimala lösningen. Om steg storleken är för stor kanske du överbelastar den optimala lösningen. Om steg storleken är för liten tar inlärningen längre tid att konvergera i den bästa lösningen.
+5. **Inlärnings pris**: Ange ett tal mellan 0 och 1 som definierar steg storleken under inlärningen. Inlärnings frekvensen avgör hur snabbt eller långsamt en elev konvergerar på den optimala lösningen. Om steg storleken är för stor kanske du överbelastar den optimala lösningen. Om steg storleken är för liten tar inlärningen längre tid att konvergera i den bästa lösningen.
 
-6. **Antal skapade träd**: Ange det totala antalet besluts träd som ska skapas i ensemble. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.
+6. **Antal skapade träd**: Ange det totala antalet besluts träd som ska skapas i ensemblen. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.
 
-    Det här värdet styr också antalet träd som visas vid visualisering av den tränade modellen. Om du vill visa eller skriva ut ett Ingle-träd kan du ange värdet till 1. dock skapas endast ett träd (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
+    Det här värdet styr också antalet träd som visas vid visualisering av den tränade modellen. Om du vill se eller skriva ut ett enda träd kan du ange värdet till 1. dock skapas endast ett träd (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
 
-7. **Värde för slumpmässig siffra**: Ange ett valfritt icke-negativt heltal som ska användas som det slumpmässiga startvärdet. Genom att ange ett utsäde säkerställer du reproducerbarhet i körningar som har samma data och parametrar.
+7. Värde för **slumpmässig siffra**: Ange ett valfritt icke-negativt heltal som ska användas som det slumpmässiga startvärdet. Genom att ange ett utsäde säkerställer du reproducerbarhet i körningar som har samma data och parametrar.
 
     Som standard är det slumpmässiga startvärdet inställt på 0, vilket innebär att det första startvärdet hämtas från system klockan.
   
@@ -85,7 +85,7 @@ Metoden för tonings förstärkning kan också användas för klassificerings pr
   
     
 
-10. Kör experimentet.  
+10. Köra en pipeline.  
   
 ## <a name="results"></a>Resultat
 
@@ -96,8 +96,6 @@ När utbildningen är klar:
      Klicka på varje träd för att öka detalj nivån i delningarna och se reglerna för varje nod.  
 
 + Om du vill använda modellen för poängsättning ansluter du den till [Poäng modellen](./score-model.md)och förutsäger värdena för nya ingångs exempel.
-
-+ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den tränade modellens utdata i modulen utbildning och väljer **Spara som**. Kopian av den tränade modellen som du sparar uppdateras inte vid efterföljande körningar av experimentet.
 
 ## <a name="next-steps"></a>Nästa steg
 

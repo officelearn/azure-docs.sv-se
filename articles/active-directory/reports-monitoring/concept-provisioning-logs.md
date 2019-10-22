@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70983505"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
@@ -30,7 +30,7 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 
 - **Aktivitet** 
     - **Inloggningar** – information om användningen av hanterade program och användar inloggnings aktiviteter.
-    -  - Gransknings loggar[gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
+    - **Gransknings loggar**  - [gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
     - **Etablerings loggar** – ger system aktivitet om användare, grupper och roller som tillhandahålls av Azure AD Provisioning-tjänsten. 
 
 - **Säkerhet** 
@@ -39,7 +39,7 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 
 I det här avsnittet får du en översikt över etablerings rapporten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 * Användare i rollerna säkerhets administratör, säkerhets läsare, rapport läsare, program administratör och moln program administratör
@@ -60,7 +60,7 @@ Etablerings loggarna ger svar på följande frågor:
 
 Du kan komma åt etablerings loggarna genom att välja **etablerings loggar** i avsnittet **övervakning** på bladet **Azure Active Directory** i [Azure Portal](https://portal.azure.com). Det kan ta upp till två timmar för vissa etablerings poster att visas i portalen.
 
-![Etablerings loggar](./media/concept-provisioning-logs/access-provisioning-logs.png "Etablerings loggar")
+![Etablerings loggar](./media/concept-provisioning-logs/access-provisioning-logs.png "Etableringsloggar")
 
 
 En etablerings logg har en Standardlistvy som visar:
@@ -93,14 +93,14 @@ Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 Om du vill begränsa de rapporterade data till en nivå som passar dig kan du filtrera etablerings data med hjälp av följande standard fält. Observera att värdena i filtren fylls i dynamiskt baserat på din klient. Om du till exempel inte har några skapa-händelser i din klient organisation, så finns det inget filter alternativ för att skapa.
 
 - Identitet
-- Action
+- Åtgärd
 - Käll system
 - Mål system
-- State
-- Date
+- Status
+- Datum
 
 
-![Filtrera](./media/concept-provisioning-logs/filter.png "Filtrera")
+![Synkroniseringsfilter](./media/concept-provisioning-logs/filter.png "Filtrera")
 
 Med filtret **identitet** kan du ange namnet eller identiteten som du bryr dig om. Den här identiteten kan vara en användare, grupp, roll eller något annat objekt. Du kan söka efter objektets namn eller ID. ID varierar beroende på scenario. När ett objekt till exempel konfigureras från Azure AD till SalesForce, är käll-ID: t objekt-ID för användaren i Azure AD medan TargetID är användarens ID i Salesforce. Vid etablering från arbets dagar till Active Directory, är käll-ID: t arbets dagen anställdas anställnings-ID. Observera att namnet på användaren kanske inte alltid finns i identitets kolumnen. Det kommer alltid att finnas ett ID. 
 
@@ -113,18 +113,18 @@ Med **status** filtret kan du välja:
 - Alla
 - Lyckades
 - Fel
-- Hoppades över
+- Hoppades
 
 Med **Åtgärds** filtret kan du filtrera:
 
-- Skapa 
+- Create 
 - Uppdatera
 - Ta bort
 - Inaktivera
-- Annat
+- Övrigt
 
 Med filtret **Datum** kan du definiera en tidsram för de data som returneras.  
-Möjliga värden är:
+Möjliga värden:
 
 - 1 månad
 - 7 dagar
@@ -161,7 +161,7 @@ Detaljerna grupperas baserat på följande kategorier:
 - Sammanfattning
 
 
-![Filtrera](./media/concept-provisioning-logs/provisioning-tabs.png "Flikar")
+![Synkroniseringsfilter](./media/concept-provisioning-logs/provisioning-tabs.png "Menyflikar")
 
 
 
@@ -176,7 +176,7 @@ På fliken **steg** beskrivs de steg som vidtas för att etablera ett objekt. Et
 
 
 
-![Filtrera](./media/concept-provisioning-logs/steps.png "Filtrera")
+![Synkroniseringsfilter](./media/concept-provisioning-logs/steps.png "Filtrera")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Felsöka och rekommendationer

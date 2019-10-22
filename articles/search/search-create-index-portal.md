@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: heidist
 ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71937268"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Skapa ett Azure Search-index i portalen
@@ -49,7 +49,7 @@ Indexsammansättningen innehåller en *fält samling* som definierar sökbara da
 
     API-dokumentationen för Azure Search innehåller kodexempel med ett enkelt *hotell*index. I skärm bilden nedan kan du se index definitionen, inklusive den franska språk analys som anges under index definitionen, som du kan återskapa som en övning i portalen.
 
-    Hotell demonstrations ![index]för(media/search-create-index-portal/field-definitions.png "hotell demonstration")
+    ![Demo index för hotell](media/search-create-index-portal/field-definitions.png "Demo index för hotell")
 
 1. När du är färdig klickar du på **skapa** för att spara och skapa indexet.
 
@@ -78,7 +78,7 @@ Fältattributen avgör hur ett fält används, till exempel om det används i fu
 
 När du har skapat ett Azure Search-index kan du gå till nästa steg: [ladda upp sökbara data till indexet](search-what-is-data-import.md).
 
-Alternativt kan du också ta en [djupare titt på index](search-what-is-an-index.md). Förutom samlingen Fält anges i index även analysverktyg, förslagsställare, bedömningsprofiler och CORS-inställningar. Portalen innehåller tabbade sidor för att definiera de vanligaste elementen: Fält, analyser och förslag. Om du vill skapa eller ändra andra element kan du använda REST-API:et eller .NET SDK.
+Alternativt kan du också ta en [djupare titt på index](search-what-is-an-index.md). Förutom samlingen Fält anges i index även analysverktyg, förslagsställare, bedömningsprofiler och CORS-inställningar. Portalen innehåller fliksidor för att definiera de vanligaste elementen: fält, analysverktyg och förslagsställare. Om du vill skapa eller ändra andra element kan du använda REST-API:et eller .NET SDK.
 
 ## <a name="see-also"></a>Se också
 

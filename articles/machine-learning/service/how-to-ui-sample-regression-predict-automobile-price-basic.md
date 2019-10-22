@@ -9,19 +9,19 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: a91f1446d8aab3db36499a9b5707d48d387b6081
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 861b04203575a6046608cf3fad3117ad2726acab
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131563"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693470"
 ---
-# <a name="sample-1---regression-predict-price"></a>Exempel 1 – regression: Förutsäga pris
+# <a name="sample-1---regression-predict-price"></a>Exempel 1 – regression: Förutsäg pris
 
 Lär dig hur du skapar en Regressions modell för Machine Learning utan att skriva en enda rad kod med hjälp av det visuella gränssnittet.
 
-Det här experimentet tränar en **besluts skog modellerings regressor** att förutsäga en bils pris baserat på tekniska funktioner som märke, modell, häst krafter och storlek. Eftersom du försöker besvara frågan "hur mycket?" Detta kallas för ett Regressions problem. Du kan dock använda samma grundläggande steg i det här exemplet för att ta itu med alla typer av maskin inlärnings problem, oavsett om det är regression, klassificering, klustring och så vidare.
+Den här pipelinen tågen en **besluts skog modellerings regressor** att förutsäga bils pris baserat på tekniska funktioner som märke, modell, häst krafter och storlek. Eftersom du försöker besvara frågan "hur mycket?" Detta kallas för ett Regressions problem. Du kan dock använda samma grundläggande steg i det här exemplet för att ta itu med alla typer av maskin inlärnings problem, oavsett om det är regression, klassificering, klustring och så vidare.
 
 De grundläggande stegen för en utbildnings maskin inlärnings modell är:
 
@@ -30,21 +30,21 @@ De grundläggande stegen för en utbildnings maskin inlärnings modell är:
 1. Träna modellen
 1. Utvärdera modellen
 
-Här är det sista, färdiga grafen i experimentet som du kommer att arbeta med. Vi ger dig en motivering för alla moduler så att du kan fatta liknande beslut på egen hand.
+Här är det slutliga, färdiga diagrammet i pipelinen. Den här artikeln innehåller en motivering för alla moduler så att du kan fatta liknande beslut på egen hand.
 
-![Diagram över experimentet](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
+![Diagram över pipelinen](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Välj knappen **Öppna** för exempel 1-experimentet:
+4. Välj knappen **Öppna** för pipeline-exempel 1:
 
-    ![Öppna experimentet](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
+    ![Öppna pipelinen](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## <a name="get-the-data"></a>Hämta data
 
-I det här exemplet används RAW-datauppsättningen **(Automobile Price data)** som är från den Machine Learning lagrings platsen. Data uppsättningen innehåller 26 kolumner som innehåller information om bilenheter, inklusive märke, modell, pris, fordons funktioner (t. ex. antalet cylindrar), MPG och en försäkrings risk poäng. Målet med det här experimentet är att förutsäga priset på bilen.
+I det här exemplet används RAW-datauppsättningen **(Automobile Price data)** som är från den Machine Learning lagrings platsen. Data uppsättningen innehåller 26 kolumner som innehåller information om bilenheter, inklusive märke, modell, pris, fordons funktioner (t. ex. antalet cylindrar), MPG och en försäkrings risk poäng. Syftet med det här exemplet är att förutsäga priset på bilen.
 
 ## <a name="pre-process-the-data"></a>För behandling av data
 
@@ -58,7 +58,7 @@ Använd modulen **Välj kolumner i data uppsättning** för att undanta normalis
 
 Problem med maskin inlärning varierar. Vanliga Machine Learning-uppgifter är klassificerings-, kluster-, Regressions-och rekommenderade system, vilket kan kräva en annan algoritm. Valet av algoritm beror ofta på kraven i användnings fallet. När du har valt en algoritm måste du justera dess parametrar för att träna en mer exakt modell. Du måste sedan utvärdera alla modeller utifrån mått som precision, intelligibility och effektivitet.
 
-Eftersom syftet med det här experimentet är att förutsäga bil priser, och eftersom etikett kolumnen (priset) innehåller reella tal, är en Regressions modell ett bra val. Med tanke på att antalet funktioner är relativt litet (mindre än 100) och dessa funktioner inte är glesa, är besluts gränser troligt vis inte linjärt. Vi använder därför **besluts skogs regression** för det här experimentet.
+Eftersom syftet med det här exemplet är att förutsäga bil priser och att kolumnen etikett (pris) innehåller reella tal är en Regressions modell ett bra val. Med tanke på att antalet funktioner är relativt litet (mindre än 100) och dessa funktioner inte är glesa, är besluts gränser troligt vis inte linjärt. Vi använder därför **besluts skogs regression** för denna pipeline.
 
 Använd modulen **dela data** för att slumpmässigt dela in indata så att inlärnings data uppsättningen innehåller 70% av original data och test data uppsättningen innehåller 30% av de ursprungliga data.
 
@@ -84,8 +84,9 @@ Skicka poängen till modulen **utvärdera modell** för att generera utvärderin
 
 Utforska de andra exempel som är tillgängliga för det visuella gränssnittet:
 
-- [Exempel 2 – regression: Jämför algoritmer för bilpris förutsägelser för bilar](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exempel 3 – klassificering: Förutsägelse kredit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-- [Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Exempel 5 – klassificering: Förutsäg omsättning](how-to-ui-sample-classification-predict-churn.md)
-- [Exempel 6 – klassificering: Förutsäg fördröjningar i flygning](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exempel 2-regression: jämför algoritmer för bil förutsägelse av bilar](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exempel 3 – klassificering: förutsägelse kredit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Exempel 4 – klassificering: förutsägelse kredit risk (kostnads känsligt)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exempel 5 – klassificering: förutsägelse omsättning](how-to-ui-sample-classification-predict-churn.md)
+- [Exempel 6 – klassificering: förutsäga flyg fördröjningar](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exempel 7 – text klassificering: bok granskningar](how-to-ui-sample-text-classification.md)

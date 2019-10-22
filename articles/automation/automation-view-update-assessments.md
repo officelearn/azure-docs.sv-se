@@ -1,6 +1,6 @@
 ---
 title: Visa Azure Uppdateringshantering Update-utvärderingar
-description: Den här artikeln beskriver hur du visar uppdaterings utvärderingar för uppdaterings distributioner
+description: Den här artikeln beskriver hur du visar uppdaterings utvärderingar för uppdaterings distributioner.
 services: automation
 ms.service: automation
 ms.subservice: update-management
@@ -9,26 +9,26 @@ ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e88622ede6437086b86a33081d6ec9b9ea50ef65
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d4e20b2924504b714dff9f5ba650f9b25c1c26c3
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377725"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690853"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Visa Azure Uppdateringshantering Update-utvärderingar
 
-I ditt Automation-konto väljer du **uppdateringshantering** för att visa status för dina datorer.
+I ditt Azure Automation konto väljer du **uppdateringshantering** för att visa status för dina datorer.
 
-Den här vyn innehåller information om dina datorer, uppdateringar som saknas, uppdaterings distributioner och schemalagda uppdaterings distributioner. I **kolumnen efterlevnad**kan du se den senaste gången datorn utvärderades. I kolumnen **Uppdatera agent beredskap** kan du se om hälso tillståndet för uppdaterings agenten. Om det uppstår ett problem väljer du länken för att gå till fel söknings dokumentation som kan hjälpa dig att lära dig vilka steg du bör vidta för att åtgärda problemet.
+Den här vyn innehåller information om dina datorer, uppdateringar som saknas, uppdaterings distributioner och schemalagda uppdaterings distributioner. I kolumnen **efterlevnad** kan du se den senaste gången datorn utvärderades. I kolumnen **Uppdatera agent beredskap** kan du se uppdaterings agentens hälso tillstånd. Om ett problem uppstår väljer du länken för att gå till fel söknings dokumentation som kan hjälpa dig att åtgärda problemet.
 
-Om du vill köra en loggs ökning som returnerar information om datorn, uppdateringen eller distributionen väljer du objektet i listan. Fönstret **loggs ökning** öppnas med en fråga för det valda objektet:
+Om du vill köra en loggs ökning som returnerar information om datorn, uppdateringen eller distributionen väljer du motsvarande objekt i listan. Fönstret **loggs ökning** öppnas med en fråga för det valda objektet:
 
 ![Uppdateringshantering standardvy](media/automation-update-management/update-management-view.png)
 
 ## <a name="view-missing-updates"></a>Visa saknade uppdateringar
 
-Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som saknas på dina datorer. Varje uppdatering visas och kan väljas. Information om antalet datorer som kräver uppdateringen, operativ systemet och en länk för mer information visas. I fönstret **loggs ökning** visas mer information om uppdateringarna.
+Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som saknas på dina datorer. Varje uppdatering visas och kan väljas. Information om antalet datorer som kräver uppdatering, operativ Systems information och en länk för mer information visas. I fönstret **loggs ökning** visas även mer information om uppdateringarna.
 
 ![Uppdateringar som saknas](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
@@ -54,16 +54,16 @@ I följande tabeller visas uppdaterings klassificeringarna i Uppdateringshanteri
 |Klassificering  |Beskrivning  |
 |---------|---------|
 |Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett enskilt problem eller ett produktspecifik, säkerhetsrelaterat problem.         |
-|Övriga uppdateringar     | Alla andra uppdateringar som inte är kritiska i natur eller inte är säkerhets uppdateringar.        |
+|Övriga uppdateringar     | Alla andra uppdateringar som inte är kritiska eller som inte är av säkerhets uppdateringar.        |
 
-För Linux kan Uppdateringshantering skilja mellan kritiska uppdateringar och säkerhets uppdateringar i molnet och Visa utvärderings data på grund av data berikning i molnet. Vid uppdatering Uppdateringshantering förlitar sig på klassificerings data som är tillgängliga på datorn. Till skillnad från andra distributioner har CentOS inte den här informationen tillgänglig i rutan. Om du har CentOS-datorer som har kon figurer ATS på ett sätt för att returnera säkerhets data för följande kommando, kommer Uppdateringshantering kunna korrigeras baserat på klassificeringar.
+För Linux kan Uppdateringshantering skilja mellan kritiska uppdateringar och säkerhets uppdateringar i molnet och Visa utvärderings data. (Denna granularitet är möjlig på grund av data berikning i molnet.) Vid uppdatering Uppdateringshantering förlitar sig på klassificerings data som är tillgängliga på datorn. Till skillnad från andra distributioner har CentOS inte den här informationen tillgänglig i RTM-versionerna av produkten. Om du har CentOS-datorer som har kon figurer ATS för att returnera säkerhets data för följande kommando kan Uppdateringshantering korrigeras baserat på klassificeringar:
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-Det finns för närvarande ingen metod som stöds för att aktivera intern klassificerings data tillgänglighet på CentOS. För närvarande tillhandahålls kunder som kan ha aktiverat detta på egen hand.
+Det finns för närvarande ingen metod som stöds för att aktivera intern klassificerings data tillgänglighet på CentOS. För närvarande erbjuds kunder som har aktiverat den här funktionen på egen hand support.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har granskat uppdaterings utvärderingen kan du schemalägga en uppdaterings distribution genom att följa stegen under [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
+När du har granskat uppdaterings utvärderingen kan du schemalägga en uppdaterings distribution genom att följa stegen i [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f24b9c6ce2aeb318040b61c29d7e14c01886c46
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70073318"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Mallar för användar profiler i Azure API Management
@@ -103,7 +103,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 > [!NOTE]
 >  Mallarna [profil](#Profile), [program](#Applications)och [prenumerationer](#Subscriptions) delar samma data modell och får samma mall data.  
   
-|Egenskap|Type|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`firstName`|sträng|Den aktuella användarens förnamn.|  
 |`lastName`|sträng|Den aktuella användarens efter namn.|  
@@ -114,8 +114,8 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |`applications`|Samling av [](api-management-template-data-model-reference.md#Application) programentiteter.|Den aktuella användarens program.|  
 |`changePasswordUrl`|sträng|Den relativa URL: en för att ändra den aktuella användarens lösen ord.|  
 |`changeNameOrEmailUrl`|sträng|Den relativa URL: en för att ändra namn och e-postadress för den aktuella användaren.|  
-|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sina lösen ord.|  
-|`isSystemUser`|boolean|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
+|`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösen ord.|  
+|`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Exempel mal lin data  
   
@@ -324,7 +324,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 > [!NOTE]
 >  Mallarna [profil](#Profile), [program](#Applications)och [prenumerationer](#Subscriptions) delar samma data modell och får samma mall data.  
   
-|Egenskap|Type|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`firstName`|sträng|Den aktuella användarens förnamn.|  
 |`lastName`|sträng|Den aktuella användarens efter namn.|  
@@ -335,8 +335,8 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |`applications`|Samling av [](api-management-template-data-model-reference.md#Application) programentiteter.|Den aktuella användarens program.|  
 |`changePasswordUrl`|sträng|Den relativa URL: en för att ändra den aktuella användarens lösen ord.|  
 |`changeNameOrEmailUrl`|sträng|Den relativa URL: en för att ändra namn och e-postadress för den aktuella användaren.|  
-|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sina lösen ord.|  
-|`isSystemUser`|boolean|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
+|`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösen ord.|  
+|`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Exempel mal lin data  
   
@@ -487,7 +487,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 > [!NOTE]
 >  Mallarna [profil](#Profile), [program](#Applications)och [prenumerationer](#Subscriptions) delar samma data modell och får samma mall data.  
   
-|Egenskap|Type|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`firstName`|sträng|Den aktuella användarens förnamn.|  
 |`lastName`|sträng|Den aktuella användarens efter namn.|  
@@ -498,8 +498,8 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |`applications`|Samling av [](api-management-template-data-model-reference.md#Application) programentiteter.|Den aktuella användarens program.|  
 |`changePasswordUrl`|sträng|Den relativa URL: en för att ändra den aktuella användarens lösen ord.|  
 |`changeNameOrEmailUrl`|sträng|Den relativa URL: en för att ändra namn och e-postadress för den aktuella användaren.|  
-|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sina lösen ord.|  
-|`isSystemUser`|boolean|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
+|`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösen ord.|  
+|`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Exempel mal lin data  
   

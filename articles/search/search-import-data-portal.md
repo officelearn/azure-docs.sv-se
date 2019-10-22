@@ -10,10 +10,10 @@ ms.date: 10/03/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 89f43227cfca3519a4985c5c961cf0b3c5774177
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71936912"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Guiden Importera data för Azure Search
@@ -76,7 +76,7 @@ Du bör skapa den här enskilda tabellen eller vyn innan du kör guiden och den 
 
 Guiden skapar, konfigurerar och anropar följande objekt i bakgrunden. När guiden har körts kan du hitta dess utdata på Portal sidorna. Översikts sidan för din tjänst har listor över index, indexerare, data källor och färdighetsuppsättningar. Index definitioner kan visas i hela JSON i portalen. För andra definitioner kan du använda [REST API](https://docs.microsoft.com/rest/api/searchservice/) för att hämta vissa objekt.
 
-| Object | Beskrivning | 
+| Objekt | Beskrivning | 
 |--------|-------------|
 | [Datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Sparar anslutnings information för källdata, inklusive autentiseringsuppgifter. Ett data käll objekt används enbart med indexerare. | 
 | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Fysisk data struktur som används för full texts ökning och andra frågor. | 
@@ -92,7 +92,7 @@ Guiden Importera data startas från kommando fältet på sidan tjänst översikt
 
 2. På sidan tjänst översikt längst upp klickar du på **Importera data**.
 
-   ![Importera data-kommando i portalen](./media/search-import-data-portal/import-data-cmd2.png "starta guiden Importera data")
+   ![Importera data kommando i portalen](./media/search-import-data-portal/import-data-cmd2.png "Starta guiden Importera data")
 
 Du kan också starta **Importera data** från andra Azure-tjänster, inklusive Azure Cosmos DB, Azure SQL Database och Azure Blob Storage. Sök efter **Lägg till Azure Search** i det vänstra navigerings fönstret på sidan tjänst översikt.
 

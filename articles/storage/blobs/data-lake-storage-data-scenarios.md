@@ -9,10 +9,10 @@ ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: eba0c6a8932a8c6d50bd98d94712c95516519274
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72300325"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen2 för Big data-krav
@@ -89,7 +89,7 @@ Information om hur du konfigurerar andra säkerhets aspekter finns [Azure Data L
 
 I det här avsnittet beskrivs de olika data källorna och de olika sätt som data kan matas in i ett Data Lake Storage Gen2-konto.
 
-Mata in ![data i data Lake Storage Gen2]mata(./media/data-lake-storage-data-scenarios/ingest-data.png "in data i data Lake Storage Gen2")
+![Mata in data i Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/ingest-data.png "Mata in data i Data Lake Storage Gen2")
 
 ### <a name="ad-hoc-data"></a>Ad hoc-data
 
@@ -165,7 +165,7 @@ Med Azure ExpressRoute kan du skapa privata anslutningar mellan Azures Data Cent
 
 När data är tillgängliga i Data Lake Storage Gen2 kan du köra analyser av dessa data med hjälp av Big data-program som stöds. 
 
-![Analysera data i data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "analysera data i data Lake Storage Gen2")
+![Analysera data i Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analysera data i Data Lake Storage Gen2")
 
 Här är en lista med verktyg som du kan använda för att köra data analys jobb på data som lagras i Data Lake Storage Gen2.
 
@@ -178,7 +178,7 @@ Här är en lista med verktyg som du kan använda för att köra data analys job
 
 Du kan använda en blandning av tjänster för att skapa visuella representationer av data som lagras i Data Lake Storage Gen2.
 
-![Visualisera data i data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "visualisera data i data Lake Storage Gen2")
+![Visualisera data i Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "Visualisera data i Data Lake Storage Gen2")
 
 * Du kan börja med att använda [Azure Data Factory för att flytta data från data Lake Storage Gen2 till Azure SQL Data Warehouse](../../data-factory/copy-activity-overview.md)
 * Därefter kan du [integrera Power BI med Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) för att skapa visuell representation av data.
@@ -191,7 +191,7 @@ Du kanske också vill hämta eller flytta data från Azure Data Lake Storage Gen
 
 * Ladda ned data till den lokala datorn för bearbetning i IDE-miljöer när du skapar program prototyper.
 
-![Utgående data från data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "utgående data från data Lake Storage Gen2")
+![Utgående data från Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Utgående data från Data Lake Storage Gen2")
 
 Här är en lista med verktyg som du kan använda för att hämta data från Data Lake Storage Gen2.
 

@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543424"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693457"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -48,9 +48,9 @@ Mer information om tillgängliga Azure-regioner finns i [Azure-regioner](https:/
 ### <a name="cloud-computing-model"></a>Molnbaserad data behandlings modell
 
 Azure använder en molnbaserad data behandlings modell som baseras på tjänste kategorier som tillhandahålls kunder. De tre kategorierna av tjänster inkluderar IaaS (Infrastructure as a Service), plattform som en tjänst (PaaS) och program vara som en tjänst (SaaS). Leverantörer delar vissa eller alla ansvars områden för komponenter i data bearbetnings stacken i var och en av dessa kategorier. Låt oss ta en titt på var och en av kategorierna för molnbaserad data behandling.
-![Jämförelse av molnbaserad data behandlings stack](./media/cloud-computing-comparison.png)
+![Cloud data bearbetnings stack jämförelse ](./media/cloud-computing-comparison.png)
 
-#### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infrastructure as a Service
+#### <a name="iaas-infrastructure-as-a-service"></a>IaaS: infrastruktur som en tjänst
 
 En IaaS moln leverantör kör och hanterar alla fysiska beräknings resurser och nödvändig program vara för att aktivera virtualisering av datorer. En kund av den här tjänsten distribuerar virtuella datorer i dessa värdbaserade Data Center. Även om de virtuella datorerna finns i ett externt Data Center, har IaaS-klienten kontroll över konfiguration och hantering av operativ systemet som lämnar den underliggande infrastrukturen till moln leverantören.
 
@@ -58,13 +58,13 @@ Azure innehåller flera IaaS-lösningar, inklusive virtuella datorer, skalnings 
 
 Skalnings uppsättningar för virtuella datorer skapas ovanpå Azure Virtual Machines och ger ett enkelt sätt att distribuera kluster med identiska virtuella datorer. Skalnings uppsättningar för virtuella datorer stöder även automatisk skalning så att nya virtuella datorer kan distribueras automatiskt när det behövs. Detta gör att den virtuella datorns skalning anger en idealisk plattform som kan vara värd för kluster med högre nivå beräknings kluster, till exempel Azure Service Fabric och Azure Container Service.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a Service
+#### <a name="paas-platform-as-a-service"></a>PaaS: plattform som en tjänst
 
 Med PaaS kan du distribuera ditt program till en miljö som moln tjänst leverantören tillhandahåller. Leverantören utför all infrastruktur hantering så att du kan fokusera på program utveckling och data hantering.
 
 Azure tillhandahåller flera PaaS-beräknings erbjudanden, inklusive Web Apps funktionen i Azure App Service och Azure Cloud Services (webb-och arbets roller). I båda fallen har utvecklare flera olika sätt att distribuera sina program utan att känna till allt om den nötter och de bultar som har stöd för det. Utvecklare behöver inte skapa virtuella datorer (VM), använda Remote Desktop Protocol (RDP) för att logga in på var och en, eller installera programmet. De träffar bara en knapp (eller nära den) och de verktyg som tillhandahålls av Microsoft etablerar de virtuella datorerna och sedan distribuerar och installerar programmet på dem.
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Programvara som en tjänst
+#### <a name="saas-software-as-a-service"></a>SaaS: program vara som en tjänst
 
 SaaS är program vara som hanteras centralt och hanteras centralt. Det är vanligt vis baserat på en arkitektur för flera innehavare – en enda version av programmet används för alla kunder. Den kan skalas ut till flera instanser för att säkerställa bästa prestanda på alla platser. SaaS-programvara licensieras vanligt vis via en månatlig eller årlig prenumeration. SaaS program varu leverantörer är ansvariga för alla komponenter i program varu stacken så att allt du hanterar är de tjänster som tillhandahålls.
 
@@ -128,7 +128,7 @@ Tjänster för nätverk både i Azure och mellan Azure och lokala data Center:
 
 - Azure Traffic Manager
 
-- Azure Content Delivery Network
+- Azure-Content Delivery Network
 
 Detaljerad dokumentation om Azure-tjänster finns i [dokumentationen för Azure-tjänsten](https://docs.microsoft.com/azure).
 
@@ -140,7 +140,7 @@ Azure är en global moln plattform som är allmänt tillgänglig i många region
 
 En av fördelarna med att använda Azure är att du kan distribuera dina program till olika data center runtom i världen. Den region du väljer kan påverka programmets prestanda. Det är bäst att välja en region som är närmare för de flesta kunder, för att minska svars tiden i nätverks förfrågningar. Du kan också välja en region för att uppfylla de juridiska kraven för att distribuera din app i vissa länder/regioner.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal är ett webbaserat program som kan användas för att skapa, hantera och ta bort Azure-resurser och-tjänster. Azure Portal finns på [Portal.Azure.com](https://portal.azure.com). Den innehåller en anpassningsbar instrument panel och verktyg för att hantera Azure-resurser. Den innehåller även information om fakturering och prenumerationer. Mer information finns i [Microsoft Azure-portalen översikt](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) och [Hantera Azure-resurser via portalen](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
@@ -164,13 +164,13 @@ Förutom att skapa, hantera och ta bort resurser med hjälp av Azure Portal kan 
 
 Azure PowerShell är en uppsättning moduler som tillhandahåller cmdlets för att hantera Azure. Du kan använda cmdletarna för att skapa, hantera och ta bort Azure-tjänster. Cmdletarna kan hjälpa dig att få konsekventa, repeterbara och praktiska distributioner. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
-#### <a name="azure-command-line-interface"></a>Azure-kommandoradsgränssnittet
+#### <a name="azure-command-line-interface"></a>Kommandoradsgränssnitt för Azure
 
 Azures kommando rads gränssnitt är ett verktyg som du kan använda för att skapa, hantera och ta bort Azure-resurser från kommando raden. Azure CLI är tillgängligt för Linux, Mac OS X och Windows. Mer information och teknisk information finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 #### <a name="rest-apis"></a>REST API:er
 
-Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och appar från valfri enhet med Internet. Mer information finns i [Azure rest SDK](https://docs.microsoft.com/rest/api/index)-referensen.
+Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och appar från valfri enhet med Internet. Mer information finns i [Azure rest SDK-referensen](https://docs.microsoft.com/rest/api/index).
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
@@ -184,23 +184,23 @@ En prenumeration är en logisk gruppering av Azure-tjänster som är länkad til
 
 Innan du kan arbeta med Azure-tjänster behöver du en prenumeration. Det finns flera prenumerations typer.
 
-**Kostnads fria konton**: Länken för att registrera ett kostnads fritt konto finns på Azure- [webbplatsen](https://azure.microsoft.com/). Detta ger dig en kredit på över 30 dagar för att testa en kombination av resurser i Azure. Om du överskrider ditt kredit belopp pausas ditt konto. I slutet av utvärderings versionen inaktive ras tjänsterna och fungerar inte längre. Du kan när som helst uppgradera till en prenumeration där du betalar per användning.
+**Kostnads fria konton**: länken för att registrera sig för ett kostnads fritt konto finns på [Azure-webbplatsen](https://azure.microsoft.com/). Detta ger dig en kredit på över 30 dagar för att testa en kombination av resurser i Azure. Om du överskrider ditt kredit belopp pausas ditt konto. I slutet av utvärderings versionen inaktive ras tjänsterna och fungerar inte längre. Du kan när som helst uppgradera till en prenumeration där du betalar per användning.
 
-**MSDN**-prenumerationer: Om du har en MSDN-prenumeration får du ett visst belopp i Azure-kredit varje månad. Om du till exempel har en prenumeration på Microsoft Visual Studio Enterprise med MSDN får \$du 150 per månad i Azure-krediten.
+**MSDN**-prenumerationer: om du har en MSDN-prenumeration får du ett visst belopp i Azure-kredit varje månad. Om du till exempel har en prenumeration på Microsoft Visual Studio Enterprise med MSDN får du \$150 per månad i Azure-krediten.
 
 Om du överskrider kredit beloppet inaktive ras tjänsten tills nästa månad börjar. Du kan inaktivera utgifts gränsen och lägga till ett kredit kort som ska användas för ytterligare kostnader. Några av dessa kostnader är rabatterade för MSDN-konton. Till exempel betalar du Linux-priset för virtuella datorer som kör Windows Server och det finns ingen extra kostnad för Microsoft-servrar som Microsoft SQL Server. På så sätt kan MSDN-konton vara perfekta för utveckling och test scenarier.
 
 **BizSpark-konton**: Microsoft BizSpark-programmet har många fördelar med att starta. En av dessa förmåner är till gång till alla Microsoft-program för utvecklings-och test miljöer för upp till fem MSDN-konton. Du får $150 i Azure-kredit för vart och ett av dessa fem MSDN-konton och du betalar lägre priser för flera av Azure-tjänsterna, till exempel Virtual Machines.
 
-**Betala per**användning: Med den här prenumerationen betalar du för det du använder genom att koppla ett kredit kort eller betalkort till kontot. Om du är en organisation kan du också godkänna för fakturering.
+**Betala per**användning: med den här prenumerationen betalar du för det du använder genom att koppla ett kredit kort eller betalkort till kontot. Om du är en organisation kan du också godkänna för fakturering.
 
-**Enterprise-avtal**: Med ett Enterprise-avtal kan du använda ett visst antal tjänster i Azure under nästa år och du betalar beloppet i förväg. Det åtagande du gör används under året. Om du överskrider åtagande beloppet kan du betala överförbrukningen i förskott. Beroende på åtagandets belopp får du en rabatt på tjänsterna i Azure.
+**Enterprise-avtal**: med ett Enterprise-avtal kan du använda ett visst antal tjänster i Azure under nästa år, och du betalar beloppet i förväg. Det åtagande du gör används under året. Om du överskrider åtagande beloppet kan du betala överförbrukningen i förskott. Beroende på åtagandets belopp får du en rabatt på tjänsterna i Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Ge administrativ åtkomst till en Azure-prenumeration
 
-RBAC har flera inbyggda roller som du kan använda för att tilldela behörigheter. Om du vill göra en användare till en administratör för en Azure-prenumeration tilldelar du den till [ägar](../../role-based-access-control/built-in-roles.md#owner) rollen i prenumerations omfånget. Ägar rollen ger användaren fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att delegera åtkomst till andra.
+RBAC har flera inbyggda roller som du kan använda för att tilldela behörigheter. Om du vill göra en användare till en administratör för en Azure-prenumeration tilldelar du den till [ägar](../../role-based-access-control/built-in-roles.md#owner) rollen i prenumerations omfånget. Rollen ägare ger fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att ge åtkomst till andra.
 
-Mer information finns i [Hantera åtkomst med RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Visa fakturerings information i Azure Portal
 
@@ -216,7 +216,7 @@ Förutom att Visa faktureringen i portalen kan du komma åt fakturerings informa
 
 - Du kan använda Azure Rate Card API för att visa en lista över alla tillgängliga resurser, tillsammans med metadata och pris information om var och en av dessa resurser.
 
-Mer information finns i få insikter om [din Microsoft Azure resursförbrukning](../../billing/billing-usage-rate-card-overview.md).
+Mer information finns i [Få insikter om din resursförbrukning i Microsoft Azure](../../billing/billing-usage-rate-card-overview.md).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prognos kostnad med pris kalkylatorn
 
@@ -266,21 +266,21 @@ I Resource Manager-mallar definieras de resurser och resurspooler som ska distri
 
 En Resource Manager-mall består av fyra delar:
 
-- **Parametrar**: Dessa är indata till distributionen. Parameter värden kan tillhandahållas av en mänsklig eller automatiserad process. En exempel parameter kan vara ett administratörs användar namn och lösen ord för en virtuell Windows-dator. Parameter värden används i hela distributionen när de anges.
+- **Parametrar**: dessa är indata till distributionen. Parameter värden kan tillhandahållas av en mänsklig eller automatiserad process. En exempel parameter kan vara ett administratörs användar namn och lösen ord för en virtuell Windows-dator. Parameter värden används i hela distributionen när de anges.
 
-- **Variabler**: Dessa används för att lagra värden som används i hela distributionen. Till skillnad från parametrar anges inte ett variabel värde vid distributions tiden. I stället är den hårdkodad eller dynamiskt genererad.
+- **Variabler**: dessa används för att lagra värden som används i hela distributionen. Till skillnad från parametrar anges inte ett variabel värde vid distributions tiden. I stället är den hårdkodad eller dynamiskt genererad.
 
-- **Resurser**: Det här avsnittet i mallen definierar vilka resurser som ska distribueras, till exempel virtuella datorer, lagrings konton och virtuella nätverk.
+- **Resurser**: det här avsnittet i mallen definierar vilka resurser som ska distribueras, till exempel virtuella datorer, lagrings konton och virtuella nätverk.
 
-- **Utdata**: När en distribution har avslut ATS kan Resource Manager returnera data, till exempel dynamiskt genererade anslutnings strängar.
+- **Utdata**: när en distribution har avslut ATS kan Resource Manager returnera data, till exempel dynamiskt genererade anslutnings strängar.
 
 Följande mekanismer är tillgängliga för Automation-distribution:
 
-- **Funktioner**: Du kan använda flera funktioner i Resource Manager-mallar. Detta omfattar åtgärder som att konvertera en sträng till gemener, distribuera flera instanser av en definierad resurs och dynamiskt returnera mål resurs gruppen. Resource Manager-funktioner hjälper till att bygga dynamiska distributioner.
+- **Functions**: du kan använda flera funktioner i Resource Manager-mallar. Detta omfattar åtgärder som att konvertera en sträng till gemener, distribuera flera instanser av en definierad resurs och dynamiskt returnera mål resurs gruppen. Resource Manager-funktioner hjälper till att bygga dynamiska distributioner.
 
-- **Resurs beroenden**: När du distribuerar flera resurser, kommer vissa resurser vara beroende av andra. För att under lätta distributionen kan du använda en beroende deklaration så att beroende resurser distribueras före andra.
+- **Resurs beroenden**: när du distribuerar flera resurser, kommer vissa resurser vara beroende av andra. För att under lätta distributionen kan du använda en beroende deklaration så att beroende resurser distribueras före andra.
 
-- **Mall länkning**: I en Resource Manager-mall kan du länka till en annan mall. Detta möjliggör distributions sammansättning i en uppsättning riktade, specifika mallar.
+- **Mall länkning**: inifrån en Resource Manager-mall kan du länka till en annan mall. Detta möjliggör distributions sammansättning i en uppsättning riktade, specifika mallar.
 
 Du kan bygga Resource Manager-mallar i valfri text redigerare. Azure SDK för Visual Studio innehåller emellertid verktyg som hjälper dig. Med hjälp av Visual Studio kan du lägga till resurser till mallen via en guide och sedan distribuera och felsöka mallen direkt från Visual Studio. Mer information finns i [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
 
@@ -294,21 +294,21 @@ Om du vill bevilja åtkomst tilldelar du en roll till användaren eller använda
 
 Här följer några exempel [på inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md):
 
-- **Ägare**: En användare med den här rollen kan hantera allt, inklusive åtkomst.
+- **Ägare**: en användare med den här rollen kan hantera allt, inklusive åtkomst.
 
-- **Läsare**: En användare med den här rollen kan läsa resurser av alla typer (utom hemligheter), men kan inte göra ändringar.
+- **Läsare**: en användare med den här rollen kan läsa resurser av alla typer (utom hemligheter), men kan inte göra ändringar.
 
-- **Virtuell dator deltagare**: En användare med den här rollen kan hantera virtuella datorer, men kan inte hantera det virtuella nätverk som de är anslutna till eller det lagrings konto där VHD-filen finns.
+- **Virtuell dator deltagare**: en användare med den här rollen kan hantera virtuella datorer, men kan inte hantera det virtuella nätverk som de är anslutna till eller det lagrings konto där VHD-filen finns.
 
-- **SQL DB-deltagare**: En användare med den här rollen kan hantera SQL-databaser men inte deras säkerhetsrelaterade principer.
+- **SQL DB-deltagare**: en användare med den här rollen kan hantera SQL-databaser men inte deras säkerhetsrelaterade principer.
 
-- **SQL Security Manager**: En användare med den här rollen kan hantera säkerhetsrelaterade principer för SQL-servrar och databaser.
+- **SQL Security Manager**: en användare med den här rollen kan hantera säkerhetsrelaterade principer för SQL-servrar och databaser.
 
-- **Lagrings konto deltagare**: En användare med den här rollen kan hantera lagrings konton, men kan inte hantera åtkomst till lagrings kontona.
+- **Lagrings konto deltagare**: en användare med den här rollen kan hantera lagrings konton, men kan inte hantera åtkomst till lagrings kontona.
 
-Mer information finns i [Hantera åtkomst med RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
-## <a name="azure-virtual-machines"></a>Azure virtuella maskiner
+## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
 Azure Virtual Machines är en av de centrala IaaS-tjänsterna i Azure. Azure Virtual Machines stöder distribution av virtuella Windows-eller Linux-datorer i ett Microsoft Azure Data Center. Med Azure Virtual Machines har du total kontroll över VM-konfigurationen och ansvarar för all installation, konfiguration och underhåll av program vara.
 
@@ -366,7 +366,7 @@ Azure Storage-konton kan konfigureras med olika nivåer av redundans:
 
 Varje lagrings typ har ett annat användnings fall.
 
-#### <a name="blob-storage"></a>Blob Storage
+#### <a name="blob-storage"></a>Blobb-lagring
 
 Ordet *BLOB* är en akronym för *Binary Large Object*. Blobbar är ostrukturerade filer som de som du lagrar på din dator. Blob Storage kan lagra alla slags textdata eller binära data, till exempel ett dokument, en mediefil eller ett installationsprogram. Blob Storage kallas även för objektlagring. Azure Blob Storage innehåller också Azure Virtual Machines data diskar.
 
@@ -380,7 +380,7 @@ Azure Storage stöder tre typer av blobbar:
 
 Mer information finns i [Kom igång med Azure Blob Storage med hjälp av .net](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
-#### <a name="file-storage"></a>File Storage
+#### <a name="file-storage"></a>Fillagring
 
 Azure File Storage är en tjänst som erbjuder fil resurser i molnet med hjälp av SMB-standardprotokollet (Server Message Block). Tjänsten stöder både SMB 2,1 och SMB 3,0. Med Azure File Storage kan du migrera program som förlitar sig på fil resurser till Azure snabbt och utan kostsamma omskrivningar. Program som körs på virtuella Azure-datorer, i moln tjänster eller från lokala klienter kan montera en fil resurs i molnet. Detta liknar hur ett Skriv bords program monterar en typisk SMB-resurs. Ett obegränsat antal programkomponenter kan sedan montera och komma åt fillagringsresursen samtidigt.
 
@@ -461,12 +461,11 @@ Ett virtuellt Azure-nätverk är som standard endast tillgängligt för resurser
 ### <a name="hybrid-virtual-networks"></a>Virtuella hybrid nätverk
 
 Du kan ansluta ett lokalt nätverk till ett virtuellt Azure-nätverk med hjälp av ExpressRoute eller VPN-anslutning från plats till plats. I den här konfigurationen är det virtuella Azure-nätverket i grunden ett molnbaserad tillägg till ditt lokala nätverk.
-![Hybrid Virtual Network att använda VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Eftersom det virtuella Azure-nätverket är anslutet till ditt lokala nätverk måste lokala virtuella nätverk använda en unik del av adress utrymmet som din organisation använder. På samma sätt som olika företags platser tilldelas ett särskilt IP-undernät blir Azure en annan plats när du utökar nätverket.
 Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 
-- [Portal](../..//virtual-network/quick-create-portal.md)
+- [Portalen](../..//virtual-network/quick-create-portal.md)
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
@@ -474,9 +473,9 @@ Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 
 - Azure Resource Manager mallar
 
-> **När du ska använda**: När du arbetar med virtuella datorer i Azure kommer du att arbeta med virtuella nätverk. Detta möjliggör segmentering av dina virtuella datorer i offentliga och privata undernät som liknar lokala data Center.
+> **När du ska använda**: varje gång du arbetar med virtuella datorer i Azure kommer du att arbeta med virtuella nätverk. Detta möjliggör segmentering av dina virtuella datorer i offentliga och privata undernät som liknar lokala data Center.
 > 
-> **Kom igång**: Distribution av ett virtuellt Azure-nätverk med hjälp av Azure Portal kräver bara en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk till en ny eller befintlig resurs grupp. När du skapar en ny virtuell dator från portalen kan du välja ett befintligt virtuellt nätverk eller skapa ett nytt. Kom igång och [skapa ett virtuellt nätverk med hjälp av Azure Portal](../../virtual-network/quick-create-portal.md).
+> **Kom igång**: att distribuera ett virtuellt Azure-nätverk med hjälp av Azure Portal kräver bara en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk till en ny eller befintlig resurs grupp. När du skapar en ny virtuell dator från portalen kan du välja ett befintligt virtuellt nätverk eller skapa ett nytt. Kom igång och [skapa ett virtuellt nätverk med hjälp av Azure Portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Åtkomst och säkerhet för virtuella nätverk
 

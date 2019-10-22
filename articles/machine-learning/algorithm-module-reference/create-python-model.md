@@ -1,5 +1,5 @@
 ---
-title: 'Skapa python-modell: Modulreferens'
+title: 'Skapa python-modell: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder Create python modell-modellen i Azure Machine Learning-tjänsten för att skapa anpassade modeller eller data bearbetnings moduler.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: c6d7aabd41e9d0e872926adbbcb2d18332cb7d5e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2a035644dc0d3d533aa052217c89968a5692230b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128925"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693892"
 ---
 # <a name="create-python-model"></a>Skapa Python-modell
 
@@ -33,7 +33,7 @@ När du har skapat modellen kan du använda [träna modell](train-model.md) för
 Användningen av den här modulen kräver en mellanliggande eller expert kunskap om python. Modulen stöder användning av valfri elev som ingår i python-paketen som redan har installerats i Azure Machine Learning. Se förinstallerade python-paket lista i [Kör Python-skript](execute-python-script.md).
   
 
-I den här artikeln visas hur du använder **create python-modellen** med ett enkelt experiment. Nedan visas experimentets graf.
+I den här artikeln visas hur du använder **create python-modellen** med en enkel pipeline. Nedan visas diagrammet i pipelinen.
 
 ![Skapa python-modell](./media/module/aml-create-python-model.png)
 
@@ -75,7 +75,7 @@ class AzureMLModel:
 ```
 
 
-2. Anslut den **skapa python modell** -modul som du nyss skapade till en modell och **Poäng modell**
+2. Anslut den **skapa python modell** -modul som du nyss skapade **till en modell** och **Poäng modell**
 
 3. Om du behöver utvärdera modellen lägger du till ett [Kör Python-skript](execute-python-script.md) och redigerar python-skriptet för att implementera utvärderingen.
 

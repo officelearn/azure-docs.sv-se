@@ -7,48 +7,47 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 05/06/2019
-ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 10/16/2019
+ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187760"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692389"
 ---
 >[!IMPORTANT]
->Du kan använda de resurser som du skapade bland kraven för andra Azure Machine Learning-tjänsten självstudier och instruktionsartiklar.
+>Du kan använda de resurser som du har skapat som krav för andra Azure Machine Learning tjänst självstudier och instruktions artiklar.
 
+### <a name="delete-everything"></a>Ta bort allt
 
-### <a name="delete-everything"></a>Tar bort allt
+Om du inte planerar att använda något som du har skapat tar du bort hela resurs gruppen så att du inte debiteras några avgifter:
 
-Om du inte planerar att använda något som du skapade, tar du bort hela resursgruppen så att du inte betala något:
-
-1. I Azure-portalen väljer du **resursgrupper** på vänster sida av fönstret.
+1. I Azure Portal väljer du **resurs grupper** på vänster sida av fönstret.
  
    ![Ta bort resursgrupp i Azure-portalen](./media/aml-ui-cleanup/delete-resources.png)
 
-1. Välj den resursgrupp som du skapade i listan.
+1. I listan väljer du den resurs grupp som du skapade.
 
-1. På höger sida av fönstret, väljer du knappen med tre punkter ( **...** ).
+1. Välj knappen med tre punkter ( **...** ) på höger sida av fönstret.
 
 1. Välj **Ta bort resursgrupp**.
 
-Ta bort resursgruppen tar även bort alla resurser som du skapade i det visuella gränssnittet.  
+Om du tar bort resurs gruppen raderas även alla resurser som du skapade i det visuella gränssnittet.  
 
-### <a name="delete-only-the-compute-target"></a>Ta bort bara beräkningsmål
+### <a name="delete-only-the-compute-target"></a>Ta endast bort beräknings målet
 
-Beräkningsmål som du skapade här *automatiskt skalar* till noll noder när den inte används. Detta är att minimera kostnader. Om du vill ta bort beräkningsmål kan du göra följande:
+Beräknings målet som du skapade här *automatiskt skalar automatiskt* till noll noder när det inte används. Detta är att minimera kostnaderna. Gör så här om du vill ta bort beräknings målet:
 
-1. I den [Azure-portalen](https://portal.azure.com), öppna din arbetsyta.
+1. Öppna arbets ytan i [Azure Portal](https://portal.azure.com).
 
-    ![Ta bort beräkningsmål](./media/aml-ui-cleanup/delete-compute-target.png)
+    ![Ta bort beräknings målet](./media/aml-ui-cleanup/delete-compute-target.png)
 
-1. I den **Compute** avsnittet av arbetsytan och välj resursen.
+1. I avsnittet **Compute** i arbets ytan väljer du resursen.
 
 1. Välj **Ta bort**.
 
-### <a name="delete-individual-assets"></a>Ta bort enskilda tillgångar
+### <a name="delete-individual-assets"></a>Ta bort enskilda till gångar
 
-I det visuella gränssnittet där du skapade ditt experiment, ta bort enskilda tillgångar genom att markera dem och sedan välja den **ta bort** knappen.
+Ta bort enskilda till gångar i det visuella gränssnittet där du skapade experimentet genom att markera dem och sedan klicka på knappen **ta bort** . Data uppsättningar kan avregistreras från din arbets yta genom att markera varje data uppsättning och välja **avregistrera**.
 
-![Ta bort experiment](./media/aml-ui-cleanup/delete-experiment.png)
+![Ta bort till gångar](./media/aml-ui-cleanup/delete-asset.png)

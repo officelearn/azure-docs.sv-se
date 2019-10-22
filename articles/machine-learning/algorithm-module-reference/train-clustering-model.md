@@ -1,5 +1,5 @@
 ---
-title: 'Träna kluster modell: Modulreferens'
+title: 'Träna kluster modell: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen träna kluster modell i Azure Machine Learning tjänst för att träna kluster modeller.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 4883b1420913eb4e5f3bd5f13a95e410370d9184
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128482"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693654"
 ---
 # <a name="train-clustering-model"></a>Träna klustringsmodellen
 
@@ -22,14 +22,14 @@ I den här artikeln beskrivs en modul i Visual Interface (för hands version) f�
 
 Använd den här modulen för att träna en kluster modell.
 
-Modulen tar en modell för en modell som inte är tränad och som du redan har [](k-means-clustering.md) konfigurerat med hjälp av modulen för att klustra och träna modellen med en etikettad eller omärkt data uppsättning. Modulen skapar både en utbildad modell som du kan använda för förutsägelse och en uppsättning kluster tilldelningar för varje ärende i tränings data.
+Modulen tar en modell för en modell som inte är tränad och som du redan har konfigurerat med hjälp av modulen för att [klustra](k-means-clustering.md) och träna modellen med en etikettad eller omärkt data uppsättning. Modulen skapar både en utbildad modell som du kan använda för förutsägelse och en uppsättning kluster tilldelningar för varje ärende i tränings data.
 
 > [!NOTE]
 > En kluster modell kan inte tränas med modulen [träna modell](train-model.md) , som är den allmänna modulen för utbildning av Machine Learning-modeller. Det beror på att [tåg modellen](train-model.md) endast fungerar med övervakade Learning-algoritmer. K-och andra klustrade algoritmer tillåter oövervakad inlärning, vilket innebär att algoritmen kan lära sig från omärkta data.  
   
 ## <a name="how-to-use-train-clustering-model"></a>Använda träna kluster modell  
   
-1.  Lägg till modulen **träna klustring modell** i experimentet i Studio. Du hittar modulen under **Machine Learning moduler**, i kategorin **träna** .  
+1.  Lägg till modulen **träna klustring modell** i din pipeline i Studio. Du hittar modulen under **Machine Learning moduler**, i kategorin **träna** .  
   
 2. Lägg till modulen [K-betyder klustring](k-means-clustering.md) eller en annan anpassad modul som skapar en kompatibel kluster modell och anger parametrarna för kluster modellen.  
     
@@ -43,7 +43,7 @@ Modulen tar en modell för en modell som inte är tränad och som du redan har [
 
     Om du avmarkerar det här alternativet visas bara kluster tilldelningarna. 
 
-7. Kör experimentet eller klicka på modulen **träna klustring modell** och välj **Kör vald**.  
+7. Kör pipelinen eller klicka på modulen **träna klustring modell** och välj **Kör vald**.  
   
 ### <a name="results"></a>Resultat
 

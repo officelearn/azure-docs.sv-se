@@ -8,18 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: b5529babfae37fa0d9f4de46018bb3b107ce4eae
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 2c4af40886a81cbf8f8e11318737db05f570a1f0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265831"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692180"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Lägga till en anpassad färdighet i en kognitiv sökning-pipeline
 
 En [kognitiv Sök indexerings pipeline](cognitive-search-concept-intro.md) i Azure Search kan samlas in från [fördefinierade kunskaper](cognitive-search-predefined-skills.md) och [anpassade kunskaper](cognitive-search-custom-skill-web-api.md) som du själv skapar och lägger till i pipelinen. I den här artikeln lär du dig hur du skapar en anpassad färdighet som visar ett gränssnitt som gör att det kan tas med i en kognitiv Sök pipeline. 
 
-Genom att skapa en anpassad färdighet får du ett sätt att infoga omvandlingar som är unika för ditt innehåll. En anpassad färdighet körs oberoende av varandra och använder det steg du behöver. Du kan till exempel definiera specifika anpassade entiteter, skapa anpassade klassificerings modeller för att särskilja affärs-och finansiella kontrakt och dokument, eller lägga till en kunskap om tal igenkänning för att komma djupare till ljudfilerna för relevant innehåll. Ett steg-för-steg-exempel finns i [exempel: Skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md).
+Genom att skapa en anpassad färdighet får du ett sätt att infoga omvandlingar som är unika för ditt innehåll. En anpassad färdighet körs oberoende av varandra och använder det steg du behöver. Du kan till exempel definiera specifika anpassade entiteter, skapa anpassade klassificerings modeller för att särskilja affärs-och finansiella kontrakt och dokument, eller lägga till en kunskap om tal igenkänning för att komma djupare till ljudfilerna för relevant innehåll. Ett steg-för-steg-exempel finns i [exempel: skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md).
 
  Vilken anpassad funktion du behöver finns det ett enkelt och tydligt gränssnitt för att ansluta en anpassad färdighet till resten av pipelinen för anrikning. Det enda kravet för att inkludera i en [färdigheter](cognitive-search-defining-skillset.md) är möjligheten att acceptera indata och generera utdata på ett sätt som kan användas i färdigheter som helhet. Fokus för den här artikeln är i indata-och utdataformat som krävs för anriknings pipelinen.
 
@@ -36,7 +36,7 @@ Anpassad slut punkt för WebAPI-kunskaper som standard tids gräns om de inte re
 
 För närvarande är den enda mekanismen för att interagera med en anpassad färdighet via ett webb-API-gränssnitt. Webb-API-behoven måste uppfylla kraven som beskrivs i det här avsnittet.
 
-### <a name="1--web-api-input-format"></a>1.  Utdataformat för webb-API
+### <a name="1--web-api-input-format"></a>1. utdataformat för webb-API
 
 Webb-API: et måste acceptera en matris med poster som ska bearbetas. Varje post måste innehålla en "egenskaps uppsättning" som är den indata som ges till ditt webb-API. 
 
@@ -81,7 +81,7 @@ För att vara mer konkret, enligt exemplet ovan, bör ditt webb-API förvänta s
 ```
 I verkligheten kan din tjänst anropas med hundratals eller tusentals poster i stället för bara de tre som visas här.
 
-### <a name="2-web-api-output-format"></a>2. Utdataformat för webb-API
+### <a name="2-web-api-output-format"></a>2. utdataformat för webb-API
 
 Formatet på utdata är en uppsättning poster som innehåller ett *recordId*och en egenskaps uppsättning 
 
@@ -154,7 +154,8 @@ När du skapar en webb-API-berikare kan du beskriva HTTP-huvuden och-parametrar 
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Exempel: Skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
++ [Energi kunskaper: ett lager med anpassade kunskaper](https://aka.ms/powerskills)
++ [Exempel: skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Så här mappar du omfattande fält](cognitive-search-output-field-mapping.md)

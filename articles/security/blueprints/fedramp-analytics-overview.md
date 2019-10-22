@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: 9850c5f064815315db6f85a931e7e175d605dcc1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71257594"
 ---
-# <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure Security and Compliance Blueprint (Handlingsplan för säkerhet och efterlevnad i Azure): Analys för FedRAMP
+# <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Handlingsplan för säkerhet och efterlevnad i Azure: analys för FedRAMP
 
 ## <a name="overview"></a>Översikt
 
@@ -77,10 +77,10 @@ I följande avsnitt beskrivs utvecklings-och implementerings elementen.
 
 **Azure Analysis Service**: [Azure Analysis Service](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) ger företags data modellering och integrering med Azure Data Platform-tjänster. Azure Analysis Service påskyndar surfningen genom stora mängder data genom att kombinera data från flera källor i en enda data modell.
 
-**Power BI**: [Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) tillhandahåller analys-och rapporterings funktioner för kunder som försöker hämta bättre insikter från sina data bearbetnings ansträngningar.
+**Power BI**: [Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) ger analys-och rapporterings funktioner för kunder som försöker hämta bättre insikter från sina data bearbetnings ansträngningar.
 
 ### <a name="networking"></a>Nätverk
-**Nätverks säkerhets grupper**: [NSG: er](../../virtual-network/virtual-network-vnet-plan-design-arm.md) har kon figurer ATS för att hantera trafik riktade mot distribuerade resurser och tjänster. Nätverks säkerhets grupper ställs in på ett schema som nekas som standard och tillåter endast trafik som finns i den förkonfigurerade Access Control listan (ACL).
+**Nätverks säkerhets grupper**: [NSG: er](../../virtual-network/virtual-network-vnet-plan-design-arm.md) har ställts in för att hantera trafik riktade mot distribuerade resurser och tjänster. Nätverks säkerhets grupper ställs in på ett schema som nekas som standard och tillåter endast trafik som finns i den förkonfigurerade Access Control listan (ACL).
 
 Varje NSG: er har vissa portar och protokoll öppna så att lösningen kan fungera säkert och korrekt. Dessutom är följande konfigurationer aktiverade för varje NSG:
   - [Diagnostikloggar och händelser](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagrings konto
@@ -95,7 +95,7 @@ Arkitekturen skyddar data i vila genom kryptering, databas granskning och andra 
 
 **Azure Storage** För att möta krypterade data med rest-krav kan alla tjänster som distribueras i denna referens arkitektur använda [Azure Storage](https://azure.microsoft.com/services/storage/), vilket lagrar data med [kryptering för lagringstjänst](../../storage/common/storage-service-encryption.md).
 
-AzureDiskEncryption
+**Azure Disk Encryption** 
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) utnyttjar BitLocker-funktionen i Windows för att tillhandahålla volym kryptering för operativ system och data diskar. Lösningen integreras med Azure Key Vault för att hjälpa dig att styra och hantera disk krypterings nycklarna.
 
 **Azure SQL Database** Azure SQL Database-instansen använder följande säkerhets åtgärder för databasen:
@@ -110,16 +110,16 @@ AzureDiskEncryption
 ### <a name="logging-and-audit"></a>Loggning och granskning
 [Azure Monitor](../../azure-monitor/overview.md) genererar en all visning av övervaknings data, inklusive aktivitets loggar, Mät värden och diagnostikdata, vilket gör det möjligt för kunderna att skapa en fullständig bild av systemets hälsa.  
 [Azure Monitor loggar](../azure-security-disk-encryption-overview.md) innehåller omfattande loggning av system-och användar aktiviteter, samt system hälsan. Den samlar in och analyserar data som genererats av resurser i Azure och lokala miljöer.
-- **Aktivitets loggar**: [Aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) ger inblick i åtgärder som utförs på resurser i en prenumeration.
-- **Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar omfattar Windows händelse system loggar och Azure Blob Storage, tabeller och Queue-loggar.
+- **Aktivitets loggar**: [aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) ger inblick i åtgärder som utförs på resurser i en prenumeration.
+- **Diagnostikloggar**: [diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar omfattar Windows händelse system loggar och Azure Blob Storage, tabeller och Queue-loggar.
 - **Brand Väggs loggar**: Application Gateway innehåller fullständiga diagnostik-och åtkomst loggar. Brand Väggs loggar är tillgängliga för WAF-aktiverade Application Gateway-resurser.
-- **Logg arkivering**: Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering med en definierad kvarhållningsperiod på 2 dagar. Dessa loggar ansluter till Azure Monitor loggar för bearbetning, lagring och instrument panels rapportering.
+- **Logg arkivering**: alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering med en definierad kvarhållningsperiod på 2 dagar. Dessa loggar ansluter till Azure Monitor loggar för bearbetning, lagring och instrument panels rapportering.
 
 Dessutom ingår följande övervaknings lösningar som en del av den här arkitekturen:
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): Azure Automation lösning lagrar, kör och hanterar Runbooks.
--   [Säkerhet och granskning](../../security-center/security-center-intro.md): Säkerhet och granskning-instrumentpanelen ger bättre inblick i säkerhets läget för resurser genom att tillhandahålla mått på säkerhets domäner, viktiga problem, identifieringar, Hot information och vanliga säkerhets frågor.
--   [SQL-utvärdering](../../azure-monitor/insights/sql-assessment.md): I SQL Health Check-lösningen bedöms risken och hälsan i Server miljöer med jämna mellanrum och ger kunderna en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
--   [Azure-aktivitets loggar](../../azure-monitor/platform/collect-activity-logs.md): Aktivitetslogganalys lösning hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
+-   [Säkerhet och granskning](../../security-center/security-center-intro.md): säkerhet och granskning instrument panelen ger en stor inblick i säkerhets läget för resurser genom att tillhandahålla mått på säkerhets domäner, viktiga problem, identifieringar, Hot information och vanliga säkerhets frågor.
+-   [SQL-utvärdering](../../azure-monitor/insights/sql-assessment.md): med SQL-hälsokontroll-lösningen bedöms risken och hälsan i Server miljöer med jämna mellanrum och ger kunderna en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
+-   [Azure aktivitets loggar](../../azure-monitor/platform/collect-activity-logs.md): Aktivitetslogganalys lösning hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
 
 ### <a name="identity-management"></a>Identitetshantering
 -   Autentisering till programmet utförs med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Dessutom använder databasens kolumn kryptering Azure AD för att autentisera programmet till Azure SQL Database. Mer information finns i så här [skyddar du känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
@@ -129,7 +129,7 @@ Dessutom ingår följande övervaknings lösningar som en del av den här arkite
 Mer information om hur du använder säkerhetsfunktionerna i Azure SQL Database finns i exempel på [demonstrations program för Contoso-lektioner](https://github.com/Microsoft/azure-sql-security-sample) .
 
 ### <a name="security"></a>Säkerhet
-**Hemligheter, hantering**: Lösningen använder [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster.
+**Hemligheter, hantering**: lösningen använder [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster.
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
 
@@ -143,21 +143,21 @@ Mer information om hur du använder säkerhetsfunktionerna i Azure SQL Database 
 #### <a name="iaas---vm-considerations"></a>IaaS – överväganden för virtuella datorer
 Den här PaaS-lösningen inkluderar inte några virtuella Azure IaaS-datorer. En kund kan skapa en virtuell Azure-dator för att köra många av dessa PaaS-tjänster. I det här fallet kan specifika funktioner och tjänster för affärs kontinuitet och Azure Monitors loggar utnyttjas:
 
-##### <a name="business-continuity"></a>Verksamhetskontinuitet
+##### <a name="business-continuity"></a>Kontinuitet i verksamheten
 - **Hög tillgänglighet**: Server arbets belastningarna grupperas i en [tillgänglighets uppsättning](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att säkerställa hög tillgänglighet för virtuella datorer i Azure. Minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse som uppfyller 99,95% Azure SLA.
 
-- **Recovery Services valv**: [Recovery Services Vault](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) skyddar säkerhets kopierings data och skyddar alla konfigurationer av Azure-Virtual Machines i den här arkitekturen. Med ett Recovery Services-valv kan kunderna återställa filer och mappar från en virtuell IaaS-dator utan att återställa hela den virtuella datorn, vilket möjliggör snabbare återställnings tider.
+- **Recovery Services valv**: [Recovery Services valvet](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) skyddar säkerhetskopierade data och skyddar alla konfigurationer av Azure-Virtual Machines i den här arkitekturen. Med ett Recovery Services-valv kan kunderna återställa filer och mappar från en virtuell IaaS-dator utan att återställa hela den virtuella datorn, vilket möjliggör snabbare återställnings tider.
 
 ##### <a name="monitoring-solutions"></a>Övervakningslösningar
--   [AD-utvärdering](../../azure-monitor/insights/ad-assessment.md): Den Active Directory hälso kontroll lösningen utvärderar risker och hälso tillstånd för Server miljöer med jämna mellanrum och ger en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
--   [Utvärdering av program mot skadlig kod](../../security-center/security-center-install-endpoint-protection.md): Lösningen mot skadlig kod rapporterar om skadlig kod, hot och skydds status.
--   [Uppdateringshantering](../../automation/automation-update-management.md): Med den Uppdateringshantering lösningen kan kund hantering av säkerhets uppdateringar för operativ systemet, inklusive status för tillgängliga uppdateringar och processen för att installera nödvändiga uppdateringar.
--   [Agenthälsa](../../monitoring/monitoring-solution-agenthealth.md): Agenthälsa lösning rapporterar hur många agenter som distribueras och deras geografiska distribution, samt hur många agenter som inte svarar och antalet agenter som skickar drift data.
--   [Ändringsspårning](../../automation/change-tracking.md): Med Ändringsspårning-lösningen kan kunder enkelt identifiera ändringar i miljön.
+-   [AD-utvärdering](../../azure-monitor/insights/ad-assessment.md): den Active Directory hälso kontroll lösningen utvärderar hälso-och hälso tillståndet i Server miljöer med jämna mellanrum och ger en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
+-   [Utvärdering av program mot skadlig kod](../../security-center/security-center-install-endpoint-protection.md): lösnings rapporter för program mot skadlig kod för skadlig kod, hot och skydds status.
+-   [Uppdateringshantering](../../automation/automation-update-management.md): uppdateringshantering-lösningen tillåter kund hantering av säkerhets uppdateringar för operativ system, inklusive status för tillgängliga uppdateringar och processen för att installera nödvändiga uppdateringar.
+-   [Agenthälsa](../../monitoring/monitoring-solution-agenthealth.md): agenthälsa lösning rapporterar hur många agenter som distribueras och deras geografiska distribution, samt hur många agenter som inte svarar och antalet agenter som skickar drift data.
+-   [Ändringsspårning](../../automation/change-tracking.md): ändringsspårning-lösningen gör det möjligt för kunderna att enkelt identifiera ändringar i miljön.
 
 ##### <a name="security"></a>Säkerhet
-- **Skydd mot skadlig kod**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) för Virtual Machines ger real tids skydds funktioner som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara, med konfigurerbara aviseringar när kända skadlig eller oönskad program vara försöker installera eller kör på skyddade virtuella datorer.
-- **Uppdaterings hantering**: Virtuella Windows-datorer som distribueras som en del av den här referens arkitekturen konfigureras som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen omfattar även den [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) tjänsten genom vilken uppdaterade distributioner kan skapas för att korrigera virtuella datorer vid behov.
+- **Skydd mot skadlig kod**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) för Virtual Machines ger real tids skydds funktioner som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara med konfigurerbara aviseringar när kända skadliga eller oönskad program vara försöker installera eller köra på skyddade virtuella datorer.
+- **Uppdaterings hantering**: virtuella Windows-datorer som distribueras som en del av den här referens arkitekturen konfigureras som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen omfattar även den [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) tjänsten genom vilken uppdaterade distributioner kan skapas för att korrigera virtuella datorer vid behov.
 
 #### <a name="azure-commercial"></a>Azure-kommersiell
 Även om den här data analys arkitekturen inte är avsedd för distribution till den [kommersiella Azure](https://azure.microsoft.com/overview/what-is-azure/) -miljön, kan liknande mål uppnås genom tjänsterna som beskrivs i denna referens arkitektur, samt ytterligare tjänster som är tillgängliga endast i den kommersiella Azure-miljön. Observera att Azure Commercial har en FedRAMP JAB P-ATO på nivån måttlig påverkan, vilket gör det möjligt för myndigheter och partner att distribuera känslig känslig information till molnet som utnyttjar Azures kommersiella miljö.

@@ -1,5 +1,5 @@
 ---
-title: 'Dator med stöd för två klasser: Modulreferens'
+title: 'Dubbelriktad Vector-dator: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen **dubbelriktad Vector** i Azure Machine Learning-tjänsten för att skapa en modell som baseras på algoritmen för att stödja Vector-datorer.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 23f5c638146472b72078e76745e557b6babe7a49
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c58e66070f137f9c5d713a45682afac5f30bbd1e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128313"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692611"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Dubbelriktad Vector Machine-modul
 
@@ -38,11 +38,11 @@ För förutsägelse tilldelar SVM-algoritmen nya exempel till en kategori eller 
 
 För den här modell typen rekommenderar vi att du normaliserar data uppsättningen innan du använder den för att träna klassificeraren.
   
-1.  Lägg till modulen med **dubbelriktad Vector-support** i experimentet.  
+1.  Lägg till modulen för **dubbelriktad Vector-** modul i din pipeline.  
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: Om du vet hur du vill konfigurera modellen kan du ange en speciell uppsättning värden som argument.  
+    -   **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.  
 
 3.  För **antal iterationer**anger du ett tal som anger antalet iterationer som används när modellen skapas.  
   
@@ -62,12 +62,12 @@ För den här modell typen rekommenderar vi att du normaliserar data uppsättnin
   
 7.  Skriv ett heltals värde som ska användas som ett Seed-värde för att säkerställa reproducerbarhet i körningar i **slumptal**.  Annars används ett värde för system klockan som ett Seed, vilket kan resultera i något annorlunda resultat mellan körningar.
   
-9. Anslut en etikettad data uppsättning och en av modulerna för [utbildning](module-reference.md):
+9. Anslut en etikettad data uppsättning och en av [modulerna för utbildning](module-reference.md):
   
-    -   Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](train-model.md) .
+    -   Om du ställer in **skapa utbildare** för **en parameter**använder du modulen [träna modell](train-model.md) .
   
 
-10. Kör experimentet.
+10. Köra en pipeline.
 
 ## <a name="results"></a>Resultat
 

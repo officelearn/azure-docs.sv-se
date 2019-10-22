@@ -10,18 +10,38 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: f51b9c3032518fb66215126c5a8bf26ab9b59526
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: MT
+ms.openlocfilehash: 5ea900efffe1aa0eec768c5376128bad72e85ca4
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331574"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693537"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens. 
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+## <a name="2019-10-21"></a>2019-10-21
+
+### <a name="visual-interface-preview"></a>Visuellt gränssnitt (för hands version)
+
++ Azure Machine Learning Visual Interface (för hands version) har övergått för att köras på [Azure Machine Learning pipeliner](concept-ml-pipelines.md). Pipelines (tidigare experiment som experiment) som skapats i det visuella gränssnittet är nu helt integrerade med kärnan Azure Machine Learning-upplevelsen.
+  + Enhetlig hanterings upplevelse med SDK-tillgångar
+  + Versions hantering och spårning för Visual Interface-modeller, pipeliner och slut punkter 
+  + Användar gränssnittet har återskapats
+  + Distribution av batch-inferencing har lagts till
+  + Stöd för Azure Kubernetes service (AKS) har lagts till för inferencing Compute-mål
+  + Nytt arbets flöde för pipeline-steg för pipeline-redigering
+  + Ny [landnings sida](https://ml.azure.com) för visuella redigerings verktyg
+
++ **Nya moduler**
+  + Använd matematik åtgärd
+  + Använd SQL-transformering
+  + Klipp värden
+  + Sammanfatta data
+  + Importera från SQL Database  
 
 ## <a name="2019-10-14"></a>2019-10-14
 
@@ -68,6 +88,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     + Den överordnade körningen kommer inte längre att Miss lyckas när installationen iterationen misslyckades eftersom det redan tar hand om dirigeringen.
     + Local-Docker och Local-Conda-stöd har lagts till för AutoML-experiment
 
+
 ## <a name="2019-10-08"></a>2019-10-08
 
 ### <a name="new-web-experience-preview-for-azure-machine-learning-workspaces"></a>Ny webb miljö (för hands version) för Azure Machine Learning arbets ytor
@@ -111,7 +132,7 @@ Fliken experiment i den [nya arbets ytans Portal](http://ml.azure.com) har uppda
   + **azureml – kärna**
     + Möjlighet att hämta SAS-URL till modellen i lagring via Model-objektet har lagts till. Ex: modell. get _sas_url ()
     + Introducera `run.get_details()['datasets']` för att hämta data uppsättningar som är associerade med den skickade körningen
-    + Lägg till API `Dataset.Tabular.from_json_lines_files` om du vill skapa en TabularDataset från JSON-filer. Om du vill lära dig mer om dessa tabell data i JSON-filer på TabularDataset går du till https://aka.ms/azureml-data för dokumentation.
+    + Lägg till API-`Dataset.Tabular.from_json_lines_files` för att skapa en TabularDataset från JSON-filer. Om du vill lära dig mer om dessa tabell data i JSON-filer på TabularDataset går du till https://aka.ms/azureml-data för dokumentation.
     + Ytterligare fält för VM-storlek (OS-disk, antal GPU: er) har lagts till i funktionen supported_vmsizes ()
     + Ytterligare fält har lagts till i funktionen list_nodes () för att Visa körningen, den privata och den offentliga IP-adressen, porten osv.
     + Möjlighet att ange ett nytt fält under kluster etableringen – remotelogin_port_public_access som kan ställas in på aktive rad eller inaktive ras beroende på om du vill lämna SSH-porten öppen eller stängd vid tidpunkten för att skapa klustret. Om du inte anger det öppnas tjänsten Smartt, eller så stängs porten beroende på om du distribuerar klustret i ett virtuellt nätverk.
@@ -150,7 +171,7 @@ Fliken experiment i den [nya arbets ytans Portal](http://ml.azure.com) har uppda
     + Har återhämtat undantags hanteringen i ADB-koden och gör ändringar till enligt den nya fel hanteringen
     + Automatisk MSI-autentisering för virtuella dator datorer lades till.
     + Korrigerar fel där skadade eller tomma modeller kan laddas upp på grund av misslyckade återförsök.
-    + Åtgärdade felet där `DataReference`-namn ändras när `DataReference`-läget ändras (t. ex. vid anrop till `as_upload`, `as_download` eller `as_mount`).
+    + Åtgärdade felet där `DataReference` namn ändras när `DataReference` läge ändras (t. ex. vid anrop av `as_upload`, `as_download` eller `as_mount`).
     + Gör `mount_point` och `target_path` valfritt för `FileDataset.mount` och `FileDataset.download`.
     + Det går inte att hitta tidsstämpel-kolumnen som ska utföras om tids serie-API: t anropas utan att en fin tidsstämpelkolumn-kolumn har tilldelats eller när de tilldelade tidsstämpelkolumn-kolumnerna har släppts.
     + Tids serie kolumner ska tilldelas med en kolumn vars typ är datum, annars förväntas ett undantags fel
@@ -172,7 +193,7 @@ Fliken experiment i den [nya arbets ytans Portal](http://ml.azure.com) har uppda
   + **azureml-träna-Core**
     + Återställningen av source_directory_data_store-utfasningen.
     + Möjligheten att åsidosätta azureml installerade paket versioner har lagts till. 
-    + Stöd för Dockerfile har lagts till i `environment_definition`-parametern i uppskattningar.
+    + Stöd för Dockerfile har lagts till i `environment_definition` parameter i uppskattningar.
     + Förenklade utbildnings parametrar i uppskattningar.
          ```py 
         from azureml.train.dnn import TensorFlow, Mpi, ParameterServer 
@@ -224,7 +245,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + AutoML-modeller returnerar nu AutoMLExceptions
     + Den här versionen förbättrar körnings prestandan för automatiserade lokala Machine Learning-körningar.
   + **azureml – kärna**
-    + Introducera data uppsättning. get _all (arbets yta), som returnerar en ord lista med `TabularDataset` och `FileDataset`-objekt som har registrerats med registrerings namnet. 
+    + Introducera data uppsättning. get _all (arbets yta), som returnerar en ord lista med `TabularDataset` och `FileDataset` objekt som har registrerats med registrerings namnet. 
     
     ```py 
     workspace = Workspace.from_config() 
@@ -233,7 +254,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     ```
     
     + Introducera `parition_format` som argument för `Dataset.Tabular.from_delimited_files` och `Dataset.Tabular.from_parquet.files`. Partitionsinformation för varje data Sök väg extraheras till kolumner baserat på det angivna formatet. {column_name} skapar en sträng kolumn och {column_name: ÅÅÅÅ/MM/dd/HH/mm/SS} skapar kolumnen DateTime, där ÅÅÅÅ, MM, DD, HH, mm och SS används för att extrahera år, månad, dag, timme, minut och sekund för datum/tid-typen. Partition_format bör starta från positionen för den första partitionen tills fil Sök vägen är slut. Till exempel, med sökvägen ".. /USA/2019/01/01/data.csv "där partitionen är per land och tid, partition_format ="/{Country}/{PartitionDate: ÅÅÅÅ/MM/DD}/data. csv "skapar sträng kolumnen land med värdet" USA "och datetime-kolumnen" PartitionDate "med värdet" 2019-01-01 ".
-    + `to_csv_files` och `to_parquet_files`-metoder har lagts till i `TabularDataset`. Dessa metoder aktiverar konvertering mellan en `TabularDataset` och en `FileDataset` genom att konvertera data till filer med det angivna formatet.
+    + `to_csv_files`-och `to_parquet_files`s metoder har lagts till i `TabularDataset`. Dessa metoder aktiverar konvertering mellan en `TabularDataset` och en `FileDataset` genom att konvertera data till filer med det angivna formatet.
     + Logga automatiskt in i bas avbildnings registret när du sparar en Dockerfile som genereras av Model. Package ().
     + ' gpu_support ' behövs inte längre. AzureML identifierar och använder nu NVIDIA Docker-tillägget när det är tillgängligt. Den kommer att tas bort i en framtida version.
     + Stöd har lagts till för att skapa, uppdatera och använda PipelineDrafts.
@@ -258,8 +279,8 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
 ### <a name="azure-machine-learning-data-prep-sdk-v1114"></a>Azure Machine Learning data prep SDK v 1.1.14
 + **Fel korrigeringar och förbättringar**
   + Aktiverade skrivning till ADLS/ADLSGen2 med hjälp av rå sökväg och autentiseringsuppgifter.
-  + Ett fel som orsakade `include_path=True` har åtgärd ATS för `read_parquet`.
-  + Åtgärdat `to_pandas_dataframe()` orsakades av undantags felet "ogiltigt egenskaps värde: hostSecret".
+  + En bugg har åtgärd ATS som orsakade `include_path=True` inte att fungera för `read_parquet`.
+  + Fel i den fasta `to_pandas_dataframe()` orsakades av undantaget "ogiltigt egenskaps värde: hostSecret".
   + Ett fel har åtgärd ATS där filer inte kunde läsas på DBFS i Spark-läge.
   
 ## <a name="2019-08-19"></a>2019-08-19
@@ -308,7 +329,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Nu kan du uppdatera SSL-certifikatet för den poängsättnings slut punkt som distribueras i AKS-kluster både för Microsoft-genererade och kund certifikat.
   + **azureml – förklara-modell**
     + Parameter har lagts till för att lägga till ett modell-ID till förklaringar vid uppladdning.
-    + Lade till `is_raw` taggning till förklaringar i minnet och ladda upp.
+    + Lade till `is_raw` tagga till förklaringar i minnet och ladda upp.
     + Stöd för pytorch och tester har lagts till för azureml-förklarar-modell-paketet.
   + **azureml – OpenData uppsättningar**
     + Stöd för att identifiera och logga automatiska test miljöer.
@@ -331,11 +352,11 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>Azure Machine Learning data prep SDK v 1.1.12
 + **Nya funktioner**
-  + Lista över strängar kan nu skickas som inpassad till `read_*`-metoder.
+  + Lista över strängar kan nu skickas som inpassad till `read_*` metoder.
 
 + **Fel korrigeringar och förbättringar**
-  + Prestanda för `read_parquet` har förbättrats avsevärt vid körning i Spark.
-  + Ett problem har åtgärd ATS där `column_type_builder` misslyckades i händelse av en enskild kolumn med tvetydiga datum format.
+  + Prestanda för `read_parquet` har förbättrats avsevärt när de kördes i Spark.
+  + Ett problem har åtgärd ATS där `column_type_builder` misslyckades om det skulle finnas en enstaka kolumn med tvetydiga datum format.
 
 ### <a name="azure-portal"></a>Azure portal
 + **Förhands gransknings funktion**
@@ -397,7 +418,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
 
 + **Nya funktioner**
   + Du kan nu begära att köra vissa kontroller (t. ex. histogram, punkt diagram osv.) i vissa kolumner.
-  + Ett parallellisera-argument har lagts till i `append_columns`. Om värdet är true kommer data att läsas in i minnet, men körningen körs parallellt. om det här värdet är False kommer körningen att strömmas, men en enkel tråd.
+  + Ett parallellisera-argument har lagts till för `append_columns`. Om värdet är true kommer data att läsas in i minnet, men körningen körs parallellt. om det här värdet är False kommer körningen att strömmas, men en enkel tråd.
 
 ## <a name="2019-07-23"></a>2019-07-23
 
@@ -424,7 +445,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Med prognostisering kan du nu använda olika frekvenser i träna och test uppsättningar om de kan justeras. Till exempel kan "kvartals vis som börjar i januari" och "kvartals vis start i oktober" justeras.
     + Egenskapen "parametrar" har lagts till i TimeSeriesTransformer.
     + Ta bort gamla undantags klasser.
-    + I prognos uppgifter accepterar parametern `target_lags` nu ett heltals värde eller en lista med heltal. Om heltalet angavs skapas bara en fördröjning. Om en lista anges kommer de unika värdena för lags att tas. target_lags = [1, 2, 2, 4] kommer att skapa lags av en, 2 och 4 perioder.
+    + I prognos uppgifter accepterar `target_lags`-parametern nu ett heltals värde eller en lista med heltal. Om heltalet angavs skapas bara en fördröjning. Om en lista anges kommer de unika värdena för lags att tas. target_lags = [1, 2, 2, 4] kommer att skapa lags av en, 2 och 4 perioder.
     + Åtgärda felet om att förlora kolumn typer efter transformeringen (fel länkad);
     + I `model.forecast(X, y_query)` kan y_query vara en objekt typ som inte innehåller några (s) i början (#459519).
     + Lägg till förväntade värden i automl-utdata
@@ -440,7 +461,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Uppdatera NimbusML-beroendet till 1.2.0-versionen (aktuell senaste).
   + **azureml – kärna**
     + Har lagt till möjligheten att bifoga DBFS-datalager i AzureML CLI 
-    + Korrigerade felet med data lager uppladdning där en tom mapp skapas om `target_path` har startats med `/`
+    + Korrigerade felet med data lager uppladdning där en tom mapp skapas om `target_path` startas med `/`
     + Fast deepcopy-problem i ServicePrincipalAuthentication.
     + Har lagt till kommandona "AZ ml Environment show" och "AZ ml Environment List" i CLI.
     + Miljöer har nu stöd för att ange en base_dockerfile som ett alternativ till redan skapade base_image.
@@ -450,9 +471,9 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Fast bugg som skrev tom varaktighet för distributioner som inträffar när du skapar en arbets yta för vissa miljöer.
     + Förbättrad arbets yta skapa fel undantag. Så att användarna inte ser "det går inte att skapa arbets ytan. Det gick inte att hitta... " som meddelandet och se i stället det faktiska fel meddelandet.
     + Lägg till stöd för token-autentisering i AKS-webbtjänster. 
-    + Lägg till `get_token()`-metoden i `Webservice` objekt.
+    + Lägg till `get_token()` metod för att `Webservice` objekt.
     + CLI-stöd har lagts till för hantering av Machine Learning-datauppsättningar.
-    + `Datastore.register_azure_blob_container` kan du nu använda ett `blob_cache_timeout`-värde (i sekunder) som konfigurerar blobfuses monterings parametrar för att aktivera förfallo tid för cacheminnet för det här data lagret. Standardvärdet är ingen tids gräns, d.v.s. När en BLOB läses, kommer den att stanna kvar i det lokala cacheminnet tills jobbet är klart. De flesta jobb föredrar den här inställningen, men vissa jobb behöver läsa mer data från en stor data uppsättning än vad som får plats på deras noder. För dessa jobb kan du justera den här parametern för att lyckas. Var försiktig när du justerar den här parametern: om du ställer in värdet för lågt kan det leda till dåliga prestanda, eftersom data som används i en epok går ut innan de används igen. Det innebär att alla läsningar görs från Blob Storage (dvs. nätverket) i stället för det lokala cacheminnet, vilket påverkar inlärnings tiderna negativt.
+    + `Datastore.register_azure_blob_container` kan nu använda ett `blob_cache_timeout`-värde (i sekunder) som konfigurerar blobfuses monterings parametrar för att aktivera förfallo tid för cacheminnet för det här data lagret. Standardvärdet är ingen tids gräns, d.v.s. När en BLOB läses, kommer den att stanna kvar i det lokala cacheminnet tills jobbet är klart. De flesta jobb föredrar den här inställningen, men vissa jobb behöver läsa mer data från en stor data uppsättning än vad som får plats på deras noder. För dessa jobb kan du justera den här parametern för att lyckas. Var försiktig när du justerar den här parametern: om du ställer in värdet för lågt kan det leda till dåliga prestanda, eftersom data som används i en epok går ut innan de används igen. Det innebär att alla läsningar görs från Blob Storage (dvs. nätverket) i stället för det lokala cacheminnet, vilket påverkar inlärnings tiderna negativt.
     + Modell beskrivningen kan nu uppdateras korrekt efter registreringen
     + Modell-och bild borttagning innehåller nu mer information om överordnade objekt som är beroende av dem och som gör att borttagningen Miss fungerar
     + Förbättra resursutnyttjande för fjärrkörningar med hjälp av azureml. mlflow.
@@ -465,7 +486,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + åtgärds prioritet för fast permutation när omvandlings argument har angetts för att hämta funktioner för RAW-funktioner
     + Lägg till batch_size i härmar förklaring när include_local = falskt för att strömma globala förklaringar i batchar för att förbättra körnings tiden för DecisionTreeExplainableModel
     + för modell för förklarande av modeller är fasta blackbox-förklaringar där Pandas dataframe Indatatyp krävs för förutsägelse
-    + En bugg har åtgärd ATS där `explanation.expected_values` ibland skulle returnera ett flyttal i stället för en lista med ett flyttal.
+    + Ett fel har åtgärd ATS där `explanation.expected_values` ibland skulle returnera ett flyttal i stället för en lista med ett flyttal.
   + **azureml – mlflow**
     + Förbättra prestanda för mlflow. Set _experiment (experiment_name)
     + Åtgärda fel som används av InteractiveLoginAuthentication för mlflow-tracking_uri
@@ -610,8 +631,8 @@ Vi har återställt en ändring som förbättrade prestanda, eftersom det orsaka
 
 + **Fel korrigeringar och förbättringar**
   + Avsevärt bättre prestanda för `read_pandas_dataframe`.
-  + En bugg har åtgärd ATS som skulle orsaka `get_profile()` på ett data flöde som pekar på binära filer för att fungera.
-  + Exponerad `set_diagnostics_collection()` för att tillåta programmerings aktivering/inaktive ring av telemetri-samlingen.
+  + En bugg har åtgärd ATS som skulle orsaka `get_profile()` på ett data flöde som pekar på binärfiler för att fungera.
+  + Exponerade `set_diagnostics_collection()` för att tillåta programmerings aktivering/inaktive ring av telemetri-samlingen.
   + Ändrade beteendet för `get_profile()`. NaN-värden ignoreras nu för min, medelvärde, STD och sum, som justeras med beteendet för Pandas.
 
 
@@ -641,12 +662,12 @@ Vi har återställt en ändring som förbättrade prestanda, eftersom det orsaka
   + Cachelagring har lagts till i ServicePrincipalAuthentication, inaktiverat som standard.
   + Aktivera loggning av flera ritytor under samma mått namn.
   + Modell klassen har nu kunnat importeras från azureml. Core (`from azureml.core import Model`).
-  + I pipeline-steg är `hash_path`-parametern nu föråldrad. Det nya beteendet är att hash fullständig source_directory, förutom filer som anges i. amlignore eller. gitignore.
-  + I pipeline-paket har olika `get_all`-och `get_all_*`-metoder föråldrats till förmån för `list` respektive `list_*`.
+  + I pipeline-steg är `hash_path` parameter nu föråldrad. Det nya beteendet är att hash fullständig source_directory, förutom filer som anges i. amlignore eller. gitignore.
+  + I pipeline-paket har olika `get_all` och `get_all_*`s metoder ersatts av `list` respektive `list_*`.
   + azureml. Core. Hämta _run kräver inte längre klasser som ska importeras innan den ursprungliga körnings typen returneras.
   + Ett problem har åtgärd ATS där vissa anrop till WebService Update inte utlöser en uppdatering.
   + Tids gränsen för AKS-webbtjänster ska vara mellan 5ms och 300000ms. Maximalt antal tillåtna scoring_timeout_ms för Poäng begär Anden har dragits från 1 min till 5 min.
-  + LocalWebservice-objekt har nu `scoring_uri`-och `swagger_uri`-egenskaper.
+  + LocalWebservice-objekt har nu `scoring_uri` och `swagger_uri` egenskaper.
   + Flyttade utdata katalog skapar och matar ut katalog uppladdning från användar processen. Körnings historik SDK har Aktiver ATS för körning i alla användar processer. Detta bör lösa vissa synkroniseringsproblem som uppstår i distribuerade utbildnings körningar.
   + Namnet på azureml-loggen som skrivs från användar processens namn kommer nu att innehålla process namn (endast för distribuerad utbildning) och PID.
 
@@ -655,7 +676,7 @@ Vi har återställt en ändring som förbättrade prestanda, eftersom det orsaka
 + **Fel korrigeringar och förbättringar**
   + För tolkade datetime-värden som har ett tvåsiffrigt årtals format har intervallet för giltiga år uppdaterats för att matcha Windows-versionen. Intervallet har ändrats från 1930-2029 till 1950-2049.
   + När du läser in en fil och anger `handleQuotedLineBreaks=True`, kommer `\r` att behandlas som en ny rad.
-  + En bugg har åtgärd ATS som orsakade `read_pandas_dataframe` för att krascha i vissa fall.
+  + En bugg har åtgärd ATS som orsakade `read_pandas_dataframe` att krascha i vissa fall.
   + Bättre prestanda för `get_profile`.
   + Förbättrade fel meddelanden.
 
@@ -667,9 +688,9 @@ Vi har återställt en ändring som förbättrade prestanda, eftersom det orsaka
   + Du kan nu använda följande funktioner för uttrycks språk för att extrahera och parsa datetime-värden i nya kolumner.
     + `RegEx.extract_record()` extraherar datetime-element till en ny kolumn.
     + `create_datetime()` skapar DateTime-objekt från separata datetime-element.
-  + När du anropar `get_profile()` kan du nu se att quantile-kolumner är märkta som (EST.) för att tydligt indikera att värdena är ungefärliga.
+  + När du anropar `get_profile()` kan du nu se att quantile-kolumner är märkta som (EST.) för att tydligt ange att värdena är approximationer.
   + Du kan nu använda * * globbing när du läser från Azure Blob Storage.
-    + t. ex. `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+    + otillräcklig.  `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
 
 + **Fel korrigeringar**
   + Åtgärdade en bugg som är relaterad till läsning av en Parquet-fil från en fjärran sluten källa (Azure Blob).
@@ -790,7 +811,7 @@ Använd en Notebook VM som en säker, företags färdig värd miljö för Jupyte
 
 Azure Machine Learning SDK för python v-1.0.30 har släppts.
 
-[@No__t-1](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py) introducerades för att lägga till en ny version av en publicerad pipeline och samtidigt behålla samma slut punkt.
+[@No__t_1](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py) introducerades för att lägga till en ny version av en publicerad pipeline samtidigt som du behåller samma slut punkt.
 
 ## <a name="2019-04-17"></a>2019-04-17
 
@@ -805,14 +826,14 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
     + Exempel:
       + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
       + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
-  + Nu kan du använda `to_upper` @ no__t-1AND `to_lower` @ no__t-3functions i uttrycks språk.
+  + Du kan nu använda `to_upper`  and `to_lower`  functions i uttrycks språk.
   + Nu kan du se antalet unika värden för varje kolumn i en data profil.
   + För några av de ofta använda läsar stegen kan du nu skicka argumentet `infer_column_types`. Om det är inställt på `True` försöker data prepare identifiera och automatiskt konvertera kolumn typer.
     + `inference_arguments` är nu föråldrad.
   + Du kan nu anropa `Dataflow.shape`.
 
 + **Fel korrigeringar och förbättringar**
-  + `keep_columns` @ no__t-1now accepterar ett ytterligare valfritt argument `validate_column_exists`, som kontrollerar om resultatet av `keep_columns` innehåller några kolumner.
+  + `keep_columns`  now accepterar ytterligare ett valfritt argument `validate_column_exists`, som kontrollerar om resultatet av `keep_columns` ska innehålla kolumner.
   + Alla läsar steg (som läses från en fil) accepterar nu ytterligare ett valfritt argument `verify_exists`.
   + Bättre prestanda vid läsning från Pandas dataframe och hämtning av data profiler.
   + Ett fel har åtgärd ATS där segmentering av ett enskilt steg från ett data flöde misslyckades med ett enda index.
@@ -831,7 +852,7 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
 
 + **Nya funktioner**
   + Azure Machine Learning SDK stöder nu python 3,7.
-  + Azure Machine Learning DNN-uppskattningar har nu inbyggt stöd för flera versioner. Exempel: `TensorFlow` @ no__t-1estimator accepterar nu en `framework_version`-parameter, och användarna kan ange version 1,10 eller 1,12. Om du vill ha en lista över de versioner som stöds av din aktuella SDK-version anropar du `get_supported_versions()` på den önskade Ramverks klassen (till exempel `TensorFlow.get_supported_versions()`).
+  + Azure Machine Learning DNN-uppskattningar har nu inbyggt stöd för flera versioner. Exempel: `TensorFlow`  estimator nu accepterar en `framework_version`-parameter och användare kan ange version 1,10 eller 1,12. Om du vill ha en lista över versioner som stöds av din aktuella SDK-version anropar `get_supported_versions()` i den önskade Ramverks klassen (till exempel `TensorFlow.get_supported_versions()`).
   En lista över de versioner som stöds av den senaste SDK-versionen finns i [dokumentationen för DNN-uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning data prep SDK v 1.1.1
@@ -874,8 +895,8 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
 
 + **Fel korrigeringar och förbättringar**
   + Nu kan du ange antalet lager platser som ska användas i ett histogram för numeriska kolumn profiler.
-  + Transformeringen av `read_pandas_dataframe` kräver nu att DataFrame har namn för sträng-eller byte-typ.
-  + En bugg har åtgärd ATS i `fill_nulls`-transformeringen, där värdena inte fylldes i korrekt om kolumnen saknades.
+  + Den `read_pandas_dataframe` transformeringen kräver nu att DataFrame har namn som är sträng-eller byte-typ.
+  + En bugg har åtgärd ATS i `fill_nulls` Transform, där värdena inte fylldes i korrekt om kolumnen saknades.
 
 ## <a name="2019-03-11"></a>2019-03-11
 
@@ -942,8 +963,8 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
   +  DataTranferStep har uppdaterats för att fungera med Azure SQL Server och Azure Database för PostgreSQL ([Notebook](https://aka.ms/pl-data-trans)).
 
 + **Något**
-  + Inaktuell `PublishedPipeline.get_published_pipeline` till förmån för `PublishedPipeline.get`.
-  + Inaktuell `Schedule.get_schedule` till förmån för `Schedule.get`.
+  + Föråldrad `PublishedPipeline.get_published_pipeline` till förmån för `PublishedPipeline.get`.
+  + Föråldrad `Schedule.get_schedule` till förmån för `Schedule.get`.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning data prep SDK v 1.0.12
 
@@ -952,8 +973,8 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
  
 + **Något**
   + Bättre minnes prestanda för vissa åtgärder på stora data.
-  + `read_pandas_dataframe()` kräver nu `temp_folder` för att anges.
-  + Egenskapen `name` på `ColumnProfile` har föråldrats, Använd `column_name` i stället.
+  + för `read_pandas_dataframe()` måste `temp_folder` anges.
+  + Egenskapen `name` på `ColumnProfile` är inaktuell, Använd `column_name` i stället.
 
 ## <a name="2019-01-28"></a>2019-01-28
 
@@ -1014,10 +1035,10 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning data prep SDK v 1.0.4
 
 + **Nya funktioner**
-  + funktionen `to_bool` tillåter nu att felmatchade värden konverteras till fel värden. Detta är det nya standard beteendet för matchnings fel för `to_bool` och `set_column_types`, medan det tidigare standard beteendet var att konvertera felmatchade värden till false.
+  + `to_bool` funktionen tillåter nu att felmatchade värden konverteras till fel värden. Detta är det nya standard beteendet för matchning av `to_bool` och `set_column_types`, medan det tidigare standard beteendet var att konvertera felmatchade värden till false.
   + När du anropar `to_pandas_dataframe` finns det ett nytt alternativ för att tolka null/saknade värden i numeriska kolumner som NaN.
   + Möjlighet att kontrol lera retur typen för vissa uttryck har lagts till för att säkerställa typ konsekvens och misslyckade tidiga.
-  + Du kan nu anropa `parse_json` för att parsa värden i en kolumn som JSON-objekt och expandera dem till flera kolumner.
+  + Nu kan du anropa `parse_json` för att parsa värden i en kolumn som JSON-objekt och expandera dem till flera kolumner.
 
 + **Fel korrigeringar**
   + Ett fel har åtgärd ATS som kraschade `set_column_types` i python-3.5.2.
@@ -1073,7 +1094,7 @@ Azure Machine Learning Compute kan skapas i python, med Azure Portal eller CLI. 
 + **Fel korrigeringar**
   * Använd den senaste AML-körningen när du läser från och skriver till data lager på fjärrkörningar. Tidigare, om AML kör token uppdateras i python, uppdateras inte data förberedelse körningen med den uppdaterade AML kör token.
   * Ytterligare fel meddelanden
-  * to_spark_dataframe () kommer inte längre att krascha när Spark använder `Kryo`-serialisering
+  * to_spark_dataframe () kommer inte längre att krascha när Spark använder `Kryo` serialisering
   * Värdes räknings kontrollen kan nu Visa fler än 1000 unika värden
   * Slumpmässig delning fungerar inte längre om det ursprungliga data flödet inte har något namn  
 

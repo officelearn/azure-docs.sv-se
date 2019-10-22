@@ -1,5 +1,5 @@
 ---
-title: 'Redigera metadata: Modulreferens'
+title: 'Redigera metadata: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen redigera metadata i Azure Machine Learning-tjänsten för att ändra metadata som är associerade med kolumner i en data uppsättning.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 642b2a038ec434584c8af6dd72d58810e136ed57
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128872"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693815"
 ---
 # <a name="edit-metadata-module"></a>Redigera metadata-modul
 
@@ -34,13 +34,13 @@ Typiska metadata-ändringar kan innehålla:
   
 + Byta namn på kolumner.
   
- Använd redigera metadata när som helst behöver du ändra definitionen för en kolumn, vanligt vis för att uppfylla kraven för en underordnad modul. Till exempel fungerar vissa moduler bara med vissa data typer eller kräver flaggor på kolumnerna, till `IsFeature` exempel eller. `IsCategorical`  
+ Använd redigera metadata när som helst behöver du ändra definitionen för en kolumn, vanligt vis för att uppfylla kraven för en underordnad modul. Till exempel fungerar vissa moduler bara med vissa data typer eller kräver flaggor på kolumnerna, till exempel `IsFeature` eller `IsCategorical`.  
   
  När du har utfört den begärda åtgärden kan du återställa metadata till dess ursprungliga tillstånd.
   
 ## <a name="configure-edit-metadata"></a>Konfigurera redigera metadata
   
-1. I Azure Machine Learning lägger du till modulen redigera metadata i experimentet och ansluter den data uppsättning som du vill uppdatera. Du kan hitta data uppsättningen under **dataomvandling** i kategorin för **manipulering** .
+1. I Azure Machine Learning lägger du till modulen redigera metadata i din pipeline och ansluter den data uppsättning som du vill uppdatera. Du kan hitta data uppsättningen under **dataomvandling** i kategorin för **manipulering** .
   
 1. Välj **Starta kolumn väljaren** och välj den kolumn eller uppsättning kolumner som du vill arbeta med. Du kan välja kolumner individuellt efter namn eller index, eller så kan du välja en grupp med kolumner efter typ.  
   
@@ -63,7 +63,7 @@ Typiska metadata-ändringar kan innehålla:
   
 1. Använd alternativet **fält** om du vill ändra hur Azure Machine Learning använder data i en modell.
 
-    + **Funktion**: Använd det här alternativet om du vill flagga en kolumn som en funktion i moduler som endast fungerar på funktions kolumner. Som standard behandlas alla kolumner som inlednings vis som-funktioner.  
+    + **Funktion**: Använd det här alternativet för att flagga en kolumn som en funktion i moduler som endast fungerar på funktions kolumner. Som standard behandlas alla kolumner som inlednings vis som-funktioner.  
   
     + **Etikett**: Använd det här alternativet för att markera etiketten, som även kallas för det förutsägbara attributet eller mål variabeln. Många moduler kräver att exakt en etikett kolumn finns i data uppsättningen.
 
@@ -80,9 +80,9 @@ Typiska metadata-ändringar kan innehålla:
   
          Alla kolumner behandlas från början som funktioner. För moduler som utför matematiska åtgärder kan du behöva använda det här alternativet för att förhindra att numeriska kolumner behandlas som variabler.
   
-    + **Rensa etikett**: Använd det här alternativet om du vill ta bort etikettens metadata från den angivna kolumnen.  
+    + **Rensa etikett**: Använd det här alternativet om du vill ta bort **etikettens** metadata från den angivna kolumnen.  
   
-    + **Ta bort Poäng**: Använd det här alternativet om du vill ta bort **score** metadata från den angivna kolumnen.  
+    + **Rensa Poäng**: Använd det här alternativet om du vill ta bort **score** metadata från den angivna kolumnen.  
   
          Du kan för närvarande inte uttryckligen Markera en kolumn som en poäng i Azure Machine Learning. Vissa åtgärder resulterar dock i en kolumn som flaggas som ett resultat internt. Dessutom kan en anpassad R-modul returnera Poäng värden.
 
@@ -94,7 +94,7 @@ Typiska metadata-ändringar kan innehålla:
   
     + Alla markerade kolumner måste byta namn. Du kan inte utelämna eller hoppa över kolumner.  
   
-1. Kör experimentet.  
+1. Köra en pipeline.  
 
 ## <a name="next-steps"></a>Nästa steg
 

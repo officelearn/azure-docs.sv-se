@@ -10,10 +10,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 8e325abf1f58458d2fa035c8c8f081173efb0e65
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69649894"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
@@ -27,7 +27,7 @@ Implementering av aspekt navigering skiljer sig mellan Sök teknik. I Azure Sear
 
 -   I de frågor som ditt program skapar måste en fråga skicka *fasett-frågeparametrar* för att hämta de tillgängliga aspekt filter värdena för dokument resultat uppsättningen.
 
--   För att rensa dokument resultat uppsättningen måste programmet också använda ett `$filter` uttryck.
+-   Om du vill trimma dokumentets resultat uppsättning måste programmet också använda ett `$filter`-uttryck.
 
 I din program utveckling kan du skriva kod som konstruerar frågor utgör arbets delen. Många av de program beteenden som du förväntar dig från en aspektad navigering tillhandahålls av tjänsten, inklusive inbyggt stöd för att definiera intervall och för att räkna antalet aspekt resultat. Tjänsten innehåller också lämpliga-standardvärden som hjälper dig att undvika svårhanterligt navigerings strukturer. 
 
@@ -38,7 +38,7 @@ I den här artikeln används en jobb Sök portal som exempel. Exemplet implement
 
 -   Ladda ned koden från [Azure-samples-lagrings platsen på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 Om du inte har använt söknings utvecklingen på bästa sätt är det bästa sättet att tänka på den, och det visar möjligheterna för självriktad sökning. Det är en typ av detaljerad Sök upplevelse, baserat på fördefinierade filter, som används för att snabbt begränsa Sök resultaten genom att peka och klicka. 
 
 ### <a name="interaction-model"></a>Interaktions modell
@@ -50,28 +50,28 @@ Start punkten är en program sida som tillhandahåller fasett-navigering, vanlig
 1. En fråga som skickas till Azure Search anger den fasettiska navigerings strukturen via en eller flera aspekt parametrar. Frågan kan till exempel innehålla `facet=Rating`, kanske med ett `:values` eller `:sort` alternativ för att ytterligare förfina presentationen.
 2. Presentations lagret återger en Sök sida som ger en fasett-navigering med hjälp av de fasetter som anges i begäran.
 3. Om du har en aspektad navigerings struktur som innehåller klassificering klickar du på "4" för att visa att endast produkter med en klassificering på 4 eller högre ska visas. 
-4. Som svar skickar programmet en fråga som innehåller`$filter=Rating ge 4` 
+4. Som svar skickar programmet en fråga som innehåller `$filter=Rating ge 4` 
 5. Presentations lagret uppdaterar sidan med en reducerad resultat uppsättning som innehåller bara de objekt som uppfyller de nya villkoren (i det här fallet produkter som klassats 4 och uppåt).
 
 En aspekt är en frågeparameter, men den kan inte förväxla den med frågans ingångar. Den används aldrig som urvals villkor i en fråga. Tänk i stället på fasett-frågeparametrar som indata till navigerings strukturen som kommer tillbaka i svaret. För varje aspekt-frågeparameter som du anger, utvärderar Azure Search hur många dokument som finns i de partiella resultaten för varje fasett-värde.
 
-`$filter` Observera i steg 4. Filtret är en viktig aspekt av en aspektad navigering. Även om ansikts och filter är oberoende av API: et, behöver du båda för att leverera den upplevelse som du har tänkt. 
+Lägg märke till `$filter` i steg 4. Filtret är en viktig aspekt av en aspektad navigering. Även om ansikts och filter är oberoende av API: et, behöver du båda för att leverera den upplevelse som du har tänkt. 
 
 ### <a name="app-design-pattern"></a>Design mönster för appen
 
-I program kod är mönstret att använda fasett-frågeparametrar för att returnera den fasettiska navigerings strukturen tillsammans med fasett-resultat plus ett $filter-uttryck.  Filter uttrycket hanterar händelsen klickning på fasett svärdet. Vi tänker på `$filter` uttrycket som koden bakom den faktiska trimningen av Sök resultat som returneras till presentations lagret. Om du har fått en palett med färger klickar du på den röda `$filter` färgen implementeras genom ett uttryck som bara väljer de objekt som har en röd färg. 
+I program kod är mönstret att använda fasett-frågeparametrar för att returnera den fasettiska navigerings strukturen tillsammans med fasett-resultat plus ett $filter-uttryck.  Filter uttrycket hanterar händelsen klickning på fasett svärdet. Tänk på `$filter`-uttrycket som koden bakom den faktiska trimningen av Sök resultat som returneras till presentations lagret. Med en palett med färger, klickar du på den röda färgen implementeras genom ett `$filter` uttryck som bara väljer de objekt som har en röd färg. 
 
 ### <a name="query-basics"></a>Grundläggande frågor
 
-I Azure Search anges en begäran via en eller flera frågeparametrar (se sökdokumenten [](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för en beskrivning av var och en). Ingen av frågeparametrar krävs, men du måste ha minst en för att en fråga ska vara giltig.
+I Azure Search anges en begäran via en eller flera frågeparametrar (se [Sökdokumenten](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för en beskrivning av var och en). Ingen av frågeparametrar krävs, men du måste ha minst en för att en fråga ska vara giltig.
 
 Precision, som tolkas som möjligheten att filtrera bort irrelevanta träffar, uppnås genom ett eller båda dessa uttryck:
 
 -   **Sök =**  
-    Värdet för den här parametern utgör Sök uttrycket. Det kan vara ett enda texts tycke eller ett komplext Sök uttryck som innehåller flera termer och operatorer. På-servern används ett Sök uttryck för full texts ökning, frågor i sökbara fält i indexet för matchande villkor, vilket returnerar resultat i rangordnings ordning. Om du anger `search` till null är frågekörningen över hela indexet (det `search=*`vill säga). I det här fallet är andra element i frågan, till exempel en `$filter` eller bedömnings profil, de primära faktorer som påverkar vilka dokument som returneras `($filter`) och i vilken ordning (`scoringProfile` eller `$orderby`).
+    Värdet för den här parametern utgör Sök uttrycket. Det kan vara ett enda texts tycke eller ett komplext Sök uttryck som innehåller flera termer och operatorer. På-servern används ett Sök uttryck för full texts ökning, frågor i sökbara fält i indexet för matchande villkor, vilket returnerar resultat i rangordnings ordning. Om du anger `search` till null är frågekörningen över hela indexet (det vill säga `search=*`). I det här fallet är andra element i frågan, till exempel en `$filter` eller bedömnings profil, de viktigaste faktorer som påverkar vilka dokument som returneras `($filter`) och i vilken ordning (`scoringProfile` eller `$orderby`).
 
 -   **$filter =**  
-    Ett filter är en kraftfull mekanism för att begränsa storleken på Sök resultat baserat på värdena för vissa dokumentattribut. A `$filter` utvärderas först, följt av aspekt logiken som genererar de tillgängliga värdena och motsvarande antal för varje värde
+    Ett filter är en kraftfull mekanism för att begränsa storleken på Sök resultat baserat på värdena för vissa dokumentattribut. En `$filter` utvärderas först, följt av aspekt logiken som genererar de tillgängliga värdena och motsvarande antal för varje värde
 
 Komplexa Sök uttryck minskar frågans prestanda. Om möjligt kan du använda välkända filter uttryck för att öka precisionen och förbättra frågans prestanda.
 
@@ -91,13 +91,13 @@ Se till att varje användar åtgärd över en fasett-navigerings struktur åtfö
 ## <a name="build-a-faceted-navigation-app"></a>Bygg en aspekt av en webbapp
 Du implementerar en aspektad navigering med Azure Search i din program kod som skapar Sök förfrågan. Den fasettiska navigeringen är beroende av element i schemat som du definierade tidigare.
 
-Fördefinierat i ditt sökindex `Facetable [true|false]` är attributet index, som anges på valda fält för att aktivera eller inaktivera användningen i en fasett-navigerings struktur. Det `"Facetable" = true`går inte att använda ett fält i aspekt navigering utan.
+Fördefinierat i ditt sökindex är attributet `Facetable [true|false]` index, ange på valda fält för att aktivera eller inaktivera användningen i en fasett-navigerings struktur. Utan `"Facetable" = true` kan ett fält inte användas i aspekt navigering.
 
 Presentations lagret i din kod ger användar upplevelsen. Den ska visa en lista över delarna i den fasetten navigeringen, till exempel etikett, värden, kryss rutor och antalet. Azure Search REST API är plattforms oberoende, så Använd det språk och den plattform som du vill använda. Det viktiga är att inkludera GRÄNSSNITTs element som stöder stegvis uppdatering, med uppdaterat GRÄNSSNITTs tillstånd som varje ytterligare aspekt är markerat. 
 
-Vid tidpunkten skapar din program kod en begäran som innehåller `facet=[string]`en parameter för begäran som anger att fältet ska fasetta av. En fråga kan ha flera facets, t. `&facet=color&facet=category&facet=rating`ex., var och en avgränsad med ett et-tecken (&).
+Vid tidpunkten skapar din program kod en begäran som innehåller `facet=[string]`, en parameter för begäran som ger fältet att fasetta. En fråga kan ha flera facets, till exempel `&facet=color&facet=category&facet=rating`, var och en avgränsade med ett et-tecken (&).
 
-Program koden måste också skapa ett `$filter` uttryck för att hantera klicknings händelserna i en fasett-navigering. En `$filter` minska Sök resultatet genom att använda fasett-värdet som filter villkor.
+Program koden måste också skapa ett `$filter`-uttryck som hanterar klicknings händelserna i en fasett-navigering. Ett `$filter` minskar Sök resultaten med hjälp av fasett-värdet som filter villkor.
 
 Azure Search returnerar Sök resultatet, baserat på en eller flera villkor som du anger, tillsammans med uppdateringar av den fasettiska navigerings strukturen. I Azure Search är den fasettiska navigeringen en konstruktion med en nivå, med aspekt värden och antalet hur många resultat som finns för var och en av dem.
 
@@ -106,10 +106,10 @@ I följande avsnitt tar vi en närmare titt på hur du skapar varje del.
 <a name="buildindex"></a>
 
 ## <a name="build-the-index"></a>Bygg indexet
-Fasettering har Aktiver ATS för fält-för-fält i indexet, via detta index-attribut `"Facetable": true`:.  
-Alla fält typer som kan användas i en aspektad navigering är `Facetable` som standard. Sådana fält typer `Edm.String`är, `Edm.DateTimeOffset`och alla numeriska fält typer (i stort sett alla fält typer är fasettable förutom `Edm.GeographyPoint`, som inte kan användas i en aspektad navigering). 
+Fasettering har Aktiver ATS för ett fält-för-fält i indexet, via detta index-attribut: `"Facetable": true`.  
+Alla fält typer som kan användas i en fasett-navigering är `Facetable` som standard. Sådana fält typer är `Edm.String`, `Edm.DateTimeOffset` och alla numeriska fält typer (i stort sett alla fält typer är en aspekt bara, förutom `Edm.GeographyPoint`, som inte kan användas i en aspektad navigering). 
 
-När du skapar ett index är det en bra idé att inaktivera fasett för fält som aldrig ska användas som aspekt.  I synnerhet bör sträng fält för singleton-värden, t. ex. ett ID eller ett produkt namn, `"Facetable": false` anges till för att förhindra att deras oavsiktliga (och ineffektiva) användning används i en fasett-navigering. Genom att inaktivera fasetter där du inte behöver det kan du behålla storleken på det små indexet, och normalt förbättra prestanda.
+När du skapar ett index är det en bra idé att inaktivera fasett för fält som aldrig ska användas som aspekt.  I synnerhet bör sträng fält för singleton-värden, t. ex. ett ID eller ett produkt namn, anges till `"Facetable": false` för att förhindra att deras oavsiktliga (och ineffektiva) användning används i en fasett-navigering. Genom att inaktivera fasetter där du inte behöver det kan du behålla storleken på det små indexet, och normalt förbättra prestanda.
 
 Följande är en del av schemat för demonstrations exempel appen för jobb portalen, putsad av vissa attribut för att minska storleken:
 
@@ -139,10 +139,10 @@ Följande är en del av schemat för demonstrations exempel appen för jobb port
 }
 ```
 
-Som du kan se i exempel schemat `Facetable` är inaktive rad för sträng fält som inte ska användas som FACET, till exempel ID-värden. Genom att inaktivera fasetter där du inte behöver det kan du behålla storleken på det små indexet, och normalt förbättra prestanda.
+Som du kan se i exempel schemat är `Facetable` inaktive rad för sträng fält som inte ska användas som FACET, till exempel ID-värden. Genom att inaktivera fasetter där du inte behöver det kan du behålla storleken på det små indexet, och normalt förbättra prestanda.
 
 > [!TIP]
-> Bästa praxis är att inkludera en fullständig uppsättning indexattribut för varje fält. Även `Facetable` om är aktiverat som standard för nästan alla fält, kan inställning av varje attribut hjälpa dig att tänka igenom konsekvenserna av varje schema beslut. 
+> Bästa praxis är att inkludera en fullständig uppsättning indexattribut för varje fält. Även om `Facetable` är aktiverat som standard för nästan alla fält, kan varje attribut hjälpa dig att tänka igenom konsekvenserna av varje schema beslut. 
 
 <a name="checkdata"></a>
 
@@ -169,7 +169,7 @@ Vid aspekt navigering visar din webb-eller program sida den fasett-navigerings s
 
 För webb program används AJAX ofta i presentations lagret eftersom det gör att du kan uppdatera stegvisa ändringar. Du kan också använda ASP.NET MVC eller någon annan visualiserings plattform som kan ansluta till en Azure Search-tjänst via HTTP. Det exempel program som refereras till i den här artikeln – **Azure Search jobb Portal demonstration** – sker som ett ASP.NET MVC-program.
 
-I exemplet är en aspektad navigering inbyggd på sidan Sök resultat. Följande exempel, som tas från `index.cshtml` filen i exempel programmet, visar den statiska HTML-strukturen för visning av fasett-navigering på sidan Sök resultat. Listan över Faces skapas eller återskapas dynamiskt när du skickar en sökterm eller väljer eller avmarkerar en aspekt.
+I exemplet är en aspektad navigering inbyggd på sidan Sök resultat. Följande exempel, som hämtas från `index.cshtml`-filen i exempel programmet, visar den statiska HTML-strukturen för visning av fasett-navigering på sidan Sök resultat. Listan över Faces skapas eller återskapas dynamiskt när du skickar en sökterm eller väljer eller avmarkerar en aspekt.
 
 ```html
 <div class="widget sidebar-widget jobs-filter-widget">
@@ -196,7 +196,7 @@ I exemplet är en aspektad navigering inbyggd på sidan Sök resultat. Följande
 </div>
 ```
 
-Följande kodfragment från `index.cshtml` sidan bygger dynamiskt HTML-koden för att visa den första aspekten, affärs titeln. Samma funktioner skapar HTML-koden dynamiskt för de andra fasetterna. Varje aspekt har en etikett och ett antal som visar antalet objekt som hittades för det fasett-resultatet.
+Följande kodfragment från sidan `index.cshtml` skapar dynamiskt HTML för att visa den första aspekten, affärs titeln. Samma funktioner skapar HTML-koden dynamiskt för de andra fasetterna. Varje aspekt har en etikett och ett antal som visar antalet objekt som hittades för det fasett-resultatet.
 
 ```js
 function UpdateBusinessTitleFacets(data) {
@@ -210,7 +210,7 @@ function UpdateBusinessTitleFacets(data) {
 ```
 
 > [!TIP]
-> Kom ihåg att lägga till en mekanism för att ta bort ansikte när du utformar Sök Resultat sidan. Om du lägger till kryss rutor kan du enkelt se hur du rensar filtren. För andra layouter kan du behöva ett navigerings mönster eller en annan kreativ metod. I exempel programmet jobbs öknings Portal kan du till exempel klicka `[X]` på efter en vald aspekt för att ta bort aspekten.
+> Kom ihåg att lägga till en mekanism för att ta bort ansikte när du utformar Sök Resultat sidan. Om du lägger till kryss rutor kan du enkelt se hur du rensar filtren. För andra layouter kan du behöva ett navigerings mönster eller en annan kreativ metod. I exempel programmet jobb Sök Portal kan du till exempel klicka på `[X]` efter en vald aspekt för att ta bort aspekten.
 
 <a name="buildquery"></a>
 
@@ -219,7 +219,7 @@ Koden som du skriver för att skapa frågor ska ange alla delar av en giltig fr�
 
 Observera att ansikte är integrala i det här exempel programmet. Sök funktionen i demo versionen av jobb portalen är utformad runt navigering och filter. Den framträdande placeringen av den fasettiska navigeringen på sidan visar dess betydelse. 
 
-Ett exempel är ofta en bra plats att börja på. Följande exempel, som tas från `JobsSearch.cs` filen, skapar en begäran som skapar aspekt navigering baserat på affärs rubrik, plats, bokförings typ och lägsta lön. 
+Ett exempel är ofta en bra plats att börja på. Följande exempel, som hämtas från `JobsSearch.cs`-filen, skapar en begäran som skapar aspekt navigering baserat på affärs rubrik, plats, bokförings typ och lägsta lön. 
 
 ```cs
 SearchParameters sp = new SearchParameters()
@@ -230,11 +230,11 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-En aspekt fråga-parameter har angetts till ett fält och, beroende på datatyp, kan utföras ytterligare med en kommaavgränsad lista som `count:<integer>`innehåller, `sort:<>`, `interval:<integer>`och `values:<list>`. En värde lista stöds för numeriska data vid inställning av intervall. Se [Sök i dokument (Azure Search-API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för användnings information.
+En aspekt av Frågeparametern har angetts till ett fält och kan, beroende på data typen, ytterligare parametriserade med kommaavgränsad lista med `count:<integer>`, `sort:<>`, `interval:<integer>` och `values:<list>`. En värde lista stöds för numeriska data vid inställning av intervall. Se [Sök i dokument (Azure Search-API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för användnings information.
 
-Tillsammans med FACET, bör begäran som formuleras av ditt program också skapa filter för att begränsa uppsättningen av kandidat dokument baserat på ett aspekt värdes val. För en cykel butik ger den fasettiska navigeringen LED trådar till frågor som *vilka färger, tillverkare och typer av cyklar är tillgängliga?* . Filtrera svar på frågor som *vilka exakta cyklar är röda, Mountain Bikes, i det här pris intervallet?* . När du klickar på "röd" för att ange att endast röda produkter ska visas, kommer nästa fråga som programmet skickar `$filter=Color eq ‘Red’`att innehålla.
+Tillsammans med FACET, bör begäran som formuleras av ditt program också skapa filter för att begränsa uppsättningen av kandidat dokument baserat på ett aspekt värdes val. För en cykel butik ger den fasettiska navigeringen LED trådar till frågor som *vilka färger, tillverkare och typer av cyklar är tillgängliga?* . Filtrera svar på frågor som *vilka exakta cyklar är röda, Mountain Bikes, i det här pris intervallet?* . När du klickar på "röd" för att ange att endast röda produkter ska visas, innehåller nästa fråga som programmet skickar `$filter=Color eq ‘Red’`.
 
-Följande kodfragment från `JobsSearch.cs` sidan lägger till den valda affärs titeln i filtret om du väljer ett värde från affärs rubrik aspekten.
+Följande kodfragment från sidan `JobsSearch.cs` lägger till den valda affärs titeln i filtret om du väljer ett värde från företagets rubrik aspekt.
 
 ```cs
 if (businessTitleFacet != "")
@@ -248,7 +248,7 @@ if (businessTitleFacet != "")
 ### <a name="indexing-tips"></a>Indexerings tips
 **Förbättra index effektiviteten om du inte använder en sökruta**
 
-Om ditt program använder fasettt navigering exklusivt (dvs. ingen sökruta) kan du markera fältet som `searchable=false`, `facetable=true` för att skapa ett mer kompakt index. Indexering sker dessutom bara på hela aspekt värden, utan ord brytning eller indexering av komponent delarna i ett värde med flera ord.
+Om ditt program använder fasettt navigering exklusivt (det vill säga ingen sökruta) kan du markera fältet som `searchable=false`, `facetable=true` för att skapa ett mer kompakt index. Indexering sker dessutom bara på hela aspekt värden, utan ord brytning eller indexering av komponent delarna i ett värde med flera ord.
 
 **Ange vilka fält som kan användas som ansikts**
 
@@ -265,7 +265,7 @@ Det finns inget direkt stöd för att kapsla facets i en hierarki. Som standard 
 ### <a name="querying-tips"></a>Tips om frågor
 **Validera fält**
 
-Om du skapar listan över ansikte dynamiskt baserat på indata från ej betrodda användare, verifierar du att namnen på de fasettiska fälten är giltiga. Eller så kan du undanta namnen när du skapar URL: `Uri.EscapeDataString()` er med hjälp av antingen i .net eller motsvarande på valfri plattform.
+Om du skapar listan över ansikte dynamiskt baserat på indata från ej betrodda användare, verifierar du att namnen på de fasettiska fälten är giltiga. Eller så kan du undanta namnen när du skapar URL: er genom att använda antingen `Uri.EscapeDataString()` i .NET eller motsvarande på valfri plattform.
 
 ### <a name="filtering-tips"></a>Filtrerings tips
 **Öka Sök precisionen med filter**
@@ -282,7 +282,7 @@ I fasetter kan du vanligt vis bara inkludera dokument som har fasett svärdet i 
 
 **Trimma fasett-resultat med fler filter**
 
-Fasett-resultat är dokument som finns i Sök resultaten som matchar en fasett-term. I följande exempel i Sök Resultat för *molnbaserad data behandling*har 254-objekt även *intern specifikation* som en innehålls typ. Objekt är inte alltid ömsesidigt uteslutande. Om ett objekt uppfyller kriterierna för båda filtren räknas det i vart och ett. Den här dupliceringen är möjlig vid aspektering av `Collection(Edm.String)` fält som ofta används för att implementera dokument taggning.
+Fasett-resultat är dokument som finns i Sök resultaten som matchar en fasett-term. I följande exempel i Sök Resultat för *molnbaserad data behandling*har 254-objekt även *intern specifikation* som en innehålls typ. Objekt är inte alltid ömsesidigt uteslutande. Om ett objekt uppfyller kriterierna för båda filtren räknas det i vart och ett. Den här dupliceringen är möjlig vid aspektering i `Collection(Edm.String)` fält som ofta används för att implementera dokument taggning.
 
         Search term: "cloud computing"
         Content type
@@ -297,17 +297,17 @@ I allmänhet rekommenderar vi att du lägger till fler filter för att ge använ
 
 För varje fasettt fält i navigerings trädet finns det en standard gräns på 10 värden. Detta standardvärde är meningsfullt för navigerings strukturer eftersom den behåller värde listan till en hanterbar storlek. Du kan åsidosätta standardvärdet genom att tilldela ett värde till Count.
 
-* `&facet=city,count:5`anger att endast de fem första städerna som finns i de översta rankade resultaten returneras som ett fasett-resultat. Överväg en exempel fråga med Sök termen "flyg plats" och 32 matchningar. Om frågan anger `&facet=city,count:5`är det bara de första fem unika städerna med de flesta dokument i Sök resultaten som ingår i fasett-resultatet.
+* `&facet=city,count:5` anger att endast de fem första städerna som finns i de översta rankade resultaten returneras som ett fasett-resultat. Överväg en exempel fråga med Sök termen "flyg plats" och 32 matchningar. Om frågan anger `&facet=city,count:5`, inkluderas bara de första fem unika städerna med de flesta dokument i Sök resultaten i fasett-resultatet.
 
 Observera skillnaden mellan fasett-resultat och Sök resultat. Sök resultat är alla dokument som matchar frågan. Fasett-resultat är matchningarna för varje fasett-värde. I exemplet innehåller Sök resultaten Orts namn som inte finns i aspekt klassificerings listan (5 i vårt exempel). Resultat som filtreras ut genom den fasettiska navigeringen blir synliga när du tar bort FACET eller väljer andra ansikte förutom stad. 
 
 > [!NOTE]
-> Det `count` kan vara förvirrande att diskutera när det finns fler än en typ. Följande tabell innehåller en kort sammanfattning av hur termen används i Azure Search API, exempel kod och dokumentation. 
+> Att diskutera `count` när det finns fler än en typ kan vara förvirrande. Följande tabell innehåller en kort sammanfattning av hur termen används i Azure Search API, exempel kod och dokumentation. 
 
 * `@colorFacet.count`<br/>
   I presentations kod bör du se en Count-parameter på aspekten, som används för att visa antalet fasett-resultat. I aspekt resultat anger Count antalet dokument som matchar på fasett-termen eller intervallet.
 * `&facet=City,count:12`<br/>
-  I en aspekt fråga kan du ange Count till ett värde.  Standardvärdet är 10, men du kan ange det högre eller lägre. Inställningen `count:12` hämtar de översta 12 träffarna i aspekt resultatet efter antal dokument.
+  I en aspekt fråga kan du ange Count till ett värde.  Standardvärdet är 10, men du kan ange det högre eller lägre. Om du anger `count:12` hämtas de översta 12 träffarna i fasett-resultatet efter dokument antal.
 * "`@odata.count`"<br/>
   I svaret på frågan anger det här värdet antalet matchande objekt i Sök resultatet. I genomsnitt är det större än summan av alla fasett-resultat kombinerat, på grund av förekomst av objekt som matchar Sök termen, men som inte har något värde för fasett-värde.
 
@@ -321,12 +321,12 @@ Under vissa omständigheter kanske du upptäcker att antalet fasetter inte match
 
 Fasett-antalet kan vara felaktigt på grund av horisontell partitionering-arkitekturen. Varje sökindex har flera Shards och varje Shard rapporterar de översta N fasetterna efter antal dokument, som sedan kombineras till ett enda resultat. Om vissa Shards har många matchande värden, medan andra har färre, kan det hända att vissa fasett-värden saknas eller under räkning i resultaten.
 
-Även om det här beteendet kan ändras när som helst, om du stöter på det här beteendet idag kan du kringgå det genom att artificiellt\<ange antalet: > till ett stort antal för att framtvinga fullständig rapportering från varje Shard. Om värdet för Count: är större än eller lika med antalet unika värden i fältet, garanterar du korrekta resultat. Men när antalet dokument är högt är det en prestanda försämring, så Använd det här alternativet sparsamt.
+Även om detta beteende kan ändras när som helst, om du stöter på det här beteendet idag kan du kringgå det genom att artificiellt ange antalet: \<number > till ett stort antal för att framtvinga fullständig rapportering från varje Shard. Om värdet för Count: är större än eller lika med antalet unika värden i fältet, garanterar du korrekta resultat. Men när antalet dokument är högt är det en prestanda försämring, så Använd det här alternativet sparsamt.
 
 ### <a name="user-interface-tips"></a>Användar gränssnitts tips
 **Lägg till etiketter för varje fält i aspekt navigering**
 
-Etiketter definieras vanligt vis i HTML eller formulär (`index.cshtml` i exempel programmet). Det finns inget API i Azure Search för fasett-navigerings etiketter eller andra metadata.
+Etiketter definieras vanligt vis i HTML eller form (`index.cshtml` i exempel programmet). Det finns inget API i Azure Search för fasett-navigerings etiketter eller andra metadata.
 
 <a name="rangefacets"></a>
 
@@ -336,10 +336,10 @@ Fasettering över intervall med värden är ett vanligt Sök program krav. Inter
 Azure Search fören klar intervall konstruktion genom att tillhandahålla två metoder för att beräkna ett intervall. För båda metoderna skapar Azure Search lämpliga intervall med de indata som du har angett. Om du till exempel anger intervall värden på 10 | 20 | 30 skapar det automatiskt intervall på 0-10, 10-20, 20-30. Programmet kan eventuellt ta bort alla intervall som är tomma. 
 
 **Metod 1: Använd parametern Interval**  
-Om du vill ange pris facets i $10-steg, anger du:`&facet=price,interval:10`
+Om du vill ange pris facets i $10-steg, anger du: `&facet=price,interval:10`
 
-**Metod 2: Använda en värde lista**  
-För numeriska data kan du använda en värde lista.  Ta hänsyn till aspekt intervallet för `listPrice` ett fält, återges på följande sätt:
+**Metod 2: Använd en värde lista**  
+För numeriska data kan du använda en värde lista.  Ta hänsyn till aspekt intervallet för ett `listPrice` fält, återges på följande sätt:
 
   ![Lista med exempel värden](media/search-faceted-navigation/Facet-5-Prices.PNG "Lista med exempel värden")
 
@@ -350,7 +350,7 @@ Om du vill ange ett fasett-intervall som det som finns i föregående skärm bil
 Varje intervall skapas med 0 som start punkt, ett värde från listan som en slut punkt och rensas sedan det föregående intervallet för att skapa diskreta intervall. Azure Search gör dessa saker som en del av den fasettiska navigeringen. Du behöver inte skriva kod för att strukturera varje intervall.
 
 ### <a name="build-a-filter-for-a-range"></a>Bygga ett filter för ett intervall
-Om du vill filtrera dokument baserat på ett intervall som du väljer kan du `"ge"` använda `"lt"` operatorerna och i ett uttryck i två delar som definierar Intervallets slut punkter. Om du till exempel väljer intervallet 10-25 för ett `listPrice` fält blir filtret. `$filter=listPrice ge 10 and listPrice lt 25` I exempel koden använder filter uttrycket **priceFrom** -och **priceTo** -parametrar för att ange slut punkterna. 
+Om du vill filtrera dokument baserat på ett intervall som du väljer kan du använda operatorn `"ge"` och `"lt"` filter i ett uttryck i två delar som definierar Intervallets slut punkter. Om du till exempel väljer intervallet 10-25 för ett `listPrice`-fält blir filtret `$filter=listPrice ge 10 and listPrice lt 25`. I exempel koden använder filter uttrycket **priceFrom** -och **priceTo** -parametrar för att ange slut punkterna. 
 
   ![Fråga efter ett värde intervall](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Fråga efter ett värde intervall")
 
@@ -362,9 +362,9 @@ Det är vanligt att se filter som hjälper dig att välja en butik, restaurang e
 Det finns två geospatiala funktioner i Azure Search, **geo. Distance** och **geo. snitt**.
 
 * Funktionen **geo. Distance** returnerar avståndet i kilo meter mellan två punkter. En punkt är ett fält och andra är en konstant som skickas som en del av filtret. 
-* Funktionen **geo.** intersects returnerar true om en viss punkt ligger inom en viss polygon. Punkten är ett fält och polygonen anges som en konstant lista över koordinater som har överförts som en del av filtret.
+* Funktionen **geo. intersects** returnerar true om en viss punkt ligger inom en viss polygon. Punkten är ett fält och polygonen anges som en konstant lista över koordinater som har överförts som en del av filtret.
 
-Du hittar filter exempel i syntaxen för [OData-uttryck (Azure Search)](query-odata-filter-orderby-syntax.md).
+Du hittar filter exempel i [syntaxen för OData-uttryck (Azure Search)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 
@@ -377,7 +377,7 @@ Demo versionen av Azure Search jobb portalen innehåller exemplen som refereras 
 
 När du arbetar med Sök resultat kan du titta på URL: en för ändringar i frågans konstruktion. Det här programmet sker för att lägga till FACET i URI: n när du väljer vart och ett.
 
-1. Om du vill använda kart funktionen i demonstrations appen hämtar du en Bing Maps-nyckel från [Bing Maps dev Center](https://www.bingmapsportal.com/). Klistra in det över den befintliga nyckeln på `index.cshtml` sidan. `BingApiKey` Inställningen`Web.config` i filen används inte. 
+1. Om du vill använda kart funktionen i demonstrations appen hämtar du en Bing Maps-nyckel från [Bing Maps dev Center](https://www.bingmapsportal.com/). Klistra in den över den befintliga nyckeln på sidan `index.cshtml`. Inställningen `BingApiKey` i `Web.config`-filen används inte. 
 
 2. Kör appen. Ta den valfria rund turen eller Stäng dialog rutan.
    
@@ -391,15 +391,15 @@ När du arbetar med Sök resultat kan du titta på URL: en för ändringar i fr�
    
    ![Sök Resultat efter att du har valt ansikts](media/search-faceted-navigation/faceted-search-after-facets.png "Sök Resultat efter att du har valt ansikts")
 
-5. Om du vill ta bort den fasetta frågan så att du kan prova olika fråge beteenden, klickar du `[X]` på när de markerade fasetterna ska ta bort fasetterna.
+5. Om du vill ta bort den fasetta frågan så att du kan prova olika fråge beteenden, klickar du på `[X]` efter att de valda fasetterna har tagits bort.
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Lär dig mer
+## <a name="learn-more"></a>Läs mer
 Titta [Azure Search djupet](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Vid 45:25 finns det en demonstration om hur du implementerar ansikte.
 
 För mer information om design principer för fasett-navigering rekommenderar vi följande länkar:
 
-* [Design mönster: Fasett-navigering](https://alistapart.com/article/design-patterns-faceted-navigation)
+* [Design mönster: Fasettisk navigering](https://alistapart.com/article/design-patterns-faceted-navigation)
 * [Klient dels problem vid implementering av fasett-sökning – del 1](https://articles.uie.com/faceted_search2/)
 

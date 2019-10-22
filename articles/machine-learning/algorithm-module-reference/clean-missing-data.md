@@ -1,5 +1,5 @@
 ---
-title: 'Rensa saknade data: Modulreferens'
+title: 'Rensa saknade data: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen rensa data som saknas i Azure Machine Learning tjänsten för att ta bort, ersätta eller härleda saknade värden.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: a65e8224b00bb592d6e0e42abdd304cf325d4412
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128938"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693205"
 ---
 # <a name="clean-missing-data-module"></a>Rensa data modul som saknas
 
@@ -50,9 +50,9 @@ Med den här modulen kan du definiera en rensnings åtgärd. Du kan också spara
 
 Varje gången du använder modulen [Rensa data som saknas](./clean-missing-data.md) i en uppsättning data tillämpas samma rengörings åtgärd på alla kolumner som du väljer. Om du behöver rensa olika kolumner med olika metoder kan du därför använda separata instanser av modulen.
 
-1.  Lägg till modulen [Rensa data som saknas](./clean-missing-data.md) i experimentet och Anslut den data uppsättning som saknar värden.  
+1.  Lägg till modulen [Rensa data som saknas](./clean-missing-data.md) i pipelinen och Anslut den data uppsättning som saknar värden.  
   
-2.  För **kolumner**som ska rensas väljer du de kolumner som innehåller de saknade värden som du vill ändra. Du kan välja flera kolumner, men du måste använda samma ersättnings metod i alla valda kolumner. Därför behöver du vanligt vis rensa sträng kolumner och numeriska kolumner separat.
+2.  För **kolumner som ska rensas**väljer du de kolumner som innehåller de saknade värden som du vill ändra. Du kan välja flera kolumner, men du måste använda samma ersättnings metod i alla valda kolumner. Därför behöver du vanligt vis rensa sträng kolumner och numeriska kolumner separat.
 
     Om du till exempel vill söka efter saknade värden i alla numeriska kolumner:
 
@@ -63,7 +63,7 @@ Varje gången du använder modulen [Rensa data som saknas](./clean-missing-data.
 
     3. I **Inkludera**väljer du **kolumn typ** i list rutan och väljer sedan **numerisk**eller en mer speciell numerisk typ. 
   
-    Eventuella rensnings-eller ersättnings metoder som du väljer måste vara tillämpliga på **alla** kolumner i markeringen. Om data i en kolumn är inkompatibla med den angivna åtgärden returnerar modulen ett fel och stoppar experimentet.
+    Eventuella rensnings-eller ersättnings metoder som du väljer måste vara tillämpliga på **alla** kolumner i markeringen. Om data i en kolumn inte är kompatibla med den angivna åtgärden returnerar modulen ett fel och stoppar pipelinen.
   
 3.  Ange det minsta antalet saknade värden som krävs för att åtgärden ska utföras för **minsta värde för saknad värde**.  
   
@@ -87,23 +87,23 @@ Varje gången du använder modulen [Rensa data som saknas](./clean-missing-data.
 5. För **rengörings läge**väljer du något av följande alternativ för att ersätta eller ta bort värden som saknas:  
   
   
-    + **Anpassat ersättnings värde**: Använd det här alternativet om du vill ange ett plats hållares värde (t. ex. 0 eller NA) som gäller för alla saknade värden. Det värde som du anger som ersättning måste vara kompatibelt med data typen för kolumnen.
+    + **Anpassat ersättnings värde**: Använd det här alternativet för att ange ett plats hållarens värde (t. ex. 0 eller na) som gäller för alla saknade värden. Det värde som du anger som ersättning måste vara kompatibelt med data typen för kolumnen.
   
-    + **Ersätt med**: Beräknar kolumn medelvärdet och använder medelvärdet som ersättnings värde för varje saknat värde i kolumnen.  
+    + **Ersätt med medelvärde**: beräknar kolumn medelvärdet och använder medelvärdet som ersättnings värde för varje saknat värde i kolumnen.  
   
         Gäller endast för kolumner som har data typerna Integer, Double eller Boolean.  
   
-    + **Ersätt med median**: Beräknar kolumnens median värde och använder median värdet som ersättning för ett saknat värde i kolumnen.  
+    + **Ersätt med median**: beräknar kolumnens median värde och använder median värdet som ersättning för ett saknat värde i kolumnen.  
   
         Gäller endast för kolumner som har heltals-eller dubbla data typer. 
   
-    + **Ersätt med läge**: Beräknar läget för kolumnen och använder läget som ersättnings värde för alla saknade värden i kolumnen.  
+    + **Ersätt med läge**: beräknar läget för kolumnen och använder läget som ersättnings värde för alla saknade värden i kolumnen.  
   
         Gäller för kolumner som har data typerna Integer, Double, Boolean eller kategoriska. 
   
-    + **Ta bort hela raden**: Tar helt bort alla rader i data uppsättningen som har ett eller flera värden som saknas. Detta är användbart om det saknade värdet kan anses slumpmässigt saknas.  
+    + **Ta bort hel rad**: tar bort alla rader i data uppsättningen som har ett eller flera värden som saknas. Detta är användbart om det saknade värdet kan anses slumpmässigt saknas.  
   
-    + **Ta bort hel kolumn**: Tar helt bort alla kolumner i data uppsättningen som har ett eller flera värden som saknas.  
+    + **Ta bort hel kolumn**: tar bort alla kolumner i data uppsättningen som har ett eller flera värden som saknas.  
   
     
   
@@ -111,29 +111,29 @@ Varje gången du använder modulen [Rensa data som saknas](./clean-missing-data.
   
     Observera att du bara kan använda det här alternativet i kolumner som har data typerna Integer, Double, Boolean eller date. För datum kolumner kan ersättnings värdet också anges som antalet 100-nanosekunder-Tick sedan 1/1/0001 12:00 A.M.  
   
-7. **Generera kolumn för saknad värde indikator**: Välj det här alternativet om du vill visa en indikation om värdena i kolumnen uppfyllde villkoren för rengöring av värde saknas. Det här alternativet är särskilt användbart när du konfigurerar en ny rengörings åtgärd och vill se till att den fungerar som den ska.
+7. **Generera indikator kolumn för saknad värde**: Välj det här alternativet om du vill visa en indikation om värdena i kolumnen uppfyllde villkoren för rengöring av värde som saknas. Det här alternativet är särskilt användbart när du konfigurerar en ny rengörings åtgärd och vill se till att den fungerar som den ska.
   
-8. Kör experimentet.
+8. Köra en pipeline.
 
 ### <a name="results"></a>Resultat
 
 Modulen returnerar två utdata:  
 
--   **Rensad data mängd**: En data uppsättning som består av de markerade kolumnerna, där värden som saknas hanteras som angivna, tillsammans med en indikator kolumn, om du har valt det alternativet.  
+-   **Rensad data mängd**: en data uppsättning som består av de markerade kolumnerna, där värden som saknas hanteras som angivna, tillsammans med en indikator kolumn, om du har valt det alternativet.  
 
     Kolumner som inte har valts för rengöring är också "passerade".  
   
--  **Rensa omvandling**: En datatransformering som används för rengöring, som kan sparas på din arbets yta och tillämpas på nya data senare.
+-  **Rensning av omvandling**: en datatransformering som används för rengöring, som kan sparas på din arbets yta och tillämpas på nya data senare.
 
 ### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Använd en sparad Rensnings åtgärd för nya data  
 
 Om du ofta behöver upprepa rengörings åtgärder rekommenderar vi att du sparar ditt recept för data rengöring som en *transformering*, för att återanvända med samma data uppsättning. Att spara en rengörings omvandling är särskilt användbart om du ofta måste importera på nytt och sedan Rensa data som har samma schema.  
       
-1.  Lägg till modulen [Använd omvandling](./apply-transformation.md) i experimentet.  
+1.  Lägg till modulen [Använd omvandling](./apply-transformation.md) i din pipeline.  
   
 2.  Lägg till den data uppsättning som du vill rensa och Anslut data uppsättningen till den högra porten för indata.  
   
-3.  Expandera gruppen **transformeringar** i det vänstra fönstret i gränssnittet. Leta upp den sparade omvandlingen och dra den till experimentet.  
+3.  Expandera gruppen **transformeringar** i det vänstra fönstret i gränssnittet. Leta upp den sparade omvandlingen och dra den till pipelinen.  
   
 4.  Anslut den sparade omvandlingen till den vänstra Indataporten för [Apply Transformation](./apply-transformation.md). 
 
@@ -141,7 +141,7 @@ Om du ofta behöver upprepa rengörings åtgärder rekommenderar vi att du spara
 
     Anta dock att du har skapat en omvandling på en delmängd av numeriska kolumner. Du kan använda den här omvandlingen till en data uppsättning med blandade kolumn typer utan att ett fel uppstår, eftersom de saknade värdena bara ändras i de matchande numeriska kolumnerna.
 
-6.  Kör experimentet.  
+6.  Köra en pipeline.  
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,13 +9,13 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.openlocfilehash: fe981167249e24a43a8cb14c51c9b7c1eb081225
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70164020"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Snabbstart: Skapa en Azure Database for PostgreSQL-storskalig (citus) (för hands version) i Azure Portal
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for PostgreSQL-storskalig (citus) (för hands version) i Azure Portal
 
 Azure Database för PostgreSQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabb starten visar hur du skapar en Server grupp för Azure Database for PostgreSQL disscale (citus) (för hands version) med hjälp av Azure Portal. Du kommer att utforska distribuerade data: horisontell partitionering tabeller över flera noder, mata in exempel data och köra frågor som körs på flera noder.
 
@@ -62,9 +62,9 @@ CREATE TABLE github_users
 );
 ```
 
-`payload` Fältet i`github_events` har en JSONB-datatype. JSONB är JSON-datatypen i binär form i postgres. Datatype gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
+@No__t_0-fältet i `github_events` har en datatype-dataJSONB. JSONB är JSON-datatypen i binär form i postgres. Datatype gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
 
-Postgres kan skapa ett `GIN` index av den här typen, vilket kommer att indexera varje nyckel och värde i den. Med ett index blir det snabbt och enkelt att fråga nytto lasten med olika villkor. Nu ska vi gå vidare och skapa ett par index innan vi läser in våra data. I psql:
+Postgres kan skapa ett `GIN`-index för den här typen, vilket kommer att indexera varje nyckel och värde i den. Med ett index blir det snabbt och enkelt att fråga nytto lasten med olika villkor. Nu ska vi gå vidare och skapa ett par index innan vi läser in våra data. I psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
@@ -102,7 +102,7 @@ Nu är det dags för den roliga delen, som faktiskt kör några frågor. Vi bör
 SELECT count(*) from github_events;
 ```
 
-Det fungerade snyggt. Vi kommer tillbaka till den sortens agg regering i en bit, men nu ska vi titta på några andra frågor. I kolumnen JSONB `payload` finns det en utmärkt mängd data, men den varierar beroende på händelse typ. `PushEvent`händelser innehåller en storlek som inkluderar antalet distinkta incheckningar för push. Vi kan använda den för att hitta det totala antalet incheckningar per timme:
+Det fungerade snyggt. Vi kommer tillbaka till den sortens agg regering i en bit, men nu ska vi titta på några andra frågor. I kolumnen JSONB `payload` finns det en utmärkt mängd data, men den varierar beroende på händelse typ. `PushEvent` händelser innehåller en storlek som inkluderar antalet distinkta incheckningar för push. Vi kan använda den för att hitta det totala antalet incheckningar per timme:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -113,9 +113,9 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Hittills har frågorna involverade GitHub\_-händelserna exklusivt, men vi kan kombinera den här informationen med GitHub\_-användare. Eftersom vi shardade både användare och händelser på samma identifierare (`user_id`), kommer raderna i båda tabellerna med matchande användar-ID att samplaceras på samma databasnoder och kan enkelt anslutas. [](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation)
+Så länge har frågorna involverat GitHub \_events exklusivt, men vi kan kombinera den här informationen med GitHub \_users. Eftersom vi shardade både användare och händelser på samma identifierare (`user_id`), kommer raderna i båda tabellerna med matchande användar-ID att [samplaceras](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) på samma databasnoder och kan enkelt anslutas.
 
-Om vi ansluter till `user_id`kan skalningen av anslutningen gå över till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
+Om vi ansluter till `user_id`, kan storskaligt skicka in kopplings körningen till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
 
 ```sql
 SELECT gu.login, count(*)

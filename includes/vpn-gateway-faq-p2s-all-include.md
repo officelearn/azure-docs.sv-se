@@ -9,15 +9,15 @@ ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "67056472"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hur många slutpunkter på VPN-klienter kan jag ha i min punkt-till-plats-konfiguration?
 
-Det beror på vilken gateway-SKU. Mer information om antalet anslutningar som stöds finns i [Gateway SKU: er](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+Det beror på Gateway-SKU: n. Mer information om antalet anslutningar som stöds finns i Gateway- [SKU: er](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
 ### <a name="supportedclientos"></a>Vilka klientoperativsystem kan jag använda med punkt-till-plats?
 
@@ -30,7 +30,7 @@ Följande klientoperativsystem stöds:
 * Windows Server 2012 R2 (endast 64-bitars)
 * Windows Server 2016 (endast 64-bitars)
 * Windows 10
-* Mac OS X version 10.11 eller senare
+* Mac OS X version 10,11 eller senare
 * Linux (StrongSwan)
 * iOS
 
@@ -38,13 +38,13 @@ Följande klientoperativsystem stöds:
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Kan jag korsa proxyservrar och brandväggar med punkt-till-plats-funktionen?
 
-Azure stöder tre typer av alternativ för punkt-till-plats-VPN:
+Azure stöder tre typer av VPN-alternativ för punkt-till-plats:
 
-* SSTP (Secure Socket Tunneling Protocol). SSTP är en Microsoft egna SSL-baserad lösning som kan ta sig igenom brandväggar eftersom de flesta brandväggar öppnar utgående TCP-porten som 443 som SSL använder.
+* SSTP (Secure Socket Tunneling Protocol). SSTP är en Microsoft-patentskyddad SSL-baserad lösning som kan tränga brand väggar eftersom de flesta brand väggar öppnar den utgående TCP-port som 443 SSL använder.
 
-* OpenVPN. OpenVPN är en SSL-baserad lösning som kan ta sig igenom brandväggar eftersom de flesta brandväggar öppnar utgående TCP-porten som 443 som SSL använder.
+* OpenVPN. OpenVPN är en SSL-baserad lösning som kan tränga in brand väggar eftersom de flesta brand väggar öppnar den utgående TCP-port som 443 SSL använder.
 
-* IKEv2 VPN. IKEv2 VPN är en standardbaserad IPsec VPN-lösning som inte använder utgående UDP-port 500 och 4500 och IP-protokoll. 50. Eftersom inte alla brandväggar öppnar dessa portar kan det hända att IKEv2 VPN inte kan komma igenom proxyservrar och brandväggar.
+* IKEv2 VPN. IKEv2 VPN är en standardbaserad IPsec VPN-lösning som använder utgående UDP-portar på 500 och 4500 och IP-protokoll nr. 50. Eftersom inte alla brandväggar öppnar dessa portar kan det hända att IKEv2 VPN inte kan komma igenom proxyservrar och brandväggar.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Om jag startar om en klientdator som konfigurerats för punkt-till-plats, kommer då VPN att återansluta automatiskt?
 
@@ -68,21 +68,21 @@ Det är svårt att bibehålla ett exakt dataflöde i VPN-tunnlarna. IPsec och SS
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Kan jag använda alla VPN-programklienter för punkt-till-plats som har stöd för SSTP och/eller IKEv2?
 
-Nej. Du kan bara använda den inbyggda VPN-klienten i Windows för SSTP, och den inbyggda VPN-klienten i Mac för IKEv2. Du kan dock använda OpenVPN-klienten på alla plattformar för att ansluta via OpenVPN-protokollet. Se listan över klientoperativsystem som stöds.
+Nej. Du kan bara använda den inbyggda VPN-klienten i Windows för SSTP, och den inbyggda VPN-klienten i Mac för IKEv2. Du kan dock använda OpenVPN-klienten på alla plattformar för att ansluta över OpenVPN-protokollet. Se listan över klientoperativsystem som stöds.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Har Azure stöd för IKEv2 VPN-anslutningar i Windows?
 
-IKEv2 stöds på Windows 10 och Server 2016. Om du vill använda IKEv2 måste du installera uppdateringar och ange ett registreringsnyckelvärde lokalt. OS-versioner före Windows 10 stöds inte och kan bara använda SSTP eller **OpenVPN® protokollet**.
+IKEv2 stöds på Windows 10 och Server 2016. Om du vill använda IKEv2 måste du installera uppdateringar och ange ett registreringsnyckelvärde lokalt. OS-versioner före Windows 10 stöds inte och kan endast använda SSTP-eller **OpenVPN-® protokoll**.
 
 Förbereda Windows 10 eller Server 2016 för IKEv2:
 
 1. Installera uppdateringen.
 
-   | Operativsystemversion | Date | Antal/länk |
+   | Operativsystemversion | Datum | Antal/länk |
    |---|---|---|
    | Windows Server 2016<br>Windows 10, version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-   | Windows 10 Version 1709 | 22 mars 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   | Windows 10 version 1709 | Den 22 mars 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |
 
 2. Ange registernyckelvärdet. Skapa eller ange "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" REG_DWORD-nyckeln i registret till 1.

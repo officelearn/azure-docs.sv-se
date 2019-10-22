@@ -10,10 +10,10 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70163991"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Självstudie: utforma en databas med flera innehavare med hjälp av Azure Database for PostgreSQL – storskalig (citus) (för hands version)
@@ -29,7 +29,7 @@ I den här självstudien använder du Azure Database for PostgreSQL-förhandsgra
 > * Dela data mellan klienter
 > * Anpassa schemat per klient
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -130,7 +130,7 @@ Program med flera klienter kan endast framtvinga unik användning per klient, vi
 
 En storskalig distribution lagrar tabell rader på olika noder baserat på värdet för en användardefinierad kolumn. Denna "distributions kolumn" markerar vilken klient som äger vilka rader.
 
-Vi anger att distributions kolumnen ska vara företags\_-ID, klient-ID. I psql kör du följande funktioner:
+Vi anger att distributions kolumnen ska vara företags \_id, klient-ID. I psql kör du följande funktioner:
 
 ```sql
 SELECT create_distributed_table('companies',   'id');
@@ -166,7 +166,7 @@ Dessa data kommer nu att spridas över arbetsnoder.
 
 ## <a name="query-tenant-data"></a>Fråga klient data
 
-När programmet begär data för en enskild klient kan databasen köra frågan på en enskild arbetsnod. Frågor med en enda klient fråga filtreras efter ett enda klient-ID. Följande fråga filter `company_id = 5` till exempel för annonsering och exponering. Prova att köra det i psql för att se resultatet.
+När programmet begär data för en enskild klient kan databasen köra frågan på en enskild arbetsnod. Frågor med en enda klient fråga filtreras efter ett enda klient-ID. Följande fråga filtrerar till exempel `company_id = 5` för annonser och exponeringar. Prova att köra det i psql för att se resultatet.
 
 ```sql
 SELECT a.campaign_id,
@@ -185,7 +185,7 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 ## <a name="share-data-between-tenants"></a>Dela data mellan klienter
 
-Fram till nu har alla tabeller distribuerats `company_id`, men vissa data är inte naturligt "tillhör" en klient i synnerhet och kan delas. Till exempel kanske alla företag i exemplet AD-plattformen vill hämta geografisk information för deras mål grupper baserat på IP-adresser.
+Tills nu har alla tabeller distribuerats av `company_id`, men vissa data är inte naturligt "tillhör" en klient i synnerhet och kan delas. Till exempel kanske alla företag i exemplet AD-plattformen vill hämta geografisk information för deras mål grupper baserat på IP-adresser.
 
 Skapa en tabell för att lagra delad geografisk information. Kör följande kommandon i psql:
 
@@ -199,7 +199,7 @@ CREATE TABLE geo_ips (
 CREATE INDEX ON geo_ips USING gist (addrs inet_ops);
 ```
 
-Sedan gör `geo_ips` du en "referens tabell" för att lagra en kopia av tabellen på varje arbetsnod.
+Gör sedan `geo_ips` en "referens tabell" för att lagra en kopia av tabellen på varje arbetsnod.
 
 ```sql
 SELECT create_reference_table('geo_ips');
@@ -211,7 +211,7 @@ Läs in den med exempel data. Kom ihåg att köra det här kommandot i psql inif
 \copy geo_ips from 'geo_ips.csv' with csv
 ```
 
-Att gå med i klicknings tabellen\_med geo-IP: er är effektiv på alla noder.
+Att gå med i klicknings tabellen med geo \_ips är effektiv på alla noder.
 Här är en koppling för att hitta platserna för alla som klickar på AD
 290. Prova att köra frågan i psql.
 
@@ -227,7 +227,7 @@ SELECT c.id, clicked_at, latlon
 
 Varje klient kan behöva lagra särskild information som inte behövs av andra. Alla klienter delar dock en gemensam infrastruktur med ett identiskt databas schema. Var kan extra data gå?
 
-Ett stick är att använda en kolumn typ med öppen slut som PostgreSQL-JSONB.  Vårt schema har ett JSONB-fält `clicks` i `user_data`kallas.
+Ett stick är att använda en kolumn typ med öppen slut som PostgreSQL-JSONB.  Vårt schema har ett JSONB-fält i `clicks` som kallas `user_data`.
 Ett företag (till exempel företag fem) kan använda kolumnen för att spåra om användaren finns på en mobil enhet.
 
 Här är en fråga för att hitta vem som klickar på mer: mobil eller traditionell besökare.

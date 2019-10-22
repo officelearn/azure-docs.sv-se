@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/29/2019
-ms.openlocfilehash: ae7baf09df42a5824e5f59e7ebb372f4d9f6350c
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/21/2019
+ms.openlocfilehash: 108e31ebff5910c139bcaf83675cc8161c2a96f6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72032869"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693368"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resurs gränser för enskilda databaser med den vCore-baserade inköps modellen
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller detaljerade resurs gränser för Azure SQL Databas
 För DTU-baserade inköps modell gränser för enskilda databaser på en SQL Database-Server, se [Översikt över resurs gränser på en SQL Database Server](sql-database-resource-limits-database-server.md).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enskild databas med hjälp av [Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)eller [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
@@ -45,19 +45,19 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|1|2|3|4|5|6|
 |Minne (GB)|7|14|21|28|35|42|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
-|Maximal data storlek (GB)|1024|1024|1024|1536|1536|1536|
-|Största logg storlek (GB)|307|307|307|461|461|461|
+|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Maximal data storlek (GB)|1024|1024|1536|1536|1536|3072|
+|Största logg storlek (GB)|307|307|461|461|461|922|
 |Maximal data storlek för TempDB (GB)|32|64|96|128|160|192|
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
-|I/o-svarstid (ungefärlig)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
-|Max data IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Högsta logg frekvens (Mbit/s)|3.75|7.5|11.25|15|18,75|22.5|
-|Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1000|1200|
+|I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
+|Max data IOPS (64 KB)|500|1 000|1500|2000|2500|3000|
+|Högsta logg frekvens (Mbit/s)|3,75|7,5|11,25|15|18,75|22,5|
+|Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1 000|1200|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
-|Läs skalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ### <a name="gen4-compute-generation-part-2"></a>Gen4 beräknings generation (del 2)
@@ -68,19 +68,19 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|168|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
-|Maximal data storlek (GB)|1536|3072|3072|3072|4096|4096|
-|Största logg storlek (GB)|461|922|922|922|1229|1229|
+|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Maximal data storlek (GB)|3072|3072|3072|3072|4096|4096|
+|Största logg storlek (GB)|922|922|922|922|1229|1229|
 |Maximal data storlek för TempDB (GB)|224|256|288|320|384|384|
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
-|I/o-svarstid (ungefärlig)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)
+|I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)
 |Max data IOPS (64 KB)|3500|4000|4500|5000|8000|12000|
 |Högsta logg frekvens (Mbit/s)|26,25|30|30|30|30|30|
 |Maximalt antal samtidiga arbetare (begär Anden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
-|Läs skalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ### <a name="gen5-compute-generation-part-1"></a>Gen5 beräknings generation (del 1)
@@ -91,19 +91,19 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|2|4|6|8|10|12|14|
 |Minne (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Maximal data storlek (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Största logg storlek (GB)|307|307|307|461|461|461|461|
+|Största logg storlek (GB)|307|307|461|461|461|922|922|
 |Maximal data storlek för TempDB (GB)|64|128|192|256|320|384|384|
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
-|I/o-svarstid (ungefärlig)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
-|Max data IOPS (64 KB)|1000|2000|3000|4000|5000|6000|7000|
-|Högsta logg frekvens (Mbit/s)|3.75|7.5|11.25|15|18,75|22.5|26,25|
-|Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1000|1200|1400|
+|I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
+|Max data IOPS (64 KB)|1 000|2000|3000|4000|5000|6000|7000|
+|Högsta logg frekvens (Mbit/s)|3,75|7,5|11,25|15|18,75|22,5|26,25|
+|Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1 000|1200|1400|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
-|Läs skalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ### <a name="gen5-compute-generation-part-2"></a>Gen5 beräknings generation (del 2)
@@ -114,19 +114,19 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|16|18|20|24|32|40|80|
 |Minne (GB)|81,6|91,8|102|122,4|163,2|204|408|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Maximal data storlek (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Största logg storlek (GB)|922|922|922|1229|1229|1229|1229|
 |Maximal data storlek för TempDB (GB)|384|384|384|384|384|384|384|
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
-|I/o-svarstid (ungefärlig)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
+|I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS (64 KB)|8000|9000|10000|12000|16000|20000|40000|
 |Högsta logg frekvens (Mbit/s)|30|30|30|30|30|30|30|
 |Maximalt antal samtidiga arbetare (begär Anden)|1600|1800|2000|2400|3200|4000|8000|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
-|Läs skalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ## <a name="general-purpose-service-tier-for-serverless-compute"></a>Generell användning tjänst nivå för data bearbetning utan Server
@@ -142,19 +142,19 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Min-max minne (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00 – 24|
 |Minsta fördröjning för automatisk paus (minuter)|60|60|60|60|60|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Maximal data storlek (GB)|512|1024|1024|1024|1536|
 |Största logg storlek (GB)|154|307|307|307|461|
 |Maximal data storlek för TempDB (GB)|32|64|128|192|256|
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
-|I/o-svarstid (ungefärlig)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
-|Max data IOPS (64 KB)|500|1000|2000|3000|4000|
-|Högsta logg frekvens (Mbit/s)|2.5|5.6|10|15|20|
+|I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
+|Max data IOPS (64 KB)|500|1 000|2000|3000|4000|
+|Högsta logg frekvens (Mbit/s)|2.5|5,6|10|15|20|
 |Maximalt antal samtidiga arbetare (begär Anden)|75|150|300|450|600|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Gäller inte|
-|Läs skalbarhet|Gäller inte|Saknas|Saknas|Saknas|Gäller inte|
+|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ### <a name="gen5-compute-generation-part-2"></a>Gen5 beräknings generation (del 2)
@@ -166,19 +166,19 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Min-max minne (GB)|3,75 – 30|4.50-36|5,25-42|6.00-48|
 |Minsta fördröjning för automatisk paus (minuter)|60|60|60|60|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Maximal data storlek (GB)|1536|1536|1536|3072|
 |Största logg storlek (GB)|461|461|461|922|
 |Maximal data storlek för TempDB (GB)|320|384|448|512|
 |Lagringstyp|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|Fjärr-SSD|
-|I/o-svarstid (ungefärlig)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
+|I/o-latens (ungefärligt)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Max data IOPS (64 KB)|5000|6000|7000|8000|
 |Högsta logg frekvens (Mbit/s)|20|20|20|20|
 |Maximalt antal samtidiga arbetare (begär Anden)|750|900|1050|1200|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Gäller inte|
-|Läs skalbarhet|Gäller inte|Saknas|Saknas|Gäller inte|
+|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
+|Läs skalbarhet|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
 ## <a name="business-critical-service-tier-for-provisioned-compute"></a>Affärskritisk tjänst nivå för allokerad beräkning
@@ -196,14 +196,14 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|1|2|3|4|5|6|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|Maximal data storlek (GB)|650|650|650|650|650|650|
-|Största logg storlek (GB)|195|195|195|195|195|195|
+|Maximal data storlek (GB)|1024|1024|1024|1024|1024|1024|
+|Största logg storlek (GB)|307|307|307|307|307|307|
 |Maximal data storlek för TempDB (GB)|32|64|96|128|160|192|
-|I/o-svarstid (ungefärlig)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
+|I/o-latens (ungefärligt)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
 |Max data IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|
 |Högsta logg frekvens (Mbit/s)|8|16|24|32|40|48|
-|Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1000|1200|
-|Maximalt antal samtidiga inloggningar|200|400|600|800|1000|1200|
+|Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1 000|1200|
+|Maximalt antal samtidiga inloggningar|200|400|600|800|1 000|1200|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -218,12 +218,12 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|168|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|7|8|9.5|11|20|36|
+|Minnes intern OLTP-lagring (GB)|7|8|9,5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|Maximal data storlek (GB)|650|650|650|650|1024|1024|
-|Största logg storlek (GB)|195|195|195|195|307|307|
+|Maximal data storlek (GB)|1024|1024|1024|1024|1024|1024|
+|Största logg storlek (GB)|307|307|307|307|307|307|
 |Maximal data storlek för TempDB (GB)|224|256|288|320|384|384|
-|I/o-svarstid (ungefärlig)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
+|I/o-latens (ungefärligt)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
 |Max data IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
 |Högsta logg frekvens (Mbit/s)|56|64|64|64|64|64|
 |Maximalt antal samtidiga arbetare (begär Anden)|1400|1600|1800|2000|3200|4800|
@@ -244,14 +244,14 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|1,571|3,142|4,713|6,284|8,655|11,026|13,397|
 |Maximal data storlek (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Största logg storlek (GB)|307|307|307|461|461|922|922|
+|Största logg storlek (GB)|307|307|461|461|461|922|922|
 |Maximal data storlek för TempDB (GB)|64|128|192|256|320|384|384|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|I/o-svarstid (ungefärlig)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
+|I/o-latens (ungefärligt)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
 |Max data IOPS (64 KB)|8000|16000|24000|32000|40000|48000|56000|
 |Högsta logg frekvens (Mbit/s)|12|24|36|48|60|72|84|
-|Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1000|1200|1400|
-|Maximalt antal samtidiga inloggningar|200|400|600|800|1000|1200|1400|
+|Maximalt antal samtidiga arbetare (begär Anden)|200|400|600|800|1 000|1200|1400|
+|Maximalt antal samtidiga inloggningar|200|400|600|800|1 000|1200|1400|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -271,7 +271,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Största logg storlek (GB)|922|922|922|1229|1229|1229|1229|
 |Maximal data storlek för TempDB (GB)|384|384|384|384|384|384|384|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|I/o-svarstid (ungefärlig)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
+|I/o-latens (ungefärligt)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|1-2 ms (skrivning)<br>1-2 ms (läsa)|
 |Max data IOPS (64 KB)|64000|72000|80000|96000|128000|160000|320000|
 |Högsta logg frekvens (Mbit/s)|96|96|96|96|96|96|96|
 |Maximalt antal samtidiga arbetare (begär Anden)|1600|1800|2000|2400|3200|4000|8000|
@@ -293,28 +293,28 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Minne (GB)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
 |[RBPEX](sql-database-service-tier-hyperscale.md#compute) Ändra|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Minnes intern OLTP-lagring (GB)|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Maximal data storlek (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Största logg storlek (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |Maximal data storlek för TempDB (GB)|64|128|256|384|384|384|384|384|
 |Lagringstyp| [Anmärkning 1](#notes) |[Anmärkning 1](#notes)|[Anmärkning 1](#notes) |[Anmärkning 1](#notes) |[Anmärkning 1](#notes) |[Anmärkning 1](#notes) |[Anmärkning 1](#notes) | [Anmärkning 1](#notes) |
 |Max data IOPS (64 KB)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|
-|I/o-svarstid (ungefärlig)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|
+|I/o-latens (ungefärligt)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|
 |Maximalt antal samtidiga arbetare (begär Anden)|200|400|800|1600|2400|3200|4000|8000|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
 |Sekundära repliker|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Multi-AZ|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|Gäller inte|
 |Läs skalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Kvarhållning av lagrings utrymme för säkerhets kopior|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|
 |||
 
 #### <a name="notes"></a>Anteckningar
 
-**Anmärkning 1**: Storskalighet är en arkitektur med flera nivåer med separata beräknings-och lagrings komponenter: [Arkitektur för storskalig Service Tier](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
+**Anmärkning 1**: storskalig är en arkitektur med flera nivåer med separata beräknings-och lagrings komponenter: [storskalig arkitektur för tjänst nivå](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Anmärkning 2**: Storskalig arkitektur med flera nivåer har cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen.
+**Anmärkning 2**: storskalig arkitektur med flera nivåer har cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen.
 
-**Anmärkning 3**: Svars tiden är 1-2 MS för data i den RBPEX SSD-baserade cachen på beräknings repliker, som cachelagrar de mest använda data sidorna. Högre latens för data som hämtas från sid servrar.
+**Anmärkning 3**: latens är 1-2 MS för data i RBPEX SSD-baserade cacheminnet på beräknings repliker, som cachelagrar de mest använda data sidorna. Högre latens för data som hämtas från sid servrar.
 
 ## <a name="next-steps"></a>Nästa steg
 

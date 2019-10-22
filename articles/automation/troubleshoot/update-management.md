@@ -1,6 +1,6 @@
 ---
 title: Felsöka fel med Uppdateringshantering
-description: Lär dig hur du felsöker problem med Uppdateringshantering
+description: Lär dig hur du felsöker problem med Uppdateringshantering.
 services: automation
 author: bobbytreed
 ms.author: robreed
@@ -8,73 +8,75 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 89c5c849ffdbe70ae449f41ac08471c84f2fb5bc
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
-ms.translationtype: MT
+ms.openlocfilehash: 952bcb85484e885d45876de1e4cf3326db0a146a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372634"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693399"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
-I den här artikeln beskrivs lösningar för att lösa problem som kan köras i när du använder Uppdateringshantering.
+I den här artikeln beskrivs lösningar på problem som kan uppstå när du använder Uppdateringshantering.
 
-Det finns en agent fel sökare för Hybrid Worker agent för att fastställa det underliggande problemet. Mer information om fel sökaren finns i [Felsöka problem med uppdaterings agenten](update-agent-issues.md). För alla andra problem, se detaljerad information nedan om möjliga problem.
+Det finns en agent fel sökare för Hybrid Worker agenten för att fastställa det underliggande problemet. Mer information om fel sökaren finns i [Felsöka problem med uppdaterings agenten](update-agent-issues.md). Använd följande fel söknings vägledning för alla andra problem.
 
-Om det uppstår problem vid försök att publicera lösningen på en virtuell dator kontrollerar du **Operations Manager** händelse loggen under program- **och tjänst loggar** på den lokala datorn för händelser med händelse-ID **4502** och händelse meddelande innehåller **Microsoft. EnterpriseManagement. HealthService. AzureAutomation. HybridAgent**.
+Om du stöter på problem när du försöker publicera lösningen på en virtuell dator (VM) kontrollerar du **Operations Manager** loggen under **program-och tjänst loggar** på den lokala datorn efter händelser med händelse-ID 4502 och händelse information som innehåller **Microsoft. EnterpriseManagement. HealthService. AzureAutomation. HybridAgent**.
 
-I följande avsnitt beskrivs vissa fel meddelanden och en möjlig lösning för var och en. Mer information om andra onboarding-problem finns i [Felsöka lösning onboarding](onboarding.md).
+I följande avsnitt beskrivs de olika fel meddelandena och möjliga lösningar för var och en. Information om andra onboarding-problem finns i [Felsöka lösning onboarding](onboarding.md).
 
 ## <a name="nologs"></a>Scenario: datorer visas inte i portalen under Uppdateringshantering
 
 ### <a name="issue"></a>Problem
 
-Du kan köra i följande scenarier:
+Följande symptom uppstår:
 
-* Datorn **har inte kon figurer ATS** från uppdateringshantering visning av en virtuell dator
+* Datorn visas **inte** i uppdateringshantering visning av en virtuell dator.
 
-* Dina datorer saknas i Uppdateringshanterings visning av ditt Automation-konto
+* Datorerna saknas i Uppdateringshanterings visning av ditt Azure Automation-konto.
 
-* Du har datorer som visas som **ej utvärderade** under **efterlevnad**, men du ser pulsslags data i Azure Monitor loggar för Hybrid Runbook Worker men inte uppdateringshantering.
+* Du har datorer som visas som **ej utvärderade** under **efterlevnad**. Men du ser pulsslags data i Azure Monitor loggar för Hybrid Runbook Worker men inte för Uppdateringshantering.
 
 ### <a name="cause"></a>Orsak
 
-Detta kan orsakas av potentiella lokala konfigurations problem eller av en felaktigt konfigurerad omfattnings konfiguration.
+Det här problemet kan orsakas av lokala konfigurations problem eller av en felaktigt konfigurerad omfattnings konfiguration.
 
-Hybrid Runbook Worker kan behöva registreras igen och installeras om.
+Du kanske måste registrera om och installera om Hybrid Runbook Worker.
 
-Du kan ha definierat en kvot på din arbets yta som har nåtts och stoppat data från att lagras.
+Du kan ha definierat en kvot på din arbets yta som har nåtts och som förhindrar ytterligare data lagring.
 
 ### <a name="resolution"></a>Upplösning
 
-* Kör fel sökaren för [Windows](update-agent-issues.md#troubleshoot-offline) eller [Linux](update-agent-issues-linux.md#troubleshoot-offline) beroende på vilket operativ system du har.
+* Kör fel sökaren för [Windows](update-agent-issues.md#troubleshoot-offline) eller [Linux](update-agent-issues-linux.md#troubleshoot-offline), beroende på vilket operativ system du har.
 
-* Se till att din dator rapporterar till rätt arbets yta. Kontrol lera vilken arbets yta som datorn rapporterar till. Instruktioner för hur du verifierar detta finns i [Verifiera agent anslutning till Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Se sedan till att det här är arbets ytan som är länkad till ditt Azure Automation-konto. Bekräfta detta genom att gå till ditt Automation-konto och klicka på **länkad arbets yta** under **relaterade resurser**.
+* Kontrol lera att datorn rapporterar till rätt arbets yta. Anvisningar för hur du verifierar den här aspekten finns i [Verifiera agent anslutning till Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Se också till att den här arbets ytan är länkad till ditt Azure Automation-konto. Bekräfta genom att gå till ditt Automation-konto och välja **länkad arbets yta** under **relaterade resurser**.
 
-* Kontrol lera att datorerna visas i din Log Analytics-arbetsyta. Kör följande fråga på din Log Analytics arbets yta som är länkad till ditt Automation-konto. Om du inte ser din dator i frågeresultatet har datorn inte nyligen checkats in, vilket innebär att det finns troligen ett lokalt konfigurations problem och att du kan [installera om agenten](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Om din dator visas i frågeresultatet måste du ange den omfattnings konfiguration som anges i följande punkt.
+* Kontrol lera att datorerna visas i din Log Analytics-arbetsyta. Kör följande fråga på arbets ytan Log Analytics som är länkad till ditt Automation-konto:
 
   ```loganalytics
   Heartbeat
   | summarize by Computer, Solutions
   ```
+  Om du inte ser din dator i frågeresultatet har den inte nyligen checkats in, vilket innebär att det finns ett lokalt konfigurations problem och du bör [installera om agenten](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Om din dator visas i frågeresultaten måste du kontrol lera den omfattnings konfiguration som anges i nästa punkt objekt i den här listan.
 
-* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som får konfigureras för lösningen. Om din dator visas i din arbets yta men inte visas i **uppdateringshantering** -portalen, måste du konfigurera omfångs konfigurationen så att den är riktad mot datorerna. Information om hur du gör detta finns i [onboard Machines på arbets ytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som får konfigureras för lösningen. Om din dator visas i arbets ytan men inte i **uppdateringshantering** -portalen, måste du konfigurera omfattnings konfigurationen så att den är riktad mot datorerna. Information om hur du gör detta finns i [onboard Machines på arbets ytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Kör följande fråga i arbets ytan. Om du ser resultatet `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` har du en kvot som definierats på din arbets yta som har nåtts och har stoppat data från att sparas. I arbets ytan navigerar du till **användning och uppskattade kostnader** > **data volym hantering** och kontrollerar kvoten eller tar bort den kvot som du har.
+* Kör följande fråga i arbets ytan:
 
   ```loganalytics
   Operation
   | where OperationCategory == 'Data Collection Status'
   | sort by TimeGenerated desc
   ```
+  Om du får ett `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` resultat finns en kvot definierad på din arbets yta som har nåtts och som har stoppat data från att sparas. I arbets ytan går du till **användning och beräknade kostnader**  > **data volym hantering** och kontrollerar kvoten eller tar bort den.
 
-* Om ovanstående steg inte löser problemet följer du stegen i [distribuera en Windows-hybrid Runbook Worker](../automation-windows-hrw-install.md) för att installera om hybrid Worker för Windows eller [distribuera en Linux-hybrid Runbook Worker](../automation-linux-hrw-install.md) för Linux.
+* Om de här stegen inte löser problemet följer du stegen i [distribuera en Windows-hybrid Runbook Worker](../automation-windows-hrw-install.md) för att installera om hybrid Worker för Windows. Eller, för Linux, [distribuerar du en Linux-hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 ## <a name="rp-register"></a>Scenario: det går inte att registrera Automation Resource Provider för prenumerationer
 
 ### <a name="issue"></a>Problem
 
-Du kan få följande fel meddelande när du arbetar med lösningar i ditt Automation-konto.
+När du arbetar med lösningar i ditt Automation-konto uppstår följande fel:
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions:
@@ -82,17 +84,17 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 ### <a name="cause"></a>Orsak
 
-Automatiserings resurs leverantören är inte registrerad i prenumerationen.
+Den automatiska resurs leverantören är inte registrerad i prenumerationen.
 
 ### <a name="resolution"></a>Upplösning
 
-Du kan registrera automatiserings resurs leverantörer genom att utföra följande steg i Azure Portal:
+Registrera automatiserings resurs leverantören genom att följa de här stegen i Azure Portal:
 
-1. Klicka på **alla tjänster** längst ned i listan över Azure-tjänster och välj sedan **prenumerationer** i gruppen _allmän_ tjänst.
+1. I listan Azure-tjänster längst ned i portalen väljer du **alla tjänster**och väljer sedan **prenumerationer** i gruppen allmän tjänst.
 2. Välj din prenumeration.
-3. Klicka på **resurs leverantörer** under _Inställningar_.
+3. Under **Inställningar**väljer du **resurs leverantörer**.
 4. Kontrol lera att **Microsoft. Automation** Resource Provider är registrerad i listan över resurs leverantörer.
-5. Om providern inte finns med i listan registrerar du **Microsoft. Automation** -providern med stegen [ ](/azure/azure-resource-manager/resource-manager-register-provider-errors)som anges under.
+5. Om den inte visas registrerar du **Microsoft. Automation** -providern genom att följa stegen i [lösa fel för registrering av resurs leverantör](/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## <a name="components-enabled-not-working"></a>Scenario: komponenterna för Uppdateringshantering-lösningen har Aktiver ATS och nu konfigureras den här virtuella datorn
 
@@ -106,25 +108,25 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 ### <a name="cause"></a>Orsak
 
-Det här felet kan orsakas av följande orsaker:
+Det här felet kan inträffa av följande orsaker:
 
-1. Kommunikation tillbaka till Automation-kontot blockeras.
-2. Den virtuella dator som har publicerats kan ha kommit från en klonad dator som inte var Sysprep med Microsoft Monitoring Agent installerad.
+- Kommunikation med Automation-kontot blockeras.
+- Den virtuella dator som har publicerats kan ha kommit från en klonad dator som inte är Sysprep med Microsoft Monitoring Agent (MMA) installerad.
 
 ### <a name="resolution"></a>Upplösning
 
-1. Besök, [nätverks planering](../automation-hybrid-runbook-worker.md#network-planning) för att lära dig om vilka adresser och portar som måste tillåtas för att uppdateringshantering ska fungera.
+1. Gå till [nätverks planering](../automation-hybrid-runbook-worker.md#network-planning) och lär dig om vilka adresser och portar som måste tillåtas för att uppdateringshantering ska fungera.
 2. Om du använder en klonad avbildning:
-   1. I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates` om den visas. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
-   2. Kör `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
-   3. Kör `Restart-Service HealthService` för att starta om `HealthService`. Detta skapar en ny nyckel och genererar en ny UUID.
-   4. Om detta inte fungerar Sysprep-avbildningen först och installerar MMA-agenten efter faktumet.
+   1. I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter `MicrosoftDefaultScopeConfig-Updates` omfattnings konfigurationen om den visas. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
+   2. Kör `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`.
+   3. Kör `Restart-Service HealthService` för att starta om `HealthService`. Detta återskapar nyckeln och genererar en ny UUID.
+   4. Om den här metoden inte fungerar kör du Sysprep på avbildningen först och installerar sedan MMA.
 
-## <a name="multi-tenant"></a>Scenario: du får ett länkat prenumerations fel när du skapar en uppdaterings distribution för datorer i en annan Azure-klient.
+## <a name="multi-tenant"></a>Scenario: du får ett länkat prenumerations fel när du skapar en uppdaterings distribution för datorer i en annan Azure-klient
 
 ### <a name="issue"></a>Problem
 
-Du får följande fel meddelande när du försöker skapa en uppdaterings distribution för datorer i en annan Azure-klient:
+Följande fel uppstår när du försöker skapa en uppdaterings distribution för datorer i en annan Azure-klient:
 
 ```error
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
@@ -132,12 +134,12 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 ### <a name="cause"></a>Orsak
 
-Det här felet uppstår när du skapar en uppdaterings distribution som har virtuella Azure-datorer i en annan klient som ingår i en uppdaterings distribution.
+Det här felet uppstår när du skapar en uppdaterings distribution med virtuella Azure-datorer i en annan klient som ingår i en uppdaterings distribution.
 
 ### <a name="resolution"></a>Upplösning
 
-Du måste använda följande lösning för att få dem schemalagda. Du kan använda cmdleten [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) med växeln `-ForUpdate` om du vill skapa ett schema och använda cmdleten [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) och skicka datorerna i den andra klienten till parametern `-NonAzureComputer`. I följande exempel visas ett exempel på hur du gör detta:
+Använd följande lösning för att få de här objekten schemalagda. Du kan använda cmdleten [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) med växeln `-ForUpdate` för att skapa ett schema. Använd sedan cmdleten [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+) och skicka datorerna i den andra klienten till `-NonAzureComputer`-parametern. I följande exempel visas hur du gör detta:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -153,21 +155,21 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 ### <a name="issue"></a>Problem
 
-Du har konfigurerat **kontrollen starta om** med **aldrig omstart**, men datorerna startas fortfarande om efter installationen av uppdateringar.
+Även om du har ställt in alternativet **Starta** om för att **aldrig starta om**, startar datorerna fortfarande om när uppdateringarna har installerats.
 
 ### <a name="cause"></a>Orsak
 
-Windows Update beteende kan ändras med flera register nycklar som kan ändra start beteenden.
+Windows Update kan ändras av flera register nycklar, vilken som helst kan ändra omstarts beteendet.
 
 ### <a name="resolution"></a>Upplösning
 
-Granska register nycklarna under [Konfigurera automatiska uppdateringar genom att redigera register](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) -och [register nycklar som används för att hantera omstart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) för att säkerställa att datorerna är korrekt konfigurerade.
+Granska register nycklarna under [Konfigurera automatiska uppdateringar genom att redigera register](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) -och [register nycklar som används för att hantera omstart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) för att kontrol lera att datorerna är korrekt konfigurerade.
 
-## <a name="failed-to-start"></a>Scenario: en dator visar att det inte gick att starta en uppdaterings distribution
+## <a name="failed-to-start"></a>Scenario: datorn visar att det inte gick att starta i en uppdaterings distribution
 
 ### <a name="issue"></a>Problem
 
-En dator har statusen **kunde inte starta** för en dator. När du visar detaljerad information för datorn visas följande fel:
+En dator visar statusen **kunde inte startas** . När du visar detaljerad information för datorn visas följande fel:
 
 ```error
 Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
@@ -175,41 +177,42 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 ### <a name="cause"></a>Orsak
 
-Felet kan bero på någon av följande orsaker:
+Felet kan uppstå på grund av någon av följande orsaker:
 
 * Datorn finns inte längre.
 * Datorn är inaktive rad och kan inte kontaktas.
-* Datorn har ett problem med nätverks anslutningen och hybrid Worker på datorn kan inte kontaktas.
-* En uppdatering har gjorts till Microsoft Monitoring Agent som ändrade SourceComputerId
-* Uppdaterings körningen kan ha begränsats om du träffar gränsen 2 000 för samtidiga jobb i ett Automation-konto. Varje distribution betraktas som ett jobb och varje dator i en uppdaterings distribution räknas som ett jobb. Alla andra automatiserings jobb eller uppdaterings distributioner som körs i ditt Automation-konto räknas till gränsen för samtidiga jobb.
+* Datorn har ett problem med nätverks anslutningen och det går därför inte att komma åt hybrid Worker på datorn.
+* En uppdatering har gjorts till MMA som ändrade SourceComputerId.
+* Uppdaterings körningen begränsades om du träffar gränsen på 2 000 samtidiga jobb i ett Automation-konto. Varje distribution betraktas som ett jobb, och varje dator i en uppdaterings distribution räknas som ett jobb. Alla andra automatiserings jobb eller uppdaterings distributioner som körs i ditt Automation-konto räknas mot gränsen för samtidiga jobb.
 
 ### <a name="resolution"></a>Upplösning
 
-Använd [dynamiska grupper](../automation-update-management-groups.md) för dina uppdaterings distributioner när det är tillämpligt.
+Använd [dynamiska grupper](../automation-update-management-groups.md) för dina uppdaterings distributioner när det är tillämpligt. Dessutom
 
 * Kontrol lera att datorn fortfarande finns och att den kan kontaktas. Om den inte finns redigerar du distributionen och tar bort datorn.
-* Se avsnittet om [nätverks planering](../automation-update-management.md#ports) för en lista över portar och adresser som krävs för att uppdateringshantering och kontrol lera att datorn uppfyller dessa krav.
-* Kör följande fråga i Log Analytics för att hitta datorer i din miljö vars `SourceComputerId` har ändrats. Sök efter datorer som har samma `Computer`-värde, men ett annat `SourceComputerId`-värde. När du har hittat de berörda datorerna måste du redigera de uppdaterings distributioner som är riktade till dessa datorer och ta bort och lägga till datorerna på nytt så att `SourceComputerId` visar rätt värde.
+* Se avsnittet [nätverks planering](../automation-update-management.md#ports) för en lista över portar och adresser som krävs för uppdateringshantering och kontrol lera att datorn uppfyller dessa krav.
+* Kör följande fråga i Log Analytics för att hitta datorer i din miljö vars `SourceComputerId` har ändrats. Sök efter datorer som har samma `Computer` värde, men ett annat `SourceComputerId` värde. 
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
+   När du hittar berörda datorer redigerar du de uppdaterings distributioner som är riktade mot de datorerna och tar sedan bort och lägger till dem på nytt så att `SourceComputerId` visar rätt värde.
 
 ## <a name="updates-nodeployment"></a>Scenario: uppdateringar installeras utan distribution
 
 ### <a name="issue"></a>Problem
 
-När du registrerar en Windows-dator i Uppdateringshantering kan du se uppdateringar som installeras utan en distribution.
+När du registrerar en Windows-dator i Uppdateringshantering visas uppdateringar som installerats utan en distribution.
 
 ### <a name="cause"></a>Orsak
 
-I Windows installeras uppdateringar automatiskt så snart de är tillgängliga. Detta kan orsaka förvirring om du inte schemalägger en uppdatering så att den distribueras till datorn.
+I Windows installeras uppdateringar automatiskt så snart de är tillgängliga. Det här beteendet kan orsaka förvirring om du inte schemalägger en uppdatering så att den distribueras till datorn.
 
 ### <a name="resolution"></a>Upplösning
 
-Windows-registernyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` som standard till "4" – **Hämta och installera automatiskt**.
+Register nyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` har standardinställningen 4: **Hämta och installera automatiskt**.
 
-För Uppdateringshantering-klienter rekommenderar vi att du anger den här nyckeln till "3" – **Hämta automatiskt och installera inte automatiskt**.
+För Uppdateringshantering-klienter rekommenderar vi att du anger den här nyckeln till 3: **Ladda ned automatiskt men installera inte automatiskt**.
 
 Mer information finns i [Konfigurera automatiska uppdateringar](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
@@ -229,8 +232,8 @@ Datorn har redan publicerats till en annan arbets yta för Uppdateringshantering
 
 ### <a name="resolution"></a>Upplösning
 
-1. Följ stegen under [datorer som inte visas i portalen under uppdateringshantering](#nologs) för att se till att datorn rapporterar till rätt arbets yta.
-2. Utför rensning av gamla artefakter på datorn genom [att ta bort hybrid Runbook-gruppen](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) och försök igen.
+1. Följ stegen under [datorer som inte visas i portalen under uppdateringshantering](#nologs) för att kontrol lera att datorn rapporterar till rätt arbets yta.
+2. Rensa gamla artefakter på datorn genom [att ta bort hybrid Runbook-gruppen](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)och försök sedan igen.
 
 ## <a name="machine-unable-to-communicate"></a>Scenario: datorn kan inte kommunicera med tjänsten
 
@@ -252,11 +255,11 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 ### <a name="cause"></a>Orsak
 
-Det kan finnas en proxy, gateway eller brand vägg som blockerar nätverkskommunikation.
+En proxy, gateway eller brand vägg kan blockera nätverkskommunikation.
 
 ### <a name="resolution"></a>Upplösning
 
-Granska nätverket och se till att lämpliga portar och adresser är tillåtna. Se [nätverks krav](../automation-hybrid-runbook-worker.md#network-planning)för en lista över portar och adresser som krävs av uppdateringshantering och hybrid Runbook Worker.
+Granska nätverket och kontrol lera att rätt portar och adresser är tillåtna. Se [nätverks krav](../automation-hybrid-runbook-worker.md#network-planning) för en lista över portar och adresser som krävs av uppdateringshantering och hybrid Runbook Worker.
 
 ## <a name="unable-to-create-selfsigned-cert"></a>Scenario: det går inte att skapa ett självsignerat certifikat
 
@@ -270,17 +273,17 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ### <a name="cause"></a>Orsak
 
-Det Hybrid Runbook Worker inte att skapa ett självsignerat certifikat
+Det gick inte att skapa ett självsignerat certifikat i Hybrid Runbook Worker.
 
 ### <a name="resolution"></a>Upplösning
 
-Kontrol lera att system kontot har Läs behörighet till mappen **C:\ProgramData\Microsoft\Crypto\RSA** och försök igen.
+Kontrol lera att system-kontot har Läs behörighet till mappen **C:\ProgramData\Microsoft\Crypto\RSA** och försök igen.
 
-## <a name="mw-exceeded"></a>Scenario: uppdaterings hanteringen som schemalagts misslyckades med felet MaintenanceWindowExceeded
+## <a name="mw-exceeded"></a>Scenario: den schemalagda uppdateringen misslyckades med ett MaintenanceWindowExceeded-fel
 
 ### <a name="issue"></a>Problem
 
-Standard underhålls perioden för uppdateringar är 120 minuter. Du kan öka underhålls perioden till högst sex timmar (6) timmar eller 360 minuter.
+Standard underhålls perioden för uppdateringar är 120 minuter. Du kan öka underhålls perioden till högst 6 timmar eller 360 minuter.
 
 ### <a name="resolution"></a>Upplösning
 
@@ -288,64 +291,63 @@ Redigera eventuella misslyckade schemalagda uppdaterings distributioner och öka
 
 Mer information om underhålls perioder finns i [Installera uppdateringar](../automation-tutorial-update-management.md#schedule-an-update-deployment).
 
-## <a name="hresult"></a>Scenario: datorn visas som ej utvärderad och visar ett HResult-undantag
+## <a name="hresult"></a>Scenario: datorn visas som "inte utvärderad" och visar ett HResult-undantag
 
 ### <a name="issue"></a>Problem
 
 * Du har datorer som visas som **ej utvärderade** under **kompatibilitet**och du ser ett undantags meddelande nedan.
-* Du har datorer som visas som ej utvärderade
+* Du har datorer som visas som ej utvärderade.
 * Du ser en HRESULT-felkod i portalen.
 
 ### <a name="cause"></a>Orsak
 
-Uppdaterings agenten (Windows Update agenten i Windows, paket hanteraren för din Linux-distribution) är inte korrekt konfigurerad. Uppdateringshantering är beroende av datorns uppdaterings agent för att tillhandahålla de uppdateringar som behövs, status för korrigeringen och resultaten av de uppdateringar som har distribuerats. Utan den här informationen Uppdateringshantering kan inte rapportera om de korrigeringar som behövs eller har installerats på rätt sätt.
+Uppdaterings agenten (Windows Update agenten i Windows, paket hanteraren för en Linux-distribution) är inte korrekt konfigurerad. Uppdateringshantering är beroende av datorns uppdaterings agent för att tillhandahålla de uppdateringar som behövs, status för korrigeringen och resultaten av distribuerade uppdateringar. Utan den här informationen kan Uppdateringshantering inte korrekt rapportera om de korrigeringar som behövs eller är installerade.
 
 ### <a name="resolution"></a>Upplösning
 
-Försöker utföra uppdateringar lokalt på datorn. Om detta Miss lyckas innebär detta vanligt vis ett konfigurations fel med uppdaterings agenten.
+Försök att utföra uppdateringar lokalt på datorn. Om detta Miss lyckas betyder det vanligt vis att det finns ett konfigurations fel med uppdaterings agenten.
 
-Vanliga orsaker till fel är:
+Det här problemet orsakas ofta av nätverks konfiguration och brand Väggs problem. Prova följande:
 
-* Nätverks konfiguration och brand väggar.
 * För Linux kontrollerar du lämplig dokumentation för att se till att du kan komma åt nätverks slut punkten för din paket lagrings plats.
 * För Windows kontrollerar du att agent konfigurationen som anges i [uppdateringar inte laddas ned från intranät slut punkten (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
-  * Om datorerna har kon figurer ATS för Windows Update kontrollerar du att du kan komma åt de slut punkter som anges under [ ](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
-  * Om datorerna har kon figurer ATS för WSUS kontrollerar du att du kan ansluta till WSUS-servern som kon figurer ATS av [register nyckeln WUServer principvärdet](/windows/deployment/update/waas-wu-settings).
+  * Om datorerna har kon figurer ATS för Windows Update kontrollerar du att du kan komma åt slut punkterna som beskrivs i [problem som rör http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
+  * Om datorerna är konfigurerade för Windows Server Update Services (WSUS) kontrollerar du att du kan ansluta till WSUS-servern som kon figurer ATS av [register nyckeln WUServer principvärdet](/windows/deployment/update/waas-wu-settings).
 
-Om du ser ett HRESULT dubbelklickar du på det undantag som visas i rött för att se hela undantags meddelandet. Granska följande tabell för potentiella lösningar eller åtgärder som du kan vidta:
+Om du ser ett HRESULT dubbelklickar du på undantaget som visas i rött för att se hela undantags meddelandet. Granska följande tabell för möjliga lösningar eller rekommenderade åtgärder:
 
 |Undantag  |Lösning eller åtgärd  |
 |---------|---------|
-|`Exception from HRESULT: 0x……C`     | Sök efter mer information om orsaken till undantaget i listan med fel kod i [Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list) -felkoden.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Felen är problem med nätverks anslutningen. Kontrol lera att datorn har rätt nätverks anslutning till Uppdateringshantering. Se avsnittet om [nätverks planering](../automation-update-management.md#ports) för en lista över portar och adresser som krävs.        |
+|`Exception from HRESULT: 0x……C`     | Sök i fel kod listan i [Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list) om du vill ha mer information om orsaken till undantaget.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Detta indikerar problem med nätverks anslutningen. Kontrol lera att datorn har nätverks anslutning till Uppdateringshantering. Se avsnittet [nätverks planering](../automation-update-management.md#ports) för en lista över nödvändiga portar och adresser.        |
 |`0x8024001E`| Uppdaterings åtgärden slutfördes inte på grund av att tjänsten eller systemet stängdes av.|
 |`0x8024002E`| Windows Updates tjänsten är inaktive rad.|
-|`0x8024402C`     | Om du använder en WSUS-server kontrollerar du att registervärdena för `WUServer` och `WUStatusServer` under register nyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` har rätt WSUS-server.        |
-|`0x80072EE2`|Problem med nätverks anslutning eller problem med att prata med en konfigurerad WSUS-server. Kontrol lera inställningarna för WSUS och se till att de är tillgängliga från klienten.|
-|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Kontrol lera att Windows Updates tjänsten (wuauserv) körs och inte är inaktive rad.        |
-|Alla andra generiska undantag     | Gör en sökning på Internet efter möjliga lösningar och arbeta med din lokala IT-support.         |
+|`0x8024402C`     | Om du använder en WSUS-server kontrollerar du att register värden för `WUServer` och `WUStatusServer` under register nyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` anger rätt WSUS-server.        |
+|`0x80072EE2`|Det finns ett problem med nätverks anslutningen eller ett problem med att prata med en konfigurerad WSUS-server. Kontrol lera inställningarna för WSUS och se till att tjänsten är tillgänglig från klienten.|
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Kontrol lera att Windows Updates tjänsten (wuauserv) körs och inte inaktive rad.        |
+|Alla andra generiska undantag     | Kör en sökning på Internet för möjliga lösningar och arbeta med din lokala IT-support.         |
 
-Att granska `windowsupdate.log` kan hjälpa dig att försöka fastställa den möjliga orsaken också. Mer information om hur du läser loggen finns i [så här läser du filen windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+Att granska filen windowsupdate. log kan också hjälpa dig att avgöra möjliga orsaker. Mer information om hur du läser loggen finns i [så här läser du filen windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
-Dessutom kan du hämta och köra [Windows Update fel sökare](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) för att kontrol lera om det finns några problem med Windows Update på datorn.
+Du kan också hämta och köra [Windows Update fel sökaren](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) för att söka efter problem med Windows Update på datorn.
 
 > [!NOTE]
-> [Windows Update fel sökaren](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) anger att den är för Windows-klienter, men fungerar även på Windows Server.
+> [Windows Update fel söknings](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) dokumentationen visar att den används på Windows-klienter, men fungerar även på Windows Server.
 
-## <a name="scenario-update-run-returns-status-failed"></a>Scenario: uppdaterings körning returnerar status "misslyckades"
+## <a name="scenario-update-run-returns-failed-status"></a>Scenario: uppdaterings körning returnerar status "misslyckades"
 
 ### <a name="issue"></a>Problem
 
-En uppdaterings körning startar, men påträffar fel under körningen.
+En uppdaterings körning startar men påträffar fel under körningen.
 
 ### <a name="cause"></a>Orsak
 
-Möjliga orsaker kan vara:
+Möjliga orsaker:
 
 * Paket hanteraren är inte felfri.
 * Uppdaterings agent (WUA för Windows, distribution Package Manager för Linux) är felkonfigurerad.
-* Vissa paket kan störa Cloud-baserad uppdatering.
-* Det gick inte att få åtkomst till datorn.
+* Vissa paket stör molnbaserad uppdatering.
+* Datorn kan inte kontaktas.
 * Uppdateringar hade beroenden som inte lösts.
 
 ### <a name="resolution"></a>Upplösning
@@ -354,24 +356,24 @@ Om fel inträffar när en uppdatering körs när den har startats, [kontrollerar
 
 Om vissa korrigeringar, paket eller uppdateringar visas omedelbart innan jobbet Miss lyckas kan du prova att [utesluta](../automation-tutorial-update-management.md#schedule-an-update-deployment) dem från nästa uppdaterings distribution. Information om hur du samlar in logg information från Windows Update finns i [Windows Update loggfiler](/windows/deployment/update/windows-update-logs).
 
-Om du inte kan lösa ett uppdaterings problem gör du en kopia av följande loggfil och bevarar den **innan** nästa uppdaterings distribution startar i fel söknings syfte:
+Om du inte kan lösa ett uppdaterings problem gör du en kopia av följande loggfil och bevarar den i fel söknings syfte *innan* nästa uppdaterings distribution startar:
 
 ```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
-## <a name="patches-are-not-installed"></a>Korrigeringarna har inte installerats
+## <a name="patches-arent-installed"></a>Korrigeringsfiler har inte installerats
 
-### <a name="machines-do-not-install-updates"></a>Datorer installerar inte uppdateringar
+### <a name="machines-dont-install-updates"></a>Datorer installerar inte uppdateringar
 
-* Försök att köra uppdateringar direkt på datorn. Om datorn inte kan uppdatera läser du [listan över potentiella fel i felsökningsguiden](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
-* Om uppdateringar körs lokalt försöker du att ta bort och installera om agenten på datorn genom att följa anvisningarna i [”Ta bort en virtuell dator från Uppdateringshantering”](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
+* Försök att köra uppdateringar direkt på datorn. Om datorn inte kan tillämpa uppdateringarna läser du [listan över eventuella fel i fel söknings guiden](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+* Om uppdateringarna körs lokalt kan du försöka ta bort och installera om agenten på datorn genom att följa anvisningarna i [ta bort en virtuell dator från uppdateringshantering](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
 
-### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>Jag vet att uppdateringar är tillgängliga, men de visas inte vid behov på mina datorer
+### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Jag vet att uppdateringar är tillgängliga, men de visas inte som tillgängliga på mina datorer
 
-* Detta händer ofta om datorer är konfigurerade att hämta uppdateringar från WSUS/SCCM, men WSUS/SCCM inte har godkänt uppdateringarna.
-* Du kan kontrollera om datorer är konfigurerade för WSUS/SCCM genom att [korsreferera ”UseWUServer”-registernyckeln till registernycklarna i avsnittet ”Konfigurera automatiska uppdateringar genom att redigera registret” i det här dokumentet](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)
-* Om uppdateringar inte är godkända i WSUS installeras de inte. Du kan söka efter ej godkända uppdateringar i Log Analytics med följande fråga.
+* Detta händer ofta om datorerna har kon figurer ATS för att hämta uppdateringar från WSUS eller System Center Configuration Manager (SCCM), men WSUS och SCCM inte har godkänt uppdateringarna.
+* Du kan kontrol lera om datorerna har kon figurer ATS för WSUS och SCCM genom [att referera till register nyckeln UseWUServer till register nycklarna i avsnittet "Konfigurera automatiska uppdateringar genom att redigera registret" i den här artikeln](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
+* Om uppdateringar inte är godkända i WSUS installeras de inte. Du kan söka efter ej godkända uppdateringar i Log Analytics genom att köra följande fråga:
 
   ```loganalytics
   Update | where UpdateState == "Needed" and ApprovalSource == "WSUS" and Approved == "False" | summarize max(TimeGenerated) by Computer, KBID, Title
@@ -379,20 +381,20 @@ Om du inte kan lösa ett uppdaterings problem gör du en kopia av följande logg
 
 ### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>Uppdateringar visas som installerade, men jag kan inte hitta dem på datorn
 
-* Uppdateringar ersätts ofta av andra uppdateringar. Mer information finns i [avsnittet ”Uppdateringen har ersatts” i felsökningsguiden för Windows Update](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+* Uppdateringar ersätts ofta av andra uppdateringar. Mer information finns i [Uppdatera ersätts](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer) i Windows Update fel söknings guide.
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Installera uppdateringar efter klassificering i Linux
 
-* Distributionen av uppdateringar till Linux efter klassificering (”kritiska uppdateringar och säkerhetsuppdateringar”) har viktiga förbehåll, särskilt för CentOS. Dessa [begränsningar finns dokumenterade på översiktssidan för Uppdateringshantering](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)
+* Distributionen av uppdateringar till Linux efter klassificering (”kritiska uppdateringar och säkerhetsuppdateringar”) har viktiga förbehåll, särskilt för CentOS. Dessa begränsningar beskrivs på [sidan uppdateringshantering översikt](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2).
 
-### <a name="kb2267602-is-consistently--missing"></a>KB2267602 saknas konsekvent
+### <a name="kb2267602-is-consistently-missing"></a>KB2267602 saknas konsekvent
 
-* KB2267602 är [Windows Defender-definitionsuppdateringen](https://www.microsoft.com/wdsi/definitions). Uppdateras dagligen.
+* KB2267602 är [Windows Defender-definitionsuppdateringen](https://www.microsoft.com/wdsi/definitions). Den uppdateras dagligen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+Om du inte ser problemet eller inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support:
 
-* Få svar från Azure-experter via [Azure-forumen](https://azure.microsoft.com/support/forums/)
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure-kontot för att förbättra kundtjänstupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-* Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+* Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

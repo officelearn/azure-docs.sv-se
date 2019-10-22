@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266191"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Förbättra prestanda för Apache Spark arbets belastningar med Azure HDInsight IO-cache
@@ -27,7 +27,7 @@ De flesta SSD tillhandahåller mer än 1 GByte per sekund för bandbredden. Den 
 
 Med hjälp av IO-cache får du bättre prestanda för jobb som läser data från Azure Blob Storage.
 
-Du behöver inte göra några ändringar i Spark-jobben för att se prestandan ökar när du använder IO-cache. När IO-cachen är inaktive rad skulle den här Spark-koden läsa `spark.read.load('wasbs:///myfolder/data.parquet').count()`data via fjärr anslutning från Azure Blob Storage:. När IO-cachen har Aktiver ATS orsakar samma kodrad en cachelagrad läsning via IO-cache. I följande läsningar läses data lokalt från SSD. Arbetsnoder i HDInsight-kluster är utrustade med lokalt anslutna SSD-enheter. HDInsight IO-cachen använder de här lokala SSD för cachelagring, som tillhandahåller den lägsta svars nivån och maximerar bandbredden.
+Du behöver inte göra några ändringar i Spark-jobben för att se prestandan ökar när du använder IO-cache. När IO-cachen är inaktive rad skulle den här Spark-koden läsa data via fjärr anslutning från Azure Blob Storage: `spark.read.load('wasbs:///myfolder/data.parquet').count()`. När IO-cachen har Aktiver ATS orsakar samma kodrad en cachelagrad läsning via IO-cache. I följande läsningar läses data lokalt från SSD. Arbetsnoder i HDInsight-kluster är utrustade med lokalt anslutna SSD-enheter. HDInsight IO-cachen använder de här lokala SSD för cachelagring, som tillhandahåller den lägsta svars nivån och maximerar bandbredden.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -48,7 +48,7 @@ Azure HDInsight IO-cachen inaktive ras som standard i för hands versionen. I/o-
 >[!NOTE]  
 > Även om förlopps indikatorn visar aktive rad aktive ras inte IO-cache förrän du startar om de andra berörda tjänsterna.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
   
 Du kan få disk utrymmes fel som kör Spark-jobb när du har aktiverat IO-cache. Felen uppstår eftersom Spark också använder lokal disk lagring för att lagra data under blandning åtgärder. Spark-utrymmet kan ta slut i SSD när IO-cache är aktiverat och utrymmet för Spark-lagring minskas. Mängden utrymme som används av IO-cache-standardvärdet är hälften av det totala SSD-utrymmet. Disk utrymmes användningen för IO-cache kan konfigureras i Ambari. Om du får disk utrymmes fel minskar du mängden SSD-utrymme som används för IO-cache och startar om tjänsten. Gör så här om du vill ändra utrymmes uppsättningen för IO-cache:
 
@@ -68,7 +68,7 @@ Du kan få disk utrymmes fel som kör Spark-jobb när du har aktiverat IO-cache.
 
 1. Välj **Spara** längst upp till höger.
 
-1. Välj **Starta** > om**omstart alla påverkade**.
+1. Välj **starta om**  > **starta om alla berörda**.
 
     ![Apache Ambari-omstart alla påverkade](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Starta om alla berörda")
 

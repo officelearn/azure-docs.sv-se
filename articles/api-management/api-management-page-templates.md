@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1189689566da84df6d6b8845bf7c81bd8aa5f1ab
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072230"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Sidmallar i Azure API Management
@@ -102,7 +102,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
   
 -   [Basic-signin](api-management-page-controls.md#basic-signin)  
   
--   [Providers](api-management-page-controls.md#providers)  
+-   [finansiär](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>Datamodell  
  [Användarens inloggnings](api-management-template-data-model-reference.md#UseSignIn) enhet.  
@@ -138,7 +138,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ##  <a name="SignUp"></a>Registrera sig  
  Med **registrerings** mal len kan du anpassa sidan Registrera på Developer-portalen.  
   
- ![Sidan Registrera dig](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM för registrering av Page Developer Portal-mallar")  
+ ![Sidan registrera dig](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM för registrering av Page Developer Portal-mallar")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -225,10 +225,10 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Type|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |referenceCode|sträng|Kod som genereras om den här sidan visades som resultatet av ett internt fel.|  
-|errorCode|sträng|Kod som genereras om den här sidan visades som resultatet av ett internt fel.|  
+|ErrorCode|sträng|Kod som genereras om den här sidan visades som resultatet av ett internt fel.|  
 |emailBody|sträng|E-postbrödtext som skapas om den här sidan visades som en följd av ett internt fel.|  
 |requestedUrl|sträng|Den URL som begärdes när det inte gick att hitta sidan.|  
 |referrerUrl|sträng|Referent-URL: en till den begärda URL: en.|  

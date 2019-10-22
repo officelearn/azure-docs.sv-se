@@ -1,5 +1,5 @@
 ---
-title: 'Besluts skogs regression: Modulreferens'
+title: 'Besluts skogs regression: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder den genomsnittliga Perceptron-modulen med två klasser i Azure Machine Learning service för att skapa en maskin inlärnings modell baserat på den genomsnittliga Perceptron-algoritmen.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: f560923b0a5457ac5fd03c7f76fc4315c6ca08e8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 369974e52cb3585e4333b6033573b433e0a1a41a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128428"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693631"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Genomsnittlig Perceptron-modul med två klasser
 
@@ -32,11 +32,11 @@ De enklare Perceptron-modellerna är lämpliga för inlärning av linjärt särs
 
 ## <a name="how-to-configure-two-class-averaged-perceptron"></a>Konfigurera genomsnittlig Perceptron i två klasser
 
-1.  Lägg till den **genomsnittliga Perceptron-modulen med två klasser** i experimentet.  
+1.  Lägg till den **genomsnittliga Perceptron-modulen med två klasser** i din pipeline.  
 
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: Om du vet hur du vill konfigurera modellen anger du en angiven uppsättning värden som argument.
+    -   **Enskild parameter**: Ange en viss uppsättning värden som argument om du vet hur du vill konfigurera modellen.
   
 3.  För **inlärnings frekvens**anger du ett värde för *inlärnings takten*. Inlärnings takt svärdet styr storleken på det steg som används i Stochastic gradient-brantaste varje gång modellen testas och korrigeras.
   
@@ -46,11 +46,11 @@ De enklare Perceptron-modellerna är lämpliga för inlärning av linjärt särs
   
      Att stoppa tidigt ger ofta bättre generalisering. Genom att öka antalet iterationer kan du förbättra anpassningen vid risk för överanpassning.
   
-5.  Om du vill använda **slumpmässigt antal frön**kan du ange ett heltals värde som ska användas som start värde. Du rekommenderas att använda ett start värde om du vill säkerställa reproducerbarheten för experimentet i flera körningar.  
+5.  Om du vill använda **slumpmässigt antal frön**kan du ange ett heltals värde som ska användas som start värde. Vi rekommenderar att du använder ett Dirigerings värde om du vill säkerställa att pipelinen löper över.  
   
 1.  Anslut en data uppsättning för utbildning och en av inlärnings modulerna:
   
-    -   Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](train-model.md) .
+    -   Om du ställer in **skapa utbildare** för **en parameter**använder du modulen [träna modell](train-model.md) .
 
 ## <a name="results"></a>Resultat
 

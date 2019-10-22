@@ -1,5 +1,5 @@
 ---
-title: 'Lägg till kolumner: Modulreferens'
+title: 'Lägg till kolumner: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen Lägg till kolumner i Azure Machine Learning-tjänsten för att sammanfoga två data uppsättningar.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 630f8f7d4561ed6e7e9f943f4b3b123daeee4d67
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cbb1249b529fde1368bfaff0c6c251c93fa6c309
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129026"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693862"
 ---
 # <a name="add-columns-module"></a>Lägg till kolumner-modul
 
@@ -25,7 +25,7 @@ Använd den här modulen för att sammanfoga två data uppsättningar. Du kan ko
 
 
 ## <a name="how-to-configure-add-columns"></a>Så här konfigurerar du Lägg till kolumner
-1. Lägg till modulen **Lägg till kolumner** i experimentet.
+1. Lägg till modulen **Lägg till kolumner** i din pipeline.
 
 2. Anslut de två data uppsättningarna som du vill sammanfoga. Om du vill kombinera fler än två data uppsättningar kan du kedja samman flera kombinationer av **Lägg till kolumner**.
 
@@ -33,10 +33,10 @@ Använd den här modulen för att sammanfoga två data uppsättningar. Du kan ko
 
     - Du kan inte välja enskilda kolumner som ska läggas till. Alla kolumner från varje data uppsättning sammanfogas när du använder **Lägg till kolumner**. Om du bara vill lägga till en delmängd av kolumnerna använder du Välj kolumner i data uppsättning för att skapa en data uppsättning med de kolumner som du vill använda.
 
-3. Kör experimentet.
+3. Köra en pipeline.
 
 ### <a name="results"></a>Resultat
-När experimentet har körts:
+När pipelinen har körts:
 
 - Om du vill se de första raderna i den nya data uppsättningen högerklickar du på utdata från **Lägg till kolumner** och väljer visualisera.
 

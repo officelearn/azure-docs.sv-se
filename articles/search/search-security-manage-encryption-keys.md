@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
 ms.openlocfilehash: ce7a8af1416664a3a94b248c95203c8e775e805c
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70182405"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search kryptering med Kundhanterade nycklar i Azure Key Vault
@@ -31,7 +31,7 @@ Kryptering med Kundhanterade nycklar konfigureras på mappnings nivån index ell
 
 Du kan använda olika nycklar från olika nyckel valv. Det innebär att en enskild Sök tjänst kan vara värd för flera krypterade indexes\synonym-kartor, varje krypterad potentiellt en annan kundhanterad nyckel, tillsammans med indexes\synonym Maps som inte är krypterade med Kundhanterade nycklar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande tjänster används i det här exemplet. 
 
@@ -164,7 +164,7 @@ Om du använder ett AAD-program för Key Vault autentisering i stället för att
 }
 ```
 
-## <a name="example-index-encryption"></a>Exempel: Index kryptering
+## <a name="example-index-encryption"></a>Exempel: index kryptering
 Information om hur du skapar ett nytt index via REST API finns i [create index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index), där den enda skillnaden här anger krypterings nyckel informationen som en del av index definitionen: 
 
 ```json
@@ -191,7 +191,7 @@ Information om hur du skapar ett nytt index via REST API finns i [create index (
 ```
 Nu kan du skicka begäran om att skapa index och sedan börja använda indexet som vanligt.
 
-## <a name="example-synonym-map-encryption"></a>Exempel: Kryptering av synonym mappning
+## <a name="example-synonym-map-encryption"></a>Exempel: synonym kart kryptering
 
 Information om hur du skapar en ny synonym mappning via REST API finns i [create synonym karta (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), där den enda skillnaden här anger krypterings nyckel informationen som en del av synonym mappnings definitionen: 
 
@@ -214,7 +214,7 @@ Nu kan du skicka en förfrågan om att skapa synonym mappning och sedan börja a
 > Det går inte att lägga till **encryptionKey** i befintliga Azure Search-index eller synonym mappningar, men det kan uppdateras genom att ange olika värden för någon av de tre nyckel valvs detaljerna (till exempel uppdatering av nyckel versionen). När du ändrar till en ny Key Vault nyckel eller en ny nyckel version måste alla Azure Search-index eller synonym mappning som använder nyckeln först uppdateras för att använda den nya key\version **innan** du tar bort föregående key\version. Om du inte gör det kommer indexet eller synonym mappningen att bli oanvändbar, eftersom den inte kan dekryptera innehållet när nyckel åtkomsten förlorats.   
 > Att återställa åtkomst behörigheter för Key Vault vid ett senare tillfälle kommer att återställa innehålls åtkomsten.
 
-## <a name="aad-app"></a>Erfar Använd ett externt hanterat Azure Active Directory program
+## <a name="aad-app"></a>Avancerat: Använd ett externt hanterat Azure Active Directory program
 
 När en hanterad identitet inte är möjlig kan du skapa ett Azure Active Directory-program med ett säkerhets objekt för din Azure Search-tjänst. Mer specifikt är en hanterad identitet inte livskraftig under följande omständigheter:
 

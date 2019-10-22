@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d46773ce45cb3ef8b70d3c6074b9f1c771e9e24
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 179676ae2a7d68bc0263f897ffededcf8b7a01f4
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554637"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693374"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -276,7 +276,6 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per di
 
 **Källans dataomsättning** | **Övre gräns**
 ---|---
-Genomsnittlig dataomsättning per virtuell dator| 25 MB/s
 Högsta dataomsättning av alla diskar på en virtuella dator | 54 MB/s
 Maximal dataomsättning per dag som stöds av en processerver | 2 TB
 

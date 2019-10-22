@@ -1,5 +1,5 @@
 ---
-title: 'K-innebär klustring: Modulreferens'
+title: 'K-innebär klustring: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: 'Lär dig hur du använder modulen K-: Clustering i Azure Machine Learning-tjänsten för att träna kluster modeller.'
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 7de2978fee80cf3acd078ef8ee5f235fab21713e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: bb39a57f565a542e5106b7ba14e58bc39041f53d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128703"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693113"
 ---
-# <a name="module-k-means-clustering"></a>Modulen K-means-klustring
+# <a name="module-k-means-clustering"></a>Modul: K-innebär klustring
 
 Den här artikeln beskriver hur du använder modulen *k-: kluster* modul i Azure Machine Learning Studio för att skapa en modell modell med en modell som inte är tränad k: 
  
@@ -28,7 +28,7 @@ K-betyder en av de enklaste och bästa kända, ej *övervakade* inlärnings algo
 
 För att skapa en kluster modell:
 
-* Lägg till den här modulen i experimentet.
+* Lägg till den här modulen i din pipeline.
 * Anslut en data uppsättning.
 * Ange parametrar, till exempel antalet kluster som du förväntar dig, det avstånds mått som ska användas för att skapa klustren och så vidare. 
   
@@ -54,11 +54,11 @@ När den bearbetar tränings data börjar algoritmen för K-medelvärdet med en 
 
 ## <a name="configure-the-k-means-clustering-module"></a>Konfigurera modulen K-betyder kluster
   
-1.  Lägg till modulen **K-betyder klustring** i experimentet.  
+1.  Lägg till modulen **K-: klustring** i din pipeline.  
   
 2.  Om du vill ange hur modellen ska tränas väljer du alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: Om du känner till de exakta parametrar som du vill använda i kluster modellen, kan du ange en speciell uppsättning värden som argument.  
+    -   **Enskild parameter**: om du känner till de exakta parametrar som du vill använda i kluster modellen, kan du ange en viss uppsättning värden som argument.  
   
 3.  För **antal centroids**anger du det antal kluster som du vill att algoritmen ska börja med.  
   
@@ -66,15 +66,15 @@ När den bearbetar tränings data börjar algoritmen för K-medelvärdet med en 
   
 4.  Egenskaps **initieringen** används för att ange algoritmen som används för att definiera den inledande kluster konfigurationen.  
   
-    -   **Första N**: Vissa inledande antal data punkter väljs från data uppsättningen och används som initiala metoder. 
+    -   **Första N**: vissa inledande antal data punkter väljs från data uppsättningen och används som första metod. 
     
          Den här metoden kallas även för *förfalsknings metoden*.  
   
-    -   **Slumpmässig**: Algoritmen placerar en data punkt slumpmässigt i ett kluster och sedan beräknar det inledande medelvärdet som centroid för klustrets slumpvis tilldelade punkter. 
+    -   **Slumpmässig**: algoritmen placerar en data punkt slumpmässigt i ett kluster och sedan beräknar det inledande medelvärdet som centroid för klustrets slumpvis tilldelade punkter. 
 
          Den här metoden kallas även för den *slumpmässiga partitionsfunktionen* .  
   
-    -   **K-betyder + +** : Detta är standard metoden för att initiera kluster.  
+    -   **K-betyder + +** : det här är standard metoden för att initiera kluster.  
   
          **K-betyder + +** -algoritmen föreslogs i 2007 av David Arthur och Sergei Vassilvitskii för att undvika dåligt klustring av standardalgoritmen för K-=. **K-betyder + +** förbättrar standard K-metoden genom att använda en annan metod för att välja de första kluster centret.  
   
@@ -93,11 +93,11 @@ När den bearbetar tränings data börjar algoritmen för K-medelvärdet med en 
   
      Eftersom K-betyder klustring är en oövervakad Machine Learning-metod, är etiketter valfria. Men om din data uppsättning redan har en etikett kolumn kan du använda dessa värden för att vägleda valet av kluster, eller så kan du ange att värdena ska ignoreras.  
   
-    -   **Ignorera etikett kolumn**: Värdena i kolumnen etikett ignoreras och används inte för att skapa modellen.
+    -   **Ignorera etikett kolumn**: värdena i kolumnen Label ignoreras och används inte för att skapa modellen.
   
-    -   **Fyll värden som saknas**: Etikett kolumn värden används som funktioner för att bygga klustren. Om en etikett saknas i några rader tilldelas värdet med hjälp av andra funktioner.  
+    -   **Fyll i saknade värden**: etikett kolumn värden används som funktioner för att bygga klustren. Om en etikett saknas i några rader tilldelas värdet med hjälp av andra funktioner.  
   
-    -   **Skriv över från närmast till Center**: Etikett kolumnens värden ersätts med förväntade etikett värden med hjälp av etiketten för den punkt som är närmast den aktuella centroid.  
+    -   **Skriv över från närmaste till Center**: etikett kolumnens värden ersätts med förväntade etikett värden med hjälp av etiketten för den punkt som är närmast den aktuella centroid.  
 
 8.  Välj alternativet **normaliserings funktioner** om du vill normalisera funktioner innan du tränar.
   
@@ -105,7 +105,7 @@ När den bearbetar tränings data börjar algoritmen för K-medelvärdet med en 
 
 10. Träna modellen.  
   
-    -   Om du ställer in **skapa** utbildare för en **parameter**lägger du till en taggad data uppsättning och tränar modellen med hjälp av modulen [träna kluster modell](train-clustering-model.md) .  
+    -   Om du ställer in **skapa utbildare** för en **parameter**lägger du till en taggad data uppsättning och tränar modellen med hjälp av modulen [träna kluster modell](train-clustering-model.md) .  
   
 ### <a name="results"></a>Resultat
 
@@ -119,7 +119,7 @@ Om du använde modulen [träna klustring modell](train-clustering-model.md) :
 
 2. Välj **tränad modell**och välj sedan **Spara som utbildad modell**.
 
-Den sparade modellen representerar tränings data vid den tidpunkt då du sparade modellen. Om du senare uppdaterar de tränings data som används i experimentet, uppdateras inte den sparade modellen. 
+Den sparade modellen representerar tränings data vid den tidpunkt då du sparade modellen. Om du senare uppdaterar de tränings data som används i pipelinen, uppdateras inte den sparade modellen. 
 
 #### <a name="see-the-clustering-result-dataset"></a>Se data uppsättningen för kluster resultatet 
 

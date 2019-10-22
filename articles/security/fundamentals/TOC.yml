@@ -121,15 +121,8 @@
           href: paas-applications-using-storage.md
         - name: DB-metodtips för PaaS
           href: paas-applications-using-sql.md
-    - name: IoT
-      href: iot-overview.md
     - name: Azure Service Fabric-säkerhet
-      href: service-fabric-overview.md
-      items:
-        - name: Bästa praxis
-          href: service-fabric-best-practices.md
-        - name: Säkerhetskontrollista
-          href: service-fabric-checklist.md
+      href: service-fabric-best-practices.md
 - name: 'Övervakning, granskning och åtgärder'
   href: management-monitoring-overview.md
   items:

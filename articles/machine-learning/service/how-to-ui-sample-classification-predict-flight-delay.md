@@ -1,5 +1,5 @@
 ---
-title: 'Exempel på visuella gränssnitt #6: Klassificering för att förutsäga flyg fördröjningar'
+title: 'Exempel på visuella gränssnitt #6: klassificering för att förutsäga flyg fördröjningar'
 titleSuffix: Azure Machine Learning
 description: Den här artikeln visar hur du skapar en maskin inlärnings modell för att förutsäga fördröjningar med hjälp av Visual-och-Drop-gränssnittet och anpassad R-kod.
 services: machine-learning
@@ -9,67 +9,65 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
-ms.date: 07/02/2019
-ms.openlocfilehash: 257f6034df7d1974f3964c4d07ca96d17c7fe509
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 6e65075b309ed12505ce6fffadac12af3f16344b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131654"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692577"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exempel 6 – klassificering: Förutsäg fördröjningar i flygning med R
+# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exempel 6 – klassificering: förutsäga flyg fördröjningar med R
 
-Det här experimentet använder historiska flyg-och väder data för att förutsäga om en schemalagd passagerar flygning kommer att fördröjas med mer än 15 minuter.
+Den här pipelinen använder historiska flyg-och väder data för att förutsäga om en schemalagd passagerar flygning kommer att fördröjas med mer än 15 minuter. Det här problemet kan uppstå som ett klassificerings problem, som förutsäger två klasser: fördröjt eller på tid.
 
-Det här problemet kan uppstå som ett klassificerings problem, som förutsäger två klasser – fördröjd eller i tid. För att bygga en klassificerare använder den här modellen ett stort antal exempel från historiska flyg data.
+Här är den slutliga pipeline-grafen för det här exemplet:
 
-Här är det sista experiment diagrammet för det här exemplet:
+[pipeline-![Graph](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-[![Diagram över experimentet](media/how-to-ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Välj knappen **Öppna** för exempel på 6 experiment:
+4. Välj knappen **Öppna** för exempel 6 pipeline:
 
-    ![Öppna experimentet](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
+    ![Öppna pipelinen](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## <a name="get-the-data"></a>Hämta data
 
-I det här experimentet används data uppsättningen för **flyg fördröjning** . Den är en del av data insamlingen TranStats från USA Transport ministerium. Data uppsättningen innehåller information om flyg fördröjning från april till oktober 2013. Innan du överför data till det visuella gränssnittet har den förbehandlats på följande sätt:
+I det här exemplet används data uppsättningen för **flyg fördröjning** . Den är en del av TranStats-datainsamlingen från USA: s departements transport. Data uppsättningen innehåller information om flyg fördröjning från april till oktober 2013. Data uppsättningen har för beretts på följande sätt:
 
 * Filtrerat för att inkludera vanligaste-flyg platser på 70 i kontinental USA.
-* För avbrutna flygningar får du etiketterat som fördröjt av mer än 15 minuter.
+* Har märkt om annullerade flygningar som fördröjda med mer än 15 minuter.
 * Filtrerat bort inledade flygningar.
 * Markerade 14 kolumner.
 
-För att komplettera flyg data används **väder data uppsättningen** . Väder data innehåller en timmes markbaserade väderleks observationer från NOAA och representerar observationer från flyg plats väderleks stationer som omfattar samma tids period april-oktober 2013. Innan du överför till det visuella Azure ML-gränssnittet har det förbehandlats på följande sätt:
+För att komplettera flyg data används **väder data uppsättningen** . Väder data innehåller varje timme, landbaserade väderleks observationer från NOAA och visar observationer från flyg plats väderleks stationer som omfattar samma tids period som flygningarnas data uppsättning. Den har förbehandlats på följande sätt:
 
 * Väder Stations-ID: n mappades till motsvarande flyg plats-ID.
 * Väder stationer som inte är kopplade till 70 vanligaste-flyg platserna togs bort.
-* Datum kolumnen delades upp i separata kolumner: År, månad och dag.
+* Datum kolumnen delades upp i separata kolumner: år, månad och dag.
 * De markerade 26 kolumnerna.
 
 ## <a name="pre-process-the-data"></a>För behandling av data
 
 En data uppsättning kräver vanligt vis lite för bearbetning innan den kan analyseras.
 
-![data-process](media/how-to-ui-sample-classification-predict-flight-delay/data-process.png)
+![data process](media/how-to-ui-sample-classification-predict-flight-delay/data-process.png)
 
 ### <a name="flight-data"></a>Flyg data
 
 Kolumnerna **Carrier**, **OriginAirportID**och **DestAirportID** sparas som heltal. De är dock kategoriska attribut, Använd modulen **Redigera metadata** för att konvertera dem till kategoriska.
 
-![edit-metadata](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
+![Redigera-metadata](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
-Använd sedan modulen **Välj kolumner** i data uppsättning för att utesluta från data mängds kolumnerna som är möjliga mål läckor: **DepDelay**, **DepDel15**, **ArrDelay**, **avbrutet**, **år**. 
+Använd sedan modulen **Välj kolumner** i data uppsättning för att utesluta från data mängds kolumnerna som är möjliga mål läckor: **DepDelay**, **DepDel15**, **ArrDelay**, **canceled**, **Year**. 
 
 Använd den schemalagda avgångs tiden som en av kopplings nycklarna för att ansluta till flyg poster med Tim väder poster. För att kunna göra kopplingen måste kolumnen CSRDepTime avrundas nedåt till närmaste timme, vilket görs i modulen **Kör R-skript** . 
 
 ### <a name="weather-data"></a>Väder data
 
-Kolumner som har en stor del av saknade värden utesluts med hjälp av modulen **projekt kolumner** . Kolumnerna innehåller alla sträng värdes kolumner: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**och **StationPressure**.
+Kolumner som har en stor del av saknade värden utesluts med hjälp av modulen **projekt kolumner** . Kolumnerna innehåller alla sträng värdes kolumner: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**och **StationPressure** .
 
 Modulen **Rensa data som saknas** används sedan för de återstående kolumnerna för att ta bort rader med data som saknas.
 
@@ -107,10 +105,9 @@ Om du vill bygga en modell kan du använda alla tillgängliga funktioner eller v
 Skapa en modell med hjälp av en **logistik Regressions-modul i två klasser** och träna den på inlärnings data uppsättningen. 
 
 Resultatet av modulen **träna modell** är en tränad klassificerings modell som kan användas för att skapa nya prover för att göra förutsägelser. Använd test uppsättningen för att generera Poäng från de tränade modellerna. Använd sedan modulen **utvärdera modell** för att analysera och jämföra modellens kvalitet.
+pipeline när du har kört pipelinen kan du visa utdata från modulen **Poäng modell** genom att klicka på utdataporten och välja **visualisera**. Utdata innehåller de poäng etiketter och sannolikheter för etiketterna.
 
-När du har kört experimentet kan du visa utdata från modulen **Poäng modell** genom att klicka på utdataporten och välja **visualisera**. Utdata innehåller de poäng etiketter och sannolikheter för etiketterna.
-
-Om du vill testa kvaliteten på resultaten lägger du till modulen **utvärdera modell** till arbets ytan för experimentet och ansluter den vänstra Indataporten till utdata från modulen Poäng modell. Kör experimentet och visa utdata från modulen **utvärdera modell** genom att klicka på utdataporten och välja **visualisera**.
+Om du vill testa kvaliteten på resultaten lägger du till modulen **utvärdera modell** i pipeline-arbetsytan och ansluter den vänstra Indataporten till utdata från modulen Poäng modell. Kör pipelinen och visa utdata från modulen **utvärdera modell** genom att klicka på utdataporten och välja **visualisera**.
 
 ## <a name="evaluate"></a>Utvärdera
 Logistik Regressions modellen har AUC 0,631 på test uppsättningen.
@@ -121,8 +118,9 @@ Logistik Regressions modellen har AUC 0,631 på test uppsättningen.
 
 Utforska de andra exempel som är tillgängliga för det visuella gränssnittet:
 
-- [Exempel 1 – regression: Förutsäga ett bils pris](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Exempel 2 – regression: Jämför algoritmer för bilpris förutsägelser för bilar](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exempel 3 – klassificering: Förutsägelse kredit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-- [Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Exempel 5 – klassificering: Förutsäg omsättning](how-to-ui-sample-classification-predict-churn.md)
+- [Exempel 1 – regression: förutsäga ett bils pris](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+- [Exempel 2-regression: jämför algoritmer för bil förutsägelse av bilar](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exempel 3 – klassificering: förutsägelse kredit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Exempel 4 – klassificering: förutsägelse kredit risk (kostnads känsligt)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exempel 5 – klassificering: förutsägelse omsättning](how-to-ui-sample-classification-predict-churn.md)
+- [Exempel 7 – text klassificering: bok granskningar](how-to-ui-sample-text-classification.md)

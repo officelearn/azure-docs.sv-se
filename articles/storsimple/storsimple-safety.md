@@ -15,38 +15,38 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 4622a8575d7b6a38226ee3a980c05f143c128356
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68963542"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installera och använda din StorSimple-enhet på ett säkert sätt
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-![Varnings](./media/storsimple-safety/IC740879.png)
-![ikon läsa säkerhets meddelande](./media/storsimple-safety/IC740885.png) ikon **läsa säkerhet och hälso information**
+![Warning ikonen ](./media/storsimple-safety/IC740879.png)
+ ![Read säkerhets meddelande ikon ](./media/storsimple-safety/IC740885.png) **läsa säkerhet och hälso information**
 
 Läs all information om säkerhet och hälsa i den här artikeln som gäller för din Microsoft Azure StorSimple-enhet. Se till att alla utskrivna guider levereras med din StorSimple-enhet för framtida bruk. Om du inte följer anvisningarna och har konfigurerat, använder och bryr sig om den här produkten kan du öka risken för allvarlig skada eller dödsfall eller skada enheten eller enheterna. Det finns även en [nedladdnings bar version av den här guiden](https://www.microsoft.com/download/details.aspx?id=44233) .
 
 ## <a name="safety-icon-conventions"></a>Säkerhets ikon konventioner
 Här följer de ikoner som du hittar när du granskar de säkerhets åtgärder som ska observeras när du konfigurerar och kör din Microsoft Azure StorSimple-enhet.
 
-| Ikon | Beskrivning |
+| Icon | Beskrivning |
 |:--- |:--- |
-| ![Varnings](./media/storsimple-safety/IC740879.png) ikon **!** |Indikerar en farlig situation som, om de inte undviks, leder till dödsfall eller allvarlig skada. Den här signalen är begränsad till de mest extrema situationerna. |
-| ![Varnings](./media/storsimple-safety/IC740879.png) ikon **Varning!** |Indikerar en farlig situation som, om de inte undviks, kan leda till dödsfall eller allvarlig skada. |
-| ![Varnings](./media/storsimple-safety/IC740879.png) ikon varning **!** |Indikerar en farlig situation som, om de inte undviks, kan leda till mindre eller måttlig skada. |
-| ![Meddelande Ikons](./media/storsimple-safety/IC740881.png) **meddelande:** |Anger information som anses viktig, men inte risk relaterad. |
-| ![Elektrisk stötande](./media/storsimple-safety/IC740882.png) stöt vid **fara** |Hög spänning |
-| ![Extrafet vikt ikon](./media/storsimple-safety/IC740883.png) | |
-| ![Ingen User serviceable parts-](./media/storsimple-safety/IC740879.png) ikon **saknar användar tjänst delar** |Få inte åtkomst om den inte är korrekt utbildad. |
-| ![Läs säkerhets meddelande ikonen](./media/storsimple-safety/IC740885.png)**Läs alla instruktioner först** | |
-| ![Tips risk ikon](./media/storsimple-safety/IC740886.png) **tips** | |
+| **Varning!** ![Danger ikon ](./media/storsimple-safety/IC740879.png) |Indikerar en farlig situation som, om de inte undviks, leder till dödsfall eller allvarlig skada. Den här signalen är begränsad till de mest extrema situationerna. |
+| **Varning!** ![Warning ikon ](./media/storsimple-safety/IC740879.png) |Indikerar en farlig situation som, om de inte undviks, kan leda till dödsfall eller allvarlig skada. |
+| ![Warning ikonen ](./media/storsimple-safety/IC740879.png) **Varning!** |Indikerar en farlig situation som, om de inte undviks, kan leda till mindre eller måttlig skada. |
+| ![Notice ikon ](./media/storsimple-safety/IC740881.png) **meddelande:** |Anger information som anses viktig, men inte risk relaterad. |
+| ![Electrical stötande ikon ](./media/storsimple-safety/IC740882.png) **risk för elektrisk stöt** |Hög spänning |
+| ![Heavy Viktnings ikon ](./media/storsimple-safety/IC740883.png) **tung vikt** | |
+| ![No-ikon för användare som **behöver ](./media/storsimple-safety/IC740879.png) inga användare som delar** |Få inte åtkomst om den inte är korrekt utbildad. |
+| ![Read säkerhets meddelande ikon](./media/storsimple-safety/IC740885.png)**läsa alla instruktioner först** | |
+| Risk ikon för ![Tip ](./media/storsimple-safety/IC740886.png) **Tip** | |
 
 ## <a name="handling-precautions"></a>Hantering av försiktighets åtgärder
-![Varnings](./media/storsimple-safety/IC740879.png) ![ikon varning vid](./media/storsimple-safety/IC740883.png) hög vikts ikon **!** 
+![Warning ikonen ](./media/storsimple-safety/IC740879.png) ![Heavy Viktnings ikon ](./media/storsimple-safety/IC740883.png) **Varning!** 
 
 För att minska risken för skada:
 
@@ -55,7 +55,7 @@ För att minska risken för skada:
 * Lyft inte upp höljet av handtagen på Power and kylning-modulerna (PCMs) som finns längst bak i enheten. Dessa är inte utformade för att ta vikt.
 
 ## <a name="connection-precautions"></a>Anslutnings förebyggande åtgärder
-![Varnings](./media/storsimple-safety/IC740879.png) ![ikon varning om](./media/storsimple-safety/IC740882.png) elektrisk stötande ikon **!**
+![Warning ikon ](./media/storsimple-safety/IC740879.png) ![Electrical stöt ikon ](./media/storsimple-safety/IC740882.png) **Varning!**
 
 Minska sannolikheten för skada, elektrisk stötande eller dödsfall:
 
@@ -65,7 +65,7 @@ Minska sannolikheten för skada, elektrisk stötande eller dödsfall:
 * Se till att ström anslutningen alltid kopplas från innan du tar bort en PCM från kabinett filen.
 * Med tanke på att kontakten på strömförsörjnings sladden är den primära från kopplings enheten, se till att socket-uttagen är placerade nära utrustningen och är lätt att komma åt.
 
-![Varnings](./media/storsimple-safety/IC740879.png) ![ikon varning om](./media/storsimple-safety/IC740882.png) elektrisk stötande ikon **!**
+![Warning ikon ](./media/storsimple-safety/IC740879.png) ![Electrical stöt ikon ](./media/storsimple-safety/IC740882.png) **Varning!**
 
 För att minska sannolikheten för överhettning eller brand påverkan från de elektriska anslutningarna:
 
@@ -74,7 +74,7 @@ För att minska sannolikheten för överhettning eller brand påverkan från de 
 * För att uppfylla tillämpliga krav på säkerhet, utsläpp och värme måste inga försättsblad tas bort och alla fack måste fyllas i med plugin-moduler eller enhets tomma.
 * Se till att utrustningen används på det sätt som anges av tillverkaren. Om denna utrustning används på ett sätt som inte anges av tillverkaren, kan det skydd som tillhandahålls av utrustningen försämras.
 
-![Meddelande Ikons](./media/storsimple-safety/IC740881.png) **meddelande:**
+![Notice ikon ](./media/storsimple-safety/IC740881.png) **meddelande:**
 
 För att din utrustning ska fungera korrekt och för att förhindra produkt skada:
 
@@ -85,7 +85,7 @@ För att din utrustning ska fungera korrekt och för att förhindra produkt skad
 ## <a name="rack-system-precautions"></a>Försiktighets åtgärder för rack system
 Följande säkerhets krav måste beaktas när du monterar enheten i ett rack skåp.
 
-![Varnings](./media/storsimple-safety/IC740879.png) ![ikon tips](./media/storsimple-safety/IC740886.png) **Varning!**
+![Warning ikon ](./media/storsimple-safety/IC740879.png) ![Tip **varnings ikon ](./media/storsimple-safety/IC740886.png) varning!**
 
 För att minska sannolikheten för skada från ett tips över:
 
@@ -93,7 +93,7 @@ För att minska sannolikheten för skada från ett tips över:
 * När du läser in ett rack fyller du i racket från nedre kanten uppåt och tomt från toppen.
 * Dra inte mer än en inne slutning i racket i taget för att undvika risken för rack Toppling över.
 
-![Varnings](./media/storsimple-safety/IC740879.png) ![ikon varning om](./media/storsimple-safety/IC740882.png) elektrisk stötande ikon **!**
+![Warning ikon ](./media/storsimple-safety/IC740879.png) ![Electrical stöt ikon ](./media/storsimple-safety/IC740882.png) **Varning!**
 
 Minska sannolikheten för skada, elektrisk stötande eller dödsfall:
 
@@ -102,7 +102,7 @@ Minska sannolikheten för skada, elektrisk stötande eller dödsfall:
 * Designen av det elektriska distributions systemet måste ta hänsyn till det totala mark läckage som är aktuellt från alla strömförsörjningar i alla höljen. Observera att varje ström försörjning i varje hölje har ett mark läckage som är aktuellt 1,0 mA högsta vid 60 Hz, 264 volt. Racket kan kräva etiketter med "hög läckage aktuellt. Mark anslutning (Earth) är nödvändig innan du ansluter en försörjning. "
 * Racket som konfigureras med höljen måste uppfylla säkerhets kraven för UL 60950-1 och IEC 60950-1/EN 60950-1.
 
-![Meddelande Ikons](./media/storsimple-safety/IC740881.png) **meddelande:**
+![Notice ikon ](./media/storsimple-safety/IC740881.png) **meddelande:**
 
 För rätt kylning av rack systemet:
 
@@ -112,13 +112,13 @@ För rätt kylning av rack systemet:
 ## <a name="power-cooling-module-pcm-precautions"></a>Försiktighets åtgärder för Power kylning module (PCM)
 Enheten är utformad för att användas med två PCMs. Varje PCMs har en strömförsörjning och en fläkt med dubbla axlar. Vid ett kritiskt tillstånd tillåter systemet ett fel på en strömförsörjning medan du fortsätter med normala åtgärder. Två PCMs-enheter (och därmed strömförsörjning) måste alltid vara installerade. En enskild PCM ger inte redundant strömförsörjning. Det innebär att det inte ens en PCM kan leda till avbrott eller möjliga data förluster.
 
-![Varnings](./media/storsimple-safety/IC740879.png) ![ikon varning om](./media/storsimple-safety/IC740882.png) elektrisk stötande ikon **!**
+![Warning ikon ](./media/storsimple-safety/IC740879.png) ![Electrical stöt ikon ](./media/storsimple-safety/IC740882.png) **Varning!**
 
 Minska sannolikheten för skada, elektrisk stötande eller dödsfall:
 
 * Ta inte bort höljen från PCM. Det finns en risk för elektrisk stöt i. [Kontakta Microsoft Support](storsimple-contact-microsoft-support.md)om du vill returnera PCM och få en ersättning.
 
-![Meddelande Ikons](./media/storsimple-safety/IC740881.png) **meddelande:**
+![Notice ikon ](./media/storsimple-safety/IC740881.png) **meddelande:**
 
 För att din utrustning ska fungera korrekt och för att förhindra produkt skada:
 
@@ -126,7 +126,7 @@ För att din utrustning ska fungera korrekt och för att förhindra produkt skad
 * Ta inte bort en PCM om inte en ersättning kan installeras omedelbart. Kabinett filen får inte köras utan alla moduler på plats.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>Skydd mot Elektro statisk urladdning (ESD)
-![Meddelande Ikons](./media/storsimple-safety/IC740881.png) **meddelande:**
+![Notice ikon ](./media/storsimple-safety/IC740881.png) **meddelande:**
 
 Observera följande ESD-relaterade försiktighets åtgärder.
 
@@ -138,7 +138,7 @@ Observera följande ESD-relaterade försiktighets åtgärder.
 ## <a name="battery-disposal-precautions"></a>Säkerhets åtgärder för batteri kasse ring
 Strömförsörjningen använder ett särskilt batteri för att skydda innehållet i minnet under tillfälliga, kortsiktiga drift avbrott. Batteriet är isatt i PCM. Tänk på följande information om batteriet.
 
-![Varnings](./media/storsimple-safety/IC740879.png) ikon **Varning!**
+**Varning!** ![Warning ikon ](./media/storsimple-safety/IC740879.png)
 
 För att minska risken för kort, brand, explosion, skada eller dödsfall:
 
@@ -146,9 +146,9 @@ För att minska risken för kort, brand, explosion, skada eller dödsfall:
 * Använd inte disassemblering, krossa eller hetta över 60 grader Celsius (140 grader Fahrenheit) eller förbränning. Ersätt PCM-batteriet med endast ett batteri. Användningen av ett annat batteri kan utgöra en risk för brand eller explosion.
 * Använd skyddande sluts ändar på batterierna om de tas bort från strömförsörjningen.
 
-![Meddelande Ikons](./media/storsimple-safety/IC740881.png) **meddelande:**
+![Notice ikon ](./media/storsimple-safety/IC740881.png) **meddelande:**
 
-När batterierna transporteras eller på annat sätt transporteras till luft följer du rikt linjerna för IATA litium batteri som finns på[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+När batterierna transporteras eller på annat sätt transporteras till luft följer du rikt linjerna för IATA litium batteri som finns på [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 När du har granskat dessa säkerhets meddelanden, är nästa steg att packa upp, racka och kabelansluta enheten.
 

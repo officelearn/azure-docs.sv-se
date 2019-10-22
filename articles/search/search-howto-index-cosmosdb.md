@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 802a4e9c6191d33051eb075543691845595bc9c3
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69656699"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexera Cosmos DB med hjälp av en Azure Search-indexerare
@@ -35,7 +35,7 @@ Du kan använda [portalen](#cosmos-indexer-portal), REST-API: er eller .NET SDK 
 * [MongoDB-API (för hands version)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
-> Användar rösten har befintliga objekt för ytterligare API-stöd. Du kan omvandla en röst för Cosmos-API: er som du vill se stöd för i Azure Search: [Tabell-API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4) [API för Apache Cassandra](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
+> Användar rösten har befintliga objekt för ytterligare API-stöd. Du kan omvandla en röst för Cosmos-API: er som du vill se stöd för i Azure Search: [tabell-API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [API för Apache Cassandra](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
 >
 
 <a name="cosmos-indexer-portal"></a>
@@ -50,7 +50,7 @@ Vi rekommenderar att du använder samma Azure-prenumeration för både Azure Sea
 
 Du bör ha ett Cosmos-konto, en Azure Cosmos-databas som är mappad till SQL API eller MongoDB API och en behållare med JSON-dokument. 
 
-Kontrol lera att Cosmos DB-databasen innehåller data. [Guiden Importera data](search-import-data-portal.md) läser metadata och utför data sampling för att härleda ett index schema, men läser även in data från Cosmos dB. Om data saknas slutar guiden med det här felet "fel vid identifiering av index schema från data Källa: Det gick inte att skapa ett prototyp index eftersom DataSource ' emptycollection ' returnerade inga data.
+Kontrol lera att Cosmos DB-databasen innehåller data. [Guiden Importera data](search-import-data-portal.md) läser metadata och utför data sampling för att härleda ett index schema, men läser även in data från Cosmos dB. Om data saknas slutar guiden med det här felet "fel vid identifiering av index schema från data Källa: det gick inte att skapa ett prototyp index eftersom data källan" emptycollection "returnerade inga data".
 
 ### <a name="2---start-import-data-wizard"></a>2-Starta guiden Importera data
 
@@ -75,7 +75,7 @@ På sidan **data källa** måste källan vara **Cosmos DB**, med följande speci
 
 + **Frågan** kan vara tom om du vill ha alla dokument, annars kan du mata in en fråga som väljer en delmängd av dokumentet. 
 
-   ![Cosmos DB definition av data källa](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB definition av data källa")
+   ![Cosmos DB definition av data Källa](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB definition av data Källa")
 
 ### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 – hoppa över sidan Lägg till kognitiv sökning i guiden
 
@@ -93,7 +93,7 @@ Från den sidan kan du gå vidare till index anpassning.
 
 På sidan **index** visas en lista med fält med data typen och en serie kryss rutor för att ställa in indexattribut. Guiden kan generera en fält lista baserat på metadata och genom att sampla data källan. 
 
-Du kan massredigera attribut genom att klicka på kryss rutan överst i en Attribute-kolumn. Välj **hämtnings** **Bart** och sökbart för varje fält som ska returneras till en klient-app och för full texts öknings bearbetning. Du märker att heltal inte är full text eller fuzzy sökbar (tal utvärderas orda Grant och ofta är användbara i filter).
+Du kan massredigera attribut genom att klicka på kryss rutan överst i en Attribute-kolumn. Välj **hämtnings** **Bart och sökbart** för varje fält som ska returneras till en klient-app och för full texts öknings bearbetning. Du märker att heltal inte är full text eller fuzzy sökbar (tal utvärderas orda Grant och ofta är användbara i filter).
 
 Granska beskrivningen av [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) och [språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg för mer information. 
 
@@ -124,12 +124,12 @@ När indexeringen är klar kan du använda [Sök Utforskaren](search-explorer.md
 
 Du kan använda REST API för att indexera Azure Cosmos DB data, efter ett arbets flöde med tre delar som är gemensamt för alla indexerare i Azure Search: skapa en data källa, skapa ett index, skapa en indexerare. Data extrahering från Cosmos-lagring sker när du skickar en begäran om att skapa indexerare. När den här begäran har avslut ATS har du ett index som kan anropas. 
 
-Om du utvärderar MongoDB måste du använda resten `api-version=2019-05-06-Preview` för att skapa data källan.
+Om du utvärderar MongoDB måste du använda REST-`api-version=2019-05-06-Preview` för att skapa data källan.
 
 I ditt Cosmos DB-konto kan du välja om du vill att samlingen automatiskt ska indexera alla dokument. Som standard indexeras alla dokument automatiskt, men du kan inaktivera automatisk indexering. När indexeringen är inaktive rad kan dokument endast nås via sina egna länkar eller via frågor med hjälp av dokument-ID: t. Azure Search Cosmos DB kräver att automatisk indexering aktive ras i samlingen som ska indexeras av Azure Search. 
 
 > [!WARNING]
-> Azure Cosmos DB är nästa generation av DocumentDB. Tidigare med API version **2017-11-11** kan du använda `documentdb` syntaxen. Detta innebar att du kan ange typ av data källa `cosmosdb` som `documentdb`eller. Från och med API version **2019-05-06** har båda Azure Search API: er och portalen `cosmosdb` endast stöd för syntaxen enligt anvisningarna i den här artikeln. Det innebär att data källans typ måste `cosmosdb` anges om du vill ansluta till en Cosmos DB-slutpunkt.
+> Azure Cosmos DB är nästa generation av DocumentDB. Tidigare med API version **2017-11-11** kan du använda syntaxen för `documentdb`. Detta innebar att du kan ange typ av data källa som `cosmosdb` eller `documentdb`. Från och med API version **2019-05-06** har båda Azure Search API: er och portalen endast stöd för `cosmosdb`-syntaxen enligt anvisningarna i den här artikeln. Det innebär att data käll typen måste `cosmosdb` om du vill ansluta till en Cosmos DB-slutpunkt.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 – Sammanställ indata för begäran
 
@@ -176,12 +176,12 @@ Bröd texten i begäran innehåller definitionen av data källan, som ska inneh�
 
 | Fält   | Beskrivning |
 |---------|-------------|
-| **name** | Obligatoriskt. Välj ett namn som ska representera ditt data käll objekt. |
-|**type**| Obligatoriskt. Måste vara `cosmosdb`. |
-|**klientautentiseringsuppgifter** | Obligatoriskt. Måste vara en Cosmos DB anslutnings sträng.<br/>För SQL-samlingar är anslutnings strängar i följande format:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i anslutnings strängen:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kommer Azure Search inte att kunna indexera Azure Cosmos DB-databasen.|
-| **fönster** | Innehåller följande element: <br/>**name**: Obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: Valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Search kan indexera.<br/>Frågor stöds inte för MongoDB-samlingar. |
+| **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
+|**typ**| Krävs. Måste vara `cosmosdb`. |
+|**klientautentiseringsuppgifter** | Krävs. Måste vara en Cosmos DB anslutnings sträng.<br/>För SQL-samlingar är anslutnings strängar i följande format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i anslutnings strängen:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kommer Azure Search inte att kunna indexera Azure Cosmos DB-databasen.|
+| **fönster** | Innehåller följande element: <br/>**namn**: obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Search kan indexera.<br/>Frågor stöds inte för MongoDB-samlingar. |
 | **dataChangeDetectionPolicy** | Rekommenderas. Se avsnittet [Indexera ändrade dokument](#DataChangeDetectionPolicy) .|
-|**dataDeletionDetectionPolicy** | Valfritt. Se avsnittet [Indexera borttagna dokument](#DataDeletionDetectionPolicy) .|
+|**dataDeletionDetectionPolicy** | Valfri. Se avsnittet [Indexera borttagna dokument](#DataDeletionDetectionPolicy) .|
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Använda frågor för att forma indexerade data
 Du kan ange en SQL-fråga för att förenkla inkapslade egenskaper eller matriser, egenskaper för projekt-JSON och filtrera data som ska indexeras. 
@@ -248,20 +248,20 @@ Fråga för mat ris förenkling:
 Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSON-dokumenten eller utdata för din anpassade fråga-projektion.
 
 > [!NOTE]
-> För partitionerade samlingar är standard dokument nyckeln Azure Cosmos DB `_rid` egenskapen, som Azure Search automatiskt byter namn till `rid` eftersom fält namn inte får börja med ett undescore-värde. Azure Cosmos DB `_rid` värden innehåller också ogiltiga tecken i Azure Search nycklar. Därför är `_rid` värdena base64-kodade.
+> För partitionerade samlingar är standard dokument nyckeln Azure Cosmos DB `_rid` egenskap som Azure Search automatiskt byter namn till `rid` eftersom fält namn inte får börja med ett undescore-värde. Dessutom innehåller Azure Cosmos DB `_rid` värden ogiltiga tecken i Azure Search nycklar. Av den anledningen är `_rid` värdena base64-kodade.
 > 
-> För MongoDB-samlingar byter Azure Search automatiskt namn på `_id` egenskapen till. `doc_id`  
+> För MongoDB-samlingar byter Azure Search automatiskt namn på egenskapen `_id` till `doc_id`.  
 
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mappning mellan JSON-datatyper och Azure Search data typer
 | Data typen JSON | Kompatibla fält typer för mål index |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
-| Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
-| Siffror som ser ut som svävande punkter |Edm.Double, Edm.String |
+| Booleska |EDM. Boolean, EDM. String |
+| Siffror som ser ut som heltal |EDM. Int32, EDM. Int64, EDM. String |
+| Siffror som ser ut som svävande punkter |EDM. Double, EDM. String |
 | Sträng |Edm.String |
 | Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
-| Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
-| Subjson-objekt, till exempel {"typ": "Punkt", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
+| Strängar som ser ut som datum |EDM. DateTimeOffset, EDM. String |
+| Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
 | Andra JSON-objekt |Gäller inte |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 – Konfigurera och kör indexeraren
@@ -289,16 +289,16 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 
 Den allmänt tillgängliga .NET SDK: n har fullständig paritet med allmänt tillgängliga REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
-+ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft. Azure. search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [Microsoft. Azure. search. Models. datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [Microsoft. Azure. search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [Microsoft. Azure. search. Models. Indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="DataChangeDetectionPolicy"></a>
 
 ## <a name="indexing-changed-documents"></a>Indexera ändrade dokument
 
-Syftet med en princip för data ändrings identifiering är att effektivt identifiera ändrade data objekt. För närvarande är den enda princip som stöds `High Water Mark` den princip som `_ts` använder egenskapen (timestamp) som tillhandahålls av Azure Cosmos DB, vilket anges på följande sätt:
+Syftet med en princip för data ändrings identifiering är att effektivt identifiera ändrade data objekt. För närvarande är den enda princip som stöds `High Water Mark` principen med hjälp av egenskapen `_ts` (timestamp) som tillhandahålls av Azure Cosmos DB, som anges på följande sätt:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -307,7 +307,7 @@ Syftet med en princip för data ändrings identifiering är att effektivt identi
 
 Att använda den här principen rekommenderas starkt för att säkerställa prestanda för bästa indexerare. 
 
-Om du använder en anpassad fråga ska du kontrol lera att `_ts` egenskapen har projicerats av frågan.
+Om du använder en anpassad fråga ser du till att egenskapen `_ts` projiceras av frågan.
 
 <a name="IncrementalProgress"></a>
 
@@ -315,9 +315,9 @@ Om du använder en anpassad fråga ska du kontrol lera att `_ts` egenskapen har 
 
 Stegvis förlopp under indexeringen säkerställer att om körningen av Indexer avbryts vid tillfälliga haverier eller körnings tids gräns, kan indexeraren Hämta var den slutade nästa gång den körs, i stället för att behöva indexera om hela samlingen från grunden. Detta är särskilt viktigt när du indexerar stora samlingar. 
 
-Om du vill aktivera stegvisa förloppet när du använder en anpassad fråga måste du se till att frågan `_ts` beställer resultatet efter kolumnen. Detta möjliggör regelbunden kontroll som pekar på Azure Search använder för att ge stegvisa framsteg i närvaro av problem.   
+Om du vill aktivera stegvisa förloppet när du använder en anpassad fråga måste du se till att frågan beställer resultatet i kolumnen `_ts`. Detta möjliggör regelbunden kontroll som pekar på Azure Search använder för att ge stegvisa framsteg i närvaro av problem.   
 
-I vissa fall, även om frågan innehåller en `ORDER BY [collection alias]._ts` -sats, kan Azure Search inte härleda att frågan beställs `_ts`av. Du kan se Azure Search att resultatet sorteras med hjälp `assumeOrderByHighWaterMarkColumn` av konfigurations egenskapen. Om du vill ange det här tipset skapar eller uppdaterar du indexeraren enligt följande: 
+I vissa fall, även om frågan innehåller en `ORDER BY [collection alias]._ts`-sats, kan Azure Search inte härleda att frågan beställs av `_ts`. Du kan se Azure Search att resultatet sorteras med hjälp av egenskapen `assumeOrderByHighWaterMarkColumn` konfiguration. Om du vill ange det här tipset skapar eller uppdaterar du indexeraren enligt följande: 
 
     {
      ... other indexer definition properties
@@ -329,7 +329,7 @@ I vissa fall, även om frågan innehåller en `ORDER BY [collection alias]._ts` 
 
 ## <a name="indexing-deleted-documents"></a>Indexera borttagna dokument
 
-När rader tas bort från samlingen vill du normalt även ta bort dessa rader från Sök indexet. Syftet med en identifierings princip för data borttagning är att effektivt identifiera borttagna data objekt. För närvarande är `Soft Delete` den enda princip som stöds principen (borttagning är markerad med en flagga för viss sortering), som anges på följande sätt:
+När rader tas bort från samlingen vill du normalt även ta bort dessa rader från Sök indexet. Syftet med en identifierings princip för data borttagning är att effektivt identifiera borttagna data objekt. För närvarande är den enda princip som stöds `Soft Delete` principen (borttagning är markerad med en flagga för viss sortering), som anges på följande sätt:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
@@ -337,7 +337,7 @@ När rader tas bort från samlingen vill du normalt även ta bort dessa rader fr
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-Om du använder en anpassad fråga ser du till att den egenskap som har refererats `softDeleteColumnName` av är beräknad av frågan.
+Om du använder en anpassad fråga bör du kontrol lera att den-egenskap som `softDeleteColumnName` har refererats till av frågan.
 
 I följande exempel skapas en data källa med en princip för mjuk borttagning:
 
@@ -365,7 +365,7 @@ I följande exempel skapas en data källa med en princip för mjuk borttagning:
 
 ## <a name="NextSteps"></a>Nästa steg
 
-Grattis! Du har lärt dig hur du integrerar Azure Cosmos DB med Azure Search med hjälp av en indexerare.
+Gratulerar! Du har lärt dig hur du integrerar Azure Cosmos DB med Azure Search med hjälp av en indexerare.
 
 * Mer information om Azure Cosmos DB finns på sidan för [Azure Cosmos DB tjänsten](https://azure.microsoft.com/services/cosmos-db/).
 * Mer information om Azure Search finns på [sidan Sök tjänst](https://azure.microsoft.com/services/search/).

@@ -1,5 +1,5 @@
 ---
-title: 'Besluts träd med två klasser: Modulreferens'
+title: 'Besluts träd med två klasser: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen för besluts träd med två klasser i Azure Machine Learning service för att skapa en maskin inlärnings modell som baseras på algoritmen för besluts fattare.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 812fb8d312b165bd43f600da520f390f9c6399fe
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 5795dc994872ac5da37a1226524dddd35aa35126
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128406"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692634"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modul för besluts träd med två klasser
 
@@ -32,11 +32,11 @@ Den här modulen skapar en modell som inte är tränad. Eftersom klassificeringe
 
 Du kan träna den här typen av modell med hjälp av [träna modell](././train-model.md). 
 
-1.  I Azure Machine Learning lägger du till modulen för **besluts trädet** i experimentet.
+1.  I Azure Machine Learning lägger du till modulen för **besluts träd med högre** till din pipeline.
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .
   
-    + **Enskild parameter**: Om du vet hur du vill konfigurera modellen kan du ange en speciell uppsättning värden som argument.
+    + **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.
   
   
 3.  För **maximalt antal löv per träd**, anger du det maximala antalet terminalservrar (löv) som kan skapas i alla träd.
@@ -62,7 +62,7 @@ Du kan träna den här typen av modell med hjälp av [träna modell](././train-m
 
 9. Träna modellen.
   
-    + Om du ställer in **skapa** utbildare för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](./train-model.md) .  
+    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](./train-model.md) .  
   
    
 ## <a name="results"></a>Resultat

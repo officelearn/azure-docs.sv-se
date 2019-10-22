@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 08/05/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a70b1c9d3ac888f0f77cf0f6e9ca37bc6cd4324
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c845966c86659c0ff983bf33c492a67dd99275f0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999926"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692941"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -38,9 +38,9 @@ Utforska och Förbered data, träna och testa modeller och distribuera dem med h
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## <a name="what-can-i-do-with-azure-machine-learning"></a>Vad kan jag göra med Azure Machine Learning?
+## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Vad kan jag göra med tjänsten Azure Machine Learning?
 
-Använd <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning python SDK</a> med python-paket med öppen källkod eller Använd [Visual Interface (för hands version)](ui-tutorial-automobile-price-train-score.md) för att skapa och träna bättre maskin inlärnings-och djup inlärnings modeller själv i en Azure Machine Learning-arbetsyta.
+Använd <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning python SDK</a> med python-paket med öppen källkod, eller Använd [Visual Interface (för hands version)](ui-tutorial-automobile-price-train-score.md) för att skapa och träna bättre maskin inlärnings-och djup inlärnings modeller själv i en Azure Machine Learning tjänst Platsen.
 
 Du kan välja bland flera Machine Learning-komponenter som är tillgängliga i python-paket med öppen källkod, till exempel <a href="https://scikit-learn.org/stable/" target="_blank">Scikit – lära</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>och <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -54,11 +54,11 @@ Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-m
 
 ### <a name="ui-based-low-code-experience"></a>UI-baserad, låg kod upplevelse
 
-Prova följande för kod fri utbildning:
+För kod fri utbildning och distribution, försök:
 
 + Skapa [automatiserade ml-experiment](tutorial-first-experiment-automated-ml.md) i det lättanvända gränssnittet.
 + [Testet-n-drop-experimentet i det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
-  ![Visuellt gränssnitt för Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
+  ![Visual-gränssnittet för Azure Machine Learning ](media/overview-what-is-azure-ml/visual-interface.png)
 
 
 
@@ -90,12 +90,17 @@ Här är en snabb jämförelse.
 || Machine Learning Studio | Azure Machine Learning:<br/>Visuellt gränssnitt|
 |---| --- | --- |
 || Allmänt tillgänglig (GA) | Förhandsversion|
+|Dra och släpp-gränssnitt| Ja | Ja|
+|Olika| Skala (10 GB inlärnings data gräns) | Skala med beräknings mål|
 |Moduler för gränssnitt| Mycket | Inledande uppsättning populära moduler|
-|Inlärnings mål| Patentskyddat beräknings mål, endast CPU-stöd| Stöder Azure Machine Learning Compute, GPU eller CPU.<br/>(Andra beräkningar som stöds i SDK)|
-|Beräknings mål för distribution| Eget webb tjänst format, inte anpassningsbart | Företags säkerhets alternativ & Azure Kubernetes-tjänsten. <br/>([Andra beräkningar](how-to-deploy-and-where.md) som stöds i SDK) |
-|Automatisk modell inlärning och inställning för att justera dem | Nej | Ännu inte i Visual Interface. <br/> (Stöds på sidan SDK och Azure Portal/Workspace vilplan.) |
+|Inlärnings mål| Patentskyddat Compute Target, endast CPU|AML Compute (GPU/CPU)<br/> Bärbara virtuella datorer |
+|Inferencing Compute-mål| Eget webb tjänst format, inte anpassningsbart | Azure Kubernetes service (inferencing i real tid) <br/>AML Compute (batch-inferencing) |
+|ML pipeline| Stöds inte | Pipeline-redigering <br/> Publicerad pipeline <br/> Pipeline-slutpunkt <br/> [Läs mer om ML-pipeline](concept-ml-pipelines.md)|
+|ML-OPS| Grundläggande modell hantering och distribution | Konfigurerbar distribution, modell och pipeline-version|
+|Modell| Patentskyddat format. Kan inte användas utanför Studio | Standardformat beror på utbildnings jobbet|
+|Automatisk modell inlärning och inställning för att justera dem | Nej | Ännu inte i Visual Interface. <br/> (Stöds på sidan för python SDK och arbetsyte-landning.) |
 
-Prova Visual Interface (för hands version) med [Självstudier: Förutsäg bil priset med det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
+Prova Visual Interface (för hands version) med [Självstudier: förutsäga det mobila priset med det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
 
 > [!NOTE]
 > Modeller som skapats i Studio kan inte distribueras eller hanteras av Azure Machine Learning. Modeller som skapas och distribueras i tjänstens visuella gränssnitt kan dock hanteras via Azure Machine Learning-arbetsytan.

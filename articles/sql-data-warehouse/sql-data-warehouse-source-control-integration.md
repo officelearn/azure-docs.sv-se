@@ -11,10 +11,10 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70098746"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Käll kontrolls integrering för Azure SQL Data Warehouse
@@ -37,7 +37,7 @@ I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (S
 
    ![Hantera anslutningar](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Hantera anslutningar")
 
-   ![Anslut](media/sql-data-warehouse-source-control-integration/3-connect.png "Anslut")
+   ![Anslut](media/sql-data-warehouse-source-control-integration/3-connect.png "Connect")
 
 3. Klona din Azure lagrings platsen-lagringsplats från projektet till din lokala dator
 
@@ -55,7 +55,7 @@ I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (S
 
 3. I team Explorer i Visual Studio ska du spara alla ändringar i din lokala git-lagringsplats 
 
-   ![Genomför](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Genomför")  
+   ![Förbinder](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Checka in")  
 
 4. Nu när du har gjort ändringarna lokalt i den klonade lagrings platsen synkroniserar du och skickar ändringarna till din Azure lagrings platsen-lagringsplats i Azure DevOps-projektet.
 
@@ -71,7 +71,7 @@ I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (S
 
 2. Genomför och skicka ändringarna från din lokala lagrings plats till din Azure-lagrings platsen
 
-   ![Push-ändringar](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Push-ändringar")
+   ![Push-ändringar](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Push-överföring av ändringar")
 
 3. Kontrol lera att ändringen har överförts i din Azure lagrings platsen-lagringsplats
 

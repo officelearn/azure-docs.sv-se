@@ -9,17 +9,17 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71203688"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Använd certifikat hanterings tjänsten för OPC Vault
 
 Den här artikeln förklarar hur du registrerar program och hur du utfärdar signerade program certifikat för OPC UA-enheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="deploy-the-certificate-management-service"></a>Distribuera certifikat hanterings tjänsten
 
@@ -31,12 +31,12 @@ Om du inte redan har gjort det skapar du certifikat UTFÄRDARens certifikat. Mer
 
 ## <a name="secure-opc-ua-applications"></a>Säkra OPC UA-program
 
-### <a name="step-1-register-your-opc-ua-application"></a>Steg 1: Registrera ditt OPC UA-program 
+### <a name="step-1-register-your-opc-ua-application"></a>Steg 1: registrera ditt OPC UA-program 
 
 > [!IMPORTANT]
 > Skrivar rollen krävs för att registrera ett program.
 
-1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net`och logga in.
+1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net` och logga in.
 2. Gå till **Registrera ny**. För en program registrering måste användaren ha minst en tilldelad skrivar roll.
 2. Post formuläret följer namngivnings konventioner i OPC UA. I följande skärm bild visas till exempel inställningarna för [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) som exempel i OPC UA .net-standard stack:
 
@@ -44,7 +44,7 @@ Om du inte redan har gjort det skapar du certifikat UTFÄRDARens certifikat. Mer
 
 5. Välj **Registrera** för att registrera programmet i databasen för certifikat tjänst program. Arbets flödet guidar användaren direkt till nästa steg för att begära ett signerat certifikat för programmet.
 
-### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Steg 2: Skydda ditt program med ett CA-signerat program certifikat
+### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Steg 2: skydda ditt program med ett CA-signerat program certifikat
 
 Skydda ditt OPC UA-program genom att utfärda ett signerat certifikat baserat på en certifikat signerings förfrågan (CSR). Alternativt kan du begära ett nytt nyckel par, som innehåller en ny privat nyckel i PFX-eller PEM-format. Information om vilka metoder som stöds för ditt program finns i dokumentationen för din OPC UA-enhet. I allmänhet rekommenderas CSR-metoden, eftersom den inte kräver att en privat nyckel överförs över en tråd.
 
@@ -71,7 +71,7 @@ Skydda ditt OPC UA-program genom att utfärda ett signerat certifikat baserat p�
 8. När den privata nyckeln har hämtats och lagrats på ett säkert sätt kan du välja **ta bort privat nyckel**. Certifikatet med den offentliga nyckeln är fortfarande tillgängligt för framtida bruk.
 9. På grund av användningen av ett signerat certifikat för certifikat utfärdare bör certifikat utfärdaren och listan över återkallade certifikat (CRL) också hämtas här.
 
-Det beror nu på den OPC UA-enhet som används för att tillämpa det nya nyckel paret. Vanligt vis kopieras certifikat utfärdarens certifikat och CRL till en `trusted` mapp, medan offentliga och privata nycklar för program certifikatet används i en `own` mapp i certifikat arkivet. Vissa enheter kanske redan har stöd för Server-push för certifikat uppdateringar. Se dokumentationen för din OPC UA-enhet.
+Det beror nu på den OPC UA-enhet som används för att tillämpa det nya nyckel paret. Certifikat utfärdarens certifikat och CRL kopieras vanligt vis till en `trusted` mapp, medan offentliga och privata nycklar för program certifikatet används i en `own` mapp i certifikat arkivet. Vissa enheter kanske redan har stöd för Server-push för certifikat uppdateringar. Se dokumentationen för din OPC UA-enhet.
 
 #### <a name="request-a-new-certificate-with-a-csr"></a>Begär ett nytt certifikat med en CSR 
 
@@ -96,9 +96,9 @@ Det beror nu på den OPC UA-enhet som används för att tillämpa det nya nyckel
 10. När certifikatet har hämtats och lagrats på ett säkert sätt kan du välja **ta bort certifikat**.
 11. På grund av användningen av ett signerat certifikat från en certifikat utfärdare, ska CA-certifikatet och CRL: en även hämtas här.
 
-Det beror nu på den OPC UA-enhet som används för att tillämpa det nya certifikatet. Vanligt vis kopieras certifikat utfärdarens certifikat och CRL till en `trusted` mapp, medan program certifikatet används i en `own` mapp i certifikat arkivet. Vissa enheter kanske redan har stöd för Server-push för certifikat uppdateringar. Se dokumentationen för din OPC UA-enhet.
+Det beror nu på den OPC UA-enhet som används för att tillämpa det nya certifikatet. Certifikat utfärdarens certifikat och CRL kopieras vanligt vis till en `trusted` mapp, medan program certifikatet används i en `own` mapp i certifikat arkivet. Vissa enheter kanske redan har stöd för Server-push för certifikat uppdateringar. Se dokumentationen för din OPC UA-enhet.
 
-### <a name="step-4-device-secured"></a>Steg 4: Skyddad enhet
+### <a name="step-4-device-secured"></a>Steg 4: säker enhet
 
 OPC UA-enheten är nu redo att kommunicera med andra OPC UA-enheter som skyddas av CA-signerade certifikat, utan ytterligare konfiguration.
 

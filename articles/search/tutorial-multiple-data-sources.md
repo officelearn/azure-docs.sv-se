@@ -1,5 +1,5 @@
 ---
-title: C#Gång Indexera flera data källor – Azure Search
+title: 'C#Självstudie: indexera flera data källor – Azure Search'
 description: Lär dig hur du importerar data från flera data källor till ett enda Azure Search-index.
 author: RobDixon22
 manager: nitinme
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: heidist
 ms.openlocfilehash: d55a586d3dfb22b5dad377ff656b8d6a6c940bdb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70241843"
 ---
-# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Gång Kombinera data från flera data källor i ett Azure Search-index
+# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Självstudie: kombinera data från flera data källor i ett Azure Search index
 
 Azure Search kan importera, analysera och indexera data från flera data källor till ett enda kombinerat Sök index. Detta stöder situationer där strukturerade data sammanställs med mindre strukturerade eller udda text data från andra källor, t. ex. text-, HTML-eller JSON-dokument.
 
@@ -30,7 +30,7 @@ I den här C#självstudien använder vi .NET SDK för Azure Search och Azure Por
 > * Indexera hotell data från Azure Cosmos DB
 > * Slå samman hotell rums data från Blob Storage
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande tjänster, verktyg och data används i den här snabb starten. 
 
@@ -58,7 +58,7 @@ Om du vill interagera med din Azure Search-tjänst behöver du tjänst-URL och e
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
 ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
@@ -90,7 +90,7 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 1. [Skapa en BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) med namnet **hotell-rum** där du kan lagra JSON-filer för hotell rummet. Du kan ställa in den offentliga åtkomst nivån på alla giltiga värden.
 
-   ![Skapa en BLOB-behållare](media/tutorial-multiple-data-sources/blob-add-container.png "Skapa en BLOB-behållare")
+   ![Skapa en BLOB-behållare](media/tutorial-multiple-data-sources/blob-add-container.png "Skapa en blobcontainer")
 
 1. När behållaren har skapats öppnar du den och väljer **Ladda upp** i kommando fältet.
 
@@ -98,7 +98,7 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 1. Navigera till mappen som innehåller exempelfilerna. Markera alla och klicka sedan på **överför**.
 
-   ![Ladda upp filer](media/tutorial-multiple-data-sources/blob-upload.png "Ladda upp filer")
+   ![Överföra filer](media/tutorial-multiple-data-sources/blob-upload.png "Ladda upp filer")
 
 När uppladdningen är klar ska filerna visas i listan för data containern.
 
@@ -121,7 +121,7 @@ Anslutnings information för Sök tjänsten och data källorna anges i filen **a
 }
 ```
 
-De första två posterna använder URL-adressen och administratörs nycklarna för din Azure Search-tjänst. En slut punkt `https://mydemo.search.windows.net`, till exempel tjänst namnet som ska `mydemo`tillhandahållas.
+De första två posterna använder URL-adressen och administratörs nycklarna för din Azure Search-tjänst. En slut punkt av `https://mydemo.search.windows.net`, till exempel det tjänst namn som ska tillhandahållas `mydemo`.
 
 I nästa poster anges konto namn och information om anslutnings strängen för Azure-Blob Storage och Azure Cosmos DB data källor.
 
@@ -171,7 +171,7 @@ public Room[] Rooms { get; set; }
 . . .
 ```
 
-I **program.cs** -filen definieras indexet med ett namn och en fält samling som genereras av `FieldBuilder.BuildForType<Hotel>()` metoden, och sedan skapas följande:
+I **program.cs** -filen definieras indexet med ett namn och en fält samling som genereras av metoden `FieldBuilder.BuildForType<Hotel>()` och sedan skapas enligt följande:
 
 ```csharp
 private static async Task CreateIndex(string indexName, SearchServiceClient searchService)
@@ -300,9 +300,9 @@ När data källan har skapats konfigurerar programmet en BLOB-indexerare med nam
     await searchService.Indexers.CreateOrUpdateAsync(blobIndexer);
 ```
 
-JSON-blobbar innehåller ett nyckel fält med namnet **ID** i stället för **HotelId**. Koden använder `FieldMapping` klassen för att instruera indexeraren att dirigera **ID-** fältets värde till **HotelId** -dokument nyckeln i indexet.
+JSON-blobbar innehåller ett nyckel fält med namnet **ID** i stället för **HotelId**. Koden använder klassen `FieldMapping` för att instruera indexeraren att dirigera **ID-** fältets värde till dokument nyckeln **HotelId** i indexet.
 
-Blob Storage-indexerare kan använda parametrar som identifierar vilket tolknings läge som ska användas. Tolknings läget skiljer sig för blobbar som representerar ett enda dokument eller flera dokument inom samma blob. I det här exemplet representerar varje BLOB ett enda index dokument, så koden använder `IndexingParameters.ParseJson()` -parametern.
+Blob Storage-indexerare kan använda parametrar som identifierar vilket tolknings läge som ska användas. Tolknings läget skiljer sig för blobbar som representerar ett enda dokument eller flera dokument inom samma blob. I det här exemplet representerar varje BLOB ett enda index dokument, så koden använder parametern `IndexingParameters.ParseJson()`.
 
 Mer information om indexerare som analyserar parametrar för JSON-blobar finns i [index JSON-blobbar](search-howto-index-json-blobs.md). Mer information om hur du anger dessa parametrar med .NET SDK finns i klassen [IndexerParametersExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingparametersextensions) .
 
@@ -349,7 +349,7 @@ Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resurs
 Det finns flera metoder och flera alternativ för att indexera JSON-blobbar. Om dina källdata innehåller JSON-innehåll kan du granska de här alternativen för att se vad som passar bäst för ditt scenario.
 
 > [!div class="nextstepaction"]
-> [Så här indexerar du JSON-blobbar med Azure Search BLOB-indexeraren](search-howto-index-json-blobs.md)
+> [Så här indexerar du JSON-blobbar med Azure Search Blob-indexeraren](search-howto-index-json-blobs.md)
 
 Du kanske vill utöka strukturerade index data från en data källa med kognitivt fördelade data från ostrukturerade blobbar eller full text innehåll. Följande självstudie visar hur du använder Cognitive Services tillsammans med Azure Search med hjälp av .NET SDK.
 

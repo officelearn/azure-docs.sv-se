@@ -1,5 +1,5 @@
 ---
-title: 'Neurala nätverk i två klasser: Modulreferens'
+title: 'Neurala nätverk med två klasser: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder neurala-modulen i två klasser i Azure Machine Learning-tjänsten för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som bara har två värden.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f0ad3cc6f506efdc0579f7b8949c41b539ade6a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8f38a7b7086e5023eb63e94363301ac5277f7e7c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128355"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693603"
 ---
 # <a name="two-class-neural-network-module"></a>Neurala-modul i två klasser
 
@@ -38,15 +38,15 @@ För att beräkna nätverkets utdata för ett visst indata beräknas ett värde 
   
 ## <a name="how-to-configure"></a>Så här konfigurerar du
 
-1.  Lägg till **neurala-modulen i två klasser** i experimentet. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **klassificerings** kategorin.  
+1.  Lägg till **neurala-modulen i två klasser** i din pipeline. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **klassificerings** kategorin.  
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.  
+    -   **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.  
 
 3.  För **dolda lager specifikation**väljer du vilken typ av nätverks arkitektur som ska skapas.  
   
-    -   **Fullständigt anslutet ärende**: Använder standard nätverks arkitekturen neurala, som definieras för neurala-nätverk i två klasser på följande sätt:
+    -   **Fullständigt anslutet ärende**: använder standard nätverks arkitekturen neurala, som definieras för neurala-nätverk i två klasser enligt följande:
   
         -   Har ett dolt lager.
   
@@ -66,17 +66,17 @@ För att beräkna nätverkets utdata för ett visst indata beräknas ett värde 
 
 8.  För **det**här steget anger du en vikt att tillämpa vid inlärning till noder från föregående iterationer  
 
-10. Välj alternativet **blanda exempel** för att blanda fall mellan iterationer. Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör experimentet.
+10. Välj alternativet **blanda exempel** för att blanda fall mellan iterationer. Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör pipelinen.
   
 11. Ange ett värde som ska användas som startvärdet för **slumpmässig numrering av utsäde**.
   
-     Att ange ett Seed-värde är användbart när du vill säkerställa repeterbarhet i flera körningar av samma experiment.  Annars används ett system klock värde som startvärdet, vilket kan orsaka något annorlunda resultat varje gången du kör experimentet.
+     Att ange ett Seed-värde är användbart när du vill säkerställa repeterbarhet i flera körningar av samma pipeline.  Annars används ett system klock värde som Seed, vilket kan orsaka något annorlunda resultat varje gången du kör pipelinen.
   
-13. Lägg till en taggad data uppsättning i experimentet och Anslut en av [träna](module-reference.md)-modulerna.  
+13. Lägg till en taggad data uppsättning i pipelinen och Anslut en av [inlärnings modulerna](module-reference.md).  
   
-    -   Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](train-model.md) .  
+    -   Om du ställer in **skapa utbildare** för **en parameter**använder du modulen [träna modell](train-model.md) .  
   
-14. Kör experimentet.
+14. Köra en pipeline.
 
 ## <a name="results"></a>Resultat
 
@@ -84,7 +84,7 @@ När utbildningen är klar:
 
 + Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen och andra parametrar för neurala-nätverket, högerklickar du på utdata från [träna modell](./train-model.md)och väljer **visualisera**.  
 
-+ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den tränade modellens utdata och väljer **Spara som utbildad modell**. Den här modellen uppdateras inte vid efterföljande körningar av samma experiment.
++ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den **tränade modellens** utdata och väljer **Spara som utbildad modell**. Den här modellen uppdateras inte vid efterföljande körningar av samma pipeline.
 
 
 ## <a name="next-steps"></a>Nästa steg

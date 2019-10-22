@@ -1,5 +1,5 @@
 ---
-title: 'Besluts träd med djup klass: Modulreferens'
+title: 'Besluts träd med djup klass: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen för besluts träd med multiklass i Azure Machine Learning-tjänsten för att skapa en klassificerare med märkta data.
 services: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/22/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a9cf134a3db5b9bc62cd0f9054aefa6092954d9
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 09d2a637099bae414400f49bb89efc5b6652f150
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129918"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692824"
 ---
-# <a name="multiclass-boosted-decision-tree"></a>Besluts träd med djup klass
+# <a name="multiclass-boosted-decision-tree"></a>Förbättrat beslutsträd med flera klasser
 
 I den här artikeln beskrivs en modul i Visual Interface (för hands version) för Azure Machine Learning tjänst.
 
@@ -31,11 +31,11 @@ Den här modulen skapar en modell som inte är tränad. Eftersom klassificeringe
 
 Du kan träna den här typen av modell med hjälp av [träna-modellen](././train-model.md). 
 
-1.  Lägg till modulen **besluts träd** med multiklass i experimentet.
+1.  Lägg till modulen **besluts träd med multiklass** i din pipeline.
 
 1.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet för att **skapa utbildare läge** .
 
-    + **Enskild parameter**: Om du vet hur du vill konfigurera modellen kan du ange en speciell uppsättning värden som argument.
+    + **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.
 
 
     *  **Maximalt antal löv per träd** begränsar det maximala antalet terminalserversessioner (löv) som kan skapas i alla träd.
@@ -57,7 +57,7 @@ Du kan träna den här typen av modell med hjälp av [träna-modellen](././train
          Det slumpmässiga startvärdet anges som standard till 42. Efterföljande körningar som använder olika slumpmässiga frön kan ha olika resultat.
 
 > [!Note]
-> Om du ställer in **skapa** utbildare för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](./train-model.md) .
+> Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](./train-model.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 

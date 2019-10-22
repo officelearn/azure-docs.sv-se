@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71262775"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint (Handlingsplan för säkerhet och efterlevnad i Azure): PaaS webb program som värd för offentliga Storbritannien-arbetsbelastningar
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Handlingsplan för säkerhet och efterlevnad i Azure: PaaS webb program som värd för de officiella arbets belastningarna i Storbritannien
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Skisser för säkerhet och efterlevnad i Azure
 
@@ -39,7 +39,7 @@ Med hjälp av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-re
 
 Den här skissen är en grund arkitektur. Våra kunder kan använda den här skissen som grund för sina officiella klassificerings-baserade arbets belastningar och utöka de mallar och resurser som har sina egna krav. Den här skissen bygger på principerna för [OFFICAL i IaaS webb program i tre skikt](https://aka.ms/ukofficial-iaaswa) för att erbjuda våra kunder både [infrastruktur som en tjänst (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) och PaaS implementerings alternativ för att vara värd för webbaserade arbets belastningar.
 
-För att distribuera den här skissen krävs en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du snabbt och enkelt registrera dig utan kostnad: Kom igång med Azure. Klicka [här](https://aka.ms/ukofficial-paaswa-repo/) om du vill ha distributions anvisningar.
+För att distribuera den här skissen krävs en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du snabbt och enkelt registrera dig utan kostnad: kom igång med Azure. Klicka [här](https://aka.ms/ukofficial-paaswa-repo/) om du vill ha distributions anvisningar.
 
 ## <a name="architecture-and-components"></a>Arkitektur och komponenter
 
@@ -78,7 +78,7 @@ Följande tekniker tillhandahåller funktioner för identitets hantering i Azure
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) är Microsofts molnbaserade katalog-och identitets hanterings tjänst för flera innehavare. Alla användare för lösningen har skapats i Azure Active Directory, inklusive användare som har åtkomst till SQL Database.
 - Autentisering till operatören riktad mot webb program och åtkomst för administration av Azure-resurser utförs med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
-- Databas kolumn kryptering använder Azure AD för att autentisera programmet för att Azure SQL Database. Mer information finns i [Always Encrypted: Skydda känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- Databas kolumn kryptering använder Azure AD för att autentisera programmet för att Azure SQL Database. Mer information finns i [Always Encrypted: skydda känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - Det medborgare-riktade webb programmet är konfigurerat för offentlig åtkomst. För att kunna skapa och autentisera konton via Active Directory eller sociala nätverks identitets leverantörer [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan integreras vid behov.
 - [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) identifierar potentiella sårbarheter och riskfyllda konton ger rekommendationer för att förbättra säkerhets position i organisationens identiteter, konfigurerar automatiska svar på identifierade misstänkta åtgärder relaterade till din organisations identiteter och undersöker misstänkta incidenter och vidtar lämpliga åtgärder för att lösa dem.
 - Med [Azure Role-baserade Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) kan du prioriterad åtkomst hantering för Azure. Åtkomst till prenumerationen är begränsad till prenumerations administratören och Azure Key Vault åtkomst begränsas endast till användare som behöver åtkomst till nyckel hantering.
@@ -110,7 +110,7 @@ Basic-, standard-och Premium-planer är för produktions arbets belastningar och
 Den här mallen distribuerar följande App Service funktioner:
 
 - [Standard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service plans nivå
-- Flera App Service [distributions fack](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Dev, Preview, frågor och svar, UAT och kurs produktion (standard fack).
+- Flera App Service [distributions platser](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): dev, Preview, frågor och svar, UAT och kurs produktion (standard fack).
 - [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/overview-managed-identity) för att ansluta till [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (detta kan också användas för att ge åtkomst till [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Integrering med [Azure Application insikter](../../azure-monitor/app/azure-web-apps.md) för att övervaka prestanda
 - [Diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) 
@@ -177,7 +177,7 @@ Detaljerad information om hur du skyddar Azure Storage finns i [säkerhets hand 
 - SQL-bedömning
 - Key Vault diagnostik
 - Application Insights anslutning
-- Azure-aktivitetsloggen
+- Azure aktivitets logg
 
 #### <a name="application-insights"></a>Application Insights
 
@@ -191,7 +191,7 @@ Den här mallen använder följande Application Insightss komponenter:
 
 #### <a name="azure-activity-logs"></a>Azure aktivitets loggar
 
-[Azure aktivitets loggen](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) granskar kontroll Plans händelser för dina prenumerationer. Med aktivitets loggen kan du bestämma vad, vem och när som ska användas för alla Skriv åtgärder (skicka, skicka och ta bort) på resurserna i din prenumeration. Du kan också förstå statusen för åtgärden och andra relevanta egenskaper.
+[Azure aktivitets loggen](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) granskar kontroll Plans händelser för dina prenumerationer. Med aktivitets loggen kan du bestämma vad, vem och när som ska användas för alla Skriv åtgärder (skicka, skicka och ta bort) på resurserna i din prenumeration. Du kan också förstå status för åtgärden och andra relevanta egenskaper.
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
@@ -229,9 +229,9 @@ Den här Handlingsplan för säkerhet och efterlevnad i Azure Automation består
 Det finns tre metoder för distribution. Ett enkelt "Express" [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) är lämpligt för att snabbt skapa en test miljö. en parameter för [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) -metod som ger bättre konfiguration för arbets belastnings miljöer. och en Azure Portal baserad distribution där operatören kan ange distributions parametrar via Azure Portal. 
 
 1.  Klona eller ladda ned [den här](https://aka.ms/ukofficial-paaswa-repo) GitHub-lagringsplatsen till din lokala arbets Station.
-2.  Granska [metod 1: Azure CLI 2 (Express-version](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) ) och kör de tillhandahållna kommandona.
+2.  Granska [metod 1: Azure CLI 2 (Express-version)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) och kör de tillhandahållna kommandona.
 3.  Granska [metod 1a: Azure CLI 2 (konfigurera distributionen via skript argument)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) och kör de tillhandahållna kommandona
-4.  Granska [metod 2: Azure Portal distributions](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) process och köra de listade kommandona
+4.  Granska [metod 2: Azure Portal distributions process](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) och köra de listade kommandona
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
 
@@ -239,7 +239,7 @@ Det finns tre metoder för distribution. Ett enkelt "Express" [Azure CLI 2](http
 
 [Azure API Management](https://azure.microsoft.com/services/api-management/) kan användas framför API-app service för att tillhandahålla ytterligare lager av säkerhet, begränsning och kontroller för att exponera, proxy och skydda API: er.
 
-### <a name="azure-b2c"></a>Azure B2C
+### <a name="azure-b2c"></a>Azure-B2C
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan implementeras som en kontroll för att tillåta att användare registrerar, skapar en identitet och aktiverar auktorisering och åtkomst kontroll för det offentliga webb programmet.
 

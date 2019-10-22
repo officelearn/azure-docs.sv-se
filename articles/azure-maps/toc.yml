@@ -53,8 +53,6 @@
       href: supported-languages.md
     - name: Mappningsformat som stöds
       href: supported-map-styles.md
-    - name: Webbläsare som stöds av webb-SDK
-      href: supported-browsers.md
     - name: Zoomningsnivåer och rutnät
       href: zoom-levels-and-tile-grid.md
     - name: Mobility Service-datastruktur
@@ -147,6 +145,8 @@
               href: map-get-information-from-coordinate.md
             - name: Visa anvisningar från A till B
               href: map-route.md
+        - name: Webbläsare som stöds av webb-SDK
+          href: supported-browsers.md
     - name: Utveckla med Android SDK
       items:
         - name: Komma igång med Android-kartkontroll

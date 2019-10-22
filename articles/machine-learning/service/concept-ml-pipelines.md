@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 09/14/2019
-ms.openlocfilehash: 0465dcba5130f3b2dc5c615c884bfa0d3b138eb7
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.date: 10/10/2019
+ms.openlocfilehash: f5136084530c48815fd6a9f9e25b7358df00af07
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514927"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692538"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
@@ -112,6 +112,14 @@ I [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/over
 En Azure ML-pipeline är kopplad till en Azure Machine Learning arbets yta och ett steg i pipeline-steget är associerat med ett beräknings mål som är tillgängligt i arbets ytan. Mer information finns i [skapa och hantera Azure Machine Learning arbets ytor i Azure Portal](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) eller [Vad är beräknings mål i Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
 I Azure Machine Learning är ett beräknings mål den miljö där en ML-fas inträffar. Program varu miljön kan vara en virtuell fjärrdator, Azure Machine Learning Compute, Azure Databricks, Azure Batch och så vidare. Maskin varu miljön kan också variera mycket, beroende på GPU-stöd, minne, lagring och så vidare. Du kan ange beräknings mål för varje steg, vilket ger dig detaljerad kontroll över kostnaderna. Du kan använda mer eller mindre kraftfulla resurser för det aktuella åtgärds-, data volym-och prestanda behov för ditt projekt. 
+
+## <a name="how-do-i-build-pipelines-using-the-azure-machine-learning-visual-interface"></a>Hur gör jag för att bygga pipeliner med Azure Machine Learning Visual Interface?
+
+Utvecklare som föredrar en visuell design yta kan använda Azure Machine Learning visuella gränssnittet för att skapa pipeliner. Du kan komma åt det här verktyget från det **visuella gränssnitts** valet på Start sidan för din arbets yta.  Med det visuella gränssnittet kan du dra och släppa steg till design ytan. För snabb utveckling kan du använda befintliga moduler i hela spektrumet av ML-uppgifter. befintliga moduler behandlar allt från datatransformering till algoritm val för att träna distribution. Du kan också skapa en helt anpassad pipeline genom att kombinera dina egna steg som definieras i Python-skript.
+
+När du visuellt utformar pipeliner visas indata och utdata för ett steg på ett synligt sätt. Du kan dra och släppa data anslutningar så att du snabbt kan förstå och ändra data flödet för din pipeline.
+ 
+![Exempel på Azure Machine Learning Visual Interface](./media/concept-ml-pipelines/visual-design-surface.gif)
 
 ### <a name="understanding-the-execution-graph"></a>Förstå körnings diagrammet
 

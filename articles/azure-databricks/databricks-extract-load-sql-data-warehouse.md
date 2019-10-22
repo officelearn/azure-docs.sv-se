@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 228b0fff7231af811206d5c477b63ed70706939b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72329759"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks
@@ -91,7 +91,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
-    ![Databricks på Azure-portalen](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks på Azure-portalen")
+    ![Databricks på Azure Portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
 2. Ange följande värden under **Azure Databricks-tjänst** för att skapa en Databricks-tjänst:
 
@@ -135,11 +135,11 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
 
 2. Välj **Arbetsyta** till vänster. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
-    ![Skapa en anteckningsbok i Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
+    ![Skapa en antecknings bok i Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
 
 3. Ge anteckningsboken ett namn i dialogrutan **Skapa anteckningsbok**. Välj **Scala** som språk och välj sedan det Spark-kluster som du skapade tidigare.
 
-    ![Ange information för en anteckningsbok i Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Ange information för en anteckningsbok i Databricks")
+    ![Ange information om en bärbar dator i Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Ange information om en bärbar dator i Databricks")
 
 4. Välj **Skapa**.
 
@@ -365,17 +365,17 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
    ```
 
    > [!NOTE]
-   > I det här exemplet används flaggan `forward_spark_azure_storage_credentials`, som gör att SQL Data Warehouse kan komma åt data från Blob Storage med hjälp av en åtkomst nyckel. Detta är den enda autentiseringsmetoden som stöds.
+   > I det här exemplet används flaggan `forward_spark_azure_storage_credentials` som gör att SQL Data Warehouse kan komma åt data från Blob Storage med hjälp av en åtkomst nyckel. Detta är den enda autentiseringsmetoden som stöds.
    >
    > Om din Azure-Blob Storage är begränsad till att välja virtuella nätverk behöver SQL Data Warehouse [hanterad tjänstidentitet i stället för åtkomst nycklar](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Detta kommer att orsaka felet "denna begäran har inte behörighet att utföra den här åtgärden."
 
 6. Anslut till SQL-databasen och kontrollera att du ser en databas med namnet **SampleTable**.
 
-   ![Verifiera exempeltabellen](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verifiera exempeltabellen")
+   ![Verifiera exempel tabellen](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verifiera exempel tabell")
 
 7. Verifiera tabellens innehåll genom att köra en urvalsfråga. Tabellen bör ha samma data som dataramen **renamedColumnsDF**.
 
-    ![Verifiera exempeltabellens innehåll](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Verifiera exempeltabellens innehåll")
+    ![Verifiera innehållet i exempel tabellen](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Verifiera innehållet i exempel tabellen")
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -1,5 +1,5 @@
 ---
-title: 'Konvertera till CSV: Modulreferens'
+title: 'Konvertera till CSV: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen konvertera till CSV i Azure Machine Learning-tjänsten för att konvertera en data uppsättning till ett CSV-format som kan laddas ned, exporteras eller delas med R-eller Python-skript moduler.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 2b8f235014efe440e518f1f9c4d0d454f6918955
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 37c1653b31049dc0142cf8c0c6f6d405338b1d1f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128902"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693198"
 ---
 # <a name="convert-to-csv-module"></a>Konvertera till CSV-modul
 
@@ -36,23 +36,23 @@ När du konverterar en data uppsättning till CSV sparas filen i din Azure ML-ar
 
 ## <a name="how-to-configure-convert-to-csv"></a>Så här konfigurerar du Convert to CSV
 
-1.  Lägg till modulen [konvertera till CSV](./convert-to-csv.md) i experimentet. Du hittar den här modulen i gruppen för **data format konvertering** i gränssnittet. 
+1.  Lägg till modulen [konvertera till CSV](./convert-to-csv.md) i din pipeline. Du hittar den här modulen i gruppen för **data format konvertering** i gränssnittet. 
 
 2. Anslut den till en modul som matar ut en data uppsättning.   
   
-3.  Kör experimentet.
+3.  Köra en pipeline.
 
 ### <a name="results"></a>Resultat
   
 
 Dubbelklicka på utdata från [konvertera till CSV](./convert-to-csv.md)och välj ett av dessa alternativ.  
 
- + **Resultat data uppsättning – > nedladdning**: Öppnar omedelbart en kopia av data i CSV-format som du kan spara till en lokal mapp. Om du inte anger någon mapp används ett standard fil namn och CSV-filen sparas i biblioteket för lokala hämtningar.
+ + **Resultat data uppsättning – > hämtning**: öppnar omedelbart en kopia av data i CSV-format som du kan spara i en lokal mapp. Om du inte anger någon mapp används ett standard fil namn och CSV-filen sparas i biblioteket för lokala **hämtningar** .
 
 
- + **Resultat data uppsättning – > Spara som data uppsättning**: Sparar CSV-filen till Azure ML-arbetsytan som en separat data uppsättning.
+ + **Resultat data uppsättning – > Spara som data uppsättning**: sparar CSV-filen till Azure ml-arbetsytan som en separat data uppsättning.
 
- + **Generera kod för data åtkomst**: Azure ML genererar två kod uppsättningar som du kan använda för att komma åt data, antingen med hjälp av python eller med R. För att få åtkomst till data kopierar du kodfragmentet till ditt program. (*Generera data åtkomst kod kommer snart.* )
+ + **Generera kod för data åtkomst**: Azure ml genererar två kod uppsättningar som du kan använda för att komma åt data, antingen med hjälp av python eller med R. För att få åtkomst till data kopierar du kodfragmentet till ditt program. (*Generera data åtkomst kod kommer snart.* )
 
 ## <a name="next-steps"></a>Nästa steg
 

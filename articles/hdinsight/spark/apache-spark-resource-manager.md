@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
 ms.openlocfilehash: ac0109ff8c5dd7f6013acefbe5ee08a13494cb77
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71001689"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark kluster i Azure HDInsight 
@@ -64,7 +64,7 @@ Du kan använda garn gränssnittet för att övervaka program som för närvaran
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Optimera kluster för Spark-program
 
-De tre nyckel parametrarna som kan användas för Spark-konfiguration `spark.executor.instances`, beroende på program krav, `spark.executor.cores`, och `spark.executor.memory`. En utförar är en process som startas för ett Spark-program. Den körs på Worker-noden och ansvarar för att utföra uppgifterna för programmet. Standard antalet körningar och utförar storlekarna för varje kluster beräknas baserat på antalet arbetsnoder och storleken på arbets noden. Den här informationen lagras i `spark-defaults.conf` kluster huvudnoderna.
+De tre nyckel parametrarna som kan användas för Spark-konfiguration, beroende på program krav, är `spark.executor.instances`, `spark.executor.cores` och `spark.executor.memory`. En utförar är en process som startas för ett Spark-program. Den körs på Worker-noden och ansvarar för att utföra uppgifterna för programmet. Standard antalet körningar och utförar storlekarna för varje kluster beräknas baserat på antalet arbetsnoder och storleken på arbets noden. Den här informationen lagras i `spark-defaults.conf` på klustrets huvud noder.
 
 De tre konfigurations parametrarna kan konfigureras på kluster nivå (för alla program som körs i klustret) eller också kan de anges för varje enskilt program.
 
@@ -81,7 +81,7 @@ De tre konfigurations parametrarna kan konfigureras på kluster nivå (för alla
     ![Starta om tjänster](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Ändra parametrarna för ett program som körs i Jupyter Notebook
-För program som körs i Jupyter Notebook kan du använda `%%configure` Magic för att göra konfigurationen ändringar. Vi rekommenderar att du gör sådana ändringar i början av programmet innan du kör den första kod cellen. Detta säkerställer att konfigurationen tillämpas på livy-sessionen när den skapas. Om du vill ändra konfigurationen i ett senare skede i programmet måste du använda `-f` -parametern. Men genom att göra detta går all status i programmet förlorade.
+För program som körs i Jupyter Notebook kan du använda `%%configure` Magic för att göra konfigurationen ändringar. Vi rekommenderar att du gör sådana ändringar i början av programmet innan du kör den första kod cellen. Detta säkerställer att konfigurationen tillämpas på livy-sessionen när den skapas. Om du vill ändra konfigurationen i ett senare skede i programmet måste du använda `-f`-parametern. Men genom att göra detta går all status i programmet förlorade.
 
 Följande fragment visar hur du ändrar konfigurationen för ett program som körs i Jupyter.
 
@@ -91,7 +91,7 @@ Följande fragment visar hur du ändrar konfigurationen för ett program som kö
 Konfigurations parametrar måste skickas in som en JSON-sträng och måste finnas på nästa rad efter Magic, som visas i kolumnen exempel.
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-spark-submit"></a>Ändra parametrarna för ett program som har skickats med Spark-Submit
-Följande kommando är ett exempel på hur du ändrar konfigurations parametrar för ett batch-program som skickas med `spark-submit`.
+Följande kommando är ett exempel på hur du ändrar konfigurations parametrar för ett batch-program som skickas med hjälp av `spark-submit`.
 
     spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
 
@@ -103,12 +103,12 @@ Följande kommando är ett exempel på hur du ändrar konfigurations parametrar 
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Ändra dessa parametrar på en spark Thrift-Server
 Spark Thrift-servern ger JDBC/ODBC-åtkomst till ett Spark-kluster och används för att betjäna Spark SQL-frågor. Verktyg som Power BI, Tableau osv. Använd ODBC-protokollet för att kommunicera med Spark Thrift-servern för att köra Spark SQL-frågor som ett Spark-program. När ett Spark-kluster skapas startas två instanser av Spark Thrift-servern, en på varje Head-nod. Varje Spark Thrift-Server visas som ett Spark-program i garn gränssnittet.
 
-Spark Thrift-servern använder Spark Dynamic utförar-allokering och `spark.executor.instances` därför används den inte. I stället använder `spark.dynamicAllocation.minExecutors` Spark Thrift-servern `spark.dynamicAllocation.maxExecutors` och för att ange antalet utförar. Konfigurations parametrarna `spark.executor.cores` och `spark.executor.memory` används för att ändra storleken på utförar. Du kan ändra dessa parametrar så som visas i följande steg:
+Spark Thrift-servern använder Spark Dynamic utförar-allokering och därför används inte `spark.executor.instances`. I stället använder Spark Thrift-servern `spark.dynamicAllocation.minExecutors` och `spark.dynamicAllocation.maxExecutors` för att ange antalet utförar. Konfigurations parametrarna `spark.executor.cores` och `spark.executor.memory` används för att ändra storleken på utförar. Du kan ändra dessa parametrar så som visas i följande steg:
 
-* Expandera kategorin **Avancerad Spark-Thrift-sparkconf** för att uppdatera parametrarna `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors`och `spark.executor.memory`.
+* Expandera kategorin **Avancerad Spark-Thrift-sparkconf** för att uppdatera parametrarna `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors` och `spark.executor.memory`.
 
     ![Konfigurera Spark Thrift-Server](./media/apache-spark-resource-manager/spark-thrift-server-1.png "Konfigurera Spark Thrift-Server")
-* Uppdatera parametern `spark.executor.cores`genom att expandera kategorin **Custom Spark-Thrift-sparkconf** .
+* Expandera kategorin **Custom Spark-Thrift-sparkconf** för att uppdatera parametern `spark.executor.cores`.
 
     ![Konfigurera Spark Thrift Server parameter](./media/apache-spark-resource-manager/spark-thrift-server-2.png "Konfigurera Spark Thrift Server parameter")
 
@@ -128,7 +128,7 @@ På grund av Spark Dynamic Allocation är de enda resurserna som används av Thr
     ![Starta om Thrift server1](./media/apache-spark-resource-manager/restart-thrift-server-1.png "Starta om Thrift server1")
 3. Du bör se de två huvudnoderna som Spark Thrift-servern körs på. Klicka på en av huvudnoderna.
 
-    ![Starta om Thrift Server2](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Starta om Thrift Server2")
+    ![Starta om Thrift server2](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Starta om Thrift server2")
 4. Nästa sida visar en lista över alla tjänster som körs på den huvudnoden. I listan klickar du på den nedrullningsbara knappen bredvid Spark Thrift Server och klickar sedan på **stoppa**.
 
     ![Starta om Thrift Server3](./media/apache-spark-resource-manager/restart-thrift-server-3.png "Starta om Thrift Server3")
@@ -158,8 +158,8 @@ Starta det garn användar gränssnitt som visas i början av artikeln. I tabelle
 
 ### <a name="for-data-analysts"></a>För data analyser
 
-* [Apache Spark med Machine Learning: Använda spark i HDInsight för analys av bygg temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplats logg analys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Program insiktering telemetri data analys med Apache Spark i HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Använda Caffe på Azure HDInsight Spark för distribuerad djup inlärning](apache-spark-deep-learning-caffe.md)

@@ -1,6 +1,6 @@
 ---
-title: Licensiering Microsoft® jämn direktuppspelning Klientportningskit
-description: Mer information om hur till licensiering Microsoft® Smooth Streaming-klienten porta Kit.
+title: Licens för Microsoft® Smooth Streaming client porting kit
+description: Läs om hur du licensierar Microsoft® Smooth Streaming client porting kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -12,150 +12,152 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 505def9cde7cddf2ddcc23408fa3159de886167a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e7742e7035f3c4f4827a2edae1ad5a705aa221f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472723"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693414"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licensiering Microsoft® jämn direktuppspelning Klientportningskit 
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licens för Microsoft® Smooth Streaming client porting kit 
 ## <a name="overview"></a>Översikt
-Microsoft Smooth Streaming-klienten porta Kit (**SSPK** för kort) är en Smooth Streaming-klientimplementeringen som är optimerad för att hjälpa embedded enhetstillverkare, kabel och mobila operatörer, innehåll tjänstleverantörer, luren tillverkare, oberoende programvaruleverantörer (ISV), och lösningsleverantörer skapa produkter och tjänster för direktuppspelning med anpassningsbar innehåll i Smooth Streaming-format. SSPK är en enhet och plattformsoberoende implementering av Smooth Streaming-klient som kan överföras av licenstagaren till alla enheter och plattformar. 
+Microsoft Smooth Streaming client porting Kit (**SSPK** för kort) är en Smooth Streaming klient implementering som är optimerad för att hjälpa till med inbäddade enhets tillverkare, kablar och mobila operatörer, leverantörer av leverantörs tjänster, leverantörer av mobila enheter, oberoende program varu leverantörer (ISV) och lösnings leverantörer för att skapa produkter och tjänster för att strömma anpassat innehåll i Smooth Streaming-format. SSPK är en enhets-och plattforms oberoende implementering av Smooth Streaming-klienten som kan Portas av licensen till alla enheter och plattformar. 
 
-Finns med nedan är den övergripande arkitekturen och IIS Smooth Streaming porta Kit är Smooth Streaming-klient-implementering som tillhandahålls av Microsoft och innehåller alla kärnlogik för uppspelning av Smooth Streaming-innehåll. Det här innehållet är sedan överförde av partner för en viss enhet eller plattform genom att implementera lämpliga gränssnitt. 
+Nedan följer en övergripande arkitektur och en IIS Smooth Streaming porting Kit-Box är den Smooth Streaming klient implementering som tillhandahålls av Microsoft och innehåller all huvud logik för uppspelning av Smooth Streaming innehåll. Innehållet hamnar sedan av partner för en speciell enhet eller plattform genom att implementera lämpliga gränssnitt. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
 ## <a name="description"></a>Beskrivning
-SSPK licensieras på villkor som erbjuder utmärkt affärsvärde. SSPK licens får branschen:
+SSPK är licensierad för villkor som erbjuder utmärkt affärs värde. SSPK-licensen ger branschen:
 
-* Smooth Streaming porta Kit källa i C++ 
-  * implementerar Smooth Streaming klientfunktioner
-  * lägger till formatet parsning heuristik, buffring logik och så vidare.
-* Spelarappen API: er 
-  * programmeringsgränssnitt för interaktion med ett mediespelarprogram
-* Plattformen Abstraction Layer (PAL)-gränssnitt 
-  * programmeringsgränssnitt för interaktion med operativsystemet (trådar, sockets)
-* Maskinvarugränssnitt Abstraction Layer (HAL) 
-  * programmeringsgränssnitt för interaktion med maskinvara A / V-avkodare (avkodning, rendering)
-* Digital Rights Management (DRM)-gränssnitt 
-  * programmeringsgränssnitt för hantering av DRM via DRM Abstraction Layer (DAL)
-  * Microsoft PlayReady porta Kit levereras separat men integrerar via det här gränssnittet. Mer information om licensiering för Microsoft PlayReady Device klickar du på [här](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
-* Implementering-exempel 
-  * exempel på PAL implementering för Linux
-  * exempel på HAL implementering för GStreamer
+* Smooth Streaming porting kit-källa iC++ 
+  * implementerar Smooth Streaming klient funktioner
+  * lägger till format parsning, heuristik, buffring av logik osv.
+* API: er för Player-program 
+  * programmerings gränssnitt för interaktion med ett Media Player-program
+* Plattforms abstraktions lager (PAL)-gränssnitt 
+  * programmerings gränssnitt för interaktion med operativ systemet (trådar, Sockets)
+* HAL-gränssnitt (Hardware Abstraction Layer) 
+  * programmerings gränssnitt för interaktion med maskin vara A/V-avkodare (avkodning, åter givning)
+* DRM-gränssnitt (Digital Rights Management) 
+  * programmerings gränssnitt för hantering av DRM via DRM abstraktion Layer (DAL)
+  * Microsoft PlayReady porting kit levereras separat men integreras via det här gränssnittet. Klicka [här](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)om du vill ha mer information om Microsoft PlayReady Device License.
+* Implementerings exempel 
+  * exempel på PAL-implementering för Linux
+  * exempel-HAL-implementering för GStreamer
 
 ## <a name="licensing-options"></a>Licensieringsalternativ
-Microsoft Smooth Streaming-klienten porta Kit görs tillgänglig för licenstagare under två distinkta licensavtal: en för att utveckla Smooth Streaming-tiden klientprodukter och en annan för att distribuera Smooth Streaming-klienten slutprodukterna för slutanvändare.
+Microsoft Smooth Streaming client porting kit görs tillgängligt för licenser under två olika licens avtal: en för att utveckla Smooth Streaming klientens interimistiska produkter och en annan för att distribuera Smooth Streaming slut produkter till slutanvändare.
 
-* För kretsuppsättning tillverkare, systemintegrerare eller oberoende leverantörer (ISV) som kräver en källa code porteringsguiden kit för att utveckla tiden produkter, Microsoft Smooth Streaming-klienten porta Kit **tiden produktlicens** ska köras.
-* För enhetstillverkare eller ISV: er som behöver distributionsrättigheter för Smooth Streaming-klienten slutprodukter till slutanvändare, Microsoft Smooth Streaming-klienten porta Kit **sista produktlicens** ska köras.
+* För krets uppsättnings tillverkare, system integrerare eller oberoende program varu leverantörer (ISV) som kräver en kod för käll kods transport för att utveckla tillfälliga produkter, ska en **tillfällig produkt licens** för Microsoft Smooth Streaming client porting kit köras.
+* För enhets tillverkare eller ISV: er som kräver distributions rättigheter för Smooth Streaming slut produkter till slutanvändare av Microsoft Smooth Streaming client porting kit **slutlig produkt licens** ska köras.
 
-### <a name="microsoft-smooth-streaming-client-porting-kit-interim-product-license"></a>Microsoft Smooth Streaming-klient porta Kit tiden produktlicens
-Under denna licens, erbjuder Microsoft en Smooth Streaming-klienten porta Kit och nödvändiga immateriella rättigheter att utveckla och distribuera Smooth Streaming-tiden klientprodukter till andra Smooth Streaming-klienten porta Kit enheten licenstagare som distribuera Smooth Streaming-klienten slutprodukter.
+### <a name="microsoft-smooth-streaming-client-porting-kit-interim-product-license"></a>Interimistisk produkt licens för Microsoft Smooth Streaming client porting kit
+Under den här licensen erbjuder Microsoft en Smooth Streaming klient ports paket och nödvändiga immateriella rättigheter för att utveckla och distribuera Smooth Streaming klient över gångs produkter till andra Smooth Streaming klient ports paket för enhets licenser som distribuera slut produkter för Smooth Streaming-klienten.
 
-#### <a name="fee-structure"></a>Avgift struktur
-En enstaka licensavgiften för USA $ 50 000 ger åtkomst till den Smooth Streaming-klienten porta Kit. 
+#### <a name="fee-structure"></a>Avgifts struktur
+En licens avgift i USA $50 000 ger till gång till Smooth Streaming klient ports paket. 
 
-### <a name="microsoft-smooth-streaming-client-porting-kit-final-product-license"></a>Microsoft Smooth Streaming-klient porta Kit sista produktlicens
-Under denna licens erbjuder Microsoft alla nödvändiga immateriella rättigheter att ta emot Smooth Streaming-tiden klientprodukter från andra Smooth Streaming-klienten porta Kit licenstagare samt för att distribuera företagsanpassad Smooth Streaming-klienten sista Produkter för slutanvändare.
+### <a name="microsoft-smooth-streaming-client-porting-kit-final-product-license"></a>Slutlig produkt licens för Microsoft Smooth Streaming client porting kit
+Under den här licensen erbjuder Microsoft alla nödvändiga immateriella rättigheter för att ta emot Smooth Streaming klientens interimistiska produkter från andra Smooth Streaming klient ports kit-licenser och för att distribuera företagets slut för ande Smooth Streaming klient Produkter till slutanvändare.
 
-#### <a name="fee-structure"></a>Avgift struktur
-Smooth Streaming-klienten slutgiltiga produkten finns under en royalty-modell som under:
+#### <a name="fee-structure"></a>Avgifts struktur
+Slut produkten för den Smooth Streaming klienten erbjuds enligt en royalty modell enligt följande:
 
-* $0.10 per enhetsimplementering levereras
-* Royalty är högst 50 000 per år
-* Ingen royalty för första 10 000 enheter implementeringar varje år 
+* $0,10 per enhet-implementering har levererats
+* Royaltyn är ett tak på $50 000 varje år
+* Ingen royalty för de första 10 000 enhets implementeringarna varje år 
 
-## <a name="licensing-procedure-and-sspk-access"></a>Licensiering proceduren och SSPK åtkomst
-E-post [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) licensiering för alla frågor.
+## <a name="licensing-procedure-and-sspk-access"></a>Licens procedur och SSPK-åtkomst
+E- [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) för alla licensierings frågor.
 
-Den [SSPK Distribution portal](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) är tillgänglig för registrerade tiden licenstagare.
+[SSPK-distributions portalen](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) är tillgänglig för registrerade interimistiska licenser.
 
-Tiden och slutlig SSPK licenstagare kan skicka in tekniska frågor till [ smoothpk@microsoft.com ](mailto:smoothpk@microsoft.com).
+De tillfälliga och slutgiltiga SSPK-licenserna kan skicka tekniska frågor till [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 
-## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft Smooth Streaming-klient tillfälliga produkten avtal licenstagare
+## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licenser för interimistisk produkt avtal för Microsoft Smooth Streaming-klient
+
 * Adroit Business Solutions, Inc
-* Avancerade Digital sändning SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret verksamma ämnet
+* Avancerad digital sändning SA
+* Kablosuz Iletism Sanayive dis Ticaret.
 * Albis Technologies Ltd.
 * Alticast Corporation
 * Amazon Digital Services, Inc.
 * Arion Technology, Inc.
-* AVC Multimedia Software Co., Ltd.
+* AVC multimedie program co., Ltd.
 * Cavium, Inc.
-* EchoStar köpa Corporation
+* EchoStar inköps företag
 * Enseo, Inc.
-* Fluendo S.A.
-* HANDAN BroadInfoCom Co., Ltd.
+* Fluendo-och Sydamerika
+* HANDAN BroadInfoCom co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
-* iWEDIA S.A. 
-* Liberty Global Services BV
+* iWEDIA-och Sydamerika 
+* Frihets globala tjänster BV
 * MediaTek Inc.
 * MStar Co, Ltd
-* Nintendo Co., Ltd.
+* Nintendo co., Ltd.
 * OpenTV, Inc.
-* T.ex Digital begränsad
+* Saffron Digital Limited
 * Sichuan Changhong Electric Co., Ltd
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
 * TCL Technology Electronics (Huizhou) Co., Ltd.
-* Översta Victory investeringar, Ltd.
-* Vestel Elektronik Sanayi ve Ticaret A.S.
+* De främsta Victory-investeringarna, Ltd.
+* Vestel elektronik Sanayi ve Ticaret.
 * VisualOn, Inc.
 * ZTE Corporation
 
-## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Microsoft Smooth Streaming-klient slutliga produkt avtal licenstagare
-* Avancerade Digital sändning SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret verksamma ämnet
+## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Licens för slutgiltiga produkt avtal för Microsoft Smooth Streaming-klienten
+* Avancerad digital sändning SA
+* Kablosuz Iletism Sanayive dis Ticaret.
 * Albis Technologies Ltd.
 * Amazon Digital Services, Inc.
 * AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
 * Arion Technology, Inc.
-* ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
-* Brittiska Sky Broadcasting begränsad
+* ATMACA ELEKTRONIK SAN. VE-LUFFARSCHACK. A. Ş
+* Brittisk himmelsblå-sändning Limited
 * CastPal Technology Inc., Shenzhen
-* Compal Electronics, Inc.
+* Comp elektronik, Inc.
 * Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar köpa Corporation
+* EchoStar inköps företag
 * Enseo, Inc.
-* FilmFlex Movies Limited
-* Fluendo S.A.
-* FUNAI ELECTRIC CO., LTD.
-* Gibson Innovations Limited
-* Haier Information Applicantion S.R.L
-* HANDAN BroadInfoCom Co., Ltd.
-* Hisense International Co., Ltd. 
-* Homecast Co., Ltd
-* Hon Hai Precision Industry Co., Ltd.
+* FilmFlex filmer begränsade
+* Fluendo-och Sydamerika
+* FUNAI ELECTRIC CO., LTD
+* Gibson innovationer Limited
+* Haier information: sökande S. R. L
+* HANDAN BroadInfoCom co., Ltd.
+* Hisense International co., Ltd. 
+* Homecast co., Ltd
+* Hon Hai precision Industry Co., Ltd.
 * Infomir GMBH
-* Kaonmedia Co., Ltd.
+* Kaonmedia co., Ltd.
 * KDDI Corporation
-* Nintendo Co., Ltd.
+* Nintendo co., Ltd.
 * Orange SA
-* T.ex Digital begränsad
-* Sagemcom Broadband SAS
-* Shenzhen Coship Electronics CO., LTD
+* Saffron Digital Limited
+* Sagemcom bred band SAS
+* Shenzhen Chuangwei – RGB Electronics Co., Ltd.
+* Shenzhene Electronic Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
-* Skardin Industrial Corp.
-* Sky Deutschland Fernsehen GmbH & Co. KG
-* SmarDTV S.A.
+* SKARDIN-industriella Corp.
+* Himmelsblå Deutschland Fernsehen GmbH & Co. KG
+* SmarDTV-och Sydamerika
 * SoftAtHome
 * Sony Corporation
-* Begränsad TCL utländskt nummer marknadsföring (Offshore kommersiell Macao SAR)
-* Technicolor Delivery Technologies, SAS
-* Tongfang Global Ltd.
-* Översta Victory investeringar, Ltd.
-* Toshiba livsstil produkter och tjänster Corporation
-* Universal Media Corporation /Slovakia/ s.r.o.
+* TCL utrikes marknadsföring (Macao kommersiell offshore) begränsad
+* Technicolor-leverans tekniker, SAS
+* Tongfang global Ltd.
+* De främsta Victory-investeringarna, Ltd.
+* Toshiba livsstils produkter & Services Corporation
+* Universal Media Corporation/Slovakia/-s.r.o.
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation

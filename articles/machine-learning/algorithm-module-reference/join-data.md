@@ -1,5 +1,5 @@
 ---
-title: 'Koppla data: Modulreferens'
+title: 'Koppla data: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen Anslut till data i Azure Machine Learning-tjänsten för att sammanfoga data uppsättningar.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 5fdb822a445e8a62cd36e6dd05aa218b9b41ce9e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128742"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693093"
 ---
 # <a name="join-data"></a>Koppla data
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du använder modulen **koppla data** i det visue
 
 Om du vill utföra en koppling på två data uppsättningar ska de relateras av en nyckel kolumn. Sammansatta nycklar med flera kolumner stöds också. 
 
-1. Lägg till de data uppsättningar som du vill kombinera och dra sedan modulen **koppla data** till experimentet. 
+1. Lägg till de data uppsättningar som du vill kombinera och dra sedan modulen **koppla data** till din pipeline. 
 
     Du hittar modulen i kategorin **data omvandling** under **manipulation**.
 
@@ -47,24 +47,24 @@ Om du vill utföra en koppling på två data uppsättningar ska de relateras av 
    
 1. Använd List rutan **kopplings typ** för att ange hur data uppsättningarna ska kombineras.  
   
-    * **Inre koppling**: En *inre koppling* är den vanligaste kopplings åtgärden. Den returnerar de kombinerade raderna endast när värdena för nyckel kolumnerna matchar.  
+    * **Inre koppling**: en *inre koppling* är den vanligaste kopplings åtgärden. Den returnerar de kombinerade raderna endast när värdena för nyckel kolumnerna matchar.  
   
-    * **Vänster yttre koppling**: En *vänster yttre koppling* returnerar kopplade rader för alla rader från den vänstra tabellen. När en rad i den vänstra tabellen inte har några matchande rader i den högra tabellen, innehåller den returnerade raden värden som saknas för alla kolumner som kommer från den högra tabellen. Du kan också ange ett ersättnings värde för saknade värden.  
+    * **Vänster yttre koppling**: en *vänster yttre koppling* returnerar kopplade rader för alla rader från den vänstra tabellen. När en rad i den vänstra tabellen inte har några matchande rader i den högra tabellen, innehåller den returnerade raden värden som saknas för alla kolumner som kommer från den högra tabellen. Du kan också ange ett ersättnings värde för saknade värden.  
   
-    * **Fullständig yttre koppling**: En *fullständig yttre koppling* returnerar alla rader från den vänstra tabellen (**TABLE1**) och från den högra tabellen (**tabell2**).  
+    * **Fullständig yttre koppling**: en *fullständig yttre koppling* returnerar alla rader från den vänstra tabellen (**TABLE1**) och från den högra tabellen (**tabell2**).  
   
          För varje rad i en tabell som inte har några matchande rader i den andra, innehåller resultatet en rad som innehåller värden som saknas.  
   
-    * **Vänster halv koppling**: En *vänster halv koppling* returnerar bara värdena från den vänstra tabellen när värdena för nyckel kolumnerna matchar.  
+    * **Vänster halv koppling**: en *vänster halv koppling* returnerar bara värdena från den vänstra tabellen när värdena för nyckel kolumnerna matchar.  
 
 1. För alternativet **Behåll rätt nyckel kolumner i en sammanfogad tabell**:
 
     * Välj det här alternativet om du vill visa nycklarna från båda ingångs tabellerna.
     * Avmarkera för att endast returnera nyckel kolumnerna från den vänstra indatatypen.
 
-1. Kör experimentet eller Välj modulen koppla data och vald **körning vald** för att utföra kopplingen.
+1. Kör pipelinen eller Välj modulen koppla data och vald **körning vald** för att utföra kopplingen.
 
-1. Om du vill visa resultaten högerklickar du på **data** > **uppsättnings** > visualiseringen kopplings resultat.
+1. Om du vill visa resultaten högerklickar du på data uppsättningen för att **ansluta Data**  > **resultat**  > **visualisera**.
 
 ## <a name="next-steps"></a>Nästa steg
 

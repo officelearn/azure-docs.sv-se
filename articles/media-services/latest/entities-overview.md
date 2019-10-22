@@ -1,5 +1,5 @@
 ---
-title: Filtrering, beställning, sid indelning för Media Services entiteter – Azure | Microsoft Docs
+title: Filtrering, sortering och växling av Media Services entiteter – Azure | Microsoft Docs
 description: Den här artikeln beskriver filtrering, sortering och växling av Azure Media Services entiteter.
 services: media-services
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ed509ac8fea43a9c011bbbf76c1dc433cd78d43c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298950"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693316"
 ---
-# <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrering, sortering, sid indelning för Media Services entiteter
+# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, sortering och sid indelning av Media Services entiteter
 
-I det här avsnittet beskrivs OData-frågealternativen och sid brytnings stöd som är tillgängligt i listan över Azure Media Services v3-entiteter.
+I det här avsnittet beskrivs OData-frågealternativen och sid brytnings stöd som är tillgängligt när du visar Azure Media Services v3-entiteter.
 
 ## <a name="considerations"></a>Överväganden
 
-* Egenskaper för entiteter som är av typen datetime är alltid i UTC-format.
-* Blank steg i frågesträngen ska vara URL-kodat innan en begäran skickas.
+* Egenskaper för entiteter som är av `Datetime` typen är alltid i UTC-format.
+* Blank steg i frågesträngen ska vara URL-kodat innan du skickar en begäran.
 
 ## <a name="comparison-operators"></a>Jämförelseoperatorer
 
@@ -34,21 +34,21 @@ Du kan använda följande operatorer för att jämföra ett fält med ett konsta
 
 Likhets operatorer:
 
-- `eq`: testa om ett fält är **lika** med ett konstant värde
-- `ne`: testa om ett fält **inte är lika** med ett konstant värde
+- `eq`: testa om ett fält är *lika* med ett konstant värde.
+- `ne`: testa om ett fält *inte är lika* med ett konstant värde.
 
 Intervall operatorer:
 
-- `gt`: testa om ett fält är **större än** ett konstant värde
-- `lt`: testa om ett fält är **mindre än** ett konstant värde
-- `ge`: testa om ett fält är **större än eller lika** med ett konstant värde
-- `le`: testa om ett fält är **mindre än eller lika** med ett konstant värde
+- `gt`: testa om ett fält är *större än* ett konstant värde.
+- `lt`: testa om ett fält är *mindre än* ett konstant värde.
+- `ge`: testa om ett fält är *större än eller lika* med en konstant. värde
+- `le`: testa om ett fält är *mindre än eller lika* med ett konstant värde.
 
 ## <a name="filter"></a>Filtrera
 
-Använd filtret **$filter** för att ange en OData-filterlista för att bara hitta de objekt som du är intresse rad av.
+Använd `$filter` för att ange en OData filter-parameter för att bara hitta de objekt som du är intresse rad av.
 
-Följande REST-exempel filter på alternateId för en till gång:
+Följande REST-exempel filtrerar på `alternateId` värde för en till gång:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
@@ -63,28 +63,28 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Sortera efter
 
-**$OrderBy** – Använd den för att sortera de returnerade objekten med den angivna parametern. Exempel:    
+Använd `$orderby` för att sortera de returnerade objekten med den angivna parametern. Exempel:    
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Om du vill sortera resultaten i stigande eller fallande ordning lägger du till antingen `asc` eller `desc` till fält namnet, avgränsat med ett blank steg. Till exempel `$orderby properties/created desc`.
+Om du vill sortera resultaten i stigande eller fallande ordning lägger du till antingen `asc` eller `desc` till fält namnet, avgränsat med ett blank steg. Till exempel: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Hoppa över token
 
-**$skiptoken** – om ett fråge svar innehåller många objekt returnerar tjänsten ett Skip token-värde (`@odata.nextLink`) som du använder för att hämta nästa resultat sida. Detta kan användas för att bläddra igenom hela resultat uppsättningen.
+Om ett fråge svar innehåller många objekt returnerar tjänsten ett `$skiptoken` (`@odata.nextLink`)-värde som du använder för att hämta nästa sida med resultat. Använd den för att bläddra igenom hela resultat uppsättningen.
 
-I Media Services v3 kan du inte konfigurera sid storleken. Sid storleken varierar beroende på typ av entitet, Läs de enskilda avsnitten som följer efter information.
+I Media Services v3 kan du inte konfigurera sid storleken. Sid storleken varierar beroende på typ av entitet. Läs de enskilda avsnitten som följer efter information.
 
 Om entiteter skapas eller tas bort när du växlar genom samlingen visas ändringarna i de returnerade resultaten (om dessa ändringar finns i den del av samlingen som inte har hämtats). 
 
 > [!TIP]
 > Du bör alltid använda `nextLink` för att räkna upp samlingen och inte är beroende av en viss sid storlek.
 >
-> @No__t-0 kommer bara att finnas om det finns mer än en sida med entiteter.
+> @No__t_0-värdet är bara tillgängligt om det finns mer än en sida med entiteter.
 
-Överväg följande exempel där $skiptoken används. Se till att ersätta *amstestaccount* med ditt konto namn och ange värdet för *API-version* till den senaste versionen.
+Överväg följande exempel där `$skiptoken` används. Se till att ersätta *amstestaccount* med ditt konto namn och ange värdet för *API-version* till den senaste versionen.
 
 Om du begär en lista över till gångar som detta:
 
@@ -136,7 +136,7 @@ while (currentPage.NextPageLink != null)
 
 ## <a name="using-logical-operators-to-combine-query-options"></a>Använda logiska operatorer för att kombinera frågealternativ
 
-Media Services v3 stöder logiska operatorer, eller och. 
+Media Services v3 stöder **eller** och **och** logiska operatorer. 
 
 Följande REST-exempel kontrollerar jobbets status:
 
@@ -153,7 +153,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 ## <a name="filtering-and-ordering-options-of-entities"></a>Filtrerings-och sorterings alternativ för entiteter
 
-I följande tabell visas hur filtrerings-och sorterings alternativen kan tillämpas på olika entiteter:
+Följande tabell visar hur du kan använda filtrerings-och sorterings alternativen för olika entiteter:
 
 |Entitetsnamn|Egenskapsnamn|Filtrera|Beställning|
 |---|---|---|---|

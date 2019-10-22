@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 967988d802a1b3d33ff50f578650e44794015583
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550859"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690831"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions nätverks alternativ
 
@@ -36,7 +36,7 @@ Du kan vara värd för funktions appar på ett par olika sätt:
 |[Inkommande IP-begränsningar & åtkomst till privata platser](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Integrering med virtuellt nätverk](#virtual-network-integration)|❌No|✅Yes (regional)|✅Yes (regional och gateway)|✅Yes|
 |[Virtuella nätverks utlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
-|[Hybridanslutningar](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[Hybridanslutningar](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
 |[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 
@@ -127,11 +127,11 @@ Kontrol lera [den här listan för alla icke-http-utlösare](./functions-trigger
 
 ## <a name="hybrid-connections"></a>Hybridanslutningar
 
-[Hybridanslutningar](../service-bus-relay/relay-hybrid-connections-protocol.md) är en funktion i Azure Relay som du kan använda för att få åtkomst till program resurser i andra nätverk. Den ger åtkomst från din app till en program slut punkt. Du kan inte använda den för att få åtkomst till ditt program. Hybridanslutningar är tillgängligt för funktioner som körs i en [App Service plan](functions-scale.md#app-service-plan) och en [App Service-miljön](../app-service/environment/intro.md).
+[Hybridanslutningar](../service-bus-relay/relay-hybrid-connections-protocol.md) är en funktion i Azure Relay som du kan använda för att få åtkomst till program resurser i andra nätverk. Den ger åtkomst från din app till en program slut punkt. Du kan inte använda den för att få åtkomst till ditt program. Hybridanslutningar är tillgängligt för funktioner som körs i alla utom förbruknings planen.
 
 Som används i Azure Functions motsvarar varje hybrid anslutning en enskild TCP-värd och port-kombination. Det innebär att hybrid anslutningens slut punkt kan finnas i alla operativ system och program, så länge som du har åtkomst till en TCP-lyssnings port. Hybridanslutningar funktionen känner inte igen eller bryr sig om vad applikations protokollet är eller vad du använder. Det ger bara nätverks åtkomst.
 
-Mer information finns i [App Service dokumentationen för hybridanslutningar](../app-service/app-service-hybrid-connections.md), som stöder funktioner i en app service plan.
+Mer information finns i [App Service dokumentationen för hybridanslutningar](../app-service/app-service-hybrid-connections.md), som stöder funktioner genom samma konfigurations steg.
 
 ## <a name="outbound-ip-restrictions"></a>Utgående IP-begränsningar
 

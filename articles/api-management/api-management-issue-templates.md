@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 93681062b325756f720f6fe8280ee6b874fea284
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072273"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Utfärda mallar i Azure API Management
@@ -35,7 +35,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ##  <a name="IssueList"></a>Ärende lista  
  Med hjälp av mallen **ärende lista** kan du anpassa bröd texten på sidan ärende lista i Developer-portalen.  
   
- ![Ärende lista] för Developer-portalen (./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM Issue List Developer Portal")  
+ ![Ärende lista för Developer-portalen](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM Issue List Developer Portal")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -90,18 +90,18 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ```
   
 ### <a name="controls"></a>Kontroller  
- Mallen kan använda följande [sid kontroller.](api-management-page-controls.md) `Issue list`  
+ @No__t_0 mal len kan använda följande [sid kontroller](api-management-page-controls.md).  
   
--   [paging-control](api-management-page-controls.md#paging-control)  
+-   [sid kontroll](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Type|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Issues`|Samling av [Issue](api-management-template-data-model-reference.md#Issue) -entiteter.|De problem som är synliga för den aktuella användaren.|  
 |`Paging`|[Växlings](api-management-template-data-model-reference.md#Paging) enhet.|Växlings informationen för program samlingen.|  
-|`IsAuthenticated`|boolean|Om den aktuella användaren är inloggad på Developer-portalen.|  
-|`CanReportIssues`|boolean|Om den aktuella användaren har behörighet att skicka in ett problem.|  
+|`IsAuthenticated`|boolesk|Om den aktuella användaren är inloggad på Developer-portalen.|  
+|`CanReportIssues`|boolesk|Om den aktuella användaren har behörighet att skicka in ett problem.|  
 |`Search`|sträng|Den här egenskapen är föråldrad och ska inte användas.|  
   
 ### <a name="sample-template-data"></a>Exempel mal lin data  

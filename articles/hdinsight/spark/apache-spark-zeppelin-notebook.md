@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71180744"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Apache Zeppelin-anteckningsböcker med Apache Spark kluster i Azure HDInsight
@@ -23,7 +23,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* URI-schemat för klustrets primära lagring. Detta gäller för Azure Blob Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. `wasb://` Om säker överföring har Aktiver ATS för Blob Storage är URI: `wasbs://`n.  Se även [Kräv säker överföring i Azure Storage](../../storage/common/storage-require-secure-transfer.md) för mer information.
+* URI-schemat för klustrets primära lagring. Detta är `wasb://` för Azure Blob Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Blob Storage blir URI: n `wasbs://`.  Se även [Kräv säker överföring i Azure Storage](../../storage/common/storage-require-secure-transfer.md) för mer information.
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Starta en Apache Zeppelin-anteckningsbok
 
@@ -34,7 +34,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
    >
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. Skapa en ny anteckningsbok. I fönstret sidhuvud navigerar du till **anteckningsbok** > **Skapa ny anteckning**.
+2. Skapa en ny anteckningsbok. I fönstret sidhuvud navigerar du till **Notebook**  > **Skapa ny anteckning**.
 
     ![Skapa en ny Zeppelin-anteckningsbok](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Skapa en ny Zeppelin-anteckningsbok")
 
@@ -44,7 +44,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
 
     ![Status för Zeppelin Notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Status för Zeppelin Notebook")
 
-4. Läs in exempeldata i en tillfällig tabell. När du skapar ett Spark-kluster i HDInsight kopieras exempel data filen `hvac.csv`till det associerade lagrings kontot under. `\HdiSamples\SensorSampleData\hvac`
+4. Läs in exempeldata i en tillfällig tabell. När du skapar ett Spark-kluster i HDInsight kopieras exempel data filen `hvac.csv` till det associerade lagrings kontot under `\HdiSamples\SensorSampleData\hvac`.
 
     I det tomma stycket som skapas som standard i den nya antecknings boken klistrar du in följande kodfragment.
 
@@ -105,8 +105,8 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
 
 8. Välj **stapeldiagrammet** för att ändra visningen.  Välj sedan **Inställningar** och gör följande ändringar:
 
-   * **Användargrupp**  Lägg till **targettemp**.  
-   * **Parametervärden** 1. Ta bort **datum**.  2. Lägg till **temp_diff**.  3.  Ändra Aggregator från **Sum** till **AVG**.  
+   * **Grupper:**  Lägg till **targettemp**.  
+   * **Värden:** 81.1. Ta bort **datum**.  2. Lägg till **temp_diff**.  3.  Ändra Aggregator från **Sum** till **AVG**.  
 
      På följande skärm bild visas utdata.
 
@@ -133,7 +133,7 @@ I den här artikeln får du se hur du använder [Spark-CSV-](https://search.mave
 
     ![Ändra tolknings settings1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Ändra tolknings settings1")
 
-3. Lägg till en ny nyckel `livy.spark.jars.packages`med namnet och ange dess värde i formatet `group:id:version`. Så om du vill använda [Spark-CSV-](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paketet måste du ange värdet för nyckeln till `com.databricks:spark-csv_2.10:1.4.0`.
+3. Lägg till en ny nyckel med namnet `livy.spark.jars.packages` och ange dess värde i formatet `group:id:version`. Så om du vill använda [Spark-CSV-](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paketet måste du ange värdet för nyckeln till `com.databricks:spark-csv_2.10:1.4.0`.
 
     ![Ändra tolknings settings2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Ändra tolknings settings2")
 
@@ -174,12 +174,12 @@ I sådana fall måste du utföra följande steg innan du kan börja köra jobb f
 3. Kör en Code-cell från en befintlig Zeppelin Notebook. Detta skapar en ny livy-session i HDInsight-klustret.
 
 ## <a name="seealso"></a>Se även
-* [: Apache Spark på Azure HDInsight](apache-spark-overview.md)
+* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: Utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: Använda spark i HDInsight för analys av bygg temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplats logg analys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

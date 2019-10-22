@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.openlocfilehash: 687fde2e203ed471e2f0164f1f4a670de4afc74e
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71677090"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal
@@ -21,11 +21,11 @@ ms.locfileid: "71677090"
 
 Azure Portal är ett webbaserat hanterings verktyg för tjänster och resurser som finns i Microsoft Azure molnet. I den här artikeln får du lära dig hur du skapar Linux-baserade Azure HDInsight-kluster med hjälp av portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **En Azure-prenumeration**. Se [hur du får en kostnads fri utvärderings version av Azure i HDInsight](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **en Azure-prenumeration**. Se [hur du får en kostnads fri utvärderings version av Azure i HDInsight](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **En modern webbläsare**. Azure Portal använder HTML5 och Java Script. Det kanske inte fungerar korrekt i äldre webbläsare.
 
 ## <a name="create-clusters"></a>Skapa kluster
@@ -34,9 +34,9 @@ Azure Portal visar de flesta av kluster egenskaperna. Med hjälp av Azure Resour
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. På den vänstra menyn navigerar du till **+ skapa en resurs** >  **analys** > **HDInsight**.
+1. På den vänstra menyn navigerar du till **+ skapa en resurs**  >  **Analytics**  > **HDInsight**.
 
     ![Skapa ett nytt kluster i Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "Skapa ett nytt kluster i Azure Portal")
 
@@ -73,7 +73,7 @@ Azure Portal visar de flesta av kluster egenskaperna. Med hjälp av Azure Resour
 
 1. Från **2 säkerhet och nätverk**kan du ansluta klustret till ett virtuellt nätverk med hjälp av den nedrullningsbara menyn. Välj ett virtuellt Azure-nätverk och under nätet om du vill placera klustret i ett virtuellt nätverk. Information om hur du använder HDInsight med ett virtuellt nätverk finns i [Planera en virtuell nätverks distribution för Azure HDInsight-kluster](hdinsight-plan-virtual-network-deployment.md). Artikeln innehåller särskilda konfigurations krav för det virtuella nätverket.
 
-    Följ dessa instruktioner om du vill använda **Enterprise Security Package**: [Konfigurera ett HDInsight-kluster med Enterprise Security Package med Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+    Följ dessa anvisningar om du vill använda **Enterprise Security Package**: [Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 
     Välj **Nästa** för att gå till nästa sida.
 
@@ -81,9 +81,9 @@ Azure Portal visar de flesta av kluster egenskaperna. Med hjälp av Azure Resour
 
      ![HDInsight skapa kluster lagring](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Skapa ett nytt kluster i Azure Portal")
 
-     | Storage                                      | Beskrivning |
+     | Lagring                                      | Beskrivning |
      |----------------------------------------------|-------------|
-     | **Azure Storage blobbar som standard lagring**   | <ul><li>För **primär lagrings typ**väljer du **Azure Storage**. För **urvals metod**väljer du **Mina prenumerationer** om du vill ange ett lagrings konto som tillhör din Azure-prenumeration. Välj sedan lagrings kontot. Annars väljer du **åtkomst nyckel**. Ange sedan informationen för det lagrings konto som du vill välja utifrån utanför Azure-prenumerationen.</li><li>För **standard behållare**väljer du standard behållar namnet som föreslås av portalen eller anger din egen.</li><li>Om Azure Blob Storage är standard lagringen kan du också välja **ytterligare lagrings konton** för att ange ytterligare lagrings konton som ska associeras med klustret. Välj **Lägg till en lagrings nyckel**för **Azure Storage nycklar**. Sedan kan du ange ett lagrings konto från dina Azure-prenumerationer eller från andra prenumerationer. Ange lagrings kontots åtkomst nyckel.</li><li>Om Blob Storage är standard lagringen kan du också välja **data Lake Storage åtkomst** för att ange Azure Data Lake Storage som ytterligare lagrings utrymme. Mer information finns i [ Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+     | **Azure Storage blobbar som standard lagring**   | <ul><li>För **primär lagrings typ**väljer du **Azure Storage**. För **urvals metod**väljer du **Mina prenumerationer** om du vill ange ett lagrings konto som tillhör din Azure-prenumeration. Välj sedan lagrings kontot. Annars väljer du **åtkomst nyckel**. Ange sedan informationen för det lagrings konto som du vill välja utifrån utanför Azure-prenumerationen.</li><li>För **standard behållare**väljer du standard behållar namnet som föreslås av portalen eller anger din egen.</li><li>Om Azure Blob Storage är standard lagringen kan du också välja **ytterligare lagrings konton** för att ange ytterligare lagrings konton som ska associeras med klustret. Välj **Lägg till en lagrings nyckel**för **Azure Storage nycklar**. Sedan kan du ange ett lagrings konto från dina Azure-prenumerationer eller från andra prenumerationer. Ange lagrings kontots åtkomst nyckel.</li><li>Om Blob Storage är standard lagringen kan du också välja **data Lake Storage åtkomst** för att ange Azure Data Lake Storage som ytterligare lagrings utrymme. Mer information finns i [snabb start: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
      | **Azure Data Lake Storage som standard lagring** | För **primär lagrings typ**väljer du **Azure Data Lake Storage gen1** eller **Azure Data Lake Storage Gen2**. Läs sedan artikeln [snabb start: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) för instruktioner. |
      | **Extern metastores**                      | Som ett alternativ anger du en SQL-databas för att spara Apache Hive och Apache Oozie-metadata som är associerade med klustret. Välj en SQL-databas för **Välj en SQL-databas för Hive**. Ange sedan användar namn och lösen ord för databasen. Upprepa de här stegen för Oozie metadata.<br><br>Några saker att tänka på när du använder Azure SQL Database för metastores är följande: <ul><li>Den Azure SQL-databas som används för metaarkiv måste tillåta anslutning till andra Azure-tjänster, inklusive Azure HDInsight. Välj Server namnet på höger sida av Azure SQL Database-instrumentpanelen. Den här servern är den som SQL Database-instansen körs på. När du är i vyn server väljer du **Konfigurera**. Välj sedan **Ja**för **Azure-tjänster**. Välj sedan **Spara**.</li><li>När du skapar en metaarkiv ska du inte namnge en databas med bindestreck eller bindestreck. Dessa tecken kan orsaka att klustrets skapande process kraschar.</li></ul> |
 
@@ -138,7 +138,7 @@ Azure Portal visar de flesta av kluster egenskaperna. Med hjälp av Azure Resour
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
 Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -167,5 +167,5 @@ Du har skapat ett HDInsight-kluster. Lär dig nu hur du arbetar med klustret.
 
 * [Skapa ett fristående program med hjälp av Scala](spark/apache-spark-create-standalone-application.md)
 * [Köra jobb via fjärr anslutning på ett Apache Spark kluster med Apache livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark med BI: Utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](spark/apache-spark-machine-learning-mllib-ipython.md)

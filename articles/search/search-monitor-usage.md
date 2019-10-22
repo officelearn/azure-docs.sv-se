@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331215"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resursförbrukning och fråga-aktivitet i Azure Search
@@ -30,8 +30,8 @@ Avsnitt om **användning** och **övervakning** som är inbyggda på översikts 
 
 På fliken **användning** visas resurs tillgänglighet i förhållande till aktuella [gränser](search-limits-quotas-capacity.md). Följande bild är avsedd för den kostnads fria tjänsten som är ett tak på 3 objekt av varje typ och 50 MB lagrings utrymme. En Basic-eller standard-tjänst har högre gränser, och om du ökar antalet partitioner, hamnar det maximala lagrings utrymmet proportionellt.
 
-![Användnings status relativt mot gällande gränser](./media/search-monitor-usage/usage-tab.png
- "användnings status i förhållande till effektiva gränser")
+![Användnings status i förhållande till effektiva gränser](./media/search-monitor-usage/usage-tab.png
+ "Användnings status i förhållande till effektiva gränser")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Frågor per sekund (frågor per sekund) och andra mått
 
@@ -40,7 +40,7 @@ Fliken **övervakning** visar glidande medelvärden för mått som Sök *frågor
 
 Dessa tal är ungefärliga och är avsedda att ge dig en allmän uppfattning om hur väl systemet hanterar begär Anden. Det faktiska frågor per sekund kan vara högre eller lägre än det antal som rapporteras i portalen.
 
-![Frågor per sekund]aktivitet(./media/search-monitor-usage/monitoring-tab.png "frågor per sekund aktivitet")
+![Frågor per sekund aktivitet](./media/search-monitor-usage/monitoring-tab.png "Frågor per sekund aktivitet")
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
@@ -78,13 +78,13 @@ I det här avsnittet får du lära dig hur du använder Blob Storage för att la
 
 2. Öppna översikts sidan för Sök tjänsten. Rulla ned till **övervakning** i det vänstra navigerings fönstret och klicka på **Aktivera övervakning**.
 
-   ![Aktivera]övervakning(./media/search-monitor-usage/enable-monitoring.png "Aktivera övervakning")
+   ![Aktivera övervakning](./media/search-monitor-usage/enable-monitoring.png "Aktivera övervakning")
 
 3. Välj de data som du vill exportera: loggar, mått eller båda. Du kan kopiera det till ett lagrings konto, skicka det till en Event Hub eller exportera det till Azure Monitor loggar.
 
    Endast lagrings kontot måste finnas för arkivering till blob-lagring. Behållare och blobbar skapas som nödvändiga när loggdata exporteras.
 
-   ![Konfigurera Arkiv för Blob Storage](./media/search-monitor-usage/configure-blob-storage-archive.png "Konfigurera Blob Storage-Arkiv")
+   ![Konfigurera Blob Storage-Arkiv](./media/search-monitor-usage/configure-blob-storage-archive.png "Konfigurera Blob Storage-Arkiv")
 
 4. Spara profilen.
 

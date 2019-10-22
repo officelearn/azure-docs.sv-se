@@ -9,12 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: a148f974671e0d909591cbf24a433384a7570842
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266315"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693296"
 ---
 # <a name="custom-web-api-skill"></a>Anpassad webb-API-kunskap
 
@@ -29,7 +29,7 @@ Strukturen för JSON-nyttolasterna beskrivs ytterligare ned i det här dokumente
 > * `429 Too Many Requests`
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Custom.WebApiSkill
+Microsoft. färdigheter. Custom. WebApiSkill
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
@@ -38,8 +38,8 @@ Parametrar är Skift läges känsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | URI | URI för webb-API: t som _JSON_ -nyttolasten ska skickas till. Endast **https** URI-schema tillåts |
-| httpMethod | Den metod som ska användas vid sändning av nytto lasten. Tillåtna metoder är `PUT` eller`POST` |
-| httpHeaders | En samling nyckel/värde-par där nycklarna representerar rubrik namn och värden representerar huvud värden som skickas till ditt webb-API tillsammans med nytto lasten. Följande rubriker `Accept`är förbjudna att tas med i samlingen: `Content-Type` `Accept-Encoding`, `Content-Length` `Accept-Charset` `Cookie` ,,`Host`,,,, `TE` `Upgrade``Via` |
+| httpMethod | Den metod som ska användas vid sändning av nytto lasten. Tillåtna metoder är `PUT` eller `POST` |
+| httpHeaders | En samling nyckel/värde-par där nycklarna representerar rubrik namn och värden representerar huvud värden som skickas till ditt webb-API tillsammans med nytto lasten. Följande rubriker är förbjudna att tas med i samlingen: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | Valfritt Anger tids gränsen för http-klienten som gör API-anropet. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Till exempel `PT60S` i 60 sekunder. Om inget värde anges väljs ett standardvärde på 30 sekunder. Tids gränsen kan anges till högst 230 sekunder och minst 1 sekund. |
 | batchSize | Valfritt Anger hur många "data poster" (se _JSON_ nytto Last strukturen nedan) som ska skickas per API-anrop. Om den inte anges väljs standardvärdet 1000. Vi rekommenderar att du använder den här parametern för att uppnå en lämplig kompromiss mellan indexering av data flödet och belastningen på ditt API |
 
@@ -88,10 +88,10 @@ Det finns inga fördefinierade utdata för den här kunskapen. Beroende på vilk
 Den här _JSON_ -strukturen representerar den nytto last som ska skickas till ditt webb-API.
 Den kommer alltid att följa dessa begränsningar:
 
-* Entiteten på den översta nivån anropas `values` och är en matris med objekt. Antalet sådana objekt är högst`batchSize`
-* Varje objekt i `values` matrisen kommer att ha
+* Entiteten på den översta nivån kallas `values` och är en matris med objekt. Antalet sådana objekt får högst `batchSize`
+* Varje objekt i `values` matrisen har
     * En `recordId` egenskap som är en **unik** sträng som används för att identifiera posten.
-    * En `data` egenskap som är ett _JSON_ -objekt. Fälten i `data` egenskapen motsvarar de "namn" som anges `inputs` i avsnittet i kunskaps definitionen. Värdet för dessa fält kommer från `source` dessa fält (som kan komma från ett fält i dokumentet eller som kan komma från en annan kunskap)
+    * En `data` egenskap som är ett _JSON_ -objekt. Fälten i `data`-egenskapen motsvarar "namn" som anges i avsnittet `inputs` i kunskaps definitionen. Värdet för dessa fält kommer från `source` av dessa fält (som kan komma från ett fält i dokumentet eller som kan komma från en annan kunskap)
 
 ```json
 {
@@ -138,16 +138,16 @@ Den kommer alltid att följa dessa begränsningar:
 
 ## <a name="sample-output-json-structure"></a>Exempel-JSON-struktur för utdata
 
-"Utdata" motsvarar det svar som returneras från ditt webb-API. Webb-API: et ska bara returnera en _JSON_ -nyttolast (verifierad `Content-Type` genom att titta på svars huvudet) och bör uppfylla följande begränsningar:
+"Utdata" motsvarar det svar som returneras från ditt webb-API. Webb-API: et ska bara returnera en _JSON_ -nyttolast (verifierad genom att titta på `Content-Type` svars huvudet) och bör uppfylla följande begränsningar:
 
-* Det bör finnas en entitet `values` på den översta nivån som ska vara en matris med objekt.
+* Det bör finnas en entitet på den översta nivån som kallas `values` som ska vara en objekt mat ris.
 * Antalet objekt i matrisen måste vara samma som antalet objekt som skickas till webb-API: et.
 * Varje objekt bör ha:
    * En `recordId` egenskap
-   * En `data` egenskap, som är ett objekt där fälten är anrikninger som matchar "namn" `output` i och vars värde betraktas som berikning.
-   * En `errors` egenskap, en matris som visar eventuella fel som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha `null` ett värde.
-   * En `warnings` egenskap, en matris som visar alla varningar som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha `null` ett värde.
-* Objekt i `values` matrisen behöver inte vara i samma ordning som de objekt `values` i matrisen som skickas som en begäran till webb-API: et. Men används för korrelation så att alla poster i svaret som innehåller en som inte `recordId` var en del av den ursprungliga begäran till webb-API: et ignoreras. `recordId`
+   * En `data` egenskap, som är ett objekt där fälten är anrikninger som matchar "namn" i `output` och vars värde betraktas som berikning.
+   * En `errors` egenskap, en matris som visar eventuella fel som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha ett `null` värde.
+   * En `warnings` egenskap, en matris som visar alla varningar som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha ett `null` värde.
+* Objekten i `values` matrisen behöver inte vara i samma ordning som objekten i `values` mat ris skickas som en begäran till webb-API: et. @No__t_0 används dock för korrelation så att alla poster i svaret som innehåller en `recordId` som inte var en del av den ursprungliga begäran till webb-API: et ignoreras.
 
 ```json
 {
@@ -195,13 +195,14 @@ Den kommer alltid att följa dessa begränsningar:
 ## <a name="error-cases"></a>Fel fall
 Förutom att ditt webb-API är otillgängligt, eller om du skickar ut status koder som inte lyckades, anses följande vara felaktiga fall:
 
-* Om webb-API: t returnerar en status kod för lyckad status men svaret visar att `application/json` svaret inte är det, anses inte svaret vara ogiltigt och inga berikningar utförs.
-* Om det finns **ogiltiga** (med `recordId` inte i den ursprungliga begäran eller med dubblettvärden) poster i svars `values` mat ris, utförs ingen berikning för **dessa** poster.
+* Om webb-API: t returnerar en status kod för lyckad status men svaret visar att det inte `application/json`, anses svaret vara ogiltigt och inga berikningar kommer att utföras.
+* Om det finns **ogiltiga** (med `recordId` inte i den ursprungliga begäran eller med dubblettvärden) poster i svars `values` matrisen utförs ingen berikning för **dessa** poster.
 
 När webb-API: t inte är tillgängligt eller returnerar ett HTTP-fel, läggs ett fel meddelande med tillgänglig information om HTTP-felet till i körnings historiken för Indexer.
 
 ## <a name="see-also"></a>Se också
 
++ [Energi kunskaper: ett lager med anpassade kunskaper](https://aka.ms/powerskills)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Lägg till anpassad färdighet i kognitiv sökning](cognitive-search-custom-skill-interface.md)
-+ [Exempel: Skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
++ [Exempel: skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)

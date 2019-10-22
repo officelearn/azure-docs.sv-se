@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
 ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69616422"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Ansluta till Cosmos DB med hjälp av Mongoose
@@ -34,7 +34,7 @@ I den här delen av självstudien får du göra följande:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Innan du börjar med den här självstudien bör du slutföra stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -234,7 +234,7 @@ Kör sedan appen med hjälp av följande steg:
 
 1. Spara alla ändringar i Visual Studio Code. Till vänster väljer du knappen **Felsökning** ![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) och väljer sedan knappen **Starta felsökning** ![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-1. Byt nu till webbläsaren. Öppna **Utvecklarverktyg** och fliken **Nätverk**. Gå till `http://localhost:3000`, där du ser vår app.
+1. Byt nu till webbläsaren. Öppna **utvecklarverktyg** och **fliken nätverk**. Gå till `http://localhost:3000` och se vårt program.
 
     ![Nytt Azure Cosmos DB-konto på Azure-portalen](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
@@ -253,4 +253,4 @@ Du kan ta bort resursgruppen, Azure Cosmos DB-kontot och alla relaterade resurse
 Fortsätt till del 6 av självstudien för att lägga till Post-, Put- och Delete-funktioner i appen:
 
 > [!div class="nextstepaction"]
-> [Del 6: Lägga till Post-, Put- och Delete-funktioner till appen](tutorial-develop-mongodb-nodejs-part6.md)
+> [Del 6: Lägg till post-, placerings-och borttagnings funktioner i appen](tutorial-develop-mongodb-nodejs-part6.md)

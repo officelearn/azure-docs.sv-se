@@ -1,23 +1,19 @@
 ---
 title: Korrelation för Azure Application Insights-telemetri | Microsoft Docs
 description: Korrelation för Application Insights telemetri
-services: application-insights
-documentationcenter: .net
-author: lgayhardt
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.author: lagayhar
-ms.openlocfilehash: fe52fe51b347b232e03bad943906413b90c853c0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: aa683e90a328e9525fa7d0a78981aa107818188a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338176"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678178"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -31,7 +27,7 @@ Application Insights definierar en [data modell](../../azure-monitor/app/data-mo
 
 En distribuerad logisk åtgärd består vanligt vis av en uppsättning mindre åtgärder, som är begär Anden som bearbetas av en av komponenterna. De här åtgärderna definieras av [telemetri för begäran](../../azure-monitor/app/data-model-request-telemetry.md). Varje begäran om telemetri har en egen `id` som identifierar den unikt och globalt. Och alla telemetri-objekt (till exempel spår och undantag) som är associerade med den här begäran ska ange `operation_parentId` till värdet för begäran `id`.
 
-Varje utgående åtgärd, till exempel ett HTTP-anrop till en annan komponent, representeras av [beroende telemetri](../../azure-monitor/app/data-model-dependency-telemetry.md). Beroende telemetri definierar också sin egen `id` som är globalt unik. Telemetri för begäran, som initieras av det här beroende anropet, använder den här `id` som dess `operation_parentId`.
+Varje utgående åtgärd, till exempel ett HTTP-anrop till en annan komponent, representeras av [beroende telemetri](../../azure-monitor/app/data-model-dependency-telemetry.md). Beroende telemetri definierar också sin egen `id` som är globalt unik. Telemetri för begäran, som initieras av det här beroende anropet, använder den här `id` som `operation_parentId`.
 
 Du kan bygga en vy av den distribuerade logiska åtgärden genom att använda `operation_Id`, `operation_parentId` och `request.id` med `dependency.id`. Dessa fält definierar också orsakssambandet för telemetri samtal.
 
@@ -39,7 +35,7 @@ I en miljö med mikrotjänster kan spår från komponenter gå till olika lagrin
 
 ## <a name="example"></a>Exempel
 
-Vi tar ett exempel på ett program som kallas aktie kurser, som visar det aktuella marknads priset för en aktie med hjälp av ett externt API som kallas `Stock`. Programmet aktie kurser har en sida med namnet `Stock page` som klient webbläsaren öppnar med `GET /Home/Stock`. Programmet frågar `Stock`-API: et genom att använda ett HTTP-anrop `GET /api/stock/value`.
+Vi tar ett exempel på ett program som kallas aktie kurser, som visar det aktuella marknads priset för en aktie med hjälp av ett externt API som kallas `Stock`. Programmet för aktie kurser har en sida med namnet `Stock page` att klientens webbläsare öppnas med `GET /Home/Stock`. Programmet frågar `Stock`-API med hjälp av ett HTTP-anrop `GET /api/stock/value`.
 
 Du kan analysera den resulterande Telemetrin genom att köra en fråga:
 
@@ -51,30 +47,30 @@ Du kan analysera den resulterande Telemetrin genom att köra en fråga:
 
 Observera i resultaten att alla telemetridata delar rot `operation_Id`. När ett AJAX-anrop görs från sidan, tilldelas ett nytt unikt ID (`qJSXU`) till beroende telemetri och ID: t för sid visningar används som `operation_ParentId`. Serverbegäran använder sedan Ajax-ID: t som `operation_ParentId`.
 
-| itemType   | name                      | id           | operation_ParentId | operation_Id |
+| ItemType   | namn                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
-| pageView   | Pappers sida                |              | STYz               | STYz         |
+| Sid visningar   | Pappers sida                |              | STYz               | STYz         |
 | beroende | Hämta/Home/Stock           | qJSXU        | STYz               | STYz         |
-| request    | Hämta hem/aktie            | KqKwlrSt9PA= | qJSXU              | STYz         |
-| beroende | Hämta/API/Stock/Value      | bBrf2L7mm2g = | KqKwlrSt9PA=       | STYz         |
+| Anmoda    | Hämta hem/aktie            | KqKwlrSt9PA = | qJSXU              | STYz         |
+| beroende | Hämta/API/Stock/Value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
 
-När anropet `GET /api/stock/value` görs till en extern tjänst vill du känna till identiteten för servern så att du kan ange fältet `dependency.target` på lämpligt sätt. När den externa tjänsten inte har stöd för övervakning, `target` anges värd namnet för tjänsten (till exempel `stock-prices-api.com`). Men om tjänsten identifierar sig själv genom att returnera ett fördefinierat HTTP-huvud, `target`, innehåller tjänst identiteten som gör att Application Insights kan bygga en distribuerad spårning genom att fråga telemetri från den tjänsten.
+När anrops `GET /api/stock/value` görs till en extern tjänst vill du känna till identiteten för servern så att du kan ställa in fältet `dependency.target` på lämpligt sätt. När den externa tjänsten inte har stöd för övervakning har `target` angetts som värd namnet för tjänsten (till exempel `stock-prices-api.com`). Men om tjänsten identifierar sig själv genom att returnera ett fördefinierat HTTP-huvud, `target` innehåller tjänst identiteten som gör att Application Insights kan bygga en distribuerad spårning genom att fråga telemetri från den tjänsten.
 
 ## <a name="correlation-headers"></a>Korrelations rubriker
 
 Vi går över till [W3C-spårnings kontext](https://w3c.github.io/trace-context/) som definierar:
 
-- `traceparent`: Utför det globalt unika åtgärds-ID: t och unik identifierare för anropet.
-- `tracestate`: Utför spårning av systemsäker kontext.
+- `traceparent`: utför det globalt unika åtgärds-ID: t och den unika identifieraren för anropet.
+- `tracestate`: utför spårning av systemsäker kontext.
 
 De senaste versionerna av Application Insights SDK: er har stöd för spårnings kontext protokoll, men du kan behöva välja det (det behåller bakåtkompatibilitet med det gamla korrelations protokoll som stöds av ApplicationInsights SDK: er).
 
 [Korrelations-ID: t för http-protokollet aka-ID](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) finns på föråldrad sökväg. Det här protokollet definierar två huvuden:
 
-- `Request-Id`: Har ett globalt unikt ID för anropet.
-- `Correlation-Context`: Innehåller namn-värde-par samlingen för egenskaper för distribuerad spårning.
+- `Request-Id`: bär ett globalt unikt ID för anropet.
+- `Correlation-Context`: innehåller namn-värdepar-samlingen för de distribuerade spårnings egenskaperna.
 
-Application Insights definierar också [tillägget](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) för korrelations-http-protokollet. Den använder `Request-Context` namn/värde-par för att sprida de egenskaper som används av den omedelbara anroparen eller anrops mottagaren. I Application Insights SDK används den här rubriken för att ange `dependency.target`-och `request.source`-fält.
+Application Insights definierar också [tillägget](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) för korrelations-http-protokollet. Den använder `Request-Context` namn/värde-par för att sprida den samling egenskaper som används av den omedelbara anroparen eller anrops mottagaren. I Application Insights SDK används den här rubriken för att ange `dependency.target` och `request.source` fält.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Aktivera stöd för distribuerad W3C-spårning för klassiska ASP.NET-appar
  
@@ -83,7 +79,7 @@ Application Insights definierar också [tillägget](https://github.com/lmolkova/
 
 W3C trace-context support görs på det bakåtkompatibla sättet och korrelationen förväntas fungera med program som instrumenteras med tidigare versioner av SDK (utan stöd för W3C). 
 
-Om du av någon anledning vill fortsätta att använda äldre `Request-Id`-protokoll kan du *inaktivera* spårnings kontext med följande konfiguration
+Om du av någon anledning vill fortsätta att använda äldre `Request-Id` protokoll kan du *inaktivera* spårnings kontext med följande konfiguration
 
 ```csharp
   Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
@@ -91,11 +87,11 @@ Om du av någon anledning vill fortsätta att använda äldre `Request-Id`-proto
 ```
 
 Om du kör en äldre version av SDK rekommenderar vi att du uppdaterar den eller tillämpar följande konfiguration för att aktivera spårnings kontext.
-Den här funktionen är tillgänglig i `Microsoft.ApplicationInsights.Web`-och `Microsoft.ApplicationInsights.DependencyCollector`-paket som börjar med version 2.8.0-beta1.
-Den är inaktive rad som standard. Om du vill aktivera det ändrar du `ApplicationInsights.config`:
+Den här funktionen är tillgänglig i `Microsoft.ApplicationInsights.Web` och `Microsoft.ApplicationInsights.DependencyCollector` paket som börjar med version 2.8.0-beta1.
+Den är inaktive rad som standard. Om du vill aktivera den ändrar du `ApplicationInsights.config`:
 
-- Under `RequestTrackingTelemetryModule` lägger du till elementet `EnableW3CHeadersExtraction` med värdet inställt på `true`.
-- Under `DependencyTrackingTelemetryModule` lägger du till elementet `EnableW3CHeadersInjection` med värdet inställt på `true`.
+- Under `RequestTrackingTelemetryModule` lägger du till `EnableW3CHeadersExtraction`-elementet med värdet inställt på `true`.
+- Under `DependencyTrackingTelemetryModule` lägger du till `EnableW3CHeadersInjection`-elementet med värdet inställt på `true`.
 - Lägg till `W3COperationCorrelationTelemetryInitializer` under `TelemetryInitializers` som liknar 
 
 ```xml
@@ -112,7 +108,7 @@ Den är inaktive rad som standard. Om du vill aktivera det ändrar du `Applicati
  
 W3C trace-context support görs på det bakåtkompatibla sättet och korrelationen förväntas fungera med program som instrumenteras med tidigare versioner av SDK (utan stöd för W3C). 
 
-Om du av någon anledning vill fortsätta att använda äldre `Request-Id`-protokoll kan du *inaktivera* spårnings kontext med följande konfiguration
+Om du av någon anledning vill fortsätta att använda äldre `Request-Id` protokoll kan du *inaktivera* spårnings kontext med följande konfiguration
 
 ```csharp
   Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
@@ -121,8 +117,8 @@ Om du av någon anledning vill fortsätta att använda äldre `Request-Id`-proto
 
 Om du kör en äldre version av SDK rekommenderar vi att du uppdaterar den eller tillämpar följande konfiguration för att aktivera spårnings kontext.
 
-Den här funktionen är i `Microsoft.ApplicationInsights.AspNetCore`-version 2.5.0-beta1 och i `Microsoft.ApplicationInsights.DependencyCollector`-version 2.8.0-beta1.
-Den är inaktive rad som standard. Om du vill aktivera det anger du `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` till `true`:
+Den här funktionen finns i `Microsoft.ApplicationInsights.AspNetCore` version 2.5.0-beta1 och i `Microsoft.ApplicationInsights.DependencyCollector` version 2.8.0-beta1.
+Den är inaktive rad som standard. Om du vill aktivera det anger `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` `true`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -172,7 +168,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Aktivera stöd för distribuerad W3C-spårning för webbappar
 
-Den här funktionen är i `Microsoft.ApplicationInsights.JavaScript`. Den är inaktive rad som standard. Använd `distributedTracingMode` config om du vill aktivera det. AI_AND_W3C tillhandahålls för bakåtkompatibilitet med alla äldre Application Insights instrumenterade tjänster:
+Den här funktionen finns i `Microsoft.ApplicationInsights.JavaScript`. Den är inaktive rad som standard. Använd `distributedTracingMode` config för att aktivera den. AI_AND_W3C tillhandahålls för bakåtkompatibilitet med alla äldre Application Insights instrumenterade tjänster:
 
 - **NPM-installation (ignorera om du använder installations programmet för kodfragment)**
 
@@ -213,7 +209,7 @@ Den här funktionen är i `Microsoft.ApplicationInsights.JavaScript`. Den är in
 | `Dependency`                          | `Span` med `span.kind = client`                  |
 | `Id` av `Request` och `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `Reference` av typen `ChildOf` (det överordnade intervallet)   |
+| `Operation_ParentId`                  | `Reference` av typen `ChildOf` (överordnat intervall)   |
 
 Mer information finns i [data modellen Application Insights telemetri](../../azure-monitor/app/data-model.md). 
 
@@ -234,21 +230,21 @@ Dessa metoder har dock inte aktiverat stöd för automatisk Distributed spårnin
 
 ASP.NET Core 2,0 stöder extrahering av HTTP-huvuden och start av en ny aktivitet.
 
-`System.Net.Http.HttpClient`, från och med version 4.1.0, stöder automatisk inmatning av korrelations-HTTP-huvudena och spårning av HTTP-anropet som en aktivitet.
+`System.Net.Http.HttpClient`, från och med version 4.1.0, stöder automatisk inmatning av korrelations-HTTP-huvudena och spåra HTTP-anropet som en aktivitet.
 
-Det finns en ny HTTP-modul, [Microsoft. ASPNET. TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), för klassisk ASP.net. Den här modulen implementerar telemetri-korrelation genom att använda `DiagnosticSource`. Den startar en aktivitet baserat på inkommande begärandehuvuden. Den korrelerar också telemetri från olika stadier av bearbetning av begär Anden, även för fall när varje steg i bearbetningen av Internet Information Services (IIS) körs i en annan hanterad tråd.
+Det finns en ny HTTP-modul, [Microsoft. ASPNET. TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), för klassisk ASP.net. Den här modulen implementerar telemetri-korrelationen med hjälp av `DiagnosticSource`. Den startar en aktivitet baserat på inkommande begärandehuvuden. Den korrelerar också telemetri från olika stadier av bearbetning av begär Anden, även för fall när varje steg i bearbetningen av Internet Information Services (IIS) körs i en annan hanterad tråd.
 
-Application Insights SDK, från och med version 2.4.0-beta1, använder `DiagnosticSource` och `Activity` för att samla in telemetri och associera det med den aktuella aktiviteten.
+Application Insights SDK, från och med version 2.4.0-beta1, använder `DiagnosticSource` och `Activity` för att samla in telemetri och associera den med den aktuella aktiviteten.
 
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-the-java-sdk"></a>Telemetri korrelation i Java SDK
 
-[Application Insights SDK för Java](../../azure-monitor/app/java-get-started.md) stöder automatisk korrelation av telemetri som börjar med version 2.0.0. Den fyller automatiskt `operation_id` för all telemetri (t. ex. spår, undantag och anpassade händelser) som utfärdats inom omfånget för en begäran. Det tar också hand om att sprida korrelations rubrikerna (beskrivs ovan) för tjänst-till-tjänst-anrop via HTTP, om [Java SDK-agenten](../../azure-monitor/app/java-agent.md) har kon figurer ATS.
+[Application Insights SDK för Java](../../azure-monitor/app/java-get-started.md) stöder automatisk korrelation av telemetri som börjar med version 2.0.0. Den fyller automatiskt i `operation_id` för all telemetri (till exempel spår, undantag och anpassade händelser) som utfärdats inom ramen för en begäran. Det tar också hand om att sprida korrelations rubrikerna (beskrivs ovan) för tjänst-till-tjänst-anrop via HTTP, om [Java SDK-agenten](../../azure-monitor/app/java-agent.md) har kon figurer ATS.
 
 > [!NOTE]
 > Endast anrop som görs via Apache HTTPClient stöds för korrelations funktionen. Om du använder våren RestTemplate eller Feign kan båda användas med Apache HTTPClient under huven.
 
-För närvarande stöds inte automatisk kontext spridning mellan meddelande tekniker (t. ex. Kafka, RabbitMQ eller Azure Service Bus). Det är dock möjligt att koda sådana scenarier manuellt med hjälp av API: erna `trackDependency` och `trackRequest`. I dessa API: er representerar en beroende telemetri ett meddelande som ställs av en tillverkare och begäran representerar ett meddelande som bearbetas av en konsument. I det här fallet ska både `operation_id` och `operation_parentId` spridas i meddelandets egenskaper.
+För närvarande stöds inte automatisk kontext spridning mellan meddelande tekniker (t. ex. Kafka, RabbitMQ eller Azure Service Bus). Det är dock möjligt att koda sådana scenarier manuellt med hjälp av `trackDependency`-och `trackRequest`-API: er. I dessa API: er representerar en beroende telemetri ett meddelande som ställs av en tillverkare och begäran representerar ett meddelande som bearbetas av en konsument. I det här fallet ska både `operation_id` och `operation_parentId` spridas i meddelandets egenskaper.
 
 ### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Telemetri korrelation i asynkron Java-program
 
@@ -264,9 +260,9 @@ Ibland kanske du vill anpassa hur komponent namn visas i [program kartan](../../
 
   `spring.application.name=<name-of-app>`
 
-  Start programmet för våren tilldelar automatiskt `cloudRoleName` till det värde som du anger för egenskapen `spring.application.name`.
+  Start programmet för fjäder start tilldelar automatiskt `cloudRoleName` till det värde som du anger för egenskapen `spring.application.name`.
 
-- Om du använder `WebRequestTrackingFilter`, anger `WebAppNameContextInitializer` program namnet automatiskt. Lägg till följande i konfigurations filen (ApplicationInsights. xml):
+- Om du använder `WebRequestTrackingFilter` anger `WebAppNameContextInitializer` program namnet automatiskt. Lägg till följande i konfigurations filen (ApplicationInsights. xml):
 
   ```XML
   <ContextInitializers>

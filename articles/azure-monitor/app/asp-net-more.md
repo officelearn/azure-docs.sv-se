@@ -1,35 +1,30 @@
 ---
 title: Få ut mer av Azure Application Insights | Microsoft Docs
-description: Efter att komma igång med Application Insights, är här en sammanfattning av de funktioner som du kan utforska.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+description: När du har kommit igång med Application Insights här är en sammanfattning av de funktioner som du kan utforska.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/03/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 7e62efb0b64b0b882b36126af4a1f9d520d92475
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/03/2017
+ms.openlocfilehash: 8c51745c43ced8ad3031a6a01096261ef72b33fc
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230632"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678360"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Mer telemetri från Application Insights
-När du har [lagt till Application Insights för ASP.NET-koden](../../azure-monitor/app/asp-net.md), det finns några saker som du kan göra för att få ännu mer telemetri. 
+När du har [lagt till Application Insights i ASP.net-koden](../../azure-monitor/app/asp-net.md)finns det några saker som du kan göra för att få ännu mer telemetri. 
 
-| Åtgärd | Vad du får|
+| Åtgärd | Det här får du|
 |---|---|
-|(IIS-servrar) [Installera Status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648) på varje server-datorn.<br/>(Azure-webbappar) Öppna Application Insights-bladet i Azure på Kontrollpanelen för webbappen.| [**Prestandaräknare**](../../azure-monitor/app/performance-counters.md)<br/>[**Undantag** ](asp-net-exceptions.md) – detaljerad Stacka spårningar<br/>[**Beroenden**](../../azure-monitor/app/asp-net-dependencies.md)|
-|[Lägg till JavaScript-kodavsnitt till dina webbsidor](../../azure-monitor/app/javascript.md)|[Sidan prestanda](../../azure-monitor/app/usage-overview.md), webbläsarundantag, prestanda för AJAX. Anpassad telemetri för klientsidan.|
-|[Skapa webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)|Få aviseringar om din webbplats blir otillgänglig|
-|[Se till att buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) genereras av MSBuild|[Skapa anteckningar i måttdiagram](https://docs.microsoft.com/azure/azure-monitor/app/annotations)
-|[Skriva anpassade händelser och mått](../../azure-monitor/app/api-custom-events-metrics.md)|Antal företag händelser och mått, spåra detaljerad användning och mycket mer.|
-|[Profilera live-webbplatsen](https://aka.ms/AIProfilerPreview)|Detaljerad funktionen tidsinställningar från live-webbapp|
+|(IIS-servrar) [Installera statusövervakare](https://go.microsoft.com/fwlink/?LinkId=506648) på varje Server dator.<br/>(Azure-Webbappar) Öppna bladet Application Insights på kontroll panelen i Azure för webb programmet.| [**Prestanda räknare**](../../azure-monitor/app/performance-counters.md)<br/>[**Undantag**](asp-net-exceptions.md) – detaljerade stack spår<br/>[**Relation**](../../azure-monitor/app/asp-net-dependencies.md)|
+|[Lägga till JavaScript-kodfragmentet på dina webb sidor](../../azure-monitor/app/javascript.md)|[Sid prestanda](../../azure-monitor/app/usage-overview.md), webb läsar undantag, Ajax-prestanda. Anpassad telemetri på klient sidan.|
+|[Skapa webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)|Få aviseringar om webbplatsen blir otillgänglig|
+|[Se till att buildinfo. config](https://msdn.microsoft.com/library/dn449058.aspx) genereras av MSBuild|[Bygg anteckningar i mått diagram](https://docs.microsoft.com/azure/azure-monitor/app/annotations)
+|[Skriv anpassade händelser och mått](../../azure-monitor/app/api-custom-events-metrics.md)|Räkna affärs händelser och mått, spåra detaljerad användning med mera.|
+|[Profilera din Live-webbplats](https://aka.ms/AIProfilerPreview)|Detaljerade funktions tider från din Live Web App|
 
 
 

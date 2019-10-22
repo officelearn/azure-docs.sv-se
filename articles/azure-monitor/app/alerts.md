@@ -1,117 +1,112 @@
 ---
-title: Ställa in aviseringar i Azure Application Insights | Microsoft Docs
-description: Håll dig informerad om långa svarstider, undantag, och andra prestanda och användning ändringar i din webbapp.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.reviewer: lagayhar
-ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Ange aviseringar i Azure Application Insights | Microsoft Docs
+description: Få meddelanden om långsamma svars tider, undantag och andra prestanda-eller användnings ändringar i din webbapp.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/23/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/23/2019
+ms.reviewer: lagayhar
+ms.openlocfilehash: a21e2676d1b03472c58e2f95095a1a59d00b16be
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60693517"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678408"
 ---
-# <a name="set-alerts-in-application-insights"></a>Ställa in aviseringar i Application Insights
-[Azure Application Insights] [ start] kan varna dig om ändringar i mått för prestanda och användning i din webbapp. 
+# <a name="set-alerts-in-application-insights"></a>Ange aviseringar i Application Insights
+[Azure Application insikter][start] kan varna dig om förändringar i prestanda-eller användnings statistik i din webbapp. 
 
-Application Insights övervakar din live-app på en [rad olika plattformar] [ platforms] hjälper dig att diagnostisera prestandaproblem och förstå användningsmönster.
+Application Insights övervakar din Live-app på en mängd [olika plattformar][platforms] för att hjälpa dig att diagnostisera prestanda problem och förstå användnings mönster.
 
 Det finns flera typer av aviseringar:
 
-* [**Måttaviseringar** ](../../azure-monitor/platform/alerts-metric-overview.md) berättar när ett mått överskrider ett tröskelvärde under en period – till exempel svarstider, antalet undantag, processoranvändning eller sidvisningar.
-* [**Loggaviseringar** ](../../azure-monitor/platform/alerts-unified-log.md) används för att beskriva aviseringar där varningssignal baseras på en anpassad Kusto-fråga.
-* [**Webbtester** ] [ availability] berätta om din webbplats är inte tillgänglig på internet eller svarar långsamt. [Läs mer][availability].
-* [**Proaktiv diagnostik** ](../../azure-monitor/app/proactive-diagnostics.md) konfigureras automatiskt så att du meddelas om ovanliga prestandamönster.
+* [**Mått aviseringar**](../../azure-monitor/platform/alerts-metric-overview.md) visar när ett Mät värde korsar ett tröskelvärde för en viss period, till exempel svars tider, undantags antal, processor användning eller sid visningar.
+* [**Logg aviseringar**](../../azure-monitor/platform/alerts-unified-log.md) används för att beskriva aviseringar där varnings signalen baseras på en anpassad Kusto-fråga.
+* [**Webbtester**][availability] meddelar dig när webbplatsen inte är tillgänglig på Internet eller svarar långsamt. [Läs mer][availability].
+* [**Proaktiv diagnostik**](../../azure-monitor/app/proactive-diagnostics.md) konfigureras automatiskt för att meddela dig om ovanliga prestanda mönster.
 
-## <a name="set-a-metric-alert"></a>Ange en metrisk varning
-Öppna fliken Varningsregler och Använd knappen Lägg till.
+## <a name="set-a-metric-alert"></a>Ange en måtta avisering
+Öppna fliken aviserings regler och Använd sedan knappen Lägg till.
 
-![Välj Lägg till avisering på fliken Varningsregler. Ställ in din app som resursen för att mäta, ange ett namn för aviseringen och välj ett mått.](./media/alerts/01-set-metric.png)
+![Välj Lägg till avisering på fliken aviserings regler. Ställ in din app som resurs att mäta, ange ett namn för aviseringen och välj ett mått.](./media/alerts/01-set-metric.png)
 
-* Ställ in resursen innan de andra egenskaperna. **Välj ”(komponenter)” resurs** om du vill ställa in varningar för mått för prestanda och användning.
-* Namnet som du ge aviseringen måste vara unikt inom resursgruppen (inte bara ditt program).
-* Var noga med att tänka på de enheter där du uppmanas att ange ett tröskelvärde.
-* Om du markerar kryssrutan ”e-postägare...” skickas aviseringar via e-post till alla som har åtkomst till den här resursgruppen. Om du vill expandera den här uppsättningen med personer, lägga till dem i den [resursgrupp eller prenumeration](../../azure-monitor/app/resources-roles-access-control.md) (inte på resursen).
-* Om du anger ”ytterligare e-postmeddelanden” skickas aviseringar till de enskilda användare eller grupper (om du markerade kryssrutan ”Skicka e-ägare...”). 
-* Ange en [webhook adress](../../azure-monitor/platform/alerts-webhooks.md) om du har ställt in en webbapp som svarar på aviseringar. Det kallas för både när aviseringen aktiveras och när det är löst. (Men Observera att för närvarande, frågeparametrar skickas inte som webhook-egenskaper.)
-* Du kan inaktivera eller aktivera aviseringen: Se knappar längst upp.
+* Ange resursen före de andra egenskaperna. **Välj resursen "(komponenter)"** om du vill ange aviseringar för prestanda-eller användnings statistik.
+* Det namn som du ger aviseringen måste vara unikt inom resurs gruppen (inte bara ditt program).
+* Var noga med att anteckna vilka enheter som du uppmanas att ange tröskelvärdet för.
+* Om du markerar kryss rutan "e-postägare..." skickas aviseringar via e-post till alla som har åtkomst till den här resurs gruppen. Om du vill expandera den här uppsättningen med personer lägger du till dem i [resurs gruppen eller prenumerationen](../../azure-monitor/app/resources-roles-access-control.md) (inte resursen).
+* Om du anger "ytterligare e-postmeddelanden" skickas aviseringar till dessa individer eller grupper (oavsett om du har markerat "e-postägare..." Box). 
+* Ange en [webhook-adress](../../azure-monitor/platform/alerts-webhooks.md) om du har konfigurerat en webbapp som svarar på aviseringar. Det kallas båda när aviseringen aktive ras och när den är löst. (Men Observera att frågeparametrar inte skickas till som webhook-egenskaper.)
+* Du kan inaktivera eller aktivera aviseringen: Se knapparna överst.
 
-*Knappen Lägg till avisering visas inte.*
+*Jag ser inte knappen Lägg till avisering.*
 
-* Använder du ett organisationskonto? Du kan ställa in aviseringar om du har ägare eller deltagare som har åtkomst till den här programresursen. Ta en titt på fliken behörighet. [Lär dig mer om åtkomstkontroll][roles].
+* Använder du ett organisations konto? Du kan ställa in aviseringar om du har ägar-eller deltagar åtkomst till den här program resursen. Ta en titt på fliken Access Control. [Läs mer om åtkomst kontroll][roles].
 
 > [!NOTE]
-> På aviseringsbladet se du att det finns redan en avisering uppsättning: [Proaktiv diagnostik](../../azure-monitor/app/proactive-failure-diagnostics.md). Automatisk avisering övervakar ett visst mått, begäran Felfrekvens. Såvida du inte vill inaktivera proaktiv avisering, behöver du inte ställa in dina egna avisering på fel hastighet på begäran.
+> På bladet aviseringar ser du att det redan finns en varnings uppsättning: [proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). Den automatiska aviseringen övervakar ett visst mått, begär Anden om misslyckade begär Anden. Om du inte bestämmer dig för att inaktivera den proaktiva aviseringen behöver du inte ange en egen avisering vid frekvensen för misslyckade förfrågningar.
 > 
 > 
 
-## <a name="see-your-alerts"></a>Se aviseringarna
-Du får ett e-postmeddelande när en avisering ändrar tillstånd mellan inaktiva och aktiva. 
+## <a name="see-your-alerts"></a>Se dina aviseringar
+Du får ett e-postmeddelande när en avisering ändrar tillstånd mellan inaktiv och aktiv. 
 
-Det aktuella tillståndet för varje avisering visas på fliken Varningsregler.
+Det aktuella läget för varje avisering visas på fliken aviserings regler.
 
-Det finns en sammanfattning av senaste aktivitet i aviseringarna listrutan:
+Det finns en sammanfattning av den senaste aktiviteten i list rutan aviseringar:
 
-![Aviseringar i listrutan](./media/alerts/010-alert-drop.png)
+![List rutan varningar](./media/alerts/010-alert-drop.png)
 
-Historiken över tillståndsändringar är i aktivitetsloggen:
+Historiken för tillstånds ändringar finns i aktivitets loggen:
 
-![Klicka på inställningar, granskningsloggar på fliken Översikt](./media/alerts/09-alerts.png)
+![På fliken Översikt klickar du på Inställningar, gransknings loggar](./media/alerts/09-alerts.png)
 
-## <a name="how-alerts-work"></a>Så fungerar aviseringar
-* En avisering har tre lägen: ”Aldrig aktiverats”, ”aktiverad” och ”löst”. Aktiverad innebär att du villkoret var SANT, när den senast utvärderades.
-* En avisering genereras när status ändras i en avisering. (Om aviseringstillståndet var redan sant när du har skapat aviseringen, du kan inte få ett meddelande tills villkoret sjunker till FALSKT.)
-* Varje meddelande genererar ett e-postmeddelande om du har markerat kryssrutan e-postmeddelanden eller tillhandahålls av e-postadresser. Du kan också titta på listan meddelanden.
-* En avisering utvärderas varje gång som ett mått tas emot, men i övrigt inte.
-* Utvärderingen aggregerar måttet under föregående period och jämför den med tröskelvärdet för att fastställa det nya läget.
-* Den period som du anger intervallet över vilket sammanställs måtten. Det påverkar inte hur ofta aviseringen ska utvärderas: Det beror på frekvensen för ankomst mått.
-* Om inga data tas emot för ett visst mått under en viss tid har klyftan olika effekter på aviseringen utvärdering och diagram i metric explorer. I metric explorer om inga data visas under längre tid än diagrammets exempelintervall visar diagrammet värdet 0. Men en avisering baserat på samma mått är inte vara omvärderas och aviseringens status ändras inte. 
+## <a name="how-alerts-work"></a>Så här fungerar aviseringar
+* En avisering har tre tillstånd: "aldrig aktiverat", "aktive rad" och "löst". Aktive rad innebär att det villkor du angav var sant, när det senast utvärderades.
+* Ett meddelande skapas när en avisering ändrar tillstånd. (Om aviserings villkoret redan var uppfyllt när du skapade aviseringen kanske du inte får något meddelande förrän villkoret går falskt.)
+* Varje avisering genererar ett e-postmeddelande om du har markerat rutan e-post eller angett e-postadresser. Du kan även titta på list rutan meddelanden.
+* En avisering utvärderas varje gången ett mått inkommer, men inte i övrigt.
+* Utvärderingen aggregerar måttet under den föregående perioden och jämför det sedan med tröskelvärdet för att fastställa det nya läget.
+* Den period som du väljer anger intervallet då måtten aggregeras. Det påverkar inte hur ofta aviseringen utvärderas: Detta beror på hur ofta inkomman av mått är.
+* Om inga data tas emot för ett visst mått under en viss tid har avståndet olika effekter på aviserings utvärderingen och i diagram i Metric Explorer. Om inga data visas längre än diagrammets samplings intervall i Metric Explorer visar diagrammet värdet 0. Men en avisering som bygger på samma mått utvärderas inte och aviseringens tillstånd förblir oförändrad. 
   
-    När data kommer så småningom, hoppar diagrammet till ett annat värde än noll. Aviseringen utvärderar baserat på data som är tillgängliga under den period som du angav. Om den nya datapunkten är enda tillgängliga under perioden, baseras samlingen bara på att datapunkt.
-* En avisering flimra ofta mellan aviseringar och felfritt tillstånd, även om du ställer in en längre tid. Detta kan inträffa om mätvärdet hovrar runt tröskelvärdet. Det finns inga betraktas som tröskelvärde: övergången till aviseringen sker på samma värde som övergång till felfritt.
+    När data slutligen tas emot, hoppar diagrammet tillbaka till ett värde som inte är noll. Aviseringen utvärderas utifrån de data som är tillgängliga under den period som du har angett. Om den nya data punkten är den enda som är tillgänglig under perioden baseras agg regeringen bara på den data punkten.
+* En avisering kan flimra ofta mellan aviseringar och felfria tillstånd, även om du ställer in en lång period. Detta kan inträffa om Metric-värdet hovrar runt tröskelvärdet. Det finns ingen hysteresis i tröskelvärdet: över gången till aviseringen sker med samma värde som över gången till felfri.
 
-## <a name="what-are-good-alerts-to-set"></a>Vad är bra aviseringar att ställa in?
-Det beror på ditt program. Det är att börja med, bör du inte ange för många mått. Ägna lite tid som tittar på dina diagram med mätvärden när din app körs, för att få en känsla för hur den fungerar normalt. Den här metoden hjälper dig att hitta sätt att förbättra dess prestanda. Ställa in aviseringar som talar om när mått som går utanför den normala zonen. 
+## <a name="what-are-good-alerts-to-set"></a>Vad är en bra avisering att ställa in?
+Det beror på ditt program. För att börja med är det bäst att inte ange för många mått. Ägna lite tid åt att titta på mått diagram medan din app körs, för att få en känsla för hur det fungerar normalt. I den här övningen får du lära dig hur du kan förbättra prestandan. Ställ sedan in aviseringar för att meddela dig när måtten går utanför normal zonen. 
 
-Populära aviseringar innehåller:
+Populära aviseringar omfattar:
 
-* [Webbläsaren mått][client], särskilt webbläsare **sidan inläsningstider**, är bra för webbprogram. Om din sida har många skript kan du ska leta efter **webbläsarundantag**. För att få dessa mått och aviseringar, du måste konfigurera [webbsida övervakning][client].
-* **Svarstid för servern** för serversidan webbprogram. Håll ett öga på det här måttet att se om det beror oproportionerligt hög begäranhastigheter samt ställa in aviseringar: variationen kan tyda på att din app är igång tillräckligt med resurser. 
-* **Serverundantagen** – om du vill se dem, du behöver göra några [ytterligare inställningar](../../azure-monitor/app/asp-net-exceptions.md).
+* Webb [läsar mått][client], särskilt webb läsar **sid inläsnings tider**, är lämpliga för webb program. Om sidan har många skript ska du söka efter **webb läsar undantag**. För att få dessa mått och aviseringar måste du konfigurera [övervakning av webb sidor][client].
+* **Server svars tid** för Server sidan i webb program. Förutom att konfigurera aviseringar bör du hålla ett öga på det här måttet och se om det varierar oproportionerligt med hög begär ande frekvens: variationen kan tyda på att din app har slut på resurser. 
+* **Server undantag** – om du vill se dem måste du göra [ytterligare inställningar](../../azure-monitor/app/asp-net-exceptions.md).
 
-Glöm inte att [hastighet för proaktiv feldiagnostik](../../azure-monitor/app/proactive-failure-diagnostics.md) automatiskt övervaka den hastighet med vilken din app svarar på begäranden med felkoder.
+Glöm inte att [diagnostik för proaktiv fel frekvens](../../azure-monitor/app/proactive-failure-diagnostics.md) övervakar automatiskt den hastighet som appen svarar på begär Anden med felkoder.
 
-## <a name="how-to-set-an-exception-alert-using-custom-log-search"></a>Hur du ställer in en undantagsaviseringen med hjälp av anpassade loggsökning
+## <a name="how-to-set-an-exception-alert-using-custom-log-search"></a>Så här anger du en undantags avisering med anpassad loggs ökning
 
-I det här avsnittet lär du dig hur du ställer en fråga baserad undantagsaviseringen. I det här exemplet vi antar att vi vill att en avisering när misslyckade frekvensen är större än 10% under de senaste 24 timmarna.
+I det här avsnittet ska vi gå igenom hur du ställer in en fråga-baserad undantags avisering. I det här exemplet vill vi säga att vi vill ha en avisering när den felaktiga frekvensen är större än 10% under de senaste 24 timmarna.
 
-1. Gå till din Application Insights-resurs i Azure-portalen.
+1. Gå till din Application Insight-resurs i Azure Portal.
 2. Till vänster under Konfigurera Klicka på **avisering**.
 
-    ![Till vänster under Konfigurera aviseringen](./media/alerts/1appinsightalert.png)
+    ![Till vänster under Konfigurera Klicka på avisering](./media/alerts/1appinsightalert.png)
 
-3. Överst på aviseringsfliken väljer **ny aviseringsregel**.
+3. Överst på fliken avisering väljer du **ny varnings regel**.
 
-     ![Klicka på ny aviseringsregel högst upp på fliken aviseringar](./media/alerts/2createalert.png)
+     ![Överst på fliken avisering klickar du på ny aviserings regel](./media/alerts/2createalert.png)
 
-4. Resursen ska vara automatisk. Ange ett villkor, klicka på **Lägg till villkor**.
+4. Din resurs ska väljas automatiskt. Ange ett villkor genom att klicka på **Lägg till villkor**.
 
     ![Klicka på Lägg till villkor](./media/alerts/3addcondition.png)
 
-5. Välj fliken Konfigurera signalen logic **anpassad loggsökning**
+5. På fliken Konfigurera signal logik väljer du **anpassad loggs ökning**
 
-    ![Klicka på den anpassade loggen Sök](./media/alerts/4customlogsearch.png)
+    ![Klicka på anpassad loggs ökning](./media/alerts/4customlogsearch.png)
 
-6. Ange din fråga i rutan ”sökfrågan” i sökfliken anpassad logg. I det här exemplet ska vi använda den nedan Kusto-fråga.
+6. På fliken anpassad loggs ökning anger du din fråga i rutan Sök fråga. I det här exemplet kommer vi att använda nedanstående Kusto-fråga.
     ```kusto
     let percentthreshold = 10;
     let period = 24h;
@@ -124,64 +119,64 @@ I det här avsnittet lär du dig hur du ställer en fråga baserad undantagsavis
 
     ```
 
-    ![Skriv frågan i sökrutan för fråga](./media/alerts/5searchquery.png)
+    ![Skriv frågan i rutan Sök fråga](./media/alerts/5searchquery.png)
     
     > [!NOTE]
-    > Du kan även använda de här stegen för andra typer av frågebaserade aviseringar. Du kan lära dig mer om Kusto-frågespråket från den här [Kusto komma igång doc](https://docs.microsoft.com/azure/kusto/concepts/) eller i den här [SQL till Kusto-Lathund](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
+    > Du kan också använda dessa steg för andra typer av frågebaserade aviseringar. Du kan lära dig mer om Kusto-frågespråket från det här [Kusto kom igång-dokumentet](https://docs.microsoft.com/azure/kusto/concepts/) eller det här [SQL till Kusto lathund-bladet](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
 
-7. Välj om den baseras på antalet resultat eller metriska måttenheter under ”Alert logic”. Välj villkoret (större än, lika med, mindre än) och ett tröskelvärde. När du ändrar dessa värden kan märka du att villkoret Förhandsgranska mening ändringar. I det här exemplet använder vi ”lika med”.
+7. Under "aviserings logik" väljer du om det baseras på antalet resultat eller mått mått. Välj sedan villkoret (större än, lika med, mindre än) och ett tröskelvärde. När du ändrar de här värdena kan du se om meningen för villkors förhands granskningen ändras. I det här exemplet använder vi "lika med".
 
-    ![Under Alert logic välja bland alternativen för baserat på villkor och ange sedan ett tröskelvärde](./media/alerts/6alertlogic.png)
+    ![Under aviserings logik väljer du bland de alternativ som anges för baserat på och anger sedan ett tröskelvärde](./media/alerts/6alertlogic.png)
 
-8. Under ”Evaluated baserat på”, ange perioden och frekvens. Den här perioden måste matcha det värde som låter vi för period i frågan ovan. Klicka sedan på **klar**.
+8. Under utvärdera baserat på anger du period och frekvens. Perioden här måste matcha det värde som vi angav för perioden i frågan ovan. Klicka sedan på **färdig**.
 
-    ![Ange perioden och frekvens längst ned på sidan och sedan klicka på klar](./media/alerts/7evaluate.png)
+    ![Ange period och frekvens längst ned och klicka sedan på klart](./media/alerts/7evaluate.png)
 
-9. Vi kan nu se det villkoret som vi skapade med den uppskattade månadskostnaden. Nedan under [”åtgärdsgrupper”](../platform/action-groups.md) du kan skapa en ny grupp eller välj en befintlig. Om du vill kan anpassa du åtgärderna.
+9. Vi ser nu det villkor som vi har skapat med den uppskattade månads kostnaden. Under ["åtgärds grupper"](../platform/action-groups.md) kan du skapa en ny grupp eller välja en befintlig. Om du vill kan du anpassa åtgärderna.
 
-    ![Klicka på Välj eller skapa knappar under åtgärdsgrupp](./media/alerts/8actiongroup.png)
+    ![Klicka på knapparna Välj eller skapa under åtgärds grupp](./media/alerts/8actiongroup.png)
 
-10. Slutligen lägger du till din aviseringsinformation (Avisera namn, beskrivning, allvarlighetsgrad). När du är klar klickar du på **skapa varningsregel** längst ned på sidan.
+10. Lägg slutligen till aviserings information (aviserings regel namn, beskrivning, allvarlighets grad). När du är färdig klickar du på **skapa varnings regel** längst ned.
 
-    ![Under aviseringsinformation ange varningsregelns namn, Skriv en beskrivning och välj en allvarlighetsgrad](./media/alerts/9alertdetails.png)
+    ![Under aviserings information skriver du aviserings regelns namn, skriver en beskrivning och väljer en allvarlighets grad](./media/alerts/9alertdetails.png)
 
-## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Hur du slutar prenumerera på klassiska avisering e-postaviseringar
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Avbryta prenumerationen på de klassiska e-postaviseringarna
 
-Det här avsnittet gäller för **klassiska tillgänglighet aviseringar**, **klassiska måttaviseringar för Application Insights**, och **klassiska avvikelser aviseringar**.
+Det här avsnittet gäller för **klassiska tillgänglighets aviseringar**, **klassisk Application Insights mått aviseringar**och **varningar om klassiska fel avvikelser**.
 
 Du får e-postaviseringar för dessa klassiska aviseringar om något av följande gäller:
 
-* Din e-postadress visas i fältet meddelande e-postmottagare i inställningarna för varningsregeln.
+* Din e-postadress visas i fältet för e-postmottagare i aviserings regeln.
 
-* Alternativet för att skicka e-postaviseringar till användare som innehåller vissa roller för prenumerationen har aktiverats och du håller en respektive roll för den specifika Azure-prenumerationen.
+* Alternativet att skicka e-postaviseringar till användare som har vissa roller för prenumerationen aktive ras och du har en respektive roll för just den Azure-prenumerationen.
 
-![Avisering om skärmbild](./media/alerts/alert-notification.png)
+![Skärm bild för varnings meddelande](./media/alerts/alert-notification.png)
 
-Att få bättre kontroll över din säkerhet och sekretess i allmänhet rekommenderar vi att du uttryckligen anger meddelandemottagare för klassiska varningar i den **meddelande e-postmottagare** fält. Alternativ för att meddela alla användare som innehåller vissa roller tillhandahålls för bakåtkompatibilitet.
+För att bättre kontrol lera säkerheten och sekretessen rekommenderar vi vanligt vis att du uttryckligen anger aviserings mottagarna för dina klassiska aviseringar i fältet **e-postmottagare för avisering** . Alternativet att meddela alla användare som har vissa roller tillhandahålls för bakåtkompatibilitet.
 
-Om du vill avbryta prenumerationen på e-postmeddelanden som genereras av en viss aviseringsregel, tar du bort din e-postadress från den **meddelande e-postmottagare** fält.
+Om du vill avbryta prenumerationen på e-postmeddelanden som genereras av en viss varnings regel tar du bort din e-postadress från fältet **e-postmottagare** .
 
-Om din e-postadress inte visas uttryckligen, rekommenderar vi att du inaktiverar alternativet att automatiskt meddela alla medlemmar i vissa roller och i stället lista över alla användare e-postmeddelanden som ska ta emot meddelanden för den varningsregeln i e-postmeddelande mottagare fält.
+Om din e-postadress inte uttryckligen visas, rekommenderar vi att du inaktiverar alternativet att meddela alla medlemmar i vissa roller automatiskt, och i stället visar alla e-postmeddelanden som behöver ta emot aviseringar för aviserings regeln i e-postmeddelandet fältet mottagare.
 
-## <a name="who-receives-the-classic-alert-notifications"></a>Vem som får aviseringar (klassisk)?
+## <a name="who-receives-the-classic-alert-notifications"></a>Vem får aviseringarna (klassisk)?
 
-Det här avsnittet gäller för klassiska aviseringar endast och hjälper dig att optimera dina aviseringar till att säkerställa att endast dina önskade mottagare får meddelanden. Vill veta mer om skillnaden mellan [klassiska aviseringar](../platform/alerts-classic.overview.md) och nya aviseringar uppstår, referera till den [aviseringar översikten](../platform/alerts-overview.md). Om du vill styra avisering om i det nya aviseringsgränssnittet använder [åtgärdsgrupper](../platform/action-groups.md).
+Det här avsnittet gäller endast för klassiska varningar och hjälper dig att optimera dina aviserings aviseringar så att endast dina mottagare får aviseringar. Om du vill veta mer om skillnaden mellan [klassiska aviseringar](../platform/alerts-classic.overview.md) och den nya aviserings upplevelsen, se [artikeln aviserings översikt](../platform/alerts-overview.md). Använd [Åtgärds grupper](../platform/action-groups.md)för att kontrol lera aviseringar i den nya aviserings upplevelsen.
 
-* Vi rekommenderar användning av specifika mottagare för klassiska aviseringar.
+* Vi rekommenderar att du använder vissa mottagare för klassisk aviserings aviseringar.
 
-* För aviseringar i alla Application Insights-mått (inklusive mått på tillgänglighet), den **grupp/grupp** kryssrutan alternativet, om aktiverad, skickar till användare med ägare, deltagare eller läsare roller i prenumerationen. I praktiken _alla_ användare med åtkomst till prenumerationen Application Insights-resursen omfattas och ska ta emot meddelanden.
+* För aviseringar på alla Application Insights mått (inklusive tillgänglighets mått), är kryss rutan **Mass-/grupp** alternativ, om aktive rad, skickar till användare med rollen ägare, deltagare eller läsare i prenumerationen. I praktiken är _alla_ användare som har åtkomst till prenumerationen Application Insightss resursen inom räckvidden och får meddelanden.
 
 > [!NOTE]
-> Om du använder den **grupp/grupp** kryssrutan alternativet, och inaktivera det, kommer du inte kunna återställa ändringen.
+> Om du för närvarande använder alternativet **Mass-/grupp** incheckning, och inaktiverar det, kommer du inte att kunna återställa ändringen.
 
-Använd de nya upplevelse nära realtid/aviseringarna om du vill meddela användare baserat på deras roller. Med [åtgärdsgrupper](../platform/action-groups.md), du kan konfigurera e-postaviseringar till användare med någon av rollerna deltagare och ägare/läsare (inte kombineras tillsammans som ett alternativ).
+Använd aviseringarna nya aviseringar/nästan-real tid om du behöver meddela användarna baserat på deras roller. Med [Åtgärds grupper](../platform/action-groups.md)kan du konfigurera e-postaviseringar till användare med någon av rollerna deltagare/ägare/läsare (som inte kombineras tillsammans som ett enda alternativ).
 
 ## <a name="automation"></a>Automation
 * [Använd PowerShell för att automatisera konfigurationen av aviseringar](../../azure-monitor/app/powershell-alerts.md)
-* [Använda webhooks för att automatisera svarar på aviseringar](../../azure-monitor/platform/alerts-webhooks.md)
+* [Använda Webhooks för att automatisera svar på aviseringar](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>Se också
-* [Webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatisera konfigurationen av aviseringar](../../azure-monitor/app/powershell-alerts.md)
 * [Proaktiv diagnostik](../../azure-monitor/app/proactive-diagnostics.md) 
 

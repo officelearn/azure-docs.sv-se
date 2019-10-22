@@ -1,31 +1,25 @@
 ---
 title: Application Insights för Azure Cloud Services | Microsoft Docs
 description: Övervaka webb- och arbetsroller effektivt med Application Insights
-services: application-insights
-documentationcenter: ''
-keywords: WAD2AI, Azure Diagnostics
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.workload: tbd
-ms.date: 09/05/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9325d2dd6c897f4c8dacb3dcf3a382f9f0e856a8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/05/2018
+ms.openlocfilehash: d77bbe355b3f6a2666f46246d1d12cfb2e43e559
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933000"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677565"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
 
 ![Översikts instrument panel](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du börjar behöver du:
 
 * En [Azure](https://azure.com) -prenumeration. Logga in med din Microsoft-konto för Windows, Xbox Live eller andra moln tjänster från Microsoft. 
@@ -80,7 +74,7 @@ Om du vill skicka Telemetrin till lämpliga resurser kan du konfigurera Applicat
 
 Om du har bestämt dig för att skapa en separat resurs för varje roll, och kanske en separat uppsättning för varje versions konfiguration, är det enklast att skapa dem på Application Insights Portal. Om du skapar resurser mycket kan du [automatisera processen](../../azure-monitor/app/powershell.md).
 
-1. I [Azure Portal][portal]väljer du **nya** > **Developer Services** > **Application Insights**.  
+1. I [Azure Portal][portal]väljer du **nya**  > **developer-tjänster**  > **Application Insights**.  
 
     ![Application Insightss fönster](./media/cloudservices/01-new.png)
 
@@ -92,7 +86,7 @@ Varje resurs identifieras med en Instrumentation-nyckel. Du kan behöva den här
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Konfigurera Azure Diagnostics för varje roll
 Ange det här alternativet om du vill övervaka din app med Application Insights. För webb roller ger det här alternativet prestanda övervakning, varningar, diagnostik och användnings analys. För andra roller kan du söka efter och övervaka Azure-diagnostik, till exempel omstart, prestanda räknare och anrop till system. Diagnostics. trace. 
 
-1. I Visual Studio Solution Explorer, > under  **\<YourCloudService >** **roller**, öppnar du egenskaperna för varje roll.
+1. I Visual Studio Solution Explorer, under **\<YourCloudService >**  > **roller**, öppnar du egenskaperna för varje roll.
 
 1. I **konfiguration**markerar du kryss rutan **skicka diagnostikdata till Application Insights** och väljer sedan den Application Insights resurs som du skapade tidigare.
 
@@ -100,7 +94,7 @@ Om du har valt att använda en separat Application Insights-resurs för varje ve
 
 ![Konfigurera Application Insights](./media/cloudservices/configure-azure-diagnostics.png)
 
-Detta innebär att du kan lägga till Application Insights Instrumentation-nycklar i filerna med namnet *ServiceConfiguration.\*. cscfg*. Här är [exempel koden](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+Detta innebär att du kan lägga till Application Insights Instrumentation-nycklar i filerna med namnet *ServiceConfiguration. \*. cscfg*. Här är [exempel koden](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
 Om du vill variera graden av diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera *. cscfg* -filerna direkt](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
@@ -142,7 +136,7 @@ I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojek
 
 Det här steget behövs bara om du vill samla in fullständiga SQL-frågor på .NET Framework. 
 
-1. I `\*.csdef` filen Lägg till [Start åtgärd](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) för varje roll som liknar 
+1. I `\*.csdef` fil Lägg till [Start åtgärd](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) för varje roll som liknar 
 
     ```xml
     <Startup>
@@ -157,7 +151,7 @@ Det här steget behövs bara om du vill samla in fullständiga SQL-frågor på .
     </Startup>
     ```
     
-2. Ladda ned [InstallAgent. bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) och [InstallAgent. ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)och Lägg `AppInsightsAgent` dem i mappen på varje roll projekt. Se till att kopiera dem till utdata-katalogen via fil egenskaper i Visual Studio eller skapa skript.
+2. Ladda ned [InstallAgent. bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) och [InstallAgent. ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)och lägg dem i mappen `AppInsightsAgent` på varje roll projekt. Se till att kopiera dem till utdata-katalogen via fil egenskaper i Visual Studio eller skapa skript.
 
 3. Lägg till miljövariabler i alla arbets roller: 
 
@@ -230,7 +224,7 @@ För arbets roller kan du spåra undantag på två sätt:
 ## <a name="performance-counters"></a>Prestandaräknare
 Följande räknare samlas in som standard:
 
-* \Process(??APP_WIN32_PROC??)\% Processortid
+* \Process (?? APP_WIN32_PROC??) \% processor tid
 * \Memory\Tillgängliga byte
 * \.NET CLR-undantag(??APP_CLR_PROC??)\# undantag som utlöses/sekund
 * \Process(??APP_WIN32_PROC??)\Privata byte

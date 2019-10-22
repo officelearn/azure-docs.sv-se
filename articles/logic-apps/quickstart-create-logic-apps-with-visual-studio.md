@@ -1,6 +1,6 @@
 ---
-title: Skapa automatiserade arbets flöden med Visual Studio – Azure Logic Apps
-description: Automatisera aktiviteter, affärs processer och arbets flöden för företags integrering med hjälp av Azure Logic Apps och Visual Studio
+title: Automatisera arbets flöden med Visual Studio – Azure Logic Apps
+description: Skapa, Schemalägg och kör återkommande arbets flöden för företags integrering med hjälp av Azure Logic Apps och Visual Studio
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,18 +8,17 @@ ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/25/2019
-ms.openlocfilehash: 47b7609fe111ecbe41a161bfbff1f7225ad66357
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d02f0bf8cc880dd39f7bdf0c953fcb130df2e23a
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165919"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680571"
 ---
-# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio
+# <a name="quickstart-automate-tasks-processes-and-workflows-by-using-azure-logic-apps-and-visual-studio"></a>Snabb start: automatisera aktiviteter, processer och arbets flöden med hjälp av Azure Logic Apps och Visual Studio
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och Visual Studio kan du skapa arbetsflöden för att automatisera uppgifter och processer som integrerar appar, data, system och tjänster åt företag och organisationer. Den här snabb starten visar hur du kan utforma och skapa dessa arbets flöden genom att skapa Logi Kap par i Visual Studio och distribuera dessa appar till Azure. Även om du kan utföra dessa uppgifter i Azure Portal kan du med Visual Studio lägga till dina Logi Kap par i käll kontrollen, publicera olika versioner och skapa Azure Resource Manager mallar för olika distributions miljöer.
 

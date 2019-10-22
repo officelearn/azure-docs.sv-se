@@ -1,6 +1,6 @@
 ---
-title: XML-meddelanden för B2B enterprise-integration – Azure Logic Apps | Microsoft Docs
-description: Bearbeta, verifiera, omvandla och berika XML-meddelanden för B2B-lösningar i Azure Logic Apps med Enterprise-Integrationspaket
+title: XML-meddelanden och flata filer – Azure Logic Apps
+description: Bearbeta, validera och transformera XML-meddelanden i Azure Logic Apps med Enterprise-integrationspaket
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,30 +8,34 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.openlocfilehash: a75ac9773072423c13eef85ecad29c632c13d024
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 730adf3e6ef3ddab5a8b0e927f94ffe3725358f4
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996592"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679906"
 ---
-# <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>XML-meddelanden och flata filer i Azure Logic Apps med Enterprise-Integrationspaket
+# <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>XML-meddelanden och flata filer i Azure Logic Apps med Enterprise-integrationspaket
 
-Med logikappar kan ha du möjlighet att bearbeta XML-meddelanden som du skickar och tar emot. Den här funktionen ingår i Enterprise-Integrationspaketet. För de användarna som har en bakgrund för BizTalk Server ger Enterprise-Integrationspaketet liknande förmågan att omvandla och validera meddelanden kan arbeta med flata filer och även använda XPath för att utöka eller extrahera specifika egenskaper från ett meddelande. 
+I [Azure Logic Apps](logic-apps-overview.md)kan du bearbeta XML-meddelanden som du skickar och tar emot med hjälp av Enterprise-integrationspaket. Om du har använt BizTalk Server tillhandahåller Enterprise-integrationspaket liknande funktioner för att transformera och validera meddelanden, arbeta med flata filer och till och med använda XPath för att utöka eller extrahera vissa egenskaper från ett meddelande. Om du är nybörjare på det här utrymmet expanderar de här funktionerna hur du bearbetar meddelanden i din Logic app-arbetsflöde. Om du till exempel har ett scenario för affärs-till-företag (B2B) och arbetar med specifika XML-scheman kan du använda Enterprise-integrationspaket för att förbättra hur ditt företag bearbetar dessa meddelanden.
 
-För de användare som inte har använt det här utrymmet, expandera funktionerna hur du bearbetar meddelanden i ditt arbetsflöde. Till exempel om du är i ett scenario för business-to-business och arbeta med specifika XML-scheman kan du använda Enterprise-Integrationspaketet för att förbättra hur ditt företag bearbetar dessa meddelanden. 
+Enterprise-integrationspaket innehåller till exempel följande funktioner:
 
-Enterprise-Integrationspaketet innehåller: 
+* [XML-verifiering](logic-apps-enterprise-integration-xml-validation.md): verifiera ett inkommande eller utgående XML-meddelande mot ett angivet schema.
 
-* [XML-verifiering](logic-apps-enterprise-integration-xml-validation.md "Lär dig mer om XML-verifiering för meddelande") -validera en XML-meddelande för inkommande eller utgående mot ett visst schema.
-* [XML-transformering](../logic-apps/logic-apps-enterprise-integration-transform.md "Lär dig mer om XML-meddelande transformeringar och kartor") – konvertera eller anpassa en XML-meddelande utifrån dina behov eller kraven för en partner.
-* [Fast Filkodning och flatfilsavkodning](logic-apps-enterprise-integration-flatfile.md "Lär dig mer om kodning/flatfilsavkodning") – koda eller avkoda en platt fil. Till exempel SAP accepterar och skickar IDOC-filer i platt format. Många integration plattformar skapa XML-meddelanden, inklusive Logic Apps. Därför kan du skapa en logikapp som använder den flat fil-kodaren ”konvertera” XML-filer till flat-filer. 
-* [XPath](https://msdn.microsoft.com/library/mt643789.aspx) – ett meddelande extrahera information och specifika egenskaper från meddelandet. Du kan sedan använda de extrahera egenskaperna för att dirigera meddelandet till ett mål, eller en mellanliggande slutpunkt.
+* [XML-transformering](logic-apps-enterprise-integration-transform.md): konvertera eller anpassa ett XML-meddelande baserat på dina krav eller krav på en partner med hjälp av Maps.
 
-## <a name="try-it-out"></a>Prova det
-[Distribuera en fullt fungerande logikapp](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (GitHub-prov) med hjälp av XML-funktionerna i Azure Logic Apps.
+* [Flat fil kodning och flat fil-avkodning](logic-apps-enterprise-integration-flatfile.md): koda eller avkoda en flat fil.
 
-## <a name="learn-more"></a>Läs mer
-[Mer information om Enterprise-Integrationspaketet](../logic-apps/logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")
+  Till exempel accepterar SAP och skickar IDOC-filer i platt fil format. Många integrerings plattformar skapar XML-meddelanden, inklusive Logic Apps. Det innebär att du kan skapa en Logic-app som använder Flat File Encoder för att konvertera XML-filer till flata filer.
+
+* [XPath](workflow-definition-language-functions-reference.md#xpath): utöka ett meddelande och extrahera vissa egenskaper från meddelandet. Du kan sedan använda de extraherade egenskaperna för att dirigera meddelandet till ett mål eller en mellanliggande slut punkt.
+
+## <a name="sample"></a>Exempel
+
+[Distribuera en fullständigt fungerande Logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (GitHub-exempel) med hjälp av XML-funktionerna i Azure Logic Apps.
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer om [Enterprise-integrationspaket](logic-apps-enterprise-integration-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Övervaka B2B-meddelanden med Azure Monitor loggar – Azure Logic Apps | Microsoft Docs
-description: Övervaka AS2-, X12-och EDIFACT-meddelanden för integrations konton och Azure Logic Apps och konfigurera diagnostikloggning med Azure Monitor loggar
+title: Övervaka B2B-meddelanden med Azure Monitor-Azure Logic Apps
+description: Konfigurera diagnostik-loggning för AS2-, X12-och EDIFACT-meddelanden i Azure Logic Apps med Azure Monitor
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,14 +9,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: a4a7f951d34455f2e333f2c11e30d24efdfd22c1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e5c8e5f3d42f4e85406fcc7dd5a2f6602045c8ed
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261206"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680193"
 ---
-# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Övervaka B2B-meddelanden med Azure Monitor loggar i Azure Logic Apps
+# <a name="set-up-diagnostics-logging-for-b2b-messages-in-azure-logic-apps-by-using-azure-monitor"></a>Konfigurera diagnostikloggning för B2B-meddelanden i Azure Logic Apps med Azure Monitor
 
 När du har konfigurerat B2B-kommunikation mellan handels partner i ditt integrations konto kan dessa partners utbyta meddelanden med varandra. För att kontrol lera att den här kommunikationen fungerar som förväntat kan du övervaka AS2-, X12-och EDIFACT-meddelanden och konfigurera diagnostikloggning för integrations kontot med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Den här tjänsten övervakar molnet och lokala miljöer, hjälper dig att underhålla deras tillgänglighet och prestanda och samlar in körnings information och händelser för bättre fel sökning. Du kan också använda dessa data med andra tjänster, till exempel Azure Storage och Azure Event Hubs.
 
@@ -25,7 +25,7 @@ När du har konfigurerat B2B-kommunikation mellan handels partner i ditt integra
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Logic-app som är konfigurerad med diagnostikloggning. Lär dig [hur du skapar en logisk app](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den Logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
@@ -39,19 +39,19 @@ Du kan aktivera loggning antingen direkt från ditt integrations konto eller [vi
 
 ### <a name="turn-on-logging-from-integration-account"></a>Aktivera loggning från integrations konto
 
-1. I [Azure Portal](https://portal.azure.com)letar du reda på och väljer ditt integrations konto. Under **övervakning**väljer **diagnostikinställningar**.
+1. I [Azure Portal](https://portal.azure.com)letar du reda på och väljer ditt integrations konto. Under **övervakning**väljer du **diagnostikinställningar**.
 
    ![Sök efter och välj ditt integrations konto, Välj diagnostikinställningar](media/logic-apps-monitor-b2b-message/find-integration-account.png)
 
 1. Nu hittar och väljer du ditt integrations konto. I filter listor väljer du de värden som ska gälla för ditt integrations konto.
 När du är klar väljer du **Lägg till diagnostisk inställning**.
 
-   | Egenskap | Value | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Den Azure-prenumeration som är associerad med ditt integrations konto | 
-   | **Resursgrupp** | <*Azure-resource-group-name*> | Azure-resurs gruppen för ditt integrations konto | 
+   | **Resursgrupp** | <*Azure-resurs-grupp-namn* > | Azure-resurs gruppen för ditt integrations konto | 
    | **Resurstyp** | **Integrationskonton** | Typen för den Azure-resurs där du vill aktivera loggning | 
-   | **Resurs** | <*integration-account-name*> | Namnet på den Azure-resurs där du vill aktivera loggning | 
+   | **Resurs** | <*integration – konto namn* > | Namnet på den Azure-resurs där du vill aktivera loggning | 
    ||||  
 
    Exempel:
@@ -88,12 +88,12 @@ När du är klar väljer du **Lägg till diagnostisk inställning**.
 1. Nu hittar och väljer du ditt integrations konto. I filter listor väljer du de värden som ska gälla för ditt integrations konto.
 När du är klar väljer du **Lägg till diagnostisk inställning**.
 
-   | Egenskap | Value | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Den Azure-prenumeration som är associerad med ditt integrations konto | 
-   | **Resursgrupp** | <*Azure-resource-group-name*> | Azure-resurs gruppen för ditt integrations konto | 
+   | **Resursgrupp** | <*Azure-resurs-grupp-namn* > | Azure-resurs gruppen för ditt integrations konto | 
    | **Resurstyp** | **Integrationskonton** | Typen för den Azure-resurs där du vill aktivera loggning | 
-   | **Resurs** | <*integration-account-name*> | Namnet på den Azure-resurs där du vill aktivera loggning | 
+   | **Resurs** | <*integration – konto namn* > | Namnet på den Azure-resurs där du vill aktivera loggning | 
    ||||  
 
    Exempel:

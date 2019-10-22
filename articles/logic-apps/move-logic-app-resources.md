@@ -1,5 +1,5 @@
 ---
-title: Flytta logiska app-resurser mellan prenumerationer, resurs grupper eller regioner – Azure Logic Apps
+title: Flytta Logic Apps över prenumerationer, resurs grupper eller regioner – Azure Logic Apps
 description: Migrera Logic Apps eller integrations konton till andra Azure-prenumerationer, resurs grupper eller platser (regioner)
 services: logic-apps
 ms.service: logic-apps
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e7c201004be6c4d39f482cc288824cba74e302cb
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c3bad32943b83cbfe4c96087f3fef1c51f64bb1
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737503"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679115"
 ---
-# <a name="migrate-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Migrera Logic app-resurser till andra Azure-prenumerationer, resurs grupper eller regioner
+# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Flytta logiska app-resurser till andra Azure-prenumerationer, resurs grupper eller regioner
 
 Om du vill flytta din Logic app eller relaterade resurser till en annan Azure-prenumeration, resurs grupp eller region kan du utföra dessa uppgifter på olika sätt, till exempel Azure Portal, Azure PowerShell, Azure CLI och REST API. Innan du flyttar resurser bör du gå igenom följande överväganden: 
 
@@ -26,7 +26,7 @@ Om du vill flytta din Logic app eller relaterade resurser till en annan Azure-pr
 
 * När du flyttar resurser skapar Azure nya resurs-ID: n. Kontrol lera därför att du använder de nya ID: na i stället och uppdaterar eventuella skript eller verktyg som är associerade med de flyttade resurserna. När du flyttar Logi Kap par mellan prenumerationer, resurs grupper eller regioner måste du återskapa eller auktorisera om de OAuth-baserade anslutningarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Samma Azure-prenumeration som användes för att skapa den Logic app eller det integrations konto som du vill flytta
 
@@ -82,7 +82,7 @@ När du vill flytta en Logic app till en annan region beror alternativen på hur
 
 Mer information om mallar för att distribuera Logic Apps finns i följande avsnitt:
 
-* [: Automatisera distribution för Azure Logic Apps med hjälp av Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Översikt: Automatisera distribution av Azure Logic Apps med hjälp av Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Hitta, öppna och ladda ned din Logic app från Azure Portal till Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 * [Skapa Azure Resource Manager mallar för Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Distribuera Azure Resource Manager mallar för Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)

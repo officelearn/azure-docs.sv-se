@@ -15,10 +15,10 @@ ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70127395"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitets rapporter i Azure Portal
@@ -55,21 +55,21 @@ Kategorier inkluderar:
 - Alla
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
-- Authorization
-- Kontakta
+- Autentisering
+- Autentisering
+- Kontakt
 - Enhet
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Annat
+- Övrigt
 - Princip
 - ResourceManagement
 - RoleManagement
 - UserManagement
 
-Du kan också filtrera på en tjänst med hjälp av filter List filtret. Om du till exempel vill få alla gransknings händelser relaterade till lösen ords hantering via självbetjäning väljer du filtret för **lösen ords hantering** via självbetjäning.
+Du kan också filtrera på en tjänst med **hjälp av filter List filtret** . Om du till exempel vill få alla gransknings händelser relaterade till lösen ords hantering via självbetjäning väljer du filtret för **lösen ords hantering** via självbetjäning.
 
 Tjänsterna omfattar:
 
@@ -79,7 +79,7 @@ Tjänsterna omfattar:
 - SSO för program
 - Autentiseringsmetoder
 - B2C
-- Villkorad åtkomst
+- Villkorlig åtkomst
 - Kärnkatalog
 - Berättigandehantering
 - Identity Protection
@@ -91,7 +91,7 @@ Tjänsterna omfattar:
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar 
 
-I vyn inloggningar ingår alla användar inloggningar samt **program användnings** rapporten. Du kan också visa information om program användning i avsnittet **Hantera** i översikten över **företags program** .
+I vyn **inloggningar** ingår alla användar inloggningar samt **program användnings** rapporten. Du kan också visa information om program användning i avsnittet **Hantera** i översikten över **företags program** .
 
 Få åtkomst till inloggnings rapporten:
 
@@ -119,8 +119,8 @@ I följande tabell visas säkerhets rapporter i Azure AD-avvikande aktivitet och
 
 | Rapport om avvikande aktiviteter i Azure AD |  Typ av risk identifiering för identitets skydd|
 | :--- | :--- |
-| Används med läckta autentiseringsuppgifter | Läckta autentiseringsuppgifter |
-| Oregelbunden inloggningsaktivitet | Omöjligt att resa till ovanliga platser |
+| Användare med läckta autentiseringsuppgifter | Läckta autentiseringsuppgifter |
+| Oregelbunden inloggningsaktivitet | Omöjliga resor till ovanliga platser |
 | Inloggningar från potentiellt infekterade enheter | Inloggningar från angripna enheter|
 | Inloggningar från okända källor | Inloggningar från anonyma IP-adresser |
 | Inloggningar från IP-adresser med misstänkt aktivitet | Inloggningar från IP-adresser med misstänkt aktivitet |
@@ -139,7 +139,7 @@ Du kan komma åt rapporter om identifierade risk identifieringar i avsnittet **s
 - [Användare i riskzonen](concept-user-at-risk.md)
 - [Riskfyllda inloggningar](concept-risky-sign-ins.md)
 
-    ![Säkerhets rapporter](./media/howto-find-activity-reports/04.png "Säkerhets rapporter")
+    ![Säkerhetsrapporter](./media/howto-find-activity-reports/04.png "Säkerhetsrapporter")
 
 ## <a name="troubleshoot-issues-with-activity-reports"></a>Felsöka problem med aktivitets rapporter
 
@@ -155,7 +155,7 @@ Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte 
 
 När du hämtar aktivitets loggar i Azure Portal begränsar vi skalan till 250000 poster, sorterade efter senaste första. 
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Du kan använda [rapporterings-API:er för Azure AD](concept-reporting-api.md) att hämta upp till en miljoner poster när som helst.
 
@@ -176,7 +176,7 @@ Jag utförde vissa åtgärder i Azure Portal och förväntade att se gransknings
 | Kataloggranskning | &nbsp; | 2 min | 5 min |
 | Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. Om du inte ser loggarna även efter två timmar [skapar du en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) så undersöker vi problemet.
 
@@ -197,7 +197,7 @@ Jag loggade nyligen in på Azure-portalen och förväntade mig att se inloggning
 | Kataloggranskning | &nbsp; | 2 min | 5 min |
 | Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. Om du inte ser loggarna även efter två timmar [skapar du en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) så undersöker vi problemet.
 
@@ -220,7 +220,7 @@ Beroende på din licens lagrar Azure Active Directory aktivitetsrapporter under 
 
 Mer information finns i [Kvarhållningsprinciper för rapporter i Azure Active Directory](reference-reports-data-retention.md).  
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Du har två alternativ för att behålla data längre än 30 dagar. Du kan använda [Azure AD Reporting-API:er](concept-reporting-api.md) för att hämta data programmatiskt och lagra dem i en databas. Du kan även integrera spårningsloggar i ett SIEM-system från tredje part, till exempel Splunk eller SumoLogic.
 

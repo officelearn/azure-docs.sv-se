@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Salesforce för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Salesforce för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce.
 services: active-directory
 documentationCenter: na
@@ -16,17 +16,17 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64de004a1d9b3aa011c447fdded51658582586b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825774"
 ---
-# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce för automatisk användar etablering
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg som krävs för att utföra i Salesforce och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till Salesforce.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -36,7 +36,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 > [!IMPORTANT]
 > Om du använder ett Salesforce.com utvärderings konto kan du inte konfigurera automatisk användar etablering. Utvärderings kontona har inte den nödvändiga API-åtkomsten aktiverat förrän de har köpts. Du kan komma runt den här begränsningen genom att använda ett kostnads fritt [utvecklare](https://developer.salesforce.com/signup) för att slutföra den här kursen.
 
-Om du använder en sandbox-miljö med en Salesforce-miljö kan du läsa självstudien för [Salesforce-integrering](https://go.microsoft.com/fwLink/?LinkID=521879).
+Om du använder en sandbox-miljö med en Salesforce-miljö kan du läsa [självstudien för Salesforce-integrering](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Tilldela användare till Salesforce
 
@@ -72,7 +72,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![etablering](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![etablerings](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. Ange följande konfigurations inställningar under avsnittet **admin credentials** :
 
@@ -96,7 +96,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 10. Kopiera token, gå till Azure AD-fönstret och klistra in den i fältet **hemlig token** .
 
-11. **Klient-URL: en** måste anges om instansen av Salesforce finns på molnet för Salesforce-myndigheter. Annars är det valfritt. Ange klient webb adressen\<med formatet "https://Your-instance\>. My.Salesforce.com" och Ersätt \<din-instance\> med namnet på din Salesforce-instans.
+11. **Klient-URL: en** måste anges om instansen av Salesforce finns på molnet för Salesforce-myndigheter. Annars är det valfritt. Ange klient webb adressen med formatet "https://\<your-instance \>. my.salesforce.com" och ersätt \<your-instance \> med namnet på din Salesforce-instans.
 
 12. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din Salesforce-app.
 
@@ -106,7 +106,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 15. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till Salesforce.**
 
-16. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till Salesforce. Observera att attributen som har valts som **matchande** egenskaper används för att matcha användar kontona i Salesforce för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
+16. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till Salesforce. Observera att attributen som har valts som **matchande** egenskaper används för att matcha användar kontona i Salesforce för uppdaterings åtgärder. Välj knappen Spara för att spara ändringarna.
 
 17. Om du vill aktivera Azure AD Provisioning-tjänsten för Salesforce ändrar du **etablerings statusen** till **på** i avsnittet Inställningar
 
@@ -117,7 +117,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 Detta startar den inledande synkroniseringen av alla användare och/eller grupper som tilldelats Salesforce i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i Salesforce-appen.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

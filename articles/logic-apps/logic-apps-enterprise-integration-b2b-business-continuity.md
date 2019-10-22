@@ -1,6 +1,6 @@
 ---
-title: Haveriberedskap för B2B-integrationskonton – Azure Logic Apps | Microsoft Docs
-description: Gör dig redo för interregionala katastrofåterställning i Azure Logic Apps
+title: Haveri beredskap för integrations konton – Azure Logic Apps
+description: Konfigurera katastrof återställning mellan regioner för integrations konton i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,237 +8,236 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 321bfb673bab748176d75db7bcf21d76ddf0c819
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967758"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680401"
 ---
-# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Interregionala katastrofåterställning för B2B-integrationskonton i Azure Logic Apps
+# <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Konfigurera katastrof återställning mellan regioner för integrations konton i Azure Logic Apps
 
-B2B-arbetsbelastningar innehåller pengar transaktioner som order och fakturor. Vid ett haveri, det är viktigt för ett företag att snabbt återgå till att uppfylla serviceavtal för företag på företagsnivå överenskomna med deras partner. Den här artikeln visar hur du skapar en kontinuitetsplan för B2B-arbetsbelastningar. 
+B2B-arbetsbelastningar innefattar pengar transaktioner som order och fakturor. Under en katastrof händelse är det viktigt för en verksamhet att snabbt återställas för att möta service avtal på företags nivå som överenskommits med sina partner. Den här artikeln visar hur du skapar en verksamhets kontinuitets plan för B2B-arbetsbelastningar. 
 
-* Disaster Recovery-beredskap 
-* Växla över till sekundär region under ett haveri 
-* Återgå till den primära regionen efter ett haveri
+* Beredskap för haveri beredskap 
+* Redundansväxla till sekundär region under en katastrof händelse 
+* Återgå till primär region efter en katastrof händelse
 
-## <a name="disaster-recovery-readiness"></a>Disaster Recovery-beredskap  
+## <a name="disaster-recovery-readiness"></a>Beredskap för haveri beredskap  
 
-1. Ange en sekundär region och skapa en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) i den sekundära regionen.
+1. Identifiera en sekundär region och skapa ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) i den sekundära regionen.
 
-2. Lägg till partners, scheman och avtal för meddelandet krävs flöden var körningsstatusen måste replikeras till den sekundära regionen integrationskontot.
+2. Lägg till partners, scheman och avtal för de nödvändiga meddelande flöden där körnings statusen måste replikeras till integrations kontot för sekundär region.
 
    > [!TIP]
-   > Kontrollera att det finns konsekvens i integration konto artefakten namngivningskonvention i olika regioner. 
+   > Se till att det finns en konsekvens i integrerings kontots artefakts namngivnings konvention i flera regioner. 
 
-3. Om du vill hämta körningsstatusen från den primära regionen, skapa en logikapp i den sekundära regionen. 
+3. Om du vill hämta körnings statusen från den primära regionen skapar du en Logic-app i den sekundära regionen. 
 
-   Den här logikappen bör ha en *utlösaren* och en *åtgärd*. 
-   Utlösaren ska ansluta till primär region integrationskontot och åtgärden ska ansluta till den sekundära regionen integrationskontot. 
-   Baserat på tidsintervallet, utlösaren avsöker den primära regionen kör status tabell och hämtar nya poster, om sådana. Åtgärden uppdaterar dem till sekundär region integrationskontot. 
-   Detta hjälper till att hämta inkrementella Körningsstatus från primära regionen till sekundär region.
+   Den här Logic-appen bör ha en *utlösare* och en *åtgärd*. 
+   Utlösaren ska ansluta till integrations kontot för den primära regionen och åtgärden bör ansluta till integrations kontot för den sekundära regionen. 
+   Baserat på tidsintervallet avsöker utlösaren den primära regionens körnings status tabell och hämtar de nya posterna, om sådana finns. Åtgärden uppdaterar dem till integrations kontot för den sekundära regionen. 
+   Detta hjälper till att få stegvis körnings status från primär region till sekundär region.
 
-4. Affärskontinuitet i Logic Apps integrationskontot är avsett att stödja baserat på B2B-protokoll - X12, AS2 och EDIFACT. Klicka på respektive länkarna för att hitta detaljerade anvisningar.
+4. Affärs kontinuitet i Logic Apps integrations kontot har utformats för att stödja baserat på B2B-protokoll – X12, AS2 och EDIFACT. Om du vill hitta detaljerade steg väljer du respektive länkar.
 
-5. Rekommendationen är att distribuera alla primära regionen resurser i en sekundär region för. 
+5. Rekommendationen är att distribuera alla primära region resurser i en sekundär region. 
 
-   Primär region resurser inkluderar Azure SQL Database eller Azure Cosmos DB, Azure Service Bus och Azure Event Hubs används för meddelanden, Azure API Management och Azure Logic Apps-funktionen i Azure App Service.   
+   Primära region resurser omfattar Azure SQL Database eller Azure Cosmos DB Azure Service Bus och Azure Event Hubs som används för meddelande hantering, Azure-API Management och Azure Logic Apps-funktionen i Azure App Service.   
 
-6. Upprätta en anslutning från en primär region till en sekundär region. Om du vill hämta körningsstatusen från en primär region, skapar du en logikapp i en sekundär region. 
+6. Upprätta en anslutning från en primär region till en sekundär region. Om du vill hämta körnings statusen från en primär region skapar du en logisk app i en sekundär region. 
 
-   Logikappen bör ha en utlösare och en åtgärd. 
-   Utlösaren ska ansluta till en primär region integrationskontot. 
-   Åtgärden ska ansluta till en sekundär region integrationskontot. 
-   Baserat på tidsintervallet, utlösaren avsöker den primära regionen kör status tabell och hämtar nya poster, om sådana. 
-   Åtgärden uppdaterar dem till en sekundär region integrationskontot. 
-   Den här processen hjälper till att hämta inkrementella Körningsstatus från den primära regionen till den sekundära regionen.
+   Logic-appen bör ha en utlösare och en åtgärd. 
+   Utlösaren ska ansluta till ett integrations konto för den primära regionen. 
+   Åtgärden bör ansluta till ett integrations konto för sekundär region. 
+   Baserat på tidsintervallet avsöker utlösaren den primära regionens körnings status tabell och hämtar de nya posterna, om sådana finns. 
+   Åtgärden uppdaterar dem till ett integrations konto för sekundär region. 
+   Den här processen hjälper till att få stegvis körnings status från den primära regionen till den sekundära regionen.
 
-Affärskontinuitet i ett konto för integrering av Logic Apps ger stöd baserat på de B2B-protokollen X12, AS2 och EDIFACT. Detaljerade anvisningar om hur du använder X12 och AS2 i [X12](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#x12) och [AS2](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#as2) i den här artikeln.
+Affärs kontinuitet i ett Logic Apps integrations konto ger stöd baserat på B2B-protokollen X12, AS2 och EDIFACT. Detaljerade anvisningar om hur du använder X12 och AS2 finns i [X12](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#x12) och [AS2](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#as2) i den här artikeln.
 
-## <a name="fail-over-to-a-secondary-region-during-a-disaster-event"></a>Växla över till en sekundär region under ett haveri
+## <a name="fail-over-to-a-secondary-region-during-a-disaster-event"></a>Redundansväxla till en sekundär region under en katastrof händelse
 
-Vid ett haveri, när den primära regionen inte är tillgänglig för affärskontinuitet, dirigera trafik till den sekundära regionen. En sekundär region kan ett företag för att återställa funktioner snabbt för att uppfylla Återställningspunktmål/Återställningstidsmål kommit överens om deras partner. Det minskar också ansträngningar för att växla över från en region till en annan region. 
+När den primära regionen inte är tillgänglig för affärs kontinuitet under en katastrof händelse, dirigerar du trafiken till den sekundära regionen. En sekundär region hjälper en verksamhet att snabbt återställa funktioner för att möta de återställnings-/RTO som överenskommits av deras partner. Det minimerar också ansträngningarna att redundansväxla från en region till en annan region. 
 
-Det finns en förväntad svarstid när du kopierar kontrollnummer från en primär region till en sekundär region. Om du vill undvika att skicka duplicerade genererade kontrollnummer till partners vid ett haveri, rekommendationen är att öka kontrollnumren i avtalen sekundär region med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+Det finns en förväntad svars tid när kontroll nummer kopieras från en primär region till en sekundär region. För att undvika att skicka dubbletter av genererade kontroll nummer till partner under en katastrof händelse, är rekommendationen att öka kontroll numren i de sekundära region avtalen med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
-## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Växla över till en primär region efter haveri
+## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Återgå till en primär region efter katastrof händelse
 
-Om du vill växla tillbaka till en primär region när den är tillgänglig, Följ dessa steg:
+Följ dessa steg om du vill återgå till en primär region när den är tillgänglig:
 
 1. Sluta ta emot meddelanden från partner i den sekundära regionen.  
 
-2. Öka den genererade kontrollnummer för alla de primära regionen avtal med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+2. Öka de genererade kontroll numren för alla de primära region avtalen med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Dirigera trafik från den sekundära regionen till den primära regionen.
 
-4. Kontrollera att den logikapp som skapats i den sekundära regionen för att ta emot Körningsstatus från den primära regionen är aktiverad.
+4. Kontrol lera att Logic-appen som skapats i den sekundära regionen för att hämta körnings status från den primära regionen är aktive rad.
 
 ## <a name="x12"></a>X12 
 
-Affärskontinuitet för EDI X 12 dokument baseras på kontrollnummer:
+Affärs kontinuitet för EDI X12-dokument baseras på kontroll nummer:
 
 > [!TIP]
-> Du kan också använda den [X12 snabb start mallen](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) att skapa logikappar. Skapa primära och sekundära integrationskonton är förutsättningar för att använda mallen. Det hjälper dig för att skapa två logic apps, en för mottagna kontrollnummer och en annan för genererade kontrollnummer mallen. Respektive utlösare och åtgärder som skapas i logic apps kan ansluta utlösaren till primära integrationskontot samt åtgärden att sekundära integrationskontot.
+> Du kan också använda [snabb starts mal len X12](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) för att skapa Logic Apps. Du måste skapa primära och sekundära integrations konton för att kunna använda mallen. Mallen hjälper till att skapa två Logic Apps, en för mottagna kontroll nummer och en annan för genererade kontroll nummer. Respektive utlösare och åtgärder skapas i Logi Kap par och ansluter utlösaren till det primära integrations kontot och åtgärden till det sekundära integrations kontot.
 
-**Krav**
+**Förutsättningar**
 
-Om du vill aktivera haveriberedskap för inkommande meddelanden, Välj dubbla Kontrollera inställningarna i X12 avtalet tar emot inställningar.
+Om du vill aktivera haveri beredskap för inkommande meddelanden väljer du de duplicerade kontroll inställningarna i X12-avtalets mottagnings inställningar.
 
-![Välj kontrollen av dubblett-inställningar](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
+![Välj duplicera kontroll inställningar](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Skapa en [logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) i en sekundär region.    
+1. Skapa en [logisk app](../logic-apps/quickstart-create-first-logic-app-workflow.md) i en sekundär region.    
 
-2. Sök på **X12**, och välj **X12-när ett kontrollnummer ändras**.   
+2. Sök på **X12**och välj **X12 – när ett kontroll nummer ändras**.   
 
    ![Sök efter X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
 
-   Utlösaren uppmanas du att upprätta en anslutning till ett integrationskonto. 
-   Utlösaren ska anslutas till en primär region integrationskontot.
+   Utlösaren efterfrågar att du upprättar en anslutning till ett integrations konto. 
+   Utlösaren ska vara ansluten till ett integrations konto för den primära regionen.
 
-3. Anger du ett namn på anslutningen, väljer din *primära regionen integrationskontot* i listan och välj **skapa**.   
+3. Ange ett anslutnings namn, Välj ditt *primära region integrations konto* i listan och välj **skapa**.   
 
-   ![Primär regionnamn på integrationskonto](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
+   ![Namn på integrations konto för primär region](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
-4. Den **DateTime för start av synkronisering av kontrollnummer** inställningen är valfri. Den **frekvens** kan anges till **dag**, **timme**, **minut**, eller **andra** med ett intervall.   
+4. Inställningen **datetime för start av kontroll numret** är valfri. **Frekvensen** kan anges till **dag**, **timme**, **minut**eller **sekund** med ett intervall.   
 
-   ![Datum/tid och frekvens](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![DateTime och frekvens](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-5. Välj **nytt steg** > **Lägg till en åtgärd**.
+5. Välj **Nytt steg** > **Lägg till en åtgärd**.
 
    ![Nytt steg, Lägg till en åtgärd](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-6. Sök på **X12**, och välj **X12 – lägga till eller uppdatera kontrollnummer**.   
+6. Sök på **X12**och välj **X12 – Lägg till eller uppdatera kontroll nummer**.   
 
-   ![Lägg till eller uppdatera kontrollnummer](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Lägg till eller uppdatera kontroll nummer](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
-7. Om du vill ansluta en åtgärd till en sekundär region integrationskontot, Välj **ändra anslutning** > **Lägg till ny anslutning** en lista över tillgängliga integrationskonton. Ange ett namn, Välj din *sekundär region integrationskontot* i listan och välj **skapa**. 
+7. Om du vill ansluta en åtgärd till ett integrations konto för sekundär region väljer du **ändra anslutning**  > **Lägg till ny anslutning** för en lista över tillgängliga integrations konton. Ange ett anslutnings namn, Välj ditt *integrerings konto för sekundär region* i listan och välj **skapa**. 
 
-   ![Sekundär regionnamn på integrationskonto](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Namn på integrations konto för sekundär region](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-8. Växla till råindata genom att klicka på ikonen i övre högra hörnet.
+8. Växla till rå data genom att klicka på ikonen i det övre högra hörnet.
 
-   ![Växla till rå-indata](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
+   ![Växla till rå data](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
 
-9. Välj brödtext från väljaren för dynamiskt innehåll och spara logikappen.
+9. Välj brödtext från väljaren för dynamiskt innehåll och spara Logic-appen.
 
-   ![Dynamiskt innehåll fält](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
+   ![Fält för dynamiskt innehåll](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
 
-   Baserat på tidsintervallet, utlösaren avsöker tabellen primära region som tas emot kontroll nummer och hämtar de nya posterna. 
-   Åtgärden uppdaterar posterna i integrationskontot sekundär region. 
-   Om det finns inga uppdateringar, utlösarens status visas som **ignoreras**.   
+   Baserat på tidsintervallet avsöker utlösaren den primära regionen mottagen kontroll nummer tabell och hämtar de nya posterna. 
+   Åtgärden uppdaterar posterna i integrations kontot för den sekundära regionen. 
+   Om det inte finns några uppdateringar visas utlösarens status som **överhoppad**.   
 
-   ![Register för kontroll](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+   ![Kontroll nummer tabell](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
-Baserat på tidsintervallet, replikerar inkrementella Körningsstatus från en primär region till en sekundär region. Vid ett haveri, när den primära regionen inte är tillgänglig, direkt trafik till den sekundära regionen för affärskontinuitet. 
+Baserat på tidsintervallet replikeras den stegvisa körnings statusen från en primär region till en sekundär region. När den primära regionen inte är tillgänglig under en katastrof händelse, dirigerar du trafiken till den sekundära regionen för affärs kontinuitet. 
 
 ## <a name="edifact"></a>EDIFACT 
 
-Affärskontinuitet för EDI EDIFACT-dokument baseras på kontrollnummer.
+Affärs kontinuitet för EDI EDIFACT-dokument baseras på kontroll nummer.
 
-**Krav**
+**Förutsättningar**
 
-Välj dubbla Kontrollera inställningarna i din EDIFACT-avtal ta emot inställningar för att aktivera haveriberedskap för inkommande meddelanden.
+Om du vill aktivera haveri beredskap för inkommande meddelanden väljer du de duplicerade kontroll inställningarna i EDIFACT-avtalets mottagnings inställningar.
 
-![Välj kontrollen av dubblett-inställningar](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+![Välj duplicera kontroll inställningar](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Skapa en [logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) i en sekundär region.    
+1. Skapa en [logisk app](../logic-apps/quickstart-create-first-logic-app-workflow.md) i en sekundär region.    
 
-2. Sök på **EDIFACT**, och välj **EDIFACT - när ett kontrollnummer ändras**.
+2. Sök på **EDIFACT**och välj **EDIFACT – när ett kontroll nummer ändras**.
 
    ![Sök efter EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
 
-   Utlösaren uppmanas du att upprätta en anslutning till ett integrationskonto. 
-   Utlösaren ska anslutas till en primär region integrationskontot. 
+   Utlösaren efterfrågar att du upprättar en anslutning till ett integrations konto. 
+   Utlösaren ska vara ansluten till ett integrations konto för den primära regionen. 
 
-3. Anger du ett namn på anslutningen, väljer din *primära regionen integrationskontot* i listan och välj **skapa**.    
+3. Ange ett anslutnings namn, Välj ditt *primära region integrations konto* i listan och välj **skapa**.    
 
-   ![Primär regionnamn på integrationskonto](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
+   ![Namn på integrations konto för primär region](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
 
-4. Den **DateTime för start av synkronisering av kontrollnummer** inställningen är valfri. Den **frekvens** kan anges till **dag**, **timme**, **minut**, eller **andra** med ett intervall.    
+4. Inställningen **datetime för start av kontroll numret** är valfri. **Frekvensen** kan anges till **dag**, **timme**, **minut**eller **sekund** med ett intervall.    
 
-   ![Datum/tid och frekvens](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![DateTime och frekvens](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-6. Välj **nytt steg** > **Lägg till en åtgärd**.    
+6. Välj **Nytt steg** > **Lägg till en åtgärd**.    
 
    ![Nytt steg, Lägg till en åtgärd](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-7. Sök på **EDIFACT**, och välj **EDIFACT - Lägg till eller uppdatera kontrollnummer**.   
+7. Sök på **EDIFACT**och välj **EDIFACT – Lägg till eller uppdatera kontroll nummer**.   
 
-   ![Lägg till eller uppdatera kontrollnummer](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Lägg till eller uppdatera kontroll nummer](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
-8. Om du vill ansluta en åtgärd till en sekundär region integrationskontot, Välj **ändra anslutning** > **Lägg till ny anslutning** en lista över tillgängliga integrationskonton. Ange ett namn, Välj din *sekundär region integrationskontot* i listan och välj **skapa**.
+8. Om du vill ansluta en åtgärd till ett integrations konto för sekundär region väljer du **ändra anslutning**  > **Lägg till ny anslutning** för en lista över tillgängliga integrations konton. Ange ett anslutnings namn, Välj ditt *integrerings konto för sekundär region* i listan och välj **skapa**.
 
-   ![Sekundär regionnamn på integrationskonto](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Namn på integrations konto för sekundär region](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-9. Växla till råindata genom att klicka på ikonen i övre högra hörnet.
+9. Växla till rå data genom att klicka på ikonen i det övre högra hörnet.
 
-   ![Växla till rå-indata](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
+   ![Växla till rå data](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
-10. Välj brödtext från väljaren för dynamiskt innehåll och spara logikappen.   
+10. Välj brödtext från väljaren för dynamiskt innehåll och spara Logic-appen.   
 
-   ![Dynamiskt innehåll fält](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
+   ![Fält för dynamiskt innehåll](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
-   Baserat på tidsintervallet, utlösaren avsöker tabellen primära region som tas emot kontroll nummer och hämtar de nya posterna.
-   Åtgärden uppdaterar poster till integrationskontot sekundär region. 
-   Om det finns inga uppdateringar, utlösarens status visas som **ignoreras**.
+   Baserat på tidsintervallet avsöker utlösaren den primära regionen mottagen kontroll nummer tabell och hämtar de nya posterna.
+   Åtgärden uppdaterar posterna till integrations kontot för den sekundära regionen. 
+   Om det inte finns några uppdateringar visas utlösarens status som **överhoppad**.
 
-   ![Register för kontroll](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+   ![Kontroll nummer tabell](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
-Baserat på tidsintervallet, replikerar inkrementella Körningsstatus från en primär region till en sekundär region. Vid ett haveri, när den primära regionen inte är tillgänglig, direkt trafik till den sekundära regionen för affärskontinuitet. 
+Baserat på tidsintervallet replikeras den stegvisa körnings statusen från en primär region till en sekundär region. När den primära regionen inte är tillgänglig under en katastrof händelse, dirigerar du trafiken till den sekundära regionen för affärs kontinuitet. 
 
 ## <a name="as2"></a>AS2 
 
-Affärskontinuitet för dokument som använder AS2-protokollet baseras på det meddelande-ID och MIC-värdet.
+Affärs kontinuitet för dokument som använder AS2-protokollet baseras på meddelande-ID och MIC-värde.
 
 > [!TIP]
-> Du kan också använda den [AS2 Snabbstart mallen](https://github.com/Azure/azure-quickstart-templates/pull/3302) att skapa logikappar. Skapa primära och sekundära integrationskonton är förutsättningar för att använda mallen. Mallen hjälper dig att skapa en logikapp som har en utlösare och en åtgärd. Logikappen skapar en anslutning från en utlösare för en primär integrationskontot och en åtgärd till en sekundär integrationskontot.
+> Du kan också använda [snabb starts mal len AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) för att skapa Logic Apps. Du måste skapa primära och sekundära integrations konton för att kunna använda mallen. Mallen hjälper till att skapa en logisk app som har en utlösare och en åtgärd. Logic-appen skapar en anslutning från en utlösare till ett primärt integrations konto och en åtgärd till ett sekundärt integrations konto.
 
-1. Skapa en [logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) i den sekundära regionen.  
+1. Skapa en [Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md) i den sekundära regionen.  
 
-2. Sök på **AS2**, och välj **AS2 - när ett mikrofonvärde skapas**.   
+2. Sök på **AS2**och välj **AS2 – när ett MIC-värde skapas**.   
 
    ![Sök efter AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
 
-   En utlösare uppmanas du att upprätta en anslutning till ett integrationskonto. 
-   Utlösaren ska anslutas till en primär region integrationskontot. 
+   En utlösare efterfrågar att du upprättar en anslutning till ett integrations konto. 
+   Utlösaren ska vara ansluten till ett integrations konto för den primära regionen. 
    
-3. Anger du ett namn på anslutningen, väljer din *primära regionen integrationskontot* i listan och välj **skapa**.
+3. Ange ett anslutnings namn, Välj ditt *primära region integrations konto* i listan och välj **skapa**.
 
-   ![Primär regionnamn på integrationskonto](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
+   ![Namn på integrations konto för primär region](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
-4. Den **DateTime för start av MIC värdet synkronisering** inställningen är valfri. Den **frekvens** kan anges till **dag**, **timme**, **minut**, eller **andra** med ett intervall.   
+4. Inställningen **datetime för start av mikrofon värde** är valfri. **Frekvensen** kan anges till **dag**, **timme**, **minut**eller **sekund** med ett intervall.   
 
-   ![Datum/tid och frekvens](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
+   ![DateTime och frekvens](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
 
-5. Välj **nytt steg** > **Lägg till en åtgärd**.  
+5. Välj **Nytt steg** > **Lägg till en åtgärd**.  
 
    ![Nytt steg, Lägg till en åtgärd](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
-6. Sök på **AS2**, och välj **AS2 - Lägg till eller uppdatera MIC-innehåll**.  
+6. Sök på **AS2**och välj **AS2 – Lägg till eller uppdatera MIC-innehåll**.  
 
-   ![MIC-tillägg eller uppdatering](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
+   ![Tillägg eller uppdatering av MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
-7. Om du vill ansluta en åtgärd till en sekundär integrationskontot, Välj **ändra anslutning** > **Lägg till ny anslutning** en lista över tillgängliga integrationskonton. Ange ett namn, Välj din *sekundär region integrationskontot* i listan och välj **skapa**.
+7. Om du vill ansluta en åtgärd till ett sekundärt integrations konto väljer du **ändra anslutning**  > **Lägg till ny anslutning** för en lista över tillgängliga integrations konton. Ange ett anslutnings namn, Välj ditt *integrerings konto för sekundär region* i listan och välj **skapa**.
 
-   ![Sekundär regionnamn på integrationskonto](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
+   ![Namn på integrations konto för sekundär region](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
-8. Växla till råindata genom att klicka på ikonen i övre högra hörnet.
+8. Växla till rå data genom att klicka på ikonen i det övre högra hörnet.
 
-   ![Växla till rå-indata](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2rawinputs.png)
+   ![Växla till rå data](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2rawinputs.png)
 
-9. Välj brödtext från väljaren för dynamiskt innehåll och spara logikappen.   
+9. Välj brödtext från väljaren för dynamiskt innehåll och spara Logic-appen.   
 
    ![Dynamiskt innehåll](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid7.png)
 
-   Baserat på tidsintervallet, utlösaren avsöker den primära region tabellen och hämtar de nya posterna. Åtgärden uppdaterar dem till integrationskontot sekundär region. 
-   Om det finns inga uppdateringar, utlösarens status visas som **ignoreras**.  
+   Baserat på tidsintervallet avsöker utlösaren den primära region tabellen och hämtar de nya posterna. Åtgärden uppdaterar dem till integrations kontot för den sekundära regionen. 
+   Om det inte finns några uppdateringar visas utlösarens status som **överhoppad**.  
 
    ![Primär region tabell](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
 
-Baserat på tidsintervallet, replikeras inkrementella Körningsstatus från den primära regionen till den sekundära regionen. Vid ett haveri, när den primära regionen inte är tillgänglig, direkt trafik till den sekundära regionen för affärskontinuitet. 
+Baserat på tidsintervallet replikeras den stegvisa körnings statusen från den primära regionen till den sekundära regionen. När den primära regionen inte är tillgänglig under en katastrof händelse, dirigerar du trafiken till den sekundära regionen för affärs kontinuitet. 
 
 ## <a name="next-steps"></a>Nästa steg
 

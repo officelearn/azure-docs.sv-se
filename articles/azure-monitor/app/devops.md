@@ -1,162 +1,157 @@
 ---
-title: Web programprestanda övervakning – Azure Application Insights | Microsoft Docs
-description: Hur Application Insights passar in i devOps-cykeln
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Prestanda övervakning av webb program – Azure Application Insights | Microsoft Docs
+description: Hur Application Insights passar i devOps-cykeln
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/21/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/21/2018
+ms.openlocfilehash: bf7c0b4db2b7eb662f55b917dbe318d0ad8023ce
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899761"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677295"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
-Application Insights övervakar webbappen som körs. Det finns information om fel och problem med prestanda och hjälper dig att analysera hur kunder använder din app. Den fungerar för appar som körs på flera olika plattformar (ASP.NET, Java EE, Node.js,...) och är värd för antingen i molnet eller lokalt. 
+Application Insights övervakar den webbapp som körs. Du får information om fel och prestanda problem och hjälper dig att analysera hur kunderna använder din app. Det fungerar för appar som körs på många plattformar (ASP.NET, Java EE, Node. js,...) och finns i molnet eller lokalt. 
 
-![Aspekter av komplexiteten med att leverera webbappar](./media/devops/010.png)
+![Aspekter av komplexiteten med att leverera webb program](./media/devops/010.png)
 
-Det är viktigt att övervaka ett modernt program när den körs. Det viktigaste är att du vill upptäcka fel innan de flesta av dina kunder gör. Du också vill identifiera och åtgärda problem med prestanda, medan inte oåterkalleligt, kanske saker går långsammare eller orsaka vissa besvär för användarna. Och när systemet fungerar tills du är nöjd, du vill veta vad användarna gör med den: Använder de senaste funktionen? De lyckas med den?
+Det är viktigt att övervaka ett modernt program medan det körs. Det viktigaste är att du vill upptäcka felen innan de flesta kunder gör. Du vill också identifiera och åtgärda prestanda problem som, även om de inte är oåterkalleliga, kanske saktar ned saker eller drabbas av användare. Och när systemet presterar för din belåtenhet vill du veta vad användarna gör med det: är de som använder den senaste funktionen? Lyckas det?
 
-Moderna webbprogram har utvecklats i en cykel för kontinuerlig leverans av: levererar en ny funktion eller en förbättring; Se hur väl den fungerar för användarna. Planera steg utveckling baserat på denna kunskap. En viktig del av den här cykeln är Fjärrvisning-fasen. Application Insights erbjuder verktyg för att övervaka ett webbprogram för prestanda och användning.
+Moderna webb program utvecklas i en cykel med kontinuerlig leverans: släpp en ny funktion eller förbättringar. Observera hur väl det fungerar för användarna. planera nästa steg med utveckling utifrån den kunskapen. En viktig del av den här cykeln är observations fasen. Application Insights innehåller verktyg för att övervaka webb program för prestanda och användning.
 
-Den viktigaste delen av den här processen är diagnostik- och diagnos. Om programmet misslyckas är företag förlorad. Den primära rollen av ett ramverk för övervakning är därför att upptäcka fel på ett tillförlitligt sätt, meddelar dig omedelbart och att det innehåller information som behövs för att diagnosticera problemet. Detta är exakt vad Application Insights gör.
+Den viktigaste aspekten av den här processen är diagnostik och diagnostik. Om programmet Miss lyckas försvinner verksamheten. Den viktigaste rollen i ett övervaknings ramverk kan därför upptäcka fel på ett tillförlitligt sätt, meddela dig omedelbart och presentera den information som krävs för att diagnostisera problemet. Detta är precis vad Application Insights gör.
 
-### <a name="where-do-bugs-come-from"></a>Varifrån kommer buggar?
-Fel i web system uppkommer vanligtvis konfigurationsproblem eller felaktig samverkan mellan många komponenter. Den första uppgiften när du hanterar en live-webbplatsen incident är därför att identifiera lokus problemets: vilken komponent eller relationen är orsaken?
+### <a name="where-do-bugs-come-from"></a>Var kommer buggar från?
+Fel i webb system uppstår vanligt vis vid konfigurations problem eller felaktiga interaktioner mellan deras många komponenter. Den första aktiviteten för att hantera en Live site-incident är därför att identifiera Locus av problemet: vilken komponent eller relation är orsaken?
 
-Några av oss, de som har grå hår kan komma ihåg en enklare era som körde ett program i en dator. Utvecklare kan testa den noggrant innan du levererar. och har levererats, skulle sällan se eller Tänk på det igen. Användarna behöver föreligger med resterande buggar i många år. 
+En del av oss, de med grå hår, kan komma ihåg en enklare stund där ett dator program kördes på en dator. Utvecklarna skulle testa det noggrant innan det levereras. och har levererat den, skulle det sällan se eller fundera på det igen. Användarna måste kunna få fram de återstående buggar i många år. 
 
-Saker är nu så mycket olika. Din app har en mängd olika enheter ska köras på och det kan vara svårt att garantera exakt samma beteende på var och en. Appar i molnet innebär buggar kan åtgärdas snabbt, men det innebär också kontinuerlig tävling och en förväntan av de nya funktionerna regelbundet. 
+Sådant är mycket annorlunda nu. Din app har en mängd olika med olika enheter som kan köras på, och det kan vara svårt att garantera exakt samma beteende på var och en. Att vara värd för appar i molnet innebär att buggar kan åtgärdas snabbt, men det innebär även kontinuerlig konkurrens och att nya funktioner förväntas med frekventa intervall. 
 
-I dessa villkor är det enda sättet att behålla en fast kontroll på antalet bugg automatiserade Enhetstestning. Det skulle vara omöjligt att manuellt igen testa allt på varje leverans. Enhetstest är nu en vanliga del av skapandeprocessen. Till exempel Xamarin Test Cloud verktygen genom att tillhandahålla automatisk Användargränssnittet för testning på flera versioner av webbläsaren. Dessa testning systemen kan vi hoppas att frekvensen för buggar i en app kan hållas till ett minimum.
+I dessa fall är det enda sättet att behålla en bekräftad kontroll av antalet fel som automatisk enhets testning. Det skulle vara omöjligt att manuellt testa om allting på varje leverans. Enhets test är nu en vanliga del av bygg processen. Verktyg som Xamarin Test Cloud hjälp genom att tillhandahålla automatiserat UI-testning på flera webb läsar versioner. Dessa test regler gör det möjligt för oss att hoppas att frekvensen av buggar som finns i en app kan hållas till ett minimum.
 
-Typiskt webbprogram har många live komponenter. Förutom att klienten (i en webbläsare eller enhet app) och webbservern kan förväntas det vara betydande backend-bearbetning. Kanske är serverdelen en pipeline av komponenter eller en glesare samling samverkande delar. Och många av dem inte kontroll över – de är externa tjänster som du är beroende av.
+Vanliga webb program har många Live-komponenter. Förutom klienten (i en webbläsare eller enhets app) och webb servern är det troligt att det finns stor server dels bearbetning. Server delen är kanske en pipeline med komponenter eller en glesare samling av samarbets delar. Och många av dem är inte i din kontroll – de är externa tjänster som du är beroende av.
 
-Det kan vara svårt och uneconomical att testa för eller förutser, alla möjliga fellägen i det aktiva systemet själva i konfigurationer som dessa. 
+I konfigurationer som dessa kan det vara svårt och kostnads fritt att testa eller förutse varje möjligt felläge, förutom i själva Live-systemet. 
 
 ### <a name="questions-"></a>Frågor...
-Vissa frågor som ber vi när vi håller på att utveckla ett webbsystem:
+Några frågor som vi frågar när vi utvecklar ett webb system:
 
-* Min app kraschar? 
-* Vad hände exakt? – Om den misslyckades en begäran, vill jag veta hur det kom dit. Vi behöver en spårning av händelser...
-* Är tillräckligt snabbt min app? Hur lång tid tar det för att svara på vanliga begäranden?
-* Servern kan hantera belastningen? När antalet begäranden som ökar svarstiden håller stadig?
-* Hur responsiv är Mina beroenden - REST API: erna, databaser och andra komponenter som min app anropar. I synnerhet om systemet är långsamt, är det min komponent eller får jag långsamma svar från någon annan?
-* Är min app upp eller ned? Kan den ses från hela världen? Meddela mig om stoppas...
-* Vad är den grundläggande orsaken? Var felet i min komponent eller ett beroende? Är det ett kommunikationsproblem?
-* Hur många användare påverkas? Om jag har fler än ett problem att hantera, vilket är den viktigaste?
+* Kraschar min app? 
+* Vad är exakt hänt? – Om det inte gick att ta emot en begäran vill du veta hur det gick dit. Vi behöver en spårning av händelser...
+* Är min app tillräckligt snabb? Hur lång tid tar det att svara på vanliga förfrågningar?
+* Kan servern hantera belastningen? Är svars tiden konstant när antalet begär Anden ökar?
+* Hur svar är mina beroenden – REST-API: er, databaser och andra komponenter som min app anropar. I synnerhet om systemet är långsamt, är det min komponent eller jag får jag långsamma svar från någon annan?
+* Är min app upp eller ned? Kan den ses från hela världen? Meddela mig om det stoppas...
+* Vad är rotor saken? Gick det inte att utföra någon komponent eller ett beroende? Är det ett kommunikations problem?
+* Hur många användare påverkas? Om jag har fler än ett problem att ta itu, vilket är den viktigaste?
 
 ## <a name="what-is-application-insights"></a>Vad är Application Insights?
-![Grundläggande arbetsflöde för Application Insights](./media/devops/020.png)
+![Grundläggande arbets flöde för Application Insights](./media/devops/020.png)
 
-1. Application Insights instrumenterar din app och skickar telemetri om den medan appen körs. Du kan skapa Application Insights SDK i appen, eller du kan använda instrumentation vid körning. Den tidigare metoden är mer flexibel, som du kan lägga till din egen telemetri till vanliga moduler.
-2. Telemetri som skickas till Application Insights-portalen, där de lagras och bearbetas. (Du bör även om Application Insights finns i Microsoft Azure, men du kan övervaka alla webbappar – inte bara Azure-appar.)
-3. Telemetri som visas för dig i form av diagram och tabeller för händelser.
+1. Application Insights instrumenter din app och skickar telemetri om den medan appen körs. Du kan antingen bygga Application Insights SDK i appen eller använda instrumentering vid körning. Den tidigare metoden är mer flexibel, eftersom du kan lägga till din egen telemetri i de vanliga modulerna.
+2. Telemetrin skickas till Application Insights-portalen, där den lagras och bearbetas. (Även om Application Insights finns i Microsoft Azure kan den övervaka alla webbappar – inte bara Azure-appar.)
+3. Telemetri visas i form av diagram och tabell händelser.
 
-Det finns två typer av telemetri: aggregerade och raw-instanser. 
+Det finns två huvud typer av telemetri: aggregerade och råa instanser. 
 
-* Instansdata innehåller till exempel en rapport med en begäran som har tagits emot av webbappen. Du kan hitta för och kontrollera informationen för en förfrågan med sökverktyget i Application Insights-portalen. Instansen omfattar data, till exempel hur lång tid tog att svara på begäran, samt den begärda URL: en, göra en uppskattning av platsen för klienten och andra data på din app.
-* Sammanställda data innehåller antalet händelser per tidsenhet, så att du kan jämföra andelen begäranden med svarstiderna. Den innehåller också medelvärden över mått, till exempel svarstider för begäran.
+* Instans data inkluderar exempelvis en rapport över en begäran som har tagits emot av din webbapp. Du kan söka efter och granska information om en begäran med hjälp av sökverktyget i Application Insights portalen. Instansen skulle omfatta data, till exempel hur länge din app tog att svara på begäran, samt den begärda URL: en, ungefärlig plats för klienten och andra data.
+* Sammanställda data inkluderar antal händelser per tidsenhets tid, så att du kan jämföra antalet begär Anden med svars tiderna. Den innehåller också genomsnitt av mått, till exempel svars tider för begäran.
 
-Huvudkategorier av data är:
+Huvud kategorier av data är:
 
-* Begäranden till din app (vanligtvis HTTP-begäranden), med data på URL: en, svarstid, och lyckats eller misslyckats.
-* Beroenden - REST- och SQL-anrop gjorda av din app, även med URI, svarstider och lyckades
-* Undantag, inklusive stackspårningar.
-* Data om sidvisningar, som kommer från användarnas webbläsare.
-* Mått, till exempel prestandaräknare, samt mått som du har skrivit själv. 
-* Anpassade händelser som du kan använda för att spåra affärshändelser
-* Loggspårningar som används för felsökning.
+* Begär anden till din app (vanligt vis HTTP-begäranden) med data på URL, svars tid och lyckade eller misslyckade.
+* Beroenden – REST-och SQL-anrop som görs av din app, även med URI, svars tider och lyckade
+* Undantag, inklusive stack spårningar.
+* Sid visnings data, som kommer från användarnas webbläsare.
+* Mått som prestanda räknare, samt mått som du skriver själv. 
+* Anpassade händelser som du kan använda för att spåra affärs händelser
+* Logga spårningar som används för fel sökning.
 
 ## <a name="case-study-real-madrid-fc"></a>Fallstudie: Real Madrid F.C.
-Webbtjänst [Real Madrid Football Club](https://www.realmadrid.com/) fungerar ungefär 450 miljoner fans över hela världen. Fans komma åt det både via webbläsare och den Club mobila appar. Fans kan inte bara boken biljetter, men också komma åt information och video klipp på resultat, spelare och kommande spel. De kan söka med filter som antal mål poängsätts. Det finns också länkar till sociala medier. Användarupplevelsen är mycket personlig och är utformad som en dubbelriktad kommunikation för att engagera fans.
+Webb tjänsten för [verklig Madrid fotbolls klubb](https://www.realmadrid.com/) har cirka 450 000 000 fläktar runtom i världen. Fläktar får åtkomst till det både via webbläsare och klubbens mobila appar. Fläktar kan inte bara boka biljetter, utan även få åtkomst till information och videoklipp på resultat, spelare och kommande spel. De kan söka med filter, t. ex. antal mål resultat. Det finns också länkar till sociala medier. Användar upplevelsen är mycket personlig och utformad som en tvåvägs kommunikation för att engagera fläktar.
 
-Lösningen [är ett system med tjänster och program på Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Skalbarhet är ett krav: trafik variabel och kan nå mycket stora volymer under och runt matchningar.
+Lösningen [är ett system med tjänster och program på Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Skalbarhet är ett nyckel krav: trafiken är variabel och kan komma åt mycket höga volymer under och runt matchningar.
 
-För riktiga Madrid, är det viktigt att övervaka systemets prestanda. Azure Application Insights erbjuder en omfattande vy över systemet, säkerställer en tillförlitlig och hög servicenivå. 
+För verkliga Madrid är det viktigt att övervaka systemets prestanda. Azure Application insikter ger en omfattande vy över systemet, vilket garanterar en tillförlitlig och hög service nivå. 
 
-Club får du också djup förståelse av dess fans: där de är (endast 3% är i Spanien), vilka intresse som de har i spelare, historiska resultat och kommande spel och hur de svarar för att matcha resultat.
+Föreningen får också djupgående förståelse för dess fläktar: var de är (endast 3% är i Spanien), vilken intresserar de har i spelare, historiska resultat och kommande spel, och hur de svarar för att matcha resultat.
 
-De flesta av den här telemetridata samlas in automatiskt utan att någon extra kod som förenklade lösningen och sänkte komplexiteten i driften.  För riktiga Madrid, Application Insights innehåller 3.8 miljarder telemetri punkter varje månad.
+De flesta av dessa telemetridata samlas in automatiskt med ingen tillagd kod, som förenklar lösningen och minskad drifts komplexitet.  För verkliga Madrid Application Insights-avtal med 3 800 000 000 telemetri punkter varje månad.
 
-Real Madrid använder Power BI-modulen för att visa sina telemetri.
+Real Madrid använder Power BI-modulen för att visa sin telemetri.
 
-![Power BI-vy av Application Insights telemetry](./media/devops/080.png)
+![Power BI vy av Application Insights telemetri](./media/devops/080.png)
 
 ## <a name="smart-detection"></a>Smart identifiering
-[Proaktiv diagnostik](../../azure-monitor/app/proactive-diagnostics.md) är en nyligen funktion. Utan någon specialkonfiguration av dig, Application Insights automatiskt identifierar och varnar dig om onormala ökningar i Felfrekvens i din app. Det är tillräckligt smarta för att ignorera en bakgrund för tillfälliga fel inträffar och ökar som är helt enkelt proportionell mot en ökning av begäranden. Till exempel fungerar om ett fel uppstår på något av de tjänster du lita på, eller om den nya bygger du precis har distribuerat inte så bra och du vet om det. när du tittar på din e-post. (Och det finns webhooks så att du kan utlösa andra appar.)
+[Proaktiv diagnostik](../../azure-monitor/app/proactive-diagnostics.md) är en ny funktion. Utan någon speciell konfiguration av dig kan Application Insights automatiskt identifiera och varna dig om ovanliga ökningar i en felaktig frekvens i din app. Det är tillräckligt smart att ignorera en bakgrund med tillfälliga haverier, och kan också medföra att de bara står i proportion till en ökning i begär Anden. Till exempel, om det uppstår ett fel i en av de tjänster som du är beroende av, eller om den nya versionen som du precis har distribuerat inte fungerar så bra, så vet du om det så snart du tittar på din e-post. (Och det finns Webhooks så att du kan utlösa andra appar.)
 
-En annan aspekt av den här funktionen utför en daglig djupgående analys av din telemetri som söker efter ovanliga mönster för prestanda som är svåra att identifiera. Det kan till exempel hitta långsam prestanda som är associerat med ett visst geografiskt område eller med en viss webbläsare-version.
+En annan aspekt av den här funktionen utför en daglig analys av din telemetri, som söker efter ovanliga mönster på prestanda som är svåra att upptäcka. Den kan till exempel hitta långsamma prestanda som är kopplade till ett visst geografiskt område eller med en viss webb läsar version.
 
-I båda fallen anger aviseringen inte bara symptomen den identifieras, men ger dig också data du behöver för att diagnostisera problem, till exempel relevant undantagsrapporter.
+I båda fallen anger aviseringen inte bara de symtom som identifieras, men ger dig även de data du behöver för att kunna diagnostisera problemet, till exempel relevanta undantags rapporter.
 
 ![E-post från proaktiv diagnostik](./media/devops/030.png)
 
-Kunden Samtec SA: ”Under de senaste funktionen startpunkt påträffades en under skalade-databas som nått sin resursgränser och orsakar timeout. Proaktiv identifiering aviseringar Kom bokstavligen som vi sorterar problemet, mycket nära realtid som annonseras. Den här aviseringen i kombination med Azure-plattformen aviseringar hjälpte oss att nästan omedelbart åtgärda problemet. Total nedtid < 10 minuter ”.
+Kunden Samtec: "under en nyligen utförd funktion start punkt hittade vi en under skalad databas som påträffade resurs gränserna och orsakade timeout. Proaktiva identifierings aviseringar kom genom det som vi sorterar problemet, mycket nära real tid som annonserat. Den här aviseringen tillsammans med Azures plattforms aviseringar hjälpte oss att snabbt åtgärda problemet. Total stillestånds tid < 10 minuter. "
 
 ## <a name="live-metrics-stream"></a>Live Metrics Stream
-Distribuera den senaste versionen kan det vara en dig bekymrad upplevelse. Om det finns några problem, vill du veta om dem direkt, så att du kan säkerhetskopiera reda på om det behövs. Live Metrics Stream ger dig viktiga mått med en fördröjning på ca en sekund.
+Det kan vara en Anxious upplevelse att distribuera den senaste versionen. Om det finns några problem vill du veta mer om dem direkt, så att du kan säkerhetskopiera vid behov. Live Metrics Stream ger dig viktiga mått med en fördröjning på ungefär en sekund.
 
-![Livemått](./media/devops/0040.png)
+![Live-mått](./media/devops/0040.png)
 
-Och du kan inspektera omedelbart ett exempel på eventuella fel eller undantag.
+Och låter dig omedelbart inspektera ett exempel på fel eller undantag.
 
-![Live felhändelser](./media/devops/002-live-stream-failures.png)
+![Händelser för Live-avbrott](./media/devops/002-live-stream-failures.png)
 
-## <a name="application-map"></a>Programkarta
-Programavbildning identifierar automatiskt programtopologin, om prestandainformation ovanpå den, så att du enkelt identifiera flaskhalsar i prestanda och problematiska flöden i miljön distribuerade. Det kan du identifiera programberoenden på Azure-tjänster. Du kan sortera problemet genom att förstå om det är kodrelaterade eller beroende relaterade och från en enda plats detaljerat relaterade diagnostik uppleva. Ditt program kan till exempel att misslyckas på grund av prestandaförsämring i SQL-nivå. Med programkartan kan du se den omedelbart och öka detaljnivån i SQL Index Advisor eller Frågeinsikter upplevelse.
+## <a name="application-map"></a>Programavbildning
+Program kartan identifierar automatiskt programtopologin, vilket ger prestanda informationen ovanpå, så att du enkelt kan identifiera Flask halsar i prestanda och problematiska flöden i den distribuerade miljön. Det gör att du kan identifiera program beroenden på Azure-tjänster. Du kan prioritering problemet genom att förstå om det är kod relaterat eller beroende relaterat och från en enda plats i detalj i relaterad diagnostik. Ditt program kan till exempel Miss lyckas på grund av prestanda försämring i SQL-nivån. Med program kartan kan du se den direkt och gå in i SQL Index Advisor eller ställa frågor till insikter.
 
-![Programkarta](./media/devops/0050.png)
+![Programavbildning](./media/devops/0050.png)
 
-## <a name="application-insights-analytics"></a>Application Insights Analytics
-Med [Analytics](../../azure-monitor/app/analytics.md), du kan skriva godtyckliga frågor i ett kraftfullt SQL-liknande språk.  Det blir enkelt att diagnostisera i hela appen stack som ansluter olika perspektiv och du kan ställa rätt frågor och korrelera tjänstens prestanda med affärsmått och kundupplevelsen. 
+## <a name="application-insights-analytics"></a>Application Insights analys
+Med [Analytics](../../azure-monitor/app/analytics.md)kan du skriva godtyckliga frågor på ett kraftfullt SQL-liknande språk.  Att diagnostisera hela app-stacken är enkelt att ansluta till olika perspektiv och du kan ställa rätt frågor för att korrelera tjänst prestanda med affärs mått och kund upplevelse. 
 
-Du kan fråga din telemetri-instans och mått rådata som lagras i portalen. Språket innehåller filter, koppling, sammanställning och andra åtgärder. Du kan beräkna fält och utföra statistiska analyser. Det finns både tabellmodeller och grafiska visualiseringar.
+Du kan fråga alla din telemetri-instans och dina mått rå data som lagras i portalen. Språket innehåller filter, Join, aggregation och andra åtgärder. Du kan beräkna fält och utföra statistisk analys. Det finns både tabell-och grafiska visualiseringar.
 
-![Analytics-fråga och resultatet diagram](./media/devops/0025.png)
+![Diagram över analys fråga och resultat](./media/devops/0025.png)
 
-Till exempel är det enkelt att:
+Det är till exempel enkelt att:
 
-* Segmentera ditt programs begäran om prestandadata efter kund nivåerna för att förstå deras upplevelse.
-* Sök efter specifika felkoder eller anpassad händelsenamn under live-webbplatsen undersökningar.
-* Granska nedåt i appanvändningen av specifika kunder att förstå hur funktionerna har köpt och antagit.
-* Spåra sessioner och svarstider för specifika användare att aktivera och team att ge support direkt.
-* Fastställa app som används ofta funktioner för att besvara frågor för prioritering av funktionen.
+* Segmentera programmets prestanda data efter kund nivåer för att förstå deras erfarenhet.
+* Sök efter vissa felkoder eller anpassade händelse namn under pågående webbplats undersökningar.
+* Lär dig mer om användningen av appar för vissa kunder för att förstå hur funktioner förvärvas och antas.
+* Spåra sessioner och svars tider för specifika användare för att ge support och drifts team möjlighet att ge omedelbar kund support.
+* Bestäm vilka appar som används ofta för att besvara frågor om funktions prioritering.
 
-Kunden DNN SA: ”Application Insights har gett oss med saknas del av formeln för att du att kombinera, sortera, fråga och filtrera data efter behov. Vilket gör att vårt team att använda sina egna ingenuity och erfarenhet för att hitta data med ett kraftfullt frågespråk kan vi att söka efter insikter och lösa problem visste vi vi hade. Mycket intressant svar kommer från frågor som börjar med *”jag wonder om...”.* ”
+Kund DNN: "Application Insights har gett oss en del av ekvationen för att kunna kombinera, sortera, fråga och filtrera data efter behov. Att låta vårt team använda sin egen Ingenuity och erfarenhet av att söka efter data med ett kraftfullt frågespråk har gett oss möjlighet att hitta insikter och lösa problem som vi inte ens visste. Många intressanta svar kommer från frågorna som börjar med *"Jag undrar om...".*
 
-## <a name="development-tools-integration"></a>Utveckling av verktyg för integrering
-### <a name="configuring-application-insights"></a>Konfiguration av Application Insights
-Visual Studio och Eclipse har verktyg för att konfigurera rätt SDK-paket för projektet som du utvecklar. Det finns ett kommando att lägga till Application Insights.
+## <a name="development-tools-integration"></a>Integrering av utvecklingsverktyg
+### <a name="configuring-application-insights"></a>Konfigurera Application Insights
+Visual Studio och Sol förmörkelse innehåller verktyg för att konfigurera rätt SDK-paket för projektet som du utvecklar. Det finns ett meny kommando för att lägga till Application Insights.
 
-Om du använder en spårning loggningsramverk, till exempel Log4N, NLog eller System.Diagnostics.Trace, sedan får du möjlighet att skicka loggarna till Application Insights tillsammans med andra telemetri, så att du enkelt kan jämföra spårningarna med begäranden, beroende anrop och undantag.
+Om du råkar använda ett spårnings loggnings ramverk, till exempel Log4N, NLog eller system. Diagnostics. trace, får du alternativet att skicka loggarna till Application Insights tillsammans med den andra Telemetrin, så att du enkelt kan korrelera spåren med begär Anden, beroende anrop och undantag.
 
 ### <a name="search-telemetry-in-visual-studio"></a>Sök telemetri i Visual Studio
-När du utvecklar och felsöker en funktion, kan du visa och Sök telemetri direkt i Visual Studio med hjälp av samma search anläggningar som i webbportalen.
+När du utvecklar och felsöker en funktion kan du Visa och söka i telemetri direkt i Visual Studio med hjälp av samma Sök funktioner som i webb portalen.
 
-Och när Application Insights loggar ett undantag, du kan visa datapunkten i Visual Studio och hoppa direkt till den relevanta koden.
+När Application Insights loggar ett undantag kan du visa data punkten i Visual Studio och gå direkt till relevant kod.
 
 ![Visual Studio-sökning](./media/devops/060.png)
 
-Vid felsökning, har du alternativet att behålla telemetri på utvecklingsdatorn, visar den i Visual Studio, men utan att skicka den till portalen. Det här alternativet för lokal undviker blanda felsöka med telemetri för produktion.
+Under fel sökning har du möjlighet att behålla Telemetrin i din utvecklings dator och visa den i Visual Studio, men utan att skicka den till portalen. Det här lokala alternativet förhindrar att du blandar fel sökning med produktions telemetri.
 
-### <a name="work-items"></a>Arbetsobjekt
-När en avisering utlöses kan Application Insights automatiskt skapa ett arbetsobjekt i ditt arbete spårningssystemet.
+### <a name="work-items"></a>Arbets objekt
+När en avisering aktive ras kan Application Insights automatiskt skapa ett arbets objekt i ditt arbets spårnings system.
 
-## <a name="but-what-about"></a>Men vad gäller...?
-* [Sekretess- och storage](../../azure-monitor/app/data-retention-privacy.md) -telemetrin sparas på Azure säkra servrar.
-* Prestanda - effekten är mycket låg. Telemetri är batchar.
-* [Priser](../../azure-monitor/app/pricing.md) – du kan komma igång utan kostnad och som fortsätter när du använder låg volym.
+## <a name="but-what-about"></a>Men vad händer om...?
+* [Sekretess och lagring](../../azure-monitor/app/data-retention-privacy.md) – din telemetri sparas på Azures säkra servrar.
+* Prestanda – påverkan är mycket låg. Telemetri är satsvis.
+* [Priser](../../azure-monitor/app/pricing.md) – du kan sätta igång kostnads fritt och fortsätta när du befinner dig i låg volym.
 
 
 ## <a name="video"></a>Video
@@ -164,9 +159,9 @@ När en avisering utlöses kan Application Insights automatiskt skapa ett arbets
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Nästa steg
-Det är enkelt att komma igång med Application Insights. De viktigaste alternativen är:
+Det är enkelt att komma igång med Application Insights. Huvud alternativen är:
 
-* [IIS-servrar](../../azure-monitor/app/monitor-performance-live-website-now.md), och även för [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
-* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.NET](../../azure-monitor/app/asp-net.md) eller [Java](../../azure-monitor/app/java-get-started.md) appar, samt [Node.js](../../azure-monitor/app/nodejs.md) och en mängd [andra typer](../../azure-monitor/app/platforms.md). 
-* Instrumentera [en webbsida](../../azure-monitor/app/javascript.md) genom att lägga till ett kort kodfragment.
+* [IIS-servrar](../../azure-monitor/app/monitor-performance-live-website-now.md)och även för [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
+* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.net](../../azure-monitor/app/asp-net.md) -eller [Java](../../azure-monitor/app/java-get-started.md) -appar, samt [Node. js](../../azure-monitor/app/nodejs.md) och en värd av [andra typer](../../azure-monitor/app/platforms.md). 
+* Instrumentera en [webb sida](../../azure-monitor/app/javascript.md) genom att lägga till ett kort kodfragment.
 

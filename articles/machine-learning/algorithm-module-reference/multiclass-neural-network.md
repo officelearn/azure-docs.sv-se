@@ -1,5 +1,5 @@
 ---
-title: 'Neurala nätverk i multiklass: Modulreferens'
+title: 'Neurala nätverk i multiklass: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder neurala-modulen i multiklass i Azure Machine Learning-tjänsten för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som har flera värden.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 44d1e7606efd5bc6d2286254dc4863728e3edbfd
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3322f2be3c5c6f819adbc9d83ee9eb6b6577f707
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128603"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692730"
 ---
 # <a name="multiclass-neural-network-module"></a>Neurala för multiklass
 
@@ -40,17 +40,17 @@ För att beräkna nätverkets utdata för ett visst indata beräknas ett värde 
 
 ## <a name="configure-multiclass-neural-network"></a>Konfigurera neurala nätverk i multiklass
 
-1. Lägg till **neurala** -modulen för multiklass i ditt experiment i gränssnittet. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **klassificerings** kategorin.
+1. Lägg till neurala-modulen för **multiklass** i din pipeline i gränssnittet. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **klassificerings** kategorin.
 
 2. **Skapa utbildare läge**: Använd det här alternativet för att ange hur du vill att modellen ska tränas:
 
-    - **Enskild parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
+    - **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
 
     
 
-3. **Specifikation för dolda lager**: Välj vilken typ av nätverks arkitektur som ska skapas.
+3. **Specifikation för dolda lager**: Välj den typ av nätverks arkitektur som ska skapas.
 
-    - **Fullständigt anslutet ärende**: Välj det här alternativet om du vill skapa en modell med standard nätverks arkitekturen neurala. För neurala nätverks modeller i multiklass är standardvärdena följande:
+    - **Fullständigt anslutet**: Välj det här alternativet om du vill skapa en modell med standard nätverks arkitekturen för neurala. För neurala nätverks modeller i multiklass är standardvärdena följande:
 
         - Ett dolt lager
         - Utmatnings lagret är fullständigt anslutet till det dolda lagret.
@@ -61,25 +61,25 @@ För att beräkna nätverkets utdata för ett visst indata beräknas ett värde 
   
    
 
-5. **Antal dolda noder**: Med det här alternativet kan du anpassa antalet dolda noder i standard arkitekturen. Ange antalet dolda noder. Standardvärdet är ett dolt lager med 100 noder.
+5. **Antal dolda noder**: med det här alternativet kan du anpassa antalet dolda noder i standard arkitekturen. Ange antalet dolda noder. Standardvärdet är ett dolt lager med 100 noder.
 
-6. **Inlärnings takten**: Definiera storleken på steget som tas vid varje iteration, före korrigeringen. Ett större värde för inlärnings frekvensen kan göra att modellen konvergerar snabbare, men den kan överskotta lokala minimi.
+6. **Inlärnings takten**: definiera storleken på steget som tas vid varje iteration, före korrigeringen. Ett större värde för inlärnings frekvensen kan göra att modellen konvergerar snabbare, men den kan överskotta lokala minimi.
 
 7. **Antal inlärnings iterationer**: Ange det maximala antalet gånger som algoritmen ska bearbeta inlärnings fallen.
 
 8. **Diametern för inledande inlärnings vikt**: Ange nodens vikt i början av inlärnings processen.
 
-9. **Ett moment**: Ange en vikt som ska användas vid inlärning till noder från föregående iterationer.
+9. **Momentet**: Ange en vikt att tillämpa vid inlärning till noder från föregående iterationer.
   
 11. **Blanda exempel**: Välj det här alternativet om du vill blanda fall mellan iterationer.
 
-    Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör experimentet.
+    Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör pipelinen.
 
-12. **Värde för slumpmässig siffra**: Ange ett värde som ska användas som start, om du vill säkerställa repeterbarhet i flera körningar av samma experiment.
+12. Värde för **slumpmässig siffra**: Ange ett värde som ska användas som dirigering, om du vill säkerställa repeterbarhet i flera körningar av samma pipeline.
 
-14. Anslut en data uppsättning för utbildning och en [](module-reference.md)av inlärnings modulerna: 
+14. Anslut en data uppsättning för utbildning och en av [inlärnings modulerna](module-reference.md): 
 
-    - Om du ställer in **skapa** utbildare till **en parameter**använder du [träna modell](train-model.md).  
+    - Om du ställer in **skapa utbildare** till **en parameter**använder du [träna modell](train-model.md).  
   
 
 ## <a name="results"></a>Resultat
@@ -88,7 +88,7 @@ När utbildningen är klar:
 
 - Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen och andra parametrar för neurala-nätverket, högerklickar du på utdata från [träna modell](./train-model.md) och väljer **visualisera**.  
 
-- Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den tränade modellens utdata och väljer **Spara som utbildad modell**. Den här modellen uppdateras inte vid efterföljande körningar av samma experiment.
+- Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den **tränade modellens** utdata och väljer **Spara som utbildad modell**. Den här modellen uppdateras inte vid efterföljande körningar av samma pipeline.
 
 
 ## <a name="next-steps"></a>Nästa steg

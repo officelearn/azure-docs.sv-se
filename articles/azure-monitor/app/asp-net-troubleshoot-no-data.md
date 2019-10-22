@@ -1,23 +1,18 @@
 ---
 title: Felsökning utan data, Application Insights för .NET
 description: Ser du inte data i Azure Application Insights? Prova här.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/23/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b4bfd984f1e169cb1044002118f9534c4efc9bd8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 07/23/2018
+ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169583"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678332"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>En del av min telemetri saknas
@@ -34,7 +29,7 @@ ms.locfileid: "71169583"
 
 *Jag upplever data förlust i konsol programmet eller på en webbapp när appen håller på att stoppas.*
 
-* SDK-kanalen behåller telemetri i bufferten och skickar dem i batchar. Om programmet stängs av kan du behöva anropa [Flush ()](api-custom-events-metrics.md#flushing-data)explicit. Beteendet beror på den faktiska kanal som används. [](telemetry-channels.md#built-in-telemetry-channels) `Flush()`
+* SDK-kanalen behåller telemetri i bufferten och skickar dem i batchar. Om programmet stängs av kan du behöva anropa [Flush ()](api-custom-events-metrics.md#flushing-data)explicit. Beteendet för `Flush()` beror på den faktiska [kanal](telemetry-channels.md#built-in-telemetry-channels) som används.
 
 ## <a name="no-data-from-my-server"></a>Inga data från min server
 *Jag har installerat min app på min webb server och nu kan jag inte se någon telemetri från den. Den fungerade OK på min dev-dator.*
@@ -67,7 +62,7 @@ Löser
 
 * Kontrol lera att du har angett inloggnings uppgifter för rätt Azure-konto.
 * Kontrol lera att du har åtkomst till [Azure Portal](https://portal.azure.com)i webbläsaren. Öppna inställningar och se om det finns någon begränsning.
-* [Lägg till Application Insights i ditt befintliga projekt](../../azure-monitor/app/asp-net.md): I Solution Explorer högerklickar du på projektet och väljer Lägg till Application Insights.
+* [Lägg till Application Insights i ditt befintliga projekt](../../azure-monitor/app/asp-net.md): i Solution Explorer högerklickar du på projektet och väljer lägg till Application Insights.
 
 ## <a name="emptykey"></a>Jag får ett fel meddelande om Instrumentation-nyckeln kan inte vara tom
 Det verkar som om något gick fel när du installerade Application Insights eller kanske ett loggnings kort.
@@ -102,9 +97,9 @@ Annars stöds inte projekt typen direkt av Developer Analytics-verktygen. Om du 
 Den Microsoft-inloggning som du senast använde i din standard webbläsare har inte åtkomst till [den resurs som skapades när Application Insights lades till i den här appen](../../azure-monitor/app/asp-net.md). Det finns två möjliga orsaker:
 
 * Har du mer än en Microsoft-konto – kanske ett arbete och en personlig Microsoft-konto? Den inloggning som du senast använde i din standard webbläsare var för ett annat konto än den som har åtkomst att [lägga till Application Insights i projektet](../../azure-monitor/app/asp-net.md).
-  * Löser Klicka på ditt namn längst upp till höger i webbläsarfönstret och logga ut. Logga sedan in med det konto som har åtkomst. Klicka sedan på Application Insights i det vänstra navigerings fältet och välj din app.
+  * KORRIGERA: Klicka på ditt namn längst upp till höger i webbläsarfönstret och logga ut. Logga sedan in med det konto som har åtkomst. Klicka sedan på Application Insights i det vänstra navigerings fältet och välj din app.
 * Någon annan lade till Application Insights i projektet och glömde till att ge dig [åtkomst till resurs gruppen](../../azure-monitor/app/resources-roles-access-control.md) där den skapades.
-  * Löser Om de använder ett organisations konto kan de lägga till dig i teamet. eller så kan de ge dig individuell åtkomst till resurs gruppen.
+  * KORRIGERA: om de använde ett organisations konto kan de lägga till dig i teamet. eller så kan de ge dig individuell åtkomst till resurs gruppen.
 
 ## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>"Till gången hittades inte vid öppnande av Application Insights från Visual Studio
 *Meny kommandot Öppna Application Insights tar mig till Azure Portal, men jag får ett fel meddelande om att det inte går att hitta till gång.*
@@ -118,7 +113,7 @@ Instrumentation-nyckeln i ApplicationInsights. config styr var Telemetrin skicka
 
 Löser
 
-* I Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurerar Application Insights. I dialog rutan kan du antingen välja att skicka telemetri till en befintlig resurs eller skapa en ny. Eller
+* I Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurerar Application Insights. I dialog rutan kan du antingen välja att skicka telemetri till en befintlig resurs eller skapa en ny. eller
 * Öppna resursen direkt. Logga in på [Azure Portal](https://portal.azure.com), klicka på Application Insights i det vänstra navigerings fältet och välj sedan din app.
 
 ## <a name="where-do-i-find-my-telemetry"></a>Var hittar jag min telemetri?
@@ -135,7 +130,7 @@ Löser
   ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Öppna [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)i Application Insights-portalen. Data visas vanligt vis här först.
 * Klicka på knappen Uppdatera. Bladet uppdateras regelbundet, men du kan också göra det manuellt. Uppdaterings intervallet är längre för större tidsintervall.
-* Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten**. Öppna sedan ApplicationInsights. config i ditt projekt i Visual Studio och leta upp `<instrumentationkey>`. Kontrol lera att de två nycklarna är lika. Om inte:  
+* Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten**. Öppna sedan ApplicationInsights. config i ditt projekt i Visual Studio och hitta `<instrumentationkey>`. Kontrol lera att de två nycklarna är lika. Om inte:  
   * I portalen klickar du på Application Insights och letar efter app-resursen med rätt nyckel. eller
   * I Visual Studio Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurera. Återställ appen för att skicka telemetri till rätt resurs.
   * Om du inte hittar matchande nycklar kontrollerar du att du använder samma inloggnings uppgifter i Visual Studio som i portalen.
@@ -151,7 +146,7 @@ Data kommer från skript på webb sidorna.
 
 * Om du har lagt till Application Insights till ett befintligt webb projekt måste [du lägga till skripten manuellt](../../azure-monitor/app/javascript.md).
 * Se till att Internet Explorer inte visar din webbplats i kompatibilitetsläge.
-* Använd webbläsarens fel söknings funktion (F12 på vissa webbläsare och välj sedan nätverk) för att kontrol lera att data skickas `dc.services.visualstudio.com`till.
+* Använd webbläsarens fel söknings funktion (F12 på vissa webbläsare och välj sedan nätverk) för att kontrol lera att data skickas till `dc.services.visualstudio.com`.
 
 ## <a name="no-dependency-or-exception-data"></a>Inga beroenden eller undantags data
 Se [beroende telemetri](../../azure-monitor/app/asp-net-dependencies.md) och [telemetri för undantag](asp-net-exceptions.md).
@@ -163,7 +158,7 @@ Prestanda data (CPU, IO-taxa och så vidare) är tillgängliga för [Java-webbtj
 * Kontrol lera att du verkligen har kopierat alla Microsoft. ApplicationInsights-dll: er till-servern, tillsammans med Microsoft. Diagnostics. Instrumentation. Extensions. skärning. dll
 * I brand väggen kan du behöva [öppna vissa TCP-portar](../../azure-monitor/app/ip-addresses.md).
 * Om du måste använda en proxyserver för att skicka ut från företags nätverket anger du [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) i Web. config
-* Windows Server 2008: Kontrol lera att du har installerat följande uppdateringar: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: kontrol lera att du har installerat följande uppdateringar: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Jag har använt för att se data, men har stoppats
 * Kontrol lera [status bloggen](https://blogs.msdn.com/b/applicationinsights-status/).
@@ -194,7 +189,7 @@ Följ de här anvisningarna för att avbilda fel söknings loggar för ditt ramv
 
 ### <a name="net-framework"></a>.NET Framework
 
-1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Versionen som du installerar måste matcha den aktuella installerade versionen av`Microsoft.ApplicationInsighs`
+1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsighs`
 
 2. Ändra filen applicationinsights. config så att den innehåller följande:
 
@@ -215,11 +210,11 @@ Följ de här anvisningarna för att avbilda fel söknings loggar för ditt ramv
 
 ### <a name="net-core"></a>.NET Core
 
-1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Versionen som du installerar måste matcha den aktuella installerade versionen av`Microsoft.ApplicationInsights`
+1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsights`
 
 Den senaste versionen av Microsoft. ApplicationInsights. AspNetCore är 2.7.1 och refererar till Microsoft. ApplicationInsights version 2,10. Därför bör den version av Microsoft. ASPNET. ApplicationInsights. HostingStartup som ska installeras vara 2.10.0
 
-2. Ändra `ConfigureServices` metod`Startup.cs` i klassen.:
+2. Ändra `ConfigureServices` metod i `Startup.cs`-klassen.:
 
     ```csharp
     services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();

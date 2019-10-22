@@ -1,6 +1,6 @@
 ---
-title: Validera XML för B2B enterprise-integration – Azure Logic Apps | Microsoft Docs
-description: Validera XML med scheman för B2B-lösningar i Azure Logic Apps med Enterprise-Integrationspaket
+title: Validera XML for B2B Enterprise-integration – Azure Logic Apps
+description: Validera XML med hjälp av scheman i Azure Logic Apps med Enterprise-integrationspaket
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,53 +8,62 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
-ms.date: 07/08/2016
-ms.openlocfilehash: 8db0dbadd944007ff953f9ea69695bf988ffebb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/21/2019
+ms.openlocfilehash: 7813dcb375ff4a123b1314f8f9db453b1f0b187e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996348"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680252"
 ---
-# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validera XML för B2B enterprise-integration i Azure Logic Apps med Enterprise-Integrationspaket
+# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Verifiera XML for B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 
-Ofta i B2B-scenarier, måste partners på ett avtal se till att vilka meddelanden som är giltiga innan bearbetning kan starta. Du kan validera dokument med ett fördefinierat schema med att använda anslutningstjänsten XML-verifiering i Enterprise-Integrationspaketet.
+I B2B-scenarier måste handels partner i ett avtal ofta se till att de meddelanden som de utbyter är giltiga innan data bearbetning kan starta. Du kan validera dokument mot ett fördefinierat schema med hjälp av XML-verifieringen, som är tillgänglig med Enterprise-integrationspaket.
 
-## <a name="validate-a-document-with-the-xml-validation-connector"></a>Verifiera ett dokument med XML-verifiering connector
+## <a name="prerequisites"></a>Krav
 
-1. Skapa en logikapp och [länka appen till integrationskontot](../logic-apps/logic-apps-enterprise-integration-accounts.md "Lär dig hur du länkar ett integrationskonto till en logikapp") som har det schema som du vill använda för att verifiera XML-data.
+* En Azure-prenumeration. Om du inte har någon prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-2. Lägg till en **begäran – när en HTTP-begäran tas emot** utlösare i logikappen.
+* En tom eller befintlig Logic-app där du vill använda XML-verifieringen. Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
+* Ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som är associerat med din Azure-prenumeration är länkat till den Logic-app där du planerar att använda XML-valideringen och innehåller det schema som du vill använda för att validera XML-innehåll. Både din Logic app och ditt integrations konto måste finnas på samma plats eller i Azure-regionen.
 
-3. Att lägga till den **XML-verifiering** åtgärd, Välj **Lägg till en åtgärd**.
+## <a name="add-xml-validation-action"></a>Lägg till XML-validerings åtgärd
 
-4. Om du vill filtrera åtgärderna som ska det som du vill ange *xml* i sökrutan. Välj **XML-verifiering**.
+1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
+1. Om du har en tom Logic-app, i Logic App Designer, i sökrutan, anger du `HTTP request` som filter och väljer alternativet **när en HTTP-begäran tas emot** . Annars fortsätter du till nästa steg.
 
-5. Välj för att ange XML-innehåll som du vill validera **innehåll**.
+1. Under det sista steget i arbets flödet väljer du **nytt steg**.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
+   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du pekaren över pilen som kopplar stegen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
-6. Välj brödtextstaggen som det innehåll som du vill validera.
+1. Under **Välj en åtgärd**väljer du **inbyggt**. I sökrutan anger du `xml validation` som ditt filter. I listan åtgärder väljer du **XML-validering**.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
+   ![Sök och Välj åtgärden "XML-verifiering"](./media/logic-apps-enterprise-integration-xml-validation/select-xml-validation-action.png)
 
-7. Att ange det schema som du vill använda för att verifiera den tidigare *innehåll* indata, Välj **SCHEMANAMN**.
+1. Om du vill ange det XML-innehåll som du vill verifiera klickar du i **innehålls** rutan så att listan med dynamiskt innehåll visas.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
+   ![Öppna listan med dynamiskt innehåll](./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list.png)
 
-8. Spara ditt arbete  
+   Listan med dynamiskt innehåll visar de egenskaps-token som representerar utdata från föregående steg i arbets flödet. Om listan inte visar en förväntad egenskap, kontrollerar du utlösaren eller åtgärds rubriken om du kan välja **Se mer**.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
+1. I listan med dynamiskt innehåll väljer du den egenskap som har det innehåll som du vill validera.
 
-Du är nu klar med att konfigurera din anslutningsapp för verifiering. I en verklig tillämpning kanske du vill lagra verifierade data i en line-of-business (LOB) appar som SalesForce. Lägg till en åtgärd för att skicka verifierade utdata till Salesforce.
+   I det här exemplet väljs **texten** utdata från utlösaren.
 
-Testa verifieringen åtgärden genom att skicka en förfrågan till HTTP-slutpunkten.
+   ![Välj innehåll att validera](./media/logic-apps-enterprise-integration-xml-validation/select-content-to-validate.png)
+
+1. Om du vill ange det schema som du vill använda för verifiering öppnar du listan **schema namn** och väljer det verifierings schema som du har lagt till i det länkade integrations kontot.
+
+   ![Välj schema som ska användas för verifiering](./media/logic-apps-enterprise-integration-xml-validation/select-validation-schema.png)
+
+1. Spara din logikapp.
+
+   Nu är du klar med att konfigurera verifieringen. I en verklig värld kan du vilja lagra de verifierade data i en affärsrelaterad app (LOB), till exempel SalesForce. Lägg till en åtgärd för att skicka de verifierade utdata till Salesforce.
+
+1. Du kan testa din verifierings åtgärd genom att skicka en begäran om att utlösa din Logic app-arbetsflöde.
 
 ## <a name="next-steps"></a>Nästa steg
-[Mer information om Enterprise-Integrationspaketet](../logic-apps/logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")   
 
+* Läs mer om [Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Schemalägg återkommande uppgifter med glidande fönstret utlösare – Azure Logic Apps
-description: Schemalägga och köra återkommande automatiserade uppgifter och arbetsflöden med utlösare för glidande fönster i Azure Logic Apps
+title: Schemalägg aktiviteter för att hantera sammanhängande data Azure Logic Apps
+description: Skapa och kör återkommande uppgifter som hanterar sammanhängande data med hjälp av glidande fönster i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,73 +9,73 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 44944955019fcf81fb0d296592577e2b00a15928
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0312d9480d00d4430cd5d42dc22ef9dac005ee2e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299509"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679050"
 ---
-# <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-sliding-window-trigger-in-azure-logic-apps"></a>Skapa, schemalägga och kör återkommande uppgifter och arbetsflöden med utlösare för glidande fönster i Azure Logic Apps
+# <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Schemalägg och kör aktiviteter för sammanhängande data med hjälp av den glidande fönster utlösaren i Azure Logic Apps
 
-För att köra aktiviteter, processer eller jobb som måste hantera data i segment om kontinuerlig regelbundet, kan du starta logikappens arbetsflöde med den **glidande fönstret - schema** utlösaren. Du kan ange ett datum och tid samt en tidszon för att starta arbetsflödet och en upprepning för Upprepa det här arbetsflödet. Om upprepningar missade oavsett orsak, bearbetar dessa missade upprepningar i den här utlösaren. Till exempel använda när du synkroniserar data mellan din databas och lagring av säkerhetskopior, utlösare för glidande fönster så att data som synkroniseras klusteruppgradering luckor. Mer information om inbyggda schema-utlösare och åtgärder som finns i [schema och kör återkommande automatiserade uppgifter och arbetsflöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+För att regelbundet köra aktiviteter, processer eller jobb som måste hantera data i intilliggande segment, kan du starta ditt Logic app-arbetsflöde med den **glidande fönster** utlösaren. Du kan ange datum och tid samt en tidszon för att starta arbets flödet och en upprepning för att upprepa det arbets flödet. Om återkommande orsaker saknas, bearbetar den här utlösaren de missade upprepningarna. Om du till exempel synkroniserar data mellan databasen och lagringen av säkerhets kopior använder du utlösaren för Glidnings fönster så att data synkroniseras utan att det uppstår luckor. Mer information om inbyggda schema utlösare och åtgärder finns i [schemalägga och köra återkommande automatiserade uppgifter och arbets flöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-Här följer några mönster som har stöd för den här utlösaren:
+Här följer några mönster som denna utlösare stöder:
 
-* Kör omedelbart och upprepa varje *n* antal sekunder, minuter eller timmar.
+* Kör omedelbart och *Upprepa vartannat antal* sekunder, minuter eller timmar.
 
-* Starta vid ett specifikt datum och tid, och sedan köra och upprepa varje *n* antal sekunder, minuter eller timmar. Du kan ange en starttid tidigare som kör alla tidigare upprepningar med den här utlösaren.
+* Starta vid ett visst datum och klock slag, och kör och upprepa varje *n* sekunder, minuter eller timmar. Med den här utlösaren kan du ange en start tid tidigare, som kör alla tidigare upprepningar.
 
-* Fördröja varje upprepning under en viss tid innan du kör.
+* Fördröj varje upprepning för en viss varaktighet innan du kör.
 
-Skillnader mellan den här utlösaren och upprepningsutlösaren eller mer information om att schemalägga återkommande arbetsflöden finns i [schema och kör återkommande automatiserade uppgifter, processer och arbetsflöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Skillnader mellan den här utlösaren och upprepnings utlösaren eller mer information om hur du schemalägger återkommande arbets flöden finns i [schemalägga och köra återkommande automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 > [!TIP]
-> Om du vill utlösa logikappen och kör bara en gång i framtiden, se [kör jobb bara en gång](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
+> Om du vill utlösa din Logic app och bara köra en gång i framtiden, se [Kör jobb en gång](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Grundläggande kunskaper om [logikappar](../logic-apps/logic-apps-overview.md). Om du är nybörjare till logic apps lär du dig [hur du skapar din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Grundläggande kunskaper om [Logic Apps](../logic-apps/logic-apps-overview.md). Lär dig [hur du skapar din första Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)om du inte har använt Logic Apps igen.
 
-## <a name="add-sliding-window-trigger"></a>Lägg till utlösare glidande fönster
+## <a name="add-sliding-window-trigger"></a>Lägg till fönster utlösare för glidning
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Skapa en tom logikapp.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa en tom logikapp.
 
-1. När Logic App Designer visas i sökrutan anger du ”skjutfönster” som filter. Välj den här utlösaren som det första steget i ditt logikapparbetsflöde från listan över utlösare: **Hoppande fönster**
+1. När Logic Apps Designer visas anger du "glidande fönster" som filter i sökrutan. Välj den här utlösaren i listan utlösare som första steg i ditt Logic app-arbetsflöde: **glidande fönster**
 
-   ![Välj ”glidande fönster”](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
+   ![Välj "glidande fönster"-utlösare](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
-1. Ange intervall och frekvens för upprepningen. I det här exemplet anger du egenskaperna för att köra arbetsflödet varje vecka.
+1. Ange intervall och frekvens för upprepningen. I det här exemplet anger du dessa egenskaper för att köra arbets flödet varje vecka.
 
    ![Ange intervall och frekvens](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Egenskap | Obligatoriskt | JSON-namn | Typ | Beskrivning |
+   | Egenskap | Krävs | JSON-namn | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
-   | **Intervall** | Ja | interval | Integer | Ett positivt heltal som beskriver hur ofta arbetsflödet körs baserat på åtkomstfrekvensen. Här är de minsta och största intervall: <p>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Hour”, är upprepningen var sjätte timme. |
-   | **Frekvens** | Ja | frequency | String | Tidsenhet för upprepningen: **Andra**, **minut**, eller **timme** |
+   | **Intervall** | Ja | interval | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "timme", är upprepningen var 6: e timme. |
+   | **Frekvens** | Ja | frequency | Sträng | Tidsenhet för upprepning: **sekund**, **minut**eller **timme** |
    ||||||
 
-   ![Avancerade upprepningsalternativ](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
+   ![Avancerade alternativ för upprepning](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
 
-   Mer upprepningsalternativ, öppna den **Lägg till ny parameter** lista. 
-   Alla alternativ som du väljer visas på utlösaren efter markering.
+   Du kan visa fler upprepnings alternativ genom att öppna listan **Lägg till ny parameter** . 
+   Alla alternativ som du väljer visas i utlösaren efter val.
 
-   | Egenskap | Obligatoriskt | JSON-namn | Typ | Beskrivning |
+   | Egenskap | Krävs | JSON-namn | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
-   | **fördröjning** | Nej | delay | String | Varaktighet för att fördröja varje upprepning med hjälp av den [tidsangivelse för ISO 8601-datum](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
-   | **Tidszon** | Nej | Tidszon | String | Gäller endast när du anger en starttid eftersom den här utlösaren inte acceptera [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
-   | **Starttid** | Nej | startTime | String | Ange ett startdatum och starttid i följande format: <p>ÅÅÅÅ-MM-ddTHH om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-: ssZ om du inte väljer en tidszon <p>Till exempel om du vill 18 September 2017 kl 2:00, sedan ange ”2017-09-18T14:00:00” och välj en tidszon som Pacific Standard Time. Alternativt kan du ange ”2017-09-18T14:00:00Z” utan en tidszon. <p>**Obs:** Starttiden måste följa den [ISO 8601 datum tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [tidsformat för UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon, måste du lägga till Bokstaven ”Z” i slutet utan blanksteg. Den här ”Z” avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>Starttiden är den första förekomsten för enkla scheman och för avancerade upprepningar inte utlösaren utlöses alla snabbare än starttiden. [*Vad är hur kan jag använda startdatum och tidpunkt?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Förskjutning** | Nej | förskjutning | Sträng | Varaktigheten för att fördröja varje upprepning med hjälp av [ISO 8601 datum/tid-specifikation](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
+   | **Tidszon** | Nej | Tidszon | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
+   | **Starttid** | Nej | startTime | Sträng | Ange start datum och-tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill ha 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden måste följa [ISO 8601-datum/tid-specifikationen](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman, är start tiden den första förekomsten, men för avancerade upprepningar utlöses inte utlösaren tidigare än start tiden. [*Hur kan jag använda start datum och-tid?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
 
-1. Skapa nu ditt återstående arbetsflöde med andra åtgärder. Fler åtgärder som du kan lägga till, se [Anslutningsappar för Azure Logic Apps](../connectors/apis-list.md).
+1. Nu ska du bygga ditt återstående arbets flöde med andra åtgärder. Fler åtgärder som du kan lägga till finns i [kopplingar för Azure Logic Apps](../connectors/apis-list.md).
 
-## <a name="workflow-definition---sliding-window"></a>Arbetsflödesdefinitionen - glidande fönster
+## <a name="workflow-definition---sliding-window"></a>Arbets flödes definition – glidande fönster
 
-Du kan visa utlösardefinition glidande fönster med de alternativ som du har valt i din logikapp underliggande arbetsflödesdefinitionen, som använder JSON. Välj för att visa den här definitionen designerverktygsfältet **Kodvyer**. Om du vill återgå till designern väljer på verktygsfältet för appdesignern **Designer**.
+I din Logic Apps underliggande arbets flödes definition, som använder JSON, kan du Visa utlösaren för glidning av fönster med de alternativ som du har valt. Om du vill visa den här definitionen väljer du **kodvyn**i verktygsfältet designer. Om du vill gå tillbaka till designern väljer du verktygsfältet designer, **Designer**.
 
-Det här exemplet visar hur en glidande fönstret utlösardefinition kan se ut i en underliggande arbetsflödesdefinitionen där fördröjningen för varje upprepning är fem sekunder för en timvis upprepning:
+Det här exemplet visar hur en definition av en glidande fönster utlösare kan se ut i en underliggande arbets flödes definition där fördröjningen för varje upprepning är fem sekunder för en upprepning per timme:
 
 ``` json
 "triggers": {
@@ -98,5 +98,5 @@ Det här exemplet visar hur en glidande fönstret utlösardefinition kan se ut i
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Fördröjning nästa åtgärd i arbetsflöden](../connectors/connectors-native-delay.md)
-* [Anslutningsappar för Logic Apps](../connectors/apis-list.md)
+* [Fördröj nästa åtgärd i arbets flöden](../connectors/connectors-native-delay.md)
+* [Anslutningar för Logic Apps](../connectors/apis-list.md)

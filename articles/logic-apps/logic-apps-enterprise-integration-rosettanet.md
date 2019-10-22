@@ -1,6 +1,6 @@
 ---
-title: RosettaNet meddelanden för B2B enterprise-integration – Azure Logic Apps
-description: Utbyta RosettaNet meddelanden i Azure Logic Apps med Enterprise-Integrationspaket
+title: RosettaNet-meddelanden för B2B-integrering – Azure Logic Apps
+description: Exchange RosettaNet-meddelanden i Azure Logic Apps med Enterprise-integrationspaket
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,255 +9,255 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 88e02f3fbbca8007fdf479bb973f50c42a878d6e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 570c7907f320b881e2db0bd45cdce311490f4f45
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333307"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680335"
 ---
-# <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Utbyta RosettaNet meddelanden för B2B enterprise-integration i Azure Logic Apps 
+# <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Exchange RosettaNet-meddelanden för B2B Enterprise-integration i Azure Logic Apps
 
-[RosettaNet](https://resources.gs1us.org) är en ideell consortium som har upprättat standardprocesser för delning av företagsinformation. Dessa standarder används ofta för andra och är utökas inom semiconductor, t.ex logistik. RosettaNet consortium skapar och underhåller Partner gränssnittet processer (kärnor), som tillhandahåller gemensamma definitioner av affärsprocessen för alla RosettaNet meddelandeutbyten. RosettaNet baseras på XML och definierar meddelandet riktlinjer gränssnitt för affärsprocesser och implementering ramverk för kommunikation mellan företag.
+[RosettaNet](https://resources.gs1us.org) är ett ideellt konsortium som har upprättat standard processer för att dela företags information. Dessa standarder används ofta för att tillhandahålla kedjas processer och är förbrett i halvledar-, elektronik-och logistik branschen. RosettaNet-konsortiet skapar och underhåller PIPs (partner Interface processs), som tillhandahåller vanliga definitioner för affärs processer för alla RosettaNet meddelande utbyten. RosettaNet baseras på XML och definierar rikt linjer för meddelanden, gränssnitt för affärs processer och implementerings ramverk för kommunikation mellan företag.
 
-I [Azure Logic Apps](../logic-apps/logic-apps-overview.md), RosettaNet-anslutning kan du skapa lösningar som har stöd för RosettaNet standarder. Anslutningen är baserad på RosettaNet implementering Framework (RNIF) version 2.0.01. RNIF är ett öppna nätverks-programramverk som gör det möjligt för affärspartners att samarbeta kör RosettaNet kärnor. Det här ramverket definierar strukturen för meddelandet, behovet av bekräftelser Multipurpose Internet Mail Extensions (MIME) kodning och den digitala signaturen.
+I [Azure Logic Apps](../logic-apps/logic-apps-overview.md)hjälper RosettaNet-anslutaren dig att skapa integrerings lösningar som stöder RosettaNet-standarder. Kopplingen baseras på RosettaNet implementation Framework (RNIF) version 2.0.01. RNIF är ett öppet ramverk för nätverks program som gör det möjligt för affärs partner att samar beta med att köra RosettaNet PIPs. Det här ramverket definierar meddelande strukturen, behovet av bekräftelser, Multipurpose Internet Mail Extensions (MIME)-kodning och den digitala signaturen.
 
-Mer specifikt innehåller anslutningen dessa funktioner:
+Mer specifikt ger kopplingen dessa funktioner:
 
-* Koda eller ta emot RosettaNet meddelanden.
-* Avkoda eller skicka RosettaNet meddelanden.
-* Vänta på svar och generering av meddelande med fel.
+* Koda eller ta emot RosettaNet-meddelanden.
+* Avkoda eller skicka RosettaNet-meddelanden.
+* Vänta på svar och generering av aviseringar om ett haveri meddelande.
 
-För de funktionerna stöder anslutningen alla kärnor som definieras av RNIF 2.0.01. Kommunikation med partnern som kan vara synkron eller asynkron.
+För dessa funktioner stöder Connector alla PIPs som definieras av RNIF 2.0.01. Kommunikation med partnern kan vara synkron eller asynkron.
 
-## <a name="rosettanet-concepts"></a>RosettaNet begrepp
+## <a name="rosettanet-concepts"></a>RosettaNet-begrepp
 
-Här följer några begrepp och termer som är unika för RosettaNet-specifikationen och är viktiga när du skapar RosettaNet-baserade integreringar:
+Här följer några begrepp och termer som är unika för RosettaNet-specifikationen och är viktiga när du skapar RosettaNet-baserade integrationer:
 
-* **PIP**
+* **–**
 
-  RosettaNet organisation skapar och underhåller Partner gränssnittet processer (kärnor), som tillhandahåller gemensamma definitioner av affärsprocessen för alla RosettaNet meddelandeutbyten. Varje PIP-specifikation innehåller en dokumentfil typ definition (DTD) och ett meddelande riktlinje dokument. DTD-filen definierar strukturen message service-innehåll. Meddelande-riktlinje dokument, som är ett läsbart HTML-fil, anger element på servernivå begränsningar. De här filerna ger tillsammans en klar definition av affärsprocessen.
+  RosettaNet-organisationen skapar och underhåller PIPs (partner Interface processs), som tillhandahåller vanliga definitioner för affärs processer för alla RosettaNet meddelande utbyten. Varje PIP-specifikation innehåller en dokument typ definitions fil (DTD) och ett rikt linje dokument för meddelande. DTD-filen definierar tjänst-innehålls meddelande strukturen. Dokumentet med meddelande rikt linjer, som är en HTML-fil som kan läsas, anger begränsningar på element nivå. Tillsammans ger de här filerna en fullständig definition av affärs processen.
 
-   Kärnor kategoriseras efter en övergripande funktioner, eller klustret, och en Underfunktionen eller segment. Till exempel ”3A4” är PIP för inköpsorder är funktionen hantering när ”3” och ”3A” är kvoten & ordning post Underfunktionen. Mer information finns i den [RosettaNet plats](https://resources.gs1us.org).
+   PIPs kategoriseras av en affärs funktion på hög nivå, ett kluster och en underordnad funktion, eller ett segment. Exempel: "3A4" är PIP för inköps order, medan "3" är funktionen för order hantering och "3A" är underfunktionen offert & Order Entry. Mer information finns på RosettaNet- [webbplatsen](https://resources.gs1us.org).
 
 * **Åtgärd**
 
-  En del av en PIP åtgärdsmeddelanden är business-meddelanden som utbyts mellan partner.
+  Som en del av en PIP är åtgärds meddelanden affärs meddelanden som utbyts mellan partner.
 
 * **Signal**
 
-   En del av en PIP signalen meddelanden är bekräftelser som skickas som svar på åtgärdsmeddelanden.
+   Som en del av en PIP är signal meddelanden bekräftelser som skickas som svar på åtgärds meddelanden.
 
-* **Enskild åtgärd och dubbla åtgärd**
+* **Enkel åtgärd och dubbel åtgärd**
 
-  För en enda åtgärd PIP är endast svaret ett bekräftelsemeddelande signal. För en dubbel-action PIP initieraren tar emot ett svarsmeddelande och svarar med en bekräftelse förutom single-action meddelande flödet.
+  För en enda åtgärd-kärna är det enda svaret ett bekräftelse meddelande. För en PIP med dubbel åtgärd tar initieraren emot ett svarsmeddelande och svarar med en bekräftelse förutom meddelande flödet med en åtgärd.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration än, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-* En [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) för att lagra avtalet och andra B2B-artefakter. Den här integrationskontot måste vara associerad med din Azure-prenumeration.
+* Ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) för att lagra ditt avtal och andra B2B-artefakter. Det här integrations kontot måste vara associerat med din Azure-prenumeration.
 
-* Minst två [partner](../logic-apps/logic-apps-enterprise-integration-partners.md) som definieras i ditt integrationskonto och konfigurerad med ”DUNS” kvalificeraren under **Företagsidentiteter**
+* Minst två [partner](../logic-apps/logic-apps-enterprise-integration-partners.md) som har definierats i ditt integrations konto och kon figurer ATS med kvalificeraren "duns" under **företags identiteter**
 
-* En PIP Processkonfiguration, som krävs för att skicka eller ta emot RosettaNet meddelanden i ditt integrationskonto. Konfigurationen av processen lagrar alla egenskaper för PIP-konfiguration. Du kan sedan referera till den här konfigurationen när du skapar ett avtal med partnern. Om du vill skapa en konfiguration för PIP-processen i ditt integrationskonto [lägga till PIP processen configuration](#add-pip).
+* En PIP-process konfiguration, som krävs för att skicka eller ta emot RosettaNet-meddelanden, i ditt integrations konto. Process konfigurationen lagrar alla egenskaper för PIP-konfigurationen. Du kan sedan referera till den här konfigurationen när du skapar ett avtal med partnern. Om du vill skapa en PIP process-konfiguration i ditt integrations konto, se [Lägg till pip process konfiguration](#add-pip).
 
-* Valfritt [certifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md) för kryptering, dekryptering eller signering av meddelanden som du överför till integrationskontot. Certifikat krävs endast om du är Använd signering eller kryptering.
+* Valfria [certifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md) för att kryptera, dekryptera eller signera meddelanden som du överför till integrations kontot. Certifikat krävs endast om du använder signering eller kryptering.
 
 <a name="add-pip"></a>
 
-## <a name="add-pip-process-configuration"></a>Lägg till PIP Processkonfiguration
+## <a name="add-pip-process-configuration"></a>Lägg till konfiguration av PIP process
 
-Följ dessa steg om du vill lägga till en konfiguration för PIP-processen i ditt integrationskonto:
+Följ dessa steg om du vill lägga till en PIP-process konfiguration till ditt integrations konto:
 
-1. I den [Azure-portalen](https://portal.azure.com), leta upp och öppna ditt integrationskonto.
+1. Leta upp och öppna ditt integrations konto i [Azure Portal](https://portal.azure.com).
 
-1. På den **översikt** väljer den **RosettaNet PIP** panelen.
+1. I fönstret **Översikt** väljer du panelen **RosettaNet pip** .
 
    ![Välj RosettaNet panel](media/logic-apps-enterprise-integration-rosettanet/select-rosettanet-tile.png)
 
-1. Under **RosettaNet PIP**, Välj **Lägg till**. Ange information om din PIP.
+1. Under **ROSETTANET pip**väljer du **Lägg till**. Ange din PIP-information.
 
    ![Lägg till RosettaNet PIP-information](media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png)
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Ja | PIP-namn |
-   | **PIP-kod** | Ja | PIP tresiffrig kod. Mer information finns i [RosettaNet kärnor](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
-   | **PIP Version** | Ja | PIP-versionsnummer, vilka är tillgängliga beroende på din valda PIP-kod |
+   | **Namn** | Ja | Ditt PIP-namn |
+   | **PIP-kod** | Ja | PIP-tresiffrig kod. Mer information finns i [RosettaNet PIPs](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **PIP-version** | Ja | PIP-versions numret, som är tillgängligt baserat på din valda PIP kod |
    ||||
 
-   Mer information om de här PIP-egenskaperna finns i [RosettaNet webbplats](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg).
+   Mer information om dessa PIP-egenskaper finns på [RosettaNet-webbplatsen](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg).
 
-1. När du är klar väljer **OK**, vilket skapar PIP-konfigurationen.
+1. När du är klar väljer du **OK**, vilket skapar pip-konfigurationen.
 
-1. Om du vill visa eller redigera konfigurationen av processen, Välj PIP och välj **redigera som JSON**.
+1. Om du vill visa eller redigera process konfigurationen väljer du PIP och väljer **Redigera som JSON**.
 
-   Alla bearbeta configuration inställningar som kommer från den PIP-specifikationer. Logic Apps lägger de flesta inställningar med de standardvärden som är de vanligaste värdena för dessa egenskaper.
+   Alla process konfigurations inställningar kommer från PIP-specifikationerna. Logic Apps fyller i de flesta av inställningarna med standardvärdena som används oftast för dessa egenskaper.
 
    ![Redigera RosettaNet PIP-konfiguration](media/logic-apps-enterprise-integration-rosettanet/edit-rosettanet-pip.png)
 
-1. Bekräfta att inställningarna för värden i lämpliga PIP-specifikationen och uppfylla dina affärsbehov. Om det behövs uppdaterar du värdet i JSON och spara ändringarna.
+1. Bekräfta att inställningarna motsvarar värdena i den aktuella PIP specifikationen och uppfyller dina affärs behov. Vid behov kan du uppdatera värdena i JSON och spara ändringarna.
 
-## <a name="create-rosettanet-agreement"></a>Skapa RosettaNet avtal
+## <a name="create-rosettanet-agreement"></a>Skapa RosettaNet-avtal
 
-1. I den [Azure-portalen](https://portal.azure.com), hitta och öppna ditt integrationskonto, om inte redan är öppen.
+1. Leta upp och öppna ditt integrations konto i [Azure Portal](https://portal.azure.com), om det inte redan är öppet.
 
-1. På den **översikt** väljer den **avtal** panelen.
+1. I **översikts** fönstret väljer du **avtals** panelen.
 
-   ![Välj panelen avtal](media/logic-apps-enterprise-integration-rosettanet/select-agreement-tile.png)
+   ![Välj avtals panel](media/logic-apps-enterprise-integration-rosettanet/select-agreement-tile.png)
 
-1. Under **avtal**, Välj **Lägg till**. Ange din information.
+1. Välj **Lägg till**under **avtal**. Ange din avtals information.
 
-   ![Lägg till avtalsuppgifter](media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png)
+   ![Lägg till avtals information](media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png)
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Ja | Avtalets namn |
-   | **Avtalstyp** | Ja | Välj **RosettaNet**. |
-   | **Värdpartner** | Ja | Ett avtal kräver både en värdens och gästens partner. Den mottagande partnern representerar organisationen som konfigurerar avtalet. |
-   | **Värd-identitet** | Ja | En identifierare för den mottagande partnern |
-   | **Gästpartner** | Ja | Ett avtal kräver både en värdens och gästens partner. Gästpartner representerar den organisation som gör affärer med den mottagande partnern. |
-   | **Gästidentitet** | Ja | En identifierare för gästpartner |
-   | **Ta emot inställningarna** | Varierar | Dessa egenskaper gäller för alla meddelanden som tas emot av den mottagande partnern |
-   | **Skicka inställningar** | Varierar | Dessa egenskaper gäller för alla meddelanden som skickas av den mottagande partnern |  
-   | **RosettaNet PIP-referenser** | Ja | PIP-referenser för avtalet. Alla RosettaNet meddelanden kräver PIP-konfigurationer. |
+   | **Namn** | Ja | Namnet på avtalet |
+   | **Avtals typ** | Ja | Välj **RosettaNet**. |
+   | **Värd partner** | Ja | Ett avtal kräver både värd-och gäst partner. Värd partnern representerar den organisation som konfigurerar avtalet. |
+   | **Värd identitet** | Ja | En identifierare för värd partnern |
+   | **Gäst partner** | Ja | Ett avtal kräver både värd-och gäst partner. Gäst partnern representerar den organisation som gör affärer med värd partnern. |
+   | **Gäst identitet** | Ja | En identifierare för gäst partnern |
+   | **Ta emot inställningar** | Varierar | Dessa egenskaper gäller för alla meddelanden som tas emot av värd partnern |
+   | **Skicka inställningar** | Varierar | Dessa egenskaper gäller för alla meddelanden som skickas av värd partnern |  
+   | **RosettaNet PIP-referenser** | Ja | PIP-referenser för avtalet. Alla RosettaNet-meddelanden kräver PIP-konfigurationer. |
    ||||
 
-1. Om du vill konfigurera ditt avtal för att ta emot inkommande meddelanden från gästpartner Välj **ta emot inställningar**.
+1. Om du vill konfigurera ditt avtal för att ta emot inkommande meddelanden från gäst partner väljer du **ta emot inställningar**.
 
-   ![Ta emot inställningarna](media/logic-apps-enterprise-integration-rosettanet/add-agreement-receive-details.png)
+   ![Ta emot inställningar](media/logic-apps-enterprise-integration-rosettanet/add-agreement-receive-details.png)
 
-   1. Aktivera signering eller kryptering för inkommande meddelanden under **meddelanden**väljer **meddelandet ska vara signerat** eller **meddelandet ska krypteras** respektive.
+   1. Om du vill aktivera signering eller kryptering för inkommande meddelanden, under **meddelanden**, ska du välja meddelande som ska **vara signerat** eller **meddelandet bör vara krypterat** .
 
       | Egenskap | Krävs | Beskrivning |
       |----------|----------|-------------|
-      | **Meddelandet ska vara signerat** | Nej | Logga inkommande meddelanden i det valda certifikatet. |
+      | **Meddelandet ska vara signerat** | Nej | Signera inkommande meddelanden med det valda certifikatet. |
       | **Certifikat** | Ja, om signering är aktiverat | Certifikatet som ska användas för signering |
-      | **Aktivera meddelandekryptering** | Nej | Kryptera inkommande meddelanden i det valda certifikatet. |
+      | **Aktivera meddelande kryptering** | Nej | Kryptera inkommande meddelanden med det valda certifikatet. |
       | **Certifikat** | Ja, om kryptering är aktiverat | Certifikatet som ska användas för kryptering |
       ||||
 
-   1. Under varje val väljer till respektive [certifikat](./logic-apps-enterprise-integration-certificates.md), som du tidigare har lagts till ditt integrationskonto ska användas för signering eller kryptering.
+   1. Under varje val väljer du respektive [certifikat](./logic-apps-enterprise-integration-certificates.md), som du tidigare lagt till i ditt integrations konto, som ska användas för signering eller kryptering.
 
-1. Om du vill konfigurera ditt avtal för att skicka meddelanden till gästpartner, Välj **skicka inställningar**.
+1. Om du vill konfigurera ditt avtal för att skicka meddelanden till gäst partner väljer du **Skicka inställningar**.
 
    ![Skicka inställningar](media/logic-apps-enterprise-integration-rosettanet/add-agreement-send-details.png)
 
-   1. Aktivera signering eller kryptering för utgående meddelanden under **meddelanden**väljer **aktivera Meddelandesignering** eller **aktivera meddelandekryptering** respektive. Under varje val väljer algoritmen för respektive och [certifikat](./logic-apps-enterprise-integration-certificates.md), som du tidigare har lagts till ditt integrationskonto ska användas för signering eller kryptering.
+   1. Om du vill aktivera signering eller kryptering för utgående meddelanden går du till **meddelanden**och väljer **Aktivera meddelande signering** eller **Aktivera meddelande kryptering** . Under varje val väljer du den respektive algoritm och det [certifikat](./logic-apps-enterprise-integration-certificates.md)som du tidigare lagt till i ditt integrations konto för att använda för signering eller kryptering.
 
       | Egenskap | Krävs | Beskrivning |
       |----------|----------|-------------|
-      | **Aktivera Meddelandesignering** | Nej | Logga utgående meddelanden med den valda Signeringsalgoritm och certifikatet. |
-      | **Signeringsalgoritm** | Ja, om signering är aktiverat | Signeringsalgoritm för dig, baserat på det valda certifikatet |
+      | **Aktivera meddelande signering** | Nej | Signera utgående meddelanden med den valda signeringsalgoritmen och certifikat. |
+      | **Signeringsalgoritm** | Ja, om signering är aktiverat | Signeringsalgoritmen som ska användas, baserat på det valda certifikatet |
       | **Certifikat** | Ja, om signering är aktiverat | Certifikatet som ska användas för signering |
-      | **Aktivera meddelandekryptering** | Nej | Kryptera utgående med den valda krypteringsalgoritmen och certifikatet. |
-      | **Krypteringsalgoritm** | Ja, om kryptering är aktiverat | Krypteringsalgoritmen som ska använda, baserat på det valda certifikatet |
+      | **Aktivera meddelande kryptering** | Nej | Kryptera utgående med den valda krypteringsalgoritmen och certifikatet. |
+      | **Krypteringsalgoritm** | Ja, om kryptering är aktiverat | Krypteringsalgoritmen som ska användas, baserat på det valda certifikatet |
       | **Certifikat** | Ja, om kryptering är aktiverat | Certifikatet som ska användas för kryptering |
       ||||
 
-   1. Under **slutpunkter**, ange de URL: erna att använda för att skicka åtgärdsmeddelanden och bekräftelser.
+   1. Under **slut punkter**anger du de obligatoriska URL: er som ska användas för att skicka åtgärds meddelanden och bekräftelser.
 
       | Egenskap | Krävs | Beskrivning |
       |----------|----------|-------------|
-      | **Åtgärdens URL-adress** |  Ja | URL: en ska användas för att skicka åtgärdsmeddelanden. URL: en är ett obligatoriskt fält för både synkrona och asynkrona meddelanden. |
-      | **Bekräftelse-URL** | Ja | URL som ska användas för att skicka meddelanden. URL: en är ett obligatoriskt fält för asynkrona meddelanden. |
+      | **Åtgärds-URL** |  Ja | Den URL som ska användas för att skicka åtgärds meddelanden. URL: en är ett obligatoriskt fält för både synkrona och asynkrona meddelanden. |
+      | **Bekräftelse-URL** | Ja | Den URL som ska användas för att skicka bekräftelse meddelanden. URL: en är ett obligatoriskt fält för asynkrona meddelanden. |
       ||||
 
-1. Om du vill konfigurera ditt avtal med RosettaNet PIP-referenser för partner, Välj **RosettaNet PIP refererar till**. Under **PIP namn**, väljer du namnet för ditt tidigare skapade PIP.
+1. Om du vill konfigurera ditt avtal med RosettaNet PIP-referenser för partner väljer du **ROSETTANET pip-referenser**. Under **pip namn**väljer du namnet på din tidigare skapade pip.
 
    ![PIP-referenser](media/logic-apps-enterprise-integration-rosettanet/add-agreement-pip-details.png)
 
-   Ditt val lägger de övriga egenskaperna som är baserade på PIP som du har konfigurerat i ditt integrationskonto. Om nödvändigt, kan du ändra den **PIP rollen**.
+   Ditt val fyller i de återstående egenskaperna, som baseras på PIP som du ställer in i ditt integrations konto. Om det behövs kan du ändra **pip-rollen**.
 
-   ![Valda PIP](media/logic-apps-enterprise-integration-rosettanet/add-agreement-selected-pip.png)
+   ![Vald PIP](media/logic-apps-enterprise-integration-rosettanet/add-agreement-selected-pip.png)
 
-När du har slutfört de här stegen, är du redo att skicka eller ta emot RosettaNet meddelanden.
+När du har slutfört de här stegen är du redo att skicka eller ta emot RosettaNet-meddelanden.
 
-## <a name="rosettanet-templates"></a>RosettaNet mallar
+## <a name="rosettanet-templates"></a>RosettaNet-mallar
 
-För att påskynda utvecklingen och rekommenderar integration mönster, kan du använda mallar för logikappar för avkoda och koda RosettaNet meddelanden. När du skapar en logikapp kan välja du från mallgalleriet i Logic App Designer. Du kan också hitta dessa mallar i den [GitHub-lagringsplatsen för Azure Logic Apps](https://github.com/Azure/logicapps).
+För att påskynda utvecklingen och rekommendera integrations mönster kan du använda Logic app templates för att avkoda och koda RosettaNet-meddelanden. När du skapar en Logic-app kan du välja från mallgalleriet i Logic App Designer. Du kan också hitta de här mallarna i [GitHub-lagringsplatsen för Azure Logic Apps](https://github.com/Azure/logicapps).
 
-![RosettaNet mallar](media/logic-apps-enterprise-integration-rosettanet/decode-encode-rosettanet-templates.png)
+![RosettaNet-mallar](media/logic-apps-enterprise-integration-rosettanet/decode-encode-rosettanet-templates.png)
 
-## <a name="receive-or-decode-rosettanet-messages"></a>Ta emot eller avkoda RosettaNet meddelanden
+## <a name="receive-or-decode-rosettanet-messages"></a>Ta emot eller avkoda RosettaNet-meddelanden
 
-1. [Skapa en tom logikapp](quickstart-create-first-logic-app-workflow.md).
+1. [Skapa en tom Logic-app](quickstart-create-first-logic-app-workflow.md).
 
-1. [Länka ditt integrationskonto](logic-apps-enterprise-integration-create-integration-account.md#link-account) i logikappen.
+1. [Länka ditt integrations konto](logic-apps-enterprise-integration-create-integration-account.md#link-account) till din Logic app.
 
-1. Innan du kan lägga till en åtgärd för att avkoda meddelandet RosettaNet, måste du lägga till en utlösare för att starta logikappen, till exempel en begäransutlösare.
+1. Innan du kan lägga till en åtgärd för att avkoda RosettaNet-meddelandet måste du lägga till en utlösare för att starta din Logic app, till exempel en begäran-utlösare.
 
-1. När du lägger till utlösaren väljer **nytt steg**.
+1. När du har lagt till utlösaren väljer du **nytt steg**.
 
-   ![Lägg till utlösare för begäran](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
+   ![Lägg till begär ande utlösare](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
 
-1. Ange ”rosettanet” i sökrutan och välj den här åtgärden: **RosettaNet avkoda**
+1. I sökrutan anger du "RosettaNet" och väljer den här åtgärden: **RosettaNet-avkodning**
 
-   ![Hitta och välj ”RosettaNet avkoda” åtgärden](media/logic-apps-enterprise-integration-rosettanet/select-decode-rosettanet-action.png)
+   ![Sök efter och Välj åtgärden "RosettaNet avkoda"](media/logic-apps-enterprise-integration-rosettanet/select-decode-rosettanet-action.png)
 
-1. Ange information för den åtgärden egenskaper:
+1. Ange informationen för åtgärdens egenskaper:
 
-   ![Ange information om åtgärd](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
-
-   | Egenskap | Krävs | Beskrivning |
-   |----------|----------|-------------|
-   | **meddelande** | Ja | RosettaNet meddelandet att avkoda  |
-   | **Headers** | Ja | HTTP-huvuden som anger värden för den versionen, vilket är versionen som RNIF och svarstyp anger kommunikation mellan partner som kan vara synkron eller asynkron |
-   | **Roll** | Ja | Rollen för den mottagande partnern i PIP |
-   ||||
-
-   Från instruktionen RosettaNet avkoda utdata, tillsammans med andra egenskaper innehåller **utgående signal**, som du kan välja att koda och gå tillbaka till partnern eller vidta andra åtgärder för dessa utdata.
-
-## <a name="send-or-encode-rosettanet-messages"></a>Skicka eller koda RosettaNet meddelanden
-
-1. [Skapa en tom logikapp](quickstart-create-first-logic-app-workflow.md).
-
-1. [Länka ditt integrationskonto](logic-apps-enterprise-integration-create-integration-account.md#link-account) i logikappen.
-
-1. Innan du kan lägga till en åtgärd för att koda RosettaNet meddelandet, måste du lägga till en utlösare för att starta logikappen, till exempel en begäransutlösare.
-
-1. När du lägger till utlösaren väljer **nytt steg**.
-
-   ![Lägg till utlösare för begäran](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
-
-1. Ange ”rosettanet” i sökrutan och välj den här åtgärden: **RosettaNet koda**
-
-   ![Hitta och välj ”RosettaNet koda” åtgärden](media/logic-apps-enterprise-integration-rosettanet/select-encode-rosettanet-action.png)
-
-1. Ange information för den åtgärden egenskaper:
-
-   ![Ange information om åtgärd](media/logic-apps-enterprise-integration-rosettanet/encode-action-details.png)
+   ![Ange åtgärds information](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **meddelande** | Ja | RosettaNet-meddelande att koda  |
-   | **Värdpartner** | Ja | Värdnamn för partner |
-   | **Gästpartner** | Ja | Gästen Partnernamn |
-   | **PIP-kod** | Ja | PIP-kod |
-   | **PIP-version** | Ja | PIP-version |  
-   | **PIP identitet** | Ja | Den unika identifieraren för den här PIP-meddelande |  
-   | **Meddelandetyp** | Ja | Typ av meddelande att koda |  
-   | **Roll** | Ja | Rollen för den mottagande partnern |
+   | **Meddelande** | Ja | RosettaNet-meddelandet att avkoda  |
+   | **Headers** | Ja | HTTP-huvuden som innehåller värdena för-versionen, som är RNIF-versionen och svars typen, som anger kommunikations typen mellan partnerna och kan vara synkron eller asynkron |
+   | **Roll** | Ja | Rollen som värd partner i PIP |
    ||||
 
-   Kodat meddelande är nu klar att skicka till partnern.
+   Från RosettaNet avkodnings åtgärd inkluderar utdata, tillsammans med andra egenskaper, **utgående signal**, som du kan välja att koda och returnera tillbaka till partnern, eller vidta andra åtgärder på dessa utdata.
 
-1. Om du vill skicka kodade meddelandet, det här exemplet används den **HTTP** ”HTTP - skicka kodade meddelandet till partner” byta namn på åtgärden, vilket är.
+## <a name="send-or-encode-rosettanet-messages"></a>Skicka eller koda RosettaNet-meddelanden
 
-   ![HTTP-åtgärd för att skicka RosettaNet meddelande](media/logic-apps-enterprise-integration-rosettanet/send-rosettanet-message-to-partner.png)
+1. [Skapa en tom Logic-app](quickstart-create-first-logic-app-workflow.md).
 
-   Per RosettaNet standarder anses affärstransaktioner slutförd endast när alla steg som definieras av PIP har slutförts.
+1. [Länka ditt integrations konto](logic-apps-enterprise-integration-create-integration-account.md#link-account) till din Logic app.
 
-1. När värden skickar kodade meddelandet till partner, väntar värden signal och bekräftelse. Om du vill utföra den här uppgiften att lägga till den **RosettaNet väntan på svar** åtgärd.
+1. Innan du kan lägga till en åtgärd för att koda RosettaNet-meddelandet måste du lägga till en utlösare för att starta din Logic app, till exempel en begäran-utlösare.
 
-   ![Lägg till ”RosettaNet väntan på svar”-åtgärd](media/logic-apps-enterprise-integration-rosettanet/rosettanet-wait-for-response-action.png)
+1. När du har lagt till utlösaren väljer du **nytt steg**.
 
-   Hur länge ska använda för att vänta på och antalet återförsök baseras på PIP-konfigurationen i ditt integrationskonto. Om du inte fått svar i den här åtgärden genererar ett meddelande med fel. Om du vill hantera återförsök, använda den **koda** och **vänta på svar** åtgärder i en **tills** loop.
+   ![Lägg till begär ande utlösare](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
 
-   ![Until-loop med RosettaNet åtgärder](media/logic-apps-enterprise-integration-rosettanet/rosettanet-loop.png)
+1. I rutan Sök anger du "RosettaNet" och väljer den här åtgärden: **RosettaNet-kodning**
+
+   ![Sök efter och Välj åtgärden "RosettaNet-kodning"](media/logic-apps-enterprise-integration-rosettanet/select-encode-rosettanet-action.png)
+
+1. Ange informationen för åtgärdens egenskaper:
+
+   ![Ange åtgärds information](media/logic-apps-enterprise-integration-rosettanet/encode-action-details.png)
+
+   | Egenskap | Krävs | Beskrivning |
+   |----------|----------|-------------|
+   | **Meddelande** | Ja | RosettaNet-meddelandet som ska kodas  |
+   | **Värd partner** | Ja | Värd partner namnet |
+   | **Gäst partner** | Ja | Namnet på gäst partnern |
+   | **PIP-kod** | Ja | PIP-koden |
+   | **PIP-version** | Ja | PIP-versionen |  
+   | **PIP-instans identitet** | Ja | Den unika identifieraren för det här PIP-meddelandet |  
+   | **Meddelande typ** | Ja | Typ av meddelande som ska kodas |  
+   | **Roll** | Ja | Värd partnerns roll |
+   ||||
+
+   Det kodade meddelandet är nu klart att skickas till partnern.
+
+1. För att skicka det kodade meddelandet använder det här exemplet **http** -åtgärden, som byter namn till "http-Send kodat meddelande till partner".
+
+   ![HTTP-åtgärd för att skicka RosettaNet-meddelande](media/logic-apps-enterprise-integration-rosettanet/send-rosettanet-message-to-partner.png)
+
+   Enligt RosettaNet-standarder betraktas affärs transaktionerna som fullständiga när alla steg som har definierats av PIP har slutförts.
+
+1. När värden skickar det kodade meddelandet till partner väntar värden på signalen och bekräftelsen. För att utföra den här uppgiften lägger du till åtgärden **RosettaNet vänta på svar** .
+
+   ![Lägg till åtgärden "RosettaNet väntar på svar"](media/logic-apps-enterprise-integration-rosettanet/rosettanet-wait-for-response-action.png)
+
+   Den varaktighet som ska användas för väntan och antalet återförsök baseras på PIP-konfigurationen i ditt integrations konto. Om svaret inte tas emot genererar den här åtgärden ett meddelande om fel. Om du vill hantera återförsök ska du alltid ange **koda** och **vänta på svars** åtgärder **i en-** loop.
+
+   ![Tills loop med RosettaNet-åtgärder](media/logic-apps-enterprise-integration-rosettanet/rosettanet-loop.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig att verifiera, omvandla och andra meddelandeåtgärder med den [Enterprise-Integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig hur du verifierar, transformerar och andra meddelande åtgärder med [Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

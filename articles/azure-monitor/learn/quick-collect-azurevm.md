@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 8e44908baea506efa488899c90e9022acc6e30b8
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.custom: mvc, sec-javascript-october2019
+ms.openlocfilehash: f400fb7f177301e2b8c21cde9be334635025b4b3
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992155"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677705"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Samla in data från en virtuell Azure-dator med Azure Monitor
 
@@ -27,7 +27,7 @@ ms.locfileid: "69992155"
  
 För den här snabbstarten förutsätts det att du har en befintlig virtuell dator i Azure. Om du inte har det kan du [skapa en virtuell Windows-dator](../../virtual-machines/windows/quick-create-portal.md) eller [skapa en virtuell Linux-dator](../../virtual-machines/linux/quick-create-cli.md) med hjälp av våra snabbstarter för virtuella datorer.
 
-## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
@@ -35,7 +35,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
-    ![Azure Portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Azure portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Välj **skapa**och välj sedan alternativ för följande objekt:
 
@@ -45,7 +45,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
    * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).
    * Om du skapar en arbetsyta i en ny prenumeration som skapats efter 2 april 2018 används prisplanen *Per GB* automatiskt och alternativet för att välja en prisnivå är inte tillgängligt.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före 2 april eller en prenumeration som var bunden till en befintlig EA-registrering, väljer du önskad prisnivå.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Skapa Log Analytics resurs bladet](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Skapa Log Analytics resurs bladet](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. När du har angett nödvändig information i fönstret **Log Analytics arbets yta** väljer du **OK**.  
 
@@ -80,7 +80,7 @@ Azure Monitor kan samla in händelser från Windows-händelseloggen eller Linux 
 
 1. Välj **Avancerade inställningar**.
 
-    ![Avancerade inställningar i Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Avancerade inställningar i Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
 
 2. Välj **Data** och sedan **Windows-händelseloggar**.
 
@@ -114,7 +114,7 @@ Azure Monitor kan samla in händelser från Windows-händelseloggen eller Linux 
 
 6. När du först konfigurerar Linux-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.
 
-    ![Standardalternativen för Windows-prestandaräknare markerade](media/quick-collect-azurevm/linux-perfcounters-default.png)
+    ![Standardalternativen för Windows-prestandaräknare markerade](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Välj **Använd konfigurationen nedan till mina datorer** och välj sedan **Lägg till de valda prestanda räknarna**.  De läggs till med en förinställning av provintervall på tio sekunder.  
 
@@ -126,7 +126,7 @@ Nu när du har aktiverat insamling av data kan du köra en enkel loggsökning f�
 
 1. I den valda arbets ytan väljer du **loggar**i den vänstra rutan.
 
-2. På sidan loggar fråga skriver `Perf` du i Frågeredigeraren och väljer **Kör**.
+2. På sidan loggar fråga skriver du `Perf` i Frågeredigeraren och väljer **Kör**.
 
     ![Exempel på loggsökningsfråga i Log Analytics](./media/quick-collect-windows-computer/log-analytics-portal-queryexample.png) 
 

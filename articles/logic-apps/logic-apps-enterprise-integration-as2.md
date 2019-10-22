@@ -1,6 +1,6 @@
 ---
-title: AS2-meddelanden för B2B Enterprise-integration – Azure Logic Apps
-description: Exchange AS2-meddelanden i Azure Logic Apps med Enterprise-integrationspaket
+title: Skicka och ta emot AS2-meddelanden för B2B-Azure Logic Apps
+description: Exchange AS2-meddelanden för B2B Enterprise integration-scenarier med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b1e7664aa08171c16c83e17ad93977b29e31b5c0
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1f063c0e8dada8eb6c4eee031764f6ca7dd3a91d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656384"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680390"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange AS2-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -27,7 +27,7 @@ Om du vill arbeta med AS2-meddelanden i Azure Logic Apps kan du använda AS2-ans
   * Komprimerar meddelandet.
   * Överför fil namnet i MIME-huvudet.
 
-* [ **AS2** ](#decode) -avkodnings åtgärd för att tillhandahålla dekryptering, digital signering och bekräftelser via meddelanden om meddelande disposition (MDN). Den här åtgärden utför till exempel följande uppgifter:
+* [ **AS2-avkodnings** åtgärd](#decode) för att tillhandahålla dekryptering, digital signering och bekräftelser via meddelanden om meddelande disposition (MDN). Den här åtgärden utför till exempel följande uppgifter:
 
   * Bearbetar AS2/HTTP-huvuden.
   * Synkroniserar mottagna MDNs med de ursprungliga utgående meddelandena.
@@ -50,11 +50,11 @@ Den här artikeln visar hur du lägger till AS2-kodning och avkodnings åtgärde
 > [!IMPORTANT]
 > Den ursprungliga AS2-anslutningen kommer att bli inaktuell, så se till att du använder **AS2-anslutningsprogrammet (v2)** i stället. Den här versionen innehåller samma funktioner som den ursprungliga versionen, är inbyggd i Logic Apps Runtime och ger betydande prestanda förbättringar vad gäller data flöde och meddelande storlek. Dessutom kräver inte den inbyggda v2-anslutaren att du skapar en anslutning till ditt integrations konto. I stället bör du, enligt beskrivningen i kraven, se till att du länkar ditt integrations konto till den Logic-app där du planerar att använda anslutnings tjänsten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Den Logic-app från vilken du vill använda AS2-anslutaren och en utlösare som startar din Logic app-arbetsflöde. AS2-anslutaren tillhandahåller endast åtgärder, inte utlösare. Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
+* Den Logic-app från vilken du vill använda AS2-anslutaren och en utlösare som startar din Logic app-arbetsflöde. AS2-anslutaren tillhandahåller endast åtgärder, inte utlösare. Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som är associerat med din Azure-prenumeration och länkat till Logic-appen där du planerar att använda AS2-anslutningen. Både din Logic app och ditt integrations konto måste finnas på samma plats eller i Azure-regionen.
 
@@ -101,7 +101,7 @@ Den här artikeln visar hur du lägger till AS2-kodning och avkodnings åtgärde
 
 1. Lägg till en ny åtgärd i din Logic app i designern.
 
-1. Under **Välj en åtgärd** och sökrutan väljer du **alla**. I sökrutan anger du "AS2 avkodning" och kontrollerar att du väljer åtgärden AS2 (v2): **AS2-avkodning**
+1. Under **Välj en åtgärd** och sökrutan väljer du **alla**. I sökrutan anger du "AS2 avkoda" och ser till att du väljer AS2 (v2) åtgärd: **AS2-avkodning**
 
    ![Välj "AS2 avkoda"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 

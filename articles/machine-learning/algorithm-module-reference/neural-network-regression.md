@@ -1,5 +1,5 @@
 ---
-title: 'Neurala nätverks regression: Modulreferens'
+title: 'Neurala nätverks regression: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder neurala Network regression-modulen i Azure Machine Learning-tjänsten för att skapa en Regressions modell med en anpassningsbar neurala-nätverks algoritm.
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 93f27458a2571b2e26a090c06b01d8abe3e79c2a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128574"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692739"
 ---
 # <a name="neural-network-regression-module"></a>Neurala Network regression-modul
 
 *Skapar en Regressions modell med en neurala*  
   
- Kategori Machine Learning/initiera modell/regression
+ Kategori: Machine Learning/initiera modell/regression
   
 ## <a name="module-overview"></a>Översikt över modul  
 
@@ -52,11 +52,11 @@ Neurala-nätverk kan anpassas i stor utsträckning. I det här avsnittet beskriv
 
 ##  <a name="bkmk_DefaultArchitecture"></a>Skapa en neurala-nätverks modell med standard arkitekturen
   
-1.  Lägg till **neurala Network regression** -modulen i experimentet i gränssnittet. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **Regressions** kategorin. 
+1.  Lägg till **neurala Network regression** -modulen till din pipeline i gränssnittet. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **Regressions** kategorin. 
   
 2. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.  
+    -   **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.  
 
 3.  I **specifikationen för dolt lager**väljer du **fullständigt anslutet ärende**. Med det här alternativet skapas en modell som använder standard nätverks arkitekturen neurala, som för en neurala-nätverks Regressions modell, som har följande attribut:  
   
@@ -74,18 +74,18 @@ Neurala-nätverk kan anpassas i stor utsträckning. I det här avsnittet beskriv
 
 7.  För * * den inledande frekvensen för inlärnings viktningen anger du ett värde som avgör den aktuella nodens vikt i början av inlärnings processen.
 
-8.  Angeett värde som ska användas under inlärningen som en vikt på noder från föregående iterationer.
+8.  Ange ett **värde som ska**användas under inlärningen som en vikt på noder från föregående iterationer.
 
-10. Välj alternativet, **blanda exempel**för att ändra ordningen på fall mellan iterationer. Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör experimentet.
+10. Välj alternativet, **blanda exempel**för att ändra ordningen på fall mellan iterationer. Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör pipelinen.
   
-11. Du kan ange ett värde som ska användas som startvärdet för det **slumpmässiga antalet frön**. Att ange ett Seed-värde är användbart när du vill säkerställa repeterbarhet i flera körningar av samma experiment.
+11. Du kan ange ett värde som ska användas som startvärdet för det **slumpmässiga antalet frön**. Att ange ett Seed-värde är användbart när du vill säkerställa repeterbarhet i flera körningar av samma pipeline.
   
-13. Anslut en data uppsättning för utbildning och en [](module-reference.md)av inlärnings modulerna: 
+13. Anslut en data uppsättning för utbildning och en av [inlärnings modulerna](module-reference.md): 
   
-    -   Om du ställer in **skapa** utbildare till **en parameter**använder du [träna modell](./train-model.md).  
+    -   Om du ställer in **skapa utbildare** till **en parameter**använder du [träna modell](./train-model.md).  
   
    
-14. Kör experimentet.  
+14. Köra en pipeline.  
 
 ## <a name="results"></a>Resultat
 
@@ -93,7 +93,7 @@ När utbildningen är klar:
 
 + Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen och andra parametrar för neurala-nätverket, högerklickar du på utdata från [träna modell](./train-model.md)och väljer **visualisera**.  
 
-+ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den tränade modellens utdata och väljer **Spara som utbildad modell**. Den här modellen uppdateras inte vid efterföljande körningar av samma experiment.
++ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den **tränade modellens** utdata och väljer **Spara som utbildad modell**. Den här modellen uppdateras inte vid efterföljande körningar av samma pipeline.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
-title: Hämta mer data, objekt eller poster med sidbrytning – Azure Logic Apps
-description: Konfigurera sidbrytning överskrider storleksgränsen för standard-sidan för anslutningsappsåtgärder i Azure Logic Apps
+title: Hämta fler objekt eller poster med sid brytning – Azure Logic Apps
+description: Ställ in sid brytning för att överskrida standard sid storleks gränsen för kopplings åtgärder i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,26 +9,26 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e86600312490c77ed492cb28a359add0fed90596
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64476548"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679898"
 ---
-# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Få mer data, objekt eller poster med hjälp av sidbrytning i Azure Logic Apps
+# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Hämta mer data, objekt eller poster med hjälp av sid brytning i Azure Logic Apps
 
-När du hämtar data, objekt eller poster med hjälp av en anslutningstjänsten åtgärd i [Azure Logic Apps](../logic-apps/logic-apps-overview.md), du kan få resultatmängder så stor att åtgärden inte returnera alla resultat på samma gång. Med vissa åtgärder kanske antalet resultat som överskrider dess Standardsidstorleken. I det här fallet returnerar åtgärden bara den första sidan i resultaten. Till exempel Standardsidstorleken för SQL Server-anslutningen **hämta rader** åtgärd är 2048, men kan variera beroende på andra inställningar.
+När du hämtar data, objekt eller poster med hjälp av en kopplings åtgärd i [Azure Logic Apps](../logic-apps/logic-apps-overview.md)kan du få resultat uppsättningar så att åtgärden inte returnerar alla resultat på samma gång. Med vissa åtgärder kan antalet resultat överskrida kopplingens standard sid storlek. I det här fallet returnerar åtgärden bara den första resultat sidan. Till exempel är standard sid storleken för åtgärden **Hämta rader** i SQL Server Connector 2048, men kan variera beroende på andra inställningar.
 
-Vissa åtgärder kan du aktivera en *sidbrytning* så att logikappen kan hämta fler resultat upp till gränsen för sidbrytning, men returnerar de resultat som ett enda meddelande när åtgärden är klar. När du använder sidbrytning, måste du ange en *tröskelvärdet* värde, som är för målantalet resultat som du vill att åtgärden ska returnera. Åtgärden hämtar resultat tills du når dina angivet tröskelvärde. När det totala antalet objekt som är mindre än angivet tröskelvärde, hämtar åtgärden alla resultat.
+Med vissa åtgärder kan du aktivera en *sid brytnings* inställning så att din Logi Kap par kan hämta fler resultat upp till sid brytnings gränsen, men returnera resultaten som ett enda meddelande när åtgärden har slutförts. När du använder sid brytning måste du ange ett *tröskelvärde* , vilket är det mål antal resultat som du vill att åtgärden ska returnera. Åtgärden hämtar resultat tills du når det angivna tröskelvärdet. När det totala antalet objekt är mindre än det angivna tröskelvärdet, hämtar åtgärden alla resultat.
 
-Aktivera sidnumrering inställningen hämtar sidor i resultatet baserat på sidstorlek för en koppling. Det här innebär att ibland kan du få fler resultat än den angivna tröskeln. Till exempel när du använder SQL Server **hämta rader** åtgärd som har stöd för sidbrytning inställning:
+Om du aktiverar sid brytnings inställningen hämtas sidor med resultat baserat på kopplingens sid storlek. Det här beteendet innebär ibland att du kan få fler resultat än det angivna tröskelvärdet. Till exempel när du använder åtgärden SQL Server **Hämta rader** , som har stöd för sid brytnings inställningen:
 
-* Åtgärdens Standardsidstorleken har 2048 poster per sida.
-* Anta att du har 10 000 poster och ange 5 000 poster som minimum.
-* Sidbrytning hämtar sidor med poster för att komma till minst den angivna lägsta värdet, åtgärden returnerar 6144 poster (3 sidor x 2048 poster), inte 5 000 poster.
+* Åtgärdens standard sid storlek är 2048 poster per sida.
+* Anta att du har 10 000 poster och anger 5000 poster som minimum.
+* Sid brytning hämtar sidor med poster, så för att få minst det angivna minimivärdet returnerar åtgärden 6144 poster (3 sidor x 2048 poster), inte 5000-poster.
 
-Här följer en lista med bara några av de kopplingar som där du kan överskrida Standardsidstorleken för specifika åtgärder:
+Här är en lista med bara några av kopplingarna där du kan överskrida standard sid storleken för vissa åtgärder:
 
 * [Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/)
 * [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
@@ -41,31 +41,31 @@ Här följer en lista med bara några av de kopplingar som där du kan överskri
 * [SharePoint](https://docs.microsoft.com/connectors/sharepointonline/)
 * [SQL Server](https://docs.microsoft.com/connectors/sql/)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration än, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Logikappen och åtgärden där du vill aktivera sidbrytning. Om du inte har en logikapp kan se [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Logic app och den åtgärd där du vill aktivera sid brytning. Om du inte har en logisk app, se [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="turn-on-pagination"></a>Aktivera sidnumrering
+## <a name="turn-on-pagination"></a>Aktivera sid brytning
 
-För att avgöra om en åtgärd har stöd för sidbrytning i Logic App Designer, kontrollera åtgärdens inställningarna för den **sidbrytning** inställningen. Det här exemplet visar hur du aktiverar sidbrytning i SQL Server **hämta rader** åtgärd.
+Ta reda på om en åtgärd stöder sid brytning i Logic App Designer genom att kontrol lera åtgärdens inställningar för **sid brytnings** inställningen. Det här exemplet visar hur du aktiverar sid brytning i SQL Servers åtgärd för **Hämta rader** .
 
-1. I åtgärdens övre högra hörnet väljer du ellipserna ( **...** ) och välj **inställningar**.
+1. I åtgärdens övre högra hörn väljer du knappen med tre punkter ( **...** ) och väljer **Inställningar**.
 
-   ![Öppna den åtgärdsinställningar](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
+   ![Öppna åtgärdens inställningar](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 
-   Om åtgärden har stöd för sidbrytning, åtgärden visas den **sidbrytning** inställningen.
+   Om åtgärden stöder sid brytning, visar åtgärden inställningen för **sid brytning** .
 
-1. Ändra den **sidbrytning** från **av** till **på**. I den **tröskelvärdet** egenskapen, ange ett heltalsvärde för antalet resultat som du vill att åtgärden ska returneras.
+1. Ändra **sid brytnings** **inställningen från till** **på**. I egenskapen **Threshold (tröskelvärde** ) anger du ett heltals värde för det mål antal resultat som du vill att åtgärden ska returnera.
 
-   ![Ange minsta antal resultat som ska returneras](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
+   ![Ange det minsta antalet resultat som ska returneras](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
-1. När du är klar kan du välja **klar**.
+1. När du är klar väljer du **klar**.
 
-## <a name="workflow-definition---pagination"></a>Arbetsflödesdefinitionen - sidbrytning
+## <a name="workflow-definition---pagination"></a>Arbets flödes definition – sid brytning
 
-När du aktiverar sidbrytning för en åtgärd som har stöd för den här funktionen kan din logikapp arbetsflödesdefinitionen innehåller den `"paginationPolicy"` egenskapen tillsammans med den `"minimumItemCount"` -egenskapen i den åtgärden `"runtimeConfiguration"` egenskap, till exempel:
+När du aktiverar sid brytning för en åtgärd som har stöd för den här funktionen, innehåller din Logic Apps arbets flödes definition `"paginationPolicy"`-egenskapen tillsammans med egenskapen `"minimumItemCount"` i den åtgärdens `"runtimeConfiguration"`-egenskap, till exempel:
 
 ```json
 "actions": {

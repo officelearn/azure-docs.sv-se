@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Använd python och TensorFlow i Azure Functions för att göra Machine Learning-inferences | Microsoft Docs'
+title: 'Självstudie: Använd python och TensorFlow i Azure Functions för att göra Machine Learning-inferences | Microsoft Docs'
 description: Den här självstudien visar hur du använder TensorFlow Machine Learning-modeller i Azure Functions
 services: functions
 author: anthonychu
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: abc7302ee59103a9cbab156b95a41b77eb95d474
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729178"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677887"
 ---
-# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Självstudier: Använda Machine Learning-modeller i Azure Functions med python och TensorFlow
+# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Självstudie: använda Machine Learning-modeller i Azure Functions med python och TensorFlow
 
 Den här artikeln visar hur Azure Functions gör att du kan använda python och TensorFlow med en maskin inlärnings modell för att klassificera en avbildning baserat på dess innehåll.
 
@@ -33,7 +33,7 @@ I de här självstudierna får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Om du vill skapa Azure Functions i python måste du installera några verktyg.
 
@@ -52,10 +52,10 @@ cd functions-python-tensorflow-tutorial
 
 Databasen innehåller några få mappar.
 
-- *Starta*:  Det här är din arbetsmapp för själv studie kursen
-- *slut*: Detta är det slutliga resultatet och fullständig implementering för din referens
-- *resurser*: Innehåller Machine Learning-modellen och hjälp program bibliotek
-- *klient*del: En webbplats som anropar Function-appen
+- *Starta*: det här är din arbetsmapp för självstudien
+- *slut*: det här är det slutliga resultatet och fullständig implementering för din referens
+- *resurser*: innehåller Machine Learning-modellen och hjälp program bibliotek
+- *klient*del: en webbplats som anropar Function-appen
 
 ## <a name="create-and-activate-a-python-virtual-environment"></a>Skapa och aktivera en virtuell python-miljö
 
@@ -79,7 +79,7 @@ py -3.6 -m venv .venv
 .venv\scripts\activate
 ```
 
-Terminal-prompten har nu prefixet `(.venv)` som anger att du har aktiverat den virtuella miljön. Bekräfta att `python` i den virtuella miljön verkligen python 3.6. x.
+Terminal-prompten föregås nu av `(.venv)` som anger att du har aktiverat den virtuella miljön. Bekräfta att `python` i den virtuella miljön verkligen är python 3.6. x.
 
 ```console
 python --version
@@ -98,9 +98,9 @@ func init --worker-runtime python
 
 En Function-app kan innehålla en eller flera Azure Functions. Öppna mappen *Start* i en redigerare och granska innehållet.
 
-- [*Local. Settings. JSON*](functions-run-local.md#local-settings-file): Innehåller program inställningar som används för lokal utveckling
-- [*Host. JSON*](functions-host-json.md): Innehåller inställningar för Azure Functions värd och tillägg
-- [*krav. txt*](functions-reference-python.md#python-version-and-package-management): Innehåller python-paket som krävs av det här programmet
+- [*Local. Settings. JSON*](functions-run-local.md#local-settings-file): innehåller program inställningar som används för lokal utveckling
+- [*Host. JSON*](functions-host-json.md): innehåller inställningar för Azure Functions värd och tillägg
+- [*Requirements. txt*](functions-reference-python.md#python-version-and-package-management): innehåller python-paket som krävs av det här programmet
 
 ## <a name="create-an-http-function"></a>Skapa en HTTP-funktion
 
@@ -114,8 +114,8 @@ func new --language python --template HttpTrigger --name classify
 
 En ny mapp med namnet *klassificera* skapas, som innehåller två filer.
 
-- *init.py\_: \_ \_\_* En fil för huvud funktionen
-- *Function. JSON*:  En fil som beskriver funktionens utlösare och dess indata och utdata-bindningar
+- *\_ \_init \_ \_. py*: en fil för huvud funktionen
+- *Function. JSON*: en fil som beskriver funktionens utlösare och dess indata och utdata-bindningar
 
 ### <a name="run-the-function"></a>Kör funktionen
 
@@ -131,7 +131,7 @@ func start
 http://localhost:7071/api/classify?name=Azure
 ```
 
-Används `Ctrl-C` för att stoppa Function-appen.
+Använd `Ctrl-C` för att stoppa Function-appen.
 
 ## <a name="import-the-tensorflow-model"></a>Importera TensorFlow-modellen
 
@@ -140,7 +140,7 @@ Du använder en fördefinierad TensorFlow-modell som har tränats med och export
 > [!NOTE]
 > Om du vill bygga dina egna med Custom Vision Service kostnads fri nivå kan du följa [anvisningarna i exempel projektets lagrings plats](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-Modellen består av två filer i mappen *< REPOSITORY_ROOT >/Resources/Model* : *Model. db* och Labels *. txt*. Kopiera dem till mappen *klassificera* funktion '.
+Modellen består av två filer i mappen *< REPOSITORY_ROOT >/Resources/Model* : *Model. PB* och *Labels. txt*. Kopiera dem till mappen *klassificera* funktion '.
 
 #### <a name="linux-and-macos"></a>Linux och macOS:
 
@@ -179,7 +179,7 @@ Bekräfta att *klassificerar* nu innehåller en fil med namnet *predict.py*.
 Hjälp biblioteket har vissa beroenden som måste installeras. Öppna *Start/Requirements. txt* i redigeraren och Lägg till följande beroenden i filen.
 
 ```txt
-tensorflow
+tensorflow==1.15
 Pillow
 requests
 ```
@@ -194,13 +194,13 @@ pip install --no-cache-dir -r requirements.txt
 
 ### <a name="caching-the-model-in-global-variables"></a>Cachelagra modellen i globala variabler
 
-Öppna *predict.py* i redigeraren och titta på `_initialize` funktionen längst upp i filen. Observera att TensorFlow-modellen läses in från disk första gången funktionen körs och sparas i globala variabler. Inläsningen från disken hoppas över vid efterföljande körningar av `_initialize` funktionen. Cachelagring av modellen i minnet med den här tekniken påskyndar senare förutsägelser.
+Öppna *predict.py* i redigeraren och titta på den `_initialize`-funktionen nästan överst i filen. Observera att TensorFlow-modellen läses in från disk första gången funktionen körs och sparas i globala variabler. Inläsningen från disken hoppas över vid efterföljande körningar av funktionen `_initialize`. Cachelagring av modellen i minnet med den här tekniken påskyndar senare förutsägelser.
 
 Mer information om globala variabler finns i [Azure Functions python Developer Guide](functions-reference-python.md#global-variables).
 
 ## <a name="update-function-to-run-predictions"></a>Uppdaterings funktion för att köra förutsägelser
 
-Öppna *klassificera/\_\_init\_. py idinredigerare.\_* Importera det *förutsägelse* bibliotek som du har lagt till i samma mapp tidigare. Lägg till följande `import` instruktioner under de andra importerna som redan finns i filen.
+Öppna *klassificera/\_ \_init \_ \_. py* i redigeraren. Importera det *förutsägelse* bibliotek som du har lagt till i samma mapp tidigare. Lägg till följande `import`-instruktioner under de andra importerna som redan finns i filen.
 
 ```python
 import json
@@ -221,14 +221,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(json.dumps(results), headers = headers)
 ```
 
-Se till att spara dina ändringar.
+Se till att spara ändringarna.
 
-Den här funktionen tar emot en bild-URL i en frågesträngparametern `img`med namnet. Den anropar `predict_image_from_url` från hjälp biblioteket som laddar ned avbildningen och returnerar en förutsägelse med TensorFlow-modellen. Funktionen returnerar sedan ett HTTP-svar med resultatet.
+Den här funktionen tar emot en bild-URL i en frågesträngparametern med namnet `img`. Den anropar `predict_image_from_url` från hjälp biblioteket som laddar ned avbildningen och returnerar en förutsägelse med TensorFlow-modellen. Funktionen returnerar sedan ett HTTP-svar med resultatet.
 
-Eftersom http-slutpunkten anropas av en webb sida som finns på en annan domän, innehåller `Access-Control-Allow-Origin` http-svaret ett sidhuvud för att uppfylla webbläsarens krav på resurs delning mellan ursprung (CORS).
+Eftersom HTTP-slutpunkten anropas av en webb sida som finns på en annan domän, innehåller HTTP-svaret ett `Access-Control-Allow-Origin`-huvud för att uppfylla webbläsarens krav på resurs delning mellan ursprung (CORS).
 
 > [!NOTE]
-> I ett produktions program ändrar `*` du till webb sidans specifika ursprung för ytterligare säkerhet.
+> I ett produktions program ändrar du `*` till webb sidans specifika ursprung för ytterligare säkerhet.
 
 ### <a name="run-the-function-app"></a>Kör Function-appen
 

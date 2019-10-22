@@ -1,26 +1,21 @@
 ---
 title: Program karta i Azure Application Insights | Microsoft Docs
 description: Övervaka komplexa programtopologier med program kartan
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: f895aa9aa4bc66c32f10d290b7ee708345be8c9b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983772"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678393"
 ---
-# <a name="application-map-triage-distributed-applications"></a>Program karta: Prioritering distribuerade program
+# <a name="application-map-triage-distributed-applications"></a>Program karta: prioritering distribuerade program
 
 Med program kartan kan du upptäcka Flask halsar i prestanda eller felaktiga hotspots i alla komponenter i det distribuerade programmet. Varje nod på kartan representerar en program komponent eller dess beroenden. och har hälso-KPI och aviserings status. Du kan klicka dig igenom från valfri komponent till mer detaljerad diagnostik, till exempel Application Insights händelser. Om din app använder Azure-tjänster kan du också klicka dig till Azure Diagnostics, till exempel SQL Database Advisor rekommendationer.
 
@@ -50,7 +45,7 @@ Klicka på en komponent om du vill se relaterade insikter och gå till prioriter
 
 ![Fällbar](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Undersök fel
+### <a name="investigate-failures"></a>Undersök felen
 
 Välj **Undersök haverier** för att starta fönstret problem.
 
@@ -74,7 +69,7 @@ Välj **gå till information** för att utforska den slutliga transaktions upple
 
 ![Skärm bild av transaktions information från slut punkt till slut punkt](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Visa i Analytics
+### <a name="view-in-analytics"></a>Visa i analys
 
 Om du vill fråga efter och undersöka program data ytterligare klickar du på **Visa i analys**.
 
@@ -84,7 +79,7 @@ Om du vill fråga efter och undersöka program data ytterligare klickar du på *
 
 ### <a name="alerts"></a>Aviseringar
 
-Om du vill visa aktiva aviseringar och underliggande regler som orsakar att aviseringarna utlöses väljerdu aviseringar.
+Om du vill visa aktiva aviseringar och underliggande regler som orsakar att aviseringarna utlöses väljer du **aviseringar**.
 
 ![Skärm bild av knappen aviseringar](media/app-map/alerts.png)
 
@@ -119,7 +114,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**ASP.NET appar: Läs in initieraren till den aktiva TelemetryConfiguration**
+**ASP.NET appar: läsa in initieraren till den aktiva TelemetryConfiguration**
 
 I ApplicationInsights. config:
 
@@ -147,11 +142,11 @@ En alternativ metod för ASP.NET-webbappar är att instansiera initieraren i kod
 ```
 
 > [!NOTE]
-> Det går inte att `ApplicationInsights.config` lägga till `TelemetryConfiguration.Active` initieraren med eller använda är ogiltig för ASP.net Core-program. 
+> Det går inte att lägga till initieraren med `ApplicationInsights.config` eller använda `TelemetryConfiguration.Active` för ASP.NET Core program. 
 
-**ASP.NET Core appar: Läs in initieraren till TelemetryConfiguration**
+**ASP.NET Core appar: läsa in initieraren till TelemetryConfiguration**
 
-Om du vill [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) program lägger du `TelemetryInitializer` till en ny genom att lägga till den i behållaren för beroende insprutning, som du ser nedan. Detta görs i `ConfigureServices` -metoden för din `Startup.cs` klass.
+När du [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) program lägger du till en ny `TelemetryInitializer` genom att lägga till den i behållaren för beroende insprutning, som du ser nedan. Detta görs i `ConfigureServices` metod i `Startup.cs`-klassen.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -210,7 +205,7 @@ Så långt som möjligt att tänka på **namn på moln rollen**, kan det vara br
 
 ![Skärm bild för program karta](media/app-map/cloud-rolename.png)
 
-I program kartan ovanför var och en av namnen i gröna rutor är namn värden för moln roller för olika aspekter av just det distribuerade programmet. Så för den här appen består dess roller av `Authentication`: `acmefrontend`, `Inventory Management`,, `Payment Processing Worker Role`. 
+I program kartan ovanför var och en av namnen i gröna rutor är namn värden för moln roller för olika aspekter av just det distribuerade programmet. Så för den här appen består dess roller av: `Authentication`, `acmefrontend`, `Inventory Management`, en `Payment Processing Worker Role`. 
 
 När det gäller den här appen representerar var och en av dessa namn på moln rollerna också en annan unik Application Insights resurs med sina egna instrument nycklar. Eftersom ägaren av det här programmet har åtkomst till var och en av dessa fyra olika Application Insights-resurser kan program kartan sammanfoga en karta över de underliggande relationerna.
 
@@ -232,7 +227,7 @@ Ett scenario där du kanske vill åsidosätta värdet för moln roll instansen k
 
 Mer information om hur du åsidosätter egenskapen namn för moln roll med telemetri initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du har problem med att få program kartan att fungera som förväntat kan du prova följande steg:
 
@@ -244,7 +239,7 @@ Om du har problem med att få program kartan att fungera som förväntat kan du 
 
 2. Uppgradera alla komponenter till den senaste SDK-versionen.
 
-3. Om du använder Azure Functions med C#uppgraderar du till Functions [v2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Om du använder Azure Functions med C#uppgraderar du till [Functions v2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Bekräfta att [namnet på moln rollen](#set-cloud-role-name) har kon figurer ATS korrekt.
 

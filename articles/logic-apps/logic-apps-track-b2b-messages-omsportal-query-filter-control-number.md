@@ -1,6 +1,6 @@
 ---
-title: Skapa frågor om att spåra B2B-meddelanden i Azure Monitor-loggar – Azure Logic Apps | Microsoft Docs
-description: Skapa frågor som spårar AS2-, X 12 och EDIFACT-meddelanden i Azure Log Analytics för Azure Logic Apps
+title: Skapa spårnings frågor för B2B-meddelanden – Azure Logic Apps
+description: Skapa frågor som spårar AS2-, X12-och EDIFACT-meddelanden i Azure Log Analytics för Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,74 +9,74 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d7bb53d24a113ea78b5bac3f9682fbb61ce2de9
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60846619"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680101"
 ---
-# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Skapa frågor om att spåra B2B-meddelanden i Azure Monitor-loggar för Azure Logic Apps
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Skapa spårnings frågor för B2B-meddelanden i Azure Monitor loggar för Azure Logic Apps
 
-Om du vill hitta AS2 X12 eller EDIFACT meddelanden du spårar med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md), du kan skapa frågor som filtrerar åtgärder baserat på specifika villkor. Du kan till exempel hitta meddelanden baserat på en specifik interchange-kontrollnummer.
+Om du vill hitta AS2-, X12-eller EDIFACT-meddelanden som du spårar med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md)kan du skapa frågor som filtrerar åtgärder baserat på vissa kriterier. Du kan till exempel hitta meddelanden baserat på ett speciellt utbytes kontroll nummer.
 
 > [!NOTE]
-> Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
+> Den här sidan beskriver tidigare steg för hur du utför dessa uppgifter med Microsoft Operations Management Suite (OMS), som tas [ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), ersätter dessa steg med Azure Log Analytics i stället. 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* En logikapp som har konfigurerats med diagnostikloggning. Lär dig [så här skapar du en logikapp](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den logikappen](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* En Logic-app som är konfigurerad med diagnostikloggning. Lär dig [hur du skapar en logisk app](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den Logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Ett integrationskonto som har konfigurerats med övervakning och loggning. Lär dig [hur du skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och [hur du konfigurerar övervakning och loggning för det kontot](../logic-apps/logic-apps-monitor-b2b-message.md).
+* Ett integrations konto som har kon figurer ATS med övervakning och loggning. Lär dig [hur du skapar ett integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och [hur du konfigurerar övervakning och loggning för det kontot](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Om du inte redan gjort [publicera diagnostiska data till Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) och [konfigurera meddelandespårning i Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Om du inte redan har gjort det, [publicera diagnostikdata till Azure Monitor loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) och [Konfigurera meddelande spårning i Azure Monitor loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="create-queries-with-filters"></a>Skapa frågor med filter
 
-Du kan skapa frågor som använder filter för att hitta meddelanden baserat på specifika egenskaper eller värden. 
+Om du vill hitta meddelanden baserat på vissa egenskaper eller värden kan du skapa frågor som använder filter. 
 
-1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Hitta ”log analytics” i sökrutan och välj **Log Analytics**.
+1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Sök efter "Log Analytics" i sökrutan och välj **Log Analytics**.
 
    ![Välj Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. Under **Log Analytics**, hitta och välj din Log Analytics-arbetsyta. 
+1. Under **Log Analytics**, leta upp och välj arbets ytan Log Analytics. 
 
-   ![Välj Log Analytics-arbetsyta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
+   ![Välj Log Analytics arbets yta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-1. På din arbetsyta-menyn, under **Allmänt**, väljer du antingen **loggar (klassisk)** eller **loggar**. 
+1. Välj antingen **loggar (klassisk)** eller **loggar**under **Allmänt**på arbets ytans meny. 
 
-   Det här exemplet visar hur du använder den klassiska loggar vyn. 
-   Om du väljer **visa loggar** i den **maximera din Log Analytics-upplevelse** under avsnittet **Sök och analysera loggar**, du får den **loggar (klassiskt läge)** . 
+   Det här exemplet visar hur du använder vyn klassiska loggar. 
+   Om du väljer **Visa loggar** i avsnittet **maximera ditt Log Analytics Experience** , under **Sök och analysera loggar**, hämtar du **loggarna (klassisk vy)** . 
 
    ![Visa klassiska loggar](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
 
-1. I frågan redigeringsruta, börja skriva fältnamn som du vill söka efter. När du börjar skriva, visar frågeredigeraren möjliga matchningar och åtgärder som du kan använda. När du har skapat din fråga väljer **kör** eller tryck på RETUR-tangenten.
+1. I redigerings rutan fråga börjar du skriva det fält namn som du vill söka efter. När du börjar skriva, visar Frågeredigeraren de möjliga matchningar och åtgärder som du kan använda. När du har skapat din fråga väljer du **Kör** eller trycker på RETUR-tangenten.
 
    Det här exemplet söker efter matchningar på **LogicAppB2B**. 
-   Läs mer om [hitta data i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md).
+   Lär dig mer om [hur du hittar data i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
 
-   ![Börja skriva frågesträng](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
+   ![Börja skriva frågesträngen](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 
-1. Om du vill ändra en mer specifik tidsram som du vill visa i den vänstra rutan, Välj från listan över varaktighet eller dra skjutreglaget. 
+1. Om du vill ändra den tidsram som du vill visa väljer du från listan varaktighet eller drar skjutreglaget i det vänstra fönstret. 
 
-   ![Ändra tidsramen](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/change-timeframe.png)
+   ![Ändra tidsram](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/change-timeframe.png)
 
-1. Om du vill lägga till ett filter i frågan, Välj **Lägg till**. 
+1. Om du vill lägga till ett filter i frågan väljer du **Lägg till**. 
 
-   ![Lägg till filter i frågan](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/add-filter.png)
+   ![Lägg till filter i fråga](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/add-filter.png)
 
-1. Under **Lägg till filter**, ange filternamnet som du vill söka efter. Om du hittar filtret väljer du filtret. I den vänstra rutan väljer **Lägg till** igen.
+1. Under **Lägg till filter**anger du det filter namn som du vill söka efter. Om du hittar filtret väljer du det filtret. I den vänstra rutan väljer du **Lägg till** igen.
 
-   Här är till exempel en annan fråga som söker på **typ == ”AzureDiagnostics”** händelser och söker efter resultat baserat på interchange-kontrollnummer genom att välja den **event_record_messageProperties_ interchangeControlNumber_s** filter.
+   Här är ett exempel på en annan fråga som söker efter **typ = = "AzureDiagnostics"** -händelser och hittar resultat baserat på utbytes kontroll numret genom att välja filtret **event_record_messageProperties_interchangeControlNumber_s** .
 
-   ![Välj filtervärde](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filter-example.png)
+   ![Välj filter värde](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filter-example.png)
 
-   När du har valt **Lägg till**, frågan uppdateras med din händelsen valda filter och värde. 
-   Dina tidigare resultat filtreras nu för. 
+   När du har valt **Lägg till**uppdateras frågan med den valda filter händelsen och det aktuella värdet. 
+   Dina tidigare resultat har nu filtrerats. 
 
-   Exempelvis kan den här frågan söker efter **typ == ”AzureDiagnostics”** och söker efter resultat baserat på ett interchange-kontrollnummer med hjälp av den **event_record_messageProperties_interchangeControlNumber_s**filter.
+   Den här frågan söker till exempel efter **typ = = "AzureDiagnostics"** och hittar resultat baserat på ett utbytes kontroll nummer med hjälp av **event_record_messageProperties_interchangeControlNumber_s** -filtret.
 
    ![Filtrerade resultat](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filtered-results.png)
 
@@ -84,56 +84,56 @@ Du kan skapa frågor som använder filter för att hitta meddelanden baserat på
 
 ## <a name="save-query"></a>Spara fråga
 
-Spara frågan i **loggar (klassisk)** visa, Följ dessa steg:
+Följ dessa steg om du vill spara din fråga i **loggar (klassisk)** vy:
 
-1. Från din fråga på den **loggar (klassisk)** väljer **Analytics**. 
+1. Från din fråga på sidan **loggar (klassisk)** väljer du **analys**. 
 
-   ![Välj ”Analytics”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-analytics.png)
+   ![Välj "analys"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-analytics.png)
 
-1. Välj fråga-verktygsfältet **spara**.
+1. I verktygsfältet fråga väljer du **Spara**.
 
    ![Välja ”Save” (Spara)](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/save-query.png)
 
-1. Ange information om din fråga, till exempel, namnge din fråga, väljer **fråga**, och ange ett kategorinamn. När du är klar väljer du **Spara**.
+1. Ange information om frågan, till exempel ge frågan ett namn, Välj **fråga**och ange ett kategori namn. När du är klar väljer du **Spara**.
 
    ![Välja ”Save” (Spara)](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query-details.png)
 
-1. Gå tillbaka till sidan om du vill visa sparade frågor. Välj fråga-verktygsfältet **sparade sökningar**.
+1. Gå tillbaka till sidan fråga om du vill visa sparade frågor. I verktygsfältet fråga väljer du **sparade sökningar**.
 
-   ![Välj ”sparade sökningar”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
+   ![Välj "sparade sökningar"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
 
-1. Under **sparade sökningar**, Välj din fråga så att du kan visa resultatet. 
+1. Under **sparade sökningar**väljer du din fråga så att du kan visa resultatet. 
 
    ![Välj din fråga](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/saved-query-results.png)
 
-   Uppdatera frågan så att du kan hitta olika resultat genom att redigera frågan.
+   Om du vill uppdatera frågan så att du kan hitta olika resultat kan du redigera frågan.
 
 ## <a name="find-and-run-saved-queries"></a>Hitta och köra sparade frågor
 
-1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Hitta ”log analytics” i sökrutan och välj **Log Analytics**.
+1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Sök efter "Log Analytics" i sökrutan och välj **Log Analytics**.
 
    ![Välj Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. Under **Log Analytics**, hitta och välj din Log Analytics-arbetsyta. 
+1. Under **Log Analytics**, leta upp och välj arbets ytan Log Analytics. 
 
-   ![Välj Log Analytics-arbetsyta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
+   ![Välj Log Analytics arbets yta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-1. På din arbetsyta-menyn, under **Allmänt**, väljer du antingen **loggar (klassisk)** eller **loggar**. 
+1. Välj antingen **loggar (klassisk)** eller **loggar**under **Allmänt**på arbets ytans meny. 
 
-   Det här exemplet visar hur du använder den klassiska loggar vyn. 
+   Det här exemplet visar hur du använder vyn klassiska loggar. 
 
-1. När sidan öppnas i verktygsfältet frågan väljer **sparade sökningar**.
+1. När sidan fråga öppnas i verktygsfältet fråga väljer du **sparade sökningar**.
 
-   ![Välj ”sparade sökningar”](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
+   ![Välj "sparade sökningar"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
 
-1. Under **sparade sökningar**, Välj din fråga så att du kan visa resultatet. 
+1. Under **sparade sökningar**väljer du din fråga så att du kan visa resultatet. 
 
    ![Välj din fråga](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/saved-query-results.png) 
 
-   Frågan körs automatiskt, men om frågan kan inte köras av någon anledning i frågeredigeraren väljer **kör**.
+   Frågan körs automatiskt, men om frågan inte körs av någon anledning går du till Frågeredigeraren och väljer **Kör**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [AS2-spårningsscheman](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12-spårningsscheman](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Anpassade spårningsscheman](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
+* [Anpassade spårnings scheman](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

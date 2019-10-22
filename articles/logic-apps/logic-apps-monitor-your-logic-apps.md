@@ -1,5 +1,5 @@
 ---
-title: Kontrol lera status, Konfigurera loggning och hämta aviseringar – Azure Logic Apps | Microsoft Docs
+title: Kontrol lera status, Konfigurera loggning och hämta aviseringar – Azure Logic Apps
 description: Övervaka status, logg diagnostikdata och konfigurera aviseringar för Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -8,20 +8,19 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: f6ece10c43c2c4a6bea92d14a8bf6fbdb49fd318
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 336e2ac93a954c35b7afc8dbb98dd1fca1838985
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261357"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680307"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
 När du har [skapat och kört en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) kan du kontrollera logikappens körningshistorik, utlösarhistorik, status och prestanda. För händelse övervakning i real tid och bättre fel sökning, ställer du in [diagnostikloggning](#azure-diagnostics) för din Logic app. På så sätt kan du [hitta och visa händelser](#find-events), t.ex. utlösarhändelser, körningshändelser och åtgärdshändelser. Du kan också använda dessa [diagnostikdata med andra tjänster](#extend-diagnostic-data), t.ex. Azure Storage och Azure Event Hubs. 
 
-Konfigurera aviseringar om du vill få meddelanden om fel eller andra möjliga [](#add-azure-alerts)problem. Du kan till exempel skapa en avisering som identifierar "när fler än fem körningar går sönder om en timme." Du kan också konfigurera övervakning, spårning och loggning program mässigt genom att använda [Azure-diagnostik händelse inställningar och egenskaper](#diagnostic-event-properties).
+Konfigurera [aviseringar](#add-azure-alerts)om du vill få meddelanden om fel eller andra möjliga problem. Du kan till exempel skapa en avisering som identifierar "när fler än fem körningar går sönder om en timme." Du kan också konfigurera övervakning, spårning och loggning program mässigt genom att använda [Azure-diagnostik händelse inställningar och egenskaper](#diagnostic-event-properties).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -66,7 +65,7 @@ Konfigurera aviseringar om du vill få meddelanden om fel eller andra möjliga [
    > [!NOTE]
    > All körnings information och händelser krypteras i Logic Appss tjänsten. De dekrypteras bara när en användare begär att visa dessa data. Du kan också kontrol lera åtkomsten till dessa händelser med [hjälp av RBAC (Azure rollbaserad Access Control)](../role-based-access-control/overview.md).
 
-6. Om du vill ha information om en angiven Utlös ande händelse går du tillbaka till översikts fönstret. Under **utlösnings historik**väljer du händelsen Utlös. Du kan nu granska information som indata och utdata, till exempel:
+6. Om du vill ha information om en angiven Utlös ande händelse går du tillbaka till **översikts** fönstret. Under **utlösnings historik**väljer du händelsen Utlös. Du kan nu granska information som indata och utdata, till exempel:
 
    ![Utlöser information om utdata för händelse](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
@@ -80,7 +79,7 @@ Innan du börjar måste du ha en Log Analytics-arbetsyta. Lär dig [hur du skapa
 
 1. Leta upp och välj din Logic app i [Azure Portal](https://portal.azure.com). 
 
-2. På bladet Logic app-menyn, **under övervakning**, **väljer** > du diagnostikinställningar **diagnostiska inställningar**.
+2. Välj **diagnostik** > **diagnostikinställningar**under **övervakning**på bladet Logic app-blad.
 
    ![Gå till övervakning, diagnostik, diagnostikinställningar](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -180,7 +179,7 @@ Konfigurera [aviseringar i Azure](../azure-monitor/platform/alerts-overview.md)o
 
 Följ dessa steg om du vill konfigurera aviseringar utan [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Mer avancerade aviserings kriterier och åtgärder får du genom att konfigurera [Azure Monitor loggar](#azure-diagnostics) .
 
-1. På bladet Logic app, under **övervakning**, väljer du **diagnostik** > -**aviserings regler** > **Lägg till avisering** som visas här:
+1. Välj **diagnostik**  > **varnings regler**  > **Lägg till avisering** som visas här under **övervakning**i bladet Logic app-bladet.
 
    ![Lägg till en avisering för din Logic app](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 
@@ -199,7 +198,7 @@ Följ dessa steg om du vill konfigurera aviseringar utan [Azure Monitor loggar](
    ![Skapa mått varnings regel](media/logic-apps-monitor-your-logic-apps/create-alert-rule.png)
 
 > [!TIP]
-> Om du vill köra en Logi Kap par från en avisering kan du ta med utlösaren för [begäran](../connectors/connectors-native-reqres.md) i ditt arbets flöde, där du kan utföra uppgifter som exempel:
+> Om du vill köra en Logi Kap par från en avisering kan du ta med [utlösaren för begäran](../connectors/connectors-native-reqres.md) i ditt arbets flöde, där du kan utföra uppgifter som exempel:
 > 
 > * [Publicera till slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
 > * [Skicka en text](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
@@ -211,7 +210,7 @@ Följ dessa steg om du vill konfigurera aviseringar utan [Azure Monitor loggar](
 
 Varje diagnostisk händelse innehåller information om din Logic app och händelsen, till exempel status, start tid, slut tid och så vidare. Om du vill konfigurera övervakning, spårning och loggning program mässigt kan du använda den här informationen med [REST API för Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) och [REST API för Azure-diagnostik](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
-`ActionCompleted` Händelsen `trackedProperties` har till exempel egenskaperna ochsomdukananvändaföratt`clientTrackingId` spåra och övervaka:
+@No__t_0 händelsen har till exempel `clientTrackingId`-och `trackedProperties` egenskaper som du kan använda för att spåra och övervaka:
 
 ``` json
 {
@@ -247,11 +246,11 @@ Varje diagnostisk händelse innehåller information om din Logic app och händel
 }
 ```
 
-* `clientTrackingId`: Om detta inte anges genererar Azure automatiskt detta ID och korrelerar händelser i en Logic app-körning, inklusive eventuella kapslade arbets flöden som anropas från Logic app. Du kan manuellt ange detta ID från en utlösare genom `x-ms-client-tracking-id` att skicka ett huvud med ditt eget ID-värde i trigger-begäran. Du kan använda en begär ande utlösare, HTTP-utlösare eller webhook-utlösare.
+* `clientTrackingId`: om inget annat anges genererar Azure automatiskt detta ID och korrelerar händelser i en Logic app-körning, inklusive eventuella kapslade arbets flöden som anropas från Logic app. Du kan manuellt ange detta ID från en utlösare genom att skicka ett `x-ms-client-tracking-id` huvud med ditt anpassade ID-värde i trigger-begäran. Du kan använda en begär ande utlösare, HTTP-utlösare eller webhook-utlösare.
 
-* `trackedProperties`: Om du vill spåra indata eller utdata i diagnostikdata kan du lägga till spårade egenskaper till åtgärder i din Logic Apps JSON-definition. Spårade egenskaper kan bara spåra en enda åtgärds indata och utdata, men du kan använda `correlation` egenskaperna för händelser för att korrelera mellan åtgärder i en körning.
+* `trackedProperties`: om du vill spåra indata eller utdata i diagnostikdata kan du lägga till spårade egenskaper till åtgärder i din Logic Apps JSON-definition. Spårade egenskaper kan bara spåra en enda åtgärds indata och utdata, men du kan använda `correlation` egenskaper för händelser för att korrelera mellan åtgärder i en körning.
 
-  Om du vill spåra en eller flera egenskaper lägger `trackedProperties` du till avsnittet och de egenskaper som du vill använda i åtgärds definitionen. Anta till exempel att du vill spåra data som "order-ID" i din telemetri:
+  Om du vill spåra en eller flera egenskaper lägger du till avsnittet `trackedProperties` och de egenskaper som du vill använda i åtgärds definitionen. Anta till exempel att du vill spåra data som "order-ID" i din telemetri:
 
   ``` json
   "myAction": {

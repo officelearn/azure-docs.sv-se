@@ -1,5 +1,5 @@
 ---
-title: Använd AI för att förstå BLOB-data
+title: Använd AI för att förstå Blob Storage-data
 titleSuffix: Azure Search
 description: Lägg till semantisk, naturlig språk bearbetning och bild analys till Azure-blobbar med hjälp av en AI-pipeline i Azure Search.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: f7e264be9a02514972f9c9702adec8fa55a157bd
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529376"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678419"
 ---
-# <a name="use-ai-to-understand-blob-data"></a>Använd AI för att förstå BLOB-data
+# <a name="use-ai-to-understand-blob-storage-data"></a>Använd AI för att förstå Blob Storage-data
 
 Data i Azure Blob Storage är ofta en mängd ostrukturerat innehåll, till exempel bilder, långa text, PDF-dokument och Office-dokument. Genom att använda AI-funktionerna i Azure Search kan du förstå och extrahera värdefull information från blobbar på flera olika sätt. Exempel på att använda AI på BLOB-innehåll är:
 
@@ -112,7 +112,8 @@ Ett berikat dokument i slutet av pipelinen skiljer sig från den ursprungliga in
 
 Det finns mycket mer du kan göra med AI-anrikning för att få ut mesta möjliga av dina data i Azure Storage, inklusive att kombinera Cognitive Services på olika sätt och redigera anpassade kunskaper för fall där det inte finns någon befintlig kognitiv tjänst för scenariot. Du kan lära dig mer genom att följa länkarna nedan.
 
-> [!div class="nextstepaction"]
-> [Översikt över AI-anrikning](cognitive-search-concept-intro.md) 
-> [skapa en färdigheter](cognitive-search-defining-skillset.md)
-> [Mappa noder i ett antecknings träd](cognitive-search-output-field-mapping.md)
++ [Ladda upp, ladda ned och lista blobar med Azure Portal (Azure Blob Storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Konfigurera en BLOB-indexerare (Azure Search)](search-howto-indexing-azure-blob-storage.md) 
++ [Översikt över AI-anrikning (Azure Search)](cognitive-search-concept-intro.md) 
++ [Skapa en färdigheter (Azure Search)](cognitive-search-defining-skillset.md)
++ [Mappa noder i ett antecknings träd (Azure Search)](cognitive-search-output-field-mapping.md)

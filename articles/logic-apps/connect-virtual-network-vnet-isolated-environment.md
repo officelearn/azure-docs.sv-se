@@ -1,6 +1,6 @@
 ---
-title: Ansluta till virtuella Azure-nätverk från Azure Logic Apps via en integrerings tjänst miljö (ISE)
-description: Skapa en integrerings tjänst miljö (ISE) så att Logic Apps och integrations konton kan komma åt virtuella Azure-nätverk (virtuella nätverk), samtidigt som de är privata och isolerade från offentliga eller globala Azure
+title: Ansluta till virtuella Azure-nätverk med en ISE-Azure Logic Apps
+description: Skapa en integrerings tjänst miljö (ISE) som kan komma åt Azure Virtual Networks (virtuella nätverk) från Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: d6530eb95dc26b9abe4bb27146b16eb2952e9f9b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4c4eb5a6cb7527bcb3eb21beebb8063b0bd021d3
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595678"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680464"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 

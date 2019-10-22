@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera arbets flöden i Visual Studio Code-Azure Logic Apps
-description: Snabb start – skapa och hantera JSON-definitioner för Logic app i Visual Studio Code (VS Code)
+title: Automatisera arbets flöden med Visual Studio Code-Azure Logic Apps
+description: Skapa eller redigera logiska appar underliggande JSON-definitioner med Visual Studio Code (VS Code)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,16 +12,16 @@ ms.reviewer: klam, deli, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/05/2018
-ms.openlocfilehash: 34de50517580c84c78ee1f192daa908b3f262670
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a1387ca4d94410bafb1b1024345b5e307e215e6f
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035419"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679152"
 ---
-# <a name="quickstart-create-and-manage-logic-app-definitions-by-using-visual-studio-code"></a>Snabbstart: Skapa och hantera definitioner av Logic app med hjälp av Visual Studio Code
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-visual-studio-code"></a>Snabb start: skapa och hantera arbets flödes definitioner för Logic app med Visual Studio Code
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och Visual Studio Code, kan du skapa och hantera Logi Kap par som hjälper dig att automatisera uppgifter, arbets flöden och processer för att integrera appar, data, system och tjänster mellan organisationer och företag. Den här snabb starten visar hur du kan skapa och redigera arbets flödes definitioner för Logic app genom att arbeta med arbets flödets definitions schema i JavaScript Object Notation (JSON) via en kod baserad upplevelse. Du kan också arbeta med befintliga Logic Apps som redan har distribuerats till Azure.
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och Visual Studio Code, kan du skapa och hantera Logi Kap par som hjälper dig att automatisera uppgifter, arbets flöden och processer för att integrera appar, data, system och tjänster mellan organisationer och företag. Den här snabb starten visar hur du kan skapa och redigera de underliggande arbets flödes definitionerna, som använder JavaScript Object Notation (JSON) för Logic Apps genom en kod baserad upplevelse. Du kan också arbeta med befintliga Logic Apps som redan har distribuerats till Azure.
 
 Även om du kan utföra samma uppgifter i [Azure Portal](https://portal.azure.com) och i Visual Studio, kan du komma igång snabbare i Visual Studio Code när du redan är bekant med Logic app-definitioner och vill arbeta direkt i kod. Du kan till exempel inaktivera, aktivera, ta bort och uppdatera redan skapade Logic Apps. Du kan också arbeta med Logic Apps och integrations konton från valfri utvecklings plattform där Visual Studio Code körs, till exempel Linux, Windows och Mac.
 
@@ -33,7 +33,7 @@ Innan du börjar ska du kontrol lera att du har följande objekt:
 
 * Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Grundläggande kunskaper om [Logic app Workflow-definitioner](../logic-apps/logic-apps-workflow-definition-language.md) och deras struktur, som använder JavaScript Object Notation (JSON)
+* Grundläggande kunskaper om [Logic app Workflow-definitioner](../logic-apps/logic-apps-workflow-definition-language.md) och deras struktur enligt beskrivningen med JSON
 
   Om du inte har använt Logic Apps kan du prova den här [snabb](../logic-apps/quickstart-create-first-logic-app-workflow.md)starten, vilket skapar dina första Logi Kap par i Azure Portal och fokuserar på de grundläggande begreppen.
 

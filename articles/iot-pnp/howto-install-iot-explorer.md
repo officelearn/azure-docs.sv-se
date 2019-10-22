@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960575"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679857"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installera och använda Azure IoT Explorer
 
@@ -24,12 +24,12 @@ Den här artikeln visar hur du:
 - Installera och konfigurera Azure IoT Explorer-verktyget.
 - Använd verktyget för att interagera med och testa dina enheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda Azure IoT Explorer-verktyget behöver du:
 
 - En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med hjälp av Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver den IoT Hub-anslutningssträngen för att köra Azure IoT Explorer-verktyget. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- En enhet som är registrerad i IoT Hub. Du kan registrera en enhet med hjälp av följande Azure CLI-kommando. Se till att ersätta plats hållarna `{YourIoTHubName}` och `{YourDeviceID}` med dina värden:
+- En enhet som är registrerad i IoT Hub. Du kan registrera en enhet med hjälp av följande Azure CLI-kommando. Se till att ersätta `{YourIoTHubName}` och `{YourDeviceID}` plats hållarna med dina värden:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -51,13 +51,13 @@ Modell definitionen för en IoT Plug and Play-enhet lagras antingen i det offent
 
 Så här lägger du till en källa:
 
-1. Gå till **inställningar**.
+1. Gå till **Inställningar**.
 1. Välj **nytt** och välj källa.
 1. Om du lägger till din företags modell databas anger du anslutnings strängen.
 
 Så här tar du bort en källa:
 
-1. Gå till **inställningar**.
+1. Gå till **Inställningar**.
 1. Hitta källan som du vill ta bort.
 1. Välj **X** för att ta bort den. Du kan inte ta bort lagrings platsen för den offentliga modellen eftersom de gemensamma gränssnitts definitionerna kommer från den här databasen.
 
@@ -73,27 +73,33 @@ På sidan **enhets** lista kan du:
 
 - Välj **Lägg till** för att registrera en ny enhet med hubben. Ange sedan ett enhets-ID. Använd standardinställningarna för att automatiskt generera autentiseringsinställningar och aktivera anslutningen till hubben.
 - Välj en enhet och välj sedan **ta bort** för att ta bort en enhets identitet. Granska enhets detaljerna innan du slutför den här åtgärden för att vara säker på att du tar bort rätt enhets identitet.
-- Fråga per `capabilityID` och `interfaceID`. Lägg till antingen din `capabilityID` eller `interfaceID` som en parameter för att skicka frågor till dina enheter.
+- Fråga efter `capabilityID` och `interfaceID`. Lägg till antingen `capabilityID` eller `interfaceID` som en parameter för att skicka frågor till dina enheter.
 
 ## <a name="interact-with-a-device"></a>Interagera med en enhet
 
-På sidan enhets **lista väljer** du ett värde i kolumnen **enhets-ID** för att Visa informations sidan för den registrerade enheten. Det finns två avsnitt för enheten: **Enhet** och **digital**.
+På sidan enhets **lista väljer** du ett värde i kolumnen **enhets-ID** för att Visa informations sidan för den registrerade enheten. Det finns två avsnitt: **enhet** och **digital**, för varje enhet.
 
 ### <a name="device"></a>Enhet
 
-Det här avsnittet innehåller flikarna **enhets identitet**, **enhets**-och **telemetri** .
+Det här avsnittet innehåller flikarna **enhets identitet**, **enhets**-ID, **telemetri**, **direkt metod** och **meddelande från moln till enhet** .
 
 - Du kan visa och uppdatera [enhetens identitets](../iot-hub/iot-hub-devguide-identity-registry.md) information på fliken **enhets identitet** .
 - Du kan komma åt [enhetens dubbla](../iot-hub/iot-hub-devguide-device-twins.md) information på fliken **enhets dubbla** .
 - Om en enhet är ansluten och aktivt skickar data, kan du Visa [Telemetrin](../iot-hub/iot-hub-devguide-messages-read-builtin.md) på fliken **telemetri** .
+- Du kan anropa en [direkt metod](../iot-hub/iot-hub-devguide-direct-methods.md) på enheten på fliken **direkt metod** .
+- Du kan skicka ett [meddelande från moln till enhet](../iot-hub/iot-hub-devguide-messages-c2d.md) på fliken **meddelanden från molnet till enheten** .
 
 ### <a name="digital-twin"></a>Digital, dubbel
 
-Du kan använda verktyget för att visa en digital, delad instans av enheten. För en IoT Plug and Play-enhet visas alla gränssnitt som är kopplade till enhets kapacitets modellen i den här artikeln. Välj ett gränssnitt för att expandera motsvarande [IoT plug and Play-primitiver](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+Du kan använda verktyget för att visa en digital, delad instans av enheten. För en IoT Plug and Play-enhet visas alla gränssnitt som är associerade med enhets kapacitets modellen i det här avsnittet av verktyget. Välj ett gränssnitt för att expandera motsvarande [IoT plug and Play-primitiver](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
-#### <a name="properties"></a>properties
+### <a name="interface"></a>Gränssnitt
 
-Du kan visa de skrivskyddade egenskaperna som definierats i ett gränssnitt på sidan **Egenskaper** . Du kan uppdatera de skrivbara egenskaper som definierats i ett gränssnitt på sidan **skrivbara egenskaper** .
+På sidan **gränssnitt** kan du Visa JSON-definitionen för gränssnittet.
+
+#### <a name="properties"></a>Egenskaper
+
+Du kan visa de skrivskyddade egenskaperna som definierats i ett gränssnitt på sidan **egenskaper som inte är skrivbara** . Du kan uppdatera de skrivbara egenskaper som definierats i ett gränssnitt på sidan **skrivbara egenskaper** :
 
 1. Gå till sidan **skrivbara egenskaper** .
 1. Klicka på den egenskap som du vill uppdatera.

@@ -1,23 +1,18 @@
 ---
 title: Använda search i Azure Application Insights | Microsoft Docs
 description: Sök och filtrera RAW-telemetri som skickas av din webbapp.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/30/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d08fd2ac6db63eee01c0653d2dbb1623fb1b51ed
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.date: 07/30/2019
+ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705409"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677974"
 ---
 # <a name="using-search-in-application-insights"></a>Använda Sök i Application Insights
 
@@ -65,12 +60,12 @@ Då startas vyn transaktions detaljer från slut punkt till slut punkt.
 
 Händelse typerna är:
 
-* Spåra - [diagnostikloggar](../../azure-monitor/app/asp-net-trace-logs.md) inklusive TrackTrace, log4Net, NLog och system. Diagnostics. trace-anrop.
+* **Spåra**  - [diagnostikloggar](../../azure-monitor/app/asp-net-trace-logs.md) inklusive TrackTrace, Log4Net, NLog och system. Diagnostics. trace-anrop.
 * **Begär** HTTP-förfrågningar som tagits emot av serverprogrammet, inklusive sidor, skript, bilder, formatfiler och data. Dessa händelser används för att skapa översikts diagram över förfrågningar och svar.
-* **Telemetri för sid visning** - som[skickas av webb klienten](../../azure-monitor/app/javascript.md), används för att skapa sid visnings rapporter.
+* **Sid visning**  - [telemetri som skickas av webb klienten](../../azure-monitor/app/javascript.md)och som används för att skapa sid visnings rapporter.
 * **Anpassad händelse** – om du infogade anrop till TrackEvent () för att kunna [övervaka användningen](../../azure-monitor/app/api-custom-events-metrics.md)kan du söka efter dem här.
 * **Undantag** – ej fångade [undantag på servern](../../azure-monitor/app/asp-net-exceptions.md)och de som du loggar med hjälp av TrackException ().
-* Beroende - [anrop från serverprogram](../../azure-monitor/app/asp-net-dependencies.md) till andra tjänster som REST-API: er eller databaser och AJAX-anrop från din [klient kod](../../azure-monitor/app/javascript.md).
+* **Beroende**  - [anrop från serverprogram](../../azure-monitor/app/asp-net-dependencies.md) till andra tjänster som REST-API: er eller databaser och AJAX-anrop från din [klient kod](../../azure-monitor/app/javascript.md).
 * **Tillgänglighet** – resultat av [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrera efter egenskaps värden
@@ -101,7 +96,7 @@ Du kanske vill ange ett tidsintervall, eftersom sökningar över ett kortare int
 
 Sök efter fullständiga ord, inte del strängar. Använd citat tecken för att omsluta specialtecken.
 
-| Sträng | Hittades *inte* | Hittade |
+| Sträng | Hittades *inte* | Kon |
 | --- | --- | --- |
 | HomeController. om |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |USA|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -115,13 +110,13 @@ Här följer de Sök uttryck som du kan använda:
 | `apple OR banana` |Hitta händelser som innehåller något av orden. Använd "eller", not "eller". |
 | `apple NOT banana` |Hitta händelser som innehåller ett ord men inte det andra. |
 
-## <a name="sampling"></a>Samling
+## <a name="sampling"></a>Sampling
 
 Om din app genererar en stor mängd telemetri (och du använder ASP.NET SDK-version 2.0.0-beta3 eller senare), minskar den anpassningsbara samplings-modulen automatiskt volymen som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är relaterade till samma begäran markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser.
 
 [Lär dig mer om insamling](../../azure-monitor/app/sampling.md).
 
-## <a name="create-work-item"></a>Skapa arbetsobjekt
+## <a name="create-work-item"></a>Skapa arbets objekt
 
 Du kan skapa en bugg i GitHub-eller Azure-DevOps med information från alla telemetri objekt.
 
@@ -142,7 +137,7 @@ Förutom den färdiga telemetri som skickas av Application Insights SDK kan du:
 
 [Lär dig hur du skickar loggar och anpassad telemetri till Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
 
-## <a name="questions"></a>F & A
+## <a name="questions"></a>f & A
 
 ### <a name="limits"></a>Hur mycket data behålls?
 
@@ -157,4 +152,4 @@ Vi loggar inte in POST-data automatiskt, men du kan använda [TrackTrace-eller l
 * [Skriv komplexa frågor i analys](../../azure-monitor/log-query/get-started-portal.md)
 * [Skicka loggar och anpassad telemetri till Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Ställ in tillgänglighets-och svars tider](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)
+* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md) (Felsökning)

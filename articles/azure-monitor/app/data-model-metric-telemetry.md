@@ -1,25 +1,21 @@
 ---
 title: Azure Application Insights telemetri data modell-mått telemetri | Microsoft Docs
 description: Application Insights data modell för telemetri av mått
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 816fa37ea052b18dab80bcc0d5c1528cd3d9a014
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60900468"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678130"
 ---
-# <a name="metric-telemetry-application-insights-data-model"></a>Mått telemetri: Application Insights-datamodell
+# <a name="metric-telemetry-application-insights-data-model"></a>Mått telemetri: Application Insights data modell
 
 Det finns två typer av mått telemetri som stöds av [Application Insights](../../azure-monitor/app/app-insights-overview.md): enstaka mått och föraggregerade mått. Enstaka mått är bara ett namn och ett värde. Föraggregerade mått anger det lägsta och högsta värdet för måttet i agg regerings intervallet och standard avvikelsen för det.
 
@@ -45,11 +41,11 @@ Mått som representerar system-och process räknare:
 
 Namnet på det mått som du vill se i Application Insights Portal och användar gränssnitt. 
 
-## <a name="value"></a>Value
+## <a name="value"></a>Värde
 
 Enskilt värde för mått. Summan av enskilda mått för aggregation.
 
-## <a name="count"></a>Count
+## <a name="count"></a>Antal
 
 Mått vikt för det aggregerade måttet. Ska inte anges för ett mått.
 
@@ -57,7 +53,7 @@ Mått vikt för det aggregerade måttet. Ska inte anges för ett mått.
 
 Minsta värde för det aggregerade måttet. Ska inte anges för ett mått.
 
-## <a name="max"></a>Max
+## <a name="max"></a>Max.
 
 Högsta värde för det aggregerade måttet. Ska inte anges för ett mått.
 
@@ -67,7 +63,7 @@ Standard avvikelsen för det aggregerade måttet. Ska inte anges för ett mått.
 
 ## <a name="custom-properties"></a>Anpassade egenskaper
 
-Mått med den anpassade egenskaps `CustomPerfCounter` `true` uppsättningen som anger att måttet representerar Windows prestanda räknare. Dessa mått placeras i performanceCounters-tabellen. Inte i customMetrics. Dessutom parsas namnet på det här måttet för att extrahera kategori, räknare och instans namn.
+Måttet med den anpassade egenskapen `CustomPerfCounter` inställt på `true` anger att måttet representerar Windows prestanda räknare. Dessa mått placeras i performanceCounters-tabellen. Inte i customMetrics. Dessutom parsas namnet på det här måttet för att extrahera kategori, räknare och instans namn.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 

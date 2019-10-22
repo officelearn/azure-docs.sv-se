@@ -1,6 +1,6 @@
 ---
-title: Åtkomst till virtuella Azure-nätverk från Azure Logic Apps med integrerings tjänst miljöer (ISEs)
-description: Den här översikten beskriver hur integrerings tjänst miljöer (ISEs) hjälper Logic Apps åtkomst till Azure Virtual Networks (virtuella nätverk)
+title: Åtkomst till virtuella Azure-nätverk – Azure Logic Apps
+description: Översikt över hur integrerings tjänst miljöer (ISEs) hjälper Logic Apps åtkomst till Azure Virtual Networks (virtuella nätverk)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516605"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680505"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -30,7 +30,7 @@ Din Logi Kap par kan nu direkt komma åt system som är inuti eller anslutna til
 
 * En **ISE**-märkt koppling för systemet, till exempel SQL Server
 * En **Core**-märkt inbyggd utlösare eller åtgärd, till exempel http-utlösare eller åtgärd
-* En anpassad anslutning
+* en anpassad anslutning
 
 I den här översikten beskrivs mer information om hur en ISE ger dina Logic Apps och integrations konton direkt åtkomst till ditt virtuella Azure-nätverk och jämför skillnader mellan en ISE och den globala Logic Appss tjänsten.
 
@@ -91,8 +91,8 @@ Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pric
 
 När du skapar din ISE kan du välja att använda antingen interna eller externa slut punkter för åtkomst. Dessa slut punkter avgör om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. Dessa slut punkter påverkar också åtkomsten till indata och utdata i körnings historiken för Logic app.
 
-* **Internt**: Privata slut punkter som tillåter anrop till logi Kap par i din ISE plus åtkomst till indata och utdata i körnings historiken endast inifrån *ditt virtuella nätverk*
-* **Externt**: Offentliga slut punkter som tillåter anrop till logi Kap par i din ISE plus åtkomst till indata och utdata i körnings historiken *från utanför det virtuella nätverket*
+* **Internt**: privata slut punkter som tillåter anrop till logi Kap par i din ISE plus åtkomst till indata och utdata i körnings historiken endast inifrån *ditt virtuella nätverk*
+* **Externt**: offentliga slut punkter som tillåter anrop till logi Kap par i din ISE plus åtkomst till indata och utdata i körnings historiken *från utanför det virtuella nätverket*
 
 > [!IMPORTANT]
 > Alternativet åtkomst slut punkt är bara tillgängligt vid skapande av ISE och kan inte ändras senare.
@@ -111,7 +111,7 @@ För lokala system som är anslutna till ett virtuellt Azure-nätverk kan du inj
   
   * Anpassade anslutningar som skapats i en ISE fungerar inte med den lokala datagatewayen. Dessa anslutningar kan dock direkt komma åt lokala data källor som är anslutna till det virtuella nätverket som är värd för ISE. Därför behöver Logic Apps i en ISE förmodligen inte datagatewayen när de kommunicerar med dessa resurser.
 
-För lokala system som inte är anslutna till ett virtuellt nätverk eller inte har versions hanterings anslutningar från ISE måste du först [Konfigurera den lokala](../logic-apps/logic-apps-gateway-install.md) datagatewayen innan dina Logi Kap par kan ansluta till dessa system.
+För lokala system som inte är anslutna till ett virtuellt nätverk eller inte har versions hanterings anslutningar från ISE måste du först [Konfigurera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md) innan dina Logi Kap par kan ansluta till dessa system.
 
 <a name="create-integration-account-environment"></a>
 

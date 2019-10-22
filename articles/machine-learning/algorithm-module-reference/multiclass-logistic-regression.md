@@ -1,5 +1,5 @@
 ---
-title: 'Logistik regression i multiklass: Modulreferens'
+title: 'Logistik regression i multiklass: modulreferens'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder MultiClass Logistisk regression-modulen i Azure Machine Learning service för att skapa en logistik Regressions modell som kan användas för att förutsäga flera värden.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: d51bc48944204b4c7c50790949927849869f26fc
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d31329d6d45fd9f137bd6d57a638915e0833ee4a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128638"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692759"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Logistik Regressions-modul för multiklass
 
@@ -34,11 +34,11 @@ I multiklass Logistisk regression kan klassificeraren användas för att föruts
 
 ## <a name="configure-a-multiclass-logistic-regression"></a>Konfigurera en logistik regression med multiklass
 
-1. Lägg till **logistik Regressions** -modulen för multiklass i experimentet.
+1. Lägg till **logistik Regressions** -modulen för multiklass i pipelinen.
 
 2. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .
 
-    + **Enskild parameter**: Använd det här alternativet om du vet hur du vill konfigurera modellen och ange en speciell uppsättning värden som argument.
+    + **Enskild parameter**: Använd det här alternativet om du vet hur du vill konfigurera modellen och ange en viss uppsättning värden som argument.
 
     + **Parameter intervall**: Använd det här alternativet om du inte är säker på de bästa parametrarna och vill använda en parameter rensning.
 
@@ -48,17 +48,17 @@ I multiklass Logistisk regression kan klassificeraren användas för att föruts
 
     Regulariseringshastigheten är en metod för att förhindra övermontering genom att motverka modeller med extrema koefficient värden. Regulariseringshastigheten fungerar genom att lägga till den påföljd som är kopplad till koefficienterna till felet i hypotesen. En korrekt modell med extrema koefficienter skulle innebära mer, men en mindre exakt modell med fler restriktiva värden skulle bli mindre.
 
-     L1-och L2-regulariseringshastigheten har olika effekter och användnings områden. L1 kan användas för sparse-modeller, vilket är användbart när du arbetar med avancerade data. L2-regulariseringshastigheten är däremot bättre för data som inte är sparse.  Den här algoritmen stöder en linjär kombination av L1-och L2-regulariseringshastigheten värden: `x = L1` det `y = L2`vill `ax + by = c` säga, om och, definierar det linjära omfånget för regulariseringshastigheten-villkoren.
+     L1-och L2-regulariseringshastigheten har olika effekter och användnings områden. L1 kan användas för sparse-modeller, vilket är användbart när du arbetar med avancerade data. L2-regulariseringshastigheten är däremot bättre för data som inte är sparse.  Den här algoritmen stöder en linjär kombination av L1-och L2-regulariseringshastigheten värden: det vill säga om `x = L1` och `y = L2`, definierar `ax + by = c` det linjära omfånget för regulariseringshastigheten-villkoren.
 
      Olika linjära kombinationer av L1-och L2-villkor har gjorts för logistik Regressions modeller som [elastiska net regulariseringshastigheten](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. **Värde för slumpmässig siffra**: Ange ett heltals värde som ska användas som startvärdet för algoritmen om du vill att resultatet ska upprepas vid körning. Annars används ett system klock värde som Seed, vilket kan producera något annorlunda resultat i körningar av samma experiment.
+6. Värde för **slumpmässig siffra**: Ange ett heltals värde som ska användas som startvärdet för algoritmen om du vill att resultatet ska upprepas vid körning. Annars används ett system klock värde som startvärdet, vilket kan producera något annorlunda resultat i körningar av samma pipeline.
 
 8. Anslut en data uppsättning med etiketter och en av träna-modulerna:
 
-    + Om du ställer in **skapa** utbildare för **en parameter**använder du modulen [träna modell](./train-model.md) .
+    + Om du ställer in **skapa utbildare** för **en parameter**använder du modulen [träna modell](./train-model.md) .
 
-9. Kör experimentet.
+9. Köra en pipeline.
 
 ## <a name="results"></a>Resultat
 

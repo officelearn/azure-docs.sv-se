@@ -1,6 +1,6 @@
 ---
-title: Skicka och ta emot meddelanden med Azure Service Bus-Azure Logic Apps
-description: Konfigurera meddelanden i företags molnet med hjälp av Azure Service Bus och Azure Logic Apps
+title: Exchange-meddelanden med Azure Service Bus-Azure Logic Apps
+description: Skicka och ta emot meddelanden med hjälp av Azure Service Bus i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,15 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 tags: connectors
-ms.openlocfilehash: f2034686e4a8de5e1ccc246f49337a6600bf441f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0cf5486e77e69f83973f7e62669e5ab45d1c94a2
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120939"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679189"
 ---
-# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-with-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps med Azure Service Bus
+# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps och Azure Service Bus
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) Connector kan du skapa automatiserade uppgifter och arbets flöden som överför data, till exempel försäljnings-och inköps order, journaler och inventerings förflyttningar mellan program för din organisation. Anslutningen övervakar, skickar och hanterar inte bara meddelanden, utan utför även åtgärder med köer, sessioner, ämnen, prenumerationer och så vidare, till exempel:
 
@@ -33,7 +32,7 @@ Du kan använda utlösare som får svar från Service Bus och göra utdata tillg
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -49,7 +48,7 @@ Du kan använda utlösare som får svar från Service Bus och göra utdata tillg
 
 Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnrymd.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Gå till din Service Bus *namnrum*. På sidan namn område under **Inställningar**väljer du **principer för delad åtkomst**. Under **anspråk**kontrollerar du att du har behörighet att **Hantera** för det namn området.
 
@@ -64,7 +63,7 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
       ![Kopiera Service Bus namn områdets anslutnings sträng](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Om du vill kontrol lera att anslutnings strängen är kopplad till din Service Bus-namnrymd eller en meddelande enhet, till exempel en kö, söker du efter `EntityPath`  parameterns anslutnings sträng. Om du hittar den här parametern är anslutnings strängen för en speciell entitet och är inte rätt sträng som ska användas med din Logic app.
+   > För att bekräfta att anslutnings strängen är kopplad till Service Bus namn området eller en meddelande enhet, till exempel en kö, söker du i anslutnings strängen för `EntityPath`  parameter. Om du hittar den här parametern är anslutnings strängen för en speciell entitet och är inte rätt sträng som ska användas med din Logic app.
 
 ## <a name="add-service-bus-trigger"></a>Lägg till Service Bus-utlösare
 

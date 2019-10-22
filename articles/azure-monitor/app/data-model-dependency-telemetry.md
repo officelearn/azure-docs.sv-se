@@ -1,59 +1,55 @@
 ---
-title: Datamodell för Azure Application Insights telemetri – Beroendetelemetri | Microsoft Docs
-description: Application Insights-datamodell för telemetri om beroenden
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+title: Azure Application insikter telemetri data modell-beroende telemetri | Microsoft Docs
+description: Application Insights data modell för beroende telemetri
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0923c20b11aa02f380af1faa6766d2346ad1fb2
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60901033"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677432"
 ---
-# <a name="dependency-telemetry-application-insights-data-model"></a>Beroendetelemetri: Application Insights-datamodell
+# <a name="dependency-telemetry-application-insights-data-model"></a>Beroende telemetri: Application Insights data modell
 
-Beroendetelemetri (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representerar en interaktion för den övervakade komponenten med en fjärransluten komponent, till exempel SQL eller en HTTP-slutpunkt.
+Beroende telemetri (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representerar en interaktion av den övervakade komponenten med en fjärrkomponent, till exempel SQL eller en http-slutpunkt.
 
 ## <a name="name"></a>Namn
 
-Namnet på det kommando som initieras med det här beroendeanropet. Låg kardinalitet värde. Exempel är lagrat procedurnamn och URL: en mallsökvägen.
+Namnet på kommandot som initierades med det här beroende anropet. Lågt kardinal värde. Exempel på lagrade procedurer för namn och URL-sökväg.
 
 ## <a name="id"></a>ID
 
-Identifierare för en instans för beroende anrop. Används för korrelation med begärandetelemetriobjekt som motsvarar det här beroendeanropet. Mer information finns i [korrelation](../../azure-monitor/app/correlation.md) sidan.
+Identifierare för en beroende anrops instans. Används för korrelation med objektet begär telemetri som motsvarar det här beroende anropet. Mer information finns på sidan [korrelation](../../azure-monitor/app/correlation.md) .
 
 ## <a name="data"></a>Data
 
-Kommandot som initieras av det här beroendeanropet. Exempel är SQL-instruktionen och HTTP-URL med alla Frågeparametrar.
+Kommandot initierades av det här beroende anropet. Exempel är SQL-instruktion och HTTP-URL med alla frågeparametrar.
 
 ## <a name="type"></a>Typ
 
-Namn på beroende. Kardinalitet för lågt värde för logisk gruppering av beroenden och tolkning av andra fält som commandName och Resultatkod. Exempel är SQL Azure-tabell och HTTP.
+Namn på beroende typ. Lågt kardinal värde för logisk gruppering av beroenden och tolkning av andra fält som commandName och resultCode. Exempel är SQL, Azure Table och HTTP.
 
-## <a name="target"></a>Mål
+## <a name="target"></a>Målinrikta
 
-Målplatsen för ett beroende anrop. Exempel är servernamnet, värdadress. Mer information finns i [korrelation](../../azure-monitor/app/correlation.md) sidan.
+Mål plats för ett beroende anrop. Exempel är Server namn, värd adress. Mer information finns på sidan [korrelation](../../azure-monitor/app/correlation.md) .
 
-## <a name="duration"></a>Duration
+## <a name="duration"></a>Längd
 
-Varaktighet i format för begäran: `DD.HH:MM:SS.MMMMMM`. Måste vara mindre än `1000` dagar.
+Varaktighet för begäran i format: `DD.HH:MM:SS.MMMMMM`. Måste vara mindre än `1000` dagar.
 
-## <a name="result-code"></a>Resultatkod
+## <a name="result-code"></a>Resultat kod
 
-Resultatkod för en beroendeanropet. Exempel är SQL-felkod och HTTP-statuskod.
+Resultat kod för ett beroende anrop. Exempel är SQL-felkod och HTTP-statuskod.
 
-## <a name="success"></a>Klart
+## <a name="success"></a>Lyckades
 
-Uppgift om lyckade och misslyckade anrop.
+Indikering för lyckat eller misslyckat anrop.
 
 ## <a name="custom-properties"></a>Anpassade egenskaper
 
@@ -66,8 +62,8 @@ Uppgift om lyckade och misslyckade anrop.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Konfigurera beroendespårning för [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Konfigurera beroendespårning för [Java](../../azure-monitor/app/java-agent.md).
-- [Skriva anpassade beroendetelemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- Se [datamodellen](data-model.md) för Application Insights och modellen.
-- Kolla in [plattformar](../../azure-monitor/app/platforms.md) stöds av Application Insights.
+- Konfigurera beroende spårning för [.net](../../azure-monitor/app/asp-net-dependencies.md).
+- Konfigurera beroende spårning för [Java](../../azure-monitor/app/java-agent.md).
+- [Skriv anpassad beroende telemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
+- Se [data modell](data-model.md) för Application Insights typer och data modell.
+- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.

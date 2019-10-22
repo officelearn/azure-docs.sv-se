@@ -1,33 +1,29 @@
 ---
-title: Datamodell för Azure Application Insights telemetri – Händelsetelemetri | Microsoft Docs
-description: Application Insights-datamodell för händelsetelemetri
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+title: Data modell för Azure Application Insights-telemetri – Event-telemetri | Microsoft Docs
+description: Application Insights data modell för telemetri av händelser
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 8e519e5a5e5fe6b893fa5663e1426630f46f885f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 620983fb2174fe7f32a61503b0b87e8e7ce0c330
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900858"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678155"
 ---
-# <a name="event-telemetry-application-insights-data-model"></a>Händelsetelemetri: Application Insights-datamodell
+# <a name="event-telemetry-application-insights-data-model"></a>Event telemetri: Application Insights data modell
 
-Du kan skapa event telemetri objekt (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) som representerar en händelse som inträffade i ditt program. Det är vanligtvis någon interaktion från användaren som knapp klickar du på eller beställa checka ut. Det kan också vara livscykel händelse som initieras eller konfiguration update. 
+Du kan skapa objekt för telemetri (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) för att representera en händelse som har inträffat i ditt program. Vanligt vis är det en användar interaktion som knapp tryckning eller order utcheckning. Det kan också vara ett programs livs cykel händelse som initiering eller konfigurations uppdatering. 
 
-Semantiskt, händelser kan eller inte kan korreleras till begäranden. Men om använt korrekt är händelsetelemetri viktigare än begäranden eller spårningar. Händelser som representerar telemetri och bör vara ett ämne att separera, mindre aggressiva [sampling](../../azure-monitor/app/api-filtering-sampling.md).
+Semantiskt, händelser kan eventuellt inte korreleras med begär Anden. Men om det används korrekt är event telemetri viktigare än begär Anden eller spårningar. Händelser representerar affärstelemetri och bör vara föremål för separat, mindre aggressiv [sampling](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## <a name="name"></a>Namn
 
-Händelsenamn. Begränsa ditt program för att tillåta korrekt gruppering och användbara mätvärden, så att det genererar ett litet antal separat händelsenamn. Till exempel inte använda ett separat namn för varje genererad instans av en händelse.
+Händelse namn. Begränsa ditt program så att det genererar ett litet antal separata händelse namn för att tillåta rätt gruppering och användbara mått. Använd till exempel inte ett separat namn för varje genererad instans av en händelse.
 
 Maxlängd: 512 tecken
 
@@ -41,6 +37,6 @@ Maxlängd: 512 tecken
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [datamodellen](data-model.md) för Application Insights och modellen.
-- [Skriva anpassad händelsetelemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
-- Kolla in [plattformar](../../azure-monitor/app/platforms.md) stöds av Application Insights.
+- Se [data modell](data-model.md) för Application Insights typer och data modell.
+- [Skriv anpassad telemetri för händelser](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
+- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med Zscaler | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Zscaler | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zscaler.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dcf0341e03a5d95abbe8b1a8ce69379fef8251b7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68989053"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Zscaler
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Zscaler
 
 I den här självstudien får du lära dig hur du integrerar Zscaler med Azure Active Directory (Azure AD). När du integrerar Zscaler med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Zscaler med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -66,7 +66,7 @@ Om du vill konfigurera och testa Azure AD SSO med Zscaler, slutför du följande
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera ZSCALER SSO](#configure-zscaler-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa Zscaler test User](#create-zscaler-test-user)** -om du vill ha en motsvarighet till B. Simon i Zscaler som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -90,7 +90,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Ditt Zscaler-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
 1. Utöver ovan förväntar sig Zscaler-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
@@ -108,14 +108,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    f. Klicka på **Spara**.
+    f. Klicka på **Save** (Spara).
 
     > [!NOTE]
     > Klicka på [här](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) för att få veta hur du konfigurerar rollen i Azure AD
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
 1. I avsnittet **Konfigurera Zscaler** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -126,14 +126,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Zscaler.
 
@@ -145,7 +145,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
     ![Zscaler-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -155,15 +155,15 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 5. I dialogrutan **Användare och grupper** väljer du användaren **Britta Simon** i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![image](./media/zscaler-tutorial/tutorial_zscaler_users.png)
+    ![mallar](./media/zscaler-tutorial/tutorial_zscaler_users.png)
 
 6. I dialogrutan **Välj roll** väljer du lämplig användarroll i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![image](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
+    ![mallar](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
 
 7. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
 
-    ![image](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
+    ![mallar](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
 
 ## <a name="configure-zscaler-sso"></a>Konfigurera Zscaler SSO
 
@@ -179,7 +179,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 1. Gå till **Administration > Autentisering > Autentiseringsinställningar** och utför följande steg:
 
-    ![Administration](./media/zscaler-tutorial/ic800206.png "Administration")
+    ![Administrationsverktyg](./media/zscaler-tutorial/ic800206.png "Administration")
 
     a. Under autentiseringstyp väljer du **SAML**.
 
@@ -187,7 +187,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 1. I fönstret **Redigera SAML** utför du följande steg och klickar på Spara.  
 
-    ![Hantera användare och autentisering](./media/zscaler-tutorial/ic800208.png "Hantera användare och autentisering")
+    ![Hantera användare & autentisering](./media/zscaler-tutorial/ic800208.png "Hantera användare & autentisering")
     
     a. I textrutan för **URL:en för SAML-portalen** klistrar du in **inloggnings-URL:en** som du har kopierat från Azure-portalen.
 
@@ -203,7 +203,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
     g. I textrutan för **avdelningsnamnattribut** anger du **department** om du vill aktivera automatisk SAML-etablering för department-attribut.
 
-    h. Klicka på **Spara**.
+    h. Klicka på **Save** (Spara).
 
 1. I dialogrutan **Konfigurera användarautentisering** utför du följande steg:
 
@@ -221,7 +221,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 1. Välj **Internetalternativ** i menyn **Verktyg** för att öppna dialogrutan **Internetalternativ**.
 
-    ![Internetalternativ](./media/zscaler-tutorial/ic769492.png "Internetalternativ")
+    ![Internet alternativ](./media/zscaler-tutorial/ic769492.png "Internet alternativ")
 
 1. Klicka på fliken **Anslutningar**.
   
@@ -254,9 +254,9 @@ I det här avsnittet skapas en användare som kallas Britta Simon i Zscaler. Zsc
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Zscaler på åtkomst panelen, bör du loggas in automatiskt på den Zscaler som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Zscaler på åtkomst panelen, bör du loggas in automatiskt på den Zscaler som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

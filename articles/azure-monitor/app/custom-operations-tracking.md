@@ -1,23 +1,19 @@
 ---
 title: Spåra anpassade åtgärder med Azure Application Insights .NET SDK | Microsoft Docs
 description: Spåra anpassade åtgärder med Azure Application Insights .NET SDK
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: d966ff3bc00d5190ebc163d4f4bfa35ba73d21ab
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f05c8724fe87888c93230b4ca77a7a82fe9357c2
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087664"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677475"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -122,7 +118,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 }
 ```
 
-HTTP-protokollet för korrelation deklarerar `Correlation-Context` också rubriken. Detta är dock utelämnat här för enkelhetens skull.
+HTTP-protokollet för korrelation deklarerar också `Correlation-Context`s huvudet. Detta är dock utelämnat här för enkelhetens skull.
 
 ## <a name="queue-instrumentation"></a>Queue Instruments
 Även om det finns [W3C-spårnings kontext](https://www.w3.org/TR/trace-context/) och [http-protokoll för korrelation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) för att skicka KORRELATIONS information med http-begäran, måste varje Queue-protokoll definiera hur samma information skickas ihop i Queue-meddelandet. Vissa Queue-protokoll (t. ex. AMQP) tillåter att ytterligare metadata skickas och andra (Azure Storage kö) kräver att kontexten kodas i meddelande nytto lasten.
@@ -221,12 +217,12 @@ Du kanske också vill korrelera Application Insights åtgärds-ID med ID för be
 #### <a name="enqueue"></a>Placera
 Eftersom lagrings köer stöder HTTP API spåras alla åtgärder med kön automatiskt av Application Insights. I många fall bör denna Instrumentation räcka. Men om du vill korrelera spår på konsument sidan med producent spår måste du skicka vissa korrelations sammanhang på samma sätt som i HTTP-protokollet för korrelation. 
 
-Det här exemplet visar hur du spårar `Enqueue` åtgärden. Du kan:
+Det här exemplet visar hur du spårar `Enqueue`-åtgärden. Du kan:
 
- - **Korrelera nya försök (om det finns några)** : Alla har en gemensam överordnad `Enqueue` åtgärd. Annars spåras de som underordnade till den inkommande begäran. Om det finns flera logiska begär anden till kön kan det vara svårt att hitta vilket anrop som resulterade i återförsök.
- - **Korrelera lagrings loggar (om och när det behövs)** : De är korrelerade med Application Insights telemetri.
+ - **Korrelera nya försök (om det finns några)** : alla har en gemensam överordnad som är den `Enqueue` åtgärden. Annars spåras de som underordnade till den inkommande begäran. Om det finns flera logiska begär anden till kön kan det vara svårt att hitta vilket anrop som resulterade i återförsök.
+ - **Korrelera lagrings loggar (om och när det behövs)** : de är korrelerade med Application Insights telemetri.
 
-`Enqueue` Åtgärden är underordnad en överordnad åtgärd (till exempel en inkommande HTTP-begäran). HTTP-beroende anropet är underordnat `Enqueue` åtgärden och grandchild för den inkommande begäran:
+Åtgärden `Enqueue` är underordnad en överordnad åtgärd (till exempel en inkommande HTTP-begäran). HTTP-beroende anropet är underordnat den `Enqueue` åtgärden och grandchild för den inkommande begäran:
 
 ```csharp
 public async Task Enqueue(CloudQueue queue, string message)
@@ -269,16 +265,16 @@ public async Task Enqueue(CloudQueue queue, string message)
 }  
 ```
 
-Om du vill minska mängden telemetri för dina program rapporter eller om du inte vill spåra `Enqueue` åtgärden av andra orsaker använder du `Activity` API: et direkt:
+Om du vill minska mängden telemetri för dina program rapporter eller om du inte vill spåra `Enqueue`-åtgärden av andra orsaker använder du `Activity`-API: et direkt:
 
 - Skapa (och starta) en ny `Activity` i stället för att starta Application Insights-åtgärden. Du behöver *inte* tilldela några egenskaper förutom åtgärds namnet.
-- Serialisera i meddelande nytto lasten i stället `operation.Telemetry.Id`för. `yourActivity.Id` Du kan också använda `Activity.Current.Id`.
+- Serialisera `yourActivity.Id` i meddelandets nytto Last i stället för `operation.Telemetry.Id`. Du kan också använda `Activity.Current.Id`.
 
 
 #### <a name="dequeue"></a>Ta bort
-På samma sätt `Enqueue`som en faktisk http-begäran till lagrings kön spåras automatiskt med Application Insights. `Enqueue` Åtgärden sker dock i det överordnade sammanhanget, till exempel en inkommande kontext för begäran. Application Insights SDK: er automatiskt korrelera en sådan åtgärd (och dess HTTP-del) med den överordnade begäran och annan telemetri som rapporteras i samma omfång.
+På samma sätt som för `Enqueue` spåras en faktisk HTTP-begäran till lagrings kön automatiskt av Application Insights. @No__t_0 åtgärden sker dock i det överordnade sammanhanget, till exempel en inkommande kontext för begäran. Application Insights SDK: er automatiskt korrelera en sådan åtgärd (och dess HTTP-del) med den överordnade begäran och annan telemetri som rapporteras i samma omfång.
 
-`Dequeue` Åtgärden är knepig. Application Insights SDK spårar automatiskt HTTP-begäranden. Den känner dock inte till korrelations kontexten förrän meddelandet har tolkats. Det går inte att korrelera HTTP-begäran för att hämta meddelandet med resten av Telemetrin, särskilt när fler än ett meddelande tas emot.
+@No__t_0 åtgärden är knepig. Application Insights SDK spårar automatiskt HTTP-begäranden. Den känner dock inte till korrelations kontexten förrän meddelandet har tolkats. Det går inte att korrelera HTTP-begäran för att hämta meddelandet med resten av Telemetrin, särskilt när fler än ett meddelande tas emot.
 
 ```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
@@ -343,24 +339,24 @@ public async Task Process(MessagePayload message)
 
 På samma sätt kan andra köa åtgärder instrumenteras. En gransknings åtgärd bör instrumenteras på samma sätt som en åtgärd för att köa. Hanterings åtgärder för instrumenterade köer är inte nödvändiga. Application Insights spårar åtgärder som HTTP, och i de flesta fall är det tillräckligt.
 
-Se till att du ställer in operation (korrelation)-identifierarna när du tar bort ett meddelande. Alternativt kan du använda `Activity` API: et. Sedan behöver du inte ange åtgärds identifierare för telemetri-objekten eftersom Application Insights SDK gör det åt dig:
+Se till att du ställer in operation (korrelation)-identifierarna när du tar bort ett meddelande. Du kan också använda `Activity`-API: et. Sedan behöver du inte ange åtgärds identifierare för telemetri-objekten eftersom Application Insights SDK gör det åt dig:
 
 - Skapa en ny `Activity` när du har ett objekt från kön.
-- Används `Activity.SetParentId(message.ParentId)` för att korrelera konsument-och producent loggar.
-- `Activity`Starta.
-- Spåra åtgärder i kö-, process-och borttagnings `Start/StopOperation` åtgärder med hjälp av hjälp program. Gör det från samma asynkrona kontroll flöde (körnings kontext). På så sätt är de korrelerade korrekt.
-- `Activity`Stoppa.
-- Använd `Start/StopOperation`eller anropa `Track` telemetri manuellt.
+- Använd `Activity.SetParentId(message.ParentId)` för att korrelera konsument-och producent loggar.
+- Starta `Activity`.
+- Spåra åtgärder i kö-, process-och borttagnings åtgärder med hjälp av `Start/StopOperation` helpers. Gör det från samma asynkrona kontroll flöde (körnings kontext). På så sätt är de korrelerade korrekt.
+- Stoppa `Activity`.
+- Använd `Start/StopOperation` eller anropa `Track` telemetri manuellt.
 
 ### <a name="dependency-types"></a>Beroende typer
 
-Application Insights använder beroende typen för att cusomize UI-upplevelser. För köer identifieras följande typer av `DependencyTelemetry` som förbättrar [upplevelsen för transaktions diagnostik](/azure/azure-monitor/app/transaction-diagnostics):
-- `Azure queue`för Azure Storage köer
-- `Azure Event Hubs`för Azure Event Hubs
-- `Azure Service Bus`för Azure Service Bus
+Application Insights använder beroende typen för att cusomize UI-upplevelser. För köer identifierar den följande typer av `DependencyTelemetry` som förbättrar [transaktions diagnos upplevelsen](/azure/azure-monitor/app/transaction-diagnostics):
+- `Azure queue` för Azure Storage köer
+- `Azure Event Hubs` för Azure Event Hubs
+- `Azure Service Bus` för Azure Service Bus
 
 ### <a name="batch-processing"></a>Batchbearbetning
-Med vissa köer kan du ta bort flera meddelanden med en begäran i kö. Att bearbeta sådana meddelanden är förmodligen oberoende och tillhör olika logiska åtgärder. Det går inte att korrelera `Dequeue` åtgärden till ett visst meddelande som bearbetas.
+Med vissa köer kan du ta bort flera meddelanden med en begäran i kö. Att bearbeta sådana meddelanden är förmodligen oberoende och tillhör olika logiska åtgärder. Det går inte att korrelera `Dequeue`-åtgärden till ett visst meddelande som bearbetas.
 
 Varje meddelande ska bearbetas i ett eget asynkront kontroll flöde. Mer information finns i avsnittet om [spårning av utgående beroenden](#outgoing-dependencies-tracking) .
 
@@ -396,18 +392,18 @@ async Task BackgroundTask()
 }
 ```
 
-I det här exemplet `telemetryClient.StartOperation` skapar `DependencyTelemetry` och fyller korrelations kontexten. Anta att du har en överordnad åtgärd som har skapats av inkommande begär Anden som schemalagt åtgärden. Så länge `BackgroundTask` som startar i samma asynkrona kontroll flöde som en inkommande begäran korreleras det med den överordnade åtgärden. `BackgroundTask`och alla kapslade telemetri-objekt korreleras automatiskt med den begäran som orsakade det, även efter att begäran har slutförts.
+I det här exemplet skapar `telemetryClient.StartOperation` `DependencyTelemetry` och fyller korrelations kontexten. Anta att du har en överordnad åtgärd som har skapats av inkommande begär Anden som schemalagt åtgärden. Så länge `BackgroundTask` startar i samma asynkrona kontroll flöde som en inkommande begäran korreleras det med den överordnade åtgärden. `BackgroundTask` och alla kapslade telemetri-objekt korreleras automatiskt med den begäran som orsakade det, även efter att begäran har slutförts.
 
-När aktiviteten startar från den bakgrunds tråd som inte har någon åtgärd`Activity`() kopplad till den `BackgroundTask` , har inte någon överordnad. Det kan dock ha kapslade åtgärder. Alla telemetridata som har rapporter ATS från uppgiften korreleras till den `DependencyTelemetry` skapade i `BackgroundTask`.
+När aktiviteten startar från bakgrunds tråden som inte har någon åtgärd (`Activity`) kopplad till den, `BackgroundTask` har inte någon överordnad. Det kan dock ha kapslade åtgärder. Alla telemetridata som rapporteras från uppgiften korreleras till den `DependencyTelemetry` som skapats i `BackgroundTask`.
 
 ## <a name="outgoing-dependencies-tracking"></a>Spårning av utgående beroenden
 Du kan spåra din egen beroende typ eller en åtgärd som inte stöds av Application Insights.
 
-`Enqueue` Metoden i Service Bus kön eller lagrings kön kan fungera som exempel för sådan anpassad spårning.
+Metoden `Enqueue` i Service Bus kön eller lagrings kön kan fungera som exempel för sådan anpassad spårning.
 
 Den allmänna metoden för anpassad beroende spårning är att:
 
-- Anropa metoden `DependencyTelemetry` (Extension) som fyller de egenskaper som behövs för korrelationen och andra egenskaper (start tid, varaktighet). `TelemetryClient.StartOperation`
+- Anropa metoden `TelemetryClient.StartOperation` (tillägg) som fyller de `DependencyTelemetry` egenskaper som behövs för korrelationen och andra egenskaper (start tid, varaktighet).
 - Ange andra anpassade egenskaper för `DependencyTelemetry`, till exempel namn och annan kontext som du behöver.
 - Gör ett beroende anrop och vänta på det.
 - Stoppa åtgärden med `StopOperation` när den är slutförd.
@@ -431,13 +427,13 @@ public async Task RunMyTaskAsync()
 }
 ```
 
-Åtgärden stoppas om åtgärden stoppas, så du kan göra det i stället för att `StopOperation`anropa.
+Åtgärden stoppas om åtgärden stoppas, så du kan göra det i stället för att anropa `StopOperation`.
 
-*Varning*: ett undantag som inte är behållet kan [förhindras](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` att anropas så att åtgärder inte kan spåras.
+*Varning!* ett undantag som inte är behållet kan [förhindra](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) att `finally` anropas så att åtgärder inte kan spåras.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Bearbetning och spårning av parallella åtgärder
 
-`StopOperation`stoppar bara den åtgärd som startades. Om den aktuella aktiva åtgärden inte matchar den som du vill stoppa, `StopOperation` gör ingenting. Den här situationen kan inträffa om du startar flera åtgärder parallellt i samma körnings kontext:
+`StopOperation` stoppar bara den åtgärd som startades. Om den aktuella aktiva åtgärden inte matchar den som du vill stoppa, gör `StopOperation` ingenting. Den här situationen kan inträffa om du startar flera åtgärder parallellt i samma körnings kontext:
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
@@ -455,7 +451,7 @@ telemetryClient.StopOperation(firstOperation);
 await secondTask;
 ```
 
-Se till att du alltid `StartOperation` anropar och bearbetar åtgärder i samma **asynkrona** metod för att isolera åtgärder som körs parallellt. Om åtgärden är synkron (eller inte asynkron), Radbryt processen och spåra med `Task.Run`:
+Se till att du alltid anropar `StartOperation` och process-åtgärd i samma **asynkrona** Metod för att isolera åtgärder som körs parallellt. Om åtgärden är synkron (eller inte asynkron), Radbryt processen och spåra med `Task.Run`:
 
 ```csharp
 public void RunMyTask(string name)
@@ -477,11 +473,11 @@ public async Task RunAllTasks()
 ```
 
 ## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>ApplicationInsights-åtgärder vs system. Diagnostics. Activity
-`System.Diagnostics.Activity`visar den distribuerade spårnings kontexten och används av ramverk och bibliotek för att skapa och sprida kontext inuti och utanför processen och korrelera telemetri-objekt. Aktiviteten fungerar tillsammans med `System.Diagnostics.DiagnosticSource` -meddelande mekanismen mellan ramverket/biblioteket för att meddela om intressanta händelser (inkommande eller utgående begär Anden, undantag osv.).
+`System.Diagnostics.Activity` representerar den distribuerade spårnings kontexten och används av ramverk och bibliotek för att skapa och sprida kontext inuti och utanför processen och korrelera telemetri-objekt. Aktiviteten fungerar tillsammans med `System.Diagnostics.DiagnosticSource` – meddelande mekanismen mellan ramverket/biblioteket för att meddela om intressanta händelser (inkommande eller utgående begär Anden, undantag osv.).
 
 Aktiviteter är de första klasserna i Application Insights och automatiskt beroende och begär ande samling är mycket beroende av dem tillsammans med `DiagnosticSource` händelser. Om du skapar en aktivitet i ditt program innebär det inte att Application Insights telemetri skapas. Application Insights måste ta emot DiagnosticSource-händelser och känna till händelse namn och nytto laster för att översätta aktivitet till telemetri.
 
-Varje Application Insights-åtgärd (Request eller Dependency) omfattar `Activity` -när `StartOperation` anropas skapas aktiviteten under. `StartOperation`är det rekommenderade sättet att spåra begäran eller beroende telemetrivärden manuellt och se till att allt korreleras.
+Varje Application Insights-åtgärd (begäran eller beroende) omfattar `Activity` – när `StartOperation` anropas skapas aktiviteten under. `StartOperation` är det rekommenderade sättet att spåra begäran eller beroende telemetrivärden manuellt och se till att allt korreleras.
 
 ## <a name="next-steps"></a>Nästa steg
 

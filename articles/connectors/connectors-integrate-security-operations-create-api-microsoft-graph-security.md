@@ -1,6 +1,6 @@
 ---
-title: Integrera säkerhetsåtgärder med Microsoft Graph-säkerhet – Azure Logic Apps
-description: Förbättra appens threat protection, identifiering och åtgärder funktioner genom att hantera säkerhetsåtgärder med säkerhet för Microsoft Graph och Azure Logic Apps
+title: Integrera och hantera säkerhets åtgärder – Azure Logic Apps & Microsoft Graph säkerhet
+description: Förbättra appens hot skydd, identifiering och svar med Microsoft Graph Security & Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,108 +10,108 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
-ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 845f57d84f49bdd964cc6f61790faff093f59466
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60448060"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679086"
 ---
-# <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Förbättra skydd genom att integrera säkerhetsåtgärder med Microsoft Graph säkerhets- och Azure Logic Apps
+# <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Förbättra hot skyddet genom att integrera säkerhets åtgärder med Microsoft Graph säkerhets & Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Microsoft Graph Security](https://docs.microsoft.com/graph/security-concept-overview) connector, du kan förbättra hur din app identifierar, skyddar och svara på hot genom att skapa automatiserade arbetsflöden för att integrera Microsoft Security-produkter, tjänster och partner. Du kan till exempel skapa [Azure Security Center spelböcker](../security-center/security-center-playbooks.md) som övervakar och hanterar Microsoft Graph-Security-entiteter, till exempel aviseringar. Här följer några scenarier som stöds av Microsoft Graph-Security-anslutningen:
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Microsoft Graph Security](https://docs.microsoft.com/graph/security-concept-overview) Connector kan du förbättra hur appen identifierar, skyddar och svarar på hot genom att skapa automatiserade arbets flöden för att integrera Microsofts säkerhets produkter, tjänster och partners. Du kan till exempel skapa [Azure Security Center spel böcker](../security-center/security-center-playbooks.md) som övervakar och hanterar Microsoft Graph säkerhetsentiteter, till exempel aviseringar. Här följer några scenarier som stöds av Microsoft Graph Security Connector:
 
-* Få aviseringar baserat på frågor eller efter avisering-ID. Exempelvis kan du hämta en lista som innehåller varningar med hög angelägenhetsgrad.
-* Uppdatera aviseringar. Du kan till exempel uppdatera avisering tilldelningar, lägga till kommentarer i aviseringar eller tagga aviseringar.
-* Övervaka när aviseringar skapas eller ändras genom att skapa [Avisera prenumerationer (webhooks)](https://docs.microsoft.com/graph/api/resources/webhooks).
-* Hantera din aviseringsprenumerationer. Du kan exempelvis ha aktiva prenumerationer, förlänga förfallotiden för en prenumeration eller ta bort prenumerationer.
+* Hämta aviseringar baserat på frågor eller aviserings-ID. Du kan till exempel hämta en lista som innehåller aviseringar med hög allvarlighets grad.
+* Uppdatera aviseringar. Du kan till exempel uppdatera aviserings tilldelningar, lägga till kommentarer till aviseringar eller tagga aviseringar.
+* Övervaka när aviseringar skapas eller ändras genom att skapa [aviserings prenumerationer (Webhooks)](https://docs.microsoft.com/graph/api/resources/webhooks).
+* Hantera dina aviserings prenumerationer. Du kan till exempel få aktiva prenumerationer, förlänga förfallo tiden för en prenumeration eller ta bort prenumerationer.
 
-Logikappens arbetsflöde kan använda åtgärder som får svar från Microsoft Graph-Security-anslutningen och göra dessa utdata ska vara tillgängliga för andra åtgärder i arbetsflödet. Du kan också ha andra åtgärder i arbetsflödet använder utdata från Microsoft Graph Security connector-åtgärder. Om du får varningar med hög angelägenhetsgrad via Microsoft Graph Security connector kan kan du till exempel skicka aviseringarna i ett e-postmeddelande med Outlook-anslutningen. 
+Din Logic Apps-arbetsflöde kan använda åtgärder som får svar från Microsoft Graph Security Connector och göra utdata tillgängliga för andra åtgärder i ditt arbets flöde. Du kan också använda andra åtgärder i arbets flödet för att använda utdata från åtgärder för Microsoft Graph säkerhets anslutning. Om du till exempel får aviseringar med hög allvarlighets grad via Microsoft Graph Security Connector kan du skicka aviseringarna i ett e-postmeddelande med hjälp av Outlook-anslutningen. 
 
-Läs mer om Microsoft Graph-säkerhet i den [Microsoft Graph Security API-översikt](https://aka.ms/graphsecuritydocs). Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Om du letar efter Microsoft Flow eller PowerApps, se [vad är Flow?](https://flow.microsoft.com/) eller [vad är PowerApps?](https://powerapps.microsoft.com/)
+Mer information om Microsoft Graph säkerhet finns i [Översikt över Microsoft Graph Security API](https://aka.ms/graphsecuritydocs). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Om du letar efter Microsoft Flow eller PowerApps, se [Vad är Flow?](https://flow.microsoft.com/) eller [Vad är PowerApps?](https://powerapps.microsoft.com/)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Om du vill använda Microsoft Graph-Security-anslutningstjänsten måste du ha *explicit angivna* Azure Active Directory (AD) klient administratörens godkännande, som är en del av den [autentiseringskrav för Microsoft Graph-säkerhet ](https://aka.ms/graphsecurityauth). Den här medgivande kräver Microsoft Graph-Security-kopplingens program-ID och namn, som du kan också hitta i den [Azure-portalen](https://portal.azure.com):
+* Om du vill använda Microsoft Graph-säkerhetsanslutningen måste du *uttryckligen* angett Azure Active Directory (AD) klient administratörs medgivande, som är en del av [kraven för Microsoft Graph säkerhets autentisering](https://aka.ms/graphsecurityauth). Detta medgivande kräver Microsoft Graph Security Connectors program-ID och namn, som du även hittar i [Azure Portal](https://portal.azure.com):
 
    | Egenskap | Värde |
    |----------|-------|
-   | **Programnamn** | `MicrosoftGraphSecurityConnector` |
+   | **Program namn** | `MicrosoftGraphSecurityConnector` |
    | **Program-ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
    |||
 
-   Om du vill ge ditt medgivande för anslutningstjänsten, din Azure AD-Innehavaradministratör antingen de här stegen:
+   För att bevilja medgivande för anslutningen kan din Azure AD-innehavaradministratör följa de här stegen:
 
-   * [Bevilja klient administratörens godkännande för Azure AD-program](../active-directory/develop/v2-permissions-and-consent.md).
+   * [Bevilja klient organisationens administratörs medgivande för Azure AD-program](../active-directory/develop/v2-permissions-and-consent.md).
 
-   * Under din logikapp första körningen, din app kan begära godkännande från din Azure AD-Innehavaradministratör via den [samtycke upplevelsen](../active-directory/develop/application-consent-experience.md).
+   * Under den första körningen av din Logic Apps kan din app begära medgivande från din Azure AD-innehavaradministratör genom [programmets medgivande upplevelse](../active-directory/develop/application-consent-experience.md).
    
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Logikappen där du vill komma åt dina Microsoft Graph-Security-entiteter, till exempel aviseringar. Den här anslutningen har för närvarande inga utlösare. Så om du vill använda en Microsoft Graph-Security-åtgärd, starta din logikapp med en utlösare, till exempel, **upprepning** utlösaren.
+* Den Logic app där du vill få åtkomst till dina Microsoft Graph säkerhetsentiteter, till exempel aviseringar. Den här anslutningen har för närvarande inga utlösare. Om du vill använda en Microsoft Graph säkerhets åtgärd startar du din Logic app med en utlösare, till exempel utlösaren **upprepning** .
 
-## <a name="connect-to-microsoft-graph-security"></a>Ansluta till Microsoft Graph-säkerhet 
+## <a name="connect-to-microsoft-graph-security"></a>Anslut till Microsoft Graph säkerhet 
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+1. Logga in på [Azure Portal](https://portal.azure.com/)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
-1. Tom logic apps, lägger du till utlösaren och andra åtgärder som du vill innan du lägger till en Microsoft Graph-Security-åtgärd.
-
-   ELLER
-
-   För befintliga logikappar under det sista steget där du vill lägga till en åtgärd i Microsoft Graph Security, Välj **nytt steg**.
+1. För tomma Logi Kap par lägger du till utlösaren och andra åtgärder som du vill ha innan du lägger till en Microsoft Graph säkerhets åtgärd.
 
    ELLER
 
-   Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet (+) som visas och välj **Lägg till en åtgärd**.
+   För befintliga Logi Kap par, under det sista steget där du vill lägga till en Microsoft Graph säkerhets åtgärd, väljer du **nytt steg**.
 
-1. I sökrutan anger du ”microsoft graph-säkerhet” som filter. Välj vilken åtgärd du önska från åtgärdslistan över.
+   ELLER
 
-1. Logga in med dina autentiseringsuppgifter för Microsoft Graph.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. 
+   Välj plus tecknet (+) som visas och välj **Lägg till en åtgärd**.
 
-1. Ange informationen som krävs för din valda åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+1. Skriv "Microsoft Graph Security" som filter i rutan Sök. Välj den åtgärd du vill använda i listan åtgärder.
 
-## <a name="add-actions"></a>Lägga till åtgärder
+1. Logga in med dina Microsoft Graph säkerhets uppgifter.
 
-Här följer mer information om hur du använder olika åtgärder som är tillgängliga med Microsoft Graph Security connector.
+1. Ange nödvändig information för den valda åtgärden och fortsätt att skapa din Logic Apps-arbetsflöde.
+
+## <a name="add-actions"></a>Lägg till åtgärder
+
+Här är mer information om hur du använder de olika åtgärderna som finns tillgängliga med Microsoft Graph Security Connector.
 
 ### <a name="manage-alerts"></a>Hantera aviseringar
 
-För att filtrera, sortera, eller få de senaste resultaten, ange *endast* den [ODATA-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Ange inte* fullständig bas-URL eller HTTP-åtgärden, till exempel `https://graph.microsoft.com/v1.0/security/alerts`, eller `GET` eller `PATCH` igen. Här är ett exempel som visar parametrarna för en **få aviseringar** åtgärd när du vill ha en lista med aviseringar med hög allvarlighetsgrad:
+Om du vill filtrera, sortera eller få de senaste resultaten anger du *bara* [OData-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Ange inte* den fullständiga bas-URL: en eller http-åtgärden, till exempel `https://graph.microsoft.com/v1.0/security/alerts` eller åtgärden `GET` eller `PATCH`. Här är ett speciellt exempel som visar parametrar för en åtgärd för att **Hämta aviseringar** när du vill ha en lista med aviseringar med hög allvarlighets grad:
 
 `Filter alerts value as Severity eq 'high'`
 
-Mer information om frågor som du kan använda med den här anslutningen finns i den [Microsoft Graph säkerhetsaviseringar referensdokumentation](https://docs.microsoft.com/graph/api/alert-list). Om du vill skapa bättre upplevelser med den här anslutningen, Lär dig mer om den [schemat egenskaper aviseringar](https://docs.microsoft.com/graph/api/resources/alert) som stöder anslutningen.
+Mer information om frågor som du kan använda med den här anslutnings tjänsten finns i [referens dokumentationen för Microsoft Graph säkerhets aviseringar](https://docs.microsoft.com/graph/api/alert-list). Om du vill bygga förbättrade upplevelser med den här anslutningen kan du läsa mer om de [schema egenskaper](https://docs.microsoft.com/graph/api/resources/alert) som stöds av anslutnings programmet.
 
 | Åtgärd | Beskrivning |
 |--------|-------------|
-| **Få aviseringar** | Hämta aviseringar filtrerade baserat på en eller flera [Avisera egenskaper](https://docs.microsoft.com/graph/api/resources/alert), till exempel: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
-| **Hämta avisering efter ID** | Hämta en specifik avisering baserat på den avisering-ID. | 
-| **Uppdatering av avisering** | Uppdatera en specifik avisering baserat på den avisering-ID. <p>Om du vill se till att du skickar egenskaperna krävs och kan redigeras i din begäran, se den [redigerbara egenskaper för aviseringar](https://docs.microsoft.com/graph/api/alert-update). Om du vill tilldela en avisering till säkerhetsanalytiker så att de kan undersöka, kan du till exempel uppdatera aviseringens **tilldelats** egenskapen. |
+| **Hämta aviseringar** | Hämta aviseringar som filtrerats baserat på en eller flera [aviserings egenskaper](https://docs.microsoft.com/graph/api/resources/alert), till exempel: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
+| **Hämta avisering efter ID** | Få en speciell avisering baserat på aviserings-ID: t. | 
+| **Uppdatera avisering** | Uppdatera en speciell avisering baserat på aviserings-ID: t. <p>För att se till att du överför de nödvändiga och redigerbara egenskaperna i din begäran, se de [redigerbara egenskaperna för aviseringar](https://docs.microsoft.com/graph/api/alert-update). Om du till exempel vill tilldela en avisering till en säkerhetsanalytiker så att de kan undersöka, kan du uppdatera aviseringens **tilldelade** egenskap. |
 |||
 
-### <a name="manage-alert-subscriptions"></a>Hantera aviseringsprenumerationer
+### <a name="manage-alert-subscriptions"></a>Hantera aviserings prenumerationer
 
-Har stöd för Microsoft Graph [ *prenumerationer*](https://docs.microsoft.com/graph/api/resources/subscription), eller [ *webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Om du vill hämta, uppdatera, eller ta bort prenumerationer, ange den [ODATA-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) till Microsoft Graph-entitet konstruera och inkludera `security/alerts` följt av ODATA-fråga. 
-*Omfattar inte* bas-URL, till exempel `https://graph.microsoft.com/v1.0`. Använd i stället format i det här exemplet:
+Microsoft Graph stöder [*prenumerationer*](https://docs.microsoft.com/graph/api/resources/subscription)eller [*Webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Om du vill hämta, uppdatera eller ta bort prenumerationer anger du [OData-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) till entiteten Microsoft Graph entitets konstruktion och inkluderar `security/alerts` följt av OData-frågan. 
+*Ta inte med* bas-URL: en, till exempel `https://graph.microsoft.com/v1.0`. Använd i stället formatet i det här exemplet:
 
 `security/alerts?$filter=status eq 'New'`
 
 | Åtgärd | Beskrivning |
 |--------|-------------|
-| **Skapa prenumerationer** | [Skapa en prenumeration](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) som meddelar dig om eventuella ändringar. Du kan filtrera den här prenumerationen för de specifika aviseringstyper som du vill. Du kan till exempel skapa en prenumeration som meddelar dig om varningar med hög angelägenhetsgrad. |
-| **Hämta aktiva prenumerationer** | [Hämta läggs prenumerationer](https://docs.microsoft.com/graph/api/subscription-list). | 
-| **Uppdatera prenumeration** | [Uppdatera en prenumeration](https://docs.microsoft.com/graph/api/subscription-update) genom att ange prenumerations-ID. Om du vill förlänga din prenumeration kan du till exempel uppdatera prenumerationens `expirationDateTime` egenskapen. | 
-| **Ta bort prenumeration** | [Tar bort en prenumeration](https://docs.microsoft.com/graph/api/subscription-delete) genom att ange prenumerations-ID. | 
+| **Skapa prenumerationer** | [Skapa en prenumeration](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) som meddelar dig om eventuella ändringar. Du kan filtrera den här prenumerationen för de olika aviserings typer som du vill använda. Du kan till exempel skapa en prenumeration som meddelar dig om aviseringar med hög allvarlighets grad. |
+| **Hämta aktiva prenumerationer** | [Hämta prenumerationer som inte har gått ut](https://docs.microsoft.com/graph/api/subscription-list). | 
+| **Uppdatera prenumeration** | [Uppdatera en prenumeration](https://docs.microsoft.com/graph/api/subscription-update) genom att ange prenumerations-ID: t. Om du till exempel vill utöka din prenumeration kan du uppdatera prenumerationens `expirationDateTime`-egenskap. | 
+| **Ta bort prenumeration** | [Ta bort en prenumeration](https://docs.microsoft.com/graph/api/subscription-delete) genom att ange prenumerations-ID: t. | 
 ||| 
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](https://aka.ms/graphsecurityconnectorreference).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](https://aka.ms/graphsecurityconnectorreference).
 
 ## <a name="get-support"></a>Få support
 
@@ -120,4 +120,4 @@ Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbp
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

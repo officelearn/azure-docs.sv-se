@@ -7,12 +7,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: laobri
-ms.openlocfilehash: b67f0cf60d279c7bc52b4114d29c37847f5c57f1
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 68808a2ea99c8fccd7e64f15e97f2ee6ec84d1a9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244472"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678461"
 ---
 # <a name="create-an-azure-search-knowledge-store-by-using-rest"></a>Skapa en Azure Search kunskaps lager med hjälp av REST
 
@@ -30,7 +30,7 @@ Skapa följande tjänster:
 
 - Skapa ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempel data och kunskaps lagret. Ditt lagrings konto måste använda samma plats (till exempel västra USA) för din Azure Search-tjänst. Värdet för **konto typen** måste vara **StorageV2 (generell användning v2)** (standard) eller **Storage (generell användning v1)** .
 
-- Rekommenderat: Hämta [appen Postman Desktop](https://www.getpostman.com/) för att skicka begär anden till Azure Search. Du kan använda REST API med ett verktyg som kan arbeta med HTTP-förfrågningar och-svar. Postman är ett bra alternativ för att utforska REST-API: er. Vi använder Postman i den här artikeln. [Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) för den här artikeln innehåller också en Postman-samling med begär Anden. 
+- Rekommenderat: Hämta [appen Postman Desktop](https://www.getpostman.com/) för att skicka begär anden till Azure Search. Du kan använda REST API med ett verktyg som kan arbeta med HTTP-förfrågningar och-svar. Postman är ett bra alternativ för att utforska REST-API: er. Vi använder Postman i den här artikeln. [Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) för den här artikeln innehåller också en Postman-samling med begär Anden. 
 
 ## <a name="store-the-data"></a>Lagra data
 
@@ -46,11 +46,11 @@ Läs in CSV-filen för hotell granskningar i Azure Blob Storage så att den kan 
 1. Välj **OK** för att skapa BLOB-behållaren.
 1. Öppna behållaren ny **hotell-granska** , Välj **Ladda upp**och välj sedan den HotelReviews-Free. csv-fil som du laddade ned i det första steget.
 
-    ![Överför data](media/knowledge-store-create-portal/upload-command-bar.png "Ladda upp hotell recensionerna")
+    ![Överför data](media/knowledge-store-create-portal/upload-command-bar.png "Ladda upp Hotell recensioner")
 
 1. Välj **överför** för att importera CSV-filen till Azure Blob Storage. Den nya behållaren visas:
 
-    ![Skapa BLOB-behållaren](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "skapa BLOB-behållaren")
+    ![Skapa BLOB-behållaren](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Skapa BLOB-behållaren")
 
 ## <a name="configure-postman"></a>Konfigurera Postman
 
@@ -63,14 +63,14 @@ Installera och konfigurera Postman.
 1. Välj fliken **samlingar** och välj sedan knappen **...** (ellips).
 1. Välj **Redigera**. 
    
-   ![Postman-appen som visar navigering](media/knowledge-store-create-rest/postman-edit-menu.png "gå till redigerings menyn i Postman")
+   ![Postman-app som visar navigering](media/knowledge-store-create-rest/postman-edit-menu.png "Gå till redigerings menyn i Postman")
 1. I dialog rutan **Redigera** väljer du fliken **variabler** . 
 
 På fliken **variabler** kan du lägga till värden som Postman växlar i varje gång det påträffar en speciell variabel inom dubbla klammerparenteser. Postman ersätter exempelvis symbolen `{{admin-key}}` med det aktuella värde som du angav för `admin-key`. Postman gör ersättningen i URL: er, sidhuvuden, begär ande texten och så vidare. 
 
 Om du vill hämta värdet för `admin-key` går du till tjänsten Azure Search och väljer fliken **nycklar** . ändra `search-service-name` och `storage-account-name` till de värden som du valde i [skapa tjänster](#create-services). Ange `storage-connection-string` med hjälp av värdet på fliken **åtkomst nycklar** för lagrings kontot. Du kan lämna standardvärdena för de andra värdena.
 
-![Fliken Postman app-variabler](media/knowledge-store-create-rest/postman-variables-window.png "Boxman-fönstret variabler")
+![Fliken Postman-app-variabler](media/knowledge-store-create-rest/postman-variables-window.png "Fönstret för Postman-variabler")
 
 
 | Variabel    | Var du får den |
@@ -168,9 +168,9 @@ Välj **Skicka** för att skicka en post-begäran.
 
 Nästa steg är att ange färdigheter, som anger både de förbättringar som ska tillämpas och det kunskaps lager där resultatet ska lagras. I Postman väljer du fliken **skapa färdigheter** . Den här begäran skickar en placering till `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`. Ange `api-key`-och `Content-type`-huvuden som du gjorde tidigare. 
 
-Det finns två stora objekt på översta nivån: `skills` och `knowledgeStore`. Varje objekt i `skills`-objektet är en anriknings tjänst. Varje anriknings tjänst har `inputs` och `outputs`. @No__t-0 har utdata `targetName` av `Language`. Värdet för den här noden används av de flesta andra färdigheter som inmatade. Källan är `document/Language`. Möjligheten att använda utdata från en nod som indata till en annan är ännu tydligare i `ShaperSkill`, som anger hur data flödar till kunskaps lagrets tabeller.
+Det finns två stora objekt på översta nivån: `skills` och `knowledgeStore`. Varje objekt i `skills`-objektet är en anriknings tjänst. Varje anriknings tjänst har `inputs` och `outputs`. @No__t_0 har `Language` för utdata `targetName`. Värdet för den här noden används av de flesta andra färdigheter som inmatade. Källan är `document/Language`. Möjligheten att använda utdata från en nod som indata till en annan är ännu tydligare i `ShaperSkill`, som anger hur data flödar till kunskaps lagrets tabeller.
 
-@No__t-0-objektet ansluts till lagrings kontot via variabeln `{{storage-connection-string}}` Postman. `knowledge_store` innehåller en uppsättning mappningar mellan det förbättrade dokumentet och tabeller och kolumner i kunskaps lagret. 
+@No__t_0-objektet ansluter till lagrings kontot via variabeln `{{storage-connection-string}}` Postman. `knowledge_store` innehåller en uppsättning mappningar mellan det förbättrade dokumentet och tabeller och kolumner i kunskaps lagret. 
 
 Om du vill generera färdigheter väljer du knappen **Skicka** i Postman för att placera begäran:
 

@@ -1,39 +1,34 @@
 ---
 title: Händelse räknare i Application Insights | Microsoft Docs
 description: Övervaka system och anpassade .NET/.NET Core-EventCounters i Application Insights.
-services: application-insights
-documentationcenter: ''
-author: cithomas
-manager: carmonm
-ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/20/2019
+author: cithomas
 ms.author: cithomas
-ms.openlocfilehash: fc9148d4f4c5920210b9218ca70f270bae3b663b
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.date: 09/20/2019
+ms.openlocfilehash: 0762819239e8fd71a015f317776a94280806db53
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273930"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677158"
 ---
 # <a name="eventcounters-introduction"></a>Introduktion till EventCounters
 
-`EventCounter`är .NET/.NET Core-mekanismen för att publicera och använda räknare eller statistik. [Det här](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) dokumentet ger en översikt `EventCounters` över och exempel på hur du publicerar och använder dem. EventCounters stöds i alla OS-plattformar – Windows, Linux och macOS. Det kan ses som en likvärdig plattform för [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) som endast stöds i Windows-system.
+`EventCounter` är .NET/.NET Core-mekanismen för att publicera och använda räknare eller statistik. [Det här](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) dokumentet ger en översikt över `EventCounters` och exempel på hur du publicerar och använder dem. EventCounters stöds i alla OS-plattformar – Windows, Linux och macOS. Det kan ses som en likvärdig plattform för [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) som endast stöds i Windows-system.
 
-Användare kan publicera alla anpassade `EventCounters` efter deras behov, men .net Core 3,0-körningen publicerar som standard en uppsättning dessa räknare. Dokumentet går igenom de steg som krävs för att samla in och `EventCounters` Visa (systemdefinierad eller användardefinierad) i Azure Application insikter.
+Användare kan publicera anpassade `EventCounters` för att uppfylla sina behov, men .NET Core 3,0-körningen publicerar som standard en uppsättning av dessa räknare. Dokumentet går igenom de steg som krävs för att samla in och Visa `EventCounters` (systemdefinierad eller användardefinierad) i Azure Application insikter.
 
 ## <a name="using-application-insights-to-collect-eventcounters"></a>Använda Application Insights för att samla in EventCounters
 
-Application Insights stöder insamling `EventCounters` med sitt `EventCounterCollectionModule`, som är en del av det nyligen utgivna NuGet-paketet [Microsoft. ApplicationInsights. EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). `EventCounterCollectionModule`aktive ras automatiskt när du använder antingen [AspNetCore](asp-net-core.md) eller [WorkerService](worker-service.md). `EventCounterCollectionModule`samlar in räknare med en icke konfigurerbar samlings frekvens på 60 sekunder. Det finns inga särskilda behörigheter som krävs för att samla in EventCounters.
+Application Insights stöder insamlings `EventCounters` med dess `EventCounterCollectionModule`, som är en del av det nyligen utgivna NuGet-paketet [Microsoft. ApplicationInsights. EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). `EventCounterCollectionModule` aktive ras automatiskt när du använder antingen [AspNetCore](asp-net-core.md) eller [WorkerService](worker-service.md). `EventCounterCollectionModule` samlar in räknare med en icke konfigurerbar samlings frekvens på 60 sekunder. Det finns inga särskilda behörigheter som krävs för att samla in EventCounters.
 
 ## <a name="default-counters-collected"></a>Insamlade standard räknare
 
 För appar som körs i .NET Core 3,0 samlas följande räknare in automatiskt av SDK: n. Namnet på räknarna kommer att ha formatet "kategori | Counter ".
 
-|Category | Räknare|
+|Kategori | Medelvärde|
 |---------------|-------|
 |`System.Runtime` | `cpu-usage` |
 |`System.Runtime` | `working-set` |
@@ -64,7 +59,7 @@ För appar som körs i .NET Core 3,0 samlas följande räknare in automatiskt av
 
 ## <a name="customizing-counters-to-be-collected"></a>Anpassa räknare som ska samlas in
 
-I följande exempel visas hur du lägger till/tar bort räknare. Den här anpassningen görs i `ConfigureServices` -metoden för ditt program när Application Insights telemetri-samling har Aktiver ATS `AddApplicationInsightsWorkerService()` `AddApplicationInsightsTelemetry()` med hjälp av eller. Följande är en exempel kod från ett ASP.NET Core-program. Information om andra typer av program finns i [det här](worker-service.md#configuring-or-removing-default-telemetrymodules) dokumentet.
+I följande exempel visas hur du lägger till/tar bort räknare. Den här anpassningen görs i `ConfigureServices` metod när Application Insights telemetri har Aktiver ATS med antingen `AddApplicationInsightsTelemetry()` eller `AddApplicationInsightsWorkerService()`. Följande är en exempel kod från ett ASP.NET Core-program. Information om andra typer av program finns i [det här](worker-service.md#configuring-or-removing-default-telemetrymodules) dokumentet.
 
 ```csharp
     using Microsoft.ApplicationInsights.Extensibility.EventCounterCollector;
@@ -103,7 +98,7 @@ I följande exempel visas hur du lägger till/tar bort räknare. Den här anpass
 Om du vill visa EventCounter-mått i [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)väljer du Application Insights resurs och väljer loggbaserade mått som mått namn område. Sedan visas EventCounter mått under PerformanceCounter kategori.
 
 > [!div class="mx-imgBorder"]
-> ![Händelse räknare som rapporter ATS i Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
+> ![Event räknare som rapporter ATS i Application Insights ](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Händelse räknare i Analytics
 
@@ -116,9 +111,9 @@ performanceCounters | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Händelse räknare som rapporter ATS i Application Insights](./media/event-counters/analytics-event-counters.png)
+> ![Event räknare som rapporter ATS i Application Insights ](./media/event-counters/analytics-event-counters.png)
 
-Kör följande fråga för att hämta ett diagram över en viss räknare `ThreadPool Completed Work Item Count`(till exempel:) under den senaste perioden.
+Kör följande fråga för att hämta ett diagram över en viss räknare (till exempel: `ThreadPool Completed Work Item Count`) under den senaste perioden.
 
 ```Kusto
 performanceCounters 
@@ -128,14 +123,14 @@ performanceCounters
 | render timechart
 ```
 > [!div class="mx-imgBorder"]
-> ![Chatta med en enda räknare i Application Insights](./media/event-counters/analytics-completeditems-counters.png)
+> ![Chat av en räknare i Application Insights ](./media/event-counters/analytics-completeditems-counters.png)
 
-Precis som andra telemetri innehåller **performanceCounters** också en kolumn `cloud_RoleInstance` som anger identiteten för den värd Server instans där appen körs. Frågan ovan visar räknar värdet per instans och kan användas för att jämföra prestanda för olika Server instanser.
+Precis som andra telemetri har **performanceCounters** också en kolumn `cloud_RoleInstance` som anger identiteten för den värd Server instans där appen körs. Frågan ovan visar räknar värdet per instans och kan användas för att jämföra prestanda för olika Server instanser.
 
 ## <a name="alerts"></a>Aviseringar
 Precis som med andra mått kan du [Ange en avisering](../../azure-monitor/app/alerts.md) som varnar dig om en händelse räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="can-i-see-eventcounters-in-live-metrics"></a>Kan jag se EventCounters i Live-mått?
 
@@ -145,8 +140,8 @@ Live mått visar inte EventCounters från och med idag. Använd Metric Explorer 
 
 EventCounter kräver inte några särskilda behörigheter och stöds i alla plattformar .NET Core 3,0 stöds. Det här omfattar:
 
-* **Operativsystem**: Windows, Linux eller macOS.
-* **Värd metod**: I processen eller utanför processen.
+* **Operativ system**: Windows, Linux eller MacOS.
+* **Värd metod**: i processen eller utanför processen.
 * **Distributions metod**: Ramverks beroende eller fristående.
 * **Webb server**: IIS (Internet Information Server) eller Kestrel.
 * **Värd plattform**: Web Apps funktionen i Azure App Service, Azure VM, Docker, Azure Kubernetes service (AKS) och så vidare.

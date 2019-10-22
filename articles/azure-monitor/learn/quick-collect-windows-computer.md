@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 50059711df195c13ee44061ee4844f0192e0e10d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992105"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677224"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Samla in data från en Windows-dator i en hybrid miljö med Azure Monitor
 
-[Azure Monitor](../overview.md) kan samla in data direkt från dina fysiska eller virtuella Windows-datorer i din miljö till en Log Analytics arbets yta för detaljerad analys och korrelation. Genom att installera [Log Analytics](../platform/log-analytics-agent.md) -agenten kan Azure Monitor samla in data från ett Data Center eller en annan moln miljö. Den här snabbstarten visar hur du konfigurerar och samlar in data från Windows-datorer med några enkla steg. Information om virtuella Azure Windows-datorer finns i [samla in data om Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[Azure Monitor](../overview.md) kan samla in data direkt från dina fysiska eller virtuella Windows-datorer i din miljö till en Log Analytics arbets yta för detaljerad analys och korrelation. Genom att installera [Log Analytics-agenten](../platform/log-analytics-agent.md) kan Azure Monitor samla in data från ett Data Center eller en annan moln miljö. Den här snabbstarten visar hur du konfigurerar och samlar in data från Windows-datorer med några enkla steg. Information om virtuella Azure Windows-datorer finns i [samla in data om Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 Information om vilka konfigurationer som stöds finns i [Windows operativ system](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) och [konfigurationen för nätverks brand väggen](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
  
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
@@ -37,7 +37,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
-    ![Azure Portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Azure portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Välj **skapa**och välj sedan alternativ för följande objekt:
 
@@ -47,7 +47,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
    * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).
    * Om du skapar en arbetsyta i en ny prenumeration som skapats efter 2 april 2018 används prisplanen *Per GB* automatiskt och alternativet för att välja en prisnivå är inte tillgängligt.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före 2 april eller en prenumeration som var bunden till en befintlig EA-registrering, väljer du önskad prisnivå.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Skapa Log Analytics resurs bladet](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Skapa Log Analytics resurs bladet](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. När du har angett nödvändig information i fönstret **Log Analytics arbets yta** väljer du **OK**.  
 
@@ -64,7 +64,7 @@ Innan du installerar Log Analytics agent för Windows (kallas även Microsoft Mo
 
 3. Välj **Avancerade inställningar**:
 
-    ![Log Analytics avancerade inställningar](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics avancerade inställningar](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
   
 4. Välj **Anslutna källor** och välj sedan **Windows-servrar**.
 
@@ -99,7 +99,7 @@ Följande steg installerar och konfigurerar agenten för Log Analytics i Azure o
 
 10. På sidan **konfigurationen har slutförts** väljer du **Slutför**.
 
-När installationen och installationen är slutförd visas Microsoft Monitoring Agent i kontroll panelen. Du kan granska konfigurationen och kontrol lera att agenten är ansluten till Log Analytics arbets ytan. När du är ansluten på fliken **Azure-Log Analytics** visas följande meddelande i agenten: **Microsoft Monitoring Agent har anslutits till Microsoft Log Analytics-tjänsten.**<br><br> ![Status för MMA-anslutning](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+När installationen och installationen är slutförd visas Microsoft Monitoring Agent i kontroll panelen. Du kan granska konfigurationen och kontrol lera att agenten är ansluten till Log Analytics arbets ytan. När du är ansluten på fliken **Azure-Log Analytics** visar agenten följande meddelande: **Microsoft Monitoring Agent har anslutit till Microsoft Log Analytics-tjänsten.**<br><br> ![MMA anslutnings status ](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Samla in data om händelser och prestanda
 
@@ -109,7 +109,7 @@ Azure Monitor kan samla in händelser som du anger i händelse loggen och presta
 
 2. Välj **Avancerade inställningar**:
 
-    ![Log Analytics avancerade inställningar](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics avancerade inställningar](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
  
 3. Välj **Data** och sedan **Windows-händelseloggar**.  
 
@@ -135,7 +135,7 @@ Nu när du har aktiverat data insamling ska vi köra en enkel loggs ökning för
 
 1. I den valda arbets ytan väljer du **loggar**i den vänstra rutan.
 
-2. På sidan loggar fråga skriver `Perf` du i Frågeredigeraren och väljer **Kör**.
+2. På sidan loggar fråga skriver du `Perf` i Frågeredigeraren och väljer **Kör**.
  
     ![Log Analytics loggs ökning](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 
@@ -157,7 +157,7 @@ Slutför följande steg för att ta bort agenten:
 
 Om du vill ta bort Log Analytics arbets ytan som du skapade tidigare, markerar du den och väljer **ta bort**på sidan resurs:
 
-![Ta bort Logganalys-arbetsyta](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+![Ta bort Log Analytics arbets yta](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

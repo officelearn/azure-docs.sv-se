@@ -1,26 +1,22 @@
 ---
 title: Azure Monitor-Azure Application insikter åsidosätter standard slut punkter för SDK | Microsoft Docs
 description: Ändra standard Azure Application Insights SDK-slutpunkter för regioner som Azure Government.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 25087c5b3a078b740764f51a7780a24277d5c642
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 07/26/2019
+ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639563"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677478"
 ---
- # <a name="application-insights-overriding-default-endpoints"></a>Application Insights som åsidosätter standard slut punkter
+# <a name="application-insights-overriding-default-endpoints"></a>Application Insights som åsidosätter standard slut punkter
 
-Om du vill skicka data från Application Insights till vissa regioner måste du åsidosätta standard slut punkts adresserna. Varje SDK kräver något annorlunda ändringar, som beskrivs i den här artikeln. Dessa ändringar kräver att du justerar exempel koden och ersätter plats hållar `QuickPulse_Endpoint_Address`värden `TelemetryChannel_Endpoint_Address`för, `Profile_Query_Endpoint_address` och med de faktiska slut punkts adresserna för din specifika region. Slutet av den här artikeln innehåller länkar till slut punkts adresser för regioner där denna konfiguration krävs.
+Om du vill skicka data från Application Insights till vissa regioner måste du åsidosätta standard slut punkts adresserna. Varje SDK kräver något annorlunda ändringar, som beskrivs i den här artikeln. Dessa ändringar kräver att du justerar exempel koden och ersätter plats hållar värden för `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` och `Profile_Query_Endpoint_address` med de faktiska slut punkts adresserna för din specifika region. Slutet av den här artikeln innehåller länkar till slut punkts adresser för regioner där denna konfiguration krävs.
 
 ## <a name="sdk-code-changes"></a>Ändringar i SDK-kod
 
@@ -62,7 +58,7 @@ Om du vill skicka data från Application Insights till vissa regioner måste du 
   }
 ```
 
-Värdena för Live mått och profil frågans slut punkt kan bara anges via kod. Om du vill åsidosätta standardvärdena för alla slut punkts värden via kod gör du `ConfigureServices` följande ändringar i `Startup.cs` fil metoden:
+Värdena för Live mått och profil frågans slut punkt kan bara anges via kod. Om du vill åsidosätta standardvärdena för alla slut punkts värden via kod gör du följande ändringar i `ConfigureServices`-metoden i `Startup.cs`-filen:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -157,7 +153,7 @@ namespace Example
 
 ### <a name="spring-boot"></a>Spring Boot
 
-`application.properties` Ändra filen och Lägg till:
+Ändra `application.properties`-filen och Lägg till:
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
@@ -199,7 +195,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 För närvarande är de enda regionerna som kräver slut punkts ändringar [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) och [Azure Kina](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Region |  Namnet på slutpunkten | Value |
+|Region |  Slut punkts namn | Värde |
 |-----------------|:------------|:-------------|
 | Azure Kina | Telemetri kanal | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure Kina | QuickPulse (Live metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -211,7 +207,7 @@ För närvarande är de enda regionerna som kräver slut punkts ändringar [Azur
 Om du för närvarande använder [Application Insights REST API](https://dev.applicationinsights.io/
 ) som normalt används via "API.applicationinsights.io" måste du använda en slut punkt som är lokal i din region:
 
-|Region |  Namnet på slutpunkten | Value |
+|Region |  Slut punkts namn | Värde |
 |-----------------|:------------|:-------------|
 | Azure Kina | REST-API | `api.applicationinsights.azure.cn` |
 | Azure Government | REST-API | `api.applicationinsights.us`|

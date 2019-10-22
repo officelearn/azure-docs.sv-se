@@ -1,5 +1,5 @@
 ---
-title: Scenario utan server – skapa Customer Insights-instrumentpanelen med Azure-tjänster | Microsoft Docs
+title: Skapa en instrument panel för kund insikter – Azure Logic Apps
 description: Hantera kundfeedback, data från sociala medier med mera genom att skapa en kund instrument panel med Azure Logic Apps och Azure Functions
 services: logic-apps
 ms.service: logic-apps
@@ -7,17 +7,16 @@ ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164865"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680113"
 ---
-# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Skapa en strömmande kund insikts instrument panel med Azure Logic Apps och Azure Functions
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Skapa en strömmande kund insikts instrument panel med Azure Logic Apps och Azure Functions
 
 Azure erbjuder [Server](https://azure.microsoft.com/solutions/serverless/) fria verktyg som hjälper dig att snabbt bygga och vara värd för appar i molnet utan att behöva tänka på infrastrukturen. I den här självstudien kan du skapa en instrument panel som utlöser feedback från kunder, analyserar feedback med Machine Learning och publicerar insikter till en källa, till exempel Power BI eller Azure Data Lake.
 
@@ -34,7 +33,7 @@ Du kan [bygga hela lösningen i Visual Studio](../logic-apps/quickstart-create-l
 
    Om du inte har använt Logic Apps igen kan du läsa [snabb starten för Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) eller [snabb starten för Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. I Logic app designer söker du efter och lägger till Twitter-utlösaren som har den här åtgärden: **När en ny tweet publiceras**
+2. I Logic app designer söker du efter och lägger till Twitter-utlösaren som har den här åtgärden: **när en ny tweet publiceras**
 
 3. Konfigurera utlösaren så att den lyssnar efter tweets baserat på ett nyckelord eller en hashtagg.
 
@@ -62,8 +61,8 @@ När du har skaffat tweet-data och insikter om tweeten kan du nu använda flera 
 
 * **Power BI – Lägg till rader i strömmande data uppsättning**: Visa inkommande tweets på en Power BI instrument panel.
 * **Azure Data Lake-tilläggs fil**: Lägg till kund information till en Azure Data Lake data uppsättning som ska ingå i analys jobb.
-* **SQL – Lägg till rader**: Lagra data i en databas för senare hämtning.
-* **Slack – skicka meddelande**: Meddela en slack-kanal om negativ feedback som kan kräva åtgärder.
+* **SQL – Lägg till rader**: lagra data i en databas för senare hämtning.
+* **Slack – skicka meddelande**: meddela en slack-kanal om negativ feedback som kan kräva åtgärder.
 
 Du kan också skapa och en Azure-funktion så att du kan utföra anpassad bearbetning av dina data. 
 
@@ -72,7 +71,7 @@ Du kan också skapa och en Azure-funktion så att du kan utföra anpassad bearbe
 Innan du skapar en funktion skapar du en Function-app i din Azure-prenumeration. För att din Logi Kap par ska anropa en funktion måste funktionen dessutom ha en HTTP trigger-bindning, till exempel, använda **HttpTrigger** -mallen. Lär dig [hur du skapar din första Function-app och fungerar i Azure Portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
 
 I det här scenariot använder du Tweet-texten som begär ande text för din Azure-funktion. I funktions koden definierar du den logik som avgör om tweet-texten innehåller ett nyckelord eller en fras. Håll funktionen så enkel eller komplex som krävs för scenariot.
-I slutet av funktionen returnerar du ett svar till Logic-appen med vissa data, till exempel ett enkelt booleskt värde, till `containsKeyword` exempel eller ett komplext objekt.
+I slutet av funktionen returnerar du ett svar till Logic-appen med vissa data, till exempel ett enkelt booleskt värde som `containsKeyword` eller ett komplext objekt.
 
 > [!TIP]
 > För att få åtkomst till ett komplext svar från en funktion i en Logic app använder du åtgärden **parsa JSON** .
@@ -93,7 +92,7 @@ När du är klar sparar du funktionen och lägger sedan till funktionen som en �
 
 Om du vill granska alla aktuella eller tidigare körningar för din Logic-app kan du använda de omfattande fel söknings-och övervaknings funktionerna som Azure Logic Apps tillhandahåller i Azure Portal, Visual Studio eller via Azure REST-API: er och SDK: er.
 
-För att enkelt testa din Logic app, i Logic App Designer, väljer du **Kör**utlösare. Utlösaren söker efter tweets baserat på det angivna schemat tills en tweet som uppfyller dina kriterier hittas. När körningen fortskrider visar designern en live-vy för den här körningen.
+För att enkelt testa din Logic app, i Logic App Designer, väljer du **Kör utlösare**. Utlösaren söker efter tweets baserat på det angivna schemat tills en tweet som uppfyller dina kriterier hittas. När körningen fortskrider visar designern en live-vy för den här körningen.
 
 Visa tidigare körnings historik i Visual Studio eller Azure Portal: 
 

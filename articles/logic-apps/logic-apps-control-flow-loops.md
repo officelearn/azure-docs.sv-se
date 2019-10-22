@@ -1,91 +1,90 @@
 ---
-title: Lägg till loopar som Upprepa åtgärder eller bearbeta matriser – Azure Logic Apps | Microsoft Docs
-description: Hur du skapar loopar som Upprepa arbetsflödesåtgärder eller bearbeta matriser i Azure Logic Apps
+title: Lägg till slingor för att upprepa åtgärder – Azure Logic Apps
+description: Skapa slingor som upprepar arbets flödes åtgärder eller process mat ris i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-manager: jeconnoc
-ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/05/2019
+ms.openlocfilehash: 31885749a7194a94a403e5c156220b3fceab951d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684098"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680449"
 ---
-# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som Upprepa arbetsflödesåtgärder eller bearbeta matriser i Azure Logic Apps
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa slingor som upprepar arbets flödes åtgärder eller process mat ris i Azure Logic Apps
 
-Om du vill bearbeta en matris i din logikapp, kan du skapa en [”Foreach”-loop](#foreach-loop). Den här loopen upprepas en eller flera åtgärder för varje objekt i matrisen. Gränser för antalet matrisobjekt som ”Foreach” loopar kan bearbeta finns i [gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md). 
+Om du vill bearbeta en matris i din Logic app kan du skapa en ["förgrunds"-slinga](#foreach-loop). Den här slingan upprepar en eller flera åtgärder för varje objekt i matrisen. För gränser för antalet mat ris objekt som "förgrunds" loopar kan bearbeta, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
 
-Om du vill upprepa åtgärder tills ett villkor som hämtar uppfyllt eller ett tillstånd ändras, kan du skapa en [”Until”-loop](#until-loop). Logikappen kan du först kör alla åtgärder i den här slingan, och därefter utvärderas villkoret eller tillstånd. Om villkoret är uppfyllt, stoppar loopen. I annat fall upprepas loopen. Gränser för antalet ”till” loopar i en logikappskörning, finns i [gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md). 
+Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ändras, kan du skapa en ["till"-loop](#until-loop). Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen. För gränser för antalet "tills"-slingor i en Logic app-körning, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
-> Om du har en utlösare som tar emot en matris och vill köra ett arbetsflöde för varje objekt i matrisen kan du *debatch* matrisen med den [ **SplitOn** utlösa egenskapen](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="foreach-loop"></a>
 
-## <a name="foreach-loop"></a>”Foreach”-loop
+## <a name="foreach-loop"></a>"Förgrunds"-loop
 
-En ”Foreach-loop” upprepas en eller flera åtgärder för varje objekt i matrisen och fungerar bara i matriser. Iterationer i en ”Foreach”-loop som körs parallellt. Du kan dock köra iterationer en i taget genom att ställa in en [sekventiella ”Foreach”-loop](#sequential-foreach-loop). 
+En "förgrunds slinga" upprepar en eller flera åtgärder på varje mat ris objekt och fungerar bara på matriser. Iterationer i en "förgrunds" loop körs parallellt. Du kan dock köra iterationer en i taget genom att ställa in en [sekventiell "förgrunds"-slinga](#sequential-foreach-loop). 
 
-Följande är några saker när du använder slingor ”Foreach”:
+Här följer några saker att tänka på när du använder "förgrunds" slingor:
 
-* I kapslade loopar körs iterationer alltid sekventiellt, inte parallellt. Om du vill köra åtgärder parallellt för objekt i en kapslad loop, skapa och [anropa en underordnad logikapp](../logic-apps/logic-apps-http-endpoint.md).
+* I kapslade slingor körs iterationer alltid sekventiellt, inte parallellt. Om du vill köra åtgärder parallellt för objekt i en kapslad slinga skapar och [anropar du en underordnad Logic-app](../logic-apps/logic-apps-http-endpoint.md).
 
-* Om du vill ha förutsägbara resultat från åtgärder på variabler under varje iteration av loopen, körs dessa slingor sekventiellt. Exempelvis returnera när samtidigt körs loopa upphör, öka, minska och lägga till i variabeln operations förutsägbara resultat. Dessa åtgärder kan dock under varje iteration som körs samtidigt loopen returnera oväntade resultat. 
+* För att få förutsägbara resultat från åtgärder på variabler under varje upprepnings slinga, kör du dessa slingor i tur och ordning. Till exempel, när en slinga som körs samtidigt, ökar, minskar och lägger till variabel åtgärder returnerar förutsägbara resultat. Men under varje iteration i den körnings bara loopen kan dessa åtgärder returnera oförutsägbara resultat. 
 
-* Åtgärder i en ”Foreach” loopa används den [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
-uttryck som refererar till och bearbeta varje objekt i matrisen. Om du anger data som inte är i en matris, misslyckas logikappens arbetsflöde. 
+* Åtgärder i en "förgrunds åtgärd" använder [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+uttryck för att referera till och bearbeta varje objekt i matrisen. Om du anger data som inte finns i en matris, Miss lyckas Logic app-arbetsflödet. 
 
-Det här exemplet logikappen skickar en daglig sammanfattning för en webbplats RSS-flöde. Appen använder en ”Foreach”-loop som skickar ett e-postmeddelande för varje nytt objekt.
+I den här exempel Logic-appen skickas en daglig sammanfattning för en RSS-feed för webbplatsen. Appen använder en "förgrunds"-loop som skickar ett e-postmeddelande för varje nytt objekt.
 
-1. [Skapa den här exempellogikappen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com eller Office 365 Outlook-konto.
+1. [Skapa den här exempel Logic-appen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com-eller Office 365 Outlook-konto.
 
-2. Mellan RSS utlösa och e-poståtgärd, lägga till en ”Foreach”-loop. 
+2. Lägg till en "förgrunds"-loop mellan RSS-utlösare och skicka e-post. 
 
-   1. Om du vill lägga till en loop mellan stegen, flyttar du pekaren över pilen mellan de här stegen. 
-   Välj den **plustecknet** ( **+** ) som visas, välj sedan **Lägg till en åtgärd**.
+   1. Om du vill lägga till en slinga mellan steg flyttar du pekaren över pilen mellan stegen. 
+   Välj **plus tecknet** ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
-      ![Välj ”Lägg till en åtgärd”](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+      ![Välj Lägg till en åtgärd](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
-   1. Under sökrutan väljer du **Alla**. I sökrutan skriver du ”för var och en” som filter. Välj den här åtgärden från åtgärdslistan över: **För varje - kontroll**
+   1. Under sökrutan väljer du **Alla**. Skriv "för varje" som filter i rutan Sök. Välj den här åtgärden i listan åtgärder: **för varje-kontroll**
 
-      ![Lägg till ”för var och en” loop](media/logic-apps-control-flow-loops/select-for-each.png)
+      ![Lägg till "för varje"-slinga](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. Nu bygga loopen. Under **Välj utdata från föregående steg** när den **Lägg till dynamiskt innehåll** lista visas väljer du den **Flödeslänkar** matris, vilket är utdata från RSS-utlösaren. 
+3. Nu ska du bygga slingan. Under **Välj utdata från föregående steg** efter listan **Lägg till dynamiskt innehåll** visas väljer du matrisen **Feed-Länkar** , som är utdata från RSS-utlösaren. 
 
    ![Välj från listan med dynamiskt innehåll](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
    > [!NOTE] 
-   > Du kan välja *endast* matris utdata från föregående steg.
+   > Du kan *bara* välja mat ris utdata från föregående steg.
 
-   Den valda matrisen visas nu finns här:
+   Den valda matrisen visas nu här:
 
    ![Välj matris](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
-4. Om du vill köra en åtgärd på varje matrisen, dra den **skicka ett e-postmeddelande** åtgärd i loopen. 
+4. Om du vill köra en åtgärd på varje mat ris objekt drar du åtgärden **skicka e-post** till slingan. 
 
-   Logikappen kan se ut ungefär som i följande exempel:
+   Din Logic app kan se ut ungefär så här:
 
-   ![Lägg till steg i ”Foreach”-loop](media/logic-apps-control-flow-loops/for-each-loop-with-step.png)
+   ![Lägg till steg i "förgrunds"-loopen](media/logic-apps-control-flow-loops/for-each-loop-with-step.png)
 
-5. Spara din logikapp. För att manuellt testa din logikapp på verktygsfältet för appdesignern väljer **kör**.
+5. Spara din logikapp. Om du vill testa din Logic app manuellt går du till verktygsfältet i designern och väljer **Kör**.
 
 <a name="for-each-json"></a>
 
-## <a name="foreach-loop-definition-json"></a>Definitionen för ”Foreach”-loop (JSON)
+## <a name="foreach-loop-definition-json"></a>"Förgrunds slinga"-definition (JSON)
 
-Om du arbetar i kodvyn för din logikapp, kan du definiera den `Foreach` loop i JSON-definition för din logikapp i stället, till exempel:
+Om du arbetar i kodvyn för din Logi Kap par kan du definiera `Foreach`-slingan i din Logic Apps JSON-definition i stället, till exempel:
 
 ``` json
 "actions": {
@@ -122,19 +121,19 @@ Om du arbetar i kodvyn för din logikapp, kan du definiera den `Foreach` loop i 
 
 <a name="sequential-foreach-loop"></a>
 
-## <a name="foreach-loop-sequential"></a>”Foreach” slinga: Sekventiella
+## <a name="foreach-loop-sequential"></a>"Förgrunds"-slinga: sekventiell
 
-Som standard köras cykler i en ”Foreach”-loop parallellt. Ange om du vill köra varje cykel sekventiellt Loopens **sekventiella** alternativet. ”Foreach” slingor måste köra sekventiellt när du har kapslade loopar eller variabler i slingor där du förväntar dig förutsägbara resultat. 
+Som standard körs cykler i en "förgrunds" loop parallellt. Om du vill köra varje cykel sekventiellt ställer du in loopens **sekventiella** alternativ. "Förgrunds" slingor måste köras sekventiellt när du har kapslade slingor eller variabler inuti slingor där du förväntar sig förutsägbara resultat. 
 
-1. I Loopens övre högra hörnet, väljer **ellipserna** ( **...** ) > **Inställningar**.
+1. I loopens övre högra hörn väljer du **ellipser** ( **...** ) > **Inställningar**.
 
-   ![På ”Foreach”-loop, väljer du ”...” > ”Inställningar”](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
+   ![I "förgrunds"-loopen väljer du "..." > Inställningar](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Under **samtidighetskontroll**, aktivera den **samtidighetskontroll** att ställa in **på**. Flytta den **grad av parallellitet** skjutreglaget till **1**, och välj **klar**.
+1. Under **Samtidighets kontroll**aktiverar du **samtidighets kontroll** inställningen till **på**. Flytta skjutreglaget **för parallellitet** till **1**och välj **Slutför**.
 
-   ![Aktivera samtidighetskontroll](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Aktivera samtidighets kontroll](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-Om du arbetar med din logikapp JSON-definition, kan du använda den `Sequential` alternativet genom att lägga till den `operationOptions` parameter, till exempel:
+Om du arbetar med din Logic Apps JSON-definition kan du använda alternativet `Sequential` genom att lägga till `operationOptions`-parametern, till exempel:
 
 ``` json
 "actions": {
@@ -152,118 +151,118 @@ Om du arbetar med din logikapp JSON-definition, kan du använda den `Sequential`
 
 <a name="until-loop"></a>
 
-## <a name="until-loop"></a>”Until”-loop
+## <a name="until-loop"></a>"Until"-loop
   
-Placera dessa åtgärder i en ”tills”-loop för att köra och upprepa åtgärder tills ett villkor som hämtar uppfyllt eller ett tillstånd ändras. Logikappen kan du först kör alla åtgärder i den här slingan, och därefter utvärderas villkoret eller tillstånd. Om villkoret är uppfyllt, stoppar loopen. I annat fall upprepas loopen.
+Om du vill köra och upprepa åtgärder tills ett villkor har uppfyllts eller ett tillstånd ändras, ska du införa dessa åtgärder i en "till"-slinga. Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen.
 
-Här följer några vanliga scenarier där du kan använda en ”tills”-loop:
+Här följer några vanliga scenarier där du kan använda en "till"-slinga:
 
-* Anropa en slutpunkt tills du får svar som du vill ha.
+* Anropa en slut punkt tills du får det svar du önskar.
 
-* Skapa en post i en databas. Vänta tills ett visst fält i den post har godkänts. Fortsätta bearbetningen. 
+* Skapa en post i en databas. Vänta tills ett särskilt fält i posten godkänns. Fortsätt bearbetningen. 
 
-Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills variabelns värde är lika med 10. Sedan skickar logikappen ett e-postmeddelande som bekräftar det aktuella värdet. 
+Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills variabelns värde är lika med 10. Logic App skickar sedan ett e-postmeddelande som bekräftar det aktuella värdet. 
 
 > [!NOTE]
-> De här stegen används Office 365 Outlook, men du kan använda valfri e-postleverantör som har stöd för Logic Apps. 
-> [Kontrollera listan med anslutningsappar här](https://docs.microsoft.com/connectors/). Om du använder en annan e-postkonto, de allmänna stegen desamma, men Användargränssnittet kan skilja. 
+> De här stegen använder Office 365 Outlook, men du kan använda vilken e-postprovider som helst som Logic Apps stöder. 
+> [Kontrol lera anslutnings listan här](https://docs.microsoft.com/connectors/). Om du använder ett annat e-postkonto förblir de allmänna stegen desamma, men användar gränssnittet kan se lite annorlunda ut. 
 
-1. Skapa en tom logikapp. I Logic App Designer under sökrutan väljer **alla**. Sök efter ”återkommande”. 
-   Välj den här utlösaren från listan över utlösare: **Upprepning - schema**
+1. Skapa en tom logikapp. I Logic App Designer väljer du **alla**under sökrutan. Sök efter "upprepning". 
+   Välj den här utlösaren i listan utlösare: **upprepnings schema**
 
-   ![Add "Recurrence - Schedule" trigger](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+   ![Lägg till utlösare för upprepnings schema](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
-1. Ange när utlösaren aktiveras genom att ange intervall, frekvens och timme på dagen. Om du vill ange timmen, Välj **visa avancerade alternativ**.
+1. Ange när utlösaren utlöses genom att ange intervall, frekvens och timme för dagen. Om du vill ange timmen väljer du **Visa avancerade alternativ**.
 
-   ![Konfigurera upprepningsschemat](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
+   ![Konfigurera upprepnings schema](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
    | Egenskap | Värde |
    | -------- | ----- |
    | **Intervall** | 1 | 
-   | **Frekvens** | Dag |
+   | **Frekvens** | Day |
    | **Vid dessa timmar** | 8 |
    ||| 
 
-1. Under utlösaren väljer **nytt steg**. 
-   Sök efter ”variabler” och välj den här åtgärden: **Initiera variabel - variabler**
+1. Under utlösaren väljer du **nytt steg**. 
+   Sök efter "variabler" och välj den här åtgärden: **initiera variabel-variabler**
 
-   ![Lägg till ”initiera variabel - variabler” åtgärd](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
+   ![Lägg till åtgärden initiera variabel-variabler](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
-1. Ställ in variabeln med följande värden:
+1. Konfigurera din variabel med följande värden:
 
-   ![Ange egenskaper för variabeln](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
+   ![Ange variabel egenskaper](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
    | Egenskap | Värde | Beskrivning |
    | -------- | ----- | ----------- |
-   | **Namn** | Gräns | Ditt namn | 
-   | **Typ** | Integer | Data variabeltyp | 
-   | **Värde** | 0 | Startvärde för variabeln | 
+   | **Namn** | Gräns | Variabelns namn | 
+   | **Typ** | Integer | Variabelns datatyp | 
+   | **Värde** | 0 | Variabelns start värde | 
    |||| 
 
-1. Under den **initieras variabeln** åtgärd, Välj **nytt steg**. 
+1. Under åtgärden **initiera variabel** väljer du **nytt steg**. 
 
-1. Under sökrutan väljer du **Alla**. Sök efter ”till” och välj den här åtgärden: **Tills - kontroll**
+1. Under sökrutan väljer du **Alla**. Sök efter "until" och välj den här åtgärden: **tills-Control**
 
-   ![Lägg till ”Until”-loop](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+   ![Lägg till loopen "till"](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. Skapa Loopens avsluta-villkor genom att välja den **gränsen** variabeln och **är lika med** operator. 
-   Ange **10** som Jämförelsevärde.
+1. Bygg avslutnings villkoret för slingan genom att välja **Limit** -variabeln och **är Equal** -operatorn. 
+   Ange **10** som jämförelse värde.
 
-   ![Skapa avsluta-villkor för att stoppa loop](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
+   ![Versions avslutnings villkor för att stoppa loop](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
-1. I den här slingan väljer **Lägg till en åtgärd**. 
+1. I slingan väljer du **Lägg till en åtgärd**. 
 
-1. Under sökrutan väljer du **Alla**. Sök efter ”variabler” och välj den här åtgärden: **Öka variabeln - variabler**
+1. Under sökrutan väljer du **Alla**. Sök efter "variabler" och välj den här åtgärden: **öka variabel-variabler**
 
    ![Lägg till åtgärd för att öka variabeln](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. För **namn**väljer den **gränsen** variabeln. För **värdet**, ange ”1”. 
+1. I **namn**väljer du variabeln **Limit** . För **värde**anger du "1". 
 
-     ![Öka ”gräns” med 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![Öka "gräns" med 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-1. Utanför och under loopen, välja **nytt steg**. 
+1. Utanför och under slingan väljer du **nytt steg**. 
 
 1. Under sökrutan väljer du **Alla**. 
      Hitta och Lägg till en åtgärd som skickar e-post, till exempel: 
 
-     ![Lägg till åtgärd som skickar e-postmeddelande](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![Lägg till åtgärd som skickar e-post](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. Logga in på ditt e-postkonto om du uppmanas att göra det.
 
-1. Ange e-postmeddelandet åtgärdens egenskaper. Lägg till den **gränsen** variabeln till ämnet. På så sätt kan du bekräfta variabelns aktuella värde uppfyller dina angivna villkor, till exempel:
+1. Ange egenskaperna för e-poståtgärden. Lägg till **Limit** -variabeln i ämnet. På så sätt kan du bekräfta att variabelns aktuella värde uppfyller det angivna villkoret, till exempel:
 
-      ![Konfigurera postegenskaper för e](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![Konfigurera e-postegenskaper](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
       | Egenskap | Värde | Beskrivning |
       | -------- | ----- | ----------- | 
-      | **Till** | *\<email-address\@domain>* | mottagarens e-postadress. För att testa, använda din egen e-postadress. | 
-      | **Ämne** | Aktuellt värde för ”gräns” är **gräns** | Ange postämnet för e. Det här exemplet, se till att du inkluderar den **gränsen** variabeln. | 
-      | **Brödtext** | <*email-content*> | Ange e-meddelandeinnehåll som du vill skicka. För det här exemplet anger du den text som du vill. | 
+      | **Till** | *\<email-adress \@domain >* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
+      | **Ämne** | Det aktuella värdet för "Limit" är **begränsat** | Ange e-postmeddelandets ämne. I det här exemplet ska du se till att du inkluderar **Limit** -variabeln. | 
+      | **Brödtext** | <*e-post – innehålls* > | Ange det e-postmeddelande innehåll som du vill skicka. I det här exemplet anger du vilken text du vill. | 
       |||| 
 
-1. Spara din logikapp. För att manuellt testa din logikapp på verktygsfältet för appdesignern väljer **kör**.
+1. Spara din logikapp. Om du vill testa din Logic app manuellt går du till verktygsfältet i designern och väljer **Kör**.
 
-      När din logik börjar köras, kan du få ett e-postmeddelande med innehåll som du angav:
+      När din logik börjar köras får du ett e-postmeddelande med det innehåll som du har angett:
 
       ![Mottagen e-post](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>Förhindra oändliga slingor
 
-En ”tills”-loop har standardgränser som stoppa körning om något av följande villkor:
+En "till"-loop har standard gränser som slutar köras om något av dessa villkor inträffar:
 
 | Egenskap | Standardvärde | Beskrivning | 
 | -------- | ------------- | ----------- | 
-| **Antal** | 60 | Det högsta antalet loopar som körs innan slingan avslutas. Standardvärdet är 60 cykler. | 
-| **Timeout** | PT1H | De flesta lång tid att köra en loop innan loopen avslutas. Standardvärdet är en timme och har angetts i ISO 8601-format. <p>Värdet för tidsgränsen ska utvärderas för varje loop cykel. Om något i loopen tar längre tid än tidsgränsen, slutar inte den aktuella cykeln. Dock starta nästa cykel inte eftersom gränsen villkoret inte uppfylls. | 
+| **Reparationer** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
+| **Standardvärde** | PT1H | Det mesta av tiden att köra en loop innan loopen avslutas. Standardvärdet är en timme och anges i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt. | 
 |||| 
 
-Om du vill ändra dessa standardgränser, Välj **visa avancerade alternativ** i formen slinga åtgärd.
+Om du vill ändra dessa standard gränser väljer du **Visa avancerade alternativ** i formen loop-åtgärd.
 
 <a name="until-json"></a>
 
-## <a name="until-definition-json"></a>”Till” definition (JSON)
+## <a name="until-definition-json"></a>"Until"-definition (JSON)
 
-Om du arbetar i kodvyn för din logikapp, kan du definiera en `Until` loop i JSON-definition för din logikapp i stället, till exempel:
+Om du arbetar i kodvyn för din Logi Kap par kan du definiera en `Until`-slinga i din Logic Apps JSON-definition i stället, till exempel:
 
 ``` json
 "actions": {
@@ -301,11 +300,11 @@ Om du arbetar i kodvyn för din logikapp, kan du definiera en `Until` loop i JSO
 }
 ```
 
-Det här exemplet ”förrän” loop anropar en HTTP-slutpunkt, vilket skapar en resurs. Loopen stoppas när HTTP-svarstext returnerar med `Completed` status. Om du vill förhindra oändliga slingor, stoppas även loopen om något av följande villkor:
+I det här exemplet "till" tills "-loopen anropar en HTTP-slutpunkt, vilket skapar en resurs. Loopen stoppas när texten i HTTP-svaret returnerar `Completed` status. För att förhindra oändliga slingor stoppas även loopen om något av dessa villkor inträffar:
 
-* Loopen körde 10 gånger som angetts av den `count` attribut. Standardvärdet är 60 gånger. 
+* Loopen kördes tio gånger enligt vad som anges av `count`-attributet. Standardvärdet är 60 gånger. 
 
-* Loopen kördes i två timmar som den anges av den `timeout` attribut i ISO 8601-format. Standardvärdet är en timme.
+* Loopen kördes i två timmar som anges av `timeout`-attributet i ISO 8601-format. Standardvärdet är en timme.
   
 ``` json
 "actions": {
@@ -340,11 +339,11 @@ Det här exemplet ”förrän” loop anropar en HTTP-slutpunkt, vilket skapar e
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Skicka eller rösta på funktioner och förslag, [webbplatsen för Azure Logic Apps-Användarfeedback](https://aka.ms/logicapps-wish).
+* För att skicka in eller rösta på funktioner och förslag [Azure Logic Apps användarens feedback-webbplats](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kör steg baserat på ett villkor (villkorssatser)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Kör steg baserat på olika värden (switch-satser)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Kör- eller merge-parallella åtgärder (grenar)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Kör steg baserat på grupperade Åtgärdsstatus (omfång)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Kör steg baserat på ett villkor (villkorliga uttryck)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Kör steg baserade på olika värden (Switch-instruktioner)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Köra eller sammanfoga parallella steg (grenar)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Kör steg baserat på grupperad åtgärds status (omfång)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

@@ -1,6 +1,6 @@
 ---
-title: Undantags hantering & fel loggnings scenario-Azure Logic Apps | Microsoft Docs
-description: Här är ett verkligt användnings fall för avancerad undantags hantering och fel loggning i Azure Logic Apps
+title: Undantags hantering & fel loggnings scenario-Azure Logic Apps
+description: Verkligt användnings fall och scenario för avancerad undantags hantering och fel loggning i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,16 +10,16 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7930d487d367ee19b869becae5017f80ea1df8cb
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385460"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680163"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Undantags hantering och fel loggning för Logic Apps
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: undantags hantering och fel loggning för Logic Apps
 
-I det här scenariot beskrivs hur du kan utöka en Logic app för att bättre stödja undantags hantering. Vi har använt ett real tid för användnings fall för att besvara frågan: "Stöder Azure Logic Apps undantag och fel hantering?"
+I det här scenariot beskrivs hur du kan utöka en Logic app för att bättre stödja undantags hantering. Vi har använt ett real tid för att besvara frågan: "Azure Logic Apps stöd för undantag och fel hantering?"
 
 > [!NOTE]
 > Det aktuella Azure Logic Apps schemat innehåller en standardmall för åtgärds svar. Den här mallen innehåller både interna validerings-och fel svar som returneras från en API-app.
@@ -36,24 +36,24 @@ Projektet hade två viktiga krav:
 * Ett sätt att visa eventuella fel som inträffat i arbets flödet
 
 > [!TIP]
-> En övergripande video om det här projektet finns i integration User [](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Group")integration User Group.
+> En övergripande video om det här projektet finns i [integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integrations användar grupp").
 
 ## <a name="how-we-solved-the-problem"></a>Hur vi löste problemet
 
-Vi valde [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") som lagrings plats för logg-och fel posterna (Cosmos DB refererar till poster som dokument). Eftersom Azure Logic Apps har en standardmall för alla svar behöver vi inte skapa ett anpassat schema. Vi kunde skapa en API-app för att **Infoga** och **fråga** efter både fel-och logg poster. Vi kan också definiera ett schema för var och en i API-appen.  
+Vi valde [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") som en lagrings plats för logg-och fel posterna (Cosmos DB refererar till poster som dokument). Eftersom Azure Logic Apps har en standardmall för alla svar behöver vi inte skapa ett anpassat schema. Vi kunde skapa en API-app för att **Infoga** och **fråga** efter både fel-och logg poster. Vi kan också definiera ett schema för var och en i API-appen.  
 
-Ett annat krav var att rensa poster efter ett visst datum. Cosmos DB har en egenskap som kallas [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), vilket gör att vi kan ange ett **Time to Live** -värde för varje post eller samling. Den här funktionen eliminerar behovet av att manuellt ta bort poster i Cosmos DB.
+Ett annat krav var att rensa poster efter ett visst datum. Cosmos DB har en egenskap som heter [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), vilket gör att vi kan ange ett **Time to Live** värde för varje post eller samling. Den här funktionen eliminerar behovet av att manuellt ta bort poster i Cosmos DB.
 
 > [!IMPORTANT]
 > För att slutföra den här självstudien måste du skapa en Cosmos DB-databas och två samlingar (loggning och fel).
 
-## <a name="create-the-logic-app"></a>Skapa Logic-appen
+## <a name="create-the-logic-app"></a>Skapa logikappen
 
 Det första steget är att skapa Logic app och öppna appen i Logic App Designer. I det här exemplet använder vi logiska appar över-underordnad. Vi antar att vi redan har skapat den överordnade och kommer att skapa en underordnad Logic-app.
 
 Vi kommer att logga den post som kommer från Dynamics CRM Online, så vi börjar överst. Vi måste använda en **begär** ande utlösare eftersom den överordnade Logic-appen utlöser det underordnade objektet.
 
-### <a name="logic-app-trigger"></a>Logikapputlösare
+### <a name="logic-app-trigger"></a>Logic app-utlösare
 
 Vi använder en **begäran** -utlösare som visas i följande exempel:
 
@@ -407,10 +407,10 @@ Om du vill visa felen kan du skapa en MVC-webbapp för att visa fel posterna fr�
 Följande är exempel på information om MVC-appar som skapats med den tidigare beskrivna metoden.
 
 #### <a name="error-management-list"></a>Lista över fel hantering
-![Lista över fel](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
+![Fellista](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
 #### <a name="error-management-detail-view"></a>Detaljerad vy för fel hantering
-![Felinformation](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)
+![Information om fel](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)
 
 ### <a name="log-management-portal"></a>Logg hanterings Portal
 
@@ -429,7 +429,7 @@ Vår API-app med öppen källkod Azure Logic Apps undantags hantering innehålle
 * **LogController** Infogar en loggpost (dokument) i en Azure Cosmos DB-samling.
 
 > [!TIP]
-> Båda styrenheterna `async Task<dynamic>` använder åtgärder, vilket gör det möjligt att lösa åtgärder vid körning, så att vi kan skapa Azure Cosmos DB-schemat i bröd texten i åtgärden. 
+> Båda styrenheterna använder `async Task<dynamic>` åtgärder, vilket gör det möjligt att lösa åtgärder vid körning, så att vi kan skapa Azure Cosmos DB-schemat i bröd texten i åtgärden. 
 > 
 
 Varje dokument i Azure Cosmos DB måste ha ett unikt ID. Vi använder `PatientId` och lägger till en tidstämpel som konverteras till ett Unix-tidsstämpel-värde (Double). Vi trunkerar värdet för att ta bort bråk talet.
@@ -479,7 +479,7 @@ Uttrycket i föregående kod exempel kontrollerar om *Create_NewPatientRecord* s
 
 ### <a name="source-code"></a>Källkod
 
-Käll koden för API-programmet för Logic Apps undantag finns i den här [GitHub]för(https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "hantering av logiska appar").
+Käll koden för API-programmet för Logic Apps undantags hantering finns i den här [GitHub-lagringsplatsen](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API för undantags hantering i Logic app").
 
 ## <a name="next-steps"></a>Nästa steg
 

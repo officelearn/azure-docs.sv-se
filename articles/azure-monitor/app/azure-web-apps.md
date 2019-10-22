@@ -1,20 +1,18 @@
 ---
 title: Övervaka Azure App Services-prestanda | Microsoft Docs
 description: Övervakning av program prestanda för Azure App Services. Diagrammets inläsnings-och svars tid, beroende information och ange aviseringar för prestanda.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/04/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ec741c0051ccd8020b7d7ab689e15add3ad716bd
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.date: 10/04/2019
+ms.openlocfilehash: 1937cce03412db55dafc2025c6a59b037deee3d1
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286174"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677661"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service prestanda
 
@@ -71,7 +69,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 3. Om du vill konfigurera inställningar som sampling, som du tidigare kan styra via filen applicationinsights. config, kan du nu interagera med samma inställningar via program inställningar med ett motsvarande prefix. 
 
-    * Om du till exempel vill ändra den inledande samplings procenten kan du skapa en program inställning av: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` och värdet `100`.
+    * Om du till exempel vill ändra den inledande samplings procenten kan du skapa en program inställning för: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` och värdet `100`.
 
     * Om du vill visa en lista över stödda alternativ för adaptiva typer av telemetri för telemetri, kan du läsa igenom [koden](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) och [tillhör ande dokumentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
@@ -330,7 +328,7 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 > ASP.NET Core 3,0-program stöds inte. Följ den [manuella instrumentering](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via kod för ASP.net Core 3,0-appar.
 
 1. Kontrol lera att programmet övervakas via `ApplicationInsightsAgent`.
-    * Kontrol lera att app-inställningen för `ApplicationInsightsAgent_EXTENSION_VERSION` har värdet "~ 2".
+    * Kontrol lera att `ApplicationInsightsAgent_EXTENSION_VERSION` app-inställningen har värdet "~ 2".
 2. Kontrol lera att programmet uppfyller de krav som ska övervakas.
     * Bläddra till `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
@@ -357,7 +355,7 @@ Tabellen nedan innehåller en mer detaljerad förklaring av vad dessa värden in
 |`AppAlreadyInstrumented:true` | Det här värdet kan också orsakas av förekomsten av ovanstående DLL-filer i mappen app från en tidigare distribution. | Rensa mappen app för att se till att dessa DLL-filer tas bort. Kontrol lera både den lokala appens bin-katalog och katalogen wwwroot på App Service. (Om du vill kontrol lera katalogen wwwroot i App Service webbappen: avancerade verktyg (kudu) > fel söknings konsolen > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Det här värdet anger att tillägget har identifierat referenser till `Microsoft.AspNet.TelemetryCorrelation` i programmet och kommer att återställas. | Ta bort referensen.
 |`AppContainsDiagnosticSourceAssembly**:true`|Det här värdet anger att tillägget har identifierat referenser till `System.Diagnostics.DiagnosticSource` i programmet och kommer att återställas.| Ta bort referensen.
-|`IKeyExists:false`|Det här värdet anger att Instrumentation-nyckeln inte finns i AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Möjliga orsaker: värdena kan ha tagits bort av misstag och har glömt att ange värden i Automation-skriptet osv. | Kontrol lera att inställningen finns i App Service programmets inställningar.
+|`IKeyExists:false`|Det här värdet anger att Instrumentation-nyckeln inte finns i AppSetting `APPINSIGHTS_INSTRUMENTATIONKEY`. Möjliga orsaker: värdena kan ha tagits bort av misstag och har glömt att ange värden i Automation-skriptet osv. | Kontrol lera att inställningen finns i App Service programmets inställningar.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte
 

@@ -1,6 +1,6 @@
 ---
-title: Batch bearbeta EDI-meddelanden som en grupp eller samling – Azure Logic Apps | Microsoft Docs
-description: Skicka EDI-meddelanden för batchbearbetning i Logic Apps
+title: Batch bearbeta EDI-meddelanden som en grupp-Azure Logic Apps
+description: Skicka och ta emot EDI-meddelanden som batchar, grupper eller samlingar i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: c2b0e2ed801724b682e0c4a60d6d7dff9645aab3
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 28e51363ca99182c9b6520ab1dea5aa13b16ea12
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827427"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680188"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Skicka EDI-meddelanden i batchar till handels partner med Azure Logic Apps
 
@@ -31,7 +31,7 @@ I den här artikeln skapar du en batch-lösning genom att skapa två Logi Kap pa
 
 Se till att batch-mottagaren och batch-avsändaren delar samma Azure-prenumeration *och* Azure-region. Om de inte gör det kan du inte välja batch-mottagaren när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa det här exemplet behöver du följande objekt:
 
@@ -55,24 +55,24 @@ Innan du kan skicka meddelanden till en batch måste den batch först finnas som
 
 För batch-mottagare anger du batch-läge, namn, versions villkor, X12-avtal och andra inställningar. 
 
-1. Skapa en logisk app med det här namnet i [Azure Portal](https://portal.azure.com) eller Visual Studio: "BatchX12Messages"
+1. I [Azure Portal](https://portal.azure.com) eller Visual Studio skapar du en Logic-app med följande namn: "BatchX12Messages"
 
 2. [Länka din Logic app till ditt integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. I Logic Apps designer lägger du till **batch** -utlösaren som startar ditt Logic app-arbetsflöde. I rutan Sök anger du "batch" som filter. Välj den här utlösaren: **Batch-meddelanden**
+3. I Logic Apps designer lägger du till **batch** -utlösaren som startar ditt Logic app-arbetsflöde. I rutan Sök anger du "batch" som filter. Välj den här utlösaren: **batch-meddelanden**
 
    ![Lägg till batch-utlösare](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
 4. Ange egenskaper för batch-mottagare: 
 
-   | Egenskap | Value | Anteckningar | 
+   | Egenskap | Värde | Anteckningar | 
    |----------|-------|-------|
    | **Batch-läge** | Infogad |  |  
    | **Batch-namn** | TestBatch | Endast tillgängligt med **inline** batch-läge | 
    | **Versions villkor** | Antal meddelanden baserat, schema baserat | Endast tillgängligt med **inline** batch-läge | 
    | **Antal meddelanden** | 10 | Endast tillgängligt med villkor för **antal meddelanden som baseras** | 
    | **Intervall** | 10 | Endast tillgängligt med **schemabaserade** versions villkor | 
-   | **Frekvens** | minut | Endast tillgängligt med **schemabaserade** versions villkor | 
+   | **Frekvens** | Minut | Endast tillgängligt med **schemabaserade** versions villkor | 
    ||| 
 
    ![Ange information om batch-utlösare](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
@@ -84,7 +84,7 @@ För batch-mottagare anger du batch-läge, namn, versions villkor, X12-avtal och
 
    1. Under batch-utlösaren väljer du **nytt steg**.
 
-   2. Skriv "X12 batch" som filter i sökrutan och välj den här åtgärden (alla versioner): **Batch-koda <*version*>-X12** 
+   2. Skriv "X12 batch" som filter i sökrutan och välj den här åtgärden (valfri version): **batch-koda <*version*>-X12** 
 
       ![Välj X12 batch Encode-åtgärd](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -118,7 +118,7 @@ För att se till att batch-mottagaren fungerar som förväntat, kan du lägga ti
 
 1. Välj **nytt steg**under X12-instruktionen. 
 
-2. I rutan Sök anger du "http" som filter. Välj den här åtgärden: **HTTP-HTTP**
+2. I rutan Sök anger du "http" som filter. Välj den här åtgärden: **http-http**
     
    ![Välj HTTP-åtgärd](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
@@ -149,9 +149,9 @@ Skapa nu en eller flera Logi Kap par som skickar meddelanden till appen för bat
 
 * Se till att batch-mottagaren och batch-avsändaren delar samma Azure-region *och* Azure-prenumeration. Om de inte gör det kan du inte välja batch-mottagaren när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-1. Skapa en annan Logic-app med det här namnet: "SendX12MessagesToBatch" 
+1. Skapa en annan Logic-app med följande namn: "SendX12MessagesToBatch" 
 
-2. I rutan Sök anger du "när en http-begäran" som filter. Välj den här utlösaren: **När en HTTP-begäran tas emot** 
+2. I rutan Sök anger du "när en http-begäran" som filter. Välj den här utlösaren: **när en HTTP-begäran tas emot** 
    
    ![Lägg till begär ande utlösare](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -168,7 +168,7 @@ Skapa nu en eller flera Logi Kap par som skickar meddelanden till appen för bat
 
       ![Välj Logic-appen "batch mottagare"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Välj den här åtgärden: **Batch_messages – <*din-batch-mottagare*>**
+   4. Välj den här åtgärden: **Batch_messages-<*ditt-batch-mottagare* >**
 
       ![Välj åtgärden "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
@@ -176,7 +176,7 @@ Skapa nu en eller flera Logi Kap par som skickar meddelanden till appen för bat
 
    | Egenskap | Beskrivning | 
    |----------|-------------| 
-   | **Batch-namn** | Batch-namnet som definieras av mottagar logiks appen, som är "TestBatch" i det här exemplet <p>**Viktigt**: Batch-namnet verifieras vid körning och måste matcha det namn som anges av mottagar logiks appen. Om du ändrar batch-namnet Miss växlar batch-avsändaren. | 
+   | **Batch-namn** | Batch-namnet som definieras av mottagar logiks appen, som är "TestBatch" i det här exemplet <p>**Viktigt**: batch-namnet verifieras vid körning och måste matcha det namn som anges av mottagar logiks appen. Om du ändrar batch-namnet Miss växlar batch-avsändaren. | 
    | **Meddelande innehåll** | Innehållet för det meddelande som du vill skicka, som är **Body** -token i det här exemplet | 
    ||| 
    
@@ -190,7 +190,7 @@ Skapa nu en eller flera Logi Kap par som skickar meddelanden till appen för bat
 
 ## <a name="test-your-logic-apps"></a>Testa dina Logic Apps
 
-Om du vill testa din batching-lösning skickar du X12-meddelanden till din batch [](https://www.getpostman.com/postman) avsändarens Logic-app från Postman eller ett liknande verktyg. Snart börjar du få X12-meddelanden på din begär ande bin, antingen var tionde minut eller i batchar på 10, alla med samma partitionsnyckel.
+Om du vill testa din batching-lösning skickar du X12-meddelanden till din batch avsändarens Logic-app från [Postman](https://www.getpostman.com/postman) eller ett liknande verktyg. Snart börjar du få X12-meddelanden på din begär ande bin, antingen var tionde minut eller i batchar på 10, alla med samma partitionsnyckel.
 
 ## <a name="next-steps"></a>Nästa steg
 

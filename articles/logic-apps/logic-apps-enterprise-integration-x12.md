@@ -1,6 +1,6 @@
 ---
-title: X12 meddelanden för B2B enterprise-integration – Azure Logic Apps | Microsoft Docs
-description: Exchange X12 meddelanden EDI-format för B2B enterprise-integration i Azure Logic Apps med Enterprise-Integrationspaket
+title: X12-meddelanden för B2B-integrering – Azure Logic Apps
+description: Exchange X12-meddelanden i EDI-format för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,90 +8,89 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bc5c458240925af1fdd74ebc9b2d4c3db71fb05
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728753"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679985"
 ---
-# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12 meddelanden för B2B enterprise-integration i Azure Logic Apps med Enterprise-Integrationspaket
+# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 
-Innan du kan utbyta X12 meddelanden för Azure Logic Apps, måste du skapa en X12 avtal och lagra det avtalet i ditt integrationskonto. Här följer stegen för hur du skapar en X12 avtal.
+Innan du kan utbyta X12-meddelanden för Azure Logic Apps måste du skapa ett X12-avtal och lagra avtalet i integrations kontot. Här följer stegen för att skapa ett X12-avtal.
 
 > [!NOTE]
-> Den här sidan täcker X12 funktioner för Azure Logic Apps. Mer information finns i [EDIFACT](logic-apps-enterprise-integration-edifact.md).
+> Den här sidan täcker X12-funktionerna för Azure Logic Apps. Mer information finns i [EDIFACT](logic-apps-enterprise-integration-edifact.md).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Här är de objekt som du behöver:
+Här är de objekt du behöver:
 
-* En [integrationskontot](logic-apps-enterprise-integration-create-integration-account.md) som redan har definierat och som är associerade med din Azure-prenumeration
-* Minst två [partner](../logic-apps/logic-apps-enterprise-integration-partners.md) som definieras i ditt integrationskonto och konfigurerad med X12 identifierare under **Företagsidentiteter**    
-* En nödvändig [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) som du kan överföra till ditt integrationskonto
+* Ett [integrations konto](logic-apps-enterprise-integration-create-integration-account.md) som redan har definierats och associerats med din Azure-prenumeration
+* Minst två [partner](../logic-apps/logic-apps-enterprise-integration-partners.md) som har definierats i ditt integrations konto och kon figurer ATS med X12-ID under **affärs identiteter**    
+* Ett nödvändigt [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) som du kan överföra till ditt integrations konto
 
-När du [skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [lägga till partner](logic-apps-enterprise-integration-partners.md), och har en [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) som du vill använda kan du skapa en X12 avtalet genom att följa dessa steg.
+När du har [skapat ett integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [lagt till partner](logic-apps-enterprise-integration-partners.md)och har ett [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) som du vill använda, kan du skapa ett X12-avtal genom att följa dessa steg.
 
-## <a name="create-an-x12-agreement"></a>Skapa en X12 avtal
+## <a name="create-an-x12-agreement"></a>Skapa ett X12-avtal
 
-1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal"). 
+1. Logga in på [Azure-portalen](https://portal.azure.com "Azure portal"). 
 
-2. Välj den Azure-huvudmenyn **alla tjänster**. 
-   Ange ”-integration” i sökrutan och välj sedan **integrationskonton**.  
+2. Från huvud menyn i Azure väljer du **alla tjänster**. 
+   I rutan Sök anger du "integration" och väljer sedan **integrations konton**.  
 
-   ![Hitta ditt integrationskonto](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![Hitta ditt integrations konto](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
    > [!TIP]
-   > Om **alla tjänster** inte visas kan du behöva expanderar du menyn först. Högst upp på menyn minimerade, Välj **menyn Visa**.
+   > Om **alla tjänster** inte visas kan du behöva expandera menyn först. Överst på menyn komprimerad väljer du **Visa meny**.
 
-3. Under **Integrationskonton**, Välj integrationskontot där du vill lägga till avtalet.
+3. Under **integrations konton**väljer du det integrations konto där du vill lägga till avtalet.
 
-   ![Välj var du vill skapa avtalet för integrationskontot](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![Välj integrations konto där du vill skapa avtalet](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
-4. Välj **översikt**och välj sedan den **avtal** panelen. 
-   Om du inte har ett avtal panel, Lägg till panelen först. 
+4. Välj **Översikt**och välj sedan **avtals** panelen. 
+   Om du inte har någon avtals panel måste du först lägga till panelen. 
 
-   ![Välj panelen ”avtal”](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
+   ![Välj avtals panelen](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
-5. Under **avtal**, Välj **Lägg till**.
+5. Välj **Lägg till**under **avtal**.
 
-   ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
+   ![Välj "Lägg till"](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
-6. Under **Lägg till**, ange en **namn** för ditt avtal. 
-   Avtalstyp, Välj **X12**. 
-   Välj den **värdpartner**, **Värdidentiteten**, **Gästpartner**, och **Gästidentitet** för ditt avtal. 
-   Mer information om egenskapen, finns i tabellen i det här steget.
+6. Under **Lägg till**anger du ett **namn** för ditt avtal. 
+   För avtals typen väljer du **X12**. 
+   Välj **värd partner**, **värd identitet**, **gäst partner**och **gäst identitet** för ditt avtal. 
+   Mer information om egenskaper finns i tabellen i det här steget.
 
-    ![Ange avtalsinformation](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
+    ![Ange avtals information](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
     | Egenskap | Beskrivning |
     | --- | --- |
     | Namn |Avtalets namn |
-    | Avtalstyp | Ska vara X12 |
-    | Värdpartner |Ett avtal måste både en värdens och gästens partner. Den mottagande partnern representerar organisationen som konfigurerar avtalet. |
-    | Värd-identitet |En identifierare för den mottagande partnern |
-    | Gästpartner |Ett avtal måste både en värdens och gästens partner. Gästpartner representerar den organisation som gör affärer med den mottagande partnern. |
-    | Gästidentitet |En identifierare för gästpartner |
-    | Ta emot inställningarna |Dessa egenskaper gäller för alla meddelanden som tas emot av ett avtal. |
+    | Avtals typ | Ska vara X12 |
+    | Värd partner |Ett avtal måste både vara värd-och gäst partner. Värd partnern representerar den organisation som konfigurerar avtalet. |
+    | Värd identitet |En identifierare för värd partnern |
+    | Gäst partner |Ett avtal måste både vara värd-och gäst partner. Gäst partnern representerar den organisation som gör affärer med värd partnern. |
+    | Gäst identitet |En identifierare för gäst partnern |
+    | Ta emot inställningar |Dessa egenskaper gäller för alla meddelanden som tas emot av ett avtal. |
     | Skicka inställningar |Dessa egenskaper gäller för alla meddelanden som skickas av ett avtal. |  
 
    > [!NOTE]
-   > Lösning av X12 avtal beror på matchande avsändarkvalificerare och identifierare och mottagarkvalificerare och identifieraren som definierats i partner och inkommande meddelande. Ändrar värdena för din partner, uppdatera avtalet också.
+   > Lösning av X12-avtal beror på matchning av avsändarens kvalificerare och identifierare och mottagarens kvalificerare och identifierare som definierats i partnern och inkommande meddelande. Om dessa värden ändras för din partner uppdaterar du även avtalet.
 
-## <a name="configure-how-your-agreement-handles-received-messages"></a>Konfigurera hur ditt avtal hanterar fått meddelanden
+## <a name="configure-how-your-agreement-handles-received-messages"></a>Konfigurera hur ditt avtal hanterar mottagna meddelanden
 
-Nu när du har ställt in egenskaperna avtal kan konfigurera du hur detta avtal identifierar och hanterar inkommande meddelanden som tas emot från din partner via detta avtal.
+Nu när du har angett avtals egenskaperna kan du konfigurera hur det här avtalet ska identifiera och hantera inkommande meddelanden som tas emot från din partner genom detta avtal.
 
-1.  Under **Lägg till**väljer **ta emot inställningar**.
-Konfigurera dessa egenskaper baserat på ditt avtal med partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellerna i det här avsnittet.
+1.  Under **Lägg till**väljer du **ta emot inställningar**.
+Konfigurera dessa egenskaper utifrån ditt avtal med den partner som utbyter meddelanden med dig. För egenskaps beskrivningar, se tabellerna i det här avsnittet.
 
-    **Ta emot inställningarna** är uppdelad i följande avsnitt: Identifierare, bekräftelse, scheman, kuvert, kontrollnummer, verifieringar och interna inställningar.
+    **Ta emot inställningar** är indelat i följande avsnitt: identifierare, bekräftelse, scheman, kuvert, kontroll nummer, validering och interna inställningar.
 
-2. När du är klar kan du se till att spara inställningarna genom att välja **OK**.
+2. När du är klar bör du spara inställningarna genom att välja **OK**.
 
-Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer med dina valda inställningar.
+Nu är ditt avtal redo att hantera inkommande meddelanden som överensstämmer med dina valda inställningar.
 
 ### <a name="identifiers"></a>Identifierare
 
@@ -99,69 +98,69 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| ISA1 (Authorization Qualifier) |Välj kvalificerare auktoriseringsvärde från den nedrullningsbara listan. |
-| ISA2 |Valfri. Ange information auktoriseringsvärde. Om värdet du angav för ISA1 är än 00, ange minst ett alfanumeriskt tecken och högst 10. |
-| ISA3 (Säkerhetskvalificerare) |Välj kvalificerare säkerhetsvärde från den nedrullningsbara listan. |
-| ISA4 |Valfri. Ange information säkerhetsvärde. Om värdet du angav för ISA3 är än 00, ange minst ett alfanumeriskt tecken och högst 10. |
+| ISA1 (kvalificering av autentisering) |Välj kvalificerat värde för auktorisering från den nedrullningsbara listan. |
+| ISA2 |Valfri. Ange värde för autentiseringsinformation. Om värdet som du angav för ISA1 är ett annat än 00 anger du minst ett alfanumeriskt tecken och högst 10. |
+| ISA3 (säkerhets kvalificerare) |Välj värdet för säkerhets kvalificeraren i list rutan. |
+| ISA4 |Valfri. Ange värdet för säkerhets information. Om värdet som du angav för ISA3 är ett annat än 00 anger du minst ett alfanumeriskt tecken och högst 10. |
 
-### <a name="acknowledgment"></a>Bekräftelse
+### <a name="acknowledgment"></a>Godkänd
 
-![Ange egenskaper för bekräftelse](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
+![Ange bekräftelse egenskaper](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Förväntad TA1 |Returnerar en teknisk bekräftelse till utbytet avsändaren |
-| Förväntad FA |Returnerar en funktionell bekräftelse till utbytet avsändaren. Ange om du vill att bekräftelser 997 eller 999 baserat på schemaversion |
-| Inkludera AK2/IK2-slinga |Aktiverar generering av AK2 loopar i funktionella bekräftelser för godkända transaktionsuppsättningar |
+| TA1 förväntades |Returnerar en teknisk bekräftelse till Interchange Sender |
+| Anl. förväntas |Returnerar en funktions bekräftelse till Interchange-avsändaren. Välj sedan om du vill ha bekräftelser för 997 eller 999 baserat på schema versionen |
+| Inkludera AK2/IK2-slinga |Möjliggör generering av AK2-slingor i funktions bekräftelser för accepterade transaktions uppsättningar |
 
 ### <a name="schemas"></a>Scheman
 
-Välj ett schema för varje transaktionstyp (ST1) och avsändarprogram (GS2). Ta emot pipelinen Disassemblerar det inkommande meddelandet genom att matcha värdena för ST1 och GS2 i det inkommande meddelandet med de värden som du anger här och schemat för det inkommande meddelandet med schemat du anger här.
+Välj ett schema för varje transaktions typ (ST1) och avsändar program (GS2). Receive pipeline Disassemblerar det inkommande meddelandet genom att matcha värdena för ST1 och GS2 i det inkommande meddelandet med de värden som du anger här och schemat för det inkommande meddelandet med det schema som du anger här.
 
 ![Välj schema](./media/logic-apps-enterprise-integration-x12/x12-33.png) 
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Version |Välj X12 version |
-| Transaktionstyp (ST01) |Välj transaktionstyp |
-| Avsändarprogram (GS02) |Välj sändningsprogrammet |
-| Schema |Välj schemafilen som du vill använda. Scheman läggs till i ditt integrationskonto. |
+| Version |Välj X12-versionen |
+| Transaktions typ (ST01) |Välj transaktions typ |
+| Avsändar program (GS02) |Välj avsändar programmet |
+| Schema |Välj den schema fil som du vill använda. Scheman läggs till i ditt integrations konto. |
 
 > [!NOTE]
-> Konfigurera de nödvändiga [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) som har överförts till din [integrationskontot](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+> Konfigurera det nödvändiga [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) som överförs till ditt [integrations konto](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 
 ### <a name="envelopes"></a>Kuvert
 
-![Ange avgränsaren i en transaktionsuppsättning: Välj standardidentifierare eller Upprepningsavgränsare](./media/logic-apps-enterprise-integration-x12/x12-34.png)
+![Ange avgränsare i en transaktions uppsättning: Välj standard identifierare eller upprepnings avgränsare](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| ISA11-användning |Anger den avgränsningstecken som ska användas i en transaktion: <p>Välj **standardidentifierare** för att använda en punkt (.) för decimalform, i stället för decimalformen för inkommande dokument i EDI får pipeline. <p>Välj **Upprepningsavgränsare** Ange avgränsare för upprepade förekomster av en enkel dataelement eller en upprepad datastruktur. Till exempel används vanligtvis cirkumflex (^) som upprepningsavgränsare. Du kan bara använda cirkumflex för HIPAA scheman. |
+| ISA11-användning |Anger avgränsaren som ska användas i en transaktions uppsättning: <p>Välj **Standard-ID** om du vill använda en punkt (.) för decimal notation i stället för decimal tecknet för det inkommande dokumentet i EDI-inpipeline. <p>Välj **upprepnings avgränsare** för att ange avgränsare för upprepade förekomster av ett enkelt data element eller en upprepad data struktur. Till exempel används vanligt vis cirkumflex (^) som upprepnings avgränsare. För HIPAA-scheman kan du bara använda cirkumflex. |
 
-### <a name="control-numbers"></a>Kontrollnummer
+### <a name="control-numbers"></a>Kontroll nummer
 
-![Välj hur du hanterar dubletter av gruppkontrollnummer](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
+![Välj hur du hanterar dubbletter av kontroll nummer](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Tillåt inte dubbletter av Interchange-kontrollnummer |Blockera duplicerade utbyten. Kontrollerar interchange-kontrollnummer (ISA13) för mottagna interchange-kontrollnummer. Om en matchning hittas bearbetar inte ta emot pipelinen utbytet. Du kan ange antalet dagar för att utföra kontrollen genom att ge ett värde för *leta efter dubletter av ISA13 varje (dagar)* . |
-| Tillåt inte dubletter av gruppkontrollnummer |Blockera utbyten med dubblettgruppens kontrollnummer. |
-| Tillåt inte transaktionen set dubletter av gruppkontrollnummer |Blockera utbyten med kontrollnummer för dubbletttransaktionsuppsättning set kontrollnummer. |
+| Tillåt inte dubbletter av utbytes kontroll nummer |Blockera dubbla ändringar. Kontrollerar utbytes kontroll numret (ISA13) för det mottagna utbytes kontroll numret. Om en matchning identifieras bearbetas inte utbytet av den mottagande pipelinen. Du kan ange antalet dagar för att utföra kontrollen genom att ange ett värde för att *söka efter dubbletter av ISA13 var (dagar)* . |
+| Tillåt inte dubbletter av grupp kontroll nummer |Blockera ändringar med duplicerade grupp kontroll nummer. |
+| Tillåt inte dubbletter av transaktions uppsättnings nummer |Blockera ändringar med dubbla uppsättningar av transaktions uppsättningar. |
 
 ### <a name="validations"></a>Verifieringar
 
-![Ange egenskaper för verifiering för mottagna meddelanden](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
+![Ange verifierings egenskaper för mottagna meddelanden](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
 
-När du har slutfört raderna verifiering, läggs en annan automatiskt. Om du inte anger några regler använder verifiering raden ”standard”.
+När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte anger några regler använder valideringen raden "standard".
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Meddelandetyp |Välj typ av EDI-meddelande. |
-| EDI-validering |Utföra EDI-validering för-datatyper som definieras av schemat EDI egenskaper, längd, tom dataelement och avslutande avgränsare. |
-| Utökad validering |Om datatypen inte är EDI, verifiering på kravet på elementet tillåts och upprepning, uppräkningar och elementet längd dataverifiering (min/max). |
-| Tillåt ledande/avslutande nollor |Behålla alla ytterligare inledande eller avslutande noll och utrymme tecken. Inte ta bort dessa tecken. |
-| Trimma ledande/avslutande nollor |Ta bort inledande eller avslutande noll och blanksteg. |
-| Princip för avslutande avgränsare |Generera avslutande avgränsare. <p>Välj **otillåtna** att förbjuda avslutande avgränsare och avgränsare i mottagna utbytet. Om utbytet har avslutande avgränsare och avgränsare, deklareras utbytet inte giltig. <p>Välj **valfritt** att acceptera utbyten med eller utan avslutande avgränsare och avgränsare. <p>Välj **obligatorisk** när utbytet måste ha avslutande avgränsare och avgränsare. |
+| Meddelande typ |Välj typ av EDI-meddelande. |
+| EDI-verifiering |Utföra EDI-verifiering på data typer som definieras av schemats EDI-egenskaper, längd begränsningar, tomma data element och avslutande avgränsare. |
+| Utökad verifiering |Om data typen inte är EDI, är verifiering av data elementets krav och tillåten upprepning, uppräkningar och verifiering av data element längd (min/max). |
+| Tillåt inledande/avslutande nollor |Behåll eventuella ytterligare inledande eller avslutande noll och blank stegs tecken. Ta inte bort de här tecknen. |
+| Trimma inledande/avslutande nollor |Ta bort inledande eller avslutande noll och blank stegs tecken. |
+| Avslutande avgränsnings princip |Generera avslutande avgränsare. <p>Välj **tillåts inte** för att förhindra avslutande avgränsare och avgränsare i mottaget utbyte. Om Interchange har avslutande avgränsare och avgränsare, deklareras inte Interchange som giltig. <p>Välj **valfritt** om du vill acceptera ändringar med eller utan efterföljande avgränsare och avgränsare. <p>Välj **obligatoriskt** när Interchange måste ha avslutande avgränsare och avgränsare. |
 
 ### <a name="internal-settings"></a>Interna inställningar
 
@@ -169,25 +168,25 @@ När du har slutfört raderna verifiering, läggs en annan automatiskt. Om du in
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Konvertera underförstådda Decimalformatet ”Nn” till ett bas 10 numeriskt värde |Konverterar ett EDI-nummer som anges med formatet ”Nn” i en bas-10 numeriskt värde |
-| Skapa tomma XML-taggar om avslutande avgränsare är tillåtna |Välj den här kryssrutan ska utbytet avsändaren innehåller tomma XML-taggar för avslutande avgränsare. |
-| Dela upp Interchange i transaktionsuppsättningar – inaktivera transaktionsuppsättningar vid fel|Tolkar varje transaktion som angetts i ett utbyte i ett separat XML-dokument genom att tillämpa lämpliga kuvert till transaktionsuppsättningen med. Pausar endast transaktioner där valideringen misslyckas. |
-| Dela upp Interchange i transaktionsuppsättningar – inaktivera interchange vid fel|Tolkar varje transaktion som angetts i ett utbyte i ett separat XML-dokument genom att tillämpa lämpliga intervall. Pausar hela utbytet när en eller flera transaktionsuppsättningar i utbytet verifieringen. | 
-| Bevara Interchange – inaktivera transaktionsuppsättningar vid fel |Utbytet förblir intakta, skapar ett XML-dokument för hela gruppbaserade utbytet. Pausar de transaktionsuppsättningar som inte kan valideras när du fortsätter att bearbeta alla andra transaktionsuppsättningar. |
-| Bevara Interchange – inaktivera interchange vid fel |Utbytet förblir intakta, skapar ett XML-dokument för hela gruppbaserade utbytet. Pausar hela utbytet när en eller flera transaktionsuppsättningar i utbytet verifieringen. |
+| Konvertera det underförstådda decimal formatet "NN" till ett numeriskt bas värde |Konverterar ett EDI-tal som anges med formatet "NN" till ett bas-10-numeriskt värde |
+| Skapa tomma XML-taggar om avslutande avgränsare tillåts |Markera den här kryss rutan om du vill att Interchange Sender ska innehålla tomma XML-taggar för efterföljande avgränsare. |
+| Dela upp utbyte som transaktions uppsättningar – inaktivera transaktions uppsättningar vid fel|Parsar varje transaktion som angetts i ett utbyte till ett separat XML-dokument genom att använda lämpligt kuvert i transaktions uppsättningen. Pausar endast transaktioner där valideringen Miss lyckas. |
+| Dela upp utbyte som transaktions uppsättningar – pausa utbyte vid fel|Parsar varje transaktion som anges i ett utbyte till ett separat XML-dokument genom att använda rätt kuvert. Pausar hela utbytet när en eller flera transaktions uppsättningar i överförings testet inte verifieras. | 
+| Bevara Interchange – pausa transaktions uppsättningar vid fel |Lämnar utväxlingen intakt, skapar ett XML-dokument för hela det batchade utbytet. Pausar bara de transaktions uppsättningar som inte kan verifieras och fortsätter att bearbeta alla andra transaktions uppsättningar. |
+| Bevara Interchange – pausa utbyte vid fel |Lämnar utväxlingen intakt, skapar ett XML-dokument för hela det batchade utbytet. Pausar hela utbytet när en eller flera transaktions uppsättningar i överförings körningen inte verifieras. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Konfigurera hur ditt avtal skickar meddelanden
 
-Du kan konfigurera hur detta avtal identifierar och hanterar utgående meddelanden som du skickar till partnern via detta avtal.
+Du kan konfigurera hur det här avtalet identifierar och hanterar utgående meddelanden som du skickar till din partner genom detta avtal.
 
-1.  Under **Lägg till**väljer **skicka inställningar**.
-Konfigurera dessa egenskaper baserat på ditt avtal med din partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellerna i det här avsnittet.
+1.  Under **Lägg till**väljer du **Skicka inställningar**.
+Konfigurera dessa egenskaper utifrån ditt avtal med din partner som utbyter meddelanden med dig. För egenskaps beskrivningar, se tabellerna i det här avsnittet.
 
-    **Skicka inställningar** är uppdelad i följande avsnitt: Identifierare, bekräftelse, scheman, kuvert, teckenuppsättningar och avgränsare, kontrollnummer och verifiering.
+    **Sändnings inställningarna** är indelade i följande avsnitt: identifierare, bekräftelse, scheman, kuvert, teckenuppsättningar och avgränsare, kontroll nummer och verifiering.
 
-2. När du är klar kan du se till att spara inställningarna genom att välja **OK**.
+2. När du är klar bör du spara inställningarna genom att välja **OK**.
 
-Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer med dina valda inställningar.
+Nu är ditt avtal redo att hantera utgående meddelanden som överensstämmer med dina valda inställningar.
 
 ### <a name="identifiers"></a>Identifierare
 
@@ -195,20 +194,20 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Auktoriseringskvalificerare (ISA1) |Välj kvalificerare auktoriseringsvärde från den nedrullningsbara listan. |
-| ISA2 |Ange information auktoriseringsvärde. Om det här värdet är än 00, anger du minst ett alfanumeriskt tecken och högst 10. |
-| Säkerhetskvalificerare (ISA3) |Välj kvalificerare säkerhetsvärde från den nedrullningsbara listan. |
-| ISA4 |Ange information säkerhetsvärde. Om det här värdet är än 00 för textrutan värde (ISA4) anger du minst ett alfanumeriskt värde och högst 10. |
+| Kvalificerare för autentisering (ISA1) |Välj kvalificerat värde för auktorisering från den nedrullningsbara listan. |
+| ISA2 |Ange värde för autentiseringsinformation. Om det här värdet är ett annat än 00 anger du minst ett alfanumeriskt tecken och högst 10. |
+| Säkerhets kvalificerare (ISA3) |Välj värdet för säkerhets kvalificeraren i list rutan. |
+| ISA4 |Ange värdet för säkerhets information. Om det här värdet är ett annat än 00, för text rutan värde (ISA4) anger du minst ett alfanumeriskt värde och högst 10. |
 
-### <a name="acknowledgment"></a>Bekräftelse
+### <a name="acknowledgment"></a>Godkänd
 
-![Ange egenskaper för bekräftelse](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+![Ange bekräftelse egenskaper](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Förväntad TA1 |Returnera en teknisk bekräftelse (TA1) till utbytet avsändaren. Den här inställningen anger att värdpartner som skickar meddelandet begär en bekräftelse från gästpartner i avtalet. Dessa bekräftelser förväntas av värdpartner baserat på inställningarna som tar emot av avtalet. |
-| Förväntad FA |Returnera en funktionell bekräftelse (FA) till utbytet avsändaren. Välj om du vill bekräftelser 997 eller 999 baserat på schema-versionen som du arbetar med. Dessa bekräftelser förväntas av värdpartner baserat på inställningarna som tar emot av avtalet. |
-| FA-Version |Välj FA-version |
+| TA1 förväntades |Returnera en teknisk bekräftelse (TA1) till Interchange-avsändaren. Den här inställningen anger att den värd partner som skickar meddelandet begär en bekräftelse från gäst partnern i avtalet. Dessa bekräftelser förväntas av värd partnern enligt avtalets mottagnings inställningar. |
+| Anl. förväntas |Returnera en funktionell bekräftelse (FA) till Interchange-avsändaren. Välj om du vill ha bekräftelser för 997 eller 999, baserat på de schema versioner som du arbetar med. Dessa bekräftelser förväntas av värd partnern enligt avtalets mottagnings inställningar. |
+| Anl. version |Välj anl-version |
 
 ### <a name="schemas"></a>Scheman
 
@@ -216,91 +215,91 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Version |Välj X12 version |
-| Transaktionstyp (ST01) |Välj transaktionstyp |
-| SCHEMA |Välj scheman som ska användas. Scheman finns i ditt integrationskonto. Om du väljer schemat först konfigurerar den automatiskt version och transaktionen typ  |
+| Version |Välj X12-versionen |
+| Transaktions typ (ST01) |Välj transaktions typ |
+| SCHEMA |Välj det schema som ska användas. Scheman finns i integrations kontot. Om du väljer schemat först konfigurerar den automatiskt version och transaktions typ  |
 
 > [!NOTE]
-> Konfigurera de nödvändiga [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) som har överförts till din [integrationskontot](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+> Konfigurera det nödvändiga [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) som överförs till ditt [integrations konto](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 
 ### <a name="envelopes"></a>Kuvert
 
-![Ange avgränsaren i en transaktionsuppsättning: Välj standardidentifierare eller Upprepningsavgränsare](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
+![Ange avgränsare i en transaktions uppsättning: Välj standard identifierare eller upprepnings avgränsare](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| ISA11-användning |Anger den avgränsningstecken som ska användas i en transaktion: <p>Välj **standardidentifierare** för att använda en punkt (.) för decimalform, i stället för decimalformen för inkommande dokument i EDI får pipeline. <p>Välj **Upprepningsavgränsare** Ange avgränsare för upprepade förekomster av en enkel dataelement eller en upprepad datastruktur. Till exempel används vanligtvis cirkumflex (^) som upprepningsavgränsare. Du kan bara använda cirkumflex för HIPAA scheman. |
+| ISA11-användning |Anger avgränsaren som ska användas i en transaktions uppsättning: <p>Välj **Standard-ID** om du vill använda en punkt (.) för decimal notation i stället för decimal tecknet för det inkommande dokumentet i EDI-inpipeline. <p>Välj **upprepnings avgränsare** för att ange avgränsare för upprepade förekomster av ett enkelt data element eller en upprepad data struktur. Till exempel används vanligt vis cirkumflex (^) som upprepnings avgränsare. För HIPAA-scheman kan du bara använda cirkumflex. |
 
-### <a name="control-numbers"></a>Kontrollnummer
+### <a name="control-numbers"></a>Kontroll nummer
 
-![Ange egenskaper för kontrollnummer](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
+![Ange egenskaper för kontroll nummer](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Kontrollversionsnummer (ISA12) |Välj versionen av X12 standard |
-| Användningsindikator (ISA15) |Välj kontexten för ett utbyte.  Värdena är information produktionsdata, eller testa data |
-| Schema |Genererar GS och ST segment för en X12-kodad-utbytet som skickas till pipelinen skicka |
-| GS1 |Valfritt, Välj ett värde för den funktionella koden från den nedrullningsbara listan |
-| GS2 |Valfritt, program-avsändare |
-| GS3 |Valfritt, program-mottagare |
-| GS4 |Valfritt, Välj CCYYMMDD eller ååmmdd |
-| GS5 |Valfritt, Välj HHMM, HHMMSS eller HHMMSSdd |
-| GS7 |Valfritt, Välj ett värde för ansvarig myndighet från den nedrullningsbara listan |
-| GS8 |Valfritt, versionen av dokumentet |
-| Interchange-kontrollnummer (ISA13) |Krävs, ange ett värdeintervall för interchange-kontrollnummer. Ange ett numeriskt värde med minst 1 och högst 999999999 |
-| Gruppkontrollnummer (GS06) |Krävs, ange ett intervall med tal för gruppkontrollnummer. Ange ett numeriskt värde med minst 1 och högst 999999999 |
-| Transaktionsuppsättningens kontrollnummer (ST02) |Krävs, ange ett intervall med tal för kontrollnummer för att ange transaktionen. Ange ett intervall med numeriska värden med minst 1 och högst 999999999 |
-| Prefix |Valfritt, avsedda för antalet transaktion set kontrollnummer som används i bekräftelse. Ange ett numeriskt värde för de mellersta två fält och ett alfanumeriskt värde (om det behövs) för prefix och suffix fält. De mellersta är obligatoriska och innehålla minsta och högsta värden för kontrollnummer |
-| Suffix |Valfritt, avsedda för antalet transaktion set kontrollnummer som används i en bekräftelse. Ange ett numeriskt värde för de mellersta två fält och ett alfanumeriskt värde (om det behövs) för prefix och suffix fält. De mellersta är obligatoriska och innehålla minsta och högsta värden för kontrollnummer |
+| Kontroll versions nummer (ISA12) |Välj den version av X12-standarden |
+| Användnings indikator (ISA15) |Välj kontext för ett utbyte.  Värdena är information, produktions data eller test data |
+| Schema |Genererar GS-och ST-segmenten för ett X12-kodat utbyte som skickas till den skicka pipelinen |
+| GS1 |Valfritt väljer du ett värde för funktions koden i list rutan |
+| GS2 |Valfritt, program avsändare |
+| GS3 |Valfri, programmottagare |
+| GS4 |Valfritt, Välj CCYYMMDD eller YYMMDD |
+| GS5 |Valfritt väljer du HHMM, HHMMSS eller HHMMSSdd |
+| GS7 |Valfritt väljer du ett värde för det ansvariga organet i list rutan |
+| GS8 |Valfri version av dokumentet |
+| Utbytes kontroll nummer (ISA13) |Obligatoriskt anger du ett värde intervall för Interchange Control Number. Ange ett numeriskt värde med minst 1 och högst 999999999 |
+| Grupp kontroll nummer (GS06) |Obligatoriskt anger du ett nummer intervall för grupp kontroll numret. Ange ett numeriskt värde med minst 1 och högst 999999999 |
+| Kontroll nummer för transaktions uppsättning (ST02) |Obligatoriskt anger du ett nummer intervall för kontroll numret för transaktions uppsättningen. Ange ett intervall med numeriska värden med minst 1 och högst 999999999 |
+| Prefix |Valfritt, anges för det antal transaktions uppsättnings kontroll nummer som används i bekräftelse. Ange ett numeriskt värde för två fält i mitten och ett alfanumeriskt värde (om det behövs) för fälten prefix och suffix. De mittersta fälten är obligatoriska och innehåller de lägsta och högsta värdena för kontroll numret |
+| Huvudnamnssuffix |Valfritt, anges för det antal transaktions uppsättnings kontroll nummer som används i en bekräftelse. Ange ett numeriskt värde för de två fälten i mitten och ett alfanumeriskt värde (om det behövs) för fälten prefix och suffix. De mittersta fälten är obligatoriska och innehåller de lägsta och högsta värdena för kontroll numret |
 
 ### <a name="character-sets-and-separators"></a>Teckenuppsättningar och avgränsare
 
-Förutom de teckenuppsättningar kan du ange en annan uppsättning avgränsare för varje meddelandetyp. Om en teckenuppsättning har inte angetts för ett visst meddelande-schema används den standardinställda teckenuppsättningen.
+Förutom teckenuppsättningen kan du ange en annan uppsättning avgränsare för varje meddelande typ. Om en teckenuppsättning inte har angetts för ett visst meddelande schema används standard teckenuppsättningen.
 
-![Ange avgränsare för meddelandetyper](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
+![Ange avgränsare för meddelande typer](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Teckenuppsättningen som ska användas |Att verifiera egenskaper, Välj X12 teckenuppsättningen. Alternativen är grundläggande och utökad UTF8. |
-| Schema |Välj ett schema från den nedrullningsbara listan. En ny rad läggs automatiskt när du har slutfört varje rad. Välj uppsättningen avgränsare som du vill använda, baserat på avgränsare beskrivningarna nedan för det aktuella schemat. |
-| Indatatyp |Välj en typ av användarindata från den nedrullningsbara listan. |
-| Komponentavgränsare |Ange ett enskilt tecken för att avgränsa sammansatta dataelement. |
-| Dataelement-avgränsare |Ange ett enskilt tecken för att avgränsa enkla element i sammansatt dataelement. |
-| Annat tecken |Ange ett annat tecken som används för att ersätta alla avgränsningstecknen i nyttolasten vid generering av utgående X12 meddelande. |
-| Segmentsterminator |Ange ett enskilt tecken för att ange ett EDI-segment är slut. |
-| Suffix |Välj det tecken som används med det segment-ID: t. Om du anger ett suffix kan dataelementet segment Begränsare vara tom. Om segmentterminator lämnas tomt, måste du ange ett suffix. |
+| Teckenuppsättning som ska användas |Om du vill validera egenskaperna väljer du teckenuppsättningen X12. Alternativen är Basic, Extended och UTF8. |
+| Schema |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs en ny rad till automatiskt. För det valda schemat väljer du de avgränsnings uppsättningar som du vill använda, baserat på avgräns beskrivningarna nedan. |
+| Indatatyp |Välj en indatatyp i list rutan. |
+| Komponent avgränsare |Om du vill separera sammansatta data element anger du ett enda-Character. |
+| Data Elements avgränsare |Om du vill separera enkla data element i sammansatta data element anger du ett enskilt. |
+| Ersättnings Character |Ange ett ersättnings tecken som används för att ersätta alla avgränsnings tecken i nytto Last data när du genererar det utgående X12-meddelandet. |
+| Segment begränsare |Om du vill ange ett EDI-segments slut anger du ett enskilt tecken. |
+| Huvudnamnssuffix |Välj det tangent som används med segment identifieraren. Om du anger ett suffix, kan data elementet för segment begränsas vara tomt. Om avgränsarna för segment lämnas tomma måste du ange ett suffix. |
 
 > [!TIP]
-> Redigera avtal som JSON för att ange specialtecken värden, och ange ASCII-värde för specialtecknet.
+> Om du vill ange specialtecken redigerar du avtalet som JSON och anger ASCII-värdet för specialtecknet.
 
 ### <a name="validation"></a>Validering
 
-![Ange egenskaper för verifiering för att skicka meddelanden](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
+![Ange verifierings egenskaper för att skicka meddelanden](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
 
-När du har slutfört raderna verifiering, läggs en annan automatiskt. Om du inte anger några regler använder verifiering raden ”standard”.
+När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte anger några regler använder valideringen raden "standard".
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Meddelandetyp |Välj typ av EDI-meddelande. |
-| EDI-validering |Utföra EDI-validering för-datatyper som definieras av schemat EDI egenskaper, längd, tom dataelement och avslutande avgränsare. |
-| Utökad validering |Om datatypen inte är EDI, verifiering på kravet på elementet tillåts och upprepning, uppräkningar och elementet längd dataverifiering (min/max). |
-| Tillåt ledande/avslutande nollor |Behålla alla ytterligare inledande eller avslutande noll och utrymme tecken. Inte ta bort dessa tecken. |
-| Trimma ledande/avslutande nollor |Ta bort inledande eller avslutande noll tecken. |
-| Princip för avslutande avgränsare |Generera avslutande avgränsare. <p>Välj **otillåtna** att förbjuda avslutande avgränsare och avgränsare i skickade utbytet. Om utbytet har avslutande avgränsare och avgränsare, deklareras utbytet inte giltig. <p>Välj **valfritt** att skicka utbyten med eller utan avslutande avgränsare och avgränsare. <p>Välj **obligatorisk** om skickade utbyte måste ha avslutande avgränsare och avgränsare. |
+| Meddelande typ |Välj typ av EDI-meddelande. |
+| EDI-verifiering |Utföra EDI-verifiering på data typer som definieras av schemats EDI-egenskaper, längd begränsningar, tomma data element och avslutande avgränsare. |
+| Utökad verifiering |Om data typen inte är EDI, är verifiering av data elementets krav och tillåten upprepning, uppräkningar och verifiering av data element längd (min/max). |
+| Tillåt inledande/avslutande nollor |Behåll eventuella ytterligare inledande eller avslutande noll och blank stegs tecken. Ta inte bort de här tecknen. |
+| Trimma inledande/avslutande nollor |Ta bort inledande eller avslutande noll tecken. |
+| Avslutande avgränsnings princip |Generera avslutande avgränsare. <p>Välj **tillåts inte** för att förhindra avslutande avgränsare och avgränsare i skickade Interchange. Om Interchange har avslutande avgränsare och avgränsare, deklareras inte Interchange som giltig. <p>Välj **valfritt** om du vill skicka ändringar med eller utan efterföljande avgränsare och avgränsare. <p>Välj **obligatoriskt** om den skickade Interchange måste ha efterföljande avgränsare och avgränsare. |
 
 ## <a name="find-your-created-agreement"></a>Hitta ditt skapade avtal
 
-1.  När du är klar med att alla dina avtal egenskaper på den **Lägg till** väljer **OK** har skapat ditt avtal och gå tillbaka till ditt integrationskonto.
+1.  När du är klar med att ange alla avtals egenskaper går du till sidan **Lägg till** och väljer **OK** för att slutföra skapandet av ditt avtal och återgår till ditt integrations konto.
 
-    Ditt nyligen tillagda avtal nu visas i din **avtal** lista.
+    Ditt nyligen tillagda avtal visas nu i **avtals** listan.
 
-2.  Du kan också visa dina avtal i din integrering Kontoöversikt. På din integration meny väljer **översikt**och välj sedan den **avtal** panelen.
+2.  Du kan också visa dina avtal i Översikt över integrations kontot. På integrations konto menyn väljer du **Översikt**och väljer sedan **avtals** panelen.
 
-    ![Välj panelen ”avtal”](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    ![Välj avtals panelen](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
-## <a name="view-the-swagger"></a>Visa swagger
-Se den [swagger information](/connectors/x12/). 
+## <a name="view-the-swagger"></a>Visa Swagger
+Se [Swagger-informationen](/connectors/x12/). 
 
 ## <a name="learn-more"></a>Läs mer
-* [Mer information om Enterprise-Integrationspaketet](../logic-apps/logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")  
+* [Läs mer om Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket")  
 

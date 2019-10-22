@@ -237,6 +237,8 @@
               href: cognitive-search-custom-skill-interface.md
             - name: Exempel – Azure Functions
               href: cognitive-search-create-custom-skill-example.md
+            - name: Exempel – Kraftfulla färdigheter
+              href: 'https://aka.ms/powerskills'
             - name: Exempel – Containrar
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Felsökningstips

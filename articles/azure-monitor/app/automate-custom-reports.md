@@ -1,23 +1,19 @@
 ---
 title: Automatisera anpassade rapporter med Azure Application Insights-data
 description: Automatisera anpassade dagliga/veckovis/månads Visa rapporter med Azure Application Insights-data
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 3becf5ef579acdc52a51f9ad618e37460491c2ec
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 2b23374972a071421b59bedf0eb5b9358b37d7a9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146750"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677614"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatisera anpassade rapporter med Azure Application Insights-data
 
@@ -78,7 +74,7 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Application Insights schemalagd sammanfattad rapport
 
-1. Välj **skapa en resurs** > **beräknings** > **Funktionsapp**från Azure Portal.
+1. Från Azure Portal väljer du **skapa en resurs**  > **Compute**  > **Funktionsapp**.
 
    ![Skapa en Azure-resurs Funktionsapp skärm bild](./media/automate-custom-reports/function-app-01.png)
 
@@ -95,7 +91,7 @@ availabilityResults
 5. Välj **_Application Insights schemalagd sammanfattad mall_** .
 
      > [!NOTE]
-     > Som standard skapas Function Apps med körnings version 2. x. Du måste ha [mål Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** för att kunna använda den schemalagda sammanfattnings mal len Application Insights.  ![skärm bild för körning](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+     > Som standard skapas Function Apps med körnings version 2. x. Du måste ha [mål Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** för att kunna använda den schemalagda sammanfattnings mal len Application Insights.  ![runtime skärm bild ](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 
@@ -105,11 +101,11 @@ availabilityResults
 
    ![Skärm bild för funktions inställningar](./media/automate-custom-reports/function-app-05.png)
 
-7. Välj**program inställningar**för **Funktionsapp** > **Platform-funktioner** > .
+7. Välj **Funktionsapp**  > **plattforms funktioner**  > **program inställningar**.
 
     ![Skärm bild för Azure Function program-inställningar](./media/automate-custom-reports/function-app-07.png)
 
-8. Skapa tre nya program inställningar med lämpliga motsvarande värden ``AI_APP_ID``, ``AI_APP_KEY``och ``SendGridAPI``. Välj **Spara**.
+8. Skapa tre nya program inställningar med lämpliga motsvarande värden ``AI_APP_ID``, ``AI_APP_KEY`` och ``SendGridAPI``. Välj **Spara**.
 
      ![Skärm bild för funktions integrations gränssnitt](./media/automate-custom-reports/function-app-08.png)
     
@@ -150,7 +146,7 @@ De här stegen gäller endast om du inte redan har ett SendGrid-konto konfigurer
 
      ![Skärm bild av inställningar för API-nyckel](./media/automate-custom-reports/function-app-14.png)
 
-3. SendGrid-platsen startas. Välj **Inställningar** > **API-nycklar**.
+3. SendGrid-platsen startas. Välj **inställningar**  > **API-nycklar**.
 
      ![Skärm bild för att skapa och Visa API-nyckel](./media/automate-custom-reports/function-app-15.png)
 

@@ -1,23 +1,19 @@
 ---
 title: Övervaka webb programmet med webbtester med flera steg och Azure Application Insights | Microsoft Docs
 description: Skapa webbtester med flera steg för att övervaka dina webb program med Azure Application insikter
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 07/25/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881446"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678239"
 ---
 # <a name="multi-step-web-tests"></a>Flerstegstest för webbplatser
 
@@ -31,7 +27,7 @@ Du kan övervaka en inspelad sekvens av webb adresser och interaktioner med en w
 * Visual Studio 2017 Enterprise eller senare.
 * Webb prestanda och belastnings test verktyg i Visual Studio.
 
-För att hitta de förberedande verktyg som krävs. Starta **Visual Studio Installer** > -fel sökning av**enskilda komponenter** > **och testa** > **verktyg för webb prestanda och belastnings testning**.
+För att hitta de förberedande verktyg som krävs. Starta **Visual Studio Installer**  > **enskilda komponenter**  > **fel sökning och testning**  > **webb prestanda-och belastnings test verktyg**.
 
 ![Skärm bild av Visual Studio Installer-gränssnittet med enskilda komponenter som marker ATS med en kryss ruta bredvid objektet för webb prestanda och belastnings test verktyg](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -48,11 +44,11 @@ Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Vi
 
 Spela in en webbsession med Visual Studio Enterprise.
 
-1. Skapa ett projekt för webb prestanda och belastnings test.  > **Visual C#**  **-test** för fil**nytt** > projekt >   > 
+1. Skapa ett projekt för webb prestanda och belastnings test. **Fil**  > **nytt**  > **projekt**  > **Visual C#**   > -**test**
 
     ![Nytt Visual Studio-projekt gränssnitt](./media/availability-multistep/vs-web-performance-and-load-test.png)
 
-2. `.webtest` Öppna filen och börja spela in.
+2. Öppna `.webtest`-filen och börja spela in.
 
     ![Visual Studio-test för testnings registrering](./media/availability-multistep/open-web-test.png)
 
@@ -73,7 +69,7 @@ Spela in en webbsession med Visual Studio Enterprise.
 
 ## <a name="upload-the-web-test"></a>Ladda upp webb testet
 
-1. I Application Insights portal i fönstret tillgänglighet väljer du **skapa test** > **test typ** > **webb test för flera steg**.
+1. I Application Insights portal i rutan tillgänglighet väljer du **skapa test**  > **test typ**  > **webb test för flera steg**.
 
 2. Ange test platser, frekvens och aviserings parametrar.
 
@@ -84,7 +80,7 @@ Spela in en webbsession med Visual Studio Enterprise.
 |**Test frekvens**| Anger hur ofta testet körs från varje test plats. Med en standardfrekvens på fem minuter och fem testplatser testas din webbplats i genomsnitt varje minut.|
 |**Test platser**| Är platser där våra servrar skickar webb förfrågningar till din URL. Det **minsta antalet rekommenderade test platser är fem** för att försäkra dig om att du kan särskilja problem på din webbplats från nätverks problem. Du kan välja upp till 16 platser.
 
-### <a name="success-criteria"></a>Villkor för lyckat test
+### <a name="success-criteria"></a>Lyckade kriterier
 
 |Inställning| Förklaring
 |----|----|----|
@@ -98,7 +94,7 @@ Spela in en webbsession med Visual Studio Enterprise.
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
 |**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
-|**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskelvärde och antalet test platser är tröskelvärdet för **aviserings platsens tröskel** = **antal test platser – 2, med minst fem test platser.**|
+|**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskel och antalet test platser är **tröskelvärde för aviserings plats**  = **antalet test platser-2, med minst fem test platser.**|
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
@@ -142,7 +138,7 @@ I samtliga fall bör du skapa ett konto i ditt program som endast används för 
 |----|-----|
 | Målgrupps-URI | Målgrupps-URI för SAML-token.  Detta är URI: n för Access Control Service (ACS) – inklusive ACS-namnrymd och värd namn. |
 | Certifikat lösen ord | Lösen ordet för klient certifikatet som ger åtkomst till den inbäddade privata nyckeln. |
-| Klientcertifikat  | Klient certifikatets värde med privat nyckel i Base64-kodat format. |
+| Klient certifikat  | Klient certifikatets värde med privat nyckel i Base64-kodat format. |
 | Namn identifierare | Namn identifieraren för token |
 | Inte efter | TimeSpan som token ska vara giltigt för.  Standardvärdet är 5 minuter. |
 | Inte före | TimeSpan för vilket en token som skapades tidigare är giltig (för att adressera tids skevar).  Standardvärdet är (negativt) 5 minuter. |
@@ -153,7 +149,7 @@ I samtliga fall bör du skapa ett konto i ditt program som endast används för 
 
 Här är ett exempel på ett webbtest för en Azure-webbapp som använder en appnyckel:
 
-![Skärmbildsexempel](./media/availability-multistep/client-secret.png)
+![Exempel skärm bild](./media/availability-multistep/client-secret.png)
 
 Hämta en token från AAD med hjälp av en klienthemlighet (AppKey).
 Extrahera ägartoken från svaret.
@@ -171,7 +167,7 @@ Genom att jämföra olika sessioner identifiera den token som skickas tillbaka f
 Spela in ett webbtest med hjälp av Visual Studio.
 Parameterisera token genom att ange parametern när token returneras från autentiseraren och använda den i frågan till webbplatsen. (Visual Studio försöker parameterisera testet, men kan inte parameterisera token korrekt.)
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Dedikerad [fel söknings artikel](troubleshoot-availability.md).
 

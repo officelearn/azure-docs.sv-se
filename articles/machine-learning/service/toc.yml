@@ -297,7 +297,15 @@
         - name: Dataindata och -utdata
           items:
             - name: Importera data
-              href: ../algorithm-module-reference/import-data.md
+              items:
+                - name: Importera data
+                  href: ../algorithm-module-reference/import-data.md
+                - name: Importera från webb-URL via HTTP
+                  href: ../algorithm-module-reference/import-from-web-url-via-http.md
+                - name: Importera från Azure Blob Storage-modul
+                  href: ../algorithm-module-reference/import-from-azure-blob-storage.md
+                - name: Importera från Azure SQL Database
+                  href: ../algorithm-module-reference/import-from-azure-sql-database.md
             - name: Exportera data
               href: ../algorithm-module-reference/export-data.md
             - name: Ange data manuellt
@@ -330,6 +338,10 @@
               href: ../algorithm-module-reference/normalize-data.md
             - name: Partitionera och prova
               href: ../algorithm-module-reference/partition-and-sample.md
+            - name: Beskärningsvärden
+              href: ../algorithm-module-reference/clip-values.md
+            - name: Använda SQL-transformering
+              href: ../algorithm-module-reference/apply-sql-transformation.md
         - name: Maskininlärning
           items:
             - name: Poängmodell
@@ -382,6 +394,12 @@
               href: ../algorithm-module-reference/create-python-model.md
             - name: Köra R-skript
               href: ../algorithm-module-reference/execute-r-script.md
+        - name: Statistiska funktioner
+          items:
+            - name: Använda matematisk åtgärd
+              href: ../algorithm-module-reference/apply-math-operation.md
+            - name: Sammanfatta data
+              href: ../algorithm-module-reference/summarize-data.md
         - name: Felmeddelanden och koder
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resurser

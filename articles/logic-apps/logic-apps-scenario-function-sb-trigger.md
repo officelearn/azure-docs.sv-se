@@ -1,6 +1,6 @@
 ---
-title: Anropa eller logikappar med Azure Functions och Azure Service Bus-utlösare
-description: Skapa Azure-funktioner som anropar eller utlösa logikappar med hjälp av Azure Service Bus
+title: Anropa Logic Apps med Azure Functions-Azure Logic Apps
+description: Skapa Azure Functions som anropar eller utlöser Logic Apps genom att lyssna på Azure Service Bus
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,56 +8,55 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 06/04/2019
-ms.openlocfilehash: 3d4f642ae25a179ea2c3241240996da774cd8c23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494997"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680149"
 ---
-# <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Anropa eller utlösa logikappar med Azure Functions och Azure Service Bus
+# <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Anropa eller utlös Logi Kap par genom att använda Azure Functions och Azure Service Bus
 
-Du kan använda [Azure Functions](../azure-functions/functions-overview.md) att utlösa en logic app när du behöver distribuera en tidskrävande lyssnare eller uppgift. Du kan till exempel skapa en Azure-funktion som lyssnar i på en [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) kö och utlöses omedelbart en logikapp som en push-utlösare.
+Du kan använda [Azure Functions](../azure-functions/functions-overview.md) för att utlösa en Logic app när du behöver distribuera en långvarig lyssnare eller uppgift. Du kan till exempel skapa en Azure-funktion som lyssnar i i en [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) -kö och direkt utlöser en Logic app som en push-utlösare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Ett Azure Service Bus-namnområde. Om du inte har ett namnområde [först skapa namnområdet](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* Ett Azure Service Bus namn område. Om du inte har ett namn område måste du [först skapa ditt namn område](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* En Azure function-app, vilket är en behållare för Azure functions. Om du inte har en funktionsapp [först skapa din funktionsapp](../azure-functions/functions-create-first-azure-function.md), och kontrollera att du väljer .NET som körningsstack.
+* En Azure Function-app, som är en behållare för Azure Functions. Om du inte har en Function-app, [skapar du först din Function-app](../azure-functions/functions-create-first-azure-function.md)och ser till att du väljer .net som körnings stack.
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="create-logic-app"></a>Skapa en logikapp
 
-Det här scenariot har du en funktion som körs varje logikapp som du vill ska utlösa. Skapa först en logikapp som börjar med en HTTP-begäran-utlösare. Funktionen anropar slutpunkten när ett kömeddelande tas emot.  
+I det här scenariot har du en funktion som kör varje Logic-app som du vill utlösa. Börja med att skapa en logisk app som börjar med en utlösare för HTTP-begäran. Funktionen anropar slut punkten när ett köat meddelande tas emot.  
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och skapa tom logikapp.
+1. Logga in på [Azure Portal](https://portal.azure.com)och skapa en tom Logic-app.
 
-   Om du är nybörjare till logic apps, granska [Snabbstart: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Om du inte har använt Logic Apps igen går du igenom [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Ange ”http-begäran” i sökrutan. Välj den här utlösaren från listan över utlösare: **När en HTTP-begäran tas emot**
+1. I rutan Sök anger du "http-begäran". Välj den här utlösaren i listan utlösare: **när en HTTP-begäran tas emot**
 
    ![Välj utlösare](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
-   Du kan också ange en JSON-schema som ska användas med kömeddelandet med begäran-utlösare. JSON-scheman att Logic App Designer förstå för indata och underlätta utdata som du kan använda i ditt arbetsflöde.
+   Med utlösaren för förfrågningar kan du välja att ange ett JSON-schema som ska användas med meddelandet i kön. JSON-scheman hjälper Logic App Designer att förstå strukturen för indata och göra utmatningarna enklare att använda i ditt arbets flöde.
 
-1. Ange om du vill ange ett schema, schemat i den **begär JSON-Brödtextsschema** rutan, till exempel:
+1. Om du vill ange ett schema anger du schemat i rutan **JSON-schema för begär ande text** , till exempel:
 
    ![Ange JSON-schema](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger-schema.png)
 
-   Om du inte har ett schema, men du har en exempelnyttolast i JSON-format, kan du generera ett schema från den nyttolasten.
+   Om du inte har ett schema, men du har ett exempel på en nytto Last i JSON-format, kan du generera ett schema från den nytto lasten.
 
-   1. I begäran-utlösaren väljer **Använd exempel för att generera schemat**.
+   1. I utlösaren för begäran väljer **du Använd exempel nytto last för att generera schemat**.
 
-   1. Under **Skriv eller klistra in en JSON-exempelnyttolast**, ange din exempelnyttolast och välj sedan **klar**.
+   1. Under **Ange eller klistra in en exempel-JSON-nyttolast**anger du exempel nytto lasten och väljer sedan **slutförd**.
 
-      ![Ange exempelnyttolast](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
+      ![Ange exempel på nytto Last](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
-   Den här exempelnyttolast genererar det här schemat som visas i utlösaren:
+   Detta exempel på en nytto Last genererar detta schema som visas i utlösaren:
 
    ```json
    {
@@ -87,39 +86,39 @@ Det här scenariot har du en funktion som körs varje logikapp som du vill ska u
    }
    ```
 
-1. Lägg till alla andra åtgärder som du vill köra när du har fått kömeddelandet.
+1. Lägg till andra åtgärder som du vill köra efter att du har tagit emot Queue-meddelandet.
 
-   Du kan till exempel skicka ett e-postmeddelande med Office 365 Outlook-anslutningen.
+   Du kan till exempel skicka ett e-postmeddelande med Office 365 Outlook Connector.
 
-1. Spara logikappen, vilket genererar Motringnings-URL för utlösaren i den här logikappen. Senare kan använda du Motringnings-URL i koden för Azure Service Bus-kö-utlösare.
+1. Spara din Logic app, som genererar återanrops-URL: en för utlösaren i den här Logic-appen. Senare använder du den här återanrops-URL: en i koden för Azure Service Bus Queue-utlösaren.
 
-   Callback URL som visas i den **HTTP post-URL** egenskapen.
+   Återanrops-URL: en visas i egenskapen **http post URL** .
 
-   ![Genererad Motringnings-URL för utlösare](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
+   ![Återanrops-URL skapades för utlösaren](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Skapa Azure-funktion
+## <a name="create-azure-function"></a>Skapa Azure Function
 
-Skapa sedan den funktion som fungerar som utlösare och lyssnar efter kön.
+Därefter skapar du funktionen som fungerar som utlösare och lyssnar på kön.
 
-1. I Azure-portalen, öppna och expandera din funktionsapp, om inte redan är öppen. 
+1. Öppna och expandera din Function-app i Azure Portal, om den inte redan är öppen. 
 
-1. Under din funktionsappens namn, expandera **Functions**. På den **Functions** fönstret Välj **ny funktion**.
+1. Under namnet på din funktion i appen expanderar du **Functions**. I fönstret **funktioner** väljer du **ny funktion**.
 
-   ![Expandera ”funktioner” och välj ”ny funktion”](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![Expandera "Functions" och välj "ny funktion"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
 
-1. Välj den här mallen baserat på om du har skapat en ny funktionsapp där du har valt .NET som körningsstack eller du använder en befintlig funktionsapp.
+1. Välj den här mallen baserat på om du har skapat en ny function-app där du valde .NET som körnings stack, eller om du använder en befintlig Function-app.
 
-   * Välj den här mallen för den nya funktionsappar: **Utlösare för Service Bus-kö**
+   * För nya Function-appar väljer du den här mallen: **Service Bus köa utlösare**
 
-     ![Välj mall för ny funktionsapp](./media/logic-apps-scenario-function-sb-trigger/current-add-queue-trigger-template.png)
+     ![Välj mall för ny function-app](./media/logic-apps-scenario-function-sb-trigger/current-add-queue-trigger-template.png)
 
-   * För en befintlig funktionsapp väljer du den här mallen: **Utlösare för Service Bus-kö-C#**
+   * För en befintlig Function-app väljer du den här mallen: **Service Bus Queue C# trigger-**
 
-     ![Välj mall för befintliga funktionsapp](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
+     ![Välj mall för befintlig Function-app](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. På den **Azure Service Bus-kö utlösaren** rutan Ange ett namn för din utlösare och konfigurera den **Service Bus-anslutning** för kön som använder Azure Service Bus SDK `OnMessageReceive()` lyssnare, och välj **Skapa**.
+1. I fönstret **Azure Service Bus Queue trigger** anger du ett namn för utlösaren och konfigurerar **Service Bus anslutning** för kön, som använder Azure Service Bus SDK `OnMessageReceive()` lyssnare och väljer **skapa**.
 
-1. Skriva en grundläggande funktion för att anropa den tidigare skapade logic app-slutpunkten med hjälp av kömeddelandet som en utlösare. Det här exemplet används den `application/json` innehållstypen för meddelandet, men du kan ändra den här typen kan vid behov. Om möjligt återanvända instansen av HTTP-klienter. Mer information finns i [hantera anslutningar i Azure Functions](../azure-functions/manage-connections.md).
+1. Skriv en grundläggande funktion för att anropa den tidigare skapade Logic app-slutpunkten genom att använda Queue meddelandet som en utlösare. I det här exemplet används `application/json` meddelandets innehålls typ, men du kan ändra den här typen efter behov. Återanvänd om möjligt instansen av HTTP-klienter. Mer information finns i [hantera anslutningar i Azure Functions](../azure-functions/manage-connections.md).
 
    ```CSharp
    using System;
@@ -141,10 +140,10 @@ Skapa sedan den funktion som fungerar som utlösare och lyssnar efter kön.
    }
    ```
 
-1. Om du vill testa funktionen genom att lägga till ett kömeddelande genom att använda ett verktyg som de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+1. Testa funktionen genom att lägga till ett Queue-meddelande med hjälp av ett verktyg som [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-   Logic app utlöses omedelbart efter att funktionen tar emot meddelandet.
+   Logic app utlöser omedelbart när funktionen tar emot meddelandet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anropa, utlösa eller kapsla arbetsflöden med hjälp av HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md)
+[Anropa, utlösa eller kapsla arbets flöden med hjälp av HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md)

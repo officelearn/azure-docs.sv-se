@@ -1,5 +1,5 @@
 ---
-title: 'Verifiera ExpressRoute fel söknings guide för anslutnings barhet: Azure| Microsoft Docs'
+title: 'Verifiera ExpressRoute fel söknings guide för anslutnings barhet: Azure | Microsoft Docs'
 description: Den här sidan innehåller instruktioner om fel sökning och validering av slut punkt till slut punkt för en ExpressRoute-krets.
 services: expressroute
 author: rambk
@@ -9,16 +9,16 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71123448"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
 Den här artikeln hjälper dig att kontrol lera och felsöka ExpressRoute-anslutningen. ExpressRoute, som utökar ett lokalt nätverk till Microsoft-molnet via en privat anslutning som under lättas av en anslutnings leverantör, omfattar följande tre olika nätverks zoner:
 
--   Kundnätverk
+-   Kund nätverk
 -   Leverantörs nätverk
 -   Microsoft-datacenter
 
@@ -40,10 +40,10 @@ I föregående diagram indikerar talen viktiga nätverks punkter. Nätverks plat
 Beroende på ExpressRoute anslutnings modell (Cloud Exchange-samplacering, punkt-till-punkt-Ethernet-anslutning eller någon-till-valfri (IPVPN)) kan nätverks punkterna 3 och 4 vara växlar (Layer 2-enheter). De viktiga nätverks punkterna illustreras på följande sätt:
 
 1.  Kund beräknings enhet (till exempel en server eller dator)
-2.  CES Kund gräns routrar 
-3.  Parameterentiteter (CE Facing): Providers yttre routrar/växlar som riktar sig mot kund gräns routrar. Kallas PE-CEs i det här dokumentet.
-4.  Parameterentiteter (MSEE: N Facing): Providers yttre routrar/växlar som är riktade mot msee. Kallas PE-msee i det här dokumentet.
-5.  Msee ExpressRoute-routrar för Microsoft Enterprise Edge (MSEE: N)
+2.  CEs: kund gräns routrar 
+3.  Parameterentiteter (CE Facing): providers yttre routrar/växlar som riktar sig mot kund gräns routrar. Kallas PE-CEs i det här dokumentet.
+4.  Parameterentiteter (MSEE: N Facing): providerns gräns routrar/växlar som är riktade till msee. Kallas PE-msee i det här dokumentet.
+5.  Msee: Microsoft Enterprise Edge (MSEE: N) ExpressRoute-routrar
 6.  Virtual Network-Gateway (VNet)
 7.  Compute-enhet på Azure VNet
 
@@ -157,7 +157,7 @@ Ett exempel svar är:
     Sku                              : Standard
     Status                           : Enabled
 
-För att bekräfta om en ExpressRoute-krets fungerar, bör du särskilt tänka på följande fält: ServiceProviderProvisioningState : Etablerad status: Aktiverad
+För att bekräfta om en ExpressRoute-krets fungerar, bör du särskilt tänka på följande fält: ServiceProviderProvisioningState: etablerings status: aktive rad
 
 > [!NOTE]
 > Kontakta [Microsoft Support][Support]om *status* inte är aktive rad. Kontakta tjänst leverantören om *ServiceProviderProvisioningState* inte har tillhandahållits.
@@ -295,7 +295,7 @@ Ett exempel på ett svar för kommandot, i ett framgångs scenario:
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-På samma sätt kan du kontrol lera ARP-tabellen från msee: n i den *primära*/*sekundära* sökvägen för *privata*/*offentliga*/*Microsoft* -peering.
+På samma sätt kan du kontrol lera ARP-tabellen från MSEE: N i den *primära* /*sekundära* sökvägen för *privata* /*offentliga* /*Microsoft* -peering.
 
 Följande exempel visar att kommandots svar inte finns för en peering.
 
@@ -352,7 +352,7 @@ Ett exempel på lyckade resultat för kommandot är:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-På samma sätt kan du kontrol lera routningstabellen från msee: n i den *primära*/*sekundära* sökvägen för *privat*/*offentlig*/*Microsoft* -peering-kontext.
+På samma sätt kan du kontrol lera routningstabellen från MSEE: N i den sekundära / *sekundära* sökvägen för *privat* /*offentlig* /*Microsoft* en peering-kontext.
 
 Följande exempel visar att kommandots svar inte finns för en peering:
 
@@ -386,7 +386,7 @@ Mer information eller hjälp finns i följande länkar:
 - [Skapa och ändra routning för en ExpressRoute-krets][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png  "Anslutning till logisk Express-routning"
+[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "logisk Express vägs anslutning"
 [2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "Ikonen alla resurser"
 [3]: ./media/expressroute-troubleshooting-expressroute-overview/portal-overview.png "Översikts ikon"
 [4]: ./media/expressroute-troubleshooting-expressroute-overview/portal-circuit-status.png "Skärm bild av ExpressRoute Essentials-exempel"

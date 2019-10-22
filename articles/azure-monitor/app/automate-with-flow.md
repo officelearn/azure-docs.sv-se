@@ -1,22 +1,18 @@
 ---
 title: Automatisera Azure Application insikter-processer med Microsoft Flow
 description: Lär dig hur du kan använda Microsoft Flow för att snabbt automatisera upprepade processer med hjälp av Application Insights-anslutningen.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/29/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 541d5b70ee56d62831f0947e64b9522e17a07dd9
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 08/29/2019
+ms.openlocfilehash: ff0896498c0270b8eb43b762228916985f924def
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194917"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678311"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights-processer med anslutnings programmet för Microsoft Flow
 
@@ -32,14 +28,14 @@ Du kan också lägga till ytterligare åtgärder. Microsoft Flow gör hundratals
 
 I den här självstudien får du lära dig hur du skapar ett flöde som använder algoritmen för analys av automatiskt kluster för att gruppera attribut i data för ett webb program. Flödet skickar automatiskt resultaten per e-post, bara ett exempel på hur du kan använda Microsoft Flow och Application Insights Analytics tillsammans.
 
-### <a name="step-1-create-a-flow"></a>Steg 1: Skapa ett flöde
+### <a name="step-1-create-a-flow"></a>Steg 1: skapa ett flöde
 
 1. Logga in på [Microsoft Flow](https://flow.microsoft.com)och välj sedan **mina flöden**.
 2. Klicka på **nytt** och sedan **schemalagt – från Tom**.
 
     ![Skapa nytt flöde från schemalagt tomt](./media/automate-with-flow/1-create.png)
 
-### <a name="step-2-create-a-trigger-for-your-flow"></a>Steg 2: Skapa en utlösare för ditt flöde
+### <a name="step-2-create-a-trigger-for-your-flow"></a>Steg 2: skapa en utlösare för ditt flöde
 
 1. I popup-fönstret **skapar du ett schemalagt flöde**, fyller i namnet på ditt flöde och hur ofta du vill att flödet ska köras.
 
@@ -52,11 +48,11 @@ I den här självstudien får du lära dig hur du skapar ett flöde som använde
 1. Sök efter **Application Insights**.
 2. Klicka på **Azure Application Insights-visualisera analys fråga**.
 
-    ![Välj en åtgärd: Analys fråga för Azure Application Insights-visualisering](./media/automate-with-flow/3-visualize.png)
+    ![Välj en åtgärd: Azure Application Insights visualisera analys fråga](./media/automate-with-flow/3-visualize.png)
 
 3. Välj **Nytt steg**.
 
-### <a name="step-4-connect-to-an-application-insights-resource"></a>Steg 4: Ansluta till en Application Insights-resurs
+### <a name="step-4-connect-to-an-application-insights-resource"></a>Steg 4: ansluta till en Application Insights-resurs
 
 För att slutföra det här steget måste du ha ett program-ID och en API-nyckel för din resurs. Du kan hämta dem från Azure Portal, som du ser i följande diagram:
 
@@ -92,7 +88,7 @@ När du skapar egna frågor måste du kontrol lera att de fungerar korrekt i Ana
     
     ![Konfigurations fönster för Analytics-fråga](./media/automate-with-flow/5-query.png)
 
-### <a name="step-6-configure-the-flow-to-send-email"></a>Steg 6: Konfigurera flödet för att skicka e-post
+### <a name="step-6-configure-the-flow-to-send-email"></a>Steg 6: konfigurera flödet för att skicka e-post
 
 1. Sök efter **Office 365 Outlook**.
 2. Klicka på **Office 365 Outlook – skicka ett e-postmeddelande**.
@@ -121,9 +117,9 @@ När du skapar egna frågor måste du kontrol lera att de fungerar korrekt i Ana
 
 ### <a name="step-7-save-and-test-your-flow"></a>Steg 7: Spara och testa ditt flöde
 
-Klicka på **Spara**.
+Klicka på **Save** (Spara).
 
-Du kan vänta tills utlösaren har kört den här åtgärden, eller så ![kan du klicka på](./media/automate-with-flow/testicon.png) test ikonen för bägaren överst.
+Du kan vänta tills utlösaren kör den här åtgärden, eller så kan du klicka på ![beaker testikon ](./media/automate-with-flow/testicon.png) **test** överst.
 
 Efter val av **test**:
 

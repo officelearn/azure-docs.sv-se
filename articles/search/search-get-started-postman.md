@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
 ms.openlocfilehash: ffa20599ae57908f9b0ea848ab68f41a3d0e2a14
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72176043"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Snabb start: skapa ett Azure Search-index i Postman med hjälp av REST API: er
@@ -47,7 +47,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomst nyckeln](media/search-get-started-postman/get-url-key.png "Hämta en http-slutpunkt och åtkomst nyckel")
+![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
 Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -68,7 +68,7 @@ Rubrik sammansättning för begäran innehåller två element, innehålls typ, p
 
 I Postman formulerar du en begäran som ser ut som på följande skärm bild. Välj **Hämta** som verb, ange URL och klicka på **Skicka**. Det här kommandot ansluter till Azure Search, läser samlingen indexs och returnerar HTTP-statuskod 200 vid en lyckad anslutning. Om din tjänst redan har index, innehåller svaret även index definitioner.
 
-URL för ![Postman-begäran och rubrik](media/search-get-started-postman/postman-url.png "Postman-URL och rubrik")
+![URL och rubrik för Postman-begäran](media/search-get-started-postman/postman-url.png "URL och rubrik för Postman-begäran")
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
@@ -86,7 +86,7 @@ Så här gör du i Postman:
 
 4. Klicka på **Skicka**.
 
-![INDEXERA JSON-dokument i text](media/search-get-started-postman/postman-request.png "index JSON-dokument i brödtext för begäran")
+![Indexera JSON-dokument i brödtext i begäran](media/search-get-started-postman/postman-request.png "Indexera JSON-dokument i brödtext i begäran")
 
 ### <a name="index-definition"></a>Indexdefinition
 
@@ -140,7 +140,7 @@ Så här gör du i Postman:
 
 4. Klicka på **Skicka**.
 
-![JSON-dokument i begär ande text](media/search-get-started-postman/postman-docs.png "JSON-dokument i brödtext")
+![JSON-dokument i brödtext i begäran](media/search-get-started-postman/postman-docs.png "JSON-dokument i brödtext i begäran")
 
 ### <a name="json-documents-to-load-into-the-index"></a>JSON-dokument som ska läsas in i indexet
 
@@ -253,7 +253,7 @@ Så här gör du i Postman:
 
 Den här frågan är tom och returnerar antalet dokument i Sök resultatet. Begäran och svar bör se ut som skärmbilden från Postman nedan efter att du klickat på **Skicka**. Statuskoden ska vara 200.
 
- ![Hämta med Sök strängen i URL: en](media/search-get-started-postman/postman-query.png "med Sök strängen på URL: en")
+ ![Hämta med Sök sträng på URL: en](media/search-get-started-postman/postman-query.png "Hämta med Sök sträng på URL: en")
 
 Testa några andra exempel frågor för att få en känsla för syntaxen. Du kan göra en strängs ökning, orda Grant $filter frågor, begränsa resultat uppsättningen, begränsa sökningen till vissa fält med mera.
 
@@ -286,7 +286,7 @@ Om du lägger till `/stats` till URL: en returneras index information. Din begä
 
  ![Hämta index information](media/search-get-started-postman/postman-system-query.png "Hämta index information")
 
-Observera att syntaxen för API-versionen ser annorlunda ut här. Denna begäran använder `?` för att lägga till API-versionen. @No__t-0 separerar URL-sökvägen från frågesträngen, medan & separerar varje namn = värde-par i frågesträngen. I den här frågan är API-versionen det första och enda objektet i frågesträngen.
+Observera att syntaxen för API-versionen ser annorlunda ut här. Denna begäran använder `?` för att lägga till API-versionen. @No__t_0 separerar URL-sökvägen från frågesträngen medan & separerar varje "Name = Value"-par i frågesträngen. I den här frågan är API-versionen det första och enda objektet i frågesträngen.
 
 ## <a name="clean-up"></a>Rensa
 

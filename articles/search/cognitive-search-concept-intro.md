@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 08/15/2019
 ms.author: heidist
 ms.openlocfilehash: aa8ab3a3bc2f243e8b0ee404228926ef46bc46db
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266395"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är "kognitiv sökning" i Azure Search?
@@ -25,7 +25,7 @@ Kognitiv sökning är en AI-funktion i Azure Search som används för att extrah
 
 ![Pipeline-diagram för kognitiv sökning](./media/cognitive-search-intro/cogsearch-architecture.png "Översikt över pipeline-sökning")
 
-Kognitiva kunskaper i Azure Search baseras på maskin inlärnings modeller i API:er för Cognitive Services: [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) -och [text analys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+Kognitiva kunskaper i Azure Search baseras på maskin inlärnings modeller i API:er för Cognitive Services: [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) och [text analys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
 Naturligt språk och bild bearbetning används under fasen för data inmatning, med resultat som blir en del av ett dokuments sammansättning i ett sökbart index i Azure Search. Data visas som en Azure-datauppsättning och flyttas sedan till en indexerings pipeline med hjälp av de [inbyggda kunskaper](cognitive-search-predefined-skills.md) du behöver. Arkitekturen är utöknings bar så om de inbyggda färdigheterna inte räcker kan du skapa och koppla [anpassade kunskaper](cognitive-search-create-custom-skill-example.md) för att integrera anpassad bearbetning. Exempel kan vara en anpassad enhets-eller dokument klassificerare som riktar sig till en speciell domän, till exempel ekonomi, vetenskapliga publikationer eller medicin.
 
@@ -57,15 +57,15 @@ Anpassade kunskaper kan stödja mer komplexa scenarier, till exempel igenkännin
 
 En kognitiv sökning-pipeline baseras på [Azure Search *indexerare* ](search-indexer-overview.md) som crawlar data källor och tillhandahåller index bearbetning från slut punkt till slut punkt. Färdigheterna är nu kopplade till indexerare, fångar upp och berikar dokument enligt de färdigheter som du definierar. När du har indexerat kan du komma åt innehåll via Sök begär Anden via alla [frågetyper som stöds av Azure Search](search-query-overview.md).  Om du inte har använt indexerare i det här avsnittet vägleder vi dig genom stegen.
 
-### <a name="step-1-connection-and-document-cracking-phase"></a>Steg 1: Fasen för anslutning och dokument sprickor
+### <a name="step-1-connection-and-document-cracking-phase"></a>Steg 1: anslutnings-och dokument sprickors fas
 
 I början av pipelinen har du ostrukturerad text eller innehåll som inte är text (till exempel bilder och skannade dokument JPEG-filer). Data måste finnas i en Azure Data Storage-tjänst som kan nås av en indexerare. Indexerare kan "knäcka" käll dokument för att extrahera text från källdata.
 
-![Dokument sprickors fas](./media/cognitive-search-intro/document-cracking-phase-blowup.png "dokument sprickor")
+![Dokument sprickors fas](./media/cognitive-search-intro/document-cracking-phase-blowup.png "Dokument sprickor")
 
  Källor som stöds är Azure Blob Storage, Azure Table Storage, Azure SQL Database och Azure Cosmos DB. Textbaserat innehåll kan extraheras från följande filtyper: PDF-filer, Word-, PowerPoint-och CSV-filer. En fullständig lista finns i [format som stöds](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Steg 2: Kognitiva färdigheter och anriknings fas
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Steg 2: kognitiva kunskaper och anriknings fas
 
 Berikning är genom *kognitiva kunskaper* som utför atomiska åtgärder. När du har text innehåll från en PDF kan du till exempel använda identifiering av enhets igenkännings språk, eller extrahering av nyckel fraser för att skapa nya fält i indexet som inte är tillgängliga i källan. Den samling med kunskaper som används i din pipeline kallas helt en *färdigheter*.  
 
@@ -81,7 +81,7 @@ Internt genererar pipelinen en samling av förrikade dokument. Du kan bestämma 
 
 Genom att lägga till ett kunskaps lager till en färdigheter kan du projicera en representation av dina kunskaper för andra scenarier än fullständig texts ökning. Mer information finns i [Vad är kunskaps lager](knowledge-store-concept-intro.md).
 
-### <a name="step-3-search-index-and-query-based-access"></a>Steg 3: Sök index och fråge-baserad åtkomst
+### <a name="step-3-search-index-and-query-based-access"></a>Steg 3: Sök efter index och fråge baserad åtkomst
 
 När bearbetningen är färdig har du ett sökindex som består av omfattande dokument, fullständigt text – sökbar i Azure Search. Att [fråga indexet](search-query-overview.md) är hur utvecklare och användare får åtkomst till det innehåll som genereras av pipelinen. 
 
@@ -97,35 +97,35 @@ Index genereras från ett index schema som definierar fält, attribut och andra 
 
 | Begrepp | Beskrivning| Länkar |
 |---------|------------|-------|
-| Kompetensuppsättning | En namngiven resurs på översta nivån som innehåller en samling kunskaper. En färdigheter är en pipeline för anrikning. Den anropas vid indexering av en indexerare. | [Definiera en färdigheter](cognitive-search-defining-skillset.md) |
+| färdigheter | En namngiven resurs på översta nivån som innehåller en samling kunskaper. En färdigheter är en pipeline för anrikning. Den anropas vid indexering av en indexerare. | [Definiera en färdigheter](cognitive-search-defining-skillset.md) |
 | Kognitiva kunskaper | En atomisk omvandling i en anriknings pipeline. Ofta är det en komponent som extraherar eller härleder struktur, och därmed förstärker din förståelse av indata. Nästan alltid är utdatan textbaserad och bearbetningen är en text-och bearbetnings bearbetning av naturligt språk eller bild bearbetning som extraherar eller genererar text från bildfiler. Utdata från en färdighet kan mappas till ett fält i ett index eller användas som indata för en underordnad berikning. En kunskap är antingen fördefinierad och tillhandahålls av Microsoft, eller anpassad: skapas och distribueras av dig. | [Fördefinierade kunskaper](cognitive-search-predefined-skills.md) |
-| Extrahering av data | Omfattar ett brett utbud av bearbetning, men tillhör kognitiv sökning, används vanligt vis för att extrahera data (en entitet) från en källa som inte tillhandahåller den informationen internt. | [Kompetens för enhets igenkänning](cognitive-search-skill-entity-recognition.md)| 
+| Data extrahering | Omfattar ett brett utbud av bearbetning, men tillhör kognitiv sökning, används vanligt vis för att extrahera data (en entitet) från en källa som inte tillhandahåller den informationen internt. | [Kompetens för enhets igenkänning](cognitive-search-skill-entity-recognition.md)| 
 | Bearbetning av avbildning | Härleder text från en bild, till exempel möjlighet att identifiera ett landmärke eller extrahera text från en bild. Vanliga exempel är OCR för att lyfta tecken från en JPEG-fil (scannad dokument) eller som identifierar ett gatu namn i ett fotografi som innehåller ett gatu tecken. | [Bild analys kunskaper](cognitive-search-skill-image-analysis.md) eller [OCR-kunskaper](cognitive-search-skill-ocr.md)
 | Bearbetning av naturligt språk | Text bearbetning för insikter och information om text inmatningar. Språk identifiering, sentiment analys och extrahering av nyckel fraser är kunskaper som omfattas av bearbetning av naturligt språk.  | [Extrahering av diskussionsämne kunskaper](cognitive-search-skill-keyphrases.md), [Språkidentifiering kunskaper](cognitive-search-skill-language-detection.md), [Attitydanalys kunskaper](cognitive-search-skill-sentiment.md) |
 | Dokument sprickor | Processen att extrahera eller skapa text innehåll från icke-text källor under indexering. Optisk tecken läsning (OCR) är ett exempel, men vanligt vis refererar det till funktioner för kärn funktioner som indexeraren extraherar innehåll från programfiler. Data källan som tillhandahåller käll fils platsen och index definitions definitionen som tillhandahåller fält mappningar är båda viktiga faktorer i dokument sprickor. | Se [indexerare](search-indexer-overview.md) |
 | Givning | Konsolidera text fragment i en större struktur eller dela upp större text segment i en hanterbar storlek för ytterligare bearbetning i följd. | [Formaren skicklighet](cognitive-search-skill-shaper.md), [text fusions kompetens](cognitive-search-skill-textmerger.md), [text delnings kunskaper](cognitive-search-skill-textsplit.md) |
 | Omfattande dokument | En intern överförings struktur, som genereras under bearbetningen, med slutliga utdata som avspeglas i ett sökindex. En färdigheter bestämmer vilka-anrikningar som utförs. Fält mappningar avgör vilka data element som läggs till i indexet. Du kan också skapa ett kunskaps lager för att hålla kvar och utforska omfattande dokument med verktyg som Storage Explorer, Power BI eller andra verktyg som ansluter till Azure Blob Storage. | Se [Knowledge Store (för hands version)](knowledge-store-concept-intro.md). |
 | Indexerare |  En Crawler som extraherar sökbara data och metadata från en extern data källa och fyller i ett index baserat på fält-till-fält-mappningar mellan indexet och data källan för dokument sprickor. För kognitiva sökanrikninger anropar indexeraren en färdigheter och innehåller fält mappningarna som kopplar berikade utdata till mål fält i indexet. Index definitions definitionen innehåller alla instruktioner och referenser för pipeline-åtgärder och pipelinen anropas när du kör indexeraren. | [Indexerare](search-indexer-overview.md) |
-| Datakälla  | Ett objekt som används av en indexerare för att ansluta till en extern data källa med typer som stöds i Azure. | Se [indexerare](search-indexer-overview.md) |
+| Data Källa  | Ett objekt som används av en indexerare för att ansluta till en extern data källa med typer som stöds i Azure. | Se [indexerare](search-indexer-overview.md) |
 | Index | Ett beständigt sökindex i Azure Search som bygger på ett index schema som definierar fält strukturen och användningen. | [Index i Azure Search](search-what-is-an-index.md) | 
 
 <a name="where-do-i-start"></a>
 
 ## <a name="where-do-i-start"></a>Vad ska jag börja med?
 
-**Steg 1: [Skapa en Azure Search resurs](search-create-service-portal.md)** 
+**Steg 1: [skapa en Azure Search resurs](search-create-service-portal.md)** 
 
-**Steg 2: Prova några snabb starter och exempel för praktisk upplevelse**
+**Steg 2: testa några snabb starter och exempel för praktisk upplevelse**
 
 + [Snabb start (portal)](cognitive-search-quickstart-blob.md)
 + [Självstudie (HTTP-förfrågningar)](cognitive-search-tutorial-blob.md)
-+ [Exempel: Skapa en anpassad färdighet för kognitiv sökning (C#)](cognitive-search-create-custom-skill-example.md)
++ [Exempel: skapa en anpassad färdighet för kognitiv sökning (C#)](cognitive-search-create-custom-skill-example.md)
 
 Vi rekommenderar den kostnads fria tjänsten i inlärnings syfte, men antalet kostnads fria transaktioner är begränsat till 20 dokument per dag. Om du vill köra både snabb starten och självstudien på en dag, använder du en mindre fil uppsättning (10 dokument) så att du kan få plats i båda övningarna eller ta bort den indexerare som du använde i snabb starten eller självstudien.
 
-**Steg 3: Granska API: et**
+**Steg 3: granska API: et**
 
-Du kan använda rest `api-version=2019-05-06` on-begäranden eller .NET SDK. 
+Du kan använda REST-`api-version=2019-05-06` på begär Anden eller .NET SDK. 
 
 I det här steget används REST-API: er för att bygga en kognitiv Sök lösning. Endast två API: er har lagts till eller utökas för kognitiv sökning. Andra API: er har samma syntax som de allmänt tillgängliga versionerna.
 
@@ -136,7 +136,7 @@ I det här steget används REST-API: er för att bygga en kognitiv Sök lösning
 | [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Ett schema som uttrycker ett Azure Search-index. Fält i index kartan till fält i källdata eller till fält som tillverkas under anriknings fasen (till exempel ett fält för organisations namn som skapats av enhets igenkänning). |
 | [Skapa indexerare (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som definierar komponenter som används vid indexering: inklusive en data källa, en färdigheter, fält associationer från käll-och mellanliggande data strukturer till mål index och själva indexet. Att köra indexeraren är utlösaren för data inmatning och berikning. Utdata är ett sökindex baserat på index schemat, ifyllt med källdata, berikade med färdighetsuppsättningar. Detta befintliga API utökas för kognitiva Sök scenarier med inkludering av en färdigheter-egenskap. |
 
-**Initialiseringschecklistan Ett typiskt arbets flöde**
+**Check lista: ett typiskt arbets flöde**
 
 1. Delmängd dina Azure-källdata i ett representativt exempel. Indexeringen tar tid så att den börjar med en liten, representativ data uppsättning och sedan skapar den stegvis i takt med att din lösning är vuxen.
 
@@ -161,7 +161,7 @@ Mer information om vissa frågor eller problem finns i [fel söknings tips](cogn
 ## <a name="next-steps"></a>Nästa steg
 
 + [Dokumentation om kognitiv sökning](cognitive-search-resources-documentation.md)
-+ [Snabbstart: Prova kognitiv sökning i en portal genom gång](cognitive-search-quickstart-blob.md)
-+ [Självstudier: Lär dig de kognitiva Sök-API: erna](cognitive-search-tutorial-blob.md)
++ [Snabb start: prova kognitiv sökning i en portal genom gång](cognitive-search-quickstart-blob.md)
++ [Självstudie: Lär dig mer om API: er för kognitiv sökning](cognitive-search-tutorial-blob.md)
 + [Översikt över kunskaps lager](knowledge-store-concept-intro.md)
 + [Genom gång av kunskaps lager](knowledge-store-howto.md)

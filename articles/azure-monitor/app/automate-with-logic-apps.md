@@ -1,77 +1,73 @@
 ---
-title: Automatisera Azure Application Insights processer med hjälp av Logic Apps.
-description: Lär dig hur du snabbt kan automatisera upprepade processer genom att lägga till Application Insights-anslutningsappen i logikappen.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Automatisera Azure Application insikter-processer med hjälp av Logic Apps.
+description: Lär dig hur du snabbt kan automatisera upprepade processer genom att lägga till Application Insights Connector i din Logic app.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/11/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/11/2019
+ms.openlocfilehash: 8211598071d0835a32f9e25cfcf4e34576702770
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60904838"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677604"
 ---
-# <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatisera processer för Application Insights med hjälp av Logic Apps
+# <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatisera Application Insights processer med Logic Apps
 
-Hittar du själv upprepade gånger köra samma frågor på dina telemetridata för att kontrollera om din tjänst fungerar korrekt? Vill du automatisera de här frågorna för att hitta trender och avvikelser och sedan skapa dina egna arbetsflöden runt dem? Azure Application Insights-anslutningsapp för Logic Apps är rätt verktyg för detta ändamål.
+Hittar du dig själv upprepade gånger med samma frågor på dina telemetridata för att kontrol lera om tjänsten fungerar korrekt? Vill du automatisera de här frågorna för att hitta trender och avvikelser och sedan bygga egna arbets flöden runt dem? Azure Application Insights-anslutaren för Logic Apps är rätt verktyg för det här ändamålet.
 
-Med den här integrationen kan du automatisera många processer utan att behöva skriva en enda rad kod. Du kan skapa en logikapp med Application Insights-anslutningsprogrammet för att automatisera snabbt en Application Insights-process. 
+Med den här integreringen kan du automatisera flera processer utan att behöva skriva en enda rad kod. Du kan skapa en Logic-app med Application Insights-anslutningen för att snabbt automatisera eventuella Application Insights processer. 
 
-Du kan lägga till ytterligare åtgärder samt. Logic Apps-funktionen i Azure App Service tillgängliggör hundratals åtgärder. Till exempel med hjälp av en logikapp, kan du automatiskt skicka ett e-postmeddelande eller skapa en bugg i Azure DevOps. Du kan också använda en av många tillgängliga [mallar](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) för att påskynda processen för att skapa din logikapp. 
+Du kan också lägga till ytterligare åtgärder. Logic Apps funktionen i Azure App Service gör hundratals åtgärder tillgängliga. Genom att använda en Logic app kan du till exempel automatiskt skicka ett e-postmeddelande eller skapa en bugg i Azure-DevOps. Du kan också använda en av de många tillgängliga [mallarna](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) för att påskynda processen med att skapa din Logic app. 
 
-## <a name="create-a-logic-app-for-application-insights"></a>Skapa en logikapp för Application Insights
+## <a name="create-a-logic-app-for-application-insights"></a>Skapa en Logic app för Application Insights
 
-I den här självstudien får du lära dig hur du skapar en logikapp som använder algoritmen Analytics autocluster grupp attribut i data för ett webbprogram. Flödet skickar automatiskt resultaten via e-post, bara ett exempel på hur du kan använda Application Insights Analytics och Logic Apps tillsammans. 
+I den här självstudien får du lära dig hur du skapar en Logic-app som använder algoritmen för analys av utdata för att gruppera attribut i data för ett webb program. Flödet skickar automatiskt resultaten per e-post, bara ett exempel på hur du kan använda Application Insights Analytics och Logic Apps tillsammans. 
 
-### <a name="step-1-create-a-logic-app"></a>Steg 1: Skapa en logikapp
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Klicka på **skapa en resurs**väljer **webb + mobilt**, och välj sedan **Logikapp**.
+### <a name="step-1-create-a-logic-app"></a>Steg 1: skapa en Logic app
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Klicka på **skapa en resurs**, Välj **webb och mobilt**och välj sedan **Logic app**.
 
-    ![Nytt logic app-fönster](./media/automate-with-logic-apps/1createlogicapp.png)
+    ![Nytt Logic app-fönster](./media/automate-with-logic-apps/1createlogicapp.png)
 
-### <a name="step-2-create-a-trigger-for-your-logic-app"></a>Steg 2: Skapa en utlösare för din logikapp
-1. I den **Logic App Designer** fönstret under **börja med en vanlig utlösare**väljer **upprepning**.
+### <a name="step-2-create-a-trigger-for-your-logic-app"></a>Steg 2: skapa en utlösare för din Logic app
+1. I fönstret **Logic App Designer** , under **börja med en gemensam utlösare**, väljer du **upprepning**.
 
-    ![Logic App Designer-fönstret](./media/automate-with-logic-apps/2logicappdesigner.png)
+    ![Fönstret Logic App Designer](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. I den **intervall** skriver **1** och sedan,**frekvens** väljer **dag**.
+1. I rutan **intervall** skriver du **1** och sedan,**frekvens** Box, väljer du **dag**.
 
-    ![Logic App Designer ”återkommande” fönster](./media/automate-with-logic-apps/3recurrence.png)
+    ![Fönstret Logic App Designer "upprepning"](./media/automate-with-logic-apps/3recurrence.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>Steg 3: Lägg till en Application Insights-åtgärd
 1. Klicka på **nytt steg**.
 
-1. I den **Välj en åtgärd** Sök-rutan, skriver du in **Azure Application Insights**.
+1. I sökrutan **Välj en åtgärd** skriver du **Azure Application Insights**.
 
-1. Under **åtgärder**, klickar du på **Azure Application Insights - visualisera analysfråga**.
+1. Under **åtgärder**klickar du på **Azure Application Insights-visualisera analys fråga**.
 
-    ![Fönstret ”Välj en åtgärd” på Logic App Designer](./media/automate-with-logic-apps/4visualize.png)
+    ![Logic App Designer "Välj en åtgärd"-fönstret](./media/automate-with-logic-apps/4visualize.png)
 
-### <a name="step-4-connect-to-an-application-insights-resource"></a>Steg 4: Anslut till en Application Insights-resurs
+### <a name="step-4-connect-to-an-application-insights-resource"></a>Steg 4: ansluta till en Application Insights-resurs
 
-För att slutföra det här steget behöver du ett program-ID och en API-nyckel för din resurs. Du kan hämta dem från Azure-portalen, enligt följande diagram:
+För att slutföra det här steget måste du ha ett program-ID och en API-nyckel för din resurs. Du kan hämta dem från Azure Portal, som du ser i följande diagram:
 
-![Program-ID i Azure portal](./media/automate-with-logic-apps/5apiaccess.png)
+![Program-ID i Azure Portal](./media/automate-with-logic-apps/5apiaccess.png)
 
-![Program-ID i Azure portal](./media/automate-with-logic-apps/6apikey.png)
+![Program-ID i Azure Portal](./media/automate-with-logic-apps/6apikey.png)
 
 Ange ett namn för anslutningen, program-ID och API-nyckeln.
 
-![Fönstret för Logic App Designer flow anslutning](./media/automate-with-logic-apps/7connection.png)
+![Flödes anslutnings fönster för Logic App Designer](./media/automate-with-logic-apps/7connection.png)
 
-### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Steg 5: Ange Analytics-fråga och diagram
-I följande exempel frågan väljer misslyckade förfrågningar under den senaste dagen och kopplar dem med undantag som inträffat som en del av åtgärden. Analytics kopplat till misslyckade förfrågningar, baserat på operation_Id identifierare. Frågan segment sedan resultatet med hjälp av algoritmen autocluster. 
+### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Steg 5: Ange analys frågan och diagram typen
+I följande exempel väljer frågan de misslyckade förfrågningarna under den senaste dagen och korrelerar dem med undantag som inträffat som en del av åtgärden. Analytics korrelerar de misslyckade förfrågningarna baserat på operation_Id-ID. Frågan delar sedan resultatet med hjälp av algoritmen för autokluster. 
 
-När du skapar egna frågor kan du kontrollera att de fungerar korrekt i Analytics innan du lägger till den i ditt flöde.
+När du skapar egna frågor måste du kontrol lera att de fungerar korrekt i Analytics innan du lägger till dem i ditt flöde.
 
-1. I den **fråga** lägger du till följande Analytics-frågan:
+1. I rutan **fråga** lägger du till följande analys fråga:
 
     ```
     requests
@@ -84,58 +80,58 @@ När du skapar egna frågor kan du kontrollera att de fungerar korrekt i Analyti
     | evaluate autocluster()
     ```
 
-1. I den **diagramtyp** väljer **Html-tabell**.
+1. I rutan **diagram typ** väljer du **HTML-tabell**.
 
-    ![Konfigurationsfönstret i Analytics-fråga](./media/automate-with-logic-apps/8query.png)
+    ![Konfigurations fönster för Analytics-fråga](./media/automate-with-logic-apps/8query.png)
 
-### <a name="step-6-configure-the-logic-app-to-send-email"></a>Steg 6: Konfigurera logikapp för att skicka e-post
+### <a name="step-6-configure-the-logic-app-to-send-email"></a>Steg 6: Konfigurera Logic-appen för att skicka e-post
 
 1. Klicka på **nytt steg**.
 
-1. I sökrutan skriver **Office 365 Outlook**.
+1. Skriv **Office 365 Outlook**i rutan Sök.
 
 1. Klicka på **Office 365 Outlook – skicka ett e-postmeddelande**.
 
-    ![Office 365 Outlook val](./media/automate-with-logic-apps/9sendemail.png)
+    ![Office 365 Outlook-val](./media/automate-with-logic-apps/9sendemail.png)
 
-1. I den **skicka ett e-postmeddelande** fönstret gör du följande:
+1. I fönstret **Skicka ett e-postmeddelande** gör du följande:
 
-   a. Ange e-postadressen till mottagaren.
+   a. Ange mottagarens e-postadress.
 
    b. Ange ett ämne för e-postmeddelandet.
 
-   c. Klicka på den **brödtext** rutan och sedan på dynamiskt innehåll-menyn som öppnas till höger väljer **brödtext**.
+   c. Klicka någonstans i **text** rutan och välj sedan **brödtext**på menyn för dynamiskt innehåll som öppnas till höger.
     
-   d. Klicka på den **Lägg till ny parameter** listrutan och välj bilagor och är HTML.
+   d. Klicka på list rutan **Lägg till ny parameter** och välj bilagor och är HTML.
 
       ![Office 365 Outlook-konfiguration](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Office 365 Outlook-konfiguration](./media/automate-with-logic-apps/11emailparameter.png)
 
-1. På menyn om dynamiskt innehåll, gör du följande:
+1. Gör följande på menyn för dynamiskt innehåll:
 
-    a. Välj **Bilagenamn**.
+    a. Välj **namn på bifogad fil**.
 
-    b. Välj **innehåll i bifogad fil**.
+    b. Välj **innehåll för bifogad fil**.
     
-    c. I den **är HTML** väljer **Ja**.
+    c. I rutan **är HTML** väljer du **Ja**.
 
-      ![Skärm för konfiguration av e-post i Office 365](./media/automate-with-logic-apps/12emailattachment.png)
+      ![Skärm bild för Office 365-e-postkonfiguration](./media/automate-with-logic-apps/12emailattachment.png)
 
-### <a name="step-7-save-and-test-your-logic-app"></a>Steg 7: Spara och testa din logikapp
-* Klicka på **spara** att spara dina ändringar.
+### <a name="step-7-save-and-test-your-logic-app"></a>Steg 7: Spara och testa din Logic app
+* Klicka på **Spara** för att spara ändringarna.
 
-Du kan vänta på att utlösaren ska köras logikappen eller du kan köra logikappen omedelbart genom att välja **kör**.
+Du kan vänta på att utlösaren ska köra Logic-appen, eller så kan du köra Logic-appen direkt genom att välja **Kör**.
 
-![Skapa Logic app-skärmen](./media/automate-with-logic-apps/13save.png)
+![Skärmen för att skapa logiska appar](./media/automate-with-logic-apps/13save.png)
 
-När logikappen körs får de mottagare som du angav i e-postlistan ett e-postmeddelande som ser ut som följande:
+När din Logic App körs får mottagarna du angav i e-postlistan ett e-postmeddelande som ser ut ungefär så här:
 
-![Logic app e-postmeddelande](./media/automate-with-logic-apps/flow9.png)
+![E-postmeddelande för Logic app](./media/automate-with-logic-apps/flow9.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur du skapar [analysfrågor](../../azure-monitor/log-query/get-started-queries.md).
+- Lär dig mer om att skapa [analys frågor](../../azure-monitor/log-query/get-started-queries.md).
 - Läs mer om [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

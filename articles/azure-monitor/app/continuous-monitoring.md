@@ -1,20 +1,18 @@
 ---
 title: Kontinuerlig övervakning av din DevOps release-pipeline med Azure-pipeline och Azure Application Insights | Microsoft Docs
 description: Innehåller instruktioner för att snabbt konfigurera kontinuerlig övervakning med Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/16/2019
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c39a2f75fe74b61463af464078b4446bba07dec0
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c891cc7564a60dfd665d84d569e266332d255fa9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277667"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677523"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din versions pipeline
 
@@ -26,7 +24,7 @@ Med kontinuerlig övervakning kan lanserings pipelines omfatta övervaknings dat
 
 1. I [Azure DevOps](https://dev.azure.com)väljer du en organisation och ett projekt.
    
-1. På den vänstra menyn på sidan projekt väljer du **pipelines** > **releases**. 
+1. På den vänstra menyn på sidan projekt väljer du **pipelines**  > -**versioner**. 
    
 1. Släpp pilen bredvid **ny** och välj **ny versions pipeline**. Eller, om du inte har en pipeline ännu, väljer du **ny pipeline** på sidan som visas.
    
@@ -40,7 +38,7 @@ Med kontinuerlig övervakning kan lanserings pipelines omfatta övervaknings dat
 
 1. I konfigurations fönstret **steg 1** fyller du i följande fält: 
 
-    | Parameter        | Value |
+    | Parameter        | Värde |
    | ------------- |:-----|
    | **Namn på fas**      | Ange ett stadium namn eller lämna det i **steg 1**. |
    | **Azure-prenumeration** | List rutan och välj den länkade Azure-prenumeration som du vill använda.|
@@ -53,7 +51,7 @@ Med kontinuerlig övervakning kan lanserings pipelines omfatta övervaknings dat
 
 ## <a name="modify-alert-rules"></a>Ändra aviserings regler
 
-I rutan har **Azure App service distribution med kontinuerlig övervakning** fyra aviserings regler: **Tillgänglighet**, **misslyckade förfrågningar**, **Server svars tid**och **Server undantag**. Du kan lägga till fler regler eller ändra regel inställningarna så att de uppfyller dina service nivå behov. 
+I rutan har **Azure App service distribution med kontinuerlig övervakning** fyra aviserings regler: **tillgänglighet**, **misslyckade förfrågningar**, **Server svars tid**och **Server undantag**. Du kan lägga till fler regler eller ändra regel inställningarna så att de uppfyller dina service nivå behov. 
 
 Ändra inställningar för varnings regler:
 

@@ -28,19 +28,17 @@
     - name: Exempel för Azure Cache for Redis
       href: cache-redis-samples.md
     - name: Azure PowerShell
-      href: cache-howto-manage-redis-cache-powershell.md
+      href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
 - name: Begrepp
   items:
-    - name: Metodtips
-      items:
-        - name: Metodtips för Azure Cache for Redis
-          href: cache-best-practices.md
-        - name: Metodtips för cachelagring på Azure-arkitektur
-          href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-    - name: Så här fungerar redundans och korrigering
+    - name: Bästa praxis
+      href: cache-best-practices.md
+    - name: Redundans och korrigering
       href: cache-failover.md
+    - name: Metodtips för cachelagring på arkitektur
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: Instruktionsguider
   items:
     - name: Planera
@@ -58,19 +56,25 @@
     - name: Automatisera
       items:
         - name: Distribuera och hantera med Azure Powershell
-          href: cache-howto-manage-redis-cache-powershell.md
+          href: cache-how-to-manage-redis-cache-powershell.md
         - name: Distribuera och hantera med Azure CLI
           href: cli-samples.md
         - name: Om Azure Cache for Redis
           href: cache-redis-cache-arm-provision.md
         - name: Etablera en webbapp med Azure Cache for Redis
           href: cache-web-app-arm-with-redis-cache-provision.md
-    - name: Integrera med ASP.NET
+    - name: Integrera med program
       items:
-        - name: Sessionstillståndsprovider
-          href: cache-aspnet-session-state-provider.md
-        - name: Utdatacacheprovider
-          href: cache-aspnet-output-cache-provider.md
+        - name: ASP.NET
+          items:
+            - name: Använda sessionstillståndsprovider
+              href: cache-aspnet-session-state-provider.md
+            - name: Använda utdatacacheprovider
+              href: cache-aspnet-output-cache-provider.md
+        - name: Java Spring
+          items:
+            - name: Använda Spring Boot-initiering
+              href: cache-java-spring-boot-initializer-with-redis-cache.md
     - name: Hantera
       items:
         - name: Konfigurera i Azure Portal
@@ -85,24 +89,28 @@
           href: 'cache-administration.md#schedule-updates'
         - name: Konfigurera åtkomst till redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
-    - name: Övervaka och felsök
+    - name: Övervaka
       items:
         - name: Övervaka i Azure Portal
           href: cache-how-to-monitor.md
-        - name: Felsök cacheproblem
-          href: cache-how-to-troubleshoot.md
         - name: Ställ in aviseringar för undantag
           href: 'cache-how-to-monitor.md#operations-and-alerts'
+    - name: Diagnostisera och felsöka
+      items:
+        - name: Felsöka Redis-server
+          href: cache-how-to-troubleshoot-server.md
+        - name: Felsöka Redis-klient
+          href: cache-how-to-troubleshoot-client.md
+        - name: Felsöka tidsgränser
+          href: cache-how-to-troubleshoot-timeouts.md
+        - name: Felsöka dataförlust
+          href: cache-how-to-troubleshoot-data-loss.md
     - name: Skala
       items:
         - name: Uppdatera till en annan storlek och nivå
           href: cache-how-to-scale.md
         - name: Använd Redis-kluster för att skala in och ut
           href: cache-how-to-premium-clustering.md
-    - name: Integrera med Spring Boot
-      items:
-        - name: Använda en Spring Boot-initieringsapp med Azure Cache for Redis
-          href: cache-java-spring-boot-initializer-with-redis-cache.md
 - name: Referens
   items:
     - name: Kodexempel

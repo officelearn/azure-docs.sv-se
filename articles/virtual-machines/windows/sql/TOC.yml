@@ -64,9 +64,9 @@
           href: virtual-machines-windows-ps-sql-create.md
     - name: Registrera med resursprovidern
       href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: Ändra licensieringsmodell för SQL VM
+    - name: Ändra licensieringsmodell
       href: virtual-machines-windows-sql-ahb.md
-    - name: Ändra SQL Server-version
+    - name: Ändra utgåva
       href: virtual-machines-windows-sql-change-edition.md
     - name: Migrera
       items:
@@ -103,7 +103,7 @@
             - name: Med Lagringsdirigering
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
             - name: Med premiumfilresurs
-              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
+              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md
 - name: Referens
   items:
     - name: Azure PowerShell

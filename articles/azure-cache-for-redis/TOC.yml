@@ -98,13 +98,13 @@
     - name: Diagnostisera och felsöka
       items:
         - name: Felsöka Redis-server
-          href: cache-how-to-troubleshoot-server.md
+          href: cache-troubleshoot-server.md
         - name: Felsöka Redis-klient
-          href: cache-how-to-troubleshoot-client.md
+          href: cache-troubleshoot-client.md
         - name: Felsöka tidsgränser
-          href: cache-how-to-troubleshoot-timeouts.md
+          href: cache-troubleshoot-timeouts.md
         - name: Felsöka dataförlust
-          href: cache-how-to-troubleshoot-data-loss.md
+          href: cache-troubleshoot-data-loss.md
     - name: Skala
       items:
         - name: Uppdatera till en annan storlek och nivå

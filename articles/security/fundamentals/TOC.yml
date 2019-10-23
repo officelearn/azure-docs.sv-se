@@ -3,10 +3,6 @@
 - name: Arkitektur och design
   href: overview.md
   expanded: false
-  items: null
-- name: Arkitektur och design
-  href: overview.md
-  expanded: false
   items:
     - name: Delat ansvar i molnet
       href: shared-responsibility.md
@@ -232,16 +228,12 @@
   href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
 - name: Säkerhetstjänster i Azure
   href: services-technologies.md
-- name: Tekniska översikter
-  href: overviews.md
 - name: Bästa praxis
   href: best-practices-and-patterns.md
 - name: Resurser
   items:
     - name: Inbyggda säkerhetskontroller
       href: security-controls.md
-    - name: Azure-säkerhet MVP-program
-      href: mvp.md
     - name: Cybersäkerhetsrådgivning
       href: cyber-services.md
     - name: Logga ett supportärende för en säkerhetshändelse

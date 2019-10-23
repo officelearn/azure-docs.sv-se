@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 3ff1a119ed87c8bffff227679bec41bc653c0c42
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 47668169841cc2b180995808349487cefed02391
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718779"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754294"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Granska fakturering för företagsregistrering med hjälp av REST-API:er
 
@@ -78,7 +78,7 @@ Statuskoden 200 (OK) returneras för ett lyckat svar, som innehåller en lista m
 }
 ```  
 
-Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält och felhantering finns i [Hämta användningsinformation för ett faktureringskonto](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist).
+Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält och felhantering finns i [Hämta användningsinformation för ett faktureringskonto](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist-legacy).
 
 ## <a name="department-billing"></a>Avdelningsfakturering 
 
@@ -134,7 +134,7 @@ I följande exempel visas utdata från REST-API:et för avdelning `1234`.
 }
 ```  
 
-Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält och felhantering finns i [Hämta användningsinformation för en avdelning](/rest/api/consumption/usagedetails/list#departmentusagedetailslist).
+Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält och felhantering finns i [Hämta användningsinformation för en avdelning](/rest/api/consumption/usagedetails/list#departmentusagedetailslist-legacy).
 
 ## <a name="enrollment-account-billing"></a>Fakturering för registreringskonto
 
@@ -187,7 +187,7 @@ I följande exempel visas utdata från REST-API:et för företagsregistrering `1
 }
 ``` 
 
-Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält och felhantering finns i [Hämta användningsinformation för ett registreringskonto](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist).
+Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält och felhantering finns i [Hämta användningsinformation för ett registreringskonto](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy).
 
 ## <a name="next-steps"></a>Nästa steg 
 - Granska [Översikt över företagsrapportering](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

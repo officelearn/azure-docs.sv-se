@@ -1,5 +1,5 @@
 ---
-title: 'Funktioner: Åtgärd och kontext – Personanpassare'
+title: 'Funktioner: åtgärd och kontext – Personanpassare'
 titleSuffix: Azure Cognitive Services
 description: Personanpassare använder funktioner, information om åtgärder och kontext för att göra bättre rangordnings förslag. Funktioner kan vara mycket generiska eller bara för ett objekt.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2147ca2565d5977e3e47d5182627483aa3d8d1b2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989093"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756112"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
@@ -26,7 +26,7 @@ I personanpassaren används **funktioner**, som innehåller information om den *
 Du kan till exempel ha en **funktion** om:
 
 * _Användar personen_ , till exempel en `Sports_Shopper`. Detta bör inte vara ett enskilt användar-ID. 
-* _Innehållet_ , till exempel om en video är en `Documentary`, en `Movie`, eller en `TV Series`, eller om en butiks artikel är tillgänglig i butiken.
+* _Innehållet_ , till exempel om en video är en `Documentary`, en `Movie` eller en `TV Series` eller om en butiks artikel är tillgänglig i butiken.
 * Den _aktuella_ tids perioden, till exempel vilken veckodag det är.
 
 Personanpassaren anger inte, begränsar eller åtgärdar vilka funktioner du kan skicka för åtgärder och kontext:
@@ -43,8 +43,8 @@ En personanpassare stöder funktioner av typerna String, numeric och Boolean.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Hur valet av funktions typ påverkar Machine Learning i personanpassa
 
-* **Strängar**: För sträng typer skapar varje kombination av nyckel och värde nya vikter i personanpassa maskin inlärnings modell. 
-* **Numerisk**: Du bör använda numeriska värden när antalet ska proportionellt påverka anpassnings resultatet. Detta är mycket scenariot beroende. I ett förenklat exempel, t. ex. När du anpassar en återförsäljarversion, kan NumberOfPetsOwned vara en funktion som är numerisk eftersom du vill att personer med 2 eller tre hus djur ska påverka anpassnings resultatet två gånger eller tre gånger om så mycket som med 1 hus djur. Funktioner som baseras på numeriska enheter men där innebörden inte är linjär, till exempel ålder, temperatur eller person höjd – är bäst kodade som strängar, och funktions kvaliteten kan vanligt vis förbättras med hjälp av intervall. Till exempel kan ålder kodas som "ålder": "0-5", "Age": "6-10" osv.
+* **Strängar**: för sträng typer skapar varje kombination av nyckel och värde nya vikter i personanpassa maskin inlärnings modell. 
+* **Numerisk**: du bör använda numeriska värden när antalet ska proportionellt påverka anpassnings resultatet. Detta är mycket scenariot beroende. I ett förenklat exempel, t. ex. När du anpassar en återförsäljarversion, kan NumberOfPetsOwned vara en funktion som är numerisk eftersom du vill att personer med 2 eller tre hus djur ska påverka anpassnings resultatet två gånger eller tre gånger om så mycket som med 1 hus djur. Funktioner som baseras på numeriska enheter men där innebörden inte är linjär, till exempel ålder, temperatur eller person höjd – är bäst kodade som strängar, och funktions kvaliteten kan vanligt vis förbättras med hjälp av intervall. Till exempel kan ålder kodas som "ålder": "0-5", "Age": "6-10" osv.
 * **Booleska** värden som skickas med värdet "false" fungerar som om de inte hade har skickats över huvud taget.
 
 Funktioner som inte finns ska utelämnas från begäran. Undvik att skicka funktioner med ett null-värde eftersom det kommer att bearbetas som befintligt och med värdet "null" när du tränar modellen.
@@ -56,12 +56,12 @@ En personanpassare använder funktioner som är ordnade i namn områden. Du fast
 Följande är exempel på funktions namn rymder som används av program:
 
 * User_Profile_from_CRM
-* Time
+* Tid
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* Väder
+* Baserad
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
@@ -69,7 +69,7 @@ Följande är exempel på funktions namn rymder som används av program:
 Du kan namnge funktions namn rymder efter dina egna konventioner så länge de är giltiga JSON-nycklar. Namn områden används för att organisera funktioner i olika uppsättningar och för att disambiguate funktioner med liknande namn. Du kan tänka på namn områden som "prefix" som läggs till i funktions namn. Det går inte att kapsla namn områden.
 
 
-I följande JSON, `user`, `state`, och `device` är funktions namn rymder. Offentlig för hands versions anteckning: För närvarande rekommenderar vi starkt att du använder namn för funktions namn rymder som är UTF-8-baserade och börjar med olika bokstäver. Till `user`exempel `device` `u`,, och börjar med ,`s`, och `d`. `state` För närvarande har namn rymder med samma första tecken kan leda till konflikter i index som används för maskin inlärning.
+I följande JSON, `user`, `state` och `device` är funktions namn rymder. Allmän förhands gransknings anteckning: för närvarande rekommenderar vi starkt att du använder namn på funktions namn rymder som är UTF-8-baserade och börjar med olika bokstäver. Till exempel `user`, `state` och `device` börjar med `u`, `s` och `d`. För närvarande har namn rymder med samma första tecken kan leda till konflikter i index som används för maskin inlärning.
 
 JSON-objekt kan innehålla kapslade JSON-objekt och enkla egenskaper/värden. En matris kan bara tas med om mat ris elementen är siffror. 
 
@@ -97,6 +97,13 @@ JSON-objekt kan innehålla kapslade JSON-objekt och enkla egenskaper/värden. En
     ]
 }
 ```
+
+### <a name="restrictions-in-character-sets-for-namespaces"></a>Begränsningar i teckenuppsättningar för namn områden
+
+Strängen som du använder för att namnge namn området måste följa vissa begränsningar: 
+* Det får inte vara Unicode.
+* Du kan använda några av de utskrivbara symbolerna med koder < 256 för namn områdets namn. 
+* Du kan inte använda symboler med koder < 32 (inte utskrivbart), 32 (blank steg), 58 (kolon), 124 (pipe) och 126 – 140.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Så här gör du funktions uppsättningar mer effektiva för personligt anpassade
 
@@ -153,7 +160,7 @@ Varje åtgärd:
 * Har ett _händelse_ -ID. Om du redan har ett händelse-ID bör du skicka in det. Om du inte har något händelse-ID ska du inte skicka en, Personanpassare skapar en åt dig och returnerar den i svaret på ranknings förfrågan. ID: t är associerat med rang-händelsen, inte användaren. Om du skapar ett ID fungerar ett GUID bäst. 
 * Innehåller en lista med funktioner.
 * Listan över funktioner kan vara stor (hundratals) men vi rekommenderar att du utvärderar funktions effektiviteten för att ta bort funktioner som inte bidrar till att få några fördelar. 
-* Funktionerna i **åtgärderna** kan eller kanske inte har någon korrelation med funktioner i kontexten som används av personanpassan.
+* Funktionerna i **åtgärderna** kan eller kanske inte har någon korrelation med funktioner i **kontexten** som används av personanpassan.
 * Funktioner för åtgärder kan finnas i vissa åtgärder och inte andra. 
 * Funktioner för ett visst åtgärds-ID kan vara tillgängliga en dag, men senare blir det otillgängligt. 
 
@@ -168,7 +175,7 @@ De åtgärder som du skickar till ranknings-API: et beror på vad du försöker 
 
 Här följer några exempel:
 
-|Syfte|Action|
+|Syfte|Åtgärd|
 |--|--|
 |Anpassa vilken artikel som är markerad på en nyhets webbplats.|Varje åtgärd är en potentiell nyhets artikel.|
 |Optimera AD-placering på en webbplats.|Varje åtgärd är en layout eller regler för att skapa en layout för annonserna (till exempel överst, till höger, små bilder, stora bilder).|

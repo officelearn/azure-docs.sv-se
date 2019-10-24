@@ -1,29 +1,29 @@
 ---
-title: 'Snabbstart: Analysera bilder för stötande innehåll i C# – Content Moderator'
+title: 'Snabb start: analysera bilder för stötande C# innehåll i Content moderator'
 titleSuffix: Azure Cognitive Services
 description: Analysera bild innehåll för olika stötande material med hjälp av Content Moderator SDK för .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.author: sajagtap
-ms.openlocfilehash: 2a4726357e35fa123355d9ba450f7c6d8624fe78
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: pafarley
+ms.openlocfilehash: 3fdc3fa0b7c624558aef84f86afd85c5aedb7054
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946225"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757303"
 ---
-# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Snabbstart: Analysera bilder för stötande innehåll iC#
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Snabb start: analysera bilder för stötande innehåll iC#
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du får lära dig att söka efter vuxna eller vågat innehåll, extraherings bara text och mänskliga ansikten i syfte att kontrol lera potentiellt stötande material.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator och få din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
@@ -60,7 +60,7 @@ Lägg till följande kod i filen *Program.cs* för att skapa en Content Moderato
 
 ### <a name="set-up-input-and-output-targets"></a>Konfigurera inkommande och utgående mål
 
-Lägg till följande statiska fält till klassen **Program** i _Program.cs_ . De här fälten anger filerna för innehåll för indata och JSON-innehåll.
+Lägg till följande statiska fält till klassen **Program** i _Program.cs_. De här fälten anger filerna för innehåll för indata och JSON-innehåll.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=48-52)]
 
@@ -92,7 +92,7 @@ Lägg till följande kod i metoden **Main** i klassen **Program**. Den här kode
 
 ## <a name="run-the-program"></a>Köra programmet
 
-Programmet skriver JSON-strängdata till filen _ModerationOutput_ . Exempelbilderna som används i den här snabbstarten ger följande utdata. Varje avbildning har olika avsnitt för `ImageModeration`, `FaceDetection`och `TextDetection`, som motsvarar de tre API-anropen i **EvaluateImage** -metoden.
+Programmet skriver JSON-strängdata till filen _ModerationOutput_. Exempelbilderna som används i den här snabbstarten ger följande utdata. Varje avbildning har olika avsnitt för `ImageModeration`, `FaceDetection` och `TextDetection`, som motsvarar de tre API-anropen i **EvaluateImage** -metoden.
 
 ```json
 [{

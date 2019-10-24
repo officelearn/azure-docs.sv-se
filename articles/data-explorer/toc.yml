@@ -15,6 +15,12 @@
       href: web-query-data.md
 - name: Självstudier
   items:
+    - name: E2E-programmatisk blob-inmatning
+      items:
+        - name: 'C#'
+          href: end-to-end-csharp.md
+        - name: Python
+          href: end-to-end-python.md
     - name: Mata in data utan att använda kod
       href: ingest-data-no-code.md
     - name: Visualisera data i Power BI

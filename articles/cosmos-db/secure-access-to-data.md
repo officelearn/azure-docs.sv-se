@@ -1,17 +1,17 @@
 ---
 title: Lär dig hur du skyddar åtkomsten till data i Azure Cosmos DB
 description: Lär dig mer om åtkomst kontroll koncept i Azure Cosmos DB, inklusive huvud nycklar, skrivskyddade nycklar, användare och behörigheter.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7e732f1d35097730d4468b43a2d9804fe7a18514
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616674"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753179"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 
@@ -128,8 +128,8 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 En Cosmos DB behörighets resurs är associerad med en Cosmos DB användare.  Varje användare kan innehålla noll eller fler Cosmos DB behörigheter.  En behörighets resurs ger åtkomst till en säkerhetstoken som användaren behöver när de försöker komma åt en specifik program resurs.
 Det finns två tillgängliga åtkomst nivåer som kan tillhandahållas av en behörighets resurs:
 
-* Vissa Användaren har fullständig behörighet till resursen.
-* Läs Användaren kan bara läsa innehållet i resursen, men kan inte utföra Skriv-, uppdaterings-eller borttagnings åtgärder på resursen.
+* Alla: användaren har fullständig behörighet till resursen.
+* Läsa: användaren kan bara läsa innehållet i resursen, men kan inte utföra Skriv-, uppdaterings-eller borttagnings åtgärder på resursen.
 
 > [!NOTE]
 > För att kunna köra Cosmos DB lagrade procedurer måste användaren ha behörigheten alla för behållaren där den lagrade proceduren ska köras.
@@ -183,7 +183,7 @@ Om du vill lägga till Azure Cosmos DB konto läsar åtkomst till ditt användar
 4. I **rutan tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller program**.
 5. Välj den användare, grupp eller det program i din katalog som du vill bevilja åtkomst till.  Du kan söka i katalogen efter visnings namn, e-postadress eller objekt identifierare.
     Den valda användaren, gruppen eller programmet visas i listan med valda medlemmar.
-6. Klicka på **Spara**.
+6. Klicka på **Save** (Spara).
 
 Entiteten kan nu läsa Azure Cosmos DB-resurser.
 
@@ -193,5 +193,5 @@ Med Azure Cosmos DB kan du söka efter, välja, ändra och ta bort personliga da
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om Cosmos Database-säkerhet finns i [Cosmos DB: Databas säkerhet](database-security.md).
+* Mer information om Cosmos Database-säkerhet finns i [Cosmos DB: databas säkerhet](database-security.md).
 * Information om hur du skapar Azure Cosmos DB tokens finns [Access Control på Azure Cosmos DB resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

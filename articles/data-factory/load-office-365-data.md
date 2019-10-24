@@ -1,5 +1,5 @@
 ---
-title: Läsa in data från Office 365 med hjälp av Azure Data Factory | Microsoft Docs
+title: Läs in data från Office 365 med Azure Data Factory | Microsoft Docs
 description: Använd Azure Data Factory för att kopiera data från Office 365
 services: data-factory
 documentationcenter: ''
@@ -11,148 +11,141 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: da3d407b39ef00154b717b54213a3b40d2d110bb
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60548288"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754610"
 ---
-# <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Läsa in data från Office 365 med hjälp av Azure Data Factory
+# <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Läs in data från Office 365 med hjälp av Azure Data Factory
 
-Den här artikeln visar hur du använder Data Factory _läser in data från Office 365 i Azure Blob storage_. Du kan följa liknande steg för att kopiera data till Azure Data Lake Gen1 och Gen2. Referera till [Office 365 connector artikeln](connector-office-365.md) om hur du kopierar data från Office 365 i allmänhet.
+Den här artikeln visar hur du använder Data Factory _läsa in data från Office 365 till Azure Blob Storage_. Du kan följa liknande steg för att kopiera data till Azure Data Lake gen1 eller Gen2. Se [artikeln om office 365-koppling](connector-office-365.md) om hur du kopierar data från Office 365 i allmänhet.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På menyn till vänster väljer **skapa en resurs** > **Data och analys** > **Data Factory**: 
+1. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. I den **ny datafabrik** anger värden för fälten som visas i följande bild:
+2. På sidan **ny data fabrik** anger du värden för de fält som visas i följande bild:
       
    ![Sida för ny datafabrik](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Namn på**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadFromOffice365Demo\" är inte tillgänglig”, ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_ **LoadFromOffice365Demo**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
-    * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data factory. 
-    * **Resursgrupp**: Välj en befintlig resursgrupp från den nedrullningsbara listan eller Välj den **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-    * **Version**: Välj **V2**.
-    * **Plats**: Välj plats för datafabriken. Endast platser som stöds visas i listrutan. De datalager som används av data factory kan finnas på andra platser och regioner. Dessa datalager omfattar Azure Data Lake Store, Azure Storage, Azure SQL Database och så vidare.
+    * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name *LoadFromOffice365Demo* är inte tillgängligt" anger du ett annat namn på data fabriken. Du kan till exempel använda namnet _**dittnamn**_ **LoadFromOffice365Demo**. Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
+    * **Resurs grupp**: Välj en befintlig resurs grupp i list rutan eller Välj alternativet för att **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+    * **Version**: Välj **v2**.
+    * **Plats**: Välj plats för data fabriken. Endast platser som stöds visas i listrutan. De data lager som används av Data Factory kan finnas på andra platser och regioner. Dessa data lager omfattar Azure Data Lake Store, Azure Storage, Azure SQL Database och så vidare.
 
 3. Välj **Skapa**.
-4. När datafabriken har skapats går du till din datafabrik. Du ser den **Data Factory** startsida, enligt följande bild:
+4. När du har skapat filen går du till din data fabrik. Du ser **Data Factory** start sida så som visas i följande bild:
    
    ![Datafabrikens startsida](./media/load-office-365-data/data-factory-home-page.png)
 
-5. Välj den **författare och Övervakare** att starta Dataintegrationsprogrammet i en separat flik.
+5. Välj panelen **författare & Monitor** för att starta programmet för data integrering på en separat flik.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-1. På sidan ”nu sätter vi igång” Välj **skapa pipeline**.
+1. På sidan "Låt oss komma igång" väljer du **skapa pipeline**.
  
     ![Skapa pipeline](./media/load-office-365-data/create-pipeline-entry.png)
 
-2. I den **fliken Allmänt** för pipelinen anger du ”CopyPipeline” för **namn** för pipelinen.
+2. På **fliken Allmänt** för pipelinen anger du "CopyPipeline" som **namn** på pipelinen.
 
-3. I verktygslådan aktiviteter > Flytta och transformera kategori > dra och släpp den **Kopieringsaktivitet** från verktygslådan till pipelinedesignerytan. Ange ”CopyFromOffice365ToBlob” som aktivitetsnamn.
+3. I rutan aktiviteter > Flytta & transformera kategori > drar och släpper du **kopierings aktiviteten** från verktygs rutan till pipelinens design yta. Ange "CopyFromOffice365ToBlob" som aktivitets namn.
 
 ### <a name="configure-source"></a>Konfigurera källan
 
-1. Gå till pipelinen > **flik för datakälla**, klickar du på **+ ny** att skapa en källdatauppsättning. 
+1. Gå till fliken pipeline > **källa**, klicka på **+ ny** för att skapa en käll data uppsättning. 
 
-2. I fönstret ny datauppsättning väljer **Office 365**, och välj sedan **Slutför**.
-
-    ![Ny Office 365-datauppsättning](./media/load-office-365-data/new-office-365-dataset.png)
+2. I fönstret ny data uppsättning väljer du **Office 365**och väljer sedan **Fortsätt**.
  
-3. Du ser en ny flik öppnas för datauppsättningen för Office 365. På den **fliken Allmänt** längst ned i fönstret Egenskaper anger du ”SourceOffice365Dataset” för namn.
+3. Du är nu på fliken Kopiera aktivitets konfiguration. Klicka på knappen **Redigera** bredvid data uppsättningen Office 365 för att fortsätta med data konfigurationen.
 
-    ![Config Office 365-datauppsättning som är allmänt](./media/load-office-365-data/config-office-365-dataset-general.png)
+    ![Konfigurera Office 365 data uppsättning allmänt](./media/load-office-365-data/transition-to-edit-dataset.png)
  
-4. Gå till den **fliken anslutning** i fönstret Egenskaper. Bredvid textrutan länkad tjänst klickar du på **+ ny**.
+4. Du ser att en ny flik öppnas för Office 365-datauppsättning. På **fliken Allmänt** längst ned i fönstret Egenskaper anger du "SourceOffice365Dataset" som namn.
  
-    ![Datauppsättningsanslutning config Office 365](./media/load-office-365-data/config-office-365-dataset-connection.png)
+5. Gå till **fliken anslutning** i fönstret Egenskaper. Klicka på **+ ny**bredvid text rutan länkad tjänst.
 
-5. Ange ”Office365LinkedService” som namn på fönstret ny länkad tjänst, ange ID för tjänstens huvudnamn och nyckel för tjänstens huvudnamn och sedan välja Spara när du distribuerar den länkade tjänsten.
+6. I fönstret ny länkad tjänst anger du "Office365LinkedService" som namn, anger tjänstens huvud namns-ID och tjänstens huvud namns nyckel. testa sedan anslutning och välj **skapa** för att distribuera den länkade tjänsten.
 
-    ![Ny Office 365-länkad tjänst](./media/load-office-365-data/new-office-365-linked-service.png)
+    ![Ny länkad Office 365-tjänst](./media/load-office-365-data/new-office-365-linked-service.png)
  
-6. När du har skapat den länkade tjänsten kommer du tillbaka till inställningarna för datauppsättningen. Välj nedåtpilen att expandera listan över tillgängliga Office 365-datauppsättningar bredvid ”tabell” och välj ”BasicDataSet_v0. Contact_v0 ”från den nedrullningsbara listan:
+7. När du har skapat den länkade tjänsten kommer du tillbaka till inställningarna för datauppsättningen. Välj nedpilen bredvid **tabell**för att expandera listan över tillgängliga Office 365-datauppsättningar och välj "BasicDataSet_v0. Message_v0 "i list rutan:
 
-    ![Tabell för config Office 365-datauppsättning](./media/load-office-365-data/config-office-365-dataset-table.png)
- 
-7. Gå till den **fliken Schema** egenskapsfönstret och välj **Importschema**.  Observera att värdena schemat och exempel kontakta datauppsättningen visas.
+    ![Konfigurera Office 365 data uppsättnings tabell](./media/load-office-365-data/edit-dataset.png)
 
-    ![Schemat för config Office 365-datauppsättningen](./media/load-office-365-data/config-office-365-dataset-schema.png)
+8. Gå nu tillbaka till fliken **pipeline**  > **källa** om du vill fortsätta konfigurera ytterligare egenskaper för data extrahering i Office 365.  Filter för användar omfång och användar omfång är valfria predikat som du kan definiera för att begränsa de data som du vill extrahera från Office 365. Se avsnittet [Egenskaper för Office 365-datauppsättning](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) för hur du konfigurerar de här inställningarna.
 
-8. Gå nu tillbaka till pipelinen > källa fliken, kontrollerar du att SourceBlobDataset är valt.
- 
+9. Du måste välja ett av datum filtren och ange start tid och slut tid.
+
+10. Klicka på fliken **Importera schema** för att importera schemat för meddelande data uppsättning.
+
+    ![Konfigurera Office 365 data uppsättnings schema](./media/load-office-365-data/edit-source-properties.png)
+
 ### <a name="configure-sink"></a>Konfigurera kanalmottagare
 
-1. Gå till pipelinen > **mottagare fliken**, och välj **+ ny** att skapa en datauppsättning för mottagare.
+1. Gå till fliken pipeline > **mottagare**och välj **+ ny** för att skapa en data uppsättning för mottagare.
  
-2. Observera att endast mål som stöds är markerade när du kopierar från Office 365 i fönstret ny datauppsättning. Välj **Azure Blob Storage**, och välj sedan **Slutför**.  I den här självstudien får kopiera du Office 365-data till Azure Blob Storage.
+2. I fönstret ny data uppsättning ser du att endast de destinationer som stöds är markerade när du kopierar från Office 365. Välj **Azure Blob Storage**, Välj binärt format och välj sedan **Fortsätt**.  I den här självstudien kopierar du Office 365-data till ett Azure-Blob Storage.
 
-    ![Ny Blob-datauppsättning](./media/load-office-365-data/new-blob-dataset.png)
+3. Klicka på knappen **redigera** bredvid Azure Blob Storage data uppsättningen för att fortsätta med data konfigurationen.
 
-4. På den **fliken Allmänt** i fönstret Egenskaper skriver du ”OutputBlobDataset” i namnet.
+4. På **fliken Allmänt** i fönstret Egenskaper anger du "OutputBlobDataset" i namn.
 
-5. Gå till den **fliken anslutning** i fönstret Egenskaper. Markera bredvid textrutan länkade tjänsten **+ ny**.
+5. Gå till **fliken anslutning** i fönstret Egenskaper. Bredvid text rutan länkad tjänst väljer du **+ ny**.
 
-    ![Anslutning för konfigurations-Blob-datauppsättning](./media/load-office-365-data/config-blob-dataset-connection.png) 
+6. I fönstret ny länkad tjänst anger du "AzureStorageLinkedService" som namn, väljer "tjänstens huvud namn" i list rutan över autentiseringsmetoder, fyller i tjänstens slut punkt, klient, tjänstens huvud namns-ID och tjänstens huvud namn och väljer sedan spara till distribuera den länkade tjänsten.  [Här](connector-azure-blob-storage.md#service-principal-authentication) kan du läsa om hur du ställer in autentisering av tjänstens huvud namn för Azure Blob Storage.
 
-6. I fönstret ny länkad tjänst, ange ”AzureStorageLinkedService” som namn, Välj ”tjänstens huvudnamn” från den nedrullningsbara listan om du av autentiseringsmetoder, fyller du i tjänstens slutpunkt, ID för klient-tjänstens huvudnamn och Service principal key och välj Spara till distribuera den länkade tjänsten.  Se [här](connector-azure-blob-storage.md#service-principal-authentication) för hur du konfigurerar autentisering av tjänstens huvudnamn för Azure Blob Storage.
+    ![Ny BLOB-länkad tjänst](./media/load-office-365-data/configure-blob-linked-service.png)
 
-    ![Ny Blob länkad tjänst](./media/load-office-365-data/new-blob-linked-service.png)
-
-7. När du har skapat den länkade tjänsten kommer du tillbaka till inställningarna för datauppsättningen. Markera bredvid sökväg, **Bläddra** att välja den utgående mappen där Office 365-data kommer att extraheras till.  Under ”Filformatinställningar”, bredvid filformat, väljer ”**JSON-format**”, och vid filmönster, väljer du ”**uppsättning objekt**”.
-
-    ![Sökväg för konfigurations-Blob-datauppsättning och format](./media/load-office-365-data/config-blob-dataset-path-and-format.png) 
-
-8. Gå tillbaka till pipelinen > fliken mottagare, kontrollerar du att OutputBlobDataset är valt.
 
 ## <a name="validate-the-pipeline"></a>Verifiera pipeline
 
 Verifiera pipelinen genom att välja **Verifiera** i verktygsfältet.
 
-Du kan också se JSON-koden som är associerad med pipelinen genom att klicka på kod i det övre högra hörnet.
+Du kan också se den JSON-kod som är kopplad till pipelinen genom att klicka på kod längst upp till höger.
 
 ## <a name="publish-the-pipeline"></a>Publicera pipelinen
 
-I det översta verktygsfältet väljer **publicera alla**. Med den här åtgärden publicerar du enheter (datauppsättningar och pipelines) som du skapat i datafabriken.
+I det översta verktygsfältet väljer du **publicera alla**. Med den här åtgärden publicerar du enheter (datauppsättningar och pipelines) som du skapat i datafabriken.
 
 ![Publicera ändringar](./media/load-office-365-data/publish-changes.png) 
 
 ## <a name="trigger-the-pipeline-manually"></a>Utlös pipelinen manuellt
 
-Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu). På sidan körs pipelinen väljer **Slutför**. 
+Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlös nu**. På sidan pipeline-körning väljer du **Slutför**. 
 
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 
-Gå till den **övervakningsfliken** till vänster. Du ser en pipelinekörning som är utlöst av en manuell utlösare. Du kan använda länkar i den **åtgärdskolumnen** att visa aktivitetsinformation och köra pipelinen på nytt.
+Gå till fliken **Övervaka** till vänster. Du ser en pipelinekörning som är utlöst av en manuell utlösare. Du kan använda länkar i kolumnen **Åtgärder** för att visa aktivitetsinformation och köra pipelinen på nytt.
 
-![Övervaka pipeline](./media/load-office-365-data/pipeline-monitoring.png) 
+![Övervaka pipeline](./media/load-office-365-data/pipeline-status.png) 
 
-Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer den **visa Aktivitetskörningar** länken i kolumnen åtgärder. Det finns bara en aktivitet i det här exemplet. Därför visas bara en post i listan. Mer information om kopieringsåtgärden väljer den **Informationslänk (glasögonikonen)** i kolumnen åtgärder.
+Om du vill se aktivitets körningar som är associerade med pipeline-körningen väljer du länken **Visa aktivitet kör** i kolumnen åtgärder. Det finns bara en aktivitet i det här exemplet. Därför visas bara en post i listan. Om du vill ha mer information om kopierings åtgärden väljer du länken **information** (glasögon ikonen) i kolumnen åtgärder.
 
-![Övervakaraktivitet](./media/load-office-365-data/activity-monitoring.png) 
+![Övervaka aktivitet](./media/load-office-365-data/activity-status.png) 
 
-Om det här är första gången du begär data för den här kontexten (en kombination av vilka data som tabell håller på att åtkomst, vilken destination kontot är data som läses in i och vilka användaridentitet är att göra data åtkomstbegäran), ser du kopieringsaktiviteten status som ”**pågår**”, och endast när du klickar på länken ”information” under åtgärder ska du se statusen som ”**RequesetingConsent**”.  En medlem i gruppen data access godkännaren måste godkänna begäran i Privileged Access Management innan extrahering av data kan fortsätta.
+Om det här är första gången du begär data för den här kontexten (en kombination av vilken data tabell som ska nås, vilket mål konto som läses in i och vilka användar identiteter som gör data åtkomst förfrågan) visas kopierings aktiviteten status som **pågående**och endast när du klickar på länken "information" under åtgärder visas statusen som **RequesetingConsent**.  En medlem i gruppen för godkännande av data åtkomst måste godkänna begäran i Privileged Access Management innan data extraheringen kan fortsätta.
 
-_Status som begär tillstånd:_ 
-![körning aktivitetsinformation – begäran om godkännande](./media/load-office-365-data/activity-details-request-consent.png) 
+_Status som begärt godkännande:_ 
+ ![Activity körnings information – begäran om godkännande ](./media/load-office-365-data/activity-details-request-consent.png) 
 
 _Status som extraherar data:_
 
-![Körningen av aktivitetsinformation – extrahera data](./media/load-office-365-data/activity-details-extract-data.png) 
+![Information om körning av aktivitet – extrahera data](./media/load-office-365-data/activity-details-extract-data.png) 
 
-När samtycke har angetts extrahering av data kommer att fortsätta och, om en stund, visar pipelinekörningen som slutförd.
+När godkännandet har tillhandahållits kommer data extraheringen att fortsätta och efter en stund visas pipeline-körningen som slutförd.
 
-![Övervaka pipeline - lyckades](./media/load-office-365-data/pipeline-monitoring-succeeded.png) 
+![Övervaka pipelinen – lyckad](./media/load-office-365-data/pipeline-monitoring-succeeded.png) 
 
-Gå till målet Azure Blob Storage nu och kontrollera att Office 365-data har hämtats i JSON-format.
+Gå nu till Azures Azure-Blob Storage och kontrol lera att Office 365-data har extraherats i binärt format.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätt till följande artikel om du vill veta mer om Azure SQL Data Warehouse-stöd: 
+Gå vidare till följande artikel om du vill lära dig mer om Azure SQL Data Warehouse-support: 
 
 > [!div class="nextstepaction"]
->[Office 365-anslutningsapp](connector-office-365.md)
+>[Office 365-anslutning](connector-office-365.md)

@@ -3,19 +3,19 @@ title: Analysera video innehåll för stötande material C# i Content moderator
 titleSuffix: Azure Cognitive Services
 description: Analysera video innehåll för olika stötande material med hjälp av Content Moderator SDK för .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 1742db702a899d47110177532f5e85e74a59d91c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564307"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755244"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analysera video innehåll för stötande material iC#
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller information och kod exempel som hjälper dig att k
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="set-up-azure-resources"></a>Ställa in Azure-resurser
@@ -40,7 +40,7 @@ Navigera till din nya AMS-prenumeration i Azure Portal och välj **API-åtkomst*
 
 I avsnittet **Azure AD-App** väljer du **Skapa nytt** och namnger din nya Azure AD-programregistrering (till exempel "VideoModADApp"). Klicka på **Spara** och vänta några minuter medan programmet har kon figurer ATS. Sedan bör du se din nya app-registrering under avsnittet **Azure AD-App** på sidan.
 
-Välj din app-registrering och klicka på knappen **hantera program** under den. Observera värdet i fältet **program-ID** ; du kommer att behöva detta senare. Välj **Inställningar** > **nycklar**och ange en beskrivning för en ny nyckel (till exempel "VideoModKey"). Klicka på **Spara**och Lägg sedan till det nya nyckelvärdet. Kopiera den här strängen och spara den på ett säkert sätt.
+Välj din app-registrering och klicka på knappen **hantera program** under den. Observera värdet i fältet **program-ID** ; du kommer att behöva detta senare. Välj **inställningar**  > **nycklar**och ange en beskrivning för en ny nyckel (till exempel "VideoModKey"). Klicka på **Spara**och Lägg sedan till det nya nyckelvärdet. Kopiera den här strängen och spara den på ett säkert sätt.
 
 En mer grundlig genom gång av ovanstående process finns i [Kom igång med Azure AD-autentisering](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 
@@ -57,8 +57,8 @@ Azure Media Services Explorer är en användarvänlig klient del för AMS. Anvä
 1. I Visual Studio skapar du ett nytt **konsol program (.NET Framework)-** projekt och namnger det **VideoModeration**. 
 1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
 1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Sök efter och installera följande paket:
-    - windowsazure.mediaservices
-    - windowsazure.mediaservices.extensions
+    - windowsazure. Media Services
+    - windowsazure. Media Services. Extensions
 
 ## <a name="add-video-moderation-code"></a>Lägg till video moderator kod
 
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Konfigurera resurs referenser
 
-Lägg till följande statiska fält till klassen **Program** i _Program.cs_. Dessa fält innehåller den information som krävs för att ansluta till din AMS-prenumeration. Fyll i med de värden du fick i stegen ovan. Observera att `CLIENT_ID` är **programmets ID-** värde för din Azure AD-App och `CLIENT_SECRET` är värdet för "VideoModKey" som du skapade för appen.
+Lägg till följande statiska fält till klassen **Program** i _Program.cs_. Dessa fält innehåller den information som krävs för att ansluta till din AMS-prenumeration. Fyll i med de värden du fick i stegen ovan. Observera att `CLIENT_ID` är **programmets ID-** värde för din Azure AD-app och `CLIENT_SECRET` är värdet för "VideoModKey" som du skapade för appen.
 
 ```csharp
 // declare constants and globals
@@ -118,7 +118,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 ```
 
-Om du vill använda en lokal videofil (enklaste fallet) lägger du till den i projektet och anger dess sökväg som `INPUT_FILE` värde (relativa sökvägar är relativa till körnings katalogen).
+Om du vill använda en lokal videofil (enklast) lägger du till den i projektet och anger sökvägen som `INPUT_FILE` värde (relativa sökvägar är relativa till körnings katalogen).
 
 Du måste också skapa den _förinställda. JSON_ -filen i den aktuella katalogen och använda den för att ange ett versions nummer. Exempel:
 
@@ -369,10 +369,10 @@ Analysera JSON-svaret när innehålls redigerings jobbet har slutförts. Den bes
 - **Start**, **varaktighet**, **totalDuration**och **tidstämpel** är i "ticks". Dividera med **tids skala** för att hämta talet i sekunder.
  
 > [!NOTE]
-> - `adultScore`representerar potentiell närvaro och förutsägelse Poäng för innehåll som kan anses vara sexuellt explicit eller vuxna i vissa situationer.
-> - `racyScore`visar potentiell närvaro och förutsägelse Poäng för innehåll som kan anses vara sexuellt eller mogna i vissa situationer.
-> - `adultScore`och `racyScore` är mellan 0 och 1. Ju högre poäng, desto högre blir modellen för att förutsäga att kategorin kan vara tillämplig. Den här förhands granskningen använder en statistisk modell i stället för att manuellt koda resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig efter dina behov.
-> - `reviewRecommended`är antingen sant eller falskt beroende på de interna Poäng tröskelvärdena. Kunderna bör bedöma om de ska använda det här värdet eller bestämma anpassade tröskelvärden baserat på deras innehålls principer.
+> - `adultScore` representerar potentiell närvaro och förutsägelse Poäng för innehåll som kan anses vara sexuellt explicit eller vuxna i vissa situationer.
+> - `racyScore` representerar potentiell närvaro och förutsägelse Poäng för innehåll som kan anses vara sexuellt eller mogna i vissa situationer.
+> - `adultScore` och `racyScore` är mellan 0 och 1. Ju högre poäng, desto högre blir modellen för att förutsäga att kategorin kan vara tillämplig. Den här förhands granskningen använder en statistisk modell i stället för att manuellt koda resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig efter dina behov.
+> - `reviewRecommended` är antingen sant eller falskt beroende på de interna Poäng tröskelvärdena. Kunderna bör bedöma om de ska använda det här värdet eller bestämma anpassade tröskelvärden baserat på deras innehålls principer.
 
 ```json
 {
@@ -430,7 +430,7 @@ Analysera JSON-svaret när innehålls redigerings jobbet har slutförts. Den bes
 
 Lär dig hur du genererar [video granskningar](video-reviews-quickstart-dotnet.md) från din moderator.
 
-Lägg till avskrifts [redigering](video-transcript-moderation-review-tutorial-dotnet.md) i dina video granskningar.
+Lägg till [avskrifts redigering](video-transcript-moderation-review-tutorial-dotnet.md) i dina video granskningar.
 
 Kolla in den detaljerade självstudien om hur du skapar en [komplett video-och avskrifts redigerings lösning](video-transcript-moderation-review-tutorial-dotnet.md).
 

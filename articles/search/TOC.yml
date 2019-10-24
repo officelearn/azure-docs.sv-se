@@ -1,20 +1,24 @@
-- name: Dokumentation om Azure Search
+- name: Dokumentation om Azure Cognitive Search
   href: index.yml
 - name: Översikt
-  items:
-    - name: Vad är Azure Search?
-      href: search-what-is-azure-search.md
-- name: Snabbstarter
   expanded: true
+  items:
+    - name: Vad är Azure Cognitive Search?
+      href: search-what-is-azure-search.md
+    - name: Nyheter
+      href: whats-new.md
+- name: Snabbstarter
   items:
     - name: Skapa en tjänst
       href: search-create-service-portal.md
     - name: Portalen
       items:
-        - name: Skapa och använda ett index
+        - name: Skapa ett sökindex
           href: search-get-started-portal.md
-        - name: Berika med kognitiv sökning (AI)
+        - name: Skapa en kognitiv kompetensuppsättning
           href: cognitive-search-quickstart-blob.md
+        - name: Skapa ett kunskapslager
+          href: knowledge-store-create-portal.md
     - name: 'C#'
       href: search-get-started-dotnet.md
     - name: Java
@@ -79,7 +83,7 @@
   items:
     - name: Fulltextsökning
       href: search-lucene-query-architecture.md
-    - name: Kognitiv sökning
+    - name: AI-berikning
       href: cognitive-search-concept-intro.md
     - name: Kompetensuppsättningar
       href: cognitive-search-working-with-skillsets.md
@@ -87,6 +91,8 @@
       href: knowledge-store-concept-intro.md
     - name: Projektioner
       href: knowledge-store-projection-overview.md
+    - name: Inkrementell indexering
+      href: cognitive-search-incremental-indexing-conceptual.md
 - name: Instruktionsguider
   items:
     - name: Planering
@@ -209,6 +215,8 @@
           href: search-howto-schedule-indexers.md
         - name: Mappa fält
           href: search-indexer-field-mappings.md
+        - name: Inkrementell indexering
+          href: search-howto-incremental-index.md
         - name: Ansluta till hanterad SQL-instans
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Ansluta till virtuella SQL Server-datorer
@@ -247,8 +255,6 @@
           href: cognitive-search-resources-documentation.md
         - name: Knowledge Store (förhandsversion)
           items:
-            - name: Skapa ett kunskapslager i Azure-portalen
-              href: knowledge-store-create-portal.md
             - name: Skapa med hjälp av REST och Postman
               href: knowledge-store-create-rest.md
             - name: Visa med Storage Explorer

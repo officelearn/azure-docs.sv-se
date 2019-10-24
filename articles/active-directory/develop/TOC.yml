@@ -59,6 +59,8 @@
           items:
             - name: .NET Core-konsolen (daemon)
               href: quickstart-v2-netcore-daemon.md
+            - name: Python-konsolen (daemon)
+              href: quickstart-v2-python-daemon.md
             - name: ASP.NET-daemon-webbapp
               href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
     - name: Självstudier
@@ -644,7 +646,7 @@
           items:
             - name: Konvertera en app för en enda klient till en app för flera klienter
               href: howto-convert-app-to-be-multi-tenant.md
-            - name: Skapa tjänstens huvudnamn
+            - name: Skapa ett huvudnamn för tjänsten
               items:
                 - name: Använda Azure PowerShell
                   href: howto-authenticate-service-principal-powershell.md

@@ -719,6 +719,8 @@
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: Lägga till en hanterad instans till en redundansgrupp
           href: sql-database-managed-instance-failover-group-tutorial.md
+        - name: Migrera lokala användare och grupper
+          href: tutorial-managed-instance-azure-active-directory-migration.md
     - name: Begrepp
       items:
         - name: Referens för API för hantering

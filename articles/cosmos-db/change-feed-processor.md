@@ -1,19 +1,19 @@
 ---
 title: Arbeta med biblioteket Change feed processor i Azure Cosmos DB
 description: Använda Azure Cosmos DB ändra flödes processor bibliotek.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 4bd7a31abf47664d1a6ffdd39fe46d9370dbbc97
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073693"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757031"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändra flödes processor i Azure Cosmos DB 
 
@@ -39,7 +39,7 @@ För att bättre förstå hur dessa fyra delar av ändra flödes processor funge
 
 ## <a name="implementing-the-change-feed-processor"></a>Implementera bearbetning av Change feeds-processorn
 
-Posten är alltid den övervakade behållaren, från en `Container` instans som du anropar: `GetChangeFeedProcessorBuilder`
+Posten är alltid den övervakade behållaren, från en `Container` instans som du anropar `GetChangeFeedProcessorBuilder`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -49,16 +49,16 @@ Ett exempel på ett ombud skulle vara:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Slutligen definierar du ett namn för processor instansen `WithInstanceName` med och som är behållaren för att underhålla låne status med `WithLeaseContainer`.
+Slutligen definierar du ett namn för processor instansen med `WithInstanceName` och som är behållaren för att underhålla låne statusen med `WithLeaseContainer`.
 
-Genom `Build` att anropa får du den processor instans som du kan starta genom `StartAsync`att anropa.
+Genom att anropa `Build` får du den processor instans som du kan starta genom att anropa `StartAsync`.
 
 ## <a name="processing-life-cycle"></a>Bearbetnings livs cykel
 
 Den normala livs cykeln för en värd instans är:
 
 1. Läs ändrings flödet.
-1. Om det inte finns några ändringar kan du försätta i vilo läge under en `WithPollInterval` fördefinierad tid (anpassningsbar med i-verktyget) och gå till #1.
+1. Om det inte finns några ändringar kan du försätta i vilo läge under en fördefinierad tid (anpassningsbar med `WithPollInterval` i-verktyget) och gå till #1.
 1. Om det finns ändringar skickar du dem till **ombudet**.
 1. När ombudet har slutfört bearbetningen **av ändringarna uppdaterar**du leasing lagret med den senaste bearbetade tidpunkten och går till #1.
 

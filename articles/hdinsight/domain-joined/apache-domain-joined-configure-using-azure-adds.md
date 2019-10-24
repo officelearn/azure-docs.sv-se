@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 10/02/2019
-ms.openlocfilehash: 5989aca2b577621c31fe486877ea006cb25d47b5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 448b2674aa6021107d138bc0d91f1bda399eb4a6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030325"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755903"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Enterprise Security Package konfigurationer med Azure Active Directory Domain Services i HDInsight
 
@@ -70,7 +70,7 @@ När den hanterade identiteten har skapats och fått rätt roll kan AAD-DS-admin
 ## <a name="networking-considerations"></a>Nätverksöverväganden
 
 > [!NOTE]  
-> Azure AD-DS måste distribueras i ett Azure Resource Manager-baserat vNET. Klassiska virtuella nätverk stöds inte för Azure AD-DS. Mer information finns i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md#create-and-configure-the-virtual-network).
+> Azure AD-DS måste distribueras i ett Azure Resource Manager-baserat vNET. Klassiska virtuella nätverk stöds inte för Azure AD-DS. Mer information finns i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/tutorial-create-instance-advanced.md#create-and-configure-the-virtual-network).
 
 När du har aktiverat Azure AD-DS körs en lokal Domain Name Service (DNS)-server på AD-Virtual Machines (VM). Konfigurera Azure AD-DS-Virtual Network (VNET) så att de använder dessa anpassade DNS-servrar. Om du vill hitta rätt IP-adresser väljer du **Egenskaper** under kategorin **Hantera** och tittar på IP-adresserna under **IP-adressen på Virtual Network**.
 
@@ -82,7 +82,7 @@ När du har aktiverat Azure AD-DS körs en lokal Domain Name Service (DNS)-serve
 
 Det är enklare att placera både Azure AD-DS-instansen och HDInsight-klustret i samma virtuella Azure-nätverk. Om du planerar att använda olika virtuella nätverk måste du peer-koppla dessa virtuella nätverk så att domänkontrollanten är synlig för virtuella HDI-datorer. Mer information finns i [peering för virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md). 
 
-När virtuella nätverk har peer-kopplats konfigurerar du HDInsight VNET för att använda en anpassad DNS-server och anger de privata IP-adresserna för Azure AD-DS som DNS-serveradresser. När båda virtuella nätverk använder samma DNS-servrar kommer ditt anpassade domän namn att matchas till rätt IP-adress och kan komma att bli tillgängligt från HDInsight. Om ditt domän namn till exempel är `contoso.com` efter det här steget, bör `ping contoso.com` matcha till rätt Azure AD-DS IP.
+När virtuella nätverk har peer-kopplats konfigurerar du HDInsight VNET för att använda en anpassad DNS-server och anger de privata IP-adresserna för Azure AD-DS som DNS-serveradresser. När båda virtuella nätverk använder samma DNS-servrar kommer ditt anpassade domän namn att matchas till rätt IP-adress och kan komma att bli tillgängligt från HDInsight. Om ditt domän namn exempelvis `contoso.com` efter det här steget, bör `ping contoso.com` matcha till rätt Azure AD-DS IP.
 
 ![Konfigurera anpassade DNS-servrar för peer-kopplat VNET](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
@@ -108,9 +108,9 @@ När du skapar ett HDInsight-kluster med ESP måste du ange följande parametrar
 
 - **Kluster administratörs användare**: Välj en administratör för ditt kluster från din synkroniserade Azure AD-DS. Det här domän kontot måste redan vara synkroniserat och tillgängligt i Azure AD-DS.
 
-- **Kluster åtkomst grupper**: De säkerhets grupper vars användare du vill synkronisera och har åtkomst till klustret ska vara tillgängliga i Azure AD-DS. Till exempel HiveUsers Group. Mer information finns i [skapa en grupp och lägga till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+- **Kluster åtkomst grupper**: de säkerhets grupper vars användare du vill synkronisera och har åtkomst till klustret ska vara tillgängliga i Azure AD-DS. Till exempel HiveUsers Group. Mer information finns i [skapa en grupp och lägga till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- **LDAPS-URL**: Ett exempel är `ldaps://contoso.com:636`.
+- **LDAPS-URL**: ett exempel är `ldaps://contoso.com:636`.
 
 Den hanterade identitet som du har skapat kan väljas i list rutan användarens tilldelade hanterade identitet när du skapar ett nytt kluster.
 

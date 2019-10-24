@@ -123,6 +123,8 @@
               href: deploy-continuous-deployment.md
             - name: Distribuera från lokal Git
               href: deploy-local-git.md
+            - name: Distribuera med GitHub-åtgärder
+              href: deploy-github-actions.md
             - name: Distribuera med mall
               href: deploy-complex-application-predictably.md
         - name: Ange autentiseringsuppgifter för distribution

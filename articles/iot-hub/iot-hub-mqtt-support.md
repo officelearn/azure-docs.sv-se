@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a43b721b70858d82083538638853c5bbdf1531d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.openlocfilehash: 59bf62f73d8ba9732cd89209d2b239fd15a6d844
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004140"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754472"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -44,10 +44,10 @@ Följande tabell innehåller länkar till kod exempel för varje språk som stö
 
 | Språk | Protokoll parameter |
 | --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |Azure-IoT-Device-MQTT |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol. MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType. MQTT |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Stöder alltid MQTT som standard |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Migrera en enhets app från AMQP till MQTT
@@ -68,7 +68,7 @@ Om en enhet inte kan använda enhets-SDK: erna kan den fortfarande ansluta till 
 
 * Använd **deviceId**för fältet **ClientId** .
 
-* För fältet **username** använder `{iothubhostname}/{device_id}/?api-version=2018-06-30`du, där `{iothubhostname}` är det fullständiga CNAME för IoT Hub.
+* För fältet **användar namn** använder du `{iothubhostname}/{device_id}/?api-version=2018-06-30`, där `{iothubhostname}` är det fullständiga CNAME för IoT Hub.
 
     Om namnet på din IoT Hub t. ex. är **contoso.Azure-Devices.net** och om namnet på enheten är **MyDevice01**, ska fältet fullständigt **användar namn** innehålla:
 
@@ -115,17 +115,17 @@ Om en enhet inte kan använda enhets-SDK: erna kan den fortfarande ansluta till 
 
 För att MQTT ska kunna ansluta och koppla från paket utfärdar IoT Hub en händelse på **drift övervaknings** kanalen. Den här händelsen innehåller ytterligare information som kan hjälpa dig att felsöka anslutnings problem.
 
-Device-appen kan ange ett **meddelande i** **Connect** -paketet. Device-appen bör använda `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` **som ämnes namn för att definiera** **kommer** meddelanden som ska vidarebefordras som ett telemetri-meddelande. I så fall, om nätverks anslutningen är stängd, men ett **från kopplings** paket inte tidigare togs emot från enheten, IoT Hub **skickar meddelandet som** anges i **Connect** -paketet till telemetri-kanalen. Telemetri-kanalen kan vara antingen standard slut punkt för **händelser** eller en anpassad slut punkt som definieras av IoT Hub routning. Meddelandet har egenskapen **iothub-MessageType** med värdet **som tilldelas.**
+Device-appen kan ange ett **meddelande i** **Connect** -paketet. Device-appen bör använda `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` **som ämnes namn** för **att definiera meddelanden** som ska vidarebefordras som ett telemetri meddelande. I så fall, om nätverks anslutningen är stängd, men ett **från kopplings** paket inte tidigare togs emot från enheten, IoT Hub **skickar meddelandet som** anges i **Connect** -paketet till telemetri-kanalen. Telemetri-kanalen kan vara antingen standard slut punkt för **händelser** eller en anpassad slut punkt som definieras av IoT Hub routning. Meddelandet har egenskapen **iothub-MessageType** med värdet **som tilldelas.**
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Använda MQTT-protokollet direkt (som en modul)
 
 Att ansluta till IoT Hub över MQTT med hjälp av en moduls identitet liknar enheten (beskrivs [ovan](#using-the-mqtt-protocol-directly-as-a-device)) men du måste använda följande:
 
-* Ange klient-ID till `{device_id}/{module_id}`.
+* Ange klient-ID: t till `{device_id}/{module_id}`.
 
-* Om du autentiserar med användar namn och lösen ord anger du `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` användar namnet till och använder SAS-token som är associerad med modulens identitet som lösen ord.
+* Om du autentiserar med användar namn och lösen ord anger du användar namnet `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` och använder SAS-token som är associerad med modulens identitet som lösen ord.
 
-* Använd `devices/{device_id}/modules/{module_id}/messages/events/` som avsnitt för att publicera telemetri.
+* Använd `devices/{device_id}/modules/{module_id}/messages/events/` som ämne för att publicera telemetri.
 
 * Använd `devices/{device_id}/modules/{module_id}/messages/events/` som ämne.
 
@@ -149,13 +149,13 @@ pip install paho-mqtt
 
 Implementera sedan klienten i ett Python-skript. Ersätt plats hållarna enligt följande:
 
-* `<local path to digicert.cer>`är sökvägen till en lokal fil som innehåller rot certifikatet för DigiCert-Baltimore. Du kan skapa den här filen genom att kopiera certifikat informationen från [certifikaten. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) i Azure IoT SDK för c. ta med `-----BEGIN CERTIFICATE-----` raderna `-----END CERTIFICATE-----` `"` och ta bort markeringarna i början och slutet av varje rad och ta bort `\r\n`tecken i slutet av varje rad.
+* `<local path to digicert.cer>` är sökvägen till en lokal fil som innehåller rot certifikatet för DigiCert-Baltimore. Du kan skapa den här filen genom att kopiera certifikat informationen från [certifikaten. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) i Azure IoT SDK för c. ta med raderna `-----BEGIN CERTIFICATE-----` och `-----END CERTIFICATE-----`, ta bort `"` märken i början och slutet av varje rad och ta bort `\r\n` tecknen i slutet av e-postadressen Mycket linje.
 
-* `<device id from device registry>`är ID: t för en enhet som du har lagt till i IoT Hub.
+* `<device id from device registry>` är ID: t för en enhet som du har lagt till i din IoT Hub.
 
-* `<generated SAS token>`är en SAS-token för enheten som skapats på det sätt som beskrivs ovan i den här artikeln.
+* `<generated SAS token>` är en SAS-token för enheten som skapats på det sätt som beskrivs ovan i den här artikeln.
 
-* `<iot hub name>`namnet på din IoT Hub.
+* `<iot hub name>` namnet på din IoT-hubb.
 
 ```python
 from paho.mqtt import client as mqtt
@@ -189,7 +189,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
                        device_id + "/?api-version=2018-06-30", password=sas_token)
 
 client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -216,7 +216,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
 cert_file = "<local path to your certificate file>"
 key_file = "<local path to your device key file>"
 client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 
 # Connect as before
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -224,14 +224,14 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Skicka meddelanden från enhet till moln
 
-När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med `devices/{device_id}/messages/events/` hjälp `devices/{device_id}/messages/events/{property_bag}` av eller som ett **ämnes namn**. \- `{property_bag}` Elementet gör att enheten kan skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Exempel:
+När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med hjälp av `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som **ämnes namn**. Med `{property_bag}`-elementet kan enheten skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Exempel:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
 
 > [!NOTE]
-> Det `{property_bag}` här elementet använder samma kodning som frågesträngar i HTTPS-protokollet.
+> Det här `{property_bag}`-elementet använder samma kodning som frågesträngar i HTTPS-protokollet.
 
 Följande är en lista över IoT Hub implementations-speciella beteenden:
 
@@ -245,17 +245,17 @@ Mer information finns i [meddelande guide för utvecklare](iot-hub-devguide-mess
 
 ## <a name="receiving-cloud-to-device-messages"></a>Ta emot meddelanden från moln till enhet
 
-Om du vill ta emot meddelanden från IoT Hub bör en enhet `devices/{device_id}/messages/devicebound/#` prenumerera på som ett **ämnes filter**. Jokertecken `#` i ämnes filtret används bara för att tillåta att enheten tar emot ytterligare egenskaper i ämnes namnet. IoT Hub tillåter inte användning av `#` eller `?` jokertecken för filtrering av underavsnitt. Eftersom IoT Hub inte är en generell publicerings-och publicerings tjänst för pub, stöder den bara de dokumenterade ämnes namn och ämnes filter.
+Om du vill ta emot meddelanden från IoT Hub bör en enhet prenumerera med `devices/{device_id}/messages/devicebound/#` som ett **ämnes filter**. Jokertecken på flera nivåer `#` i ämnes filtret används bara för att tillåta att enheten tar emot ytterligare egenskaper i ämnes namnet. IoT Hub tillåter inte användning av `#` eller `?` jokertecken för filtrering av underavsnitt. Eftersom IoT Hub inte är en generell publicerings-och publicerings tjänst för pub, stöder den bara de dokumenterade ämnes namn och ämnes filter.
 
 Enheten får inga meddelanden från IoT Hub förrän den har prenumererat på den enhetsspecifika slut punkten som representeras av `devices/{device_id}/messages/devicebound/#` ämnes filtret. När en prenumeration har upprättats tar enheten emot meddelanden från molnet till enheten som skickades till den efter prenumerations tiden. Om enheten ansluter med flaggan **CleanSession** inställd på **0**behålls prenumerationen mellan olika sessioner. I det här fallet, nästa gången enheten ansluter med **CleanSession 0** , tar den emot eventuella väntande meddelanden som skickas till den medan den kopplades från. Om enheten använder **CleanSession** -flaggan inställd på **1** , tar den inte emot några meddelanden från IoT Hub förrän den prenumererar på sin enhets slut punkt.
 
-IoT Hub levererar meddelanden med **ämnes namnet** `devices/{device_id}/messages/devicebound/`eller `devices/{device_id}/messages/devicebound/{property_bag}` när det finns meddelande egenskaper. `{property_bag}`innehåller URL-kodade nyckel/värde-par med meddelande egenskaper. Endast program egenskaper och system egenskaper som kan anges av användaren (till exempel **messageId** eller **correlationId**) ingår i egenskaps uppsättningen. System egenskaps namn har prefixet **$** , program egenskaperna använder det ursprungliga egenskaps namnet utan prefix.
+IoT Hub levererar meddelanden med **ämnes namnet** `devices/{device_id}/messages/devicebound/` eller `devices/{device_id}/messages/devicebound/{property_bag}` när det finns meddelande egenskaper. `{property_bag}` innehåller URL-kodade nyckel/värde-par med meddelande egenskaper. Endast program egenskaper och system egenskaper som kan anges av användaren (till exempel **messageId** eller **correlationId**) ingår i egenskaps uppsättningen. System egenskaps namn har prefixet **$** , program egenskaperna använder det ursprungliga egenskaps namnet utan prefix.
 
 När en enhets app prenumererar på ett ämne med **QoS 2**, tilldelar IoT Hub högsta QoS-nivå 1 i **SUBACK** -paketet. Därefter levererar IoT Hub meddelanden till enheten med QoS 1.
 
 ## <a name="retrieving-a-device-twins-properties"></a>Hämta en enhets dubbla egenskaper
 
-Först prenumererar `$iothub/twin/res/#`en enhet på, för att ta emot åtgärdens svar. Sedan skickar den ett tomt meddelande till ämnet `$iothub/twin/GET/?$rid={request id}`med ett ifyllt värde för **begärande-ID**. Tjänsten skickar sedan ett svars meddelande som innehåller enhetens dubbla data på `$iothub/twin/res/{status}/?$rid={request id}`avsnittet med samma **ID för begäran** som begäran.
+Först prenumererar en enhet på `$iothub/twin/res/#` för att ta emot åtgärdens svar. Sedan skickar den ett tomt meddelande till ämnet `$iothub/twin/GET/?$rid={request id}`, med ett fyllt värde för **begärande-ID**. Tjänsten skickar sedan ett svarsmeddelande som innehåller enhetens dubbla data på avsnittet `$iothub/twin/res/{status}/?$rid={request id}`, med samma ID för **begäran** som begäran.
 
 Begärande-ID kan vara ett giltigt värde för ett meddelande egenskaps värde, enligt [IoT Hub meddelande guidens guide](iot-hub-devguide-messaging.md)och status är verifierad som ett heltal.
 
@@ -277,27 +277,27 @@ Svars texten innehåller avsnittet Egenskaper för enheten, som du ser i följan
 
 Möjliga status koder är:
 
-|State | Beskrivning |
+|Status | Beskrivning |
 | ----- | ----------- |
 | 204 | Lyckades (inget innehåll returneras) |
 | 429 | För många begär Anden (begränsas) enligt [IoT Hub begränsning](iot-hub-devguide-quotas-throttling.md) |
-| 5** | Server fel |
+| 5 * * | Server fel |
 
 Mer information finns i [enhets guide för utvecklare](iot-hub-devguide-device-twins.md).
 
 ## <a name="update-device-twins-reported-properties"></a>Uppdatera enhetens egenskaper för dubbla rapporter
 
-Om du vill uppdatera rapporterade egenskaper skickar enheten en begäran om att IoT Hub via en publikation över ett angivet MQTT-avsnitt. När du har bearbetat begäran, svarar IoT Hub att åtgärden lyckades eller misslyckades för uppdaterings åtgärden via en publikation till ett annat avsnitt. Det här avsnittet kan prenumereras på enheten för att meddela den om resultatet av den dubbla uppdaterings förfrågan. För att implementera den här typen av interaktions-/svars interaktion i MQTT, utnyttjar vi begreppet`$rid`begär ande-ID () som tillhandahålls ursprungligen av enheten i dess uppdateringsbegäran. Detta ID för begäran ingår också i svaret från IoT Hub för att tillåta att enheten korrelerar svaret till en viss tidigare begäran.
+Om du vill uppdatera rapporterade egenskaper skickar enheten en begäran om att IoT Hub via en publikation över ett angivet MQTT-avsnitt. När du har bearbetat begäran, svarar IoT Hub att åtgärden lyckades eller misslyckades för uppdaterings åtgärden via en publikation till ett annat avsnitt. Det här avsnittet kan prenumereras på enheten för att meddela den om resultatet av den dubbla uppdaterings förfrågan. För att implementera den här typen av interaktions-/svars interaktion i MQTT, utnyttjar vi begreppet ID för begäran (`$rid`) som ursprungligen tillhandahölls av enheten i dess uppdateringsbegäran. Detta ID för begäran ingår också i svaret från IoT Hub för att tillåta att enheten korrelerar svaret till en viss tidigare begäran.
 
 I följande sekvens beskrivs hur en enhet uppdaterar de rapporter som rapporteras i enheten, dubbla i IoT Hub:
 
-1. En enhet måste först prenumerera `$iothub/twin/res/#` på ämnet för att ta emot åtgärdens svar från IoT Hub.
+1. En enhet måste först prenumerera på `$iothub/twin/res/#` ämnet för att ta emot åtgärdens svar från IoT Hub.
 
-2. En enhet skickar ett meddelande som innehåller enhetens dubbla uppdatering till `$iothub/twin/PATCH/properties/reported/?$rid={request id}` ämnet. Det här meddelandet innehåller ett **ID-** värde för begäran.
+2. En enhet skickar ett meddelande som innehåller enhetens dubbla uppdateringar till `$iothub/twin/PATCH/properties/reported/?$rid={request id}` avsnittet. Det här meddelandet innehåller ett **ID-** värde för begäran.
 
 3. Tjänsten skickar sedan ett svarsmeddelande som innehåller det nya ETag-värdet för den rapporterade egenskaps samlingen i avsnittet `$iothub/twin/res/{status}/?$rid={request id}`. Det här svarsmeddelandet använder samma **ID för begäran** som begäran.
 
-Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning till `null`tar bort medlemmen från objektet som innehåller. Exempel:
+Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning som `null`, tar bort medlemmen från objektet som innehåller. Exempel:
 
 ```json
 {
@@ -308,12 +308,12 @@ Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för
 
 Möjliga status koder är:
 
-|State | Beskrivning |
+|Status | Beskrivning |
 | ----- | ----------- |
-| 200 | Klart |
+| 200 | Lyckades |
 | 400 | Felaktig begäran. Felaktig JSON |
 | 429 | För många begär Anden (begränsas) enligt [IoT Hub begränsning](iot-hub-devguide-quotas-throttling.md) |
-| 5** | Server fel |
+| 5 * * | Server fel |
 
 I python-kodfragmentet nedan visas de dubbla rapporterade egenskaperna för uppdaterings processen över MQTT (med PAHO MQTT-klienten):
 
@@ -329,13 +329,13 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
                rid, twin_reported_property_patch, qos=0)
 ```
 
-När du har lyckats med uppdaterings åtgärden för dubbla rapporterade egenskaper ovan, kommer meddelandet från IoT Hub att ha `$iothub/twin/res/204/?$rid=1&$version=6`följande avsnitt `204` :, där är status `$rid=1` koden som visar att det lyckades motsvarar ID för begäran anges av enheten i koden och `$version` motsvarar den version av avsnittet med rapporterade egenskaper på enheten är dubbla efter uppdateringen.
+När du har lyckats med uppdaterings åtgärden för dubbla rapporterade egenskaper ovan, kommer meddelandet från IoT Hub att ha följande avsnitt: `$iothub/twin/res/204/?$rid=1&$version=6`, där `204` är status koden som visar att det lyckades `$rid=1` motsvarar det begär ande-ID som anges av enheten i Code och `$version` motsvarar den version av avsnittet rapporterade egenskaper på enheten är dubbla efter uppdateringen.
 
 Mer information finns i [enhets guide för utvecklare](iot-hub-devguide-device-twins.md).
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Tar emot önskade egenskaper uppdatera meddelanden
 
-När en enhet är ansluten skickar IoT Hub meddelanden till ämnet `$iothub/twin/PATCH/properties/desired/?$version={new version}`, som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Exempel:
+När en enhet är ansluten skickar IoT Hub meddelanden till avsnittet `$iothub/twin/PATCH/properties/desired/?$version={new version}`, som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Exempel:
 
 ```json
 {
@@ -345,7 +345,7 @@ När en enhet är ansluten skickar IoT Hub meddelanden till ämnet `$iothub/twin
 }
 ```
 
-När det gäller egenskaps `null` uppdateringar innebär värden att JSON-objektmodellen tas bort. Observera också att `$version` den nya versionen av önskade egenskaper-avsnittet i den dubbla.
+Precis som för egenskaps uppdateringar innebär `null` värden att JSON-objektmodellen tas bort. Observera också att `$version` anger den nya versionen av det önskade egenskaps avsnittet i den dubbla.
 
 > [!IMPORTANT]
 > IoT Hub genererar endast ändrings meddelanden när enheterna är anslutna. Se till att implementera [flödet för enhets åter anslutning](iot-hub-devguide-device-twins.md#device-reconnection-flow) för att behålla önskade egenskaper som synkroniseras mellan IoT Hub och enhets appen.
@@ -354,9 +354,9 @@ Mer information finns i [enhets guide för utvecklare](iot-hub-devguide-device-t
 
 ## <a name="respond-to-a-direct-method"></a>Svara på en direkt metod
 
-Först måste en enhet prenumerera på `$iothub/methods/POST/#`. IoT Hub skickar metod begär anden till ämnet `$iothub/methods/POST/{method name}/?$rid={request id}`, med antingen en giltig JSON eller en tom brödtext.
+Först måste en enhet prenumerera på `$iothub/methods/POST/#`. IoT Hub skickar metod begär anden till avsnittet `$iothub/methods/POST/{method name}/?$rid={request id}`, med antingen en giltig JSON-eller tom brödtext.
 
-För att svara skickar enheten ett meddelande med en giltig JSON-eller tom brödtext till ämnet `$iothub/methods/res/{status}/?$rid={request id}`. I det här meddelandet måste **förfrågnings-ID: t** matcha det som finns i begär ande meddelandet, och **statusen** måste vara ett heltal.
+För att svara skickar enheten ett meddelande med en giltig JSON-eller tom brödtext till avsnittet `$iothub/methods/res/{status}/?$rid={request id}`. I det här meddelandet måste **förfrågnings-ID: t** matcha det som finns i begär ande meddelandet, och **statusen** måste vara ett heltal.
 
 Mer information finns i [Direct Method Developer ' s guide](iot-hub-devguide-direct-methods.md).
 

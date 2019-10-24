@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Kompatibelt tredjepartsprogram | Microsoft Docs'
-description: Programvara från tredje part som fungerar med Azure Active Directory Domain Services
+title: Kompatibel program vara från tredje part för Azure AD Domain Services | Microsoft Docs
+description: Program vara från tredje part som fungerar med Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,30 +15,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: iainfou
-ms.openlocfilehash: 7d0130c3489d29f4e6b0fbe42f184dd06f17bbd7
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f5a633a49a0f7b99da4eac08a527d17299aa34b9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473789"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754459"
 ---
-# <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Tredje parts programvara som är kompatibel med Azure AD Domain Services
+# <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Program vara från tredje part som är kompatibel med Azure AD Domain Services
 
-## <a name="one-identity-authentication-services"></a>En identitet autentiseringstjänster
+## <a name="one-identity-authentication-services"></a>En Identity Authentication-tjänst
 
 ![En identitet](./media/compatible-software-icons/OneIdentity.png)
 
-En identitet autentiseringstjänster gör det möjligt för Unix, Linux och Mac OS X-system för att använda åtkomst, autentisering och auktorisering av organisationens befintliga Active Directory (AD)-infrastruktur. Autentiseringstjänster har nu stöd för Azure Active Directory Domain Services så att icke-Windows-resurser kan använda samma nästa generations plattform som redan använder dina befintliga SaaS-lösningar.
+Med en Identity Authentication Services kan UNIX-, Linux-och Mac OS X-system använda åtkomst, autentisering och auktorisering av en organisations befintliga Active Directory (AD)-infrastruktur. Authentication Services stöder nu Azure Active Directory Domain Services att aktivera icke-Windows-resurser för att använda samma plattform för nästa generation som dina befintliga SaaS-lösningar redan använder.
 
-[En identitet autentiseringstjänster](https://www.quest.com/products/authentication-services/)
+[En Identity Authentication-tjänst](https://www.quest.com/products/authentication-services/)
 
-[KB-artikel – Använd en Identity-autentiseringstjänster med Azure AD Domain Services](https://support.quest.com/authentication-services/kb/208427)
+[KB-artikel – Använd en Identity Authentication-tjänst med Azure AD Domain Services](https://support.quest.com/authentication-services/kb/208427)
 
 
 ## <a name="red-hat-enterprise-linux"></a>Red Hat Enterprise Linux
 
 ![Red Hat](./media/compatible-software-icons/RedHat.png)
 
-Red Hat Enterprise Linux är världens ledande enterprise Linux-plattformen för att uppfylla behoven i dagens moderna företag. Red Hat Enterprise Linux är det önskade valet för enterprise Linux-dator (VM)-arbetsbelastningar på Microsoft Azure. Red Hat Enterprise Linux är en öppen, tillförlitlig och säker plattform som har utformats för kunder som behöver flexibilitet för distribution för sina verksamhetskritiska arbetsbelastningar – från Datacenter till Azure-molnet - backas upp av tätt integrerad support i företagsklass från Red Hat och Microsoft.
+Red Hat Enterprise Linux är världens ledande Enterprise Linux-plattform som byggts för att uppfylla behoven hos dagens moderna företag. Red Hat Enterprise Linux är det bästa valet för arbets belastningar för virtuella Enterprise Linux-datorer (VM) på Microsoft Azure. Red Hat Enterprise Linux är en öppen, tillförlitlig och säker plattform som är utformad för kunder som vill ha distributions flexibilitet för verksamhets kritiska arbets belastningar – från data Center till Azure-molnet som är särskilt integrerat, support på företags nivå från Red Hat och Microsoft.
 
-[Gå med Red Hat Enterprise Linux 7.2 VM till Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+[Anslut Red Hat Enterprise Linux 7,2 VM till Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

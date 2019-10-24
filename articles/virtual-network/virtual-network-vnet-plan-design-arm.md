@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 17db8dbcba8dd0181be9ca7289ea1b85079ff9a1
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: f7f45e479ad21b27832573b73a5e09e8da1b37b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168516"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756122"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella nätverk
 
@@ -107,13 +107,13 @@ Resurser i ett virtuellt nätverk kan inte matcha namnen på resurserna i ett pe
 
 ## <a name="permissions"></a>Behörigheter
 
-Azure använder [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) för resurser. Behörigheter tilldelas en [omfattning](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) i följande hierarki: prenumeration, hanterings grupp, resurs grupp och enskild resurs. Mer information om hierarkin finns i [ordna dina resurser](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill arbeta med virtuella Azure-nätverk och alla tillhör ande funktioner, till exempel peering, nätverks säkerhets grupper, tjänst slut punkter och routningstabeller, kan du tilldela medlemmar i organisationen till den inbyggda [ägaren](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [deltagaren](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)eller [ Roller för nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) och tilldela sedan rollen till lämplig omfattning. Om du vill tilldela vissa behörigheter för en delmängd av funktioner för virtuella nätverk skapar du en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och tilldelar de behörigheter som krävs för [virtuella nätverk](manage-virtual-network.md#permissions), [undernät och tjänst slut punkter](virtual-network-manage-subnet.md#permissions), [nätverks gränssnitt ](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [nätverks-och program säkerhets grupper](manage-network-security-group.md#permissions)eller [dirigera tabeller](manage-route-table.md#permissions) till rollen.
+Azure använder [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) för resurser. Behörigheter tilldelas en [omfattning](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) i följande hierarki: hanterings grupp, prenumeration, resurs grupp och enskild resurs. Mer information om hierarkin finns i [ordna dina resurser](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill arbeta med virtuella Azure-nätverk och alla tillhör ande funktioner, till exempel peering, nätverks säkerhets grupper, tjänst slut punkter och routningstabeller, kan du tilldela medlemmar i organisationen till den inbyggda [ägaren](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [deltagaren](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)eller [ Roller för nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) och tilldela sedan rollen till lämplig omfattning. Om du vill tilldela vissa behörigheter för en delmängd av funktioner för virtuella nätverk skapar du en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och tilldelar de behörigheter som krävs för [virtuella nätverk](manage-virtual-network.md#permissions), [undernät och tjänst slut punkter](virtual-network-manage-subnet.md#permissions), [nätverks gränssnitt ](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [nätverks-och program säkerhets grupper](manage-network-security-group.md#permissions)eller [dirigera tabeller](manage-route-table.md#permissions) till rollen.
 
 ## <a name="policy"></a>Princip
 
 Med Azure Policy kan du skapa, tilldela och hantera princip definitioner. Princip definitioner tillämpar olika regler för dina resurser, så att resurserna förblir kompatibla med organisationens standarder och service avtal. Azure Policy kör en utvärdering av dina resurser och söker efter resurser som inte är kompatibla med de princip definitioner som du har. Du kan till exempel definiera och tillämpa en princip som gör det möjligt att skapa virtuella nätverk i endast en speciell resurs grupp eller region. En annan princip kan kräva att varje undernät har en nätverks säkerhets grupp som är kopplad till den. Principerna utvärderas sedan när du skapar och uppdaterar resurser.
 
-Principer tillämpas på följande hierarki: prenumeration, hanterings grupp och resurs grupp. Lär dig mer om [Azure policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller distribuera några exempel på mallar för virtuella nätverks [principer](policy-samples.md) .
+Principer tillämpas på följande hierarki: hanterings grupp, prenumeration och resurs grupp. Lär dig mer om [Azure policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller distribuera några exempel på mallar för virtuella nätverks [principer](policy-samples.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 

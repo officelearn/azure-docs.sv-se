@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: eb7c2cb4a20c89f3a54f23e354d56e5dc3711ef0
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
-ms.translationtype: MT
+ms.openlocfilehash: 158222c256e3efc7ca87d7a3781ca68e1c4307b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967109"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750194"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
 
@@ -28,15 +28,15 @@ Den här artikeln besvarar vanliga frågor om rollbaserad åtkomst kontroll (RBA
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problem med RBAC-rolltilldelningar
 
-- Om du inte kan lägga till en roll tilldelning i Azure Portal på **åtkomst kontroll (IAM)** eftersom alternativet **Lägg** > till**roll tilldelning** för tillägg är inaktiverat eller om du får behörighets felet "klienten med objekt-ID: t har inte behörighet att utföra åtgärden, kontrol lera att du är inloggad med en användare som har `Microsoft.Authorization/roleAssignments/write` tilldelats en roll med behörighet som [ägare](built-in-roles.md#owner) eller administratör för [användar åtkomst](built-in-roles.md#user-access-administrator) i den omfattning som du försöker tilldela rollen.
-- Om du får fel meddelandet "det går inte att skapa fler roll tilldelningar (kod: RoleAssignmentLimitExceeded)” när du försöker tilldela en roll kan du försöka att minska antalet rolltilldelningar genom att tilldela roller till grupper i stället. Azure har stöd för upp till **2000** rolltilldelningar per prenumeration.
+- Om du inte kan lägga till en roll tilldelning i Azure Portal på **åtkomst kontroll (IAM)** eftersom alternativet **Lägg** till  > **Lägg till roll tilldelning** är inaktiverat eller eftersom du får behörighets felet "klienten med objekt-ID: t har inte behörighet att utföra åtgärden, kontrol lera att du är inloggad med en användare som har tilldelats en roll som har behörigheten `Microsoft.Authorization/roleAssignments/write`, till exempel [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) i den omfattning som du försöker tilldela rollen.
+- Om du får fel meddelandet "det går inte att skapa fler roll tilldelningar (kod: RoleAssignmentLimitExceeded)" när du försöker tilldela en roll, kan du försöka minska antalet roll tilldelningar genom att tilldela roller till grupper i stället. Azure har stöd för upp till **2000** rolltilldelningar per prenumeration.
 
 ## <a name="problems-with-custom-roles"></a>Problem med anpassade roller
 
 - Om du behöver anvisningar för hur du skapar en anpassad roll kan du läsa självstudierna för den anpassade rollen med hjälp av [Azure PowerShell](tutorial-custom-role-powershell.md) eller [Azure CLI](tutorial-custom-role-cli.md).
-- Om du inte kan uppdatera en befintlig anpassad roll kontrollerar du att du är inloggad med en användare som har `Microsoft.Authorization/roleDefinition/write` tilldelats en roll med behörighet som [ägare](built-in-roles.md#owner) eller administratör för [användar åtkomst](built-in-roles.md#user-access-administrator).
-- Om du inte lyckas ta bort en anpassad roll och får felmeddelandet om att det finns befintliga rolltilldelningar som refererar till rollen (kod: RoleDefinitionHasAssignments), så finns det rolltilldelningar som fortfarande använder den anpassade rollen. Ta bort dessa rolltilldelningar och försök att ta bort den anpassade rollen igen.
-- Om du får felmeddelandet ”Det högsta tillåtna antalet rolldefinitioner har överskridits. Det går inte att skapa fler roll definitioner (kod: RoleDefinitionLimitExceeded) "när du försöker skapa en ny anpassad roll tar du bort alla anpassade roller som inte används. Azure har stöd för upp till **5000** anpassade roller i en klient organisation. (För särskilda moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet är gränsen 2000 anpassade roller.)
+- Om du inte kan uppdatera en befintlig anpassad roll kontrollerar du att du är inloggad med en användare som har tilldelats en roll som har behörigheten `Microsoft.Authorization/roleDefinition/write`, till exempel [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator).
+- Om du inte kan ta bort en anpassad roll och få fel meddelandet "det finns befintliga roll tilldelningar som refererar till rollen (kod: RoleDefinitionHasAssignments)", finns det fortfarande roll tilldelningar som använder den anpassade rollen. Ta bort dessa rolltilldelningar och försök att ta bort den anpassade rollen igen.
+- Om du får felmeddelandet ”Det högsta tillåtna antalet rolldefinitioner har överskridits. Inga fler roll definitioner kan skapas (kod: RoleDefinitionLimitExceeded) "när du försöker skapa en ny anpassad roll, tar du bort alla anpassade roller som inte används. Azure har stöd för upp till **5000** anpassade roller i en klient organisation. (För särskilda moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet är gränsen 2000 anpassade roller.)
 - Om du får ett fel som liknar "klienten har behörighet att utföra åtgärden" Microsoft. Authorization/roleDefinitions/Write "i omfånget '/Subscriptions/{subscriptionId} ', gick det inte att hitta den länkade prenumerationen" när du försöker uppdatera en anpassad roll kontrollerar du om ett eller flera [tilldelnings bara scope](role-definitions.md#assignablescopes) har tagits bort i klienten. Om omfånget har tagits bort ska du skapa en supportbegäran eftersom det inte finns någon självbetjäningslösning tillgänglig just nu.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Återställa RBAC när prenumerationer flyttas mellan klienter
@@ -51,12 +51,12 @@ Den här artikeln besvarar vanliga frågor om rollbaserad åtkomst kontroll (RBA
 
 ## <a name="access-denied-or-permission-errors"></a>Åtkomst nekad eller behörighets fel
 
-- Om du får behörighetsfelet ”Klienten med objekt-ID har inte behörighet att utföra åtgärden över område (kod: AuthorizationFailed)” när du försöker skapa en resurs kan du kontrollera att du är inloggad med en användare med en roll som har skrivbehörighet till resursen i det valda omfånget. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista med behörigheter för alla inbyggda roller finns i [Inbyggda roller för Azure-resurser](built-in-roles.md).
-- Om du får behörighets fel "du har inte behörighet att skapa en supportbegäran" när du försöker skapa eller uppdatera ett support ärende, kontrollerar du att du är inloggad med en användare som har `Microsoft.Support/supportTickets/write` behörighet, till exempel [ Support förfrågan deltagare](built-in-roles.md#support-request-contributor).
+- Om du får behörighets felet "klienten med objekt-ID har inte behörighet att utföra åtgärden över omfattning (kod: AuthorizationFailed)" när du försöker skapa en resurs, kontrollerar du att du är inloggad med en användare som har tilldelats en roll som har Skriv behörighet till resursen i det valda omfånget. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista med behörigheter för alla inbyggda roller finns i [Inbyggda roller för Azure-resurser](built-in-roles.md).
+- Om du får behörighets fel "du har inte behörighet att skapa en supportbegäran" när du försöker skapa eller uppdatera ett support ärende kontrollerar du att du är inloggad med en användare som har tilldelats en roll som har `Microsoft.Support/supportTickets/write` behörighet , till exempel [deltagare i support ärende](built-in-roles.md#support-request-contributor).
 
-## <a name="role-assignments-without-a-security-principal"></a>Roll tilldelningar utan säkerhets objekt
+## <a name="role-assignments-with-unknown-security-principal"></a>Roll tilldelningar med okänt säkerhets objekt
 
-När du listar roll tilldelningarna med Azure PowerShell kan du se tilldelningar med en tom `DisplayName` och en `ObjectType` uppsättning till okänd. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande:
+När du listar roll tilldelningarna med hjälp av Azure PowerShell kan du se tilldelningar med en tom `DisplayName` och en `ObjectType` inställd på okänd. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande:
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -70,7 +70,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-När du listar roll tilldelningarna med Azure CLI kan du också se tilldelningar med en tom `principalName`. Till exempel returnerar [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list) en roll tilldelning som liknar följande:
+På samma sätt kan du se tilldelningar med en tom `principalName` när du listar roll tilldelningarna med Azure CLI. Till exempel returnerar [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list) en roll tilldelning som liknar följande:
 
 ```azurecli
 {
@@ -90,7 +90,7 @@ Roll tilldelningarna sker när du tilldelar en roll till ett säkerhets objekt (
 
 Ta bort roll tilldelningarna genom att använda borttagnings kommandona [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) eller [AZ roll tilldelning](/cli/azure/role/assignment#az-role-assignment-delete) .
 
-Om du i PowerShell försöker ta bort roll tilldelningarna med objekt-ID: t och roll definitions namnet, och mer än en roll tilldelning matchar dina parametrar, får du fel meddelandet: "Den angivna informationen mappas inte till en roll tilldelning". Följande visar ett exempel på fel meddelandet:
+Om du försöker ta bort roll tilldelningarna med objekt-ID: t och roll definitions namnet i PowerShell och fler än en roll tilldelning matchar dina parametrar visas följande fel meddelande: "den angivna informationen mappas inte till en roll tilldelning". Följande visar ett exempel på fel meddelandet:
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -103,7 +103,7 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-Om du får det här fel meddelandet ser du till att du även `-Scope` anger `-ResourceGroupName` parametrarna eller.
+Om du får det här fel meddelandet ser du till att du även anger `-Scope`-eller `-ResourceGroupName` parametrar.
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -120,12 +120,12 @@ Om du beviljar en användare skrivskyddad åtkomst till en enda webbapp inaktive
 * Kommandon (t. ex. Start, stopp osv.)
 * Ändra inställningar som allmän konfiguration, skalnings inställningar, säkerhets kopierings inställningar och övervaknings inställningar
 * Åtkomst till autentiseringsuppgifter för publicering och andra hemligheter som appinställningar och anslutnings strängar
-* Direktuppspelningsloggar
+* Strömmande loggar
 * Konfiguration av diagnostiska loggar
 * Konsol (kommando tolk)
 * Aktiva och nya distributioner (för lokal git-kontinuerlig distribution)
-* Uppskattade utgifter
-* Webbtest
+* Beräknade utgifter
+* Webbtester
 * Virtuellt nätverk (endast synligt för en läsare om ett virtuellt nätverk tidigare har kon figurer ATS av en användare med Skriv behörighet).
 
 Om du inte kan komma åt någon av dessa paneler måste du be administratören om deltagar åtkomst till webbappen.
@@ -150,7 +150,7 @@ De här objekten kräver **Skriv** åtkomst till hela **resurs gruppen** som inn
 * Varningsregler  
 * Inställningar för autoskalning  
 * Application Insights-komponenter  
-* Webbtest  
+* Webbtester  
 
 ## <a name="virtual-machine-features-that-require-write-access"></a>Funktioner för virtuella datorer som kräver skriv åtkomst
 

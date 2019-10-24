@@ -4,23 +4,23 @@ description: Så här uppdaterar eller tar du bort en anpassad roll tilldelning 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63c2c96f53861eafcd95df8f5163d14bcb5fbd5f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: ccbc9fbd763b9393a64d6cfc29f6b5a9d021da88
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947347"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756346"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Uppdatera eller ta bort en tilldelad Azure AD-roll i Privileged Identity Management
 
@@ -41,7 +41,7 @@ Följ dessa steg om du vill uppdatera eller ta bort en befintlig anpassad roll t
 
     ![Välj för hands versionen av Azure AD-anpassade roller för att se kvalificerade roll tilldelningar](./media/azure-ad-custom-roles-assign/view-custom.png)
 
-1. Välj **roller** för att se en lista över tilldelningar för anpassade roller för Azure AD-program.
+1. Välj **roller** för att se en lista över **tilldelningar** för anpassade roller för Azure AD-program.
 
     ![Välj roller se listan över kvalificerade roll tilldelningar](./media/azure-ad-custom-roles-update-remove/assignments-list.png)
 

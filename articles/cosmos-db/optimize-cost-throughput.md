@@ -1,17 +1,17 @@
 ---
 title: Optimera data flödes kostnaden i Azure Cosmos DB
 description: Den här artikeln förklarar hur du optimerar data flödes kostnader för data som lagras i Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: rimman
-ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 24812b8d97080d59fd50f4dc528117b3020fd8dc
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020111"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753272"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera etablerade data flödes kostnader i Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Du kan etablera data flöde på databaser eller behållare och varje strategi ka
 
 * Om du etablerar data flöde för en databas kan alla behållare, till exempel samlingar/tabeller/grafer i den databasen, dela data flödet baserat på belastningen. Data flödet som reserver ATS på databas nivå delas ojämnt, beroende på arbets belastningen på en speciell uppsättning behållare.
 
-* Om du etablerar data flöde på en behållare, garanteras data flödet för den behållaren, som backas upp av service avtalet. Valet av logisk partitionsnyckel är avgörande för jämn fördelning av belastningen över alla logiska partitioner i en behållare. Mer [](partitioning-overview.md) information finns i artiklar om partitionering och [horisontell skalning](partition-data.md) .
+* Om du etablerar data flöde på en behållare, garanteras data flödet för den behållaren, som backas upp av service avtalet. Valet av logisk partitionsnyckel är avgörande för jämn fördelning av belastningen över alla logiska partitioner i en behållare. Mer information finns i artiklar om [partitionering](partitioning-overview.md) och [horisontell skalning](partition-data.md) .
 
 Här följer några rikt linjer som du kan välja för en etablerad data flödes strategi:
 
@@ -56,16 +56,16 @@ Som du ser i följande tabell, beroende på valet av API, kan du etablera data f
 |API|För **delat** data flöde konfigurerar du |För **dedikerat** data flöde konfigurerar du |
 |----|----|----|
 |API för SQL|Databas|Container|
-|API för Azure Cosmos DB för MongoDB|Databas|Collection|
-|Cassandra-API|Nyckelutrymme|Tabell|
-|Gremlin-API|Databaskonto|Graph|
-|Tabell-API|Databaskonto|Tabell|
+|API för Azure Cosmos DB för MongoDB|Databas|Samling|
+|API för Cassandra|keyspace|Tabell|
+|Gremlin-API|Databas konto|Graph|
+|Tabell-API|Databas konto|Tabell|
 
 Genom att tillhandahålla data flöde på olika nivåer kan du optimera dina kostnader baserat på arbets Belastningens egenskaper. Som tidigare nämnts kan du program mässigt och när som helst öka eller minska ditt etablerade data flöde för antingen enskilda behållare eller kollektivt i en uppsättning behållare. Genom att elastiskt skala data flöde när din arbets belastning ändras betalar du bara för det data flöde som du har konfigurerat. Om din behållare eller en uppsättning behållare distribueras över flera regioner, garanteras det data flöde som du konfigurerar på behållaren eller en uppsättning behållare som görs tillgängliga i alla regioner.
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Optimera med Rate-begränsa dina begär Anden
 
-För arbets belastningar som inte är känsliga för svars tider kan du etablera mindre genom strömning och låta program hantera begränsningen när det faktiska data flödet överskrider det etablerade data flödet. Servern kommer att förebyggande syfte avsluta begäran med `RequestRateTooLarge` (HTTP-statuskod 429) och `x-ms-retry-after-ms` returnera rubriken som visar hur lång tid i millisekunder som användaren måste vänta innan begäran försöker igen. 
+För arbets belastningar som inte är känsliga för svars tider kan du etablera mindre genom strömning och låta program hantera begränsningen när det faktiska data flödet överskrider det etablerade data flödet. Servern kommer att förebyggande syfte avsluta begäran med `RequestRateTooLarge` (HTTP-statuskod 429) och returnera `x-ms-retry-after-ms`-rubriken som visar hur lång tid i millisekunder som användaren måste vänta innan begäran försöker igen. 
 
 ```html
 HTTP Status 429, 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 De ursprungliga SDK: erna (.NET/.NET Core, Java, Node. js och python) fångar implicit detta svar, och den server-specificerade återförsöket-efter-rubriken och gör om begäran. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
 
-Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök för närvarande är 9 inte tillräckligt. I sådana fall genererar klienten en `DocumentClientException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ställa `RetryOptions` in på ConnectionPolicy-instansen. Som standard `DocumentClientException` returneras med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
+Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök för närvarande är 9 inte tillräckligt. I sådana fall genererar klienten ett `DocumentClientException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ange `RetryOptions` på ConnectionPolicy-instansen. Som standard returneras `DocumentClientException` med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) är inställt på 3, så i det här fallet, om en begär ande åtgärd är begränsad genom att överskrida det reserverade data flödet för behållaren, försöker åtgärden tre gånger innan undantaget utlöses till programmet. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) är inställt på 60, så i det här fallet om den ackumulerade återförsöks tiden i sekunder sedan den första begäran överskrider 60 sekunder, genereras undantaget.
 
@@ -139,7 +139,7 @@ Du kan använda följande steg för att fastställa det etablerade data flödet 
 
 2. Vi rekommenderar att du skapar behållarna med högre data flöde än förväntat och sedan skalar ned efter behov. 
 
-3. Vi rekommenderar att du använder en av de interna Azure Cosmos DB SDK: er för att dra nytta av automatiska återförsök när begär Anden får en begränsad hastighet. Om du arbetar på en plattform som inte stöds och använder Cosmos DB REST API, implementerar du din egen princip för `x-ms-retry-after-ms` återförsök med hjälp av rubriken. 
+3. Vi rekommenderar att du använder en av de interna Azure Cosmos DB SDK: er för att dra nytta av automatiska återförsök när begär Anden får en begränsad hastighet. Om du arbetar på en plattform som inte stöds och använder Cosmos DB REST API implementerar du din egen princip för återförsök med hjälp av `x-ms-retry-after-ms`-huvudet. 
 
 4. Kontrol lera att program koden har stöd för fallet när alla återförsök inte fungerar. 
 

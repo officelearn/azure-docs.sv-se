@@ -10,14 +10,14 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c886289f098eb41f4b215b4abc2e206db93a27f9
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710129"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756038"
 ---
-# <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning: Arkitektur och koncept
+# <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
 Lär dig mer om arkitekturen, begreppen och arbets flödet för Azure Machine Learning. Huvud komponenterna i tjänsten och det allmänna arbets flödet för att använda tjänsten visas i följande diagram:
 
@@ -29,12 +29,12 @@ Arbets flödet för Machine Learning-modellen följer i allmänhet den här ordn
 
 1. **Utbilda**
     + Utveckla utbildnings skript för Machine Learning i **python** eller med det visuella gränssnittet.
-    + Skapa och konfigurera en **beräkningsmålet**.
-    + **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Under utbildningen kan skripten läsa från eller skriva till **data lager**. Och posterna för körningen sparas som **körs** i **arbets ytan** och grupperas under **experiment**.
+    + Skapa och konfigurera ett **beräknings mål**.
+    + **Skicka skripten** till det konfigurerade Compute-målet som ska köras i den miljön. Under utbildningen kan skripten läsa från eller skriva till **data lager**. Och posterna för körningen sparas som **körs** i **arbets ytan** och grupperas under **experiment**.
 
 1. **Paket** – när en tillfredsställande körning hittas registrerar du den sparade modellen i **modell registret**.
 
-1. Verifiera - **fråga experimentet** efter loggade mått från aktuella och tidigare körningar. Om måtten inte indikerar ett önskat resultat går du tillbaka till steg 1 och itererar dina skript.
+1. **Verifiera**  - **fråga experimentet** efter loggade mått från aktuella och tidigare körningar. Om måtten inte indikerar ett önskat resultat går du tillbaka till steg 1 och itererar dina skript.
 
 1. **Distribuera** – utveckla ett bedömnings skript som använder modellen och **distribuera modellen** som en **webb tjänst** i Azure, eller till en **IoT Edge enhet**.
 
@@ -62,10 +62,10 @@ Använd följande verktyg för Azure Machine Learning:
 + <a href="#experiments">Experiment</a>
 + <a href="#github-tracking-and-integration">Git-spårning</a>
 + <a href="#iot-module-deployments">IoT-moduler</a>
-+ <a href="#logging">Loggning</a>
++ <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">ML pipelines</a>
 + <a href="#models">Modellerna</a>
-+ <a href="#runs">Kör</a>
++ <a href="#runs">Fungerar</a>
 + <a href="#run-configurations">Kör konfiguration</a>
 + <a href="#snapshots">Ögonblicks bild</a>
 + <a href="#training-scripts">Tränings skript</a>
@@ -74,14 +74,14 @@ Använd följande verktyg för Azure Machine Learning:
 
 ### <a name="activities"></a>Aktiviteter
 
-En aktivitet representerar en långvarig åtgärd. Följande åtgärder är exempel på aktiviteter:
+En aktivitet representerar en tids krävande åtgärd. Följande åtgärder är exempel på aktiviteter:
 
-* Skapa eller ta bort ett beräkningsmål
-* Köra ett skript på ett beräkningsmål
+* Skapa eller ta bort ett beräknings mål
+* Köra ett skript på ett beräknings mål
 
 Aktiviteter kan ge aviseringar via SDK eller webb gränssnittet så att du enkelt kan övervaka förloppet för dessa åtgärder.
 
-### <a name="compute-targets"></a>Beräkningsmål
+### <a name="compute-targets"></a>Compute-mål
 
 Med ett [beräknings mål](concept-compute-target.md) kan du ange den beräknings resurs där du kör ditt utbildnings skript eller vara värd för tjänst distributionen. Den här platsen kan vara din lokala dator eller en molnbaserad beräknings resurs. Med beräknings mål är det enkelt att ändra beräknings miljön utan att ändra koden.
 
@@ -91,7 +91,7 @@ Lär dig mer om de [tillgängliga beräknings målen för utbildning och distrib
 
 **Azure Machine Learning data uppsättningar** (för hands version) gör det enklare att komma åt och arbeta med dina data. Data uppsättningar hanterar data i olika scenarier, till exempel modell utbildning och skapande av pipelines. Med hjälp av Azure Machine Learning SDK kan du komma åt underliggande lagring, utforska data och hantera livs cykeln för olika definitioner av data uppsättningar.
 
-Data uppsättningar tillhandahåller metoder för att arbeta med data i populära format, t. `from_delimited_files()` ex `to_pandas_dataframe()`. genom att använda eller.
+Data uppsättningar tillhandahåller metoder för att arbeta med data i populära format, t. ex. genom att använda `from_delimited_files()` eller `to_pandas_dataframe()`.
 
 Mer information finns i [skapa och registrera Azure Machine Learning data uppsättningar](how-to-create-register-datasets.md).  Fler exempel på hur du använder data uppsättningar finns i [exempel antecknings böckerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
 
@@ -142,23 +142,24 @@ Mer information finns i följande artiklar:
 
 ### <a name="experiments"></a>Experiment
 
-Ett experiment är en gruppering av många körningar från ett angivet skript. Det är alltid hör till en arbetsyta. När du skickar in en körning ska ange du ett namn på experiment. Information om körningen lagras under försöket. Om du skickar in en körning och anger ett experiment namn som inte finns, skapas ett nytt experiment med det nyligen angivna namnet automatiskt.
+Ett experiment är en gruppering av många körningar från ett angivet skript. Den tillhör alltid en arbets yta. När du skickar en körning anger du ett experiment namn. Information för körningen lagras under det experimentet. Om du skickar in en körning och anger ett experiment namn som inte finns, skapas ett nytt experiment med det nyligen angivna namnet automatiskt.
 
-Ett exempel på hur du använder ett experiment finns [i Självstudier: Träna din första modell](tutorial-1st-experiment-sdk-train.md).
+Ett exempel på hur du använder ett experiment finns i [Självstudier: träna din första modell](tutorial-1st-experiment-sdk-train.md).
 
 
 ### <a name="github-tracking-and-integration"></a>GitHub spårning och integrering
 
-När du startar en utbildning som kör där käll katalogen är en lokal git-lagringsplats, lagras information om lagrings platsen i körnings historiken. Till exempel loggas det aktuella inchecknings-ID: t för databasen som en del av historiken. Detta fungerar med körningar som skickats med en uppskattning, ML-pipeline eller skript körning. Den fungerar även för körningar som skickats från SDK eller Machine Learning CLI.
+När du startar en utbildning som kör där käll katalogen är en lokal git-lagringsplats, lagras information om lagrings platsen i körnings historiken. Detta fungerar med körningar som skickats med en uppskattning, ML-pipeline eller skript körning. Den fungerar även för körningar som skickats från SDK eller Machine Learning CLI.
 
+Mer information finns i [git-integrering för Azure Machine Learning](concept-train-model-git-integration.md).
 
 ### <a name="logging"></a>Loggning
 
 När du utvecklar din lösning använder du Azure Machine Learning python SDK i python-skriptet för att logga godtyckliga mått. Efter körningen frågar du måtten för att avgöra om körningen har genererat den modell som du vill distribuera.
 
-### <a name="ml-pipelines"></a>ML-Pipelines
+### <a name="ml-pipelines"></a>ML pipelines
 
-Du använder maskin inlärnings pipeliner för att skapa och hantera arbets flöden som häftar ihop Machine Learning-faser. En pipeline kan till exempel omfatta förberedelse av data, modell utbildning, modell distribution och steg för härledning/poängsättning. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål. 
+Du använder maskin inlärnings pipeliner för att skapa och hantera arbets flöden som häftar ihop Machine Learning-faser. En pipeline kan till exempel omfatta förberedelse av data, modell utbildning, modell distribution och steg för härledning/poängsättning. Varje fas kan omfatta flera steg, som var och en kan köras obevakade i olika beräknings mål. 
 
 Pipeline-steg kan återanvändas och kan köras utan att köra efterföljande steg om utdata från det steget inte har ändrats. Du kan till exempel omträna en modell utan att köra kostsamma data förberedelse steg om data inte har ändrats. Pipelines gör det också möjligt för data experter att samar beta medan de arbetar med olika delar av ett Machine Learning-arbetsflöde.
 
@@ -166,17 +167,17 @@ Mer information om maskin inlärnings pipeliner med den här tjänsten finns i [
 
 ### <a name="models"></a>Modeller
 
-I sin enklaste är en modell en typ av kod som hämtar indata och utdata. Skapa en modell för maskininlärning innebär att välja en algoritm, att förse den med data och justering av hyperparametrar. Utbildning är en iterativ process som skapar en tränad modell, som kapslar in det modellen har lärt dig under utbildning.
+En modell är i sin enklaste del en kod som tar indata och producerar utdata. Genom att skapa en maskin inlärnings modell kan du välja en algoritm, tillhandahålla data och justera disponeringsparametrarna. Träning är en iterativ process som skapar en utbildad modell som kapslar in vad modellen lärt sig under inlärnings processen.
 
-En modell produceras av en körning i Azure Machine Learning. Du kan också använda en modell som har tränats utanför Azure Machine Learning. Du kan registrera en modell i en Azure Machine Learning-arbetsyta.
+En modell skapas av en körning i Azure Machine Learning. Du kan också använda en modell som har tränats utanför Azure Machine Learning. Du kan registrera en modell i en Azure Machine Learning-arbetsyta.
 
 Azure Machine Learning är en Framework-oberoende. När du skapar en modell kan du använda alla populära ramverk för maskin inlärning, till exempel Scikit – lära, XGBoost, PyTorch, TensorFlow och kedjor.
 
-Ett exempel på hur du tränar en modell med Scikit – lära och en uppskattningar [finns i Självstudier: Träna en bild klassificerings modell med](tutorial-train-models-with-aml.md)Azure Machine Learning.
+Ett exempel på hur du tränar en modell med Scikit – lära och en uppskattningar finns i [Självstudier: träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 **Modell registret** håller reda på alla modeller i din Azure Machine Learning-arbetsyta.
 
-Modeller identifieras av namn och version. Varje gången du registrerar en modell med samma namn som en befintlig, förutsätter registret att det är en ny version. Versionen ökar och den nya modellen registreras under samma namn.
+Modeller identifieras efter namn och version. Varje gången du registrerar en modell med samma namn som en befintlig, förutsätter registret att det är en ny version. Versionen ökar och den nya modellen registreras under samma namn.
 
 När du registrerar modellen kan du ange ytterligare metadata-Taggar och sedan använda taggarna när du söker efter modeller.
 
@@ -195,9 +196,9 @@ En körning är en enskild körning av ett utbildnings skript. Azure Machine Lea
 * Metadata om körning (tidstämpel, varaktighet och så vidare)
 * Mått som loggas av ditt skript
 * Utdatafiler som autosamlas in av experimentet eller som uttryckligen laddas upp av dig
-* En ögonblicksbild av den katalog som innehåller dina skript innan körningen
+* En ögonblicks bild av katalogen som innehåller dina skript, innan körningen
 
-Du skapar en körning när du skickar ett skript för att träna en modell. En körning kan ha noll eller flera underordnade körs. Körningen på den översta nivån kan till exempel ha två underordnade körningar, som var och en kan ha sin egen underordnade körning.
+Du skapar en körning när du skickar ett skript för att träna en modell. En körning kan ha noll eller flera underordnade körningar. Körningen på den översta nivån kan till exempel ha två underordnade körningar, som var och en kan ha sin egen underordnade körning.
 
 ### <a name="run-configurations"></a>Köra konfigurationer
 
@@ -208,16 +209,16 @@ En körnings konfiguration kan sparas i en fil i den katalog som innehåller dit
 För att till exempel köra konfigurationer, se [Välj och Använd ett beräknings mål för att träna din modell](how-to-set-up-training-targets.md).
 ### <a name="snapshots"></a>Ögonblicksbilder
 
-När du skickar en körning komprimerar Azure Machine Learning den katalog som innehåller skriptet som en zip-fil och skickar den till beräknings målet. Zip-filen extraheras sedan och skriptet körs där. Azure Machine Learning lagrar också zip-filen som en ögonblicksbild som en del av den kör posten. Alla som har åtkomst till arbetsytan kan bläddra en kör post och ladda ned ögonblicksbilden.
+När du skickar en körning komprimerar Azure Machine Learning den katalog som innehåller skriptet som en zip-fil och skickar den till beräknings målet. Zip-filen extraheras sedan och skriptet körs där. Azure Machine Learning lagrar också zip-filen som en ögonblicks bild som en del av körnings posten. Alla som har åtkomst till arbets ytan kan bläddra i en körnings post och ladda ned ögonblicks bilden.
 
 > [!NOTE]
 > Du kan förhindra att onödiga filer tas med i ögonblicks bilden genom att göra en IGNORE-fil (. gitignore eller. amlignore). Placera filen i ögonblicks bild katalogen och Lägg till de fil namn som ska ignoreras i den. Filen. amlignore använder samma [syntax och mönster som. gitignore-filen](https://git-scm.com/docs/gitignore). Om båda filerna finns får filen. amlignore företräde.
 
-### <a name="training-scripts"></a>Utbildningsskript
+### <a name="training-scripts"></a>Utbildnings skript
 
-För att träna en modell kan du ange den katalog som innehåller inlärningsskript och tillhörande filer. Du kan också ange ett experiment namn som används för att lagra information som samlas in under utbildningen. Under utbildningen kopieras hela katalogen till tränings miljön (Compute Target) och skriptet som anges av körnings konfigurationen startas. En ögonblicksbild av katalogen lagras också under experiment på arbetsytan.
+För att träna en modell anger du den katalog som innehåller utbildnings skriptet och tillhör ande filer. Du kan också ange ett experiment namn som används för att lagra information som samlas in under utbildningen. Under utbildningen kopieras hela katalogen till tränings miljön (Compute Target) och skriptet som anges av körnings konfigurationen startas. En ögonblicks bild av katalogen lagras även under experimentet i arbets ytan.
 
-Ett exempel finns i [Självstudier: Träna en bild klassificerings modell med](tutorial-train-models-with-aml.md)Azure Machine Learning.
+Ett exempel finns i [Självstudier: träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### <a name="workspaces"></a>Arbetsytor
 
@@ -230,4 +231,4 @@ För att komma igång med Azure Machine Learning, se:
 
 * [Vad är Azure Machine Learning?](overview-what-is-azure-ml.md)
 * [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md)
-* [Självstudie (del 1): Träna en modell](tutorial-train-models-with-aml.md)
+* [Självstudie (del 1): träna en modell](tutorial-train-models-with-aml.md)

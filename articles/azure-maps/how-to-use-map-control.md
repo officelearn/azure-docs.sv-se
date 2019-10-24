@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fd213a6550d045fe4bea280449ed228ba9eda35
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550285"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756540"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Använda kart kontrollen Azure Maps
 
@@ -44,6 +44,12 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
     <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
+
+    >[!Note]
+    > Typescript-definitioner kan importeras till ditt program genom att lägga till:
+    > ```Javascript
+    > import * as atlas from 'azure-maps-control';
+    > ```
 
 3. Om du vill rendera kartan så att den fyller hela bröd texten på sidan lägger du till följande `<style>`-element i `<head>`-elementet.
 
@@ -102,6 +108,8 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     </script>
     ```
 
+    En lista över exempel som visar hur du integrerar Azure Active Directory (AAD) med Azure Maps hittar du [här](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
+    
     Mer information finns i [autentisering med Azure Maps](azure-maps-authentication.md) -dokument.
 
 6. Du kan också lägga till följande meta tag-element i sidhuvudet på din sida:
@@ -222,3 +230,8 @@ Lägga till mer data i kartan:
 
 > [!div class="nextstepaction"]
 > [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+En lista över exempel som visar hur du integrerar Azure Active Directory (AAD) med Azure Maps finns i:
+
+> [!div class="nextstepaction"]
+> [Exempel på AAD-autentisering](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

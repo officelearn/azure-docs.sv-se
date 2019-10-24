@@ -1,7 +1,7 @@
 ---
 title: Git-integrering för Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Lär dig hur Azure Machine Learning integreras med en lokal git-lagringsplats.
+description: Lär dig hur Azure Machine Learning integreras med en lokal git-lagringsplats. När du skickar en utbildning som körs från en lokal katalog som är git-lagringsplats, spåras information om lagrings platsen, gren och pågående genomförande som en del av körningen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: 1ef9f3f847cb74aca0cae66dc8354838d28a645f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c8b2407b18f0d7115ce51fc28b956e7fd764c71e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553643"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756020"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Git-integrering för Azure Machine Learning
 
@@ -92,5 +92,4 @@ Mer information finns i referens dokumentationen för [AZ ml-körning](https://d
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En genom gång av hur du tränar med Azure Machine Learning i Visual Studio Code finns i [Självstudier: träna modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
-* En genom gång av hur du kan redigera, köra och felsöka kod lokalt finns i [själv studie kursen om python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* [Konfigurera och Använd Compute-mål för modell träning](how-to-set-up-training-targets.md)

@@ -639,6 +639,8 @@
                   href: insights/vminsights-workbooks.md
                 - name: Analysera data med loggfrågor
                   href: insights/vminsights-log-search.md
+                - name: Uppgradera Dependency Agent
+                  href: insights/vminsights-dependency-agent-maintenance.md
                 - name: Inaktivera övervakning
                   href: insights/vminsights-optout.md
             - name: Kapacitet och prestandalösning

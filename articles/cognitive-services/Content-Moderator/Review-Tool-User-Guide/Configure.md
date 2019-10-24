@@ -3,19 +3,19 @@ title: Konfigurera inställningar för gransknings verktyget – Content Moderat
 titleSuffix: Azure Cognitive Services
 description: Använd gransknings verktyget för att konfigurera eller hämta team, taggar, kopplingar, arbets flöden och autentiseringsuppgifter för Content Moderator.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: sajagtap
-ms.openlocfilehash: 5e12806aca7c53c254cc43c8ff5bb8d314f9993e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882724"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757435"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurera granskningsverktyget
 
@@ -25,7 +25,7 @@ ms.locfileid: "68882724"
 
 ## <a name="manage-team-and-subteams"></a>Hantera team och under grupper
 
-På fliken **team** kan du hantera ditt team och&mdash;under grupper av användare som kan få ett meddelande när vissa [mänsklig granskningar](../review-api.md#reviews) startas. Du kan bara ha ett team (som du skapar när du registrerar dig med gransknings verktyget), men du kan skapa flera under grupper. Team administratören kan bjuda in medlemmar, ange sina behörigheter och tilldela dem till olika under grupper.
+På fliken **team** kan du hantera ditt team och under grupper &mdash;groups av användare som kan få ett meddelande när vissa [mänsklig granskningar](../review-api.md#reviews) har startats. Du kan bara ha ett team (som du skapar när du registrerar dig med gransknings verktyget), men du kan skapa flera under grupper. Team administratören kan bjuda in medlemmar, ange sina behörigheter och tilldela dem till olika under grupper.
 
 ![Granska team inställningar för verktyget](images/settings-2-team.png)
 
@@ -43,7 +43,7 @@ Gå till avsnittet under **grupper** och klicka på **Lägg till under team**. A
 
 Du kan inte tilldela någon till ett under team om de inte redan är medlemmar i standard teamet, så du måste lägga till granskare till standard teamet först. Klicka på **Bjud in** på fliken **team** .
 
-![Bjud in användare](images/invite-users.png)
+![Bjuda in användare](images/invite-users.png)
 
 #### <a name="assign-teammates-to-subteam"></a>Tilldela medarbetare till under grupper
 
@@ -53,7 +53,7 @@ Klicka på knappen **Lägg till medlem** för att tilldela medlemmar från stand
 
 ### <a name="assign-reviews-to-subteams"></a>Tilldela granskningar till under grupper
 
-När du har skapat dina under grupper och tilldelade medlemmar kan du börja tilldela innehålls granskningar [](../review-api.md#reviews) till dessa under grupper. Detta görs från fliken **Granska** på webbplatsen.
+När du har skapat dina under grupper och tilldelade medlemmar kan du börja tilldela innehålls [granskningar](../review-api.md#reviews) till dessa under grupper. Detta görs från fliken **Granska** på webbplatsen.
 Om du vill tilldela innehåll till ett under team klickar du på ellipsen i det övre högra hörnet, väljer **Flytta till**och väljer ett under team.
 
 ![Tilldela bild granskning till under grupp](images/3-review-image-subteam-1.png)
@@ -64,9 +64,9 @@ Om du är medlem i fler än ett under team kan du växla mellan dessa under grup
 
 ![Växla mellan under grupper](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>Taggar
 
-På fliken **taggar** kan du definiera anpassade moderatorer utöver de två standard redigerings taggarna&mdash;**isadult** (**a**) och **isracy** (**r**). När du skapar en anpassad tagg blir den tillgänglig i granskningar tillsammans med Standardtaggarna. Du kan ändra vilka taggar som ska visas i granskningarna genom att växla deras Synlighets inställningar.
+På fliken **taggar** kan du definiera anpassade moderatorer utöver de två standard redigerings taggarna &mdash;**isadult** (**a**) och **isracy** (**r**). När du skapar en anpassad tagg blir den tillgänglig i granskningar tillsammans med Standardtaggarna. Du kan ändra vilka taggar som ska visas i granskningarna genom att växla deras Synlighets inställningar.
 
 ![Vyn taggar, inklusive kryss rutorna "är synliga"](images/tags-4-disable.png)
 
@@ -75,8 +75,8 @@ På fliken **taggar** kan du definiera anpassade moderatorer utöver de två sta
 Om du vill skapa en ny tagg måste du ange en kort kod, ett namn och en beskrivning i respektive fält.
 
 - **Kort kod**: Ange en kod med två bokstäver för taggen. Exempel: **CB**
-- **Namn på**: Ange ett kort och beskrivande taggnamn i gemener utan blank steg. Exempel: **isbullying**.
-- **Beskrivning**: (valfritt) ange en beskrivning av den typ av innehåll som taggen riktas mot. Exempel: **Skildringar eller instanser av cyberhot bullying**.
+- **Namn**: Ange ett kort och beskrivande taggnamn i gemener utan blank steg. Exempel: **isbullying**.
+- **Beskrivning**: (valfritt) ange en beskrivning av den typ av innehåll som taggen riktas mot. Exempel: **skildringar eller instanser av cyberhot bullying**.
 
 Klicka på **Lägg** till för att lägga till en tagg och klicka på **Spara** när du är klar med att skapa taggar.
 
@@ -86,7 +86,7 @@ Klicka på **Lägg** till för att lägga till en tagg och klicka på **Spara** 
 
 Du kan ta bort anpassade taggar genom att välja pappers korgs ikonen bredvid posterna i listan Taggar, men du kan inte ta bort Standardtaggarna.
 
-## <a name="connectors"></a>Anslutningar
+## <a name="connectors"></a>Anslutningsprogram
 
 På fliken **anslutningar** kan du hantera dina anslutningar, som är tjänstespecific plugin-program som kan bearbeta innehåll på olika sätt som en del av innehålls [arbets flöden](../review-api.md#workflows).
 
@@ -95,8 +95,8 @@ Standard anslutnings programmet när du skapar ett arbets flöde är Content Mod
 [Gransknings verktyget](./human-in-the-loop.md) innehåller följande kopplingar:
 
 - Känslo-API
-- Ansikts-API
-- PhotoDNA Cloud Service
+- API för ansiktsigenkänning
+- PhotoDNA moln tjänst
 - API för textanalys
 
 ### <a name="add-a-connector"></a>Lägg till en anslutning
@@ -105,7 +105,7 @@ Om du vill lägga till en anslutning (och göra den tillgänglig för användnin
 
 ![Inställningar för Content Moderator anslutningar](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Arbetsflöden
 
 På fliken **arbets flöden** kan du hantera dina [arbets flöden](../review-api.md#workflows). Arbets flöden är molnbaserade filter för innehåll och de fungerar med kopplingar för att sortera innehåll på olika sätt och vidta lämpliga åtgärder. Här kan du definiera, redigera och testa dina arbets flöden. Se [definiera och använda arbets flöden](Workflows.md) för att få vägledning om hur du gör detta.
 

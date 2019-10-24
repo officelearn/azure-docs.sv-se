@@ -5,14 +5,14 @@ services: service-fabric
 author: athinanthny
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: atsenthi
-ms.openlocfilehash: dcffc1ba783b49343bf3380b62c3d4085f5aa347
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390084"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752310"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Vad är Service Fabric-programmets resurs modell?
 Vi rekommenderar att Service Fabric-program distribueras till ditt Service Fabric-kluster via Azure Resource Manager. Den här metoden gör det möjligt att beskriva program och tjänster i JSON och distribuera dem i samma Resource Manager-mall som klustret. I stället för att distribuera och hantera program via PowerShell eller Azure CLI behöver du inte vänta tills klustret är klart. Programregistrering, etablering och distribution sker i ett enda steg. Detta är den bästa metoden för att hantera programmets livscykel i ditt kluster. Mer information finns i [metod tips](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -41,8 +41,14 @@ Distribution av ett program från en Resource Manager-mall kräver ett lagrings 
 ![skapar ett lagringskonto][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>Konfigurera lagrings konto 
-När lagrings kontot har skapats måste du skapa en BLOB-behållare där programmen kan mellanlagras. I Azure Portal navigerar du till det lagrings konto som du vill lagra dina program i. Välj bladet **blobbar** och klicka på knappen **Lägg till behållare** . Lägg till en ny behållare med offentlig åtkomst nivå för BLOB.
-   
+När lagrings kontot har skapats måste du skapa en BLOB-behållare där programmen kan mellanlagras. I Azure Portal navigerar du till det lagrings konto som du vill lagra dina program i. Välj bladet **blobbar** och klicka på knappen **Lägg till behållare** . Resurser i klustret kan skyddas genom att ange den offentliga åtkomst nivån till privat. Åtkomst kan beviljas på flera olika sätt:
+* [Ge åtkomst till blobbar och köer med Azure Active Directory](../storage/common/storage-auth-aad-app.md)
+* [Bevilja åtkomst till blob- och ködata i Azure med RBAC på Azure-portalen](../storage/common/storage-auth-aad-rbac-portal.md)
+* [Delegera åtkomst med en signatur för delad åtkomst (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
+)
+
+ I det här exemplet fortsätter vi att använda anonym Läs behörighet för blobbar.
+
 ![Skapa BLOB][CreateBlob]
 
 ### <a name="stage-application-in-a-storage-account"></a>Mellanlagra program i ett lagrings konto
@@ -51,10 +57,10 @@ Innan programmet kan distribueras måste det mellanlagras i Blob Storage. I den 
 1. I Visual Studio högerklickar du på röstnings projektet och väljer paket.   
 ![Paket program][PackageApplication]  
 2. Öppna **.\Service-Fabric-dotNet-quickstart\Voting\pkg\Debug** -katalogen som precis skapade och skicka innehållet till en fil som heter **röstning. zip** , till exempel att ApplicationManifest. xml finns i roten för zip-filen.  
-![Zip-program @ no__t-1  
+![Zip program ][ZipApplication]  
 3. Byt namn på fil namns tillägget från. zip till **. sfpkg**.
 4. I Azure Portal, i behållaren **appar** för ditt lagrings konto, klickar du på **överför** och överför **röstning. sfpkg**.  
-![Upload app-paket @ no__t-1
+![Upload app-paket ][UploadAppPkg]
 
 Programmet har nu mellanlagrats. Nu är det dags att skapa Azure Resource Manager-mallen för att distribuera programmet.      
    

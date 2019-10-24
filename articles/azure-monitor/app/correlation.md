@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: aa683e90a328e9525fa7d0a78981aa107818188a
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678178"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755350"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -214,6 +214,82 @@ Den här funktionen finns i `Microsoft.ApplicationInsights.JavaScript`. Den är 
 Mer information finns i [data modellen Application Insights telemetri](../../azure-monitor/app/data-model.md). 
 
 Definitioner av opentracing-koncept finns i opentracing- [specifikation](https://github.com/opentracing/specification/blob/master/specification.md) och [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
+
+## <a name="telemetry-correlation-in-opencensus-python"></a>Telemetri korrelation i openräkningar python
+
+Openräkning python följer de `OpenTracing` data modell specifikationer som beskrivs ovan. Det stöder även [W3C-spårnings kontext](https://w3c.github.io/trace-context/) utan behov av någon konfiguration.
+
+### <a name="incoming-request-correlation"></a>Inkommande begäran-korrelation
+
+Openräkning python korrelerar W3C trace context-rubriker från inkommande begär anden till de intervall som genereras från själva begär Anden. Openräkning sker automatiskt med integreringar för populära ramverk för webb program, till exempel `flask`, `django` och `pyramid`. W3C-spårningens kontext rubriker behöver bara fyllas i med [rätt format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)och skickas med begäran. Nedan visas ett exempel `flask` program som demonstrerar detta.
+
+```python
+from flask import Flask
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.ext.flask.flask_middleware import FlaskMiddleware
+from opencensus.trace.samplers import ProbabilitySampler
+
+app = Flask(__name__)
+middleware = FlaskMiddleware(
+    app,
+    exporter=AzureExporter(),
+    sampler=ProbabilitySampler(rate=1.0),
+)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080, threaded=True)
+```
+
+Detta kör ett exempel `flask` program på din lokala dator och lyssnar på port `8080`. Vi skickar en begäran till slut punkten för att korrelera spårnings kontexten. I det här exemplet kan vi använda ett `curl`-kommando.
+```
+curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
+```
+När du tittar på [huvud formatet för spårnings kontexten](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)härleds följande information: `version`: `00` 
+ `trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736` 
+ `parent-id/span-id`: `00f067aa0ba902b7` 
+ 0: 1
+
+Om vi tar en titt på posten för begäran som skickades till Azure Monitor kan vi se fält som är ifyllda med spårnings huvud informationen.
+
+![Skärm bild av telemetri för begäran i loggar (analys) med fält för spårnings huvud markerade i röd ruta](./media/opencensus-python/0011-correlation.png)
+
+@No__t_0 fältet har formatet `<trace-id>.<span-id>` där `trace-id` tas från spårnings huvudet som skickades i begäran och `span-id` är en genererad 8-byte-matris för det här intervallet. 
+
+@No__t_0 fältet har formatet `<trace-id>.<parent-id>` där både `trace-id` och `parent-id` tas från spårnings huvudet som skickades i begäran.
+
+### <a name="logs-correlation"></a>Loggar korrelation
+
+Openräkning python tillåter korrelation av loggar genom att utförliga logg poster med spårnings-ID, span-ID och samplings flagga. Detta görs genom att du installerar [loggnings integrationen](https://pypi.org/project/opencensus-ext-logging/)för openräkning. Följande attribut kommer att läggas till i python-`LogRecord`s: `traceId` `spanId` och `traceSampled`. Observera att detta endast gäller för loggar som skapats efter integrationen.
+Nedan visas ett exempel program som demonstrerar detta.
+
+```python
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+logger = logging.getLogger(__name__)
+logger.warning('Before the span')
+with tracer.span(name='hello'):
+    logger.warning('In the span')
+logger.warning('After the span')
+```
+När den här koden körs får vi följande i-konsolen:
+```
+2019-10-17 11:25:59,382 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 Before the span
+2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
+2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
+```
+Observera att det finns en spanId för det logg meddelande som ligger inom intervallet, som är samma spanId som tillhör det intervall som heter `hello`.
 
 ## <a name="telemetry-correlation-in-net"></a>Telemetri-korrelation i .NET
 

@@ -3,19 +3,19 @@ title: Kontrollera text mot en anpassad termlista i C# – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Moderera text med anpassade termlistor med hjälp av Content Moderator SDK för C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: d1c2f8b06d333be23f25a2d150c23269bf84cd2e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 272063c3fcc77c76536dbd007b1ab0132a565e61
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242835"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757253"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Kontrollera texten mot en anpassad termlista i C#
 
@@ -274,7 +274,7 @@ Du kontrollerar text med hjälp av en termlista med **ContentModeratorClient.Tex
 - En MIME-typ som kan vara ”text/html”, ”text/xml”, ”text/markdown” eller ”text/plain”.
 - Den text som ska kontrolleras.
 - Ett booleskt värde. Ange det här fältet till **true** (sant) för att autokorrigera texten innan du kontrollerar den.
-- Ett booleskt värde. Ange det här fältet till **true** (sant) för att identifiera personligt identifierbar information (PII) i texten.
+- Ett booleskt värde. Ange det här fältet till **Sant** om du vill identifiera personliga data i texten.
 - Termlistans ID.
 
 Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).

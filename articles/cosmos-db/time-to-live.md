@@ -1,18 +1,18 @@
 ---
 title: Förfaller data i Azure Cosmos DB med Time to Live
 description: Med TTL ger Microsoft Azure Cosmos DB möjlighet att automatiskt rensa dokument från systemet efter en viss tids period.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f66508a4794b8009523cc2820efe0156b4a9e2f6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597482"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756852"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live (TTL) i Azure Cosmos DB 
 
@@ -34,9 +34,9 @@ TTL-värdet är inställt på några sekunder och tolkas som en delta från den 
 
 2. **Time to Live på ett objekt** (anges med `ttl`):
 
-   - Den här egenskapen gäller bara om `DefaultTimeToLive` finns och är inte inställd på null för den överordnade behållaren.
+   - Den här egenskapen gäller endast om `DefaultTimeToLive` finns och inte har angetts till null för den överordnade behållaren.
 
-   - Om den är tillgänglig åsidosätter `DefaultTimeToLive` den den överordnade behållarens värde.
+   - Om det här alternativet anges åsidosätts `DefaultTimeToLive`-värdet för den överordnade behållaren.
 
 ## <a name="time-to-live-configurations"></a>Time to Live konfigurationer
 
@@ -59,7 +59,7 @@ TTL för container är inställt på null (DefaultTimeToLive = null)
 |TTL för objekt| Resultat|
 |---|---|
 |TTL = null|    TTL har inaktiverats. Objektet upphör aldrig att gälla (standard).|
-|ttl = -1   |TTL har inaktiverats. Objektet upphör aldrig att gälla.|
+|TTL =-1   |TTL har inaktiverats. Objektet upphör aldrig att gälla.|
 |TTL = 2000 |TTL har inaktiverats. Objektet upphör aldrig att gälla.|
 
 
@@ -70,7 +70,7 @@ TTL för container är inställt på-1 (DefaultTimeToLive =-1)
 |TTL för objekt| Resultat|
 |---|---|
 |TTL = null |TTL har Aktiver ATS. Objektet upphör aldrig att gälla (standard).|
-|ttl = -1   |TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
+|TTL =-1   |TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
 |TTL = 2000 |TTL har Aktiver ATS. Objektet upphör att gälla efter 2000 sekunder.|
 
 
@@ -81,7 +81,7 @@ TTL på container är inställt på 1000 (DefaultTimeToLive = 1000)
 |TTL för objekt| Resultat|
 |---|---|
 |TTL = null|    TTL har Aktiver ATS. Objektet upphör att gälla efter 1000 sekunder (standard).|
-|ttl = -1   |TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
+|TTL =-1   |TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
 |TTL = 2000 |TTL har Aktiver ATS. Objektet upphör att gälla efter 2000 sekunder.|
 
 ## <a name="next-steps"></a>Nästa steg

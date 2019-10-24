@@ -3,19 +3,19 @@ title: Måttlig text med hjälp av API-Content Moderator för text redigering
 titleSuffix: Azure Cognitive Services
 description: 'Kontroll av textkontrollant med hjälp av API: et för text redigering i online-konsolen.'
 services: cognitive-services
-author: sanjeev3
-ms.author: sajagtap
+author: PatrickFarley
+ms.author: pafarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561188"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754193"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Måttlig text från API-konsolen
 
@@ -27,7 +27,7 @@ Innan du kan testa API: et i online-konsolen behöver du din prenumerations nyck
 
 ## <a name="navigate-to-the-api-reference"></a>Gå till API-referensen
 
-Gå till API-referensen för [text redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+Gå till [API-referensen för text redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
   Sidan med **text skärmen** öppnas.
 
@@ -46,15 +46,15 @@ För **öppna API test-konsolen**väljer du den region som bäst beskriver din p
 Välj de frågeparametrar som du vill använda på text skärmen. I det här exemplet använder du standardvärdet för **språk**. Du kan också lämna det tomt eftersom åtgärden automatiskt identifierar det sannolika språket som en del av körningen.
 
 > [!NOTE]
-> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
+> För parametern **språk** tilldelar du `eng` eller låter den vara tom för att se den datorbaserade **klassificerings** svaret (för hands version). **Den här funktionen stöder enbart engelska**.
 >
-> För  identifiering av svordomar kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
+> För identifiering av **svordomar** kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
 
 För **Autokorrigering**, **PII**och **klassificering (för hands version)** väljer du **Sant**. Lämna fältet **listid** tomt.
 
   ![Frågeparametrar för text skärms konsolen](images/text-api-console-inputs.PNG)
 
-### <a name="content-type"></a>Innehållstyp
+### <a name="content-type"></a>Innehålls typ
 
 För **innehålls typ**väljer du den typ av innehåll som du vill skärma. I det här exemplet använder du standard typen **text/oformaterad** innehålls typ. I rutan **OCP-APIM-Subscription-Key** anger du din prenumerations nyckel.
 

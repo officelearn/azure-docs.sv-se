@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aacedeb2c047d1abfc5affdcf94404abbb2c7b62
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 516f61775060b3e4073ed9d623545d4f227563ed
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168603"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750349"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure
 
@@ -101,7 +101,7 @@ Följande är ytterligare och användbart SAP på SUSE-relaterade länkar:
 
 Följande är SAP-support anteckningar som är tillämpliga för att implementera SAP HANA på SLES 12:
 
-- [Stöd för SAP-support #1944799 – SAP HANA rikt linjer för installation av operativ system för SLES](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+- [Stöd för SAP-support #1944799 – SAP HANA rikt linjer för installation av operativ system för SLES](http://service.sap.com/sap/support/notes/1944799)
 - [Stöd för SAP-support #2205917 – SAP HANA DB rekommenderade OS-inställningar för SLES 12 för SAP-program](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [#1984787 för SAP support NOTE – SUSE Linux Enterprise Server 12: installations information](https://launchpad.support.sap.com/#/notes/1984787)
 - [Stöd för SAP-support #171356 – SAP-program på Linux: allmän information](https://launchpad.support.sap.com/#/notes/1984787)
@@ -125,7 +125,7 @@ Följande är SAP-support anteckningar som är tillämpliga för att implementer
 
 ### <a name="time-synchronization"></a>Tidssynkronisering
 
-SAP-program som bygger på SAP NetWeaver-arkitekturen är känsliga för tids skillnader för de olika komponenter som utgör SAP-systemet. ABAP för SAP-kort med fel rubriken för ZDATE @ no__t-0LARGE @ no__t-1TIME @ no__t-2DIFF är förmodligen välbekant. Det beror på att de här korta dumparna visas när system tiden för olika servrar eller virtuella datorer är för långt ifrån varandra.
+SAP-program som bygger på SAP NetWeaver-arkitekturen är känsliga för tids skillnader för de olika komponenter som utgör SAP-systemet. ABAP för SAP-kort med fel rubriken för ZDATE \_LARGE \_TIME \_DIFF är förmodligen välbekanta. Det beror på att de här korta dumparna visas när system tiden för olika servrar eller virtuella datorer är för långt ifrån varandra.
 
 För SAP HANA på Azure (stora instanser) gäller tidssynkroniseringen som är utförd i Azure inte beräknings enheterna i de stora instans stämplarna. Den här synkroniseringen gäller inte för att köra SAP-program i interna virtuella Azure-datorer eftersom Azure säkerställer att systemets tid är korrekt synkroniserad. 
 
@@ -152,8 +152,8 @@ Namngivnings konventionerna för lagrings volymerna visas i följande tabell:
 
 | Lagrings användning | Monterings namn | Volym namn | 
 | --- | --- | ---|
-| HANA-data | /hana/data/SID/mnt0000 @ no__t-0m > | Lagrings-IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA-logg | /hana/log/SID/mnt0000 @ no__t-0m > | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA-data | /hana/data/SID/mnt0000 \<m > | Lagrings-IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA-logg | /hana/log/SID/mnt0000 \<m > | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA-logg säkerhets kopiering | /hana/log/backups | Lagrings-IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA delad | /hana/shared/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/delad |
 | usr/SAP | /usr/sap/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |

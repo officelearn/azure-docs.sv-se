@@ -1,17 +1,17 @@
 ---
 title: Partitionering och vågrät skalning i Azure Cosmos DB
 description: Lär dig mer om hur partitionering fungerar i Azure Cosmos DB, hur du konfigurerar partitionering och partitionerings nycklar och hur du väljer rätt partitionsnyckel för ditt program.
-ms.author: rimman
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8f83c40aeecdbf9ca30adc20286712850882ee41
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: cbd171e10cc1a8b27de98d9d4d779f345ac5a3ed
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616798"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754912"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering och vågrät skalning i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ I den här artikeln beskrivs fysiska och logiska partitioner i Azure Cosmos DB. 
 
 ## <a name="logical-partitions"></a>Logiska partitioner
 
-En logisk partition består av en uppsättning objekt som har samma partitionsnyckel. I en behållare där alla objekt innehåller en `City` egenskap kan du till exempel använda `City` som partitionsnyckel för behållaren. Grupper av objekt som har specifika värden för `City`, till exempel `London`, `Paris`, och `NYC`som utgör distinkta logiska partitioner. Du behöver inte oroa dig för att ta bort en partition när underliggande data tas bort.
+En logisk partition består av en uppsättning objekt som har samma partitionsnyckel. I en behållare där alla objekt innehåller en `City`-egenskap kan du till exempel använda `City` som partitions nyckel för behållaren. Grupper av objekt som har specifika värden för `City`, till exempel `London`, `Paris` och `NYC`, formar distinkta logiska partitioner. Du behöver inte oroa dig för att ta bort en partition när underliggande data tas bort.
 
 I Azure Cosmos DB är en behållare den grundläggande enheten för skalbarhet. Data som läggs till i behållaren och det data flöde som du etablerar på behållaren är automatiskt (vågrätt) partitionerade i en uppsättning logiska partitioner. Data och data flöde partitioneras baserat på den partitionsnyckel som du anger för Azure Cosmos-behållaren. Mer information finns i [skapa en Azure Cosmos-behållare](how-to-create-container.md).
 

@@ -3,19 +3,19 @@ title: Måttlig text med anpassade term listor – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 'Använd API för List hantering för att skapa anpassade listor med villkor som ska användas med API: et för text redigering.'
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 0a4e9b7925c2309a9682156934e9d94fa83c0d4b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 828e8ae68286d7c208462d77a31a764427c79637
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564402"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755267"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Måttlig med anpassade term listor i API-konsolen
 
@@ -44,7 +44,7 @@ Innan du kan testa API: et i online-konsolen behöver du din prenumerations nyck
 
 När du har gjort ändringar i en term lista måste du uppdatera dess index för att ändringarna ska ingå i framtida genomsökningar. Det här steget påminner om hur en sökmotor på Skriv bordet (om den är aktive rad) eller en Webbs öknings motor kontinuerligt uppdaterar sitt index för att inkludera nya filer eller sidor.
 
-1. Välj **term listor**på den vänstra menyn i [term List HANTERINGs-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)-referensen och välj sedan **Uppdatera Sök index**. 
+1. Välj **term listor**på den vänstra menyn i [term List HANTERINGs-API-referensen](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)och välj sedan **Uppdatera Sök index**. 
 
    Sidan **giltighets listor – uppdatera Sök index** öppnas.
 
@@ -52,14 +52,14 @@ När du har gjort ändringar i en term lista måste du uppdatera dess index för
 
    ![Term listor – uppdatera Sök index sidan Val av område](images/test-drive-region.png)
 
-   **Term listor – uppdatera API-** konsolen för sökindex öppnas.
+   **Term listor – uppdatera API-konsolen för sökindex** öppnas.
 
 3. I rutan **listId** anger du List-ID. Ange din prenumerations nyckel och välj sedan **Skicka**.
 
    ![Term visar API – uppdatera Sök index konsol rutan svar innehåll](images/try-terms-list-refresh-1.png)
 
 ## <a name="create-a-term-list"></a>Skapa en termlista
-1. Gå till [term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)-referensen. 
+1. Gå till [term List Management API-referensen](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
 
    Sidan **villkors listor – skapa** öppnas.
 
@@ -129,7 +129,7 @@ Det är enkelt att ta bort en term eller en lista. Du använder API: et för att
 
 I det här exemplet tas en enstaka term bort.
 
-1. I [term List hanterings-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)-referensen väljer du **term**i den vänstra menyn och väljer sedan **ta bort**. 
+1. I [term List hanterings-API-referensen](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)väljer du **term**i den vänstra menyn och väljer sedan **ta bort**. 
 
    **Termen-Delete** öppnas.
 
@@ -153,7 +153,7 @@ I det här exemplet tas en enstaka term bort.
 
 Du kan redigera en listas namn och beskrivning och lägga till objekt i metadata.
 
-1. I [term List hanterings-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)-referensen går du till den vänstra menyn och väljer **term listor**och väljer sedan **uppdaterings information**. 
+1. I [term List hanterings-API-referensen](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)går du till den vänstra menyn och väljer **term listor**och väljer sedan **uppdaterings information**. 
 
    Sidan **villkors listor – uppdaterings information** öppnas.
 
@@ -161,7 +161,7 @@ Du kan redigera en listas namn och beskrivning och lägga till objekt i metadata
 
    ![Term listor-val av sid region för uppdaterings information](images/test-drive-region.png)
 
-   **Term listor – API-** konsolen för uppdaterings information öppnas.
+   **Term listor – API-konsolen för uppdaterings information** öppnas.
 
 3. I rutan **listId** anger du List-ID och anger sedan din prenumerations nyckel.
 
@@ -172,4 +172,4 @@ Du kan redigera en listas namn och beskrivning och lägga till objekt i metadata
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd REST API i koden eller börja med villkoret som [listar .net snabb start](term-lists-quickstart-dotnet.md) för att integrera med ditt program.
+Använd REST API i koden eller börja med [villkoret som listar .net snabb start](term-lists-quickstart-dotnet.md) för att integrera med ditt program.

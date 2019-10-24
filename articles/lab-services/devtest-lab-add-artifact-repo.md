@@ -1,6 +1,6 @@
 ---
-title: Lägga till en Git-lagringsplats i ett labb i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du lägger till en GitHub- eller Azure DevOps Services Git-lagringsplats för källan anpassade artefakter i Azure DevTest Labs.
+title: Lägga till en git-lagringsplats i ett labb i Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du lägger till en GitHub-eller Azure DevOps-tjänst git-lagringsplats för din anpassade artefakter-källa i Azure DevTest Labs.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: spelluru
@@ -14,88 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1555eb4e48a0cf43a38aa811e20ffbbed8ee87a9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311732"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755820"
 ---
-# <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Lägg till en Git-lagringsplats för att lagra anpassade artefakter och Resource Manager-mallar
+# <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Lägg till en git-lagringsplats för att lagra anpassade artefakter och Resource Manager-mallar
 
-Du kan [skapa anpassade artefakter](devtest-lab-artifact-author.md) för virtuella datorer i labbet, eller [Använd Azure Resource Manager-mallar för att skapa en anpassad testmiljö](devtest-lab-create-environment-from-arm.md). Du måste lägga till en privata Git-lagringsplats för artefakter eller Resource Manager-mallar som ditt team skapar. Databasen kan finnas på [GitHub](https://github.com) eller på [Azure DevOps-tjänsterna](https://visualstudio.com).
+Du kan [skapa anpassade artefakter](devtest-lab-artifact-author.md) för de virtuella datorerna i labbet eller [använda Azure Resource Manager mallar för att skapa en anpassad test miljö](devtest-lab-create-environment-from-arm.md). Du måste lägga till en privat git-lagringsplats för de artefakter eller Resource Manager-mallar som ditt team skapar. Lagrings platsen kan ligga på [GitHub](https://github.com) eller på [Azure DevOps-tjänster](https://visualstudio.com).
 
-Vi erbjuder en [GitHub-lagringsplats för artefakter](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) som du kan distribuera som – är, eller du kan anpassa dem efter dina labb. När du anpassa eller skapa en artefakt, kan inte du lagra artefakten i den offentliga databasen. Du måste skapa din egen privata lagringsplats för anpassade artefakter och artefakter som du skapar. 
+Vi erbjuder ett [GitHub-lager med artefakter](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) som du kan distribuera i befintligt skick, eller så kan du anpassa dem till dina labb. När du anpassar eller skapar en artefakt kan du inte lagra artefakten i den offentliga lagrings platsen. Du måste skapa en egen privat lagrings platsen för anpassade artefakter och för artefakter som du skapar. 
 
-När du skapar en virtuell dator kan du spara Resource Manager-mallen, anpassa den om du vill ha och sedan använda den senare för att skapa fler virtuella datorer. Du måste skapa din egen privata lagringsplatsen för att lagra dina anpassade Resource Manager-mallar.  
+När du skapar en virtuell dator kan du spara Resource Manager-mallen, anpassa den om du vill och sedan använda den senare för att skapa fler virtuella datorer. Du måste skapa en egen privat lagrings plats för att lagra dina anpassade Resource Manager-mallar.  
 
-* Läs hur du skapar en GitHub-lagringsplats i [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Läs hur du skapar ett Azure DevOps-Services-projekt som har en Git-lagringsplats i [Anslut till Azure DevOps-tjänsterna](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Information om hur du skapar en GitHub-lagringsplats finns i [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
+* Information om hur du skapar ett Azure DevOps Services-projekt som har en git-lagringsplats finns i [ansluta till Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
-Följande bild är ett exempel på hur en databas som har artefakter kan se i GitHub:  
+Följande figur är ett exempel på hur en lagrings plats med artefakter kan se ut i GitHub:  
 
-![Artefakter GitHub-exempellager](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
+![Exempel på GitHub artefakter lagrings platsen](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
-## <a name="get-the-repository-information-and-credentials"></a>Hämta information för databasen och autentiseringsuppgifter
-Om du vill lägga till en lagringsplats i labbet, först få viktig information från databasen. I följande avsnitt beskrivs hur du hämtar information som behövs för databaser som finns på GitHub eller Azure DevOps-tjänsterna.
+## <a name="get-the-repository-information-and-credentials"></a>Hämta information om lagrings platsen och autentiseringsuppgifterna
+Om du vill lägga till en lagrings plats i labbet hämtar du först viktig information från din lagrings plats. I följande avsnitt beskrivs hur du får nödvändig information för databaser som finns på GitHub-eller Azure DevOps-tjänster.
 
-### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Hämta GitHub-lagringsplatsen klon-URL och personlig åtkomst-token
+### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Hämta URL för kloning av GitHub-lagringsplats och personlig åtkomst-token
 
-1. Gå till startsidan för GitHub-lagringsplatsen som innehåller artefakten eller Malldefinitioner för Resource Manager.
+1. Gå till start sidan för GitHub-lagringsplatsen som innehåller definitionerna för artefakt-eller Resource Manager-mallen.
 2. Välj **Klona eller ladda ned**.
-3. URL: en till Urklipp och markera den **url för HTTPS-klon** knappen. Spara URL: en för senare användning.
-4. Välj en avbildning med profilen i det övre högra hörnet på GitHub och välj sedan **inställningar**.
-5. I den **personliga inställningar** menyn till vänster, Välj **personliga åtkomsttoken**.
-6. Välj **Generera ny token**.
-7. På den **ny personlig åtkomsttoken** sidan under **Tokenbeskrivning**, ange en beskrivning. Acceptera standardobjekten under **Välj områden**, och välj sedan **generera Token**.
+3. Kopiera URL: en till Urklipp genom att välja URL-knappen **https-kloning** . Spara URL: en för senare användning.
+4. I det övre högra hörnet av GitHub väljer du profil avbildningen och väljer sedan **Inställningar**.
+5. I menyn **personliga inställningar** till vänster väljer du **personliga åtkomsttoken**.
+6. Välj **generera ny token**.
+7. På sidan **ny personlig åtkomst-token** under **token-Beskrivning**anger du en beskrivning. Godkänn standard objekt under **Välj omfång**och välj sedan **skapa token**.
 8. Spara den genererade token. Du använder token senare.
 9. Stäng GitHub.   
-10. Fortsätta att den [ansluta ditt labb till databasen](#connect-your-lab-to-the-repository) avsnittet.
+10. Fortsätt till avsnittet [Anslut ditt labb till databasen](#connect-your-lab-to-the-repository) .
 
-### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Få Azure-lagringsplatser klonen URL och personlig åtkomsttoken
+### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Hämta URL för Azure databaser-kloning och personlig åtkomst-token
 
-1. Gå till startsidan för din team-samling (till exempel https://contoso-web-team.visualstudio.com), och välj sedan ditt projekt.
-2. Välj på projektets startsida, **kod**.
-3. Visa klon-URL på projektet **kod** väljer **klona**.
+1. Gå till start sidan för din grupp samling (till exempel https://contoso-web-team.visualstudio.com) och välj sedan ditt projekt.
+2. På projektets start sida väljer du **kod**.
+3. Om du vill visa klon-URL: en på sidan projekt **kod** väljer du **klona**.
 4. Spara URL: en. Du använder URL: en senare.
-5. Om du vill skapa en personlig åtkomsttoken i användarens konto nedrullningsbara menyn, Välj **min profil**.
-6. På sidan profil information väljer **Security**.
-7. På den **Security** fliken **Lägg till**.
-8. På den **skapa en personlig åtkomsttoken** sidan:
-   1. Ange en **beskrivning** för token.
-   2. I den **upphör att gälla i** väljer **180 dagar**.
-   3. I den **konton** väljer **alla tillgängliga konton**.
-   4. Välj den **alla omfattningar** alternativet.
-   5. Välj **skapa Token**.
-9. Den nya token visas i den **personliga åtkomsttoken** lista. Välj **kopiera Token**, och spara token-värde för senare användning.
-10. Fortsätta att den [ansluta ditt labb till databasen](#connect-your-lab-to-the-repository) avsnittet.
+5. Om du vill skapa en personlig åtkomsttoken går du till den nedrullningsbara menyn användar konto och väljer **min profil**.
+6. På sidan profil information väljer du **säkerhet**.
+7. På fliken **säkerhet** väljer du **Lägg till**.
+8. På sidan **skapa en personlig** åtkomsttoken:
+   1. Ange en **Beskrivning** för token.
+   2. I listan **förfaller i** väljer du **180 dagar**.
+   3. I listan **konton** väljer du **alla tillgängliga konton**.
+   4. Välj alternativet **Skriv skydd** .
+   5. Välj **skapa token**.
+9. Den nya token visas i listan med **personliga åtkomst-token** . Välj **Kopiera token**och spara sedan token-värdet för senare användning.
+10. Fortsätt till avsnittet [Anslut ditt labb till databasen](#connect-your-lab-to-the-repository) .
 
-## <a name="connect-your-lab-to-the-repository"></a>Ansluta ditt labb till databasen
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan över tjänster.
-3. Listan över labbar, väljer du ditt labb. 
-4. Välj **konfiguration och principer** > **databaser** >  **+ Lägg till**.
+## <a name="connect-your-lab-to-the-repository"></a>Anslut ditt labb till lagrings platsen
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+2. Välj **fler tjänster**och välj sedan **DevTest Labs** i listan över tjänster.
+3. I listan med labb väljer du ditt labb. 
+4. Välj **konfiguration och principer**  > -**databaser**  >  **+ Lägg till**.
 
-    ![Knappen Lägg till databasen](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-5. På andra **databaser** anger du följande information:
-   1. **Namn**. Ange ett namn för databasen.
-   2. **Url för Git-klonen**. Ange URL för Git HTTPS-klonen som du kopierade tidigare från GitHub eller Azure DevOps-tjänsterna.
-   3. **Branch**. Ange grenen för att få definitionerna.
-   4. **Personlig åtkomsttoken**. Ange din personliga åtkomsttoken som du tidigare fått från GitHub eller Azure DevOps-tjänsterna.
-   5. **Mappsökvägar**. Ange minst en mappsökväg i förhållande till den klon-URL som innehåller din artefakt eller Malldefinitioner för Resource Manager. När du anger en underkatalog måste du kontrollera att du inkluderar snedstreck i mappsökvägen.
+    ![Knappen Lägg till lagrings plats](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
+5. På sidan andra **databaser** anger du följande information:
+   1. **Namn**. Ange ett namn för lagrings platsen.
+   2. **Git Clone-URL**. Ange den git HTTPS-klon-URL som du kopierade tidigare från antingen GitHub eller Azure DevOps Services.
+   3. **Gren**. Ange grenen för att hämta dina definitioner.
+   4. **Personlig åtkomsttoken**. Ange den personliga åtkomsttoken som du tidigare fick från antingen GitHub eller Azure DevOps Services.
+   5. **Mappsökvägar.** Ange minst en mappsökväg i förhållande till klon-URL: en som innehåller dina definitioner för artefakt-eller Resource Manager-mallar. När du anger en under katalog kontrollerar du att du inkluderar snedstrecket i mappsökvägen.
 
-      ![Lagringsplatser området](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+      ![Områden i databaser](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Välj **Spara**.
 
-### <a name="related-blog-posts"></a>Relaterade blogginlägg
-* [Felsöka misslyckas artefakter i DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Ansluta en dator till en befintlig Active Directory-domän med hjälp av Resource Manager-mall i DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+### <a name="related-blog-posts"></a>Relaterade blogg inlägg
+* [Felsöka fel i artefakter i DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
+* [Anslut en virtuell dator till en befintlig Active Directory domän med hjälp av en Resource Manager-mall i DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-När du har skapat din privata Git-lagringsplats kan göra du en eller båda av följande, beroende på dina behov:
-* Store din [anpassade artefakter](devtest-lab-artifact-author.md). Du kan använda dem senare för att skapa nya virtuella datorer.
-* [Skapa miljöer för flera virtuella datorer och PaaS-resurser med hjälp av Resource Manager-mallar](devtest-lab-create-environment-from-arm.md). Sedan kan du lagra mallarna i din privata lagringsplats.
+När du har skapat din privata git-lagringsplats kan du göra något av följande, beroende på dina behov:
+* Lagra dina [anpassade artefakter](devtest-lab-artifact-author.md). Du kan använda dem senare för att skapa nya virtuella datorer.
+* [Skapa miljöer med flera virtuella datorer och PaaS-resurser med hjälp av Resource Manager-mallar](devtest-lab-create-environment-from-arm.md). Sedan kan du lagra mallarna i din privata lagrings platsen.
 
-När du skapar en virtuell dator kan kontrollera du att artefakter och mallar har lagts till Git-lagringsplatsen. De är omedelbart tillgängliga i listan över artefakter och mallar. Namnet på din privata lagringsplats visas i kolumnen som anger källan. 
+När du skapar en virtuell dator kan du kontrol lera att artefakterna eller mallarna läggs till i git-lagringsplatsen. De är omedelbart tillgängliga i listan över artefakter eller mallar. Namnet på din privata lagrings platsen visas i kolumnen som anger källan. 

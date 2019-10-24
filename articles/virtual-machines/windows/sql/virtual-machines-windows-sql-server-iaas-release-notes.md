@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: f5f8985a0b9a97c559016add2567a936220aa910
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 599dd2b44f934bb864acfa9ffe8d03fa0e8bb850
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300095"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757471"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Dokumentations ändringar för SQL Server på Azure Virtual Machines
 
@@ -29,10 +29,10 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 | Något | Information |
 | --- | --- |
 | **Prestandaoptimerad lagrings konfiguration** | Du kan nu [helt anpassa lagrings konfigurationen](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) när du skapar en ny SQL Server VM. |
-| **Premium-filresurs för FCI** | Nu kan du skapa en instans av ett kluster för växling vid fel med [Premium-filresursen](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md) i stället för den ursprungliga [Lagringsdirigerings](virtual-machines-windows-portal-sql-create-failover-cluster.md)metoden. 
+| **Premium-filresurs för FCI** | Nu kan du skapa en instans av ett kluster för växling vid fel med en [Premium-filresurs](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) i stället för den ursprungliga [Lagringsdirigering](virtual-machines-windows-portal-sql-create-failover-cluster.md)-metoden. 
 | &nbsp; | &nbsp; |
 
-## <a name="august-2019"></a>2019 augusti
+## <a name="august-2019"></a>Augusti 2019
 
 | Något | Information |
 | --- | --- |
@@ -48,7 +48,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 | **Flytta SQL VM till en annan region** | Använd Azure Site Recovery för att [migrera SQL Server VM från en region till en annan](virtual-machines-windows-sql-move-different-region.md). |
 | &nbsp; | &nbsp; |
 
-## <a name="june-2019"></a>2019 juni
+## <a name="june-2019"></a>Juni 2019
 
 
 | Något | Information |

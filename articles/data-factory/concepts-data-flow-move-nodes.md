@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2031820843342fb7e6b115865297e08cbee28a0a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 631a103491b70ca016b94af01995aeeb3f29c77a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387333"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754675"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Mappa data flöde flytta noder
 
@@ -25,7 +25,7 @@ Så, utan att dra och släppa paradigm, så att du kan flytta en Transformations
 
 ## <a name="streams-of-data-inside-of-data-flow"></a>Data strömmar av data i data flödet
 
-I Azure Data Factory data flöde representerar strömmar data flödet. I fönstret omvandlings inställningar visas ett "inkommande ång"-fält. Detta visar vilken inkommande data ström som används för att mata över omvandlingen. Du kan ändra den fysiska platsen för Transform-noden i diagrammet genom att klicka på namnet på den inkommande strömmen och välja en annan data ström. Den aktuella omvandlingen tillsammans med alla efterföljande transformeringar i den data strömmen kommer sedan att flyttas till den nya platsen.
+I Azure Data Factory data flöde representerar strömmar data flödet. I fönstret omvandlings inställningar visas fältet inkommande ström. Detta visar vilken inkommande data ström som används för att mata över omvandlingen. Du kan ändra den fysiska platsen för Transform-noden i diagrammet genom att klicka på namnet på den inkommande strömmen och välja en annan data ström. Den aktuella omvandlingen tillsammans med alla efterföljande transformeringar i den data strömmen kommer sedan att flyttas till den nya platsen.
 
 Om du flyttar en omvandling med en eller flera transformeringar efter den, kommer den nya platsen i data flödet att anslutas via en ny gren.
 

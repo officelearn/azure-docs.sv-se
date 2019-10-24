@@ -4,28 +4,28 @@ description: Visa aktivitet och gransknings historik för Azure Resource roles i
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e1ed018f66d4f5eefd02d587504cf64969f47b
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 0c9a58fb6cd8591f571b4e65c3ab88cc59e38cda
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804046"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756317"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visa aktivitet och gransknings historik för Azure Resource roles i PIM
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visa aktivitet och gransknings historik för Azures resurs roller i Privileged Identity Management
 
-Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan du Visa aktivitet, aktiveringar och gransknings historik för Azure-resurser i din organisation. Detta omfattar prenumerationer, resurs grupper och till och med virtuella datorer. Alla resurser i Azure Portal som utnyttjar RBAC-funktionen (rollbaserad åtkomst kontroll) i Azure kan dra nytta av funktionerna för säkerhet och livs cykel hantering i PIM.
+Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan du Visa aktivitet, aktiveringar och gransknings historik för Azure-resurser i din organisation. Detta omfattar prenumerationer, resurs grupper och till och med virtuella datorer. Alla resurser i Azure Portal som utnyttjar RBAC-funktionen (rollbaserad åtkomst kontroll) i Azure kan dra nytta av funktionerna för säkerhet och livs cykel hantering i Privileged Identity Management.
 
 ## <a name="view-activity-and-activations"></a>Visa aktivitet och aktiveringar
 
@@ -51,7 +51,7 @@ Om du vill se vilka åtgärder en viss användare har tagit i olika resurser kan
 
 ## <a name="export-role-assignments-with-children"></a>Exportera roll tilldelningar med underordnade
 
-Du kan ha ett krav på efterlevnad där du måste ange en fullständig lista över roll tilldelningar till granskare. Med PIM kan du fråga roll tilldelningar för en speciell resurs, vilket innefattar roll tilldelningar för alla underordnade resurser. Tidigare var det svårt för administratörer att få en fullständig lista över roll tilldelningar för en prenumeration och de behövde exportera roll tilldelningar för varje enskild resurs. Med hjälp av PIM kan du fråga efter alla aktiva och kvalificerade roll tilldelningar i en prenumeration, inklusive roll tilldelningar för alla resurs grupper och resurser.
+Du kan ha ett krav på efterlevnad där du måste ange en fullständig lista över roll tilldelningar till granskare. Med Privileged Identity Management kan du fråga roll tilldelningar för en speciell resurs, vilket innefattar roll tilldelningar för alla underordnade resurser. Tidigare var det svårt för administratörer att få en fullständig lista över roll tilldelningar för en prenumeration och de behövde exportera roll tilldelningar för varje enskild resurs. Med hjälp av Privileged Identity Management kan du fråga efter alla aktiva och berättigade roll tilldelningar i en prenumeration, inklusive roll tilldelningar för alla resurs grupper och resurser.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -111,6 +111,6 @@ I min granskning kan du Visa din personliga roll aktivitet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela Azure-resurs roller i PIM](pim-resource-roles-assign-roles.md)
-- [Godkänn eller neka begär Anden för Azure Resource roles i PIM](pim-resource-roles-approval-workflow.md)
-- [Visa gransknings historik för Azure AD-roller i PIM](pim-how-to-use-audit-log.md)
+- [Tilldela Azure-resurs roller i Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Godkänn eller neka begär Anden för Azures resurs roller i Privileged Identity Management](pim-resource-roles-approval-workflow.md)
+- [Visa gransknings historik för Azure AD-roller i Privileged Identity Management](pim-how-to-use-audit-log.md)

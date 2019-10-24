@@ -1,32 +1,33 @@
 ---
-title: Felsöka vanliga fel i Azure Cosmos DB API för Mongo DB
-description: Det här dokumentet beskrivs hur du felsöker vanliga problem som uppstod i Azure Cosmos DB API för MongoDB.
+title: Felsök vanliga fel i Azure Cosmos DB s API för mongo DB
+description: Det här dokumentet innehåller information om hur du felsöker vanliga problem som uppstått i Azure Cosmos DB s API för MongoDB.
 author: roaror
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: roaror
-ms.openlocfilehash: 5b3d3993a497240c1ea18f0fcf852c0e834f6e79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ece975fa37e500b1c160210684a0cb46e719c48b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735713"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754956"
 ---
-# <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Felsöka vanliga problem i Azure Cosmos DB API för MongoDB
+# <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Felsök vanliga problem i Azure Cosmos DBs API för MongoDB
 
-Azure Cosmos DB implementerar protokollen under överföring med vanliga NoSQL-databaser, inklusive MongoDB. På grund av protokollimplementering under överföring kan du transparent interagera med Azure Cosmos DB med hjälp av den befintliga klienten SDK: er, drivrutiner och verktyg som fungerar med NoSQL-databaser. Azure Cosmos DB använder inte någon källkoden för databaserna för att tillhandahålla wire-kompatibla API: er för alla NoSQL-databaser. Alla MongoDB-klientdrivrutinen som förstår protokollversioner under överföring kan ansluta till Azure Cosmos DB.
+Azure Cosmos DB implementerar överförings protokollen för vanliga NoSQL-databaser, inklusive MongoDB. På grund av implementeringen av överförings protokoll kan du transparent interagera med Azure Cosmos DB med hjälp av befintliga klient-SDK: er, driv rutiner och verktyg som fungerar med NoSQL-databaser. Azure Cosmos DB använder inte någon käll kod för databaserna för att tillhandahålla kabel-kompatibla API: er för någon av NoSQL-databaserna. Eventuella MongoDB-klientdatorer som förstår kabel protokoll versioner kan ansluta till Azure Cosmos DB.
 
-Azure Cosmos DB-API för MongoDB är kompatibel med 3,2 versionen av den MongoDB-protokollet (frågeoperatorer och funktioner i version 3.4 är för närvarande finns som förhandsversion), finns men det vissa anpassade felkoder för Azure Cosmos DB specifika fel. Den här artikeln beskrivs olika fel, felkoder och stegen för att åtgärda dessa fel.
+Medan Azure Cosmos DBs API för MongoDB är kompatibelt med 3,2-versionen av MongoDBs kabel protokoll (de operatörer och funktioner som läggs till i version 3,4 är för närvarande tillgängliga som en för hands version), finns det vissa anpassade fel koder som motsvarar Azure Cosmos DB vissa fel. I den här artikeln beskrivs olika fel, felkoder och stegen för att lösa dessa fel.
 
 ## <a name="common-errors-and-solutions"></a>Vanliga fel och lösningar
 
-| Fel               | Kod  | Beskrivning  | Lösning  |
+| Fel               | Programmera  | Beskrivning  | Lösning  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | Det totala antalet enheter för programbegäran som används är högre än den etablerade begäransenhet för samlingen och har begränsats. | Överväg att skala dataflöde som tilldelats till en behållare eller en uppsättning behållare från Azure-portalen eller du kan försöka igen. |
-| ExceededMemoryLimit | 16501 | Åtgärden har gått över klientens minne mängd som en tjänst med flera klienter. | Minska omfånget för åtgärd via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exempel: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
-| Problem med MongoDB wire-version | - | Äldre versioner av MongoDB drivrutiner kan inte identifiera Azure Cosmos-kontots namn i anslutningssträngar. | Lägg till *appName = @**accountName** @*  i slutet av din Cosmos DB: s API för MongoDB-anslutningssträngen, där ***accountName*** är namnet på ditt Cosmos DB . |
+| TooManyRequests     | 16500 | Det totala antalet förbrukade enheter för förbrukad enhet är fler än det etablerade enhets antalet för samlingen och har begränsats. | Överväg att skala data flödet som är kopplat till en behållare eller en uppsättning behållare från Azure Portal eller så kan du försöka utföra åtgärden igen. |
+| ExceededMemoryLimit | 16501 | Som en tjänst för flera innehavare har åtgärden gått över klientens minnes tilldelning. | Minska åtgärds området genom mer restriktiva frågevillkor eller kontakta supporten från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exempel: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+| Index Sök vägen som motsvarar den angivna order by-posten är exkluderad/order by-frågan har inget motsvarande sammansatt index som det kan hanteras från. | 2 | Frågan begär en sortering för ett fält som inte är indexerat. | Skapa ett matchande index (eller sammansatt index) för sorterings frågan. |
+| MongoDB tråd versions problem | - | De äldre versionerna av MongoDB-drivrutinerna kan inte identifiera Azure Cosmos-kontots namn i anslutnings strängarna. | Lägg till *APPNAME = @**accountName** @* i slutet av din Cosmos DBS API för MongoDB-anslutningssträng, där ***accountName*** är ditt Cosmos DB konto namn. |
 
 
 ## <a name="next-steps"></a>Nästa steg

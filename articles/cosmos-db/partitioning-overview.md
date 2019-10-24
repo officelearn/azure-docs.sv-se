@@ -1,23 +1,23 @@
 ---
 title: Partitionering i Azure Cosmos DB
 description: Översikt över partitionering i Azure Cosmos DB.
-ms.author: rimman
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 38b4e4c2541bf30bd9c95d9c0ec61779b0d1d7bb
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717562"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753245"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitionering i Azure Cosmos DB
 
 Azure Cosmos DB använder partitionering för att skala enskilda behållare i en databas för att uppfylla ditt programs prestanda behov. I partitionering är objekten i en behållare indelade i distinkta del mängder som kallas *logiska partitioner*. Logiska partitioner skapas baserat på värdet för en *partitionsnyckel* som är associerad med varje objekt i en behållare. Alla objekt i en logisk partition har samma partitionerings nyckel värde.
 
-Till exempel innehåller en behållare objekt. Varje objekt har ett unikt värde för `UserID` egenskapen. Om `UserID` fungerar som partitionsnyckel för objekten i behållaren och det finns 1 000 unika `UserID` värden, skapas 1 000 logiska partitioner för behållaren.
+Till exempel innehåller en behållare objekt. Varje objekt har ett unikt värde för egenskapen `UserID`. Om `UserID` fungerar som partitionsnyckel för objekten i behållaren och det finns 1 000 unika `UserID` värden, skapas 1 000 logiska partitioner för behållaren.
 
 Förutom en partitionsnyckel som avgör objektets logiska partition, har varje objekt i en behållare ett *objekt-ID* (unikt inom en logisk partition). Genom att kombinera partitionsnyckel och objekt-ID skapas objektets *index*, vilket unikt identifierar objektet.
 

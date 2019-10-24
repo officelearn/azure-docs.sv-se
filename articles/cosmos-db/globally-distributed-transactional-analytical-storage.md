@@ -1,18 +1,18 @@
 ---
 title: Globalt distribuerad transaktions-och analys lagring för Azure Cosmos-behållare
 description: Lär dig mer om transaktions-och analys lagring och deras konfigurations alternativ för Azure Cosmos-behållare.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 27ca2102ee95273fbedd1a870e57d2ae3318e879
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: abf222b7a6d6e8fd053fa83c066d2b7850f575ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703384"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756908"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Globalt distribuerad transaktions-och analys lagring för Azure Cosmos-behållare
 
@@ -30,12 +30,12 @@ Transaktions lagrings motorn backas upp av lokala SSD, medan analys lagringen la
 |Funktion  |Transaktions lagring  |Analytisk lagring |
 |---------|---------|---------|
 |Maximalt lagrings utrymme per Azure Cosmos-behållare |   Obegränsat      |    Obegränsat     |
-|Maximalt lagrings utrymme per logisk partitionsnyckel   |   10 GB      |   Obegränsat      |
+|Maximalt lagrings utrymme per logisk partitionsnyckel   |   10 GB      |   Obegränsat      |
 |Lagrings kodning  |   Rad orienterad, med ett internt format.   |   Kolumn-orienterade, med Apache Parquet-format. |
 |Lagrings plats |   Replikerad lagring som backas upp av lokala/intra-Cluster-SSD. |  Replikerad lagring som backas upp av ett billigt fjärr-eller SSD-kluster.       |
 |Hållbarhet  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |
 |API: er som har åtkomst till data  |   SQL, MongoDB, Cassandra, Gremlin, tables och Etcd.       | Apache Spark         |
-|Kvarhållning (Time-to-Live eller TTL)   |  Princip driven, konfigurerad i Azure Cosmos-behållaren med egenskapen `DefaultTimeToLive`.       |   Princip driven, konfigurerad i Azure Cosmos-behållaren med egenskapen `ColumnStoreTimeToLive`.      |
+|Kvarhållning (Time-to-Live eller TTL)   |  Princip driven, konfigurerad i Azure Cosmos-behållaren med hjälp av egenskapen `DefaultTimeToLive`.       |   Princip driven, konfigurerad i Azure Cosmos-behållaren med hjälp av egenskapen `ColumnStoreTimeToLive`.      |
 |Pris per GB    |   $0,25/GB      |  $0,02/GB       |
 |Pris för lagrings transaktioner    | Det tillhandahållna data flödet debiteras med $0,008 per 100 RU/s med fakturering per timme.        |  Förbruknings data flöde debiteras med $0,05 för 10 000 Skriv transaktioner och $0,004 för 10 000 Läs transaktioner.       |
 
@@ -90,19 +90,19 @@ Beroende på ditt scenario kan du självständigt aktivera eller inaktivera var 
 
 1. **Konfigurera behållaren exklusivt för analytiska arbets belastningar (med oändlig kvarhållning)**
 
-   Du kan konfigurera din Azure Cosmos-behållare exklusivt för analytiska arbets belastningar. Den här konfigurationen har en fördel där du inte behöver betala för transaktions lagringen. Om målet endast är att använda behållaren för analytiska arbets belastningar kan du inaktivera transaktions lagringen genom att ange `DefaultTimeToLive` till 0 i behållaren Cosmos, och du kan aktivera analytisk lagring med oändlig kvarhållning genom att ange `ColumnStoreTimeToLive` till-1.
+   Du kan konfigurera din Azure Cosmos-behållare exklusivt för analytiska arbets belastningar. Den här konfigurationen har en fördel där du inte behöver betala för transaktions lagringen. Om målet endast är att använda behållaren för analytiska arbets belastningar kan du inaktivera transaktions lagringen genom att ange `DefaultTimeToLive` till 0 i behållaren Cosmos och du kan aktivera analytisk lagring med oändlig kvarhållning genom att ange `ColumnStoreTimeToLive` till-1.
 
    ![Analytiska arbets belastningar med oändlig kvarhållning](./media/globally-distributed-transactional-analytical-storage/analytical-workload-configuration.png)
 
 1. **Konfigurera behållaren exklusivt för transaktions arbets belastningar (med oändlig kvarhållning)**
 
-   Du kan konfigurera din Azure Cosmos-behållare exklusivt för transaktions arbets belastningar. Du kan inaktivera analytisk lagring genom att ange `ColumnStoreTimeToLive` till 0 i behållaren, och du kan aktivera analytisk lagring med oändlig kvarhållning genom att ange `DefaultTimeToLive` till-1.
+   Du kan konfigurera din Azure Cosmos-behållare exklusivt för transaktions arbets belastningar. Du kan inaktivera analys lagringen genom att ange `ColumnStoreTimeToLive` till 0 på behållaren och du kan aktivera analytisk lagring med oändlig kvarhållning genom att ange `DefaultTimeToLive` till-1.
 
    ![Transaktions arbets belastningar med oändlig kvarhållning](./media/globally-distributed-transactional-analytical-storage/transactional-workload-configuration.png)
 
 1. **Konfigurera behållaren för både transaktions-och analys arbets belastningar (med oändlig kvarhållning)**
 
-   Du kan konfigurera din Azure Cosmos-behållare för både transaktions-och analys arbets belastningar med fullständig prestanda isolering mellan dem. Du kan aktivera analys lagring genom att ange `ColumnStoreTimeToLive` till-1, och aktivera transaktions lagring med oändlig kvarhållning genom att ange `DefaultTimeToLive ` till-1.
+   Du kan konfigurera din Azure Cosmos-behållare för både transaktions-och analys arbets belastningar med fullständig prestanda isolering mellan dem. Du kan aktivera analytisk lagring genom att ange `ColumnStoreTimeToLive` till-1, och aktivera transaktions lagring med oändlig kvarhållning genom att ange `DefaultTimeToLive ` till-1.
 
    ![Transaktionella och analytiska arbets belastningar med oändlig kvarhållning](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-infinite-retention.png)
 
@@ -110,7 +110,7 @@ Beroende på ditt scenario kan du självständigt aktivera eller inaktivera var 
 
    Du kan konfigurera din Azure Cosmos-behållare för både transaktions-och analys arbets belastningar med fullständig prestanda isolering mellan dem med olika kvarhållningsintervall. Azure Cosmos DB tvingar fram att analys lagringen alltid behålls under en längre tid än transaktions lagringen.
 
-   Du kan aktivera transaktions lagring med oändlig kvarhållning genom att ange `DefaultTimeToLive` till < värde 1 > och aktivera analytisk lagring genom att ange `ColumnStoreTimeToLive` för < värde 2 >. Azure Cosmos DB tvingar att < värde 2 > alltid är större än < värde 1 >.
+   Du kan aktivera transaktions lagring med oändlig kvarhållning genom att ange `DefaultTimeToLive` till < värde 1 > och aktivera analytisk lagring genom att ställa in `ColumnStoreTimeToLive` < värde 2 >. Azure Cosmos DB tvingar att < värde 2 > alltid är större än < värde 1 >.
 
    ![Transaktionella och analytiska arbets belastningar med lagrings nivåer](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-specified-retention.png)
 

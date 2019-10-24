@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 5631b34fee64c6ad0917b95ec68fcd586717a1b0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 2919c7a2fa3a8912de0272af5131583988184704
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675178"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755521"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Översikt över Azure App Service diagnostik
 
@@ -92,7 +92,7 @@ Diagnostikverktygen innehåller mer avancerade diagnostikverktyg som hjälper di
 
 ### <a name="proactive-cpu-monitoring"></a>Proaktiv CPU-övervakning
 
-Proaktiv CPU-övervakning ger dig ett enkelt, proaktivt sätt att vidta en åtgärd när din app eller underordnade process för din app förbrukar höga processor resurser. Du kan ställa in egna CPU-regler för att tillfälligt minimera ett högt CPU-problem tills den faktiska orsaken till det oväntade problemet har påträffats. Mer information finns i [minska dina CPU-problem innan de inträffar](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html). Proaktiv CPU-övervakning ger dig ett enkelt, proaktivt sätt att vidta en åtgärd när din app eller underordnade process för din app förbrukar höga processor resurser. Du kan ställa in egna CPU-regler för att tillfälligt minimera ett högt CPU-problem tills den faktiska orsaken till det oväntade problemet har påträffats.
+Proaktiv CPU-övervakning ger dig ett enkelt, proaktivt sätt att vidta en åtgärd när din app eller underordnade process för din app förbrukar höga processor resurser. Du kan ställa in egna CPU-regler för att tillfälligt minimera ett högt CPU-problem tills den faktiska orsaken till det oväntade problemet har påträffats. Mer information finns i [minska dina CPU-problem innan de inträffar](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html).
 
 ![Proaktiv CPU-övervakning](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 

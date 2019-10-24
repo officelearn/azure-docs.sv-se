@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/22/2019
+ms.date: 10/21/2019
 ms.author: juliako
-ms.openlocfilehash: bb62a28798010d3e18c5f19fa0062001a70b9622
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675658"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750255"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon REST
 
@@ -94,11 +94,12 @@ Klona en GitHub-lagringsplats som innehåller Postman-samlingen och miljöfilern
 I det här avsnittet skickar vi begäranden som är relevanta för att koda och skapa webbadresser, så att du kan direktuppspela en fil. Mer specifikt skickas följande begäranden:
 
 1. Hämta Azure AD-token för autentisering för tjänstens huvudnamn
+1. Starta en slut punkt för direkt uppspelning
 2. Skapa en utdatatillgång
-3. Skapa en **transformering**
-4. Skapa ett **jobb**
-5. Skapa en **positionerare för direktuppspelning**
-6. Lista sökvägar för **positioneraren för direktuppspelning**
+3. Skapa en transformering
+4. Skapa ett jobb
+5. Skapa en positionerare för direktuppspelning
+6. Lista sökvägar för streaming Locator
 
 > [!Note]
 >  Den här kursen förutsätter att du skapar alla resurser med unika namn.  
@@ -118,6 +119,33 @@ I det här avsnittet skickar vi begäranden som är relevanta för att koda och 
 4. Svaret kommer tillbaka med token och anger miljövariabeln AccessToken till token-värdet. Om du vill se koden som anger AccessToken, klickar du på fliken **Tester**. 
 
     ![Hämta AAD-token](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+
+### <a name="start-a-streaming-endpoint"></a>Starta en slut punkt för direkt uppspelning
+
+Om du vill aktivera direkt uppspelning måste du först starta den [strömnings slut punkt](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) som du vill strömma videon från.
+
+> [!NOTE]
+> Du faktureras bara när slut punkten för direkt uppspelning är i körnings läge.
+
+1. I det vänstra fönstret i Postman-appen väljer du direkt uppspelning och Live.
+2. Välj sedan "starta StreamingEndpoint".
+3. Tryck på **Skicka**.
+
+    * Följande **post** -åtgärd skickas:
+
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
+        ```
+    * Om begäran lyckas returneras `Status: 202 Accepted`.
+
+        Denna status innebär att begäran har godkänts för bearbetning. men bearbetningen har inte slutförts. Du kan fråga efter åtgärds status baserat på värdet i `Azure-AsyncOperation` svars huvudet.
+
+        Följande GET-åtgärd returnerar till exempel status för din åtgärd:
+        
+        `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
+
+        Artikeln [spåra asynkrona Azure-åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) förklarar i djup hur du spårar statusen för asynkrona Azure-åtgärder via värden som returneras i svaret.
 
 ### <a name="create-an-output-asset"></a>Skapa en utdatatillgång
 

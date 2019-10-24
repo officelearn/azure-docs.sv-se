@@ -1,31 +1,31 @@
 ---
 title: Optimera kostnaderna för distributioner i flera regioner i Azure Cosmos DB
 description: Den här artikeln förklarar hur du hanterar kostnader för distributioner i flera regioner i Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rimman
-ms.openlocfilehash: 233eab1fc49d7ce4cbb1e5b98b67eda9a64aa195
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667600"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753309"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimera kostnader för flera regioner i Azure Cosmos DB
 
-Du kan när som helst lägga till och ta bort regioner till ditt Azure Cosmos-konto. Det data flöde som du konfigurerar för olika Azure Cosmos-databaser och behållare är reserverade i varje region som är kopplad till ditt konto. Om det data flöde som har allokerats per timme, det vill säga summan av ru/s i alla databaser och behållare för ditt Azure Cosmos-konto `T` är och antalet Azure-regioner som är kopplade till ditt databas `N`konto, är det totala etablerade data flöden för ditt Cosmos-konto för en bestämd timme är lika med:
+Du kan när som helst lägga till och ta bort regioner till Azure Cosmos-kontot. Det data flöde som du konfigurerar för olika Azure Cosmos-databaser och behållare är reserverade i varje region som är kopplad till ditt konto. Om det data flöde som har allokerats per timme, det vill säga summan av RU/s i alla databaser och behållare för ditt Azure Cosmos-konto är `T` och antalet Azure-regioner som är kopplade till ditt databas konto är `N`, är det totala etablerade data flödet för ditt Cosmos-konto för en bestämd timme är lika med:
 
-1. `T x N RU/s`Om ditt Azure Cosmos-konto har kon figurer ATS med en enda Skriv region. 
+1. `T x N RU/s` om ditt Azure Cosmos-konto har kon figurer ATS med en enda Skriv region. 
 
-1. `T x (N+1) RU/s`Om ditt Azure Cosmos-konto har kon figurer ATS med alla regioner som kan bearbeta skrivningar. 
+1. `T x (N+1) RU/s` om ditt Azure Cosmos-konto har kon figurer ATS med alla regioner som kan bearbeta skrivningar. 
 
 Allokerat data flöde med kostnader för enkel skrivnings region $0.008/timme per 100 RU/s och etablerade data flöde med flera skrivbara regioner kostar $0.016/per timme per 100 RU/s. Mer information finns på sidan med Azure Cosmos DB [prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="costs-for-multiple-write-regions"></a>Kostnader för flera Skriv regioner
 
-I ett system med flera huvud servrar ökar `N` de tillgängliga ru: er för Skriv åtgärder de tider där `N` är antalet skriv regioner. Till skillnad från enskilda region skrivningar är varje region nu skrivbar och bör stödja konflikt lösning. Mängden arbets belastning för skrivare har ökat. Från kostnads planerings platsen för att utföra `M` ru/s-värd för skrivningar i hela världen måste du etablera M `RUs` på en container-eller databas nivå. Du kan sedan lägga till så många regioner som du vill och använda dem för skrivningar för att `M` utföra ru-värden i världs omspännande skrivningar. 
+I ett system med flera huvud servrar ökar de tillgängliga ru: er för Skriv åtgärder `N` tider där `N` är antalet skriv regioner. Till skillnad från enskilda region skrivningar är varje region nu skrivbar och bör stödja konflikt lösning. Mängden arbets belastning för skrivare har ökat. Från kostnads planerings platsen för att utföra `M` RU/s-värd för skrivningar i hela världen måste du etablera M `RUs` på en container-eller databas nivå. Du kan sedan lägga till så många regioner som du vill och använda dem för skrivningar för att utföra `M` RU-värden i globala skrivningar. 
 
 ### <a name="example"></a>Exempel
 

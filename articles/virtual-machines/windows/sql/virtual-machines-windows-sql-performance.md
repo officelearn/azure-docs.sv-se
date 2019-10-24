@@ -9,18 +9,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2018
+ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6a386096d8a94c240e9a00457d87d04254e02920
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 70d959afbab602126fc593e06287675b8a997341
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102012"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757480"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Rikt linjer för prestanda för SQL Server i Azure Virtual Machines
 
@@ -39,26 +40,23 @@ Följande är en snabb kontroll lista för optimala prestanda för SQL Server p�
 
 | Område | Optimeringar |
 | --- | --- |
-| [Storlek på virtuell dator](#vm-size-guidance) | - [DS3_v2](../sizes-general.md) eller högre för SQL Enterprise Edition.<br/><br/> - [DS2_v2](../sizes-general.md) eller högre för SQL standard-och webb versioner. |
-| [Storage](#storage-guidance) | – Använd [Premium-SSD](../disks-types.md). Standard lagring rekommenderas endast för utveckling/testning.<br/><br/> -Behåll [lagrings kontot](../../../storage/common/storage-create-storage-account.md) och SQL Server VM i samma region.<br/><br/> * Inaktivera Azure [Geo-redundant lagring](../../../storage/common/storage-redundancy.md) (geo-replikering) på lagrings kontot. |
-| [Diskar](#disks-guidance) | – Använd minst 2 [P30 diskar](../disks-types.md#premium-ssd) (1 för loggfiler och 1 för datafiler inklusive tempdb). Överväg att använda en Ultra SSD för arbets belastningar som kräver ~ 50 000 IOPS. <br/><br/> – Undvik att använda operativ system eller temporära diskar för databas lagring eller loggning.<br/><br/> -Aktivera cachelagring av läsning på diskarna som är värdar för datafilerna och TempDB-datafilerna.<br/><br/> – Aktivera inte cachelagring på disk (er) som är värd för logg filen.  **Viktigt**: Stoppa tjänsten SQL Server när du ändrar cache-inställningarna för en virtuell Azure-disk.<br/><br/> – Stripa flera Azure-datadiskar för att få ökat IO-genomflöde.<br/><br/> -Format med dokumenterade fördelnings storlekar. <br/><br/> -Placera tempdb på den lokala SSD `D:\` -enheten för verksamhets kritiska SQL Server arbets belastningar (efter att ha valt rätt storlek på virtuell dator). Mer information i bloggen [med SSD för att lagra tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).  |
-| [I/O](#io-guidance) |-Aktivera komprimering av databas sidan.<br/><br/> -Aktivera omedelbar fil initiering för datafiler.<br/><br/> – Begränsa den ökande storleken på databasen.<br/><br/> -Inaktivera autokrympning av databasen.<br/><br/> – Flytta alla databaser till data diskar, inklusive system databaser.<br/><br/> – Flytta SQL Server fel logg och spåra fil kataloger till data diskar.<br/><br/> – Konfigurera standard platser för säkerhets kopiering och databas fil.<br/><br/> -Aktivera låsta sidor.<br/><br/> -Använd SQL Server prestanda korrigeringar. |
-| [Funktions-/regionsspecifika](#feature-specific-guidance) | – Säkerhetskopiera direkt till Blob Storage. |
+| [Storlek på virtuell dator](#vm-size-guidance) | -Använd VM-storlekar med 4 eller fler vCPU som [E4S_v3](../sizes-general.md) eller högre, eller [DS12_v2](../sizes-memory.md#dsv2-series-11-15) eller högre.<br/><br/> - [ES, EAS, DS och Das-serien](../sizes-general.md) ger optimalt minne till vCPU-förhållandet som krävs för OLTP-arbetsbelastningens prestanda. <br/><br/> - [M-serien](../sizes-general.md) erbjuder det högsta förhållandet mellan minne och vCPU som krävs för uppdrags kritiska prestanda och är perfekt för arbets belastningar för data lager. <br/><br/> – Samla in mål arbets Belastningens [IOPS](../premium-storage-performance.md#iops), [data flöde](../premium-storage-performance.md#throughput) och [latens](../premium-storage-performance.md#latency) krav vid hög belastnings tider genom att följa check listan för [program prestanda krav](../premium-storage-performance.md#application-performance-requirements-checklist) och välj sedan den [VM-storlek](../sizes-general.md) som kan skalas till arbets Belastningens prestanda krav.|
+| [Storage](#storage-guidance) | – För detaljerad testning av SQL Server prestanda på virtuella Azure-datorer med TPC-E och TPC_C benchmarks, se bloggen [optimera OLTP-prestanda](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). <br/><br/> – Använd [Premium-SSD](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) för bästa pris/prestanda-fördelar. Konfigurera [ReadOnly cache](../premium-storage-performance.md#disk-caching) för datafiler och ingen cache för logg filen. <br/><br/> – Använd [Ultra disks](../disks-types.md#ultra-disk) om mindre än 1 MS-lagrings fördröjning krävs av arbets belastningen. <br/><br/> – Samla in krav på lagrings fördröjning för SQL Server data, logg och tillfälliga DB-filer genom att [övervaka programmet](../premium-storage-performance.md#application-performance-requirements-checklist) innan du väljer disk typen. Om < 1ms lagrings fördröjning krävs, använder du Ultra disks, annars använder du Premium SSD. Om låg latens bara krävs för logg filen och inte för datafiler, [etablerar du den Ultra-disken](../disks-enable-ultra-ssd.md) vid nödvändiga IOPS-och data flödes nivåer för logg filen. <br/><br/> -  [Premium-filresurser](/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) rekommenderas som delad lagring för en SQL Server redundans för kluster instans. Premium-filresurser stöder inte cachelagring, och erbjuder begränsade prestanda jämfört med Premium SSD-diskar. Välj Premium SSD – hanterade diskar över Premium-filresurser för fristående SQL-instanser; men Använd Premium-filresurser för delad lagring av redundanskluster för att förenkla underhåll och flexibel skalbarhet. <br/><br/> – Standard lagring rekommenderas endast för utvecklings-och test syfte eller för säkerhets kopiering av filer och bör inte användas för produktions arbets belastningar. <br/><br/> -Behåll [lagrings kontot](../../../storage/common/storage-create-storage-account.md) och SQL Server VM i samma region.<br/><br/> -Inaktivera Azure [Geo-redundant lagring](../../../storage/common/storage-redundancy.md) (geo-replikering) på lagrings kontot.  |
+| [Diskar](#disks-guidance) | – Använd minst 2 [Premium SSD-diskar](../disks-types.md#premium-ssd) (1 för logg filen och 1 för datafiler). <br/><br/> – För arbets belastningar som kräver < 1 MS IO-fördröjning aktiverar du Skriv Accelerator för M-serien och använder Ultra SSD diskar för ES och DS-serien. <br/><br/> -Aktivera [skrivskyddad cachelagring](../premium-storage-performance.md#disk-caching) på diskarna som är värdar för datafilerna.<br/><br/> – Lägg till ytterligare 20% Premium IOPS/data flödes kapacitet än vad arbets belastningen kräver när du [konfigurerar lagring för SQL Server data-, logg-och tempdb-filer](virtual-machines-windows-sql-server-storage-configuration.md) <br/><br/> – Undvik att använda operativ system eller temporära diskar för databas lagring eller loggning.<br/><br/> – Aktivera inte cachelagring på disk (er) som är värd för logg filen.  **Viktigt**: stoppa SQL Server-tjänsten när du ändrar cache-inställningarna för en virtuell Azure-disk.<br/><br/> – Stripa flera Azure-datadiskar för att få större lagrings data flöde.<br/><br/> -Format med dokumenterade fördelnings storlekar. <br/><br/> -Placera TempDB på den lokala SSD-`D:\` enhet för verksamhets kritiska SQL Server arbets belastningar (efter att ha valt rätt storlek på virtuell dator). Om du skapar den virtuella datorn från Azure Portal eller Azure snabb starts-mallar och [placerar Temp-databasen på den lokala disken](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583) behöver du inte vidta några ytterligare åtgärder. i alla andra fall följer du stegen i bloggen för [att använda SSD för att lagra tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) för att förhindra problem efter omstarter. Om den lokala enhetens kapacitet inte räcker för storleken på den tillfälliga databasen ska du placera Temp DB i en lagringspool som är [fristående på Premium](../premium-storage-performance.md) SSD-diskar med [skrivskyddad cachelagring](../premium-storage-performance.md#disk-caching). |
+| [I/O](#io-guidance) |-Aktivera komprimering av databas sidan.<br/><br/> -Aktivera omedelbar fil initiering för datafiler.<br/><br/> – Begränsa den ökande storleken på databasen.<br/><br/> -Inaktivera autokrympning av databasen.<br/><br/> – Flytta alla databaser till data diskar, inklusive system databaser.<br/><br/> – Flytta SQL Server fel logg och spåra fil kataloger till data diskar.<br/><br/> – Konfigurera standard platser för säkerhets kopiering och databas fil.<br/><br/> - [Aktivera låsta sidor i minnet](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-2017).<br/><br/> -Använd SQL Server prestanda korrigeringar. |
+| [Funktions-/regionsspecifika](#feature-specific-guidance) | – Säkerhetskopiera direkt till Blob Storage.<br/><br/>-Använd [säkerhets kopior av fil ögonblicks bilder](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) för databaser som är större än 12 TB. <br/><br/>-Använd flera tillfälliga DB-filer, 1 fil per kärna, upp till 8 filer.<br/><br/>– Ange max server minne på 90% eller upp till 50 GB kvar för operativ systemet. <br/><br/>-Aktivera mjuk NUMA. |
 
 Mer information om *hur* och *varför* du kan göra dessa optimeringar finns i informationen och rikt linjerna i följande avsnitt.
 
 ## <a name="vm-size-guidance"></a>Vägledning för VM-storlek
 
-För prestanda känsliga program rekommenderar vi att du använder följande [storlekar för virtuella datorer](../sizes.md):
-
-* **SQL Server Enterprises utgåva**: DS3_v2 eller högre
-* **SQL Server standard-och webb versioner**: DS2_v2 eller högre
-
-[DSv2-serien](../sizes-general.md#dsv2-series) VM: ar stöder Premium Storage, vilket rekommenderas för bästa prestanda. De storlekar som rekommenderas här är bas linjer, men den faktiska dator storlek som du väljer beror på arbets Belastningens krav. Virtuella datorer i DSv2-serien är allmänna virtuella datorer som är lämpliga för olika arbets belastningar, medan andra maskin storlekar är optimerade för olika arbets belastnings typer. [M-serien](../sizes-memory.md#m-series) erbjuder till exempel det högsta antalet vCPU och minne för de största SQL Server arbets belastningarna. [GS-serien](../sizes-previous-gen.md#gs-series) och [DSv2-serien 11-15](../sizes-memory.md#dsv2-series-11-15) är optimerad för stora minnes krav. Båda dessa serier är också tillgängliga i [begränsade kärn storlekar](../../windows/constrained-vcpu.md), vilket sparar pengar för arbets belastningar med lägre beräknings krav. Datorerna i [ls-serien](../sizes-storage.md) är optimerade för hög disk data flöde och IO. Det är viktigt att fundera över din speciella SQL Server arbets belastning och tillämpa den på ditt val av VM-serien och storlek.
+Börja med att samla in krav på processor, minne och lagring av data flöde för arbets belastningen vid hög belastnings tider. Prestanda räknare för \LogicalDisk\Disk läsningar/s och \LogicalDisk\Disk skrivningar/s kan användas för att samla in Läs-och skriv IOPS-krav och \LogicalDisk\Disk byte/s-räknaren kan användas för att samla in [krav på lagrings data flöde](../premium-storage-performance.md#disk-caching) för data, logg och tillfälliga DB-filer. Efter att IOPS-och data flödes krav vid hög storlek definierats, erbjuder utvärdera VM-storlekar den kapaciteten. Om din arbets belastning till exempel kräver 20 K Läs IOPS och 10 000 Skriv åtgärder med hög belastning kan du antingen välja E16s_v3 (med upp till 32 kB cache-lagrad och 25600 Uncached IOPS) eller M16_s (med upp till 20 K cachelagrat och 10 000 Uncached IOPS) med 2 P30-diskar. Se till att förstå både genomflödet och IOPS-krav för arbets belastningen eftersom virtuella datorer har olika skalnings gränser för IOPS och data flöde.<br/><br/>[DSv_3 och Es_v3-serien](../sizes-general.md#dsv2-series) är värd för maskin vara för generell användning med Intel Haswell-eller Broadwell-processorer. [M-serien](../sizes-memory.md#m-series) erbjuder högst antal vCPU och minne för de största SQL Server arbets belastningarna och finns på minnesoptimerade maskin vara med Skylake processor familj. Den här VM-serien har stöd för Premium Storage, vilket rekommenderas för bästa prestanda med Läs-cache på värdnivå. Både Es_v3 och M-serien är också tillgängliga i [begränsade kärn storlekar](../../windows/constrained-vcpu.md), vilket sparar pengar för arbets belastningar med lägre prestanda för beräkning och hög lagring. 
 
 ## <a name="storage-guidance"></a>Minnesriktlinjer
 
-DS-serien (tillsammans med DSv2-seriens och GS-serien) virtuella datorer stöder [Premium SSD](../disks-types.md). Premium-SSD rekommenderas för alla produktions arbets belastningar.
+För detaljerad testning av SQL Server prestanda på virtuella Azure-datorer med TPC-E och TPC_C benchmarks, se bloggen [optimera OLTP-prestanda](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). 
+
+Azure Blob-cache med Premium-SSD rekommenderas för alla produktions arbets belastningar. 
 
 > [!WARNING]
 > Standard hård diskar och SSD har varierande latens och bandbredd och rekommenderas bara för arbets belastningar för utveckling/testning. Arbets belastningar för produktion bör använda Premium-SSD.
@@ -69,13 +67,13 @@ Dessutom rekommenderar vi att du skapar ditt Azure Storage-konto i samma data Ce
 
 Det finns tre typer av huvud diskar på en virtuell Azure-dator:
 
-* **OS-disk**: När du skapar en virtuell Azure-dator ansluter plattformen minst en disk (märkt som **C** -enheten) till den virtuella datorn för operativ system disken. Den här disken är en virtuell hård disk som lagras som en sid-BLOB i lagring.
-* **Tillfällig disk**: Virtuella Azure-datorer innehåller en annan disk som kallas temporär disk (märkt som **D**: Drive). Det här är en disk på noden som kan användas för scratch Space.
-* **Data diskar**: Du kan också bifoga ytterligare diskar till den virtuella datorn som data diskar och dessa lagras i lagrings utrymmet som Page blobbar.
+* **OS-disk**: när du skapar en virtuell Azure-dator ansluter plattformen minst en disk (märkt som **C** -enheten) till den virtuella datorn för operativ system disken. Den här disken är en virtuell hård disk som lagras som en sid-BLOB i lagring.
+* **Temporär disk**: virtuella Azure-datorer innehåller en annan disk som kallas temporär disk (märkt som **D**: Drive). Det här är en disk på noden som kan användas för scratch Space.
+* **Data diskar**: du kan också koppla ytterligare diskar till den virtuella datorn som data diskar och de lagras i lagrings utrymmet som Page blobbar.
 
 I följande avsnitt beskrivs rekommendationer för att använda de olika diskarna.
 
-### <a name="operating-system-disk"></a>Operativsystemsdisk
+### <a name="operating-system-disk"></a>Operativsystemdisk
 
 En operativ system disk är en virtuell hård disk som du kan starta och montera som en aktiv version av ett operativ system och är märkt som **C** -enhet.
 
@@ -83,30 +81,29 @@ Standard principen för cachelagring på operativ system disken är **läsa/skri
 
 ### <a name="temporary-disk"></a>Tillfällig disk
 
-Den tillfälliga lagrings enheten, märkt som **D**: Drive, är inte beständig för Azure Blob Storage. Lagra inte dina användar databas filer eller loggfiler för användar transaktioner på enheten **D**:.
+Den tillfälliga lagrings enheten, märkt som **D** -enheten, är inte beständig i Azure Blob Storage. Lagra inte dina användar databas filer eller loggfiler för användar transaktioner på enheten **D**:.
 
-För virtuella datorer i D-serien, Dv2-serien och G-serien är den tillfälliga enheten på de virtuella datorerna SSD-baserad. Om din arbets belastning använder en mycket stor mängd TempDB (t. ex. temporära objekt eller komplexa kopplingar) kan lagring av TempDB på **D** -enheten resultera i högre tempdb-genomflöde och lägre tempdb-latens. Ett exempel scenario finns i TempDB-diskussionen i följande blogg inlägg: [Rikt linjer för lagrings konfiguration för SQL Server på virtuell Azure-dator](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm).
+Placera TempDB på den lokala SSD-`D:\` enhet för verksamhets kritiska SQL Server arbets belastningar (efter att ha valt rätt storlek på virtuell dator). Om du skapar den virtuella datorn från Azure Portal eller Azure snabb starts-mallar och [placerar Temp-databasen på den lokala disken](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)behöver du inte vidta några ytterligare åtgärder. i alla andra fall följer du stegen i bloggen för [att använda SSD för att lagra tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) för att förhindra problem efter omstarter. Om den lokala enhetens kapacitet inte räcker för storleken på den tillfälliga databasen ska du placera Temp DB i en lagringspool som är [fristående på Premium](../premium-storage-performance.md) SSD-diskar med [skrivskyddad cachelagring](../premium-storage-performance.md#disk-caching).
 
-För virtuella datorer som stöder Premium-SSD (DS-serien, DSv2-serien och GS-serien) rekommenderar vi att du lagrar TempDB på en disk som har stöd för Premium-SSD med cachelagring för läsning aktive rad.
+För virtuella datorer som stöder Premium-SSD kan du också lagra TempDB på en disk som har stöd för Premium-SSD med Read caching Enabled.
 
-Det finns ett undantag till den här rekommendationen: _om tempdb-användningen är Skriv intensiv kan du uppnå högre prestanda genom att lagra tempdb på den lokala **D** -enheten, som också är SSD-baserad på dessa maskin storlekar._ Mer information finns i avsnittet [using SSD med tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) -bloggen. 
 
 ### <a name="data-disks"></a>Datadiskar
 
-* **Använd data diskar för data-och loggfiler**: Om du inte använder disk ränder använder du två Premium SSD P30-diskar där en disk innehåller de loggfiler och den andra innehåller data och TempDB (med undantag för verksamhets kritiska och skrivbara arbets belastningar som nämnts ovan). Varje Premium SSD innehåller ett antal IOPs och bandbredd (MB/s) beroende på dess storlek, som visas i artikeln, [Välj en disktyp](../disks-types.md). Om du använder en disk Rands teknik, till exempel lagrings utrymmen, uppnår du optimala prestanda genom att ha två pooler, en för loggfilerna och den andra för datafilerna. Men om du planerar att använda SQL Server-instanser för redundanskluster (FCI) måste du konfigurera en pool.
+* **Använd Premium SSD-diskar för data-och loggfiler**: om du inte använder disk ränder använder du två Premium SSD-diskar där en disk innehåller logg filen och den andra innehåller data. Varje Premium SSD innehåller ett antal IOPS och bandbredd (MB/s) beroende på dess storlek, som visas i artikeln, [Välj en disktyp](../disks-types.md). Om du använder en disk Rands teknik, till exempel lagrings utrymmen, uppnår du optimala prestanda genom att ha två pooler, en för loggfilerna och den andra för datafilerna. Men om du planerar att använda SQL Server-instanser för redundanskluster (FCI), måste du konfigurera en pool eller använda [Premium-filresurser](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) i stället.
 
    > [!TIP]
-   > - För test resultat på olika konfigurationer av diskar och arbets belastningar kan du läsa följande blogg inlägg: [Rikt linjer för lagrings konfiguration för SQL Server på virtuell Azure-dator](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
-   > - För uppdrags kritiska prestanda för SQL-servrar som behöver ~ 50 000 IOPS bör du överväga att ersätta 10-P30 diskar med en Ultra SSD. Mer information finns i följande blogg inlägg: [Verksamhets kritiska prestanda med Ultra SSD](https://azure.microsoft.com/blog/mission-critical-performance-with-ultra-ssd-for-sql-server-on-azure-vm/).
+   > - För test resultat av olika konfigurationer av diskar och arbets belastningar kan du läsa följande blogg inlägg: [rikt linjer för lagrings konfiguration för SQL Server på virtuella Azure-datorer](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
+   > - För uppdrags kritiska prestanda för SQL-servrar som behöver ~ 50 000 IOPS bör du överväga att ersätta 10-P30 diskar med en Ultra SSD. Mer information finns i följande blogg inlägg: [verksamhets kritisk prestanda med Ultra SSD](https://azure.microsoft.com/blog/mission-critical-performance-with-ultra-ssd-for-sql-server-on-azure-vm/).
 
    > [!NOTE]
    > När du etablerar en SQL Server VM i portalen har du möjlighet att redigera lagrings konfigurationen. Beroende på din konfiguration konfigurerar Azure en eller flera diskar. Flera diskar kombineras till en enda lagringspool med striping. Både data-och loggfilerna finns tillsammans i den här konfigurationen. Mer information finns i [lagrings konfiguration för SQL Server virtuella datorer](virtual-machines-windows-sql-server-storage-configuration.md).
 
-* **Disk skiktning**: Du kan lägga till ytterligare data diskar och använda disk ränder för mer data flöde. Om du vill fastställa antalet data diskar måste du analysera antalet IOPS och bandbredd som krävs för dina loggfiler, och för dina data och TempDB-fil (er). Observera att olika storlekar på virtuella datorer har olika begränsningar för antalet IOPs och bandbredd som stöds, se tabellerna på IOPS per [VM-storlek](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Använd följande rikt linjer:
+* **Disk-striping**: för mer data flöde kan du lägga till ytterligare data diskar och använda disk ränder. Om du vill fastställa antalet data diskar måste du analysera antalet IOPS och bandbredd som krävs för dina loggfiler, och för dina data och TempDB-fil (er). Observera att olika storlekar på virtuella datorer har olika begränsningar för antalet IOPs och bandbredd som stöds, se tabellerna på IOPS per [VM-storlek](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Använd följande rikt linjer:
 
   * För Windows 8/Windows Server 2012 eller senare använder du [lagrings utrymmen](https://technet.microsoft.com/library/hh831739.aspx) med följande rikt linjer:
 
-      1. Ange överlagring (stripe-storlek) till 64 KB (65536 byte) för OLTP-arbetsbelastningar och 256 KB (262144 byte) för arbets belastningar för data lager för att undvika prestanda påverkan på grund av feljustering av partitionen. Detta måste anges med PowerShell.
+      1. Ange överlagring (stripe-storlek) till 64 KB (65 536 byte) för OLTP-arbetsbelastningar och 256 KB (262 144 byte) för arbets belastningar för data lager för att undvika prestanda påverkan på grund av feljustering av partitionen. Detta måste anges med PowerShell.
       2. Ange kolumn antal = antal fysiska diskar. Använd PowerShell när du konfigurerar fler än 8 diskar (inte Serverhanteraren UI). 
 
     Följande PowerShell skapar till exempel en ny lagringspool med Överlagrings storleken till 64 KB och antalet kolumner till 2:
@@ -118,15 +115,15 @@ Det finns ett undantag till den här rekommendationen: _om tempdb-användningen 
     New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false 
     ```
 
-  * För Windows 2008 R2 eller tidigare kan du använda dynamiska diskar (OS Striped-volymer) och stripe-storleken är alltid 64 KB. Observera att det här alternativet är föråldrat från och med Windows 8/Windows Server 2012. Mer information finns i support policyn på [Virtual Disk Service över gång till Windows Storage Management API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
+  * För Windows 2008 R2 eller tidigare kan du använda dynamiska diskar (OS Striped-volymer) och stripe-storleken är alltid 64 KB. Det här alternativet är föråldrat från och med Windows 8/Windows Server 2012. Mer information finns i support policyn på [Virtual Disk Service över gång till Windows Storage Management API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-  * Om du använder [Lagringsdirigering (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) med [SQL Server kluster instanser för växling vid fel](virtual-machines-windows-portal-sql-create-failover-cluster.md)måste du konfigurera en enda pool. Observera att även om olika volymer kan skapas på samma pool, delar alla samma egenskaper, till exempel samma princip för cachelagring.
+  * Om du använder [Lagringsdirigering (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) med [SQL Server kluster instanser för växling vid fel](virtual-machines-windows-portal-sql-create-failover-cluster.md)måste du konfigurera en enda pool. Även om olika volymer kan skapas på samma pool, kommer alla att dela samma egenskaper, till exempel samma princip för cachelagring.
 
   * Fastställ antalet diskar som är kopplade till lagringspoolen baserat på dina belastnings förväntningar. Tänk på att olika storlekar på virtuella datorer tillåter olika antal anslutna data diskar. Mer information finns i [storlekar för Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
   * Om du inte använder Premium-SSD (utvecklings-och test scenarier) är rekommendationen att lägga till det maximala antalet data diskar som stöds av [storleken](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) på den virtuella datorn och använda disk ränder.
 
-* **Princip**för cachelagring: Observera följande rekommendationer för cachelagring av principer beroende på lagrings konfigurationen.
+* **Princip för cachelagring**: Observera följande rekommendationer för cachelagring av principer beroende på lagrings konfigurationen.
 
   * Om du använder separata diskar för data-och loggfiler aktiverar du cachelagring på data diskarna som är värdar för dina datafiler och TempDB-datafiler. Detta kan resultera i en betydande prestanda förmån. Aktivera inte cachelagring på disken som innehåller logg filen eftersom detta orsakar en mindre minskning av prestanda.
 
@@ -134,14 +131,14 @@ Det finns ett undantag till den här rekommendationen: _om tempdb-användningen 
 
   * De tidigare rekommendationerna gäller för Premium-SSD. Om du inte använder Premium-SSD ska du inte aktivera cachelagring på några data diskar.
 
-  * Instruktioner för hur du konfigurerar diskcachelagring finns i följande artiklar. För den klassiska distributions modellen (ASM) ser du: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). För Azure Resource Manager distributions modell, se: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) och [set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk).
+  * Instruktioner för hur du konfigurerar diskcachelagring finns i följande artiklar. För den klassiska (ASM) distributions modellen se: [set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager distributions modell finns i: [set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) och [set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk).
 
      > [!WARNING]
      > Stoppa SQL Server tjänsten när du ändrar cache-inställningen för virtuella Azure-diskar för att undvika risken för att databasen skadas.
 
-* **Storlek på NTFS-allokeringsenhet**: När du formaterar data disken rekommenderar vi att du använder en storlek på 64 KB-allokeringsenhet för data-och loggfiler samt TempDB.
+* **Storlek på NTFS-allokeringsenhet**: när du formaterar data disken rekommenderar vi att du använder en storlek på 64 KB-allokeringsenhet för data-och loggfiler samt tempdb.
 
-* **Metod tips för disk hantering**: När du tar bort en data disk eller ändrar dess cachestorlek stoppar du SQL Server tjänsten under ändringen. När cacheinställningar ändras på OS-disken stoppar Azure den virtuella datorn, ändrar cacheplatsen och startar om den virtuella datorn. När cache-inställningarna för en datadisk ändras, stoppas inte den virtuella datorn, men datadisken kopplas bort från den virtuella datorn under ändringen och sedan återkopplas.
+* **Metod tips för disk hantering**: när du tar bort en data disk eller ändrar dess cachestorlek stoppar du SQL Server tjänsten under ändringen. När cacheinställningar ändras på OS-disken stoppar Azure den virtuella datorn, ändrar cacheplatsen och startar om den virtuella datorn. När cache-inställningarna för en datadisk ändras, stoppas inte den virtuella datorn, men datadisken kopplas bort från den virtuella datorn under ändringen och sedan återkopplas.
 
   > [!WARNING]
   > Om du inte stoppar SQL Server tjänsten under dessa åtgärder kan databasen skadas.
@@ -157,7 +154,7 @@ Det finns ett undantag till den här rekommendationen: _om tempdb-användningen 
 
 * **autoväxer** anses vara bara en katastrof för oväntad tillväxt. Hantera inte dina data och logga in på en dags-till-dags-basis med automatisk tillväxt. Om automatisk utökning används kan du i förväg förstora filen med storleks växeln.
 
-* Se till att autokrympning är inaktiverat för att undvika onödiga kostnader som kan påverka prestanda negativt.
+* Se till att **autokrympning** är inaktiverat för att undvika onödiga kostnader som kan påverka prestanda negativt.
 
 * Flytta alla databaser till data diskar, inklusive system databaser. Mer information finns i [Flytta system databaser](https://msdn.microsoft.com/library/ms345408.aspx).
 
@@ -178,7 +175,7 @@ Det finns ett undantag till den här rekommendationen: _om tempdb-användningen 
 
 Vissa distributioner kan få ytterligare prestanda för delar med mer avancerade konfigurations tekniker. I följande lista beskrivs några SQL Server funktioner som kan hjälpa dig att uppnå bättre prestanda:
 
-### <a name="backup-to-azure-storage"></a>Säkerhetskopiera till Azure Storage
+### <a name="back-up-to-azure-storage"></a>Säkerhetskopiera till Azure Storage
 När du säkerhetskopierar SQL Server som körs på virtuella Azure-datorer kan du använda [SQL Server säkerhets kopiering till URL](https://msdn.microsoft.com/library/dn435916.aspx). Den här funktionen är tillgänglig från och med SQL Server 2012 SP1-CU2 och rekommenderas för säkerhets kopiering till anslutna data diskar. När du säkerhetskopierar/återställer till/från Azure Storage följer du rekommendationerna som ges i [SQL Server säkerhets kopiering till URL-rekommenderade metoder och fel sökning och återställning från säkerhets kopior som lagras i Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Du kan också automatisera säkerhets kopieringarna med [Automatisk säkerhets kopiering för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 Innan du SQL Server 2012 kan du använda [SQL Server säkerhets kopiering till Azure-verktyget](https://www.microsoft.com/download/details.aspx?id=40740). Det här verktyget kan hjälpa till att öka säkerhets kopieringen genom att använda flera säkerhets kopierings stripe-mål.

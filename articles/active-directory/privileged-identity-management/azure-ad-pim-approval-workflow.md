@@ -4,11 +4,11 @@ description: Lär dig hur du godkänner eller nekar begär Anden för Azure AD-r
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -16,14 +16,14 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 3245f7343a48d3e54795c14dcb23b836c8d9d988
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804038"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756434"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Godkänn eller neka begär Anden för Azure AD-roller i PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Godkänn eller neka begär Anden för Azure AD-roller i Privileged Identity Management
 
 Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerade god kännare. Delegerade god kännare har 24 timmar på sig att godkänna begär Anden. Om en begäran inte godkänns inom 24 timmar måste den behöriga användaren skicka en ny begäran igen. Tids perioden för godkännande av 24 timmar kan inte konfigureras.
 
@@ -31,9 +31,9 @@ Följ stegen i den här artikeln för att godkänna eller neka begär Anden för
 
 ## <a name="view-pending-requests"></a>Visa väntande begär Anden
 
-Som en delegerad god kännare får du ett e-postmeddelande när en begäran om Azure AD-roll väntar på ditt godkännande. Du kan visa dessa väntande begär anden i PIM.
+Som en delegerad god kännare får du ett e-postmeddelande när en begäran om Azure AD-roll väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -45,7 +45,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
     Du ser en lista över begär Anden som väntar på ditt godkännande.
 
-## <a name="approve-requests"></a>Godkänn ansökningar
+## <a name="approve-requests"></a>Godkänn förfrågningar
 
 1. Välj de begär Anden som du vill godkänna och klicka sedan på **Godkänn** för att öppna fönstret Godkänn valda begär Anden.
 
@@ -77,5 +77,5 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [E-postmeddelanden i PIM](pim-email-notifications.md)
-- [Godkänn eller neka begär Anden för Azure Resource roles i PIM](pim-resource-roles-approval-workflow.md)
+- [E-postmeddelanden i Privileged Identity Management](pim-email-notifications.md)
+- [Godkänn eller neka begär Anden för Azures resurs roller i Privileged Identity Management](pim-resource-roles-approval-workflow.md)

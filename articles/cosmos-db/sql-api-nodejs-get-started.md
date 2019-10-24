@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 5de0fe47d8ca6372c35cc4f148f97b366a1a742c
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a273b89d864d97d9bc71acff476371f77cfff066
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971403"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754826"
 ---
-# <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Självstudie: Skapa en Node.js-konsolapp med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data
+# <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Självstudie: Bygg en Node. js-konsol med Java Script SDK för att hantera Azure Cosmos DB SQL API-data
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-get-started.md)
@@ -37,7 +37,7 @@ I den här kursen ska du:
 > * Lägga till objekt i containern.
 > * Utföra grundläggande åtgärder på objekten, containern och databasen.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Se till att du har följande resurser:
 
@@ -99,7 +99,7 @@ Nu när din app finns behöver du se till att den kan kommunicera med Azure Cosm
 
    JavaScript SDK använder de generiska termerna *container* och *objekt*. En container kan vara en samling, ett diagram eller en tabell. Ett objekt kan vara ett dokument, en kant/ett hörn eller en rad, och är innehållet i en container. 
    
-   `module.exports = config;`kod används för att exportera ditt ```config``` objekt, så att du kan referera till det ```app.js``` i filen.
+   `module.exports = config;` kod används för att exportera ```config```-objektet, så att du kan referera till det i ```app.js``` filen.
 
 ## <a id="Connect"></a>Ansluta till ett Azure Cosmos DB-konto
 
@@ -150,7 +150,7 @@ Nu har du koden för att initiera Azure Cosmos DB-klienten och det är dags att 
 
    En databas kan skapas med hjälp av antingen `createIfNotExists` eller create-funktionen (skapa) i **Databases**-klassen (Databaser). En databas är en logisk container med objekt som är partitionerade över containrar. 
 
-2. Kopiera och klistra in metoderna **createDatabase** och **readDatabase** i app.js-filen under definitionen för ```databaseId``` och ```containerId```. Funktionen **createDatabase** skapar en ny databas med ID ```FamilyDatabase``` ```config``` , som anges från objektet om det inte redan finns. Funktionen **readDatabase** läser databasens definition för att säkerställa att databasen finns.
+2. Kopiera och klistra in metoderna **createDatabase** och **readDatabase** i app.js-filen under definitionen för ```databaseId``` och ```containerId```. Funktionen **createDatabase** skapar en ny databas med ID ```FamilyDatabase```, som anges från ```config```-objektet om den inte redan finns. Funktionen **readDatabase** läser databasens definition för att säkerställa att databasen finns.
 
    ```javascript
    /**
@@ -662,7 +662,7 @@ Installera projektets beroenden via npm. Ange följande kommando:
 
 * ```npm install``` 
 
-Sedan uppdaterar du värdena config.endpoint och config.primaryKey i filen ```config.js``` enligt beskrivningen i [Steg 3: Konfigurera appens konfigurationer](#Config).  
+Sedan uppdaterar du värdena config. Endpoint och config. Key i ```config.js```-filen enligt beskrivningen i [steg 3: Ange appens konfigurationer](#Config).  
 
 Leta reda på fin ```app.js```-fil i terminalen och kör kommandot:  
 

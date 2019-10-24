@@ -1,25 +1,25 @@
 ---
 title: Fråga data med Azure Cosmos DB:s API för MongoDB
 description: Lär dig att fråga data med Azure Cosmos DB:s API för MongoDB.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 8bdd88652019ceb48cfd9f05d1009271f5b7a8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 40385524e85f950fb32b69817fec27d842370736
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60727156"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754766"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Fråga data med Azure Cosmos DB:s API för MongoDB
 
 [Azure Cosmos DB-API:et för MongoDB](mongodb-introduction.md) stöder [MongoDB-frågor](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
-Den här artikeln beskriver följande uppgifter: 
+I den här artikeln beskrivs följande uppgifter: 
 
 > [!div class="checklist"]
 > * Köra frågor mot data som lagras i din Cosmos-databas med MongoDB-gränssnittet
@@ -299,7 +299,7 @@ Inga resultat returneras eftersom det inte finns några familjer med fler än tv
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du gjort följande:
+I den här självstudiekursen har du gjort följande:
 
 > [!div class="checklist"]
 > * Lärt dig hur man frågar med Cosmos DB-API:et för MongoDB

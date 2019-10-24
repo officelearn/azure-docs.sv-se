@@ -3,29 +3,29 @@ title: Videokontrollant med mänsklig granskning – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Använd datorbaserade videokontrollanter och verktyg för mänsklig granskning för att måttligt olämpligt innehåll
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.author: sajagtap
-ms.openlocfilehash: 69075f6b36a0be7cd4d0dd4453ea9cdfc08d77dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561162"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754160"
 ---
 # <a name="video-moderation-with-human-review"></a>Videokontrollant med mänsklig granskning
 
-Använd Content Moderator datorbaserade videokontrollanter och verktyg för [mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md) för att få bättre videor och avskrifter för vuxen (Explicit) och vågat (förslag) innehåll för att få bästa möjliga resultat för din verksamhet. [](video-moderation-api.md)
+Använd Content Moderator datorbaserade [videokontrollanter](video-moderation-api.md) och verktyg för [mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md) för att få bättre videor och avskrifter för vuxen (Explicit) och vågat (förslag) innehåll för att få bästa möjliga resultat för din verksamhet.
 
 ## <a name="video-trained-classifier-preview"></a>Video-utbildad klassificerare (för hands version)
 
 Den maskinbaserade video klassificeringen uppnås antingen med bildtränade modeller eller video intränade modeller. Till skillnad från bildtränade video klassificerare är Microsofts vuxna och vågat video klassificerare tränad med videor. Den här metoden ger bättre matchning av kvalitet.
 
-## <a name="shot-detection"></a>Bildidentifiering
+## <a name="shot-detection"></a>Bild identifiering
 
 När du utökar klassificerings informationen hjälper ytterligare video information till större flexibilitet vid analys av videor. I stället för att bara placera bild rutorna ger Microsofts video redigerings tjänst information på bild nivå. Nu har du möjlighet att analysera dina videor på den bild nivå och på den andra nivån.
 
@@ -102,7 +102,7 @@ Videor har vanligt vis röst över som behöver moderatorn även för stötande 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kom igång med [snabb](video-moderation-api.md)starten för videoinspelning.
+- Kom igång med snabb starten för [videoinspelning](video-moderation-api.md).
 - Lär dig hur du genererar [video granskningar](video-reviews-quickstart-dotnet.md) för dina mänskliga granskare från dina kontrollerade utdata.
-- Lägg till [video](video-transcript-reviews-quickstart-dotnet.md) avskrifts granskningar i dina video granskningar.
+- Lägg till [video avskrifts granskningar](video-transcript-reviews-quickstart-dotnet.md) i dina video granskningar.
 - Kolla in den detaljerade självstudien om hur du utvecklar en [komplett video redigerings lösning](video-transcript-moderation-review-tutorial-dotnet.md).

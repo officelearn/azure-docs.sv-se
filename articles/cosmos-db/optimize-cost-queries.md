@@ -1,17 +1,17 @@
 ---
 title: Optimera enheter för programbegäran och kostnad för att köra frågor i Azure Cosmos DB
 description: Lär dig hur du utvärderar begär ande enhets avgifter för en fråga och optimerar frågan med avseende på prestanda och kostnad.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: rimman
-ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717010"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753291"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimera frågans kostnad i Azure Cosmos DB
 
@@ -27,13 +27,13 @@ Frågor i Azure Cosmos DB beställs vanligt vis från snabbast/mest effektiva ti
 
 * Fråga utan filter.
 
-Frågor som läser data från en eller flera partitioner medför högre latens och använder ett högre antal enheter för programbegäran. Eftersom varje partition har automatisk indexering för alla egenskaper kan frågan behandlas effektivt från indexet. Du kan göra frågor som använder flera partitioner snabbare med hjälp av alternativen för parallellitet. Mer information om partitionering och partitionsnycklar finns [partitionering i Azure Cosmos DB](partitioning-overview.md).
+Frågor som läser data från en eller flera partitioner medför högre latens och använder ett högre antal enheter för programbegäran. Eftersom varje partition har automatisk indexering för alla egenskaper kan frågan behandlas effektivt från indexet. Du kan göra frågor som använder flera partitioner snabbare med hjälp av alternativen för parallellitet. Mer information om partitionering och partitionerings nycklar finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
 
 ## <a name="evaluate-request-unit-charge-for-a-query"></a>Utvärdera enhets avgiften för begäran för en fråga
 
 När du har lagrat några data i dina Azure Cosmos-behållare kan du använda Datautforskaren i Azure Portal för att skapa och köra dina frågor. Du kan också få kostnaden för frågorna genom att använda data Utforskaren. Med den här metoden får du en uppfattning om de faktiska avgifterna som ingår i vanliga frågor och åtgärder som systemet stöder.
 
-Du kan också få kostnaden för frågor via programmering med SDK: er. För att mäta omkostnader för en åtgärd, till exempel skapa, uppdatera eller ta bort `x-ms-request-charge` , inspekterar du sidhuvudet när du använder REST API. Om du använder .net eller Java SDK `RequestCharge` är egenskapen motsvarande egenskap för att hämta begär ande avgiften och den här egenskapen finns i ResourceResponse eller FeedResponse.
+Du kan också få kostnaden för frågor via programmering med SDK: er. För att mäta omkostnader för alla åtgärder, till exempel skapa, uppdatera eller ta bort, inspektera `x-ms-request-charge`-huvudet när du använder REST API. Om du använder .NET eller Java SDK är egenskapen `RequestCharge` motsvarande egenskap för att hämta begär ande avgiften och den här egenskapen finns i ResourceResponse eller FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -97,7 +97,7 @@ Tänk på följande rekommendationer när du optimerar frågor för kostnad:
 
    Komplexiteten i en fråga påverkar hur många ru: er (Request units) som används för en åtgärd. Antalet predikat, typen av predikat, antalet UDF: er och storleken på käll data uppsättningen. Alla dessa faktorer påverkar kostnaderna för frågor. 
 
-   Begär ande avgift som returneras i rubriken för begäran visar kostnaden för en specifik fråga. Om en fråga till exempel returnerar 1000 1 KB-objekt är kostnaden för åtgärden 1000. I och med den här servern bevarar servern bara två sådana begär Anden innan hastigheten begränsar efterföljande begär Anden. Mer information finns i artikeln om enheter för programbegäran och Kalkylatorn för begär ande [enheter](request-units.md) . 
+   Begär ande avgift som returneras i rubriken för begäran visar kostnaden för en specifik fråga. Om en fråga till exempel returnerar 1000 1 KB-objekt är kostnaden för åtgärden 1000. I och med den här servern bevarar servern bara två sådana begär Anden innan hastigheten begränsar efterföljande begär Anden. Mer information finns i artikeln om [enheter för programbegäran](request-units.md) och Kalkylatorn för begär ande enheter. 
 
 ## <a name="next-steps"></a>Nästa steg
 

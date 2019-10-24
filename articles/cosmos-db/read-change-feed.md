@@ -1,17 +1,17 @@
 ---
 title: Åtkomst till ändrings flöde i Azure Cosmos DB Azure Cosmos DB
 description: I den här artikeln beskrivs olika alternativ som är tillgängliga för läsning och åtkomst av ändrings flöden i Azure Cosmos DB Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.openlocfilehash: 3d52ba1abc22aae6121ea6a36f943851dfcca7a0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467668"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754872"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läser Azure Cosmos DB ändra feed
 
@@ -27,7 +27,7 @@ Azure Functions är det enklaste och rekommenderade alternativet. När du skapar
 
 ## <a name="using-the-change-feed-processor-library"></a>Använda biblioteket Change feed processor
 
-I biblioteket för ändrings matnings processor döljs komplexitet och du får fortfarande en fullständig kontroll över ändrings flödet. Biblioteket följer det observatörs mönster där din bearbetnings funktion anropas av biblioteket. Om du har en hög data flödes ändrings flöde kan du instansiera flera klienter för att läsa ändrings flödet. Eftersom du använder ändra flödes processor bibliotek delar den automatiskt in belastningen mellan olika klienter utan att du behöver implementera den här logiken. All komplexitet hanteras av biblioteket. Om du vill använda en egen belastningsutjämnare kan du implementera `IPartitionLoadBalancingStrategy` en anpassad partitionsnyckel för att bearbeta ändrings flödet. Läs mer i [använda Change feed processor-bibliotek](change-feed-processor.md).
+I biblioteket för ändrings matnings processor döljs komplexitet och du får fortfarande en fullständig kontroll över ändrings flödet. Biblioteket följer det observatörs mönster där din bearbetnings funktion anropas av biblioteket. Om du har en hög data flödes ändrings flöde kan du instansiera flera klienter för att läsa ändrings flödet. Eftersom du använder ändra flödes processor bibliotek delar den automatiskt in belastningen mellan olika klienter utan att du behöver implementera den här logiken. All komplexitet hanteras av biblioteket. Om du vill använda en egen belastningsutjämnare kan du implementera `IPartitionLoadBalancingStrategy` för en anpassad partitionsnyckel för att bearbeta ändrings flödet. Läs mer i [använda Change feed processor-bibliotek](change-feed-processor.md).
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Använda Azure Cosmos DB SQL API SDK
 
@@ -35,8 +35,8 @@ Med SDK får du en kontroll på låg nivå för ändrings flödet. Du kan hanter
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu fortsätta att lära dig mer om ändringsfeed i följande artiklar:
+Nu kan du fortsätta med att lära dig mer om ändrings flöden i följande artiklar:
 
 * [Översikt över ändra feed](change-feed.md)
-* [Med hjälp av ändringen feed med Azure Functions](change-feed-functions.md)
-* [Med hjälp av ändringen feed processor-biblioteket](change-feed-processor.md)
+* [Använda ändra feed med Azure Functions](change-feed-functions.md)
+* [Använda biblioteket Change feed processor](change-feed-processor.md)

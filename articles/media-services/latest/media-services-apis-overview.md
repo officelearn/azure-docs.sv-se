@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025627"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750209"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -83,7 +83,7 @@ Namnen på filer/blobbar i en till gång måste följa både BLOB- [namnets krav
 
 ## <a name="long-running-operations"></a>Tids krävande åtgärder
 
-De åtgärder som har marker ATS med `x-ms-long-running-operation` i Azure Media Services [Swagger-filerna](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långvariga åtgärder. 
+Åtgärderna som har marker ATS med `x-ms-long-running-operation` i Azure Media Services [Swagger-filerna](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långvariga åtgärder. 
 
 Mer information om hur du spårar asynkrona Azure-åtgärder finns i [asynkrona åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
@@ -95,7 +95,7 @@ Media Services har följande tids krävande åtgärder:
 * [Starta Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Stoppa LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  Använd parametern `removeOutputsOnStop` för att ta bort alla associerade Live-utdata när händelsen stoppas.  
+  Använd `removeOutputsOnStop`-parametern för att ta bort alla associerade Live-utdata när händelsen stoppas.  
 * [Återställ LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Skapa LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Ta bort LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
@@ -107,6 +107,8 @@ Media Services har följande tids krävande åtgärder:
 * [Skala StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
 Vid lyckad sändning av en lång åtgärd får du "202 accepterad" och måste avsöka för att slutföra åtgärden med det returnerade åtgärds-ID: t.
+
+Artikeln [spåra asynkrona Azure-åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) förklarar i djup hur du spårar statusen för asynkrona Azure-åtgärder via värden som returneras i svaret.
 
 Endast en långvarig åtgärd stöds för en specifik Live-händelse eller någon av dess associerade Live-utdata. En tids krävande åtgärd måste slutföras innan en efterföljande tids krävande åtgärd påbörjas på samma LiveEvent eller associerade Live-utdata. För Live-händelser med flera Live-utdata måste du vänta på att en långvarig åtgärd ska slutföras innan en tids krävande åtgärd aktive ras på en annan Live-utdata. 
 

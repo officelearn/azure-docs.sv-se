@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 00e717202116cf9a48c2c2d889374d451b8e4d45
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172031"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754361"
 ---
-# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Självstudier: Anslut en Windows Server-virtuell dator till en hanterad domän
+# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Självstudie: ansluta en virtuell Windows Server-dator till en hanterad domän
 
 Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP, Kerberos/NTLM-autentisering som är helt kompatibelt med Windows Server Active Directory. Med en Azure AD DS-hanterad domän kan du tillhandahålla funktioner för domän anslutning och hantering av virtuella datorer i Azure. Den här självstudien visar hur du skapar en virtuell Windows Server-dator och ansluter den till en hanterad Azure AD DS-domän.
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser:
 
@@ -39,7 +39,7 @@ För att slutföra den här självstudien behöver du följande resurser:
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
     * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
-* Ett användar konto som är medlem i administratörs gruppen för *Azure AD DC* i din Azure AD-klient.
+* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
     * Kontrol lera att Azure AD Connect hash-synkronisering av lösen ord eller lösen ords återställning via självbetjäning har utförts så att kontot kan logga in på Azure AD DS-hanterad domän.
 
 Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare till avsnittet för att [ansluta den virtuella datorn till den hanterade domänen i Azure AD DS](#join-the-vm-to-the-azure-ad-ds-managed-domain).
@@ -63,11 +63,11 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
 
     | Parameter            | Föreslaget värde   |
     |----------------------|-------------------|
-    | Resource group       | Välj eller skapa en resurs grupp, till exempel *myResourceGroup* |
+    | Resursgrupp       | Välj eller skapa en resurs grupp, till exempel *myResourceGroup* |
     | Namn på virtuell dator | Ange ett namn för den virtuella datorn, till exempel *myVM* |
     | Region               | Välj region för att skapa din virtuella dator i, t. ex. *USA, östra* |
     | Användarnamn             | Ange ett användar namn för det lokala administratörs kontot som ska skapas på den virtuella datorn, till exempel *azureuser* |
-    | lösenordsinställning             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
+    | Lösenord             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
 
 4. Som standard är virtuella datorer som skapats i Azure inte tillgängliga från Internet. Den här konfigurationen hjälper till att förbättra säkerheten på den virtuella datorn och minskar risken för potentiella angrepp. I nästa steg i den här självstudien måste du ansluta till den virtuella datorn med Remote Desktop Protocol (RDP) och sedan ansluta Windows Server till den hanterade domänen i Azure AD DS.
 
@@ -77,14 +77,14 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
 
     Under **offentliga inkommande portar**väljer du alternativet för att **tillåta valda portar**. Välj *RDP*på den nedrullningsbara menyn för **Välj inkommande portar**.
 
-5. När du är färdig **väljer du nästa: Diskar**.
-6. Välj *standard SSD*på den nedrullningsbara menyn för **typ av operativ system disk**och välj **sedan Nästa: Nätverk**.
+5. När du är färdig väljer du **Nästa: diskar**.
+6. Välj *standard SSD*på den nedrullningsbara menyn för **typ av operativ system disk**och välj sedan **Nästa: nätverk**.
 7. Din virtuella dator måste ansluta till ett virtuellt nätverk i Azure som kan kommunicera med under nätet som din Azure AD DS-hanterade domän distribueras till. Vi rekommenderar att en Azure AD DS-hanterad domän distribueras till ett eget dedikerat undernät. Distribuera inte den virtuella datorn i samma undernät som din Azure AD DS-hanterade domän.
 
     Det finns två huvudsakliga sätt att distribuera den virtuella datorn och ansluta till ett lämpligt virtuellt nätverks under nät:
     
     * Skapa ett, eller Välj ett befintligt undernät i samma virtuella nätverk som din Azure AD DS-hanterade domän har distribuerats.
-    * Välj ett undernät i ett virtuellt Azure-nätverk som är anslutet till det med [Azure Virtual Network][vnet-peering]-peering.
+    * Välj ett undernät i ett virtuellt Azure-nätverk som är anslutet till det med [Azure Virtual Network-peering][vnet-peering].
     
     Om du väljer ett undernät för virtuellt nätverk som inte är anslutet till under nätet för din Azure AD DS-instans kan du inte ansluta den virtuella datorn till den hanterade domänen. I den här självstudien ska vi skapa ett nytt undernät i det virtuella Azure-nätverket.
 
@@ -100,7 +100,7 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
 10. Det tar några sekunder att skapa under nätet. När den har skapats väljer du *X* för att stänga under näts fönstret.
 11. Gå tillbaka till fönstret **nätverk** och skapa en virtuell dator genom att välja det undernät som du skapade i den nedrullningsbara menyn, till exempel *ManagedVMs*. Se till att du väljer rätt undernät och distribuera inte den virtuella datorn i samma undernät som din Azure AD DS-hanterade domän.
 12. Lämna de andra alternativen som standardvärden och välj sedan **hantering**.
-13. Ange att startdiagnostik ska *stängas av*. Lämna de andra alternativen som standardvärden och välj sedan **Granska + skapa**.
+13. Ange att **startdiagnostik** ska *stängas av*. Lämna de andra alternativen som standardvärden och välj sedan **Granska + skapa**.
 14. Granska inställningarna för den virtuella datorn och välj sedan **skapa**.
 
 Det tar några minuter att skapa den virtuella datorn. I Azure Portal visas distributionens status. När den virtuella datorn är klar väljer **du gå till resurs**.
@@ -139,10 +139,10 @@ När den virtuella datorn har skapats och en RDP-anslutning upprättar kan du nu
 
 1. Ange domänautentiseringsuppgifter för att ansluta till domänen. Använd autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* . Endast medlemmar i den här gruppen har behörighet att ansluta datorer till den hanterade Azure AD DS-domänen. Kontoautentiseringsuppgifter kan anges på något av följande sätt:
 
-    * **UPN-format** (rekommenderas) – ange suffixet User Principal Name (UPN) för användar kontot, enligt konfigurationen i Azure AD. UPN-suffixet för användaren *contosoadmin* skulle till exempel vara `contosoadmin@contoso.onmicrosoft.com`. Det finns ett par vanliga användnings fall där UPN-formatet kan användas på ett tillförlitligt sätt för att logga in på domänen snarare än *sAMAccountName* -formatet:
+    * **UPN-format** (rekommenderas) – ange suffixet User Principal Name (UPN) för användar kontot, enligt konfigurationen i Azure AD. UPN-suffixet för användar- *contosoadmin* skulle till exempel vara `contosoadmin@contoso.onmicrosoft.com`. Det finns ett par vanliga användnings fall där UPN-formatet kan användas på ett tillförlitligt sätt för att logga in på domänen snarare än *sAMAccountName* -formatet:
         * Om en användares UPN-prefix är långt, till exempel *deehasareallylongname*, kan *sAMAccountName* skapas automatiskt.
         * Om flera användare har samma UPN-prefix i din Azure AD-klient, till exempel *Dee*, kan deras *sAMAccountName* -format skapas automatiskt.
-    * **SAMAccountName-format** – ange konto namnet i *sAMAccountName* -formatet. Till exempel skulle *sAMAccountName* för User *contosoadmin* vara `CONTOSO\contosoadmin`.
+    * **SAMAccountName-format** – ange konto namnet i *sAMAccountName* -formatet. *SAMAccountName* för User *contosoadmin* skulle till exempel vara `CONTOSO\contosoadmin`.
 
 1. Det tar några sekunder att ansluta till den hanterade domänen i Azure AD DS. När du är klar, välkomnar följande meddelande till domänen:
 
@@ -200,10 +200,10 @@ Om du inte får en uppmaning om att fråga om autentiseringsuppgifter för att a
 Försök att ansluta den virtuella Windows Server-datorn till den hanterade domänen igen efter att ha försökt med de här fel söknings stegen.
 
 * Kontrol lera att den virtuella datorn är ansluten till samma virtuella nätverk som Azure AD DS är aktiverat i eller har en peer-ansluten nätverks anslutning.
-* Försök att pinga DNS-domännamnet för den hanterade domänen, `ping contoso.com`till exempel.
-    * Om ping-begäran Miss lyckas kan du försöka pinga IP-adresserna för den hanterade `ping 10.0.0.4`domänen, till exempel. IP-adressen för din miljö visas på sidan *Egenskaper* när du väljer den hanterade Azure AD DS-domänen från listan över Azure-resurser.
+* Försök att pinga DNS-domännamnet för den hanterade domänen, t. ex. `ping contoso.com`.
+    * Om ping-begäran Miss lyckas försöker du pinga IP-adresserna för den hanterade domänen, t. ex. `ping 10.0.0.4`. IP-adressen för din miljö visas på sidan *Egenskaper* när du väljer den hanterade Azure AD DS-domänen från listan över Azure-resurser.
     * Om du kan pinga IP-adressen, men inte domänen, kan DNS vara felaktigt konfigurerat. Bekräfta att IP-adresserna för den hanterade domänen är konfigurerade som DNS-servrar för det virtuella nätverket.
-* Försök att tömma DNS-matcharens cacheminne på den virtuella datorn med `ipconfig /flushdns` kommandot.
+* Försök att tömma DNS-matcharens cacheminne på den virtuella datorn med kommandot `ipconfig /flushdns`.
 
 ### <a name="credentials-related-issues"></a>Problem som rör autentiseringsuppgifter
 
@@ -212,7 +212,7 @@ Om du får en uppmaning om att ange autentiseringsuppgifter för att ansluta til
 Försök att ansluta den virtuella Windows Server-datorn till den hanterade domänen igen efter att ha försökt med de här fel söknings stegen.
 
 * Kontrol lera att det användar konto som du anger tillhör gruppen *AAD DC-administratörer* .
-* Försök att använda UPN-formatet för att ange autentiseringsuppgifter, `contosoadmin@contoso.onmicrosoft.com`till exempel. Om det finns många användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt, kan *sAMAccountName* för ditt konto skapas automatiskt. I dessa fall kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
+* Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `contosoadmin@contoso.onmicrosoft.com`. Om det finns många användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt, kan *sAMAccountName* för ditt konto skapas automatiskt. I dessa fall kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
 * Kontrol lera att du har [aktiverat][password-sync] Lösenordssynkronisering till din hanterade domän. Utan det här konfigurations steget finns de nödvändiga lösen ords-hasharna inte i den hanterade Azure AD DS-domänen för att korrekt autentisera ditt inloggnings försök.
 * Vänta tills Lösenordssynkronisering har slutförts. När ett användar kontos lösen ord ändras uppdaterar en automatisk Bakgrundssynkronisering från Azure AD lösen ordet i Azure AD DS. Det tar lite tid för lösen ordet att vara tillgängligt för domän kopplings användning.
 

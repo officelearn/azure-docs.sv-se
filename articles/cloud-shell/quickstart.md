@@ -1,25 +1,21 @@
 ---
-title: Azure Cloud Shell snabb start | Microsoft Docs
-description: Snabb start för Azure Cloud Shell
-services: ''
-documentationcenter: ''
+title: Azure Cloud Shell snabb start – bash
+description: Lär dig hur du använder bash-kommando raden i din webbläsare med Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741992"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757404"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snabb start för bash i Azure Cloud Shell
 
@@ -54,7 +50,7 @@ az account set --subscription 'my-subscription-name'
 ```
 
 > [!TIP]
-> Din prenumeration kommer att sparas i framtida sessioner med `/home/<user>/.azure/azureProfile.json`hjälp av.
+> Din prenumeration kommer att sparas i framtida sessioner med hjälp av `/home/<user>/.azure/azureProfile.json`.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 Skapa en ny resurs grupp i väster med namnet "MyRG".
@@ -62,7 +58,7 @@ Skapa en ny resurs grupp i väster med namnet "MyRG".
 az group create --location westus --name MyRG
 ```
 
-### <a name="create-a-linux-vm"></a>Skapa en virtuell Linux-dator
+### <a name="create-a-linux-vm"></a>Skapa ett Linux VM
 Skapa en virtuell Ubuntu-dator i din nya resurs grupp. Azure CLI skapar SSH-nycklar och konfigurerar den virtuella datorn med dem. <br>
 
 ```azurecli-interactive
@@ -70,16 +66,16 @@ az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> Använd `--generate-ssh-keys` instruerar Azure CLI för att skapa och konfigurera offentliga och privata nycklar i din virtuella dator `$Home` och katalog. Som standard placeras nycklar i Cloud Shell på `/home/<user>/.ssh/id_rsa` och. `/home/<user>/.ssh/id_rsa.pub` Mappen finns kvar i den bifogade fil resursens 5 GB-avbildning som används för att `$Home`Spara. `.ssh`
+> Genom att använda `--generate-ssh-keys` instruerar Azure CLI att skapa och konfigurera offentliga och privata nycklar i din virtuella dator och `$Home` Directory. Som standard placeras nycklar i Cloud Shell på `/home/<user>/.ssh/id_rsa` och `/home/<user>/.ssh/id_rsa.pub`. Din `.ssh`-mapp sparas i den bifogade fil resursens 5 GB-avbildning som används för att spara `$Home`.
 
-Ditt användar namn på den här virtuella datorn är ditt användar namn som användsUser@Azure:i Cloud Shell ($).
+Ditt användar namn på den här virtuella datorn är ditt användar namn som används i Cloud Shell ($User@Azure:).
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH till din virtuella Linux-dator
 1. Sök efter namnet på den virtuella datorn i Azure Portal Sök fältet.
 2. Klicka på Anslut för att hämta namnet på den virtuella datorn och den offentliga IP-adressen. <br>
    ![](media/quickstart/sshcmd-copy.png)
 
-3. SSH till den virtuella datorn med `ssh` kommandot cmd.
+3. SSH till den virtuella datorn med `ssh` cmd.
    ```
    ssh username@ipaddress
    ```

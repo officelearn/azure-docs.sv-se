@@ -3,15 +3,15 @@ title: Förstå frågespråket
 description: Beskriver resurs diagram tabeller och tillgängliga Kusto data typer, operatorer och funktioner som kan användas med Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 6189920cb03a6cf388f0b5d232c6ce97ae4f3f82
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 80b33212afa7fed3f87b241d5cf69b43be66574d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389766"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755918"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå frågespråket i Azure Resource Graph
 
@@ -30,7 +30,7 @@ Resurs diagram innehåller flera tabeller för de data som lagras om resurs type
 |Resurs diagram tabeller |Beskrivning |
 |---|---|
 |Resurser |Standard tabellen om ingen har definierats i frågan. De flesta resurs typer och egenskaper för Resource Manager finns här. |
-|ResourceContainers |Inkluderar prenumeration (`Microsoft.Resources/subscriptions`) och resurs typer och data för resurs gruppen (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|ResourceContainers |Inkluderar prenumeration (i förhands granskning--`Microsoft.Resources/subscriptions`) och resurs typ och data för resurs grupp (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AlertsManagementResources |Innehåller resurser _relaterade_ till `Microsoft.AlertsManagement`. |
 |SecurityResources |Innehåller resurser _relaterade_ till `Microsoft.Security`. |
 
@@ -51,8 +51,8 @@ Följande fråga visar en mer komplex användning av `join`. Frågan begränsar 
 
 ```kusto
 Resources
-| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | where type == 'microsoft.keyvault/vaults'
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | project type, name, SubName
 | limit 1
 ```
@@ -83,7 +83,7 @@ Här är listan över KQL tabell operatörer som stöds av resurs diagram med vi
 |[sammanfatta](/azure/kusto/query/summarizeoperator) |[Antal Azure-resurser](../samples/starter.md#count-resources) |Endast förenklad första sidan |
 |[gå](/azure/kusto/query/takeoperator) |[Lista över alla offentliga IP-adresser](../samples/starter.md#list-publicip) |Synonymer till `limit` |
 |[översta](/azure/kusto/query/topoperator) |[Visning av de första fem virtuella datorerna efter namn och OS-typ](../samples/starter.md#show-sorted) | |
-|[Union](/azure/kusto/query/unionoperator) |[Kombinera resultat från två frågor till ett enda resultat](../samples/advanced.md#unionresults) |Enskild tabell tillåts: _T_ `| union` \[ @ no__t-3 `inner` @ no__t-5 @ no__t-6 @ no__t-7 \[ @ no__t-9_columnName_1 _tabell_. Gräns på 3 `union` ben i en enda fråga. Fuzzy-upplösning för `union`-tabeller är inte tillåtet. Kan användas i en enskild tabell eller mellan _resurserna_ och _ResourceContainers_ -tabellerna. |
+|[Union](/azure/kusto/query/unionoperator) |[Kombinera resultat från två frågor till ett enda resultat](../samples/advanced.md#unionresults) |Enskild tabell tillåts: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_columnName_\] _Table_. Gräns på 3 `union` ben i en enda fråga. Fuzzy-upplösning för `union`-tabeller är inte tillåtet. Kan användas i en enskild tabell eller mellan _resurserna_ och _ResourceContainers_ -tabellerna. |
 |[vilken](/azure/kusto/query/whereoperator) |[Visning av resurser med lagring](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Escape-tecken
@@ -100,7 +100,7 @@ Vissa egenskaps namn, till exempel sådana som innehåller en `.` eller `$`, må
 
 - `$` – undantar tecknen i egenskaps namnet. Vilket escape-tecken som används beror på vilket Shell-resurs diagram som körs från.
 
-  - **bash** -  @ no__t-2
+  - **bash** - `\`
 
     Exempel fråga som utrymningr egenskapen _\$type_ i bash:
 
@@ -110,7 +110,7 @@ Vissa egenskaps namn, till exempel sådana som innehåller en `.` eller `$`, må
 
   - **cmd** -escape inte `$`-tecken.
 
-  - **PowerShell**- -  @ no__t-2
+  - **PowerShell** - - ``` ` ```
 
     Exempel fråga som utrymningr egenskapen _\$type_ i PowerShell:
 

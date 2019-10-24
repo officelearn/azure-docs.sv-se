@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Content Moderator klient bibliotek för python | Microsoft Docs'
+title: 'Snabb start: Content Moderator klient bibliotek för python | Microsoft Docs'
 description: Kom igång med Content Moderator klient biblioteket för python.
 services: cognitive-services
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: pafarley
-ms.openlocfilehash: f3b9a7aefc5fc347c4d5114575388914ea8d6fee
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 62407467e3c63b1752ee6816325f097ad9a1f09e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700246"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755255"
 ---
-# <a name="quickstart-content-moderator-client-library-for-python"></a>Snabbstart: Content Moderator klient bibliotek för python
+# <a name="quickstart-content-moderator-client-library-for-python"></a>Snabb start: Content Moderator klient bibliotek för python
 
 Kom igång med Content Moderator klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Content Moderator är en kognitiv tjänst som kontrollerar text-, bild-och video innehåll för material som kan vara stötande, riskfyllda eller på annat sätt olämpligt. När sådant material hittas tillämpar tjänsten lämplig etiketter (flaggor) på innehållet. Appen kan sedan hantera flaggat innehåll för att uppfylla krav eller upprätthålla den avsedda miljön för användare.
 
@@ -28,9 +28,9 @@ Använd Content Moderator klient bibliotek för python för att:
 * [Använd en anpassad avbildnings lista](#use-a-custom-image-list)
 * [Skapa en granskning](#create-a-review)
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | -[paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -44,20 +44,20 @@ Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på
 * Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Visa din resurs på [Azure Portal](https://portal.azure.com/)
 
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, `CONTENT_MODERATOR_SUBSCRIPTION_KEY`med namnet.
+När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en med namnet `CONTENT_MODERATOR_SUBSCRIPTION_KEY` respektive `CONTENT_MODERATOR_ENDPOINT`.
  
 ### <a name="create-a-python-script"></a>Skapa ett Python-skript
 
-Skapa ett nytt Python-skript och öppna det i önskat redigerings program eller IDE. Lägg sedan till följande `import` -instruktioner överst i filen.
+Skapa ett nytt Python-skript och öppna det i önskat redigerings program eller IDE. Lägg sedan till följande `import`-uttryck överst i filen.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imports)]
 
-Skapa sedan variabler för resursens Azure-plats och din nyckel som en miljö variabel. 
+Skapa sedan variabler för resursens slut punkts plats och nyckel som miljövariabler. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_vars)]
 
 > [!NOTE]
-> Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln.
+> Om du har skapat miljövariablerna efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variablerna.
 
 ### <a name="install-the-client-library"></a>Installera klient biblioteket
 
@@ -92,7 +92,7 @@ De här kodfragmenten visar hur du utför följande uppgifter med Content Modera
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Den här snabb starten förutsätter att du har [skapat en miljö variabel](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för din `CONTENT_MODERATOR_SUBSCRIPTION_KEY`Content moderator nyckel, med namnet.
+> Den här snabb starten förutsätter att du har [skapat miljövariabler](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för din Content moderator nyckel och slut punkt.
 
 Instansiera en klient med din slut punkt och nyckel. Skapa ett [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python) -objekt.
 
@@ -145,7 +145,7 @@ Du kan använda en listas ID för att redigera dess namn och beskrivning.
 
 ### <a name="add-a-term-to-the-list"></a>Lägg till en term i listan
 
-Följande kod lägger till villkoren `"term1"` och `"term2"` i listan.
+I följande kod läggs villkoren `"term1"` och `"term2"` till i listan.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_termslist_add)]
 
@@ -226,7 +226,7 @@ Skapa följande textvariabler för att lagra de bild-URL: er som du kommer att a
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagelistvars)]
 
 > [!NOTE]
-> Detta är inte själva listan, men en informellt lista med avbildningar som ska läggas till i `add images` avsnittet i koden.
+> Detta är inte själva listan, men en informellt lista med avbildningar som ska läggas till i `add images` avsnittet av koden.
 
 
 ### <a name="create-an-image-list"></a>Skapa en bild lista
@@ -334,7 +334,7 @@ Om du har använt en callback-slutpunkt i det här scenariot, ska den ta emot en
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Kör programmet med `python` kommandot på snabb starts filen.
+Kör programmet med kommandot `python` på snabb starts filen.
 
 ```console
 python quickstart-file.py
@@ -344,7 +344,7 @@ python quickstart-file.py
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -355,4 +355,4 @@ I den här snabb starten har du lärt dig hur du använder det Content Moderator
 >[Bild moderator koncept](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
 * [Vad är Azure Content Moderator?](./overview.md)
-* Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision).
+* Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py).

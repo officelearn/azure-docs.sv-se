@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676714"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757508"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudier: Skapa en värdpool med Azure Marketplace
+# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudie: skapa en värdbaserad pool med Azure Marketplace
 
 Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
 
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Kör Azure Marketplace-erbjudandet för att etablera en ny värdbaserad pool
 
@@ -46,13 +46,13 @@ Så här kör du Azure Marketplace-erbjudandet för att etablera en ny adresspoo
 
 Efter det följer du anvisningarna i nästa avsnitt för att ange informationen för lämpliga blad.
 
-### <a name="basics"></a>Grundinställningar
+### <a name="basics"></a>Grundläggande inställningar
 
 Det här kan du göra på bladet **grundläggande** :
 
 1. Ange ett namn för den värdbaserade poolen som är unik i Windows-klienten för virtuella skriv bord.
 2. Välj lämpligt alternativ för ett personligt skriv bord. Om du väljer **Ja**, kommer varje användare som ansluter till den här poolen permanent att tilldelas till en virtuell dator.
-3. Ange en kommaavgränsad lista med användare som kan logga in på de virtuella Windows-klienterna och få åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill tilldela user1@contoso.com och user2@contoso.com-åtkomst anger du "user1@contoso.com, user2@contoso.com".
+3. Ange en kommaavgränsad lista med användare som kan logga in på de virtuella Windows-klienterna och få åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill tilldela user1@contoso.com och user2@contoso.com åtkomst anger duuser1@contoso.comuser2@contoso.com.
 4. Välj **Skapa nytt** och ange ett namn för den nya resurs gruppen.
 5. För **plats**väljer du samma plats som det virtuella nätverk som har anslutning till Active Directory-servern.
 6. Välj **OK**.
@@ -73,7 +73,7 @@ För bladet **Konfigurera virtuella datorer** :
 För bladet **Inställningar för virtuell dator** :
 
 >[!NOTE]
-> Om du ansluter dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD-domänkontrollanten](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
+> Om du ansluter dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD-domänkontrollanten](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 1. För **avbildnings källa**väljer du källan och anger den information som krävs för att hitta den och hur den ska lagras. Om du väljer att inte använda hanterade diskar väljer du det lagrings konto som innehåller VHD-filen.
 2. Ange User Principal Name och lösen ord för det domän konto som ska ansluta till de virtuella datorerna till Active Directorys domänen. Samma användar namn och lösen ord kommer att skapas på de virtuella datorerna som ett lokalt konto. Du kan återställa de här lokala kontona senare.

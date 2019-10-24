@@ -8,10 +8,10 @@ author: cithomas
 ms.author: cithomas
 ms.date: 09/20/2019
 ms.openlocfilehash: 0762819239e8fd71a015f317776a94280806db53
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 10/22/2019
 ms.locfileid: "72677158"
 ---
 # <a name="eventcounters-introduction"></a>Introduktion till EventCounters
@@ -98,7 +98,7 @@ I följande exempel visas hur du lägger till/tar bort räknare. Den här anpass
 Om du vill visa EventCounter-mått i [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)väljer du Application Insights resurs och väljer loggbaserade mått som mått namn område. Sedan visas EventCounter mått under PerformanceCounter kategori.
 
 > [!div class="mx-imgBorder"]
-> ![Event räknare som rapporter ATS i Application Insights ](./media/event-counters/metrics-explorer-counter-list.png)
+> ![händelse räknare som rapporteras i Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Händelse räknare i Analytics
 
@@ -111,7 +111,7 @@ performanceCounters | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Event räknare som rapporter ATS i Application Insights ](./media/event-counters/analytics-event-counters.png)
+> ![händelse räknare som rapporteras i Application Insights](./media/event-counters/analytics-event-counters.png)
 
 Kör följande fråga för att hämta ett diagram över en viss räknare (till exempel: `ThreadPool Completed Work Item Count`) under den senaste perioden.
 
@@ -123,7 +123,7 @@ performanceCounters
 | render timechart
 ```
 > [!div class="mx-imgBorder"]
-> ![Chat av en räknare i Application Insights ](./media/event-counters/analytics-completeditems-counters.png)
+> ![chatta med en enda räknare i Application Insights](./media/event-counters/analytics-completeditems-counters.png)
 
 Precis som andra telemetri har **performanceCounters** också en kolumn `cloud_RoleInstance` som anger identiteten för den värd Server instans där appen körs. Frågan ovan visar räknar värdet per instans och kan användas för att jämföra prestanda för olika Server instanser.
 

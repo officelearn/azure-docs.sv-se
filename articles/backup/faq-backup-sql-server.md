@@ -8,93 +8,102 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6e3ce21419e131ceef65939202eb70a98f10b040
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 27f416d4ed16de0277952f82c3f7dbac607890d6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982439"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750212"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 
-I den här artikeln besvaras vanliga frågor om säkerhets kopiering av SQL Server databaser som körs på virtuella Azure-datorer (VM) och som använder tjänsten [Azure Backup](backup-overview.md) .
+Den här artikeln besvarar vanliga frågor om säkerhets kopiering av SQL Server databaser som körs på virtuella Azure-datorer (VM) och använder tjänsten [Azure Backup](backup-overview.md) .
 
 ## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Kan jag använda Azure Backup för IaaS VM och SQL Server på samma dator?
-Ja, du kan ha både VM-säkerhetskopiering och SQL-säkerhetskopiering på samma virtuella dator. I det här fallet utlöser vi internt endast kopiera fullständig säkerhets kopiering på den virtuella datorn för att inte trunkera loggarna.
 
+Ja, du kan ha både VM-säkerhetskopiering och SQL-säkerhetskopiering på samma virtuella dator. I det här fallet utlöser vi internt endast kopiera fullständig säkerhets kopiering på den virtuella datorn för att inte trunkera loggarna.
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>Försöker lösningen igen eller automatiskt korrigera säkerhets kopiorna?
 
 Under vissa omständigheter utlöser tjänsten Azure Backup tjänsten återställnings säkerhets kopior. Auto-läka kan ske under de sex villkor som anges nedan:
 
-  - Om loggen eller differentiell säkerhets kopieringen Miss lyckas på grund av LSN-valideringen, konverteras nästa logg eller differentiell säkerhets kopia i stället till en fullständig säkerhets kopia.
-  - Om ingen fullständig säkerhets kopiering har skett före en logg eller differentiell säkerhets kopiering, konverteras den loggen eller differentiella säkerhets kopian i stället till en fullständig säkerhets kopia.
-  - Om den senaste fullständiga säkerhets kopian är äldre än 15 dagar, konverteras nästa logg eller differentiell säkerhets kopia i stället till en fullständig säkerhets kopia.
-  - Alla säkerhets kopierings jobb som avbryts på grund av en tilläggs uppgradering utlöses igen när uppgraderingen har slutförts och tillägget har startats.
-  - Om du väljer att skriva över databasen under återställningen Miss lyckas nästa logg/differentiella säkerhets kopiering och en fullständig säkerhets kopiering utlöses i stället.
-  - I de fall där en fullständig säkerhets kopiering krävs för att återställa logg kedjorna på grund av ändringar i databas återställnings modellen utlöses en fullständig säkerhets kopiering automatiskt enligt nästa schema.
+- Om loggen eller differentiell säkerhets kopieringen Miss lyckas på grund av LSN-valideringen, konverteras nästa logg eller differentiell säkerhets kopia i stället till en fullständig säkerhets kopia.
+- Om ingen fullständig säkerhets kopiering har skett före en logg eller differentiell säkerhets kopiering, konverteras den loggen eller differentiella säkerhets kopian i stället till en fullständig säkerhets kopia.
+- Om den senaste fullständiga säkerhets kopian är äldre än 15 dagar, konverteras nästa logg eller differentiell säkerhets kopia i stället till en fullständig säkerhets kopia.
+- Alla säkerhets kopierings jobb som avbryts på grund av en tilläggs uppgradering utlöses igen när uppgraderingen har slutförts och tillägget har startats.
+- Om du väljer att skriva över databasen under återställningen Miss lyckas nästa logg/differentiella säkerhets kopiering och en fullständig säkerhets kopiering utlöses i stället.
+- I de fall där en fullständig säkerhets kopiering krävs för att återställa logg kedjorna på grund av ändringar i databas återställnings modellen utlöses en fullständig säkerhets kopiering automatiskt enligt nästa schema.
 
 Auto-läka som en funktion aktive ras för alla användare som standard. Om du väljer att inte göra det kan du dock utföra följande:
 
-  * På SQL Server-instansen i mappen *C:\Program Files\Azure arbets belastning Backup\bin* skapar eller redigerar du filen **ExtensionSettingsOverrides. JSON** .
-  * I **ExtensionSettingsOverrides. JSON**anger du *{"EnableAutoHealer": false}* .
-  * Spara ändringarna och Stäng filen.
-  * Öppna **uppgiften hantera** på SQL Server-instansen och starta sedan om **AzureWLBackupCoordinatorSvc** -tjänsten.
-   
+- På SQL Server-instansen i mappen *C:\Program Files\Azure arbets belastning Backup\bin* skapar eller redigerar du filen **ExtensionSettingsOverrides. JSON** .
+- I **ExtensionSettingsOverrides. JSON**anger du *{"EnableAutoHealer": false}* .
+- Spara ändringarna och Stäng filen.
+- Öppna **uppgiften hantera** på SQL Server-instansen och starta sedan om **AzureWLBackupCoordinatorSvc** -tjänsten.
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>Kan jag kontrol lera hur många samtidiga säkerhets kopieringar som körs på SQL-servern?
 
 Ja. Du kan begränsa den hastighet som säkerhets kopierings principen körs för att minimera påverkan på en SQL Server instans. Så här ändrar du inställningen:
+
 1. På SQL Server-instansen i mappen *C:\Program Files\Azure arbets belastning Backup\bin* skapar du filen *ExtensionSettingsOverrides. JSON* .
 2. I filen *ExtensionSettingsOverrides. JSON* ändrar du inställningen **DefaultBackupTasksThreshold** till ett lägre värde (till exempel 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Spara ändringarna och Stäng filen.
 4. I SQL Server-instansen öppnar du **Aktivitetshanteraren**. Starta om tjänsten **AzureWLBackupCoordinatorSvc**.<br/> <br/>
- Även om den här metoden hjälper om säkerhets kopierings programmet använder mycket resurser, är SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) ett mer allmänt sätt att ange gränser för mängden processor, fysisk IO och minne som inkommande program begär Anden kan använda.
+ Även om den här metoden hjälper om säkerhets kopierings programmet använder en stor mängd resurser, är SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) ett mer allmänt sätt att ange gränser för mängden processor, fysisk IO och minne som inkommande program begär Anden kan använda.
 
 > [!NOTE]
 > I UX-UX kan du fortfarande gå vidare och schemalägga så många säkerhets kopieringar vid en viss tidpunkt, men de bearbetas i ett glidande fönster på ungefär 5, enligt exemplet ovan.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Kan jag köra en fullständig säkerhetskopia från en sekundär replik?
+
 Enligt SQL-begränsningar kan du bara köra fullständig kopiering på den sekundära repliken. Fullständig säkerhets kopiering är dock inte tillåtet.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Kan jag skydda tillgänglighets grupper lokalt?
+
 Nej. Azure Backup skyddar SQL Server databaser som körs i Azure. Om en tillgänglighets grupp (AG) sprids mellan Azure och lokala datorer kan AG endast skyddas om den primära repliken körs i Azure. Azure Backup skyddar också bara de noder som körs i samma Azure-region som Recovery Servicess valvet.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>Kan jag skydda tillgänglighets grupper i flera regioner?
+
 Azure Backup Recovery Services-valvet kan identifiera och skydda alla noder i samma region som valvet. Om din SQL Server Always on-tillgänglighetsgrupper sträcker sig över flera Azure-regioner ställer du in säkerhets kopieringen från den region som har den primära noden. Azure Backup kan identifiera och skydda alla databaser i tillgänglighets gruppen enligt din säkerhets kopierings inställning. När säkerhets kopierings inställningen inte uppfylls, Miss lyckas säkerhets kopieringarna och du får aviseringen om felet.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>Skapar lyckade säkerhetskopieringsjobb aviseringar?
+
 Nej. Lyckade säkerhetskopieringsjobb genererar inte aviseringar. Aviseringar skickas bara för säkerhetskopieringsjobb som misslyckas. Detaljerade funktioner för Portal varningar dokumenteras [här](backup-azure-monitoring-built-in-monitor.md). Om du däremot är intresse rad av aviseringar även för lyckade jobb kan du använda [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Kan jag se schemalagda säkerhets kopierings jobb på menyn säkerhets kopierings jobb?
+
 Menyn **säkerhets kopierings jobb** visar bara ad hoc-säkerhetskopierade jobb. För schemalagt jobb använder du [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Läggs framtida databaser automatiskt till för säkerhets kopiering?
+
 Ja, du kan få den här funktionen med [automatiskt skydd](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Vad händer med säkerhets kopior om jag tar bort en databas från en skyddad instans?
+
 Om en databas bryts från en skyddad instans, görs fortfarande databas säkerhets kopiorna. Detta innebär att den borttagna databasen börjar visas som ohälsosam under **säkerhets kopierings objekt** och fortfarande är skyddad.
 
 Det korrekta sättet att sluta skydda den här databasen är att **stoppa säkerhets kopieringen** med **ta bort data** på den här databasen.  
 
 ## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Vad händer om jag avbryter säkerhets kopieringen av en automatiskt skyddad databas?
+
 Om du **stoppar säkerhets kopiering med Behåll data**, kommer inga framtida säkerhets kopieringar att äga rum och de befintliga återställnings punkterna förblir intakta. Databasen kommer fortfarande att anses vara skyddad och visas under **säkerhets kopierings objekt**.
 
 Om du **stoppar säkerhets kopiering med ta bort data**kommer inga framtida säkerhets kopieringar att äga rum och befintliga återställnings punkter tas också bort. Databasen betraktas som icke-skyddad och visas under instansen i Konfigurera säkerhets kopiering. Men till skillnad från andra skyddade databaser som kan väljas manuellt eller som kan skyddas automatiskt, visas den här databasen som nedtonad och kan inte väljas. Det enda sättet att skydda den här databasen är att inaktivera automatiskt skydd på instansen. Nu kan du välja den här databasen och konfigurera skydd på den eller återaktivera det automatiska skyddet på instansen igen.
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Vad händer om jag ändrar namnet på databasen efter att det har skyddats?
-En namngiven databas behandlas som en ny databas. Tjänsten kommer därför att behandla den här situationen som om databasen inte hittades och att säkerhets kopieringen Miss lyckas.
+
+En döpt databas behandlas som en ny databas. Tjänsten kommer därför att behandla den här situationen som om databasen inte hittades och att säkerhets kopieringen Miss lyckas.
 
 Du kan välja databasen, som nu har bytt namn och konfigurerat skydd på den. Om det automatiska skyddet har Aktiver ATS på instansen identifieras och skyddas den omdöpta databasen automatiskt.
 
-##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Varför kan jag inte se en tillagd databas för en skyddad instans?
-En databas som du [lägger till i en skyddad instans](backup-sql-server-database-azure-vms.md#enable-auto-protection) kanske inte omedelbart visas under skyddade objekt. Det beror på att identifieringen vanligtvis körs var 8:e timme. Du kan dock identifiera och skydda nya databaser omedelbart om du kör en identifiering manuellt genom att välja **Återställ databaser**, som du ser i följande bild.
+## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Varför kan jag inte se en tillagd databas för en skyddad instans?
+
+En databas som du [lägger till i en skyddad instans](backup-sql-server-database-azure-vms.md#enable-auto-protection) kanske inte omedelbart visas under skyddade objekt. Det beror på att identifieringen vanligtvis körs var 8:e timme. Du kan dock identifiera och skydda nya databaser omedelbart om du kör en identifiering manuellt genom att välja **identifiera databaser**, som du ser i följande bild:
 
   ![Identifiera en nyligen tillagd databas manuellt](./media/backup-azure-sql-database/view-newly-added-database.png)
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du säkerhetskopierar [en SQL Server databas](backup-azure-sql-database.md) som körs på en virtuell Azure-dator.
+Lär dig hur du [säkerhetskopierar en SQL Server databas](backup-azure-sql-database.md) som körs på en virtuell Azure-dator.

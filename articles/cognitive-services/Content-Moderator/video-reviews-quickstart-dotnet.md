@@ -3,19 +3,19 @@ title: Skapa video granskningar med .NET – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller information och kod exempel som hjälper dig att snabbt komma igång med Content Moderator SDK C# med för att skapa video granskningar.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: sajagtap
-ms.openlocfilehash: 5a0d462f08e88ae4d26e1c684cfaf772910d2220
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: ca5322aa78a4fd3018d961a5d31c618cf10bf156
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242855"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757150"
 ---
 # <a name="create-video-reviews-using-net"></a>Skapa video granskningar med .NET
 
@@ -165,7 +165,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
-1. Ett **ilist @ no__t-1CreateVideoReviewsBodyItem >-** objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
+1. Ett **IList \<CreateVideoReviewsBodyItem >** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
 
 **CreateVideoReviewsBodyItem** har flera egenskaper. Du kan minst ange följande egenskaper:
 - **Innehåll**. URL till den video som ska granskas.
@@ -173,7 +173,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 - **Status**. Ställ in värdet på "unpublished". Om du inte anger det används som standard "väntar", vilket innebär att video granskningen publiceras och väntar på mänsklig granskning. När en video granskning har publicerats kan du inte längre lägga till video bild rutor, en avskrift eller ett avskrifts redigerings resultat.
 
 > [!NOTE]
-> **CreateVideoReviews** returnerar en ilist @ no__t-1string->. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** . 
+> **CreateVideoReviews** returnerar en IList \<string >. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** . 
 
 Lägg till följande metod definition i namn området VideoReviews, klass program.
 
@@ -223,18 +223,18 @@ Du lägger till video bild rutor i en video granskning med **ContentModeratorCli
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON."
 1. Namnet på din Content Moderator-grupp.
 1. Video gransknings-ID: t som returnerades av **CreateVideoReviews**.
-1. Ett **ilist @ no__t-1VideoFrameBodyItem >-** objekt. Varje **VideoFrameBodyItem** -objekt representerar en video bild ruta.
+1. Ett **IList\<VideoFrameBodyItem >** -objekt. Varje **VideoFrameBodyItem** -objekt representerar en video bild ruta.
 
 **VideoFrameBodyItem** har följande egenskaper:
 - **Tidsstämpel**. En sträng som innehåller, i sekunder, den tid i videon som video ramen togs ifrån.
 - **FrameImage**. Video ramens URL.
-- **Metadata**. En IList @ no__t-0VideoFrameBodyItemMetadataItem->. **VideoFrameBodyItemMetadataItem** är bara ett nyckel/värde-par. Giltiga nycklar är:
+- **Metadata**. En IList\<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem** är bara ett nyckel/värde-par. Giltiga nycklar är:
 - **reviewRecommended**. Sant om en mänsklig granskning av video ramen rekommenderas.
 - **adultScore**. Ett värde mellan 0 och 1 som mäter allvarlighets graden för det vuxna innehållet i video ramen.
 - **a**. Sant om videon innehåller innehåll som är vuxen.
 - **racyScore**. Ett värde mellan 0 och 1 som mäter allvarlighets graden för vågat innehåll i video ramen.
 - **r**. True om video ramen innehåller vågat-innehåll.
-- **ReviewerResultTags**. En IList @ no__t-0VideoFrameBodyItemReviewerResultTagsItem->. **VideoFrameBodyItemReviewerResultTagsItem** är bara ett nyckel/värde-par. Ett program kan använda dessa taggar för att organisera video bild rutor.
+- **ReviewerResultTags**. En IList\<VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem** är bara ett nyckel/värde-par. Ett program kan använda dessa taggar för att organisera video bild rutor.
 
 > [!NOTE]
 > Den här snabb starten genererar slumpmässiga värden för egenskaperna **adultScore** och **racyScore** . I ett produktions program hämtar du dessa värden från [video moderator tjänsten](video-moderation-api.md)som distribueras som en Azure Media-tjänst.

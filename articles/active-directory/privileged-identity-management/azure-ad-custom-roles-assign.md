@@ -4,31 +4,31 @@ description: Så här tilldelar du en anpassad Azure AD-roll för tilldelning Pr
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3f6eb815677133f3d7fe6ce07d6abf23db1f04
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1c4963e6563db166566cff41d381295a8a9e576b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947340"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756362"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Tilldela en anpassad Azure AD-roll i Privileged Identity Management
 
 Den här artikeln beskriver hur du använder Privileged Identity Management (PIM) för att skapa just-in-Time-och Time-Bound-tilldelning till anpassade roller som skapats för att hantera program i den administrativa miljön för Azure Active Directory (Azure AD).
 
 - Mer information om hur du skapar anpassade roller för att delegera program hantering i Azure AD finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../users-groups-roles/roles-custom-overview.md).
-- Om du inte har använt Privileged Identity Management ännu kan du få mer information när du [börjar använda PIM](pim-getting-started.md).
-- Information om hur du beviljar en annan administratörs åtkomst till att hantera Privileged Identity Management finns i [bevilja åtkomst till andra administratörer för att hantera PIM](pim-how-to-give-access-to-pim.md).
+- Om du inte har använt Privileged Identity Management ännu kan du få mer information när du [börjar använda Privileged Identity Management](pim-getting-started.md).
+- Information om hur du beviljar en annan administratörs åtkomst till att hantera Privileged Identity Management finns i [bevilja åtkomst till andra administratörer för att hantera Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 > [!NOTE]
 > Anpassade Azure AD-roller är inte integrerade med de inbyggda katalog rollerna under för hands versionen. När funktionen är allmänt tillgänglig, sker roll hanteringen i den inbyggda roll upplevelsen.
@@ -71,7 +71,7 @@ Privileged Identity Management kan hantera anpassade roller som du kan skapa i A
 1. Om den **permanenta** kryss rutan finns tillgänglig och tillgänglig (beroende på roll inställningar) kan du ange om tilldelningen är permanent. Markera kryss rutan om du vill göra tilldelningen permanent eller permanent tilldelad. Avmarkera kryss rutan om du vill ange en tilldelnings varaktighet.
 1. Skapa den nya roll tilldelningen genom att klicka på **Spara** och sedan på **Lägg till**. Ett meddelande om tilldelnings processens status visas.
 
-För att verifiera roll tilldelningen i en öppen roll väljer du **tilldelningar** > **tilldela** och kontrollerar att roll tilldelningen identifieras korrekt som giltig eller aktiv.
+För att verifiera roll tilldelningen i en öppen roll väljer du **tilldelningar** > **tilldelar** och kontrollerar att roll tilldelningen identifieras korrekt som giltig eller aktiv.
 
  ![Kontrol lera om roll tilldelningen är synlig som giltig eller aktiv](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 

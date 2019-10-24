@@ -14,23 +14,25 @@ ms.date: 11/13/2018
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c7f42d536880f2578c62c6c4866b21be1cc9dc
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 49d49f42e0d705981a5b4e41630b425fcb02e940
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804558"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756262"
 ---
-# <a name="microsoft-graph-apis-for-pim-preview"></a>Microsoft Graph-API:er för PIM (förhandsversion)
+# <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Microsoft Graph-API: er för Privileged Identity Management (förhands granskning)
 
-De flesta uppgifter som du kan utföra i Azure Active Directory (Azure AD) Privileged Identity Management (PIM) med hjälp av Azure Portal kan du också utföra med hjälp av [Microsoft Graph API: er](https://developer.microsoft.com/graph/docs/concepts/overview). Den här artikeln beskriver några viktiga begrepp vid användning av Microsoft Graph-API:er för PIM. Mer information om Microsoft Graph-API:er finns i [referensen för Azure AD Privileged Identity Management API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
+Du kan utföra alla Privileged Identity Management uppgifter med hjälp av [Microsoft Graph-API: er](https://developer.microsoft.com/graph/docs/concepts/overview) för Azure Active Directory. I den här artikeln beskrivs viktiga begrepp för att använda Microsoft Graph-API: er för Privileged Identity Management.
+
+Mer information om Microsoft Graph-API:er finns i [referensen för Azure AD Privileged Identity Management API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
 
 > [!IMPORTANT]
 > API:er under /betaversionen i Microsoft Graph är i förhandsversion och kan komma att ändras. Användning av dessa API:er i produktionsprogram stöds inte.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-För att anropa Microsoft Graph API:er för PIM måste du ha **en eller flera** av följande behörigheter:
+Om du vill anropa Microsoft Graph-API: er för Privileged Identity Management måste du ha **en eller flera** av följande behörigheter:
 
 - `Directory.AccessAsUser.All`
 - `Directory.Read.All`
@@ -39,7 +41,7 @@ För att anropa Microsoft Graph API:er för PIM måste du ha **en eller flera** 
 
 ### <a name="set-permissions"></a>Ställa in behörigheter
 
-För att program ska kunna anropa Microsoft Graph-API:er för PIM måste de ha nödvändiga behörigheter. Det enklaste sättet att ange nödvändiga behörigheter är att använda [Azure AD-ramverket för medgivande](../develop/consent-framework.md).
+För att program ska kunna anropa Microsoft Graph-API: er för Privileged Identity Management måste de ha de behörigheter som krävs. Det enklaste sättet att ange nödvändiga behörigheter är att använda [Azure AD-ramverket för medgivande](../develop/consent-framework.md).
 
 ### <a name="set-permissions-in-graph-explorer"></a>Ställa in behörigheter i Graph Explorer
 
@@ -51,7 +53,7 @@ Om du använder Graph Explorer för att testa anrop kan du ange behörigheterna 
 
     ![Graph Explorer – ändra behörigheter](./media/pim-apis/graph-explorer.png)
 
-1. Lägg till bockar intill de behörigheter som du vill inkludera. `PrivilegedAccess.ReadWrite.AzureAD` är ännu inte tillgänglig i Graph Explorer.
+1. Markera kryss rutorna bredvid de behörigheter som du vill inkludera. `PrivilegedAccess.ReadWrite.AzureAD` är ännu inte tillgänglig i Graph Explorer.
 
     ![Graph Explorer – ändra behörigheter](./media/pim-apis/graph-explorer-modify-permissions.png)
 

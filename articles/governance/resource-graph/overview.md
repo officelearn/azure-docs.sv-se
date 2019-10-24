@@ -3,15 +3,15 @@ title: Översikt över Azure Resource Graph
 description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/06/2019
+ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: bf54f1a96c6be7bbfb19770472752b3f958695c4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 45853e3c8986cec58f27d785af31f174aff21b2e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976806"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755874"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Översikt över Azure Resource Graph-tjänsten
 
@@ -25,8 +25,8 @@ Azure Resource Graph är en tjänst i Azure som är utformad för att utöka Azu
 I den här dokumentationen går vi igenom varje funktion i detalj.
 
 > [!NOTE]
-> Azure Resource Graph-befogenheter Azure Portal Sök fältet, den nya webbläsaren "alla resurser" och Azure Policy [ändrings historiken](../policy/how-to/determine-non-compliance.md#change-history-preview)
-> _Visual diff_. Den är utformad för att hjälpa kunder att hantera storskaliga miljöer.
+> Azure Resource Graph-befogenheter Azure Portal Sök fältet, den nya webbläsaren "alla resurser" och Azure Policy [ändrings historik](../policy/how-to/determine-non-compliance.md#change-history-preview) 
+> _visuellt diff_. Den är utformad för att hjälpa kunder att hantera storskaliga miljöer.
 
 [!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -34,7 +34,7 @@ I den här dokumentationen går vi igenom varje funktion i detalj.
 
 Azure Resource Manager stöder för närvarande frågor över grundläggande resurs fält, specifikt resurs namn, ID, typ, resurs grupp, prenumeration och plats. Resource Manager tillhandahåller också anläggningar för att anropa enskilda resurs leverantörer för detaljerade egenskaper en resurs i taget.
 
-Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. Om du vill ha en lista över resurs typer som stöds letar du upp **Ja** i tabellen [resurser för komplett läges distribution](../../azure-resource-manager/complete-mode-deletion.md) . Ett alternativt sätt att se resurs typer som stöds är via [schema läsaren i Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
+Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. Om du vill ha en lista över resurs typer som stöds letar du upp **Ja** i tabellen [resurser för komplett läges distribution](../../azure-resource-manager/complete-mode-deletion.md) . Ytterligare resurs typer finns i de relaterade [resurs diagram tabellerna](./concepts/query-language.md#resource-graph-tables). Ett alternativt sätt att se resurs typer som stöds är via [schema läsaren i Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
 Med Azure Resource Graph kan du:
 
@@ -45,6 +45,9 @@ Med Azure Resource Graph kan du:
 
 När en Azure-resurs uppdateras, kommer resurs grafen att meddelas via resurs hanteraren för ändringen.
 Resurs diagram uppdaterar sedan sin databas. Resurs diagram utför också en vanlig _fullständig genomsökning_. Den här genomsökningen säkerställer att resurs diagram data är aktuella om det finns uteblivna meddelanden eller när en resurs uppdateras utanför Resource Manager.
+
+> [!NOTE]
+> Resurs diagram använder en `GET` till det senaste API: t för för hands versionen av varje resurs leverantör för att samla in egenskaper och värden. Därför kanske den förväntade egenskapen inte är tillgänglig. I vissa fall har den API-version som används åsidosatts för att ge mer aktuella eller allmänt använda egenskaper i resultaten. I [Visa API-versionen för varje resurs typ](./samples/advanced.md#apiversion) exempel finns en fullständig lista i din miljö.
 
 ## <a name="the-query-language"></a>Frågespråket
 
@@ -62,7 +65,7 @@ Om du vill använda Resource Graph måste du ha rätt behörighet i [Rollbaserad
 > [!NOTE]
 > Resurs diagram använder de prenumerationer som är tillgängliga för ett huvud konto under inloggningen. Om du vill se resurser för en ny prenumeration som lagts till under en aktiv session måste huvud kontot uppdatera kontexten. Den här åtgärden sker automatiskt när du loggar ut och in igen.
 
-Azure CLI och Azure PowerShell använder prenumerationer som användaren har åtkomst till. När du använder REST API direkt tillhandahålls prenumerations listan av användaren. Om användaren har åtkomst till någon av prenumerationerna i listan returneras frågeresultaten för de prenumerationer som användaren har åtkomst till. Detta är samma sak som när du anropar [resurs grupper – lista](/rest/api/resources/resourcegroups/list) \- du får resurs grupper som du har åtkomst till utan att du behöver ange att resultatet kan vara delvis.
+Azure CLI och Azure PowerShell använder prenumerationer som användaren har åtkomst till. När du använder REST API direkt tillhandahålls prenumerations listan av användaren. Om användaren har åtkomst till någon av prenumerationerna i listan returneras frågeresultaten för de prenumerationer som användaren har åtkomst till. Detta är detsamma som när du anropar [resurs grupper –](/rest/api/resources/resourcegroups/list) \- du får resurs grupper som du har åtkomst till utan att ange att resultatet kan vara delvis.
 Om det inte finns några prenumerationer i prenumerations listan som användaren har rätt behörighet till är svaret _403_ (förbjudet).
 
 ## <a name="throttling"></a>Begränsning
@@ -72,8 +75,8 @@ Ange ditt affärs ärende och markera kryss rutan Microsoft kan skicka e-post om
 
 Resurs diagram begränsar frågor på användar nivå. Tjänst svaret innehåller följande HTTP-huvuden:
 
-- `x-ms-user-quota-remaining` (int): Den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
-- `x-ms-user-quota-resets-after` (hh: mm: SS): Tids åtgången tills en användares kvot förbrukning återställs
+- `x-ms-user-quota-remaining` (int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
+- `x-ms-user-quota-resets-after` (hh: mm: SS): tids perioden tills en användares kvot förbrukning återställs
 
 Mer information finns i [rikt linjer för begränsade begär Anden](./concepts/guidance-for-throttled-requests.md).
 

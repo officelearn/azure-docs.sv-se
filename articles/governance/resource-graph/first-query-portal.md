@@ -3,15 +3,15 @@ title: Kör din första fråga med Azure Resource Graph Explorer
 description: Den här artikeln vägleder dig genom stegen för att köra din första fråga från Azure Portal med Azure Resource Graph Explorer.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387608"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752156"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer
 
@@ -45,7 +45,10 @@ När den slutliga frågan körs flera gånger, förutsatt att ingenting i din mi
 
 ### <a name="schema-browser"></a>Schema webbläsare
 
-Schema webbläsaren finns i den vänstra rutan i resurs diagram Utforskaren. I den här listan över resurser visas alla _resurs typer_ av Azure-resurser som båda stöds av Azures resurs diagram och som finns i en klient som du har åtkomst till. Om du expanderar en resurs typ eller underEgenskaper visas underordnade egenskaper som kan användas för att skapa en resurs diagram fråga. Om du väljer resurs typ placeras `where type =="<resource type>"` i rutan fråga. Om du väljer en av de underordnade egenskaperna läggs `where <propertyName> == "INSERT_VALUE_HERE"` till i rutan fråga. Schema läsaren är ett bra sätt att identifiera egenskaper för användning i frågor. Se till att ersätta _insert @ no__t-1VALUE @ no__t-2HERE_ med ditt eget värde, justera frågan med villkor, operatorer och funktioner för att uppnå dina avsedda resultat.
+Schema webbläsaren finns i den vänstra rutan i resurs diagram Utforskaren. I den här listan över resurser visas alla _resurs typer_ av Azure-resurser som båda stöds av Azures resurs diagram och som finns i en klient som du har åtkomst till. Om du expanderar en resurs typ eller underEgenskaper visas underordnade egenskaper som kan användas för att skapa en resurs diagram fråga.
+
+Om du väljer resurs typ placeras `where type =="<resource type>"` i rutan fråga. Om du väljer en av de underordnade egenskaperna läggs `where <propertyName> == "INSERT_VALUE_HERE"` till i rutan fråga.
+Schema läsaren är ett bra sätt att identifiera egenskaper för användning i frågor. Se till att ersätta _infoga \_VALUE \_HERE_ med ditt eget värde, justera frågan med villkor, operatorer och funktioner för att uppnå dina avsedda resultat.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Skapa ett diagram från resurs diagram frågan
 
@@ -88,11 +91,11 @@ Prova följande exempel på instrument paneler för att tillhandahålla exempel 
 
 - [Resurs diagram Utforskare – exempel på instrument panel #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [@no__t 1Example-bild för instrument panelen #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  [![Example bild för instrument panelen #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
 
 - [Resurs diagram Utforskare – exempel på instrument panel #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [@no__t 1Example-bild för instrument panelen #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  [![Example bild för instrument panelen #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
 
 > [!NOTE]
 > Antalet och diagram i exempel skärmarna ovan kan skärm bilderna variera beroende på din Azure-miljö.

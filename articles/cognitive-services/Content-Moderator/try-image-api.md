@@ -3,19 +3,19 @@ title: Måttliga bilder med API-konsolen – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 'Använd avbildnings redigerings-API: et i Azure Content Moderator för att initiera arbets flöden för genomsökning och gransknings redigering för bild innehåll.'
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 20353d488cba255925d21017b77d1def2d06b30b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: aa3b6ce886b06c32e9e4515469099a5b31ff49e3
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561250"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757207"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Måttliga bilder från API-konsolen
 
@@ -32,7 +32,7 @@ Innan du kan testa API: et i online-konsolen behöver du din prenumerations nyck
 
    ![Prova avbildning – utvärdera sid regions val](images/test-drive-region.png)
   
-   API **-** konsolen för avbildnings utvärdering öppnas.
+   API **-konsolen för avbildnings utvärdering** öppnas.
 
 3. I rutan **OCP-APIM-Subscription-Key** anger du din prenumerations nyckel.
 
@@ -54,11 +54,11 @@ Innan du kan testa API: et i online-konsolen behöver du din prenumerations nyck
 
    ![Prova avbildning – utvärdera sannolikhets Poäng för konsol och villkors bestämning](images/try-image-api-3.PNG)
 
-## <a name="face-detection"></a>Ansiktsavkänning
+## <a name="face-detection"></a>Ansiktsspårning
 
 Du kan använda bild redigerings-API: et för att hitta ansikten i en bild. Det här alternativet kan vara användbart när du har sekretess frågor och vill förhindra att en speciell ansikte publiceras på din plattform. 
 
-1. I referens-API-referensen för [bild redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), i den vänstra menyn, under **bild**, väljer du **hitta ansikten**. 
+1. I [referens-API-referensen för bild redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), i den vänstra menyn, under **bild**, väljer du **hitta ansikten**. 
 
    Sidan **bilder – hitta ansikten** öppnas.
 
@@ -82,7 +82,7 @@ Du kan använda bild redigerings-API: et för att hitta ansikten i en bild. Det 
 
 Du kan använda den Content Moderator OCR-funktionen för att identifiera text i bilder.
 
-1. I referens-API-referensen för [bild redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), i den vänstra menyn, under **bild**, väljer du **OCR**. 
+1. I [referens-API-referensen för bild redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), i den vänstra menyn, under **bild**, väljer du **OCR**. 
 
    Sidan **bild-OCR** öppnas.
 

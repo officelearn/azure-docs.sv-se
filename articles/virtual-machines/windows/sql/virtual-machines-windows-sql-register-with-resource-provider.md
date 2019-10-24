@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2f0fac5e1951f593ea769f73feb21a60afe9c02b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512357"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756184"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en SQL Server virtuell dator i Azure med providern för SQL VM-resurs
 
@@ -203,7 +203,7 @@ Du kan visa det aktuella läget för SQL Server IaaS-agenten med hjälp av Power
      $sqlvm.Properties.sqlManagement
   ```
 
-SQL Server virtuella datorer som har tillägget *Lightweight* IaaS installerat kan uppgradera läget till _full_ med hjälp av Azure Portal. SQL Server virtuella datorer i _no-agent-_ läge kan uppgraderas till _full_ efter att operativ systemet har uppgraderats till Windows 2008 R2 och senare. Det går inte att nedgradera – om du vill göra det måste du ta bort resurs leverantörs resursen för SQL-resursen med hjälp av Azure Portal och registrera dig för den virtuella SQL VM-providern igen. 
+SQL Server virtuella datorer som har tillägget *Lightweight* IaaS installerat kan uppgradera läget till _full_ med hjälp av Azure Portal. SQL Server virtuella datorer i _no-agent-_ läge kan uppgraderas till _full_ efter att operativ systemet har uppgraderats till Windows 2008 R2 och senare. Det går inte att nedgradera – om du vill göra det måste du [avregistrera](#unregister-vm-from-resource-provider) SQL Server VM från resurs leverantören för SQL-VM genom att ta bort den virtuella SQL-resursen och registrera den med den virtuella SQL-adressresursen. 
 
 Så här uppgraderar du agentens läge till fullständigt: 
 
@@ -281,6 +281,49 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 ---
 
+## <a name="unregister-vm-from-resource-provider"></a>Avregistrera VM från Resource Provider 
+
+Ta bort den virtuella SQL-datorns *resurs* med hjälp av Azure Portal eller Azure CLI om du vill avregistrera din SQL Server VM med den virtuella SQL-providern. Om du tar bort den virtuella SQL-datorns *resurs* tas inte SQL Server VM bort. Använd dock försiktighet och följ stegen noggrant, eftersom det är möjligt att oavsiktligt ta bort den virtuella datorn när du försöker ta bort *resursen*. 
+
+Att avregistrera den virtuella SQL-datorn med den virtuella SQL-adressresursen är nödvändig för att nedgradera hanterings läget från full. 
+
+### <a name="azure-portal"></a>Azure portal
+
+Följ dessa steg om du vill avregistrera SQL Server VM med resurs leverantören med hjälp av Azure Portal:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Navigera till SQL Server VM resursen. 
+  
+   ![Resurs för virtuella SQL-datorer](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+
+1. Välj **Ta bort**. 
+
+   ![Ta bort Provider för SQL VM-resurs](media/virtual-machines-windows-sql-register-with-rp/delete-sql-vm-resource-provider.png)
+
+1. Skriv namnet på den virtuella SQL-datorn och **avmarkera kryss rutan bredvid den virtuella datorn**.
+
+   ![Ta bort Provider för SQL VM-resurs](media/virtual-machines-windows-sql-register-with-rp/confirm-delete-of-resource-uncheck-box.png)
+
+   >[!WARNING]
+   > Om du inte avmarkerar kryss rutan bredvid namnet på den virtuella datorn tas den virtuella datorn *bort* helt. Avmarkera kryss rutan för att avregistrera SQL Server VM från resurs leverantören, men *Ta inte bort den faktiska virtuella datorn*. 
+
+1. Välj **ta bort** för att bekräfta borttagningen av den virtuella SQL-datorns *resurs*, inte den SQL Server virtuella datorn. 
+
+
+### <a name="azure-cli"></a>Azure CLI 
+
+Om du vill avregistrera din SQL Server virtuella dator från resurs leverantören med Azure CLI använder du kommandot [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Detta tar bort den SQL Server virtuella dator *resursen* men tar inte bort den virtuella datorn. 
+
+
+```azurecli-interactive
+   az sql vm delete 
+     --name <SQL VM resource name> |
+     --resource-group <Resource group name> |
+     --yes 
+```
+
+
+
 ## <a name="remarks"></a>Kommentarer
 
 - Resurs leverantören för SQL-VM stöder bara SQL Server virtuella datorer som distribueras via Azure Resource Manager. SQL Server virtuella datorer som distribueras via den klassiska modellen stöds inte. 
@@ -353,7 +396,7 @@ Ja. Uppgradering av hanterbarhets läget från Lightweight till full stöds via 
 
 Nej. Det finns inte stöd för att nedgradera SQL Server IaaS-tilläggets hanterbarhets läge. Läget för hanterbarhets kan inte nedgraderas från fullständigt läge till läget för förenklad eller No-agent, och det kan inte nedgraderas från läget Lightweight till No-agent. 
 
-Om du vill ändra hanterbarhets läget från fullständig hanterbarhet, släpper du Microsoft. SqlVirtualMachine-resursen och omregistrerar SQL Server VM med resurspoolen för SQL VM-providern.
+Om du vill ändra hanterbarhets läget från fullständig hanterbarhet [avregistrerar](#unregister-vm-from-resource-provider) du den SQL Server virtuella datorn från SQL Server Resource provider genom att släppa SQL Server *resursen* och registrera SQL Server VM på nytt med den virtuella SQL-adressresursen för virtuell dator igen i ett annat hanterings läge.
 
 **Kan jag registrera med resurs leverantören för SQL-VM från Azure Portal?**
 

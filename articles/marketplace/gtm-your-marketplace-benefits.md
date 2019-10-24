@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962704"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752361"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -41,7 +41,7 @@ Detaljerade beskrivningar av alla program förmåner finns i [program däcket Ma
 Dina steg för att komma igång är enkla:
 
 1. Publicera ett erbjudande i antingen Microsoft AppSource eller Azure Marketplace.
-2. Teamet når ut till "ägare" eller "primär kontakt" per Marketplace-erbjudande. Det är en bra idé att ange antingen en individ eller ett alias som du kontrollerar regelbundet: meddelanden som skickas till alias, info@company.com till exempel ofta blir förlorade.
+2. Teamet når ut till "ägare" eller "primär kontakt" per Marketplace-erbjudande. Det är en bra idé att ange antingen en individ eller ett alias som du kontrollerar regelbundet: meddelanden som skickas till alias som info@company.com ofta blir förlorade.
 
 >[!Note]
 >Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått ett meddelande, kan du kontrol lera i organisationen som är ägare till erbjudandet i fråga, antingen genom att titta på Cloud Partner Portal eller i Partner Center. De bör ha kommunikation och nästa steg. <br> <br> Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende på https://aka.ms/marketplacepublishersupport.
@@ -60,7 +60,10 @@ Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken f�
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Marknads förmåner för Transact-partner
 
-När du går live med ditt transactable-erbjudande i Azure Marketplace eller Microsoft AppSource kan du få åtkomst till ytterligare förmåner när du ökar dina fakturerade försäljnings transaktioner via den kommersiella Marketplace. 
+När du är live med ditt transactable-erbjudande i antingen Azure Marketplace eller Microsoft AppSource kan du få åtkomst till ytterligare förmåner när du ökar dina fakturerade försäljnings transaktioner eller platser som säljs via den kommersiella marknads platsen. 
+
+>[!Note]
+>Tröskelvärde för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste utföras senast den 30 juni 2020.
 
 Dessa fördelar är utformade för att ge stöd åt dig i marknadsförings-, försäljnings-och teknik aktiviteter och hjälper dig att få fler besökare, få fler leads och konvertera mer verksamhet.
 
@@ -71,6 +74,8 @@ Alla partner som har ett Live-erbjudande får arbeta med en engagerad engagemang
 ![Sälj förmåner](./media/marketplace-publishers-guide/sales-benefit.png)
 
 ![Tekniska fördelar](./media/marketplace-publishers-guide/technical-benefit.png)
+
+tröskelvärdet för \* platser som säljs gäller endast Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste utföras senast den 30 juni 2020.
 
 Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://aka.ms/marketplacerewards)-förmåner.
 

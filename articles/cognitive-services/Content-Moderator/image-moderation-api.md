@@ -3,23 +3,23 @@ title: Bild moderator – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Använd Content Moderator dator redigering och gransknings verktyget för mänskligt-in-loop till måttliga bilder för vuxna och vågat innehåll.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 8b3449edb539ab56fcf206a367f9b81e43290733
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 3bc5bc99984367b44b38a65266d2915c47ca6fd0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564900"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757344"
 ---
 # <a name="learn-image-moderation-concepts"></a>Lär dig om bild moderator koncept
 
-Använd Content Moderator dator redigering och gransknings verktyget för mänskligt- [in-loop](Review-Tool-User-Guide/human-in-the-loop.md) till måttliga bilder för vuxna och vågat innehåll. Skanna bilder för text innehåll och extrahera texten och identifiera ansikten. Du kan matcha bilder mot anpassade listor och vidta ytterligare åtgärder.
+Använd Content Moderator dator redigering och [gransknings verktyget för mänskligt-in-loop](Review-Tool-User-Guide/human-in-the-loop.md) till måttliga bilder för vuxna och vågat innehåll. Skanna bilder för text innehåll och extrahera texten och identifiera ansikten. Du kan matcha bilder mot anpassade listor och vidta ytterligare åtgärder.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Utvärdera för vuxna och vågat innehåll
 
@@ -109,7 +109,7 @@ I stället för att använda samma avbildning flera gånger, lägger du till de 
 > Det finns en maxgräns på **5 bildlistor** där varje lista **inte får överstiga 10 000 bilder**.
 >
 
-Content Moderator innehåller en fullständig hanterings- [API för bild listor](try-image-list-api.md) med åtgärder för att hantera listor med anpassade avbildningar. Börja med [avbildningen listar API-konsolen](try-image-list-api.md) och Använd REST API kod exempel. Ta också en titt på [avbildnings listan .net snabb start](image-lists-quickstart-dotnet.md) om du är bekant med C#Visual Studio och.
+Content Moderator innehåller en fullständig [hanterings-API för bild listor](try-image-list-api.md) med åtgärder för att hantera listor med anpassade avbildningar. Börja med [avbildningen listar API-konsolen](try-image-list-api.md) och Använd REST API kod exempel. Ta också en titt på [avbildnings listan .net snabb start](image-lists-quickstart-dotnet.md) om du är bekant med C#Visual Studio och.
 
 ## <a name="matching-against-your-custom-lists"></a>Matchning mot dina anpassade listor
 

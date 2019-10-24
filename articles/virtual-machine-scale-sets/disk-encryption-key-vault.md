@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4f6dc068969efd3f66e6808531594ed4063347f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 0252fff84307577ab307e591948e16dc30c38f66
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530880"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750000"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Skapa och konfigurera ett nyckel valv för Azure Disk Encryption
 
@@ -31,8 +31,6 @@ Du kan också, om du vill, skapa eller importera en nyckel krypterings nyckel (K
 ## <a name="install-tools-and-connect-to-azure"></a>Installera verktyg och Anslut till Azure
 
 Stegen i den här artikeln kan utföras med [Azure CLI](/cli/azure/), [Azure PowerShell AZ-modulen](/powershell/azure/overview)eller [Azure Portal](https://portal.azure.com).
-
-Även om portalen är tillgänglig via webbläsaren måste Azure CLI och Azure PowerShell vara en lokal installation.
 
 ### <a name="connect-to-your-azure-account"></a>Anslut till ditt Azure-konto
 

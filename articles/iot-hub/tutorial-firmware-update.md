@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: c576020118778e34b80187ec056fca22a4d9c5b1
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: be1b23991a8dc4d8f29e961e33ba97153d8c5355
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485835"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755824"
 ---
-# <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudier: Implementera en uppdateringsprocess för enhetens inbyggda programvara
+# <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudie: Implementera en uppdateringsprocess för enhetens inbyggda programvara
 
 Du kan behöva uppdatera den inbyggda programvaran på enheter som är anslutna till din IoT Hub. Du kanske vill lägga till nya funktioner i den inbyggda programvaran eller tillämpa säkerhetskorrigeringar. I många IoT-scenarier är det inte möjligt att fysiskt besöka och uppdatera den inbyggda programvaran manuellt för dina enheter. I den här självstudien får du lära dig att starta och övervaka processen för uppdatering av inbyggd programvara via fjärranslutning med ett serverdelsprogram anslutet till din hubb.
 
@@ -39,9 +39,9 @@ I den här självstudien slutför du följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10.x.x eller senare på utvecklingsdatorn.
+De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
 
 Du kan ladda ned Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --name $hubname -policy-name service -o table
+az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
@@ -186,7 +186,7 @@ Följande skärmbild visar utdata från serverdelsprogrammet och visar hur det �
 
 ![Serverdelsprogram](./media/tutorial-firmware-update/BackEnd2.png)
 
-Eftersom automatisk enhetskonfigurationer kör vid skapandet och sedan var femte minut syns kanske inte var status uppdatera skickas till backend-programmet. Du kan också visa måtten i portalen för avsnittet **Automatic device management -> IoT device configuration** (Automatisk enhetshantering -> Konfiguration av IoT-enhet) i din IoT Hub:
+Eftersom automatisk enhets konfiguration körs när den skapas och var femte minut, kanske du inte ser alla status uppdateringar som skickas till Server dels programmet. Du kan också visa måtten i portalen för avsnittet **Automatic device management -> IoT device configuration** (Automatisk enhetshantering -> Konfiguration av IoT-enhet) i din IoT Hub:
 
 ![Visa konfiguration i portalen](./media/tutorial-firmware-update/portalview.png)
 

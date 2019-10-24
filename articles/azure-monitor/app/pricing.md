@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 4674dede5912dc1dc64bd0e092e28461f30bebcd
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: MT
+ms.openlocfilehash: f9d92f03b1f55ad9d1f1e272886095ae48033266
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554218"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750385"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -45,7 +45,7 @@ Det finns två sätt att hantera detta: användning av standard övervakning och
 
 Med ASP.NET SDK: s [anpassningsbara sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)justeras data volymen automatiskt så att den behålls inom en angiven högsta trafik hastighet för standard Application Insights övervakning. Om programmet genererar en liten mängd telemetri, till exempel vid fel sökning eller på grund av låg användning, kommer objekten inte att släppas av samplings processorn så länge volymen är lägre än de konfigurerade händelserna per sekund. För ett program med hög volym, med standard tröskelvärdet på 5 händelser per sekund, begränsar adaptiv sampling antalet dagliga händelser till 432 000. Med en typisk genomsnittlig händelse storlek på 1 KB motsvarar detta 13,4 GB telemetri per 31-dagars månad per nod som är värd för ditt program (eftersom samplingen görs lokal för varje nod.) 
 
-För SDK: er som inte stöder anpassningsbar sampling kan du använda [provtagnings sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) som kan användas när data tas emot av Application Insights baserat på en procent andel av data som ska behållas, eller [sampling med fast pris för ASP.net, ASP.net Core och Java webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) för att minska trafiken som skickas från din webb server och webbläsare
+För SDK: er som inte stöder anpassningsbar sampling kan du använda [provtagnings sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) som kan användas när data tas emot av Application Insights baserat på en procent andel av data som ska behållas, eller [sampling med fast pris för ASP.net, ASP.net Core och Java webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) för att minska trafiken som skickas från din webb server och webbläsare
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Lär dig från vilka liknande kunder samlar in
 
@@ -164,7 +164,7 @@ I varje kvarhållen post anger `itemCount` antalet ursprungliga poster som den r
 
 ## <a name="change-the-data-retention-period"></a>Ändra data lagrings perioden
 
-Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
+Standard kvarhållning av Application Insights resurser är 90 dagar. Du kan välja olika kvarhållningsperioder för varje Application Insights-resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
 
 Om du vill ändra kvarhållning går du till sidan **användning och uppskattade kostnader** från Application Insights resursen och väljer alternativet **data kvarhållning** :
 

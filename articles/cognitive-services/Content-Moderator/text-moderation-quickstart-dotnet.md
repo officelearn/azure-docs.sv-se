@@ -1,21 +1,21 @@
 ---
-title: 'Snabbstart: Analysera textinnehåll i C# – Content Moderator'
+title: 'Snabb start: analysera text innehåll C# i Content moderator'
 titleSuffix: Azure Cognitive Services
 description: Analysera text innehåll för olika stötande material med hjälp av Content Moderator SDK för .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: 69c190b9ce9e5a99d39a46c147f7159ace47e4f7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.author: pafarley
+ms.openlocfilehash: 40f73a6aabd3631bf2a2f8f1406d2ec9abd55e51
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001440"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757234"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i C#
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller information och kodexempel som hjälper dig att ko
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator och få din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
@@ -34,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio och ge det namnet **TextModeration**. 
 1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
-1. Hämta det nödvändiga NuGet-paketet. Högerklicka på ditt projekt i Solution Explorer och välj **Hantera NuGet-paket**. Leta sedan reda på och installera **paketet `Microsoft.Azure.CognitiveServices.ContentModerator`** . Du kan också köra följande kommando från lösnings katalogen:
+1. Hämta det nödvändiga NuGet-paketet. Högerklicka på ditt projekt i Solution Explorer och välj **Hantera NuGet-paket**. Leta sedan reda på och installera det **`Microsoft.Azure.CognitiveServices.ContentModerator` paketet**. Du kan också köra följande kommando från lösnings katalogen:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator
@@ -87,7 +87,7 @@ Om du vill veta mer om vad de här åtgärderna gör följer du länken i avsnit
 Programmet skriver JSON-strängdata till filen _TextModerationOutput.txt_. Exempeltexten som används i den här snabbstarten ger följande utdata:
 
 ```json
-Autocorrect typos, check for matching terms, PII, and classify.
+Autocorrect typos, check for matching terms, check for personal data, and classify.
 {
 "OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).\"",
 "NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",

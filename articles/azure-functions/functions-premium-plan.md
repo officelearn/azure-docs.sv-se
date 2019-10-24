@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096234"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755402"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium-plan (för hands version)
 
@@ -31,7 +31,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-I det här exemplet ersätter `<RESOURCE_GROUP>` du med din resurs grupp `<PLAN_NAME>` och med ett namn för din plan som är unik i resurs gruppen. Ange ett [stöd `<REGION>` ](#regions). Om du vill skapa en Premium-plan som stöder Linux `--is-linux` inkluderar du alternativet.
+I det här exemplet ersätter du `<RESOURCE_GROUP>` med din resurs grupp och `<PLAN_NAME>` med ett namn för din plan som är unik i resurs gruppen. Ange ett [`<REGION>` som stöds](#regions). Om du vill skapa en Premium-plan som stöder Linux inkluderar du alternativet `--is-linux`.
 
 När planen har skapats kan du använda [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) för att skapa din Function-app. I portalen skapas både planen och appen på samma tidpunkt. 
 
@@ -82,7 +82,7 @@ När du skapar planen konfigurerar du två inställningar: det minsta antalet in
 
 Om din app kräver instanser som ligger utanför din plan storlek, kan den fortsätta att skala ut tills antalet instanser träffar den maximala burst-gränsen.  Du debiteras för instanser utöver din plan storlek bara när de är igång och hyr till dig.  Vi kommer att få bästa möjliga prestanda när du skalar din app till den definierade Max gränsen, medan de minsta plan instanserna är garanterade för din app.
 
-Du kan konfigurera plan storlek och Max i Azure Portal genom att välja alternativen **skala ut** i planen eller en Function-app som distribueras till den planen (under plattforms **funktioner**).
+Du kan konfigurera plan storlek och Max i Azure Portal genom att välja alternativen **skala ut** i planen eller en Function-app som distribueras till den planen (under **plattforms funktioner**).
 
 Du kan också öka den maximala burst-gränsen från Azure CLI:
 
@@ -94,38 +94,46 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 När du skapar eller skalar planen kan du välja mellan tre instans storlekar.  Du debiteras för det totala antalet kärnor och använt minne per sekund.  Din app kan automatiskt skala ut till flera instanser efter behov.  
 
-|SKU|Kärnor|Minne|Storage|
+|SKU|Kärnor|Minne|Lagring|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>Regioner
 
 Nedan finns de regioner som stöds för den allmänt tillgängliga för hands versionen för varje operativ system.
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Östra Australien| ✔ | |
-|Sydöstra Australien | ✔ | ✔ |
-|Centrala Kanada| ✔ |  |
-|Centrala USA| ✔ |  |
-|Östasien| ✔ |  |
-|East US | | ✔ |
+|Australien, centrala| ✔ * | |
+|Australien, centrala 2| ✔ * | |
+|Australien, östra| ✔ | |
+|Australien, sydöstra | ✔ | ✔ |
+|Brasilien, södra| ✔ * * |  |
+|Kanada, centrala| ✔ |  |
+|USA, centrala| ✔ |  |
+|Asien, östra| ✔ |  |
+|USA, östra | ✔ | ✔ |
 |USA, östra 2| ✔ |  |
 |Frankrike, centrala| ✔ |  |
-|Östra Japan|  | ✔ |
-|Västra Japan| ✔ | |
+|Japan, östra| ✔ | ✔ |
+|Japan, västra| ✔ | |
 |Sydkorea, centrala| ✔ |  |
-|Norra centrala USA| ✔ |  |
-|Norra Europa| ✔ | ✔ |
-|Södra centrala USA| ✔ |  |
+|USA, norra centrala| ✔ |  |
+|Europa, norra| ✔ | ✔ |
+|USA, södra centrala| ✔ |  |
 |Indien, södra | ✔ | |
-|Sydostasien| ✔ | ✔ |
+|Asien, sydöstra| ✔ | ✔ |
+|Storbritannien, södra| ✔ | |
 |Storbritannien, västra| ✔ |  |
-|Västra Europa| ✔ | ✔ |
+|Europa, västra| ✔ | ✔ |
 |Indien, västra| ✔ |  |
-|Västra USA| ✔ | ✔ |
+|USA, västra| ✔ | ✔ |
+
+\* maximal skala ut begränsat till 20 instanser
+
+\* * högsta skala begränsad till 60 instanser
 
 ## <a name="known-issues"></a>Kända problem
 

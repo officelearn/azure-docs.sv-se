@@ -3,38 +3,38 @@ title: Språk stöd – Content Moderator-API
 titleSuffix: Azure Cognitive Services
 description: Det här är en lista över naturliga språk som Content Moderator API stöder.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 6c71cefc25296df5a05c19ee84eb4e24ea90aa9d
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.author: pafarley
+ms.openlocfilehash: b4e6a5ca2dc19671dab3087c0a182925ac8f9a1b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562765"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755320"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Språk stöd för Content Moderator API
 
 > [!NOTE]
-> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
+> För parametern **språk** tilldelar du `eng` eller låter den vara tom för att se den datorbaserade **klassificerings** svaret (för hands version). **Den här funktionen stöder enbart engelska**.
 >
-> För identifiering av svordomar kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
+> För identifiering av **svordomar** kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
 
 
-| Språkidentifiering | Svordomar   | OCR    | Automatisk korrigering     |
+| Språkspårning | Svordomar   | OCR    | Automatisk korrigering     |
 | -------------------- |-------------|--------|---------------------|
 | Arabiska (romersk)   | Afrikaans   | Arabiska   | Arabiska |
-| Balinese | Albanska | Förenklad kinesiska    | Danska |
-| Bengali | Amhariska | Traditionell kinesiska     | Nederländska |
+| Balinese | Albanska | Kinesiska (förenklad)    | Danska |
+| Bengali | Amhariska | Kinesiska (traditionell)     | Nederländska |
 | Buginese | Arabiska | Tjeckiska                     | Svenska |
 | Buhid | Armeniska | Danska                     | Finska |
 | Carian | Assamesiska | Nederländska                     | Franska |
-| Förenklad kinesiska | Azerbajdzjanska | Svenska  | Grekiska (modern) |
-| Traditionell kinesiska | Bangla – Bangladesh | Finska  | Italienska |
+| Kinesiska (förenklad) | Azerbajdzjanska | Svenska  | Grekiska (modern) |
+| Kinesiska (traditionell) | Bangla – Bangladesh | Finska  | Italienska |
 | Kyrkslaviska (slaviska) | Bangla – Indien | Franska     | Koreanska |
 | Coptic | Baskiska | Tyska                      | Norska |
 | Tjeckiska |  Vitryska | Grekiska (modern)         | Polska |
@@ -45,7 +45,7 @@ ms.locfileid: "69562765"
 | Franska | Katalanska | Norska                        | Spanska |
 | Tyska | Central kurdiska | Polska        | Turkiska |
 | Grekiska | Cherokesiska | Portugisiska | |
-| Haitian | Förenklad kinesiska | Rumänska | |
+| Haitian | Kinesiska (förenklad) | Rumänska | |
 | Hebreiska | Kinesiska (traditionell)-Hongkong SAR | Ryska | |
 | Hindi | Kinesiska (traditionell)-Taiwan | Serbiska, kyrilliska | |
 | Hmong | Kroatiska | Serbiska, latinsk | |
@@ -55,7 +55,7 @@ ms.locfileid: "69562765"
 | Koreanska | Nederländska | Turkiska | |
 | Kurdiska (arabiska) | Svenska | | |
 | Kurdiska (latinsk) | Estniska | | |
-| Lepcha | Filippinska | | |
+| Lepcha | Filipino | | |
 | Limbu | Finska | | |
 | Lu | Franska | | |
 | Lycian | Galiciska | | |
@@ -63,29 +63,29 @@ ms.locfileid: "69562765"
 | Mycenaean (grekiska) | Tyska | | |
 | Nko | Grekiska | | |
 | Norska (bokmål) | Gujarati | | |
-| Norska (nynorsk) |  Hausa | | |
+| Norska (nynorsk) |  Haus | | |
 | Gammal (persiska) | Hebreiska | | |
 | Afghanska | Hindi | | |
 | Polska | Ungerska | | |
 | Portugisiska | Isländska | | |
-| Punjabi | Igbo | | |
+| Punjabi | IBO | | |
 | Rejang | Indonesiska | | |
 | Ryska | Inuktitut | | |
-| Santali | Iriska | | |
-| Sasak | isiXhosa | | |
-| Saurashtra | isiZulu | | |
+| Santali | Irländska | | |
+| Sasak | Xhosa | | |
+| Saurashtra | Zulu | | |
 | Serbiska (kyrillisk) | Italienska | | |
 | Serbiska (latinsk) | Japanska | | |
 | Sinhala | Kannada | | |
 | Slovenska | Kazakiska | | |
-| Spanska | Khmer | | |
+| Spanska | Kambodjanska | | |
 | Svenska | Quiché | | |
 | Sylheti | Rwanda | | |
-| Syriska | Kiswahili | | |
+| Syrisk | Swahili | | |
 | Tagbanwa | Konkani | | |
 | Tai (Nua) | Koreanska | | |
-| Tamashek | Kirgisiska | | |
-| Turkiska | Laotiska | | |
+| Tamashek | Kirgiziska | | |
+| Turkiska | Laos | | |
 | Ugaritic | Lettiska | | |
 | Uzbekiska (kyrillisk) | Litauiska | | |
 | Uzbekiska (latinsk) | Luxemburgiska | | |
@@ -96,7 +96,7 @@ ms.locfileid: "69562765"
 | | Maori | | |
 | | Marathi | | |
 | | Mongoliska | | |
-| | Nepali | | |
+| | Nepal | | |
 | | Norska (bokmål) | | |
 | | Norska (nynorsk) | | |
 | | Odia | | |
@@ -115,9 +115,9 @@ ms.locfileid: "69562765"
 | | Serbiska (kyrillisk) | | |
 | | Serbiska (kyrillisk, Bosnien och Hercegovina) | | |
 | | Serbiska (latinsk) | | |
-| | Sesotho | | |
 | | Nordsotho | | |
-| | Setswana | | |
+| | Nordsotho | | |
+| | Tswana | | |
 | | Sindhi | | |
 | | Sinhala | | |
 | | Slovakiska | | |
@@ -126,12 +126,12 @@ ms.locfileid: "69562765"
 | | Svenska | | |
 | | Tadzjikiska | | |
 | | Tamilska | | |
-| | Tatar | | |
+| | Tatariska | | |
 | | Telugu | | |
 | | Thai | | |
 | | Tigrinja | | |
 | | Turkiska | | |
-| | Turkmen | | |
+| | Turkmeniska | | |
 | | Ukrainska | | |
 | | Urdu | | |
 | | Uiguriska | | |

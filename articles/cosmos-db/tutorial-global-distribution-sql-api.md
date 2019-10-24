@@ -1,24 +1,24 @@
 ---
 title: Självstudie om global distribution i Azure Cosmos DB för SQL API
 description: Lär dig att konfigurera global distribution i Azure Cosmos DB med SQL API:et.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 07/15/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a566094f88ba9ffd25eadd046ae7254e26b9c2cf
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: b6b8be29afc25a3862a440e46d41e8c911189c04
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234604"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756831"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Konfigurera global distribution i Azure Cosmos DB med SQL API:et
 
 I den här artikeln visar vi hur du kan konfigurera global distribution i Azure Cosmos DB med Azure Portal och sedan ansluta med hjälp av SQL-API:et.
 
-Den här artikeln beskriver följande uppgifter: 
+I den här artikeln beskrivs följande uppgifter: 
 
 > [!div class="checklist"]
 > * Konfigurera global distribution med Azure Portal
@@ -47,7 +47,7 @@ Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar 
 ## <a name="net-sdk"></a>.NET SDK
 SDK:n kan användas utan några kodändringar. I det här fallet styr SDK:n automatiskt både läsningar och skrivningar till den aktuella skrivregionen.
 
-Parametern ConnectionPolicy för DocumentClient-konstruktorn har en egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i .NET SDK version 1.8 och senare. Den här egenskapen är av typen samling `<string>` och bör innehålla en lista med regionnamn. Strängvärden som är formaterade efter regionnamnskolumnen på den [Azure-regionerna][regions] sida, utan blanksteg före eller efter först och sista tecknet respektive.
+Parametern ConnectionPolicy för DocumentClient-konstruktorn har en egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i .NET SDK version 1.8 och senare. Den här egenskapen är av typen samling `<string>` och bör innehålla en lista med regionnamn. Sträng värdena formateras efter region namns kolumnen på sidan [Azure-regioner][regions] , utan blank steg före eller efter det första respektive sista.
 
 De aktuella skriv- och lässlutpunkterna är tillgängliga i DocumentClient.WriteEndpoint respektive DocumentClient.ReadEndpoint.
 
@@ -78,11 +78,11 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejsjavascript"></a>Node.js/JavaScript
+## <a name="nodejsjavascript"></a>Node. js/Java Script
 
 SDK:n kan användas utan några kodändringar. I det här fallet styr SDK:n automatiskt både läsningar och skrivningar till den aktuella skrivregionen.
 
-Parametern ConnectionPolicy för DocumentClient-konstruktorn har en ny egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i varje SDK av version 1.8 eller senare. Den här parametern är en matris med strängar som tar en lista med regionnamn. Namnen är formaterade efter regionnamnskolumnen på den [Azure-regionerna][regions] sidan. Du kan också använda de fördefinierade konstanterna i bekvämlighetsobjektet AzureDocuments.Regions
+Parametern ConnectionPolicy för DocumentClient-konstruktorn har en ny egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i varje SDK av version 1.8 eller senare. Den här parametern är en matris med strängar som tar en lista med regionnamn. Namnen är formaterade per region namn-kolumnen på sidan [Azure-regioner][regions] . Du kan också använda de fördefinierade konstanterna i bekvämlighetsobjektet AzureDocuments.Regions
 
 De aktuella skriv- och lässlutpunkterna är tillgängliga i DocumentClient.getWriteEndpoint respektive DocumentClient.getReadEndpoint.
 
@@ -91,7 +91,7 @@ De aktuella skriv- och lässlutpunkterna är tillgängliga i DocumentClient.getW
 >
 >
 
-Nedan visas ett kodexempel för Node.js/Javascript.
+Nedan visas ett kod exempel för Node. js/Java Script.
 
 ```JavaScript
 // Creating a ConnectionPolicy object
@@ -109,7 +109,7 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 
 ## <a name="python-sdk"></a>Python SDK
 
-Följande kod visar hur du ställer in önskade platser med hjälp av Python-SDK:
+Följande kod visar hur du ställer in önskade platser med hjälp av python SDK:
 
 ```python
 
@@ -119,9 +119,9 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-## <a name="java-v2-sdk"></a>V2 för Java SDK
+## <a name="java-v2-sdk"></a>Java v2 SDK
 
-Följande kod visar hur du ställer in önskade platser med hjälp av Java-SDK:
+Följande kod visar hur du ställer in önskade platser med Java SDK:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -186,7 +186,7 @@ Och med detta är den här självstudiekursen klar. Mer information om hur du ka
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du gjort följande:
+I den här självstudiekursen har du gjort följande:
 
 > [!div class="checklist"]
 > * Konfigurera global distribution med Azure Portal

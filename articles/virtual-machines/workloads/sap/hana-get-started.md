@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Manuell installation av SAP HANA med en instans på Azure Virtual Machines | Microsoft Docs'
+title: 'Snabb start: manuell installation av en instans SAP HANA på Azure Virtual Machines | Microsoft Docs'
 description: Snabb starts guide för manuell installation av SAP HANA med en instans på Azure Virtual Machines
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 8d4e7b7056f4d5e53785366818fad05e24cfc605
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 630f094ffc6c57a0137d1abc46476f5abe64f616
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100056"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750374"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Snabbstart: Manuell installation av SAP HANA med en instans på Azure Virtual Machines
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Snabb start: manuell installation av en instans SAP HANA på Azure Virtual Machines
 ## <a name="introduction"></a>Introduktion
 Den här guiden hjälper dig att konfigurera en instans SAP HANA på Azure Virtual Machines när du installerar SAP NetWeaver 7,5 och SAP HANA 1,0 SP12 manuellt. Den här hand boken handlar om hur du distribuerar SAP HANA på Azure. Den ersätter inte SAP-dokumentation. 
 
 > [!NOTE]
 > I den här guiden beskrivs distributioner av SAP HANA till virtuella Azure-datorer. Information om hur du distribuerar SAP HANA till HANA-stora instanser finns i [använda SAP på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här guiden förutsätter att du är bekant med IaaS-grunderna (Infrastructure as a Service) som:
  * Distribuera virtuella datorer (VM) eller virtuella nätverk via Azure Portal eller PowerShell.
  * Azures plattforms oberoende kommando rads gränssnitt (CLI), som innehåller alternativet att använda JavaScript Object Notation-mallar (JSON).
@@ -48,7 +48,7 @@ De typer av virtuella Azure-datorer som kan användas för produktions scenarier
 Mer information om konfiguration och åtgärder för virtuella datorer finns i [SAP HANA infrastruktur konfiguration och åtgärder på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
 SAP HANA hög tillgänglighet finns i [SAP HANA hög tillgänglighet för Azure-Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
-Om du vill få en SAP HANA instans eller S/4HANA-eller BW/4HANA-systemet distribueras snabbt, kan du överväga att använda [bibliotek för SAP](https://cal.sap.com)-molnprogram. Du hittar dokumentation om hur du distribuerar ett S/4HANA-system via SAP Cloud installation Library på Azure, till exempel i [den här hand boken](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Allt du behöver är en Azure-prenumeration och en SAP-användare som kan registreras med SAP Cloud installation Library.
+Om du vill få en SAP HANA instans eller S/4HANA-eller BW/4HANA-systemet distribueras snabbt, kan du överväga att använda [bibliotek för SAP-molnprogram](https://cal.sap.com). Du hittar dokumentation om hur du distribuerar ett S/4HANA-system via SAP Cloud installation Library på Azure, till exempel i [den här hand boken](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Allt du behöver är en Azure-prenumeration och en SAP-användare som kan registreras med SAP Cloud installation Library.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 ### <a name="sap-hana-backup"></a>SAP HANA säkerhets kopiering
@@ -61,19 +61,19 @@ Information om hur du säkerhetskopierar SAP HANA databaser på virtuella Azure-
 Information om hur du använder bibliotek för SAP Cloud-installationer för att distribuera S/4HANA eller BW/4HANA finns i [distribuera SAP S/4HANA eller BW/4HANA på Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
 
 ### <a name="sap-hana-supported-operating-systems"></a>SAP HANA-stödda operativ system
-Information om SAP HANA-stödda operativ system finns i [SAP NOTE 2235581-SAP HANA: Operativ system](https://launchpad.support.sap.com/#/notes/2235581/E)som stöds. Virtuella Azure-datorer har bara stöd för en delmängd av dessa operativ system. Följande operativ system stöds för att distribuera SAP HANA på Azure: 
+Information om SAP HANA-stödda operativ system finns i [SAP Note 2235581-SAP HANA: operativ system som stöds](https://launchpad.support.sap.com/#/notes/2235581/E). Virtuella Azure-datorer har bara stöd för en delmängd av dessa operativ system. Följande operativ system stöds för att distribuera SAP HANA på Azure: 
 
 * SUSE Linux Enterprise Server 12. x
-* Red Hat Enterprise Linux 7,2
+* Red Hat Enterprise Linux 7.2
 
 Mer information om SAP-dokumentation om SAP HANA och olika Linux-operativsystem finns i:
 
-* [SAP-anmärkning 171356: SAP-program på Linux: Allmän information](https://launchpad.support.sap.com/#/notes/1984787).
-* [SAP-anmärkning 1944799: SAP HANA rikt linjer för installation](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)av operativ systemet SLES.
-* [SAP-anmärkning 2205917: SAP HANA DB rekommenderade OS-inställningar för SLES 12 för SAP](https://launchpad.support.sap.com/#/notes/2205917/E)-program.
-* [SAP-anmärkning 1391070: Linux UUID-](https://launchpad.support.sap.com/#/notes/1391070)lösningar.
-* [SAP-anmärkning 2009879: SAP HANAs rikt linjer för Red Hat Enterprise Linux (RHEL)](https://launchpad.support.sap.com/#/notes/2009879)-operativ system.
-* [SAP-anmärkning 2292690: SAP HANA DB: Rekommenderade OS-inställningar för RHEL](https://launchpad.support.sap.com/#/notes/2292690/E)7.
+* [SAP anmärkning 171356: SAP-program på Linux: allmän information](https://launchpad.support.sap.com/#/notes/1984787).
+* [SAP anmärkning 1944799: SAP HANA rikt linjer för installation av operativ systemet SLES](http://service.sap.com/sap/support/notes/1944799).
+* [SAP obs 2205917: SAP HANA DB rekommenderade OS-inställningar för SLES 12 för SAP-program](https://launchpad.support.sap.com/#/notes/2205917/E).
+* [SAP anmärkning 1391070: Linux UUID-lösningar](https://launchpad.support.sap.com/#/notes/1391070).
+* [SAP anmärkning 2009879: SAP HANA rikt linjer för Red Hat Enterprise Linux (RHEL)-operativ system](https://launchpad.support.sap.com/#/notes/2009879).
+* [SAP obs 2292690: SAP HANA DB: rekommenderade OS-inställningar för RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E).
 
 ### <a name="sap-monitoring-in-azure"></a>SAP-övervakning i Azure
 Information om SAP-övervakning i Azure:
@@ -85,7 +85,7 @@ Information om SAP-övervakning i Azure:
 ### <a name="azure-vm-types"></a>Typer av virtuella Azure-datorer
 Azure VM-typer och SAP-stödda arbets belastnings scenarier som används med SAP HANA dokumenteras i [SAP Certified IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). 
 
-Azures VM-typer som är certifierade av SAP för SAP NetWeaver eller S/4HANA-program skiktet [finns dokumenterade i SAP anmärkning 1928533: SAP-program på Azure: Produkter och typer](https://launchpad.support.sap.com/#/notes/1928533/E)av virtuella Azure-datorer som stöds.
+Azures VM-typer som är certifierade av SAP för SAP NetWeaver eller S/4HANA-program skiktet finns dokumenterade i [SAP anmärkning 1928533: SAP-program på Azure: produkter som stöds och Azure VM-typer](https://launchpad.support.sap.com/#/notes/1928533/E).
 
 > [!NOTE]
 > SAP – Linux – Azure-integration stöds endast på Azure Resource Manager och inte i den klassiska distributions modellen. 
@@ -176,19 +176,19 @@ Här är ett exempel på hur du söker efter tillgängliga korrigeringsfiler fö
 
 Beroende på typen av problem klassificeras korrigeringarna efter kategori och allvarlighets grad. Ofta använda värden för kategori: 
 - Säkerhet
-- Rekommenderas
+- Rekommenderad
 - Valfritt
 - Funktion
 - Dokument
-- Yast
+- yast
 
 Ofta använda värden för allvarlighets grad:
 
 - Kritiskt
-- Viktigt
-- Medel
+- Viktig
+- Mellan
 - Låg
-- Ospecificerat
+- Ospecificerad
 
 **Zypper** -kommandot söker bara efter de uppdateringar som dina installerade paket behöver. Du kan till exempel använda det här kommandot:
 
@@ -208,7 +208,7 @@ Enligt kraven för [SAP HANA TDI-lagring](https://www.sap.com/documents/2015/03/
 
 I den föreslagna disk konfigurationen placeras HANA-datavolymen och logg volymen på samma uppsättning Azure Premium Storage-diskar som är stripe med LVM eller mdadm. Det är inte nödvändigt att definiera någon RAID-redundans eftersom Azure Premium Storage behåller tre avbildningar av diskarna för redundans. 
 
-För att se till att du konfigurerar tillräckligt med lagrings utrymme, se [SAP HANA krav för TDI-lagring](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) [SAP HANA och installations guide för Server installation och uppdatering](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Överväg också att de olika lagrings volymerna för virtuella hård diskar (VHD) i de olika Azure Premium Storage-diskarna är dokumenterade i högpresterande [Premium Storage och hanterade diskar för virtuella datorer](../../windows/disks-types.md). 
+För att se till att du konfigurerar tillräckligt med lagrings utrymme, se [SAP HANA krav för TDI-lagring](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) [SAP HANA och installations guide för Server installation och uppdatering](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Överväg också att de olika lagrings volymerna för virtuella hård diskar (VHD) i de olika Azure Premium Storage-diskarna är dokumenterade i [högpresterande Premium Storage och hanterade diskar för virtuella datorer](../../windows/disks-types.md). 
 
 Du kan lägga till mer Premium Storage-diskar till de virtuella HANA-DBMS-datorerna för att lagra databas-eller transaktions logg säkerhets kopior
 
@@ -241,7 +241,7 @@ SLES för SAP-program 12 allmän tillgänglighet och SLES för SAP-program 12 SP
 
 Mer information om **finjusterad-ADM**finns i [SUSE-dokumentationen om finjusterad-ADM](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip).
 
-I följande skärm bild kan du se hur **justerad-ADM** ändrade `transparent_hugepage` värdena och `numa_balancing` , enligt de nödvändiga SAP HANA inställningarna:
+I följande skärm bild kan du se hur **justerad-ADM** ändrade `transparent_hugepage` och `numa_balancing` värden, enligt de SAP HANA inställningar som krävs:
 
 ![Verktyget finjusterad-ADM ändrar värdena enligt nödvändiga SAP HANA inställningar](./media/hana-get-started/image005.jpg)
 
@@ -251,7 +251,7 @@ Följande skärm bild visar hur kernel-inställningarna ändrades i konfiguratio
 
 ![Kernel-inställningarna har ändrats i konfigurations filen och kompilerats med hjälp av grub2-mkconfig](./media/hana-get-started/image006.jpg)
 
-Ett annat alternativ är att ändra inställningarna med hjälp av inställningarna för YaST och **Start** > inläsningens**kernel-parametrar** :
+Ett annat alternativ är att ändra inställningarna med hjälp av YaST och **Start Inläsaren**  >  inställningarna för**kernel-parametrar** :
 
 ![Fliken Inställningar för kernel-parametrar i YaST Boot Loader](./media/hana-get-started/image007.jpg)
 
@@ -326,7 +326,7 @@ Om du har en Windows-bakgrund kan du enkelt använda ett grafiskt skriv bord dir
 ### <a name="start-sap-mc"></a>Starta SAP MC
 När du har installerat GNOME Desktop startar du den grafiska Java-baserade SAP MC från Firefox. Om den körs i en Azure-SLES 12/SLES för SAP-program 12 VM kan det Visa ett fel. Felet beror på det saknade plugin-programmet för Java-webbläsare.
 
-URL: en för att starta SAP MC `<server>:5<instance_number>13`är.
+URL: en för att starta SAP MC är `<server>:5<instance_number>13`.
 
 Mer information finns i [starta den webbaserade SAP-hanteringskonsolen](https://help.sap.com/saphelp_nwce10/helpdata/en/48/6b7c6178dc4f93e10000000a42189d/frameset.htm).
 
@@ -402,7 +402,7 @@ Det sista steget i den distribuerade ABAP-installationen är att installera den 
 
 ![ABAP-installation som visar den primära Application Server-instansen som sista steg](./media/hana-get-started/image027b.jpg)
 
-När den primära Application Server-instansen och SAP-ANVÄNDARGRÄNSSNITTET har installerats använder du transaktionen för att bekräfta att SAP HANA installationen slutfördes korrekt:
+När den primära Application Server-instansen och SAP-ANVÄNDARGRÄNSSNITTET har installerats använder **du transaktionen för att bekräfta** att SAP HANA installationen slutfördes korrekt:
 
 ![Bekräftelse av DBA-cockpit bekräfta att installationen har slutförts](./media/hana-get-started/image028b.jpg)
 
@@ -419,7 +419,7 @@ Mer information om HANA HDBLCM-verktyget finns i:
 * [SAP HANA livs cykel hanterings verktyg](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm).
 * [Installations-och uppdaterings guide för SAP HANA Server](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf).
 
-Du vill undvika problem med standardinställningen för grupp-ID för `\<HANA SID\>adm user`, som skapas av HDBLCM-verktyget. Innan du installerar SAP HANA via HDBLCM definierar du en ny grupp med `sapsys` namnet med hjälp av `1001`grupp-ID:
+Du vill undvika problem med standardinställningen för grupp-ID för `\<HANA SID\>adm user`, som skapas av HDBLCM-verktyget. Innan du installerar SAP HANA via HDBLCM definierar du en ny grupp som heter `sapsys` med hjälp av grupp-ID `1001`:
 
 ![Ny grupp "sapsys" som definieras med hjälp av grupp-ID 1001](./media/hana-get-started/image030.jpg)
 
@@ -432,13 +432,13 @@ På följande skärm bild visas alla viktiga alternativ som du valde tidigare.
 > [!IMPORTANT]
 > Kataloger som har namnet för HANA-logg-och data volymer och installations Sök vägen, som är/Hana/Shared i det här exemplet, och/usr/SAP får inte vara en del av rot fil systemet. Dessa kataloger tillhör Azure-datadiskarna som är anslutna till den virtuella datorn. Mer information finns i avsnittet "disk installation". 
 
-Den här metoden hjälper till att förhindra att rot fil systemet får slut på utrymme. Observera att system administratören Hana har användar-ID `1005` och är en del `sapsys` av gruppen, med ID `1001`, som definierades före installationen.
+Den här metoden hjälper till att förhindra att rot fil systemet får slut på utrymme. Observera att HANA-systemadministratören har användar-ID `1005` och är en del av `sapsys` gruppen, med ID `1001`, som definierades före installationen.
 
 ![Lista över alla viktiga SAP HANAs komponenter som valts tidigare](./media/hana-get-started/image032.jpg)
 
-Kontrol lera `\<HANA SID\>adm user` informationen i/etc/passwd-katalogen. Sök efter `azdadm`, som du ser i följande skärm bild:
+Kontrol lera `\<HANA SID\>adm user` informationen i/etc/passwd-katalogen. Leta efter `azdadm`, som du ser i följande skärm bild:
 
-![\<Hana\>Hana-information om användar information som anges i/etc/passwd-katalogen](./media/hana-get-started/image033.jpg)
+![HANA \<HANA SID \>adm användar information som anges i katalogen/etc/passwd](./media/hana-get-started/image033.jpg)
 
 När du har installerat SAP HANA med HDBLCM kan du se fil strukturen i SAP HANA Studio, som du ser i följande skärm bild. SAPABAP1-schemat, som innehåller alla SAP NetWeaver-tabeller, är inte tillgängligt ännu.
 

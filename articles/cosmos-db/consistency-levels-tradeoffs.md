@@ -1,18 +1,18 @@
 ---
 title: Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer i Azure Cosmos DB
 description: Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer i Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2d80e291b3c054fec92b169c8a216a7189e24b79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9178b8007d707af2df150102b2d344a44106a9ca
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384193"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755191"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda 
 
@@ -20,11 +20,11 @@ Distribuerade databaser som förlitar sig på replikering för hög tillgänglig
 
 Azure Cosmos DB närmar sig data konsekvens som ett spektrum av alternativ. Den här metoden innehåller fler alternativ än de två extrema och slutliga konsekvensen. Du kan välja mellan fem väldefinierade modeller i konsekvens spektrumet. Från starkast till svagaste är modellerna:
 
-- *Stark*
-- *Begränsad föråldring*
-- *Sessionen*
+- *Kraftfull*
+- *Begränsad föråldrad*
+- *Sessionskatalog*
 - *Konsekvent prefix*
-- *Slutlig*
+- *Slutliga*
 
 Varje modell ger tillgänglighets-och prestanda kompromisser och backas upp av omfattande service avtal.
 
@@ -46,18 +46,18 @@ Den exakta svars tiden för försvars tid är en funktion av hastigheten-lätt a
 
 ## <a id="rto"></a>Konsekvens nivåer och data hållbarhet
 
-I en globalt distribuerad databas miljö finns det ett direkt förhållande mellan konsekvens nivån och data hållbarhet i närvaro av ett områdes omfattande avbrott. När du utvecklar din verksamhets kontinuitets plan måste du förstå hur lång tid det tar innan programmet återställs fullständigt efter en störnings händelse. Tiden som krävs för att ett program ska återställas fullständigt kallas för återställnings **tids mål** (**RTO**). Du måste också förstå hur lång tid det tar för nya data uppdateringar som programmet kan tolerera vid återställning efter en störnings händelse. Tids perioden för uppdateringar som du kanske har råd att förlora kallas för återställnings punkt mål **(** återställnings **punkt mål** ).
+I en globalt distribuerad databas miljö finns det ett direkt förhållande mellan konsekvens nivån och data hållbarhet i närvaro av ett områdes omfattande avbrott. När du utvecklar din verksamhets kontinuitets plan måste du förstå hur lång tid det tar innan programmet återställs fullständigt efter en störnings händelse. Tiden som krävs för att ett program ska återställas fullständigt kallas för **återställnings tids mål** (**RTO**). Du måste också förstå hur lång tid det tar för nya data uppdateringar som programmet kan tolerera vid återställning efter en störnings händelse. Tids perioden för uppdateringar som du kanske har råd att förlora kallas för **återställnings punkt mål (återställnings punkt mål** ).
 
 I tabellen nedan definieras relationen mellan konsekvens modell och data hållbarhet i närvaro av hela regionens avbrott. Det är viktigt att notera att i ett distribuerat system, även med stark konsekvens, är det omöjligt att ha en distribuerad databas med återställnings-och RTO noll på grund av CAP-satsen. Mer information om varför finns [i konsekvens nivåer i Azure Cosmos DB](consistency-levels.md).
 
-|**Region (er)**|**Replikeringsläget**|**Konsekvensnivå**|**RPO**|**RTO**|
+|**Region (er)**|**Replikeringsläget**|**Konsekvens nivå**|**BEGÄRT**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|En eller flera huvud|Vilken konsekvens nivå som helst|< 240 minuter|< 1 vecka|
-|>1|Enda huvud|Session, konsekvent prefix, eventuell|< 15 minuter|< 15 minuter|
-|>1|Enda huvud|Begränsad föråldring|*K*T & |< 15 minuter|
-|>1|Enda huvud|Stark|0|< 15 minuter|
-|>1|Flera huvud servrar|Session, konsekvent prefix, eventuell|< 15 minuter|0|
-|>1|Flera huvud servrar|Begränsad föråldring|*K*T & |0|
+|> 1|Enda huvud|Session, konsekvent prefix, eventuell|< 15 minuter|< 15 minuter|
+|> 1|Enda huvud|Begränsad föråldring|*K*  & *t*|< 15 minuter|
+|> 1|Enda huvud|Stark|0|< 15 minuter|
+|> 1|Flera huvud servrar|Session, konsekvent prefix, eventuell|< 15 minuter|0|
+|> 1|Flera huvud servrar|Begränsad föråldring|*K*  & *t*|0|
 
 *K* = antalet *"K"* versioner (d.v.s. uppdateringar) för ett objekt.
 

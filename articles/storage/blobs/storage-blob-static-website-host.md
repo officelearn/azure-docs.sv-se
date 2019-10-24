@@ -1,25 +1,25 @@
 ---
-title: 'Självstudie: Hantera en statisk webbplats på Blob Storage – Azure Storage'
+title: 'Självstudie: vara värd för en statisk webbplats på Blob Storage – Azure Storage'
 description: Lär dig hur du konfigurerar ett lagringskonto för hantering av statisk webbplats och distribuera en statisk webbplats till Azure Storage.
 author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 10/22/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 4cc38b952e773002e0b5f6b2311187f8d3d46400
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: cd3db902d713910de5a8199df85089d62569f9d7
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855394"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757572"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
-# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Självstudie: Hantera en statisk webbplats på Blob Storage
+# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Självstudie: var värd för en statisk webbplats på Blob Storage
 
-Den här självstudien ingår i en serie. Där lär du dig att skapa och distribuera en statisk webbplats till Azure Storage. När du är klar har du en statisk webbplats som användare kan nå offentligt. 
+Den här självstudien är del ett i en serie. Där lär du dig att skapa och distribuera en statisk webbplats till Azure Storage. När du är klar har du en statisk webbplats som användare kan nå offentligt. 
 
 I del ett i den här serien lärde du dig att:
 
@@ -27,9 +27,12 @@ I del ett i den här serien lärde du dig att:
 > * Konfigurera hantering av en statisk webbplats
 > * Distribuera en Hello World-webbplats
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+
+> [!NOTE] 
+> Se till att skapa ett allmänt-syfte v2-lagrings konto. Statiska webbplatser är inte tillgängliga i någon annan typ av lagrings konto.
 
 I den här självstudien används [Visual Studio Code](https://code.visualstudio.com/download), ett kostnadsfritt verktyg för programmerare, för att skapa den statiska webbplatsen och distribuera den till ett Azure Storage-konto.
 
@@ -54,7 +57,7 @@ Det första steget är att konfigurera ditt lagringskonto för att hantera en st
 1. Välj **Aktivera** för att aktivera hantering av statisk webbplats för lagringskontot.
 1. I fältet **Indexdokumentnamn** anger du standardindexsidan *index.html*. Standardindexsidan visas när en användare navigerar till roten för den statiska webbplatsen.  
 1. I fältet **Sökväg för feldokument** anger du standardfelsidan *404. html*. Standardfelsidan visas när en användare försöker navigera till en sida som inte finns på den statiska webbplatsen.
-1. Klicka på **Spara**. Azure-portalen visar nu slutpunkten för den statiska webbplatsen. 
+1. Klicka på **Save** (Spara). Azure-portalen visar nu slutpunkten för den statiska webbplatsen. 
 
     ![Aktivera hantering av statisk webbplats för ett lagringskonto](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 

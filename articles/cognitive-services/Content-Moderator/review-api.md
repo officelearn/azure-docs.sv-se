@@ -3,25 +3,25 @@ title: Granskningar, arbets flöden och jobb koncept – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om granskningar, arbets flöden och jobb
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: sajagtap
-ms.openlocfilehash: a77b93c46c9989181cf4473e8b908571a3df2f20
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 0050e2b687b6001514d1ae80c269b1a0499efbea
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565554"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757300"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Granskningar av innehålls moderatorer, arbets flöden och jobb
 
 Content Moderator kombinerar dator-assisterad redaktör med funktioner för mänsklig inblandning för att skapa en optimal redigerings process för verkliga scenarier. Detta sker via det molnbaserad [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com). I den här guiden får du lära dig mer om huvud begreppen i gransknings verktyget: granskningar, arbets flöden och jobb.
 
-## <a name="reviews"></a>Recensioner
+## <a name="reviews"></a>Omdömen
 
 I en granskning överförs innehållet till gransknings verktyget och visas på fliken **Granska** . Härifrån kan användare ändra de använda taggarna och tillämpa egna anpassade taggar efter behov. När en användare skickar en granskning skickas resultatet till en angiven slut punkt för återanrop och innehållet tas bort från platsen.
 
@@ -29,13 +29,13 @@ I en granskning överförs innehållet till gransknings verktyget och visas på 
 
 I [guiden granska verktyg](./review-tool-user-guide/review-moderated-images.md) kan du komma igång med att skapa recensioner eller se [rest Apis guide](./try-review-api-review.md) för att lära dig hur du gör det program mässigt.
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Arbetsflöden
 
 Ett arbets flöde är ett molnbaserad anpassat filter för innehåll. Arbets flöden kan ansluta till en mängd olika tjänster för att filtrera innehåll på olika sätt och vidta lämplig åtgärd. Med Content Moderator-anslutningen kan ett arbets flöde automatiskt tillämpa kontrollanter och skapa recensioner med innehåll som har skickats.
 
 ### <a name="view-workflows"></a>Visa arbets flöden
 
-Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **Inställningar** > **arbets flöden**.
+Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **Inställningar**  > **arbets flöden**.
 
 ![Standard arbets flöde](images/default-workflow-listed.PNG)
 
@@ -74,6 +74,6 @@ Se [rest Apis guide](./try-review-api-job.md) för att komma igång med jobb.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Testkör jobb- [API-konsolen](try-review-api-job.md)och Använd REST API kod exempel. Om du är bekant med Visual Studio och C#kontrollerar du även jobben [.net snabb start](moderation-jobs-quickstart-dotnet.md). 
+* Testkör jobb- [API-konsolen](try-review-api-job.md)och Använd REST API kod exempel. Om du är bekant med Visual Studio och C#kontrollerar du även [jobben .net snabb start](moderation-jobs-quickstart-dotnet.md). 
 * För recensioner kan du komma igång med [Granska API-konsolen](try-review-api-review.md)och använda REST API kod exempel. Gå sedan till [granskningen av .net-snabb](moderation-reviews-quickstart-dotnet.md)starten.
 * För video granskningar använder du [snabb starten för video granskning](video-reviews-quickstart-dotnet.md)och lär dig hur du [lägger till avskrifter i video granskningen](video-transcript-reviews-quickstart-dotnet.md).

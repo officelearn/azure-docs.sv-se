@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: aahi
-ms.openlocfilehash: 53311567bbfa93cb66999518e5172b6c4ac36b3f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 571626da0f3f43c8c2a2e33e1147418158c5473b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555147"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754224"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och python
 
@@ -32,7 +32,7 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
 - [Python 2.x eller 3.x](https://www.python.org/downloads/)
 
-- [Bibliotek för begär Anden](http://docs.python-requests.org) för python
+- [Bibliotek för begär Anden](https://pypi.org/project/requests/) för python
 
 - En JSON-fil som innehåller tids serie data punkter. Exempel data för den här snabb starten finns på [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

@@ -1,21 +1,21 @@
 ---
 title: Text moderator – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Använd text redigering för möjlig oönskad text, personligt identifierbar information och anpassade listor med villkor.
+description: Använd text redigering för möjlig oönskad text, personliga data och anpassade listor med villkor.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: c5127d0f16a12840cda735d1682cb578266441fe
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564370"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757242"
 ---
 # <a name="learn-text-moderation-concepts"></a>Lär dig om text moderator koncept
 
@@ -34,7 +34,7 @@ Tjänste svaret innehåller följande information:
 
 ## <a name="profanity"></a>Svordomar
 
-Om API: n identifierar eventuella svordomar i något av de [språk som stöds](Text-Moderation-API-Languages.md), inkluderas dessa villkor i svaret. Svaret innehåller också deras plats (`Index`) i den ursprungliga texten. I `ListId` följande exempel-JSON refererar de termer som finns i [anpassade term listor](try-terms-list-api.md) om de är tillgängliga.
+Om API: n identifierar eventuella svordomar i något av de [språk som stöds](Text-Moderation-API-Languages.md), inkluderas dessa villkor i svaret. Svaret innehåller också deras plats (`Index`) i den ursprungliga texten. @No__t_0 i följande exempel-JSON refererar till termer som finns i [anpassade term listor](try-terms-list-api.md) om de är tillgängliga.
 
     "Terms": [
     {
@@ -45,9 +45,9 @@ Om API: n identifierar eventuella svordomar i något av de [språk som stöds](T
     }
 
 > [!NOTE]
-> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
+> För parametern **språk** tilldelar du `eng` eller låter den vara tom för att se den datorbaserade **klassificerings** svaret (för hands version). **Den här funktionen stöder enbart engelska**.
 >
-> För  identifiering av svordomar kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
+> För identifiering av **svordomar** kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
 
 ## <a name="classification"></a>Klassificering
 
@@ -70,15 +70,15 @@ Följande utdrag i JSON-extraheringen visar ett exempel på utdata:
 
 ### <a name="explanation"></a>Förklaring
 
-- `Category1`avser potentiell närvaro av ett språk som kan anses vara sexuellt explicit eller vuxna i vissa situationer.
-- `Category2`avser potentiell närvaro av ett språk som kan anses vara sexuellt eller mogna i vissa situationer.
-- `Category3`avser potentiell närvaro av ett språk som kan betraktas som stötande i vissa situationer.
-- `Score`är mellan 0 och 1. Ju högre poäng, desto högre blir modellen för att förutsäga att kategorin kan vara tillämplig. Den här funktionen förlitar sig på en statistisk modell i stället för att manuellt koda resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig efter dina behov.
-- `ReviewRecommended`är antingen sant eller falskt beroende på de interna Poäng tröskelvärdena. Kunderna bör bedöma om de ska använda det här värdet eller bestämma anpassade tröskelvärden baserat på deras innehålls principer.
+- `Category1` avser potentiell närvaro av ett språk som kan anses vara sexuellt explicit eller vuxna i vissa situationer.
+- `Category2` avser potentiell närvaro av ett språk som kan anses vara sexuellt eller mogna i vissa situationer.
+- `Category3` avser potentiell närvaro av ett språk som kan betraktas som stötande i vissa situationer.
+- `Score` är mellan 0 och 1. Ju högre poäng, desto högre blir modellen för att förutsäga att kategorin kan vara tillämplig. Den här funktionen förlitar sig på en statistisk modell i stället för att manuellt koda resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig efter dina behov.
+- `ReviewRecommended` är antingen sant eller falskt beroende på de interna Poäng tröskelvärdena. Kunderna bör bedöma om de ska använda det här värdet eller bestämma anpassade tröskelvärden baserat på deras innehålls principer.
 
 ## <a name="personal-data"></a>Person uppgifter
 
-Funktionen PII identifierar potentiell närvaro av den här informationen:
+Funktionen personliga data identifierar potentiell närvaro av den här informationen:
 
 - E-postadress
 - E-postadress till oss
@@ -89,51 +89,68 @@ Funktionen PII identifierar potentiell närvaro av den här informationen:
 
 I följande exempel visas ett exempel svar:
 
-    "PII": {
-        "Email": [{
-            "Detected": "abcdef@abcd.com",
-            "SubType": "Regular",
-            "Text": "abcdef@abcd.com",
-            "Index": 32
-            }],
-        "IPA": [{
-            "SubType": "IPV4",
-            "Text": "255.255.255.255",
-            "Index": 72
-            }],
-        "Phone": [{
-            "CountryCode": "US",
-            "Text": "6657789887",
-            "Index": 56
-            }, {
-            "CountryCode": "US",
-            "Text": "870 608 4000",
-            "Index": 212
-            }, {
-            "CountryCode": "UK",
-            "Text": "+44 870 608 4000",
-            "Index": 208
-            }, {
-            "CountryCode": "UK",
-            "Text": "0344 800 2400",
-            "Index": 228
-            }, {
-            "CountryCode": "UK",
-            "Text": "0800 820 3300",
-            "Index": 245
-            }],
-        "Address": [{
-            "Text": "1 Microsoft Way, Redmond, WA 98052",
-            "Index": 89
-            }],
-        "SSN": [{
-            "Text": "999999999",
-            "Index": 56
-            }, {
-            "Text": "999-99-9999",
-            "Index": 267
-            }]
-        }
+```json
+"PII":{ 
+  "Email":[ 
+    { 
+      "Detected":"abcdef@abcd.com",
+      "SubType":"Regular",
+      "Text":"abcdef@abcd.com",
+      "Index":32
+    }
+  ],
+  "IPA":[ 
+    { 
+      "SubType":"IPV4",
+      "Text":"255.255.255.255",
+      "Index":72
+    }
+  ],
+  "Phone":[ 
+    { 
+      "CountryCode":"US",
+      "Text":"6657789887",
+      "Index":56
+    },
+    { 
+      "CountryCode":"US",
+      "Text":"870 608 4000",
+      "Index":212
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"+44 870 608 4000",
+      "Index":208
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0344 800 2400",
+      "Index":228
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0800 820 3300",
+      "Index":245
+    }
+  ],
+  "Address":[ 
+    { 
+      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Index":89
+    }
+  ],
+  "SSN":[ 
+    { 
+      "Text":"999999999",
+      "Index":56
+    },
+    { 
+      "Text":"999-99-9999",
+      "Index":267
+    }
+  ]
+}
+```
 
 ## <a name="auto-correction"></a>Automatisk korrigering
 

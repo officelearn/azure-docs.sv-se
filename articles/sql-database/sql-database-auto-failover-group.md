@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/09/2019
-ms.openlocfilehash: b876fba2ae10c4f8b973ad1bb0c98bfa95c7f481
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
-ms.translationtype: MT
+ms.date: 10/21/2019
+ms.openlocfilehash: 1e847fd2ac39c93b28925cff3fe0a4c17a69da9f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249323"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750478"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -80,11 +80,11 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Läs-och skriv lyssnare för redundans**
 
-  En DNS CNAME-post som pekar på den aktuella primära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter att den skrivskyddade SQL-arbetsbelastningen transparent återansluter till den primära databasen när den primära ändringen sker efter redundansväxlingen. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.database.windows.net`. När gruppen för växling vid fel skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.zone_id.database.windows.net`.
+  En DNS CNAME-post som pekar på den aktuella primära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter att den skrivskyddade SQL-arbetsbelastningen transparent återansluter till den primära databasen när den primära ändringen sker efter redundansväxlingen. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.database.windows.net`. När gruppen för växling vid fel skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnare-URL: en som `<fog-name>.zone_id.database.windows.net`.
 
 - **Skrivskyddad lyssnare för redundans grupp**
 
-  En DNS CNAME-post som pekar på den skrivskyddade lyssnare som pekar på den sekundära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter skrivskyddad SQL-arbetsbelastning att transparent ansluta till den sekundära med de angivna reglerna för belastnings utjämning. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.secondary.database.windows.net`. När gruppen för växling vid fel skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.zone_id.secondary.database.windows.net`.
+  En DNS CNAME-post som pekar på den skrivskyddade lyssnare som pekar på den sekundära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter skrivskyddad SQL-arbetsbelastning att transparent ansluta till den sekundära med de angivna reglerna för belastnings utjämning. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.secondary.database.windows.net`. När gruppen för växling vid fel skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnare-URL: en som `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Princip för automatisk redundansväxling**
 
@@ -148,6 +148,9 @@ När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa a
 - **Använd en eller flera grupper för redundans för att hantera redundans för flera databaser**
 
   En eller flera failover-grupper kan skapas mellan två servrar i olika regioner (primära och sekundära servrar). Varje grupp kan innehålla en eller flera databaser som återställs som en enhet om alla eller vissa primära databaser blir otillgängliga på grund av ett avbrott i den primära regionen. Gruppen redundans skapar geo-Secondary-databas med samma tjänst mål som den primära. Om du lägger till en befintlig Geo-replikeringsrelation i gruppen redundans kontrollerar du att geo-Secondary är konfigurerat med samma tjänste nivå och beräknings storlek som den primära.
+  
+  > [!IMPORTANT]
+  > Det finns för närvarande inte stöd för att skapa redundansväxla grupper mellan två servrar i olika prenumerationer för enskilda databaser och elastiska pooler.
 
 - **Använd Läs-och skriv lyssnare för OLTP-arbetsbelastning**
 
@@ -222,7 +225,7 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
   > [!NOTE]
   > I vissa tjänst nivåer Azure SQL Database stöder användning av [skrivskyddade repliker](sql-database-read-scale-out.md) för att belastningsutjämna skrivskyddade arbets belastningar med en skrivskyddad repliks kapacitet och med hjälp av parametern `ApplicationIntent=ReadOnly` i anslutnings strängen. När du har konfigurerat en geo-replikerad sekundär kan du använda den här funktionen för att ansluta till antingen en skrivskyddad replik på den primära platsen eller på den geo-replikerade platsen.
-  > - Använd `<fog-name>.zone_id.database.windows.net` om du vill ansluta till en skrivskyddad replik på den primära platsen.
+  > - Använd `<fog-name>.zone_id.database.windows.net` för att ansluta till en skrivskyddad replik på den primära platsen.
   > - Använd `<fog-name>.secondary.zone_id.database.windows.net` om du vill ansluta till en skrivskyddad replik på den sekundära platsen.
 
 - **Förbered dig för prestanda försämring**
@@ -306,10 +309,10 @@ Den här sekvensen rekommenderas särskilt för att undvika problemet där den s
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Förhindra förlust av kritiska data
 
-På grund av den höga svars tiden för Wide Area Networks använder kontinuerlig kopiering en metod för asynkron replikering. Asynkron replikering gör att data kan gå förlorade om ett fel uppstår. Vissa program kan dock kräva ingen data förlust. För att skydda dessa viktiga uppdateringar kan en programutvecklare anropa system proceduren [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) direkt efter att transaktionen har genomförts. Anrop av `sp_wait_for_database_copy_sync` blockerar den anropande tråden tills den senaste genomförda transaktionen har överförts till den sekundära databasen. Det väntar dock inte på att överförda transaktioner ska spelas upp och allokeras på den sekundära. `sp_wait_for_database_copy_sync` är begränsad till en bestämd kontinuerlig kopierings länk. Alla användare med anslutnings behörighet till den primära databasen kan anropa den här proceduren.
+På grund av den höga svars tiden för Wide Area Networks använder kontinuerlig kopiering en metod för asynkron replikering. Asynkron replikering gör att data kan gå förlorade om ett fel uppstår. Vissa program kan dock kräva ingen data förlust. För att skydda dessa viktiga uppdateringar kan en programutvecklare anropa system proceduren [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) direkt efter att transaktionen har genomförts. Om du anropar `sp_wait_for_database_copy_sync` blockeras anrops tråden tills den senaste genomförda transaktionen har överförts till den sekundära databasen. Det väntar dock inte på att överförda transaktioner ska spelas upp och allokeras på den sekundära. `sp_wait_for_database_copy_sync` är begränsad till en bestämd kontinuerlig kopierings länk. Alla användare med anslutnings behörighet till den primära databasen kan anropa den här proceduren.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync` förhindrar data förlust efter redundansväxlingen, men garanterar inte fullständig synkronisering för Läs behörighet. Fördröjningen som orsakas av ett `sp_wait_for_database_copy_sync`-procedur anrop kan vara betydande och beror på storleken på transaktions loggen vid tidpunkten för anropet.
+> `sp_wait_for_database_copy_sync` förhindrar data förlust efter redundansväxlingen, men garanterar inte fullständig synkronisering för Läs behörighet. Fördröjningen som orsakas av ett `sp_wait_for_database_copy_sync` procedur anrop kan vara betydande och beror på storleken på transaktions loggen vid tidpunkten för anropet.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>Redundansväxla grupper och återställning av tidpunkt
 

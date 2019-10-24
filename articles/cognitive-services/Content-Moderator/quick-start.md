@@ -1,27 +1,27 @@
 ---
-title: 'Snabbstart: Försök Content Moderator på webben – Content Moderator'
+title: 'Snabb start: prova Content Moderator på webben – Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten ska du använda verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: e5b20bb45c08330c59fc72712b9e65b488c8c68b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 1053541e192668a7b572d97c141c2fe8fc16ac5c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564448"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757367"
 ---
-# <a name="quickstart-try-content-moderator-on-the-web"></a>Snabbstart: Försök Content Moderator på webben
+# <a name="quickstart-try-content-moderator-on-the-web"></a>Snabb start: prova Content Moderator på webben
 
 I den här snabb starten ska du använda verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i appen snabbare, se de andra snabb starterna i avsnittet [Nästa steg](#next-steps) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En webbläsare
 
@@ -50,7 +50,7 @@ Skicka in ditt innehåll för redaktörering. Internt kommer gransknings verktyg
 
 Granska de använda redigerings taggarna. Du kan se vilka taggar som tillämpades på ditt innehåll och hur poängen var i varje kategori. Se avsnitten [avbildning](image-moderation-api.md), [text](text-moderation-api.md)och [video](video-moderation-api.md) för att lära dig mer om vad olika taggar för innehåll visar.
 
-![Granska resultat](images/reviewresults_text.png)
+![Granska resultatet](images/reviewresults_text.png)
 
 I ett projekt kan du eller din gransknings grupp ändra dessa taggar eller lägga till fler taggar efter behov. Du skickar dessa ändringar med knappen **Nästa** . När ditt företags program anropar moderator-API: erna kommer det taggade innehållet att placeras här, vilket är klart att granskas av de mänskliga gransknings teamen. Du kan snabbt granska stora mängder innehåll med hjälp av den här metoden.
 
@@ -58,7 +58,7 @@ Nu har du använt verktyget Content Moderator granskning för att se ett exempel
 
 ## <a name="learn-more-about-the-review-tool"></a>Läs mer om gransknings verktyget
 
-Om du vill veta mer om hur du använder verktyget för Content Moderator granskning kan du titta närmare [](Review-Tool-User-Guide/human-in-the-loop.md) på gransknings verktygs guiden och se API: erna för gransknings verktyg för att lära dig att finjustera mänsklig gransknings upplevelsen:
+Om du vill veta mer om hur du använder verktyget för Content Moderator granskning kan du titta närmare på [gransknings](Review-Tool-User-Guide/human-in-the-loop.md) verktygs guiden och se API: erna för gransknings verktyg för att lära dig att finjustera mänsklig gransknings upplevelsen:
 - [Jobb-API: et](try-review-api-job.md) skannar ditt innehåll med hjälp av API: erna för kontrollanter och genererar granskningar i gransknings verktyget. 
 - I [gransknings-API: et](try-review-api-review.md) skapas direkt bild-, text-eller video granskningar för de mänskliga moderatorerna utan att först skanna innehållet. 
 - [Arbets flödes-API: et](try-review-api-workflow.md) skapar, uppdaterar och hämtar information om de anpassade arbets flöden som ditt team skapar.

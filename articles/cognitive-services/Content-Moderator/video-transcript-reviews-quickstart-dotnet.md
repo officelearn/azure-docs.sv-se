@@ -3,19 +3,19 @@ title: Skapa video avskrifts granskningar med hjälp av .NET-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Skapa video avskrifts granskningar med hjälp av Content Moderator SDK för .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: sajagtap
-ms.openlocfilehash: c7d68685a772bb777fff1dd56a25990b9d0406ef
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 7fe254aa6e78133102a295c5e60a10d29f6382a4
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242811"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757175"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Skapa video avskrifts granskningar med hjälp av .NET
 
@@ -153,7 +153,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
-1. Ett **ilist @ no__t-1CreateVideoReviewsBodyItem >-** objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
+1. Ett **IList \<CreateVideoReviewsBodyItem >** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
 
 **CreateVideoReviewsBodyItem** har flera egenskaper. Du kan minst ange följande egenskaper:
 - **Innehåll**. URL till den video som ska granskas.
@@ -161,7 +161,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 - **Status**. Ställ in värdet på "unpublished". Om du inte anger det används som standard "väntar", vilket innebär att video granskningen publiceras och väntar på mänsklig granskning. När en video granskning har publicerats kan du inte längre lägga till video bild rutor, en avskrift eller ett avskrifts redigerings resultat.
 
 > [!NOTE]
-> **CreateVideoReviews** returnerar en ilist @ no__t-1string->. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** .
+> **CreateVideoReviews** returnerar en IList \<string >. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** .
 
 Lägg till följande metod definition i namn området VideoReviews, klass program.
 
@@ -243,15 +243,15 @@ Förutom att lägga till en avskrift till en video granskning lägger du också 
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
 1. Video gransknings-ID: t som returnerades av **CreateVideoReviews**.
-1. En IList @ no__t-0TranscriptModerationBodyItem->. En **TranscriptModerationBodyItem** har följande egenskaper:
-1. **Villkor**. En IList @ no__t-0TranscriptModerationBodyItemTermsItem->. En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
+1. En IList \<TranscriptModerationBodyItem >. En **TranscriptModerationBodyItem** har följande egenskaper:
+1. **Villkor**. En IList \<TranscriptModerationBodyItemTermsItem >. En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
 1. **Index**. Det nollbaserade indexet för termen.
 1. **Term**. En sträng som innehåller termen.
 1. **Tidsstämpel**. En sträng som innehåller, i sekunder, den tid i avskriften där villkoren påträffades.
 
 Avskriften måste vara i WebVTT-formatet. Mer information finns i [webvtt: webb videons text spår format](https://www.w3.org/TR/webvtt1/).
 
-Lägg till följande metod definition i namn området VideoTranscriptReviews, klass program. Den här metoden skickar en avskrift till metoden **ContentModeratorClient. TextModeration. ScreenText** . Det översätter också resultatet till en IList @ no__t-0TranscriptModerationBodyItem-> och skickas till **AddVideoTranscriptModerationResult**.
+Lägg till följande metod definition i namn området VideoTranscriptReviews, klass program. Den här metoden skickar en avskrift till metoden **ContentModeratorClient. TextModeration. ScreenText** . Det översätter också resultatet till en IList-\<TranscriptModerationBodyItem > och skickas till **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 477b4e51c49a558aed0e5623a3821fa9b8d9eabd
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c2e368b9c12d8ab673e5b8808632501de448b9a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622369"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755755"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurera inloggning för en speciell Azure Active Directory organisation i Azure Active Directory B2C
 
@@ -25,13 +26,13 @@ Om du vill använda en Azure Active Directory (Azure AD) som [identitets leveran
 
 Om du vill aktivera inloggning för användare från en specifik Azure AD-organisation måste du registrera ett program i Azure AD-klienten, som inte är samma som din Azure AD B2C klient organisation.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din Azure AD-klient. Detta är inte samma klient som din Azure AD B2C klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 4. Välj **ny registrering**.
 5. Ange ett namn för ditt program. Till exempel `Azure AD B2C App`.
 6. Godkänn bara valet av **konton i den här organisations katalogen** för det här programmet.
-7. För omdirigerings- **URI: n**, godkänn värdet för **webb**och ange följande URL i gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
+7. För **omdirigerings-URI: n**, godkänn värdet för **webb**och ange följande URL i gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -51,13 +52,15 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 1. Välj **identitets leverantörer**och välj sedan **ny OpenID Connect-Provider**.
 1. Ange ett **namn**. Ange till exempel *contoso Azure AD*.
-1. För **metadata-URL**anger du följande URL som `your-AD-tenant-domain` ersätter med domän namnet för din Azure AD-klient:
+1. För **metadata-URL**anger du följande URL och ersätter `your-AD-tenant-domain` med domän namnet för din Azure AD-klient:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
     Till exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+
+    Använd **inte** Azure AD v 2.0-slut punkten för metadata, till exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. Detta resulterar i ett fel som liknar `AADB2C: A claim with id 'UserId' was not found, which is required by ClaimsTransformation 'CreateAlternativeSecurityId' with id 'CreateAlternativeSecurityId' in policy 'B2C_1_SignUpOrIn' of tenant 'contoso.onmicrosoft.com'` när du försöker logga in.
 
 1. För **klient-ID**anger du det program-ID som du tidigare har registrerat.
 1. För **klient hemlighet**anger du den klient hemlighet som du tidigare har registrerat.

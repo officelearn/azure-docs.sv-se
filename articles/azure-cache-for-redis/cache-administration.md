@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: bb7b9a41523ab1b1addbf37cb7b463f12a72a814
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: afb48c18f9690e77a5478956e1147acf850290ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263687"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756620"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Så här administrerar du Azure cache för Redis
 I det här avsnittet beskrivs hur du utför administrations åtgärder som att [Starta](#reboot) om och [schemalägga uppdateringar](#schedule-updates) för Azure cache för Redis-instanser.
@@ -71,7 +71,7 @@ Om du startar om både **Master** -och **slav** -noderna kan alla data i cachen 
 Om du bara startar om en av noderna, försvinner normalt inte data, men det kan fortfarande vara. Om huvudnoden startas om och en cache-skrivning pågår går data från cache-skrivningen förlorade. Ett annat scenario för data förlust är om du startar om en nod och den andra noden inträffar på grund av ett problem på samma gång. Mer information om möjliga orsaker till data förlust finns i [vad hände med mina data i Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Kan jag starta om mitt cacheminne med PowerShell, CLI eller andra hanterings verktyg?
-Ja, för PowerShell-instruktioner, se [så här startar du om en Azure-cache för Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
+Ja, för PowerShell-instruktioner, se [så här startar du om en Azure-cache för Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ## <a name="schedule-updates"></a>Schemauppdateringar
 På bladet **schema uppdateringar** kan du ange ett underhålls fönster för din cache-instans. När underhålls fönstret har angetts görs alla redis server-uppdateringar i det här fönstret. 

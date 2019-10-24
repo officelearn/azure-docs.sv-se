@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 94bde7b2e2a6f3902d83de90b06638035fd34397
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 7f6c131737ca63d120e111b3ef4504a36dbd7fc1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679126"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754716"
 ---
-# <a name="what-are-mapping-data-flows"></a>Vad är det för att mappa data flöden?
+# <a name="what-are-mapping-data-flows"></a>Vad är Mappa dataflöden?
 
 Mappning av data flöden är visuellt utformad med data transformationer i Azure Data Factory. Data flöden gör det möjligt för data tekniker att utveckla grafisk data omvandlings logik utan att skriva kod. De resulterande data flödena körs som aktiviteter i Azure Data Factory pipelines som använder uppskalade Spark-kluster. Data flödes aktiviteter kan användas via befintliga Data Factory schemaläggnings-, kontroll-, flödes-och övervaknings funktioner.
 
@@ -39,6 +39,38 @@ Data flödes arbets ytan är uppdelad i tre delar: det översta fältet, grafen 
 I diagrammet visas omvandlings strömmen. Den visar härkomst för källdata när den flödar till en eller flera handfat. Om du vill lägga till en ny källa väljer du **Lägg till källa**. Om du vill lägga till en ny omvandling väljer du plus tecknet längst ned till höger i en befintlig omvandling.
 
 ![Rityta](media/data-flow/canvas2.png "Rityta")
+
+### <a name="azure-integration-runtime-data-flow-properties"></a>Data flödes egenskaper för Azure integration runtime
+
+![Knappen Felsök](media/data-flow/debugbutton.png "Knappen Felsök")
+
+När du börjar arbeta med data flöden i ADF, vill du aktivera "Felsök"-växeln för data flöden överst i webb läsar gränssnittet. Detta skapar ett Azure Databricks kluster som ska användas för interaktiva fel sökning, data förbehandlingar och fel söknings körningar för pipeline. Du kan ange storleken på det kluster som används genom att välja en anpassad [Azure integration runtime](concepts-integration-runtime.md). Felsökningssessionen är aktiv i upp till 60 minuter efter din senaste data förhands granskning eller senaste fel sökning för pipeline-körning.
+
+När du operationalisera dina pipelines med data flödes aktiviteter använder ADF den Azure Integration Runtime som är kopplad till [aktiviteten](control-flow-execute-data-flow-activity.md) i egenskapen kör på.
+
+Standard Azure Integration Runtime är ett litet 4-core-kluster med en arbets nod som är avsedd att göra det möjligt för dig att förhandsgranska data och snabbt köra fel söknings pipeliner vid minimala kostnader. Ange en större Azure IR konfiguration om du utför åtgärder mot stora data mängder.
+
+Du kan instruera ADF att underhålla en pool med kluster resurser (VM) genom att ange ett TTL-värde i egenskaperna för Azure IR data flödet. Detta leder till snabbare jobb körning för efterföljande aktiviteter.
+
+#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Azure integration Runtime och data flödes strategier
+
+##### <a name="execute-data-flows-in-parallel"></a>Kör data flöden parallellt
+
+Om du kör data flöden i en pipeline parallellt, kommer ADF att sätta upp separata Azure Databricks kluster för varje aktivitets körning baserat på inställningarna i Azure Integration Runtime som är kopplade till varje aktivitet. Om du vill utforma parallella körningar i ADF-pipeline lägger du till data flödes aktiviteter utan prioritets begränsningar i användar gränssnittet.
+
+Av de här tre alternativen körs det här alternativet förmodligen på kortast möjliga tid. Alla parallella data flöden körs dock samtidigt på separata kluster, så sortering av händelser är icke-deterministisk.
+
+##### <a name="overload-single-data-flow"></a>Överlagring av ett enskilt data flöde
+
+Om du sätter all din logik i ett enda data flöde körs ADF alla i samma kontext för jobb körning på en enda Spark-klusterresurs.
+
+Det här alternativet kan vara svårare att följa och felsöka eftersom affärs reglerna och affärs logiken kommer att Jumble tillsammans. Det här alternativet ger inte heller mycket åter användbarhet.
+
+##### <a name="execute-data-flows-serially"></a>Köra data flöden seriellt
+
+Om du kör dina data flödes aktiviteter i serie i pipelinen och du har angett ett TTL-värde för Azure IR konfigurationen återanvänds beräknings resurserna (VM), vilket resulterar i snabbare efterföljande körnings tider. Du får fortfarande en ny Spark-kontext för varje körning.
+
+Av de här tre alternativen tar detta sannolikt den längsta tiden att köra slut punkt till slut punkt. Men det ger en ren uppdelning av logiska åtgärder i varje data flödes steg.
 
 ### <a name="configuration-panel"></a>Konfigurations panel
 

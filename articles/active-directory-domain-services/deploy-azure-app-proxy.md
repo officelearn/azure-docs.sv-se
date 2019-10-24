@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Distribuera Azure AD-programproxy | Microsoft Docs'
+title: Distribuera Azure-AD-programproxy för Azure AD Domain Services | Microsoft Docs
 description: Använda Azure AD-programproxy på Azure Active Directory Domain Services hanterade domäner
 services: active-directory-ds
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 21693926bae681cf15d31dca06344dfa5d865e3b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80c3b2120a617e5c4c0f8de252b9436753fea011
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613011"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754408"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD-programproxy på en Azure AD Domain Services hanterad domän
 Azure Active Directory (AD) Application Proxy hjälper dig att stödja fjärran vändare genom att publicera lokala program som ska nås via Internet. Med Azure AD Domain Services kan du nu lyfta upp och flytta äldre program som körs lokalt till Azures infrastruktur tjänster. Du kan sedan publicera dessa program med hjälp av Azure-AD-programproxy för att ge säker fjärråtkomst till användare i din organisation.
 
-Om du är nybörjare på Azure AD-programproxy kan du läsa mer om den här funktionen med följande artikel: [Hur du ger säker fjärråtkomst till lokala program](../active-directory/manage-apps/application-proxy.md).
+Om du är nybörjare på Azure AD-programproxy kan du läsa mer om den här funktionen med följande artikel: [så här ger du säker fjärråtkomst till lokala program](../active-directory/manage-apps/application-proxy.md).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -35,7 +35,7 @@ För att utföra de uppgifter som anges i den här artikeln behöver du:
 1. En giltig **Azure-prenumeration**.
 2. En **Azure AD-katalog** – antingen synkroniserad med en lokal katalog eller en katalog som endast är molnad.
 3. En **Azure AD Premium-licens** krävs för att använda Azure-AD-programproxy.
-4. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i Komma igångs [guiden](tutorial-create-instance.md).
+4. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i [komma igångs guiden](tutorial-create-instance.md).
 
 <br>
 
@@ -48,7 +48,7 @@ Utför följande steg för att aktivera Azure-AD-programproxy för Azure AD-kata
 
 3. Klicka på **Application Proxy**.
 
-4. Klicka på kopplings knappen för att Ladda ned anslutningen.
+4. Klicka på **kopplings** knappen för att ladda ned anslutningen.
 
 5. Godkänn licens villkoren och sekretess avtalet på sidan hämtning och klicka på knappen **Ladda ned** .
 
@@ -72,8 +72,8 @@ Tidigare etablerade du en virtuell Windows Server-dator och anslöt den till den
 
     ![Godkänn villkoren för installation](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. Under installationen uppmanas du att registrera anslutningen med programproxyn för Azure AD-katalogen.
-   * Ange dina **autentiseringsuppgifter för Azure AD**-programadministratören. Din program administratörs klient kan skilja sig från dina Microsoft Azure autentiseringsuppgifter.
-   * Det administratörs konto som används för att registrera anslutningen måste tillhöra samma katalog där du aktiverade tjänsten Application Proxy. Om klient domänen exempelvis är contoso.com, ska administratören vara admin@contoso.com eller något annat giltigt alias i domänen.
+   * Ange dina **autentiseringsuppgifter för Azure AD-programadministratören**. Din program administratörs klient kan skilja sig från dina Microsoft Azure autentiseringsuppgifter.
+   * Det administratörs konto som används för att registrera anslutningen måste tillhöra samma katalog där du aktiverade tjänsten Application Proxy. Om klient domänen till exempel är contoso.com, ska administratören vara admin@contoso.com eller något annat giltigt alias i domänen.
    * Om förbättrad säkerhets konfiguration i Internet Explorer är aktive rad för den server där du installerar anslutningen, kan registrerings skärmen blockeras. Följ instruktionerna i fel meddelandet för att tillåta åtkomst. Kontrollera att Förbättrad säkerhetskonfiguration i Internet Explorer är inaktiverat.
    * Om registreringen av anslutningsappen inte lyckas så gå till [Felsöka programproxyn](../active-directory/manage-apps/application-proxy-troubleshoot.md).
 

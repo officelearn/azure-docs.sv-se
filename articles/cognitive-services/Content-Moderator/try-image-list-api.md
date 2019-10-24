@@ -3,19 +3,19 @@ title: Måttliga bilder med anpassade listor och API-konsolen – Content Modera
 titleSuffix: Azure Content Moderator
 description: 'Du kan använda API: et för List hantering i Azure Content Moderator för att skapa anpassade listor med avbildningar.'
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 2b2ab138945d32ca874dc20576d412c862965dc9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564361"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757192"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Måttlig med anpassade bild listor i API-konsolen
 
@@ -59,7 +59,7 @@ När du har gjort ändringar i en avbildnings lista måste du uppdatera dess ind
 
 ## <a name="create-an-image-list"></a>Skapa en bild lista
 
-1. Gå till [Bild List hantering API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)-referensen.
+1. Gå till [Bild List hantering API-referensen](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
 
    Sidan **avbildnings listor – skapa** öppnas. 
 
@@ -133,7 +133,7 @@ Det här exemplet tar bort en enskild avbildning:
 
    ![Bild-ta bort val av sid region](images/test-drive-region.png)
  
-   API **-** konsolen för avbildnings borttagning öppnas.
+   API **-konsolen för avbildnings borttagning** öppnas.
  
 3. I rutan **listId** anger du ID för listan att ta bort en avbildning från.  Detta är det antal som returneras i **bilden – hämta alla avbildnings-ID-** konsolen för en lista. Ange sedan **ImageId** för den avbildning som ska tas bort. 
 
@@ -147,7 +147,7 @@ I vårt exempel är List-ID **58953**, värdet för **ContentSource**. Avbildnin
 
 Du kan redigera en listas namn och beskrivning och lägga till objekt i metadata.
 
-1. I [list hanterings-API-referensen bild lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)väljer du **bild listor**på den vänstra menyn och väljer sedan uppdaterings **information**. 
+1. I [list hanterings-API-referensen bild lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)väljer du **bild listor**på den vänstra menyn och väljer sedan **uppdaterings information**. 
 
    Sidan **avbildnings listor – uppdaterings information** öppnas.
 
@@ -155,7 +155,7 @@ Du kan redigera en listas namn och beskrivning och lägga till objekt i metadata
 
     ![Bild listor – val av sid region för uppdaterings information](images/test-drive-region.png)
 
-    **Avbildnings listorna – API-** konsolen för uppdaterings information öppnas.
+    **Avbildnings listorna – API-konsolen för uppdaterings information** öppnas.
  
 3. I rutan **listId** anger du List-ID och anger sedan din prenumerations nyckel.
 

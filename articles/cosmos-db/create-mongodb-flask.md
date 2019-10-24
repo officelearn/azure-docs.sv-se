@@ -1,21 +1,21 @@
 ---
 title: Skapa en Flask-webbapp med Azure Cosmos DB:s API för MongoDB och Python SDK
 description: Presenterar ett Python Flask-kodexempel som du kan använda för att ansluta till och ställa frågor men hjälp av Azure Cosmos DB:s API för MongoDB.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 07f213de3509ed16af627af5e0583cd985c278f6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 2bd8fa81d0825e604c42c54c0f789b7939206804
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954652"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756944"
 ---
-# <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Skapa en Python-app med hjälp av Azure Cosmos DB:s API för MongoDB
+# <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: bygga en python-app med Azure Cosmos DB s API för MongoDB
 
 > [!div class="op_single_selector"]
 > * [NET](create-mongodb-dotnet.md)
@@ -28,13 +28,13 @@ ms.locfileid: "65954652"
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB.
 
-Den här snabbstartsguiden använder följande [Flask-exempel](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) och visar hur du skapar en enkel att göra Flask-app med den [Azure Cosmos DB-emulatorn](local-emulator.md) och Azure Cosmos DB: s API för MongoDB.
+Den här snabb starts guiden använder följande [mätkolv-exempel](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) och visar hur du skapar en enkel att göra-app med [Azure Cosmos DB emulatorn](local-emulator.md) och Azure Cosmos DBS API för MongoDB.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Hämta [Azure Cosmos DB-emulatorn](local-emulator.md). Emulatorn stöds för tillfället endast på Windows. Exemplet visar hur du kan använda exemplet med en produktionsnyckel från Azure, vilket går att göra på valfri plattform.
 
-- Om du inte redan har Visual Studio Code installerat kan du snabbt installera [VS Code](https://code.visualstudio.com/Download) för din plattform (Windows, Mac, Linux).
+- Om du inte redan har Visual Studio Code installerat kan du snabbt installera [VS-kod](https://code.visualstudio.com/Download) för din plattform (Windows, Mac, Linux).
 
 - Tänk på att lägga till Python-språkstöd genom att installera ett av de populära Python-tilläggen.
   1. Välj ett tillägg.
@@ -104,7 +104,7 @@ Följande kodavsnitt hämtas från filen app.py och använder anslutningssträng
 
 2. Öppna ett terminalfönster och `cd` till den katalog där appen sparas.
 
-3. Ange sedan miljövariabeln för Flask-app med `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` för PowerShell-redigerare eller `export FLASK_APP=app.py` om du använder en Mac. 
+3. Ange sedan miljövariabeln för kolv-appen med `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` för PowerShell-redigerare eller `export FLASK_APP=app.py` om du använder en Mac-dator. 
 
 4. Kör appen med `flask run` och bläddra till [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
@@ -166,4 +166,4 @@ Om du inte vill skapa en förgrening av den här lagringsplatsen kan du även kl
 I den här snabbstarten har du lärt dig hur du skapar ett Cosmos-konto och kör en Flask-app. Du kan nu importera ytterligare data till din Cosmos-databas. 
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+> [Importera MondoDB-data till Azure Cosmos DB](mongodb-migrate.md)

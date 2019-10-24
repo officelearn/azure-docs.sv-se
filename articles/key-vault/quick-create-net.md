@@ -6,14 +6,14 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 3ccc5c7c0def7ec1d8d2f8927dc8f8e5d3678a52
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 4faf889755b6f3e5f8fc6ef08cb69b4265fec355
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718969"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755794"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-net"></a>Snabbstart: Azure Key Vault klient bibliotek för .NET
+# <a name="quickstart-azure-key-vault-client-library-for-net"></a>Snabb start: Azure Key Vault klient bibliotek för .NET
 
 Kom igång med Azure Key Vault klient biblioteket för .NET. Följ stegen nedan för att installera paketet och prova exempel koden för grundläggande uppgifter.
 
@@ -25,15 +25,15 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Förenkla och automatisera uppgifter för SSL/TLS-certifikat.
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
-[API Reference dokumentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+[API Reference-dokumentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet)  | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  | [paketet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.Net Core 2,1 SDK eller senare](https://dotnet.microsoft.com/download/dotnet-core/2.1).
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/overview)
 
-Den här snabb starten förutsätter `dotnet`att du kör, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)och Windows-kommandon i en Windows Terminal (till exempel [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)eller [Azure Cloud Shell](https://shell.azure.com/)).
+Den här snabb starten förutsätter att du kör `dotnet`, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)och Windows-kommandon i en Windows-Terminal (till exempel [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)eller [Azure Cloud Shell](https://shell.azure.com/)).
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -41,7 +41,7 @@ Den här snabb starten förutsätter `dotnet`att du kör, [Azure CLI](/cli/azure
 
 Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE.
 
-I ett konsol fönster använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet. `akv-dotnet`
+I ett konsol fönster använder du kommandot `dotnet new` för att skapa en ny konsol-app med namnet `akv-dotnet`.
 
 
 ```console
@@ -146,7 +146,7 @@ Lägg till följande direktiv överst i koden:
 
 Den här .NET-snabb starten använder miljövariabler för att lagra autentiseringsuppgifter som inte ska placeras i kod. 
 
-Innan du skapar och kör din app använder `setx` du kommandot för att `akvClientId`ställa in variablerna `akvTenantId`, `akvClientSecret`, `akvSubscriptionId` , och för miljövariablerna i de värden som du antecknade ovan.
+Innan du skapar och kör din app ska du använda kommandot `setx` för att ange miljövariablerna `akvClientId`, `akvClientSecret`, `akvTenantId` och `akvSubscriptionId` till de värden som du antecknade ovan.
 
 ```console
 setx akvClientId <your-clientID>
@@ -154,7 +154,7 @@ setx akvClientId <your-clientID>
 setx akvClientSecret <your-clientSecret>
 ````
 
-Varje gång du ringer `setx`får du svaret "lyckades: Det angivna värdet sparades. "
+Varje gång du anropar `setx` ska du få svaret "lyckades: det angivna värdet har sparats".
 
 Tilldela de här miljövariablerna till strängar i din kod och autentisera sedan ditt program genom att skicka dem till [klassen KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient):
 

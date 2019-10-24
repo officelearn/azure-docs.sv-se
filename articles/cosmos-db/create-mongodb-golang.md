@@ -1,20 +1,20 @@
 ---
 title: Skapa en konsolapp med Azure Cosmos DB:s API för MongoDB och Golang SDK
 description: Presenterar ett Golang-kodexempel som du kan använda för att ansluta till och ställa frågor men hjälp av Azure Cosmos DB:s API för MongoDB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: 5b60ac28cd8f65d464e659f328872524be59b3ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60898584"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755117"
 ---
-# <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Snabbstart: Skapa en konsolapp med Azure Cosmos DB:s API för MongoDB och Golang SDK
+# <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Snabb start: bygga en konsol app med Azure Cosmos DB s API för MongoDB och Golang SDK
 
 > [!div class="op_single_selector"]
 > * [NET](create-mongodb-dotnet.md)
@@ -31,7 +31,7 @@ Den här snabbstarten visar hur du använder en befintlig MongoDB-app som skrivi
 
 Med andra ord vet ditt Golang-program bara att det ansluter med hjälp av en MongoDB-klient. Det är tydligt för programmet att data lagras i en Cosmos-databas.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar. 
 
@@ -129,7 +129,7 @@ defer session.Close()
 session.SetSafe(&mgo.Safe{})
 ```
 
-Metoden **mgo. Dial()** används när det inte finns någon SSL-anslutning. För en SSL-anslutning krävs metoden **mgo.DialWithInfo()**.
+Metoden **mgo. Dial()** används när det inte finns någon SSL-anslutning. För en SSL-anslutning krävs metoden **mgo.DialWithInfo()** .
 
 En instans av objektet **DialWIthInfo{}** används för att skapa sessionsobjektet. När sessionen har upprättats kan du få åtkomst till samlingen med hjälp av följande kodfragment:
 
@@ -251,4 +251,4 @@ Gå tillbaka till Azure Portal för att visa dokumentet i Datautforskaren.
 I den här snabbstarten har du lärt dig hur du skapar ett Cosmos-konto och kör en Golang-app. Du kan nu importera ytterligare data till din Cosmos-databas. 
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+> [Importera MondoDB-data till Azure Cosmos DB](mongodb-migrate.md)

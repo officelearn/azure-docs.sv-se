@@ -4,14 +4,14 @@ description: Lär dig hur du kan använda det inbyggda stödet för Jupyter Note
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 09/22/2019
-author: rimman
-ms.author: rimman
-ms.openlocfilehash: 8389cd4d73c5c5d881dcc32c688a59b86895a3e2
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+author: markjbrown
+ms.author: mjbrown
+ms.openlocfilehash: 8026140a07ce8ed03a7bec57f03a1ca1708f85ac
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309544"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756968"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db"></a>Inbyggt stöd för Jupyter Notebooks i Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Azure Portal integrerar Jupyter Notebook-upplevelse i Azure Cosmos-konton på de
 
 Jupyter-anteckningsböcker utvecklades ursprungligen för data vetenskaps program skrivna i python, R. De kan dock användas på olika sätt för olika typer av projekt, till exempel:
 
-* ***Data visualiseringar:** Med Jupyter-anteckningsböcker kan du visualisera data i form av en delad antecknings bok som återger viss data uppsättning som en bild. Med Jupyter Notebook kan du redigera visualiseringar, dela dem och tillåta interaktiva ändringar i den delade koden och data uppsättningen.
+* ***data visualiseringar:** med Jupyter-anteckningsböcker kan du visualisera data i form av en delad antecknings bok som återger viss data uppsättning som en bild. Med Jupyter Notebook kan du redigera visualiseringar, dela dem och tillåta interaktiva ändringar i den delade koden och data uppsättningen.
 
 * **Kod delning:** Tjänster som GitHub ger olika sätt att dela kod, men de är mycket icke-interaktiva. Med en Jupyter Notebook kan du Visa kod, köra den och visa resultaten direkt i Azure Portal.
 
@@ -48,11 +48,11 @@ Jupyter-anteckningsböcker kan innehålla flera typer av komponenter, som var oc
 
 * **Kod och utdata:** Jupyter Notebooks stöder python-kod. Resultatet av den körda koden visas omedelbart efter kodblock och kodblock kan köras flera gånger i vilken ordning som helst.
 
-* **Visualiseringar** Grafik och diagram kan genereras från koden med hjälp av moduler som matplotlib, ritas upp eller bokeh. På samma sätt som utdata visas dessa visualiseringar bredvid den kod som genererar dem.
+* **Visualiseringar:** Grafik och diagram kan genereras från koden med hjälp av moduler som matplotlib, ritas upp eller bokeh. På samma sätt som utdata visas dessa visualiseringar bredvid den kod som genererar dem.
 
-* **Multimedia** Eftersom Jupyter Notebook är byggd på webb tekniken kan den Visa alla typer av multimedia som stöds på en webb sida. Du kan inkludera dem i en bärbar dator som HTML-element, eller så kan du generera dem program mässigt genom `IPython.display` att använda modulen.
+* **Multimedia:** Eftersom Jupyter Notebook är byggd på webb tekniken kan den Visa alla typer av multimedia som stöds på en webb sida. Du kan inkludera dem i en bärbar dator som HTML-element, eller så kan du generera dem program mässigt genom att använda `IPython.display`-modulen.
 
-* **Data** Data från Azure Cosmos-behållare och resultat från frågorna kan importeras till en Jupyter-anteckningsbok program mässigt. Om du till exempel inkluderar kod i antecknings boken för att fråga data med hjälp av någon av de Cosmos DB API: erna eller internt inbyggda Apache Spark.
+* **Data:** Data från Azure Cosmos-behållare och resultat från frågorna kan importeras till en Jupyter-anteckningsbok program mässigt. Om du till exempel inkluderar kod i antecknings boken för att fråga data med hjälp av någon av de Cosmos DB API: erna eller internt inbyggda Apache Spark.
 
 ## <a name="next-steps"></a>Nästa steg
 

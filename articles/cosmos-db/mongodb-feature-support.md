@@ -1,30 +1,31 @@
 ---
-title: Azure Cosmos DB:s API för MongoDB-funktionsstöd
-description: Läs om det funktionsstöd som Azure Cosmos DB:s API för MongoDB erbjuder för MongoDB 3.4.
+title: Azure Cosmos DB s API för MongoDB (3,2-version) som stöds av funktioner och syntax
+description: Läs mer om Azure Cosmos DBs API för MongoDB (3,2-version) som stöds av funktioner och syntax.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 05/21/2019
+ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 999b9ed88b6ff2c14defd3424c0fb541b7cf5d8e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050091"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754991"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB: funktioner och syntax som stöds
+# <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB s API för MongoDB (3,2-version): funktioner som stöds och syntax
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DB:s API för MongoDB med någon av MongoDB-klient[drivrutinerna](https://docs.mongodb.org/ecosystem/drivers) med öppen källkod. Azure Cosmos DB:s API för MongoDB tillåter gör det möjligt att använda befintliga klientdrivrutiner genom att följa MongoDB-[trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Med hjälp av Azure Cosmos DB:s API för MongoDB kan du dra nytta av fördelarna med den MongoDB som du är van vid och alla de företagsfunktioner som Azure Cosmos DB erbjuder: [global distribution](distribute-data-globally.md), [automatisk horisontell positionering](partition-data.md), garantier avseende tillgänglighet och svarstid, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
 
+> [!NOTE]
+> Den här artikeln är för Azure Cosmos DB s API för MongoDB 3,2. MongoDB 3,6-versionen finns i [MongoDB 3,6 funktioner och syntax som stöds](mongodb-feature-support-36.md).
+
 ## <a name="protocol-support"></a>Protokollstöd
 
-Azure Cosmos DB:s API för MongoDB är kompatibelt med MongoDB Server-version **3.2** som standard. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Funktioner eller frågeoperatorer som lagts till i MongoDB version **3.4** är för närvarande tillgängliga som en förhandsversion. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB:s API för MongoDB.
-
-Även [MongoDB-sammansättningspipeline](#aggregation-pipeline) är för närvarande tillgänglig som en separat förhandsgranskningsfunktion.
+Alla nya konton för Azure Cosmos DBs API för MongoDB är kompatibla med MongoDB Server version **3,6**. Den här artikeln beskriver MongoDB version 3,2. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB:s API för MongoDB.
 
 ## <a name="query-language-support"></a>Stöd för frågespråk
 
@@ -35,6 +36,7 @@ Azure Cosmos DB:s API för MongoDB erbjuder omfattande stöd för MongoDB-fråge
 Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 ### <a name="query-and-write-operation-commands"></a>Fråga och skriv-åtgärdskommandon
+
 - delete
 - find
 - findAndModify
@@ -44,11 +46,13 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 - update
 
 ### <a name="authentication-commands"></a>Autentiseringskommandon
-- logout
+
+- logga ut
 - authenticate
 - getnonce
 
 ### <a name="administration-commands"></a>Administrationskommandon
+
 - dropDatabase
 - listCollections
 - drop
@@ -61,6 +65,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 - reIndex
 
 ### <a name="diagnostics-commands"></a>Diagnostiska kommandon
+
 - buildInfo
 - collStats
 - dbStats
@@ -72,14 +77,16 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 ## <a name="aggregation-pipelinea"></a>Sammansättningspipeline</a>
 
-Cosmos DB stöder sammansättningspipeline i förhandsversion. Se [Azure-bloggen](https://aka.ms/mongodb-aggregation) för anvisningar om hur du registrerar för den allmänna förhandsversionen.
+Cosmos DB stöder en agg regerings pipeline för MongoDB 3,2 i offentlig för hands version. Se [Azure-bloggen](https://aka.ms/mongodb-aggregation) för anvisningar om hur du registrerar för den allmänna förhandsversionen.
 
 ### <a name="aggregation-commands"></a>Sammansättningskommandon
+
 - aggregate
 - count
 - distinct
 
 ### <a name="aggregation-stages"></a>Sammansättningsfaser
+
 - $project
 - $match
 - $limit
@@ -96,11 +103,13 @@ Cosmos DB stöder sammansättningspipeline i förhandsversion. Se [Azure-bloggen
 ### <a name="aggregation-expressions"></a>Sammansättningsuttryck
 
 #### <a name="boolean-expressions"></a>Booleska uttryck
+
 - $and
 - $or
 - $not
 
 #### <a name="set-expressions"></a>Uttryck för angivelse
+
 - $setEquals
 - $setIntersection
 - $setUnion
@@ -110,6 +119,7 @@ Cosmos DB stöder sammansättningspipeline i förhandsversion. Se [Azure-bloggen
 - $allElementsTrue
 
 #### <a name="comparison-expressions"></a>Jämförelseuttryck
+
 - $cmp
 - $eq
 - $gt
@@ -119,6 +129,7 @@ Cosmos DB stöder sammansättningspipeline i förhandsversion. Se [Azure-bloggen
 - $ne
 
 #### <a name="arithmetic-expressions"></a>Aritmetiska uttryck
+
 - $abs
 - $add
 - $ceil
@@ -136,6 +147,7 @@ Cosmos DB stöder sammansättningspipeline i förhandsversion. Se [Azure-bloggen
 - $trunc
 
 #### <a name="string-expressions"></a>Stränguttryck
+
 - $concat
 - $indexOfBytes
 - $indexOfCP
@@ -150,6 +162,7 @@ Cosmos DB stöder sammansättningspipeline i förhandsversion. Se [Azure-bloggen
 - $toUpper
 
 #### <a name="array-expressions"></a>Matrisuttryck
+
 - $arrayElemAt
 - $concatArrays
 - $filter
@@ -162,6 +175,7 @@ Cosmos DB stöder sammansättningspipeline i förhandsversion. Se [Azure-bloggen
 - $in
 
 #### <a name="date-expressions"></a>Datumuttryck
+
 - $dayOfYear
 - $dayOfMonth
 - $dayOfWeek
@@ -176,10 +190,12 @@ Cosmos DB stöder sammansättningspipeline i förhandsversion. Se [Azure-bloggen
 - $isoWeek
 
 #### <a name="conditional-expressions"></a>Villkorliga uttryck
+
 - $cond
 - $ifNull
 
 ## <a name="aggregation-accumulators"></a>Sammansättningsackumulatorer
+
 - $sum
 - $avg
 - $first
@@ -234,12 +250,15 @@ $regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
 ### <a name="notes"></a>Anteckningar
 
 I $regex-frågor, tillåter vänsterförankrade uttryck indexsökning. Om du använder modifierarna i (skiftlägesokänsligt) och m (flera rader) så får du dock samlingsskanningen i alla uttryck.
-När det finns ett behov att inkludera $ eller | så är det bäst att skapa två (eller flera) regex-frågor. Med till exempel följande ursprungliga fråga: ```find({x:{$regex: /^abc$/})``` så måste den ändras på följande sätt: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-Den första delen använder indexet för att begränsa sökningen till dokument som börjar med ^abc och den andra delen matchar de exakta posterna. Fält-operatorn | fungerar som en or-funktion – frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokumenten där fältet x har värden som börjar med abc eller def. Om du vill använda indexet så rekommenderar vi att du delar upp frågan i två olika frågor anslutna med operatorn $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+När det finns ett behov att inkludera $ eller | så är det bäst att skapa två (eller flera) regex-frågor.
+Med till exempel följande ursprungliga fråga: ```find({x:{$regex: /^abc$/})``` så måste den ändras på följande sätt: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
+Den första delen använder indexet för att begränsa sökningen till dokument som börjar med ^abc och den andra delen matchar de exakta posterna.
+Fält-operatorn | fungerar som en or-funktion – frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokumenten där fältet x har värden som börjar med abc eller def. Om du vill använda indexet så rekommenderar vi att du delar upp frågan i två olika frågor anslutna med operatorn $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Uppdateringsoperatorer
 
 #### <a name="field-update-operators"></a>Fältuppdateringsoperatorer
+
 - $inc
 - $mul
 - $rename
@@ -251,6 +270,7 @@ Den första delen använder indexet för att begränsa sökningen till dokument 
 - $currentDate
 
 #### <a name="array-update-operators"></a>Matrisuppdateringsoperatorer
+
 - $addToSet
 - $pop
 - $pullAll
@@ -263,6 +283,7 @@ Den första delen använder indexet för att begränsa sökningen till dokument 
 - $position
 
 #### <a name="bitwise-update-operator"></a>Binär uppdateringsoperator
+
 - $bit
 
 ### <a name="geospatial-operators"></a>Geospatiala operatorer
@@ -282,16 +303,17 @@ $box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 4
 $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja |
 
 ## <a name="sort-operations"></a>Sortera åtgärder
+
 Med åtgärden `findOneAndUpdate` kan du använda sorteringsåtgärder på ett enda fält, men inte på flera fält.
 
 ## <a name="additional-operators"></a>Ytterligare operatorer
 
-Operator | Exempel | Anteckningar 
+Operator | Exempel | Anteckningar
 --- | --- | --- |
-$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` | 
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
-$size | ```{ "Location.coordinates": { $size: 2 } }``` | 
-$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
+$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
+$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
+$size | ```{ "Location.coordinates": { $size: 2 } }``` |
+$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
 $text |  | Stöds ej. Använd $regex i stället.
 
 ## <a name="unsupported-operators"></a>Operatorer som inte stöds
@@ -304,13 +326,13 @@ Följande metoder stöds:
 
 #### <a name="cursor-methods"></a>Markör-metoder
 
-Metod | Exempel | Anteckningar 
+Metod | Exempel | Anteckningar
 --- | --- | --- |
 cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokument utan sorteringsnyckel returneras inte
 
 ## <a name="unique-indexes"></a>Unika index
 
-Cosmos DB indexerar som standard varje fält i dokument som skrivs till databasen. Unika index ser till att ett visst fält inte har duplicerade värden i alla dokument i en samling, på samma sätt som unikhet bevaras för standardnyckeln _id. Du kan skapa anpassade index i Cosmos DB med hjälp av kommandot createIndex, inklusive unique-begränsningen.
+Cosmos DB indexerar som standard varje fält i dokument som skrivs till databasen. Unika index säkerställer att ett särskilt fält inte har dubblettvärden i alla dokument i en samling, på liknande sätt som unika bevaras på standard `_id`s nyckeln. Du kan skapa anpassade index i Cosmos DB med hjälp av kommandot createIndex, inklusive begränsningen "Unique".
 
 Unika index är tillgängliga för alla Cosmos-konton med hjälp av Azure Cosmos DB:s API för MongoDB.
 
@@ -340,4 +362,4 @@ Azure Cosmos DB stöder automatisk, horisontell partitionering på serversidan. 
 - Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
 - Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.
 
-<sup>Obs! I den här artikeln beskrivs en funktion i Azure Cosmos DB som tillhandahåller trådprotokollkompatibilitet med MongoDB-databaser. Microsoft kan inte köra MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplat till MongoDB, Inc.</sup>
+<sup>OBS! den här artikeln beskriver en funktion i Azure Cosmos DB som ger till gång till Wire Protocol-kompatibilitet med MongoDB-databaser. Microsoft kör inte MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplad till MongoDB, Inc.</sup>

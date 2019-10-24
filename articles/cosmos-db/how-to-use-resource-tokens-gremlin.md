@@ -1,18 +1,18 @@
 ---
 title: Använd Azure Cosmos DB-Gremlin med SDK för
 description: Lär dig hur du skapar resurs-tokens och använder dem för att få åtkomst till graf-databasen.
-author: olignat
+author: luisbosquez
+ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/06/2019
-ms.author: olignat
-ms.openlocfilehash: 6364bd0f762647b5fe9567ed40042a5ad81f97c1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 443b6ea2583c7c8a1c633cf1825e83cc02bd168c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105022"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756072"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Använd Azure Cosmos DB-Gremlin med SDK för
 
@@ -30,7 +30,7 @@ Objekt modellens hierarki över resurs-tokens visas i följande disposition:
       - **Permission**
         - **Token** – en behörighets objekt egenskap som anger vilka åtgärder som tillåts eller nekas.
 
-En resurs-token använder följande format `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`:. Den här strängen är ogenomskinlig för klienterna och bör användas som den är, utan modifiering eller tolkning.
+En resurs-token använder följande format: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Den här strängen är ogenomskinlig för klienterna och bör användas som den är, utan modifiering eller tolkning.
 
 ```csharp
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
@@ -95,7 +95,7 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>Gräns
 
-Med ett enda Gremlin-konto kan du utfärda ett obegränsat antal tokens. Du kan dock använda upp till 100 token samtidigt inom en timme. Om ett program överskrider kvoten för token per timme nekas autentiseringsbegäran och följande fel meddelande visas: "Gränsen för tillåten resurs-token på 100 som kan användas samtidigt." Det fungerar inte att stänga aktiva anslutningar som använder vissa tokens för att frigöra platser för nya token. Azure Cosmos DB Gremlin-databasmotorn håller reda på unika tokens under timmen omedelbart före autentiseringsbegäran.
+Med ett enda Gremlin-konto kan du utfärda ett obegränsat antal tokens. Du kan dock använda upp till 100 token samtidigt inom en timme. Om ett program överskrider kvoten för token per timme nekas en autentiseringsbegäran och du får följande fel meddelande: "gränsen för tillåten resurs-token på 100 som kan användas samtidigt". Det fungerar inte att stänga aktiva anslutningar som använder vissa tokens för att frigöra platser för nya token. Azure Cosmos DB Gremlin-databasmotorn håller reda på unika tokens under timmen omedelbart före autentiseringsbegäran.
 
 ## <a name="permission"></a>Behörighet
 

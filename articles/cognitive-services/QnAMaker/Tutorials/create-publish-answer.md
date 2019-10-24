@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Skapa, publicera, besvara QnA Maker'
+title: 'Självstudie: skapa, publicera, besvara QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Den här REST-baserade självstudien vägleder dig genom att programmatiskt skapa och publicera en kunskapsbas och sedan besvara en fråga från kunskapsbasen.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 10/12/2019
 ms.author: diberry
-ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d13bce3c1cafd20b311aa882d3a32101c1833ba5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802812"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555500"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Självstudie: Använda C#, skapa kunskapsbas och sedan besvara fråga
 
@@ -33,18 +33,18 @@ Den här självstudien vägleder dig genom att programmatiskt skapa och publicer
 Den här snabb starten anropar QnA Maker REST API: er:
 
 * [Skapa kunskapsbas (KB)](https://go.microsoft.com/fwlink/?linkid=2092179)
-* [Hämta åtgärdsinformation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Få åtgärdsinformation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 * [Hämta information om kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) 
 * [Hämta slutpunkter för kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys)
 * [Publicera](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln och resurs namnet genom att välja **snabb start** i Azure Portal för din QNA Maker resurs. 
 
 > [!NOTE] 
-> De fullständiga lösningsfilerna finns i [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub-lagringsplats](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> Kompletta lösningsfiler är tillgängliga från [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="create-a-knowledge-base-project"></a>Skapa ett kunskapsbasprojekt
 
@@ -84,7 +84,7 @@ Följande kod gör en HTTPS-begäran för API för QnA Maker för att skapa en k
 
 [!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=124-141 "Add a POST request to create KB")]
 
-Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID. Senare använder programmet åtgärds-ID:t för att fastställa huruvida KB har skapats. 
+Det här API-anropet returnerar ett JSON-svar som innehåller åtgärds-ID. Senare använder programmet åtgärds-ID:t för att fastställa huruvida KB har skapats. 
 
 ```JSON
 {
@@ -129,7 +129,7 @@ Upprepa anropet tills det lyckas eller misslyckas:
 
 ## <a name="add-createkb-method"></a>Lägga till metoden CreateKB
 
-Följande metod kapslar in anropen för att skapa KB och kontrollera statusen.  _Skapande_**åtgärds-ID:t** returneras i **platsen** för POST-svarets huvudfält och används sedan som en del av vägen i GET-begäran. Eftersom det kan ta lite tid att skapa KB måste du upprepa anrop för att kontrollera status tills statusen antingen lyckas eller misslyckas. När åtgärden lyckas returneras KB-ID i **resourceLocation**. 
+Följande metod kapslar in anropen för att skapa KB och kontrollera statusen.  _Skapande_**åtgärds-ID:t** returneras i **platsen** för POST-svarets huvudfält och används sedan som en del av vägen i GET-begäran. Eftersom KB-skapandet kan ta lite tid måste du upprepa anropen för att kontrollera statusen tills statusen lyckas eller misslyckas. När åtgärden lyckas returneras KB-ID i **resourceLocation**. 
 
 [!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=152-227 "Add GET request to determine creation status")]
 
@@ -158,7 +158,7 @@ Den _primära slutpunkten_ skickas som huvud för att autentisera begäran att g
 
 |Huvudnamn|Huvudvärde|
 |--|--|
-|Authorization|`Endpoint` + **primär slutpunkt**<br>Exempel: `Endpoint xxxxxxx`<br>Observera avståndet mellan texten i `Endpoint` och värdet för den primära slutpunkten. 
+|Autentisering|`Endpoint` + **primär slutpunkt**<br>Exempel: `Endpoint xxxxxxx`<br>Observera avståndet mellan texten i `Endpoint` och värdet för den primära slutpunkten. 
 
 Brödtexten i begäran måste skicka rätt JSON:
 
@@ -214,6 +214,13 @@ Den här API-anropet returnerar ett JSON-svar:
 Lägg till följande metod för att hämta ett svar på användarens fråga. 
 
 [!code-csharp[Get Answer](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=290-315 "Get Answer")]
+
+Om du vill begränsa svaret till bara frågor lägger du till egenskapen `[rankerType](Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
+)` i bröd texten, till exempel: 
+
+```csharp
+request.Content = new StringContent("{question:'" + question + "', rankerType:'QuestionOnly'}", Encoding.UTF8, "application/json"); 
+```
 
 Den här API-anropet returnerar ett JSON-svar: 
 

@@ -1,18 +1,18 @@
 ---
 title: Förstå din Azure Cosmos DB faktura
 description: Den här artikeln förklarar hur du förstår din Azure Cosmos DB faktura med några exempel.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1dc4120ec9f1db8ac34800096ae407b5581758a4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 6d2edb7674a82a0388a0e028bee1b222e0e55004
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614160"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754727"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå din Azure Cosmos DB faktura
 
@@ -22,7 +22,7 @@ Med Azure Cosmos DB debiteras du per timme baserat på det etablerade data flöd
 
 Den här artikeln använder några exempel som hjälper dig att förstå den information som visas på den månatliga fakturan. De tal som visas i exemplen kan vara olika om dina Azure Cosmos-behållare har en annan mängd data flöde som har allokerats, om de sträcker sig över flera regioner eller kör under en annan period under en månad.
 
->! Lägg Faktureringen är en del av en timmes klock timme, inte en varaktighet på 60 minuter.
+>! Obs! faktureringen är för vilken del som helst av en timmes klock timme, inte en varaktighet på 60 minuter.
 
 ## <a name="billing-examples"></a>Faktureringsexempel
 
@@ -70,7 +70,7 @@ Om du ökar det etablerade data flödet för en behållare eller en uppsättning
 
 * Fakturan skulle sedan ändras till: $0,008 x 222 = $1.776/timme. 
 
-* I en månad med 720 timmar (24 timmar * 30 dagar), visar din månads faktura om 500 timmar etablerade data flöde var 1 200 RU/SEK och de återstående 220 timmar etablerade data flöden var 22 200 RU/SEK, visar din månads faktura: 500 x $0.096/timme + 220 x $1.776/timme = $438.72/månad.
+* I en månad med 720 timmar (24 timmar * 30 dagar), om 500 timmar etablerade data flöde var 1 200 RU/SEK och de återstående 220 timmar etablerade data flöden var 22 200 RU/SEK, visar din månads faktura: 500 x $0.096/timme + 220 x $1.776/timme = $438.72/månad.
 
 ![Exempel på dedikerad data flödes faktura](./media/understand-your-bill/bill-example1.png)
 
@@ -82,7 +82,7 @@ Om du ökar det etablerade data flödet för en behållare eller en uppsättning
 
 * Om data flödet behöver ändras och du har ökat varje databas etablerade data flöde med 10 000 RU/s för varje databas, och du lägger till en ny behållare till den första databasen med dedikerat data flödes läge på 15-K RU/SEK till din delade data flödes databas, den totala etablerade kapaciteten blir 155-K RU/SEK (60 K RU/SEK + 80 K RU/SEK + 15 K RU/SEK).  
 
-* Du debiteras då enligt följande: 1 550 * $0,008 = $12.40/timme.  
+* Fakturan skulle sedan ändras till: 1 550 * $0,008 = $12.40/timme.  
 
 * I en månad om 720 timmar, om 300 timmar etablerade data flöde var 120-K RU/SEK och de återstående 420 timmar etablerade data flöden var 155-K RU/SEK, visas din månads faktura: 300 x $9.60/timme + 420 x $12.40/timme = $2 880 + $5 208 = $8088/månad. 
 
@@ -120,7 +120,7 @@ Vi antar att du skapar en Azure Cosmos-behållare i USA, västra. Behållaren sk
 
 *Vi antar också att du tar ut 100 GB data varje månad från behållaren i västra USA för att replikera data till östra USA, norra Europa och Asien, östra. Du debiteras för utgående trafik enligt priser för data överföring.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Fakturering exempel: Azure Cosmos-konto med multi-master, data flöde på databas nivå, inklusive dedikerat data flödes läge för vissa behållare
+### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Fakturerings exempel: Azure Cosmos-konto med multi-master, data flöde på databas nivå, inklusive dedikerat data flödes läge för vissa behållare
 
 Vi ska tänka på följande exempel, där vi har ett Azure Cosmos-konto med flera regioner där alla regioner är skrivbara (multi-master config). För enkelhetens skull kommer vi att se till att lagrings storleken förblir konstant och inte ändras och utelämnar den här så att exemplet blir enklare. Det tillhandahållna data flödet under månaden varierar enligt följande (förutsatt 30 dagar eller 720 timmar): 
 
@@ -183,19 +183,19 @@ Den totala månads fakturan blir (förutsatt att 30 dagar/720 timmar per månad)
 |**Timmarna**  |**RU/s** |**Objekt** |**Användning (varje timme)** |**Kostnad** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10 000 <br/>D2:30 000 <br/>C1:20 000 |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
-| | |Data flödes faktura för 2 ytterligare regioner: Östra USA, norra Europa (alla regioner är skrivbara)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2 880  |
-|[101-200] |D1:50 000 <br/>D2:70K <br/>C1: -- |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
-| | |Data flödes faktura för 2 ytterligare regioner: Östra USA, norra Europa (alla regioner är skrivbara)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$5 760  |
+| | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2 880  |
+|[101-200] |D1:50 000 <br/>D2:70K <br/>C1:-- |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
+| | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$5 760  |
 |[201-300]  |D1:50 000 <br/>D2:70K <br/>C1:20 000 |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$2 240  |
-| | |Data flödes faktura för 2 ytterligare regioner: Östra USA, norra Europa (alla regioner är skrivbara)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$6 720 |
-|[301-400] |D1:10 000 <br/>D2:80K <br/>C1: -- |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1 440   |
-| | |Data flödes faktura för 2 ytterligare regioner: Östra USA, norra Europa (alla regioner är skrivbara)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2 880  |
+| | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$6 720 |
+|[301-400] |D1:10 000 <br/>D2:80K <br/>C1:-- |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1 440   |
+| | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2 880  |
 |[401-500] |D1:10 000 <br>D2:10 000 <br>C1:20 000 |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`D2: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$640  |
-| | |Data flödes faktura för 2 ytterligare regioner: Östra USA, norra Europa (alla regioner är skrivbara)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$1 280  |
-|[501-700] |D1:20 000 <br>D2:100 000 <br>C1: -- |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3 840  |
-| | |Data flödes faktura för 2 ytterligare regioner: Östra USA, norra Europa (alla regioner är skrivbara)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7 680  |
-|[701-720] |D1:20 000 <br/>D2:50 000 <br/>C1: -- |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
-| | |Data flödes faktura för 2 ytterligare regioner: Östra USA, norra Europa (alla regioner är skrivbara)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
+| | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$1 280  |
+|[501-700] |D1:20 000 <br>D2:100 000 <br>C1:-- |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3 840  |
+| | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7 680  |
+|[701-720] |D1:20 000 <br/>D2:50 000 <br/>C1:-- |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
+| | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Total månads kostnad**  | |**$38 688**   |
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Proaktivt uppskatta din månads faktura  
@@ -214,11 +214,11 @@ Nu ska vi tänka på ett annat exempel, där du vill proaktivt uppskatta din fak
 
 |**Data flödes kostnad** | | | |
 |----|----|----|----|
-|Åtgärdstyp| Begär Anden per sekund| Genomsn. RU/begäran| Ru: er krävs|
+|Åtgärdstyp| Begär Anden per sekund| Gmsn. RU/begäran| Ru: er krävs|
 |Skriva| 100 | 5 | 500|
 |Läsa| 400| 1| 400|
 
-Totalt RU/SEK: 500 + 400 = 900 varje timmes kostnad: 900/100 * $0,008 = $0,072 förväntad månads kostnad för data flöde (förutsatt att 31 dagar): $0,072 * 24 * 31 = $53,57
+Totalt RU/SEK: 500 + 400 = 900 timkostnad: 900/100 * $0,008 = $0,072 förväntad månads kostnad för data flöde (förutsatt att 31 dagar har upprättats): $0,072 * 24 * 31 = $53,57
 
 **Total månads kostnad**
 
@@ -238,8 +238,8 @@ Din totala faktura (utan reserverad kapacitet) blir (förutsatt 30 dagar eller 7
 
 |**Region**| **Tim pris per 100 RU/s**|**Enheter (RU/s)**|**Fakturerat belopp (varje timme)**| **Fakturerat belopp (månatligt)**|
 |----|----|----|----|----|
-|East US|$0,008 |50 KB|$4|$2 880 |
-|Östra Japan|$0,009 |50 KB| $4,50 |$3 240 |
+|USA, östra|$0,008 |50 kB|$4|$2 880 |
+|Japan, östra|$0,009 |50 kB| $4,50 |$3 240 |
 |Totalt|||$8,50|$6 120 |
 
 Vi rekommenderar att du har köpt reserverad kapacitet i stället. Du kan köpa reserverad kapacitet för 100-K RU/SEK till priset $56 064 i ett år (med 20% rabatt) eller $6,40 per timme. Se priser för reserverad kapacitet på [sidan prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/)).  
@@ -252,8 +252,8 @@ Det du har köpt på ett effektivt sätt är en kredit på $8 per timme, för 10
 
 |**Region**| **Tim pris per 100 RU/s**|**Enheter (RU/s)**| **Fakturerat belopp (varje timme)**| **Fakturerat belopp (månatligt)**|
 |----|----|----|----|----|
-|East US|$0,008 |50 KB|$4|$2 880 |
-|Östra Japan|$0,009 |50 KB| $4,50 |$3 240 |
+|USA, östra|$0,008 |50 kB|$4|$2 880 |
+|Japan, östra|$0,009 |50 kB| $4,50 |$3 240 |
 |||Användningsbaserad betalning|$8,50|$6120|
 |Köpt reserverad kapacitet|$0,0064 (20% rabatt) |100 RU/SEK eller $8 kapacitet för inköpt |– $8|– $5 760 |
 |Nettofaktura|||$0,50 |$360 |

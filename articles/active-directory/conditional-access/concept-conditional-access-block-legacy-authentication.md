@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc8381fe964ce924ed37d6b7e6d22dc730eae89
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 19b29181f023b49cca7159fbbcad4a4675744a96
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453061"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819735"
 ---
 # <a name="blocking-legacy-authentication"></a>Blockerar äldre autentisering
  
@@ -33,9 +33,11 @@ Innan du kan blockera äldre autentisering i din katalog måste du först först
 
 1. Gå till Azure Portal > Azure Active Directory > inloggningar.
 1. Lägg till kolumnen klient program om den inte visas genom att klicka på kolumner >-klient program.
-1. Filtrera efter klient program > andra klienter och klicka på Använd.
+1. Filtrera efter klient program > kontrol lera alla andra klient alternativ som visas och klicka på Använd.
+1. Filtrera efter status > lyckades och klicka på Använd. 
+1. Expandera datum intervallet om det behövs med datum filtret.
 
-Vid filtrering visas bara inloggnings försök som gjorts av äldre autentiseringsprotokoll. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. Fältet klient app på fliken grundläggande information visar vilket äldre autentiseringsprotokoll som användes. I dessa loggar anges vilka användare som fortfarande är beroende av tidigare autentisering och vilka program som använder äldre protokoll för att göra autentiseringsbegäranden. För användare som inte visas i dessa loggar och som bekräftas att inte använda äldre autentisering, implementera en princip för villkorlig åtkomst eller aktivera bas linje principen: blockera äldre autentisering enbart för dessa användare.
+Vid filtrering visas endast lyckade inloggnings försök som gjorts av de valda äldre autentiseringsprotokollen. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. I kolumnen klient program eller fältet klient app under fliken grundläggande information när du har valt en enskild rad med data visas vilket äldre autentiseringsprotokoll som användes. I dessa loggar anges vilka användare som fortfarande är beroende av tidigare autentisering och vilka program som använder äldre protokoll för att göra autentiseringsbegäranden. För användare som inte visas i dessa loggar och som bekräftas att inte använda äldre autentisering, implementera en princip för villkorlig åtkomst eller aktivera bas linje principen: blockera äldre autentisering enbart för dessa användare.
 
 ## <a name="moving-away-from-legacy-authentication"></a>Flytta bort från äldre autentisering 
 
@@ -47,8 +49,8 @@ Det här avsnittet innehåller en steg-för-steg-översikt om hur du uppdaterar 
 
 Det första steget i att aktivera modern autentisering ser till att din katalog stöder modern autentisering. Modern autentisering är aktiverat som standard för kataloger som skapats den 1 augusti 2017. Om din katalog skapades före detta datum måste du aktivera modern autentisering för din katalog manuellt med hjälp av följande steg:
 
-1. Kontrol lera om din katalog redan stöder modern autentisering genom att köra @ no__t-0 @ no__t-1from för [Skype för företag – Online PowerShell-modulen](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Om kommandot returnerar en tom @ no__t-0 @ no__t-1property, är modern autentisering inaktive rad. Uppdatera inställningen för att aktivera modern autentisering med @ no__t-0. Om din @ no__t-0 @ no__t-1property innehåller en post, är du redo att sätta igång.
+1. Kontrol lera om din katalog redan stöder modern autentisering genom att köra `Get-CsOAuthConfiguration` från [Skype för företag – Online PowerShell-modulen](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Om kommandot returnerar en tom `OAuthServers` -egenskap inaktive ras modern autentisering. Uppdatera inställningen för att aktivera modern autentisering med hjälp av `Set-CsOAuthConfiguration`. Om din `OAuthServers` -egenskap innehåller en post, är du redo att sätta igång.
 
 Se till att slutföra det här steget innan du går vidare. Det är viktigt att dina webbplatskonfigurationer ändras först eftersom de avgör vilket protokoll som ska användas av alla Office-klienter. Även om du använder Office-klienter som har stöd för modern autentisering, kommer de att använda äldre protokoll om modern autentisering är inaktive rad i din katalog.
 

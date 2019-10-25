@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6f6c656bee9d271942e74f8116e64aeb47d68d5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: b141677e60705dc4176630ee7fd195ae03bba842
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757536"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816932"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fil lagring 
 
@@ -23,6 +23,9 @@ Innan du börjar kan du läsa artikeln [Kom igång med AZCopy](storage-use-azcop
 ## <a name="create-file-shares"></a>Skapa fil resurser
 
 Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att skapa en fil resurs. Exemplet i det här avsnittet skapar en fil resurs med namnet `myfileshare`.
+
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 |    |     |
 |--------|-----------|
@@ -47,6 +50,9 @@ Det här avsnittet innehåller följande exempel:
 > AzCopy beräknar och lagrar inte filens MD5-hash-kod automatiskt. Om du vill att AzCopy ska göra det lägger du till flaggan `--put-md5` till varje Copy-kommando. När filen har hämtats beräknar AzCopy en MD5-hash för hämtade data och verifierar att MD5-hashen som lagras i filens `Content-md5`-egenskap matchar det beräknade hash-värdet.
 
 För detaljerade referens dokument se [AzCopy Copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 ### <a name="upload-a-file"></a>Överför en fil
 
@@ -133,6 +139,9 @@ Det här avsnittet innehåller följande exempel:
 
 För detaljerade referens dokument se [AzCopy Copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
+
 ### <a name="download-a-file"></a>Hämta en fil
 
 |    |     |
@@ -207,6 +216,9 @@ Det här avsnittet innehåller följande exempel:
 
 Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
+
 ### <a name="copy-a-file-to-another-storage-account"></a>Kopiera en fil till ett annat lagrings konto
 
 |    |     |
@@ -247,6 +259,9 @@ Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändr
 Om du ställer in flaggan `--delete-destination` till `true` AzCopy ta bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil ställer du in flaggan `--delete-destination` på `prompt`.
 
 Detaljerade referens dokument finns i [AzCopy Sync](storage-ref-azcopy-sync.md).
+
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 ### <a name="update-a-file-share-with-changes-to-another-file-share"></a>Uppdatera en fil resurs med ändringar i en annan fil resurs
 

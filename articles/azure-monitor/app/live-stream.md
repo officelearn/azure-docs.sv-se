@@ -1,28 +1,23 @@
 ---
 title: Live Metrics Stream med anpassade mått och diagnostik i Azure Application Insights | Microsoft Docs
 description: Övervaka din webbapp i real tid med anpassade mått och diagnostisera problem med en direkt flöde av fel, spår och händelser.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 4e1d83d99f6df9407e24e2ae57af70f68858092d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: d85688d297eb0df00e71f388b2a3350eabe5f6d5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012741"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817199"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka & diagnostisera med en svars tid på 1 sekund
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: övervaka & diagnostisera med en andra svars tid
 
-Använd Live Metrics Stream från [Application Insights](../../azure-monitor/app/app-insights-overview.md)för att avhjälpa det taktiga hjärtat i din Live-, produktions webb tillämpning. Välj och filtrera mått och prestanda räknare för att se Real tid utan störningar på tjänsten. Undersök stack spårningar från exempel misslyckade förfrågningar och undantag. Tillsammans med [profiler](../../azure-monitor/app/profiler.md), ögonblicks [bilds fel sökning](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream ger en kraftfull och icke-invasiv diagnos verktyg för din Live-webbplats.
+Använd Live Metrics Stream från [Application Insights](../../azure-monitor/app/app-insights-overview.md)för att avhjälpa det taktiga hjärtat i din Live-, produktions webb tillämpning. Välj och filtrera mått och prestanda räknare för att se Real tid utan störningar på tjänsten. Undersök stack spårningar från exempel misslyckade förfrågningar och undantag. Tillsammans med [profiler](../../azure-monitor/app/profiler.md), [ögonblicks bilds fel sökning](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream ger en kraftfull och icke-invasiv diagnos verktyg för din Live-webbplats.
 
 Med Live Metrics Stream kan du:
 
@@ -38,7 +33,7 @@ Med Live Metrics Stream kan du:
 
 Live-mått stöds för närvarande för ASP.NET-, ASP.NET Core-, Azure Functions-, Java-och Node. js-appar.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 1. Om du ännu inte har [installerat Application Insights](../../azure-monitor/azure-monitor-app-hub.md) i din webbapp gör du det nu.
 2. Förutom standard Application Insightss paketen [Microsoft. ApplicationInsights. PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) krävs för att aktivera Live Metrics Stream.
@@ -52,9 +47,9 @@ Live-mått stöds för närvarande för ASP.NET-, ASP.NET Core-, Azure Functions
 
 ### <a name="nodejs"></a>Node.js
 
-Om du vill använda Live-mått med Node. js måste du uppdatera till version 1,30 eller senare av SDK: n. Som standard är Live-måtten inaktiverade i Node. js SDK. Om du vill aktivera Live- `setSendLiveMetrics(true)` mått lägger du till dina [konfigurations metoder](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) när du initierar SDK: n.
+Om du vill använda Live-mått med Node. js måste du uppdatera till version 1,30 eller senare av SDK: n. Som standard är Live-måtten inaktiverade i Node. js SDK. Om du vill aktivera Live-mått lägger du till `setSendLiveMetrics(true)` i dina [konfigurations metoder](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) när du initierar SDK: n.
 
-### <a name="no-data-check-your-server-firewall"></a>Ser du inga data? Kontrol lera serverns brand vägg
+### <a name="no-data-check-your-server-firewall"></a>Inga data? Kontrol lera serverns brand vägg
 
 Kontrol lera att de [utgående portarna för Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) är öppna i brand väggen för dina servrar. 
 
@@ -65,8 +60,8 @@ Kontrol lera att de [utgående portarna för Live Metrics Stream](../../azure-mo
 |Svarstid|Data som visas inom en sekund|Sammanställt över minuter|
 |Ingen kvarhållning|Data sparas medan de finns i diagrammet och ignoreras sedan|[Data kvarhållna i 90 dagar](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |På begäran|Data strömmas när du öppnar Live-mått|Data skickas när SDK är installerat och aktiverat|
-|Lediga|Det kostar inget att Live Stream data|Omfattas av [prissättning](../../azure-monitor/app/pricing.md)
-|Samling|Alla valda mått och räknare överförs. Felen och stack spåren samplas. TelemetryProcessors tillämpas inte.|Händelser kan [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
+|Kostnadsfri|Det kostar inget att Live Stream data|Omfattas av [prissättning](../../azure-monitor/app/pricing.md)
+|Sampling|Alla valda mått och räknare överförs. Felen och stack spåren samplas. TelemetryProcessors tillämpas inte.|Händelser kan [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
 |Kontroll kanal|Filter kontroll signaler skickas till SDK: n. Vi rekommenderar att du skyddar den här kanalen.|Kommunikationen är enkelriktad, till portalen|
 
 ## <a name="select-and-filter-your-metrics"></a>Välj och filtrera dina mått
@@ -85,7 +80,7 @@ Förutom att Application Insights telemetri kan du också övervaka Windows pres
 
 Live-mått sammanställs på två punkter: lokalt på varje server och sedan på alla servrar. Du kan ändra standardvärdet genom att välja andra alternativ i respektive listruta.
 
-## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Exempel på telemetri: Anpassade Live Diagnostic-händelser
+## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Exempel på telemetri: anpassade Live Diagnostic-händelser
 Som standard visar live-matningen av händelser exempel på misslyckade förfrågningar och beroende anrop, undantag, händelser och spår. Klicka på filter ikonen för att se de tillämpade kriterierna vid varje tidpunkt. 
 
 ![Standard-live-feed](./media/live-stream/live-stream-eventsdefault.png)
@@ -94,7 +89,7 @@ Precis som med mått kan du ange valfria villkor till vilken typ av Application 
 
 ![Anpassad live-feed](./media/live-stream/live-stream-events.png)
 
-Obs! För närvarande kan du använda det yttersta undantags meddelandet för undantags meddelande villkor. I föregående exempel kan du filtrera bort det ofarliga undantaget med ett internt undantags meddelande (efter "<--"-avgränsare) "klienten kopplades från." Använd meddelandet not-contains "fel vid läsning av begär ande innehåll".
+Obs: för närvarande, för undantags meddelande villkor, använder du det yttersta undantags meddelandet. I föregående exempel kan du filtrera bort det ofarliga undantaget med ett internt undantags meddelande (efter "<--"-avgränsare) "klienten kopplades från." Använd meddelandet not-contains "fel vid läsning av begär ande innehåll".
 
 Se information om ett objekt i Live-flödet genom att klicka på det. Du kan pausa matningen antingen genom att klicka på **pausa** eller helt enkelt rulla nedåt eller klicka på ett objekt. Live-matningen återupptas när du har rullat överst eller genom att klicka på objekt räknaren som samlats in när den pausades.
 
@@ -112,7 +107,7 @@ Om du vill övervaka en viss server roll instans kan du filtrera efter server.
 Anpassad Live Metrics Stream tillgänglig med version 2.4.0-beta2 eller senare av [Application Insights SDK för webben](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Kom ihåg att välja alternativet "ta med för hands version" från NuGet Package Manager.
 
 ### <a name="nodejs"></a>Node.js
-Live Metrics Stream är tillgängligt med version 1.3.0 eller senare av [Application Insights SDK för Node. js](https://npmjs.com/package/applicationinsights). Kom ihåg att `setSendLiveMetrics(true)` använda när du konfigurerar SDK i din kod.
+Live Metrics Stream är tillgängligt med version 1.3.0 eller senare av [Application Insights SDK för Node. js](https://npmjs.com/package/applicationinsights). Kom ihåg att använda `setSendLiveMetrics(true)` när du konfigurerar SDK i din kod.
 
 ## <a name="secure-the-control-channel"></a>Skydda kontroll kanalen
 De anpassade filter kriterier som du anger skickas tillbaka till komponenten Live Metrics i Application Insights SDK. Filtren kan eventuellt innehålla känslig information, till exempel customerID. Du kan göra kanalen säker med en hemlig API-nyckel förutom Instrumentation-nyckeln.
@@ -172,7 +167,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 För Azure Function Apps (v2) är det möjligt att skydda kanalen med en API-nyckel med en miljö variabel. 
 
-Skapa en API-nyckel inifrån din Application Insights-resurs och gå till **program inställningar** för din Funktionsapp. Välj **Lägg till ny inställning** och ange ett namn `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` på och ett värde som motsvarar din API-nyckel.
+Skapa en API-nyckel inifrån din Application Insights-resurs och gå till **program inställningar** för din Funktionsapp. Välj **Lägg till ny inställning** och ange ett namn på `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` och ett värde som motsvarar din API-nyckel.
 
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (kräver Application Insights ASP.NET Core SDK 2.3.0 – beta eller senare)
 
@@ -198,9 +193,9 @@ Men om du känner igen och litar på alla anslutna servrar kan du prova anpassad
 >Vi rekommenderar starkt att du konfigurerar den autentiserade kanalen innan du anger potentiellt känslig information som CustomerID i filter kriterierna.
 >
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
-Ser du inga data? Om ditt program finns i ett skyddat nätverk: Live Metrics Stream använder andra IP-adresser än andra Application Insights telemetri. Kontrol lera att [de här IP-adresserna](../../azure-monitor/app/ip-addresses.md) är öppna i brand väggen.
+Inga data? Om ditt program finns i ett skyddat nätverk: Live Metrics Stream använder andra IP-adresser än andra Application Insights telemetri. Kontrol lera att [de här IP-adresserna](../../azure-monitor/app/ip-addresses.md) är öppna i brand väggen.
 
 
 

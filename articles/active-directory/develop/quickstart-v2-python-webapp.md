@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 241935afa023162a35559cd3c46206efa7a7835f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 254a1fd8644015de33855e13f78ab122d28f1e35
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240188"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817124"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
@@ -100,15 +100,17 @@ Om du vill köra det här exemplet behöver du:
 1. Öppna filen **app_config. py** , som du hittar i rotmappen och Ersätt med följande kodfragment:
 
 ```python
-CLIENT_SECRET = "Enter_the_Client_Secret_Here"
 CLIENT_ID = "Enter_the_Application_Id_here"
+CLIENT_SECRET = "Enter_the_Client_Secret_Here"
+AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 ```
 
 > [!div renderon="docs"]
 > Var:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
-> - `Enter_the_Client_Secret_Here`-är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
+> - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
+> - `Enter_the_Tenant_Name_Here`-är **katalog-ID** -värdet för det program som du har registrerat.
 
 #### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
 
@@ -122,6 +124,25 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 
    ```Shell
    python app.py
+   ```
+   > [!IMPORTANT]
+   > Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klienthemligheten läggs till som oformaterad text till dina projektfiler rekommenderar vi att du av säkerhetsskäl använder ett certifikat i stället för en klienthemlighet innan programmet används som produktionsprogram. Mer information om hur du använder ett certifikat finns i [följande instruktioner](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
+
+   ## <a name="more-information"></a>Mer information
+
+   ### <a name="getting-msal"></a>Hämtar MSAL
+   MSAL är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform.
+   Du kan lägga till MSAL python i ditt program med hjälp av pip.
+
+   ```Shell
+   pip install msal
+   ```
+
+   ### <a name="msal-initialization"></a>MSAL-initiering
+   Du kan lägga till referensen i MSAL python genom att lägga till följande kod överst i filen där du kommer att använda MSAL:
+
+   ```Python
+   import msal
    ```
 
 ## <a name="next-steps"></a>Nästa steg

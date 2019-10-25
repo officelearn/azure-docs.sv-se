@@ -4,15 +4,15 @@ description: Använd Azure PowerShell för att hantera dina Azure Cosmos DB-kont
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 08/05/2019
+ms.date: 10/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 3b5d8ff6177b4f9f397b40f50a9cc65f74460f02
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 978f37d08275de704dd01c0251dde42665fca552
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815889"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882108"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
 
@@ -26,8 +26,8 @@ För plattforms oberoende hantering av Azure Cosmos DB kan du använda [Azure CL
 
 Följ anvisningarna i [så här installerar och konfigurerar du Azure PowerShell][powershell-install-configure] för att installera och logga in på ditt Azure-konto i PowerShell.
 
-* Om du vill köra följande kommandon utan att användaren ska bekräfta, Lägg till den `-Force` flaggan till kommandot.
-* Följande kommandon är synkrona.
+* Om du vill köra följande kommandon utan att användaren behöver bekräfta det lägger du till flaggan `-Force` i kommandot.
+* Alla följande kommandon är synkrona.
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos-konton
 
@@ -78,11 +78,11 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-* `$accountName`Namnet på Azure Cosmos-kontot. Måste vara gemener, accepterar alfanumeriska tecken och tecknet "-", och mellan 3 och 31 tecken.
-* `$location`Platsen för Azure Cosmos-konto resursen.
-* `$locations`Databas kontots replik regioner. Det måste finnas en Skriv region per databas konto med ett prioritets värde för redundans på 0.
-* `$consistencyPolicy`Standard konsekvens nivån för Azure Cosmos-kontot. Mer information finns i [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
-* `$CosmosDBProperties`Egenskaps värden som skickas till Cosmos DB Azure Resource Manager-providern för att etablera kontot.
+* `$accountName` namnet på Azure Cosmos-kontot. Måste vara gemener, accepterar alfanumeriska tecken och tecknet "-", och mellan 3 och 31 tecken.
+* `$location` platsen för konto resursen för Azure-Cosmos.
+* `$locations` replik regionerna för databas kontot. Det måste finnas en Skriv region per databas konto med ett prioritets värde för redundans på 0.
+* `$consistencyPolicy` standard konsekvens nivån för Azure Cosmos-kontot. Mer information finns i [konsekvens nivåer i Azure Cosmos DB](consistency-levels.md).
+* `$CosmosDBProperties` de egenskaps värden som skickas till Cosmos DB Azure Resource Manager-providern för att etablera kontot.
 
 Azure Cosmos-konton kan konfigureras med IP-brandvägg samt Virtual Network tjänst slut punkter. Information om hur du konfigurerar IP-brandväggen för Azure Cosmos DB finns i [Konfigurera IP-](how-to-configure-firewall.md)brandvägg.  Mer information om hur du aktiverar tjänstens slut punkter för Azure Cosmos DB finns i [Konfigurera åtkomst från virtuella nätverk](how-to-configure-vnet-service-endpoint.md).
 
@@ -122,7 +122,7 @@ Med det här kommandot kan du uppdatera egenskaperna för ditt Azure Cosmos-data
 * Aktivera flera huvud
 
 > [!NOTE]
-> Du kan inte lägga till eller ta `locations` bort regioner samtidigt och ändra andra egenskaper för ett Azure Cosmos-konto. Ändra regioner måste utföras som en separat åtgärd än andra ändringar i konto resursen.
+> Du kan inte lägga till eller ta bort regioner samtidigt `locations` och ändra andra egenskaper för ett Azure Cosmos-konto. Ändra regioner måste utföras som en separat åtgärd än andra ändringar i konto resursen.
 > [!NOTE]
 > Med det här kommandot kan du lägga till och ta bort regioner, men du kan inte ändra prioriteter för redundans eller utlösa en manuell redundansväxling. Se [ändra prioritet för redundans](#modify-failover-priority) och [utlösa manuell redundans](#trigger-manual-failover).
 
@@ -223,7 +223,7 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 I följande exempel beskrivs hur du ställer in [Azures resurs Taggar][azure-resource-tags] för ett Azure Cosmos-konto.
 
 > [!NOTE]
-> Det här kommandot kan kombineras med kommandon för att skapa eller uppdatera genom att lägga till den `-Tags` flagga motsvarande parameter.
+> Det här kommandot kan kombineras med kommandona skapa eller uppdatera genom att lägga till `-Tags`-flaggan med motsvarande parameter.
 
 ```azurepowershell-interactive
 # Update tags for an Azure Cosmos Account
@@ -241,9 +241,9 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -Tags $tags
 ```
 
-### <a id="list-keys"></a> Lista nycklar
+### <a id="list-keys"></a>Lista konto nycklar
 
-När du skapar ett Azure Cosmos DB-konto, genererar två master åtkomstnycklar som kan användas för autentisering när Azure Cosmos DB-kontot används i tjänsten. Genom att tillhandahålla två åtkomstnycklar för kan Azure Cosmos DB du återskapa nycklarna utan avbrott på ditt Azure Cosmos DB-konto. Det finns också skrivskyddade nycklar för att autentisera skrivskyddade åtgärder. Det finns två skrivskyddade nycklar (primära och sekundära) och två skrivskyddade nycklar (primär eller sekundär).
+När du skapar ett Azure Cosmos DB-konto genererar tjänsten två huvud åtkomst nycklar som kan användas för autentisering när Azure Cosmos DB kontot nås. Genom att tillhandahålla två åtkomst nycklar kan du Azure Cosmos DB återskapa nycklarna utan avbrott till ditt Azure Cosmos DB-konto. Skrivskyddade nycklar för att autentisera skrivskyddade åtgärder är också tillgängliga. Det finns två Läs-och skriv nycklar (primära och sekundära) och två skrivskyddade nycklar (primära och sekundära).
 
 ```azurepowershell-interactive
 # List keys for an Azure Cosmos Account
@@ -255,12 +255,13 @@ $keys = Invoke-AzResourceAction -Action listKeys `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
     -ResourceGroupName $resourceGroupName -Name $accountName
 
-Select-Object $keys
+Write-Host "PrimaryKey =" $keys.primaryMasterKey
+Write-Host "SecondaryKey =" $keys.secondaryMasterKey
 ```
 
-### <a id="list-connection-strings"></a> Lista anslutningssträngar
+### <a id="list-connection-strings"></a>Lista anslutnings strängar
 
-För MongoDB-konton, kan anslutningssträngen för att ansluta din MongoDB-app till databaskontot hämtas med hjälp av följande kommando.
+För MongoDB-konton kan anslutnings strängen för att ansluta din MongoDB-app till databas kontot hämtas med hjälp av följande kommando.
 
 ```azurepowershell-interactive
 # List connection strings for an Azure Cosmos Account
@@ -319,10 +320,10 @@ Set-AzResource -ResourceType $resourceType `
 
 För konton som har kon figurer ATS med automatisk redundans kan du ändra i vilken ordning Cosmos ska befordra sekundära repliker till primär om den primära blir otillgänglig.
 
-I exemplet nedan antar du den aktuella prioriteten för redundans `West US 2 = 0`, `East US 2 = 1`, `South Central US = 2`,.
+I exemplet nedan antar du den aktuella växlings prioriteten `West US 2 = 0``East US 2 = 1``South Central US = 2`.
 
 > [!CAUTION]
-> Om `locationName` du `failoverPriority=0` ändrar för aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Eventuella andra prioritets ändringar kommer inte att utlösa redundans.
+> Om du ändrar `locationName` för `failoverPriority=0` aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Eventuella andra prioritets ändringar kommer inte att utlösa redundans.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -348,12 +349,12 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 
 ### <a id="trigger-manual-failover"></a>Utlös manuell redundans
 
-För konton som kon figurer ATS med manuell redundans, kan du redundansväxla och befordra valfri sekundär replik till primär `failoverPriority=0`genom att ändra till. Den här åtgärden kan användas för att starta en haveri beredskap för att testa haveri beredskaps planeringen.
+För konton som kon figurer ATS med manuell redundans kan du redundansväxla och befordra valfri sekundär replik till primär genom att ändra till `failoverPriority=0`. Den här åtgärden kan användas för att starta en haveri beredskap för att testa haveri beredskaps planeringen.
 
-I exemplet nedan antar du att kontot har en aktuell växlings prioritet för `West US 2 = 0` och `East US 2 = 1` och vänder regionerna.
+I exemplet nedan antar vi att kontot har en aktuell växlings prioritet för `West US 2 = 0` och `East US 2 = 1` och vänder regionerna.
 
 > [!CAUTION]
-> Om `locationName` du `failoverPriority=0` ändrar för aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Alla andra prioritets ändringar kommer inte att utlösa redundans.
+> Om du ändrar `locationName` för `failoverPriority=0` aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Alla andra prioritets ändringar kommer inte att utlösa redundans.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -697,7 +698,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 
 ### <a id="create-container-lww"></a>Skapa en Azure Cosmos-behållare med konflikt lösning
 
-Om du vill skapa en konflikt lösnings princip för att använda en `"mode"="custom"` lagrad procedur ställer du in och anger matchnings Sök vägen som `"conflictResolutionPath"="myResolverStoredProcedure"`namnet på den lagrade proceduren. För att skriva alla konflikter till ConflictsFeed och hantera separat, ange `"mode"="custom"` och`"conflictResolutionPath"=""`
+Om du vill skapa en konflikt lösnings princip för att använda en lagrad procedur anger du `"mode"="custom"` och anger matchnings Sök vägen som namnet på den lagrade proceduren `"conflictResolutionPath"="myResolverStoredProcedure"`. För att skriva alla konflikter till ConflictsFeed och hantera separat, ange `"mode"="custom"` och `"conflictResolutionPath"=""`
 
 ```azurepowershell-interactive
 # Create container with last-writer-wins conflict resolution policy

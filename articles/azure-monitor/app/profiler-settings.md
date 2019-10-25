@@ -1,28 +1,24 @@
 ---
 title: Använd fönstret Azure Application Insights profiler-inställningar | Microsoft Docs
 description: Se profilernas status och starta profilering av sessioner
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 12cb8e31617ee6b1e0c8515e66e265f4eccdf3df
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: b383ef8c92325b0ad6561bee9b654c78e4054338
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338036"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820489"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurera Application Insights Profiler
 
 ## <a name="updated-profiler-agent"></a>Agenten har uppdaterats
-Utlösaren fungerar bara med version 2,6 eller senare av profilerings agenten. Om du kör en Azure App Service kommer agenten att uppdateras automatiskt. Du kan se vilken version av agenten du kör om du går till kudu-URL: en för din webbplats och lägger till \DiagnosticServices i slutet av den, så här: https://yourwebsite.scm.azurewebsites.net/diagnosticservices. Application Insights Profiler webbjobbet ska vara version 2,6 eller senare. Du kan tvinga en uppgradering genom att starta om din webbapp. 
+Utlösaren fungerar bara med version 2,6 eller senare av profilerings agenten. Om du kör en Azure App Service kommer agenten att uppdateras automatiskt. Du kan se vilken version av agenten som körs om du går till kudu-URL: en för din webbplats och lägger till \DiagnosticServices i slutet av den, så här: https://yourwebsite.scm.azurewebsites.net/diagnosticservices. Application Insights Profiler webbjobbet ska vara version 2,6 eller senare. Du kan tvinga en uppgradering genom att starta om din webbapp. 
 
 Om du kör profileraren på en virtuell dator eller moln tjänst måste du ha Windows Azure-diagnostik (WAD)-tilläggs version 16.0.4 eller senare installerat. Du kan kontrol lera versionen av WAD genom att logga in på den virtuella datorn och titta på den här katalogen: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. Katalog namnet är den version av WAD som är installerad. Azure VM-agenten kommer att uppdatera WAD automatiskt när nya versioner är tillgängliga.
 
@@ -42,14 +38,14 @@ På sidan **konfigurera Application Insights profiler** finns följande funktion
 |-|-|
 Profilera nu | Startar profilering av sessioner för alla appar som är länkade till den här instansen av Application Insights.
 Utlösare | Gör att du kan konfigurera utlösare som gör att profileraren kan köras. 
-Senaste profileringssessioner | Visar information om tidigare profilerings sessioner.
+Senaste profilerings sessioner | Visar information om tidigare profilerings sessioner.
 
 ## <a name="profile-now"></a>Profilera nu
 Med det här alternativet kan du starta en profilering av en session på begäran. När du klickar på den här länken börjar alla profiler som skickar data till den här Application Insights-instansen att avbilda en profil. Efter 5 till 10 minuter visas konsolsessionen i listan nedan.
 
 För att en användare ska kunna utlösa en profilerad session manuellt, kräver de minst "Skriv"-åtkomst för rollen för Application Insights-komponenten. I de flesta fall får du den här åtkomsten automatiskt och inget ytterligare arbete krävs. Om du har problem kan du använda rollen som "Application Insights komponent deltagare" i prenumerations omfattnings rollen. [Läs mer om roll åtkomst kontroll med Azure-övervakning](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
-## <a name="trigger-settings"></a>Utlösarinställningar
+## <a name="trigger-settings"></a>Utlösarens inställningar
 ![Utfällning av utlösnings inställningar][trigger-settings-flyout]
 
 Om du klickar på knappen utlösare på Meny raden öppnas rutan Utlös ande inställningar. Du kan ställa in utlösare för att starta profilering när procent andelen processor-eller minnes användning träffar den nivå som du har angett.
@@ -58,8 +54,8 @@ Om du klickar på knappen utlösare på Meny raden öppnas rutan Utlös ande ins
 |-|-|
 På/av-knapp | På: profiler kan startas av den här utlösaren. Off: profiler startas inte av den här utlösaren.
 Minnes tröskel | När den här procent andelen av minnet används startas profileraren.
-Duration | Anger hur lång tid profileraren ska köras när den utlöses.
-Nedkylning | Anger hur lång tid profiler ska vänta innan den söker efter minne eller CPU-användning igen när den har utlösts.
+Längd | Anger hur lång tid profileraren ska köras när den utlöses.
+Cooldown | Anger hur lång tid profiler ska vänta innan den söker efter minne eller CPU-användning igen när den har utlösts.
 
 ## <a name="recent-profiling-sessions"></a>Senaste profilerings sessioner
 I det här avsnittet av sidan visas information om de senaste profilerings sessionerna. En profilerings session representerar den tids period då profilerings agenten tog en profil på en av datorerna som är värd för ditt program. Du kan öppna profilerna från en session genom att klicka på en av raderna. För varje session visar vi:
@@ -67,9 +63,9 @@ I det här avsnittet av sidan visas information om de senaste profilerings sessi
 | | |
 |-|-|
 Utlöst av | Hur sessionen startades, antingen genom en utlösare, profil nu eller standard sampling. 
-Appnamn | Namnet på det program som profilerades.
+App-namn | Namnet på det program som profilerades.
 Dator instans | Namnet på datorn som profilens agent kördes på.
-Timestamp | Tid när profilen fångades.
+Tidsstämpel | Tid när profilen fångades.
 Spåra | Antal spårningar som kopplats till enskilda begär Anden.
 REGISTRERA | Procent andel CPU som användes när profileraren kördes.
 Minnesoptimerade | Procent andelen minne som användes när profileraren kördes.
@@ -80,11 +76,11 @@ Du kan utlösa profiler manuellt med ett enda klick. Anta att du kör ett test f
 
 I nästa avsnitt visas hur det här scenariot fungerar:
 
-### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Steg 1: Skapa trafik till din webbapp genom att starta ett test för webb prestanda
+### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Steg 1: generera trafik till din webbapp genom att starta ett test för webb prestanda
 
 Om din webbapp redan har inkommande trafik eller om du bara vill generera trafik manuellt, hoppar du över det här avsnittet och fortsätter till steg 2.
 
-1. I Application Insights Portal väljer du **konfigurera** > **prestanda testning**. 
+1. I Application Insights-portalen väljer du **konfigurera** > **prestanda testning**. 
 
 1. Starta ett nytt prestandatest genom att välja knappen **nytt** .
 
@@ -100,7 +96,7 @@ Om din webbapp redan har inkommande trafik eller om du bara vill generera trafik
 
     ![Belastnings testet körs pågår][load-test-in-progress]
 
-### <a name="step-2-start-a-profiler-on-demand-session"></a>Steg 2: Starta en-session på begäran
+### <a name="step-2-start-a-profiler-on-demand-session"></a>Steg 2: starta en session på begäran
 
 1. När belastnings testet körs startar du profiler för att samla in spårningar på webbappen medan den tar emot belastningen.
 

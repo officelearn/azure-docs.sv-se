@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 06/12/2019
-ms.openlocfilehash: f11cbdab59548906f751116a2ca7b9c545b25d91
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 10/01/2019
+ms.openlocfilehash: 686f4620280318fb0e642b30624a91c54280c360
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677888"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817957"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabbstart: Skapa Apache Kafka kluster i Azure HDInsight med Azure Portal
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med Azure Portal
 
 Apache Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö.
 
@@ -27,7 +27,7 @@ Apache Kafka-API:et kan endast användas av resurser i samma virtuella nätverk.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -35,9 +35,9 @@ En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) m
 
 Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. På den vänstra menyn navigerar du till **+ skapa en resurs** > **analys** > **HDInsight**.
+1. På den vänstra menyn navigerar du till **+ skapa en resurs** > **Analytics** > **HDInsight**.
 
     ![Azure Portal skapa resurs-HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
@@ -45,13 +45,13 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
-    |Subscription    |  Välj din Azure-prenumeration. |
-    |Resource group     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
+    |Prenumeration    |  Välj din Azure-prenumeration. |
+    |Resursgrupp     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
     |Klusternamn   | Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
-    |Location    | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
+    |Plats    | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
     |Klustertyp| Välj **Välj kluster typ**. Välj sedan **Kafka** som kluster typ.|
     |Version|Standard versionen för kluster typen anges. Välj i list rutan om du vill ange en annan version.|
-    |Användar namn och lösen ord för kluster inloggning    | Standardinloggningsnamnet är **admin**. Lösenordet måste bestå av minst 10 tecken och måste innehålla åtminstone en siffra, en versal, en gemen, ett alfanumeriskt tecken (förutom tecknen ' " ` \). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
+    |Användar namn och lösen ord för kluster inloggning    | Standard inloggnings namnet är **admin**. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" "\). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
     |Secure Shell (SSH)-användarnamn | Standardanvändarnamnet är **sshuser**.  Du kan ange ett annat namn som SSH-användarnamn. |
     |Använd lösen ord för kluster inloggning för SSH| Markera den här kryss rutan om du vill använda samma lösen ord för SSH-användare som det du angav för kluster inloggnings användaren.|
 
@@ -61,18 +61,18 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
     För hög datatillgänglighet, välj en plats (region) som innehåller __tre feldomäner__. Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
 
-    Välj **Next: Lagrings > >** -fliken för att gå vidare till lagrings inställningarna.
+    Välj **Nästa: fliken lagrings > >** för att gå vidare till lagrings inställningarna.
 
 1. Ange följande värden på fliken **lagring** :
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
-    |Primär lagringstyp|Använd standardvärdet **Azure Storage**.|
-    |Urvalsmetod|Använd standardvärdet **Select i list**.|
+    |Primär lagrings typ|Använd standardvärdet **Azure Storage**.|
+    |Urvals metod|Använd standardvärdet **Select i list**.|
     |Primärt lagringskonto|Använd List rutan för att välja ett befintligt lagrings konto eller Välj **Skapa nytt**. Om du skapar ett nytt konto måste namnet vara mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener|
     |Container|Använd det automatiskt ifyllda värdet.|
 
-    ![Komma igång med HDInsight Linux ger klusterlagringsvärden](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Ange lagringsvärden för att skapa ett HDInsight-kluster")
+    ![HDInsight Linux kom igång ger kluster lagrings värden](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Ange lagrings värden för att skapa ett HDInsight-kluster")
 
     Välj fliken **säkerhet + nätverk** .
 
@@ -111,24 +111,24 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 3. Ange SSH-användarens lösenord när du uppmanas till detta.
 
     När du är ansluten visas ett meddelande av följande slag:
-    
+
     ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     83 packages can be updated.
     37 updates are security updates.
 
 
     Welcome to Apache Kafka on HDInsight.
-    
+
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
     ```
 
@@ -138,35 +138,37 @@ När du arbetar med Kafka måste du känna till *Apache Zookeeper*- och *Broker*
 
 I det här avsnittet hämtar du värdinformation från om värden från Apache Ambari REST API på klustret.
 
-1. Installera [JQ](https://stedolan.github.io/jq/), en JSON-processor med kommando rad. Det här verktyget används för att parsa JSON-dokument och är användbart vid parsning av värd informationen. I den öppna SSH-anslutningen anger du följande kommando för `jq`att installera:
+1. Installera [JQ](https://stedolan.github.io/jq/), en JSON-processor med kommando rad. Det här verktyget används för att parsa JSON-dokument och är användbart vid parsning av värd informationen. I den öppna SSH-anslutningen anger du följande kommando för att installera `jq`:
 
     ```bash
     sudo apt -y install jq
     ```
 
-2. Konfigurera miljövariabler. Ersätt `PASSWORD` och`CLUSTERNAME` med klustrets inloggnings lösen ord respektive kluster namn och ange sedan kommandot:
+1. Konfigurera lösen ords variabel. Ersätt `PASSWORD` med lösen ordet för kluster inloggning och ange sedan kommandot:
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-3. Extrahera korrekt bokstäver-kluster namn. Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades. Det här kommandot hämtar det faktiska Skift läget, lagrar det i en variabel och visar sedan det korrekta bokstäver-namnet och det namn som du angav tidigare. Ange följande kommando:
+1. Extrahera rätt bokstäver-kluster namn. Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades. Det här kommandot kommer att hämta det faktiska Skift läget och sedan lagra det i en variabel. Ange följande kommando:
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > Om du utför den här processen utanför klustret finns det en annan procedur för att lagra kluster namnet. Hämta kluster namnet i gemener från Azure Portal. Ersätt sedan kluster namnet för `<clustername>` i följande kommando och kör det: `export clusterName='<clustername>'`.
 
-4. Använd kommandot nedan om du vill ange en miljö variabel med Zookeeper-värd information. Kommandot hämtar alla Zookeeper-värdar och returnerar sedan bara de första två posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
+
+1. Använd kommandot nedan om du vill ange en miljö variabel med Zookeeper-värd information. Kommandot hämtar alla Zookeeper-värdar och returnerar sedan bara de första två posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
     ```
 
-    Det här kommandot frågar Ambari-tjänsten på klustrets huvudnod direkt. Du kan också få åtkomst till Ambari med hjälp av `https://$CLUSTERNAME.azurehdinsight.net:80/`den offentliga adressen för. Vissa nätverkskonfigurationer kan förhindra åtkomst till den offentliga adressen. Till exempel, användning av nätverkssäkerhetsgrupper (NSG) för att begränsa åtkomsten till HDInsight i ett virtuellt nätverk.
+    > [!Note]  
+    > Det här kommandot kräver Ambari-åtkomst. Om klustret ligger bakom en NSG kör du det här kommandot från en dator som har åtkomst till Ambari. 
 
-5. Använd följande kommando om du vill kontrollera att miljövariabeln är korrekt:
+1. Använd följande kommando om du vill kontrollera att miljövariabeln är korrekt:
 
     ```bash
     echo $KAFKAZKHOSTS
@@ -176,15 +178,18 @@ I det här avsnittet hämtar du värdinformation från om värden från Apache A
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-6. Använd följande kommando om du vill ange en miljövariabel med värdinformation för Kafka-broker:
+1. Använd följande kommando om du vill ange en miljövariabel med värdinformation för Kafka-broker:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-7. Använd följande kommando om du vill kontrollera att miljövariabeln är korrekt:
+    > [!Note]  
+    > Det här kommandot kräver Ambari-åtkomst. Om klustret ligger bakom en NSG kör du det här kommandot från en dator som har åtkomst till Ambari. 
 
-    ```bash   
+1. Använd följande kommando om du vill kontrollera att miljövariabeln är korrekt:
+
+    ```bash
     echo $KAFKABROKERS
     ```
 

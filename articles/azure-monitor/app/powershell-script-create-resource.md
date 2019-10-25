@@ -1,46 +1,41 @@
 ---
-title: PowerShell-skript för att skapa en Application Insights-resurs | Microsoft Docs
-description: Automatisera genereringen av Application Insights-resurser.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: PowerShell-skript för att skapa en Application Insights resurs | Microsoft Docs
+description: Automatisera skapandet av Application Insights-resurser.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/19/2016
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 8a7b19dd6e5bc08c0c7e278b514ecaa9dc13a00e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/19/2016
+ms.openlocfilehash: 11245d0f9d6e6b86a5d0249df65b33f851bee9d7
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254484"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820681"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>PowerShell-skript för att skapa en Application Insights-resurs
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-När du vill övervaka ett nytt program- eller en ny version av ett program – med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), du har konfigurerat en ny resurs i Microsoft Azure. Den här resursen är där telemetridata från din app analyseras och visas. 
+När du vill övervaka ett nytt program eller en ny version av ett program – med [Azure Application insikter](https://azure.microsoft.com/services/application-insights/), ställer du in en ny resurs i Microsoft Azure. Den här resursen är där telemetri-data från din app analyseras och visas. 
 
 Du kan automatisera skapandet av en ny resurs med hjälp av PowerShell.
 
-Till exempel om du utvecklar en app för mobila enheter, är det troligt att, när som helst, det är flera publicerade versioner av din app används av dina kunder. Du vill inte få telemetri-resultat från olika versioner upp. Du får den utvecklingsprocessen för att skapa en ny resurs för varje version.
+Om du t. ex. utvecklar en app för mobila enheter, är det troligt att du när som helst får flera publicerade versioner av din app som används av dina kunder. Du vill inte hämta telemetri-resultatet från olika versioner som är blandade. Så du får skapa en ny resurs för varje version så att du kan skapa en ny resurs.
 
 > [!NOTE]
-> Om du vill skapa en uppsättning resurser på samma gång kan du överväga att [skapa resurser med hjälp av en Azure-mall](powershell.md).
+> Om du vill skapa en uppsättning resurser samtidigt kan du överväga att [skapa resurserna med hjälp av en Azure-mall](powershell.md).
 > 
 > 
 
-## <a name="script-to-create-an-application-insights-resource"></a>Skript för att skapa en Application Insights-resurs
+## <a name="script-to-create-an-application-insights-resource"></a>Skript för att skapa en Application Insights resurs
 Se relevanta cmdlet-specifikationer:
 
 * [New-AzResource](https://msdn.microsoft.com/library/mt652510.aspx)
 * [New-AzRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
 
-*PowerShell Script*  
+*PowerShell-skript*  
 
 ```powershell
 
@@ -99,19 +94,19 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
 ```
 
-## <a name="what-to-do-with-the-ikey"></a>Vad du gör med iKey
-Varje resurs identifieras av dess instrumentationsnyckeln (iKey). Nyckeln är en resurs skapas skriptets utdata. Build-skriptet bör ge iKey till Application Insights SDK inbäddade i appen.
+## <a name="what-to-do-with-the-ikey"></a>Vad du kan göra med iKey
+Varje resurs identifieras av sin Instrumentation-nyckel (iKey). IKey är utdata från skriptet för att skapa en resurs. Ditt build-skript ska tillhandahålla iKey till den Application Insights SDK Embedded i din app.
 
-Det finns två sätt att tillgängliggöra iKey till SDK:
+Det finns två sätt att göra iKey tillgängligt för SDK:
 
-* I [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md): 
+* I [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md): 
   * `<instrumentationkey>`*ikey*`</instrumentationkey>`
-* Eller i [initieringskod](../../azure-monitor/app/api-custom-events-metrics.md): 
+* Eller i [initierings kod](../../azure-monitor/app/api-custom-events-metrics.md): 
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
 ## <a name="see-also"></a>Se också
-* [Skapa Application Insights och testa webbresurser från mallar](powershell.md)
-* [Konfigurera övervakning av Azure-diagnostik med PowerShell](powershell-azure-diagnostics.md) 
-* [Ställ in aviseringar med hjälp av PowerShell](powershell-alerts.md)
+* [Skapa Application Insights-och webb test resurser från mallar](powershell.md)
+* [Konfigurera övervakning av Azure Diagnostics med PowerShell](powershell-azure-diagnostics.md) 
+* [Ange aviseringar med hjälp av PowerShell](powershell-alerts.md)
 

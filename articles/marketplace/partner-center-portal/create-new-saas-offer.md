@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 578904d40b1354dde99644cb2fc73e0a56223b34
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: a757ee03b8d8c7c93b191054182d077408c162db
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376293"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819818"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -178,7 +178,8 @@ Välj **Spara** när du är klar med fälten.
 Välj minst en (1) och högst tre (3) kategorier som används för att gruppera ditt erbjudande i lämpliga sökområden för Marketplace. Ta reda på hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. 
 
 ### <a name="industry"></a>Bransch
-Välj upp till två (2) branscher som används för att gruppera ditt erbjudande i lämpliga Sök områden för Marketplace. Om erbjudandet inte är speciellt för en bransch ska du inte välja ett. Ta reda på hur ditt erbjudande stöder de valda branscher i beskrivningen av erbjudandet. 
+
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Appversion
 Detta är ett valfritt fält som används i AppSource Marketplace för att identifiera versions numret för ditt erbjudande. 
@@ -269,7 +270,7 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
 1. Om du vill använda **fetstil** lägger du till `<b>` i början av den text som du vill använda fetstil och lägger till `</b>` i slutet av den text som du vill använda fetstil. 
 
-    **Exempel**: @no__t – 1 kostnads fri utvärderings version `</b>`
+    **Exempel**: `<b>` kostnads fri utvärderings version `</b>`
     
     Ovanstående skulle medföra att den kostnads fria utvärderings versionen är fet i beskrivningen av erbjudandet i butik. 
 
@@ -289,12 +290,12 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
     **Exempel**:
 
-    `<h1>`This är rubrik 1 @ no__t-1 <br>
-    `<h2>`This är rubrik 2 @ no__t-1 <br>
-    `<h3>`This är rubrik 3 @ no__t-1 <br>
-    `<h4>`This är rubrik 4 @ no__t-1 <br>
-    `<h5>`This är rubrik 5 @ no__t-1 <br>
-    `<h6>`This är rubrik 6 @ no__t-1 
+    `<h1>`detta är rubrik 1`</h1>` <br>
+    `<h2>`detta är rubrik 2`</h2>` <br>
+    `<h3>`detta är rubrik 3`</h3>` <br>
+    `<h4>`detta är rubrik 4`</h4>` <br>
+    `<h5>`detta är rubrik 5`</h5>` <br>
+    `<h6>`detta är rubrik 6`</h6>` 
 
     Ovanstående skulle se ut så här:
 

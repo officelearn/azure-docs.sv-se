@@ -4,16 +4,16 @@ description: Den här artikeln innehåller en samling av AzCopy-exempel kommando
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c65c6b3f6f186e7821ff402eea4494fa60e9c370
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6680efb89eddcfb1c4fa931993956ef83369b292
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598072"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817040"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
 
@@ -31,6 +31,9 @@ Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att ladda ne
 > Till exempel: `'https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>'`.
 
 ## <a name="create-a-container"></a>Skapa en container
+
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 Du kan använda kommandot [AzCopy make](storage-ref-azcopy-make.md) för att skapa en behållare. I exemplen i det här avsnittet skapas en behållare med namnet `mycontainer`.
 
@@ -54,10 +57,10 @@ Det här avsnittet innehåller följande exempel:
 > * Ladda upp innehållet i en katalog 
 > * Ladda upp vissa filer
 
-> [!NOTE]
-> AzCopy beräknar och lagrar inte filens MD5-hash-kod automatiskt. Om du vill att AzCopy ska göra det lägger du till flaggan `--put-md5` till varje Copy-kommando. På så sätt beräknar AzCopy en MD5-hash för hämtade data och kontrollerar att MD5-hashen som lagras i blobens `Content-md5`-egenskap matchar den beräknade hashen.
-
 Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 ### <a name="upload-a-file"></a>Överför en fil
 
@@ -122,7 +125,6 @@ I det här exemplet överför AzCopy katalogen `C:\myDirectory\photos` och filen
 
 Du kan också utesluta filer med alternativet `--exclude-path`. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
-
 #### <a name="use-wildcard-characters"></a>Använd jokertecken
 
 Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med alternativet `--include-pattern`. Ange partiella namn som innehåller jokertecken. Separera namn med hjälp av en semicolin (`;`). 
@@ -153,6 +155,9 @@ Det här avsnittet innehåller följande exempel:
 > Om värdet för egenskapen `Content-md5` för en BLOB innehåller en hash beräknar AzCopy en MD5-hash för hämtade data och kontrollerar att MD5-hashen som lagras i blobens `Content-md5`-egenskap matchar den beräknade hashen. Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här beteendet genom att lägga till `--check-md5=NoCheck` eller `--check-md5=LogOnly` till kommandot Copy.
 
 Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 ### <a name="download-a-file"></a>Hämta en fil
 
@@ -242,6 +247,9 @@ Det här avsnittet innehåller följande exempel:
 
 Detaljerade referens dokument finns i [AzCopy Copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
+
 ### <a name="copy-a-blob-to-another-storage-account"></a>Kopiera en blob till ett annat lagrings konto
 
 |    |     |
@@ -285,6 +293,9 @@ Om du ställer in flaggan `--delete-destination` till `true` AzCopy ta bort file
 > För att förhindra oavsiktliga borttagningar, se till att aktivera funktionen för [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) innan du använder flaggan `--delete-destination=prompt|true`.
 
 Detaljerade referens dokument finns i [AzCopy Sync](storage-ref-azcopy-sync.md).
+
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Uppdatera en behållare med ändringar i ett lokalt fil system
 

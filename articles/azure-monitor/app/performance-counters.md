@@ -1,23 +1,18 @@
 ---
 title: Prestanda räknare i Application Insights | Microsoft Docs
 description: Övervaka system-och anpassade .NET-prestanda räknare i Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/13/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: fa4e45416e83d933cd21fe482bcead14bfbcae22
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/13/2018
+ms.openlocfilehash: 229216ee873ade9418574141017aaf88235ba9e4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349919"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820708"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>System prestanda räknare i Application Insights
 
@@ -30,16 +25,16 @@ Fönstret mått visar standard uppsättningen med prestanda räknare.
 ![Prestanda räknare som rapporter ATS i Application Insights](./media/performance-counters/performance-counters.png)
 
 De aktuella standard räknare som har kon figurer ATS för att samlas in för ASP.NET/ASP.NET Core-webbprogram är:
-- % Process @ no__t-0Processor tid
-- % Process @ no__t-0Processor-tid normaliserad
-- Minne @ no__t-0Available byte
+- % Process\\processor tid
+- % Process\\processor tiden är normaliserad
+- Tillgängliga byte för minnes\\
 - ASP.NET-begäranden per sekund
 - Utlösta .NET CLR-undantag/SEK
 - Körnings tid för ASP.NET-ApplicationsRequest
-- Process @ no__t-0Private byte
-- Process @ no__t-0IO data byte/s
-- ASP.NET-program @ no__t-0Requests i program kön
-- Processor (_ total) \\% processor tid
+- Process\\privata byte
+- Process\\IO-databyte/s
+- ASP.NET-program\\begär anden i program kön
+- Processor (_ total)\\% processor tid
 
 ## <a name="add-counters"></a>Lägg till räknare
 
@@ -70,9 +65,9 @@ Om den prestanda räknare som du vill använda inte finns med i listan över må
 
 Du kan avbilda både standard räknare och de som du har implementerat själv. `\Objects\Processes` är ett exempel på en standard räknare som är tillgänglig på alla Windows-system. `\Sales(photo)\# Items Sold` är ett exempel på en anpassad räknare som kan implementeras i en webb tjänst.
 
-Formatet är `\Category(instance)\Counter"`, eller för kategorier som inte har några instanser, bara `\Category\Counter`.
+Formatet är `\Category(instance)\Counter"`eller för kategorier som inte har några instanser, bara `\Category\Counter`.
 
-`ReportAs` krävs för räknar namn som inte matchar `[a-zA-Z()/-_ \.]+` – det vill säga att de innehåller tecken som inte finns i följande uppsättningar: bokstäver, parenteser, snedstreck, bindestreck, under streck, blank steg, punkt.
+`ReportAs` krävs för räknar namn som inte matchar `[a-zA-Z()/-_ \.]+` – det vill säga de innehåller tecken som inte finns i följande uppsättningar: bokstäver, parenteser, snedstreck, bindestreck, under streck, blank steg, punkt.
 
 Om du anger en instans kommer den att samlas in som en dimension "CounterInstanceName" av det rapporterade måttet.
 
@@ -98,7 +93,7 @@ Eller så kan du göra samma sak med anpassade mått som du har skapat:
 
 ### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>Samla in prestanda räknare i kod för ASP.NET Core webb program
 
-Ändra `ConfigureServices`-metoden i `Startup.cs`-klassen enligt nedan.
+Ändra `ConfigureServices` metod i `Startup.cs`-klassen enligt nedan.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
@@ -120,7 +115,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ## <a name="performance-counters-in-analytics"></a>Prestanda räknare i Analytics
 Du kan söka efter och Visa prestanda räknar rapporter i [Analytics](../../azure-monitor/app/analytics.md).
 
-**PerformanceCounters** -schemat visar `category`, `counter`-namnet och `instance`-namnet för varje prestanda räknare.  I telemetri för varje program visas endast räknare för programmet. Till exempel för att se vilka räknare som är tillgängliga: 
+**PerformanceCounters** -schemat visar `category`, `counter` namn och `instance` namn för varje prestanda räknare.  I telemetri för varje program visas endast räknare för programmet. Till exempel för att se vilka räknare som är tillgängliga: 
 
 ![Prestanda räknare i Application Insights Analytics](./media/performance-counters/analytics-performance-counters.png)
 
@@ -130,7 +125,7 @@ Så här hämtar du ett diagram över tillgängligt minne under den senaste peri
 
 ![Minnes timechart i Application Insights Analytics](./media/performance-counters/analytics-available-memory.png)
 
-Precis som andra telemetri innehåller **performanceCounters** också en kolumn `cloud_RoleInstance` som anger identiteten för den värd Server instans där appen körs. Om du till exempel vill jämföra appens prestanda på olika datorer: 
+Precis som andra telemetri har **performanceCounters** också en kolumn `cloud_RoleInstance` som anger identiteten för den värd Server instans där appen körs. Om du till exempel vill jämföra appens prestanda på olika datorer: 
 
 ![Prestanda segmenterad av roll instans i Application Insights Analytics](./media/performance-counters/analytics-metrics-role-instance.png)
 

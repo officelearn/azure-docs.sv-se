@@ -1,40 +1,35 @@
 ---
-title: Smart identifiering – prestandaförsämring i spårningen allvarlighetsgrad förhållande i Azure Application Insights | Microsoft Docs
-description: Övervaka programspårningar med Azure Application Insights för onormala mönster i spårningstelemetri.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Smart identifiering-nedbrytning i allvarlighets grad för spårning i Azure Application Insights | Microsoft Docs
+description: Övervaka program spår med Azure Application insikter om ovanliga mönster i trace telemetri.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/27/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/27/2017
+ms.openlocfilehash: 83c1296beabaaae78289a653c6b30f6665f725c2
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306402"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820540"
 ---
-# <a name="degradation-in-trace-severity-ratio-preview"></a>Försämring i spårningen allvarlighetsgrad-förhållande (förhandsversion)
+# <a name="degradation-in-trace-severity-ratio-preview"></a>Nedbrytning i allvarlighets grad för spårning (för hands version)
 
-Spårningar används mycket i program, eftersom de hjälper uppgift att berätta vad som händer i bakgrunden. Om något går fel, ange spårningar viktig insyn i sekvens av händelser som leder till oönskade tillstånd. Spårningar är vanligtvis Ostrukturerade, finns men det en sak som concretely kan hämtas från dem – deras allvarlighetsgrad. I ett programs stabilt tillstånd, skulle vi räknar med förhållandet mellan ”good” spår (*Info* och *utförlig*) och ”dåliga” spårningar (*varning*, *fel*, och *kritisk*) är stabil. Antas att ”dåliga” spårningar kan inträffa med jämna mellanrum till viss mån på grund av en mängd skäl (tillfälliga nätverket utfärdar exempelvis). Men när verkliga problem börjar växer, det manifest vanligtvis som en ökning av relativa andelen ”dåliga” spårningar vs ”good” spårningar. Smart identifiering för Application Insights automatiskt analyserar spårningar som loggats av ditt program och kan varna dig om onormala mönster i allvarlighetsgrad av telemetrin spårningen.
+Spår används ofta i program, eftersom de hjälper dig att berätta vad som händer i bakgrunden. När något går fel ger spåren en viktig insyn i sekvensen av händelser som leder till det oönskade läget. Även om spårning vanligt vis inte är strukturerade, finns det en sak som kan vara konkret från dem – deras allvarlighets grad. I ett programs stabila tillstånd förväntar vi sig att förhållandet mellan "bra" spår (*information* och *utförlig*) och "dåliga" spår (*Varning*, *fel*och *kritisk*) är stabila. Antagandet är att "dåliga" spår kan ske regelbundet till en viss omfattning på grund av ett antal orsaker (tillfälliga nätverks problem för instans). Men när ett verkligt problem börjar växa, är det vanligt vis som en ökning av den relativa procent andelen "dåliga" spår och "bra" spår. Application Insights Smart identifiering analyserar automatiskt spåren som loggats av ditt program och kan varna dig om ovanliga mönster på hur din trace-telemetri är allvarlighets grad.
 
-Den här funktionen kräver några särskilda inställningar, förutom att konfigurera spårningsloggning för din app (se hur du konfigurerar en trace log-lyssnare för [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) eller [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). Den är aktiv när din app genererar mycket undantagstelemetri.
+Den här funktionen kräver ingen särskild konfiguration, förutom att konfigurera spårnings loggning för din app (se så här konfigurerar du en spårnings logg lyssnare för [.net](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) eller [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). Den är aktiv när din app genererar tillräckligt med telemetri för undantag.
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När ska jag den här typen av meddelande för smart identifiering?
-Du kan få den här typen av meddelande om förhållandet mellan ”good” spår (spårningar som loggas med en nivå av *Info* eller *utförlig*) och ”dåliga” spårningar (spårningar som loggas med en nivå av *varning*, *Fel*, eller *oåterkalleligt fel*) är att försämras under en viss dag, jämfört med grundregel beräknad under de senaste sju dagarna.
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När får jag den här typen av meddelande om Smart identifiering?
+Du kan få den här typen av meddelande om förhållandet mellan "bra" spår (spår som loggats med en nivå av *information* eller *utförlig*) och "dåliga" spårar (spår som loggats med en *varnings*nivå, *fel*eller *allvarligt*) minskar i en en angiven dag jämfört med en bas linje som beräknats under de senaste sju dagarna.
 
-## <a name="does-my-app-definitely-have-a-problem"></a>Min app definitivt finns det ett problem?
-Nej, ett meddelande innebär inte att din app definitivt finns ett fel. Även om förhållandet mellan ”good” och ”dåliga” spårningar försämrade kan tyda på ett problem med programmet, kan den här ändringen i förhållande vara ofarliga. Till exempel kanske ökningen på grund av ett nytt flöde i program som sänder mer ”dåliga” spårningar än befintliga flöden).
+## <a name="does-my-app-definitely-have-a-problem"></a>Har min app definitivt ett problem?
+Nej, en avisering innebär inte att din app definitivt har ett problem. Även om en försämring i förhållandet mellan "bra" och "dåliga" spår kan tyda på ett program problem, kan den här förändringen av förhållandet vara oskadlig. Ökningen kan till exempel bero på ett nytt flöde i programmet som avger fler "dåliga" spårningar än befintliga flöden).
 
-## <a name="how-do-i-fix-it"></a>Hur jag för att åtgärda det?
-Aviseringarna inkluderar diagnostisk information som stöd i diagnostikprocessen för:
-1. **Prioritering.** Aviseringen visar hur många åtgärder som påverkas. Detta kan du tilldela en prioritet till problemet.
-2. **Omfattningen.** Är problemet påverkar all trafik, eller enbart på vissa åtgärden? Den här informationen kan hämtas från meddelandet.
-3. **Diagnostisera.** Du kan använda de relaterade objekt och rapporter som länkar till kompletterande information som hjälper dig att ytterligare diagnostisera problemet.
+## <a name="how-do-i-fix-it"></a>Hur gör jag för att åtgärda det?
+Aviseringarna innehåller diagnostikinformation som ska stödjas i diagnostikprogrammet:
+1. **Prioritering.** Meddelandet visar hur många åtgärder som påverkas. Detta kan hjälpa dig att tilldela en prioritet för problemet.
+2. **Utrymme.** Påverkar problemet all trafik eller bara en åtgärd? Den här informationen kan hämtas från meddelandet.
+3. **Diagnostisera.** Du kan använda relaterade objekt och rapporter som länkar till kompletterande information för att hjälpa dig att diagnostisera problemet.
 
 

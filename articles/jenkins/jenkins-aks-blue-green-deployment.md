@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: de9088333f69a22246fe5873d6e09ddb7ba3044a
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 10/23/2019
+ms.openlocfilehash: 4f528a667a7b498cadb15a441f9d9321259fffde
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249396"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882091"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön
 
@@ -218,7 +218,7 @@ I det här avsnittet lär du dig att förbereda Jenkins-servern för kompilering
     1. Välj **Hantera Jenkins > Hantera plugin-program > Tillgängligt**.
     1. Leta reda på och installera plugin-programmet Azure Container Service.
 
-1. Lägg till autentiseringsuppgifter för att hantera resurser i Azure. Om du inte redan har det installerar du plugin-programmet **Azure Credential**.
+1. Lägg till autentiseringsuppgifter för att hantera resurser i Azure. Om du inte redan har plugin-programmet installerar du plugin-programmet för **Azure Credential** .
 
 1. Lägg till dina autentiseringsuppgifter för Azure Service Principal som typen **Microsoft Azure Service Principal**.
 

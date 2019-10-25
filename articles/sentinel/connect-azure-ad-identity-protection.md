@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: de8f31a02b62164a8a6b099a90297a207aefae80
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5dae8c4da46c750f69057f33d593f5bb7396a99e
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240802"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882246"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Anslut data från Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ ms.locfileid: "71240802"
 Du kan strömma loggar från [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) till Azure Sentinel för att strömma aviseringar till Azure Sentinel för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Azure Active Directory Identity Protection ger en samlad vy över risk användare, risk identifiering och sårbarheter, med möjlighet att åtgärda risker direkt och ange principer för att automatiskt reparera framtida händelser. Tjänsten bygger på Microsofts erfarenhet av att skydda konsument identiteter och får en fantastisk precision från signalen från över 13 000 000 000 inloggningar per dag. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha en [Azure Active Directory Premium P1-eller P2-licens](https://azure.microsoft.com/pricing/details/active-directory/)
 - Användare med behörighet som global administratör eller säkerhets administratör
@@ -37,7 +37,7 @@ Du kan strömma loggar från [Azure AD Identity Protection](https://docs.microso
 
 ## <a name="connect-to-azure-ad-identity-protection"></a>Anslut till Azure AD Identity Protection
 
-Om du redan har Azure AD Identity Protection kontrollerar du att den är [aktive rad i nätverket](../active-directory/identity-protection/enable.md).
+Om du redan har Azure AD Identity Protection kontrollerar du att den är [aktive rad i nätverket](../active-directory/identity-protection/overview-identity-protection.md).
 Om Azure AD Identity Protection distribueras och hämtar data kan aviserings data enkelt strömmas till Azure Sentinel.
 
 

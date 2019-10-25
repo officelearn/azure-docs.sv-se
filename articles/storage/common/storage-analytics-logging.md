@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 36c6c914c96048825c82a8d1f590a7e805373c08
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3b61e8680ef2484b1ad42837711adef171fdde25
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854608"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882643"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage Analytics-loggning
 
@@ -33,7 +33,7 @@ Lagringsanalys loggar detaljerad information om lyckade och misslyckade förfrå
 
  Följande typer av autentiserade begär Anden loggas:
 
-- Lyckade begäranden
+- Lyckade förfrågningar
 - Misslyckade förfrågningar, inklusive timeout, begränsning, nätverk, auktorisering och andra fel
 - Begär Anden som använder en signatur för delad åtkomst (SAS) eller OAuth, inklusive misslyckade och lyckade förfrågningar
 - Begär Anden för analys av data
@@ -44,7 +44,7 @@ Lagringsanalys loggar detaljerad information om lyckade och misslyckade förfrå
 
  Följande typer av anonyma begär Anden loggas:
 
-- Lyckade begäranden
+- Lyckade förfrågningar
 - Server fel
 - Timeout-fel för både klienten och servern
 - Misslyckade GET-begäranden med felkod 304 (inte ändrad)
@@ -53,10 +53,10 @@ Lagringsanalys loggar detaljerad information om lyckade och misslyckade förfrå
 
 ## <a name="how-logs-are-stored"></a>Så här lagras loggar
 
-Alla loggar lagras i block-blobar i en behållare med `$logs`namnet, som skapas automatiskt när Lagringsanalys har Aktiver ATS för ett lagrings konto. Behållaren finns i BLOB-namnrymden för lagrings kontot, till exempel: `http://<accountname>.blob.core.windows.net/$logs`. `$logs` Det går inte att ta bort den här behållaren när Lagringsanalys har Aktiver ATS, men innehållet kan tas bort. Om du använder ditt sökverktyg för att navigera till behållaren direkt visas alla blobar som innehåller dina loggnings data.
+Alla loggar lagras i block-blobar i en behållare med namnet `$logs`, som skapas automatiskt när Lagringsanalys har Aktiver ATS för ett lagrings konto. `$logs` containern finns i BLOB-namnrymden för lagrings kontot, till exempel: `http://<accountname>.blob.core.windows.net/$logs`. Det går inte att ta bort den här behållaren när Lagringsanalys har Aktiver ATS, men innehållet kan tas bort. Om du använder ditt sökverktyg för att navigera till behållaren direkt visas alla blobar som innehåller dina loggnings data.
 
 > [!NOTE]
->  `$logs` Behållaren visas inte när en åtgärd för container listan utförs, till exempel list containers-åtgärden. Det måste nås direkt. Du kan till exempel använda List-blobar-åtgärden för att få åtkomst till blobarna `$logs` i behållaren.
+>  `$logs` container visas inte när en åtgärd för container listan utförs, till exempel list containers-åtgärden. Det måste nås direkt. Du kan till exempel använda List-blobar-åtgärden för att få åtkomst till Blobbarna i `$logs` containern.
 
 När förfrågningar loggas kommer Lagringsanalys att överföra mellanliggande resultat som block. Med jämna mellanrum kommer Lagringsanalys att bekräfta dessa block och göra dem tillgängliga som en blob. Det kan ta upp till en timme innan loggdata visas i blobarna i **$logs** container eftersom lagrings tjänsten tömmer logg skribenterna. Det kan finnas dubbla poster för loggar som skapats i samma timme. Du kan avgöra om en post är en dubblett genom att kontrol lera **RequestId** och **Åtgärds** nummer.
 
@@ -90,13 +90,13 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 
 |Attribut|Beskrivning|
 |---------------|-----------------|
-|`<service-name>`|Namnet på lagrings tjänsten. Till exempel: `blob`, `table`eller`queue`|
+|`<service-name>`|Namnet på lagrings tjänsten. Exempel: `blob`, `table`eller `queue`|
 |`YYYY`|Årtalet med fyra siffror för loggen. Exempel: `2011`|
 |`MM`|Den två siffrorna i månaden för loggen. Exempel: `07`|
 |`DD`|Den två siffriga dagen för loggen. Exempel: `31`|
 |`hh`|Den två siffriga timmen som anger start timmen för loggarna, i UTC-format i 24 timmar. Exempel: `18`|
-|`mm`|Det två siffer numret som anger start minuten för loggarna. **Obs:**  Värdet stöds inte i den aktuella versionen av Lagringsanalys och värdet är alltid `00`.|
-|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Räknaren startar vid `000000`. Exempel: `000001`|
+|`mm`|Det två siffer numret som anger start minuten för loggarna. **Obs:**  Det här värdet stöds inte i den aktuella versionen av Lagringsanalys och värdet kommer alltid att `00`.|
+|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Den här räknaren startar på `000000`. Exempel: `000001`|
 
  Följande är ett fullständigt exempel på logg namn som kombinerar exemplen ovan:
 
@@ -106,7 +106,7 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- När en lagrings förfrågan loggas motsvarar logg namnet i timmen när den begärda åtgärden slutfördes. Om till exempel en GetBlob-begäran har slutförts med 6:17.30 på 7/31/2011, skrivs loggen med följande prefix:`blob/2011/07/31/1800/`
+ När en lagrings förfrågan loggas motsvarar logg namnet i timmen när den begärda åtgärden slutfördes. Om en GetBlob-begäran exempelvis slutfördes 6:17.30 på 7/31/2011, skrivs loggen med följande prefix: `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Logga metadata
 
@@ -114,7 +114,7 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 
 |Attribut|Beskrivning|
 |---------------|-----------------|
-|`LogType`|Beskriver om loggen innehåller information som rör Läs-, Skriv-eller borttagnings åtgärder. Det här värdet kan innehålla en typ eller en kombination av alla tre, avgränsade med kommatecken.<br /><br /> Exempel 1: `write`<br /><br /> Exempel 2: `read,write`<br /><br /> Exempel 3:`read,write,delete`|
+|`LogType`|Beskriver om loggen innehåller information som rör Läs-, Skriv-eller borttagnings åtgärder. Det här värdet kan innehålla en typ eller en kombination av alla tre, avgränsade med kommatecken.<br /><br /> Exempel 1: `write`<br /><br /> Exempel 2: `read,write`<br /><br /> Exempel 3: `read,write,delete`|
 |`StartTime`|Den tidigaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ`. Exempel: `2011-07-31T18:21:46Z`|
 |`EndTime`|Den senaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ`. Exempel: `2011-07-31T18:22:09Z`|
 |`LogVersion`|Versionen av logg formatet.|
@@ -154,7 +154,7 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations rea
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
- Information om hur du konfigurerar Azure PowerShell-cmdletar så att de fungerar med din Azure-prenumeration och hur du väljer det standard lagrings konto som ska användas finns i: [Så här installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+ Information om hur du konfigurerar Azure PowerShell-cmdletar så att de fungerar med din Azure-prenumeration och hur du väljer det standard lagrings konto som ska användas finns i: [så här installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Aktivera lagrings loggning program mässigt  
 
@@ -179,7 +179,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ## <a name="download-storage-logging-log-data"></a>Hämta logg data för lagrings loggning
 
- Om du vill visa och analysera loggdata bör du hämta de blobbar som innehåller de loggdata som du är intresse rad av för en lokal dator. Många verktyg för lagrings surfning gör att du kan ladda ned blobbar från ditt lagrings konto. Du kan också använda det Azure Storage team som angavs med kommando rads verktyget Azure Copy Tool (**AzCopy**) för att hämta dina loggdata.  
+ Om du vill visa och analysera loggdata bör du hämta de blobbar som innehåller de loggdata som du är intresse rad av för en lokal dator. Många verktyg för lagrings surfning gör att du kan ladda ned blobbar från ditt lagrings konto. Du kan också använda det Azure Storage team som angavs med kommando rads verktyget [AzCopy](storage-use-azcopy-v10.md) för Azure Copy för att hämta logg data.  
 
  För att se till att du hämtar loggdata som du är intresse rad av och för att undvika att ladda ned samma logg data mer än en gång:  
 
@@ -187,20 +187,17 @@ queueClient.SetServiceProperties(serviceProperties);
 
 -   Använd metadata på Blobbarna som innehåller loggdata för att identifiera den specifika perioden som blobben innehåller loggdata för att identifiera den exakta blobben som du behöver hämta.  
 
-> [!NOTE]
->  AzCopy är en del av Azure SDK, men du kan alltid Ladda ned den senaste versionen [https://aka.ms/AzCopy](https://aka.ms/AzCopy)från. Som standard installeras AzCopy i mappen **C:\Program Files (x86) \Microsoft SDKs\Windows Azure\AzCopy**och du bör lägga till den här mappen i sökvägen innan du försöker köra verktyget i en kommando tolk eller PowerShell-fönster.  
+Information om hur du kommer igång med AzCopy finns i [Kom igång med AZCopy](storage-use-azcopy-v10.md) 
 
- I följande exempel visas hur du kan hämta logg data för Queue Service för timmar som börjar vid 09, 10 AM och 11 AM den 20 maj, 2014. Parametern **/s** gör att AzCopy skapar en lokal mappstruktur baserat på datum och tider i logg filens namn. parametern **/v** gör att AzCopy genererar utförliga utdata. parametern **/y** gör att AzCopy skriver över alla lokala filer. Ersätt **< yourstorageaccount\>**  med namnet på ditt lagrings konto och Ersätt **< yourstoragekey\>**  med din lagrings konto nyckel.  
+I följande exempel visas hur du kan hämta logg data för Queue Service för timmar som börjar vid 09, 10 AM och 11 AM den 20 maj, 2014.
 
 ```
-AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
-```  
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
+```
 
- AzCopy har också några användbara parametrar som styr hur den anger den senaste ändrings tiden för de filer som hämtas, och om den kommer att försöka hämta filer som är äldre eller nyare än filer som redan finns på den lokala datorn. Du kan också köra det i läget som kan startas om. Fullständig information finns i hjälpen genom att köra **AzCopy/?** kommandoprompt.  
+Mer information om hur du hämtar vissa filer finns i [Hämta vissa filer](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
- Ett exempel på hur du hämtar dina loggdata program mässigt finns i blogg inlägget [Windows Azure Storage Logging: Använd loggar för att spåra lagrings förfrågningar](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) och Sök efter ordet "DumpLogs" på sidan.  
-
- När du har hämtat dina loggdata kan du se logg posterna i filerna. Loggfilerna använder ett avgränsat text format som många logg läsnings verktyg kan tolka, inklusive Microsoft Message Analyzer (mer information finns i hand boken [övervakning, diagnostisering och fel sökning Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Olika verktyg har olika funktioner för formatering, filtrering, sortering och AD söker efter innehållet i dina loggfiler. Mer information om logg fils format och innehåll för lagrings loggning finns i [Lagringsanalys logg format](/rest/api/storageservices/storage-analytics-log-format) och [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
+När du har hämtat dina loggdata kan du se logg posterna i filerna. Loggfilerna använder ett avgränsat text format som många logg läsnings verktyg kan tolka, inklusive Microsoft Message Analyzer (mer information finns i hand boken [övervakning, diagnostisering och fel sökning Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Olika verktyg har olika funktioner för formatering, filtrering, sortering och AD söker efter innehållet i dina loggfiler. Mer information om logg fils format och innehåll för lagrings loggning finns i [Lagringsanalys logg format](/rest/api/storageservices/storage-analytics-log-format) och [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Nästa steg
 

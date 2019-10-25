@@ -14,14 +14,18 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: c053e4dfc38fc0f055ec91a6622ef7f767c13a86
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c319b3e53f550e56fbf4f655cb9cfa43326f9c72
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "69015327"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882430"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Identifiera rörelser med Azure-medieanalys
+
+> [!IMPORTANT]
+> Granska [indragnings planer](media-services-analytics-overview.md#retirement-plans) för vissa medie processorer.
+
 ## <a name="overview"></a>Översikt
 Med hjälp av MP ( **Azure Media motion Detector** Media processor) kan du på ett effektivt sätt identifiera intresse områden inom en i övrigt lång och en video som inte är i händelse av händelse. Rörelse identifiering kan användas på statiska kamera tagningar för att identifiera delar av videon där rörelsen sker. Den genererar en JSON-fil som innehåller en metadata med tidsstämplar och den bindnings region där händelsen inträffade.
 
@@ -42,10 +46,10 @@ Du kan använda följande parametrar:
 
 | Namn | Alternativ | Beskrivning | Standard |
 | --- | --- | --- | --- |
-| sensitivityLevel |String: low, medium, high |Anger känslighets nivån då rörelserna rapporteras. Justera detta för att justera antalet falska positiva identifieringar. |säker |
+| sensitivityLevel |Sträng: låg, medium, hög |Anger känslighets nivån då rörelserna rapporteras. Justera detta för att justera antalet falska positiva identifieringar. |säker |
 | frameSamplingValue |Positivt heltal |Anger med vilken frekvens algoritmen körs. 1 lika med varje bild ruta, 2 betyder varje andra ram och så vidare. |1 |
 | detectLightChange |Boolean: true, false |Anger om ljus ändringar rapporteras i resultaten |! |
-| mergeTimeThreshold |XS-Time: Hh: mm: SS<br/>Exempel: 00:00:03 |Anger tidsfönstret mellan rörelse händelser där 2 händelser kombineras och rapporteras som 1. |00:00:00 |
+| mergeTimeThreshold |XS-Time: hh: mm: SS<br/>Exempel: 00:00:03 |Anger tidsfönstret mellan rörelse händelser där 2 händelser kombineras och rapporteras som 1. |00:00:00 |
 | detectionZones |En matris med identifierings zoner:<br/>– Detektions zon är en matris med 3 eller fler punkter<br/>-Point är en x-och y-koordinat från 0 till 1. |Beskriver listan över de avstånd för polygon som ska användas.<br/>Resultat rapporteras med zonerna som ett ID, med det första som "ID": 0 |En zon som täcker hela ramen. |
 
 ### <a name="json-example"></a>JSON-exempel
@@ -96,20 +100,20 @@ I följande tabell beskrivs elementen i JSON-filen för utdata.
 | Element | Beskrivning |
 | --- | --- |
 | version |Detta avser versionen av video-API: et. Den aktuella versionen är 2. |
-| timescale |"Tickar" per sekund för videon. |
+| tidsplan |"Tickar" per sekund för videon. |
 | redovisningsmotkonto |Tids förskjutningen för tidsstämplar i "ticker". I version 1,0 av video-API: er, är det alltid 0. I framtida scenarier som vi stöder kan detta värde ändras. |
 | ram |Bildrutor per sekund i videon. |
 | bredd, höjd |Avser videons bredd och höjd i bild punkter. |
-| Starta |Start-tidsstämpeln i "ticks". |
-| duration |Händelsens längd i "ticks". |
-| intervall |Intervallet för varje post i händelsen, i "Tick". |
-| händelser |Varje event-fragment innehåller den rörelse som identifierats inom den tids perioden. |
-| type |I den aktuella versionen är det alltid "2" för allmän rörelse. Den här etiketten ger video-API: er möjlighet att kategorisera rörelsen i framtida versioner. |
+| start |Start-tidsstämpeln i "ticks". |
+| Giltighet |Händelsens längd i "ticks". |
+| interval |Intervallet för varje post i händelsen, i "Tick". |
+| evenemang |Varje event-fragment innehåller den rörelse som identifierats inom den tids perioden. |
+| typ |I den aktuella versionen är det alltid "2" för allmän rörelse. Den här etiketten ger video-API: er möjlighet att kategorisera rörelsen i framtida versioner. |
 | regionId |Som förklaras ovan kommer detta alltid att vara 0 i den här versionen. Den här etiketten ger video-API flexibiliteten att hitta rörelse i olika regioner i framtida versioner. |
 | regioner |Avser det områden i videon där du bryr dig om rörelse. <br/><br/>-"ID" representerar region området – i den här versionen finns det bara ett, ID 0. <br/>-"typ" representerar formen på den region du bryr dig om för rörelse. För närvarande stöds "rektangel" och "polygon".<br/> Om du har angett "rektangel" har regionen dimensioner i X, Y, width och height. X-och Y-koordinaterna representerar de övre vänstra XY-koordinaterna för regionen i en normaliserad skala på 0,0 till 1,0. Bredden och höjden representerar storleken på regionen i en normaliserad skala på 0,0 till 1,0. I den aktuella versionen är X, Y, width och height alltid fast som 0, 0 och 1. <br/>Om du har angett "polygon" har regionen dimensioner i punkter. <br/> |
 | fragment |Metadata delas upp i olika segment som kallas fragment. Varje fragment innehåller en start, varaktighet, intervallnummer och händelser. Ett fragment utan händelser innebär att ingen rörelse upptäcktes under den Start tiden och varaktigheten. |
 | hakparenteser [] |Varje klammer representerar ett intervall i händelsen. Tomma hakparenteser för det intervallet innebär att ingen rörelse har identifierats. |
-| locations |I den här nya posten under händelser visas platsen där rörelsen ägde rum. Detta är mer exakt än identifierings zonerna. |
+| platser |I den här nya posten under händelser visas platsen där rörelsen ägde rum. Detta är mer exakt än identifierings zonerna. |
 
 Följande JSON-exempel visar utdata:
 
@@ -382,7 +386,7 @@ namespace VideoMotionDetection
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Relaterade länkar
+## <a name="related-links"></a>Tillhörande länkar
 [Azure Media Services rörelse detektor blogg](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)

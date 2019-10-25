@@ -15,16 +15,31 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: d8470ad759d983f25f8f68b93d58f89f23eeb578
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 9427b72faf36106602cb59dc271d72402453e81e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015397"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821414"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Medieanalys på Media Servicess plattformen 
 
+## <a name="retirement-plans"></a>Pensions planer
+
+> [!IMPORTANT]
+> Följande tidigare medie processorer kommer att dras tillbaka om 2020, se information i följande tabell. 
+
+|Namn på mediebearbetare|Datum för indragning|Ytterligare information|
+|---|---|
+|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| 1 januari 2020|Medie processorn kommer att ersättas av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Mer information finns i [Migrera från Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).|
+|[Azure Media Indexer](media-services-index-content.md)|1 oktober 2020|Medie processorn kommer att ersättas av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Mer information finns i [Migrera från Azure Media Indexer till Azure Media Services video Indexer](migrate-indexer-v1-v2.md)
+|[Azure Media Face Detector](media-services-face-and-emotion-detection.md)|1 februari 2020|Den här Medieanalys förhands gransknings processorn dras tillbaka och kommer inte att flyttas till allmän tillgänglighet. Vi kommer att utvärdera sina scenarier och användnings fall med kunder för framtida investeringar.|
+|[Azure Media Motion Detector](media-services-motion-detection.md)|1 februari 2020|Den här Medieanalys förhands gransknings processorn dras tillbaka och kommer inte att flyttas till allmän tillgänglighet. Vi kommer att utvärdera sina scenarier och användnings fall med kunder för framtida investeringar.|
+|[Azure Media OCR](media-services-video-optical-character-recognition.md)|1 februari 2020|Medie processorn ersätts av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) och för [hands inställningen för Azure Media Services v3 API video Analyzer](../latest/analyzing-video-audio-files-concept.md).|
+|[Azure Media Video Thumbnails](media-services-video-summarization.md)|1 februari 2020|Medie processorn ersätts av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) och för [hands inställningen för Azure Media Services v3 API video Analyzer](../latest/analyzing-video-audio-files-concept.md).|
+
 ## <a name="overview"></a>Översikt
+
 Fler organisationer använder video som det önskade mediet för att träna sina anställda, engagera sina kunder och dokumentera affärs funktioner. Molnbaserad data behandling är ett sätt att lagra, strömma och komma åt dessa stora mediafiler. Men i takt med att ett företags bibliotek med video innehåll växer, behöver det ett lika effektivt sätt att extrahera insikter från innehållet. 
 
 Azure Media Services erbjuder Azure-medieanalys för att lösa det växande behovet. Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som det går att direkt agera utifrån från sina videofiler. Med hjälp av plattforms komponenterna för kärn Media Services kan Medieanalys hantera medie bearbetning i skala på dag ett.
@@ -47,7 +62,7 @@ Du kan använda rörelse detektor för att identifiera rörelse i en video med S
 Genom att använda ansikts detektor kan du identifiera folkets ansikten och deras känslor, inklusive glädje, ledsenhet och överraskningar. Detta har flera användbara bransch program, som beskrivs senare, inklusive agg regering och analys av reaktioner hos personer som deltar i en händelse. Detaljerad information och exempel finns i [identifiering av ansikts-och känslo för Azure-medieanalys](media-services-face-and-emotion-detection.md).
 ### <a name="video-summarization"></a>Video Sammanfattning
 Video sammanfattningen kan hjälpa dig att skapa sammanfattningar av långa videor genom att automatiskt välja intressanta kodfragment från käll videon. Den här funktionen är användbar när du vill ge en snabb översikt över vad som förväntas i en lång video. Detaljerad information och exempel finns i [använda Azure Media Video thumbnails för att skapa video Sammanfattning](media-services-video-summarization.md).
-### <a name="optical-character-recognition"></a>Optisk teckenigenkänning
+### <a name="optical-character-recognition"></a>Optisk teckenläsning
 Med Azure Media OCR (optisk tecken läsning) kan du konvertera text innehåll i videofiler till redigerbar, sökbar digital text. Du kan sedan automatisera extraheringen av meningsfulla metadata från video signalen på mediet.
 ### <a name="scalable-face-redaction"></a>Skalbara ansikts bortredigering
 Azure Media Redactor är en Medieanalys medie processor som erbjuder skalbara ansikts bortredigering i molnet. Genom att använda ansikts bortredigering kan du ändra videon så att den oskarpa ytan av valda individer blir oskarp. Du kanske vill använda ansikts bortredigering-tjänsten i nyhets medier eller när offentlig säkerhet är involverad. Några minuter av tagningar som innehåller flera ansikten kan ta timmar till bortredigering manuellt, men med den här tjänsten tar ansikts bortredigering bara några enkla steg. Mer information finns i avsnittet [bortredigering-ansikten med Azure-medieanalys](media-services-face-redaction.md) artikeln.
@@ -122,8 +137,8 @@ Svar:
        ]
     }
 
-## <a name="demos"></a>Demonstrationer
-Se [Azure-medieanalys](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)-demonstrationer.
+## <a name="demos"></a>Demos
+Se [Azure-medieanalys-demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

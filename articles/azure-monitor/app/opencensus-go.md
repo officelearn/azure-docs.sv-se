@@ -1,36 +1,34 @@
 ---
 title: Openräkningar gå med i Azure Application Insights | Microsoft Docs
 description: Innehåller anvisningar om hur du integrerar Open-räkningar genom att gå med i den lokala vidarebefordraren och Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 56e66f17e9ce1d2482463f619e82dfd29d48f191
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990306"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819278"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Samla in distribuerade spår från Go (för hands version)
 
-Application Insights stöder nu distribuerad spårning av Go-program via integration [](https://opencensus.io) med openräkning och vår nya [lokala vidarebefordrare](./opencensus-local-forwarder.md). I den här artikeln får du stegvisa anvisningar genom processen för att ställa in openräkning för go och hämta spårnings data till Application Insights.
+Application Insights stöder nu distribuerad spårning av Go-program via integration med [openräkning](https://opencensus.io) och vår nya [lokala vidarebefordrare](./opencensus-local-forwarder.md). I den här artikeln får du stegvisa anvisningar genom processen för att ställa in openräkning för go och hämta spårnings data till Application Insights.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du behöver en Azure-prenumeration.
-- Go ska installeras, den här artikeln använder hämtningen version 1,11 [Go](https://golang.org/dl/).
+- Go ska installeras, den här artikeln använder [hämtningen](https://golang.org/dl/)version 1,11 go.
 - Följ anvisningarna för att installera den [lokala vidarebefordraren som en Windows-tjänst](./opencensus-local-forwarder.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource"></a>Skapa Application Insights resurs
 
@@ -45,11 +43,11 @@ Först måste du skapa en Application Insights-resurs som ska generera en Instru
 
    En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
-    | Inställningar        | Value           | Beskrivning  |
+    | Inställningar        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
    | **Resursgrupp**     | myResourceGroup      | Namnet på den nya resursgrupp som är värd för App Insights-data |
-   | **Location** | East US | Välj en plats nära dig eller nära där appen finns |
+   | **Plats** | USA, östra | Välj en plats nära dig eller nära där appen finns |
 
 2. Klicka på **Skapa**.
 
@@ -59,7 +57,7 @@ Först måste du skapa en Application Insights-resurs som ska generera en Instru
 
    ![Skärm bild av Instrumentation-tangenten](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. `LocalForwarder.config` Redigera filen och Lägg till din Instrumentation-nyckel. Om du följde anvisningarna i den förkraviga filen finns på [](./opencensus-local-forwarder.md)`C:\LF-WindowsServiceHost`
+2. Redigera `LocalForwarder.config`-filen och Lägg till Instrumentation-nyckeln. Om du följde anvisningarna i den [nödvändiga](./opencensus-local-forwarder.md) filen finns `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -76,7 +74,7 @@ Först måste du skapa en Application Insights-resurs som ska generera en Instru
     </LocalForwarderConfiguration>
     ```
 
-3. Starta om den **lokala** program tjänsten för vidarebefordrare.
+3. Starta om den lokala program tjänsten för **vidarebefordrare** .
 
 ## <a name="opencensus-go-packages"></a>Openräkning go-paket
 
@@ -186,11 +184,11 @@ Först måste du skapa en Application Insights-resurs som ska generera en Instru
         }
      ```
 
-3. När den enkla go-appen körs går du `http://localhost:50030`till. Varje uppdatering av webbläsaren kommer att generera texten "Hello World" tillsammans med motsvarande span-data som hämtas av den lokala vidarebefordraren.
+3. När den enkla go-appen körs går du till `http://localhost:50030`. Varje uppdatering av webbläsaren kommer att generera texten "Hello World" tillsammans med motsvarande span-data som hämtas av den lokala vidarebefordraren.
 
-4. Bekräfta att den **lokala vidarebefordraren** hämtas genom att kontrol lera `LocalForwarder.config` filen. Om du följde stegen i förutsättningen [](https://docs.microsoft.com/azure/application-insights/local-forwarder)finns den i `C:\LF-WindowsServiceHost`.
+4. Bekräfta att den **lokala vidarebefordraren** hämtas genom att kontrol lera `LocalForwarder.config`-filen. Om du följde stegen i [förutsättningen](https://docs.microsoft.com/azure/application-insights/local-forwarder)finns det i `C:\LF-WindowsServiceHost`.
 
-    I bilden nedan av logg filen kan du se att innan du kör det andra skriptet där vi lade till en exportör `OpenCensus input BatchesReceived` var 0. När vi har börjat köra det uppdaterade `BatchesReceived` skriptet som är lika med antalet värden som vi angav:
+    I bilden nedan av logg filen kan du se att innan du kör det andra skriptet där vi lade till en exportör `OpenCensus input BatchesReceived` var 0. När vi har börjat köra det uppdaterade skriptet `BatchesReceived` ökas med antalet värden som vi angav:
     
     ![Nytt App Insights-resursformulär](./media/opencensus-go/0004-batches-received.png)
 
@@ -210,7 +208,7 @@ Först måste du skapa en Application Insights-resurs som ska generera en Instru
 
     Eftersom vi bara spårade ett metod anrop är vår program karta inte lika intressant. Men program kartan kan skalas för att visualisera mycket fler distribuerade program:
 
-   ![Programkarta](media/opencensus-go/application-map.png)
+   ![Programavbildning](media/opencensus-go/application-map.png)
 
 4. Välj **Undersök prestanda** för att utföra detaljerad prestanda analys och fastställ rotor saken till långsamma prestanda.
 
@@ -222,7 +220,7 @@ Först måste du skapa en Application Insights-resurs som ska generera en Instru
 
 ## <a name="opencensus-trace-for-go"></a>Openräknings spårning för go
 
-Vi omfattade bara grunderna för integrering av openräkning för go med den lokala vidarebefordraren och Application Insights. Den [officiella Openräkningar](https://godoc.org/go.opencensus.io) -användnings vägledningen omfattar mer avancerade ämnen.
+Vi omfattade bara grunderna för integrering av openräkning för go med den lokala vidarebefordraren och Application Insights. Den [officiella Openräkningar-användnings vägledningen](https://godoc.org/go.opencensus.io) omfattar mer avancerade ämnen.
 
 ## <a name="next-steps"></a>Nästa steg
 

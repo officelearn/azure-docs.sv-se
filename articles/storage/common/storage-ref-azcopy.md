@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 984d0c570c6c0d5048d58377f113319157411244
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 0772446b0259b12d3f76b2020eeed4c9c2de1119
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513380"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882222"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -36,10 +36,16 @@ Information om hur du rapporterar problem eller Lär dig mer om verktyget finns 
 ## <a name="see-also"></a>Se också
 
 - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
+- [AzCopy bänk](storage-ref-azcopy-bench.md)
 - [AzCopy kopia](storage-ref-azcopy-copy.md)
 - [AzCopy-dok](storage-ref-azcopy-doc.md)
 - [AzCopy-kuvert](storage-ref-azcopy-env.md)
 - [AzCopy-jobb](storage-ref-azcopy-jobs.md)
+- [rensning av AzCopy-jobb](storage-ref-azcopy-jobs-clean.md)
+- [lista över AzCopy-jobb](storage-ref-azcopy-jobs-list.md)
+- [ta bort AzCopy-jobb](storage-ref-azcopy-jobs-remove.md)
+- [återuppta AzCopy-jobb](storage-ref-azcopy-jobs-resume.md)
+- [AzCopy-jobb Visa](storage-ref-azcopy-jobs-show.md)
 - [lista över AzCopy](storage-ref-azcopy-list.md)
 - [AzCopy-inloggning](storage-ref-azcopy-login.md)
 - [AzCopy-utloggning](storage-ref-azcopy-logout.md)

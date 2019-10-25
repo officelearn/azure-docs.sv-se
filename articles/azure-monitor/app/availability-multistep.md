@@ -1,19 +1,19 @@
 ---
 title: Övervaka webb programmet med webbtester med flera steg och Azure Application Insights | Microsoft Docs
-description: Skapa webbtester med flera steg för att övervaka dina webb program med Azure Application insikter
+description: Konfigurera webb program med flera steg för att övervaka dina webb program med Azure Application insikter
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/25/2019
+ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678239"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817387"
 ---
 # <a name="multi-step-web-tests"></a>Flerstegstest för webbplatser
 
@@ -34,38 +34,12 @@ För att hitta de förberedande verktyg som krävs. Starta **Visual Studio Insta
 > [!NOTE]
 > Webbtester med flera steg har ytterligare kostnader som är kopplade till dem. Mer information finns i den [officiella pris guiden](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="record-a-multi-step-web-test"></a>Spela in ett webb test för flera steg
+## <a name="record-a-multi-step-web-test"></a>Spela in ett webb test för flera steg 
 
-Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Visual Studio Enterprise och laddar sedan upp inspelningen till Application Insights. Application Insights spelar upp scenariot vid angivna intervall och verifierar svaret.
+> [!WARNING]
+> Vi rekommenderar inte att du använder flera stegs inspelningar. Inspelaren har utvecklats för statiska HTML-sidor med grundläggande interaktioner och ger ingen funktions upplevelse för moderna webb sidor.
 
-> [!IMPORTANT]
-> * Du kan inte använda kodade funktioner eller loopar i dina tester. Testet måste ingå i .webtest-skriptet. Du kan dock använda standardplugin-program.
-> * Endast engelska tecken stöds i webbtester med flera steg. Om du använder Visual Studio på andra språk måste du uppdatera definitionsfilen för webbtesten för att översätta/exkludera icke-engelska tecken.
-
-Spela in en webbsession med Visual Studio Enterprise.
-
-1. Skapa ett projekt för webb prestanda och belastnings test. **Fil**  > **nytt**  > **projekt**  > **Visual C#**   > -**test**
-
-    ![Nytt Visual Studio-projekt gränssnitt](./media/availability-multistep/vs-web-performance-and-load-test.png)
-
-2. Öppna `.webtest`-filen och börja spela in.
-
-    ![Visual Studio-test för testnings registrering](./media/availability-multistep/open-web-test.png)
-
-3. Klicka igenom de steg du vill att ditt test ska simulera som en del av inspelningen.
-
-    ![Webb läsar inspelnings gränssnitt](./media/availability-multistep/record.png)
-
-4. Redigera testet om du vill:
-
-    * Lägg till valideringar för att kontrollera texten som tas emot och svarskoderna.
-    * Ta bort eventuella uneccesary-interaktioner. Du kan också ta bort beroende begär Anden för bilder eller lägga till spårnings platser som inte är relevanta för ditt test.
-    
-    Tänk på att du bara kan redigera test skriptet – du kan lägga till anpassad kod eller anropa andra webbtester. Infoga inte loopar i testet. Du kan använda standard-plugin-program för webbtester.
-
-5. Kör testet i Visual Studio för att validera och se till att det fungerar.
-
-    En webbläsare öppnas och de åtgärder som du har spelat in upprepas. Kontrol lera att allt fungerar som förväntat.
+Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Visual studio 2019-dokumentationen](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Ladda upp webb testet
 
@@ -96,7 +70,7 @@ Spela in en webbsession med Visual Studio Enterprise.
 |**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
 |**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskel och antalet test platser är **tröskelvärde för aviserings plats**  = **antalet test platser-2, med minst fem test platser.**|
 
-## <a name="advanced-configuration"></a>Avancerad konfiguration
+## <a name="configuration"></a>Konfiguration
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>Att sätta igång tid och slumpmässiga tal i testet
 

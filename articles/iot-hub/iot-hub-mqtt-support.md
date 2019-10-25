@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 59bf62f73d8ba9732cd89209d2b239fd15a6d844
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: 11e2a02277a47e070f91e8f057f0d8493235c5ce
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754472"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821350"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -116,6 +116,38 @@ Om en enhet inte kan använda enhets-SDK: erna kan den fortfarande ansluta till 
 För att MQTT ska kunna ansluta och koppla från paket utfärdar IoT Hub en händelse på **drift övervaknings** kanalen. Den här händelsen innehåller ytterligare information som kan hjälpa dig att felsöka anslutnings problem.
 
 Device-appen kan ange ett **meddelande i** **Connect** -paketet. Device-appen bör använda `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` **som ämnes namn** för **att definiera meddelanden** som ska vidarebefordras som ett telemetri meddelande. I så fall, om nätverks anslutningen är stängd, men ett **från kopplings** paket inte tidigare togs emot från enheten, IoT Hub **skickar meddelandet som** anges i **Connect** -paketet till telemetri-kanalen. Telemetri-kanalen kan vara antingen standard slut punkt för **händelser** eller en anpassad slut punkt som definieras av IoT Hub routning. Meddelandet har egenskapen **iothub-MessageType** med värdet **som tilldelas.**
+
+### <a name="an-example-of-c-code-using-mqtt-without-azure-iot-c-sdk"></a>Ett exempel på C-kod med MQTT utan Azure IoT C SDK
+I den här [lagrings platsen](https://github.com/Azure-Samples/IoTMQTTSample)hittar du ett par C/C++ demo-projekt som visar hur du skickar telemetridata, tar emot händelser med IoT Hub utan att använda Azure IoT C SDK. 
+
+I de här exemplen används Mosquitto-biblioteket för Sol förmörkelse för att skicka meddelandet till MQTT-utjämningen som implementerats i IoT Hub.
+
+Den här lagrings platsen innehåller:
+
+**För Windows:**
+
+• TelemetryMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande till en Azure IoT Hub som skapats och körs på en Windows-dator.
+
+• SubscribeMQTTWin32: innehåller kod för att prenumerera på händelser för en viss IoT-hubb på en Windows-dator.
+
+• DeviceTwinMQTTWin32: innehåller kod för att fråga och prenumerera på enhetens dubbla händelser på en enhet i Azure IoT Hub på en Windows-dator.
+
+• PnPMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande med IoT Plug & Play-funktioner för för hands version till en Azure IoT-hubb som skapats och körs på en Windows-dator. Mer på IoT-plugin & spela [här](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play)
+
+**För Linux:**
+
+• MQTTLinux: innehåller kod och build-skript som ska köras på Linux (WSL, Ubuntu och Raspbian har testats hittills).
+
+• LinuxConsoleVS2019: innehåller samma kod men i ett VS2019 Project targeting WSL (Windows Linux-undersystem). Med det här projektet kan du felsöka koden som körs i Linux steg för steg från Visual Studio.
+
+**För mosquito_pub:**
+
+• Den här mappen innehåller två exempel kommandon som används med verktyget mosquitto_pub som tillhandahålls av Mosquitto.org.
+
+Mosquitto_sendmessage: för att skicka ett enkelt textmeddelande till en Azure IoT-hubb som fungerar som en enhet.
+
+Mosquitto_subscribe: för att se händelser som inträffar i en Azure IoT Hub.
+
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Använda MQTT-protokollet direkt (som en modul)
 
@@ -249,7 +281,7 @@ Om du vill ta emot meddelanden från IoT Hub bör en enhet prenumerera med `devi
 
 Enheten får inga meddelanden från IoT Hub förrän den har prenumererat på den enhetsspecifika slut punkten som representeras av `devices/{device_id}/messages/devicebound/#` ämnes filtret. När en prenumeration har upprättats tar enheten emot meddelanden från molnet till enheten som skickades till den efter prenumerations tiden. Om enheten ansluter med flaggan **CleanSession** inställd på **0**behålls prenumerationen mellan olika sessioner. I det här fallet, nästa gången enheten ansluter med **CleanSession 0** , tar den emot eventuella väntande meddelanden som skickas till den medan den kopplades från. Om enheten använder **CleanSession** -flaggan inställd på **1** , tar den inte emot några meddelanden från IoT Hub förrän den prenumererar på sin enhets slut punkt.
 
-IoT Hub levererar meddelanden med **ämnes namnet** `devices/{device_id}/messages/devicebound/` eller `devices/{device_id}/messages/devicebound/{property_bag}` när det finns meddelande egenskaper. `{property_bag}` innehåller URL-kodade nyckel/värde-par med meddelande egenskaper. Endast program egenskaper och system egenskaper som kan anges av användaren (till exempel **messageId** eller **correlationId**) ingår i egenskaps uppsättningen. System egenskaps namn har prefixet **$** , program egenskaperna använder det ursprungliga egenskaps namnet utan prefix.
+IoT Hub levererar meddelanden med **ämnes namnet** `devices/{device_id}/messages/devicebound/`eller `devices/{device_id}/messages/devicebound/{property_bag}` när det finns meddelande egenskaper. `{property_bag}` innehåller URL-kodade nyckel/värde-par med meddelande egenskaper. Endast program egenskaper och system egenskaper som kan anges av användaren (till exempel **messageId** eller **correlationId**) ingår i egenskaps uppsättningen. System egenskaps namn har prefixet **$** , program egenskaperna använder det ursprungliga egenskaps namnet utan prefix.
 
 När en enhets app prenumererar på ett ämne med **QoS 2**, tilldelar IoT Hub högsta QoS-nivå 1 i **SUBACK** -paketet. Därefter levererar IoT Hub meddelanden till enheten med QoS 1.
 

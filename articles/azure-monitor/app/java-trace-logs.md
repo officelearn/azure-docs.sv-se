@@ -1,23 +1,18 @@
 ---
 title: Utforska Java trace-loggar i Azure Application Insights | Microsoft Docs
 description: Sök Log4J-eller logback-spårningar i Application Insights
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/18/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 99a18125fa5ce07a46fcc1af554fd03746ebf110
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.date: 05/18/2019
+ms.openlocfilehash: 23e3116a0cc3283191d00079e0926dc206e677f0
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038145"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819351"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java trace-loggar i Application Insights
 Om du använder logback eller Log4J (v 1.2 eller v 2.0) för spårning kan du låta spårnings loggarna skickas automatiskt till Application Insights där du kan utforska och söka efter dem.
@@ -95,7 +90,7 @@ Uppdatera sedan projekt beroendena för att få de hämtade binärfilerna.
 ```
 
 #### <a name="if-youre-using-gradle"></a>Om du använder Gradle …
-Om ditt projekt redan har kon figurer ATS för att använda Gradle för Build lägger du till någon av följande rader i gruppen `dependencies` i filen build. Gradle:
+Om ditt projekt redan har kon figurer ATS för att använda Gradle för Build lägger du till någon av följande rader i `dependencies`s gruppen i filen build. Gradle:
 
 Uppdatera sedan projekt beroendena för att få de hämtade binärfilerna.
 
@@ -123,9 +118,9 @@ Följ rikt linjerna för att installera Application Insights Java SDK manuellt, 
 
 | Loggar | Ladda ned | Bibliotek |
 | --- | --- | --- |
-| Logback |[Logback tilläggsprogram-jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
-| Log4J v 2.0 |[Log4J v2-tilläggsprogram](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
-| Log4j v 1.2 |[Log4J v 1.2 tillfogar jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+| Logback |[Logback tilläggsprogram-jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-Logging-logback |
+| Log4J v 2.0 |[Log4J v2-tilläggsprogram](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-Logging-log4j2 |
+| Log4j v 1.2 |[Log4J v 1.2 tillfogar jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-Logging-log4j1_2 |
 
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Lägg till tillägget i loggnings ramverket

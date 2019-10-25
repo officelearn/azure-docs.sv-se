@@ -4,31 +4,31 @@ description: Lär dig snabbt att skapa ett nytt lagrings konto med åtkomst till
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 08/19/2019
+ms.topic: conceptual
+ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2063dd22e3253b0707f6920f3a5c0c7a6bb01126
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 1c9cdfa54494cd6d77edcd13110a79e5265e5032
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992323"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817846"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Skapa ett Azure Data Lake Storage Gen2-lagringskonto
 
 Azure Data Lake Storage Gen2 [stöder ett hierarkiskt namn område](data-lake-storage-introduction.md) som tillhandahåller en inbyggd, anpassad katalog baserad behållare som är anpassad för att fungera med HADOOP DISTRIBUTED File System (HDFS). Du kan komma åt Data Lake Storage Gen2-data från HDFS via [ABFS-drivrutinen](data-lake-storage-abfs-driver.md).
 
-Den här snabbstarten visar hur du skapar ett konto med [Azure-portalen](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Den här artikeln visar hur du skapar ett konto med hjälp av Azure Portal, Azure PowerShell eller via Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
 |           | Krav |
 |-----------|--------------|
 |Portalen     | Inget         |
-|PowerShell | Den här snabbstarten kräver PowerShell-modul Az.Storage-version **0.7** eller senare. Kör kommandot `Get-Module -ListAvailable Az.Storage` för att hitta din nuvarande version. Om du har kört det här kommandot visas inga resultat eller om en version som är lägre än **0,7** visas måste du uppgradera din PowerShell-modul. Se avsnittet [Uppgradera powershell-modulen](#upgrade-your-powershell-module) i den här guiden.
+|PowerShell | Den här artikeln kräver PowerShell-modulen AZ. Storage version **0,7** eller senare. Kör kommandot `Get-Module -ListAvailable Az.Storage` för att hitta din nuvarande version. Om du har kört det här kommandot visas inga resultat eller om en version som är lägre än **0,7** visas måste du uppgradera din PowerShell-modul. Se avsnittet [Uppgradera powershell-modulen](#upgrade-your-powershell-module) i den här guiden.
 |CLI        | Du kan logga in på Azure och köra Azure CLI-kommandon på ett av två sätt: <ul><li>Du kan köra CLI-kommandon från Azure-portalen, i Azure Cloud Shell </li><li>Du kan installera CLI och köra CLI-kommandon lokalt</li></ul>|
 
 När du arbetar på kommandoraden kan du välja om du vill köra Azure Cloud Shell eller installera CLI lokalt.
@@ -39,64 +39,49 @@ Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt
 
 [![Cloud Shell](./media/data-lake-storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-Knappen startar ett interaktivt gränssnitt som du kan använda för att köra stegen i den här snabbstarten:
+Knappen startar ett interaktivt gränssnitt som du kan använda för att köra stegen i den här artikeln:
 
 [![Skärmbild som visar fönstret Cloud Shell i portalen](./media/data-lake-storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Installera CLI lokalt
 
-Du kan även installera och använda Azure CLI lokalt. För den här snabbstarten krävs att du kör Azure CLI version 2.0.38 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Du kan även installera och använda Azure CLI lokalt. Den här artikeln kräver att du kör Azure CLI-version 2.0.38 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Skapa ett lagringskonto med Azure Data Lake Storage Gen2 aktiverat
 
-Innan du skapar ett konto ska du först skapa en resursgrupp som fungerar som en logisk container för lagringskonton eller någon annan Azure-resurs som du skapar. Om du vill rensa de resurser som har skapats med den här snabbstarten kan du helt enkelt ta bort resursgruppen. När du tar bort resursgruppen raderas även det kopplade lagringskontot och eventuella andra resurser som är kopplade till resursgruppen. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Ett Azure Storage-konto innehåller alla dina Azure Storage data objekt: blobbar, filer, köer, tabeller och diskar. Lagrings kontot tillhandahåller ett unikt namn område för dina Azure Storage data som är tillgängliga från var som helst i världen via HTTP eller HTTPS. Data i ditt Azure Storage-konto är tåliga och mycket tillgängliga, säkra och enorma skalbara.
 
 > [!NOTE]
 > Du måste skapa nya lagringskonton av typen **StorageV2 (generell användning V2)** för att kunna utnyttja Data Lake Storage Gen2-funktionerna.  
 
 Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
 
-Tänk på dessa regler när du namnger lagringskontot:
+## <a name="create-an-account-using-the-azure-portal"></a>Skapa ett konto med hjälp av Azure Portal
 
-- Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
-- Namnet på ditt lagringskonto måste vara unikt i Azure. Det får inte finnas två lagringskonton med samma namn.
+Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="create-an-account-using-the-azure-portal"></a>Skapa ett konto med hjälp av Azure-portalen
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Logga in på [Azure Portal](https://portal.azure.com).
-
-### <a name="create-a-resource-group"></a>Skapa en resursgrupp
-
-Följ de här stegen för att skapa en resursgrupp i Azure-portalen:
-
-1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper**.
-2. Klicka på knappen **Lägg till** för att lägga till en ny resursgrupp.
-3. Ange ett namn för den nya resursgruppen.
-4. Välj den prenumeration där du vill skapa den nya resursgruppen.
-5. Välj platsen för resursgruppen.
-6. Klicka på knappen **Skapa**.  
-
-   ![Skärm bild som visar hur du skapar en resurs grupp i Azure Portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
-
-### <a name="create-a-general-purpose-v2-storage-account"></a>Skapa ett v2-lagringskonto för generell användning
+Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurserna grupperas. När du skapar ett lagringskonto kan du antingen skapa en ny resursgrupp eller använda en befintlig resursgrupp. Den här artikeln visar hur du skapar en ny resurs grupp.
 
 Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure-portalen:
 
 > [!NOTE]
 > Den hierarkiska namnrymden är för närvarande tillgänglig i alla offentliga regioner.
 
-1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och välja **Alla tjänster**. Rulla ned till **lagring** och välj **lagringskonton**. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
-2. Välj den **prenumeration** och **resursgrupp** som du skapade tidigare.
-3. Ange ett namn för lagringskontot.
-4. Ange **USA, västra 2** som **Plats**
-5. Lämna dessa fält med respektive standardvärde: **Prestanda**, **kontotyp**, **replikering**, **åtkomstnivå**.
-6. Välj den prenumeration där du vill skapa lagringskontot.
-7. Välj **Nästa : Avancerad >**
-8. Lämna standardvärdena i fälten **SECURITY** och **VIRTUELLA NÄTVERK**.
-9. I avsnittet **Data Lake Storage Gen2** anger du **Hierarkisk namnrymd** till **Aktiverad**.
-10. Skapa lagringskontot genom att klicka på **Granska + Skapa**.
+1. Välj den prenumeration där du vill skapa lagringskontot.
+2. I Azure Portal väljer du knappen **skapa en resurs** och väljer sedan **lagrings konto**.
+3. Under fältet **Resursgrupp** väljer du **Skapa ny**. Ange ett namn för din nya resurs grupp.
+   
+   En resursgrupp är en logisk container där Azure-resurserna grupperas. När du skapar ett lagringskonto kan du antingen skapa en ny resursgrupp eller använda en befintlig resursgrupp.
 
-    ![Skärm bild som visar hur du skapar lagrings konton i Azure Portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+4. Ange sedan ett namn för lagringskontot. Namnet du väljer måste vara unikt för Azure. Namnet måste också bestå av mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.
+5. Välj en plats.
+6. Se till att **StorageV2 (generell användning v2)** visas som markerat i list rutan **Kontotyp** .
+7. Du kan också ändra värdena i vart och ett av dessa fält: **prestanda**, **replikering**, **åtkomst nivå**. Mer information om de här alternativen finns i [Introduktion till Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#introducing-the-azure-storage-services).
+8. Välj fliken **Avancerat** .
+10. I avsnittet **Data Lake Storage Gen2** anger du **Hierarkisk namnrymd** till **Aktiverad**.
+11. Skapa lagringskontot genom att klicka på **Granska + Skapa**.
 
 Nu har ditt lagringskonto skapats via Portal.
 
@@ -227,6 +212,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat ett lagringskonto med Data Lake Storage Gen2-funktioner. Om du vill lära dig hur du laddar upp och ned blobar till och från lagringskontot kan du läsa följande avsnitt.
+I den här artikeln har du skapat ett lagrings konto med Data Lake Storage Gen2 funktioner. Om du vill lära dig hur du laddar upp och ned blobar till och från lagringskontot kan du läsa följande avsnitt.
 
 * [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

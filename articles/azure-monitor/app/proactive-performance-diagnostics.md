@@ -1,24 +1,19 @@
 ---
 title: Smart identifiering-prestanda avvikelser | Microsoft Docs
 description: Application Insights utför Smart analys av din app-telemetri och varnar dig om potentiella problem. Den här funktionen behöver ingen installation.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.author: mbullwin
-ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: b9a95bb2ee6ab137e974b46e24738ca5194f3bd2
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867718"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820566"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering-prestanda avvikelser
 
@@ -41,7 +36,7 @@ Smart identifiering kräver minst 8 dagars telemetri på en fungerande volym fö
 
 Nej, en avisering innebär inte att din app definitivt har ett problem. Identifieringen är bara ett förslag på något som du kanske vill titta närmare på.
 
-## <a name="how-do-i-fix-it"></a>Hur jag för att åtgärda det?
+## <a name="how-do-i-fix-it"></a>Hur gör jag för att åtgärda det?
 
 Aviseringarna innehåller diagnostikinformation. Här är ett exempel:
 
@@ -66,7 +61,7 @@ Meddelanden om Smart identifiering är aktiverade som standard och skickas till 
 
 E-postmeddelanden om Smart identifiering av prestanda avvikelser är begränsade till en e-postadress per dag per Application Insights resurs. E-postmeddelandet skickas endast om det finns minst ett nytt problem som har upptäckts den dagen. Du får inte upprepas upprepade meddelanden. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 * *Så kommer Microsoft-personal att titta på mina data?*
   * Nej. Tjänsten är helt automatisk. Endast du får meddelanden. Dina data är [privata](../../azure-monitor/app/data-retention-privacy.md).
@@ -116,9 +111,9 @@ Var är problemet? Svarar servern långsamt, är sidan mycket lång eller så m�
 ### <a name="improve-slow-pages"></a>Förbättra långsamma sidor
 Det finns en fullt råd om hur du kan förbättra Server svar och sid inläsnings tider, så vi försöker inte upprepa det här. Här följer några tips som du förmodligen redan känner till, bara för att komma ihåg följande:
 
-* Långsam inläsning på grund av stora filer: Läs in skripten och andra delar asynkront. Använd skript buntar. Bryt huvud sidan i widgetar som läser in deras data separat. Skicka inte oformaterad gammal HTML för långa tabeller: Använd ett skript för att begära data som JSON eller annat komprimerat format. Fyll sedan i tabellen på plats. Det finns fantastiska ramverk som hjälper dig med allt detta. (De medför också stora skript, naturligtvis.)
-* Långsamma Server beroenden: Överväg de geografiska platserna för dina komponenter. Om du till exempel använder Azure måste du kontrol lera att webb servern och databasen finns i samma region. Hämtar frågor mer information än vad de behöver? Skulle cachelagring eller batching hjälpa dig?
-* Kapacitets problem: Titta på Server måtten för svars tider och antal begär Anden. Om svars tiden är proportionerligt proportionerlig med toppar i antalet begär Anden, är det troligt att servrarna sträcks ut.
+* Långsam inläsning på grund av stora filer: Läs in skript och andra delar asynkront. Använd skript buntar. Bryt huvud sidan i widgetar som läser in deras data separat. Skicka inte oformaterad gammal HTML för långa tabeller: Använd ett skript för att begära data som JSON eller annat komprimerat format. Fyll sedan i tabellen på plats. Det finns fantastiska ramverk som hjälper dig med allt detta. (De medför också stora skript, naturligtvis.)
+* Långsamma Server beroenden: Överväg dina komponenters geografiska platser. Om du till exempel använder Azure måste du kontrol lera att webb servern och databasen finns i samma region. Hämtar frågor mer information än vad de behöver? Skulle cachelagring eller batching hjälpa dig?
+* Kapacitets problem: titta på Server måtten för svars tider och antal begär Anden. Om svars tiden är proportionerligt proportionerlig med toppar i antalet begär Anden, är det troligt att servrarna sträcks ut.
 
 
 ## <a name="server-response-time-degradation"></a>Tids försämring för Server svars tid

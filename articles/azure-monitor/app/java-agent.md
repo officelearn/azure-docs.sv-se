@@ -1,31 +1,26 @@
 ---
 title: Prestanda övervakning för Java-webbappar i Azure Application Insights | Microsoft Docs
 description: Utökad prestanda och användnings övervakning av din Java-webbplats med Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/10/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 01/10/2019
+ms.openlocfilehash: 181a1f253157fe112d42753d6f824a327457a2fa
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338092"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819411"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, fångade undantag och metod körnings tider i Java-webbappar
 
 
 Om du har [instrumenterat Java-webbappen med Application Insights][java]kan du använda Java-agenten för att få djupare insikter utan några kod ändringar:
 
-* **Relation** Data om samtal som ditt program gör till andra komponenter, inklusive:
-  * **Utgående HTTP-anrop** som görs via Apache httpclient, OkHttp `java.net.HttpURLConnection` och samlas in.
+* **Beroenden:** Data om samtal som ditt program gör till andra komponenter, inklusive:
+  * **Utgående HTTP-anrop** som görs via Apache httpclient, OkHttp och `java.net.HttpURLConnection` samlas in.
   * **Redis-anrop** som görs via Jedis-klienten fångas.
   * **JDBC-frågor** – för MySQL och PostgreSQL, om samtalet tar längre än 10 sekunder, rapporterar agenten frågeplan.
 
@@ -36,7 +31,7 @@ Om du har [instrumenterat Java-webbappen med Application Insights][java]kan du a
 
 * **Bättre namngivning av åtgärder:** (används för agg regering av förfrågningar i portalen)
   * **Våren** – baserat på `@RequestMapping`.
-  * **JAX – RS** -baserad på `@Path`. 
+  * **JAX – RS** – baserat på `@Path`. 
 
 Om du vill använda Java-agenten installerar du den på servern. Dina webb program måste vara instrumenterade med [Application Insights Java SDK][java]. 
 
@@ -52,7 +47,7 @@ Om du vill använda Java-agenten installerar du den på servern. Dina webb progr
 3. Starta om program servern.
 
 ## <a name="configure-the-agent"></a>Konfigurera agenten
-Skapa en fil med `AI-Agent.xml` namnet och placera den i samma mapp som agentens jar-fil.
+Skapa en fil med namnet `AI-Agent.xml` och placera den i samma mapp som agentens JAR-fil.
 
 Ange innehållet i XML-filen. Redigera följande exempel för att inkludera eller utelämna de funktioner som du vill använda.
 
@@ -93,17 +88,17 @@ För Azure App tjänster gör du följande:
 * Välj Inställningar > Programinställningar
 * Under Appinställningar lägger du till ett nytt nyckel/värde-par:
 
-Knapp `JAVA_OPTS`Värde`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+Nyckel: `JAVA_OPTS` värde: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-Du hittar [den senaste versionen av Java-agenten här](https://github.com/Microsoft/ApplicationInsights-Java/releases
+Du hittar den senaste versionen av Java-agenten [här](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
-Agenten måste paketeras som en resurs i ditt projekt så att den blir i D:/Home/site/wwwroot/Directory. Du kan bekräfta att agenten har rätt app service katalog genom att gå till **utvecklingsverktyg** > **Avancerade verktyg** > **Felsök konsol** och undersöka innehållet i plats katalogen.    
+Agenten måste paketeras som en resurs i ditt projekt så att den blir i D:/Home/site/wwwroot/Directory. Du kan bekräfta att agenten har rätt App Service katalog genom att gå till **utvecklingsverktyg** > **Avancerade verktyg** > **fel söknings konsolen** och undersöka innehållet i plats katalogen.    
 
 * Spara inställningarna och starta om appen. (Dessa steg gäller endast för App Services som körs i Windows.)
 
 > [!NOTE]
-> AI-Agent. xml och agentens jar-fil ska finnas i samma mapp. De placeras ofta tillsammans i `/resources` mappen i projektet.  
+> AI-Agent. xml och agentens jar-fil ska finnas i samma mapp. De placeras ofta tillsammans i `/resources`-mappen i projektet.  
 
 #### <a name="enable-w3c-distributed-tracing"></a>Aktivera distribuerad W3C-spårning
 
@@ -131,8 +126,8 @@ Om du vill söka efter enskilda instanser av beroende, undantag och metod rappor
 
 [Diagnostisera beroende problem – Läs mer](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>Har du några frågor? Har du problem?
-* Ser du inga data? [Ange brand Väggs undantag](../../azure-monitor/app/ip-addresses.md)
+## <a name="questions-problems"></a>Har du några frågor? Problem?
+* Inga data? [Ange brand Väggs undantag](../../azure-monitor/app/ip-addresses.md)
 * [Felsöka Java](java-troubleshoot.md)
 
 <!--Link references-->

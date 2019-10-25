@@ -1,39 +1,34 @@
 ---
-title: Smart identifiering – onormal ökning av undantagsvolym i Azure Application Insights | Microsoft Docs
-description: Övervaka undantagsfel med Azure Application Insights för onormala mönster i volym för undantag.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Smart identifiering-onormal ökning av undantags volymen, i Azure Application Insights | Microsoft Docs
+description: Övervaka program undantag med Azure Application insikter om ovanliga mönster i undantags volym.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/08/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: a6e7e8e01ccb623a3ff340c318c9c238c919cb38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/08/2017
+ms.openlocfilehash: fa7669b78caabb95b08200e83ed18ea982ce9ac9
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61298592"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820597"
 ---
-# <a name="abnormal-rise-in-exception-volume-preview"></a>Onormal uppgång av undantagsvolym (förhandsversion)
+# <a name="abnormal-rise-in-exception-volume-preview"></a>Onormal ökning av undantags volym (för hands version)
 
-Application Insights automatiskt analyserar undantag i ditt program och kan varna dig om onormala mönster i telemetrin undantag.
+Application Insights analyserar automatiskt undantagen som har utlösts i ditt program och kan varna dig om ovanliga mönster i din undantags telemetri.
 
-Den här funktionen kräver några särskilda inställningar än [konfigurera undantag rapporter](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) för din app. Den är aktiv när din app genererar mycket undantagstelemetri.
+Den här funktionen kräver ingen särskild konfiguration, förutom att [Konfigurera undantags rapportering](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) för din app. Den är aktiv när din app genererar tillräckligt med telemetri för undantag.
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När ska jag den här typen av meddelande för smart identifiering?
-Du kan få den här typen av meddelande om din app visar en onormal ökning av antalet undantag av en viss typ under en dag, jämfört med grundregel beräknad under de senaste sju dagarna.
-Machine learning-algoritmer som används för att upptäcka ökning av antal undantag, samtidigt med hänsyn till en naturlig tillväxt i ditt program som körs på.
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När får jag den här typen av meddelande om Smart identifiering?
+Du kan få den här typen av meddelande om din app visar en onormal ökning av antalet undantag av en speciell typ under en dag, jämfört med en bas linje som beräknas under de föregående sju dagarna.
+Machine Learning-algoritmer används för att upptäcka ökningen av antalet undantag, samtidigt som du tar hänsyn till en naturlig tillväxt i din program användning.
 
-## <a name="does-my-app-definitely-have-a-problem"></a>Min app definitivt finns det ett problem?
-Nej, ett meddelande innebär inte att din app definitivt finns ett fel. Även om ett orimligt antal undantag tyder vanligtvis på ett problem med programmet, kanske de här undantagen ofarliga och hanteras korrekt av programmet.
+## <a name="does-my-app-definitely-have-a-problem"></a>Har min app definitivt ett problem?
+Nej, en avisering innebär inte att din app definitivt har ett problem. Även om ett alltför stort antal undantag ofta indikerar ett program problem kan dessa undantag vara ofarliga och hanteras korrekt av ditt program.
 
-## <a name="how-do-i-fix-it"></a>Hur jag för att åtgärda det?
-Aviseringarna inkluderar diagnostisk information som stöd i diagnostikprocessen för:
-1. **Prioritering.** Aviseringen visar hur många användare eller hur många begäranden som påverkas. Detta kan du tilldela en prioritet till problemet.
-2. **Omfattningen.** Är problemet påverkar all trafik, eller enbart på vissa åtgärden? Den här informationen kan hämtas från meddelandet.
-3. **Diagnostisera.** Identifieringen innehåller information om den metod som undantaget uppstod samt vilken undantagstyp. Du kan också använda de relaterade objekt och rapporter som länkar till kompletterande information som hjälper dig att ytterligare diagnostisera problemet.
+## <a name="how-do-i-fix-it"></a>Hur gör jag för att åtgärda det?
+Aviseringarna innehåller diagnostikinformation som ska stödjas i diagnostikprogrammet:
+1. **Prioritering.** Meddelandet visar hur många användare eller hur många begär Anden som påverkas. Detta kan hjälpa dig att tilldela en prioritet för problemet.
+2. **Utrymme.** Påverkar problemet all trafik eller bara en åtgärd? Den här informationen kan hämtas från meddelandet.
+3. **Diagnostisera.** Identifieringen innehåller information om den metod som undantaget utlöstes från, samt undantags typen. Du kan också använda relaterade objekt och rapporter som länkar till kompletterande information för att hjälpa dig att diagnostisera problemet ytterligare.

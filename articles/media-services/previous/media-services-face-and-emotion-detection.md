@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 3ae2e49b812e7a9515cef81b328ceb87e1a7f017
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6fa2495ee580bb8e74a0d026533fa90f20743510
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015466"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881773"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Identifiera ansikts-och känslo med Azure-medieanalys
+
+> [!IMPORTANT]
+> Granska [indragnings planer](media-services-analytics-overview.md#retirement-plans) för vissa medie processorer.
+
 ## <a name="overview"></a>Översikt
 Med MP ( **Azure Media Face Detector** Media processor) kan du räkna, spåra förflyttningar och till och med mäta åhörarnas medverkan och reaktion via ansikts uttryck. Den här tjänsten innehåller två funktioner: 
 
@@ -153,7 +157,7 @@ När du skapar en aktivitet med **Azure Media Face Detector**måste du ange en k
 #### <a name="attribute-descriptions"></a>Beskrivningar av attribut
 | Attributnamn | Beskrivning |
 | --- | --- |
-| Läge |Ytor Endast ansikts igenkänning.<br/>PerFaceEmotion: Returnera känslo oberoende för varje ansikts igenkänning.<br/>AggregateEmotion: Returnera genomsnittliga känslo-värden för alla ansikten i ramen. |
+| Läge |Ansikten: endast ansikts igenkänning.<br/>PerFaceEmotion: returnera känslo oberoende för varje ansikts igenkänning.<br/>AggregateEmotion: returnera de genomsnittliga känslo-värdena för alla ansikten i ramen. |
 | AggregateEmotionWindowMs |Använd IF AggregateEmotion mode (Välj). Anger längden på videon som används för att producera varje sammanlagt resultat, i millisekunder. |
 | AggregateEmotionIntervalMs |Använd IF AggregateEmotion mode (Välj). Anger i vilken frekvens som sammanställnings resultaten ska skapas. |
 
@@ -162,8 +166,8 @@ Nedan visas rekommenderade värden för mängd fönster och intervall inställni
 
 || Standardvärden (s) | Max (s) | Min (s) |
 |--- | --- | --- | --- |
-| AggregateEmotionWindowMs |0,5 |2 |0.25|
-| AggregateEmotionIntervalMs |0,5 |1 |0.25|
+| AggregateEmotionWindowMs |0,5 |2 |0,25|
+| AggregateEmotionIntervalMs |0,5 |1 |0,25|
 
 ### <a name="json-output"></a>JSON-utdata
 JSON-utdata för sammanställd känslo (trunkerad):
@@ -520,7 +524,7 @@ namespace FaceDetection
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Relaterade länkar
+## <a name="related-links"></a>Tillhörande länkar
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Azure-medieanalys demonstrationer](https://amslabs.azurewebsites.net/demos/Analytics.html)

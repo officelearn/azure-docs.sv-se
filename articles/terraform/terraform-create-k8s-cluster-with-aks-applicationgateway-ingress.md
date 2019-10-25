@@ -8,13 +8,13 @@ author: tomarcher
 manager: gwallace
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: b156169e7202319366e337cc7081e02f5de3acad
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 10/23/2019
+ms.openlocfilehash: 82cee1e5c93eb21fa8db29985d26fe75bde970d2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244810"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882594"
 ---
 # <a name="create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Skapa en Application Gateway ingress-kontrollant i Azure Kubernetes-tjänsten
 
@@ -475,11 +475,11 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
 
 1. Spara filen och avsluta redigeraren.
 
-Koden som anges i det här avsnittet anger namnet på klustret, platsen och resource_group_name. Värdet `dns_prefix` – som utgör en del av det fullständigt kvalificerade domän namnet (FQDN) som används för att komma åt klustret – anges.
+Koden som anges i det här avsnittet anger namnet på klustret, platsen och resource_group_name. `dns_prefix` värde – som utgör en del av det fullständigt kvalificerade domän namnet (FQDN) som används för att komma åt klustret-har angetts.
 
 Med `linux_profile`-posten kan du konfigurera de inställningar som gör det möjligt att logga in på arbetsnoder med SSH.
 
-Med AKS betalar du bara för arbetarnoderna. Posten `agent_pool_profile` konfigurerar informationen för dessa arbetsnoder. @No__t-0 inkluderar antalet arbetsnoder som ska skapas och typen av arbetsnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du värdet `count` i den här posten.
+Med AKS betalar du bara för arbetarnoderna. `agent_pool_profile` posten konfigurerar information för dessa arbetsnoder. `agent_pool_profile record` innehåller antalet arbetsnoder som ska skapas och typen av arbetsnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du värdet `count` i den här posten.
 
 ## <a name="create-a-terraform-output-file"></a>Skapa en Terraform-utdatafil
 
@@ -568,7 +568,7 @@ I det här avsnittet ser du hur du använder kommandot `terraform init` för att
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
     ```
   
-    Kommandot `terraform init` visar hur det går att initiera pluginprogrammet för serverdelen och providern:
+    Kommandot `terraform init` visar att det är klart att initiera Server delen och providerns plugin-program:
 
     ![Exempel på resultat för "terraform init"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-init-complete.png)
 
@@ -737,8 +737,8 @@ I den här artikeln används [Helm](/azure/aks/kubernetes-helm) -Kubernetes Pack
     - `armAuth.secretJSON`: behövs bara när den hemliga typen för tjänst objekt väljs (när `armAuth.type` har angetts till `servicePrincipal`).
 
     Viktiga anteckningar:
-    - Värdet `identityResourceID` skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_client_id)"`.
-    - Värdet `identityClientID` skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_resource_id)"`.
+    - `identityResourceID`-värdet skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_client_id)"`.
+    - `identityClientID`-värdet skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_resource_id)"`.
     - Värdet `<resource-group>` är resurs gruppen för din app-Gateway.
     - Värdet `<identity-name>` är namnet på den skapade identiteten.
     - Alla identiteter för en angiven prenumeration kan listas med hjälp av: `az identity list`.

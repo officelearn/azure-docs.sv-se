@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure Active Directory? – Azure Active Directory | Microsoft Docs
+title: Vad är Azure Active Directory? - Azure Active Directory | Microsoft Docs
 description: Översikt och konceptuell information om Azure Active Directory, inklusive terminologi, vilka licenser som är tillgängliga och en lista med tillhör ande funktioner med länkar för mer information.
 services: active-directory
 author: msaburnley
@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 8e0e028be6b4a507ba97f9126c791ee77c764c70
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942790"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880501"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 
@@ -52,11 +52,11 @@ För att förbättra din Azure AD-implementering kan du också lägga till betal
 
 - **Azure Active Directory Premium P1.** Förutom de kostnads fria funktionerna ger P1 också dina Hybrid användare åtkomst till både lokala och molnbaserade resurser. Det finns även stöd för avancerad administration, tom dynamiska grupper, grupphantering via självbetjäning, Microsoft Identity Manager (en lokal programsvit för identitets- och åtkomsthantering) och funktioner för tillbakaskrivning i molnet, med lösenordsåterställning via självbetjäning för dina lokala användare.
 
-- **Azure Active Directory Premium P2.** Förutom de kostnads fria och P1-funktionerna erbjuder P2 också [Azure Active Directory Identity Protection](../identity-protection/enable.md) för att tillhandahålla riskfylld villkorlig åtkomst till dina appar och kritiska företags data och [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) för att identifiera, begränsa och övervaka administratörer och deras åtkomst till resurser och ge just-in-Time-åtkomst vid behov.
+- **Azure Active Directory Premium P2.** Förutom de kostnads fria och P1-funktionerna erbjuder P2 också [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) för att tillhandahålla riskfylld villkorlig åtkomst till dina appar och kritiska företags data och [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) för att identifiera, begränsa och övervaka administratörer och deras åtkomst till resurser och ge just-in-Time-åtkomst vid behov.
 
 - **Funktionslicenser med användningsbaserad betalning.** Du finns även extra funktionslicenser, till exempel Azure Active Directory Business-to-Customer (B2C). B2C kan hjälpa dig att ge identitets- och åtkomsthanteringslösningar för dina kundriktade appar. Mer information finns i [Azure Active Directory B2C-dokumentationen](../../active-directory-b2c/index.yml).
 
-Mer information om hur du kopplar en Azure-prenumeration till Azure AD finns i [: Hur du: Kopplar eller lägger till en Azure-prenumeration till Azure Active Directory](active-directory-how-subscriptions-associated-directory.md). Mer information om att tilldela licenser till användare finns i [Hur du: Tilldela eller ta bort licenser i Azure Active Directory](license-users-groups.md).
+Mer information om hur du associerar en Azure-prenumeration med Azure AD finns i [How to: Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) (Så här kopplar du eller lägger till en Azure-prenumeration till Azure Active Directory) och mer information om tilldelning av licenser till dina användare finns i [How to: Assign or remove Azure Active Directory licenses](license-users-groups.md) (Så här tilldelar eller tar du bort Azure Active Directory-licenser).
 
 ## <a name="terminology"></a>Terminologi
 
@@ -72,7 +72,7 @@ För att bättre förstå Azure AD och dess dokumentation rekommenderar vi att d
 |Enskild klientorganisation| Azure-klienter som har åtkomst till andra tjänster i en dedikerad miljö betraktas som en enskild klientorganisation.|
 |Flera innehavare| Azure-klientorganisationer som har åtkomst till andra tjänster i en delad miljö, i flera organisationer, anses vara för flera innehavare.|
 |Azure AD-katalog|Varje Azure-klientorganisation har en dedikerad och betrodd Azure AD-katalog. Azure AD-katalogen innehåller klientorganisationens användare, grupper och appar och används till att utföra identitets- och åtkomsthanteringsfunktioner för klientresurser.|
-|Anpassad domän|Varje ny Azure AD-katalog levereras med ett initialt domännamn, domännamn.onmicrosoft.com. Utöver det ursprungliga namnet kan du även lägga till organisationens domännamn, som inkluderar de namn du använder för att göra affärer och dina användare använder för att få åtkomst till organisationens resurser, i listan. När du lägger till anpassade domännamn kan du skapa användarnamn som är bekanta för dina användare, till exempel alain@contoso.com.|
+|Egen domän|Varje ny Azure AD-katalog levereras med ett initialt domännamn, domännamn.onmicrosoft.com. Utöver det ursprungliga namnet kan du även lägga till organisationens domännamn, som inkluderar de namn du använder för att göra affärer och dina användare använder för att få åtkomst till organisationens resurser, i listan. När du lägger till anpassade domännamn kan du skapa användarnamn som är bekanta för dina användare, till exempel alain@contoso.com.|
 |Kontoadministratör|Den här administratörsrollen för klassiska prenumerationer är begreppsmässigt faktureringsägaren av en prenumeration. Den här rollen har åtkomst till [Azure-kontocenter](https://account.azure.com/Subscriptions) och med den kan du hantera alla prenumerationer på ett konto. Mer information finns i [klassisk prenumerations administratörs roller, rollen rollbaserad åtkomst kontroll (RBAC) och Azure AD-administratörs roller](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Tjänstadministratör|Med den här administratörsrollen för klassiska prenumerationer kan du hantera alla Azure-resurser, inklusive åtkomst. Den här rollen har likvärdig åtkomst som en användare som har tilldelats rollen Ägare i prenumerationsomfånget. Mer information finns i [Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Ägare|Den här rollen hjälper dig att hantera alla Azure-resurser, inklusive åtkomst. Den här rollen är byggd på ett nyare auktoriseringssystem som kallas för rollbaserad åtkomstkontroll (RBAC) som ger detaljerad åtkomsthantering för Azure-resurser. Mer information finns i [Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
@@ -83,18 +83,18 @@ För att bättre förstå Azure AD och dess dokumentation rekommenderar vi att d
 
 När du har valt din Azure AD-licens får du åtkomst till några eller alla av följande funktioner för din organisation:
 
-|Category|Beskrivning|
+|Kategori|Beskrivning|
 |-------|-----------|
 |Programhantering|Hantera dina molnbaserade och lokala appar med programproxy, enkel inloggning Mina appar-portalen (kallas även åtkomstpanelen) och Software as a Service-appar (SaaS). Mer information finns i [Ge säker fjärråtkomst till lokala program](../manage-apps/application-proxy.md) och i [dokumentationen om programhantering](../manage-apps/index.yml).|
-|Authentication|Hantera Azure Active Directory-lösenordsåterställning via självbetjäning, Multi-Factor Authentication, listor över anpassade förbjudna lösenord och smart utlåsning. Mer information finns i [dokumentationen om Azure AD-autentisering](../authentication/index.yml).|
+|Autentisering|Hantera Azure Active Directory-lösenordsåterställning via självbetjäning, Multi-Factor Authentication, listor över anpassade förbjudna lösenord och smart utlåsning. Mer information finns i [dokumentationen om Azure AD-autentisering](../authentication/index.yml).|
 |Business-to-Business (B2B)|Hantera dina gästanvändare och externa partners, och behåll kontrollen över egna företagsdata. Mer information finns i [Azure Active Directory B2B-dokumentationen](../b2b/index.yml).|
 |Business-to-Customer (B2C)|Anpassa och kontrollera hur användare registrerar sig, loggar in och hanterar sina profiler när de använder dina appar. Mer information finns i [Azure Active Directory B2C-dokumentationen](../../active-directory-b2c/index.yml).|
-|Villkorad åtkomst|Hantera åtkomst till molnappar. Mer information finns i [dokumentationen om villkorsstyrd åtkomst i Azure AD](../conditional-access/index.yml).|
+|Villkorlig åtkomst|Hantera åtkomst till molnappar. Mer information finns i [dokumentationen om villkorsstyrd åtkomst i Azure AD](../conditional-access/index.yml).|
 |Azure Active Directory för utvecklare|Skapa appar som loggar in alla Microsoft-identiteter, hämta token för att anropa Microsoft Graph, andra Microsoft-API:er eller anpassade API:er. Mer information finns i [Microsoft Identity Platform (Azure Active Directory för utvecklare)](../develop/index.yml).|
 |Enhetshantering|Hantera hur dina molnbaserade eller lokala enheter får åtkomst till företagets data. Mer information finns i [dokumentationen om enhetshantering i Azure AD](../devices/index.yml).|
 |Domain Services|Anslut virtuella Azure-datorer till en domän utan att använda domänkontrollanter. Mer information finns i [Azure AD Domain Services-dokumentationen](../../active-directory-domain-services/index.yml).|
 |Företagsanvändare|Hantera licenstilldelningen, åtkomsten till appar och konfigurera ombud med hjälp av grupper och administratörsroller. Mer information finns i [dokumentationen om användarhantering i Azure Active Directory](../users-groups-roles/index.yml).|
-|Hybrididentitet|Använd Azure Active Directory Connect och Connect Health för att tillhandahålla en enda användaridentitet för autentisering och autentisering för alla resurser, oavsett plats (moln eller lokalt). Mer information finns i [dokumentationen om hybrididentiter](../hybrid/index.yml).|
+|Hybrid-identitet|Använd Azure Active Directory Connect och Connect Health för att tillhandahålla en enda användaridentitet för autentisering och autentisering för alla resurser, oavsett plats (moln eller lokalt). Mer information finns i [dokumentationen om hybrididentiter](../hybrid/index.yml).|
 |Identitetsstyrning|Hantera organisationens identitet via åtkomstkontroller för medarbetare, affärspartners, leverantörer, tjänster och appar. Du kan även utföra åtkomstgranskningar. Mer information finns i [dokumentationen om identitetsstyrning i Azure AD](../governance/identity-governance-overview.md) och [Azure AD-åtkomstgranskningar](../governance/access-reviews-overview.md).|
 |Identitetsskydd|Identifiera potentiella sårbarheter som påverkar organisationens identiteter, konfigurera principer för att svara på misstänkta handlingar och sedan vidta lämpliga åtgärder för att lösa dem. Mer information finns i [Azure AD Identity Protection](../identity-protection/index.yml).|
 |Hanterade identiteter för Azure-resurser|Ger dina Azure-tjänster en automatiskt hanterad identitet i Azure AD som kan autentisera alla autentiseringstjänster med stöd för Azure AD, till exempel Key Vault. Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](../managed-identities-azure-resources/overview.md).|

@@ -1,23 +1,19 @@
 ---
 title: Profilera produktions program i Azure med Application Insights Profiler | Microsoft Docs
 description: Identifiera den frekventa sökvägen i din webb server kod med en lågnivå profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: fc152aab6d0e62ac5656b50834ce17278bb6676e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338083"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820515"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilera produktions program i Azure med Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Aktivera Application Insights Profiler för ditt program
@@ -26,7 +22,7 @@ Azure Application Insights profiler tillhandahåller prestanda spårningar för 
 
 Profiler fungerar med .NET-program som distribueras på följande Azure-tjänster. I länkarna nedan finns mer information om hur du aktiverar profiler för varje tjänst typ.
 
-* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Apptjänst](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines och skalnings uppsättningar för virtuella datorer](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -48,10 +44,10 @@ Välj ett exempel för att visa en analys på kod nivå av tids åtgång för at
 
 Spårnings Utforskaren visar följande information:
 
-* **Visa snabb sökväg**: Öppnar den största löv-noden eller minst något nära. I de flesta fall är den här noden nära en prestanda Flask hals.
-* **Etikett**: Namnet på funktionen eller händelsen. Trädet visar en blandning av kod och händelser som har inträffat, till exempel SQL-och HTTP-händelser. Den översta händelsen representerar den övergripande varaktigheten för begäran.
-* **Förfluten tid**: Tidsintervallet mellan åtgärdens start och slut.
-* **När**: Tiden då funktionen eller händelsen kördes i förhållande till andra funktioner.
+* **Visa frekvent sökväg**: öppnar den största lövnoder-noden eller minst något nära. I de flesta fall är den här noden nära en prestanda Flask hals.
+* **Etikett**: namnet på funktionen eller händelsen. Trädet visar en blandning av kod och händelser som har inträffat, till exempel SQL-och HTTP-händelser. Den översta händelsen representerar den övergripande varaktigheten för begäran.
+* **Förfluten**tid: tidsintervall mellan åtgärdens början och åtgärdens slut.
+* **När**: tiden då funktionen eller händelsen kördes i förhållande till andra funktioner.
 
 ## <a name="how-to-read-performance-data"></a>Läsa prestanda data
 
@@ -59,9 +55,9 @@ Microsoft Service profiler använder en kombination av provtagnings metoder och 
 
 Anrops stacken som visas i vyn tids linje är resultatet av sampling och Instrumentation. Eftersom varje exempel fångar upp den kompletta anrops stacken i tråden, innehåller den kod från Microsoft .NET Framework och från andra ramverk som du refererar till.
 
-### <a id="jitnewobj"></a>Objekt tilldelning (CLR! JIT @ no__t-1New eller CLR! JIT @ no__t-2Newarr1)
+### <a id="jitnewobj"></a>Objekt tilldelning (CLR! JIT-\_New eller CLR! JIT-\_Newarr1)
 
-**CLR! JIT @ no__t-1New** och **CLR! JIT @ no__t-3Newarr1** är hjälp funktioner i .NET Framework som allokerar minne från en hanterad heap. **CLR! JIT @ no__t-1New** anropas när ett objekt tilldelas. **CLR! JIT @ no__t-1Newarr1** anropas när en objekt mat ris allokeras. De här två funktionerna är vanligt vis snabba och tar relativt små mängder tid. Om **CLR! JIT @ no__t-1New** eller **CLR! JIT @ no__t-3Newarr1** tar lång tid på din tids linje, koden kan allokeras många objekt och använda betydande mängd minne.
+**CLR! JIT-\_ny** och **CLR! JIT-\_Newarr1** är hjälp funktioner i .NET Framework som allokerar minne från en hanterad heap. **CLR! JIT-\_nytt** anropas när ett objekt tilldelas. **CLR! JIT-\_Newarr1** anropas när en objekt mat ris allokeras. De här två funktionerna är vanligt vis snabba och tar relativt små mängder tid. Om **CLR! JIT-\_New** eller **CLR! JIT-\_Newarr1** tar lång tid på din tids linje, koden kan allokeras många objekt och förbruka betydande mängder minne.
 
 ### <a id="theprestub"></a>Läser in kod (CLR! ThePreStub)
 
@@ -69,9 +65,9 @@ Anrops stacken som visas i vyn tids linje är resultatet av sampling och Instrum
 
 Om **CLR! ThePreStub** tar lång tid för en begäran är begäran den första för att köra metoden. Tiden för .NET Framework körning för att läsa in den första metoden är signifikant. Du kan överväga att använda en uppvärmnings-process som kör den delen av koden innan användarna får åtkomst till den eller fundera på att köra Native Image Generator (ngen. exe) på dina sammansättningar.
 
-### <a id="lockcontention"></a>Lås konkurrens (CLR! JITutil @ no__t-1MonContention eller CLR! JITutil\_MonEnterWorker)
+### <a id="lockcontention"></a>Lås konkurrens (CLR! JITutil\_MonContention eller CLR! JITutil\_MonEnterWorker)
 
-**CLR! JITutil @ no__t-1MonContention** eller **CLR! JITutil @ no__t-3MonEnterWorker** anger att den aktuella tråden väntar på att ett lås ska släppas. Den här texten visas ofta när du kör en C# **lock** -instruktion, anropa metoden **Monitor. Enter** eller anropa en metod med attributet **MethodImplOptions. Synchronized** . Lås konkurrens uppstår vanligt vis när tråd _a_ skaffar ett lås och tråd _B_ försöker hämta samma lås innan tråd _a_ släpper det.
+**CLR! JITutil\_MonContention** eller **CLR! JITutil\_MonEnterWorker** anger att den aktuella tråden väntar på att ett lås ska släppas. Den här texten visas ofta när du kör en C# **lock** -instruktion, anropa metoden **Monitor. Enter** eller anropa en metod med attributet **MethodImplOptions. Synchronized** . Lås konkurrens uppstår vanligt vis när tråd _a_ skaffar ett lås och tråd _B_ försöker hämta samma lås innan tråd _a_ släpper det.
 
 ### <a id="ngencold"></a>Läser in kod ([kall])
 
@@ -87,9 +83,9 @@ Metoder som **httpclient. send** anger att koden väntar på att en http-begära
 
 Metoder som **SqlCommand. Execute** anger att koden väntar på att en databas åtgärd ska slutföras.
 
-### <a id="await"></a>Väntar (AWAIT @ no__t-1TIME)
+### <a id="await"></a>Väntar (VÄNTAnde\_tid)
 
-**AWAIT @ no__t-1TIME** anger att koden väntar på att en annan aktivitet ska slutföras. Den här fördröjningen sker vanligt C# vis med instruktionen **AWAIT** . När koden har C# **inväntat**, tar tråden över och returnerar kontrollen till trådpoolen och det finns ingen tråd som är blockerad **och väntar på att** slutföras. Den tråd som gjorde **AWAIT** är dock "blockerad" och väntar på att åtgärden ska slutföras. Instruktionen **AWAIT @ no__t-1TIME** anger den blockerade tid som väntar på att aktiviteten ska slutföras.
+**Väntande\_tid** indikerar att koden väntar på att en annan aktivitet ska slutföras. Den här fördröjningen sker vanligt C# vis med instruktionen **AWAIT** . När koden har C# **inväntat**, tar tråden över och returnerar kontrollen till trådpoolen och det finns ingen tråd som är blockerad **och väntar på att** slutföras. Den tråd som gjorde **AWAIT** är dock "blockerad" och väntar på att åtgärden ska slutföras. Instruktionen **AWAIT\_Time** anger den blockerade tid som väntar på att aktiviteten ska slutföras.
 
 ### <a id="block"></a>Blockerad tid
 

@@ -4,14 +4,35 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 1007533df077c58d9e4d57f9e86b035730ea917f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ec8fb6efab126dcf5556a9abfdf58d1fd69d4212
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903963"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882322"
 ---
-## <a name="set-up-your-device-in-unity"></a>Konfigurera enheten i Unity
+## <a name="androidtabandroid"></a>[Android](#tab/Android)
+
+Java Android-exemplet stöder delning mellan enheter.
+Öppna filen `SharedActivity.java` från mappen Samples i Android Studio. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som värde för `SharingAnchorsServiceUrl` i `SharedActivity.java`-filen. Ersätt `index.html` i URL: en med `api/anchors`. Det bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="iostabios"></a>[iOS](#tab/iOS)
+
+Mål-C iOS-exemplet stöder delning mellan enheter.
+Öppna filen `SharedDemoViewController.m` i mappen Samples. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som värde för `SharingAnchorsServiceUrl` i `SharedActivity.java`-filen. Ersätt `index.html` i URL: en med `api/anchors`. Det bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="xamarintabxamarin"></a>[Xamarin](#tab/Xamarin)
+
+Både Xamarin Android och iOS-exempel stöder delning mellan enheter.
+Öppna filen `AccountDetails.cs` i mappen Samples. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som värde för `AnchorSharingServiceUrl` i `SharedActivity.java`-filen. Ersätt `index.html` i URL: en med `api/anchors`. Det bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="unitytabunity"></a>[Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
@@ -29,7 +50,7 @@ I fönstret **Projekt** går du till `Assets/AzureSpatialAnchorsPlugin/Examples`
 
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-I fönstret **projekt** navigerar du till `Assets\AzureSpatialAnchors.Examples\Resources`. Välj `SpatialAnchorSamplesConfig`. I fönstret **kontrollant** anger `Sharing Anchors Service url` du sedan (från din ASP.NET-webbapp Azure-distribution) som värde för `Base Sharing Url`och ersätter `index.html` med `api/anchors`. Den bör se ut så här `https://<app_name>.azurewebsites.net/api/anchors`:.
+I fönstret **projekt** navigerar du till `Assets\AzureSpatialAnchors.Examples\Resources`. Välj `SpatialAnchorSamplesConfig`. I fönstret **kontrollant** anger du sedan `Sharing Anchors Service url` (från ASP.net-webbappens Azure-distribution) som värde för `Base Sharing Url`, och ersätter `index.html` med `api/anchors`. Det bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors`.
 
 Spara scenen genom att välja **Arkiv** > **Spara**.
 
@@ -43,12 +64,9 @@ Logga in på din Android-enhet och Anslut den till datorn med hjälp av en USB-k
 
 Se till att alla scener har en bock bredvid dem under **scener i build**.
 
-Kontrol lera att **export projekt** inte har en bock markering. Välj **skapa och kör**. Du uppmanas att spara `.apk` filen. Du kan välja ett namn för det.
+Kontrol lera att **export projekt** inte har en bock markering. Välj **skapa och kör**. Du uppmanas att spara `.apk`-filen. Du kan välja ett namn för det.
 
-När appen startar går du till dialog rutan **Välj en demo** och väljer alternativet **LocalShare** genom att trycka på **gå**till. Följ instruktionerna i appen. Du kan välja **skapa & resurs ankare** eller **hitta delade ankare**.
-
-Med det första scenariot kan du skapa en fäst punkt som kan finnas senare på samma enhet eller på en annan.
-Det andra scenariot, om du redan har kört appen, antingen på samma enhet eller på en annan, kan du hitta tidigare delade ankare. När du har valt ditt scenario hjälper appen dig med ytterligare instruktioner kring vad du ska göra. Till exempel uppmanas du att flytta enheten runt till samla in miljö information. Senare kan du placera ett ankare i världen, vänta tills det har sparats och så vidare.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ### <a name="deploy-to-an-ios-device"></a>Distribuera till en iOS-enhet
 
@@ -58,9 +76,6 @@ Se till att alla scener har en bock bredvid dem under **scener i build**.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-När appen startar går du till dialog rutan **Välj en demo** och väljer alternativet **LocalShare** genom att trycka på **gå**till. Följ instruktionerna i appen. Du kan välja **skapa & resurs ankare** eller **hitta delade ankare**.
-
-Med det första scenariot kan du skapa en fäst punkt som kan finnas senare på samma enhet eller på en annan.
-Det andra scenariot, om du redan har kört appen, antingen på samma enhet eller på en annan, kan du hitta tidigare delade ankare. När du har valt ditt scenario hjälper appen dig med ytterligare instruktioner kring vad du ska göra. Till exempel uppmanas du att flytta enheten runt till samla in miljö information. Senare kan du placera ett ankare i världen, vänta tills det har sparats och så vidare.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 Stoppa appen genom att välja **stoppa**i Xcode.

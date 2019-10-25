@@ -5,16 +5,16 @@ services: terraform
 ms.service: azure
 keywords: terraform, devops, storage account, azure, terratest, unit test, integration test
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 637bb01bff625989e392d5d711ebd5cdef5c0e09
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/23/2019
+ms.openlocfilehash: e4965ba47a99e3cd189763d994bef6381badd9ba
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169643"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881777"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testa Terraform-moduler i Azure med hjälp av Terratest
 
@@ -32,7 +32,7 @@ Vi tittade på alla de mest populära testningsinfrastrukturerna och valde [Terr
 - **Alla testfall skrivs i Go**. De flesta utvecklare som använder Terraform är Go-utvecklare. Om du är Go-utvecklare behöver du inte lära dig något annat programmeringsspråk för att använda Terratest. Dessutom är Go och Terraform de enda beroenden som krävs för att du ska kunna köra testfall i Terratest.
 - **Den här infrastrukturen är mycket utökningsbar**. Du kan utöka ytterligare funktioner ovanpå Terratest, till exempel Azure-specifika funktioner.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den här praktiska artikeln är plattformsoberoende. Du kan köra de kodexempel som vi använder i den här artikeln på Windows, Linux eller MacOS. 
 
@@ -96,9 +96,9 @@ output "homepage_url" {
 ```
 
 Den huvudsakliga logiken i modulen etablerar fyra resurser:
-- **resursgrupp**: Namnet på resursgruppen är de `website_name`-indata som läggs till av `-staging-rg`.
-- **lagringskonto**: Namnet på lagringskontot är de `website_name`-indata som läggs till av `data001`. För att följa namnbegränsningar för lagringskontot tar modulen bort alla specialtecken och använder gemener i hela lagringskontonamnet.
-- **container med fast namn**: Containern heter `wwwroot` och skapas i lagringskontot.
+- **resursgrupp**: namnet på resursgruppen är de `website_name`-indata som läggs till av `-staging-rg`.
+- **lagringskonto**: namnet på lagringskontot är de `website_name`-indata som läggs till av `data001`. För att följa namnbegränsningar för lagringskontot tar modulen bort alla specialtecken och använder gemener i hela lagringskontonamnet.
+- **container med fast namn**: containern heter `wwwroot` och skapas i lagringskontot.
 - **enskild HTML-fil**: HTML-filen läses in från `html_path`-indata och laddas upp till `wwwroot/index.html`.
 
 Logiken för den statiska webbplatsens modul implementeras i `./main.tf`:
@@ -226,7 +226,7 @@ func TestUT_StorageAccountName(t *testing.T) {
         // Terraform init and plan only
         tfPlanOutput := "terraform.tfplan"
         terraform.Init(t, tfOptions)
-        terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions.Vars, "plan", "-out="+tfPlanOutput)...)
+        terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions, "plan", "-out="+tfPlanOutput)...)
 
         // Read and parse the plan output
         f, err := os.Open(path.Join(tfOptions.TerraformDir, tfPlanOutput))
@@ -327,7 +327,7 @@ output "homepage" {
 
 Vi använder Terratest och klassiska Go-testfunktioner igen i integreringstestfilen `./test/hello_world_example_test.go`.
 
-Till skillnad från enhetstester skapar integreringstester verkliga resurser i Azure. Därför måste du vara noga med att undvika namnkonflikter. (Var särskilt uppmärksam på vissa globalt unika namn, till exempel lagringskontonamn.) Därför är det första steget i testningslogiken att generera ett slumpmässigt `websiteName` med hjälp av den `UniqueId()`-funktion som tillhandahålls av Terratest. Den här funktionen genererar ett slumpmässigt namn som innehåller gemener, versaler eller siffror. `tfOptions` gör så att alla Terraform-kommandon inriktas på mappen `./examples/hello-world/`. Det ser även till att `website_name` ställs in på det slumpmässiga `websiteName`.
+Till skillnad från enhetstester skapar integreringstester verkliga resurser i Azure. Därför måste du vara noga med att undvika namnkonflikter. (Särskild uppmärksamhet på några globalt unika namn som lagrings konto namn.) Det första steget i test logiken är därför att skapa slumpmässiga `websiteName` med hjälp av funktionen `UniqueId()` som tillhandahålls av Terratest. Den här funktionen genererar ett slumpmässigt namn som innehåller gemener, versaler eller siffror. `tfOptions` gör så att alla Terraform-kommandon inriktas på mappen `./examples/hello-world/`. Det ser även till att `website_name` ställs in på det slumpmässiga `websiteName`.
 
 Sedan körs `terraform init`, `terraform apply` och `terraform output` en i taget. Vi använder en annan hjälpfunktion, `HttpGetWithCustomValidation()`, som tillhandahålls av Terratest. Vi använder hjälpfunktionen för att se till att HTML laddas upp till den utdata-URL `homepage` som returneras av `terraform output`. Vi jämför HTTP GET-statuskoden med `200` och letar efter vissa nyckelord i HTML-innehållet. Slutligen ”utlovas” det att `terraform destroy` körs genom att `defer`-funktionen i Go används.
 
@@ -395,8 +395,7 @@ GoPath/src/staticwebpage/test$ go test
 Integreringstester tar mycket längre tid än enhetstester (två minuter för ett integreringsfall jämfört med en minut för fem enhetsfall). Men det är ditt beslut om du vill använda enhetstester eller integreringstester i ett scenario. Normalt föredrar vi att använda enhetstester för komplex logik med hjälp av Terraform HCL-funktioner. Vi använder vanligtvis integreringstester för slutpunkt till slutpunkt-perspektivet för användare.
 
 ## <a name="use-mage-to-simplify-running-terratest-cases"></a>Använda mage för att förenkla körning av Terratest-fall 
-
-Att köra testfall i Azure Cloud Shell är inte helt enkelt. Du måste gå till olika kataloger och köra olika kommandon. För att undvika användning av Cloud Shell introducerar vi byggsystemet i vårt projekt. I det här avsnittet använder vi ett Go-byggsystem, mage, för jobbet.
+Körning av test fall i Azure Cloud Shell kräver att olika kommandon körs i olika kataloger. För att göra den här processen mer effektiv introducerar vi build-systemet i vårt projekt. I det här avsnittet använder vi ett Go-byggsystem, mage, för jobbet.
 
 Det enda som krävs av mage är en `magefile.go` i projektets rotkatalog (markerad med `(+)` i följande exempel):
 
@@ -422,7 +421,7 @@ Det enda som krävs av mage är en `magefile.go` i projektets rotkatalog (marker
 Här är ett exempel på `./magefile.go`. I det här byggskriptet, som skrivits i Go, implementerar vi fem byggsteg:
 - `Clean`: Steget tar bort alla genererade och tillfälliga filer som genereras under testkörningar.
 - `Format`: Steget kör `terraform fmt` och `go fmt` för att formatera din kodbas.
-- `Unit`: Steget kör alla enhetstester (med hjälp av funktionsnamnskonventionen `TestUT_*`) i mappen `./test/`.
+- `Unit`: Steget kör alla enhetstester (med hjälp av funktionsnamnskonventionen `TestUT_*`) under mappen `./test/`.
 - `Integration`: Steget liknar `Unit`, men i stället för enhetstester kör det integreringstester (`TestIT_*`).
 - `Full`: Steget kör `Clean`, `Format`, `Unit` och `Integration` i följd.
 
@@ -518,7 +517,7 @@ Med mage kan du även dela stegen med hjälp av Go-paketsystemet. I det fallet k
 
 **Valfritt: Konfigurera miljövariabler för tjänsthuvudnamn att köra acceptanstester**
  
-I stället för att köra `az login` före tester kan du slutföra Azure-autentisering genom att konfigurera miljövariablerna för tjänsthuvudnamn. Terraform publicerar en [lista över miljövariabelnamn](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Endast de första fyra av dessa miljövariabler krävs.) Terraform publicerar även detaljerade instruktioner som förklarar hur du [hämtar värdet för dessa miljövariabler](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
+I stället för att köra `az login` före tester kan du slutföra Azure-autentisering genom att konfigurera miljövariablerna för tjänsthuvudnamn. Terraform publicerar en [lista över miljövariabelnamn](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Endast de fyra första av dessa miljövariabler krävs.) Terraform publicerar också detaljerade instruktioner som förklarar hur du [hämtar värdet för de här miljövariablerna](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

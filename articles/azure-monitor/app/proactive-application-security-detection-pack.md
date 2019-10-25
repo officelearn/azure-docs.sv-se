@@ -1,50 +1,45 @@
 ---
-title: Smart identifiering – hanteringspaket för identifiering av säkerhet med Azure Application Insights | Microsoft Docs
-description: Övervaka program med Azure Application Insights för potentiella säkerhetsproblem.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Smart identifiering – säkerhets identifierings paket med Azure Application Insights | Microsoft Docs
+description: Övervaka program med Azure Application insikter om potentiella säkerhets problem.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/12/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/12/2017
+ms.openlocfilehash: 10c8a38af9e4f04b874bfa75e9e78d241b093117
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572883"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820661"
 ---
-# <a name="application-security-detection-pack-preview"></a>Application security identifiering pack (förhandsversion)
+# <a name="application-security-detection-pack-preview"></a>Identifierings paket för program säkerhet (för hands version)
 
-Application Insights automatiskt telemetri som genereras av programmet och identifierar potentiella säkerhetsproblem. Den här funktionen gör det möjligt för dig att identifiera potentiella säkerhetsproblem och hantera dem genom att åtgärda programmet eller genom att göra de nödvändiga säkerhetsåtgärderna.
+Application Insights analyserar automatiskt den telemetri som genereras av ditt program och identifierar potentiella säkerhets problem. Med den här funktionen kan du identifiera potentiella säkerhets problem och hantera dem genom att åtgärda programmet eller genom att vidta nödvändiga säkerhets åtgärder.
 
-Den här funktionen kräver några särskilda inställningar än [konfigurera appen för att skicka telemetri](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
+Den här funktionen kräver ingen särskild konfiguration, förutom [att konfigurera din app för att skicka telemetri](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När ska jag den här typen av meddelande för smart identifiering?
-Det finns tre typer av säkerhetsproblem som identifieras:
-1. Osäkert URL-åtkomst: en URL i programmet nås via HTTP och HTTPS. En URL som accepterar HTTPS-begäranden ska normalt inte godkänner HTTP-begäranden. Detta kan tyda på problem med en bugg eller säkerhet i ditt program.
-2. Osäkert formulär: ett formulär (eller annan ”POST”-begäran) i programmet använder HTTP i stället för HTTPS. Med HTTP kan påverka användarens data som skickas av formuläret.
-3. Misstänkt användaraktivitet: programmet som nås från flera länder/regioner av samma användare vid ungefär samma tillfälle. Exempelvis kan samma användare komma åt programmet från Spanien och USA inom en och samma timme. Den här identifieringen indikerar ett potentiellt skadliga åtkomstförsök till ditt program.
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När får jag den här typen av meddelande om Smart identifiering?
+Det finns tre typer av säkerhets problem som identifieras:
+1. Osäker URL-åtkomst: en URL i programmet nås via både HTTP och HTTPS. Normalt bör en URL som accepterar HTTPS-begäranden inte acceptera HTTP-begäranden. Detta kan tyda på ett fel eller säkerhets problem i ditt program.
+2. Osäkert formulär: ett formulär (eller en annan "POST"-begäran) i programmet använder HTTP i stället för HTTPS. Att använda HTTP kan kompromettera användar data som skickas av formuläret.
+3. Misstänkt användar aktivitet: programmet nås från flera länder/regioner av samma användare på ungefär samma gång. Till exempel är samma användare som har åtkomst till programmet från Spanien och USA inom samma timme. Den här identifieringen visar ett potentiellt skadligt åtkomst försök till ditt program.
 
-## <a name="does-my-app-definitely-have-a-security-issue"></a>Min app definitivt finns det ett säkerhetsproblem?
-Nej, ett meddelande innebär inte att din app definitivt har ett säkerhetsproblem. En identifiering av någon av ovanstående scenarier kan i många fall kan indikera ett säkerhetsproblem. Men identifieringen kan ha en naturlig affärsjustering och kan ignoreras.
+## <a name="does-my-app-definitely-have-a-security-issue"></a>Har min app definitivt ett säkerhets problem?
+Nej, en avisering innebär inte att din app definitivt har ett säkerhets problem. En identifiering av något av scenarierna ovan kan i många fall tyda på ett säkerhets problem. Identifieringen kan dock ha en naturlig affärs justering och kan ignoreras.
 
-## <a name="how-do-i-fix-the-insecure-url-access-detection"></a>Hur kan jag åtgärda ”osäkert URL-åtkomst”-identifiering?
-1. **Prioritering.** Meddelandet innehåller antalet användare som nås osäkert URL: er och den URL som har de flesta påverkas av osäkert åtkomst. Detta kan du tilldela en prioritet till problemet.
-2. **Omfattningen.** Vilken procentandel av användarna komma åt osäkert URL: er? Hur många URL: er har påverkas? Den här informationen kan hämtas från meddelandet.
-3. **Diagnostisera.** Identifieringen innehåller en lista över osäkert önskemål och listan över URL: er och användare som har påverkats för att diagnosticera problemet.
+## <a name="how-do-i-fix-the-insecure-url-access-detection"></a>Hur gör jag för att korrigera identifieringen "osäker URL-åtkomst"?
+1. **Prioritering.** Meddelandet innehåller antalet användare som har åtkomst till osäkra URL: er och den URL som har påverkats av osäker åtkomst. Detta kan hjälpa dig att tilldela en prioritet för problemet.
+2. **Utrymme.** Hur många procent av användarna har åtkomst till osäkra URL: er? Hur många webb adresser påverkades? Den här informationen kan hämtas från meddelandet.
+3. **Diagnostisera.** Identifieringen innehåller en lista över osäkra begär Anden och listor med URL: er och användare som påverkades för att hjälpa dig att ytterligare diagnostisera problemet.
 
-## <a name="how-do-i-fix-the-insecure-form-detection"></a>Hur kan jag åtgärda ”osäkert formatet”-identifiering?
-1. **Prioritering.** Meddelandet innehåller antalet osäkert formulär och antal användare vars data vara potentiellt komprometterade. Detta kan du tilldela en prioritet till problemet.
-2. **Omfattningen.** Vilken form var inblandad i det största antalet osäkert överföringar och vad är distribution av osäkert överföringar över tid? Den här informationen kan hämtas från meddelandet.
-3. **Diagnostisera.** Identifieringen innehåller listan över osäkert formulär och en detaljerad analys av antalet osäkert överföringar för varje formulär för att diagnosticera problemet.
+## <a name="how-do-i-fix-the-insecure-form-detection"></a>Hur gör jag för att korrigera identifieringen av "osäkert format"?
+1. **Prioritering.** Meddelandet innehåller antalet oskyddade formulär och antalet användare vars data möjligen komprometterats. Detta kan hjälpa dig att tilldela en prioritet för problemet.
+2. **Utrymme.** Vilket formulär har varit involverade i det största antalet oskyddade sändningar och vad är distributionen av oskyddade sändningar över tid? Den här informationen kan hämtas från meddelandet.
+3. **Diagnostisera.** Identifieringen innehåller en lista över osäkra formulär och en analys av antalet oskyddade sändningar för varje formulär för att hjälpa dig att ytterligare diagnostisera problemet.
 
-## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Hur kan jag åtgärda ”misstänkt användaraktivitet”-identifiering?
-1. **Prioritering.** Meddelandet innehåller många olika användare som visas misstänkt beteende. Detta kan du tilldela en prioritet till problemet.
-2. **Omfattningen.** Från vilka länder/regioner misstänkta begäranden kommer? Vilken användare var de mest misstänkta? Den här informationen kan hämtas från meddelandet.
-3. **Diagnostisera.** Identifieringen innehåller en lista över misstänkta användare och lista över länder/regioner för varje användare för att diagnosticera problemet.
+## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Hur gör jag för att korrigera identifieringen "misstänkt användar aktivitet"?
+1. **Prioritering.** Meddelandet innehåller antalet olika användare som har uppvisat det misstänkta beteendet. Detta kan hjälpa dig att tilldela en prioritet för problemet.
+2. **Utrymme.** Från vilka länder/regioner har de misstänkta förfrågningarna sitt ursprung? Vilken användare var mest misstänkt? Den här informationen kan hämtas från meddelandet.
+3. **Diagnostisera.** Identifieringen innehåller en lista över misstänkta användare och listan över länder/regioner för varje användare för att hjälpa dig att ytterligare diagnostisera problemet.

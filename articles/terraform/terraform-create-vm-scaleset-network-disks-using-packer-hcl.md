@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/23/2019
+ms.openlocfilehash: de68d5217fb455c8d2b3e11163287e00abcf8481
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173476"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882514"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Använd Terraform för att skapa en VM-skalningsuppsättning för Azure från en anpassad Packer-avbildning
 
@@ -42,9 +42,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Skapa tre nya filer i en tom katalog med följande namn:
 
-- `variables.tf` : Den här filen innehåller värdena för variablerna som används i mallen.
-- `output.tf` : Den här filen beskriver de inställningar som visas efter distributionen.
-- `vmss.tf` : Den här filen innehåller koden för den infrastruktur som du distribuerar.
+- `variables.tf`: den här filen innehåller värdena för variablerna som används i mallen.
+- `output.tf`: den här filen beskriver de inställningar som visas efter distributionen.
+- `vmss.tf`: den här filen innehåller koden för den infrastruktur som du distribuerar.
 
 ##  <a name="create-the-variables"></a>Skapa variablerna 
 
@@ -145,7 +145,7 @@ Initiera Terraform-miljön genom att köra följande kommando i katalogen där d
 terraform init 
 ```
  
-Providerns plugin-program hämtas från Terraform-registret till mappen `.terraform` i katalogen där du körde kommandot.
+Providerns plugin-program laddas ned från terraform-registret till mappen `.terraform` i den katalog där du körde kommandot.
 
 Distribuera infrastrukturen till Azure genom att köra följande kommando.
 

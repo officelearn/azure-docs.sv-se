@@ -1,28 +1,28 @@
 ---
-title: Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins i Azure Functions
-description: Lär dig att distribuera till Azure Functions med hjälp av plugin-programmet Jenkins i Azure Functions
+title: Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins Azure Functions
+description: Lär dig hur du distribuerar till Azure Functions med hjälp av Jenkins Azure Functions-plugin
 ms.service: jenkins
 keywords: jenkins, azure, devops, java, azure functions
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 02/23/2019
-ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 10/23/2019
+ms.openlocfilehash: 58267c607b0c4f2eaaf242c8e0752451f8c04c9a
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815736"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882044"
 ---
-# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins i Azure Functions
+# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins Azure Functions
 
-[Azure Functions](/azure/azure-functions/) är en "serverlös" beräkningstjänst. Med Azure Functions kan köra du kod på begäran utan att tillhandahålla eller hantera infrastruktur. I den är självstudien får du lära dig att distribuera en Java-funktion till Azure Functions med hjälp av Azure Functions-plugin-programmet.
+[Azure Functions](/azure/azure-functions/) är en "serverlös" beräkningstjänst. Med Azure Functions kan köra du kod på begäran utan att tillhandahålla eller hantera infrastruktur. Den här självstudien visar hur du distribuerar en Java-funktion för att Azure Functions med hjälp av Azure Functions-plugin-programmet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-- **Jenkins-server**: Om du inte har en Jenkins-server installerad kan du läsa artikeln [Skapa en Jenkins-server i Azure](./install-jenkins-solution-template.md).
+- **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- **Jenkins Server**: om du inte har installerat en Jenkins-Server kan du läsa artikeln [skapa en Jenkins-server på Azure](./install-jenkins-solution-template.md).
 
   > [!TIP]
   > Källkoden i den här självstudien finns i [Visual Studio Kina GitHub-lagringsplatsen](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
@@ -76,8 +76,8 @@ Följande steg beskriver hur du förbereder Jenkins-servern:
 
 1. Installera följande plugin-program i Jenkins-instrumentpanelen:
 
-    - Azure Functions Plugin
-    - EnvInject-plugin-programmet
+    - Azure Functions-plugin
+    - EnvInject-plugin
 
 1. Jenkins behöver Azure-tjänstens huvudnamn för att autentisera och få åtkomst till Azure-resurser. Referera till de stegvisa instruktionerna i [Distribuera till Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md).
 

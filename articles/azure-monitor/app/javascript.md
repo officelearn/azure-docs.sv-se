@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights för JavaScript-webbappar | Microsoft Docs
 description: Hämta sidvisnings- och sessionsantal, webbklientdata och spåra användningsmönster. Identifiera undantag och prestandaproblem på JavaScript-baserade webbsidor.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/20/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b49206c677e2f1b20c154ae0c9e358e8b2b0bbd8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 09/20/2019
+ms.openlocfilehash: 17765910b379bd4212d171cce6643de561db23ad
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430206"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819377"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -50,7 +45,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>Kodfragment-baserad installation
 
-Om din app inte använder NPM kan du direkt Instrumenta dina webb sidor med Application Insights genom att klistra in det här kodfragmentet överst på varje sida. Helst bör det vara det första skriptet i `<head>`-avsnittet så att det kan övervaka eventuella eventuella problem med alla dina beroenden. Om du använder programmet för att lägga till ett program i den här typen av program kan du lägga till kodfragmentet överst i filen `_Host.cshtml` i avsnittet `<head>`.
+Om din app inte använder NPM kan du direkt Instrumenta dina webb sidor med Application Insights genom att klistra in det här kodfragmentet överst på varje sida. Helst bör det vara det första skriptet i `<head>`-avsnittet så att det kan övervaka eventuella eventuella problem med alla dina beroenden. Om du använder programmet för att lägga till ett program i den här typen av Server lägger du till kodfragmentet överst i filen `_Host.cshtml` i avsnittet `<head>`.
 
 ```html
 <script type="text/javascript">
@@ -178,7 +173,7 @@ Välj **webbläsare** och välj sedan **haverier** eller **prestanda**.
 
 ### <a name="analytics"></a>Analyser 
 
-Om du vill fråga din telemetri som samlas in av JavaScript SDK väljer du knappen **Visa i loggar (analys)** . Genom att lägga till ett `where`-uttryck för `client_Type == "Browser"` visas bara data från Java Script SDK och all telemetri på Server sidan som samlas in av andra SDK: er.
+Om du vill fråga din telemetri som samlas in av JavaScript SDK väljer du knappen **Visa i loggar (analys)** . Genom att lägga till en `where`-sats i `client_Type == "Browser"`kommer du bara att se data från Java Script SDK och eventuell telemetri från Server sidan som samlas in av andra SDK: er.
  
 ```kusto
 // average pageView duration by name
@@ -219,7 +214,7 @@ Körbara-exempel finns i [Application Insights JavaScript SDK-exempel](https://g
 Bryta ändringar i SDK v2-versionen:
 - Vissa API-anrop, till exempel trackPageView, trackException har uppdaterats för att möjliggöra bättre API-signaturer. Det finns inte stöd för att köra i IE8 eller lägre versioner av webbläsaren.
 - Telemetri-kuvert har fält namn och struktur ändringar på grund av data schema uppdateringar.
-- Flyttade `context.operation` till `context.telemetryTrace`. Vissa fält ändrades också (`operation.id` @ no__t-1 @ no__t-2)
+- Flyttade `context.operation` till `context.telemetryTrace`. Vissa fält ändrades också (`operation.id` --> `telemetryTrace.traceID`)
   - Om du vill uppdatera aktuellt sid visningar-ID manuellt (till exempel i SPA-appar) kan du göra det med `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
 
 Om du använder den aktuella Application Insights PRODUCTion SDK (1.0.20) och vill se om den nya SDK: n fungerar i körnings miljön uppdaterar du URL: en beroende på ditt aktuella SDK-inläsnings scenario.

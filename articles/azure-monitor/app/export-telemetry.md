@@ -1,23 +1,18 @@
 ---
 title: Kontinuerlig export av telemetri från Application Insights | Microsoft Docs
 description: Exportera diagnostik-och användnings data till lagring i Microsoft Azure och ladda ned dem därifrån.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/25/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3238abcbcbc4d776e3736b13d5b32149c642649c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 07/25/2019
+ms.openlocfilehash: 6504661c2df66bda81af03a6364703b4b10f7485
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516951"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819547"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Vill du behålla din telemetri längre än standard kvarhållningsperioden? Eller bearbeta den på ett visst sätt? Kontinuerlig export är idealisk för detta. De händelser som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriva vilken kod du behöver för att bearbeta den.  
@@ -92,7 +87,7 @@ Datan innehåller även resultatet av alla [webb test för tillgänglighet](../.
 ## <a name="get"></a>Granska data
 Du kan kontrol lera lagringen direkt i portalen. Klicka på Start i menyn längst till vänster längst upp där det står "Azure-tjänster" Välj **lagrings konton**, Välj lagrings kontots namn på sidan Översikt och välj **blobbar** under tjänster och välj sedan container namnet.
 
-Öppna **vyn**och **Cloud Explorer**för att kontrol lera Azure Storage i Visual Studio. (Om du inte har det meny kommandot måste du installera Azure SDK: Öppna dialog rutan **nytt projekt** , expandera Visual C#/Cloud och välj **Hämta Microsoft Azure SDK för .net**.)
+Öppna **vyn**och **Cloud Explorer**för att kontrol lera Azure Storage i Visual Studio. (Om du inte har det meny kommandot måste du installera Azure SDK: öppna dialog rutan **nytt projekt** , expandera Visual C#/Cloud och välj **Hämta Microsoft Azure SDK för .net**.)
 
 När du öppnar BLOB Store visas en behållare med en uppsättning BLOB-filer. URI: n för varje fil som härleds från Application Insights resurs namn, Instrumentation-nyckel, telemetri-typ/datum/tid. (Resurs namnet är bara gemener och instrument knappen utesluter bindestreck.)
 
@@ -104,10 +99,10 @@ Här är en form av sökvägen:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-Där
+Var
 
-* `blobCreationTimeUtc`är tiden när blobben skapades i den interna mellanlagringen
-* `blobDeliveryTimeUtc`är tiden när blobben kopieras till export destinations lagringen
+* `blobCreationTimeUtc` är tid när blobben skapades i det interna lagrings utrymmet
+* `blobDeliveryTimeUtc` är tiden när blobben kopieras till export destinations lagringen
 
 ## <a name="format"></a>Data format
 * Varje BLOB är en textfil som innehåller flera ' \n '-avgränsade rader. Den innehåller Telemetrin som bearbetas under en tids period på ungefär hälften en minut.
@@ -185,7 +180,7 @@ På större skalor bör du överväga [HDInsight](https://azure.microsoft.com/se
   * Dessutom allokeras ytterligare diskpartitioner för program med hög trafik. I det här fallet skapar varje enhet en BLOB varje minut.
 * *Jag återskapade nyckeln till min lagring eller ändrat namnet på behållaren, och nu fungerar inte exporten.*
 
-    Redigera exporten och öppna fliken Exportera destination. Lämna samma lagrings utrymme valt som tidigare och bekräfta genom att klicka på OK. Exporten kommer att startas om. Om ändringen var inom de senaste dagarna går det inte att förlora data.
+    Redigera exporten och öppna fliken Exportera destination. lämna samma lagring markerat som tidigare och bekräfta genom att klicka på OK. Exporten kommer att startas om. Om ändringen var inom de senaste dagarna går det inte att förlora data.
 * *Kan jag pausa exporten?*
 
     Ja. Klicka på Inaktivera.

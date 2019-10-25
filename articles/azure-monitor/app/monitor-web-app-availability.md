@@ -1,23 +1,19 @@
 ---
 title: Övervaka tillgänglighet och svarstider på valfri webbplats | Microsoft Docs
 description: Konfigurera webbtester i Application Insights. Få aviseringar om en webbplats blir otillgänglig eller svarar långsamt.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 3c7ba10525dedf213a416d9ce6b55c80539fedd7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 074b5c175305131cd67cc6660d13756a83386c11
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812212"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819293"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Övervaka tillgängligheten för en webbplats
 
@@ -30,8 +26,8 @@ Du kan konfigurera tillgänglighetstester för valfri HTTP- eller HTTPS-slutpunk
 Det finns tre typer av tillgänglighets test:
 
 * [URL-pingtest](#create-a-url-ping-test): Ett enkelt test som du kan skapa på Azure-portalen.
-* [Webb test för flera steg](availability-multistep.md): En inspelning av en sekvens med webb förfrågningar, som kan spelas upp för att testa mer komplexa scenarier. Webbtester med flera steg skapas i Visual Studio Enterprise och överförs till portalen för körning.
-* [Tillgänglighets test för anpassad spårning](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Om du väljer att skapa ett anpassat program för att köra tillgänglighets test, kan metoden `TrackAvailability()` användas för att skicka resultaten till Application Insights.
+* [Webb test för flera steg](availability-multistep.md): en inspelning av en sekvens med webb förfrågningar, som kan spelas upp för att testa mer komplexa scenarier. Webbtester med flera steg skapas i Visual Studio Enterprise och överförs till portalen för körning.
+* [Tillgänglighets test för anpassad spårning](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): om du väljer att skapa ett anpassat program för att köra tillgänglighets test, kan `TrackAvailability()` metoden användas för att skicka resultaten till Application Insights.
 
 **Du kan skapa upp till 100 tillgänglighets test per Application Insights resurs.**
 
@@ -64,7 +60,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 > [!NOTE]
 > Vi rekommenderar starkt att du testar från flera platser med **minst fem platser**. Detta är för att förhindra falska larm som kan resultera i tillfälliga problem med en angiven plats. Vi har också funnit att den optimala konfigurationen är att **antalet test platser ska vara lika med tröskelvärdet för aviserings plats + 2**.
 
-### <a name="success-criteria"></a>Villkor för lyckat test
+### <a name="success-criteria"></a>Lyckade kriterier
 
 |Inställning| Förklaring
 |----|----|----|
@@ -78,7 +74,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
 |**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
-|**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskelvärde och antalet test platser är **tröskelvärdet för aviserings platsens tröskel** = **antal test platser – 2, med minst fem test platser.**|
+|**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskel och antalet test platser är **tröskelvärde för aviserings plats**  = **antalet test platser-2, med minst fem test platser.**|
 
 ## <a name="see-your-availability-test-results"></a>Visa tillgänglighetstestresultat
 
@@ -123,15 +119,15 @@ Klicka på raden undantag om du vill se information om det undantag på Server s
 
 Förutom de råa resultaten kan du också visa två nyckel tillgänglighets mått i [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
 
-1. Offlinetillgänglighet Procent andelen av de tester som lyckades, i alla test körningar.
-2. Test varaktighet: Genomsnittlig test varaktighet för alla test körningar.
+1. Tillgänglighet: antal procent av testerna som lyckades av alla testkörningar.
+2. Testets varaktighet: genomsnittlig tid för alla testkörningar.
 
 ## <a name="automation"></a>Automation
 
 * [Konfigurera ett tillgänglighetstest automatiskt med hjälp av PowerShell-skript](../../azure-monitor/app/powershell.md#add-an-availability-test).
 * Konfigurera en [webhook](../../azure-monitor/platform/alerts-webhooks.md) som anropas när en avisering genereras.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Dedikerad [fel söknings artikel](troubleshoot-availability.md).
 

@@ -1,41 +1,37 @@
 ---
-title: Filtrera Azure Application Insights telemetry i Java-webbappen | Microsoft Docs
-description: Minska telemetritrafik genom att filtrera bort händelser som du inte behöver övervaka.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Filtrera Azure Application Insights-telemetri i din Java-webbapp | Microsoft Docs
+description: Minska telemetri trafiken genom att filtrera bort händelserna som du inte behöver övervaka.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 3/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9cf939b241da01be55c1b2ba5f00a5131ab94c06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 3/14/2019
+ms.openlocfilehash: de2a7c73b87254a6fd2e6c5dc942a9c93d28c2d4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061170"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819355"
 ---
-# <a name="filter-telemetry-in-your-java-web-app"></a>Filtrera telemetri i Java-webbappen
+# <a name="filter-telemetry-in-your-java-web-app"></a>Filtrera telemetri i din Java-webbapp
 
-Filter är ett sätt att välja telemetrin som dina [Java-webbapp skickar till Application Insights](java-get-started.md). Det finns vissa out-of the box-filter som du kan använda och du kan också skriva egna anpassade filter.
+Filter är ett sätt att välja telemetri som din [Java-webbapp skickar till Application Insights](java-get-started.md). Det finns några färdiga filter som du kan använda och du kan också skriva egna anpassade filter.
 
-Out-of the box-filtren är:
+De färdiga filtren är:
 
-* Spåra allvarlighetsgrad
-* Specifika URL: er, nyckelord eller svarskoder
-* Snabba svar – det vill säga begäran som din app svarat på snabbt
-* Specifika händelsenamn
+* Allvarlighets grad för spårning
+* Vissa URL: er, nyckelord eller svars koder
+* Snabba svar – det vill säga förfrågningar som appen svarade på snabbt
+* Angivna händelse namn
 
 > [!NOTE]
-> Filter förskjuta mått för din app. Du kan till exempel bestämma att, för att kunna diagnostisera långsamma svar du anger ett filter för att ta bort snabba svarstider. Men du måste vara medveten om att de genomsnittliga svarstider som rapporterats av Application Insights blir långsammare än SANT hastighet och antal begäranden ska vara mindre än antalet verkliga.
-> Om det är ett problem kan använda [Sampling](../../azure-monitor/app/sampling.md) i stället.
+> Filter skevar måtten för din app. Du kan till exempel bestämma att du ska ta bort snabba svars tider genom att ange ett filter för att diagnostisera långsamma svar. Men du måste vara medveten om att den genomsnittliga svars tiden som rapporteras av Application Insights kommer att bli långsammare än den sanna hastigheten och antalet begär Anden blir mindre än det faktiska antalet.
+> Om detta är ett problem kan du använda [sampling](../../azure-monitor/app/sampling.md) i stället.
 
 ## <a name="setting-filters"></a>Ange filter
 
-I ApplicationInsights.xml, lägger du till en `TelemetryProcessors` avsnittet som i följande exempel:
+I ApplicationInsights. XML lägger du till ett `TelemetryProcessors`-avsnitt som det här exemplet:
 
 
 ```XML
@@ -88,11 +84,11 @@ I ApplicationInsights.xml, lägger du till en `TelemetryProcessors` avsnittet so
 
 
 
-[Granska den fullständiga uppsättningen inbyggda processorer](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Kontrol lera den fullständiga uppsättningen inbyggda processorer](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
 
 ## <a name="built-in-filters"></a>Inbyggda filter
 
-### <a name="metric-telemetry-filter"></a>Metrisk telemetri-filter
+### <a name="metric-telemetry-filter"></a>Filter för mått för telemetri
 
 ```XML
 
@@ -101,10 +97,10 @@ I ApplicationInsights.xml, lägger du till en `TelemetryProcessors` avsnittet so
            </Processor>
 ```
 
-* `NotNeeded` – Kommaavgränsad lista över anpassade mått namn.
+* `NotNeeded`-kommaavgränsad lista över anpassade mått namn.
 
 
-### <a name="page-view-telemetry-filter"></a>Sidvystelemetri filter
+### <a name="page-view-telemetry-filter"></a>Telemetri filter för sid visning
 
 ```XML
 
@@ -115,12 +111,12 @@ I ApplicationInsights.xml, lägger du till en `TelemetryProcessors` avsnittet so
            </Processor>
 ```
 
-* `DurationThresholdInMS` -Varaktighet refererar till den tid det tar att läsa in sidan. Om inställningen anges rapporteras inte sidor som läses in snabbare än den angivna tiden.
-* `NotNeededNames` – Kommaavgränsad lista över namn på sidan.
-* `NotNeededUrls` – Kommaavgränsad lista över URL: en fragment. Till exempel `"home"` filtrerar ut alla sidor som har ”home” i Webbadressen.
+* `DurationThresholdInMS`-varaktigheten avser den tid det tar att läsa in sidan. Om detta ställs in rapporteras inte sidor som laddades snabbare än den tiden.
+* `NotNeededNames`-kommaavgränsad lista med sid namn.
+* `NotNeededUrls`-kommaavgränsad lista med URL-fragment. `"home"` filtrerar till exempel alla sidor som har "hem" i URL: en.
 
 
-### <a name="request-telemetry-filter"></a>Begär telemetri Filter
+### <a name="request-telemetry-filter"></a>Filtret begär telemetri
 
 
 ```XML
@@ -134,11 +130,11 @@ I ApplicationInsights.xml, lägger du till en `TelemetryProcessors` avsnittet so
 
 
 
-### <a name="synthetic-source-filter"></a>Synthetic Source filter
+### <a name="synthetic-source-filter"></a>Filter för syntetisk källa
 
-Filtrerar ut all telemetri som har värden i egenskapen SyntheticSource. Dessa inkluderar begäranden från robotar, spindlar och tillgänglighetstester.
+Filtrerar all telemetri som har värden i egenskapen SyntheticSource. Dessa omfattar förfrågningar från robotar, spindeler och tillgänglighets test.
 
-Filtrera bort telemetri för alla syntetiska förfrågningar:
+Filtrera bort telemetri för alla syntetiska begär Anden:
 
 
 ```XML
@@ -146,7 +142,7 @@ Filtrera bort telemetri för alla syntetiska förfrågningar:
            <Processor type="SyntheticSourceFilter" />
 ```
 
-Filtrera bort telemetri för särskilda syntetiska källor:
+Filtrera bort telemetri för vissa syntetiska källor:
 
 
 ```XML
@@ -156,11 +152,11 @@ Filtrera bort telemetri för särskilda syntetiska källor:
            </Processor>
 ```
 
-* `NotNeeded` – Kommaavgränsad lista med syntetiska namn på.
+* `NotNeeded`-kommaavgränsad lista över namn på syntetiska källor.
 
-### <a name="telemetry-event-filter"></a>Händelsefilter för telemetri
+### <a name="telemetry-event-filter"></a>Händelse filter för telemetri
 
-Anpassade händelser (inloggad med [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filtrerar anpassade händelser (loggas med [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -171,12 +167,12 @@ Anpassade händelser (inloggad med [TrackEvent()](../../azure-monitor/app/api-cu
 ```
 
 
-* `NotNeededNames` – Kommaavgränsad lista över händelsenamn.
+* `NotNeededNames`-kommaavgränsad lista över händelse namn.
 
 
-### <a name="trace-telemetry-filter"></a>Spåra telemetri filter
+### <a name="trace-telemetry-filter"></a>Filter för trace-telemetri
 
-Filter loggspårningar (inloggad med [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) eller en [loggning framework insamlaren](java-trace-logs.md)).
+Filtrerar logg spårningar (loggas med [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) eller en [insamlare för loggnings ramverk](java-trace-logs.md)).
 
 ```XML
 
@@ -185,20 +181,20 @@ Filter loggspårningar (inloggad med [TrackTrace()](../../azure-monitor/app/api-
            </Processor>
 ```
 
-* `FromSeverityLevel` Giltiga värden är:
-  *  RABATT - filtrera bort alla spårningar
-  *  SPÅRNINGEN – ingen filtrering. är lika med spårningsnivå
-  *  INFO - Filter ut spårningsnivå
-  *  WARN - Filter ut SPÅRNINGS- och information
-  *  FEL - Filter ut Varna, INFO, SPÅRNING
-  *  KRITISK - filter ut alla utom kritiska
+* `FromSeverityLevel` giltiga värden är:
+  *  Inaktivera-filtrera alla spårningar
+  *  SPÅRNING – ingen filtrering. lika med spårnings nivå
+  *  INFO – Filtera SPÅRNINGs nivå
+  *  Varna – filtrera bort spårning och information
+  *  FEL-filtrera ut varning, INFO, spåra
+  *  KRITISKt-filtrera alla utom kritiska
 
 
 ## <a name="custom-filters"></a>Anpassade filter
 
-### <a name="1-code-your-filter"></a>1. Koda ditt filter
+### <a name="1-code-your-filter"></a>1. koda ditt filter
 
-I din kod, skapar du en klass som implementerar `TelemetryProcessor`:
+I din kod skapar du en klass som implementerar `TelemetryProcessor`:
 
 ```Java
 
@@ -235,9 +231,9 @@ I din kod, skapar du en klass som implementerar `TelemetryProcessor`:
 ```
 
 
-### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Anropa filter i konfigurationsfilen
+### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. anropa ditt filter i konfigurations filen
 
-In ApplicationInsights.xml:
+I ApplicationInsights. XML:
 
 ```XML
 
@@ -254,9 +250,9 @@ In ApplicationInsights.xml:
 
 ```
 
-### <a name="3-invoke-your-filter-java-spring"></a>3. Anropa filter (Java Spring)
+### <a name="3-invoke-your-filter-java-spring"></a>3. anropa ditt filter (Java våren)
 
-Anpassad telemetri processorer måste vara registrerad i klassen huvudprogrammet för program som är baserade på Spring framework som en böna. De kommer sedan att autowired när programmet startas.
+För program som baseras på våren-ramverket måste anpassade telemetri-processorer registreras i huvud program klassen som en bönor. De blir sedan automatiskt när programmet startas.
 
 ```Java
 @Bean
@@ -265,15 +261,15 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-Behöver du skapa dina egna filterparametrar i `application.properties` och utnyttja Spring Boot externalized configuration ramverk för att skicka in ditt filter. 
+Du måste skapa egna filter parametrar i `application.properties` och dra nytta av våren boot ' s external Configuration Framework för att skicka dessa parametrar till ditt anpassade filter. 
 
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
-*Mina filter fungerar inte.*
+*Mitt filter fungerar inte.*
 
-* Kontrollera att du har angett giltiga parametervärden. Varaktigheter bör till exempel vara heltal. Ogiltiga värden kommer filtret som ska ignoreras. Om ditt filter genererar ett undantag från en konstruktor eller set-metod, kommer att ignoreras.
+* Kontrol lera att du har angett giltiga parameter värden. Varaktigheter ska till exempel vara heltal. Ogiltiga värden kommer att orsaka att filtret ignoreras. Om det anpassade filtret genererar ett undantag från en konstruktor eller set-metod ignoreras det.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Sampling](../../azure-monitor/app/sampling.md) -Överväg sampling som ett alternativ som inte förskjuta dina mått.
+* [Sampling](../../azure-monitor/app/sampling.md) – Överväg att använda sampling som ett alternativ som inte snedställer dina mått.

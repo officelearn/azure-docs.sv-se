@@ -1,67 +1,65 @@
 ---
 title: Övervaka python-program med Azure Monitor (för hands version) | Microsoft Docs
 description: Innehåller instruktioner för att ansluta till openräkningar python med Azure Monitor
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
-ms.service: application-insights
-ms.topic: conceptual
 ms.reviewer: mbullwin
-manager: carmonm
-ms.openlocfilehash: ed61cb1bc88c48fe89c4a9390f04747749bd48c5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 0d848027d6c754df371b4d87cf01c5b2fdbc8c02
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329483"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820732"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
-Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). I den här artikeln får du stegvisa anvisningar genom processen för att ställa in openräkning för python och hämta övervaknings data till Azure Monitor.
+Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). Den här artikeln vägleder dig genom processen med att konfigurera openräkning för python och skicka övervaknings data till Azure Monitor.
 
 ## <a name="prerequisites"></a>Krav
 
-- Du behöver en Azure-prenumeration.
-- Python bör installeras, den här artikeln använder [python 3.7.0](https://www.python.org/downloads/), men tidigare versioner kommer förmodligen att fungera med mindre justeringar.
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- Python-installation. Den här artikeln använder [python 3.7.0](https://www.python.org/downloads/), men tidigare versioner kommer förmodligen att fungera med mindre ändringar.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-application-insights-resource-in-azure-monitor"></a>Skapa Application Insights resurs i Azure Monitor
+## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Skapa en Application Insights resurs i Azure Monitor
 
 Först måste du skapa en Application Insights resurs i Azure Monitor, vilket genererar en Instrumentation-nyckel (iKey). IKey används sedan för att konfigurera openräkning SDK för att skicka telemetridata till Azure Monitor.
 
-1. Välj **skapa en resurs** > **utvecklarverktyg** > **Application Insights**.
+1. Välj **Skapa en resurs** > **Utvecklarverktyg** > **Application Insights**.
 
-   ![lägg till en Application Insights-resurs](./media/opencensus-python/0001-create-resource.png)
+   ![Lägga till en Application Insights resurs](./media/opencensus-python/0001-create-resource.png)
 
-   En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
+1. En konfigurations ruta visas. Använd följande tabell för att fylla i inmatade fält.
 
-    | Inställningar        | Värde           | Beskrivning  |
+   | Inställning        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
-   | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
-   | **Resursgrupp**     | myResourceGroup      | Namnet på den nya resursgrupp som är värd för App Insights-data |
-   | **Plats** | Östra USA | Välj en plats nära dig eller nära där appen finns |
+   | **Namn**      | Globalt unikt värde | Namn som identifierar den app som du övervakar |
+   | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data |
+   | **Plats** | USA, östra | En plats nära dig, eller nära var din app finns |
 
-2. Klicka på **Skapa**.
+1. Välj **Skapa**.
 
-## <a name="instrumenting-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentering med python-SDK: n för openräkning för Azure Monitor
+## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrument med python SDK för openräkning för Azure Monitor
 
-1. Installera Azure Monitor-exportörer för Open-räkning:
+Installera Azure Monitor-exportörer för Open-räkning:
 
-    ```console
-    python -m pip install opencensus-ext-azure
-    ```
+```console
+python -m pip install opencensus-ext-azure
+```
 
-    > [!NOTE]
-    > `python -m pip install opencensus-ext-azure` förutsätter att du har en Sök VÄGS miljö variabel uppsättning för din python-installation. Om du inte har konfigurerat detta måste du ge fullständig katalog Sök väg till den plats där din python-körbara fil finns, vilket skulle resultera i ett kommando som: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
+> [!NOTE]
+> Kommandot `python -m pip install opencensus-ext-azure` förutsätter att du har en variabel för `PATH`-miljövariabeln som har angetts för din python-installation. Om du inte har konfigurerat den här variabeln måste du ge fullständig katalog Sök väg till den plats där din python-körbara fil finns. Resultatet är ett kommando som detta: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-2. SDK använder tre Azure Monitor exportörer för att skicka olika typer av telemetri till Azure Monitor: spårning, mått och loggar. Ta en titt på [data plattforms översikten](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) för mer information om de olika typerna. Följ anvisningarna nedan för att se hur du skickar de olika typerna via de tre exportörerna.
+SDK använder tre Azure Monitor exportörer för att skicka olika typer av telemetri till Azure Monitor: spårning, mått och loggar. Mer information om dessa typer av telemetri finns i [Översikt över data plattformen](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Använd följande instruktioner för att skicka dessa typer av telemetri via de tre exportörerna.
 
 ### <a name="trace"></a>Spårning
 
@@ -86,7 +84,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
         main()
     ```
 
-2. Genom att köra koden uppmanas du att ange ett värde upprepade gånger. Vid varje post skrivs värdet till gränssnittet och en motsvarande del av **SpanData** genereras av python-modulen för openräkning. Projektet openspanion definierar en [_spårning som ett träd över spänner_](https://opencensus.io/core-concepts/tracing/).
+2. Genom att köra koden uppmanas du att ange ett värde upprepade gånger. Vid varje post skrivs värdet till gränssnittet och python-modulen för openräkning genererar en motsvarande `SpanData`. Projektet openspanion definierar en [spårning som ett träd över spänner](https://opencensus.io/core-concepts/tracing/).
     
     ```
     Enter a value: 4
@@ -100,7 +98,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-3. Vi kan till exempel vara användbara i demonstrations syfte, och vi vill därför generera `SpanData` till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera `SpanData` till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -128,11 +126,11 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
         main()
     ```
 
-4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men nu är det bara värdet som skrivs ut i gränssnittet. @No__t-0 som skapats skickas till Azure Monitor. Du kan hitta de data som genereras för varje period under `dependencies`.
+4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Den skapade `SpanData` skickas till Azure Monitor. Du kan hitta de data som genereras för varje period under `dependencies`.
 
 ### <a name="metrics"></a>Mått
 
-1. Först ska vi generera några lokala mått data. Vi kommer att skapa ett enkelt mått för att spåra hur många gånger användaren trycker på RETUR.
+1. Först ska vi generera några lokala mått data. Vi ska skapa ett enkelt mått för att spåra hur många gånger användaren trycker på RETUR.
 
     ```python
     from datetime import datetime
@@ -172,7 +170,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
     if __name__ == "__main__":
         main()
     ```
-2. Genom att köra koden uppmanas du upprepade gånger att trycka på RETUR. Ett mått skapas för att spåra antalet returer som trycks ned. Vid varje post ökas värdet och mått informationen visas i-konsolen, med det aktuella värdet och den aktuella tidsstämpeln när måttet uppdaterades.
+2. Genom att köra koden uppmanas du upprepade gånger att trycka på RETUR. Ett mått skapas för att spåra antalet gånger som retur trycks ned. Vid varje post ökas värdet och mått informationen visas i-konsolen. Informationen omfattar det aktuella värdet och den aktuella tidsstämpeln när måttet uppdaterades.
 
     ```
     Press enter.
@@ -183,7 +181,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-3. Vi kan till exempel vara användbara i demonstrations syfte, och vi vill därför generera mått data till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera mått data till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     from datetime import datetime
@@ -231,7 +229,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
         main()
     ```
 
-4. Export verktyget skickar mått data till Azure Monitor med ett fast intervall, som standard var 15: e sekund. Vi spårar ett enda mått så att dessa mått data, med det värde och den tidsstämpel som den innehåller, skickas varje intervall. Du kan hitta data under `customMetrics`.
+4. Export verktyget skickar mått data till Azure Monitor med ett fast intervall. Standardvärdet är var 15: e sekund. Vi spårar ett enda mått, så dessa mått data, med det värde och den tidsstämpel som den innehåller, kommer att skickas varje intervall. Du kan hitta data under `customMetrics`.
 
 ### <a name="logs"></a>Loggar
 
@@ -254,7 +252,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
         main()
     ```
 
-2.  Koden kommer att fråga efter fråga efter ett värde som ska anges. En loggpost genereras för varje värde som anges och som innehåller det värdet.
+2.  Koden kommer kontinuerligt att fråga efter ett värde som ska anges. En loggpost genereras för varje angivet värde.
 
     ```
     Enter a value: 24
@@ -267,7 +265,7 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
     90
     ```
 
-3. Vi kan till exempel vara användbara i demonstrations syfte, och vi vill därför generera mått data till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera mått data till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     import logging
@@ -296,41 +294,43 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 
-1. Nu kan du öppna sidan Application Insights **Översikt** i Azure Portal för att visa information om ditt program som körs. Välj **Live Metric Stream**.
+1. Nu kan du öppna Application Insights **översikts** fönstret i Azure Portal för att visa information om ditt program som körs. Välj **Live Metrics Stream**.
 
-   ![Skärm bild av översikts fönstret med direkt mått data ström vald i röd ruta](./media/opencensus-python/0005-overview-live-metrics-stream.png)
+   ![Skärm bild av översikts fönstret med "Live Metrics Stream" markerat i en röd ruta](./media/opencensus-python/0005-overview-live-metrics-stream.png)
 
-2. Gå tillbaka till sidan **Översikt** och välj **program karta** för en visuell layout av beroende relationerna och anropa tiden mellan program komponenterna.
+2. Gå tillbaka till **översikts** fönstret. Välj **program karta** för en visuell layout av beroende relationerna och anropa tiden mellan program komponenterna.
 
-    ![Skärm bild av grundläggande program karta](./media/opencensus-python/0007-application-map.png)
+   ![Skärm bild av en grundläggande program karta](./media/opencensus-python/0007-application-map.png)
 
-    Eftersom vi bara spårade ett metod anrop är vår program karta inte lika intressant. Men program kartan kan skalas för att visualisera mycket fler distribuerade program:
+   Eftersom vi bara spårade ett metod anrop är vår program karta inte intressant. Men en program karta kan skalas för att visualisera mycket fler distribuerade program:
 
-   ![Programavbildning](media/opencensus-python/application-map.png)
+   ![Programkarta](media/opencensus-python/application-map.png)
 
-3. Välj **Undersök prestanda** för att utföra detaljerad prestanda analys och fastställ rotor saken till långsamma prestanda.
+3. Välj **Undersök prestanda** för att analysera prestanda i detalj och fastställ rotor saken till långsamma prestanda.
 
-    ![Skärm bild av fönstret prestanda](./media/opencensus-python/0008-performance.png)
+   ![Skärm bild av prestanda information](./media/opencensus-python/0008-performance.png)
 
-4. Om du väljer **exempel** och sedan klickar på något av de exempel som visas i den högra rutan, startas transaktions information från slut punkt till slut punkt. Vår exempel App visar bara oss en enda händelse, ett mer komplext program som gör att du kan utforska slut punkt till slut punkt på nivån för en enskild händelses anrops stack.
+4. Om du vill öppna den heltäckande upplevelsen för transaktions information väljer du **exempel**och sedan något av de exempel som visas i den högra rutan. 
 
-     ![Skärm bild av transaktions gränssnitt från slut punkt till slut punkt](./media/opencensus-python/0009-end-to-end-transaction.png)
+   Även om vår app-app bara visar en enda händelse, kan ett mer komplext program hjälpa dig att utforska slutpunkt-till-slutpunkt-transaktionen ned till nivån för en enskild händelses anrops stack.
+
+   ![Skärm bild av transaktions gränssnittet från slut punkt till slut punkt](./media/opencensus-python/0009-end-to-end-transaction.png)
 
 ## <a name="view-your-data-with-queries"></a>Visa dina data med frågor
 
-1. Du kan visa telemetri-data som har skickats från ditt program via fliken loggar (Analytics).
+Du kan visa telemetri-data som har skickats från ditt program via fliken **loggar (Analytics)** .
 
-    ![Skärm bild av översikts fönstret med loggar (Analytics) markerat i rutan röd](./media/opencensus-python/0010-logs-query.png)
+![Skärm bild av översikts fönstret med "loggar (analyser)" markerade i en röd ruta](./media/opencensus-python/0010-logs-query.png)
 
-2. För telemetri som skickas med Azure Monitor trace-export ören visas inkommande begär Anden under `requests` och pågående/pågående-begär Anden som visas under `dependencies`.
+I listan under **Active**:
 
-3. För telemetri som skickas med Azure Monitor Metrics-exporten visas måtten som skickas under `customMetrics`.
+- För telemetri som skickas med Azure Monitor trace-export ören visas inkommande begär Anden under `requests`. Utgående eller aktiva begär Anden visas under `dependencies`.
+- För telemetri som skickas med Azure Monitor Metrics-exporten visas de skickade måtten under `customMetrics`.
+- För telemetri som skickas med Azure Monitor loggar exportör visas loggar under `traces`. Undantag visas under `exceptions`.
 
-4. För telemetri som skickas med Azure Monitor loggar exportör visas loggar under `traces` och undantag visas under `exceptions`.
+Mer detaljerad information om hur du använder frågor och loggar finns [i loggar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
 
-5. Ta en titt på [loggarna i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) om du vill ha mer detaljerad information om hur du använder frågor och loggar.
-
-## <a name="opencensus-for-python"></a>Openräkning för python
+## <a name="learn-more-about-opencensus-for-python"></a>Läs mer om openräkning för python
 
 * [Python-räkningar på GitHub](https://github.com/census-instrumentation/opencensus-python)
 * [Eventuella](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
@@ -341,7 +341,6 @@ Först måste du skapa en Application Insights resurs i Azure Monitor, vilket ge
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [API-Sammanfattning](./../../azure-monitor/app/api-custom-events-metrics.md)
 * [Program karta](./../../azure-monitor/app/app-map.md)
 * [Prestanda övervakning från slut punkt till slut punkt](./../../azure-monitor/learn/tutorial-performance.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Telefonbaserad Data saknas i de hämtade Azure Active Directory aktivitets loggarna | Microsoft Docs
+title: 'Fel sökning: saknade data i de hämtade aktivitets loggarna | Microsoft Docs'
 description: Ger en lösning till saknade data i nedladdade Azure Active Directory-aktivitetsloggar.
 services: active-directory
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f120c1b86efe94f4ff6316e6116b9049582b07e9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: db96bd99a25ca7803dbdfe412e2cddbbcb57c0e4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987988"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817521"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Jag kan inte hitta alla data i Azure Active Directory aktivitets loggar som jag har hämtat
 
 ## <a name="symptoms"></a>Symtom
 
-Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför då? 
+Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför? 
 
  ![Rapportering](./media/troubleshoot-missing-data-download/01.png)
  
@@ -36,7 +36,7 @@ Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte 
 
 När du hämtar aktivitets loggar i Azure Portal begränsar vi skalan till 250 000 poster, sorterade efter senaste första. 
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 Du kan använda [rapporterings-API:er för Azure AD](concept-reporting-api.md) att hämta upp till en miljoner poster när som helst.
 

@@ -1,5 +1,5 @@
 ---
-title: Strömma Azure Active Directory loggar till SumoLogic med Azure Monitor | Microsoft Docs
+title: Strömma loggar till SumoLogic med Azure Monitor | Microsoft Docs
 description: Lär dig hur du integrerar Azure Active Directory loggar med SumoLogic med Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1645415a8cfd86b142c25dc145c60e8b986d1013
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 70c3b72ab650eb506dfaac378e10a7170b8f041d
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989745"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819748"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrera Azure Active Directory-loggar med SumoLogic med Azure Monitor
 
 I den här artikeln får du lära dig hur du integrerar Azure Active Directory (Azure AD)-loggar med SumoLogic med hjälp av Azure Monitor. Först dirigerar du loggarna till en Azure Event Hub och integrerar sedan Event Hub med SumoLogic.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här funktionen behöver du:
 * En Azure Event Hub som innehåller Azure AD-aktivitets loggar. Lär dig hur du [strömmar dina aktivitets loggar till en Event Hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 

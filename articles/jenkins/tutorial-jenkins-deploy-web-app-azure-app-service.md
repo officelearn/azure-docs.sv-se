@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Distribuera från GitHub till Azure App Service med Jenkins'
+title: 'Självstudie: Distribuera från GitHub till Azure App Service med Jenkins'
 description: Konfigurera Jenkins för kontinuerlig integrering (CI) från GitHub och kontinuerlig distribution (CD) till Azure App Service för Java-webbappar
 services: jenkins
 ms.service: jenkins
@@ -7,14 +7,14 @@ author: tomarchermsft
 ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 10/23/2019
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c4e4a984adc0ec6af99667ff36c009ca730acf48
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 24dbe67052d185de0eb308c4c869e63dbc825d9e
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172841"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882014"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure App Service med kontinuerlig integrering och distribution i Jenkins
 
@@ -38,13 +38,13 @@ I den här självstudien får du utföra följande uppgifter:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande objekt:
 
 * En [Jenkins](https://jenkins.io/)-server med Java Development Kit (JDK) och Maven-verktyg installerade på en virtuell Linux-baserad dator i Azure
 
-  Om du inte har en Jenkins-server utför du dessa steg nu på Azure Portal: [Skapa en Jenkins-server på en virtuell Linux-dator i Azure](/azure/jenkins/install-jenkins-solution-template)
+  Om du inte har någon Jenkins-server kan du slutföra stegen nu i Azure-portalen: [Skapa Jenkins-server på en virtuell Linux-baserad dator i Azure](/azure/jenkins/install-jenkins-solution-template)
 
 * Ett [GitHub](https://github.com)-konto så att du kan få en fungerande kopia (förgrening) av Java-exempelappen. 
 
@@ -62,9 +62,9 @@ För att slutföra den här självstudien behöver du följande objekt:
 
 1. På fliken **Tillgängligt** väljer du de här plugin-programmen:
 
-   - [Azure App Service](https://plugins.jenkins.io/azure-app-service)
+   - [Azure Apptjänst](https://plugins.jenkins.io/azure-app-service)
    - [GitHub Branch Source](https://plugins.jenkins.io/github-branch-source)
-   - Jenkins [Environment Injector-pluginprogram](https://plugins.jenkins.io/envinject)
+   - [Plugin-program för Jenkins Environment-insprutning](https://plugins.jenkins.io/envinject)
    - [Azure-autentiseringsuppgifter](https://plugins.jenkins.io/azure-credentials)
 
    Om plugin-programmen inte visas kontrollerar du att de inte redan har installerats genom att titta på fliken **Installerade**.
@@ -163,9 +163,9 @@ Följande utdata genereras av kommandot **`create-for-rbac`** :
 
    ![Lägga till autentiseringsuppgifter för tjänstens huvudnamn](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-service-principal-credentials.png)
 
-   | Egenskap | Value | Beskrivning | 
+   | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------| 
-   | **Prenumerations-ID** | <*yourAzureSubscription-ID*> | GUID-värde för din Azure-prenumeration <p>**Tips!** Om du inte kan ditt Azure-prenumerations-ID kan du köra följande Azure CLI-kommando från kommandoraden eller i Cloud Shell och sedan använda GUID-värdet `id`: <p>`az account list` | 
+   | **Prenumerations-ID** | <*yourAzureSubscription-ID*> | GUID-värde för din Azure-prenumeration <p>**Tips**! Om du inte kan ditt Azure-prenumerations-ID kan du köra följande Azure CLI-kommando från antingen kommandoraden eller i Cloud Shell och sedan använda `id` GUID-värdet: <p>`az account list` | 
    | **Klient-ID** | <*yourAzureServicePrincipal-ID*> | `appId` GUID-värdet som tidigare har skapats för Azure-tjänstens huvudnamn | 
    | **Klienthemlighet** | <*yourSecurePassword*> | Värdet `password` eller ”hemligheten” du angav för Azure-tjänstens huvudnamn | 
    | **Klient-ID** | <*yourAzureActiveDirectoryTenant-ID*> | `tenant` GUID-värdet för din Azure Active Directory-klient | 

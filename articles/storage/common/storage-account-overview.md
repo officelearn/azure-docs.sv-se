@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671317"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882574"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure Storage-kontot
 
@@ -29,7 +29,7 @@ Information om hur du skapar ett Azure Storage-konto finns i [skapa ett lagrings
 
 Allmänna-Purpose v2-lagrings konton har stöd för de senaste Azure Storage funktionerna och inkluderar alla funktioner i generella v1-och Blob Storage-konton. Allmänna-Purpose v2-konton ger de lägsta priserna per Gigabyte för Azure Storage, samt priser för priser som är konkurrerande för branschen. Allmänna-Purpose v2-lagrings konton har stöd för dessa Azure Storage tjänster:
 
-- Blobbar (alla typer: Blockera, lägga till, sida)
+- Blobbar (alla typer: blockera, Lägg till, sida)
 - Filer
 - Diskar
 - Köer
@@ -44,7 +44,7 @@ Allmänna-syfte v2-lagrings konton ger flera åtkomst nivåer för lagring av da
 
 ### <a name="general-purpose-v1-accounts"></a>General-purpose v1-konton (GPv1)
 
-Allmänna v1-konton ger till gång till alla Azure Storage-tjänster, men de har inte de senaste funktionerna eller de lägsta priset per Gigabyte. Generella v1-lagrings konton har stöd för dessa Azure Storage tjänster:
+Generella v1-lagrings konton ger till gång till alla Azure Storage-tjänster, men de har inte de senaste funktionerna eller de lägsta priset per Gigabyte. Generella v1-lagrings konton har stöd för dessa Azure Storage tjänster:
 
 - Blobbar (alla typer)
 - Filer
@@ -60,17 +60,19 @@ Allmänna v1-konton ger till gång till alla Azure Storage-tjänster, men de har
 
 * Du använder en version av [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) som är äldre än 2014-02-14 eller ett klientbiblioteket med en tidigare version än 4.x och det inte går att uppgradera ditt program.
 
-### <a name="block-blob-storage-accounts"></a>Blockera Blob Storage-konton
+### <a name="blockblobstorage-accounts"></a>BlockBlobStorage-konton
 
-Ett Block Blob Storage-konto är ett specialiserat lagrings konto för lagring av ostrukturerade objekt data som block-blobbar. Den här lagrings konto typen stöder block-blobbar och tillägg av blobar, men inte sid-blobar, tabeller eller köer.
+Ett BlockBlobStorage-konto är ett specialiserat lagrings konto som används för att lagra ostrukturerade objekt data som block-blobar och skapa Premium block-blobar. Den här typen av lagrings konto stöder block-blobbar och tillägg av blobbar, men inte sid-blobar, tabeller eller köer.
 
-I jämförelse med General-Purpose v2-och Blob Storage-konton kan du blockera Blob Storage-konton med låg och konsekvent svars tid och högre transaktions kostnader.
+Jämfört med General-Purpose v2-och BlobStorage-konton ger BlockBlobStorage-konton låga och konsekventa svars tider och högre transaktions kostnader.
 
-Block för Blob Storage-konton stöder för närvarande inte lagrings nivåer för frekvent åtkomst, låg frekvent åtkomst eller Arkiv lag rings nivåer.
+BlockBlobStorage-konton stöder för närvarande inte nivåer för frekvent åtkomst, låg frekvent åtkomst eller Arkiv lag rings nivåer.
 
-### <a name="filestorage-storage-accounts"></a>FileStorage lagrings konton
+### <a name="filestorage-accounts"></a>FileStorage-konton
 
-Ett FileStorage lagrings konto är ett specialiserat lagrings konto som används för att lagra och skapa Premium-filresurser. FileStorage lagrings konton ger unika prestanda dedikerade egenskaper som IOPS-burst. Mer information om dessa egenskaper finns i avsnittet om [prestanda nivåer för fil resurser](../files/storage-files-planning.md#file-share-performance-tiers) i planerings guiden för filer.
+Ett FileStorage-konto är ett specialiserat lagrings konto som används för att lagra och skapa Premium-filresurser. Den här typen av lagrings konto stöder filer, men inte blockering av blobbar, tillägg av blobbar, sid-BLOB, tabeller eller köer. 
+
+FileStorage-konton ger unika prestanda dedikerade egenskaper som IOPS-burst. Mer information om dessa egenskaper finns i avsnittet om [prestanda nivåer för fil resurser](../files/storage-files-planning.md#file-share-performance-tiers) i planerings guiden för filer.
 
 ## <a name="naming-storage-accounts"></a>Namnge lagrings konton
 
@@ -86,7 +88,7 @@ Allmänna lagrings konton kan konfigureras för någon av följande prestanda ni
 * En standard prestanda nivå för att lagra blobbar, filer, tabeller, köer och virtuella Azure-datorer.
 * En Premium prestanda nivå för lagring av ohanterade virtuella dator diskar.
 
-Blockera Blob Storage-konton ger en förstklassig prestanda nivå för lagring av block-blobbar och tillägg av blobbar.
+BlockBlobStorage lagrings konton ger en förstklassig prestanda nivå för lagring av block-blobbar och tillägg av blobbar.
 
 FileStorage lagrings konton ger en förstklassig prestanda nivå för Azure-filresurser.
 
@@ -115,7 +117,7 @@ Mer information om Storage Replication finns [Azure Storage replikering](storage
 
 Alla data i ditt lagrings konto krypteras på tjänst sidan. Mer information om kryptering finns i [Azure Storage tjänst kryptering för vilande data](storage-service-encryption.md).
 
-## <a name="storage-account-endpoints"></a>Lagringskontoslutpunkter
+## <a name="storage-account-endpoints"></a>Slutpunkter för lagringskonto
 
 På ett lagringskonto finns ett unikt namnområde i Azure för dina data. Alla objekt som du lagrar i Azure Storage har en adress som innehåller ditt unika kontonamn. Kombinationen av kontonamnet och Azure Storage-tjänstens slutpunkt bildar slutpunkterna för ditt lagringskonto.
 
@@ -186,5 +188,5 @@ Import/export-tjänsten kan också användas för att överföra data från Azur
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du skapar ett allmänt Azure Storage-konto finns i [skapa ett lagrings konto](storage-quickstart-create-account.md).
-* Information om hur du skapar ett Block Blob Storage-konto finns i [skapa ett Block Blob Storage-konto](../blobs/storage-blob-create-account-block-blob.md).
+* Information om hur du skapar ett BlockBlobStorage-konto finns i [skapa ett Block Blob Storage-konto](../blobs/storage-blob-create-account-block-blob.md).
 * Information om hur du hanterar eller tar bort ett befintligt lagrings konto finns i [Hantera Azure Storage-konton](storage-account-manage.md).

@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: e7a99ffdd42c02e5a18dc14c4774b428232b8293
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a546df73f316b4eb6c215a6f52d68f87ad09c1a2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015983"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881697"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använd Azure Media Video Thumbnails för att skapa en video Sammanfattning  
+
+> [!IMPORTANT]
+> Granska [indragnings planer](media-services-analytics-overview.md#retirement-plans) för vissa medie processorer.
+
 ## <a name="overview"></a>Översikt
 Med **Azure Media Video thumbnails** Media processor (MP) kan du skapa en sammanfattning av en video som är användbar för kunder som bara vill förhandsgranska en sammanfattning av en lång video. Kunder kan till exempel vilja se en kort "sammanfattnings video" när de hovrar över en miniatyr bild. Genom att ändra parametrarna för **Azure Media Video thumbnails** via en konfigurations för inställning kan du använda MP: s kraftfulla bild identifierings-och kombinations teknik för att algorithmically generera ett beskrivande under klipp.  
 
@@ -54,17 +58,17 @@ När du skapar en video miniatyr uppgift med **Azure Media Video thumbnails**må
 
 För närvarande kan du ändra följande parametrar:
 
-| Param | Beskrivning |
+| EntryPointName | Beskrivning |
 | --- | --- |
-| outputAudio |Anger om den resulterande videon innehåller ett ljud. <br/>Tillåtna värden är: SANT eller FALSKT. Standardvärdet är true. |
-| fadeInFadeOut |Anger om över gångar ska användas mellan de separata rörelse miniatyrerna.  <br/>Tillåtna värden är: SANT eller FALSKT.  Standardvärdet är true. |
+| outputAudio |Anger om den resulterande videon innehåller ett ljud. <br/>Tillåtna värden är: true eller false. Standardvärdet är true. |
+| fadeInFadeOut |Anger om över gångar ska användas mellan de separata rörelse miniatyrerna.  <br/>Tillåtna värden är: true eller false.  Standardvärdet är true. |
 | maxMotionThumbnailDurationInSecs |Heltal som anger hur länge hela den resulterande videon ska vara.  Standardvärdet beror på ursprunglig video varaktighet. |
 
 I följande tabell beskrivs standard varaktigheten när **maxMotionThumbnailInSecs** inte används.
 
 |  |  |  |
 | --- | --- | --- |
-| Videovaraktighet |d < 3 min |3 min < d < 15 min |
+| Video varaktighet |d < 3 min |3 min < d < 15 min |
 | Miniatyrens varaktighet |15 SEK (2-3 scener) |30 sekunder (3-5 scener) |
 
 Följande JSON anger tillgängliga parametrar.
@@ -285,7 +289,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Relaterade länkar
+## <a name="related-links"></a>Tillhörande länkar
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

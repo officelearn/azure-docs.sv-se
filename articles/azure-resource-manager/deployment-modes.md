@@ -4,14 +4,14 @@ description: Beskriver hur du anger om du vill använda ett fullständigt eller 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: c82d8b90d9da44ab8f4b8ea0aa0e063ea70350e2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 10a9917d8ed763b133fbd33aedd16da399a224b2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258968"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881642"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager distributions lägen
 
@@ -21,7 +21,9 @@ I båda lägena försöker Resource Manager att skapa alla resurser som anges i 
 
 ## <a name="complete-mode"></a>Fullständigt läge
 
-I fullständigt läge tar Resource Manager **bort** resurser som finns i resurs gruppen men som inte har angetts i mallen. Resurser som anges i mallen, men som inte har distribuerats eftersom ett [villkor](conditional-resource-deployment.md) utvärderas till falskt, tas inte bort.
+I fullständigt läge tar Resource Manager **bort** resurser som finns i resurs gruppen men som inte har angetts i mallen.
+
+Om din mall innehåller en resurs som inte har distribuerats eftersom [villkoret](conditional-resource-deployment.md) utvärderas till false beror resultatet på vilken REST API version som du använder för att distribuera mallen. Om du använder en tidigare version än 2019-05-10 **tas inte resursen bort**. Med 2019-05-10 eller senare **tas resursen bort**. De senaste versionerna av Azure PowerShell och Azure CLI tar bort resursen.
 
 Var försiktig med att använda fullständigt läge med [kopierings slingor](resource-group-create-multiple.md). Alla resurser som inte är angivna i mallen när du har löst kopierings slingen tas bort.
 
@@ -45,7 +47,7 @@ Om resurs gruppen är [låst](resource-group-lock-resources.md)tas inte resurser
 
 I stegvist läge lämnar Resource Manager **oförändrade** resurser som finns i resurs gruppen men som inte anges i mallen.
 
-Men när du distribuerar om en befintlig resurs i stegvist läge är resultatet en annan. Ange alla egenskaper för resursen, inte bara de som du uppdaterar. En vanlig förståelse är att se till att egenskaper som inte har angetts lämnas oförändrade. Om du inte anger vissa egenskaper tolkar Resource Manager uppdateringen som att skriva över dessa värden.
+Men när du distribuerar om en befintlig resurs i stegvist läge är resultatet en annan. Ange alla egenskaper för resursen, inte bara de som du uppdaterar. En vanlig förståelse är att betrakta egenskaper som inte har angetts lämnas oförändrade. Om du inte anger vissa egenskaper tolkar Resource Manager uppdateringen som att skriva över dessa värden.
 
 ## <a name="example-result"></a>Exempel resultat
 
@@ -78,7 +80,7 @@ När det distribueras i **fullständigt** läge tas resurs C bort. Resurs gruppe
 
 ## <a name="set-deployment-mode"></a>Ange distributions läge
 
-Använd `Mode` parametern för att ange distributions läget vid distribution med PowerShell.
+Använd parametern `Mode` om du vill ange distributions läge vid distribution med PowerShell.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment `
@@ -88,7 +90,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile c:\MyTemplates\storage.json
 ```
 
-Använd `mode` parametern för att ange distributions läget när du distribuerar med Azure CLI.
+Om du vill ange distributions läget när du distribuerar med Azure CLI använder du parametern `mode`.
 
 ```azurecli-interactive
 az group deployment create \

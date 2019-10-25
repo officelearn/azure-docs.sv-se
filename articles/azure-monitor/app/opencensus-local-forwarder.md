@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights openräkning Distributed tracing Local forwarder (för hands version) | Microsoft-dokument
 description: Vidarebefordring av fördelade spår i openinsights och sträcker sig från språk som python och gå till Azure Application Insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.author: mbullwin
-ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b0d0bc4d711b05dd2206b7437f1f4c7b3444a0c6
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348147"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819217"
 ---
 # <a name="local-forwarder-preview"></a>Lokal vidarebefordrare (förhands granskning)
 
@@ -29,12 +25,12 @@ Lokal vidarebefordrare är ett [projekt med öppen källkod på GitHub](https://
 
 ### <a name="windows"></a>Windows
 
-#### <a name="windows-service"></a>Windows Service
+#### <a name="windows-service"></a>Windows-tjänst
 
 Det enklaste sättet att köra lokal vidarebefordrare under Windows är att installera det som en Windows-tjänst. Versionen levereras med Windows-tjänstens körbara fil (*WindowsServiceHost/Microsoft. LocalForwarder. WindowsServiceHost. exe*) som enkelt kan registreras med operativ systemet.
 
 > [!NOTE]
-> Den lokala vidarebefordrings tjänsten kräver minst .NET Framework 4,7. Om du inte har .NET Framework 4,7 kommer tjänsten att installeras, men den startar inte. Åtkomst till den senaste versionen av .NET Framework **[gå till hämtningssidan för .NET Framework](
+> Den lokala vidarebefordrings tjänsten kräver minst .NET Framework 4,7. Om du inte har .NET Framework 4,7 kommer tjänsten att installeras, men den startar inte. Du kommer åt den senaste versionen av .NET Framework **[på hämtnings sidan för .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Hämta LF. WindowsServiceHost. zip-fil från den [lokala vidarebefordrare-sidan](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) på GitHub.
@@ -53,13 +49,13 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     `[SC] CreateService SUCCESS`
     
-    Så här undersöker du den nya tjänsten via användar gränssnittet för tjänster``services.msc``
+    För att undersöka den nya tjänsten via användar gränssnittet för tjänster ``services.msc``
         
      ![Skärm bild av lokal vidarebefordrare-tjänst](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Högerklicka på** den nya lokala vidarebefordraren och välj **Starta**. Tjänsten kommer nu att övergå till ett kör tillstånd.
 
-4. Som standard skapas tjänsten utan återställnings åtgärder. Du kan **högerklicka** och välja **Egenskaper** > **återställning** för att konfigurera automatiska svar på ett tjänst haveri.
+4. Som standard skapas tjänsten utan återställnings åtgärder. Du kan **högerklicka på** och välja **Egenskaper** > **återställning** om du vill konfigurera automatiska svar på ett tjänst haveri.
 
     Eller om du föredrar att ställa in automatiska återställnings alternativ program mässigt för när fel uppstår kan du använda:
 
@@ -67,9 +63,9 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     sc failure "Local Forwarder" reset= 432000 actions= restart/1000/restart/1000/restart/1000
     ```
 
-5. I samma plats som ``Microsoft.LocalForwarder.WindowsServiceHost.exe`` filen, som i det här ``C:\LF-WindowsServiceHost`` exemplet finns det en fil med namnet ``LocalForwarder.config``. Det här är en XML-baserad fil som gör att du kan justera konfigurationen för din localforwader och ange Instrumentation-nyckeln för den Application Insights resurs som du vill vidarebefordra dina distribuerade spårnings data till. 
+5. I samma plats som ``Microsoft.LocalForwarder.WindowsServiceHost.exe``-filen, som i det här exemplet är ``C:\LF-WindowsServiceHost`` finns det en fil med namnet ``LocalForwarder.config``. Det här är en XML-baserad fil som gör att du kan justera konfigurationen för din localforwader och ange Instrumentation-nyckeln för den Application Insights resurs som du vill vidarebefordra dina distribuerade spårnings data till. 
 
-    När du har ``LocalForwarder.config`` redigerat filen för att lägga till Instrumentation-nyckeln måste du starta om den **lokala vidarebefordraren** så att ändringarna börjar gälla.
+    När du har redigerat ``LocalForwarder.config``-filen för att lägga till din Instrumentation-nyckel, måste du starta om den **lokala vidarebefordraren** för att ändringarna ska börja gälla.
     
 6. För att bekräfta att dina önskade inställningar är på plats och att den lokala vidarebefordraren lyssnar efter spårnings data som förväntat kontrollerar du ``LocalForwarder.log`` filen. Du bör se resultat som liknar bilden nedan längst ned i filen:
 
@@ -82,7 +78,7 @@ För vissa användnings fall kan det vara bra att köra lokal vidarebefordrare s
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
-* en fristående .NET Core-uppsättning binärfiler för x86-och x64-plattformar. De kräver inte att .NET Core runtime körs. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+* en fristående .NET Core-uppsättning binärfiler för x86-och x64-plattformar. De kräver inte att .NET Core runtime körs. */ConsoleHost/Win-x86/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/Win-x64/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
   ```batchfile
   E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
   E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
@@ -97,7 +93,7 @@ Precis som med Windows levereras versionen med följande körbara versioner av k
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* en fristående .NET Core-uppsättning binärfiler för Linux-64. Detta kräver inte att .NET Core runtime körs. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
+* en fristående .NET Core-uppsättning binärfiler för Linux-64. Detta kräver inte att .NET Core runtime körs. */ConsoleHost/linux-x64/Publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost

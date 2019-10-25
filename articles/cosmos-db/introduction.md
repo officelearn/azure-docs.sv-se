@@ -1,17 +1,17 @@
 ---
 title: Introduktion till Azure Cosmos DB
 description: Läs om Azure Cosmos DB. Den här globalt distribuerade databasen med flera modeller har skapats för låg svarstid, elastisk skalbarhet och hög tillgänglighet, och den ger inbyggt stöd för NoSQL-data.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 09/01/2019
-ms.author: rimman
-ms.openlocfilehash: f7396a747852e98b15c8c85e9b0d9a46326e6b25
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.date: 10/23/2019
+ms.openlocfilehash: f322a240835d86697ae18c984700f22ca7b00145
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240693"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882188"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -23,11 +23,6 @@ Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cos
 
 > [!div class="nextstepaction"]
 > [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/)
-
-Du kan också använda [Start programmet Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) för att påskynda skapandet eller migreringen av dina program på Azure Cosmos dB. När du registrerar dig för det här programmet tilldelas Azure Cosmos DB tekniker för att hjälpa till med ditt projekt och de kan hjälpa dig att migrera dina data till Azure Cosmos DB eller skapa nya appar på Azure Cosmos DB.
-
-> [!div class="nextstepaction"]
-> [Registrera dig för Start programmet för Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ![Azure Cosmos DB är Microsofts globalt distribuerade databastjänst med elastisk utskalning, garanterat låga svarstider, fem konsekvensmodeller och omfattande garanterade serviceavtal](./media/introduction/azure-cosmos-db.png)
 
@@ -53,7 +48,7 @@ Med Cosmos DB kan du skapa mycket responsiva och världsomfattande program. Med 
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Ett flertal exakt definierade konsekvensval
 
-När du skapar globalt distribuerade program i Cosmos DB behöver du inte längre göra extrema [kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde](consistency-levels-tradeoffs.md). Cosmos DBS protokollet för multi-master-replikering är omsorgsfullt utformat för att erbjuda [fem väldefinierade konsekvens alternativ](consistency-levels.md) - *stark*, *gräns för föråldrad*, *session*, *konsekvent prefix*och *eventuell* – för en intuitiv programmerings modell med låg latens och hög tillgänglighet för ditt globalt distribuerade program.
+När du skapar globalt distribuerade program i Cosmos DB behöver du inte längre göra extrema [kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde](consistency-levels-tradeoffs.md). Cosmos DBs protokollet för multi-master-replikering är omsorgsfullt utformat för att erbjuda [fem väldefinierade konsekvens val](consistency-levels.md) - *stark*, *begränsad föråldrad*, *session*, *konsekvent prefix*och *eventuell* – för en intuitiv programmerings modell med låg latens och hög tillgänglighet för ditt globalt distribuerade program.
 
 ### <a name="no-schema-or-index-management"></a>Ingen hantering av schema eller index
 
@@ -88,7 +83,7 @@ Du kan köra [Spark](spark-connector.md) direkt på data som lagras i Cosmos DB.
 Cosmos DB erbjuder ett urval av API: er för att arbeta med dina data som lagras i Cosmos-databasen. Som standard [kan du använda SQL](how-to-sql-query.md) (ett Core API) för att skicka frågor till Cosmos-databasen. Cosmos DB implementerar också API: er för [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) och [Azure Table Storage](table-introduction.md). Du kan peka klient driv rutiner (och verktyg) för de NoSQL som används ofta (t. ex. MongoDB, Cassandra, Gremlin) direkt till din Cosmos-databas. Genom att stödja kabel protokollen för vanliga NoSQL-API: er kan du i Cosmos DB:
 
 * Migrera ditt program enkelt till Cosmos DB samtidigt som du bevarar betydande delar av din programlogik.
-* Hålla ditt program portabelt och förbli molnleverantörsoberoende.
+* Håll ditt program portabelt och förbli molnleverantörsoberoende.
 * Få en fullständigt hanterad moln tjänst med branschledande, ekonomiskt säkerhetskopierade service avtal för vanliga NoSQL-API: er. 
 * Skala det etablerade dataflödet och lagringen elastiskt för dina databaser utifrån dina behov och betala bara för det dataflöde och lagringsutrymme du behöver. Detta medför betydande kostnadsbesparingar.
 

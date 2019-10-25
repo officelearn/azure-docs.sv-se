@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 71f2b111c0291bc9563b12a1cdbd88ea7e9f5b5b
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376125"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882003"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -185,6 +185,9 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |EnableRestartManagement |Bool, standard är falskt |Dynamisk|Detta är att aktivera omstart av servern. |
 |EnableServiceFabricAutomaticUpdates |Bool, standard är falskt |Dynamisk|Detta är att aktivera automatisk uppdatering av infrastruktur resurser via Windows Update. |
 |EnableServiceFabricBaseUpgrade |Bool, standard är falskt |Dynamisk|Detta är att aktivera bas uppdatering för-servern. |
+|FailureReportingExpeditedReportingIntervalEnabled | Bool, standard är sant | Statisk | Aktiverar snabbare uppladdnings hastigheter i DCA när Fabrichost returnerar är i läget för felrapportering. |
+|FailureReportingTimeout | TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60) | Statisk |Ange TimeSpan i sekunder. Timeout för DCA-felrapportering i Case Fabrichost returnerar påträffar ett tidigt start haveri. | 
+|RunDCAOnStartupFailure | Bool, standard är sant | Statisk |Avgör om du ska starta DCA för att ladda upp loggar vid problem med start i Fabrichost returnerar. | 
 |StartTimeout |Tid i sekunder, standard är 300 |Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för fabricactivationmanager-start. |
 |StopTimeout |Tid i sekunder, standard är 300 |Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för aktivering av värdbaserade tjänster. inaktive ring och uppgradering. |
 
@@ -279,7 +282,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, standard är gemensamt:: TimeSpan:: FromMinutes (5)|Dynamisk|Ange TimeSpan i sekunder. Tidsintervall mellan kontroll av disk utrymme för rapportering av hälso tillstånds händelse när disken är nära slut. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, standard är gemensamt:: TimeSpan:: FromMinutes (15)|Dynamisk|Ange TimeSpan i sekunder. Tidsintervallet mellan att kontrol lera om det finns tillräckligt med utrymme på disken vid kontroll av disk utrymme för rapportering av hälso tillstånds händelser. |
 |EnableImageStoreHealthReporting |bool, standard är sant |Statisk|Config för att avgöra om fil lagrings tjänsten ska rapportera sitt hälso tillstånd. |
-|FreeDiskSpaceNotificationSizeInKB|Int64, standard är 25 @ no__t-01024 |Dynamisk|Storleken på det lediga disk utrymme som kan uppstå under hälso varningen. Det minsta värdet för den här config-och FreeDiskSpaceNotificationThresholdPercentage-konfigurationen används för att avgöra sändning av hälso varningen. |
+|FreeDiskSpaceNotificationSizeInKB|Int64, standard är 25\*1024 |Dynamisk|Storleken på det lediga disk utrymme som kan uppstå under hälso varningen. Det minsta värdet för den här config-och FreeDiskSpaceNotificationThresholdPercentage-konfigurationen används för att avgöra sändning av hälso varningen. |
 |FreeDiskSpaceNotificationThresholdPercentage|Double, standard är 0,02 |Dynamisk|Procent andelen ledigt disk utrymme under vilken hälso varning kan uppstå. Det minsta värdet för den här config-och FreeDiskSpaceNotificationInMB-konfigurationen används för att avgöra sändning av hälso varning. |
 |GenerateV1CommonNameAccount| bool, standard är sant|Statisk|Anger om du vill generera ett konto med användar namnet v1 generations algoritm. Från och med Service Fabric version 6,1; ett konto med v2-generering skapas alltid. V1-kontot krävs för uppgraderingar från/till versioner som inte stöder V2-generering (före 6,1).|
 |MaxCopyOperationThreads | Uint, standardvärdet är 0 |Dynamisk| Det maximala antalet parallella filer som sekundärt kan kopiera från primär. 0 = = antal kärnor. |
@@ -353,6 +356,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |DeploymentRetryBackoffInterval| TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (10)|Dynamisk|Ange TimeSpan i sekunder. Intervall för distributions problem. Vid alla kontinuerliga distributioner gör systemet ett nytt försök att distribuera upp till MaxDeploymentFailureCount. Återförsöksintervall är en produkt med kontinuerlig distributions fel och distributionens backoff-intervall. |
 |DisableContainers|bool, standard är falskt|Statisk|Konfiguration för att inaktivera behållare – används i stället för DisableContainerServiceStartOnContainerActivatorOpen som är föråldrad config |
 |DisableDockerRequestRetry|bool, standard är falskt |Dynamisk| Som standard kommunicerar sa med DD (Docker dameon) med en tids gräns på "DockerRequestTimeout" för varje http-begäran som skickas till den. Om DD inte svarar inom den här tids perioden; SF skickar begäran på nytt om den översta nivån fortfarande har kvar tiden.  Med HyperV-behållare; DD ibland tar det mycket mer tid att ta upp behållaren eller inaktivera den. I sådana fall är det en begäran från sa-perspektivet och SF-försöket. Ibland verkar detta vara att lägga till mer belastning på DD. Med den här konfigurationen kan du inaktivera det här försöket och vänta tills DD har svarat. |
+|DnsServerListTwoIps | bool, standard är falskt | Statisk | Med den här flaggan lägger du till den lokala DNS-servern två gånger för att hjälpa till att lösa tillfälliga problem. |
 |EnableActivateNoWindow| bool, standard är falskt|Dynamisk| Den aktiverade processen skapas i bakgrunden utan någon konsol. |
 |EnableContainerServiceDebugMode|bool, standard är sant|Statisk|Aktivera/inaktivera loggning för Docker-behållare.  Endast Windows.|
 |EnableDockerHealthCheckIntegration|bool, standard är sant|Statisk|Aktiverar integrering av Docker HEALTHCHECK-händelser med Service Fabric system hälso rapport |
@@ -460,7 +464,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |MaxClientConnections |Int, standard är 1000 |Dynamisk|Det högsta tillåtna antalet klient anslutningar per Gateway. |
 |MaxFileOperationTimeout |Tid i sekunder, standard är 30 |Dynamisk|Ange TimeSpan i sekunder. Den längsta tillåtna tids gränsen för fil lagrings tjänst åtgärden. Begär Anden som anger en större tids gräns kommer att avvisas. |
 |MaxIndexedEmptyPartitions |Int, standard är 1000 |Dynamisk|Det maximala antalet tomma partitioner som ska fortsätta att indexeras i Notification cache för att synkronisera åter anslutning av klienter. Alla tomma partitioner ovanför det här antalet tas bort från indexet i stigande versions ordning. Att återansluta klienter kan fortfarande synkronisera och ta emot missade uppdateringar av partitionen. men protokollet för synkronisering blir dyrare. |
-|MaxMessageSize |Int, standard är 4 @ no__t-01024 @ no__t-11024 |Statisk|Maximal meddelande storlek för kommunikation mellan klienter när du använder namn. DOS-avgrepp, Standardvärdet är 4 MB. |
+|MaxMessageSize |Int, standard är 4\*1024\*1024 |Statisk|Maximal meddelande storlek för kommunikation mellan klienter när du använder namn. DOS-avgrepp, Standardvärdet är 4 MB. |
 |MaxNamingServiceHealthReports | Int, standard är 10 |Dynamisk|Det maximala antalet långsamma åtgärder som namngivningen av lagrings tjänsten rapporterar i en tidpunkt. Om 0; alla långsamma åtgärder skickas. |
 |MaxOperationTimeout |Tid i sekunder, standard är 600 |Dynamisk|Ange TimeSpan i sekunder. Maximal tids gräns som tillåts för klient åtgärder. Begär Anden som anger en större tids gräns kommer att avvisas. |
 |MaxOutstandingNotificationsPerClient |Int, standard är 1000 |Dynamisk|Det maximala antalet väntande meddelanden innan en klient registrering tvingas stängas av gatewayen. |
@@ -660,7 +664,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |CertificateHealthReportingInterval|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (3600 * 8)|Statisk|Ange TimeSpan i sekunder. Ange intervall för certifikat hälso rapportering; Standardvärdet 8 timmar; Om du anger 0 inaktive ras hälso rapportering för certifikat |
 |ClientCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken av certifikat som används av klienter för att kommunicera med klustret. klustret använder den här auktoriserade inkommande anslutningen. Det är en kommaavgränsad lista med namn. |
 |ClientClaimAuthEnabled|bool, standard är falskt|Statisk|Anger om anspråksbaserad autentisering är aktiverat på klienter. inställningen true anger ClientRoleEnabled. |
-|ClientClaims|sträng, standard är ""|Dynamisk|Alla möjliga anspråk som förväntas från klienter för anslutning till gateway. Detta är en "OR"-lista: ClaimsEntry \| @ no__t-1 ClaimsEntry \| @ no__t-3 ClaimsEntry... varje ClaimsEntry är en "och"-lista: ClaimType = ClaimValue & & ClaimType = ClaimValue & & ClaimType = ClaimValue... |
+|ClientClaims|sträng, standard är ""|Dynamisk|Alla möjliga anspråk som förväntas från klienter för anslutning till gateway. Detta är en "OR"-lista: ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry... varje ClaimsEntry är en "och"-lista: ClaimType = ClaimValue & & ClaimType = ClaimValue & & ClaimType = ClaimValue... |
 |ClientIdentities|sträng, standard är ""|Dynamisk|Windows-identiteter för FabricClient; namngivning av Gateway använder detta för att auktorisera inkommande anslutningar. Det är en kommaavgränsad lista. varje post är ett domän konto namn eller grupp namn. För enkelhetens skull. det konto som kör Fabric. exe tillåts automatiskt. Därför är Group ServiceFabricAllowedUsers och ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, standard är falskt|Statisk|Anger om klient rollen är aktive rad; När värdet är true; klienter tilldelas roller baserat på deras identiteter. För v2; Om du aktiverar detta innebär det att klienten inte finns i AdminClientCommonNames/AdminClientIdentities bara kan köra skrivskyddade åtgärder. |
 |ClusterCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken för certifikat som får ansluta till klustret. en kommaavgränsad lista med namn. |
@@ -713,47 +717,47 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |DeleteNetwork|sträng, standardvärdet är "admin" |Dynamisk|Tar bort ett behållar nätverk |
 |DeleteService |sträng, standardvärdet är "admin" |Dynamisk|Säkerhets konfiguration för borttagning av tjänst. |
 |DeleteVolume|sträng, standardvärdet är "admin"|Dynamisk|Tar bort en volym.| 
-|EnumerateProperties |sträng, standard är "admin @ no__t-0 @ no__t-1User" | Dynamisk|Säkerhets konfiguration för uppräkning av namngivnings egenskaper. |
-|EnumerateSubnames |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för namngivning av URI-uppräkning. |
+|EnumerateProperties |sträng, standard är "admin\|\|User" | Dynamisk|Säkerhets konfiguration för uppräkning av namngivnings egenskaper. |
+|EnumerateSubnames |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för namngivning av URI-uppräkning. |
 |FileContent |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för klient fil överföring i avbildnings arkivet (externt till kluster). |
 |FileDownload |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för avbildnings lagrings klient fil hämtnings initiering (extern till kluster). |
 |FinishInfrastructureTask |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att slutföra infrastruktur uppgifter. |
-|GetChaosReport | sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Hämtar status för kaos inom ett angivet tidsintervall. |
-|GetClusterConfiguration | sträng, standard är "admin @ no__t-0 @ no__t-1User" | Dynamisk|Inducerar GetClusterConfiguration på en partition. |
-|GetClusterConfigurationUpgradeStatus | sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Inducerar GetClusterConfigurationUpgradeStatus på en partition. |
-|GetFabricUpgradeStatus |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för avsökning av uppgraderings status för kluster. |
+|GetChaosReport | sträng, standard är "admin\|\|User" |Dynamisk| Hämtar status för kaos inom ett angivet tidsintervall. |
+|GetClusterConfiguration | sträng, standard är "admin\|\|User" | Dynamisk|Inducerar GetClusterConfiguration på en partition. |
+|GetClusterConfigurationUpgradeStatus | sträng, standard är "admin\|\|User" |Dynamisk| Inducerar GetClusterConfigurationUpgradeStatus på en partition. |
+|GetFabricUpgradeStatus |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för avsökning av uppgraderings status för kluster. |
 |GetFolderSize |sträng, standardvärdet är "admin" |Dynamisk|Säkerhets konfiguration för FileStoreService-mappens hämtnings storlek |
 |GetNodeDeactivationStatus |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att kontrol lera status för inaktive ring. |
-|GetNodeTransitionProgress | sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för att få förloppet för en nod över gångs kommando. |
-|GetPartitionDataLossProgress | sträng, standard är "admin @ no__t-0 @ no__t-1User" | Dynamisk|Hämtar förloppet för ett anrop till API-anrop för anrop av data förlust. |
-|GetPartitionQuorumLossProgress | sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Hämtar förloppet för ett anrop till API-anrop för Invoke-kvorum. |
-|GetPartitionRestartProgress | sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Hämtar förloppet för ett API-anrop för Restart-partition. |
+|GetNodeTransitionProgress | sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för att få förloppet för en nod över gångs kommando. |
+|GetPartitionDataLossProgress | sträng, standard är "admin\|\|User" | Dynamisk|Hämtar förloppet för ett anrop till API-anrop för anrop av data förlust. |
+|GetPartitionQuorumLossProgress | sträng, standard är "admin\|\|User" |Dynamisk| Hämtar förloppet för ett anrop till API-anrop för Invoke-kvorum. |
+|GetPartitionRestartProgress | sträng, standard är "admin\|\|User" |Dynamisk| Hämtar förloppet för ett API-anrop för Restart-partition. |
 |GetSecrets|sträng, standardvärdet är "admin"|Dynamisk|Hämta hemliga värden |
-|GetServiceDescription |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för tjänst meddelanden för lång avsökning och läsning av tjänst beskrivningar. |
+|GetServiceDescription |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för tjänst meddelanden för lång avsökning och läsning av tjänst beskrivningar. |
 |GetStagingLocation |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för klient lagrings plats för avbildnings klient. |
 |GetStoreLocation |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för klient lagrings plats i avbildnings arkivet. |
 |GetUpgradeOrchestrationServiceState|sträng, standardvärdet är "admin"| Dynamisk|Inducerar GetUpgradeOrchestrationServiceState på en partition |
 |GetUpgradesPendingApproval |sträng, standardvärdet är "admin" |Dynamisk| Inducerar GetUpgradesPendingApproval på en partition. |
-|GetUpgradeStatus |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för avsökning av program uppgraderings status. |
+|GetUpgradeStatus |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för avsökning av program uppgraderings status. |
 |InternalList |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager (intern). |
 |InvokeContainerApi|sträng, standardvärdet är "admin"|Dynamisk|Anropa container-API |
 |InvokeInfrastructureCommand |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för kommandon för hantering av infrastruktur uppgifter. |
-|InvokeInfrastructureQuery |sträng, standard är "admin @ no__t-0 @ no__t-1User" | Dynamisk|Säkerhets konfiguration för frågor om infrastruktur uppgifter. |
-|Lista |sträng, standard är "admin @ no__t-0 @ no__t-1User" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager. |
+|InvokeInfrastructureQuery |sträng, standard är "admin\|\|User" | Dynamisk|Säkerhets konfiguration för frågor om infrastruktur uppgifter. |
+|Lista |sträng, standard är "admin\|\|User" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager. |
 |MoveNextFabricUpgradeDomain |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta kluster uppgraderingar med en explicit uppgraderings domän. |
 |MoveNextUpgradeDomain |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta program uppgraderingar med en explicit uppgraderings domän. |
 |MoveReplicaControl |sträng, standardvärdet är "admin" | Dynamisk|Flytta repliken. |
-|NameExists |sträng, standard är "admin @ no__t-0 @ no__t-1User" | Dynamisk|Säkerhets konfiguration för att namnge URI-kontroller. |
+|NameExists |sträng, standard är "admin\|\|User" | Dynamisk|Säkerhets konfiguration för att namnge URI-kontroller. |
 |NodeControl |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för start; stoppas och starta om noderna. |
 |NodeStateRemoved |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för status för rapporterings nod har tagits bort. |
-|Pinga |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för klient-pingar. |
+|Pinga |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för klient-pingar. |
 |PredeployPackageToNode |sträng, standardvärdet är "admin" |Dynamisk| API för för distribution. |
-|PrefixResolveService |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för klagomåls-baserad tjänstens prefix matchning. |
-|PropertyReadBatch |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för Läs åtgärder för namngivnings egenskapen. |
+|PrefixResolveService |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för klagomåls-baserad tjänstens prefix matchning. |
+|PropertyReadBatch |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för Läs åtgärder för namngivnings egenskapen. |
 |PropertyWriteBatch |sträng, standardvärdet är "admin" |Dynamisk|Säkerhetskonfigurationer för namngivning av egenskaps Skriv åtgärder. |
 |ProvisionApplicationType |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för etablering av program typ. |
 |ProvisionFabric |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för MSI och/eller kluster manifest etablering. |
-|Söka i data |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för frågor. |
+|Söka i data |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för frågor. |
 |RecoverPartition |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av en partition. |
 |RecoverPartitions |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av partitioner. |
 |RecoverServicePartitions |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för återställning av tjänst partitioner. |
@@ -763,14 +767,14 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ReportFault |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för rapporterings fel. |
 |ReportHealth |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för rapporterings hälsa. |
 |ReportUpgradeHealth |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta program uppgraderingar med den aktuella uppgraderings processen. |
-|ResetPartitionLoad |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för återställnings belastning för en failoverUnit. |
-|ResolveNameOwner |sträng, standard är "admin @ no__t-0 @ no__t-1User" | Dynamisk|Säkerhets konfiguration för matchning av namngivning av URI-ägare. |
-|ResolvePartition |sträng, standard är "admin @ no__t-0 @ no__t-1User" | Dynamisk|Säkerhets konfiguration för att lösa system tjänster. |
-|ResolveService |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för klagomåls-baserad tjänst upplösning. |
-|ResolveSystemService|sträng, standard är "admin @ no__t-0 @ no__t-1User"|Dynamisk| Säkerhets konfiguration för att lösa system tjänster |
+|ResetPartitionLoad |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för återställnings belastning för en failoverUnit. |
+|ResolveNameOwner |sträng, standard är "admin\|\|User" | Dynamisk|Säkerhets konfiguration för matchning av namngivning av URI-ägare. |
+|ResolvePartition |sträng, standard är "admin\|\|User" | Dynamisk|Säkerhets konfiguration för att lösa system tjänster. |
+|ResolveService |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för klagomåls-baserad tjänst upplösning. |
+|ResolveSystemService|sträng, standard är "admin\|\|User"|Dynamisk| Säkerhets konfiguration för att lösa system tjänster |
 |RollbackApplicationUpgrade |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återställa program uppgraderingar. |
 |RollbackFabricUpgrade |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återställa kluster uppgraderingar. |
-|ServiceNotifications |sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för händelsebaserade tjänst aviseringar. |
+|ServiceNotifications |sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för händelsebaserade tjänst aviseringar. |
 |SetUpgradeOrchestrationServiceState|sträng, standardvärdet är "admin"| Dynamisk|Inducerar SetUpgradeOrchestrationServiceState på en partition |
 |StartApprovedUpgrades |sträng, standardvärdet är "admin" |Dynamisk| Inducerar StartApprovedUpgrades på en partition. |
 |StartChaos |sträng, standardvärdet är "admin" |Dynamisk| Startar kaos – om det inte redan har startats. |
@@ -781,7 +785,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |StartPartitionQuorumLoss |sträng, standardvärdet är "admin" |Dynamisk| Inducerar kvorum förlust på en partition. |
 |StartPartitionRestart |sträng, standardvärdet är "admin" |Dynamisk| Startar om några eller alla repliker av en partition. |
 |StopChaos |sträng, standardvärdet är "admin" |Dynamisk| Stoppar kaos – om det har startats. |
-|ToggleVerboseServicePlacementHealthReporting | sträng, standard är "admin @ no__t-0 @ no__t-1User" |Dynamisk| Säkerhets konfiguration för att växla utförlig ServicePlacement-HealthReporting. |
+|ToggleVerboseServicePlacementHealthReporting | sträng, standard är "admin\|\|User" |Dynamisk| Säkerhets konfiguration för att växla utförlig ServicePlacement-HealthReporting. |
 |UnprovisionApplicationType |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för avetablering av program typ. |
 |UnprovisionFabric |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för MSI och/eller kluster manifest avetableras. |
 |UnreliableTransportControl |sträng, standardvärdet är "admin" |Dynamisk| Otillförlitlig transport för att lägga till och ta bort beteenden. |
@@ -872,7 +876,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |FrameHeaderErrorCheckingEnabled|bool, standard är sant|Statisk|Standardinställning för fel kontroll i ram rubriken i icke-säkert läge. komponent inställningen åsidosätter detta. |
 |MessageErrorCheckingEnabled|bool, standard är falskt|Statisk|Standardinställning för fel kontroll av meddelande huvud och brödtext i icke-säkert läge. komponent inställningen åsidosätter detta. |
 |ResolveOption|sträng, standard är "ospecificerad"|Statisk|Anger hur FQDN matchas.  Giltiga värden är "ospecificerade/IPv4/IPv6". |
-|SendTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (300)|Dynamisk|Ange TimeSpan i sekunder. Sändnings tids gräns för att identifiera fastnad anslutning. TCP-felrapporter är inte tillförlitliga i vissa miljöer. Detta kan behöva justeras enligt tillgänglig nätverks bandbredd och storlek på utgående data (\*MaxMessageSize @ no__t-1 @ no__t-2SendQueueSizeLimit). |
+|SendTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (300)|Dynamisk|Ange TimeSpan i sekunder. Sändnings tids gräns för att identifiera fastnad anslutning. TCP-felrapporter är inte tillförlitliga i vissa miljöer. Detta kan behöva justeras enligt tillgänglig nätverks bandbredd och storlek på utgående data (\*MaxMessageSize\/\*SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa och automatisera ditt första arbets flöde – Azure Logic Apps
-description: Snabb start – skapa din första automatiserade uppgift eller arbets flöde med hjälp av Azure Logic Apps för system integrering och EAI-lösningar (Enterprise Application Integration)
+title: Skapa ditt första automatiserade arbets flöde – Azure Logic Apps
+description: Snabb start – Bygg din första automatiserade aktivitet genom att använda Azure Logic Apps för system integrering och EAI-lösningar (Enterprise Application Integration)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,13 +10,13 @@ ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/20/2019
-ms.openlocfilehash: 8886472b9840c27bcbceb70265379db1682673a9
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 10/20/2019
+ms.openlocfilehash: 246bd7935bf5aaaae569e589e4efa0ea7d39c90a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679150"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821185"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure Portal
 
@@ -34,9 +34,13 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
-1. Från huvud menyn i Azure väljer du **skapa en resurs** > **integrations** > **Logic app**.
+1. På Azures start sida går du till sökrutan och letar upp och väljer **Logic Apps**.
 
-   ![Skapa logikapp – Azure-portalen](./media/quickstart-create-first-logic-app-workflow/create-new-logic-app.png)
+   ![Sök efter och välj "Logic Apps"](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
+
+1. På sidan **Logic Apps** väljer du **Lägg till**.
+
+   ![Lägg till ny Logic-app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. Under **Skapa en logikapp** anger du information om din logikapp så som det visas här. När du är klar väljer du **skapa**.
 
@@ -69,7 +73,7 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
 1. I Logic App Designer väljer du **alla**under sökrutan.
 
-1. Skriv "RSS" i rutan Sök. Välj den här utlösaren i listan utlösare: **när ett feed-objekt publiceras – RSS**
+1. Skriv `rss` i sökrutan. Välj den här utlösaren i listan utlösare: **när ett feed-objekt publiceras**
 
    ![Välj "när ett feed-objekt publiceras" utlösare](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -104,7 +108,7 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. Under **Välj en åtgärd** och sökrutan väljer du **alla**.
 
-1. Skriv "Skicka ett e-postmeddelande" i rutan Sök. Välj åtgärden skicka ett e-postmeddelande för den önskade e-postleverantören.
+1. Skriv `send an email` i sökrutan. Välj åtgärden skicka ett e-postmeddelande för den önskade e-postleverantören.
 
    ![Välj åtgärden "Skicka ett e-postmeddelande" för Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -121,7 +125,7 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
 
       För närvarande kan du listan **Lägg till dynamiskt innehåll** som visas. När du klickar i vissa redigeringsrutor blir listan synlig och visar eventuella tillgängliga parametrar från föregående steg som du kan ta med som indata i arbetsflödet.
 
-   1. I rutan **Ämne** anger du den här texten med ett avslutande blanksteg: ```New RSS item:```
+   1. I rutan **Ämne** anger du den här texten med ett avslutande blanksteg: `New RSS item: `
 
       ![I egenskapen "ämne" anger du e-postmeddelandets ämne](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
 
@@ -170,16 +174,12 @@ Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser n�
 
    ![Hitta, markera och ta bort resurs grupp](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
-1. Ange resurs gruppens namn som bekräftelse och välj **ta bort**.
+1. När fönstret bekräftelse visas anger du namnet på resurs gruppen och väljer **ta bort**.
 
    ![Bekräfta borttagningen genom att välja "ta bort"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 > [!NOTE]
 > När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.
-
-## <a name="get-support"></a>Få support
-
-Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 ## <a name="next-steps"></a>Nästa steg
 

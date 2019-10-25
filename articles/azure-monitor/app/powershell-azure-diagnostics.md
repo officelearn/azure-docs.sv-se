@@ -1,22 +1,18 @@
 ---
 title: Ställa in Application Insights i en Azure med hjälp av PowerShell | Microsoft Docs
 description: Automatisera konfiguration av Azure-diagnostik för att skicka pipe-data till Application Insights.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/06/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 0c963e4cd7befffe69fef159542eabd29059e3d9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/06/2019
+ms.openlocfilehash: 0e1fd048b855473c1d7978e2a908c45360a1ed2a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035196"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819012"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Konfigurera Application Insights för Azure-Cloud Services med hjälp av PowerShell
 
@@ -43,7 +39,7 @@ Om webbappen finns i Azure och du skapar dina resurser med hjälp av en Azure Re
      } 
 
 * `nameOfAIAppResource` – ett namn för Application Insights-resursen
-* `myWebAppName`– webbappens ID
+* `myWebAppName`-webbappens ID
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Aktivera diagnostiktillägget som en del av distributionen av en molntjänst
 `New-AzureDeployment`-cmdleten har en parameter, `ExtensionConfiguration`, som stöder en rad diagnostikkonfigurationer. Dessa kan skapas med hjälp av cmdleten `New-AzureServiceDiagnosticsExtensionConfig`. Exempel:

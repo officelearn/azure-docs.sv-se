@@ -1,53 +1,49 @@
 ---
-title: Profilera ASP.NET Core Azure Linux-webbappar med Application Insights Profiler | Microsoft Docs
-description: En konceptuell översikt över och stegvisa självstudier om hur du använder Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.reviewer: mbullwin
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Profil ASP.NET Core Azure Linux-webbappar med Application Insights Profiler | Microsoft Docs
+description: En konceptuell översikt och stegvisa anvisningar om hur du använder Application Insights Profiler.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/23/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 02/23/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: a300aa066bdef40c4768ac5e278537aec1a8b3b7
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306532"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820549"
 ---
-# <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilera ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
+# <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profil ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
 Den här funktionen är för närvarande en förhandsversion.
 
-Ta reda på hur mycket tid på varje metod för ditt webbprogram när du använder [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler är nu tillgängligt för ASP.NET Core web apps som finns i Linux på Azure App Service. Den här guiden innehåller stegvisa instruktioner om hur Profiler-spårningar samlas in för ASP.NET Core Linux web apps.
+Ta reda på hur mycket tid som ägnas åt varje metod i Live-webbprogrammet när du använder [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler är nu tillgängligt för ASP.NET Core webb program som finns i Linux på Azure App Service. Den här guiden innehåller steg-för-steg-instruktioner om hur profiler-spår kan samlas in för ASP.NET Core Linux-webbappar.
 
-När du har slutfört den här genomgången kommer din app kan samla in Profiler-spårningar som spårningar som visas i bilden. I det här exemplet indikerar Profiler-spårning att en viss webbegäran går långsamt på grund av tid att vänta. Den *heta sökvägen* i koden som saktas appen markeras med en flammförebyggande ikon. Den **om** -metod i den **HomeController** avsnittet saktas webbappen eftersom metoden anropar den **Thread.Sleep** funktion.
+När du har slutfört den här genom gången kan din app samla in profiler-spår som de spår som visas i bilden. I det här exemplet indikerar profilerings spårningen att en viss webbegäran är långsam på grund av den tid som krävs. Den frekventa *sökvägen* i koden som sakta appen är markerad med en flamma-ikon. **Om** -metoden i **HomeController** -avsnittet saktar ner webbappen eftersom metoden anropar funktionen **Thread. vilo läge** .
 
-![Profiler-spårningar](./media/profiler-aspnetcore-linux/profiler-traces.png)
+![Profiler-spår](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Följande instruktioner gäller för alla miljöer för utveckling av Windows, Linux och Mac:
+## <a name="prerequisites"></a>Krav
+Följande instruktioner gäller för alla Windows-, Linux-och Mac-utvecklings miljöer:
 
-* Installera den [.NET Core SDK 2.1.2 eller senare](https://dotnet.microsoft.com/download/archives).
-* Installera Git genom att följa anvisningarna i [komma igång - installerar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Installera [.net Core SDK 2.1.2 eller senare](https://dotnet.microsoft.com/download/archives).
+* Installera git genom att följa anvisningarna på [komma igång Installera git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## <a name="set-up-the-project-locally"></a>Konfigurera projektet lokalt
 
-1. Öppna ett kommandotolksfönster på din dator. Följande instruktioner fungerar för alla miljöer för utveckling av Windows, Linux och Mac.
+1. Öppna ett kommando tolks fönster på din dator. Följande anvisningar fungerar för alla utvecklings miljöer för Windows, Linux och Mac.
 
-1. Skapa en ASP.NET Core MVC-webbprogram:
+1. Skapa ett ASP.NET Core MVC-webbprogram:
 
     ```
     dotnet new mvc -n LinuxProfilerTest
     ```
 
-1. Ändra arbetskatalogen till rotmappen för projektet.
+1. Ändra arbets katalogen till rotmappen för projektet.
 
-1. Lägg till NuGet-paketet för att samla in Profiler-spårningar:
+1. Lägg till NuGet-paketet för att samla profilerade spår:
 
     ```shell
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
@@ -62,7 +58,7 @@ Följande instruktioner gäller för alla miljöer för utveckling av Windows, L
             .UseStartup<Startup>();
     ```
     
-1. Aktivera Profiler i Startup.cs:
+1. Aktivera profileraren i Startup.cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -72,7 +68,7 @@ Följande instruktioner gäller för alla miljöer för utveckling av Windows, L
     }
     ```
 
-1. Lägg till en rad med kod i den **HomeController.cs** avsnitt för att slumpmässigt fördröjning på några sekunder:
+1. Lägg till en kodrad i avsnittet **HomeController.cs** för att slumpmässigt fördröja några sekunder:
 
     ```csharp
         using System.Threading;
@@ -87,7 +83,7 @@ Följande instruktioner gäller för alla miljöer för utveckling av Windows, L
             }
     ```
 
-1. Spara och genomföra ändringarna till den lokala lagringsplatsen:
+1. Spara och genomför ändringarna i den lokala lagrings platsen:
 
     ```
         git init
@@ -95,37 +91,37 @@ Följande instruktioner gäller för alla miljöer för utveckling av Windows, L
         git commit -m "first commit"
     ```
 
-## <a name="create-the-linux-web-app-to-host-your-project"></a>Skapa Linux-webbapp som värd för ditt projekt
+## <a name="create-the-linux-web-app-to-host-your-project"></a>Skapa Linux-webbappen som värd för ditt projekt
 
-1. Skapa web app-miljö med hjälp av App Service i Linux:
+1. Skapa en webbapp genom att använda App Service på Linux:
 
-    ![Skapa Linux-webbapp](./media/profiler-aspnetcore-linux/create-linux-appservice.png)
+    ![Skapa Linux-webbappen](./media/profiler-aspnetcore-linux/create-linux-appservice.png)
 
 2. Skapa autentiseringsuppgifter för distribution:
 
     > [!NOTE]
-    > Registrera ditt lösenord för senare användning när du distribuerar din webbapp.
+    > Registrera ditt lösen ord för att använda senare när du distribuerar din webbapp.
 
     ![Skapa autentiseringsuppgifter för distribution](./media/profiler-aspnetcore-linux/create-deployment-credentials.png)
 
-3. Välj distributionsalternativ för. Konfigurera en lokal Git-lagringsplats i webbapp genom att följa anvisningarna på Azure portal. En Git-lagringsplats skapas automatiskt.
+3. Välj distributions alternativ. Konfigurera en lokal git-lagringsplats i webbappen genom att följa anvisningarna på Azure Portal. En git-lagringsplats skapas automatiskt.
 
-    ![Ställ in Git-lagringsplatsen](./media/profiler-aspnetcore-linux/setup-git-repo.png)
+    ![Konfigurera git-lagringsplatsen](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-Läs fler distributionsalternativ [i den här artikeln](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
+Mer distributions alternativ finns i [den här artikeln](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
 
 ## <a name="deploy-your-project"></a>Distribuera projektet
 
-1. I Kommandotolken, bläddrar du till rotmappen för ditt projekt. Lägg till en fjärransluten Git-lagringsplats så att den pekar till lagringsplatsen på App Service:
+1. I kommando tolkens fönster bläddrar du till rotmappen för ditt projekt. Lägg till en git-fjärrlagringsplats för att peka på lagrings platsen på App Service:
 
     ```
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
 
-    * Använd den **användarnamn** som användes för att skapa autentiseringsuppgifter för distribution.
-    * Använd den **appnamn** som du skapar webbappen med hjälp av App Service i Linux.
+    * Använd det **användar namn** som du använde för att skapa autentiseringsuppgifterna för distributionen.
+    * Använd det **app-namn** som du använde för att skapa webbappen genom att använda app service på Linux.
 
-2. Distribuera projektet genom att skicka ändringarna till Azure:
+2. Distribuera projektet genom att överföra ändringarna till Azure:
 
     ```
     git push azure master
@@ -154,33 +150,33 @@ Du bör se utdata som liknar följande exempel:
 
     ```
 
-## <a name="add-application-insights-to-monitor-your-web-apps"></a>Lägg till Application Insights för att övervaka dina web apps
+## <a name="add-application-insights-to-monitor-your-web-apps"></a>Lägg till Application Insights för att övervaka dina webb program
 
 1. [Skapa en Application Insights-resurs](./../../azure-monitor/app/create-new-resource.md ).
 
-2. Kopiera den **iKey** värdet för Application Insights-resursen och konfigurera följande inställningar i web apps:
+2. Kopiera **iKey** -värdet för resursen Application Insights och ange följande inställningar i dina webbappar:
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
     ```
 
-    När appinställningar ändras, platsen startar om automatiskt. När de nya inställningarna tillämpas körs omedelbart Profiler för två minuter. Profiler körs sedan för varje timme med två minuter.
+    När appens inställningar ändras startar webbplatsen om automatiskt. När de nya inställningarna har tillämpats körs profiler omedelbart i två minuter. Profileraren körs sedan i två minuter varje timma.
 
-3. Generera en del trafik till din webbplats. Du kan generera trafik genom att uppdatera webbplatsen **om** sidan några gånger.
+3. Generera en del trafik till din webbplats. Du kan generera trafik genom att uppdatera plats **om** sidan några gånger.
 
-4. Vänta två till fem minuter innan händelser till sammanställda till Application Insights.
+4. Vänta två till fem minuter innan händelserna sammanställs till Application Insights.
 
-5. Bläddra till Application Insights **prestanda** fönstret i Azure-portalen. Du kan visa Profiler-spårningar längst ned till höger i fönstret.
+5. Bläddra till fönstret Application Insights **prestanda** i Azure Portal. Du kan Visa profiler-spår längst ned till höger i fönstret.
 
-    ![Visa Profiler-spårningar](./media/profiler-aspnetcore-linux/view-traces.png)
+    ![Visa profiler spår](./media/profiler-aspnetcore-linux/view-traces.png)
 
 ## <a name="known-issues"></a>Kända problem
 
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Profilen nu knappen inte fungerar för Linux-Profiler
-App Insights-profileraren Linux-version stöder ännu inte på begäran profilering med profilen nu knappen.
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Knappen profil nu fungerar inte för Linux profiler
+Linux-versionen av App Insights profiler stöder ännu inte profilering på begäran med hjälp av knappen profil nu.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du använder anpassade behållare som hanteras av Azure App Service, följer du anvisningarna i [ aktivera tjänsten Profiler för ett ASP.NET Core-program i behållare](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) att aktivera Application Insights Profiler.
+Om du använder anpassade behållare som finns i Azure App Service följer du anvisningarna i [aktivera Service profiler för ett behållar ASP.net Core program](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) för att aktivera Application Insights profiler.
 
-Rapportera problem eller förslag till Application Insights GitHub-lagringsplatsen: [ApplicationInsights-Profiler-AspNetCore: Problem med](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
+Rapportera eventuella problem eller förslag till Application Insights GitHub-databasen: [ApplicationInsights-profilerare-AspNetCore: problem](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).

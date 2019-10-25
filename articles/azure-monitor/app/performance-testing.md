@@ -1,65 +1,61 @@
 ---
-title: Prestanda och belastningstest med Azure Application Insights | Microsoft Docs
-description: Konfigurera prestanda- och belastningstester med Azure Application Insights
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Prestanda-och belastnings testning med Azure Application Insights | Microsoft Docs
+description: Konfigurera prestanda-och belastnings test med Azure Application Insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 55d743e32f6db0828317d3764a97bcb35b104dad
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9c86b69239bed1a15c754ce28232b97e8439942b
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305019"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819100"
 ---
 # <a name="performance-testing"></a>Prestandatestning
 
 > [!NOTE]
-> Det molnbaserade belastningstestet är inaktuell. Mer information om utfasningen, tjänstens tillgänglighet och alternativa tjänster finns [här](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> Den molnbaserade belastnings test tjänsten är föråldrad. Mer information om utfasningen, tillgänglighet för tjänsten och alternativa tjänster finns [här](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
-Application Insights kan du skapa belastningstester för din webbplats. Som [tillgänglighetstester](monitor-web-app-availability.md), kan du skicka antingen enkla begäranden eller [begäranden med flera steg](availability-multistep.md) från Azure webbtestagenter runt om i världen. Prestandatester kan du simulera upp till 20 000 samtidiga användare i upp till 60 minuter.
+Med Application Insights kan du generera belastnings test för dina webbplatser. Som [tillgänglighets test](monitor-web-app-availability.md)kan du skicka antingen grundläggande förfrågningar eller [flera steg](availability-multistep.md) från Azure test agenter runtom i världen. Med prestandatester kan du simulera upp till 20 000 samtidiga användare i upp till 60 minuter.
 
 ## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
-För att skapa ett prestandatest, måste du först skapa en Application Insights-resurs. Om du redan har skapat en resurs du vidare till nästa avsnitt.
+För att kunna skapa ett prestanda test måste du först skapa en Application Insights-resurs. Fortsätt till nästa avsnitt om du redan har skapat en resurs.
 
-Azure-portalen väljer du **skapa en resurs** > **utvecklarverktyg** > **Application Insights** och skapa en Application Insights resursen.
+Från Azure Portal väljer du **skapa en resurs** > **utvecklarverktyg** > **Application Insights** och skapar en Application Insights resurs.
 
-## <a name="configure-performance-testing"></a>Konfigurera prestandatestning
+## <a name="configure-performance-testing"></a>Konfigurera prestanda testning
 
-Om det här är första gången du skapar prestanda test väljer **ange organisation** och välj en Azure DevOps-organisation som källa för din prestandatester.
+Om det här är första gången du skapar prestandatest väljer du **Ange organisation** och väljer en Azure DevOps-organisation som källa för dina prestandatester.
 
-Under **konfigurera**går du till **prestandatestning** och klicka på **New** att skapa ett test.
+Under **Konfigurera**går du till **prestanda testning** och klickar på **ny** för att skapa ett test.
 
 ![Fyll åtminstone i URL:en för din webbplats](./media/performance-testing/new-performance-test.png)
 
-Om du vill skapa ett grundläggande prestandatest, Välj testtypen **manuell testa** och fyll sedan önskade inställningar för testet.
+Om du vill skapa ett grundläggande prestandatest väljer du en test typ för **manuellt test** och fyller i önskade inställningar för ditt test.
 
-|Inställning| Maxvärde
+|Inställning| Max värde
 |----------|------------|
-| Användarbelastning | 20,000 |
+| Användar belastning | 20 000 |
 | Varaktighet (minuter)  | 60 |  
 
 När testet har skapats klickar du på **Kör test**.
 
-När testet är klart visas resultat som liknar agentdistributionresultaten nedan:
+När testet är klart visas resultat som liknar resultaten nedan:
 
 ![Testresultat](./media/performance-testing/test-results.png)
 
 ## <a name="configure-visual-studio-web-test"></a>Konfigurera Visual Studio-webbtest
 
-Application Insights avancerad prestanda testfunktionerna är byggda på Visual Studio-prestanda och belastning testa projekt.
+Application Insights avancerade funktioner för prestanda testning skapas ovanpå Visual Studio-prestanda och belastnings test projekt.
 
 ![Visual Studio ](./media/performance-testing/visual-studio-test.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Webbtester med flera steg](availability-multistep.md)
-* [URL-Pingtest](monitor-web-app-availability.md)
+* [Ping-test för URL](monitor-web-app-availability.md)

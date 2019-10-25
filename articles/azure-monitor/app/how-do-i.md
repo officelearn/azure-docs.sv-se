@@ -1,143 +1,138 @@
 ---
-title: Hur kan jag... i Azure Application Insights | Microsoft Docs
+title: Hur gör jag för att... i Azure Application Insights | Microsoft Docs
 description: Vanliga frågor och svar i Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/04/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 04/04/2017
+ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795514"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817365"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett e-postmeddelande när...
-### <a name="email-if-my-site-goes-down"></a>E-post om min plats kraschar
-Ange en [tillgänglighet webbtest](../../azure-monitor/app/monitor-web-app-availability.md).
+### <a name="email-if-my-site-goes-down"></a>E-posta om min webbplats slutar fungera
+Ange ett [webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md).
 
-### <a name="email-if-my-site-is-overloaded"></a>E-post om min webbplats är överbelastad
-Ange en [avisering](../../azure-monitor/app/alerts.md) på **serversvarstid**. Ett tröskelvärde mellan 1 och 2 sekunder ska fungera.
+### <a name="email-if-my-site-is-overloaded"></a>E-posta om min webbplats är överbelastad
+Ange en [avisering](../../azure-monitor/app/alerts.md) på **Server svars tiden**. Ett tröskelvärde mellan 1 och 2 sekunder bör fungera.
 
 ![](./media/how-do-i/030-server.png)
 
-Din app kan också visa loggar belastning genom att returnera felkoder. Ställa in dataaviseringar på **misslyckade förfrågningar**.
+Din app kan också visa tecken på stammar genom att returnera felkoder. Ange en avisering om **misslyckade förfrågningar**.
 
-Om du vill ställa in dataaviseringar på **serverundantagen**, du kan behöva göra [vissa ytterligare inställningar](../../azure-monitor/app/asp-net-exceptions.md) om du vill se data.
+Om du vill ställa in en avisering på **Server undantag**kan du behöva göra [ytterligare inställningar](../../azure-monitor/app/asp-net-exceptions.md) för att kunna se data.
 
-### <a name="email-on-exceptions"></a>Skicka e-postmeddelande undantag
-1. [Konfigurera undantagsövervakning](../../azure-monitor/app/asp-net-exceptions.md)
-2. [Ställa in en avisering](../../azure-monitor/app/alerts.md) på undantaget antal mått
+### <a name="email-on-exceptions"></a>E-post vid undantag
+1. [Konfigurera undantags övervakning](../../azure-monitor/app/asp-net-exceptions.md)
+2. [Ange en avisering](../../azure-monitor/app/alerts.md) för måttet för antalet undantag
 
-### <a name="email-on-an-event-in-my-app"></a>E-post på en händelse i min app
-Anta att du vill få ett e-postmeddelande när en viss händelse inträffar. Application Insights ger inte den här funktionen direkt, men det kan [skicka en avisering när ett mått överskrider ett tröskelvärde](../../azure-monitor/app/alerts.md).
+### <a name="email-on-an-event-in-my-app"></a>Skicka ett e-postmeddelande till en händelse i min app
+Låt oss anta att du vill få ett e-postmeddelande när en enskild händelse inträffar. Application Insights tillhandahåller inte den här funktionen direkt, men den kan [skicka en avisering när ett mått överskrider ett tröskelvärde](../../azure-monitor/app/alerts.md).
 
-Aviseringar kan ställas in på [anpassade mått](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), men inte anpassade händelser. Skriva kod för att öka ett mått när händelsen inträffar:
+Aviseringar kan anges för [anpassade mått](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), även om inte anpassade händelser. Skriv kod för att öka ett mått när händelsen inträffar:
 
     telemetry.TrackMetric("Alarm", 10);
 
-Eller:
+eller
 
     var measurements = new Dictionary<string,double>();
     measurements ["Alarm"] = 10;
     telemetry.TrackEvent("status", null, measurements);
 
-Eftersom aviseringar har två tillstånd, som du behöver skicka ett lågt värde när du ska välja vilken avisering du vill ha tagit slut:
+Eftersom aviseringar har två tillstånd måste du skicka ett lågt värde när du anser att aviseringen har avslut ATS:
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Skapa ett diagram i [metric explorer](../../azure-monitor/app/metrics-explorer.md) att se din larm:
+Skapa ett diagram i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) för att se ditt larm:
 
 ![](./media/how-do-i/010-alarm.png)
 
-Nu ska du ställa in en avisering utlöses när måttet mer än ett mid värde under en kort period:
+Nu ska du ange en avisering för att utlösa när måttet hamnar ovanför ett värde för en kort period:
 
 ![](./media/how-do-i/020-threshold.png)
 
-Ange genomsnittsperioden till minst.
+Ställ in genomsnitts perioden på minimivärdet.
 
-Du får e-postmeddelanden när måttet går över såväl under tröskeln.
+Du får e-postmeddelanden både när måttet hamnar ovanför och under tröskelvärdet.
 
 Några saker att tänka på:
 
-* En avisering har två tillstånd (”varning” och ”felfri”). Tillståndet utvärderas bara när ett mått tas emot.
-* Ett e-postmeddelande skickas bara när tillståndet ändras. Det här är varför du behöver skicka både hög och låg / värde-mått.
-* Om du vill utvärdera aviseringen tas medelvärdet av de mottagna värdena under föregående period. Detta sker varje gång ett mått tas emot, så e-postmeddelanden kan skickas oftare än den angivna perioden.
-* Eftersom e-postmeddelanden skickas både ”varning” och ”felfri”, kan du tänka på nytt har du funderingar one-shot evenemanget som ett villkor för två tillstånd. Till exempel i stället för en ”jobb slutfört”-händelse, har en ”jobb pågår” villkor, där du får e-postmeddelanden i början och slutet av ett jobb.
+* En avisering har två tillstånd ("varning" och "felfri"). Statusen utvärderas endast när ett mått tas emot.
+* Ett e-postmeddelande skickas endast när tillstånd ändras. Det är därför du måste skicka både höga och låga värden.
+* För att utvärdera aviseringen tar genomsnittet av de mottagna värdena under föregående period. Detta inträffar varje gång ett mått tas emot, så att e-postmeddelanden kan skickas oftare än den period som du anger.
+* Eftersom e-postmeddelanden skickas både på "varning" och "felfri", kanske du vill överväga att fundera på att titta på en händelse i två tillstånd. I stället för händelsen "jobbet har slutförts" har du till exempel ett villkor för "pågående jobb" där du får e-postmeddelanden i början och slutet av ett jobb.
 
-### <a name="set-up-alerts-automatically"></a>Ställa in aviseringar automatiskt
+### <a name="set-up-alerts-automatically"></a>Konfigurera aviseringar automatiskt
 [Använd PowerShell för att skapa nya aviseringar](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Använd PowerShell för att hantera Application Insights
 * [Skapa nya resurser](../../azure-monitor/app/powershell-script-create-resource.md)
 * [Skapa nya aviseringar](../../azure-monitor/app/alerts.md#automation)
 
-## <a name="separate-telemetry-from-different-versions"></a>Separata telemetri från olika versioner
+## <a name="separate-telemetry-from-different-versions"></a>Separera telemetri från olika versioner
 
-* Flera roller i en app: Använda en enda Application Insights-resurs och filtrerar på [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Att avgränsa utveckling, testning och versioner: Använd olika Application Insights-resurser. Hämta instrumenteringsnycklar från web.config. [Läs mer](../../azure-monitor/app/separate-resources.md)
-* Reporting build-versioner: Lägga till en egenskap med hjälp av en telemetri-initierare. [Läs mer](../../azure-monitor/app/separate-resources.md)
+* Flera roller i en app: Använd en enda Application Insights resurs och filtrera på [cloud_Rolename](../../azure-monitor/app/app-map.md).
+* Separera utvecklings-, test-och versions versioner: Använd olika Application Insights resurser. Hämta Instrumentation-nycklarna från Web. config. [Läs mer](../../azure-monitor/app/separate-resources.md)
+* Rapport versions versioner: Lägg till en egenskap med hjälp av en telemetri-initierare. [Läs mer](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Övervaka backend-servrar och skrivbordsappar
-[Använda Windows Server SDK-modulen](../../azure-monitor/app/windows-desktop.md).
+[Använd Windows Server SDK-modulen](../../azure-monitor/app/windows-desktop.md).
 
 ## <a name="visualize-data"></a>Visualisera data
-#### <a name="dashboard-with-metrics-from-multiple-apps"></a>Instrumentpanel med mått från flera appar
-* I [Metric Explorer](../../azure-monitor/app/metrics-explorer.md), anpassa ditt diagram och spara den som en favorit. Fästa den på instrumentpanelen i Azure.
+#### <a name="dashboard-with-metrics-from-multiple-apps"></a>Instrument panel med mått från flera appar
+* I [Metric Explorer](../../azure-monitor/app/metrics-explorer.md)anpassar du ditt diagram och sparar det som en favorit. Fäst den på Azure-instrumentpanelen.
 
-#### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Instrumentpanel med data från andra källor och Application Insights
+#### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Instrument panel med data från andra källor och Application Insights
 * [Exportera telemetri till Power BI](../../azure-monitor/app/export-power-bi.md ).
 
 Eller
 
-* Använd SharePoint som din instrumentpanel som visar data i SharePoint-webbdelar. [Använd löpande export och Stream Analytics för att exportera till SQL](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  Använder PowerView för att undersöka databasen och skapa en SharePoint-webbdel för PowerView.
+* Använd SharePoint som instrument panel och visa data i SharePoint-webbdelar. [Använd kontinuerlig export och Stream Analytics för att exportera till SQL](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  Använd PowerView för att undersöka databasen och skapa en SharePoint-webbdel för PowerView.
 
 <a name="search-specific-users"></a>
 
-### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrera bort anonym eller autentiserade användare
-Om användarna måste logga in, kan du ange den [autentiserad användar-id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Det inte sker automatiskt.)
+### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrera bort anonyma eller autentiserade användare
+Om dina användare loggar in kan du ange det [autentiserade användar-ID: t](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Det sker inte automatiskt.)
 
-Du kan sedan:
+Sedan kan du:
 
-* Söker i specifika användar-ID
+* Sök efter vissa användar-ID: n
 
 ![](./media/how-do-i/110-search.png)
 
-* Filtrera mått till anonyma och autentiserade användare
+* Filtrera mått till antingen anonyma eller autentiserade användare
 
 ![](./media/how-do-i/115-metrics.png)
 
-## <a name="modify-property-names-or-values"></a>Ändra egenskapsnamn eller värden
-Skapa en [filter](../../azure-monitor/app/api-filtering-sampling.md#filtering). På så sätt kan du ändra eller filtrera telemetri innan den skickas från din app till Application Insights.
+## <a name="modify-property-names-or-values"></a>Ändra egenskaps namn eller värden
+Skapa ett [filter](../../azure-monitor/app/api-filtering-sampling.md#filtering). På så sätt kan du ändra eller filtrera telemetri innan det skickas från din app till Application Insights.
 
-## <a name="list-specific-users-and-their-usage"></a>Lista över specifika användare och deras användning
-Om du bara vill [Sök efter specifika användare](#search-specific-users), du kan ange den [autentiserad användar-id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+## <a name="list-specific-users-and-their-usage"></a>Lista vissa användare och deras användning
+Om du bara vill [söka efter vissa användare](#search-specific-users)kan du ange det [autentiserade användar-ID: t](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
-Om du vill ha en lista över användare med data, till exempel vilka sidor du de tittar på eller hur ofta de loggar in, har du två alternativ:
+Om du vill ha en lista över användare med data, till exempel vilka sidor de tittar på eller hur ofta de loggar in, har du två alternativ:
 
-* [Ställ in autentiserat användar-id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [exportera till en databas](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) och använda lämpliga verktyg för att analysera dina användardata.
-* Om du har bara ett litet antal användare kan skicka anpassade händelser eller mått, med hjälp av data av intresse som måttnamnet värde eller händelse och ange användar-id som en egenskap. Ersätt anropet flyttat trackPageView standard JavaScript för att analysera sidvisningar. Använd en telemetri-initierare att lägga till användar-id i all telemetri för att analysera telemetri på serversidan. Därefter kan du filtrera och segmentera mått och sökningar på användar-id.
+* [Ange autentiserat användar-ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [Exportera till en databas](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) och Använd lämpliga verktyg för att analysera dina användar data där.
+* Om du bara har ett litet antal användare kan du skicka anpassade händelser eller mått med data från intresse som mått värde eller händelse namn och ange användar-ID som en egenskap. Om du vill analysera sidvyer ersätter du standard-JavaScript-trackPageView-anropet. Om du vill analysera telemetri på Server sidan, använder du en telemetri-initierare för att lägga till användar-ID: t till all Server telemetri. Sedan kan du filtrera och segmentera mått och söka efter användar-ID.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Minska trafiken från min app till Application Insights
-* I [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), inaktivera alla moduler som du inte behöver dessa prestandaräknaren insamlaren.
-* Använd [Sampling och filtrering](../../azure-monitor/app/api-filtering-sampling.md) på SDK.
-* Begränsa antalet Ajax-anrop som rapporteras för alla sidor i dina webbsidor. I kodfragmentet skript efter `instrumentationKey:...` , infoga: `,maxAjaxCallsPerView:3` (eller ett lämpligt antal).
-* Om du använder [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), compute sammanställningen av batchar med måttvärden innan du skickar resultatet. Det finns en överlagring för TrackMetric() som tillhandahåller för som.
+* I [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)inaktiverar du alla moduler som du inte behöver, t. ex. prestanda räknar insamlaren.
+* Använd [sampling och filtrering](../../azure-monitor/app/api-filtering-sampling.md) på SDK: n.
+* På dina webb sidor begränsar du antalet AJAX-anrop som rapporteras för varje sid visning. I skript kodfragmentet efter `instrumentationKey:...` infogar du: `,maxAjaxCallsPerView:3` (eller ett lämpligt nummer).
+* Om du använder [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)beräknar du summan av batchar med mått värden innan du skickar resultatet. Det finns en överlagring av TrackMetric () som tillhandahåller för det.
 
 Läs mer om [priser och kvoter](../../azure-monitor/app/pricing.md).
 
 ## <a name="disable-telemetry"></a>Inaktivera telemetri
-Att **dynamiskt stoppa och starta** insamling och överföring av telemetri från servern:
+För att **dynamiskt stoppa och starta** insamling och överföring av telemetri från servern:
 
-### <a name="aspnet-classic-applications"></a>Klassisk för ASP.NET-program
+### <a name="aspnet-classic-applications"></a>Klassiska ASP.NET-program
 
 ```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
@@ -146,27 +141,27 @@ Att **dynamiskt stoppa och starta** insamling och överföring av telemetri frå
 ```
 
 ### <a name="other-applications"></a>Andra program
-Det rekommenderas inte att använda `TelemetryConfiguration.Active` singleton på konsolen eller ASP.NET Core-program.
-Om du har skapat `TelemetryConfiguration` instansen själv - ange `DisableTelemetry` till `true`.
+Vi rekommenderar inte att du använder `TelemetryConfiguration.Active` singleton på konsolen eller ASP.NET Core program.
+Om du skapade `TelemetryConfiguration` instans själv anger du `DisableTelemetry` till `true`.
 
-För ASP.NET Core-program kan du komma åt `TelemetryConfiguration` instans med [ASP.NET Core beroendeinmatning](/aspnet/core/fundamentals/dependency-injection/). Hittar du mer information finns i [ApplicationInsights för ASP.NET Core-program](../../azure-monitor/app/asp-net-core.md) artikeln.
+För ASP.NET Core program kan du komma åt `TelemetryConfiguration`-instansen med [ASP.net Core beroende inmatning](/aspnet/core/fundamentals/dependency-injection/). Mer information finns i [ApplicationInsights för ASP.net Core Applications](../../azure-monitor/app/asp-net-core.md) -artikeln.
 
-## <a name="disable-selected-standard-collectors"></a>Inaktivera valda standard insamlare
-Du kan inaktivera standard-insamlare (till exempel prestandaräknare, HTTP-begäranden eller beroenden)
+## <a name="disable-selected-standard-collectors"></a>Inaktivera markerade standard insamlare
+Du kan inaktivera standard insamlare (till exempel prestanda räknare, HTTP-begäranden eller beroenden)
 
-* **ASP.NET-program** – ta bort eller kommentera ut de relevanta raderna i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **ASP.NET Core-program** -Följ telemetri moduler konfigurationsalternativ i [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **ASP.NET-program** – ta bort eller kommentera de relevanta raderna i [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.net Core program** – följa konfigurations alternativen för telemetri i [ApplicationInsights ASP.net Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
-## <a name="view-system-performance-counters"></a>Visa systemprestandaräknare
-Bland de mått som du kan visa i metrics explorer är en uppsättning system prestandaräknare. Det finns en fördefinierad bladet med rubriken **servrar** som visar flera stycken.
+## <a name="view-system-performance-counters"></a>Visa system prestanda räknare
+Bland de mått som du kan visa i mått Utforskaren finns en uppsättning system prestanda räknare. Det finns ett fördefinierat blad med rubriken **servrar** som visar flera av dem.
 
-![Öppna Application Insights-resursen och klicka på servrar](./media/how-do-i/121-servers.png)
+![Öppna Application Insights resurs och klicka på servrar](./media/how-do-i/121-servers.png)
 
-### <a name="if-you-see-no-performance-counter-data"></a>Om du ser inga prestandaräknardata
-* **IIS-server** på din egen dator eller på en virtuell dator. [Installera Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
-* **Azure-webbplats** -vi stöder inte prestandaräknare ännu. Det finns flera mått som du kan hämta som en del av Azure-webbplats på Kontrollpanelen.
-* **UNIX-server** - [installera insamlade](../../azure-monitor/app/java-collectd.md)
+### <a name="if-you-see-no-performance-counter-data"></a>Om du inte ser några prestanda räknar data
+* **IIS-server** på din egen dator eller på en virtuell dator. [Installera statusövervakare](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* **Azure Web Site** – vi stöder inte prestanda räknare ännu. Det finns flera mått som du kan få som en standard del av kontroll panelen i Azure-webbplatsen.
+* **UNIX-server** - [installation har samlats in](../../azure-monitor/app/java-collectd.md)
 
-### <a name="to-display-more-performance-counters"></a>Visa fler prestandaräknare
-* Först [lägga till ett nytt diagram](../../azure-monitor/app/metrics-explorer.md) och se om räknaren finns i den grundläggande uppsättningen som vi erbjuder.
-* Om inte, [lägga till räknaren i uppsättningen som samlas in av modulen för prestandaräknare](../../azure-monitor/app/performance-counters.md).
+### <a name="to-display-more-performance-counters"></a>Visa fler prestanda räknare
+* Lägg först [till ett nytt diagram](../../azure-monitor/app/metrics-explorer.md) och se om räknaren finns i den grundläggande uppsättning som vi erbjuder.
+* Om inte, [lägger du till räknaren i uppsättningen som samlas in av modulen prestanda räknare](../../azure-monitor/app/performance-counters.md).

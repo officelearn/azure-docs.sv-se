@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: da8dc332794cadc0eb6677390c566e67a6df6f3f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596531"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882449"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Sink-transformering för ett data flöde
 
@@ -53,8 +53,8 @@ Välj **Verifiera schema** om du vill stoppa sinken om schemat ändras.
 
 Välj **Rensa mappen** för att trunkera innehållet i mappen Sink innan du skriver målfiler i den målmappen.
 
-## <a name="rule-based-mapping"></a>Regel baserad mappning
-När du inaktiverar automatisk mappning kan du välja att lägga till en kolumnbaserade mappning (fast mappning) eller regelbaserade mappning. Med hjälp av regelbaserade mappningar kan du skriva uttryck med mönster matchning. 
+## <a name="fixed-mapping-vs-rule-based-mapping"></a>Fast mappning jämfört med regel-baserad mappning
+När du inaktiverar automatisk mappning har du möjlighet att lägga till en kolumn-baserad mappning (fast mappning) eller regelbaserade mappning. Med hjälp av regelbaserade mappningar kan du skriva uttryck med mönster matchning medan fast mappning mappar logiska och fysiska kolumn namn.
 
 ![Regel baserad mappning](media/data-flow/rules4.png "Regel baserad mappning")
 
@@ -65,6 +65,12 @@ Information om mönster matchning finns i [kolumn mönster dokumentation](concep
 Du kan också ange mönster för reguljära uttryck när du använder regel baserad matchning genom att expandera raden och ange ett reguljärt uttryck bredvid "namn matchningar:".
 
 ![Regex-mappning](media/data-flow/scdt1g4.png "Regex-mappning")
+
+Ett vanligt vanligt exempel för en regel baserad mappning jämfört med fast mappning är det fall där du vill mappa alla inkommande fält till samma namn i målet. Om det finns fasta mappningar, visar du varje enskild kolumn i tabellen. För regelbaserade mappningar skulle du ha en enda regel som mappar alla fält med ```true()``` till samma namn på inkommande fält som representeras av ```$$```.
+
+### <a name="sink-association-with-dataset"></a>Sink-Association med data uppsättning
+
+Den data uppsättning som du väljer för din mottagare kan ha ett schema som definierats i data uppsättnings definitionen. Om det inte finns något definierat schema måste du tillåta schema drift. När du definierade en fast mappning behålls mappningen mellan logiska och fysiska namn i Sink-omvandlingen. Om du ändrar schema definitionen för data uppsättningen kan du eventuellt dela upp Sink-mappningen. Undvik detta genom att använda regel-baserad mappning. Regelbaserade mappningar är generaliserade, vilket innebär att schema ändringar i din data uppsättning inte bryter mappningen.
 
 ## <a name="file-name-options"></a>Alternativ för fil namn
 

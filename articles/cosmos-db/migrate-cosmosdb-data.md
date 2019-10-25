@@ -5,25 +5,20 @@ author: bharathsreenivas
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 6092b3aac2b0282a795d89730266e72179b34e8a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 69b400eb7838c986ac6f275da58c7457179ebea6
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648898"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880210"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrera hundratals terabyte data till Azure Cosmos DB 
 
-Azure Cosmos DB kan lagra terabyte data. Du kan utföra en storskalig datamigrering för att flytta produktions arbets belastningen till Azure Cosmos DB. I den här artikeln beskrivs de utmaningar som du kan använda för att flytta storskaliga data till Azure Cosmos DB och introducerar verktyget som hjälper dig med utmaningarna och migrerar data till Azure Cosmos DB. I den här fallstudien använde kunden Cosmos DB SQL API.  
+Azure Cosmos DB kan lagra flera terabyte data. Du kan utföra en storskalig datamigrering för att flytta din produktionsarbetsbelastning till Azure Cosmos DB. I den här artikeln beskrivs de utmaningar som du kan använda för att flytta storskaliga data till Azure Cosmos DB och introducerar verktyget som hjälper dig med utmaningarna och migrerar data till Azure Cosmos DB. I den här fallstudien använde kunden Cosmos DB SQL API.  
 
 Innan du migrerar hela arbets belastningen till Azure Cosmos DB kan du migrera en delmängd data för att verifiera några av de aspekter som partitionsalternativ, fråga prestanda och data modellering. När du har validerat POC-beviset kan du flytta hela arbets belastningen till Azure Cosmos DB.  
-
-Du kan också använda [Start programmet Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) för att påskynda skapandet eller migreringen av dina program på Azure Cosmos dB. Som en del av det här programmet skulle tekniker från Azure Cosmos DB-teamet tilldelas till ditt projekt och hjälpa dig att migrera dina data till Azure Cosmos DB. Klicka på knappen nedan om du vill registrera dig för Start programmet för Cosmos DB:
-
-> [!div class="nextstepaction"]
-> [Cosmos DB start program](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ## <a name="tools-for-data-migration"></a>Verktyg för datamigrering 
 
@@ -33,11 +28,11 @@ Azure Cosmos DB migrations strategier skiljer sig för närvarande baserat på A
 
 De befintliga verktygen för att migrera data till Azure Cosmos DB har vissa begränsningar som är särskilt synliga vid stora skalor:
 
- * **Funktioner för begränsad skala ut**: För att kunna migrera terabyte data till Azure Cosmos DB så snabbt som möjligt och för att effektivt förbruka hela det etablerade data flödet bör migrerings klienterna kunna skala ut på obestämd tid.  
+ * **Funktioner för begränsad skalning**: för att kunna migrera terabyte data till Azure Cosmos DB så snabbt som möjligt och för att effektivt förbruka hela det etablerade data flödet bör migrerings klienterna ha möjlighet att skala ut på obestämd tid.  
 
-* **Brist på förlopps spårning och kontroll pekare**: Det är viktigt att följa förloppet för migreringen och se till att du har en kontroll som pekar medan du migrerar stora data mängder. Annars stoppas migreringen av ett fel som inträffar under migreringen och du måste starta processen från grunden. Det skulle inte vara produktivt att starta om hela migreringsprocessen när 99% av den redan har slutförts.  
+* **Brist på förlopps spårning och kontroll pekare**: det är viktigt att spåra migreringens förlopp och kontrol lera att de har en kontroll som pekar samtidigt som du migrerar stora data mängder. Annars stoppas migreringen av ett fel som inträffar under migreringen och du måste starta processen från grunden. Det skulle inte vara produktivt att starta om hela migreringsprocessen när 99% av den redan har slutförts.  
 
-* **Avsaknad av kön för obeställbara meddelanden**: I stora data mängder kan det finnas problem med delar av käll informationen i vissa fall. Dessutom kan det finnas tillfälliga problem med klienten eller nätverket. Något av dessa fall bör inte medföra att hela migreringen fungerar. Även om de flesta Migreringsverktyg har robusta återförsöks funktioner som skyddar mot tillfälliga problem, är det inte alltid tillräckligt. Om till exempel mindre än 0,01% av käll data dokumenten är större än 2 MB, kommer det att göra att dokumentet skrivs för att Miss Miss Azure Cosmos DB. Vi rekommenderar att du använder Migreringsverktyget för att spara dessa "misslyckade" dokument i en annan kö för obeställbara meddelanden, som kan bearbetas efter migreringen. 
+* **Avsaknad av kön för obeställbara meddelanden**: i stora data mängder kan det finnas problem med delar av data källan. Dessutom kan det finnas tillfälliga problem med klienten eller nätverket. Något av dessa fall bör inte medföra att hela migreringen fungerar. Även om de flesta Migreringsverktyg har robusta återförsöks funktioner som skyddar mot tillfälliga problem, är det inte alltid tillräckligt. Om till exempel mindre än 0,01% av käll data dokumenten är större än 2 MB, kommer det att göra att dokumentet skrivs för att Miss Miss Azure Cosmos DB. Vi rekommenderar att du använder Migreringsverktyget för att spara dessa "misslyckade" dokument i en annan kö för obeställbara meddelanden, som kan bearbetas efter migreringen. 
 
 Många av de här begränsningarna är fasta för verktyg som Azure Data Factory, Azure Data Migration Services. 
 
@@ -129,7 +124,7 @@ Eftersom migreringen ska slutföras så snart som möjligt är det tillrådligt 
 
 När migreringen är klar kan du uppdatera indexeringen.  
 
-## <a name="migration-process"></a>Migreringsprocess 
+## <a name="migration-process"></a>Migreringsprocessen 
 
 När förutsättningarna har slutförts kan du migrera data med följande steg:  
 
@@ -154,10 +149,7 @@ När migreringen är klar kan du kontrol lera att antalet dokument i Azure Cosmo
 
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Lär dig mer genom att testa exempel programmen som använder bulk utförar-biblioteket i [.net](bulk-executor-dot-net.md) och [Java](bulk-executor-java.md). 
 * Bulk utförar-biblioteket är integrerat i Cosmos DB Spark-anslutningsprogrammet för mer information finns i artikeln [Azure Cosmos DB Spark Connector](spark-connector.md) .  
 * Kontakta Azure Cosmos DB produkt teamet genom att öppna ett support ärende under "allmän råd givande" problem typ och "stora (TB +) migreringar" problem under typ för ytterligare hjälp med storskalig migrering. 
-* Använd [Cosmos DB start program](https://azurecosmosdb.github.io/CosmosBootstrap/) för att påskynda skapandet eller migreringen av dina program på Azure Cosmos dB.
-
-> [!div class="nextstepaction"]
-> [Cosmos DB start program](https://azurecosmosdb.github.io/CosmosBootstrap/)

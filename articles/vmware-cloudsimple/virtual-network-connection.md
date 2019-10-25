@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00d49d763dedc5d86557dadd10f5d727e7893dbe
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 2e2195c61acbf39b40a7659335afff78ac03cb4b
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563056"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881435"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Anslut Azure Virtual Network till CloudSimple med ExpressRoute
 
@@ -23,22 +23,29 @@ Du kan utöka ditt privata moln nätverk till ditt virtuella Azure-nätverk och 
 
 Det krävs en auktoriseringspost för ExpressRoute-anslutningen mellan ditt privata moln och det virtuella Azure-nätverket. För att hämta en nyckel, File a Ticket with <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">support</a>.  Använd följande information i begäran:
 
-* Typ av problem: **Produkt**
+* Typ av problem: **teknisk**
 * Prenumeration: **Välj den prenumeration där CloudSimple-tjänsten har distribuerats**
 * Tjänst: **VMware-lösning av CloudSimple**
-* Problem typ: **Tjänstbegäran**
-* Problem under typ: **Auktoriseringsregel för Azure VNET-anslutning**
-* Ämne: **Begäran om auktoriseringskod för Azure VNET-anslutning**
+* Problem typ: **tjänstbegäran**
+* Problem under typ: **auktoriseringsregel för Azure VNET-anslutning**
+* Subject: **begäran om auktoriseringskod för Azure VNET-anslutning**
 
-## <a name="obtain-peering-information-for-azure-virtual-network-to-cloudsimple-connection"></a>Hämta peering-information för Azure Virtual Network till CloudSimple-anslutning
+## <a name="get-peering-information-from-cloudsimple-portal"></a>Hämta peering-information från CloudSimple-portalen
 
-Om du vill konfigurera anslutningen måste du upprätta en länk mellan Azure Virtual Network och din CloudSimple-miljö.  Som en del av proceduren måste du ange peer-kretsens URI och verifierings nyckel. Hämta URI och verifierings nyckel från [CloudSimple-portalen](access-cloudsimple-portal.md).  Välj **nätverk** på sido menyn och välj sedan **Azure nätverks anslutning**. Eller Välj **konto** på sido menyn och välj sedan **Azure-nätverksanslutning**.
+Om du vill konfigurera anslutningen måste du upprätta en anslutning mellan Azure Virtual Network och din CloudSimple-miljö.  Som en del av proceduren måste du ange peer-kretsens URI och verifierings nyckel. Hämta URI och verifierings nyckel från [CloudSimple-portalen](access-cloudsimple-portal.md).  Välj **nätverk** på sido menyn och välj sedan **Azure nätverks anslutning**. Eller Välj **konto** på sido menyn och välj sedan **Azure-nätverksanslutning**.
 
-Observera kopierings ikonerna för peer-krets-URI och för verifierings nyckeln för varje region. För varje privat moln som du vill ansluta:
+Kopiera peer-krets-URI och för verifierings nyckeln för var och en av de regioner som använder *Kopiera* -ikonen. För varje CloudSimple-region som du vill ansluta:
 
-* Kopiera URI: n genom att klicka på **Kopiera** . Klistra in den i en fil där den kan vara tillgänglig att läggas till i Azure Portal.  
-* Klicka på **Kopiera** för att kopiera verifierings nyckeln och klistra in den i filen även.
+1. Kopiera URI: n genom att klicka på **Kopiera** . Klistra in den i en fil där den kan vara tillgänglig att läggas till i Azure Portal.  
+2. Klicka på **Kopiera** för att kopiera verifierings nyckeln och klistra in den i filen även.
 
-![Sidan Virtual Network anslutning](media/network-virt-conn-page.png)
+Kopiera verifierings nyckeln och den peer-krets-URI som är i tillståndet **tillgängligt** .  **Använd** status anger att nyckeln redan har använts för att skapa en virtuell nätverks anslutning.
+
+![Sidan Virtual Network anslutning](media/virtual-network-connection.png)
 
 Mer information om hur du konfigurerar det virtuella Azure-nätverket till CloudSimple-länken finns i [ansluta din CloudSimple-privata moln miljö till det virtuella Azure-nätverket med hjälp av ExpressRoute](azure-expressroute-connection.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Azure Virtual Network-anslutning till privat moln](azure-expressroute-connection.md)
+* [Ansluta till ett lokalt nätverk med hjälp av Azure ExpressRoute](on-premises-connection.md)

@@ -1,23 +1,18 @@
 ---
-title: Använd Powershell för att ställa in aviseringar i Application Insights | Microsoft Docs
-description: Automatisera konfigurationen av Application Insights för att få e-postmeddelanden om ändringar av mått.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Använd PowerShell för att ställa in aviseringar i Application Insights | Microsoft Docs
+description: Automatisera konfigurationen av Application Insights för att få e-postmeddelanden om mått ändringar.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/31/2016
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/31/2016
+ms.openlocfilehash: 0771079eb338c2f22cb0b1f31c48b0b9f80a3ff5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66130978"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819090"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 
@@ -25,21 +20,21 @@ ms.locfileid: "66130978"
 
 Du kan automatisera konfigurationen av [aviseringar](../../azure-monitor/app/alerts.md) i [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
-Dessutom kan du [ange webhooks för att automatisera dina svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md).
+Dessutom kan du [ställa in Webhooks för att automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
-> Om du vill skapa resurser och aviseringar på samma gång kan du överväga att [med en Azure Resource Manager-mall](powershell.md).
+> Överväg att [använda en Azure Resource Manager mall](powershell.md)om du vill skapa resurser och aviseringar samtidigt.
 
-## <a name="one-time-setup"></a>Konfigurationen gång
-Om du inte har använt PowerShell med Azure-prenumerationen innan du:
+## <a name="one-time-setup"></a>Konfiguration vid ett tillfälle
+Om du inte har använt PowerShell med din Azure-prenumeration tidigare än:
 
-Installera Azure Powershell-modulen på datorn där du vill köra skripten.
+Installera Azure PowerShell-modulen på den dator där du vill köra skripten.
 
-* Installera [Microsoft Web Platform Installer (v5 eller högre)](https://www.microsoft.com/web/downloads/platform.aspx).
-* Använda den för att installera Microsoft Azure Powershell
+* Installera [installations programmet för Microsoft Web Platform (V5 eller högre)](https://www.microsoft.com/web/downloads/platform.aspx).
+* Använd den för att installera Microsoft Azure PowerShell
 
 ## <a name="connect-to-azure"></a>Anslut till Azure
-Starta Azure PowerShell och [ansluta till din prenumeration](/powershell/azure/overview):
+Starta Azure PowerShell och [Anslut till din prenumeration](/powershell/azure/overview):
 
 ```powershell
 
@@ -47,7 +42,7 @@ Starta Azure PowerShell och [ansluta till din prenumeration](/powershell/azure/o
 ```
 
 
-## <a name="get-alerts"></a>Få aviseringar
+## <a name="get-alerts"></a>Hämta aviseringar
     Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## <a name="add-alert"></a>Lägg till avisering
@@ -66,9 +61,9 @@ Starta Azure PowerShell och [ansluta till din prenumeration](/powershell/azure/o
 
 
 ## <a name="example-1"></a>Exempel 1
-E-posta mig om serverns svar på HTTP-begäran än 5 minuter, i genomsnitt är långsammare än 1 sekund. Min Application Insights-resurs kallas IceCreamWebApp och det är i resursgruppen Fabrikam. Jag är ägaren av Azure-prenumeration.
+E-posta mig om serverns svar på HTTP-begäranden, i genomsnitt över 5 minuter, är långsammare än 1 sekund. Min Application Insights-resurs kallas IceCreamWebApp och finns i resurs gruppen fabrikam. Jag är ägare till Azure-prenumerationen.
 
-GUID är prenumerations-ID (inte instrumenteringsnyckeln för programmet).
+GUID är prenumerations-ID (inte Instrumentation-nyckeln för programmet).
 
     Add-AzMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
@@ -82,7 +77,7 @@ GUID är prenumerations-ID (inte instrumenteringsnyckeln för programmet).
      -Location "East US" -RuleType Metric
 
 ## <a name="example-2"></a>Exempel 2
-Jag har ett program som jag använder [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) att rapportera ett mått med namnet ”salesPerHour”. Skicka ett e-postmeddelande till min kollegor om ”salesPerHour” sjunker under 100, som ett genomsnitt under 24 timmar.
+Jag har ett program där jag använder [TrackMetric ()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) för att rapportera ett mått med namnet "salesPerHour". Skicka ett e-postmeddelande till mina kollegor om "salesPerHour" sjunker under 100, i genomsnitt över 24 timmar.
 
     Add-AzMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -95,48 +90,48 @@ Jag har ett program som jag använder [TrackMetric()](../../azure-monitor/app/ap
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-Samma regel kan användas för det mått som rapporteras med hjälp av den [mätning parametern](../../azure-monitor/app/api-custom-events-metrics.md#properties) i en annan spårnings-anrop, till exempel TrackEvent eller flyttat trackPageView.
+Samma regel kan användas för måttet som rapporteras med hjälp av [mått parametern](../../azure-monitor/app/api-custom-events-metrics.md#properties) för ett annat spårnings anrop, till exempel TrackEvent eller trackPageView.
 
-## <a name="metric-names"></a>Tjänstmåttets namn
-| Måttnamn | Skärmnamn | Beskrivning |
+## <a name="metric-names"></a>Mått namn
+| Mått namn | Skärm namn | Beskrivning |
 | --- | --- | --- |
-| `basicExceptionBrowser.count` |Webbläsarundantag |Antal undantagsfel som utlösts i webbläsaren. |
-| `basicExceptionServer.count` |Serverundantag |Antal ohanterade undantag som utlöses av appen |
-| `clientPerformance.clientProcess.value` |Klientbehandlingstid |Tiden mellan ta emot de sista byten av ett dokument till dess att DOM har lästs. Asynkrona begäranden kan fortfarande vara under bearbetning. |
-| `clientPerformance.networkConnection.value` |Nätverket connect sidinläsningstiden |Tid som webbläsaren tar för att ansluta till nätverket. Kan vara 0 om cachelagrade. |
-| `clientPerformance.receiveRequest.value` |Tar emot svarstid |Tiden mellan webbläsaren skickar begäran till början på svar. |
-| `clientPerformance.sendRequest.value` |Skicka tid för begäran |Åtgången tid för webbläsaren att skicka begäran. |
-| `clientPerformance.total.value` |Webbsideinläsningar |Tiden från användarförfrågan till dess att DOM, formatmallar, skript och bilder har lästs in. |
-| `performanceCounter.available_bytes.value` |Tillgängligt minne |Fysiskt minne som är omedelbart tillgängligt för en process eller för systemanvändning. |
-| `performanceCounter.io_data_bytes_per_sec.value` |Behandlingstakten för i/o |Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter. |
-| `performanceCounter.number_of_exceps_thrown_per_sec.value` |antal undantag |Undantag per sekund. |
-| `performanceCounter.percentage_processor_time.value` |Processoranvändning för process |Procentandelen av förfluten tid som alla processens trådar använda processorn för att köra instruktioner för hur program. |
-| `performanceCounter.percentage_processor_total.value` |Processortid |Procentandelen av tiden som processorn ägnat åt icke-inaktiva trådar. |
-| `performanceCounter.process_private_bytes.value` |Privata byte för process |Minne som tilldelats exklusivt för att övervaka programprocesser. |
-| `performanceCounter.request_execution_time.value` |Körningstid för ASP.NET-begäran |Körningstid för den senaste begäran. |
-| `performanceCounter.requests_in_application_queue.value` |ASP.NET-begäranden i kö för körning |Längden på programbegärandekön. |
-| `performanceCounter.requests_per_sec.value` |ASP.NET-begärandehastighet |Hastighet för alla förfrågningar till programmet per sekund från ASP.NET. |
-| `remoteDependencyFailed.durationMetric.count` |Beroendefel |Antal misslyckade anrop gjorda av serverprogrammet till externa resurser. |
-| `request.duration` |Svarstid för servern |Tiden mellan ta emot en HTTP-begäran och slutför att svaret. |
-| `request.rate` |Förfrågningsfrekvens |Hastighet för alla förfrågningar till programmet per sekund. |
-| `requestFailed.count` |Misslyckade förfrågningar |Antal HTTP-begäranden som resulterade i en svarskoden > = 400 |
-| `view.count` |Sidvisningar |Antal klientens användarbegäranden för en webbsida. Syntetisk trafik filtreras. |
-| {din anpassade Måttnamn} |{Måttnamnet} |Din måttvärde rapporteras av [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) eller i den [mätningar av parametern för ett spårnings-anrop](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
+| `basicExceptionBrowser.count` |Webbläsarundantag |Antal ej fångade undantag som har utlösts i webbläsaren. |
+| `basicExceptionServer.count` |Server undantag |Antal ohanterade undantag som har utlösts av appen |
+| `clientPerformance.clientProcess.value` |Klient bearbetnings tid |Tiden mellan att ta emot sista byten i ett dokument tills DOM har lästs in. Asynkrona begär Anden kan fortfarande bearbetas. |
+| `clientPerformance.networkConnection.value` |Nätverks anslutnings tid för sid inläsning |Tid som webbläsaren tar att ansluta till nätverket. Kan vara 0 om cachelagrat. |
+| `clientPerformance.receiveRequest.value` |Tar emot svars tid |Tid mellan webbläsare som skickar begäran om att börja ta emot svar. |
+| `clientPerformance.sendRequest.value` |Tid för att skicka begäran |Tiden det tar för en webbläsare att skicka begäran. |
+| `clientPerformance.total.value` |Sid inläsnings tid för webbläsare |Tid från användar förfrågan tills DOM, formatmallar, skript och bilder har lästs in. |
+| `performanceCounter.available_bytes.value` |Tillgängligt minne |Fysiskt minne som är omedelbart tillgängligt för en process eller för system användning. |
+| `performanceCounter.io_data_bytes_per_sec.value` |Process-IO-hastighet |Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter. |
+| `performanceCounter.number_of_exceps_thrown_per_sec.value` |Undantags frekvens |Genererade undantag per sekund. |
+| `performanceCounter.percentage_processor_time.value` |Processor-CPU |Procent andelen förfluten tid för alla process trådar som används av processorn för att köra instruktioner för program processen. |
+| `performanceCounter.percentage_processor_total.value` |Processor tid |Den procent andel av tiden som processorn ägnat åt icke-inaktiva trådar. |
+| `performanceCounter.process_private_bytes.value` |Privata byte för process |Minne som tilldelats exklusivt för de övervakade program processerna. |
+| `performanceCounter.request_execution_time.value` |Körnings tid för ASP.NET-begäran |Körnings tid för den senaste begäran. |
+| `performanceCounter.requests_in_application_queue.value` |ASP.NET-begäranden i körnings kön |Längden på program begär ande kön. |
+| `performanceCounter.requests_per_sec.value` |ASP.NET begär ande frekvens |Takten för alla förfrågningar till programmet per sekund från ASP.NET. |
+| `remoteDependencyFailed.durationMetric.count` |Beroende problem |Antal misslyckade anrop gjorda av serverprogrammet till externa resurser. |
+| `request.duration` |Server svars tid |Tiden mellan att ta emot en HTTP-förfrågan och avsluta sändningen av svaret. |
+| `request.rate` |Begär ande frekvens |Antal begär anden till programmet per sekund. |
+| `requestFailed.count` |Misslyckade förfrågningar |Antal HTTP-begäranden som resulterade i svars koden > = 400 |
+| `view.count` |Sid visningar |Antal klient användar förfrågningar för en webb sida. Syntetisk trafik filtreras bort. |
+| {ditt anpassade mått namn} |{Ditt mått namn} |Ditt Metric-värde som rapporteras av [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) eller i [parametern mätningar i ett spårnings anrop](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
-Mått som skickas av flera telemetriska moduler:
+Måtten skickas av olika moduler för telemetri:
 
-| Metrisk grupp | Insamlaren modul |
+| Mått grupp | Insamlings modul |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>vy |[Webbläsaren JavaScript](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>vy |[Webb läsar skript](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Prestanda](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Beroende](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| begäran<br/>requestFailed |[Serverbegäran](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| anmoda<br/>requestFailed |[Serverbegäran](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhooks
-Du kan [automatisera dina svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md). Azure anropar en webbadress för valfri när en avisering genereras.
+Du kan [Automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md). Azure kommer att anropa en webb adress som du väljer när en avisering aktive ras.
 
 ## <a name="see-also"></a>Se också
 * [Skript för att konfigurera Application Insights](powershell-script-create-resource.md)
-* [Skapa Application Insights och testa webbresurser från mallar](powershell.md)
-* [Automatisera koppling Microsoft Azure Diagnostics-data till Application Insights](powershell-azure-diagnostics.md)
-* [Automatisera dina svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md)
+* [Skapa Application Insights-och webb test resurser från mallar](powershell.md)
+* [Automatisera kopplings Microsoft Azure Diagnostics till Application Insights](powershell-azure-diagnostics.md)
+* [Automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md)

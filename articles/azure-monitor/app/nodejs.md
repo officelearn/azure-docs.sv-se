@@ -1,27 +1,22 @@
 ---
 title: Övervaka din Node.js-tjänster med Azure Application Insights | Microsoft Docs
 description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänster med Application Insights.
-services: application-insights
-documentationcenter: nodejs
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/14/2019
+ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255291"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820724"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina serverdelstjänster och komponenter efter distributionen kan du upptäcka och snabbt diagnostisera prestandaproblem och andra problem. Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina backend-tjänster och-komponenter efter distributionen, så att du kan upptäcka och snabbt diagnostisera prestanda och andra problem. Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
 
 För att ta emot, lagra, och utforska dina övervakade data inkluderar du SKD:t i koden och konfigurerar en motsvarande Application Insights-resurs i Azure. SDK:t skickar data till den resursen för ytterligare analys och undersökning.
 
@@ -29,13 +24,13 @@ Node.js-SDK:n kan automatiskt övervaka inkommande och utgående HTTP-begäran, 
 
 Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare aspekter av din app och ditt system. Vi beskriver TelemetryClient-API:n mer ingående senare i den här artikeln.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar du en kostnadsfritt][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [de här instruktionerna][add-aad-user] för att lägga till dig.
+Innan du börjar ska du kontrol lera att du har en Azure-prenumeration eller [Skaffa en ny kostnads fri][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [dessa instruktioner][add-aad-user] för att lägga till dig i den.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
@@ -44,7 +39,7 @@ Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar
 ### <a name="resource"></a> Konfigurera en Application Insights-resurs
 
 
-1. Logga in på [Azure Portal][portal].
+1. Logga in på [Azure-portalen][portal].
 2. Välj **Skapa en resurs** > **Utvecklarverktyg** > **Application Insights**. Resursen innehåller en slutpunkt för att ta emot telemetridata, lagring för dessa data, sparade rapporter och instrumentpaneler, regel- och aviseringskonfiguration med mera.
 
 3. På sidan där du skapar resursen väljer du **Node.js Application** i rutan **Programtyp**. Apptypen bestämmer vilken standardinstrumentpanel och rapporter som skapas. (Alla App Insights-resurser kan samla in data från alla språk och plattformar.)
@@ -83,7 +78,7 @@ Inkludera SDK:n i din app så den kan samla in data.
 
 SDK:n samlar automatiskt in telemetri om Node.js-körningen och några vanliga moduler från tredje part. Använd ditt program för att skapa vissa av dessa data.
 
-På [Azure Portal][portal] går du sedan till Application Insights och öppnar den resurs som du skapade tidigare. I **Översiktstidslinje** letar du efter dina första datapunkter. Välj olika komponenter i schemana för att se mer detaljerade data.
+Sedan går du till den Application Insights resurs som du skapade tidigare i [Azure Portal][portal] . I **Översiktstidslinje** letar du efter dina första datapunkter. Välj olika komponenter i schemana för att se mer detaljerade data.
 
 Om du vill visa topologin som identifierats för din app markerar du knappen **Programavbildning**. Välj komponenter i kartan för att se mer information.
 
@@ -93,7 +88,7 @@ Läs mer om din app och felsök problem går du till avsnittet **UNDERSÖK** och
 
 ![Avsnittet Undersök](./media/nodejs/007-investigate-pane.png)
 
-#### <a name="no-data"></a>Ser du inga data?
+#### <a name="no-data"></a>Inga data?
 
 Eftersom SDK:n slår ihop data för sändning kan det uppstå en fördröjning innan objekt visas i portalen. Om du inte ser några data i resursen kan du prova något av följande:
 
@@ -101,7 +96,7 @@ Eftersom SDK:n slår ihop data för sändning kan det uppstå en fördröjning i
 * Klicka på **Uppdatera** i portalens resursvy. Diagram uppdaterar sig själva regelbundet, men när du trycker på uppdateringsknappen manuellt tvingas de att uppdatera genast.
 * Verifiera att [nödvändiga utgående portar](../../azure-monitor/app/ip-addresses.md) är öppna.
 * Använd [Sök](../../azure-monitor/app/diagnostic-search.md) för att söka efter specifika händelser.
-* Se [Vanliga frågor][FAQ].
+* Se [Vanliga frågor och svar][FAQ].
 
 
 ## <a name="sdk-configuration"></a>SDK-konfiguration

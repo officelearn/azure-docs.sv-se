@@ -1,23 +1,18 @@
 ---
 title: Använda micrometer med Azure Application Insights Java SDK | Microsoft Docs
 description: 'En steg-för-steg-guide om hur du använder micrometer med din Application Insights våren start-och icke-våren start program. '
-services: application-insights
-documentationcenter: java
-author: lgayhardt
-manager: carmonm
-ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/01/2018
+author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 5bef5a6037c6eb29d0dc48e313958e2d243904eb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 11/01/2018
+ms.openlocfilehash: 267665c97f683740c05ae6602a416225c79aa44c
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299575"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819302"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Använda micrometer med Azure Application Insights Java SDK
 Micrometer program övervakning mäter mått för JVM program kod och låter dig exportera data till dina favorit övervaknings system. I den här artikeln får du lära dig hur du använder micrometer med Application Insights för både våren boot-och non-våren Boot-program.
@@ -103,13 +98,13 @@ Så här stänger du av automatisk insamling av mått:
 - JVM mått: 
     - Management. Metrics. binder. JVM. enabled = false 
 - Logback mått: 
-    - management.metrics.binders.logback.enabled=false
+    - Management. Metrics. binder. logback. enabled = false
 - Drifts mått: 
     - Management. Metrics. binder. drift tid. enabled = false 
 - Processor mått:
     -  Management. Metrics. binder. processor. enabled = false 
 - FileDescriptorMetrics:
-    - management.metrics.binders.files.enabled=false 
+    - Management. Metrics. binder. files. enabled = false 
 - Hystrix-mått om bibliotek på classpath: 
     - Management. Metrics. binder. hystrix. enabled = false 
 - AspectJ-mått om bibliotek på classpath: 
@@ -144,7 +139,7 @@ Steg:
         </dependency>
      ```
 
-2. Lägg `ApplicationInsights.xml` till fil i mappen resurser:
+2. Lägg `ApplicationInsights.xml`-fil i mappen resurser:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -257,7 +252,7 @@ Annan exempel kod för hur du skapar olika typer av mått finns i[den officiella
 
 ## <a name="how-to-bind-additional-metrics-collection"></a>Så här binder du ytterligare mått samling
 
-### <a name="springbootspring"></a>SpringBoot/Spring
+### <a name="springbootspring"></a>SpringBoot/våren
 
 Skapa en bönor av respektive mått kategori. Anta till exempel att vi behöver guava-cache-mått:
 

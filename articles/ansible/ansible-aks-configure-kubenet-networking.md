@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 949a55fd8c004bc656d02816231c4ebb6dd8f92b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 10/23/2019
+ms.openlocfilehash: 67b4eb9e9ee53613ec8b54b2bf8d3bbdb89778c7
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242170"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881528"
 ---
 # <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudie: Konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS) med hjälp av Ansible
 
@@ -108,15 +108,15 @@ Spara följande spelbok som `aks.yml`:
 Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
 - Använd `azure_rm_aks_version`-modulen för att hitta den version som stöds.
-- @No__t-0 är det undernät som skapades i föregående avsnitt.
-- @No__t-0 definierar egenskaperna för nätverks-plugin-programmet för Kubernetes.
-- @No__t-0 används för att tilldela interna tjänster i AKS-klustret till en IP-adress. Detta IP-adressintervall ska vara ett adress utrymme som inte används någon annan stans i nätverket. 
-- Adressen till `dns_service_ip` ska vara ". 10"-adressen till tjänstens IP-adressintervall.
-- @No__t-0 bör vara ett stort adress utrymme som inte används någon annan stans i din nätverks miljö. Adress intervallet måste vara tillräckligt stort för att rymma antalet noder som du förväntar dig att skala upp till. Du kan inte ändra det här adress intervallet när klustret har distribuerats.
-- IP-adressintervallet Pod används för att tilldela ett/24-adressutrymme till varje nod i klustret. I följande exempel tilldelar `pod_cidr` av 192.168.0.0/16 den första noden 192.168.0.0/24, den andra nodens 192.168.1.0/24 och den tredje noden 192.168.2.0/24.
+- `vnet_subnet_id` är det undernät som skapades i föregående avsnitt.
+- `network_profile` definierar egenskaperna för plugin-programmet för Kubernetes-nätverk.
+- `service_cidr` används för att tilldela interna tjänster i AKS-klustret till en IP-adress. Detta IP-adressintervall ska vara ett adress utrymme som inte används någon annan stans i nätverket. 
+- `dns_service_ip` adressen ska vara ". 10"-adressen till tjänstens IP-adressintervall.
+- `pod_cidr` bör vara ett stort adress utrymme som inte används någon annan stans i din nätverks miljö. Adress intervallet måste vara tillräckligt stort för att rymma antalet noder som du förväntar dig att skala upp till. Du kan inte ändra det här adress intervallet när klustret har distribuerats.
+- IP-adressintervallet Pod används för att tilldela ett/24-adressutrymme till varje nod i klustret. I följande exempel tilldelar `pod_cidr` 192.168.0.0/16 den första noden 192.168.0.0/24, den andra noden 192.168.1.0/24 och den tredje noden 192.168.2.0/24.
 - När klustret skalas eller uppgraderas fortsätter Azure att tilldela ett Pod IP-adressintervall till varje ny nod.
 - Spelbok läser in `ssh_key` från `~/.ssh/id_rsa.pub`. Om du ändrar det använder du det enkla formatet – från och med "SSH-RSA" (utan citationstecken).
-- Värdena `client_id` och `client_secret` läses in från `~/.azure/credentials`, vilket är standard filen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvud namn eller läsa in dessa värden från miljövariablerna:
+- Värdena för `client_id` och `client_secret` läses in från `~/.azure/credentials`, vilket är standard filen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvud namn eller läsa in dessa värden från miljövariablerna:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
@@ -161,8 +161,8 @@ Spara följande Spelbok som `associate.yml`.
 
 Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
-- @No__t-0 är resurs gruppens namn som AKS-noderna skapas i.
-- @No__t-0 är det undernät som skapades i föregående avsnitt.
+- `node_resource_group` är namnet på den resurs grupp som AKS-noderna skapas i.
+- `vnet_subnet_id` är det undernät som skapades i föregående avsnitt.
 
 
 ## <a name="run-the-sample-playbook"></a>Kör exemplet Spelbok
@@ -212,7 +212,7 @@ Spara följande spelbok som `aks-kubenet.yml`:
 
 I avsnittet `vars` gör du följande ändringar:
 
-- För nyckeln `resource_group` ändrar du värdet för `aksansibletest` till resurs gruppens namn.
+- Ändra `aksansibletest` värde till namnet på din resurs grupp för `resource_group` nyckeln.
 - Ändra värdet för `aksansibletest` till AKS-namnet för nyckeln `name`.
 - För `Location`-nyckeln ändrar du värdet för `eastus` till resurs gruppens plats.
 

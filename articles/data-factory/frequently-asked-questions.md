@@ -5,18 +5,16 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 764a4dd31125dad20f6ef23e3628d7710dba2b85
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387062"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880142"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln innehåller svar på vanliga frågor om Azure Data Factory.  
@@ -178,34 +176,21 @@ Ja. En aktivitets utdata kan förbrukas i en efterföljande aktivitet med `@acti
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Hur gör jag för att hantera null-värden korrekt i en aktivitets utdata? 
 Du kan använda konstruktionen `@coalesce` i uttrycken för att hantera null-värden på ett smidigt sätt. 
 
-## <a name="mapping-data-flows"></a>Mappa data flöden
-
-### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>Vilken Data Factory version använder jag för att skapa data flöden?
-Använd Data Factory v2-versionen för att skapa data flöden.
-  
-### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>Jag var en tidigare privat förhands gransknings kund som använde data flöden och använde Data Factory v2 för hands versionen av data flöden.
-Den här versionen är nu föråldrad. Använd Data Factory v2 för data flöden.
-  
-### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>Vad har ändrats från privat förhands granskning till en begränsad offentlig för hands version i avseende på data flöden?
-Du kommer inte längre behöva ta med dina egna Azure Databricks-kluster. Data Factory hanterar skapande och avrivnings kluster. BLOB-datauppsättningar och Azure Data Lake Storage Gen2 data uppsättningar är indelade i avgränsade text-och Apache Parquet-datauppsättningar. Du kan fortfarande använda Data Lake Storage Gen2-och blob-lagring för att lagra dessa filer. Använd lämplig länkad tjänst för dessa lagrings motorer.
-
-### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>Kan jag migrera mina privata förhands gransknings fabriker till Data Factory v2?
-
-Ja. [Följ anvisningarna](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
+## <a name="mapping-data-flows"></a>Mappa dataflöden
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Jag behöver hjälp med att felsöka min data flödes logik. Vilken information behöver jag tillhandahålla för att få hjälp?
 
-När Microsoft tillhandahåller hjälp eller fel sökning med data flöden, ska du ange en kod för DSL-koden. Det gör du genom att följa dessa steg:
+Ange data flödes skriptet när Microsoft tillhandahåller hjälp eller fel sökning med data flöden. Det här är skriptet bakomliggande kod i data flödes diagrammet. Öppna data flödet från ADF-ANVÄNDARGRÄNSSNITTET och klicka sedan på knappen "skript" i det övre högra hörnet. Kopiera och klistra in det här skriptet eller spara det i en textfil.
 
-1. Välj **kod** i det övre högra hörnet i data flödes designern. Då visas den redigerbara JSON-koden för data flödet.
-2. I kodvyn väljer du **plan** i det övre högra hörnet. Den här växlingen växlar från JSON till den skrivskyddade DSL-skript planen.
-3. Kopiera och klistra in det här skriptet eller spara det i en textfil.
-
-### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>Hur gör jag för att åtkomst till data genom att använda de andra 80 data uppsättnings typerna i Data Factory?
+### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Hur gör jag för att åtkomst till data genom att använda de andra 90 data uppsättnings typerna i Data Factory?
 
 Funktionen mappa data flöde tillåter för närvarande Azure SQL Database, Azure SQL Data Warehouse, avgränsade textfiler från Azure Blob Storage eller Azure Data Lake Storage Gen2 och Parquet-filer från Blob Storage eller Data Lake Storage Gen2 internt för källa och mottagare. 
 
 Använd kopierings aktiviteten till att mellanlagra data från någon av de andra kopplingarna och kör sedan en data flödes aktivitet för att transformera data när de har mellanlagrats. Till exempel kommer din pipeline först att kopieras till Blob Storage och sedan använder en data flödes aktivitet en data uppsättning i källan för att transformera dessa data.
+
+### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>Är den egna värdbaserade integrerings körningen tillgänglig för data flöden?
+
+IR med egen värd är en ADF-baserad pipeline-konstruktion som du kan använda med kopierings aktiviteten för att hämta eller flytta data till och från lokal eller VM-baserade data källor och mottagare. Mellanlagra data först med en kopia, sedan data flöde för omvandling och sedan en senare kopia om du behöver flytta transformerade data tillbaka till lokal Store.
 
 ## <a name="next-steps"></a>Nästa steg
 Steg-för-steg-instruktioner för att skapa en data fabrik finns i följande Självstudier:

@@ -1,5 +1,6 @@
 ---
-title: Guidad installation av Azure AD v 2.0 java script med enkel sida (SPA) | Microsoft Docs
+title: Guidad installation för Azure AD v 2.0 Java Script (SPA) med enkel sida
+titleSuffix: Microsoft identity platform
 description: Hur Java Script SPA-program kan anropa ett API som kräver åtkomsttoken från Azure Active Directory v 2.0-slutpunkt
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61790954393923bbf330ad3a534d1d33d1a44bbc
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: fc03e6f1610fe6cef9ce72c981f6f800da8a9951
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983479"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802524"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 
@@ -87,7 +88,7 @@ I den här guiden används följande bibliotek:
 > 1. Under **nytt ASP.NET-webbprogram**väljer du **Tom**.
 
 ## <a name="create-the-spa-ui"></a>Skapa SPA-ANVÄNDARGRÄNSSNITTET
-1. Skapa en *index. html-* fil för Java Script Spa. Om du använder Visual Studio väljer du projektet (rotmappen för projektet). Högerklicka och välj **Lägg till** > **nytt objekt** > **HTML-sida**och ge filen *index. html*.
+1. Skapa en *index. html-* fil för Java Script Spa. Om du använder Visual Studio väljer du projektet (rotmappen för projektet). Högerklicka på och välj **Lägg till** > **nytt objekt** > **HTML-sida**och ge filen *index. html*ett namn.
 
 1. I filen *index. html* lägger du till följande kod:
 
@@ -116,7 +117,7 @@ I den här guiden används följande bibliotek:
 
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Använd Microsoft Authentication Library (MSAL) för att logga in användaren
 
-Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
+Lägg till följande kod i `index.html`-filen inom `<script></script>`-taggarna:
 
    ```JavaScript
    var msalConfig = {
@@ -261,13 +262,13 @@ Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-När en användare väljer knappen **Logga in** för första gången, `signIn` anropar `loginPopup` metoden för att logga in användaren. Den här metoden öppnar ett popup-fönster med *Microsoft Identity Platform-slutpunkten* för att fråga och verifiera användarens autentiseringsuppgifter. Efter en lyckad inloggning omdirigeras användaren tillbaka till den ursprungliga *index. html-* sidan. En token tas emot, bearbetas av `msal.js`och den information som finns i token cachelagras. Denna token kallas *ID-token* och innehåller grundläggande information om användaren, t. ex. användarens visnings namn. Om du planerar att använda data som tillhandahålls av denna token i något syfte, måste du se till att denna token verifieras av backend-servern för att garantera att token har utfärdats till en giltig användare för ditt program.
+När en användare väljer knappen **Logga in** för första gången anropar `signIn` metod `loginPopup` för att logga in användaren. Den här metoden öppnar ett popup-fönster med *Microsoft Identity Platform-slutpunkten* för att fråga och verifiera användarens autentiseringsuppgifter. Efter en lyckad inloggning omdirigeras användaren tillbaka till den ursprungliga *index. html-* sidan. En token tas emot, bearbetas av `msal.js`och informationen som finns i token cachelagras. Denna token kallas *ID-token* och innehåller grundläggande information om användaren, t. ex. användarens visnings namn. Om du planerar att använda data som tillhandahålls av denna token i något syfte, måste du se till att denna token verifieras av backend-servern för att garantera att token har utfärdats till en giltig användare för ditt program.
 
-Det Spa som genereras av den här `acquireTokenSilent` guiden anropar `acquireTokenPopup` och/eller *hämtar en åtkomsttoken som används* för att fråga Microsoft Graph-API: t för användar profil information. Om du behöver ett exempel som validerar ID-token ska du titta på [det här](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub Active-Directory-Java Script-singlepageapp-dotNet-WebAPI-v2 exempel") program i GitHub. Exemplet använder ett ASP.NET webb-API för verifiering av token.
+Det SPA-skydd som genereras av den här guiden anropar `acquireTokenSilent` och/eller `acquireTokenPopup` för att *Hämta en åtkomsttoken som används* för att skicka frågor till Microsoft Graph-API för användar profil information. Ta en titt på [det här](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub Active-Directory-JavaScript-singlepageapp-dotNet-WebAPI-v2-exempel") exempel programmet i GitHub om du behöver ett exempel som VALIDERAR ID-token. Exemplet använder ett ASP.NET webb-API för verifiering av token.
 
 #### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Efter den första inloggningen vill du inte be användarna att autentisera varje gång de behöver för att begära en token för att få åtkomst till en resurs. Så *acquireTokenSilent* bör användas mest av tiden för att hämta tokens. Det finns dock situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Efter den första inloggningen vill du inte be användarna att autentisera varje gång de behöver för att begära en token för att få åtkomst till en resurs. Så *acquireTokenSilent* bör användas mest av tiden för att hämta tokens. Det finns dock situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
 
 - Användare måste ange sina autentiseringsuppgifter på grund av att lösen ordet har upphört att gälla.
 - Ditt program begär åtkomst till en resurs och du behöver användarens medgivande.
@@ -277,19 +278,19 @@ När du anropar *acquireTokenPopup* öppnas ett popup-fönster (eller *acquireTo
 
 #### <a name="getting-a-user-token-silently"></a>Hämta en token obevakat
 
-`acquireTokenSilent` Metoden hanterar hämtning av token och förnyelsen utan några åtgärder från användaren. När `loginPopup` (eller `loginRedirect`) körs `acquireTokenSilent` för första gången är metoden ofta använd för att hämta tokens som används för att komma åt skyddade resurser för efterföljande anrop. (Anrop till begäran eller förnya token görs i bakgrunden.) `acquireTokenSilent` kan Miss lyckas i vissa fall. Användarens lösen ord kan till exempel ha upphört att gälla. Ditt program kan hantera detta undantag på två sätt:
+Metoden `acquireTokenSilent` hanterar hämtning av token och förnyelse utan någon användar interaktion. När `loginPopup` (eller `loginRedirect`) körs för första gången är `acquireTokenSilent` den metod som används ofta för att hämta tokens som används för att få åtkomst till skyddade resurser för efterföljande anrop. (Anrop till begäran eller förnya token görs i bakgrunden.) `acquireTokenSilent` kan Miss lyckas i vissa fall. Användarens lösen ord kan till exempel ha upphört att gälla. Ditt program kan hantera detta undantag på två sätt:
 
-1. Gör ett anrop `acquireTokenPopup` direkt, vilket utlöser en användar inloggnings meddelande. Det här mönstret används ofta i online-program där det inte finns något oautentiserat innehåll i programmet som är tillgängligt för användaren. I det exempel som genereras av den här guidade installationen används det här mönstret.
+1. Gör ett anrop till `acquireTokenPopup` omedelbart, vilket utlöser en användar inloggnings uppmaning. Det här mönstret används ofta i online-program där det inte finns något oautentiserat innehåll i programmet som är tillgängligt för användaren. I det exempel som genereras av den här guidade installationen används det här mönstret.
 
 2. Program kan också göra en visuell indikation på användaren om att en interaktiv inloggning krävs, så att användaren kan välja rätt tid för att logga in, eller så kan programmet försöka igen `acquireTokenSilent` vid ett senare tillfälle. Detta används vanligt vis när användaren kan använda andra funktioner i programmet utan att störas. Det kan till exempel finnas oautentiserat innehåll tillgängligt i programmet. I så fall kan användaren bestämma när de vill logga in för att komma åt den skyddade resursen eller uppdatera den inaktuella informationen.
 
 > [!NOTE]
-> I den här snabb `loginRedirect` starten `acquireTokenRedirect` används metoderna och när Internet Explorer används i webbläsaren. Vi följer den här metoden på grund av ett [känt problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) som rör hur Internet Explorer hanterar popup-fönster i Internet Explorer.
+> I den här snabb starten används `loginRedirect` och `acquireTokenRedirect` metoder när Internet Explorer används i webbläsaren. Vi följer den här metoden på grund av ett [känt problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) som rör hur Internet Explorer hanterar popup-fönster i Internet Explorer.
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>Anropa Microsoft Graph-API: et genom att använda den token som du nyss hämtade
 
-Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
+Lägg till följande kod i `index.html`-filen inom `<script></script>`-taggarna:
 
 ```javascript
 function callMSGraph(theUrl, accessToken, callback) {
@@ -307,13 +308,13 @@ function callMSGraph(theUrl, accessToken, callback) {
 
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mer information om hur du gör ett REST-anrop mot ett skyddat API
 
-I det exempel program som skapats av den här guiden `callMSGraph()` används metoden för att göra en http `GET` -begäran mot en skyddad resurs som kräver en token. Begäran returnerar sedan innehållet till anroparen. Den här metoden lägger till den hämtade token i *http-Authorization-huvudet*. För det exempel program som skapas av den här hand boken är resursen den Microsoft Graph API: t *mig* -slutpunkt, som visar användarens profil information.
+I det exempel program som skapats i den här hand boken används metoden `callMSGraph()` för att göra en HTTP-`GET` begäran mot en skyddad resurs som kräver en token. Begäran returnerar sedan innehållet till anroparen. Den här metoden lägger till den hämtade token i *http-Authorization-huvudet*. För det exempel program som skapas av den här hand boken är resursen den Microsoft Graph API: t *mig* -slutpunkt, som visar användarens profil information.
 
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-the-user"></a>Lägg till en metod för att logga ut användaren
 
-Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
+Lägg till följande kod i `index.html`-filen inom `<script></script>`-taggarna:
 
 ```javascript
 /**
@@ -326,7 +327,7 @@ Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du kontot längst upp till höger och anger sedan din portal-session till den Azure AD-klient som du vill använda.
 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
@@ -348,7 +349,7 @@ Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
 > Om du vill konfigurera en omdirigerings-URL i program registrerings informationen växlar du tillbaka till fönstret för **program registrering** och gör något av följande:
 >
 > - Ange *`http://localhost:30662/`* som **omdirigerings-URL**.
-> - Om du använder en anpassad TCP-port använder *`http://localhost:<port>/`* du (där  *\<port >* är det anpassade TCP-portnumret).
+> - Om du använder en anpassad TCP-port använder du *`http://localhost:<port>/`* (där *\<port >* är det anpassade TCP-portnumret).
 >
 > #### <a name="set-a-redirect-url-for-visual-studio"></a>Ange en omdirigerings-URL för Visual Studio
 > Följ dessa steg om du vill hämta omdirigerings-URL: en för Visual Studio:
@@ -363,7 +364,7 @@ Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
 
 #### <a name="configure-your-javascript-spa"></a>Konfigurera ditt Java Script SPA
 
-1. Lägg till program registrerings informationen i filen *index. html* som du skapade under projekt installationen. Lägg till följande kod överst i filen `<script></script>` i taggarna:
+1. Lägg till program registrerings informationen i filen *index. html* som du skapade under projekt installationen. Lägg till följande kod högst upp i filen i `<script></script>` Taggar:
 
     ```javascript
     var msalConfig = {
@@ -379,8 +380,8 @@ Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
     ```
 
     Där:
-    - Enter_the_Application_Id_here > är **program-ID: t (Client)** för det program som du har registrerat.  *\<*
-    - Enter_the_Tenant_info_here > har angetts till något av följande alternativ:  *\<*
+    - *\<Enter_the_Application_Id_here >* är **program-ID: t (Client)** för det program som du har registrerat.
+    - *\<Enter_the_Tenant_info_here >* har angetts till något av följande alternativ:
        - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
        - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**.
        - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**.
@@ -399,7 +400,7 @@ Om du inte använder Visual Studio kontrollerar du att webb servern har startats
     npm install
     node server.js
     ```
-1. I webbläsaren anger du **http://\<span\<>/span > localhost: 30662** eller **http://\<span >\</span > localhost: {port}** , där *port* är den port som webb servern är lyssnar på. Du bör se innehållet i filen *index. html* och knappen **Logga in** .
+1. I webbläsaren skriver du **http://\<span >\</span > localhost: 30662** eller **http://\<span >\</span > localhost: {port}** , där *port* är den port som webb servern lyssnar på. Du bör se innehållet i filen *index. html* och knappen **Logga in** .
 
 ### <a name="test-with-visual-studio"></a>Testa med Visual Studio
 
@@ -428,7 +429,7 @@ När du har loggat in returneras din användar profil information i det Microsof
 
 Microsoft Graph-API: t kräver att *User. Read* -omfånget läser en användar profil. Som standard läggs det här omfånget automatiskt till i varje program som är registrerat på registrerings portalen. Andra API: er för Microsoft Graph, samt anpassade API: er för backend-servern, kan kräva ytterligare omfång. Till exempel kräver Microsoft Graph-API: n *kalendrar. Läs* omfattning för att lista användarens kalendrar.
 
-Om du vill komma åt användarens kalendrar i ett programs kontext lägger du till *kalendrarna. Läs* behörighet för program registrerings informationen. Lägg sedan till *kalendrarna. Läs* omfång till `acquireTokenSilent` anropet.
+Om du vill komma åt användarens kalendrar i ett programs kontext lägger du till *kalendrarna. Läs* behörighet för program registrerings informationen. Lägg sedan till *kalendrarna. Läs* omfattning i `acquireTokenSilent`-anropet.
 
 >[!NOTE]
 >Användaren kan tillfrågas om ytterligare medgivanden när du ökar antalet omfång.

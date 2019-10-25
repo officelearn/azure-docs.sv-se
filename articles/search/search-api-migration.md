@@ -1,41 +1,41 @@
 ---
-title: Uppgradera till den senaste versionen av Azure Search Service REST API-Azure Search
-description: Granska skillnader i API-versioner och lär dig vilka åtgärder som krävs för att migrera befintlig kod till den nyaste Azure Search Service REST API-versionen.
-author: brjohnstmsft
+title: Uppgradera till den senaste versionen av Azure Kognitiv sökning service REST API
+titleSuffix: Azure Cognitive Search
+description: Granska skillnader i API-versioner och lär dig vilka åtgärder som krävs för att migrera befintlig kod till den senaste versionen av Azure Kognitiv sökning service REST API.
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: brjohnstmsft
 ms.author: brjohnst
-ms.openlocfilehash: 6c1f7fdb1f349c9e31ba63d79a9b9e26ea9f09da
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9bffb41cce030b7a63e600e5ffaf65130261b4c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182380"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791159"
 ---
-# <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Uppgradera till den senaste Azure Search tjänsten REST API version
-Om du använder en tidigare version av [Azure Search tjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/)hjälper den här artikeln dig att uppgradera ditt program till att använda den senaste allmänt tillgängliga API-versionen, 2019-05-06.
+# <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Uppgradera till den senaste versionen av Azure Kognitiv sökning service REST API
+
+Om du använder en tidigare version av [sök REST API](https://docs.microsoft.com/rest/api/searchservice/)kan den här artikeln hjälpa dig att uppgradera ditt program till att använda den senaste allmänt tillgängliga API-versionen, 2019-05-06.
 
 Version 2019-05-06 av REST API innehåller vissa ändringar från tidigare versioner. Dessa är huvudsakligen bakåtkompatibla, så att ändringar i din kod bara kräver minimal ansträngning, beroende på vilken version du använde tidigare. [Steg för att uppgradera](#UpgradeSteps) beskriver de kod ändringar som krävs för att använda nya funktioner.
 
 > [!NOTE]
-> En Azure Search tjänst instans stöder flera REST API versioner, inklusive tidigare. Du kan fortsätta att använda dessa API-versioner, men vi rekommenderar att du migrerar din kod till den senaste versionen så att du kan komma åt nya funktioner.
+> En Azure Kognitiv sökning-tjänstinstans stöder flera REST API versioner, inklusive tidigare. Du kan fortsätta att använda dessa API-versioner, men vi rekommenderar att du migrerar din kod till den senaste versionen så att du kan komma åt nya funktioner.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-2019-05-06"></a>Vad är nytt i version 2019-05-06
-Version 2019-05-06 är den nyaste allmänt tillgängliga versionen av Azure Search tjänsten REST API. Funktioner som har gått över till allmänt tillgängliga status i den här API-versionen är:
+Version 2019-05-06 är den nyaste allmänt tillgängliga versionen av REST API. Funktioner som har gått över till allmänt tillgängliga status i den här API-versionen är:
 
 * Funktionen [komplettera automatiskt](index-add-suggesters.md) är en typeahead-funktion som slutför en delvis angiven term Indatatyp.
 
-* [Komplexa typer](search-howto-complex-data-types.md) ger inbyggt stöd för strukturerade objekt data i ett Azure Search index.
+* [Komplexa typer](search-howto-complex-data-types.md) ger inbyggt stöd för strukturerade objekt data i Sök index.
 
 * [JsonLines tolknings lägen](search-howto-index-json-blobs.md), en del av Azure Blob-indexering, skapar ett Sök dokument per JSON-entitet som skiljs åt av en ny rad.
 
-* [Kognitiv sökning](cognitive-search-concept-intro.md) tillhandahåller indexering som utnyttjar AI-programanriknings motorer i Cognitive Services.
+* [AI-anrikning](cognitive-search-concept-intro.md) ger indexering som utnyttjar AI-förrikande motorer i Cognitive Services.
 
 Flera för hands versions funktioner sammanfaller med den här allmänt tillgängliga uppdateringen. Se [search REST API-version 2019-05-06-Preview](search-api-preview.md)för att granska listan över nya för hands versions funktioner.
 
@@ -45,15 +45,15 @@ Befintlig kod som innehåller följande funktioner kommer att brytas på API-ver
 
 ### <a name="indexer-for-azure-cosmos-db---datasource-is-now-type-cosmosdb"></a>Indexerare för Azure Cosmos DB-DataSource är nu "typ": "cosmosdb"
 
-Om du använder en [Cosmos DB](search-howto-index-cosmosdb.md )-indexerare måste du ändra `"type": "documentdb"` till `"type": "cosmosdb"`.
+Om du använder en [Cosmos db-indexerare](search-howto-index-cosmosdb.md )måste du ändra `"type": "documentdb"` till `"type": "cosmosdb"`.
 
 ### <a name="indexer-execution-result-errors-no-longer-have-status"></a>Resultat fel för körning av indexerare har inte längre status
 
-Fel strukturen för körning av indexet hade tidigare ett `status` element. Det här elementet har tagits bort eftersom det inte tillhandahöll användbar information.
+Fel strukturen för körning av indexet hade tidigare ett `status`-element. Det här elementet har tagits bort eftersom det inte tillhandahöll användbar information.
 
 ### <a name="indexer-data-source-api-no-longer-returns-connection-strings"></a>Data källans API för indexeraren returnerar inte längre anslutnings strängar
 
-Från API-versionerna 2019-05-06 och 2019-05-06 – för hands versions hantering returnerar API: et för data källan inte längre anslutnings strängar i svar på eventuella REST-åtgärder. I tidigare API-versioner, för data källor som skapats med POST, returnerade Azure Search **201** följt av OData-svaret, som innehöll anslutnings strängen i oformaterad text.
+Från API-versionerna 2019-05-06 och 2019-05-06 – för hands versions hantering returnerar API: et för data källan inte längre anslutnings strängar i svar på eventuella REST-åtgärder. I tidigare API-versioner, för data källor som skapats med POST, returnerade Azure Kognitiv sökning **201** följt av OData-svaret, som innehöll anslutnings strängen i oformaterad text.
 
 ### <a name="named-entity-recognition-cognitive-skill-is-now-discontinued"></a>Arbetsenhets igenkänning för entitets igenkänning upphör nu
 
@@ -66,7 +66,7 @@ Om du uppgraderar från en tidigare GA-version, 2017-11-11 eller 2016-09-01, beh
 
 * Koden fungerar inte när okända egenskaper returneras i ett API-svar. Som standard ska programmet ignorera egenskaper som det inte förstår.
 
-* Din kod behåller API-begärandena och försöker skicka om dem till den nya API-versionen. Detta kan till exempel inträffa om ditt program behåller fortsättnings-token som returneras från Sök-API: et (mer information finns `@search.nextPageParameters` i [Sök-API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)-referensen).
+* Din kod behåller API-begärandena och försöker skicka om dem till den nya API-versionen. Detta kan till exempel inträffa om ditt program behåller fortsättnings-token som returneras från Sök-API: et (mer information finns i `@search.nextPageParameters` i [Sök-API-referensen](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
 
 Om någon av dessa situationer gäller dig kan du behöva ändra koden. Annars bör inga ändringar vara nödvändiga om du inte vill börja använda de [nya funktionerna](#WhatsNew) i version 2019-05-06.
 
@@ -90,7 +90,7 @@ Om din kod använder komplexa typer med äldre Preview API-versioner 2017-11-11-
 
 + Det finns en ny gräns i API-version 2019-05-06 för antalet element i komplexa samlingar per dokument. Om du har skapat index med dokument som överskrider dessa gränser med hjälp av API-versionerna för för hands versionen, kommer alla försök att indexera om dessa data med hjälp av API-version 2019-05-06 att Miss lyckas. Om detta gäller för dig måste du minska antalet komplexa samlings element per dokument innan du indexerar om dina data.
 
-Mer information finns i [tjänst begränsningar för Azure Search](search-limits-quotas-capacity.md).
+Mer information finns i [tjänst begränsningar för Azure kognitiv sökning](search-limits-quotas-capacity.md).
 
 ### <a name="how-to-upgrade-an-old-complex-type-structure"></a>Så här uppgraderar du en gammal komplex typ struktur
 
@@ -144,7 +144,7 @@ Du kan uppdatera "platta" index till det nya formatet med följande steg med hj�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs dokumentationen om Azure Search Service REST API Reference. Om du stöter på problem kan du be oss om hjälp om [StackOverflow](https://stackoverflow.com/) eller [kontakta supporten](https://azure.microsoft.com/support/community/?product=search).
+Läs REST API referens dokumentation för Sök. Om du stöter på problem kan du be oss om hjälp om [StackOverflow](https://stackoverflow.com/) eller [kontakta supporten](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Sök tjänst REST API referens](https://docs.microsoft.com/rest/api/searchservice/)

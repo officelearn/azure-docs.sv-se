@@ -1,47 +1,47 @@
 ---
-title: Indexera innehåll från Azure Table Storage för full texts ökning – Azure Search
-description: Lär dig hur du indexerar data som lagras i Azure Table Storage med en Azure Search indexerare.
-ms.date: 05/02/2019
-author: mgottein
+title: Indexera innehåll från Azure Table Storage för full texts ökning
+titleSuffix: Azure Cognitive Search
+description: Lär dig hur du indexerar data som lagras i Azure Table Storage med en Azure Kognitiv sökning-indexerare.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: dffb0a41dbf33cd86014115b089036d69a8e4718
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: ae99145178fba8e204267546dc1cedf42df412eb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648188"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793738"
 ---
-# <a name="index-azure-table-storage-with-azure-search"></a>Indexera Azure Table Storage med Azure Search
-Den här artikeln visar hur du använder Azure Search för att indexera data som lagras i Azure Table Storage.
+# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexera tabeller från Azure Table Storage med Azure Kognitiv sökning
+
+Den här artikeln visar hur du använder Azure Kognitiv sökning för att indexera data som lagras i Azure Table Storage.
 
 ## <a name="set-up-azure-table-storage-indexing"></a>Konfigurera lagrings indexering i Azure Table
 
 Du kan konfigurera en Azure Table Storage-indexerare med hjälp av följande resurser:
 
 * [Azure Portal](https://ms.portal.azure.com)
-* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Search [.NET SDK](https://aka.ms/search-sdk)
+* Azure Kognitiv sökning [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* Azure Kognitiv sökning [.NET SDK](https://aka.ms/search-sdk)
 
 Här demonstrerar vi flödet med hjälp av REST API. 
 
-### <a name="step-1-create-a-datasource"></a>Steg 1: Skapa en datakälla
+### <a name="step-1-create-a-datasource"></a>Steg 1: skapa en data Källa
 
-En data källa anger vilka data som ska indexeras, de autentiseringsuppgifter som krävs för att komma åt data och de principer som gör det möjligt för Azure Search att effektivt identifiera ändringar i data.
+En data källa anger vilka data som ska indexeras, de autentiseringsuppgifter som krävs för att komma åt data och de principer som gör det möjligt för Azure Kognitiv sökning att effektivt identifiera ändringar i data.
 
 För tabell indexering måste data källan ha följande egenskaper:
 
 - **namn** är det unika namnet på data källan i din Sök tjänst.
 - **typen** måste vara `azuretable`.
-- parametern credentials innehåller anslutnings strängen för lagrings kontot. Mer information finns i avsnittet [ange autentiseringsuppgifter](#Credentials) .
+- parametern **credentials** innehåller anslutnings strängen för lagrings kontot. Mer information finns i avsnittet [ange autentiseringsuppgifter](#Credentials) .
 - **container** anger tabell namnet och en valfri fråga.
-    - Ange tabell namnet med hjälp `name` av parametern.
-    - Du kan också ange en fråga med hjälp `query` av parametern. 
+    - Ange tabell namnet med hjälp av parametern `name`.
+    - Du kan också ange en fråga med hjälp av parametern `query`. 
 
 > [!IMPORTANT] 
 > När det är möjligt ska du använda ett filter på PartitionKey för bättre prestanda. Alla andra frågor gör en fullständig tabells ökning, vilket resulterar i dåliga prestanda för stora tabeller. Se avsnittet om [prestanda överväganden](#Performance) .
@@ -67,9 +67,9 @@ Mer information om API för att skapa data källor finns i [skapa data källa](h
 
 Du kan ange autentiseringsuppgifterna för tabellen på något av följande sätt: 
 
-- **Anslutnings sträng för lagrings konto med fullständig åtkomst**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`Du kan hämta anslutnings strängen från Azure Portal genom att gå till bladet **lagrings konto blad** > **Inställningar** > (för klassiska lagrings konton) eller åtkomst nycklar för **Inställningar** > (för Azure Resource Manager lagrings konton).
-- **Anslutnings sträng för signatur för delad åtkomst till lagrings konto**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`Signaturen för delad åtkomst ska ha listan och Läs behörigheter för behållare (tabeller i det här fallet) och objekt (tabell rader).
--  **Signatur för delad åtkomst för tabell**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`Signaturen för delad åtkomst ska ha behörigheten fråga (läsa) för tabellen.
+- **Anslutnings sträng för lagrings konto med fullständig åtkomst**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` du kan hämta anslutnings strängen från Azure Portal genom att gå till **bladet lagrings konto** > **Inställningar** > **nycklar** (för klassiska lagrings konton) eller **Inställningar** > **åtkomst nycklar** (för Azure Resource Manager lagrings konton).
+- **Anslutnings sträng för signatur för delad åtkomst till lagrings konto**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` signaturen för delad åtkomst ska ha listan och Läs behörigheter för behållare (tabeller i det här fallet) och objekt (tabell rader).
+-  **Signatur för delad åtkomst för tabell**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` signaturen för delad åtkomst ska ha fråga (Läs)-behörighet för tabellen.
 
 Mer information om signaturer för delad åtkomst för lagring finns i [använda signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -95,7 +95,7 @@ Så här skapar du ett index:
 
 Mer information om hur du skapar index finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>Steg 3: Skapa en indexerare
+### <a name="step-3-create-an-indexer"></a>Steg 3: skapa en indexerare
 En indexerare ansluter en data källa med ett mål Sök index och ger ett schema för att automatisera data uppdateringen. 
 
 När indexet och data källan har skapats är du redo att skapa indexeraren:
@@ -115,25 +115,25 @@ Indexeraren körs var två: e timme. (Schema intervallet är inställt på "PT2H
 
 Mer information om API för att skapa index finns i [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure Search](search-howto-schedule-indexers.md).
+Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Hantera olika fält namn
-Ibland skiljer sig fält namnen i ditt befintliga index från egenskaps namnen i tabellen. Du kan använda fält mappningar för att mappa egenskaps namnen från tabellen till fält namnen i Sök indexet. Mer information om fält mappningar finns i [Azure Search Indexer fält mappningar överbrygga skillnaderna mellan data källor och Sök index](search-indexer-field-mappings.md).
+Ibland skiljer sig fält namnen i ditt befintliga index från egenskaps namnen i tabellen. Du kan använda fält mappningar för att mappa egenskaps namnen från tabellen till fält namnen i Sök indexet. Mer information om fält mappningar finns i [fält mappningar för Azure kognitiv sökning Indexer överbrygga skillnaderna mellan data källor och Sök index](search-indexer-field-mappings.md).
 
 ## <a name="handle-document-keys"></a>Hantera dokument nycklar
-I Azure Search identifierar dokument nyckeln ett dokument unikt. Varje Sök index måste ha exakt ett nyckel fält av typen `Edm.String`. Nyckel fältet krävs för varje dokument som läggs till i indexet. (I själva verket är det det enda obligatoriska fältet.)
+I Azure Kognitiv sökning identifierar dokument nyckeln ett dokument unikt. Varje Sök index måste ha exakt ett nyckel fält av typen `Edm.String`. Nyckel fältet krävs för varje dokument som läggs till i indexet. (I själva verket är det det enda obligatoriska fältet.)
 
-Eftersom tabell rader har en sammansatt nyckel, genererar Azure Search ett syntetiskt fält `Key` med namnet som är en sammanfogning av partitionsnyckel och rad nyckel värden. Om t `PK1` `PK1RK1`. ex. en rads PartitionKey är och RowKey är `RK1` `Key` fältets värde.
+Eftersom tabell rader har en sammansatt nyckel genererar Azure Kognitiv sökning ett syntetiskt fält som kallas `Key` som är en sammanfogning av partitionsnyckel och rad nyckel värden. Till exempel, om en rads PartitionKey är `PK1` och RowKey är `RK1`, är `Key` fältets värde `PK1RK1`.
 
 > [!NOTE]
-> `Key` Värdet kan innehålla ogiltiga tecken i dokument nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp `base64Encode` av [fält mappnings funktionen](search-indexer-field-mappings.md#base64EncodeFunction). Om du gör detta bör du komma ihåg att även använda URL-säker base64-kodning när du skickar dokument nycklar i API-anrop som lookup.
+> `Key`-värdet kan innehålla ogiltiga tecken i dokument nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av funktionen för att [mappa `base64Encode` fält](search-indexer-field-mappings.md#base64EncodeFunction). Om du gör detta bör du komma ihåg att även använda URL-säker Base64-kodning när du skickar dokumentnycklar i API-anrop såsom Lookup.
 >
 >
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Identifiering och borttagning av stegvis indexering
-När du ställer in en tabell Indexer så att den körs enligt ett schema, indexerar den bara nya eller uppdaterade rader, vilket avgörs av en `Timestamp` rads värde. Du behöver inte ange en princip för ändrings identifiering. Stegvis indexering aktive ras automatiskt.
+När du ställer in en tabell Indexer så att den körs enligt ett schema, indexerar den bara nya eller uppdaterade rader, som fastställs av en rads `Timestamp` värde. Du behöver inte ange en princip för ändrings identifiering. Stegvis indexering aktive ras automatiskt.
 
-Om du vill ange att vissa dokument måste tas bort från indexet kan du använda en strategi för mjuk borttagning. I stället för att ta bort en rad lägger du till en egenskap för att visa att den har tagits bort och konfigurerar en princip för att upptäcka en mjuk borttagning på data källan. Följande princip anser till exempel att en rad tas bort om raden har en egenskap `IsDeleted` med värdet: `"true"`
+Om du vill ange att vissa dokument måste tas bort från indexet kan du använda en strategi för mjuk borttagning. I stället för att ta bort en rad lägger du till en egenskap för att visa att den har tagits bort och konfigurerar en princip för att upptäcka en mjuk borttagning på data källan. Följande princip anser till exempel att en rad tas bort om raden har en egenskap `IsDeleted` med värdet `"true"`:
 
     PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -150,21 +150,21 @@ Om du vill ange att vissa dokument måste tas bort från indexet kan du använda
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 
-Som standard använder Azure Search följande Frågefilter: `Timestamp >= HighWaterMarkValue`. Eftersom Azure-tabeller inte har något sekundärt index `Timestamp` i fältet, kräver den här typen av fråga en fullständig tabells ökning och är därför långsam för stora tabeller.
+Som standard använder Azure Kognitiv sökning följande Frågefilter: `Timestamp >= HighWaterMarkValue`. Eftersom Azure-tabeller inte har något sekundärt index i fältet `Timestamp`, kräver den här typen av fråga en fullständig tabells ökning och är därför långsam för stora tabeller.
 
 
 Här följer två olika metoder för att förbättra prestanda för tabell indexering. Båda dessa metoder förlitar sig på att använda Table-partitioner: 
 
-- Om dina data naturligt kan partitioneras i flera partitions intervall skapar du en data källa och en motsvarande indexerare för varje partition intervall. Varje indexerare måste nu bearbeta ett särskilt partitionerings intervall, vilket resulterar i bättre prestanda för frågor. Om data som behöver indexeras har ett litet antal fasta partitioner, ännu bättre: varje indexerare gör en partitions ökning. Om du till exempel vill skapa en data källa för bearbetning av ett partition intervall `000` med `100`nycklar från till, använder du en fråga som detta: 
+- Om dina data naturligt kan partitioneras i flera partitions intervall skapar du en data källa och en motsvarande indexerare för varje partition intervall. Varje indexerare måste nu bearbeta ett särskilt partitionerings intervall, vilket resulterar i bättre prestanda för frågor. Om data som behöver indexeras har ett litet antal fasta partitioner, ännu bättre: varje indexerare gör en partitions ökning. Om du till exempel vill skapa en data källa för bearbetning av ett partition intervall med nycklar från `000` till `100`använder du en fråga som detta: 
     ```
     "container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
     ```
 
 - Om dina data är partitionerade efter tid (till exempel när du skapar en ny partition varje dag eller vecka), bör du tänka på följande: 
     - Använd en fråga i formatet: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-    - Övervaka indexerings förloppet med hjälp av API för att [Hämta indexerings status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)och `<TimeStamp>` uppdatera sedan regelbundet villkoret för frågan baserat på det senaste lyckade värdet med högt vatten märke. 
+    - Övervaka indexerings förloppet med hjälp av API för att [Hämta indexerings status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)och uppdatera regelbundet `<TimeStamp>` villkoret för frågan baserat på det senaste lyckade värdet med högt vatten märke. 
     - Med den här metoden måste du, om du behöver aktivera en fullständig Omindexering, återställa data källans fråga, förutom att återställa indexeraren. 
 
 
-## <a name="help-us-make-azure-search-better"></a>Hjälp oss att göra Azure Search bättre
+## <a name="help-us-make-azure-cognitive-search-better"></a>Hjälp oss att göra Azure Kognitiv sökning bättre
 Om du har funktions förfrågningar eller idéer om förbättringar kan du skicka dem till vår [UserVoice-webbplats](https://feedback.azure.com/forums/263029-azure-search/).

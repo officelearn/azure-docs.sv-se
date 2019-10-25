@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 12ac5c44a0ee479d84616b138f9e2369a195c275
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 69afe2aab3c10707f7160d727b970ad73d59a952
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976468"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791550"
 ---
-# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Snabbstart: Skapa en Azure Databricks arbets yta i en Virtual Network
+# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Snabb start: skapa en Azure Databricks arbets yta i en Virtual Network
 
 Den här snabb starten visar hur du skapar en Azure Databricks arbets yta i ett virtuellt nätverk. Du kommer också att skapa ett Apache Spark-kluster på arbets ytan.
 
@@ -23,31 +23,31 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
-> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
+> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. I Azure Portal väljer du **skapa en resurs** > **nätverk** > **virtuellt nätverk**.
+1. I Azure Portal väljer du **skapa en resurs** > **nätverk** > **virtuella nätverk**.
 
 2. Använd följande inställningar under **Skapa virtuellt nätverk**: 
 
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |Namn|databricks-quickstart|Välj ett namn för det virtuella nätverket.|
-    |Adressutrymme|10.1.0.0/16|Det virtuella nätverkets adressintervall i CIDR-format.|
-    |Subscription|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
-    |Resource group|databricks-quickstart|Välj **Skapa nytt** och ange ett nytt resurs grupp namn för ditt konto.|
-    |Location|\<Välj den region som är närmast dina användare\>|Välj en geografisk plats där du kan vara värd för det virtuella nätverket. Använd den plats som är närmast dina användare.|
-    |Undernätsnamn|standard|Välj ett namn för standard under nätet i det virtuella nätverket.|
+    |Namn|databricks – snabb start|Välj ett namn för det virtuella nätverket.|
+    |Adressutrymme|10.1.0.0/16|Det virtuella nätverkets adress intervall i CIDR-notation.|
+    |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
+    |Resursgrupp|databricks – snabb start|Välj **Skapa nytt** och ange ett nytt resurs grupp namn för ditt konto.|
+    |Plats|\<Välj den region som är närmast dina användare\>|Välj en geografisk plats där du kan vara värd för det virtuella nätverket. Använd den plats som är närmast dina användare.|
+    |Namn på undernät|standard|Välj ett namn för standard under nätet i det virtuella nätverket.|
     |Undernätsadressintervall|10.1.0.0/24|Undernätets adressintervall i CIDR-notation. Det måste finnas i det virtuella nätverkets adress utrymme. Det går inte att redigera adress intervallet för ett undernät som används.|
 
     ![Skapa ett virtuellt nätverk på Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
 
-3. När distributionen är klar navigerar du till ditt virtuella nätverk och väljer **adress utrymme** under **Inställningar**. I rutan med texten *Lägg till ytterligare adress intervall*, infogar `10.179.0.0/16` och väljer du **Spara**.
+3. När distributionen är klar navigerar du till ditt virtuella nätverk och väljer **adress utrymme** under **Inställningar**. I rutan med texten *Lägg till ytterligare adress intervall*infogar du `10.179.0.0/16` och väljer **Spara**.
 
     ![Adress utrymme för virtuella Azure-nätverk](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
 
@@ -59,13 +59,13 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |Namn på arbetsyta|databricks-quickstart|Välj ett namn för din Azure Databricks-arbetsyta.|
-    |Subscription|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
-    |Resource group|databricks-quickstart|Välj samma resurs grupp som du använde för det virtuella nätverket.|
-    |Location|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
+    |Namn på arbets yta|databricks – snabb start|Välj ett namn för din Azure Databricks-arbetsyta.|
+    |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
+    |Resursgrupp|databricks – snabb start|Välj samma resurs grupp som du använde för det virtuella nätverket.|
+    |Plats|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
     |Prisnivå|Välj mellan standard eller Premium.|Mer information om pris nivåer finns på [prissättnings sidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
     |Distribuera Azure Databricks arbets ytan i Virtual Network|Ja|Med den här inställningen kan du distribuera en Azure Databricks arbets yta i det virtuella nätverket.|
-    |Virtuellt nätverk|databricks-quickstart|Välj det virtuella nätverk som du skapade i föregående avsnitt.|
+    |Virtual Network|databricks – snabb start|Välj det virtuella nätverk som du skapade i föregående avsnitt.|
     |Namn på offentligt undernät|offentligt-undernät|Använd standard namnet för offentliga undernät.|
     |CIDR-intervall för offentliga undernät|10.179.64.0/18|CIDR-intervallet för det här under nätet måste vara mellan/18 och/26.|
     |Namn på privat undernät|privat-undernät|Använd namnet på det privata under nätet som är standard.|
@@ -102,7 +102,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med artikeln kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**. Detta stoppar klustret.
+När du är klar med artikeln kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**. Detta stoppar klustret.
 
 Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_\_ minuters inaktivitet** när klustret skapades. I sådant fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 

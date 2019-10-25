@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: c75db8d1885c8680dd316952a5f67e11dc26edb1
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 53b53fa5185ade87dfdd21f0805641657d49d676
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949782"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800207"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Ansluta till och autentisera med API: er
 
@@ -28,11 +28,11 @@ För att kunna integrera ett program eller en tjänst med Azure AD måste en utv
 
 [Fem primära program scenarier](../active-directory/develop/v2-app-types.md) stöds av Azure AD:
 
-* SPA (Single-Side Application): En användare måste logga in på ett program med en enda sida som skyddas av Azure AD.
-* Webbläsare till webb program: En användare måste logga in på ett webb program som skyddas av Azure AD.
-* Inbyggt program till webb-API: Ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att få resurser från ett webb-API som skyddas av Azure AD.
-* Webb program till webb-API: Ett webb program måste hämta resurser från ett webb-API som skyddas av Azure AD.
-* Daemon-eller Server program till webb-API: Ett daemon-program eller ett serverprogram utan webb gränssnitt behöver hämta resurser från ett webb-API som skyddas av Azure AD.
+* SPA (Single-Side Application): en användare måste logga in på ett program med en enda sida som skyddas av Azure AD.
+* Webbläsare till webb program: en användare måste logga in på ett webb program som skyddas av Azure AD.
+* Inbyggt program till webb-API: ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att få resurser från ett webb-API som skyddas av Azure AD.
+* Webb program till webb-API: ett webb program måste hämta resurser från ett webb-API som skyddas av Azure AD.
+* Daemon-eller serverprogram till webb-API: ett daemon-program eller ett serverprogram utan webb gränssnitt behöver hämta resurser från ett webb-API som skyddas av Azure AD.
 
 > [!IMPORTANT]
 > Azure Digitals dubbla har stöd för båda följande autentiseringspaket:
@@ -49,7 +49,7 @@ När utvecklare skapar lösningar för Digitals dubbla lösningar, skapar de van
 
 1. Den hämtade token används sedan för att autentisera med eller anropa API: er som senare kan användas för att använda flödet på uppdrag
 
-Anvisningar om hur du dirigerar ett flöde på väg finns i [OAuth 2,0 på uppdrag av Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Du kan också Visa kod exempel i [anrop till ett underordnat webb-API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+Anvisningar om hur du dirigerar ett flöde på väg finns i [OAuth 2,0 på uppdrag av Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Du kan också Visa kod exempel i [anrop till ett underordnat webb-API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="next-steps"></a>Nästa steg
 

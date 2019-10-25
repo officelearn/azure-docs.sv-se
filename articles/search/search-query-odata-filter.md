@@ -1,13 +1,13 @@
 ---
-title: Referens för OData-filter – Azure Search
-description: OData-Språkreferens för filter-syntax i Azure Search frågor.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: OData filter-referens
+titleSuffix: Azure Cognitive Search
+description: OData språk referens för filter-syntax i Azure Kognitiv sökning-frågor.
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8817ce075409a3f166b82404767697dc1326cc89
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ba1f5e8f2369d3222b3c31738e252a20b6de8906
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647595"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793378"
 ---
-# <a name="odata-filter-syntax-in-azure-search"></a>OData-$filter syntax i Azure Search
+# <a name="odata-filter-syntax-in-azure-cognitive-search"></a>OData $filter-syntax i Azure Kognitiv sökning
 
-Azure Search använder [OData filter-uttryck](query-odata-filter-orderby-syntax.md) för att tillämpa ytterligare villkor för en Sök fråga förutom full texts öknings termer. I den här artikeln beskrivs syntaxen för filter i detalj. Mer allmän information om vilka filter som är och hur du använder dem för att realisera vissa fråge scenarier finns i [filter i Azure Search](search-filters.md).
+Azure Kognitiv sökning använder [OData filter-uttryck](query-odata-filter-orderby-syntax.md) för att tillämpa ytterligare villkor för en Sök fråga förutom full texts öknings termer. I den här artikeln beskrivs syntaxen för filter i detalj. Mer allmän information om vilka filter som är och hur du använder dem för att realisera vissa fråge scenarier finns i [filter i Azure kognitiv sökning](search-filters.md).
 
 ## <a name="syntax"></a>Syntax
 
@@ -53,27 +53,27 @@ variable ::= identifier | field_path
 Ett interaktivt syntax diagram är också tillgängligt:
 
 > [!div class="nextstepaction"]
-> [OData-syntax diagram för Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
+> [OData-syntax diagram för Azure Kognitiv sökning](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
 
 > [!NOTE]
-> Se [syntax för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
+> Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
 Typerna av booleska uttryck är:
 
-- Samlings filter uttryck `any` med `all`eller. Dessa använder filter villkor i samlings fält. Mer information finns i [OData Collection-operatörer i Azure Search](search-query-odata-collection-operators.md).
-- Logiska uttryck som kombinerar andra booleska uttryck med operatorerna `and`, `or`och `not`. Mer information finns i avsnittet [om logiska OData-operatörer i Azure Search](search-query-odata-logical-operators.md).
-- Jämförelse uttryck, som jämför fält eller intervall-variabler med konstanta värden med `eq`operatorerna `gt` `ge` `ne` `lt`,,,, `le`och. Mer information finns i [OData-jämförelse operatorer i Azure Search](search-query-odata-comparison-operators.md). Jämförelse uttryck används också för att jämföra avstånd mellan geo-spatiala koordinater `geo.distance` med funktionen. Mer information finns i [OData geo-spatial-funktioner i Azure Search](search-query-odata-geo-spatial-functions.md).
+- Samlings filter uttryck med `any` eller `all`. Dessa använder filter villkor i samlings fält. Mer information finns i [OData Collection-operatörer i Azure kognitiv sökning](search-query-odata-collection-operators.md).
+- Logiska uttryck som kombinerar andra booleska uttryck med operatorerna `and`, `or`och `not`. Mer information finns i avsnittet [om logiska OData-operatörer i Azure kognitiv sökning](search-query-odata-logical-operators.md).
+- Jämförelse uttryck, som jämför fält eller intervall-variabler med konstanta värden med operatorerna `eq`, `ne`, `gt`, `lt`, `ge`och `le`. Mer information finns i [OData-jämförelse operatörer i Azure kognitiv sökning](search-query-odata-comparison-operators.md). Jämförelse uttryck används också för att jämföra avstånd mellan geografiska avstånds koordinater med hjälp av funktionen `geo.distance`. Mer information finns i [OData geo-spatial-funktioner i Azure kognitiv sökning](search-query-odata-geo-spatial-functions.md).
 - Booleska litteraler `true` och `false`. Dessa konstanter kan vara användbara ibland när du skapar filter på ett programmerings sätt, men annars inte brukar användas i praktiken.
 - Anrop till booleska funktioner, inklusive:
-  - `geo.intersects`, som testar om en viss punkt är inom en viss polygon. Mer information finns i [OData geo-spatial-funktioner i Azure Search](search-query-odata-geo-spatial-functions.md).
-  - `search.in`, som jämför en fält-eller intervall variabel med varje värde i en lista med värden. Mer information finns i [OData `search.in` -funktionen i Azure Search](search-query-odata-search-in-function.md).
-  - `search.ismatch`och `search.ismatchscoring`, som kör full texts öknings åtgärder i en filter kontext. Mer information finns i [OData full text search Functions i Azure Search](search-query-odata-full-text-search-functions.md).
-- Fält Sök vägar eller intervall-variabler `Edm.Boolean`av typen. Om ditt index till exempel har ett Boolean-fält som `IsEnabled` heter och du vill returnera alla dokument där det här fältet `true`är, kan filter uttrycket bara vara namnet `IsEnabled`.
+  - `geo.intersects`, som testar om en viss punkt är inom en viss polygon. Mer information finns i [OData geo-spatial-funktioner i Azure kognitiv sökning](search-query-odata-geo-spatial-functions.md).
+  - `search.in`, som jämför en fält-eller intervall variabel med varje värde i en lista med värden. Mer information finns i [OData `search.in`-funktionen i Azure kognitiv sökning](search-query-odata-search-in-function.md).
+  - `search.ismatch` och `search.ismatchscoring`, som utför full texts öknings åtgärder i en filter kontext. Mer information finns i [OData full text search-funktioner i Azure kognitiv sökning](search-query-odata-full-text-search-functions.md).
+- Fält Sök vägar eller intervall-variabler av typen `Edm.Boolean`. Om ditt index till exempel har ett Boolean-fält som heter `IsEnabled` och du vill returnera alla dokument där det här fältet är `true`, kan filter uttrycket bara vara namnet `IsEnabled`.
 - Booleska uttryck inom parentes. Med hjälp av parenteser kan du uttryckligen bestämma ordningen på åtgärderna i ett filter. Mer information om OData-operatörernas standard prioritet finns i nästa avsnitt.
 
 ### <a name="operator-precedence-in-filters"></a>Operator prioritet i filter
 
-Om du skriver ett filter uttryck utan parentes runt under uttryck, kommer Azure Search att utvärdera det enligt en uppsättning av operatorernas prioritets regler. Dessa regler baseras på vilka operatorer som används för att kombinera under uttryck. I följande tabell visas en lista över operatorer i ordning från högsta till lägsta prioritet:
+Om du skriver ett filter uttryck utan parentes runt dess under uttryck, kommer Azure Kognitiv sökning att utvärdera det enligt en uppsättning av operatorernas prioritets regler. Dessa regler baseras på vilka operatorer som används för att kombinera under uttryck. I följande tabell visas en lista över operatorer i ordning från högsta till lägsta prioritet:
 
 | Grupp | Operator (er) |
 | --- | --- |
@@ -82,12 +82,12 @@ Om du skriver ett filter uttryck utan parentes runt under uttryck, kommer Azure 
 | Logiska operatorer | `and` |
 | Logiska operatorer | `or` |
 
-En operator som är högre i tabellen ovan blir "bind mer tätt" till dess operander än andra operatorer. Till exempel `and` är högre prioritet än `or`och jämförelse operatorer har högre prioritet än någon av dem, så följande två uttryck är likvärdiga:
+En operator som är högre i tabellen ovan blir "bind mer tätt" till dess operander än andra operatorer. Till exempel är `and` högre prioritet än `or`och jämförelse operatorer har högre prioritet än någon av dem, så följande två uttryck är likvärdiga:
 
     Rating gt 0 and Rating lt 3 or Rating gt 7 and Rating lt 10
     ((Rating gt 0) and (Rating lt 3)) or ((Rating gt 7) and (Rating lt 10))
 
-`not` Operatorn har högst prioritet för alla – ännu högre än jämförelse operatorerna. Det är därför om du försöker skriva ett filter så här:
+`not` operatören har den högsta prioriteten för alla – ännu högre än jämförelse operatorerna. Det är därför om du försöker skriva ett filter så här:
 
     not Rating gt 5
 
@@ -95,7 +95,7 @@ Du får det här fel meddelandet:
 
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
 
-Det här felet beror på att operatorn bara `Rating` är kopplad till fältet, vilket är av typen `Edm.Int32`och inte med hela jämförelse uttrycket. Korrigeringen är att ge operanden `not` i parentes:
+Det här felet beror på att operatorn bara är associerad med `Rating` fältet, som är av typen `Edm.Int32`och inte med hela jämförelse uttrycket. Korrigeringen är att ställa in operanden för `not` inom parenteser:
 
     not (Rating gt 5)
 
@@ -103,10 +103,10 @@ Det här felet beror på att operatorn bara `Rating` är kopplad till fältet, v
 
 ### <a name="filter-size-limitations"></a>Begränsningar för filter storlek
 
-Det finns gränser för storlek och komplexitet för filter uttryck som du kan skicka till Azure Search. Gränserna baseras ungefär på antalet satser i filter uttrycket. En lämplig rikt linje är att om du har hundratals satser, riskerar du att överskrida gränsen. Vi rekommenderar att du utformar ditt program på ett sådant sätt att det inte genererar filter av obegränsad storlek.
+Det finns gränser för storlek och komplexitet för filter uttryck som du kan skicka till Azure Kognitiv sökning. Gränserna baseras ungefär på antalet satser i filter uttrycket. En lämplig rikt linje är att om du har hundratals satser, riskerar du att överskrida gränsen. Vi rekommenderar att du utformar ditt program på ett sådant sätt att det inte genererar filter av obegränsad storlek.
 
 > [!TIP]
-> Om du använder [ funktioneniställetförlångadisknutaravlikhetsjämförelserkanduundvikafiltersatsgränsen,eftersomettfunktionsanropräknassomenenskildsats.`search.in` ](search-query-odata-search-in-function.md)
+> Om [du använder funktionen `search.in`](search-query-odata-search-in-function.md) i stället för långa disknutar av likhets jämförelser kan du undvika filter sats gränsen, eftersom ett funktions anrop räknas som en enskild sats.
 
 ## <a name="examples"></a>Exempel
 
@@ -126,7 +126,7 @@ Hitta alla hotell som har parkera och där alla rum är icke-rökning:
 
     $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
 
- \-ELLER  
+ \- eller-  
 
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
 
@@ -134,7 +134,7 @@ Hitta alla hotell som är lyxen eller innehåller parkering och har en klassific
 
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
 
-Hitta alla hotell med taggen "WiFi" i minst ett rum (där varje rum har Taggar lagrade i ett `Collection(Edm.String)` fält):  
+Hitta alla hotell med taggen "WiFi" i minst ett rum (där varje rum har Taggar lagrade i ett `Collection(Edm.String)`-fält):  
 
     $filter=Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
 
@@ -146,11 +146,11 @@ Hitta alla hotell som inte har några rum:
 
     $filter=not Rooms/any()
 
-Hitta alla hotell inom 10 kilo meter från en viss referens punkt ( `Location` där är ett fält av `Edm.GeographyPoint`typen):
+Hitta alla hotell inom 10 kilo meter från en viss referens punkt (där `Location` är ett fält av typen `Edm.GeographyPoint`):
 
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 
-Hitta alla hotell inom ett angivet visnings område som beskrivs som en polygon `Location` (där är ett fält av typen EDM. GeographyPoint). Polygonen måste vara stängd, vilket innebär att de första och sista punkt uppsättningarna måste vara desamma. Dessutom [måste punkterna visas i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Hitta alla hotell inom ett angivet visnings område som beskrivs som en polygon (där `Location` är ett fält av typen EDM. GeographyPoint). Polygonen måste vara stängd, vilket innebär att de första och sista punkt uppsättningarna måste vara desamma. Dessutom [måste punkterna visas i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
 
@@ -174,11 +174,11 @@ Hitta en matchning på fraser i en samling, t. ex. "uppvärmd hand duks-rack" el
 
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 
-Hitta dokument med ordet "Waterfront". Den här filter frågan är identisk med en search- `search=waterfront` [begäran](https://docs.microsoft.com/rest/api/searchservice/search-documents) med.
+Hitta dokument med ordet "Waterfront". Den här filter frågan är identisk med en [Sök förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents) med `search=waterfront`.
 
     $filter=search.ismatchscoring('waterfront')
 
-Hitta dokument med ordet "Hostel" och klassificera större eller lika med 4 eller dokument med ordet "Motel" och betyget är lika med 5. Den här begäran kunde inte uttryckas utan `search.ismatchscoring` funktionen eftersom den kombinerar full texts ökning med filter åtgärder med hjälp av. `or`
+Hitta dokument med ordet "Hostel" och klassificera större eller lika med 4 eller dokument med ordet "Motel" och betyget är lika med 5. Den här begäran kunde inte uttryckas utan funktionen `search.ismatchscoring` eftersom den kombinerar full texts ökning med filter åtgärder med hjälp av `or`.
 
     $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
 
@@ -186,7 +186,7 @@ Hitta dokument utan ordet "lyxen".
 
     $filter=not search.ismatch('luxury')
 
-Hitta dokument med frasen "oceanen" eller klassificeringen lika med 5. Frågan körs bara mot fält `HotelName` och `Description`. `search.ismatchscoring` Dokument som matchade bara den andra satsen i disknuten returneras för--hotell med `Rating` lika med 5. De dokumenten kommer att returneras med poängen lika med noll för att det ska vara uppenbart att de inte matchar någon av de förväntade delarna i uttrycket.
+Hitta dokument med frasen "oceanen" eller klassificeringen lika med 5. `search.ismatchscoring`s frågan körs bara mot fält `HotelName` och `Description`. Dokument som matchade bara den andra satsen i diskorsningen returneras för--hotell med `Rating` lika med 5. De dokumenten kommer att returneras med poängen lika med noll för att det ska vara uppenbart att de inte matchar någon av de förväntade delarna i uttrycket.
 
     $filter=search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
 
@@ -196,7 +196,7 @@ Hitta hotell där villkoren "hotell" och "flyg plats" inte innehåller fler än 
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Filter i Azure Search](search-filters.md)
-- [OData uttrycks språk översikt för Azure Search](query-odata-filter-orderby-syntax.md)
-- [Syntax-referens för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md)
-- [Sök efter &#40;dokument Azure Search tjänst REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filter i Azure Kognitiv sökning](search-filters.md)
+- [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
+- [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
+- [Sök efter &#40;dokument Azure-kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

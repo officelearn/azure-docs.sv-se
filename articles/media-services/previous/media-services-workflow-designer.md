@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: c5aa7af1ca6f4fe0768add47d2037d797e4ef99b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613239"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801951"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Skapa avancerade arbetsflöden för kodning med Workflow Designer  
 ## <a name="overview"></a>Översikt
@@ -37,7 +37,7 @@ Exempel på arbets flöden som du kan skapa är:
 Det här verktyget kan också användas för att ändra alla [publicerade arbets flöden](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> Kontakta mepd@microsoft.comom du vill hämta en kopia av arbetsflödesdesigner-verktyget.
+> Kontakta mepd@microsoft.comom du vill ha en kopia av arbetsflödesdesigners verktyget.
 
 När en arbets flödes fil har skapats kan den laddas upp som en till gång och sedan användas för kodning av mediefiler. Information om hur du kodar med **Media Encoder Premium Workflow** med hjälp av **.net**finns i [Avancerad kodning med Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 
@@ -79,6 +79,10 @@ Dag 3 video försättsblad:
 > 
 > 
 
+## <a name="need-help"></a>Behöver du hjälp?
+
+Du kan öppna ett support ärende genom att gå till [nytt support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+
 ## <a name="next-step"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.
 
@@ -86,8 +90,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-Skicka e-post till mepd@microsoft.comom du behöver support eller har frågor om att skapa anpassade arbets flöden i verktyget Workflow Designer. Använd det engelska språket när du skriver e-postmeddelandet.
 
 ## <a name="see-also"></a>Se även
 [Azure Premium-kodare arbetsflödesdesigner utbildnings videor](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

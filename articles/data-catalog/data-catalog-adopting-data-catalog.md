@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 38a9f3a7020e866ccb000ed0c54499258f5e651a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734680"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801873"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metod och process för att börja använda Azure Data Catalog
 
@@ -125,7 +125,7 @@ Mer information om registreringsverktyget för datakällor finns i [Kom igång m
 Som en del i pilotprojektet använder Nancys team även datakällor som beskrivs i den Excel-arbetsbok som David och hans kollegor upprätthåller. Eftersom andra team i företaget också använder Excel-arbetsböcker för att beskriva datakällor beslutar IT-teamet att skapa ett verktyg för att migrera Excel-arbetsboken till Data Catalog. Genom att importera befintliga kommentarer med hjälp av Data Catalog-REST-API:et kan pilotprojektteamet få en komplett datakatalog med metadata som extraherats från datakällorna med registreringsverktyget för datakällor. Katalogen kompletteras med information som tidigare dokumenterats av dataproducenter och konsumenter utan att något behöver matas in manuellt. När företagets datakatalog växer kan organisationen använda registreringsverktyget för datakällor för gemensamma datakällor, till exempel Data Catalog-API:et för anpassade källor och ovanliga scenarier.
 
 > [!NOTE]
-> Vi har skrivit ett exempelverktyg där API:et för **Azure Data Catalog** används för att migrera en Excel-arbetsbok till Data Catalog. Mer information om Data Catalog-API:et och exempelverktyget finns i [Ladda ned kodexempel för ad hoc-arbetsbok](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) och i dokumentationen för [Azure Data Catalog-REST-API:et](/rest/api/datacatalog/).
+> Vi har skrivit ett exempelverktyg där API:et för **Azure Data Catalog** används för att migrera en Excel-arbetsbok till Data Catalog. Mer information om Data Catalog-API:et och exempelverktyget finns i [Ladda ned kodexempel för ad hoc-arbetsbok](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets) och i dokumentationen för [Azure Data Catalog-REST-API:et](/rest/api/datacatalog/).
 
 När pilotprojektet är slutfört är det dags att genomföra implementeringsplanen.
 
@@ -155,7 +155,7 @@ Det ultimata testet av projektet är förstås om användarna kan hitta nödvän
 
 Utbildningen ska vara precis tillräcklig för att användarna ska komma igång och skräddarsydd för pilotteamets specifika mål och erfarenheter. Du kan följa stegen i artikeln [Kom igång med Azure Data Catalog](data-catalog-get-started.md) för att komma igång med utbildningen. Du kan dessutom ladda ned [Presentation av utbildning för pilotprojekt i Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true). PowerPoint-presentationen bör hjälpa dig att komma igång med att introducera Data Catalog för pilotteamet.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 När pilotteamet fungerar någorlunda smidigt och du har nått dina inledande mål ska användningen av Data Catalog utvidgas till flera team. Använd och utveckla vad du har lärt dig genom pilotprojektet för att utvidga Data Catalog till hela organisationen.
 

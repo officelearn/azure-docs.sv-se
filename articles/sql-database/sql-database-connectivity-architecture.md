@@ -4,19 +4,19 @@ description: I det här dokumentet förklaras Azure SQL Connectivity-arkitekture
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f15fb46568f4ad062605b51600d3c61870b48645
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828858"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72807927"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs Azure SQL Database och SQL Data Warehouse anslutnin
 
 Följande diagram ger en översikt över Azure SQL Database anslutnings arkitekturen.
 
-![Arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-overview.png)
+![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
 Följande steg beskriver hur en anslutning upprättas till en Azure SQL-databas:
 
@@ -38,21 +38,21 @@ Följande steg beskriver hur en anslutning upprättas till en Azure SQL-databas:
 
 Azure SQL Database stöder följande tre alternativ för anslutnings princip inställningen för en SQL Database-Server:
 
-- **Omdirigera (rekommenderas):** Klienter upprättar anslutningar direkt till noden som är värd för databasen. För att möjliggöra anslutning måste klienterna tillåta utgående brand Väggs regler till alla Azure IP-adresser i regionen med hjälp av nätverks säkerhets grupper (NSG) med [service märken](../virtual-network/security-overview.md#service-tags)) för portarna 11000-11999, inte bara Azure SQL Database Gateway-IP-adresserna på port 1433. Eftersom paket går direkt till databasen har svars tiden och data flödet bättre prestanda.
-- **Programproxyfilen** I det här läget är alla anslutningar via proxy via Azure SQL Database gatewayer. För att aktivera anslutning måste klienten ha utgående brand Väggs regler som endast tillåter IP-adresser för Azure SQL Database Gateway (vanligt vis två IP-adresser per region). Att välja det här läget kan resultera i högre latens och lägre data flöde, beroende på arbets Belastningens natur. Vi rekommenderar `Redirect` starkt anslutnings principen `Proxy` över anslutnings principen för den lägsta svars tiden och det högsta data flödet.
-- **Objekt** Detta är anslutnings principen som används på alla servrar när den har skapats, såvida du inte uttryckligen ändrar anslutnings principen `Proxy` till `Redirect`antingen eller. Den gällande principen beror på om anslutningar härstammar från Azure (`Redirect`) eller utanför Azure (`Proxy`).
+- **Omdirigera (rekommenderas):** Klienter upprättar anslutningar direkt till noden som är värd för databasen. För att möjliggöra anslutning måste klienterna tillåta utgående brand Väggs regler till alla Azure IP-adresser i regionen med hjälp av nätverks säkerhets grupper (NSG) med [service märken](../virtual-network/security-overview.md#service-tags) för portarna 11000-11999, inte bara Azure SQL Database Gateway-IP-adresserna på port 1433. Eftersom paket går direkt till databasen har svars tiden och data flödet bättre prestanda.
+- **Proxy:** I det här läget är alla anslutningar via proxy via Azure SQL Database gatewayer. För att aktivera anslutning måste klienten ha utgående brand Väggs regler som endast tillåter IP-adresser för Azure SQL Database Gateway (vanligt vis två IP-adresser per region). Att välja det här läget kan resultera i högre latens och lägre data flöde, beroende på arbets Belastningens natur. Vi rekommenderar starkt `Redirect` anslutnings princip via `Proxy` anslutnings princip för lägsta latens och högsta data flöde.
+- **Standard:** Detta är anslutnings principen som används på alla servrar när den har skapats, såvida du inte uttryckligen ändrar anslutnings principen till antingen `Proxy` eller `Redirect`. Den effektiva principen beror på om anslutningar härstammar från Azure (`Redirect`) eller utanför Azure (`Proxy`).
 
 ## <a name="connectivity-from-within-azure"></a>Anslutning inifrån Azure
 
-Om du ansluter inifrån Azure får anslutningarna `Redirect` som standard en anslutnings princip. En princip på `Redirect` innebär att när TCP-sessionen har upprättats till Azure SQL Database omdirigeras sedan klientsessionen till rätt databas kluster med en ändring i den virtuella mål-IP-adressen från den Azure SQL Database gatewayen till den för flernodskluster. Därefter flödar alla efterföljande paket direkt till klustret och hoppar över Azure SQL Database Gateway. Följande diagram illustrerar det här trafikflödet.
+Om du ansluter inifrån Azure får anslutningarna `Redirect` som standard. En princip för `Redirect` innebär att när TCP-sessionen har upprättats till Azure SQL Database omdirigeras sedan klientsessionen till rätt databas kluster med en ändring i den virtuella mål-IP-adressen från den Azure SQL Database gatewayen till den flernodskluster. Därefter flödar alla efterföljande paket direkt till klustret och hoppar över Azure SQL Database Gateway. Följande diagram illustrerar det här trafikflödet.
 
-![Arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-azure.png)
+![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Anslutning från utanför Azure
 
-Om du ansluter från en plats utanför Azure har anslutningarna `Proxy` som standard en anslutnings princip. En princip i `Proxy` innebär att TCP-sessionen upprättas via Azure SQL Database gateway och alla efterföljande paket flöden via gatewayen. Följande diagram illustrerar det här trafikflödet.
+Om du ansluter från en plats utanför Azure, har anslutningarna en anslutnings princip för `Proxy` som standard. En princip för `Proxy` innebär att TCP-sessionen upprättas via Azure SQL Database gateway och alla efterföljande paket flöden via gatewayen. Följande diagram illustrerar det här trafikflödet.
 
-![Arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Gateway-IP-adresser för Azure SQL Database
 
@@ -66,29 +66,29 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Australien, centrala    | 20.36.105.0 |
 | Australien, Central2   | 20.36.113.0 |
 | Östra Australien       | 13.75.149.87, 40.79.161.1 |
-| Australien, sydöstra | 191.239.192.109, 13.73.109.251 |
+| Sydöstra Australien | 191.239.192.109, 13.73.109.251 |
 | Södra Brasilien         | 104.41.11.5, 191.233.200.14 |
-| Centrala Kanada       | 40.85.224.249      |
-| Östra Kanada          | 40.86.226.166      |
+| Kanada, centrala       | 40.85.224.249      |
+| Kanada, östra          | 40.86.226.166      |
 | Centrala USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Kina, östra           | 139.219.130.35     |
 | Kina, östra 2         | 40.73.82.1         |
 | Kina, norra          | 139.219.15.17      |
 | Kina, norra 2        | 40.73.50.0         |
-| Östasien            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Asien, östra            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| USA, östra              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |
-| Tyskland, centrala      | 51.4.144.100       |
+| Centrala Tyskland      | 51.4.144.100       |
 | Tyskland, norra öst   | 51.5.144.179       |
 | Centrala Indien        | 104.211.96.159     |
 | Södra Indien          | 104.211.224.146    |
 | Västra Indien           | 104.211.160.80     |
-| Östra Japan           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Japan, östra           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
 | Västra Japan           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Sydkorea, centrala        | 52.231.32.42       |
 | Sydkorea, södra          | 52.231.200.86      |
-| Norra centrala USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| USA, norra centrala     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Norra Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Sydafrika, norra   | 102.133.152.0      |
 | Sydafrika, västra    | 102.133.24.0       |
@@ -98,9 +98,9 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Förenade Arabemiraten, norra            | 65.52.248.0        |
 | Storbritannien, södra             | 51.140.184.11      |
 | Storbritannien, västra              | 51.141.8.11        |
-| Västra centrala USA      | 13.78.145.25       |
-| Västra Europa          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
-| Västra USA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| USA, västra centrala      | 13.78.145.25       |
+| Europa, västra          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| USA, västra              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | Västra USA 2            | 13.66.226.202      |
 |                      |                    |
 
@@ -108,8 +108,8 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 
 Om du vill ändra Azure SQL Database anslutnings princip för en Azure SQL Database-Server använder [du kommandot](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) för att ansluta.
 
-- Om din anslutnings princip är inställd på `Proxy`, flödar alla nätverks paket via Azure SQL Database Gateway. För den här inställningen behöver du bara tillåta utgående till Azure SQL Database Gateway-IP. Om du använder en `Proxy` inställning med mer svars tid än `Redirect`inställningen.
-- Om din anslutnings princip ställs `Redirect`in flödar alla nätverks paket direkt till databas klustret. För den här inställningen måste du tillåta utgående till flera IP-adresser.
+- Om din anslutnings princip är inställd på `Proxy`, flödar alla nätverks paket via Azure SQL Database Gateway. För den här inställningen behöver du bara tillåta utgående till Azure SQL Database Gateway-IP. Att använda en inställning av `Proxy` har mer latens än en inställning av `Redirect`.
+- Om din anslutnings princip anger `Redirect`, flödar alla nätverks paket direkt till databas klustret. För den här inställningen måste du tillåta utgående till flera IP-adresser.
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>Skript för att ändra anslutnings inställningar via PowerShell
 

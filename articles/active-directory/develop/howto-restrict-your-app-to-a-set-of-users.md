@@ -1,5 +1,6 @@
 ---
 title: Begränsa din Azure Active Directory-registrerade app till en uppsättning användare
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du begränsar åtkomsten till dina appar som är registrerade i Azure AD till en vald uppsättning användare.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +18,14 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51c49633e68fdc5f9afd4bf0205adaa625940ff
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: c768730a00d424333e735bb4f6a385d294f38513
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812969"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803963"
 ---
-# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Anvisningar: Begränsa din app till en uppsättning användare
+# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Gör så här: begränsa din app till en uppsättning användare
 
 Program som är registrerade i en Azure Active Directory-klient (Azure AD) är som standard tillgängliga för alla användare av klienten som autentiseras korrekt.
 
@@ -75,7 +76,7 @@ Det finns två sätt att skapa ett program med aktive rad användar tilldelning.
 1. I det översta fältet väljer du det inloggade kontot. 
 1. Under **katalog**väljer du den Azure AD-klient där appen ska registreras.
 1. I navigeringen till vänster väljer du **Azure Active Directory**.
-1. I fönstret **Azure Active Directory** väljer du **app** -registreringar från **Azure Active Directory** vänster navigerings meny.
+1. I fönstret **Azure Active Directory** väljer du **app-registreringar** från **Azure Active Directory** vänster navigerings meny.
 1. Skapa eller Välj den app som du vill hantera. Du måste vara **ägare** till den här appens registrering.
 1. På sidan **Översikt** för program följer du länken **hanterat program i lokal katalog** under Essentials överst på sidan. Detta tar dig till det _hanterade företags programmet_ för din app-registrering.
 1. Från navigerings bladet till vänster väljer du **Egenskaper**.

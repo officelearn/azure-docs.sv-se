@@ -1,24 +1,24 @@
 ---
-title: Övervaka resursanvändning och fråga mått för en search-tjänst – Azure Search
-description: Aktivera loggning, Hämta aktivitets mått, resursanvändning och andra system data från en Azure Search-tjänst.
-author: HeidiSteen
+title: Övervaka resursanvändning och fråga mått
+titleSuffix: Azure Cognitive Search
+description: Aktivera loggning, Hämta aktivitets statistik, resursanvändning och andra system data från en Azure Kognitiv sökning-tjänst.
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/16/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72331215"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793490"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resursförbrukning och fråga-aktivitet i Azure Search
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Övervaka resursförbrukning och fråga-aktivitet i Azure Kognitiv sökning
 
-På sidan Översikt i din Azure Search-tjänst kan du Visa system information om resursanvändning, fråga mått och hur mycket kvot som finns för att skapa fler index, indexerare och data källor. Du kan också använda portalen för att konfigurera Log Analytics eller en annan resurs som används för beständig data insamling. 
+På sidan Översikt i din Azure Kognitiv sökning-tjänst kan du Visa system information om resursanvändning, fråga mått och hur mycket kvot som finns för att skapa fler index, indexerare och data källor. Du kan också använda portalen för att konfigurera Log Analytics eller en annan resurs som används för beständig data insamling. 
 
 Att konfigurera loggar är användbart för självstudier och bevarande av drift historik. Internt finns loggar på Server delen under en kort tids period, tillräckligt för undersökning och analys om du filerar ett support ärende. Om du vill ha kontroll över och åtkomst till logg information, bör du konfigurera en av lösningarna som beskrivs i den här artikeln.
 
@@ -52,7 +52,7 @@ För tjänst uppgifter som att skapa ett index eller ta bort en data källa visa
 
 ## <a name="add-on-monitoring-solutions"></a>Lösningar för övervakning av tillägg
 
-Azure Search lagrar inga data utöver de objekt som hanteras, vilket innebär att loggdata lagras externt. Du kan konfigurera någon av resurserna nedan om du vill spara loggdata. 
+Azure Kognitiv sökning lagrar inga data utöver de objekt som hanteras, vilket innebär att loggdata lagras externt. Du kan konfigurera någon av resurserna nedan om du vill spara loggdata. 
 
 I följande tabell jämförs alternativen för att lagra loggar och lägga till djupgående övervakning av tjänst åtgärder och fråga arbets belastningar via Application Insights.
 
@@ -64,17 +64,17 @@ I följande tabell jämförs alternativen för att lagra loggar och lägga till 
 
 Både Azure Monitor-loggar och blob-lagring är tillgängliga som en kostnads fri tjänst så att du kan testa den utan kostnad för Azure-prenumerationens livs längd. Application Insights är kostnads fri att registrera dig och använda så länge program data storleken är under vissa gränser (se [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) för mer information).
 
-I nästa avsnitt får du stegvisa anvisningar om hur du aktiverar och använder Azure Blob Storage för att samla in och få åtkomst till loggdata som skapats av Azure Search åtgärder.
+I nästa avsnitt får du stegvisa anvisningar om hur du aktiverar och använder Azure Blob Storage för att samla in och få åtkomst till loggdata som skapats av Azure Kognitiv sökning åtgärder.
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
-Loggning av indexerings-och fråge arbets belastningar är inaktiverat som standard och är beroende av tilläggs lösningar för både loggning av infrastruktur och långsiktig extern lagring. De enda beständiga data i Azure Search är de objekt som skapas och hanteras, så loggar måste lagras någon annan stans.
+Loggning av indexerings-och fråge arbets belastningar är inaktiverat som standard och är beroende av tilläggs lösningar för både loggning av infrastruktur och långsiktig extern lagring. De enda beständiga data i Azure Kognitiv sökning är bara de objekt som skapas och hanteras, så loggar måste lagras någon annan stans.
 
 I det här avsnittet får du lära dig hur du använder Blob Storage för att lagra loggade händelser och mått data.
 
-1. [Skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) om du inte redan har ett. Du kan placera den i samma resurs grupp som Azure Search för att förenkla rensningen senare om du vill ta bort alla resurser som används i den här övningen.
+1. [Skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) om du inte redan har ett. Du kan placera den i samma resurs grupp som Azure Kognitiv sökning för att förenkla rensningen senare om du vill ta bort alla resurser som används i den här övningen.
 
-   Ditt lagrings konto måste finnas i samma region som Azure Search.
+   Ditt lagrings konto måste finnas i samma region som Azure Kognitiv sökning.
 
 2. Öppna översikts sidan för Sök tjänsten. Rulla ned till **övervakning** i det vänstra navigerings fönstret och klicka på **Aktivera övervakning**.
 
@@ -125,7 +125,7 @@ Blobbar som innehåller dina Sök tjänst trafik loggar struktureras enligt besk
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
 | Beskrivning |sträng |"Hämta/Indexes (' Content ')/docs" |Åtgärdens slut punkt |
-| Söka i data |sträng |"? search = AzureSearch & $count = True & API-version = 2019-05-06" |Frågeparametrar |
+| Fråga |sträng |"? search = AzureSearch & $count = True & API-version = 2019-05-06" |Frågeparametrar |
 | Dokument |int |42 |Antal bearbetade dokument |
 | indexName |sträng |"testindex" |Namnet på det index som är associerat med åtgärden |
 
@@ -158,14 +158,14 @@ Du kan Visa logg filen med valfri JSON-redigerare. Om du inte har en sådan reko
 
 1. I Azure Portal öppnar du ditt lagrings konto. 
 
-2. Klicka på **blobbar**i det vänstra navigerings fönstret. Du bör se **Insights-logs-operationlogs** och **Insights-Metrics-pt1m**. Dessa behållare skapas av Azure Search när loggdata exporteras till Blob Storage.
+2. Klicka på **blobbar**i det vänstra navigerings fönstret. Du bör se **Insights-logs-operationlogs** och **Insights-Metrics-pt1m**. Dessa behållare skapas av Azure Kognitiv sökning när loggdata exporteras till Blob Storage.
 
 3. Klicka på mapphierarkin tills du når. JSON-filen.  Använd snabb menyn för att hämta filen.
 
 När filen har hämtats öppnar du den i en JSON-redigerare för att visa innehållet.
 
 ## <a name="use-system-apis"></a>Använda system-API: er
-Både Azure Search REST API och .NET SDK ger programmerings åtkomst till tjänst statistik, index-och index information och dokument antal.
+Både Azure Kognitiv sökning-REST API och .NET SDK ger programmerings åtkomst till tjänst statistik, index-och index information och dokument antal.
 
 * [Hämta tjänste statistik](/rest/api/searchservice/get-service-statistics)
 * [Hämta index statistik](/rest/api/searchservice/get-index-statistics)

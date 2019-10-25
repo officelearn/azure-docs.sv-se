@@ -1,5 +1,6 @@
 ---
 title: Autentisering med Azure Active Directory i nationella moln
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om app-registrering och autentiserings slut punkter för nationella moln.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca82efbd4e26ccb8a169c84332e3d24196fae95e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 70f1f80744043893dd7206bc6388b8e080c07d0f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135862"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803881"
 ---
 # <a name="national-clouds"></a>Nationella moln
 
@@ -64,8 +65,8 @@ I följande tabell visas de grundläggande URL: erna för de Azure AD-slutpunkte
 
 Du kan skapa förfrågningar till Azure AD-auktorisering eller token-slutpunkter med hjälp av lämplig region-/regionsspecifika bas-URL. Till exempel för Azure Germany:
 
-  - Vanlig slut punkt för `https://login.microsoftonline.de/common/oauth2/authorize`auktorisering är.
-  - Vanlig slut punkt för `https://login.microsoftonline.de/common/oauth2/token`token är.
+  - Vanlig slut punkt för auktorisering är `https://login.microsoftonline.de/common/oauth2/authorize`.
+  - Vanlig slut punkt för token är `https://login.microsoftonline.de/common/oauth2/token`.
 
 För program med en enda klient ersätter du "common" i föregående URL: er med ditt klient-ID eller namn. Ett exempel är `https://login.microsoftonline.de/contoso.com`.
 

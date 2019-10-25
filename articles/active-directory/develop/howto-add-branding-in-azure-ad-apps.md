@@ -1,5 +1,6 @@
 ---
-title: Varumärkesriktlinjer för program | Microsoft Docs
+title: Varumärkesriktlinjer för program
+titleSuffix: Microsoft identity platform
 description: En heltäckande handbok om utvecklarorienterade resurser för Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92770acb19bf95d6a19507184bd8bea10806d5b7
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ef784dc5f071889a1f4a0072599b9880b7c07c55
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "70053249"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803870"
 ---
 # <a name="branding-guidelines-for-applications"></a>Varumärkesriktlinjer för program
 
@@ -60,9 +61,9 @@ I en tidigare version av de här riktlinjerna rekommenderar vi ett blått piktog
 
 Det kan finnas flera olika sätt att registrera sig och logga in i ditt program. Följande avsnitt visar hur båda scenarierna går till.
 
-**Om appen har stöd för registrering av slutanvändare (t.ex kostnadsfri utvärdering eller Freemium-modell)** : Du kan visa en **inloggningsknapp** som gör att användarna kan komma åt din app med deras arbetskonto eller personliga konto. Azure AD visar en samtyckestext första gången de öppnar din app.
+**Om slutanvändare kan registrera sig för ditt program (till exempel för en kostnadsfri utvärderingsversion)** : Du kan visa en **logga in**-knapp där användare kan komma åt din app med sitt arbetskonto eller personliga konto. Azure AD visar en samtyckestext första gången de öppnar din app.
 
-**Om appen kräver behörigheter som endast administratörer kan godkänna, eller om appen kräver företagslicensiering**: Avgränsa administratörsanskaffningen från användarinloggningen. Knappen för att **hämta den här appen** omdirigerar administratörer för att logga in och ber dem sedan att ge samtycke åt användare i organisationen. Det här har den ytterligare fördelen att prompter om slutanvändargodkännande undertrycks.
+**Om appen kräver behörigheter som endast administratörer kan godkänna, eller om programmet kräver organisationslicensiering**: Separera administratörshämtning från användarinloggning. Knappen för att **hämta den här appen** omdirigerar administratörer för att logga in och ber dem sedan att ge samtycke åt användare i organisationen. Det här har den ytterligare fördelen att prompter om slutanvändargodkännande undertrycks.
 
 ## <a name="visual-guidance-for-app-acquisition"></a>Skaffa app – visuell vägledning
 
@@ -74,7 +75,7 @@ När administratörerna har godkänt din app kan de välja att lägga till den i
 
 Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Exempel:
 
-> *Om du redan använder Office 365 eller någon annan företagstjänst från Microsoft kan du bevilja < your_app_name > åtkomst till data i organisationen. Det innebär att användarna kan använda < your_app_name > med sina befintliga arbetskonton.*
+> *Om du redan använder Office 365 eller andra företags tjänster från Microsoft kan du bevilja < your_app_name > åtkomst till din organisations data. Detta gör att användarna kan komma åt < your_app_name > med sina befintliga arbets konton.*
 
 Du kan ladda ned den officiella Microsoft-logotypen och använda den i din app. Högerklicka på den du vill använda och spara den på datorn.
 

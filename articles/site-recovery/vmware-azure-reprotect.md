@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: 2f6f865f019b8b2a403865db4e59a7e86f59e509
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331060"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791804"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Återaktivera skydd och återställning av datorer till en lokal plats efter redundansväxling till Azure
 
@@ -34,6 +34,7 @@ Om du använde en mall för att skapa dina virtuella datorer måste du kontrol l
 - Om en vCenter-Server hanterar de virtuella datorer som du kommer att återställa till, kontrol lera att du har de [behörigheter som krävs](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) för identifiering av virtuella datorer på vCenter-servrar.
 - Ta bort ögonblicks bilder på huvud mål servern innan du återaktiverar. Om ögonblicks bilder finns på det lokala huvud målet eller på den virtuella datorn Miss lyckas skyddet. Ögonblicks bilderna på den virtuella datorn slås samman automatiskt under ett återskydds jobb.
 - Alla virtuella datorer i en replikeringsgrupp måste vara av samma operativ system typ (antingen alla Windows eller alla Linux). En replikeringsgrupp med blandade operativ system stöds för närvarande inte för skydd och återställning efter fel till lokalt. Detta beror på att huvud målet måste vara av samma operativ system som den virtuella datorn. Alla virtuella datorer i en replikeringsgrupp måste ha samma huvud mål. 
+- Huvud målet måste ha samma eller högre OS-version än operativ system versionerna för de replikerade objekten.
 - En konfigurations server krävs lokalt när du växlar tillbaka. Under återställning efter fel måste den virtuella datorn finnas i konfigurations serverns databas. Annars Miss lyckas failback. Se till att du gör regelbundna schemalagda säkerhets kopieringar av konfigurations servern. Om det är en katastrof återställer du servern med samma IP-adress så att återställning efter fel fungerar. 
 - Skydd och återställning efter fel kräver en plats-till-plats (S2S) VPN-eller ExpressRoute-peering för att replikera data. Ange nätverket så att de misslyckade virtuella datorerna i Azure kan komma åt (pinga) den lokala konfigurations servern. Du måste distribuera en processerver i Azure-nätverket för de misslyckade eller virtuella datorerna. Den här processervern måste också kunna kommunicera med den lokala konfigurations servern och huvud mål servern.
 - Om IP-adresserna för replikerade objekt behålls vid redundansväxling, bör S2S-eller ExpressRoute-anslutningen upprättas mellan virtuella Azure-datorer och konfigurations serverns failback-nätverkskort. Observera att IP-postkvarhållning kräver att konfigurations servern har två nätverkskort som är anslutna till käll datorer och ett för Azure-återställning av fel. Detta är för att undvika överlappande av adress intervallen för under nätet och redundansväxla virtuella datorer.
@@ -80,7 +81,7 @@ När du har skapat en huvud mål server utför du följande aktiviteter:
     - Standard lagrings volymen för Linux är/mnt/retention.
 - Du måste lägga till en ny enhet om du använder en befintlig processerver/konfigurations Server dator eller en skalnings-eller processervern/huvud mål Server dator. Den nya enheten måste uppfylla föregående krav. Om lagrings enheten inte finns visas den inte i list rutan för val i portalen. När du har lagt till en enhet i det lokala huvud målet tar det upp till 15 minuter innan enheten visas i valet på portalen. Du kan också uppdatera konfigurations servern om enheten inte visas efter 15 minuter.
 - Installera VMware-verktyg eller öppna-VM-verktyg på huvud mål servern. Utan verktygen går det inte att identifiera data lagringen på huvud mål serverns ESXi-värd.
-- Ange inställningen `disk.EnableUUID=true` i konfigurations parametrarna för den virtuella huvud mål datorn i VMware. Om den här raden inte finns lägger du till den. Den här inställningen krävs för att tillhandahålla ett konsekvent UUID till VMDK så att den monteras på rätt sätt.
+- Ange `disk.EnableUUID=true` inställningen i konfigurations parametrarna för den virtuella huvud mål datorn i VMware. Om den här raden inte finns lägger du till den. Den här inställningen krävs för att tillhandahålla ett konsekvent UUID till VMDK så att den monteras på rätt sätt.
 - Den ESX-värd som huvud målet skapas på måste ha minst ett VMFS-datalager som är kopplat till det. Om inga VMFS-datalager är anslutna är data lagret på sidan **restore** tomt och du kan inte fortsätta.
 - Huvud mål servern kan inte ha ögonblicks bilder på diskarna. Om det finns ögonblicks bilder går det inte att återställa och återställa efter fel.
 - Huvud målet kan inte ha en paravirtuell SCSI-styrenhet. Kontrollanten kan bara vara en LSI Logic-styrenhet. Utan en LSI Logic-kontroll, Miss lyckas återskydd.

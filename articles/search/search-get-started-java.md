@@ -1,22 +1,22 @@
 ---
-title: 'Snabb start: skapa ett Sök index i Java med REST API: er – Azure Search'
-description: 'Förklarar hur du skapar ett index, läser in data och kör frågor med Java och Azure Search REST-API: er.'
+title: 'Snabb start: skapa ett Sök index i Java med hjälp av REST API: er'
+titleSuffix: Azure Cognitive Search
+description: 'Förklarar hur du skapar ett index, läser in data och kör frågor med Java och Azure Kognitiv sökning REST-API: er.'
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
-ms.service: search
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 3f424f03f72e288994b05c4559bd42e6429760a8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 11/04/2019
+ms.openlocfilehash: 9f30c30276db6daa0b4afdf3e6bdd8e617dedc52
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166249"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792802"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-java-using-rest-apis"></a>Snabb start: skapa ett Azure Search-index i Java med hjälp av REST API: er
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Java med hjälp av REST API: er
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,7 +26,7 @@ ms.locfileid: "72166249"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Skapa ett Java-konsolprogram som skapar, läser in och skickar frågor till ett Azure Search-index med [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)och [Azure Search tjänsten REST API](/rest/api/searchservice/). Den här artikeln innehåller stegvisa instruktioner för att skapa programmet. Du kan också [Hämta och köra hela programmet](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Skapa ett Java-konsolprogram som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)och [Azure kognitiv sökning REST API](/rest/api/searchservice/). Den här artikeln innehåller stegvisa instruktioner för att skapa programmet. Du kan också [Hämta och köra hela programmet](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -38,13 +38,13 @@ Vi använde följande program och tjänster för att bygga och testa det här ex
 
 + [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
 
-+ [Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
++ [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
 
 <a name="get-service-info"></a>
 
 ## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
 
-Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
+Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje begäran. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
@@ -68,7 +68,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
     ![Skapa ett Maven-projekt](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
 
-1. Ange @no__t- **2 för** **ArtifactId**.
+1. Ange **`AzureSearchQuickstart`** för **ArtifactId**.
 1. Godkänn de återstående standardvärdena för att öppna projektet.
 
 ### <a name="specify-maven-dependencies"></a>Ange maven-beroenden
@@ -133,9 +133,9 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 ### <a name="set-up-the-project-structure"></a>Konfigurera projekt strukturen
 
 1. Välj **fil** > **projekt struktur**.
-1. Välj **moduler**och expandera käll trädet för att få åtkomst till innehållet i mappen `src` @ no__t-2 @ no__t-3.
-1. I mappen `src` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 lägger du till `app`-och `service`-mappar. Det gör du genom att markera mappen `java`, trycka på ALT + INSERT och ange sedan mappnamnet.
-1. I mappen `src` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 lägger du till `app`-och `service`-mappar.
+1. Välj **moduler**och expandera käll trädet för att få åtkomst till innehållet i mappen `src` >  `main`.
+1. Lägg till`java` och `app` mappar i mappen `src` >  `main` > `service`. Det gör du genom att markera mappen `java`, trycka på ALT + INSERT och ange sedan mappnamnet.
+1. Lägg till`resources` och `app` mappar i mappen `src` >  `main` >`service`.
 
     När du är klar bör projekt trädet se ut som på följande bild.
 
@@ -143,9 +143,9 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 1. Stäng fönstret genom att klicka på **OK** .
 
-### <a name="add-azure-search-service-information"></a>Lägg till Azure Search tjänst information
+### <a name="add-azure-cognitive-search-service-information"></a>Lägg till information om Azure Kognitiv sökning-tjänsten
 
-1. I fönstret **projekt** expanderar du käll trädet för att komma åt `src` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 Folder och lägger till en @no__t 8-fil. Det gör du genom att markera mappen `app`, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
+1. I fönstret **projekt** expanderar du käll trädet för att komma åt `src` >  `main` >`resources` > `app` mapp och lägga till en `config.properties` fil. Det gör du genom att markera mappen `app`, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
 
 1. Kopiera följande inställningar till den nya filen och ersätt `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>` och `<YOUR-QUERY-KEY>` med ditt tjänst namn och nycklar. Om tjänstens slut punkt är `https://mydemo.search.windows.net` blir tjänst namnet "demonstration".
 
@@ -159,7 +159,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 ### <a name="add-the-main-method"></a>Lägg till main-metoden
 
-1. I mappen `src` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 lägger du till en `App`-klass. Det gör du genom att välja mappen `app`, tryck på ALT + INSERT, Välj **Java-klass**och sedan ange klass namnet.
+1. I `src` >  `main` > `java` > `app` mapp lägger du till en `App`-klass. Det gör du genom att välja mappen `app`, tryck på ALT + INSERT, Välj **Java-klass**och sedan ange klass namnet.
 1. Öppna klassen `App` och ersätt innehållet med följande kod. Den här koden innehåller metoden `main`. 
 
     Den avkommenterade koden läser Sök tjänst parametrarna och använder dem för att skapa en instans av Sök tjänst klienten. Sök tjänstens klient kod kommer att läggas till i nästa avsnitt.
@@ -258,8 +258,8 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 ### <a name="add-the-http-operations"></a>Lägg till HTTP-åtgärder
 
-1. I mappen `src` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 lägger du till en @ no__t-7-klass. Det gör du genom att välja mappen `service`, tryck på ALT + INSERT, Välj **Java-klass**och sedan ange klass namnet.
-1. Öppna klassen `SearchServiceClient` och ersätt innehållet med följande kod. Den här koden innehåller de HTTP-åtgärder som krävs för att använda Azure Search REST API. Ytterligare metoder för att skapa ett index, överföring av dokument och frågor om indexet läggs till i ett senare avsnitt.
+1. I `src` >  `main` > `java` > `service` mapp lägger du till en`SearchServiceClient`-klass. Det gör du genom att välja mappen `service`, tryck på ALT + INSERT, Välj **Java-klass**och sedan ange klass namnet.
+1. Öppna klassen `SearchServiceClient` och ersätt innehållet med följande kod. Den här koden innehåller de HTTP-åtgärder som krävs för att använda Azure Kognitiv sökning-REST API. Ytterligare metoder för att skapa ett index, överföring av dokument och frågor om indexet läggs till i ett senare avsnitt.
 
     ```java
     package main.java.service;
@@ -374,7 +374,8 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
     ![Projekt katalog struktur](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
-1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java` @ no__t-2 @ No__t-3Execute maven mål: verifiera exec: Java @ no__t-4
+1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java`
+![kör maven mål: verifiera exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
 
 När bearbetningen är klar söker du efter ett meddelande om att BYGGet lyckades följt av noll (0) avslutnings kod.
 
@@ -382,7 +383,7 @@ När bearbetningen är klar söker du efter ett meddelande om att BYGGet lyckade
 
 Index definitionen för hotell innehåller enkla fält och ett komplext fält. Exempel på ett enkelt fält är "HotelName" eller "Description". Fältet "adress" är ett komplext fält eftersom det innehåller under fält, till exempel "gatuadress" och "stad". I den här snabb starten anges index definitionen med JSON.
 
-1. I fönstret **projekt** expanderar du käll trädet för att komma åt `src` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 Folder och lägger till en @no__t 8-fil. Det gör du genom att markera mappen `app`, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
+1. I fönstret **projekt** expanderar du käll trädet för att komma åt `src` >  `main` >`resources` > `service` mapp och lägga till en `index.json` fil. Det gör du genom att markera mappen `app`, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
 
 1. Öppna filen `index.json` och infoga följande index definition.
 
@@ -511,9 +512,9 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
 
     Index namnet blir "Hotels-snabb start". Attributen för index fälten avgör hur indexerade data kan genomsökas i ett program. Till exempel måste attributet `IsSearchable` tilldelas till alla fält som ska ingå i en full texts ökning. Mer information om attribut finns i [fält samling och fältattribut](search-what-is-an-index.md#fields-collection).
     
-    I fältet `Description` i det här indexet används den valfria egenskapen `analyzer` för att åsidosätta standard språk analys för Lucene. I fältet `Description_fr` används den franska Lucene-analysen `fr.lucene` eftersom den innehåller fransk text. @No__t-0 använder de valfria Microsoft Language Analyzer-en. Lucene. Mer information om analys verktyg finns [i analys verktyg för text bearbetning i Azure Search](search-analyzers.md).
+    I fältet `Description` i det här indexet används den valfria egenskapen `analyzer` för att åsidosätta standard språk analys för Lucene. I fältet `Description_fr` används den franska Lucene Analyzer-`fr.lucene` eftersom den innehåller fransk text. `Description` använder den valfria Microsoft Language Analyzer en. Lucene. Mer information om analys verktyg finns i [analys verktyg för text bearbetning i Azure kognitiv sökning](search-analyzers.md).
 
-1. Lägg till följande kod i klassen `SearchServiceClient`. Dessa metoder skapar Azure Search REST service-URL: er som skapar och tar bort ett index, och som avgör om det finns ett index. Metoderna gör också HTTP-begäran.
+1. Lägg till följande kod i klassen `SearchServiceClient`. Dessa metoder skapar URL: er för Azure Kognitiv sökning REST-tjänster som skapar och tar bort ett index och som avgör om det finns ett index. Metoderna gör också HTTP-begäran.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -569,7 +570,7 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
     
 ## <a name="2---load-documents"></a>2 Läs in dokument
 
-1. I fönstret **projekt** expanderar du käll trädet för att komma åt `src` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 Folder och lägger till en @no__t 8-fil. Det gör du genom att markera mappen `app`, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
+1. I fönstret **projekt** expanderar du käll trädet för att komma åt `src` >  `main` >`resources` > `service` mapp och lägga till en `hotels.json` fil. Det gör du genom att markera mappen `app`, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
 1. Infoga följande hotell dokument i filen.
 
     ```json
@@ -693,9 +694,9 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
 
 Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få åtkomst till hotell data.
 
-1. Lägg till följande kod i klassen `SearchServiceClient`. Den här koden skapar Azure Search REST service-URL: er för att söka i indexerade data och skriva ut Sök resultaten.
+1. Lägg till följande kod i klassen `SearchServiceClient`. Den här koden skapar URL: er för Azure Kognitiv sökning REST-tjänst för att söka i indexerade data och skriva ut Sök resultaten.
 
-    Med metoden `SearchOptions` och `createSearchOptions` kan du ange en delmängd av de tillgängliga Azure Search REST API frågealternativen. Mer information om alternativ för REST API-frågor finns i [Sök efter dokument (Azure Search tjänst REST API)](/rest/api/searchservice/search-documents).
+    Med `SearchOptions`-klassen och `createSearchOptions`-metoden kan du ange en delmängd av de tillgängliga Azure Kognitiv sökning REST API frågealternativen. Mer information om alternativ för REST API-frågor finns i [Sök dokument (Azure Kognitiv sökning REST API)](/rest/api/searchservice/search-documents).
 
     Metoden `SearchPlus` skapar Sök frågans URL, gör sökningen och skriver sedan ut resultatet i-konsolen. 
 

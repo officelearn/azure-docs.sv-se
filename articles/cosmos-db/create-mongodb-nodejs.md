@@ -1,20 +1,20 @@
 ---
 title: 'Snabb start: Anslut en Node. js MongoDB-app till Azure Cosmos DB'
 description: Den här snabbstarten visar hur du ansluter en befintlig MongoDB-app som skrivits i Node.js till Azure Cosmos DB.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: b9cadbf35680953058bd38d7db26a6e6c684836b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: c2a689f7c3ac1308e12d0e371a9ad7f7187417d6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327296"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792181"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Snabb start: Migrera en befintlig MongoDB Node. js-webbapp till Azure Cosmos DB 
 
@@ -55,7 +55,7 @@ Kör följande kommandon för att klona exempellagringsplatsen. Den här exempel
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Öppna ett git-terminalfönster, t.ex. git bash, och använd kommandot `cd` för att ändra till den nya mappen där du vill installera exempelappen.
@@ -179,10 +179,10 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>Hämta nyckeln
 
-För att kunna ansluta till en Cosmos-databas behöver du databasnyckeln. Använd kommandot [az documentdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) för att hämta den primära nyckeln.
+För att kunna ansluta till en Cosmos-databas behöver du databasnyckeln. Använd kommandot [AZ cosmosdb Key List](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) för att hämta den primära nyckeln.
 
 ```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
 ```
 
 Azure CLI matar ut information som liknar följande exempel. 

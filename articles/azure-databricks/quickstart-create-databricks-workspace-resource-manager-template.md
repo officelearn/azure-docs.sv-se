@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 5f22c9e7b7f040a0e6b957cbc184720918ce9222
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: c55de6b437755f46df8d95a8ee461c0671a52cff
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274155"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791533"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Kör ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
 
@@ -31,7 +31,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
-> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
+> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
@@ -43,7 +43,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure Resource 
 
 2. Skapa Azure Databricks-arbetsytan genom att ange nödvändiga värden
 
-   ![Skapa Azure Databricks-arbetsytan med en Azure Resource Manager-mall](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Skapa Azure Databricks-arbetsytan med en Azure Resource Manager-mall")
+   ![Skapa Azure Databricks arbets yta med en Azure Resource Manager-mall](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Skapa Azure Databricks arbets yta med en Azure Resource Manager-mall")
 
    Ange följande värden:
 
@@ -59,7 +59,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure Resource 
 
 4. Det tar några minuter att skapa arbetsytan. När arbetsytan skapas i portalen visas panelen för att **skicka distribution för Azure Databricks** på höger sida. Du kan behöva rulla åt höger på instrumentpanelen för att se panelen. En förloppsindikator visas även längst upp på skärmen. Båda dessa områden visar förloppet.
 
-   ![Distributionspanel för Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Distributionspanel för Databricks")
+   ![Databricks distributions panel](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Databricks distributions panel")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 
@@ -95,11 +95,11 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
 1. Klicka på **Arbetsyta** i det vänstra fönstret. Från listrutan **Arbetsyta** klickar du på **Skapa** och sedan på **Anteckningsbok**.
 
-   ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
+   ![Skapa antecknings bok i Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
 
 2. I dialogrutan **Skapa anteckningsbok** anger du ett namn, väljer **Scala** som språk och väljer det Spark-kluster som du skapade tidigare.
 
-   ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
+   ![Skapa antecknings bok i Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Skapa antecknings bok i Databricks")
 
    Klicka på **Skapa**.
 
@@ -153,13 +153,13 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
 6. Du ser en tabellvy som i följande skärmbild (endast vissa kolumner visas):
 
-   ![Exempel-JSON-data](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "Exempel-JSON-data")
+   ![Exempel på JSON-data](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "Exempel på JSON-data")
 
    Bland annat fångar exempeldata in könet på en radiokanals målgrupp (kolumnnamn, **kön**) och om deras prenumeration är kostnadsfri eller om den betalas (kolumnnamn, **nivå**).
 
 7. Nu skapar du en visuell representation av dessa data för att visa hur många användare av varje kön som har kostnadsfria konton och hur många som är betalande prenumeranter. Längst ned i tabellvyn klickar du på ikonen **Stapeldiagram** och sedan på **Ritalternativ**.
 
-   ![Skapa stapeldiagram](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "Skapa stapeldiagram")
+   ![Skapa liggande stapeldiagram](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "Skapa liggande stapeldiagram")
 
 8. I **Anpassa ritning** drar och släpper du värden enligt skärmbilden.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Lär dig mer om kognitiv search AI-anrikning i Azure Portal-Azure Search'
+title: 'Snabb start: Lär dig kognitiv search AI-anrikning i Azure Portal-Azure Search'
 description: Data extrahering, naturliga språk och bild bearbetnings kunskaper i en Azure Search indexerings Portal med hjälp av Azure Portal-och exempel data.
 manager: nitinme
 author: HeidiSteen
@@ -8,14 +8,14 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: 11c58a891a730c57aae3500911741623dde5d51b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: e542d4685829886084bbc8adf6831647b9a1256a
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265890"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809671"
 ---
-# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Snabbstart: Skapa en pipeline för AI-anrikning med kognitiva kunskaper i Azure Search
+# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Snabb start: skapa en AI-pipeline med kognitiva kunskaper i Azure Search
 
 Azure Search integreras med [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), lägga till extrahering av innehåll, NLP (Natural Language Processing) och bild bearbetnings kunskaper till en Azure Search indexerings pipeline, vilket gör att det inte går att söka efter eller ostrukturerat innehåll mer sökbar. 
 
@@ -38,7 +38,7 @@ Den här snabb starten körs på den kostnads fria tjänsten, men antalet kostna
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
 
@@ -72,7 +72,7 @@ Fortsätt till nästa sida.
 
   ![Knappen Nästa sida för kognitiv sökning](media/cognitive-search-quickstart-blob/next-button-add-cog-search.png)
 
-### <a name="step-2-add-cognitive-skills"></a>Steg 2: Lägg till kognitiva färdigheter
+### <a name="step-2-add-cognitive-skills"></a>Steg 2: Lägga till kognitiva kunskaper
 
 Nu ska du lägga till berikningssteg till indexeringspipelinen. Om du inte har en resurs för Cognitive Services kan du registrera dig för en kostnadsfri version som ger dig 20 transaktioner per dag. Exempeldata består av 14 filer, så din dagliga allokering kommer främst att användas när du kör den här guiden.
 
@@ -145,7 +145,7 @@ När ett index har skapats kan du skicka frågor för att returnera dokument fr�
 
 1. Välj **Ändra index** längst upp och välj det index som du skapade.
 
-1. Ange en söksträng för att fråga indexet, till exempel `search=Microsoft&searchFields=organizations`.
+1. Ange en söksträng för att fråga indexet, till exempel `search=Microsoft&searchFields=Organizations`.
 
 Resultatet returneras i JSON, som kan vara relativt utförligt och svårläst, särskilt i stora dokument som kommer från Azure-blobar. Om det är svårt att överblicka resultatet använder du CTRL-F för att söka i dokument. För den här frågan kan du söka i JSON för specifika villkor. 
 

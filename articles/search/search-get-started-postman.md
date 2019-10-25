@@ -1,22 +1,22 @@
 ---
-title: 'Snabb start: skapa ett Sök index i Postman med hjälp av REST API: er – Azure Search'
-description: 'Lär dig hur du anropar Azure Search REST-API: er med Postman och exempel data och definitioner.'
+title: 'Snabb start: skapa ett Sök index i Postman med hjälp av REST API: er'
+titleSuffix: Azure Cognitive Search
+description: 'Lär dig hur du anropar Azure Kognitiv sökning REST-API: er med Postman och exempel data och definitioner.'
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: ffa20599ae57908f9b0ea848ab68f41a3d0e2a14
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.devlang: rest-api
+ms.date: 11/04/2019
+ms.openlocfilehash: 00d1122a8b56237eeb20892ad05cdbbcbe247510
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72176043"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792289"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Snabb start: skapa ett Azure Search-index i Postman med hjälp av REST API: er
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Postman med hjälp av REST API: er
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
@@ -25,7 +25,7 @@ ms.locfileid: "72176043"
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Ett av de enklaste sätten att utforska [Azure Search REST-API: er](https://docs.microsoft.com/rest/api/searchservice) är att använda Postman eller något annat webbtest-verktyg för att formulera HTTP-begäranden och inspektera svaren. Med hjälp av rätt verktyg och de här instruktionerna kan du skicka begäranden och visa svar innan du skriver någon kod.
+Ett av de enklaste sätten att utforska [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice) är att använda Postman eller något annat webbtest-verktyg för att formulera HTTP-förfrågningar och inspektera svaren. Med hjälp av rätt verktyg och de här instruktionerna kan du skicka begäranden och visa svar innan du skriver någon kod.
 
 Den här artikeln förklarar hur du formulerar förfrågningar interaktivt. Du kan också [Hämta och importera en Postman-samling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) för att använda fördefinierade begär Anden.
 
@@ -35,13 +35,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Följande tjänster och verktyg krävs för den här snabb starten. 
 
-+ [Postman Desktop-appen](https://www.getpostman.com/) används för att skicka begär anden till Azure Search.
++ [Postman Desktop-appen](https://www.getpostman.com/) används för att skicka begär anden till Azure kognitiv sökning.
 
-+ [Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
++ [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
 ## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
 
-För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
+För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
@@ -51,9 +51,9 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-## <a name="connect-to-azure-search"></a>Anslut till Azure Search
+## <a name="connect-to-azure-cognitive-search"></a>Ansluta till Azure Kognitiv sökning
 
-I det här avsnittet använder du önskat webb verktyg för att konfigurera anslutningar till Azure Search. Varje verktyg behåller information om begär ande huvud för sessionen, vilket innebär att du bara behöver ange API-nyckel och innehålls typ en gång.
+I det här avsnittet använder du önskat webb verktyg för att konfigurera anslutningar till Azure Kognitiv sökning. Varje verktyg behåller information om begär ande huvud för sessionen, vilket innebär att du bara behöver ange API-nyckel och innehålls typ en gång.
 
 För något av verktygen måste du välja ett kommando (GET, POST, placering och så vidare), ange en URL-slutpunkt och för vissa uppgifter tillhandahåller du JSON i bröd texten i begäran. Ersätt Sök tjänst namnet (din-SEARCH-SERVICE-NAME) med ett giltigt värde. Lägg till `$select=name` om du bara vill returnera namnet på varje index. 
 
@@ -61,18 +61,18 @@ För något av verktygen måste du välja ett kommando (GET, POST, placering och
 
 Lägg märke till HTTPS-prefixet, namnet på tjänsten, namnet på ett objekt (i det här fallet samlingen indexs) och [API-versionen](search-api-versions.md). API-versionen är en obligatorisk, gemen sträng som anges som `?api-version=2019-05-06` för den aktuella versionen. API-versioner uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
 
-Rubrik sammansättning för begäran innehåller två element, innehålls typ, plus den API-nyckel som används för att autentisera till Azure Search. Ersätt administrations-API-nyckeln (din-AZURE-SEARCH-ADMIN-API-nyckel) med ett giltigt värde. 
+Rubrik sammansättning för begäran innehåller två element, innehålls typ, plus den API-nyckel som används för att autentisera till Azure Kognitiv sökning. Ersätt administrations-API-nyckeln (din-AZURE-SEARCH-ADMIN-API-nyckel) med ett giltigt värde. 
 
     api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
     Content-Type: application/json
 
-I Postman formulerar du en begäran som ser ut som på följande skärm bild. Välj **Hämta** som verb, ange URL och klicka på **Skicka**. Det här kommandot ansluter till Azure Search, läser samlingen indexs och returnerar HTTP-statuskod 200 vid en lyckad anslutning. Om din tjänst redan har index, innehåller svaret även index definitioner.
+I Postman formulerar du en begäran som ser ut som på följande skärm bild. Välj **Hämta** som verb, ange URL och klicka på **Skicka**. Det här kommandot ansluter till Azure Kognitiv sökning, läser samlingen Indexes och returnerar HTTP-statuskod 200 på en lyckad anslutning. Om din tjänst redan har index, innehåller svaret även index definitioner.
 
 ![URL och rubrik för Postman-begäran](media/search-get-started-postman/postman-url.png "URL och rubrik för Postman-begäran")
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-I Azure Search skapar du vanligt vis indexet innan du läser in det med data. [Create index-REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för den här aktiviteten. 
+I Azure Kognitiv sökning skapar du vanligt vis indexet innan du läser in det med data. [Create index-REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för den här aktiviteten. 
 
 URL: en utökas till att inkludera index namnet `hotels`.
 
@@ -126,7 +126,7 @@ När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet h
 
 ## <a name="2---load-documents"></a>2 Läs in dokument
 
-Att skapa ett index och att fylla det, är två separata steg. I Azure Search innehåller indexet alla sökbara data som kan användas som JSON-dokument. REST API för att [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) används för den här uppgiften. 
+Att skapa ett index och att fylla det, är två separata steg. I Azure Kognitiv sökning innehåller indexet alla sökbara data som du kan ange som JSON-dokument. REST API för att [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) används för den här uppgiften. 
 
 URL: en utökas till att omfatta `docs`-samlingar och `index`-åtgärd.
 
@@ -301,4 +301,4 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 Nu när du vet hur du utför grundläggande uppgifter kan du gå vidare med ytterligare REST API samtal för mer avancerade funktioner, till exempel indexerare eller konfigurera [en kognitiv Sök pipeline](cognitive-search-tutorial-blob.md). I nästa steg rekommenderar vi följande länk:
 
 > [!div class="nextstepaction"]
-> [REST-självstudie: indexera och Sök i halv strukturerade data (JSON-blobbar) i Azure Search](search-semi-structured-data.md)
+> [REST-självstudie: indexera och Sök i halv strukturerade data (JSON-blobbar) i Azure Kognitiv sökning](search-semi-structured-data.md)

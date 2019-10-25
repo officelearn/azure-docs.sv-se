@@ -1,68 +1,68 @@
 ---
-title: Kognitiv Sök dokumentations resurser – Azure Search
-description: En kommenterad lista över artiklar, självstudier, exempel och blogg inlägg som rör kognitiva Sök arbets belastningar i Azure Search.
-services: search
+title: Dokumentations Länkar för AI-anrikning
+titleSuffix: Azure Cognitive Search
+description: En kommenterad lista över artiklar, självstudier, exempel och blogg inlägg som rör AI-arbetsbelastningar i Azure Kognitiv sökning.
 manager: nitinme
 author: HeidiSteen
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 7267f40a981b984ab945d956ff3552157267cd43
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265472"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792055"
 ---
-# <a name="documentation-resources-for-cognitive-search-workloads"></a>Dokumentations resurser för kognitiva Sök arbets belastningar
+# <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Dokumentations resurser för AI-anrikning i Azure Kognitiv sökning
 
-Kognitiv sökning, som nu är allmänt tillgängligt, är ett nytt berikande lager i Azure Search indexering som hittar latend information i icke-text källor och icke-differentierad text, omvandla den till text sökbar innehåll i Azure Search.
+AI-anrikning är en funktion i Azure Kognitiv sökning indexering som hittar latend information i icke-text källor och en icke-differentierad text, som omvandlar den till text sökbar innehåll i Azure Kognitiv sökning.
 
-I följande artiklar finns fullständig dokumentation för kognitiv sökning.
+Följande artiklar är den fullständiga dokumentationen för AI-berikning.
 
 ## <a name="getting-started"></a>Komma igång
-+ [Vad är kognitiv sökning?](cognitive-search-concept-intro.md)
-+ [Snabbstart: Prova kognitiv sökning i portalen](cognitive-search-quickstart-blob.md)
-+ [Självstudier: Lär dig de kognitiva Sök-API: erna](cognitive-search-tutorial-blob.md)
-+ [Exempel: Skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
++ [Introduktion till AI-anrikning i Azure Kognitiv sökning](cognitive-search-concept-intro.md)
++ [Snabb start: prova AI-anrikning i portalen](cognitive-search-quickstart-blob.md)
++ [Självstudie: omfattande indexering med AI](cognitive-search-tutorial-blob.md)
++ [Exempel: skapa en anpassad färdighet för AI-anrikning](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Instruktions vägledning
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Så här refererar du till anteckningar i en färdigheter](cognitive-search-concept-annotations-syntax.md)
 + [Så här mappar du fält till ett index](cognitive-search-output-field-mapping.md)
 + [Så här bearbetar och extraherar du information från bilder](cognitive-search-concept-image-scenarios.md)
-+ [Återskapa ett Azure Search-index](search-howto-reindex.md)
++ [Återskapa ett Azure Kognitiv sökning-index](search-howto-reindex.md)
 + [Definiera ett anpassat kunskaps gränssnitt](cognitive-search-custom-skill-interface.md)
 + [Felsökningstips](cognitive-search-concept-troubleshooting.md)
 
 ## <a name="reference"></a>Referens
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
   + [Microsoft. färdigheter. text. KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
-  + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
-  + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
-  + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
-  + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
+  + [Microsoft. färdigheter. text. LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
+  + [Microsoft. färdigheter. text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
+  + [Microsoft. färdigheter. text. MergeSkill](cognitive-search-skill-textmerger.md)
+  + [Microsoft. färdigheter. text. SplitSkill](cognitive-search-skill-textsplit.md)
+  + [Microsoft. färdigheter. text. SentimentSkill](cognitive-search-skill-sentiment.md)
   + [Microsoft. färdigheter. text. TranslationSkill](cognitive-search-skill-text-translation.md)
-  + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
-  + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
+  + [Microsoft. färdigheter. vision. ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
+  + [Microsoft. färdigheter. vision. OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft. färdigheter. util. ConditionalSkill](cognitive-search-skill-conditional.md)
-  + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
+  + [Microsoft. färdigheter. util. ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Anpassade färdigheter
-  + [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md)
+  + [Microsoft. färdigheter. Custom. WebApiSkill](cognitive-search-custom-skill-web-api.md)
 
 + [Föråldrade kunskaper](cognitive-search-skill-deprecated.md)
-  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  + [Microsoft. färdigheter. text. NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
-+ [REST-API](https://docs.microsoft.com/rest/api/searchservice/)
++ [REST API](https://docs.microsoft.com/rest/api/searchservice/)
   + [Skapa färdigheter (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [Skapa indexerare (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Se också
 
-+ [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)
-+ [Indexerare i Azure Search](search-indexer-overview.md)
-+ [Vad är Azure Search?](search-what-is-azure-search.md)
++ [Azure Kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/)
++ [Indexerare i Azure Kognitiv sökning](search-indexer-overview.md)
++ [Vad är Azure Kognitiv sökning?](search-what-is-azure-search.md)

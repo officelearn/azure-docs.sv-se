@@ -1,45 +1,46 @@
 ---
-title: 'Snabbstart: Skapa ett Sök index med Azure Portal-Azure Search'
-description: Använd guiden Importera data i Azure Portal för att skapa, läsa in och fråga ditt första index i Azure Search.
+title: Skapa ett Sök index i Azure Portal
+titleSuffix: Azure Cognitive Search
+description: Använd guiden Importera data för att skapa, läsa in och fråga ditt första Sök index i Azure Kognitiv sökning.
 author: lobrien
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 502177519c0e66baa7ae9c1de18a7b41bceb054a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936971"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791239"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Snabbstart: Skapa ett Azure Search-index med hjälp av Azure Portal
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]
-> * [Portal](search-get-started-portal.md)
+> * [Portalen](search-get-started-portal.md)
+> * [C#](search-get-started-dotnet.md)
+> * [Java](search-get-started-java.md)
+> * [Node.js](search-get-started-nodejs.md)
 > * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [C#](search-get-started-dotnet.md)
 
-Om du vill få en snabb start med Azure Search-koncept så kan du testa de inbyggda verktygen i Azure-portalen. Guider och redigerare ger inte fullständig paritet med .NET-och REST-API: er, men du kan komma igång snabbt med en kod fri introduktion och skriva intressanta frågor mot ett index på några minuter.
+Använd portalen för att snabbt öka rampen på begrepp och skriv intressanta frågor mot ett index på några minuter.
 
 > [!div class="checklist"]
 > * Börja med en kostnadsfri offentlig uppsättning exempeldata i Azure
-> * Kör guiden **Importera data** i Azure Search för att läsa in data och skapa ett index
+> * Kör guiden **Importera data** i Azure kognitiv sökning för att läsa in data och generera ett index
 > * Övervaka förloppet för indexeringen i portalen
 > * Visa ett befintligt index och alternativ för att ändra det
 > * Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**
 
-Om verktygen är för begränsade kan du överväga en [kod baserad introduktion till programmerings Azure Search i .net](search-howto-dotnet-sdk.md) eller använda [Postman för att göra REST API samtal](search-get-started-postman.md). Du kan också titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i den här [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+Om verktygen är för begränsade kan du överväga en [kod baserad introduktion till programmering av Azure kognitiv sökning i .net](search-howto-dotnet-sdk.md) eller använda [Postman för att göra REST API samtal](search-get-started-postman.md). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-[Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
+[Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
 ### <a name="check-for-space"></a>Kontrollera utrymmet
 
@@ -57,11 +58,11 @@ I den här självstudien använder vi en inbyggd exempel data uppsättning som k
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Steg 1 – starta guiden Importera data och skapa en datakälla
 
-1. Från instrumentpanelen för Azure Search-tjänsten klickar du på **Importera data** i kommandofältet för att skapa och fylla i sökindexet.
+1. På instrument panelen för Azure Kognitiv sökning-tjänsten klickar du på **Importera data** i kommando fältet för att skapa och fylla i ett sökindex.
 
    ![Kommandot Importera data](media/search-get-started-portal/import-data-cmd.png)
 
-2. I guiden klickar du på **Anslut till dina data** > **exempel** > **Hotels-Sample**. Den här datakällan är inbyggd. Om du skapar din egen datakälla så behöver du ange ett namn, typ och anslutningsinformation. När du har skapat den blir den en ”befintlig datakälla” som kan återanvändas i andra importåtgärder.
+2. I guiden klickar du på **Anslut till data** > **exempel** > **Hotels-Sample**. Den här datakällan är inbyggd. Om du skapar din egen datakälla så behöver du ange ett namn, typ och anslutningsinformation. När du har skapat den blir den en ”befintlig datakälla” som kan återanvändas i andra importåtgärder.
 
    ![Välj exempeldatauppsättning](media/search-get-started-portal/import-datasource-sample.png)
 
@@ -71,7 +72,7 @@ I den här självstudien använder vi en inbyggd exempel data uppsättning som k
 
 ### <a name="step-2---skip-cognitive-skills"></a>Steg 2 – Hoppa över Kognitiva kunskaper
 
-Guiden stöder skapandet av en [pipeline för kognitiva kunskaper](cognitive-search-concept-intro.md) för att införliva Cognitive Services AI-algoritmer i indexering. 
+Guiden stöder skapandet av en pipeline för [AI-anrikning](cognitive-search-concept-intro.md) för att införliva Cognitive Services AI-algoritmer i indexering. 
 
 Vi hoppar över det här steget för tillfället och går direkt till **Anpassa målindex**.
 
@@ -103,7 +104,7 @@ Som standard söker guiden igenom datakällan för att hitta unika identifierare
 
 2. Fortsätt till nästa sida.
 
-   ![Nästa sida skapa indexeraren](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Nästa sida – skapa indexerare](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Steg 4 – Konfigurera indexeraren
 
@@ -117,7 +118,7 @@ Klicka på **Skicka** för att skapa och köra indexeraren samtidigt.
 
 ## <a name="monitor-progress"></a>Övervaka förloppet
 
-Guiden ska ta dig till listan med indexerare där du kan övervaka förloppet. För självnavigering går du till översiktssidan och klickar på **Indexerare**.
+Guiden ska ta dig till listan med indexerare där du kan övervaka förloppet. För självnavigering går du till översikten över sidan och klickar på **indexerare**.
 
 Det kan ta några minuter för portalen att uppdatera sidan men du borde se den nyligen skapade indexeraren i listan med status Pågående eller Lyckades, tillsammans med antalet dokument som indexerats.
 
@@ -125,13 +126,13 @@ Det kan ta några minuter för portalen att uppdatera sidan men du borde se den 
 
 ## <a name="view-the-index"></a>Visa indexet
 
-Den överordnade tjänstsidan innehåller länkar till de resurser som skapats i Azure Search-tjänsten.  Om du vill visa det index som du precis skapat klickar du på **Index** i listan över länkar. 
+Huvud tjänst sidan innehåller länkar till de resurser som skapats i Azure Kognitiv sökning-tjänsten.  Om du vill visa det index som du precis skapat klickar du på **Index** i listan över länkar. 
 
    ![Indexlista på instrumentpanelen för tjänster](media/search-get-started-portal/indexes-list.png)
 
 I den här listan kan du klicka på det *hotell-exempel* index som du nyss skapade, Visa index schemat. Du kan också lägga till nya fält. 
 
-Fliken **Fält** visar indexschemat. Rulla till slutet av listan för att ange ett nytt fält. Oftast kan du inte ändra befintliga fält. Eftersom de befintliga fälten har en fysisk representation i Azure Search kan de inte ändras, inte ens i kod. Om du vill ändra ett befintligt fält från grunden så skapar du ett nytt index och tar bort det ursprungliga.
+Fliken **Fält** visar indexschemat. Rulla till slutet av listan för att ange ett nytt fält. Oftast kan du inte ändra befintliga fält. Befintliga fält har en fysisk representation i Azure Kognitiv sökning och kan därför inte ändras, inte ens i kod. Om du vill ändra ett befintligt fält från grunden så skapar du ett nytt index och tar bort det ursprungliga.
 
    ![exempel på indexdefinition](media/search-get-started-portal/sample-index-def.png)
 
@@ -146,7 +147,7 @@ Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av de
 **Sökutforskaren** kan endast hantera [REST-API-förfrågningar](https://docs.microsoft.com/rest/api/searchservice/search-documents), men stöder syntax för både [enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig Lucene-frågeparser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), samt alla tillgängliga sökparametrar i åtgärder med [REST-API:et för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
-> Följande steg demonstreras 6 minuter och 8 sekunder in i [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+> Följande steg visas på 6m08s i [Azure kognitiv sökning översikts video](https://channel9.msdn.com/Events/Connect/2016/138).
 >
 
 1. Klicka på **Sökutforskaren** i kommandofältet.
@@ -181,7 +182,7 @@ Du kan ange termer och fraser på ett liknande sätt som du gör i en Bing- elle
 
 * Parametern **$Count = True** returnerar det totala antalet returnerade dokument. Det här värdet visas längst upp i sökresultaten. Du kan verifiera filterfrågor genom att övervaka ändringar som rapporterats via **$count=true**. Mindre antal indikerar att filtret fungerar.
 
-* **$Top = 10** returnerar de högst rangordnade 10 dokumenten av totalt. Som standard returnerar Azure Search de första 50 bästa matchningarna. Du kan öka eller minska antalet via **$top**.
+* **$Top = 10** returnerar de högst rangordnade 10 dokumenten av totalt. Som standard returnerar Azure Kognitiv sökning de första 50 bästa matchningarna. Du kan öka eller minska antalet via **$top**.
 
 ### <a name="filter-query"></a> Filtrera frågan
 
@@ -200,17 +201,17 @@ Fasettfilter tas med i sökbegäranden. Du kan använda parametern facet för at
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exempel (fasetterat med områdesreducering): `search=*&facet=Category&$top=2`
 
 * **search=** * är en tom sökning. Tomma sökningar söker efter allt. En anledning till att skicka en tom fråga är att filtrera eller fasettera över hela uppsättningen dokument. Du vill till exempel att en aspekt navigerings struktur ska bestå av alla hotell i indexet.
-* **facet** returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorierna på ett fält som är bekvämt kallat *kategori*. Det finns ingen aggregering i Azure Search, men du kan uppskatta aggregering via `facet`, som ger en uppräkning av dokument i varje kategori.
+* **facet** returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorierna på ett fält som är bekvämt kallat *kategori*. Det finns ingen agg regering i Azure Kognitiv sökning, men du kan approximera agg regering via `facet`, vilket ger ett antal dokument i varje kategori.
 
 * **$top=2** hämtar tillbaka två dokument, som visar att du kan använda `top` för att både minska eller öka resultat.
 
-#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Exempel (aspekt på numeriska värden):`search=spa&facet=Rating`
+#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Exempel (aspekt på numeriska värden): `search=spa&facet=Rating`
 
 * Frågan är aspekt för klassificering, i en texts ökning för *Spa*. Termen *klassificering* kan anges som en aspekt eftersom fältet är markerat som hämtnings Bart, filter Bart och fasettable i indexet, och de värden som den innehåller (numeriska, 1 till 5) är lämpliga för kategorisering av listor i grupper.
 
 * Endast filtrerbara fält kan fasetteras. Endast hämtningsbara fält kan returneras i resultatet.
 
-* Fältet *gradering* är en flyttal med dubbel precision och grupperingen kommer att vara med exakt värde. Mer information om gruppering efter intervall (till exempel "3 stjärn klassificeringar," "4 stjärnor" osv.) finns i [så här implementerar du fasett-navigering i Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* Fältet *gradering* är en flyttal med dubbel precision och grupperingen kommer att vara med exakt värde. Mer information om gruppering efter intervall (till exempel "3 stjärn klassificeringar," "4 stjärnor" osv.) finns i [så här implementerar du fasett-navigering i Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a> Markera sökresultat
@@ -225,7 +226,7 @@ Träffmarkering innebär att formatera all text som matchar sökordet på ett s�
 
 * Full texts ökning känner igen grundläggande variationer i Word-formulär. I det här fallet innehåller Sök resultaten markerad text för "strand", för hotell som har ordet i sökbara fält, som svar på en nyckelords sökning på "stränder". Tack vare språkanalysen kan olika former av samma ord visas i resultaten. 
 
-* Azure Search har stöd för 56 analysverktyg från både Lucene och Microsoft. Som standard används analysverktyget från Lucene av Azure Search.
+* Azure Kognitiv sökning stöder 56-analyser från både Lucene och Microsoft. Som standard används av Azure Kognitiv sökning är standard Lucene Analyzer.
 
 ### <a name="fuzzy-search"></a> Prova fuzzy-sökning
 
@@ -241,9 +242,9 @@ Det här exemplet returnerar nu dokument som innehåller matchningar på "Seattl
 
 När **queryType** inte är angivet används den enklare standardfrågeparsern. Den enklare frågeparsern är snabbare, men om du behöver tillgång till fuzzy-sökning, reguljära uttryck, närhetssökning eller andra typer av avancerade frågetyper behöver du den fullständiga syntaxen.
 
-Fuzzy-sökning och sökning med jokertecken påverkar sökresultatet. Språkliga analyser utförs inte med dessa frågeformat. Innan du använder fuzzy-sökning och sökning med jokertecken rekommenderar vi att du läser [Så här fungerar fullständig textsökning i Azure Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) (How full text search works in Azure Search), och särskilt avsnittet om undantag för språklig analys.
+Fuzzy-sökning och sökning med jokertecken påverkar sökresultatet. Språkliga analyser utförs inte med dessa frågeformat. Innan du använder Fuzzy-och jokertecken kan du läsa [hur full texts ökning fungerar i Azure kognitiv sökning](search-lucene-query-architecture.md#stage-2-lexical-analysis) och leta efter avsnittet om undantag från lexikal analys.
 
-Mer information om frågescenarier i den fullständiga frågeparsern finns i [Lucene-frågesyntax i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Mer information om de scenarier som har Aktiver ATS med fullständig fråga i parsern finns [i Lucene-frågesyntax i Azure kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="geo-search"></a> Prova geospatial sökning
 
@@ -257,7 +258,7 @@ Geospatial sökning kan vara användbart om sökprogrammet har en funktion av ty
 
 ## <a name="takeaways"></a>Lärdomar
 
-Den här självstudien ger en snabb introduktion till Azure Search med Azure-portalen.
+I den här självstudien får du en snabb introduktion till Azure Kognitiv sökning med hjälp av Azure Portal.
 
 Du lärde dig hur du skapar ett sökindex med hjälp av guiden **Importera data**. Du lärde dig om [indexerare](search-indexer-overview.md), som är den drivande kraften bakom guiden, samt om det grundläggande arbetsflödet vid indexgenerering, inklusive vilka [ändringar du kan göra i ett publicerat index](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
@@ -275,8 +276,8 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan utforska mer av Azure Search med hjälp av programmässiga verktyg:
+Du kan utforska fler Azure-Kognitiv sökning med hjälp av programmerings verktygen:
 
 * [Skapa ett index med .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Skapa ett index med REST API:er](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Skapa ett index med Postman eller Fiddler och Azure Search REST API:er](search-get-started-postman.md)
+* [Skapa ett index med Postman eller Fiddler och Azure Kognitiv sökning REST-API: er](search-get-started-postman.md)

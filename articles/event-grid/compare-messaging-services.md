@@ -1,20 +1,20 @@
 ---
-title: Jämförelse av Azure-meddelandefunktion – Event Grid, Event Hubs, Service Bus
+title: Jämföra Azure-meddelandetjänster
 description: Beskriver de tre Azure-meddelandetjänsterna – Azure Event Grid, Event Hubs och Service Bus. Rekommenderar vilken tjänst som ska användas för olika scenarier.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/30/2019
+ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60826291"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790294"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Välj mellan Azure-meddelandetjänster – Event Grid, Event Hubs och Service Bus
 
@@ -44,10 +44,10 @@ Ett meddelande är rådata som genereras av en tjänst och som ska förbrukas el
 
 ## <a name="comparison-of-services"></a>Jämförelse av tjänster
 
-| Tjänst | Syfte | Typ | När du ska använda detta |
+| Tjänst | Syfte | Typ | Används till att |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Reaktiv programmering | Händelsedistribution (diskret) | Reagera på statusändringar |
-| Event Hubs | Pipeline för stordata | Händelseströmning (serie) | Telemetri och distribuerade strömmande data |
+| Händelsehubbar | Pipeline för stordata | Händelseströmning (serie) | Telemetri och distribuerade strömmande data |
 | Service Bus | Företagsmeddelanden med högt värde | Meddelande | Orderbearbetning och finansiella transaktioner |
 
 ### <a name="event-grid"></a>Event Grid
@@ -65,7 +65,7 @@ Den har följande egenskaper:
 * serverlöst
 * leverans minst en gång
 
-### <a name="event-hubs"></a>Event Hubs
+### <a name="event-hubs"></a>Händelsehubbar
 
 Azure Event Hubs är en pipeline för stordata. Det underlättar avbildning, kvarhållning och återuppspelning av telemetri och händelsedataströmmar. Datan kan komma från många samtidiga källor. Med Event Hubs kan telemetri och händelsedata göras tillgängliga för en mängd olika tjänster för bearbetning av dataströmmar, infrastrukturer och analyser. Det är tillgängligt som dataströmmar eller paketerade händelsegrupper. Tjänsten innehåller en enskild lösning för snabb datahämtning till realtidsbearbetning, samt upprepad återuppspelning av lagrade rådata. Den kan avbilda strömmande data till en fil för bearbetning och analys.
 

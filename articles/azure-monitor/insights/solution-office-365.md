@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 032d52961b4867cad94d06802adb0a1f3eb00f5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 84af0484ed9fb792bef6bbbe9c53395b569acb3c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553955"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793872"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
@@ -69,7 +69,10 @@ Från din Office 365-prenumeration:
 
 - Användar namn: e-postadressen för ett administratörs konto.
 - Klient-ID: unikt ID för Office 365-prenumeration.
-- Klient-ID: 16-tecken sträng som representerar Office 365-klienten.
+
+Följande information ska samlas in när du skapar och konfigurerar Office 365-program i Azure Active Directory:
+
+- Program-ID (klient): 16 tecken sträng som representerar Office 365-klienten.
 - Klient hemlighet: krypterad sträng som krävs för autentisering.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Skapa ett Office 365-program i Azure Active Directory
@@ -87,6 +90,9 @@ Det första steget är att skapa ett program i Azure Active Directory att hanter
 1. Klicka på **Registrera** och verifiera programinformationen.
 
     ![Registrerad app](media/solution-office-365/registered-app.png)
+
+1. Spara program-ID: t (klient) och resten av den information som samlats in tidigare.
+
 
 ### <a name="configure-application-for-office-365"></a>Konfigurera program för Office 365
 
@@ -117,7 +123,7 @@ Det första steget är att skapa ett program i Azure Active Directory att hanter
     ![Nycklar](media/solution-office-365/secret.png)
  
 1. Ange en **Beskrivning** och **varaktighet** för den nya nyckeln.
-1. Klicka på **Lägg till** och kopiera sedan **värdet** som genereras.
+1. Klicka på **Lägg till** och spara sedan **värdet** som genererades som klient hemlighet tillsammans med resten av den information som samlats in före.
 
     ![Nycklar](media/solution-office-365/keys.png)
 
@@ -188,7 +194,12 @@ Om du vill aktivera det administrativa kontot för första gången måste du ge 
     
     ![Administratörsmedgivande](media/solution-office-365/admin-consent.png)
 
+> [!NOTE]
+> Du kanske omdirigeras till en sida som inte finns. Betrakta den som lyckad.
+
 ### <a name="subscribe-to-log-analytics-workspace"></a>Prenumerera på Log Analytics arbets yta
+
+Det sista steget är att prenumerera på programmet till din Log Analytics-arbetsyta. Du kan också göra detta med ett PowerShell-skript.
 
 Det sista steget är att prenumerera på programmet till din Log Analytics-arbetsyta. Du kan också göra detta med ett PowerShell-skript.
 
@@ -236,18 +247,20 @@ Det sista steget är att prenumerera på programmet till din Log Analytics-arbet
                     $authority = "https://login.windows.net/$adTenant";
                     $ARMResource ="https://management.azure.com/";break} 
                     }
-    
+
     Function RESTAPI-Auth { 
-    
-    $global:SubscriptionID = $Subscription.SubscriptionId
+    $global:SubscriptionID = $Subscription.Subscription.Id
     # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource;
+    $resourceAppIdURIARM=$ARMResource
     # Authenticate and Acquire Token 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
+
     $authHeader
     }
     
@@ -271,7 +284,7 @@ Det sista steget är att prenumerera på programmet till din Log Analytics-arbet
     
     Function Connection-API
     {
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     
@@ -315,7 +328,7 @@ Det sista steget är att prenumerera på programmet till din Log Analytics-arbet
     Function Office-Subscribe-Call{
     try{
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
     
@@ -509,7 +522,7 @@ Det kan ta några timmar innan data samlas in från början. När den börjar sa
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
 När du lägger till Office 365-lösningen i din Log Analytics arbets yta läggs **office 365** -panelen till på instrument panelen. Den här panelen visar antal och en grafisk representation av antalet datorer i din miljö och deras uppdateringskompatibilitet.<br><br>
-Sammanfattnings panel för ![Office 365 ](media/solution-office-365/tile.png)  
+![sammanfattnings panel för Office 365](media/solution-office-365/tile.png)  
 
 Klicka på panelen **office 365** för att öppna **Office 365** -instrumentpanelen.
 

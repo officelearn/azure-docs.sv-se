@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 661e1b6e3811ff2b5ae25e4fd59764a69e9ebe48
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6d59964013a2631430ecd7e46d1ce0f6be60a05f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596658"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802039"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -30,10 +30,10 @@ CSP-partner använder Cost Management för att:
 - Aktivera den Azure Resource Manager principen som ger kunden åtkomst till Cost Management data. Kunderna kan sedan Visa förbruknings kostnads data för sina prenumerationer med [betala per användning-pris](https://azure.microsoft.com/pricing/calculator/).
 
 Här är ett exempel som visar kostnader för alla kunder.
-![Example visar kostnader för alla kunder ](./media/get-started-partners/customer-costs1.png)
+![exempel som visar kostnader för alla kunder](./media/get-started-partners/customer-costs1.png)
 
 Här är ett exempel som visar kostnader för en enskild kund.
-![Example visar kostnader för en enskild kund ](./media/get-started-partners/customer-costs2.png)
+![exempel som visar kostnader för en enskild kund](./media/get-started-partners/customer-costs2.png)
 
 Alla funktioner som är tillgängliga i Azure Cost Management finns också i REST-API: er. Använd API: erna för att automatisera kostnads hanterings uppgifter.
 
@@ -101,7 +101,7 @@ Kund omfånget omfattar inte kunder som använder det aktuella CSP-erbjudandet. 
 
 Endast användare med rollen **Global administratör** och **administratör** kan hantera och Visa kostnader för fakturerings konton, fakturerings profiler och kunder direkt i partnerns Azure-klient. Mer information om Partner Center-roller finns i [Tilldela användar roller och behörigheter](/partner-center/permissions-overview).
 
-### <a name="enable-cost-management-in-the-customer-tenant"></a>Aktivera kostnads hantering i kund klienten
+## <a name="enable-cost-management-in-the-customer-tenant"></a>Aktivera kostnads hantering i kund klienten
 
 Partner kan ge till gång till Cost Management när kunder har publicerats till ett Microsoft-kundavtal. Sedan kan partner sedan aktivera en princip som gör det möjligt för kunderna att visa sina kostnader som beräknas enligt åter betalnings takten enligt principen betala per användning. Kostnaderna visas i kundens fakturerings valuta för förbrukad användning i RBAC-prenumeration och resurs grupps omfång.
 
@@ -122,7 +122,7 @@ I listan över kunder väljer du den kund som du vill tillåta för att Visa kos
 Under **Inställningar**klickar du på **principer**.
 
 Den aktuella kostnads Synlighets principen visas för **Azure Usage** -avgifter som är kopplade till prenumerationerna för den valda kunden.
-![Policy så att kunderna kan se avgifterna betala per användning ](./media/get-started-partners/cost-management-billing-policies.png)
+![principen så att kunderna kan se avgifterna betala per användning](./media/get-started-partners/cost-management-billing-policies.png)
 
 När principen är inställd på **Nej**är Azure Cost Management inte tillgänglig för prenumerations användare som är kopplade till kunden. Om den inte aktive ras av en partner är principen för kostnads synlighet inaktive rad som standard för alla prenumerations användare.
 

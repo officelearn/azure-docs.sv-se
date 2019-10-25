@@ -1,5 +1,5 @@
 ---
-title: Lägga till en Azure Active Directory med hjälp av anslutna tjänster i Visual Studio
+title: Lägga till en Azure Active Directory med anslutna tjänster i Visual Studio | Azure
 description: Lägg till en Azure Active Directory med hjälp av dialog rutan Lägg till anslutna tjänster i Visual Studio
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c02821a41faa976f8f35984ecf48f425239e6fd
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 04c8b6bfeaabfa20b9b9b884584d40de7f09e9ac
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881189"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802473"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Lägga till en Azure Active Directory med hjälp av anslutna tjänster i Visual Studio
 
@@ -27,9 +27,9 @@ Den här artikeln och dess tilläggs artiklar innehåller information om hur du 
 
 Den Active Directory anslutna tjänsten har för närvarande inte stöd för ASP.NET Core program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Azure-konto: om du inte har ett Azure-konto kan du [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera dina förmåner för Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)-prenumeranter.
+- Azure-konto: om du inte har ett Azure-konto kan du [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera dina förmåner för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 - **Visual Studio 2015** eller senare. [Hämta Visual Studio nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Anslut till Azure Active Directory med hjälp av dialog rutan anslutna tjänster
@@ -46,7 +46,7 @@ Den Active Directory anslutna tjänsten har för närvarande inte stöd för ASP
 
     ![Introduktions sida](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Välj en domän från List rutan **domän** på sidan **enkel inloggning** . Listan innehåller alla domäner som är tillgängliga för de konton som visas i dialog rutan konto inställningar i Visual Studio (**fil > konto inställningar...** ). Alternativt kan du ange ett domän namn om du inte hittar det du söker, till exempel `mydomain.onmicrosoft.com`. Du kan välja alternativet för att skapa en Azure Active Directory app eller använda inställningarna från en befintlig Azure Active Directory-app. Välj **Nästa** när du är färdig.
+1. Välj en domän från List rutan **domän** på sidan **enkel inloggning** . Listan innehåller alla domäner som är tillgängliga för de konton som visas i dialog rutan konto inställningar i Visual Studio (**fil > konto inställningar...** ). Alternativt kan du ange ett domän namn om du inte hittar den som du söker, till exempel `mydomain.onmicrosoft.com`. Du kan välja alternativet för att skapa en Azure Active Directory app eller använda inställningarna från en befintlig Azure Active Directory-app. Välj **Nästa** när du är färdig.
 
     ![Enkel inloggnings sida](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

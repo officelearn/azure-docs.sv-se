@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a8823a9b354ca4ae9ecab0eeac265b486116bec
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241172"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808963"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -185,7 +185,7 @@ När du anger ett värde i ett uttryck är det viktigt att du använder rätt sy
 
 * Dubbla citat tecken är valfria om värdet är en sträng.
 * Sträng-och regex-åtgärder är inte Skift läges känsliga.
-* Om ett sträng värde innehåller dubbla citat tecken ska båda citat tecknen undantas med \`-tecken, till exempel User. Department-EQ \` "Sales @ no__t-2" är rätt syntax när "Sales" är värdet.
+* Om ett sträng värde innehåller dubbla citat tecken ska båda citat tecknen undantas med hjälp av \` tecken, till exempel User. Department-EQ \`"Sales\`" är rätt syntax när "Sales" är värdet.
 * Du kan också utföra null-kontroller, med null som ett värde, till exempel `user.department -eq null`.
 
 ### <a name="use-of-null-values"></a>Användning av null-värden
@@ -252,7 +252,7 @@ Egenskaper för flera värden är samlingar med objekt av samma typ. De kan anv�
 | Egenskaper | Värden | Användning |
 | --- | --- | --- |
 | assignedPlans | Varje objekt i samlingen visar följande sträng egenskaper: capabilityStatus, service, servicePlanId |User. assignedPlans – any (assignedPlan. servicePlanId-EQ "efb87545-963c-4e0d-99df-69c6916d9eb0"-och assignedPlan. capabilityStatus-EQ "Enabled") |
-| proxyAddresses| SMTP: alias@domain SMTP: alias@domain | (User. proxyAddresses – any (\_-innehåller "contoso")) |
+| proxyAddresses| SMTP: alias@domain SMTP: alias@domain | (User. proxyAddresses – any (\_-contains "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Använda operatorerna-any och-all
 
@@ -379,8 +379,10 @@ Följande enhets egenskaper kan användas.
  enrollmentProfileName | Registrerings profil för Apples enhet, enhets registrering-identifierare för företags enheter (Android-kiosk) eller Windows autopilot-profil namn | (Device. enrollmentProfileName-EQ "DEP iPhone")
  isRooted | Sant falskt | (Device. isRooted-EQ true)
  managementType | MDM (för mobila enheter)<br>PC (för datorer som hanteras av Intune PC-agenten) | (Device. managementType-EQ "MDM")
+ organizationalUnit | en giltig lokal organisationsenhet (OU) | (Device. organizationalUnit-innehåller "bärbar dator")
  deviceId | ett giltigt ID för Azure AD-enhet | (Device. deviceId-EQ "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | ett giltigt objekt-ID för Azure AD |  (Device. objectId-EQ 76ad43c9-32c5-45e8-A272-7b58b58f596d ")
+ devicePhysicalIds | ett sträng värde som används av autopilot, till exempel alla autopilot-enheter, Ordernr eller PurchaseOrderID  | (Device. devicePhysicalIDs-any _-contains "[ZTDId]") (Device. devicePhysicalIds-any _-EQ "[Ordernr]: 179887111881") (Device. devicePhysicalIds-any _-EQ "[PurchaseOrderId]: 76222342342")
  systemLabels | valfri sträng som matchar enhets egenskapen i Intune för att tagga moderna arbets plats enheter | (Device. systemLabels-innehåller "M365Managed")
 
 > [!Note]  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: e79d9be6b893184bd615fbc569893e53a2c72861
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555605"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802319"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -184,9 +184,9 @@ Användningen och hanteringen av varnings instanser kräver att användaren har 
 
 Du kanske vill fråga program mässigt efter aviseringar som har genererats mot din prenumeration. Detta kan vara att skapa anpassade vyer utanför Azure Portal eller analysera aviseringar för att identifiera mönster och trender.
 
-Du kan fråga efter aviseringar som har genererats med dina prenumerationer antingen med hjälp av [Aviseringshantering REST API](https://aka.ms/alert-management-api) eller genom att använda [Azure Resource Graph-REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+Du kan fråga efter aviseringar som har genererats med dina prenumerationer antingen med hjälp av [Aviseringshantering REST API](https://aka.ms/alert-management-api) eller med hjälp av [Azure Resource Graph-REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)).
 
-Med [Azures resurs diagram REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) kan du fråga efter aviserings instanser i stor skala. Detta rekommenderas när du måste hantera aviseringar som genererats över flera prenumerationer. 
+I [Azure Resource Graph REST API för aviseringar](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)) kan du fråga efter aviserings instanser i stor skala. Detta rekommenderas när du måste hantera aviseringar som genererats över flera prenumerationer. 
 
 Följande exempel förfrågan till API: et returnerar antalet aviseringar inom en prenumeration:
 

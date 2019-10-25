@@ -1,5 +1,6 @@
 ---
-title: Xamarin iOS-överväganden (Microsoft Authentication Library för .NET) | Azure
+title: Xamarin iOS-överväganden (Microsoft Authentication Library för .NET)
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Xamarin iOS med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,18 +18,18 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 054033c0fc9f1138ef9ecf7eaceca626f6f53423
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 64524960e584907b1e761a36f8ceb1461a7771c7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872840"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802607"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Xamarin iOS-/regionsspecifika överväganden med MSAL.NET
 På Xamarin iOS finns det flera saker som du måste tänka på när du använder MSAL.NET
 
 - [Kända problem med iOS 12 och autentisering](#known-issues-with-ios-12-and-authentication)
-- [Åsidosätt och implementera `OpenUrl` funktionen i`AppDelegate`](#implement-openurl)
+- [Åsidosätt och implementera funktionen `OpenUrl` i `AppDelegate`](#implement-openurl)
 - [Aktivera nyckel rings grupper](#enable-keychain-access)
 - [Aktivera delning av token cache](#enable-token-cache-sharing-across-ios-applications)
 - [Aktivera nyckel rings åtkomst](#enable-keychain-access)
@@ -42,7 +43,7 @@ Du kan också se en rast i ASP.NET Core OIDC-autentisering med iOS 12 Safari enl
 
 ## <a name="implement-openurl"></a>Implementera OpenUrl
 
-Först måste du åsidosätta `OpenUrl` metoden för den `FormsApplicationDelegate` härledda klassen och anropet `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`.
+Först måste du åsidosätta `OpenUrl`-metoden för den `FormsApplicationDelegate` härledda klassen och anrops `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`.
 
 ```CSharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
@@ -57,9 +58,9 @@ Du måste också definiera ett URL-schema, kräva behörigheter för din app fö
 ### <a name="enable-keychain-access"></a>Aktivera nyckel rings åtkomst
 
 Om du vill aktivera nyckel rings åtkomst måste ditt program ha en åtkomst grupp för nyckel ringar.
-Du kan ange din åtkomst grupp för nyckel ringar med `WithIosKeychainSecurityGroup()` hjälp av API: et när du skapar ditt program enligt nedan:
+Du kan ange din åtkomst grupp för nyckel ringar med hjälp av `WithIosKeychainSecurityGroup()`-API: et när du skapar programmet enligt nedan:
 
-Om du vill aktivera enkel inloggning måste du ange `PublicClientApplication.iOSKeychainSecurityGroup` egenskapen till samma värde i alla program.
+Om du vill aktivera enkel inloggning måste du ange egenskapen `PublicClientApplication.iOSKeychainSecurityGroup` till samma värde i alla program.
 
 Ett exempel på detta är att använda MSAL v3. x:
 ```csharp
@@ -71,7 +72,7 @@ var builder = PublicClientApplicationBuilder
 
 Rättigheterna. plist bör uppdateras för att se ut som följande XML-fragment:
 
-Den här ändringen är *förutom* att aktivera nyckel rings åtkomst `Entitlements.plist` i filen, antingen med hjälp av åtkomst gruppen nedan eller din egen:
+Den här ändringen är *förutom* att aktivera nyckel rings åtkomst i `Entitlements.plist`-filen, antingen med hjälp av åtkomst gruppen nedan eller din egen:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -92,7 +93,7 @@ Ett exempel på detta är att använda MSAL v4. x:
 PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 ```
 
-När du använder `WithIosKeychainSecurityGroup()` API: et lägger MSAL automatiskt till din säkerhets grupp i slutet av programmets "Team-ID" (AppIdentifierPrefix) eftersom när du skapar ditt program med hjälp av Xcode kommer det att göra samma sak. [Se dokumentation om iOS-berättigande för mer information](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). Det är därför du behöver uppdatera rättigheterna för att inkludera $ (AppIdentifierPrefix) innan nyckel rings åtkomst gruppen i rättigheten. plist.
+När du använder `WithIosKeychainSecurityGroup()`-API: t lägger MSAL automatiskt till din säkerhets grupp i slutet av programmets "Team-ID" (AppIdentifierPrefix) eftersom när du skapar ditt program med hjälp av Xcode kommer det att göra samma sak. [Se dokumentation om iOS-berättigande för mer information](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). Det är därför du behöver uppdatera rättigheterna för att inkludera $ (AppIdentifierPrefix) innan nyckel rings åtkomst gruppen i rättigheten. plist.
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Aktivera delning av token cache i iOS-program
 
@@ -102,15 +103,15 @@ Genom att dela token-cachen kan du använda enkel inloggning mellan alla program
 
 Om du vill aktivera denna cache-delning måste du ange Använd metoden ' WithIosKeychainSecurityGroup () ' för att ställa in nyckel rings åtkomst gruppen till samma värde i alla program som delar samma cacheminne som visas i exemplet ovan.
 
-Tidigare nämnde vi att MSAL lade till $ (AppIdentifierPrefix) när du använder `WithIosKeychainSecurityGroup()` API: et. Detta beror på att AppIdentifierPrefix eller "Team-ID" används för att säkerställa att endast program som görs av samma utgivare kan dela nyckel rings åtkomst.
+Tidigare nämnde vi att MSAL lade till $ (AppIdentifierPrefix) när du använder `WithIosKeychainSecurityGroup()`-API: et. Detta beror på att AppIdentifierPrefix eller "Team-ID" används för att säkerställa att endast program som görs av samma utgivare kan dela nyckel rings åtkomst.
 
 > [!NOTE]
-> **`KeychainSecurityGroup` Egenskapen är föråldrad.**
+> **Egenskapen `KeychainSecurityGroup` är föråldrad.**
 > 
-> Tidigare var utvecklare tvungen att ta med TeamId-prefixet när `KeychainSecurityGroup` egenskapen användes från MSAL 2. x.
+> Tidigare var utvecklare tvungen att ta med TeamId-prefixet med hjälp av egenskapen `KeychainSecurityGroup` från MSAL 2. x.
 >
->  Från MSAL 2.7. x, när den nya `iOSKeychainSecurityGroup` egenskapen används, kommer MSAL att matcha TeamId-prefixet under körning. När du använder den här egenskapen ska värdet inte innehålla TeamId-prefixet.
->  Använd den nya `iOSKeychainSecurityGroup` egenskapen, som inte kräver att du anger TeamId, eftersom föregående `KeychainSecurityGroup` egenskap nu är föråldrad.
+>  Från MSAL 2.7. x, när du använder den nya `iOSKeychainSecurityGroup`-egenskapen, kommer MSAL att matcha TeamId-prefixet under körning. När du använder den här egenskapen ska värdet inte innehålla TeamId-prefixet.
+>  Använd den nya `iOSKeychainSecurityGroup` egenskapen, som inte kräver att du anger TeamId, eftersom den föregående `KeychainSecurityGroup`-egenskapen nu är föråldrad.
 
 ### <a name="use-microsoft-authenticator"></a>Använd Microsoft Authenticator
 

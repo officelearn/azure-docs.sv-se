@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: fc8cc4834997033203376cd33670cc907e2911e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170301"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790825"
 ---
 # <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Allmän prestandafelsökning för Azure-virtuella datorer som kör Linux eller Windows
 
-I den här artikeln beskrivs den virtuella datorn (VM) allmän prestanda fel sökning genom övervakning och övervakning av flask halsar och ger möjlighet till reparation av problem som kan uppstå.
+I den här artikeln beskrivs den virtuella datorn (VM) allmän prestanda fel sökning genom övervakning och övervakning av flask halsar och ger möjlighet till reparation av problem som kan uppstå. Förutom övervakning kan du också använda Perfinsights som kan ge en rapport med bästa praxis rekommendationer och nyckel Flask halsar runt i/o/CPU/minne. Perfinsights är tillgängligt för virtuella [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) -datorer i Azure.
+
+Den här artikeln går igenom hur du använder övervakning för att diagnostisera Flask halsar i prestanda.
 
 ## <a name="enabling-monitoring"></a>Aktiverar övervakning
 
@@ -34,32 +36,55 @@ Om du vill övervaka den virtuella gäst datorn använder du övervakning av vir
  
 ### <a name="enable-vm-diagnostics-through-microsoft-azure-portal"></a>Aktivera diagnostik för virtuella datorer via Microsoft Azure Portal
 
-Om du vill aktivera VM-diagnostik går du till den virtuella datorn, klickar på **Inställningar**och klickar sedan på **diagnostik**.
+Så här aktiverar du VM-diagnostik:
 
-![Klicka på Inställningar och sedan diagnostik](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
- 
+1. Gå till den virtuella datorn
+2. Klicka på **Inställningar för diagnostik**
+3. Välj lagrings kontot och klicka på **Aktivera övervakning på gästnivå**.
+
+   ![Klicka på Inställningar och sedan diagnostik](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
+
+Du kan kontrol lera det lagrings konto som används för att konfigurera diagnostik på fliken **agent** under **diagnostikinställningar**.
+
+![Kontrol lera lagrings kontot](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
+
 ### <a name="enable-storage-account-diagnostics-through-azure-portal"></a>Aktivera diagnostik för lagrings konto via Azure Portal
 
-Börja med att identifiera vilket lagrings konto (eller konton) som den virtuella datorn använder genom att välja den virtuella datorn. Klicka på **Inställningar**och sedan på **diskar**:
+Storage är en mycket viktig nivå när vi planerar att analysera IO-prestanda för en virtuell dator i Azure. För Storage-relaterade mått måste vi aktivera diagnostik som ett ytterligare steg. Detta kan också vara aktiverat om vi bara vill analysera de räknare som är relaterade till lagring.
 
-![Klicka på Inställningar, sedan på diskar](media/troubleshoot-performance-virtual-machine-linux-windows/3-storage-disks-disks-selection.png)
+1. Identifiera vilket lagrings konto (eller konton) som den virtuella datorn använder genom att välja den virtuella datorn. Klicka på **Inställningar**och sedan på **diskar**:
 
-I portalen går du till lagrings kontot (eller kontona) för den virtuella datorn och arbetar med följande steg:
+   ![Klicka på Inställningar, sedan på diskar](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
-![Välj BLOB-mått](media/troubleshoot-performance-virtual-machine-linux-windows/4-select-blob-metrics.png)
- 
-1. Välj **alla inställningar**.
-2. Aktivera diagnostik.
-3. Välj  **BLOB* -mått** och ange kvarhållning till **30** dagar.
-4. Spara ändringarna.
+2. I portalen går du till lagrings kontot (eller kontona) för den virtuella datorn och arbetar med följande steg:
+
+   1. Klicka på Översikt för det lagrings konto som du hittade i steg ovan.
+   2. Standard mått visas. 
+
+    ![Standard mått](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+
+3. Klicka på någon av måtten som visar ett annat blad med fler alternativ för att konfigurera och lägga till mått.
+
+   ![Lägg till mått](media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png)
+
+Konfigurera följande alternativ:
+
+1.  Välj **Mått**.
+2.  Välj **resursen** (lagrings kontot).
+3.  Välj **namn området**
+4.  Välj **mått**.
+5.  Välj typ av **agg regering**
+6.  Du kan fästa den här vyn på instrument panelen.
 
 ## <a name="observing-bottlenecks"></a>Att iaktta Flask halsar
+
+När vi har slutfört den inledande installations processen för nödvändiga mått, och post aktiverar diagnostik för virtuell dator och relaterat lagrings konto, kan vi flytta till analys fasen.
 
 ### <a name="accessing-the-monitoring"></a>Åtkomst till övervakning
 
 Välj den virtuella Azure-dator som du vill undersöka och välj **övervakning**.
 
-![Välj övervakning](media/troubleshoot-performance-virtual-machine-linux-windows/5-observe-monitoring.png)
+![Välj övervakning](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
 ### <a name="timelines-of-observation"></a>Observations linjer
 
@@ -67,7 +92,7 @@ Granska dina data för att identifiera om du har några resurs Flask halsar. Om 
 
 ### <a name="check-for-cpu-bottleneck"></a>Sök efter processor Flask hals
 
-![Sök efter processor Flask hals](media/troubleshoot-performance-virtual-machine-linux-windows/6-cpu-bottleneck-time-range.png)
+![Sök efter processor Flask hals](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
 
 1. Redigera grafen.
 2. Ange tidsintervallet.
@@ -94,6 +119,8 @@ Om programmet eller processen inte körs på rätt prestanda nivå och du ser 95
 * Förstå problemet – hitta program/process och Felsök detta.
 
 Om du har ökat den virtuella datorn och processorn fortfarande kör 95% avgör du om den här inställningen erbjuder bättre prestanda eller högre program data flöde till en acceptabel nivå. Annars kan du felsöka det enskilda application\process.
+
+Du kan använda Perfinsights för [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) för att analysera vilken process som kör CPU-förbrukningen. 
 
 ## <a name="check-for-memory-bottleneck"></a>Sök efter minnes Flask hals
 
@@ -124,9 +151,13 @@ Utför någon av följande uppgifter för att lösa hög minnes användning:
 
 Om du när du har uppgraderat till en större virtuell dator upptäcker du att du fortfarande har en konstant stadig ökning fram till 100%, identifierar programmet/processen och felsöker.
 
+Du kan använda Perfinsights för [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) för att analysera vilken process som kör minnes användningen. 
+
 ## <a name="check-for-disk-bottleneck"></a>Sök efter disk Flask hals
 
 Om du vill kontrol lera underlag rings systemet för den virtuella datorn kontrollerar du diagnostiken på nivån för virtuella Azure-datorer med räknarna i VM-diagnostik och även lagrings kontots diagnostik.
+
+I fel sökning av virtuell dator kan du använda Perfinsights för [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), vilket kan hjälpa till att analysera vilken process som kör i/o. 
 
 Observera att vi inte har räknare för zonens redundanta och Premium Storage konton. För problem som rör dessa räknare ska du generera ett support ärende.
 
@@ -134,7 +165,7 @@ Observera att vi inte har räknare för zonens redundanta och Premium Storage ko
 
 Om du vill arbeta med nedanstående objekt går du till lagrings kontot för den virtuella datorn i portalen:
 
-![Visa lagrings kontots diagnostik i övervakning](media/troubleshoot-performance-virtual-machine-linux-windows/7-virtual-machine-storage-account.png)
+![Visa lagrings kontots diagnostik i övervakning](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
 
 1. Redigera övervaknings diagrammet.
 2. Ange tidsintervallet.
@@ -175,6 +206,10 @@ Med det här måttet kan du inte se vilken blob som orsakar begränsningen och s
 
 Om du vill ta reda på om du påträffar IOPS-gränsen går du till lagrings kontots diagnostik och kontrollerar TotalRequests och ser om du närmar dig 20000 TotalRequests. Identifiera antingen en ändring i mönstret, oavsett om du ser gränsen för första gången eller om den här gränsen inträffar vid en viss tidpunkt.
 
+Med nya disk erbjudanden under standard lagring kan IOPS-och data flödes gränserna variera, men den kumulativa gränsen för standard lagrings kontot är 20000 IOPS (Premium Storage har olika gränser på konto-eller disk nivå). Läs mer om de olika disk gränserna för standard lagring och disk utrymme:
+
+* [Skalbarhets-och prestanda mål för virtuella dator diskar i Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+
 #### <a name="references"></a>Referenser
 
 * [Skalbarhets mål för virtuella dator diskar](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
@@ -187,7 +222,9 @@ Kontrol lera total ingress och TotalEgress mot ingångs-och utgående gränser f
 
 Kontrol lera data flödes gränserna för de virtuella hård diskar som är anslutna till den virtuella datorn Lägg till den virtuella datorns mått disk Läs och skriv.
 
-Varje virtuell hård disk har stöd för upp till 60 MB/s (IOPS exponeras inte per VHD). Titta på data för att se om du är klar med gränserna för kombinerat data flöde MB på den virtuella hård disken på VM-nivå med Läs-och skriv åtgärder, och optimera sedan din VM Storage-konfiguration för att skala de tidigare enskilda VHD-gränserna.
+Nya disk erbjudanden under standard lagring har olika IOPS-och data flödes gränser (IOPS exponeras inte per VHD). Titta på data för att se om du är klar med gränserna för kombinerat data flöde MB på den virtuella hård disken på VM-nivå med Läs-och skriv åtgärder, och optimera sedan din VM Storage-konfiguration för att skala de tidigare enskilda VHD-gränserna. Läs mer om de olika disk gränserna för standard lagring och disk utrymme:
+
+* [Skalbarhets-och prestanda mål för virtuella dator diskar i Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Hög disk användning/latens reparation
 

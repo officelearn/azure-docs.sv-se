@@ -1,24 +1,23 @@
 ---
-title: Använd search Explorer-verktyget för att fråga efter data i Azure Portal-Azure Search
-description: Sök Utforskaren är inbyggd i Azure Portal som är användbar för att utforska innehåll och verifiera frågor i Azure Search. Ange strängar för Sök termer eller fraser, eller fullständigt kvalificerade Sök uttryck med avancerad syntax.
+title: Använda search Explorer-verktyget för att fråga efter data i Azure Portal
+titleSuffix: Azure Cognitive Search
+description: Sök Utforskaren är inbyggd i Azure Portal som är användbar för att utforska innehåll och verifiera frågor i Azure Kognitiv sökning. Ange strängar för Sök termer eller fraser, eller fullständigt kvalificerade Sök uttryck med avancerad syntax.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178133"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792970"
 ---
-# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Använd Sök Utforskaren i Azure Portal för att köra frågor mot dokument i Azure Search 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Använd Sök Utforskaren i Azure Portal för att köra frågor mot dokument i Azure Kognitiv sökning 
 
-Den här artikeln visar hur du frågar ett befintligt Azure Search-index med hjälp av **Sök Utforskaren** i Azure Portal. Du kan starta Sök Utforskaren från kommando fältet för att skicka enkla eller fullständiga Lucene-frågeuttryck till ett befintligt index i tjänsten. 
+Den här artikeln visar hur du frågar ett befintligt Azure Kognitiv sökning-index med hjälp av **Sök Utforskaren** i Azure Portal. Du kan starta Sök Utforskaren från kommando fältet för att skicka enkla eller fullständiga Lucene-frågeuttryck till ett befintligt index i tjänsten. 
 
    ![Kommandot Sök Utforskaren i portalen](./media/search-explorer/search-explorer-cmd2.png "Kommandot Sök Utforskaren i portalen")
 
@@ -42,7 +41,7 @@ Motsvarande syntax för en tom sökning är `*` eller `search=*`.
 
 ### <a name="example-2---free-text-search"></a>Exempel 2 – kostnads fri texts ökning
 
-Kostnads fria formulär frågor, med eller utan operatorer, är användbara för att simulera användardefinierade frågor som skickas från en anpassad app till Azure Search. Observera att när du anger villkor eller uttryck för frågor kommer Sök rankningen att bli i spel. I följande exempel visas en texts ökning i fritext.
+Kostnads fria former, med eller utan operatörer, är användbara för att simulera användardefinierade frågor som skickas från en anpassad app till Azure Kognitiv sökning. Observera att när du anger villkor eller uttryck för frågor kommer Sök rankningen att bli i spel. I följande exempel visas en texts ökning i fritext.
 
    ```Input
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -67,7 +66,7 @@ Lägg till **$Count** för att hämta antalet matchningar som finns i ett index.
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>Exempel 4 – begränsa fält i Sök Resultat
 
-Lägg till **$Select** för att begränsa resultaten till de uttryckligen namngivna fälten för mer läsbara utdata i **Sök Utforskaren**. Om du vill behålla Sök strängen och **$Count = True**, prefix argument **&** med. 
+Lägg till **$Select** för att begränsa resultaten till de uttryckligen namngivna fälten för mer läsbara utdata i **Sök Utforskaren**. Om du vill behålla Sök strängen och **$Count = True**, prefix argument med **&** . 
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
@@ -79,7 +78,7 @@ Lägg till **$Select** för att begränsa resultaten till de uttryckligen namngi
 
 ### <a name="example-5---return-next-batch-of-results"></a>Exempel 5 – returnera nästa resultat grupp
 
-Azure Search returnerar de översta 50-matchningarna baserat på Sök rankningen. För att hämta nästa uppsättning matchande dokument, Lägg till **$Top = 100, & $Skip = 50** för att öka resultat uppsättningen till 100 dokument (Standardvärdet är 50, maximum är 1000) och hoppa över de första 50-dokumenten. Kom ihåg att du måste ange Sök villkor, till exempel en frågeterm eller ett uttryck för att få rankade resultat. Observera att Sök Resultat minskar djupare som du når i Sök resultaten.
+Azure Kognitiv sökning returnerar de översta 50-matchningarna baserat på Sök rankningen. För att hämta nästa uppsättning matchande dokument, Lägg till **$Top = 100, & $Skip = 50** för att öka resultat uppsättningen till 100 dokument (Standardvärdet är 50, maximum är 1000) och hoppa över de första 50-dokumenten. Kom ihåg att du måste ange Sök villkor, till exempel en frågeterm eller ett uttryck för att få rankade resultat. Observera att Sök Resultat minskar djupare som du når i Sök resultaten.
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
@@ -143,7 +142,7 @@ Tips för att söka i **Sök Utforskaren**:
 
 + Kostnads fria frågor, som liknar vad du kan ange i en kommersiell webbläsare, är användbara för att testa en slut användar upplevelse. Om du till exempel antar det inbyggda realestate exempel indexet, kan du ange "Seattle lägenheter Lake Washington" och sedan använda Ctrl-F för att hitta termer inom Sök resultaten. 
 
-+ Fråga-och filter uttryck måste ledas i en syntax som stöds av Azure Search. Standardvärdet är en [enkel syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), men du kan också använda [fullständig Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) för mer kraftfulla frågor. [Filter uttryck](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) är en OData-syntax.
++ Fråga-och filter uttryck måste ledas i en syntax som stöds av Azure Kognitiv sökning. Standardvärdet är en [enkel syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), men du kan också använda [fullständig Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) för mer kraftfulla frågor. [Filter uttryck](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) är en OData-syntax.
 
 
 ## <a name="next-steps"></a>Nästa steg

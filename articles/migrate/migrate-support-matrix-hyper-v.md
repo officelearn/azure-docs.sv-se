@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 004010983b87c333adeb4b20abbe851581917a3a
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937435"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802195"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av Hyper-V
 
@@ -29,29 +29,27 @@ Tabellen sammanfattar scenarier som stöds för virtuella Hyper-V-datorer.
 **Utvärdera lokala virtuella Hyper-V-datorer** | [Konfigurera](tutorial-prepare-hyper-v.md) din första utvärdering.<br/><br/> [Kör](scale-hyper-v-assessment.md) en storskalig bedömning.
 **Migrera virtuella Hyper-V-datorer till Azure** | [Prova](tutorial-migrate-hyper-v.md) migrering till Azure.
 
-Migrering av Hyper-V-servrar som hanteras med System Center Virtual Machine Manager (VMM) stöds inte av Azure Migrate Server-migrering.
-
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
 **Support** | **Detaljer**
 --- | ---
 Azure-behörigheter | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
 Hyper-V:s virtuella datorer | Utvärdera upp till 35 000 virtuella Hyper-V-datorer i ett enda projekt. Du kan ha flera projekt i en Azure-prenumeration. Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
-Geografi | Du kan skapa Azure Migrate projekt i ett antal geografiska områden. Även om du kan skapa projekt i specifika geografiska områden kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
+Placering | Du kan skapa Azure Migrate projekt i ett antal geografiska områden. Även om du kan skapa projekt i specifika geografiska områden kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
 
   **Geografi** | **Lagrings plats för metadata**
   --- | ---
-  Azure Government | Virginia (USA-förvaltad region)
+  Azure Government | USA Gov Virginia
   Asien och stillahavsområdet | Asien, östra eller Sydostasien
   Australien | Östra Australien eller Australien, sydöstra
-  Brasilien | Södra Brasilien
+  Brasilien | Brasilien, södra
   Kanada | Kanada, centrala eller Kanada, öst
   Europa | Europa, norra eller Europa, västra
   Frankrike | Frankrike, centrala
   Indien | Centrala Indien eller södra Indien
   Japan |  Japan, östra eller Japan, väst
   Korea | Korea, centrala eller Korea, södra
-  Storbritannien och Nordirland | Storbritannien, södra eller Storbritannien, västra
+  Storbritannien | Storbritannien, södra eller Storbritannien, västra
   USA | USA, centrala eller västra USA 2
 
 
@@ -107,7 +105,7 @@ För att utvärdera de virtuella datorerna behöver Azure Migrate-enheten Intern
 --- | ---
 *.portal.azure.com | Navigering till Azure Portal
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Logga in till din Azure-prenumeration
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
+*.microsoftonline.com <br/> *. microsoftonline-p.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
 management.azure.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
 dc.services.visualstudio.com | Loggning och övervakning
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault när du kommunicerar mellan installations programmet och tjänsten.
@@ -120,9 +118,9 @@ https://download.microsoft.com/download/* | Tillåter hämtning från Microsoft 
 
 I följande tabell sammanfattas port kraven för utvärdering.
 
-**Anordningar** | **anslutning**
+**Anordningar** | **Anslutning**
 --- | ---
-**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:``` https://<appliance-ip-or-name>:44368 ```<br/> Utgående anslutningar på portarna 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
+**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med URL: en: ``` https://<appliance-ip-or-name>:44368 ```<br/> Utgående anslutningar på portarna 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 **Hyper-V-värd/-kluster** | Inkommande anslutningar på WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations-och prestanda-metadata för virtuella Hyper-V-datorer med en Common Information Model CIM-session.
 
 ## <a name="migration-limitations"></a>Migration-begränsningar
@@ -152,7 +150,7 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 | **Krypterade diskar/volymer**    | Stöds inte för migrering. |
 | **RDM/passthrough-diskar**      | Stöds inte för migrering. |
 | **Delad disk** | Virtuella datorer som använder delade diskar stöds inte för migrering.
-| **NFS**                        | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte. |
+| **MSNFS**                        | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte. |
 | **-**                      | Virtuella datorer med iSCSI-mål stöds inte för migrering.
 | **Mål disk**                | Du kan bara migrera till virtuella Azure-datorer med Managed disks. |
 | **IPv6** | Stöds ej.
@@ -180,7 +178,7 @@ time.windows.com | Verifierar tidssynkronisering mellan system och global tid.
 
 I följande tabell sammanfattas port kraven för Hyper-V-värdar och virtuella datorer för VM-migrering.
 
-**Anordningar** | **anslutning**
+**Anordningar** | **Anslutning**
 --- | ---
 Hyper-V-värdar/VM: ar | Utgående anslutningar på HTTPS-port 443 för att skicka VM-replikeringsdata till Azure Migrate.
 

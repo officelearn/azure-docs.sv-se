@@ -1,33 +1,33 @@
 ---
-title: Indexera stor data uppsättning med inbyggda indexerare – Azure Search
-description: Lär dig mer om strategier för stor data indexering eller beräknings intensiv indexering via batch-läge, omkällor och tekniker för schemalagd, parallell och distribuerad indexering.
-services: search
-author: HeidiSteen
+title: Indexera stor data uppsättning med inbyggda indexerare
+titleSuffix: Azure Cognitive Search
+description: Strategier för stor data indexering eller beräknings intensiv indexering via batch-läge, omkällor och tekniker för schemalagd, parallell och distribuerad indexering.
 manager: nitinme
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/19/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: aaf0d5edb91d60be85360746f76c4ca1f8db8978
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: bd158eaf22025a64d7464c632d3f0fa510a4b5a3
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257034"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793762"
 ---
-# <a name="how-to-index-large-data-sets-in-azure-search"></a>Så här indexerar du stora data mängder i Azure Search
+# <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Så här indexerar du stora data uppsättningar i Azure Kognitiv sökning
 
-Allteftersom data volymer växer eller bearbetningen behöver ändras kanske du upptäcker att enkla eller standard index strategier inte längre är praktiska. För Azure Search finns det flera metoder för att få större data mängder, från hur du strukturerar en begäran om data uppladdning, för att använda en produktspecifik indexerare för schemalagda och distribuerade arbets belastningar.
+Allteftersom data volymer växer eller bearbetningen behöver ändras kanske du upptäcker att enkla eller standard index strategier inte längre är praktiska. För Azure Kognitiv sökning finns det flera metoder för att få större data mängder, från hur du strukturerar en begäran om data uppladdning, för att använda en produktspecifik indexerare för schemalagda och distribuerade arbets belastningar.
 
-Samma tekniker gäller även för långvariga processer. De steg som beskrivs i [parallellt indexerat](#parallel-indexing) är särskilt användbara för beräknings intensiva index, till exempel bild analys eller språk bearbetning i [kognitiva Sök pipeliner](cognitive-search-concept-intro.md).
+Samma tekniker gäller även för långvariga processer. I synnerhet är de steg som beskrivs i [Parallel index](#parallel-indexing) användbara för beräknings intensiva indexering, till exempel bild analys eller naturligt språk bearbetning i en [AI-pipeline](cognitive-search-concept-intro.md).
 
 I följande avsnitt lär du dig tre tekniker för att indexera stora mängder data.
 
-## <a name="option-1-pass-multiple-documents"></a>Alternativ 1: Skicka flera dokument
+## <a name="option-1-pass-multiple-documents"></a>Alternativ 1: skicka flera dokument
 
 En av de enklaste mekanismerna för att indexera en större data uppsättning är att skicka flera dokument eller poster i en och samma begäran. Så länge hela nytto lasten är under 16 MB kan en begäran hantera upp till 1000 dokument i en Mass överförings åtgärd. Dessa begränsningar gäller oavsett om du använder [Lägg till dokument REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) eller [index-metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) i .NET SDK. För båda API: erna kommer du att paketera 1000-dokument i bröd texten för varje begäran.
 
-Batch-indexering implementeras för enskilda förfrågningar med hjälp av REST eller .NET, eller genom indexerare. Några indexerare använder olika gränser. Mer specifikt ställer Azure Blob-indexering batch-storlek vid 10 dokument i redovisningen av den större genomsnittliga dokument storleken. För indexerare som baseras på [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)kan du ange `BatchSize` argumentet för att anpassa den här inställningen för att bättre matcha egenskaperna för dina data. 
+Batch-indexering implementeras för enskilda förfrågningar med hjälp av REST eller .NET, eller genom indexerare. Några indexerare använder olika gränser. Mer specifikt ställer Azure Blob-indexering batch-storlek vid 10 dokument i redovisningen av den större genomsnittliga dokument storleken. För indexerare som baseras på [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)kan du ange argumentet `BatchSize` för att anpassa den här inställningen för att bättre matcha egenskaperna för dina data. 
 
 > [!NOTE]
 > Undvik att lägga till icke-frågedata till ett index för att hålla nere dokument storleken. Bilder och andra binära data är inte direkt sökbara och bör inte lagras i indexet. Om du vill integrera data som inte går att köra i Sök resultaten bör du definiera ett fält som inte går att söka i som lagrar en URL-referens till resursen.
@@ -38,13 +38,13 @@ Tjänster som är etablerade på en av [standard pris nivåerna](search-sku-tier
 
 Att öka antalet repliker och partitioner är fakturerbara händelser som ökar din kostnad, men om du inte kontinuerligt indexerar under maximal belastning kan du lägga till skalning under indexerings processen och sedan justera resurs nivåerna nedåt efter indexeringen installerats.
 
-## <a name="option-3-use-indexers"></a>Alternativ 3: Använda indexerare
+## <a name="option-3-use-indexers"></a>Alternativ 3: Använd indexerare
 
 [Indexerare](search-indexer-overview.md) används för att crawla Azure-datakällor som stöds för sökbart innehåll. Även om det är särskilt avsett för storskalig indexering är flera indexerings funktioner särskilt användbara för att kunna använda större data uppsättningar:
 
 + Med Schemaläggaren kan du regelbundet indexera index med jämna mellanrum så att du kan sprida ut det över tid.
 + Schemalagd indexering kan återupptas vid den senast kända stopp punkten. Om en data källa inte är fullständigt crawlad inom ett 24-timmarsformat, kommer indexeraren att återuppta indexeringen på dag två på var den slutade.
-+ Att partitionera data i mindre enskilda data källor möjliggör parallell bearbetning. Du kan dela upp käll data i mindre komponenter, till exempel i flera behållare i Azure Blob Storage, och sedan skapa motsvarande flera [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i Azure Search som kan indexeras parallellt.
++ Att partitionera data i mindre enskilda data källor möjliggör parallell bearbetning. Du kan dela upp källdata i mindre komponenter, t. ex. i flera behållare i Azure Blob Storage, och sedan skapa motsvarande flera [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i Azure kognitiv sökning som kan indexeras parallellt.
 
 > [!NOTE]
 > Indexerare är data källa-/regionsspecifika, så användning av en indexerare-metod är endast livskraftig för valda data källor på Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
@@ -55,7 +55,7 @@ Schemaläggning av indexering är en viktig mekanism för att bearbeta stora dat
 
 Enligt design börjar schemalagd indexering i bestämda intervall, med ett jobb som normalt slutförs innan nästa schemalagda intervall återupptas. Men om bearbetningen inte slutförs inom intervallet stoppas indexeraren (på grund av att tids gränsen uppnåddes). Vid nästa intervall återupptas bearbetningen där det senast slutade, med systemet som håller koll på var det inträffar. 
 
-I praktiska villkor kan du använda ett 24-timmarsformat för index belastningar som sträcker sig över flera dagar. När indexeringen återupptas för nästa 24-timmars cykel, startas den om i det senast fungerande dokumentet. På så sätt kan en indexerare arbeta på ett sätt genom ett dokument efter släpning under en serie dagar tills alla obearbetade dokument har bearbetats. Mer information om den här metoden finns i [Indexera stora data uppsättningar i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Mer information om hur du ställer in scheman i allmänhet finns i [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) eller se [hur du schemalägger indexerare för Azure Search](search-howto-schedule-indexers.md).
+I praktiska villkor kan du använda ett 24-timmarsformat för index belastningar som sträcker sig över flera dagar. När indexeringen återupptas för nästa 24-timmars cykel, startas den om i det senast fungerande dokumentet. På så sätt kan en indexerare arbeta på ett sätt genom ett dokument efter släpning under en serie dagar tills alla obearbetade dokument har bearbetats. Mer information om den här metoden finns i [Indexera stora data uppsättningar i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Mer information om hur du ställer in scheman i allmänhet finns i [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) eller se [hur du schemalägger indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -74,17 +74,17 @@ Parallell bearbetning har följande element:
 + Schemalägg alla indexerare att köras samtidigt.
 
 > [!NOTE]
-> Azure Search har inte stöd för att tilldela repliker eller partitioner till vissa arbets belastningar. Risken för tunga samtidiga indexeringar är att överbelasta systemet till att drabbas av frågans prestanda. Om du har en test miljö implementerar du parallell indexering där du först ska förstå kompromisserna.
+> Azure Kognitiv sökning har inte stöd för att tilldela repliker eller partitioner till vissa arbets belastningar. Risken för tunga samtidiga indexeringar är att överbelasta systemet till att drabbas av frågans prestanda. Om du har en test miljö implementerar du parallell indexering där du först ska förstå kompromisserna.
 
 ### <a name="how-to-configure-parallel-indexing"></a>Så här konfigurerar du parallell indexering
 
-För indexerare är bearbetnings kapaciteten löst baserat på ett under system för indexerare för varje tjänst enhet (SU) som används av Sök tjänsten. Det går att använda flera samtidiga indexerare på Azure Search tjänster som är etablerade på Basic-eller standard-nivån och som har minst två repliker. 
+För indexerare är bearbetnings kapaciteten löst baserat på ett under system för indexerare för varje tjänst enhet (SU) som används av Sök tjänsten. Det går att använda flera samtidiga indexerare i Azure Kognitiv sökning-tjänster som är etablerade på Basic-eller standard-nivåerna med minst två repliker. 
 
 1. På sidan **Översikt** för search service instrument panel på [Azure Portal](https://portal.azure.com)kontrollerar du **pris nivån** för att bekräfta att den kan hantera parallell indexering. Både Basic-och standard-nivån erbjuder flera repliker.
 
-2. I **Inställningar** > **skala** [ökar du repliker](search-capacity-planning.md) för parallell bearbetning: ytterligare en replik för varje Indexer-arbetsbelastning. Lämna ett tillräckligt antal för den befintliga frågesträngen. Att offra frågor mot arbets belastningar för indexering är inte ett utmärkt kompromiss.
+2. I **inställningar** > **skala**, [ökar du repliker](search-capacity-planning.md) för parallell bearbetning: ytterligare en replik för varje Indexer-arbetsbelastning. Lämna ett tillräckligt antal för den befintliga frågesträngen. Att offra frågor mot arbets belastningar för indexering är inte ett utmärkt kompromiss.
 
-3. Distribuera data till flera behållare på en nivå som Azure Search indexerare kan komma åt. Detta kan vara flera tabeller i Azure SQL Database, flera behållare i Azure Blob Storage eller flera samlingar. Definiera ett data käll objekt för varje tabell eller behållare.
+3. Distribuera data till flera behållare på en nivå som Azure Kognitiv sökning indexerare kan komma åt. Detta kan vara flera tabeller i Azure SQL Database, flera behållare i Azure Blob Storage eller flera samlingar. Definiera ett data käll objekt för varje tabell eller behållare.
 
 4. Skapa och schemalägga flera indexerare som ska köras parallellt:
 
@@ -92,9 +92,9 @@ För indexerare är bearbetnings kapaciteten löst baserat på ett under system 
 
    + Peka varje indexerare till samma index. För kognitiva Sök arbets belastningar kan du peka varje indexerare till samma färdigheter.
 
-   + I varje indexare-definition schemalägger du samma kör tids körnings mönster. Till exempel `"schedule" : { "interval" : "PT8H", "startTime" : "2018-05-15T00:00:00Z" }` skapas ett schema på 2018-05-15 på alla indexerare, som körs med åtta timmars intervall.
+   + I varje indexare-definition schemalägger du samma kör tids körnings mönster. `"schedule" : { "interval" : "PT8H", "startTime" : "2018-05-15T00:00:00Z" }` skapar till exempel ett schema på 2018-05-15 på alla indexerare, som körs med åtta timmars intervall.
 
-Vid den schemalagda tiden börjar alla indexerare köra, läsa in data, tillämpa berikar (om du har konfigurerat en kognitiv Sök pipeline) och skriver till indexet. Azure Search låser inte indexet för uppdateringar. Samtidiga skrivningar hanteras med ett nytt försök om en viss skrivning inte lyckas vid första försöket.
+Vid den schemalagda tiden börjar alla indexerare köra, läsa in data, tillämpa berikar (om du har konfigurerat en kognitiv Sök pipeline) och skriver till indexet. Azure Kognitiv sökning låser inte indexet för uppdateringar. Samtidiga skrivningar hanteras med ett nytt försök om en viss skrivning inte lyckas vid första försöket.
 
 > [!Note]
 > När du ökar repliker bör du överväga att öka antalet partitioner om index storleken projiceras för att öka markant. Partitioner lagrar segment av indexerat innehåll. Ju fler partitioner du har, desto mindre är sektorn som var och en måste lagra.
@@ -107,4 +107,4 @@ Vid den schemalagda tiden börjar alla indexerare köra, läsa in data, tillämp
 + [Azure Cosmos DB-indexeraren](search-howto-index-cosmosdb.md)
 + [Azure Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md)
 + [Azure Table Storage-indexeraren](search-howto-indexing-azure-tables.md)
-+ [Säkerhet i Azure Search](search-security-overview.md)
++ [Säkerhet i Azure Kognitiv sökning](search-security-overview.md)

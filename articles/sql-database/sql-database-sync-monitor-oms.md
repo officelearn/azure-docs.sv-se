@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: d1461a1bb026d478d51a5f79cc02b34172524db6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566417"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791749"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Övervaka SQL Data Sync med Azure Monitor loggar 
 
@@ -61,13 +61,13 @@ Hämta följande två exempel:
 
 -   [Vyn data synkronisering Azure Monitor](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Kontrol lera att du har ställt in följande saker:
 
 -   Ett Azure Automation konto
 
--   Log Analytics-arbetsyta
+-   Log Analytics arbets yta
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>PowerShell-Runbook för att hämta SQL Data Sync logg 
 
@@ -83,7 +83,7 @@ Mer information om hur du skapar en Runbook finns i [min första PowerShell-Runb
 
 3.  Välj **Importera en befintlig Runbook**.
 
-4.  Användden aktuella `DataSyncLogPowerShellRunbook` filen under Runbook-fil. Ange **Runbook-typen** som `PowerShell`. Ge runbooken ett namn.
+4.  Använd den aktuella `DataSyncLogPowerShellRunbook` filen under **Runbook-fil**. Ange **Runbook-typen** som `PowerShell`. Ge runbooken ett namn.
 
 5.  Välj **Skapa**. Nu har du en Runbook.
 
@@ -91,7 +91,7 @@ Mer information om hur du skapar en Runbook finns i [min första PowerShell-Runb
 
 7.  Välj **Lägg till en variabel** på sidan variabler. Skapa en variabel för att lagra den senaste körnings tiden för runbooken. Om du har flera Runbooks behöver du en variabel för varje Runbook.
 
-8.  Ange variabelns namn som `DataSyncLogLastUpdatedTime` och ange dess typ som DateTime.
+8.  Ange variabel namnet som `DataSyncLogLastUpdatedTime` och ange dess typ som DateTime.
 
 9.  Välj Runbook och klicka på knappen Redigera överst på sidan.
 
@@ -137,9 +137,9 @@ Om du vill skapa en avisering som använder Azure Monitor loggar gör du följan
 
 2.  Skapa en fråga för att välja fel och varningar efter synkroniseringsresursen inom det intervall som du har valt. Exempel:
 
-    `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
+    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
 
-3.  När du har kört frågan väljer du den klocka somstår i aviseringen.
+3.  När du har kört frågan väljer du den klocka som står i **aviseringen**.
 
 4.  Under **skapa avisering baserat på**väljer du **mått mått**.
 
@@ -149,7 +149,7 @@ Om du vill skapa en avisering som använder Azure Monitor loggar gör du följan
 
 5.  Under **åtgärder**anger du **e-postavisering** till "Ja". Ange önskade e-postmottagare.
 
-6.  Klicka på **Spara**. De angivna mottagarna får nu e-postaviseringar när fel inträffar.
+6.  Klicka på **Save** (Spara). De angivna mottagarna får nu e-postaviseringar när fel inträffar.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>Skapa en Azure Monitor vy för övervakning
 
@@ -202,10 +202,10 @@ Mer information om SQL Data Sync finns i:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
+    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Använd PowerShell för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Felsökning – [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)

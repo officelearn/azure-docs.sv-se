@@ -1,6 +1,6 @@
 ---
-title: Konfigurera källmiljön för VMware till Azure-replikering med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du ställer in din lokala miljö att replikera virtuella VMware-datorer till Azure med Azure Site Recovery.
+title: Konfigurera käll miljön för VMware till Azure-replikering med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar den lokala miljön för att replikera virtuella VMware-datorer till Azure med Azure Site Recovery.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,26 +8,26 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 075f86b24e2915d9689db8097889a830bade74c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf1ff4dfba105b6c90ab949217453e1db82d109d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723434"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791778"
 ---
-# <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurera källmiljön för VMware till Azure replikering
+# <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurera käll miljön för VMware till Azure-replikering
 
-Den här artikeln beskriver hur du ställer in din lokala miljö källa för att replikera virtuella VMware-datorer till Azure. Den inkluderar steg för att välja din replikeringsscenariot, hur du konfigurerar en lokal dator som konfigurationsservern Site Recovery och automatiskt identifiera lokala virtuella datorer. 
+Den här artikeln beskriver hur du konfigurerar din lokala lokala miljö för att replikera virtuella VMware-datorer till Azure. Artikeln innehåller steg för att välja ett scenario för replikering, konfigurera en lokal dator som Site Recovery konfigurations Server och identifiera lokala virtuella datorer automatiskt.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Artikeln förutsätter att du redan har:
 
-- Planerat distributionen med hjälp av [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md). Detta hjälper dig att allokera tillräckligt mycket bandbredd, baserat på din dagliga dataändringshastighet, att uppfylla dina önskade mål för återställningspunkt (RPO).
-- [Konfigurera resurser](tutorial-prepare-azure.md) i den [Azure-portalen](https://portal.azure.com).
-- [Konfigurera en lokal VMware](vmware-azure-tutorial-prepare-on-premises.md), inklusive ett särskilt konto för automatisk identifiering.
+- Planeringen av distributionen med hjälp av [Distributionshanteraren för Azure Site Recovery](site-recovery-deployment-planner.md). Detta hjälper dig att allokera tillräckligt med bandbredd, baserat på din dagliga data ändrings hastighet, för att uppfylla önskat mål för återställnings punkt.
+- [Konfigurera resurser](tutorial-prepare-azure.md) i [Azure Portal](https://portal.azure.com).
+- [Konfigurera lokal VMware](vmware-azure-tutorial-prepare-on-premises.md), inklusive ett dedikerat konto för automatisk identifiering.
 
-## <a name="choose-your-protection-goals"></a>Välja skyddsmål
+## <a name="choose-your-protection-goals"></a>Välj skydds mål
 
 1. Välj valvets namn i **Recovery Services-valv**. I det här scenariot använder vi namnet **ContosoVMVault**.
 2. I **Komma igång** väljer du Site Recovery. Välj sedan **Förbered infrastrukturen**.
@@ -35,54 +35,54 @@ Artikeln förutsätter att du redan har:
 4. I **Till vilken plats ska dina datorer replikeras?** väljer du **Till Azure**.
 5. I **Är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere Hypervisor**. Välj sedan **OK**.
 
-## <a name="set-up-the-configuration-server"></a>Ställ in konfigurationsservern
+## <a name="set-up-the-configuration-server"></a>Konfigurera konfigurations servern
 
-Du kan konfigurera konfigurationsservern som en lokal VMware VM via en mall för Open Virtualization program (OVA). [Läs mer](concepts-vmware-to-azure-architecture.md) om komponenter som ska installeras på VMware VM.
+Du kan ställa in konfigurations servern som en lokal virtuell VMware-dator via en mall för öppen Virtualization-program (ägg). [Läs mer](concepts-vmware-to-azure-architecture.md) om de komponenter som kommer att installeras på den virtuella VMware-datorn.
 
-1. Lär dig mer om den [krav](vmware-azure-deploy-configuration-server.md#prerequisites) för distribution av konfigurationsserver.
-2. [Kontrollera kapaciteten](vmware-azure-deploy-configuration-server.md#capacity-planning) för distribution.
-3. [Ladda ned](vmware-azure-deploy-configuration-server.md#download-the-template) och [importera](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) OVA-mallen för att konfigurera en lokal VMware VM som kör konfigurationsservern. Licensen som medföljer mallen är en utvärderingslicens och är giltig i 180 dagar. Efter måste denna period kunden aktivera windows med en upphandlade licens.
-4. Aktivera på VMware-VM och [registrera den](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) i Recovery Services-valv.
+1. Läs om [kraven](vmware-azure-deploy-configuration-server.md#prerequisites) för distribution av konfigurations Server.
+2. [Kontrol lera kapacitets nummer](vmware-azure-deploy-configuration-server.md#sizing-and-capacity-requirements) för distribution.
+3. [Hämta](vmware-azure-deploy-configuration-server.md#download-the-template) och [Importera](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) den äggbaserade mallen för att konfigurera en lokal virtuell VMware-dator som kör konfigurations servern. Den licens som tillhandahölls med mallen är en utvärderings licens och är giltig i 180 dagar. Publicera den här perioden måste kunden aktivera Windows med en tillskaffad licens.
+4. Aktivera den virtuella VMware-datorn och [registrera den](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) i Recovery Services valvet.
 
-## <a name="azure-site-recovery-folder-exclusions-from-antivirus-program"></a>Azure Site Recovery mappar som ska undantas från antivirusprogram
+## <a name="azure-site-recovery-folder-exclusions-from-antivirus-program"></a>Azure Site Recovery mapp undantag från antivirus program
 
-### <a name="if-antivirus-software-is-active-on-source-machine"></a>Om antivirusprogrammet är aktiv på källdatorn
+### <a name="if-antivirus-software-is-active-on-source-machine"></a>Om antivirus programmet är aktivt på käll datorn
 
-Om källdatorn har en aktiv antivirusprogram, ska installationsmappen uteslutas. Därför exkludera mapp *C:\ProgramData\ASR\agent* för smooth replikering.
+Om käll datorn har ett antivirus program aktiverat, ska installationsmappen uteslutas. Så undantar du mappen *C:\ProgramData\ASR\agent* för mjuk replikering.
 
-### <a name="if-antivirus-software-is-active-on-configuration-server"></a>Om Antivirus Software är aktiv på konfigurationsservern
+### <a name="if-antivirus-software-is-active-on-configuration-server"></a>Om antivirus programmet är aktivt på konfigurations servern
 
-Undanta följande mappar från antivirusprogrammet för smooth replikering och för att undvika problem med nätverksanslutningen
+Undanta följande mappar från antivirus program för smidig replikering och Undvik anslutnings problem
 
-- C:\Program Files\Microsoft Azure Recovery Services-agenten.
-- C:\Program Files\Microsoft Azure Site Recovery-providern
-- C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
-- C:\Program Files\Microsoft Azure Site Recovery fel samling verktyg 
+- C:\Program\Microsoft Azure Recovery Services agent.
+- C:\Program\Microsoft Azure Site Recovery-Provider
+- C:\Program\Microsoft Azure Site Recovery Configuration Manager 
+- C:\Program\Microsoft Azure Site Recovery-verktyget för fel insamling 
   - C:\thirdparty
   - C:\Temp
   - C:\strawberry
   - C:\ProgramData\MySQL
-  - C:\Program filer (x86) \MySQL
+  - C:\Program Files (x86) \MySQL
   - C:\ProgramData\ASR
   - C:\ProgramData\Microsoft Azure Site Recovery
   - C:\ProgramData\ASRLogs
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - ASR installationskatalog. Exempel: E:\Program filer (x86) \Microsoft Azure Site Recovery
+  - Installations katalog för Site Recovery Server. Till exempel: E:\Program-filer (x86) \Microsoft Azure Site Recovery
 
-### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Om Antivirus Software är aktiv i skalbar bearbeta/Huvudmålservern mål
+### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Om antivirus program är aktiva på skalbar Processerver/huvud mål
 
-Undanta följande mappar från antivirusprogram
+Undanta följande mappar från antivirus program
 
-1. C:\Program Files\Microsoft Azure Recovery Services-agenten
+1. C:\Program\Microsoft Azure Recovery Services agent
 2. C:\ProgramData\ASR
 3. C:\ProgramData\ASRLogs
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
-7. ASR belastningen belastningsutjämnade processen installationskatalog, exempel: C:\Program Files (x86) \Microsoft Azure Site Recovery
+7. Azure Site Recovery installations katalog för belastningsutjämnad process Server, exempel: C:\Program Files (x86) \Microsoft Azure Site Recovery
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera målmiljön](./vmware-azure-set-up-target.md) 
+[Konfigurera mål miljön](./vmware-azure-set-up-target.md) 

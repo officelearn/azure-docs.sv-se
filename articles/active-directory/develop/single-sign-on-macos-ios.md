@@ -1,5 +1,6 @@
 ---
-title: Konfigurera SSO på macOS och iOS | Microsoft Identity Platform
+title: Konfigurera SSO på macOS och iOS
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du konfigurerar enkel inloggning (SSO) på macOS och iOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a407b57a380d059703383b02e37decb8761786f4
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: b43319f3a456c7ea56ee3c6d5b3f9a1a4526bbe0
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268939"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802487"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>Anvisningar: Konfigurera SSO på macOS och iOS
+# <a name="how-to-configure-sso-on-macos-and-ios"></a>Gör så här: Konfigurera SSO på macOS och iOS
 
 Microsoft Authentication Library (MSAL) för macOS och iOS stöder enkel inloggning (SSO) mellan macOS/iOS-appar och webbläsare. I den här artikeln beskrivs följande SSO-scenarier:
 
@@ -71,7 +72,7 @@ För att Microsoft Identity Platform ska kunna ta reda på vilka program som kan
 
 På samma sätt som Microsoft Identity Platform säger att appar som använder samma program-ID skiljer sig från **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Exempel:
 
-APP1 omdirigerings-URI: `msauth.com.contoso.mytestapp1://auth`APP2 omdirigerings-URI: `msauth.com.contoso.mytestapp2://auth`App3 omdirigerings-URI:`msauth.com.contoso.mytestapp3://auth`
+APP1 omdirigering av URI: `msauth.com.contoso.mytestapp1://auth` APP2 omdirigerings-URI: `msauth.com.contoso.mytestapp2://auth` App3 omdirigerings-URI: `msauth.com.contoso.mytestapp3://auth`
 
 > [!IMPORTANT]
 > Formatet för omdirigerings-URI: er måste vara kompatibelt med formatet MSAL stöder, som dokumenteras i [kraven för omdirigerings-URI-format](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -80,7 +81,7 @@ APP1 omdirigerings-URI: `msauth.com.contoso.mytestapp1://auth`APP2 omdirigerings
 
 Läs artikeln om att [lägga till funktioner](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) för att aktivera delning av nyckel ringar. Det är viktigt att du bestämmer vad du vill att nyckel ringen ska anropas och lägger till den funktionen i alla dina program som kommer att ingå i SSO.
 
-När behörigheterna har ställts in korrekt visas en `entitlements.plist` fil i din projekt katalog som innehåller något som liknar det här exemplet:
+När rättigheter har ställts in korrekt visas en `entitlements.plist`-fil i din projekt katalog som innehåller något som liknar det här exemplet:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -96,7 +97,7 @@ När behörigheterna har ställts in korrekt visas en `entitlements.plist` fil i
 </plist>
 ```
 
-När du har aktiverat nyckel ringen i varje program och du är redo att använda SSO, konfigurerar `MSALPublicClientApplication` du med nyckel rings åtkomst gruppen som i följande exempel:
+När du har aktiverat nyckel ringen i varje program och du är redo att använda SSO, konfigurerar du `MSALPublicClientApplication` med din nyckel rings åtkomst grupp som i följande exempel:
 
 Mål-C:
 
@@ -137,7 +138,7 @@ MSAL tillhandahåller stöd för Brokered Authentication med Microsoft Authentic
 
 Följande steg är hur du aktiverar SSO med en autentiseringsprovider för din app:
 
-1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. URI-formatet för Broker-kompatibel `msauth.<app.bundle.id>://auth`omdirigering är. Ersätt "< app. bundle. ID >" med programmets paket-ID. Exempel:
+1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. Service Broker-kompatibelt omdirigerings-URI-format är `msauth.<app.bundle.id>://auth`. Ersätt "< app. bundle. ID >" med programmets paket-ID. Exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -156,7 +157,7 @@ Följande steg är hur du aktiverar SSO med en autentiseringsprovider för din a
     </array>
     ```
 
-1. Lägg till följande i `AppDelegate.m` filen för att hantera återanrop:
+1. Lägg till följande i `AppDelegate.m`-filen för att hantera återanrop:
 
     Mål-C:
     
@@ -175,7 +176,7 @@ Följande steg är hur du aktiverar SSO med en autentiseringsprovider för din a
     }
     ```
     
-**Om du använder Xcode 11**bör du placera MSAL-återanrop i `SceneDelegate` filen i stället.
+**Om du använder Xcode 11**bör du placera MSAL motringning i `SceneDelegate`-filen i stället.
 Om du har stöd för både UISceneDelegate och UIApplicationDelegate för kompatibilitet med äldre iOS måste MSAL-återanropet placeras i båda filerna.
 
 Mål-C:

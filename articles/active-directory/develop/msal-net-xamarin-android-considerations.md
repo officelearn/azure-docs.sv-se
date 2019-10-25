@@ -1,5 +1,6 @@
 ---
-title: Xamarin Android-överväganden (Microsoft Authentication Library för .NET) | Azure
+title: Xamarin Android-överväganden (Microsoft Authentication Library för .NET)
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 465902cf6ef6db1d867f7cc986da8c9e06e4fbbf
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2d6af9753887ffa593a44fba9faa3376066417a8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532465"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802644"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Xamarin Android-/regionsspecifika överväganden med MSAL.NET
 I den här artikeln beskrivs olika aspekter när du använder Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
@@ -58,7 +59,7 @@ var pca = PublicClientApplicationBuilder
 
 
 ## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>Se till att kontrollen går tillbaka till MSAL när den interaktiva delen av autentiserings flödet slutar
-På Android måste du åsidosätta `OnActivityResult` metoden `Activity` för och anropa SetAuthenticationContinuationEventArgs-metoden för AuthenticationContinuationHelper MSAL-klassen.
+På Android måste du åsidosätta `OnActivityResult`-metoden för `Activity` och anropa SetAuthenticationContinuationEventArgs-metoden för AuthenticationContinuationHelper MSAL-klassen.
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -74,7 +75,7 @@ protected override void OnActivityResult(int requestCode,
 Den raden ser till att kontrollen går tillbaka till MSAL när den interaktiva delen av autentiseringen har slutförts.
 
 ## <a name="update-the-android-manifest"></a>Uppdatera Android-manifestet
-`AndroidManifest.xml` Ska innehålla följande värden:
+`AndroidManifest.xml` ska innehålla följande värden:
 ```csharp
 <activity android:name="microsoft.identity.client.BrowserTabActivity">
     <intent-filter>
@@ -99,7 +100,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 Om du skapar ett nytt Xamarin. Forms-program och lägger till en referens till MSAL.Net NuGet-paketet fungerar det bara.
 Men om du vill uppgradera ett befintligt Xamarin. Forms-program till MSAL.NET Preview 1.1.2 eller senare kan det uppstå build-problem.
 
@@ -113,9 +114,9 @@ För att felsöka de här problemen bör du:
 - Om du skapar från kommando raden kan du prova att ta bort/m från kommandot om du använder det.
 
 
-### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Fel: Namnet ' AuthenticationContinuationHelper ' finns inte i den aktuella kontexten
+### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Fel: namnet ' AuthenticationContinuationHelper ' finns inte i den aktuella kontexten
 
-Detta beror förmodligen på att Visual Studio inte har uppdaterat Android. CSPROJ *-filen på rätt sätt. Ibland innehållerHintPath >-sökvägen felaktigt netstandard13 i stället för monoandroid90.  **\<**
+Detta beror förmodligen på att Visual Studio inte har uppdaterat Android. CSPROJ *-filen på rätt sätt. Ibland innehåller **\<HintPath >** -sökvägen felaktigt netstandard13 i stället för **monoandroid90**.
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,

@@ -1,6 +1,6 @@
 ---
 title: Ansluta till REST-slutpunkter från Azure Logic Apps
-description: Övervaka REST-slutpunkter i automatiserade uppgifter, processer och arbetsflöden med hjälp av Azure Logic Apps
+description: Övervaka REST-slutpunkter i automatiserade uppgifter, processer och arbets flöden med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,120 +10,120 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: f0410ed7a98e4838e41407868cf26b5254811ae3
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 663ef16511269dd61a6567d6570f3445b7da6447
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541647"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804241"
 ---
-# <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Anropa REST-slutpunkter med hjälp av Azure Logic Apps
+# <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Anropa REST-slutpunkter genom att använda Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och inbyggda HTTP + Swagger-anslutningstjänsten kan du automatisera arbetsflöden som regelbundet anropa valfri REST-slutpunkt via en [Swagger-fil](https://swagger.io) genom att skapa logikappar. HTTP + Swagger utlösa och åtgärden som fungerar på samma sätt som den [HTTP-utlösare och åtgärd](connectors-native-http.md) men ge en bättre upplevelse i Logic App Designer genom att exponera API struktur och utdata som beskrivs av Swagger-fil. För att implementera en avsökning utlösare, följer du avsökningen mönster som beskrivs i [skapa anpassade API: er för att anropa andra API: er, tjänster och system från logikappar](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http + Swagger-anslutningen kan du automatisera arbets flöden som regelbundet anropar en REST-slutpunkt via en [Swagger-fil](https://swagger.io) genom att skapa Logi Kap par. HTTP + Swagger-utlösare och åtgärder fungerar på samma sätt som [http-utlösaren och åtgärden,](connectors-native-http.md) men ger en bättre upplevelse i Logic App Designer genom att exponera API-strukturen och utdata som beskrivs av Swagger-filen. Om du vill implementera en avsöknings utlösare följer du det avsöknings mönster som beskrivs i [skapa anpassade API: er som anropar andra API: er, tjänster och system från Logic Apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* URL för Swagger-filen som beskriver REST-slutpunkt för mål
+* URL: en för den Swagger-fil som beskriver mål REST-slutpunkten
 
-  REST-slutpunkten måste normalt uppfylla det här villkoret för anslutningstjänsten ska fungera:
+  Normalt måste REST-slutpunkten uppfylla det här villkoret för att kopplingen ska fungera:
 
-  * Swagger-filen måste finnas på en HTTPS-URL som är allmänt tillgänglig.
+  * Swagger-filen måste finnas på en HTTPS-URL som är offentligt tillgänglig.
 
-  * Swagger-filen måste ha [Cross-Origin Resource Sharing (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) aktiverat.
+  * Swagger-filen måste ha en aktive rad [resurs delning mellan ursprung (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) .
 
-  Om du vill referera till en swaggerfil som inte finns eller som inte uppfyller de krav på säkerhet och resursdelning för korsande ursprung, kan du [överför Swagger-filen till en blobbehållare i Azure-lagringskonton](#host-swagger), och aktivera CORS på det lagringskontot så att du kan referera till filen.
+  Om du vill referera till en Swagger-fil som inte är värdbaserad eller som inte uppfyller kraven på säkerhet och kors ursprung kan du [överföra Swagger-filen till en BLOB-behållare i ett Azure Storage-konto](#host-swagger)och aktivera CORS på det lagrings kontot så att du kan referera till filen.
 
-  Exemplen i det här avsnittet använder de [Cognitive Services, Ansikts-API](https://docs.microsoft.com/azure/cognitive-services/face/overview), vilket kräver en [Cognitive Services-kontot och åtkomstnyckeln](../cognitive-services/cognitive-services-apis-create-account.md).
+  I exemplen i det här avsnittet används [Cognitive Services ansikts-API](https://docs.microsoft.com/azure/cognitive-services/face/overview), vilket kräver ett [Cognitive Services konto och en åtkomst nyckel](../cognitive-services/cognitive-services-apis-create-account.md).
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-* Logikapp från där du vill anropa mål-slutpunkten. Börja med HTTP + Swagger utlöser, [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Att använda HTTP + Swagger-åtgärden, börjar din logikapp med en utlösare som du vill. Det här exemplet används HTTP + Swagger-utlösare som det första steget.
+* Den Logic-app från vilken du vill anropa mål slut punkten. Börja med HTTP + Swagger-utlösaren genom att [skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda åtgärden HTTP + Swagger startar du din Logic-app med valfri utlösare som du vill använda. I det här exemplet används HTTP + Swagger-utlösaren som det första steget.
 
-## <a name="add-an-http--swagger-trigger"></a>Lägg till en HTTP- + Swagger utlösare
+## <a name="add-an-http--swagger-trigger"></a>Lägg till en HTTP + Swagger-utlösare
 
-Den här inbyggda utlösaren skickar en HTTP-begäran till en URL för en Swagger-fil som beskriver ett REST-API och returnerar ett svar som innehåller den filinnehåll.
+Den här inbyggda utlösaren skickar en HTTP-begäran till en URL för en Swagger-fil som beskriver en REST API och returnerar ett svar som innehåller filens innehåll.
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Öppna din tom logikapp i Logic App Designer.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Öppna din tomma Logic-app i Logic App Designer.
 
-1. På designern i sökrutan anger du ”swagger” som filter. Från den **utlösare** väljer den **HTTP + Swagger** utlösaren.
+1. Skriv "Swagger" som filter i rutan Sök i designern. Välj **http + Swagger-** utlösare i listan **utlösare** .
 
-   ![Välj HTTP + Swagger utlösa](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
+   ![Välj HTTP + Swagger-utlösare](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
 
-1. I den **SLUTPUNKTS-URL för SWAGGER** , ange URL: en för Swagger-filen och väljer **nästa**.
+1. I rutan **Swagger Endpoint URL** anger du URL: en för Swagger-filen och väljer **Nästa**.
 
-   Det här exemplet används en Swagger-URL som finns i regionen västra USA för den [Cognitive Services, Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
+   I det här exemplet används den Swagger-URL som finns i regionen USA, västra för [Cognitive Services ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Ange URL för Swagger-slutpunkten](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Ange URL för Swagger-slutpunkt](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
-1. När designverktyget visar åtgärderna som beskrivs av Swagger-filen, väljer du den åtgärd som du vill använda.
+1. När designern visar de åtgärder som beskrivs av Swagger-filen väljer du den åtgärd som du vill använda.
 
    ![Åtgärder i Swagger-fil](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
-1. Ange värden för parametrarna utlösare, som varierar baserat på den valda åtgärden som du vill ska ingå i slutpunkten för anropet. Ställ in upprepningen för hur ofta du vill att utlösaren att anropa slutpunkten.
+1. Ange värdena för utlösarens parametrar, som varierar beroende på den valda åtgärden, som du vill inkludera i slut punkts anropet. Konfigurera upprepningen för hur ofta du vill att utlösaren ska anropa slut punkten.
 
-   Det här exemplet byter namn på utlösare för ”HTTP + Swagger utlösa: Ansiktsigenkänning – identifiera ”så att steget innehåller ett mer beskrivande namn.
+   I det här exemplet byter du ut utlösaren till "HTTP + Swagger-utlösare: Face-detect" så att steget har ett mer beskrivande namn.
 
    ![Åtgärdsinformation](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
-1. Om du vill lägga till andra tillgängliga parametrar, öppna den **Lägg till ny parameter** och välj de parametrar som du vill.
+1. Om du vill lägga till andra tillgängliga parametrar öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill använda.
 
-   Mer information om typer av autentisering som är tillgängliga för HTTP- + Swagger finns i [autentisera HTTP-utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Mer information om autentiseringstyper som är tillgängliga för HTTP + Swagger finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. Fortsätt att skapa din logikapp arbetsflöde med åtgärder som körs när den utlöses.
+1. Fortsätt att skapa ditt Logic Apps-arbetsflöde med åtgärder som körs när utlösaren utlöses.
 
-1. När du är klar, Kom ihåg att spara din logikapp. På verktygsfältet för appdesignern väljer **spara**.
+1. Kom ihåg att spara din Logic app när du är klar. I verktygsfältet designer väljer du **Spara**.
 
-## <a name="add-an-http--swagger-action"></a>Lägg till en HTTP- + Swagger åtgärd
+## <a name="add-an-http--swagger-action"></a>Lägg till en HTTP + Swagger-åtgärd
 
-Den här inbyggda åtgärden gör en HTTP-begäran till URL för Swagger-filen som beskriver ett REST-API och returnerar ett svar som innehåller den filinnehåll.
+Den här inbyggda åtgärden gör en HTTP-begäran till URL: en för Swagger-filen som beskriver en REST API och returnerar ett svar som innehåller filens innehåll.
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Öppna logikappen i Logic App Designer.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Öppna din Logic app i Logic App Designer.
 
-1. Under steget där du vill lägga till HTTP- + Swagger väljer **nytt steg**.
+1. Under steget där du vill lägga till åtgärden HTTP + Swagger väljer du **nytt steg**.
 
-   Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. Klicka på plustecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. På designern i sökrutan anger du ”swagger” som filter. Från den **åtgärder** väljer den **HTTP + Swagger** åtgärd.
+1. Skriv "Swagger" som filter i rutan Sök i designern. I listan **åtgärder** väljer du åtgärden **http + Swagger** .
 
-    ![Välj HTTP + Swagger åtgärd](./media/connectors-native-http-swagger/select-http-swagger-action.png)
+    ![Välj HTTP + Swagger-åtgärd](./media/connectors-native-http-swagger/select-http-swagger-action.png)
 
-1. I den **SLUTPUNKTS-URL för SWAGGER** , ange URL: en för Swagger-filen och väljer **nästa**.
+1. I rutan **Swagger Endpoint URL** anger du URL: en för Swagger-filen och väljer **Nästa**.
 
-   Det här exemplet används en Swagger-URL som finns i regionen västra USA för den [Cognitive Services, Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
+   I det här exemplet används den Swagger-URL som finns i regionen USA, västra för [Cognitive Services ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Ange URL för Swagger-slutpunkten](./media/connectors-native-http-swagger/http-swagger-action-parameters.png)
+   ![Ange URL för Swagger-slutpunkt](./media/connectors-native-http-swagger/http-swagger-action-parameters.png)
 
-1. När designverktyget visar åtgärderna som beskrivs av Swagger-filen, väljer du den åtgärd som du vill använda.
+1. När designern visar de åtgärder som beskrivs av Swagger-filen väljer du den åtgärd som du vill använda.
 
    ![Åtgärder i Swagger-fil](./media/connectors-native-http-swagger/http-swagger-action-operations.png)
 
-1. Ange värden för åtgärdsparametrar, som varierar baserat på den valda åtgärden som du vill ska ingå i slutpunkten för anropet.
+1. Ange värdena för åtgärds parametrarna, som varierar beroende på den valda åtgärden, som du vill inkludera i slut punkts anropet.
 
-   Det här exemplet har inga parametrar, men byter namn på åtgärden som ska ”HTTP + Swagger åtgärd: Ansiktsigenkänning – identifiera ”så att steget innehåller ett mer beskrivande namn.
+   Det här exemplet har inga parametrar, men byter namn på åtgärden till "HTTP + Swagger-åtgärd: Face-Identify", så att steget har ett mer beskrivande namn.
 
    ![Åtgärdsinformation](./media/connectors-native-http-swagger/http-swagger-action-operation-details.png)
 
-1. Om du vill lägga till andra tillgängliga parametrar, öppna den **Lägg till ny parameter** och välj de parametrar som du vill.
+1. Om du vill lägga till andra tillgängliga parametrar öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill använda.
 
-   Mer information om typer av autentisering som är tillgängliga för HTTP- + Swagger finns i [autentisera HTTP-utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Mer information om autentiseringstyper som är tillgängliga för HTTP + Swagger finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. När du är klar, Kom ihåg att spara din logikapp. På verktygsfältet för appdesignern väljer **spara**.
+1. Kom ihåg att spara din Logic app när du är klar. I verktygsfältet designer väljer du **Spara**.
 
 <a name="host-swagger"></a>
 
-## <a name="host-swagger-in-azure-storage"></a>Värden Swagger i Azure Storage
+## <a name="host-swagger-in-azure-storage"></a>Värd Swagger i Azure Storage
 
-Du kan referera till en Swagger-fil som inte finns eller som inte uppfyller de krav på säkerhet och resursdelning för korsande ursprung genom att ladda upp filen till blob-behållare i ett Azure storage-konto och aktivera CORS på det lagringskontot. Följ dessa steg för att skapa, konfigurera och lagra filer för Swagger i Azure Storage:
+Du kan referera till en Swagger-fil som inte finns eller som inte uppfyller kraven på säkerhet och kors ursprung genom att överföra filen till BLOB-behållare i ett Azure Storage-konto och aktivera CORS på det lagrings kontot. Följ dessa steg för att skapa, konfigurera och lagra Swagger-filer i Azure Storage:
 
 1. [Skapa ett Azure Storage-konto](../storage/common/storage-create-storage-account.md).
 
-1. Nu aktivera CORS för bloben. På lagringskontots meny väljer **CORS**. På den **Blobtjänst** fliken, ange dessa värden och därefter **spara**.
+1. Aktivera nu CORS för blobben. På lagrings kontots meny väljer du **CORS**. På fliken **BLOB service** anger du dessa värden och väljer sedan **Spara**.
 
    | Egenskap | Värde |
    |----------|-------|
@@ -131,41 +131,41 @@ Du kan referera till en Swagger-fil som inte finns eller som inte uppfyller de k
    | **Tillåtna metoder** | `GET`, `HEAD`, `PUT` |
    | **Tillåtna huvuden** | `*` |
    | **Exponerade rubriker** | `*` |
-   | **Maximal ålder** (i sekunder) | `200` |
+   | **Högsta ålder** (i sekunder) | `200` |
    |||
 
-   Även om det här exemplet används den [Azure-portalen](https://portal.azure.com), du kan använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/), eller konfigurera automatiskt den här inställningen med hjälp av det här exemplet [PowerShell-skript](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+   Även om det här exemplet använder [Azure Portal](https://portal.azure.com), kan du använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/)eller automatiskt konfigurera den här inställningen genom att använda det här [PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1)-exemplet.
 
-1. [Skapa en blobbehållare](../storage/blobs/storage-quickstart-blobs-portal.md). För behållaren **översikt** väljer **ändra åtkomstnivå**. Från den **offentlig åtkomstnivå** väljer **Blob (anonym läsåtkomst endast för blobbar)** , och välj **OK**.
+1. [Skapa en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md). I behållarens **översikts** fönster väljer du **ändra åtkomst nivå**. I listan **offentlig åtkomst nivå** väljer du **BLOB (endast anonym Läs åtkomst för blobbar)** och väljer **OK**.
 
-1. [Överför Swagger-filen till blobbehållaren](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), antingen via den [Azure-portalen](https://portal.azure.com) eller [Azure Storage Explorer](https://storageexplorer.com/).
+1. [Ladda upp Swagger-filen till BLOB-behållaren](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), antingen via [Azure Portal](https://portal.azure.com) eller [Azure Storage Explorer](https://storageexplorer.com/).
 
-1. Använd en HTTPS-länk som följer den här format, vilket är skiftlägeskänsligt för att hänvisa till filen i blob-behållaren:
+1. Om du vill referera till filen i BLOB-behållaren använder du en HTTPS-länk som följer detta format, vilket är Skift läges känsligt:
 
    `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Här finns mer information om utdata från en HTTP- + Swagger utlösare eller åtgärd. HTTP + Swagger-anrop returnerar den här informationen:
+Här är mer information om utdata från en HTTP + Swagger-utlösare eller åtgärd. HTTP + Swagger-anropet returnerar denna information:
 
 | Egenskapsnamn | Typ | Beskrivning |
 |---------------|------|-------------|
-| Rubriker | object | Rubriker i begäran |
-| body | object | JSON-objekt | Objektet med brödtext i begäran |
-| Statuskod | int | Statuskoden i begäran |
+| sidhuvud | objekt | Huvudena från begäran |
+| brödtext | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
+| status kod | int | Status koden från begäran |
 |||
 
 | Statuskod | Beskrivning |
 |-------------|-------------|
-| 200 | Ok |
-| 202 | Accepterat |
-| 400 | Felaktig förfrågan |
+| 200 | OK |
+| 202 | Accept |
+| 400 | Felaktig begäran |
 | 401 | Behörighet saknas |
-| 403 | Förbjudna |
-| 404 | Det gick inte att hitta |
-| 500 | Internt serverfel. Okänt fel uppstod. |
+| 403 | Förbjudet |
+| 404 | Hittades inte |
+| 500 | Internt Server fel. Ett okänt fel uppstod. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

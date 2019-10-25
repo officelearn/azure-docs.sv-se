@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 10/14/2019
-ms.openlocfilehash: 814be49c972e444f2a4e4a703501e88fa1272b89
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4b4190ddabe90af135ea64a8ba3d5905f23c457e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392147"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808956"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Självstudie: skapa en virtuell dator eller en skalnings uppsättning för virtuella datorer från Azures Galleri för delad avbildning med Ansible
 
@@ -44,7 +44,7 @@ Det finns två sätt att hämta en fullständig uppsättning exempel spel böcke
 - [Ladda ned sig-mappen](https://github.com/Azure-Samples/ansible-playbooks/tree/master/SIG_generalized_image) och spara den på din lokala dator.
 - Skapa en ny fil för varje avsnitt och kopiera exempel Spelbok i det.
 
-@No__t-0-filen innehåller de variabler som används av alla exempel-spel böcker i den här självstudien. Du kan redigera filen för att tillhandahålla unika namn och värden.
+`vars.yml`-filen innehåller de variabler som används av alla exempel-spel böcker för den här självstudien. Du kan redigera filen för att tillhandahålla unika namn och värden.
 
 Det första exemplet Spelbok `00-prerequisites.yml` skapar vad som krävs för att slutföra den här självstudien:
 - En resurs grupp, som är en logisk behållare där Azure-resurser distribueras och hanteras.
@@ -110,7 +110,7 @@ Kör Spelbok med kommandot `ansible-playbook`:
 ansible-playbook 00-prerequisites.yml
 ```
 
-I [Azure Portal](https://portol.azure.com)markerar du den resurs grupp som du angav i `vars.yml` för att se den nya virtuella datorn och de olika resurser som du har skapat.
+I [Azure Portal](https://portal.azure.com)markerar du den resurs grupp som du angav i `vars.yml` för att se den nya virtuella datorn och de olika resurser som du har skapat.
 
 ## <a name="generalize-the-vm-and-create-a-custom-image"></a>Generalisera den virtuella datorn och skapa en anpassad avbildning
 
@@ -392,7 +392,7 @@ Spara följande spelbok som `cleanup.yml`:
 
 Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
-- Ersätt plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
+- Ersätt `{{ resource_group_name }}` plats hållaren med namnet på din resurs grupp.
 - Alla resurser inom de två angivna resurs grupperna kommer att tas bort.
 
 Kör Spelbok med kommandot `ansible-playbook`:

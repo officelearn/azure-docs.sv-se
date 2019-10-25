@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: f50ace6d707db35dfd7cf9f14026d755093a038c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67983670"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802441"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
@@ -24,7 +24,7 @@ Om du vill hantera en Windows-enhet måste du vara medlem i den lokala gruppen A
 
 I den här artikeln förklaras hur medlemskaps uppdateringen fungerar och hur du kan anpassa den under en Azure AD-anslutning. Innehållet i den här artikeln gäller inte för en **hybrid** Azure AD-anslutning.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 När du ansluter en Windows-enhet med Azure AD med hjälp av en Azure AD-anslutning lägger Azure AD till följande säkerhets principer i den lokala gruppen Administratörer på enheten:
 
@@ -79,8 +79,8 @@ Från och med **Windows 10 1709** -versionen kan du utföra den här åtgärden 
  
 Dessutom kan du också lägga till användare med hjälp av kommando tolken:
 
-- Om klient användarna synkroniseras från lokala Active Directory använder `net localgroup administrators /add "Contoso\username"`du.
-- Om dina klient användare har skapats i Azure AD använder du`net localgroup administrators /add "AzureAD\UserUpn"`
+- Om klient användarna synkroniseras från lokala Active Directory använder du `net localgroup administrators /add "Contoso\username"`.
+- Om dina klient användare har skapats i Azure AD använder du `net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Överväganden 
 

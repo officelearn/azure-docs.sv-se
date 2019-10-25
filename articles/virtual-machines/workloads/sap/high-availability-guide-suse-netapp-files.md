@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 572255cfcd34b97a6ba0f784f7fc7ed1c0df040a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3764ae9ff3a20de6d31f0438b73597933080e372
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213265"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791741"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program
 
@@ -78,7 +78,7 @@ Läs följande SAP-anteckningar och dokument först:
 * SAP NOTE [2243692][2243692] innehåller information om SAP-licensiering på Linux i Azure.
 * SAP NOTE [1984787][1984787] innehåller allmän information om SUSE Linux Enterprise Server 12.
 * SAP anmärkning [1999351][1999351] innehåller ytterligare felsöknings information för Azure Enhanced Monitoring-tillägget för SAP.
-* SAP community wiki] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP-anteckningar för Linux.
+* SAP community WIKI] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP-anteckningar för Linux.
 * [Azure Virtual Machines planera och implementera SAP på Linux][planning-guide]
 * [Azure Virtual Machines-distribution för SAP på Linux][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
@@ -102,7 +102,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 > Multi-SID-klustring av SAP ASCS/ERS med SUSE Linux som gäst operativ system i virtuella Azure-datorer **stöds inte**. Multi-SID-klustring beskriver installationen av flera SAP ASCS/ERS-instanser med olika sid i ett pacemaker-kluster
 
 
-### <a name="ascs"></a>(A)SCS
+### <a name="ascs"></a>En SCS
 
 * Konfiguration av klient del
   * IP-10.1.1.20
@@ -112,12 +112,12 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
   * Port 620<strong>&lt;nr&gt;</strong>
 * Belastnings Utjämnings regler
   * 32<strong>&lt;nr&gt;</strong> TCP
-  * <strong>36&lt;nr&gt;</strong>  TCP
+  * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
   * 81<strong>&lt;nr&gt;</strong> TCP
-  * <strong>5&lt;nr&gt;</strong>13 TCP
-  * <strong>5&lt;nr&gt;</strong>14 TCP
-  * <strong>5&lt;nr&gt;</strong>16 TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -130,9 +130,9 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 * Belastnings Utjämnings regler
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
-  * <strong>5&lt;nr&gt;</strong>13 TCP
-  * <strong>5&lt;nr&gt;</strong>14 TCP
-  * <strong>5&lt;nr&gt;</strong>16 TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Konfigurera Azure NetApp Files-infrastrukturen 
 
@@ -255,7 +255,7 @@ Följ stegen i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](
 
 ### <a name="installation"></a>Installation
 
-Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
+Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
 1. **[A]** installera SUSE Connector
 
@@ -304,15 +304,15 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-3. **[A]**  Konfigurera matcha värdnamn
+3. **[A]** namn matchning för värdnamn
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö   
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö   
 
    <pre><code>
    # IP address of cluster node 1
@@ -363,7 +363,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    > [!NOTE]
    > För närvarande har Azure NetApp Files endast stöd för NFSv3. Utelämna inte växeln nfsvers = 3.
    
-   Starta `autofs` om för att montera de nya resurserna
+   Starta om `autofs` för att montera de nya resurserna
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -393,6 +393,10 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 1. **[1]** skapa en virtuell IP-resurs och en hälso avsökning för ASCS-instansen
 
+   > [!IMPORTANT]
+   > De senaste testerna visade situationer, där netcat slutar svara på begär Anden på grund av en efter släpning och dess begränsning av hantering av endast en anslutning. Netcat-resursen slutar lyssna på Azure Load Balancer-begäranden och den flytande IP-adressen blir otillgänglig.  
+   > För befintliga pacemaker-kluster rekommenderar vi att du ersätter netcat med socat genom att följa anvisningarna i [Azures identifierings härdning av belastnings utjämning](https://www.suse.com/support/kb/doc/?id=7024128). Observera att ändringen kräver kortare stillestånds tid.  
+
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    
    sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' \
@@ -405,7 +409,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ASCS anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>QAS</b>_ASCS fs_<b>QAS</b>_ASCS nc_<b>QAS</b>_ASCS vip_<b>QAS</b>_ASCS \
@@ -460,10 +464,10 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>01</b>" \
+    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>01</b>,backlog=10,fork,reuseaddr /dev/null" \
     op monitor timeout=20s interval=10 depth=0
    
-   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
    # Do you still want to commit (y/n)? y
    
    sudo crm configure group g-<b>QAS</b>_ERS fs_<b>QAS</b>_ERS nc_<b>QAS</b>_ERS vip_<b>QAS</b>_ERS
@@ -658,9 +662,9 @@ Stegen nedan förutsätter att du installerar program servern på en annan serve
 Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas och AAS, **[P]** – endast tillämpligt på Pas eller **[s]** – endast tillämpligt på AAS.
 
 
-1. **[A]**  Konfigurera operativsystem
+1. **[A]** konfigurera operativ system
 
-   Minska storleken på den informationen i cachen. Mer information finns i [låg skrivprestanda på SLES 11/12 servrar med stora RAM](https://www.suse.com/support/kb/doc/?id=7010287).
+   Minska storleken på den ändrade cachen. Mer information finns i [låga skriv prestanda på SLES 11/12-servrar med stort RAM-minne](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>
    sudo vi /etc/sysctl.conf
@@ -669,16 +673,16 @@ Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas oc
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]**  Konfigurera matcha värdnamn
+1. **[A]** namn matchning för värdnamn
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    ```bash
    sudo vi /etc/hosts
    ```
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
 
    <pre><code>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
@@ -732,7 +736,7 @@ Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas oc
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/usrsap<b>qas</b>pas
    </code></pre>
 
-   Starta `autofs` om för att montera de nya resurserna
+   Starta om `autofs` för att montera de nya resurserna
 
    <pre><code>
    sudo systemctl enable autofs
@@ -757,7 +761,7 @@ Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas oc
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
-   Starta `autofs` om för att montera de nya resurserna
+   Starta om `autofs` för att montera de nya resurserna
 
    <pre><code>
    sudo systemctl enable autofs
@@ -843,7 +847,7 @@ Följande tester är en kopia av test fallen i [Best Practices-handböcker för 
 
 1. Testa HAGetFailoverConfig, HACheckConfig och HACheckFailoverConfig
 
-   Kör följande kommandon som \<sapsid > adm på noden där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: Det finns inte tillräckligt med minne. det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
+   Kör följande kommandon som \<sapsid > adm på noden där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: det finns inte tillräckligt med minne, det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
 
    <pre><code>
    anftstsapcl1:qasadm 52> sapcontrol -nr 00 -function HAGetFailoverConfig
@@ -1231,7 +1235,7 @@ Följande tester är en kopia av test fallen i [Best Practices-handböcker för 
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   Om du bara kör kommandot en gång `sapstart` startas processen om. Om du kör det tillräckligt ofta, `sapstart` startar inte om processen och resursen är i ett stoppat tillstånd. Kör följande kommandon som rot för att rensa resurs statusen för ERS-instansen efter testet.
+   Om du bara kör kommandot en gång kommer `sapstart` starta om processen. Om du kör den ofta räcker det `sapstart` inte att starta om processen och resursen är i ett stoppat tillstånd. Kör följande kommandon som rot för att rensa resurs statusen för ERS-instansen efter testet.
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>

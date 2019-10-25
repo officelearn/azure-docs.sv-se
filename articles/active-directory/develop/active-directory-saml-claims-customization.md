@@ -1,5 +1,6 @@
 ---
-title: Anpassa anspråk för SAML-token för företags program i Azure AD | Microsoft Docs
+title: Anpassa anspråk för SAML-token för företags program i Azure AD
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du anpassar anspråk som utfärdats i SAML-token för företags program i Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
-ms.translationtype: MT
+ms.openlocfilehash: a9994d5f882e7bf27ac822a69c4310bc7c6fabe1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240236"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803454"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
@@ -105,7 +106,7 @@ Du kan också använda funktionerna för anspråks omvandlingar.
 | Funktion | Beskrivning |
 |----------|-------------|
 | **ExtractMailPrefix()** | Tar bort domänsuffix från antingen e-postadressen eller User Principal Name. Detta extraherar bara den första delen av användar namnet som skickas genom (till exempel "joe_smith" i stället för joe_smith@contoso.com). |
-| **Anslut ()** | Ansluter till ett attribut med en verifierad domän. Om värdet för den valda användar identifieraren har en domän extraheras användar namnet för att lägga till den valda verifierade domänen. Om du till exempel väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användar-ID och väljer contoso.onmicrosoft.com som den verifierade domänen, leder detta till joe_smith@contoso.onmicrosoft.com. |
+| **Anslut ()** | Ansluter till ett attribut med en verifierad domän. Om värdet för den valda användar identifieraren har en domän extraheras användar namnet för att lägga till den valda verifierade domänen. Om du till exempel väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användar-ID och väljer contoso.onmicrosoft.com som verifierade domän leder detta till joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Konverterar tecknen i det valda attributet till gemener. |
 | **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003952"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804036"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
@@ -51,15 +51,15 @@ Med kryptering på klient sidan har moln tjänst leverantörer inte åtkomst til
 
 De tre krypterings modellerna på Server sidan ger olika egenskaper för nyckel hantering, som du kan välja enligt dina krav:
 
-- **Tjänst nycklar som hanteras**: Innehåller en kombination av kontroll och bekvämlighet med låg belastning.
+- **Tjänst nycklar som hanteras**: ger en kombination av kontroll och bekvämlighet med låg belastning.
 
-- **Kundhanterade nycklar**: Ger dig kontroll över nycklar, inklusive att ta med egna nycklar (BYOK) support, eller så kan du skapa nya.
+- **Kundhanterade nycklar**: ger dig kontroll över nycklar, inklusive att ta med egna nycklar (BYOK) support, eller så kan du skapa nya.
 
-- **Tjänst nycklar som hanteras av kundkontrollerad maskin vara**: Med kan du hantera nycklar i din egen lagrings plats, utanför Microsoft-kontroll. Den här egenskapen kallas värd för din egen nyckel (HYOK). Konfigurationen är dock komplicerad och de flesta Azure-tjänster har inte stöd för den här modellen.
+- **Hanterade nycklar i kundkontrollerad maskin vara**: gör att du kan hantera nycklar i din egen lagrings plats, utanför Microsoft-kontroll. Den här egenskapen kallas värd för din egen nyckel (HYOK). Konfigurationen är dock komplicerad och de flesta Azure-tjänster har inte stöd för den här modellen.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Du kan skydda virtuella Windows-och Linux-datorer med hjälp av [Azure Disk Encryption](/azure/security/azure-security-disk-encryption), som använder [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) -teknik och Linux [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) för att skydda både operativ system diskar och data diskar med fullständig volym kryptering.
+Du kan skydda virtuella Windows-och Linux-datorer med hjälp av [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), som använder [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) -teknik och Linux [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) för att skydda både operativ system diskar och data diskar med fullständig volym kryptering.
 
 Krypterings nycklar och hemligheter skyddas i [Azure Key Vault prenumerationen](../../key-vault/key-vault-overview.md). Genom att använda Azure Backup tjänsten kan du säkerhetskopiera och återställa krypterade virtuella datorer som använder KEK-konfiguration (Key Encryption Key).
 
@@ -79,7 +79,7 @@ Mer information om och hur du hämtar Azure Storage klient bibliotek för .NET N
 
 När du använder kryptering på klient sidan med Key Vault krypteras dina data med en engångs symmetrisk innehålls krypterings nyckel (CEK) som genereras av Azure Storage-klientens SDK. CEK krypteras med en nyckel krypterings nyckel (KEK), som kan vara antingen en symmetrisk nyckel eller ett asymmetriskt nyckel par. Du kan hantera den lokalt eller lagra den i Key Vault. Krypterade data överförs sedan till Azure Storage.
 
-Mer information om kryptering på klient sidan med Key Vault och kom igång med instruktioner finns i [Självstudier: Kryptera och dekryptera blobbar i Azure Storage med Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
+Om du vill veta mer om kryptering på klient sidan med Key Vault och kom igång med instruktioner, se [Självstudier: kryptera och dekryptera blobbar i Azure Storage med Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Slutligen kan du också använda Azure Storage klient bibliotek för Java för att utföra kryptering på klient sidan innan du överför data till Azure Storage och för att dekryptera data när du laddar ned den till klienten. Det här biblioteket stöder också integrering med [Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av lagrings konto nycklar.
 
@@ -105,7 +105,7 @@ CLE har inbyggda funktioner som du kan använda för att kryptera data med hjäl
 
 ### <a name="cosmos-db-database-encryption"></a>Cosmos DB databas kryptering
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) är Microsofts globalt distribuerade databas för flera modeller. Användar data som lagras i Cosmos DB i icke-flyktig lagring (solid-state-enheter) krypteras som standard. Det finns inga kontroller att aktivera eller inaktivera. Kryptering i vila implementeras med hjälp av ett antal olika tekniker, inklusive säker nyckel lagringssystem, krypterade nätverk och kryptografiska API: er. Krypterings nycklar hanteras av Microsoft och roteras enligt Microsofts interna rikt linjer.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) är Microsofts globalt distribuerade databas för flera modeller. Användar data som lagras i Cosmos DB i icke-flyktig lagring (solid-state-enheter) krypteras som standard. Det finns inga kontroller att aktivera eller inaktivera. Kryptering i vila implementeras med hjälp av ett antal säkerhets tekniker, inklusive säkra nyckel lagrings system, krypterade nätverk och kryptografiska API: er. Krypterings nycklar hanteras av Microsoft och roteras enligt Microsofts interna rikt linjer.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Vilande kryptering i Data Lake
 
@@ -121,7 +121,7 @@ Azure erbjuder många mekanismer för att hålla data privata när de flyttas fr
 
 Microsoft använder TLS-protokollet ( [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) ) för att skydda data när de reser mellan moln tjänster och kunder. Microsoft-datacentren förhandlar en TLS-anslutning med klient system som ansluter till Azure-tjänster. TLS ger stark autentisering, meddelande sekretess och integritet (aktiverar identifiering av meddelande manipulation, avlyssning och förfalskning), samverkan, algoritm flexibilitet och enkel distribution och användning.
 
-[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) skyddar anslutningar mellan kunders klient system och Microsoft Cloud Services genom unika nycklar. Anslutningar använder även RSA-baserade 2 048-bitars krypterings nyckel längd. Den här kombinationen gör det svårt för någon att avlyssna och komma åt data som är under överföring.
+Perfect [Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) skyddar anslutningar mellan kunders klient system och Microsoft Cloud Services genom unika nycklar. Anslutningar använder även RSA-baserade 2 048-bitars krypterings nyckel längd. Den här kombinationen gör det svårt för någon att avlyssna och komma åt data som är under överföring.
 
 ### <a name="azure-storage-transactions"></a>Azure Storage transaktioner
 
@@ -171,7 +171,7 @@ Du kan konfigurera en punkt-till-plats-VPN-anslutning till ett virtuellt nätver
 
 Mer information om punkt-till-plats-VPN-anslutningar till virtuella Azure-nätverk finns i:
 
-[Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med hjälp av certifikatbaserad autentisering: Azure Portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
+[Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med hjälp av certifikatautentisering: Azure Portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
 [Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med hjälp av certifikatautentisering: PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
@@ -181,7 +181,7 @@ Du kan använda en VPN gateway-anslutning från plats till plats för att anslut
 
 Du kan konfigurera en plats-till-plats-VPN-anslutning till ett virtuellt nätverk med hjälp av Azure Portal, PowerShell eller Azure CLI.
 
-Mer information finns i:
+Mer information finns här:
 
 [Skapa en plats-till-plats-anslutning i Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

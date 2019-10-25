@@ -1,5 +1,6 @@
 ---
-title: Så här begär du anpassade anspråk med MSAL för iOS och macOS | Microsoft Identity Platform
+title: Så här begär du anpassade anspråk med MSAL för iOS och macOS
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du begär anpassade anspråk.
 services: active-directory
 documentationcenter: ''
@@ -17,18 +18,18 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e09d58742bffd74f07f79b3ec55c1e81533632
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6c34da9e8faa8c2c2e24e7f00569e2b7c8af674f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268991"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802587"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Anvisningar: Begär anpassade anspråk med MSAL för iOS och macOS
+# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Gör så här: begär anpassade anspråk med MSAL för iOS och macOS
 
 OpenID Connect gör att du kan begära att returnera enskilda anspråk från UserInfo-slutpunkten och/eller i ID-token. En begäran om anspråk visas som ett JSON-objekt som innehåller en lista över begärda anspråk. Se [OpenID Connect Core 1,0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) för mer information.
 
-Microsoft Authentication Library (MSAL) för iOS och macOS gör det möjligt att begära vissa anspråk i både interaktiva och tysta token för hämtning. Detta görs via `claimsRequest` parametern.
+Microsoft Authentication Library (MSAL) för iOS och macOS gör det möjligt att begära vissa anspråk i både interaktiva och tysta token för hämtning. Detta görs via `claimsRequest`-parametern.
 
 Det finns flera scenarier där det behövs. Exempel:
 
@@ -36,9 +37,9 @@ Det finns flera scenarier där det behövs. Exempel:
 - Begär specifika kombinationer av de standard anspråk som inte kan anges med hjälp av omfattningar för ditt program. Om till exempel en åtkomsttoken avvisas på grund av saknade anspråk, kan programmet begära anspråk som saknas med MSAL.
 
 > [!NOTE]
-> MSAL kringgår cachen för åtkomsttoken när en anspråks förfrågan anges. Det är viktigt att endast tillhandahålla `claimsRequest` parameter när ytterligare anspråk behövs (i stället för att alltid ha samma `claimsRequest` parameter i varje MSAL-API-anrop).
+> MSAL kringgår cachen för åtkomsttoken när en anspråks förfrågan anges. Det är viktigt att endast tillhandahålla `claimsRequest` parameter när ytterligare anspråk behövs (i stället för att alltid ha samma `claimsRequest`-parameter i varje MSAL-API-anrop).
 
-`claimsRequest`kan anges i `MSALSilentTokenParameters` och `MSALInteractiveTokenParameters`:
+`claimsRequest` kan anges i `MSALSilentTokenParameters` och `MSALInteractiveTokenParameters`:
 
 ```objc
 /*!
@@ -54,7 +55,7 @@ Det finns flera scenarier där det behövs. Exempel:
 
 @end
 ```
-`MSALClaimsRequest`kan skapas från en NSString-representation av begäran om JSON-anspråk. 
+`MSALClaimsRequest` kan skapas från en NSString-representation av begäran om JSON-anspråk. 
 
 Mål-C:
 
@@ -103,7 +104,7 @@ do {
 
 
 
-`MSALClaimsRequest`ska sedan anges i token-parametrarna och anges till en av MSAL-API: er för hämtning av token:
+`MSALClaimsRequest` ska sedan anges i token-parametrarna och anges till en av MSAL-API: er för hämtning av token:
 
 Mål-C:
 

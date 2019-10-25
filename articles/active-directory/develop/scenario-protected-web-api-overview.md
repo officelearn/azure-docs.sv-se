@@ -1,5 +1,6 @@
 ---
-title: Protected Web API – översikt | Azure
+title: Protected Web API – översikt
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du skapar en skyddad webb-API (översikt).
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,18 +16,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02bd4b84cc7542714f6db45c12c4b5b13a7fb449
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 64418138f9eff61cc94a57be4dc5e2625e5fdebb
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852583"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803681"
 ---
-# <a name="scenario-protected-web-api"></a>Scenario: Skyddat webb-API
+# <a name="scenario-protected-web-api"></a>Scenario: skyddat webb-API
 
 I det här scenariot visar vi hur du kan exponera ett webb-API och hur du kan skydda det så att endast autentiserade användare får åtkomst till API: et. Du vill aktivera autentiserade användare med både arbets-och skol konton eller personliga personliga Microsoft-konton för att använda ditt webb-API.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 

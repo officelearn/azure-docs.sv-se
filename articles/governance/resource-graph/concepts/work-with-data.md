@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: c78f2e37fa29fa1cdcb9acc6a4600688750b6d74
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bcc272a8189ebb175f546f6a50c2c117a7975216
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387597"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800178"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs data uppsättningar
 
@@ -36,7 +36,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-I [REST API](/rest/api/azureresourcegraph/resources/resources)är kontrollen **$Top** och ingår i **QueryRequestOptions**.
+I [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)är kontrollen **$Top** och ingår i **QueryRequestOptions**.
 
 Den kontroll som är _mest restriktiv_ är att vinna. Om din fråga till exempel använder **Top** -eller **Limit** -operatorer och skulle resultera i fler poster än den **första**, skulle de maximala poster som returneras vara lika med **först**. På samma sätt, om **Top** eller **Limit** är mindre än den **första**, skulle den returnerade post mängden vara det mindre värdet som kon figurer ATS av **Top** eller **Limit**.
 
@@ -59,11 +59,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-I [REST API](/rest/api/azureresourcegraph/resources/resources)är kontrollen **$Skip** och ingår i **QueryRequestOptions**.
+I [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)är kontrollen **$Skip** och ingår i **QueryRequestOptions**.
 
 ## <a name="paging-results"></a>Växla resultat
 
-När det är nödvändigt att dela upp en resultat uppsättning i mindre mängder poster för bearbetning eller eftersom en resultat uppsättning skulle överskrida det högsta tillåtna värdet för _1000_ returnerade poster, använder du sid indelning. [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** innehåller värden för att indikera en resultat uppsättning har delats upp: **resultTruncated** och **$skipToken**.
+När det är nödvändigt att dela upp en resultat uppsättning i mindre mängder poster för bearbetning eller eftersom en resultat uppsättning skulle överskrida det högsta tillåtna värdet för _1000_ returnerade poster, använder du sid indelning. [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** innehåller värden för att indikera en resultat uppsättning har delats upp: **resultTruncated** och **$skipToken**.
 **resultTruncated** är ett booleskt värde som informerar konsumenten om det finns ytterligare poster som inte returneras i svaret. Det här villkoret kan också identifieras när **Count** -egenskapen är mindre än egenskapen **totalRecords** . **totalRecords** definierar hur många poster som matchar frågan.
 
 När **resultTruncated** är **true**anges egenskapen **$skipToken** i svaret. Det här värdet används med samma fråge-och prenumerations värden för att hämta nästa uppsättning poster som matchar frågan.
@@ -81,7 +81,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > Frågan måste **projicera** fältet **ID** för att sid brytning ska fungera. Om det saknas i frågan, innehåller svaret inte **$skipToken**.
 
-Ett exempel finns i [Nästa sida fråga](/rest/api/azureresourcegraph/resources/resources#next-page-query) i REST API dokumenten.
+Ett exempel finns i [Nästa sida fråga](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) i REST API dokumenten.
 
 ## <a name="formatting-results"></a>Formatering av resultat
 

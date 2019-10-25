@@ -1,22 +1,22 @@
 ---
-title: PowerShell-skript med AZ. search-modul-Azure Search
-description: Skapa och konfigurera en Azure Search-tjänst med PowerShell. Du kan skala upp eller ned en tjänst, hantera administratör och fråga API-nycklar och fråga system information.
-author: HeidiSteen
+title: PowerShell-skript med AZ. search-modulen
+titleSuffix: Azure Cognitive Search
+description: Skapa och konfigurera en Azure Kognitiv sökning-tjänst med PowerShell. Du kan skala upp eller ned en tjänst, hantera administratörs-och fråge-API-nycklar och fråga efter system information.
 manager: nitinme
-services: search
-ms.service: search
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: heidist
-ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/04/2019
+ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331246"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793546"
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>Hantera din Azure Search-tjänst med PowerShell
+# <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Hantera Azure Kognitiv sökning-tjänsten med PowerShell
 > [!div class="op_single_selector"]
 > * [Portalen](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -24,7 +24,7 @@ ms.locfileid: "72331246"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)-> 
 
-Du kan köra PowerShell-cmdlets och skript i Windows, Linux eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för att skapa och konfigurera Azure Search. **AZ. search** -modulen utökar Azure PowerShell] med fullständig paritet till [Azure Search hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement). Med Azure PowerShell och **AZ. search**kan du utföra följande uppgifter:
+Du kan köra PowerShell-cmdlets och skript i Windows, Linux eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för att skapa och konfigurera Azure kognitiv sökning. **AZ. search** -modulen utökar Azure PowerShell] med fullständig paritet till [Azure-kognitiv sökning hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement). Med Azure PowerShell och **AZ. search**kan du utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * [Visa en lista över alla Sök tjänster i din prenumeration](#list-search-services)
@@ -92,7 +92,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## <a name="list-all-azure-search-services-in-your-subscription"></a>Visa alla Azure Search tjänster i din prenumeration
+## <a name="list-all-azure-cognitive-search-services-in-your-subscription"></a>Visa en lista över alla Azure Kognitiv sökning-tjänster i din prenumeration
 
 Följande kommandon är från [**AZ. Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), returnerar information om befintliga resurser och tjänster som redan har skapats i din prenumeration. Om du inte vet hur många Sök tjänster som redan har skapats, returnerar de här kommandona informationen och sparar en resa till portalen.
 
@@ -201,7 +201,7 @@ Du kan bara återskapa en i taget, som har angetts som antingen `primary`-eller 
 
 Om du återskapar nycklar utan att uppdatera klient koden, kan det hända att förfrågningar som använder den gamla nyckeln Miss förväntas. Om du återskapar alla nya nycklar låses du inte permanent av tjänsten och du kan fortfarande komma åt tjänsten via portalen. När du har återskapat primära och sekundära nycklar kan du uppdatera klient koden för att använda de nya nycklarna och åtgärderna kommer att återupptas på motsvarande sätt.
 
-Värdena för API-nycklarna genereras av tjänsten. Det går inte att ange en anpassad nyckel för Azure Search som ska användas. Det finns på liknande sätt inget användardefinierat namn för Admin API-nycklar. Referenser till nyckeln är fasta strängar, antingen `primary` eller `secondary`. 
+Värdena för API-nycklarna genereras av tjänsten. Du kan inte ange en anpassad nyckel för Azure Kognitiv sökning att använda. Det finns på liknande sätt inget användardefinierat namn för Admin API-nycklar. Referenser till nyckeln är fasta strängar, antingen `primary` eller `secondary`. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
@@ -217,9 +217,9 @@ Primary                    Secondary
 
 ## <a name="create-or-delete-query-keys"></a>Skapa eller ta bort frågeinställningar
 
-[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) används för att skapa fråge- [API-nycklar](search-security-api-keys.md) för skrivskyddad åtkomst från klient program till ett Azure Search-index. Frågeinställningar används för att autentisera till ett specifikt index i syfte att hämta Sök resultat. Frågeinställningar beviljar inte skrivskyddad åtkomst till andra objekt i tjänsten, till exempel ett index, en data källa eller indexerare.
+[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) används för att skapa fråge- [API-nycklar](search-security-api-keys.md) för skrivskyddad åtkomst från klient program till ett Azure kognitiv sökning-index. Frågeinställningar används för att autentisera till ett specifikt index i syfte att hämta Sök resultat. Frågeinställningar beviljar inte skrivskyddad åtkomst till andra objekt i tjänsten, till exempel ett index, en data källa eller indexerare.
 
-Det går inte att ange en nyckel för Azure Search som ska användas. API-nycklar genereras av tjänsten.
+Det går inte att ange en nyckel för Azure Kognitiv sökning att använda. API-nycklar genereras av tjänsten.
 
 ```azurepowershell-interactive
 New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
@@ -257,7 +257,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 Bygg ett [index](search-what-is-an-index.md), [fråga ett index](search-query-overview.md) med hjälp av portalen, REST-API: er eller .NET SDK.
 
-* [Skapa ett Azure Search-index i Azure Portal](search-create-index-portal.md)
+* [Skapa ett Azure Kognitiv sökning-index i Azure Portal](search-create-index-portal.md)
 * [Konfigurera en indexerare för att läsa in data från andra tjänster](search-indexer-overview.md)
-* [Fråga ett Azure Search-index med hjälp av Sök Utforskaren i Azure Portal](search-explorer.md)
-* [Hur du använder Azure Search i .NET](search-howto-dotnet-sdk.md)
+* [Fråga ett Azure Kognitiv sökning-index med hjälp av Sök Utforskaren i Azure Portal](search-explorer.md)
+* [Använda Azure Kognitiv sökning i .NET](search-howto-dotnet-sdk.md)

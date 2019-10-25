@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65f3490e9cb62aa2d5c18b8fd564796dd6d3946c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: a312c39352f0d13b4354e7b0dfcd897bf4cc0992
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162425"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808462"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerad säkerhets informations registrering (för hands version)
 
@@ -34,9 +34,12 @@ Den kombinerade säkerhets informations registreringen i Azure AD är för närv
 |     |
 
 > [!IMPORTANT]
-> Användare som har Aktiver ATS för både den ursprungliga för hands versionen och den förbättrade kombinerade registreringen kommer att se det nya beteendet. Användare som har Aktiver ATS för båda erfarenheterna kan bara se den nya min profil upplevelsen. Den nya min profil överensstämmer med utseendet och känslan av kombinerad registrering och ger en sömlös upplevelse för användarna. Användarna kan se min profil genom att gå [https://myprofile.microsoft.com](https://myprofile.microsoft.com)till.
+> Användare som har Aktiver ATS för både den ursprungliga för hands versionen och den förbättrade kombinerade registreringen kommer att se det nya beteendet. Användare som har Aktiver ATS för båda erfarenheterna kan bara se den nya min profil upplevelsen. Den nya min profil överensstämmer med utseendet och känslan av kombinerad registrering och ger en sömlös upplevelse för användarna. Användarna kan se min profil genom att gå till [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 
-Mina profil sidor är lokaliserade baserat på språk inställningarna för den dator som har åtkomst till sidan. Microsoft lagrar det senaste språket som används i webbläsarens cacheminne, så efterföljande försök att komma åt sidorna fortsätter att återges på det senast använda språket. Om du rensar cacheminnet åter renderas sidorna igen. Om du vill tvinga ett speciellt språk kan du lägga till `?lng=<language>` i slutet av webb adressen, där `<language>` är koden för det språk som du vill återge.
+> [!NOTE] 
+> Du kan stöta på ett fel meddelande när du försöker få åtkomst till alternativet säkerhets information. Det går till exempel inte att logga in dig. I det här fallet kontrollerar du att du inte har någon konfigurations-eller grup princip objekt som blockerar cookies från tredje part i webbläsaren. 
+
+Mina profil sidor är lokaliserade baserat på språk inställningarna för den dator som har åtkomst till sidan. Microsoft lagrar det senaste språket som används i webbläsarens cacheminne, så efterföljande försök att komma åt sidorna fortsätter att återges på det senast använda språket. Om du rensar cacheminnet åter renderas sidorna igen. Om du vill tvinga ett speciellt språk kan du lägga till `?lng=<language>` i slutet av URL: en, där `<language>` är koden för det språk som du vill återge.
 
 ![Konfigurera SSPR eller andra säkerhets verifierings metoder](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
@@ -48,11 +51,11 @@ Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Ja (högst 5) | Nej | Ja |
 | Annan Authenticator-app | Ja (högst 5) | Nej | Ja |
-| Maskinvarutoken | Nej | Nej | Ja |
-| Phone | Ja | Ja | Ja |
+| Maskinvaru-token | Nej | Nej | Ja |
+| Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
-| Arbetstelefon | Nej | Nej | Nej |
-| Email | Ja | Ja | Ja |
+| Arbets telefon | Nej | Nej | Nej |
+| E-post | Ja | Ja | Ja |
 | Säkerhetsfrågor | Ja | Nej | Ja |
 | Applösenord | Ja | Nej | Ja |
 
@@ -84,11 +87,11 @@ Kombinerad registrering respekterar både Multi-Factor Authentication-och SSPR-p
 
 Här följer flera scenarier där användare kan uppmanas att registrera eller uppdatera sin säkerhets information:
 
-- Multi-Factor Authentication registrering framtvingas genom identitets skydd: Användarna uppmanas att registrera sig under inloggningen. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
-- Multi-Factor Authentication registrering tillämpas via per användare-Multi-Factor Authentication: Användarna uppmanas att registrera sig under inloggningen. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
-- Multi-Factor Authentication registreringen tillämpas via villkorlig åtkomst eller andra principer: Användarna uppmanas att registrera sig när de använder en resurs som kräver Multi-Factor Authentication. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
-- SSPR-registrering framtvingas: Användarna uppmanas att registrera sig under inloggningen. De registrerar endast SSPR-metoder.
-- Tvingande SSPR-uppdatering: Användare måste granska sina säkerhets uppgifter med ett intervall som angetts av administratören. Användarna visar sin information och kan bekräfta den aktuella informationen eller göra ändringar om det behövs.
+- Multi-Factor Authentication registrering tillämpas via identitets skydd: användarna uppmanas att registrera sig under inloggningen. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
+- Multi-Factor Authentication registrering tillämpas via per användare-Multi-Factor Authentication: användarna uppmanas att registrera sig under inloggningen. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
+- Multi-Factor Authentication registrering tillämpas via villkorlig åtkomst eller andra principer: användarna uppmanas att registrera sig när de använder en resurs som kräver Multi-Factor Authentication. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
+- SSPR-registrering framtvingad: användarna uppmanas att registrera sig under inloggningen. De registrerar endast SSPR-metoder.
+- Tvingande uppdatering av SSPR: användare måste granska sina säkerhets uppgifter med ett intervall som angetts av administratören. Användarna visar sin information och kan bekräfta den aktuella informationen eller göra ändringar om det behövs.
 
 När registreringen är aktive rad visas det minsta antal metoder som krävs för att uppfylla både Multi-Factor Authentication-och SSPR-principer, från de flesta till minst säkra.
 
@@ -109,7 +112,7 @@ Om SSPR-principen kräver att användare granskar sin säkerhets information med
 
 ### <a name="manage-mode"></a>Hantera läge
 
-Användare kan komma åt hanterings läget genom [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) att gå till eller genom att välja **säkerhets information** från min profil. Därifrån kan användarna lägga till metoder, ta bort eller ändra befintliga metoder, ändra standard metoden med mera.
+Användare kan komma åt hanterings läget genom att gå till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) eller genom att välja **säkerhets information** från min profil. Därifrån kan användarna lägga till metoder, ta bort eller ändra befintliga metoder, ändra standard metoden med mera.
 
 ## <a name="key-usage-scenarios"></a>Scenarier för nyckel användning
 

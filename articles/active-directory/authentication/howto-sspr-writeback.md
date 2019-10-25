@@ -1,6 +1,6 @@
 ---
-title: 'Anvisningar: Konfigurera tillbakaskrivning av lösenord för Azure AD SSPR - Azure Active Directory'
-description: Använd Azure AD och Azure AD Connect för tillbakaskrivning av lösenord till en lokal katalog
+title: Anvisningar för att konfigurera tillbakaskrivning av lösen ord för Azure AD SSPR-Azure Active Directory
+description: Använd Azure AD och Azure AD Connect för att ångra lösen ord till en lokal katalog
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71a16ad3c571086a73a2aae192fb2d00bce4d5f9
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357516"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808151"
 ---
-# <a name="how-to-configure-password-writeback"></a>Så här gör du: Konfigurera tillbakaskrivning av lösenord
+# <a name="how-to-configure-password-writeback"></a>Anvisningar: Konfigurera tillbakaskrivning av lösen ord
 
-Följande steg förutsätter att du redan har konfigurerat Azure AD Connect i din miljö med hjälp av den [Express](../hybrid/how-to-connect-install-express.md) eller [anpassade](../hybrid/how-to-connect-install-custom.md) inställningar.
+Följande steg förutsätter att du redan har konfigurerat Azure AD Connect i din miljö med hjälp av inställningarna för [Express](../hybrid/how-to-connect-install-express.md) eller [anpassad](../hybrid/how-to-connect-install-custom.md) .
 
 1. För att konfigurera och aktivera tillbakaskrivning av lösenord loggar du in på din Azure AD Connect-server och startar konfigurationsguiden för **Azure AD Connect**.
 2. På sidan **Välkommen** klickar du på **Konfigurera**.
@@ -28,79 +28,81 @@ Följande steg förutsätter att du redan har konfigurerat Azure AD Connect i di
 4. På sidan **Anslut till Azure AD** anger du autentiseringsuppgifter för global administratör och väljer sedan **Nästa**.
 5. På filtreringssidorna **Anslut kataloger** och **Domän/OU** väljer du **Nästa**.
 6. På sidan **Valfria funktioner** markerar du rutan bredvid **Tillbakaskrivning av lösenord** och väljer **Nästa**.
-   ![Aktivera tillbakaskrivning av lösenord i Azure AD Connect][Writeback]
+   ![Aktivera tillbakaskrivning av lösen ord i Azure AD Connect][Writeback]
 7. På sidan **Klart att konfigurera** väljer du **Konfigurera** och väntar tills processen slutförts.
 8. När du ser att konfigurationen är klar väljer du **Avsluta**.
 
-Vanliga uppgifter för felsökning för tillbakaskrivning av lösenord finns i avsnittet [felsöka tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) i vår felsökningsartikel.
+Vanliga fel söknings uppgifter om tillbakaskrivning av lösen ord finns i avsnittet [Felsöka tillbakaskrivning av lösen ord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) i vår fel söknings artikel.
 
 > [!WARNING]
-> Tillbakaskrivning av lösenord att sluta fungera för kunder som använder Azure AD Connect-versioner 1.0.8641.0 och äldre när den [Azure Access Control service (ACS) är ur bruk 7 November 2018](../develop/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre inte längre att tillåta tillbakaskrivning av lösenord vid den tidpunkten eftersom de använder ACS för den funktionen.
+> Tillbakaskrivning av lösen ord slutar att fungera för kunder som använder Azure AD Connect versioner 1.0.8641.0 och äldre när [Azure Access Control Service (ACS) tas ur bruk den 7 November 2018](../develop/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre kommer inte längre att tillåta tillbakaskrivning av lösen ord vid den tidpunkten eftersom de är beroende av ACS för den funktionen.
 >
-> Om du vill undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version finns i artikeln [Azure AD Connect: Uppgradera från en tidigare version till den senaste](../hybrid/how-to-upgrade-previous-version.md)
+> För att undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version, se artikeln [Azure AD Connect: uppgradera från en tidigare version till den senaste](../hybrid/how-to-upgrade-previous-version.md)
 >
 
-## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
+## <a name="licensing-requirements-for-password-writeback"></a>Licensierings krav för tillbakaskrivning av lösen ord
 
-**Självbetjäning lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning är en premiumfunktion i Azure AD**. Mer information om licensiering finns i den [priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+**Lösen ords återställning via självbetjäning/ändring/upplåsning med lokal tillbakaskrivning är en Premium funktion i Azure AD**. Mer information om licensiering finns på webbplatsen för [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följande licenser som tilldelats på din klient:
+Om du vill använda tillbakaskrivning av lösen ord måste du ha en av följande licenser tilldelade till klienten:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3 eller A3
-* Enterprise Mobility + Security E5 or A5
-* Microsoft 365 E3 eller A3
+* Enterprise Mobility + Security E3 eller a3
+* Enterprise Mobility + Security E5 eller A5
+* Microsoft 365 E3 eller a3
 * Microsoft 365 E5 eller A5
 * Microsoft 365 F1
 * Microsoft 365 Business
 
 > [!WARNING]
-> Fristående Office 365 licensiering planer *stöder inte ”Self Service lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning”* och kräver att du har en av de föregående prenumerationerna för den här funktionen ska fungera.
+> Fristående Office 365-licens planer *stöder inte "självbetjäning för återställning av lösen ord/ändra/Lås upp med lokal tillbakaskrivning"* och kräver att du har en av de föregående planerna för att den här funktionen ska fungera.
 >
 
-## <a name="active-directory-permissions"></a>Active Directory-behörigheter
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Active Directory behörigheter och komplexitets principer för lokala lösen ord 
 
-Konton som angetts i Azure AD Connect-verktyget måste ha följande ange om du vill ska vara i omfånget för SSPR:
+Det konto som anges i Azure AD Connect-verktyget måste ha följande objekt angivna om du vill ha en omfattning för SSPR:
 
 * **Återställ lösenord** 
 * **Ändra lösenord** 
-* **Skrivbehörighet** på `lockoutTime`
-* **Skrivbehörighet** på `pwdLastSet`
-* **Utökade rättigheter för** på antingen:
-   * Rotobjektet av *varje domän* i den skogen
-   * Användaren organisationsenheter (OU) som du vill ska vara i omfånget för SSPR
+* **Skriv behörigheter** för `lockoutTime`
+* **Skriv behörigheter** för `pwdLastSet`
+* **Utökade rättigheter** på något av följande:
+   * Rotobjektet för *varje domän* i skogen
+   * De användar organisationsenheter (OU) som du vill ska ingå i omfånget för SSPR
 
-Om du inte vet vilket konto beskrivs kontot refererar öppnar Azure Active Directory Connect Konfigurationsgränssnittet och väljer den **visa aktuell konfiguration** alternativet. Det konto som du behöver lägga till behörigheter till anges under **synkroniserade kataloger**.
+Om du inte är säker på vilket konto som det beskrivna kontot refererar till, öppnar du konfigurations gränssnittet för Azure Active Directory Connect och väljer alternativet **Visa aktuell konfiguration** . Kontot som du behöver lägga till behörighet för visas under **synkroniserade kataloger**.
 
-Om du anger dessa behörigheter kan MA-tjänstkontot för varje skog hantera lösenord för användarkonton i skogen. 
+Om du ställer in dessa behörigheter kan kontot för MA-tjänsten för varje skog hantera lösen ord för användar kontots räkning i skogen. 
 
 > [!IMPORTANT]
-> Om du inte tilldelar dessa behörigheter, sedan, visas även om tillbakaskrivning av verkar vara korrekt konfigurerade, användare felmeddelanden när de försöker hantera sina lokala lösenord från molnet.
+> Om du inte väljer att tilldela dessa behörigheter, kommer användarna att upptäcka fel när de försöker hantera lokala lösen ord från molnet även om tillbakaskrivning verkar vara korrekt konfigurerad.
 >
 
 > [!NOTE]
-> Det kan ta upp till ungefär en timme för behörigheterna att replikeras till alla objekt i din katalog.
+> Det kan ta upp till en timme eller mer för dessa behörigheter att replikera till alla objekt i din katalog.
 >
 
-Om du vill konfigurera lämpliga behörigheter för tillbakaskrivning av lösenord ska ske, gör du följande:
+Utför följande steg för att ställa in rätt behörigheter för tillbakaskrivning av lösen ord:
 
-1. Öppna Active Directory-användare och datorer med ett konto som har administratörsbehörighet för lämplig domän.
-2. Från den **visa** menyn, se till att **avancerade funktioner** är påslagen.
-3. I den vänstra rutan högerklickar du på det objekt som representerar roten för domänen och välj **egenskaper** > **Security** > **Avancerat**.
-4. Från den **behörigheter** fliken **Lägg till**.
-5. Välj det konto som behörigheter som används för (från Azure AD Connect-konfiguration).
-6. I den **gäller** listrutan, väljer **underordnad användarobjekt**.
-7. Under **behörigheter**, markerar kryssrutorna för följande alternativ:
+1. Öppna Active Directory användare och datorer med ett konto som har rätt behörighet för domän administration.
+2. I menyn **Visa** ser du till att **avancerade funktioner** är aktiverade.
+3. Högerklicka på det objekt som representerar roten för domänen i den vänstra panelen och välj **egenskaper** > **säkerhets** > **Avancerat**.
+4. På fliken **behörigheter** väljer du **Lägg till**.
+5. Välj det konto som behörigheter tillämpas på (från Azure AD Connect-installationen).
+6. I list rutan **gäller väljer du** **underordnade användar objekt**.
+7. Under **behörigheter**väljer du rutorna för följande alternativ:
     * **Ändra lösenord**
     * **Återställ lösenord**
-8. Under **egenskaper**, markerar kryssrutorna för följande alternativ:
-    * **Skriva lockoutTime**
-    * **Skriva pwdLastSet**
-9. Välj **Använd/OK** att tillämpa ändringarna och stänga alla öppna dialogrutor.
+8. Under **Egenskaper**väljer du rutorna för följande alternativ:
+    * **Skriv lockoutTime**
+    * **Skriv pwdLastSet**
+9. Välj **tillämpa/OK** för att tillämpa ändringarna och avsluta alla öppna dialog rutor.
+
+Eftersom auktoritets källan är lokalt gäller principerna för lösen ords komplexitet från samma anslutna data källa. Kontrol lera att du har ändrat de befintliga grup principerna för "minsta längd på lösen ord". Grup principen bör inte vara inställd på 1, vilket innebär att lösen ordet ska vara minst en dag gammal innan den kan uppdateras. Du måste kontrol lera att den är inställd på 0. Du hittar de här inställningarna i `gpmc.msc` under **dator konfiguration > principer > Windows-inställningar > säkerhets inställningar > konto principer**. Kör `gpupdate /force` för att säkerställa att ändringen börjar gälla. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är tillbakaskrivning av lösenord?](concept-sspr-writeback.md)
+[Vad är tillbakaskrivning av lösen ord?](concept-sspr-writeback.md)
 
-[Writeback]: ./media/howto-sspr-writeback/enablepasswordwriteback.png "Aktivera tillbakaskrivning av lösenord i Azure AD Connect"
+[Writeback]: ./media/howto-sspr-writeback/enablepasswordwriteback.png "Aktivera tillbakaskrivning av lösen ord i Azure AD Connect"

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 2364218a9ccbde1cbfc276e3354cb93e42e5ce0b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c6135f3ab90a2002c3cf0c8d26211d66d0c637e8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553748"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802400"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor for VMs (för hands version)?
 
@@ -33,7 +33,8 @@ Funktionerna är organiserade i tre perspektiv:
 - Karta
 
 >[!NOTE]
->Vi har nyligen [lanserat ändringar](https://azure.microsoft.com/updates/upcoming-changes-for-azure-monitor-for-vms-as-we-prepare-for-ga) vi gör ändringar i hälso funktionen baserat på feedback som vi har fått från våra kunder med offentlig för hands version. Med tanke på antalet ändringar vi kommer att göra, kommer vi att sluta erbjuda hälso funktionen för nya kunder. Befintliga kunder kan fortsätta att använda hälso funktionen. Mer information finns i [vanliga frågor och svar om allmän tillgänglighet](vminsights-ga-release-faq.md).  
+>Vi har nyligen [lanserat ändringar](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
+) vi gör ändringar i hälso funktionen baserat på feedback som vi har fått från våra kunder med offentlig för hands version. Med tanke på antalet ändringar vi kommer att göra, kommer vi att sluta erbjuda hälso funktionen för nya kunder. Befintliga kunder kan fortsätta att använda hälso funktionen. Mer information finns i [vanliga frågor och svar om allmän tillgänglighet](vminsights-ga-release-faq.md).  
 
 Integrering med Azure Monitor loggar ger kraftfull agg regering och filtrering och kan analysera data trender över tid. Sådan omfattande övervakning av arbets belastningar kan inte uppnås med Azure Monitor eller Tjänstkarta ensam rätt.  
 

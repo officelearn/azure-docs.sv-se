@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250105"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791827"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer
 
@@ -20,6 +20,10 @@ Du konfigurerar en lokal konfigurations server när du använder [Azure Site Rec
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="update-windows-license"></a>Uppdatera Windows-licens
+
+Den licens som tillhandahölls med OVF-mallen är en utvärderings licens som är giltig i 180 dagar. Om du vill ha en oavbruten användning måste du aktivera Windows med en tillskaffad licens. Licens uppdatering kan göras antingen via en fristående nyckel eller en KMS-standardnyckel. Vägledning är tillgängligt på [kommando raden för DISM-Windows för att köra OS](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Information om hur du hämtar nycklar finns i [Konfigurera KMS-klienter](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
 
 ## <a name="access-configuration-server"></a>Åtkomst till konfigurations Server
 
@@ -68,7 +72,7 @@ Om du missade att lägga till autentiseringsuppgifter under OVF-distributionen a
 
 1. När du har [loggat in](#access-configuration-server)väljer du **Hantera autentiseringsuppgifter för virtuella datorer**.
 2. Klicka på **Lägg till autentiseringsuppgifter för virtuell dator**.
-    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Add-Mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Ange de nya autentiseringsuppgifterna och klicka på **Lägg till**.
 
 Du kan också lägga till autentiseringsuppgifter via CSPSConfigtool. exe.
@@ -96,7 +100,7 @@ Mallen Open Virtualization Format (OVF) distribuerar den virtuella datorns konfi
 Du kan registrera om konfigurations servern i samma valv om du behöver. Om du har en ytterligare process Server-dator kan du, förutom standard processervern som körs på konfigurations servern, registrera om båda datorerna.
 
 
-1. Öppna **Hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**i valvet.
+1. I valvet öppnar du **hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
 2. I **servrar**väljer du **Ladda ned registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
 3. Logga in på Configuration Server-datorn.
 4. Öppna **cspsconfigtool. exe**i **%programdata%\ASR\home\svsystems\bin**.
@@ -149,7 +153,7 @@ Länkar till samlade uppdateringar för uppgradering till alla versioner av konf
 
 Uppgradera servern på följande sätt:
 
-1. I valvet går du till **Hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
+1. I valvet går du till **hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
 2. Om det finns en uppdatering visas en länk i kolumnen **agent Version** >.
     ![Uppdatering](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Hämta uppdaterings installations filen till konfigurations servern.
@@ -183,7 +187,7 @@ Kör installations filen på följande sätt:
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameternamn| type | Beskrivning| Värden|
+|Parameternamn| Typ | Beskrivning| Värden|
 |-|-|-|-|
 | /ServerMode|Krävs|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
 |/InstallLocation|Krävs|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
@@ -193,12 +197,12 @@ Kör installations filen på följande sätt:
 |/PSIP|Krävs|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
 |/CSIP|Krävs|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
 |/PassphraseFilePath|Krävs|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
-|/BypassProxy|Valfri|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
-|/ProxySettingsFilePath|Valfri|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
-|DataTransferSecurePort|Valfri|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
-|/SkipSpaceCheck|Valfri|Hoppa över utrymmeskontroll för cachedisk| |
+|/BypassProxy|Valfritt|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
+|/ProxySettingsFilePath|Valfritt|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
+|DataTransferSecurePort|Valfritt|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
+|/SkipSpaceCheck|Valfritt|Hoppa över utrymmeskontroll för cachedisk| |
 |/AcceptThirdpartyEULA|Krävs|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
-|/ShowThirdpartyEULA|Valfri|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
+|/ShowThirdpartyEULA|Valfritt|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
 
 
 
@@ -225,7 +229,7 @@ ProxyPassword="Password"
 ## <a name="delete-or-unregister-a-configuration-server"></a>Ta bort eller avregistrera en konfigurations Server
 
 1. [Inaktivera skyddet](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för alla virtuella datorer under konfigurations servern.
-2. [](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) Ta bort associationen och [ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alla principer för replikering från konfigurations servern.
+2. Ta bort [associationen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) och [ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alla principer för replikering från konfigurations servern.
 3. [Ta bort](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alla vCenter-servrar/vSphere-värdar som är associerade med konfigurations servern.
 4. Öppna **Site Recovery infrastruktur** > **konfigurations servrar**i valvet.
 5. Välj den konfigurations server som du vill ta bort. Välj sedan **ta bort**på sidan **information** .
@@ -282,19 +286,15 @@ För distributioner av Configuration server före maj 2016 har certifikatet för
 ### <a name="renew-the-certificate"></a>Förnya certifikatet
 
 1. Öppna **Site Recovery infrastruktur** > **konfigurations Server**i valvet. Välj den konfigurations server som krävs.
-2. Förfallo datumet visas under konfigurations **serverns hälso tillstånd**.
+2. Förfallo datumet visas under **konfigurations serverns hälso tillstånd**.
 3. Välj **Förnya certifikat**.
 
 ## <a name="refresh-configuration-server"></a>Uppdatera konfigurations Server
 
-1. I Azure Portal navigerar du till **Recovery Services valv** > **Hantera** > **Site Recovery infrastruktur** > **för VMware & fysiska datorer** > **konfiguration Servrar**
+1. I Azure Portal navigerar du till **Recovery Services Vault** > **Hantera** > **Site Recovery infrastruktur** > **för VMware & fysiska datorer** > **konfigurations servrar**
 2. Klicka på den konfigurations server som du vill uppdatera.
-3. På bladet med information om vald konfigurations Server klickar du på **mer** > **uppdaterings Server**.
-4. Övervaka jobb förloppet under **Recovery Services valv** > **övervakning** > **Site Recovery jobb**.
-
-## <a name="update-windows-license"></a>Uppdatera Windows-licens
-
-Den licens som tillhandahölls med OVF-mallen är en utvärderings licens som är giltig i 180 dagar. Om du vill ha en oavbruten användning måste du aktivera Windows med en tillskaffad licens.
+3. På bladet med information om vald konfigurations Server klickar du på **mer** > **Uppdatera server**.
+4. Övervaka förloppet för jobbet under **Recovery Services valv** > **övervakning** > **Site Recovery jobb**.
 
 ## <a name="failback-requirements"></a>Krav för återställning efter fel
 

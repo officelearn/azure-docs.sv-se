@@ -1,5 +1,6 @@
 ---
-title: 'Mobilapp som anropar webb-API: er – översikt | Microsoft Identity Platform'
+title: 'Mobilapp som anropar webb-API: er – översikt'
+titleSuffix: Microsoft identity platform
 description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (översikt)'
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,18 +17,18 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f67f063ab374dec8bac3905ea46f1dfa9d8ed1fb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 98f05470a07bad82a1e51517a787fb98c78f92ce
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852593"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803759"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Mobil program som anropar webb-API: er
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: mobil program som anropar webb-API: er
 
 Lär dig allt du behöver veta för att bygga en mobilapp som anropar webb-API: er.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -36,11 +37,11 @@ Lär dig allt du behöver veta för att bygga en mobilapp som anropar webb-API: 
 Skapa ditt första mobil program och testa en snabb start!
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en Android-app](./quickstart-v2-android.md)
+> [Snabb start: Hämta en token och anropa Microsoft Graph API från en Android-app](./quickstart-v2-android.md)
 >
-> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en iOS-app](./quickstart-v2-ios.md)
+> [Snabb start: Hämta en token och anropa Microsoft Graph API från en iOS-app](./quickstart-v2-ios.md)
 >
-> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en Xamarin iOS & Android-app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+> [Snabb start: Hämta en token och anropa Microsoft Graph API från en Xamarin iOS & Android-app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
 ## <a name="overview"></a>Översikt
 
@@ -50,8 +51,8 @@ En anpassad och smidig användar upplevelse är nödvändig för mobila appar.  
 
 Överväganden för Mobile Apps:
 
-- **Användar upplevelsen är nyckel**: Tillåt användare att se appens värde innan du begär inloggning och begära bara de behörigheter som krävs.
-- **Stöd för alla**användarkonfigurationer: Många mobila företags användare finns under villkorlig åtkomst och efterlevnadsprinciper för enheter. Se till att du har stöd för dessa nyckel scenarier.
+- **Användar upplevelsen är en nyckel**: Tillåt användare att se appens värde innan du ber om inloggning och begära bara de behörigheter som krävs.
+- **Stöd för alla användarkonfigurationer**: många mobila företags användare finns under principer för villkorlig åtkomst och efterlevnadsprinciper. Se till att du har stöd för dessa nyckel scenarier.
 - **Implementera enkel inloggning (SSO)** : MSAL och Microsoft Identity Platform gör det enkelt att aktivera enkel inloggning via enhetens webbläsare eller Microsoft Authenticator (och Intune-företagsportal på Android).
 
 ## <a name="specifics"></a>Information

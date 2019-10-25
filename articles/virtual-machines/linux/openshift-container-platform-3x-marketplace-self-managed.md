@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 721d4dae2c05c252b863b7cea2589deca8404602
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392701"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791617"
 ---
 # <a name="configure-prerequisites"></a>Konfigurera krav
 
-Innan du använder Marketplace-erbjudandet för att distribuera ett självhanterat OpenShift container Platform 3,11-kluster i Azure måste du konfigurera ett fåtal krav.  Läs artikeln [OpenShift-krav](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-prerequisites) för instruktioner för att skapa en SSH-nyckel (utan lösen fras), Azure Key Vault, Key Vault Secret och ett huvud namn för tjänsten.
+Innan du använder Marketplace-erbjudandet för att distribuera ett självhanterat OpenShift container Platform 3,11-kluster i Azure måste du konfigurera ett fåtal krav.  Läs artikeln [OpenShift-krav](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) för instruktioner för att skapa en SSH-nyckel (utan lösen fras), Azure Key Vault, Key Vault Secret och ett huvud namn för tjänsten.
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Distribuera med Marketplace-erbjudandet

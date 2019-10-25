@@ -1,28 +1,29 @@
 ---
-title: 'Tjänst begränsningar för nivåer och SKU: er – Azure Search'
-description: Tjänst begränsningar som används för kapacitets planering och högsta gräns för begär Anden och svar för Azure Search.
-author: HeidiSteen
+title: 'Tjänst begränsningar för nivåer och SKU: er'
+titleSuffix: Azure Cognitive Search
+description: Tjänst begränsningar som används för kapacitets planering och högsta gräns för begär Anden och svar för Azure Kognitiv sökning.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947785"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793568"
 ---
-# <a name="service-limits-in-azure-search"></a>Tjänst begränsningar i Azure Search
-De maximala gränserna för lagring, arbets belastningar och kvantiteter av index, dokument och andra objekt är beroende av om du [etablerar Azure Search](search-create-service-portal.md) på kostnads nivåer som är **kostnads fria**, **Basic**, **standard**eller **Storage** .
+# <a name="service-limits-in-azure-cognitive-search"></a>Tjänst begränsningar i Azure Kognitiv sökning
+
+De maximala gränserna för lagring, arbets belastningar och kvantiteter av index, dokument och andra objekt beror på om du [etablerar Azure kognitiv sökning](search-create-service-portal.md) på **kostnads fria**, **Basic**-, **standard**-eller **Storage-optimerade** pris nivåer .
 
 + **Kostnads fri** är en delad tjänst för flera innehavare som medföljer din Azure-prenumeration. Indexerings-och fråge förfrågningar körs på repliker och partitioner som används av andra klienter.
 
 + **Basic** tillhandahåller dedikerade data bearbetnings resurser för produktions arbets belastningar i en mindre skala, men delar en nätverks infrastruktur med andra klienter.
 
-+ **Standard** körs på dedikerade datorer med mer lagrings-och bearbetnings kapacitet på alla nivåer. Standard finns på fyra nivåer: S1, S2, S3 och S3 HD.
++ **Standard** körs på dedikerade datorer med mer lagrings-och bearbetnings kapacitet på alla nivåer. Standard är fyra nivåer: S1, S2, S3 och S3 HD.
 
 + **Optimerade lagrings enheter** på dedikerade datorer med mer total lagring, lagrings bandbredd och minne än **standard**. Optimerad lagring levereras på två nivåer: L1 och L2
 
@@ -45,10 +46,10 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 ## <a name="index-limits"></a>Index gränser
 
-| Resource | Lediga | Basic @ no__t-0<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resurs | Kostnadsfri | Basic-&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |10 |10 |
-| Maximalt antal enkla fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximalt antal enkla fält per index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |1 000 |1 000 |
 | Maximalt antal komplexa samlings fält per index |40 |40 |40 |40 |40 |40 |40 |40 |
 | Maximalt antal element i alla komplexa samlingar per dokument |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximalt djup för komplexa fält |10 |10 |10 |10 |10 |10 |10 |10 |
@@ -66,25 +67,25 @@ Från och med oktober 2018 finns det inte längre några dokument gränser<sup>1
 
 För att avgöra om din tjänst har dokument gränser, se användnings panelen på sidan Översikt för din tjänst. Antalet dokument är antingen obegränsat eller kan omfattas av en gräns som baseras på nivån.
 
-  ![Användningsikonen](media/search-limits-quotas-capacity/portal-usage-tile.png)
+  ![Användnings panel](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-<sup>1</sup> även om det inte finns några begränsningar för vissa SKU-dokument, omfattas varje index fortfarande av en högsta säker gräns för att säkerställa stabiliteten för tjänsten. Den här gränsen kommer från Lucene. Varje Azure Search-dokument indexeras internt som ett eller flera Lucene-dokument. Antalet Lucene-dokument per Azure Search-dokument beror på det totala antalet element i komplexa samlings fält. Varje element indexeras som ett separat Lucene-dokument. Ett dokument med 3 element i ett komplext samlings fält indexeras till exempel som 4 Lucene-dokument-1 för själva dokumentet och 3 för elementen. Det maximala antalet Lucene-dokument är ungefär 25 000 000 000 per index.
+<sup>1</sup> även om det inte finns några begränsningar för vissa SKU-dokument, omfattas varje index fortfarande av en högsta säker gräns för att säkerställa stabiliteten för tjänsten. Den här gränsen kommer från Lucene. Varje Azure Kognitiv sökning-dokument indexeras internt som ett eller flera Lucene-dokument. Antalet dokument för Lucene per sökning beror på det totala antalet element i komplexa samlings fält. Varje element indexeras som ett separat Lucene-dokument. Ett dokument med 3 element i ett komplext samlings fält indexeras till exempel som 4 Lucene-dokument-1 för själva dokumentet och 3 för elementen. Det maximala antalet Lucene-dokument är ungefär 25 000 000 000 per index.
 
 ### <a name="regions-previously-having-document-limits"></a>Regioner som tidigare hade dokument gränser
 
-Om portalen anger en dokument gräns, skapades tjänsten antingen före den senaste 2017, eller så skapades den i ett Data Center med hjälp av kluster med lägre kapacitet för värd tjänster Azure Search Services:
+Om portalen anger en dokument gräns skapades tjänsten antingen före den senaste 2017, eller så skapades den i ett Data Center med hjälp av lägre kapacitets kluster för att vara värd för Azure Kognitiv sökning Services:
 
-+ Östra Australien
-+ Östasien
++ Australien, östra
++ Asien, östra
 + Indien, centrala
-+ Västra Japan
-+ Västra centrala USA
++ Japan, västra
++ USA, västra centrala
 
 För tjänster som omfattas av dokument gränser gäller följande gräns värden:
 
-|  Lediga | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|  Kostnadsfri | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10 000 |1 @ no__t-0million |15 miljoner per partition eller 180 miljoner per tjänst |60 miljoner per partition eller 720 miljoner per tjänst |120 miljoner per partition eller 1,4 miljarder per tjänst |1 miljon per index eller 200 miljoner per partition |
+|  10 000 |1 @ no__t_0_ miljoner |15 miljoner per partition eller 180 miljoner per tjänst |60 miljoner per partition eller 720 miljoner per tjänst |120 miljoner per partition eller 1,4 miljarder per tjänst |1 miljon per index eller 200 miljoner per partition |
 
 Om tjänsten har gränser som blockerar dig skapar du en ny tjänst och publicerar sedan om allt innehåll till den tjänsten. Det finns ingen mekanism för att sömlöst etablera tjänsten på ny maskin vara i bakgrunden.
 
@@ -105,17 +106,17 @@ Kom ihåg att undanta data som inte går att köra från begäran för att bevar
 Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som helhet, men större data uppsättningar kan kräva mer indexerings tid än vad som tillåts. Om ett indexerings jobb inte kan slutföras inom den högsta tillåtna tiden kan du prova att köra det enligt ett schema. Scheduler håller reda på indexerings status. Om ett schemalagt indexerings jobb avbryts av någon anledning kan indexeraren Hämta var den senast slutade vid nästa schemalagda körning.
 
 
-| Resource | Kostnads fri @ no__t-0<sup>1</sup> | Basic @ no__t-0<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resurs | Kostnads fri&nbsp;<sup>1</sup> | Grundläggande&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |10 |10 |
 | Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |
 | Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |
-| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Gäller inte |Ingen gräns |Ingen gräns |
-| Lägsta schema | 5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter | 5 minuter |
+| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Gäller inte |Obegränsat |Obegränsat |
+| Lägsta schema | 5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter | 5 minuter |
 | Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |24 timmar |24 timmar |
 | Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Gäller inte  |2 timmar |2 timmar |
 | BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Gäller inte  |256 |256 |
-| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32,000 |64,000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |Gäller inte |4 @ no__t-0million |4 @ no__t-0million |
+| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4 @ no__t_0_ miljoner |4 @ no__t_0_ miljoner |4 @ no__t_0_ miljoner |Gäller inte |4 @ no__t_0_ miljoner |4 @ no__t_0_ miljoner |
 
 <sup>1</sup> kostnads fria tjänster har indexeraren maximal körnings tid på 3 minuter för BLOB-källor och 1 minut för alla andra data källor. För AI-indexering som anropar Cognitive Services är kostnads fria tjänster begränsade till 20 kostnads fria transaktioner per dag, där en transaktion definieras som ett dokument som passerar genom anriknings pipelinen.
 
@@ -131,7 +132,7 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 
 Det högsta tillåtna antalet synonym Maps varierar beroende på pris nivå. Varje regel kan ha upp till 20 expansionar, där en expansion är en equivalvent-period. Till exempel skulle "katt", Association med "Kitty", "Feline" och "Felis" (släktet för katter) räknas som 3 expansionar.
 
-| Resource | Lediga | Basic | S1 | S2 | S3 | S3 – HD |L1 | L2 |
+| Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 – HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Maximalt synonyma kartor |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maximalt antal regler per karta |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
@@ -140,13 +141,13 @@ Det högsta tillåtna antalet synonym Maps varierar beroende på pris nivå. Var
 
 FRÅGOR per sekund-uppskattningar måste utvecklas oberoende av varje kund. Index storlek och komplexitet, fråga om storlek och komplexitet och mängden trafik är primär Determinant av frågor per sekund. Det finns inget sätt att erbjuda meningsfulla uppskattningar när sådana faktorer är okända.
 
-Uppskattningar är mer förutsägbara när de beräknas på tjänster som körs på dedikerade resurser (Basic-och standard-nivåer). Du kan beräkna frågor per sekund mer noggrant eftersom du har kontroll över fler parametrar. Information om hur du använder uppskattning finns i [Azure Search prestanda och optimering](search-performance-optimization.md).
+Uppskattningar är mer förutsägbara när de beräknas på tjänster som körs på dedikerade resurser (Basic-och standard-nivåer). Du kan beräkna frågor per sekund mer noggrant eftersom du har kontroll över fler parametrar. Information om hur du använder uppskattning finns i [Azure kognitiv sökning prestanda och optimering](search-performance-optimization.md).
 
 För lagrings optimerade nivåer bör du förvänta dig ett lägre flöde för frågor och högre latens än standard-nivåerna.  Metoden för att uppskatta de frågeresultat som du kommer att uppleva är densamma som för standard-nivåerna.
 
-## <a name="data-limits-cognitive-search"></a>Data begränsningar (kognitiv sökning)
+## <a name="data-limits-ai-enrichment"></a>Data begränsningar (AI-anrikning)
 
-En [kognitiv Sök-pipeline](cognitive-search-concept-intro.md) som gör anrop till en textanalys resurs för [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), [sentiment analys](cognitive-search-skill-sentiment.md)och [språk identifiering](cognitive-search-skill-language-detection.md) är beroende av data begränsningar. Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+En [pipeline för AI-anrikning](cognitive-search-concept-intro.md) som gör anrop till en textanalys resurs för [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), [sentiment analys](cognitive-search-skill-sentiment.md)och [språk identifiering](cognitive-search-skill-language-detection.md) är beroende av data begränsningar. Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Begränsnings gränser
 
@@ -154,8 +155,8 @@ Sök frågor och indexerings begär Anden är begränsade som systemet närmar s
 
 Begränsningar för statisk taxa för begäran för åtgärder relaterade till ett index:
 
-+ List index (Hämta/Indexes): 5 per sekund per Sök enhet
-+ Hämta index (Hämta/Indexes/myindex): 10 per sekund per Sök enhet
++ List index (GET/Indexes): 5 per sekund per Sök enhet
++ Hämta index (GET/Indexes/myindex): 10 per sekund per Sök enhet
 + Skapa index (POST/Indexes): 12 per minut per Sök enhet
 + Skapa eller uppdatera index (Lägg/Indexes/myindex): 6 per sekund per Sök enhet
 + Ta bort index (ta bort/Indexes/myindex): 12 per minut per Sök enhet 
@@ -167,7 +168,7 @@ Begränsningar för statisk taxa för begäran för åtgärder relaterade till e
 * Maximalt 32 fält i $orderby-satsen
 * Maximal Sök villkors storlek är 32 766 byte (32 KB minus 2 byte) av UTF-8-kodad text
 
-<sup>1</sup> i Azure Search är bröd texten i en begäran underkastad en övre gräns på 16 MB, vilket föreskriver en praktisk gräns för innehållet i enskilda fält eller samlingar som inte på annat sätt begränsas av teoretiska gränser (se [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) för mer information om fält sammansättning och begränsningar).
+<sup>1</sup> i Azure kognitiv sökning är bröd texten i en begäran underkastad en övre gräns på 16 MB, vilket medför en praktisk gräns för innehållet i enskilda fält eller samlingar som inte på annat sätt begränsas av teoretiska gränser (se [data typer som stöds ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)mer information om fält sammansättning och begränsningar).
 
 ## <a name="api-response-limits"></a>Svars gränser för API
 * Högst 1000 dokument som returneras per sida med Sök Resultat

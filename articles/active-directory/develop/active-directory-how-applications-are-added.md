@@ -1,5 +1,6 @@
 ---
 title: Hur och varför program läggs till i Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Vad innebär det att ett program läggs till i Azure AD och hur kommer de att få dit?
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb3ef2a86c523d7cda5bc7da5d83ec4ac741abf
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835382"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803452"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 
@@ -32,9 +33,9 @@ Det finns två representationer av program i Azure AD:
 * [Tjänstens huvud namn](app-objects-and-service-principals.md#service-principal-object) – kan betraktas som en instans av ett program. Tjänstens huvud namn refererar vanligt vis till ett program objekt, och ett program objekt kan refereras till av flera huvud namn för tjänsten mellan kataloger.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Vad är program objekt och var de kommer från?
-Du kan hantera [program objekt](app-objects-and-service-principals.md#application-object) i Azure Portal via appens [registrerings](https://aka.ms/appregistrations) upplevelse. Program objekt beskriver programmet till Azure AD och kan betraktas som definition av programmet, vilket gör att tjänsten vet hur token ska utfärdas till programmet baserat på dess inställningar. Programobjektet finns bara i sin Hem Katalog, även om det är ett program med flera innehavare som stöder tjänstens huvud namn i andra kataloger. Programobjektet kan innehålla något av följande (och ytterligare information som inte nämns här):
+Du kan hantera [program objekt](app-objects-and-service-principals.md#application-object) i Azure Portal via [appens registrerings](https://aka.ms/appregistrations) upplevelse. Program objekt beskriver programmet till Azure AD och kan betraktas som definition av programmet, vilket gör att tjänsten vet hur token ska utfärdas till programmet baserat på dess inställningar. Programobjektet finns bara i sin Hem Katalog, även om det är ett program med flera innehavare som stöder tjänstens huvud namn i andra kataloger. Programobjektet kan innehålla något av följande (och ytterligare information som inte nämns här):
 * Namn, logo typ och utgivare
-* Omdirigerings-URI:er
+* Omdirigera URI: er
 * Hemligheter (symmetriska och/eller asymmetriska nycklar som används för att autentisera programmet)
 * API-beroenden (OAuth)
 * Publicerade API: er/resurser/scope (OAuth)
@@ -104,7 +105,7 @@ Program som du lägger till själv (representeras som **app (dina)** i diagramme
   * Omvandlings regler för anspråk
   * Mappningar av attribut (användar etablering)
 * Mer detaljerad information om tjänstens huvud namn och program objekt finns i referens dokumentationen för Azure AD Graph REST API:
-  * [Programmet](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Applicering](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [Tjänstens huvud namn](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Varför integreras program med Azure AD?

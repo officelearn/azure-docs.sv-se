@@ -1,5 +1,6 @@
 ---
-title: Konfigurera nyckel Ring | Microsoft Identity Platform
+title: Konfigurera nyckelring
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du konfigurerar nyckel ringen så att din app kan cachelagra tokens i nyckel ringen.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264191"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803799"
 ---
 # <a name="configure-keychain"></a>Konfigurera nyckelring
 
@@ -36,7 +37,7 @@ Den här artikeln beskriver hur du konfigurerar app-rättigheter så att MSAL ka
 
 MSAL på iOS använder sig av åtkomst gruppen `com.microsoft.adalcache` som standard. Det här är den delade åtkomst gruppen som används av både MSAL-och ADAL-SDK: er (Azure AD Authentication Library) och säkerställer den bästa funktionen för enkel inloggning mellan flera appar från samma utgivare.
 
-På iOS lägger du till gruppen `com.microsoft.adalcache`-nyckel Ring till appens rättighet i XCode under **projekt inställningar**@no__t 2**funktioner** >  delning av**nyckel ringar**
+På iOS lägger du till `com.microsoft.adalcache` nyckel rings gruppen till appens rättighet i XCode under **projekt inställningar** > **funktioner** > **nyckel rings delning**
 
 ### <a name="macos"></a>macOS
 

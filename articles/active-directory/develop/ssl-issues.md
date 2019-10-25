@@ -1,5 +1,6 @@
 ---
-title: Felsöka MSAL för mål-C-problem | Microsoft Identity Platform
+title: Felsöka MSAL för mål-C-problem
+titleSuffix: Microsoft identity platform
 description: Läs om vad du kan göra om olika problem med hjälp av SSL-certifikat med MSAL. Mål-C-bibliotek.
 services: active-directory
 documentationcenter: ''
@@ -17,22 +18,22 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76892686beec8ea18d56166519353fb5a2495124
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: fc918502cd252b4e53af8bcbd209a8387ef4d8c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268913"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803664"
 ---
-# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>Anvisningar: Felsöka MSAL för iOS-och macOS SSL-problem
+# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>Gör så här: Felsöka MSAL för iOS-och macOS SSL-problem
 
 Den här artikeln innehåller information som hjälper dig att felsöka problem som kan uppstå i när du använder [Microsoft Authentication Library (MSAL) för iOS och MacOS](reference-v2-libraries.md)
 
 ## <a name="network-issues"></a>Nätverksproblem
 
-**Fel – 1200**: "Ett SSL-fel har uppstått och det går inte att upprätta en säker anslutning till servern."
+**Fel-1200**: "ett SSL-fel har uppstått och det går inte att upprätta en säker anslutning till servern."
 
-Det här felet innebär att anslutningen inte är säker. Det inträffar när ett certifikat är ogiltigt. Mer information, inklusive vilken server som inte har SSL-kontrollen, finns `NSURLErrorFailingURLErrorKey` `userInfo` i ord listan för felobjektet.
+Det här felet innebär att anslutningen inte är säker. Det inträffar när ett certifikat är ogiltigt. Mer information, inklusive vilken server som inte har SSL-kontrollen, finns i `NSURLErrorFailingURLErrorKey` i `userInfo` ord lista för felobjektet.
 
 Det här felet är från Apples nätverks bibliotek. En fullständig lista över NSURL-felkoder finns i NSURLError. h i macOS-och iOS-SDK: er. Mer information om det här felet finns i [URL: er läser in system fel koder](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc).
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/24/2019
-ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/17/2019
+ms.openlocfilehash: 33ec747edaeba60f1c1e5fdb29fd2af1cb29cf8d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71266196"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800086"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Självstudie: bearbeta tweets med Azure Event Hubs och Apache Spark i HDInsight
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 * Kunskaper om Jupyter Notebooks med Spark på HDInsight. Mer information finns i [läsa in data och köra frågor med Apache Spark på HDInsight](./apache-spark-load-data-run-query.md).
 
-* Ett [Twitter-konto](https://twitter.com/i/flow/signup).
+* Ett [Twitter-konto](https://twitter.com/i/flow/signup) och välbekanthet med Twitter.
 
 ## <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
@@ -40,45 +40,45 @@ Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ a
 
 1. Bläddra till [Twitter-programhantering](https://apps.twitter.com/).
 
-1. Välj **Skapa ny app**.
+1. Välj **skapa en app**.
 
-1. Ange följande värden:
+1. Ange följande obligatoriska värden:
 
     |Egenskap |Värde |
     |---|---|
-    |Namn|Ange program namnet. Det värde som används för den här självstudien är **HDISparkStreamApp0423**. Det här namnet måste vara ett unikt namn.|
-    |Beskrivning|Ange en kort beskrivning av programmet. Det värde som används för den här självstudien är **ett enkelt program för HDInsight Spark-direktuppspelning**.|
-    |Webbplats|Ange programmets webbplats. Det behöver inte vara en giltig webbplats.  Värdet som används för den här självstudien är `http://www.contoso.com`.|
-    |Återanrops-URL|Du kan lämna det tomt.|
+    |Appnamn|Ange program namnet. Det värde som används för den här självstudien är **HDISparkStreamApp0423**. Det här namnet måste vara ett unikt namn.|
+    |Programbeskrivning|Ange en kort beskrivning av programmet. Det värde som används för den här självstudien är **ett enkelt program för HDInsight Spark-direktuppspelning**.|
+    |Webbplats-URL|Ange programmets webbplats. Det behöver inte vara en giltig webbplats.  Värdet som används för den här självstudien är `http://www.contoso.com`.|
+    |Berätta för oss hur den här appen kommer att användas|Endast i testnings syfte. Skapa ett Apache Spark streaming-program för att skicka tweets till en Azure Event Hub.|
 
-1. Välj **Ja, jag har läst och samtycker till Twitter Developer Agreement**och välj sedan **skapa ditt Twitter-program**.
+1. Välj **Skapa**.
 
-1. Välj fliken **nycklar och åtkomst-token** .
+1. Från popup-fönstret **granska våra utvecklings villkor** väljer du **skapa**.
 
-1. Välj **skapa min åtkomsttoken** i slutet av sidan.
+1. Välj fliken **nycklar och tokens** .
 
-1. Skriv ned följande värden från sidan.  Du behöver dessa värden senare i självstudien:
+1. Under **åtkomsttoken & åtkomst token Secret**väljer du **skapa**.
 
-    - **Konsument nyckel (API-nyckel)**    
-    - **Konsument hemlighet (API-hemlighet)**  
+1. Skriv ned följande fyra värden som nu visas på sidan för senare användning:
+
+    - **Konsument nyckel (API-nyckel)**
+    - **Konsument hemlighet (nyckel för API-hemlighet)**
     - **Åtkomsttoken**
-    - **Hemlighet för åtkomsttoken**   
+    - **Hemlighet för åtkomsttoken**
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Skapa en Event Hubs-namnrymd
 
 Du använder den här händelsehubben för att lagra tweets.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **alla tjänster**på den vänstra menyn.  
-
-3. Under **Sakernas Internet**väljer du **Event Hubs**. 
+1. På den vänstra menyn navigerar du till **alla tjänster** > **Sakernas Internet** - > **Event Hubs**.  
 
     ![Exempel på Skapa händelsehubben för Spark streaming](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Exempel på Skapa händelsehubben för Spark streaming")
 
-4. Välj **+ Lägg till**.
+1. Välj **+ Lägg till**.
 
-5. Ange följande värden för det nya Event Hubs namn rymden:
+1. Ange följande värden för det nya Event Hubs namn rymden:
 
     |Egenskap |Värde |
     |---|---|
@@ -92,26 +92,26 @@ Du använder den här händelsehubben för att lagra tweets.
 
     ![Ange ett Event Hub-namn för Spark streaming-exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Ange ett Event Hub-namn för Spark streaming-exempel")
 
-6. Välj **skapa** för att skapa namn området.  Distributionen kommer att slutföras på några minuter.
+1. Välj **skapa** för att skapa namn området.  Distributionen kommer att slutföras på några minuter.
 
 ## <a name="create-an-azure-event-hub"></a>Skapa en Azure Event Hub
+
 Skapa en Event Hub när Event Hubs namn rymden har distribuerats.  Från portalen:
 
-1. Välj **alla tjänster**på den vänstra menyn.  
+1. På den vänstra menyn navigerar du till **alla tjänster** > **Sakernas Internet** - > **Event Hubs**.
 
-1. Under **Sakernas Internet**väljer du **Event Hubs**.  
-
-1. Välj din Event Hubs namn område i listan.  
+1. Välj din Event Hubs namn område i listan.
 
 1. På sidan **Event Hubs namnrymd** väljer du **+ Event Hub**.  
+
 1. Ange följande värden på sidan **skapa** händelsehubben:
 
-    - **Namn**: ge händelsehubben ett namn. 
- 
+    - **Namn**: ge händelsehubben ett namn.
+
     - **Antal partitioner**: 10.  
 
-    - **Kvarhållning av meddelande**: 1.   
-   
+    - **Kvarhållning av meddelande**: 1.
+
       ![Ange information om händelsehubben för Spark streaming-exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Ange information om händelsehubben för Spark streaming-exempel")
 
 1. Välj **Skapa**.  Distributionen bör slutföras inom några sekunder och du kommer tillbaka till sidan Event Hubs namn område.
@@ -119,17 +119,16 @@ Skapa en Event Hub när Event Hubs namn rymden har distribuerats.  Från portale
 1. Under **Inställningar**väljer du **principer för delad åtkomst**.
 
 1. Välj **RootManageSharedAccessKey**.
-    
+
      ![Ange Event Hub-principer för Spark streaming-exemplet](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Ange Event Hub-principer för Spark streaming-exemplet")
 
-1. Spara värdena för **primär nyckel** och **anslutnings sträng – primär nyckel** för att använda senare i självstudien.
+1. Spara värdena för **primär nyckel** och **anslutnings sträng – primär nyckel** för senare användning i självstudien.
 
      ![Visa princip nycklar för Event Hub för exemplet på Spark-direktuppspelning](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Visa princip nycklar för Event Hub för exemplet på Spark-direktuppspelning")
 
-
 ## <a name="send-tweets-to-the-event-hub"></a>Skicka tweets till händelsehubben
 
-Skapa en Jupyter Notebook och ge den namnet **SendTweetsToEventHub**. 
+1. Navigera till `https://CLUSTERNAME.azurehdinsight.net/jupyter` där `CLUSTERNAME` är namnet på ditt Apache Spark-kluster. Skapa en Jupyter Notebook och ge den namnet **SendTweetsToEventHub**.
 
 1. Kör följande kod för att lägga till de externa Apache maven-biblioteken:
 
@@ -138,53 +137,53 @@ Skapa en Jupyter Notebook och ge den namnet **SendTweetsToEventHub**.
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
-2. Redigera koden nedan genom att ersätta `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>` och `<TOKEN SECRET>` med lämpliga värden. Kör den redigerade koden för att skicka tweets till händelsehubben:
+1. Redigera koden nedan genom att ersätta `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>` och `<TOKEN SECRET>` med lämpliga värden. Kör den redigerade koden för att skicka tweets till händelsehubben:
 
     ```scala
     import java.util._
     import scala.collection.JavaConverters._
     import java.util.concurrent._
-    
+
     import org.apache.spark._
     import org.apache.spark.streaming._
     import org.apache.spark.eventhubs.ConnectionStringBuilder
 
     // Event hub configurations
-    // Replace values below with yours        
+    // Replace values below with yours
     val eventHubName = "<Event hub name>"
     val eventHubNSConnStr = "<Event hub namespace connection string>"
-    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
-    
+    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build
+
     import com.microsoft.azure.eventhubs._
     val pool = Executors.newFixedThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
-    
+
     def sendEvent(message: String) = {
           val messageData = EventData.create(message.getBytes("UTF-8"))
           eventHubClient.get().send(messageData)
           println("Sent event: " + message + "\n")
     }
-    
+
     import twitter4j._
     import twitter4j.TwitterFactory
     import twitter4j.Twitter
     import twitter4j.conf.ConfigurationBuilder
 
     // Twitter application configurations
-    // Replace values below with yours   
+    // Replace values below with yours
     val twitterConsumerKey = "<CONSUMER KEY>"
     val twitterConsumerSecret = "<CONSUMER SECRET>"
     val twitterOauthAccessToken = "<ACCESS TOKEN>"
     val twitterOauthTokenSecret = "<TOKEN SECRET>"
-    
+
     val cb = new ConfigurationBuilder()
     cb.setDebugEnabled(true).setOAuthConsumerKey(twitterConsumerKey).setOAuthConsumerSecret(twitterConsumerSecret).setOAuthAccessToken(twitterOauthAccessToken).setOAuthAccessTokenSecret(twitterOauthTokenSecret)
-    
+
     val twitterFactory = new TwitterFactory(cb.build())
     val twitter = twitterFactory.getInstance()
 
     // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
-    
+
     val query = new Query(" #Azure ")
     query.setCount(100)
     query.lang("en")
@@ -202,16 +201,16 @@ Skapa en Jupyter Notebook och ge den namnet **SendTweetsToEventHub**.
       }
       query.setMaxId(lowestStatusId - 1)
     }
-    
+
     // Closing connection to the Event Hub
     eventHubClient.get().close()
     ```
 
-3. Öppna Event Hub i Azure Portal.  I **översikten**visas några diagram som visar meddelanden som skickas till händelsehubben.
+1. Öppna Event Hub i Azure Portal.  I **översikten**visas några diagram som visar meddelanden som skickas till händelsehubben.
 
 ## <a name="read-tweets-from-the-event-hub"></a>Läs tweets från händelsehubben
 
-Skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFromEventHub**. 
+Skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFromEventHub**.
 
 1. Kör följande kod för att lägga till ett externt Apache maven-bibliotek:
 
@@ -225,24 +224,24 @@ Skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFromEventHub
     ```scala
     import org.apache.spark.eventhubs._
     // Event hub configurations
-    // Replace values below with yours        
+    // Replace values below with yours
     val eventHubName = "<Event hub name>"
     val eventHubNSConnStr = "<Event hub namespace connection string>"
     val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build
-    
+
     val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
-    //incomingStream.printSchema    
-    
+    //incomingStream.printSchema
+
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Event Hub message format is JSON and contains "body" field
     // Body is binary, so you cast it to string to see the actual content of the message
     val messages = incomingStream.withColumn("Offset", $"offset".cast(LongType)).withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType)).withColumn("Timestamp", $"enqueuedTime".cast(LongType)).withColumn("Body", $"body".cast(StringType)).select("Offset", "Time (readable)", "Timestamp", "Body")
-    
+
     messages.printSchema
-    
+
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
     ```
 

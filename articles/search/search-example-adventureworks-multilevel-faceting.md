@@ -1,27 +1,27 @@
 ---
-title: 'Exempel: Azure Search på flera nivåer –'
+title: 'Exempel: på flera nivåer'
+titleSuffix: Azure Cognitive Search
 description: Lär dig hur du skapar aspekt strukturer för taxonomier på flera nivåer, skapa en kapslad navigerings struktur som du kan ta med på program sidor.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70274088"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792946"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>Exempel: flera nivåer i Azure Search
+# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Exempel: på flera nivåer i Azure Kognitiv sökning
 
-Azure Search-scheman stöder inte explicita kategoriserings kategorier med flera nivåer, men du kan uppskatta dem genom att ändra innehåll före indexeringen och sedan använda viss särskild hantering av resultaten. 
+Azure Kognitiv sökning-scheman stöder inte explicita kategoriserings kategorier med flera nivåer, men du kan uppskatta dem genom att ändra innehåll före indexeringen och sedan använda viss särskild hantering av resultaten. 
 
 ## <a name="start-with-the-data"></a>Börja med data
 
-Exemplet i den här artikeln bygger på ett tidigare exempel, [modell The AdventureWorks Inventory Database](search-example-adventureworks-modeling.md), för att demonstrera flera nivåer i Azure Search.
+Exemplet i den här artikeln bygger på ett tidigare exempel, [modell The AdventureWorks Inventory Database](search-example-adventureworks-modeling.md), för att demonstrera flera nivåer i Azure kognitiv sökning.
 
 AdventureWorks har en enkel taxonomi med två nivåer med en överordnad-underordnad relation. För en enkel SQL-koppling i den här strukturen kan du använda en enkel SQL-kopplings fråga för att gruppera taxonomin:
 
@@ -39,9 +39,9 @@ LEFT JOIN
 
 ## <a name="indexing-to-a-collection-field"></a>Indexera till ett samlings fält
 
-I indexet som innehåller den här strukturen skapar du ett **samlings fält (EDM. String)** i Azure Search-schemat för att lagra dessa data och kontrollerar att Field-attributen är sökbara, filter bara, aspekt bara och hämtnings bara.
+I indexet som innehåller den här strukturen skapar du ett **samlings fält (EDM. String)** i Azure kognitiv sökning-schemat för att lagra dessa data, vilket säkerställer att Field-attributen är sökbara, filter bara, aspekt bara och kan hämtas.
 
-När du har indexerat innehåll som refererar till en viss taxonomi kategori skickar du taxonomin som en matris med text från varje nivå i taxonomin. För en entitet med `ProductCategoryId = 5 (Mountain Bikes)` skickar du till exempel fältet som `[ "Bikes", "Bikes|Mountain Bikes"]`
+När du har indexerat innehåll som refererar till en viss taxonomi kategori skickar du taxonomin som en matris med text från varje nivå i taxonomin. För en entitet med `ProductCategoryId = 5 (Mountain Bikes)`skickar du till exempel fältet som `[ "Bikes", "Bikes|Mountain Bikes"]`
 
 Observera att den överordnade kategorin "cyklar" ingår i den underordnade kategorins värde "Mountain Bikes". Varje under kategori ska bädda in hela sökvägen i förhållande till rot elementet. Pipe Character-avgränsaren är godtycklig, men måste vara konsekvent och ska inte visas i käll texten. Avgränsnings tecknet används i program koden för att återskapa taxonomi trädet från fasett-resultat.
 
@@ -99,4 +99,4 @@ Den här tekniken kommer att skalas för att avse mer komplexa scenarier som dju
 
 ## <a name="see-also"></a>Se också
 
-[Exempel: utforma AdventureWorks Inventory Database för Azure Search](search-example-adventureworks-modeling.md)
+[Exempel: utforma AdventureWorks Inventory Database för Azure Kognitiv sökning](search-example-adventureworks-modeling.md)

@@ -1,5 +1,6 @@
 ---
 title: Program-och tjänst huvud objekt i Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om relationen mellan program-och tjänst huvud objekt i Azure Active Directory.
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83083026b20573d93777e77f44bf8d5480bfdd97
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c1a4d9301894c6a98abd8244fdd6c10a058a26ad
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853312"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803434"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Program-och tjänst huvud objekt i Azure Active Directory
 
@@ -52,7 +53,7 @@ När du registrerar ett Azure AD-program i [Azure Portal][AZURE-Portal]skapas tv
 
 ### <a name="application-object"></a>Program objekt
 
-Ett Azure AD-program definieras av sitt enda program objekt, som finns i Azure AD-klienten där programmet registrerades, vilket kallas för programmets "hem"-klient. Entiteten Microsoft Graph [program][MS-Graph-App-Entity] definierar schemat för ett program objekts egenskaper.
+Ett Azure AD-program definieras av sitt enda program objekt, som finns i Azure AD-klienten där programmet registrerades, vilket kallas för programmets "hem"-klient. [Entiteten Microsoft Graph program][MS-Graph-App-Entity] definierar schemat för ett program objekts egenskaper.
 
 ### <a name="service-principal-object"></a>Tjänstens huvud namns objekt
 
@@ -60,7 +61,7 @@ För att få åtkomst till resurser som skyddas av en Azure AD-klient måste den
 
 Säkerhets principen definierar åtkomst principen och behörigheter för användaren/programmet i Azure AD-klienten. Detta möjliggör kärn funktioner som autentisering av användaren/programmet vid inloggning och auktorisering under resurs åtkomst.
 
-När ett program har behörighet att komma åt resurser i en klient organisation (vid registrering eller [medgivande](developer-glossary.md#consent)) skapas ett huvud objekt för tjänsten. Entiteten Microsoft Graph [ServicePrincipal][MS-Graph-Sp-Entity] definierar schemat för ett tjänst huvud objekts egenskaper.
+När ett program har behörighet att komma åt resurser i en klient organisation (vid registrering eller [medgivande](developer-glossary.md#consent)) skapas ett huvud objekt för tjänsten. [Entiteten Microsoft Graph ServicePrincipal][MS-Graph-Sp-Entity] definierar schemat för ett tjänst huvud objekts egenskaper.
 
 ### <a name="application-and-service-principal-relationship"></a>Relation mellan program och tjänst huvud konto
 
@@ -96,8 +97,8 @@ I det här exempel scenariot:
 ## <a name="next-steps"></a>Nästa steg
 
 - Du kan använda [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) för att fråga både program-och tjänst huvud objekt.
-- Du kan komma åt ett programs program objekt med hjälp av Microsoft Graph API [][AZURE-Portal] , Azure Portals program manifest redigeraren eller [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)-cmdletar, som representeras av dess OData-programentitet. [][MS-Graph-App-Entity]
-- Du kan komma åt ett programs huvud objekt för tjänsten via Microsoft Graph API eller [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)-cmdletar, som representeras av dess OData [ServicePrincipal-entitet][MS-Graph-Sp-Entity].
+- Du kan komma åt ett programs program objekt med hjälp av Microsoft Graph API, [Azure Portals][AZURE-Portal] program manifest redigeraren eller [Azure AD PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData- [programentitet][MS-Graph-App-Entity].
+- Du kan komma åt ett programs huvud objekt för tjänsten via Microsoft Graph API eller [Azure AD PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [ServicePrincipal-entitet][MS-Graph-Sp-Entity].
 
 <!--Image references-->
 

@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/10/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3547ff218e9a15151e4abe2ceff53292d3f01ac0
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 9aa1c5121c723148884584ca3f00522c1c459859
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804318"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808995"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visa gransknings historik för Azure AD-roller i PIM
 
-Du kan använda gransknings historiken Azure Active Directory (Azure AD) Privileged Identity Management (PIM) för att se alla roll tilldelningar och aktiveringar under de senaste 30 dagarna för alla privilegierade roller. Om du vill se en fullständig gransknings historik för aktiviteten i din katalog, inklusive administratör, slutanvändare och synkroniseringsuppgift, kan du använda [Azure Active Directory säkerhets-och aktivitets rapporter](../reports-monitoring/overview-reports.md).
+Du kan använda gransknings historiken Privileged Identity Management (PIM) för att se alla roll tilldelningar och aktiveringar under de senaste 30 dagarna för alla privilegierade roller. Om du vill se en fullständig gransknings historik för aktiviteten i din Azure Active Directory (Azure AD)-organisation, inklusive administratör, slutanvändare och synkroniseringsuppgift, kan du använda [rapporterna Azure Active Directory säkerhets-och aktivitets rapporter](../reports-monitoring/overview-reports.md).
 
 ## <a name="view-audit-history"></a>Visa granskningshistorik
 
@@ -39,19 +39,19 @@ Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
 
     Beroende på din gransknings historik visas ett stapeldiagram tillsammans med totalt antal aktiveringar, Max aktiveringar per dag och genomsnittlig aktivering per dag.
 
-    ![Granskningshistorik för katalogrollerna](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    ![Gransknings historik för katalog roller](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
     Längst ned på sidan visas en tabell med information om varje åtgärd i den tillgängliga gransknings historiken. Kolumnerna har följande betydelser:
 
     | Kolumn | Beskrivning |
     | --- | --- |
-    | Time | När åtgärden utfördes. |
-    | Beställare | Användare som begärde roll aktiveringen eller ändringen. Om värdet är **Azure-system**kontrollerar du Azures gransknings historik för mer information. |
-    | Action | Åtgärder som vidtas av begär Ande. Åtgärder kan omfatta tilldela, ta bort, aktivera, inaktivera eller AddedOutsidePIM. |
+    | Tid | När åtgärden utfördes. |
+    | Begär Ande | Användare som begärde roll aktiveringen eller ändringen. Om värdet är **Azure-system**kontrollerar du Azures gransknings historik för mer information. |
+    | Åtgärd | Åtgärder som vidtas av begär Ande. Åtgärder kan omfatta tilldela, ta bort, aktivera, inaktivera eller AddedOutsidePIM. |
     | Medlem | Användare som aktiverar eller har tilldelats en roll. |
-    | Role | Roll som tilldelats eller Aktiver ATS av användaren. |
+    | Roll | Roll som tilldelats eller Aktiver ATS av användaren. |
     | Tanke | Text som angavs i orsaks fältet under aktiveringen. |
-    | Utgångsdatum | När en aktive rad roll upphör att gälla. Gäller endast berättigade roll tilldelningar. |
+    | dag | När en aktive rad roll upphör att gälla. Gäller endast berättigade roll tilldelningar. |
 
 1. Sortera gransknings historiken genom att klicka på knapparna **tid**, **åtgärd**och **roll** .
 
@@ -63,7 +63,7 @@ Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
 
 1. I **tidsintervall**väljer du ett tidsintervall.
 
-1. I **roller**, lägger du till markeringar för de roller som du vill visa.
+1. I **roller**markerar du kryss rutorna för att ange de roller som du vill visa.
 
     ![Fönstret uppdatera diagram parametrar](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
@@ -71,4 +71,4 @@ Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Visa aktivitet och gransknings historik för Azure Resource roles i PIM](azure-pim-resource-rbac.md)
+- [Visa aktivitet och gransknings historik för Azures resurs roller i Privileged Identity Management](azure-pim-resource-rbac.md)

@@ -1,5 +1,6 @@
 ---
-title: 'Mobilapp som anropar webb-API: er – appens kod konfiguration | Microsoft Identity Platform'
+title: 'Mobilapp som anropar webb-API: er – appens kod konfiguration'
+titleSuffix: Microsoft identity platform
 description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (appens kod konfiguration)'
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bebaa5d35876d562e567a8398cc7a9ce7e6f488
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5f55e73fa1a73908d7e77bacc6af24ea1a40ba92
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413593"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803733"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>Mobilapp som anropar webb-API: er – app-registrering
 
@@ -52,16 +53,16 @@ Den här funktionen gör det möjligt för din app att få enkel inloggning (SSO
 
 Observera att det finns en förhands gransknings upplevelse i appens registrerings portal som hjälper dig att beräkna den asynkrona svars-URI: n för iOS-och Android-program:
 
-1. I appens registrering väljer du **autentisering** och urval **testa den nya upplevelse**
-   ![avbildningen](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+1. I appens registrering väljer du **autentisering** och urval **testa den nya upplevelsen**
+   ![avbildning](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. Välj **Lägg till plattforms**
+2. Välj **Lägg till plattform**
    ![avbildning](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
 3. När listan över plattformar stöds väljer du **iOS**
-   ![-avbildning](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+   ![avbildning](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Ange ditt paket-ID enligt begäran och tryck sedan på **Registrera**
+4. Ange ditt paket-ID enligt begäran och tryck sedan på **registrera**
    ![avbildning](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. Omdirigerings-URI: n beräknas för dig.
@@ -69,13 +70,13 @@ Observera att det finns en förhands gransknings upplevelse i appens registrerin
 
 Om du föredrar att konfigurera omdirigerings-URI: n manuellt kan du göra det via applikations manifestet. Det rekommenderade formatet är följande:
 
-- ***iOS***: `msauth.<BUNDLE_ID>://auth` (för instans "msauth. com. yourcompany. APPNAME://auth")
+- ***iOS***: `msauth.<BUNDLE_ID>://auth` (till exempel "msauth. com. yourcompany. APPNAME://auth")
 - ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Hash-signaturens hash kan genereras med hjälp av versions-eller fel söknings nycklarna via kommando kommandot.
 
 ### <a name="username-password"></a>Användar namn lösen ord
 
-Om din app endast använder användar namn/lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. Det här flödet gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten och programmet kommer inte att anropas tillbaka på någon specifik URI. Du måste dock uttrycka att ditt program är ett offentligt klient program. Den här konfigurationen uppnås genom att gå  till avsnittet Authentication för ditt program. i underavsnittet **Avancerade inställningar** väljer du **Ja**för frågan **behandla programmet som en offentlig klient** (i **standard klient typ** stycke)
+Om din app endast använder användar namn/lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. Det här flödet gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten och programmet kommer inte att anropas tillbaka på någon specifik URI. Du måste dock uttrycka att ditt program är ett offentligt klient program. Den här konfigurationen uppnås genom att gå till avsnittet **Authentication** för ditt program. i underavsnittet **Avancerade inställningar** väljer du **Ja**för frågan **behandla programmet som en offentlig klient** (i **standard klient typ** stycke)
 
 ## <a name="api-permissions"></a>API-behörigheter
 

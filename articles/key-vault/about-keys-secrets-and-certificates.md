@@ -9,21 +9,21 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cca4f794fd3f84b991c7882307f74bcfadf6835b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241059"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799393"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
 Azure Key Vault gör det möjligt för Microsoft Azure program och användare att lagra och använda flera typer av hemliga/viktiga data:
 
-- Kryptografiska nycklar: Stöder flera nyckel typer och algoritmer och möjliggör användning av HSM (Hardware Security modules) för nycklar med hög värde. 
-- Nyckeln Ger säker lagring av hemligheter, t. ex. lösen ord och databas anslutnings strängar.
-- Intyg Har stöd för certifikat, som bygger på nycklar och hemligheter och lägger till en automatiserad förnyelse funktion.
-- Azure Storage: Kan hantera nycklar för ett Azure Storage konto åt dig. Internt Key Vault kan ange (Sync) nycklar med ett Azure Storage konto och återskapa (rotera) nycklarna med jämna mellanrum. 
+- Kryptografiska nycklar: stöder flera nyckel typer och algoritmer och möjliggör användning av HSM (Hardware Security modules) för nycklar med hög värde. 
+- Hemligheter: ger säker lagring av hemligheter, t. ex. lösen ord och databas anslutnings strängar.
+- Certifikat: stöder certifikat, som bygger på nycklar och hemligheter och lägger till en automatiserad förnyelse funktion.
+- Azure Storage: kan hantera nycklar för ett Azure Storage konto åt dig. Internt Key Vault kan ange (Sync) nycklar med ett Azure Storage konto och återskapa (rotera) nycklarna med jämna mellanrum. 
 
 Mer allmän information om Key Vault finns i [Vad är Azure Key Vault?](/azure/key-vault/key-vault-overview)
 
@@ -35,10 +35,10 @@ I följande avsnitt finns allmän information som gäller för implementeringen 
 
 JOSE-specifikationerna (JSON) och Java Script Object signing and Encryption () är viktiga bakgrunds information. JavaScript Object Notation  
 
--   [JSON-webbnyckel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON-webbkryptering (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [JSON-webbalgoritmer (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON-webbsignatur (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON-webbnyckel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
+-   [JSON-webbkryptering (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
+-   [JSON-webbalgoritmer (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
+-   [JSON-webbsignatur (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
 
 ### <a name="data-types"></a>Datatyper
 
@@ -59,7 +59,7 @@ Se JOSE-specifikationerna för relevanta data typer för nycklar, kryptering och
 
 Objekt som lagras i Key Vault versioner skapas när en ny instans av ett objekt skapas. Varje version tilldelas en unik identifierare och URL. När ett objekt skapas första gången får den ett unikt versions-ID och markerat som den aktuella versionen av objektet. Om du skapar en ny instans med samma objekt namn får det nya objektet ett unikt versions-ID, vilket gör att den blir den aktuella versionen.  
 
-Objekt i Key Vault kan åtgärdas med den aktuella identifieraren eller en versions bestämd identifierare. Till exempel kan en nyckel med namnet `MasterKey`som utför åtgärder med den aktuella identifieraren göra att systemet använder den senaste tillgängliga versionen. Att utföra åtgärder med den versions bara identifierade identifieraren gör att systemet använder den aktuella versionen av objektet.  
+Objekt i Key Vault kan åtgärdas med den aktuella identifieraren eller en versions bestämd identifierare. Till exempel kan en nyckel med namnet `MasterKey`utföra åtgärder med den aktuella identifieraren så att systemet använder den senaste tillgängliga versionen. Att utföra åtgärder med den versions bara identifierade identifieraren gör att systemet använder den aktuella versionen av objektet.  
 
 Objekt identifieras unikt inom Key Vault med hjälp av en URL. Inga två objekt i systemet har samma URL, oavsett Geo-plats. Den fullständiga URL: en till ett objekt kallas för objekt-ID. URL: en består av ett prefix som identifierar Key Vault, objekt typ, användardefinierat objekt namn och en objekt version. Objekt namnet är Skift läges okänsligt och oföränderligt. Identifierare som inte innehåller objekt versionen kallas för bas identifierare.  
 
@@ -69,14 +69,14 @@ En objekt identifierare har följande allmänna format:
 
 `https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-Där:  
+Var:  
 
 |||  
 |-|-|  
 |`keyvault-name`|Namnet på ett nyckel valv i Microsoft Azure Key Vault-tjänsten.<br /><br /> Key Vault namn väljs av användaren och är globalt unika.<br /><br /> Key Vault namn måste vara en 3-24-tecken sträng som bara innehåller 0-9, a-z, A-Z och-.|  
 |`object-type`|Objektets typ, antingen "nycklar" eller "hemligheter".|  
-|`object-name`|Ett `object-name` är ett användardefinierat namn för och måste vara unikt inom en Key Vault. Namnet måste vara en 1-127-tecken sträng som bara innehåller 0-9, a-z, A-Z och-.|  
-|`object-version`|En `object-version` är en systemgenererad, 32 tecken Strängs identifierare som används valfritt * o-adress en unik version av ett objekt.|  
+|`object-name`|Ett `object-name` är ett namn som användaren anger och måste vara unikt inom en Key Vault. Namnet måste vara en 1-127-tecken sträng som bara innehåller 0-9, a-z, A-Z och-.|  
+|`object-version`|Ett `object-version` är ett systemgenererat, 32 tecken Strängs-ID som kan användas för att använda * o-adress en unik version av ett objekt.|  
 
 ## <a name="key-vault-keys"></a>Key Vault nycklar
 
@@ -84,17 +84,17 @@ Där:
 
 Kryptografiska nycklar i Key Vault representeras som JSON-webbnyckel [JWK]-objekt. De grundläggande JWK/JWA-specifikationerna utökas också för att aktivera nyckel typer som är unika för Key Vault implementeringen. Om du exempelvis importerar nycklar med hjälp av HSM-leverantörsspecifik paketering, möjliggör säker transport av nycklar som bara kan användas i Key Vault HSM: er.  
 
-- **"Mjuka" nycklar**: En nyckel som bearbetas i program varan av Key Vault, men krypteras i vila med en system nyckel som finns i en HSM. Klienter kan importera en befintlig RSA-eller EC-nyckel (Elliptic Curve) eller begära att Key Vault generera en.
-- **"Hård"-nycklar**: En nyckel som bearbetas i en HSM-modul (Hardware Security Module). Nycklarna skyddas i en av Key Vault HSM-säkerhetsvärldaren (det finns en säkerhets värld per geografi för att underhålla isoleringen). Klienter kan importera en RSA-eller EC-nyckel, i mjuk form eller genom att exportera från en kompatibel HSM-enhet. Klienter kan också begära Key Vault att generera en nyckel. Den här nyckel typen lägger till attributet key_hsm i JWK för att hämta HSM-nyckel materialet.
+- **"Mjuka" nycklar**: en nyckel som bearbetas i program vara med Key Vault, men krypteras i vila med en system nyckel som finns i en HSM. Klienter kan importera en befintlig RSA-eller EC-nyckel (Elliptic Curve) eller begära att Key Vault generera en.
+- **"Hårda" nycklar**: en nyckel som bearbetas i en HSM-modul (Hardware Security Module). Nycklarna skyddas i en av Key Vault HSM-säkerhetsvärldaren (det finns en säkerhets värld per geografi för att underhålla isoleringen). Klienter kan importera en RSA-eller EC-nyckel, i mjuk form eller genom att exportera från en kompatibel HSM-enhet. Klienter kan också begära Key Vault att generera en nyckel. Den här nyckel typen lägger till attributet key_hsm i JWK för att hämta HSM-nyckel materialet.
 
      Mer information om geografiska gränser finns [Microsoft Azure säkerhets Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 Key Vault stöder endast RSA-och Elliptic-kurv nycklar. 
 
--   **EG**: "Mjuk" Elliptic kurv nyckel.
--   **EC-HSM**: "Hård Elliptic-kurv nyckel.
--   **RSA**: "Mjuk" RSA-nyckel.
--   **RSA-HSM**: "Hård" RSA-nyckel.
+-   **EG**: "mjuk" Elliptic kurv nyckel.
+-   **EC-HSM**: "hård" Elliptic kurv nyckel.
+-   **RSA**: "mjuk" RSA-nyckel.
+-   **RSA-HSM**: "hård" RSA-nyckel.
 
 Key Vault stöder RSA-nycklar av storlekarna 2048, 3072 och 4096. Key Vault stöder Elliptic kurv nyckel typer P-256, P-384, P-521 och P-256 KB (SECP256K1).
 
@@ -108,7 +108,7 @@ De kryptografiska moduler som Key Vault använder, om HSM eller program vara, ä
 #### <a name="curve-types"></a>Kurv typer
 
 -   **P-256** – NIST kurva P-256, definieras i [DSS FIPS pub-186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256 k** – s Curve-SECP256K1, definierad [vid SEK 2: Rekommenderade domän parametrar](https://www.secg.org/sec2-v2.pdf)för Elliptic-kurva.
+-   **P-256 k** – SECP256K1 för SEC-kurvan, definierat vid [SEK 2: rekommenderade Elliptic för kurv parametrar](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** – NIST kurva P-384, definieras i [DSS FIPS pub-186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** – NIST kurva P-521, definieras i [DSS FIPS pub-186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -138,23 +138,23 @@ De kryptografiska moduler som Key Vault använder, om HSM eller program vara, ä
 
 Key Vault stöder följande åtgärder på nyckel objekt:  
 
--   **Skapa**: Tillåter en klient att skapa en nyckel i Key Vault. Nyckelns värde genereras av Key Vault och lagras, och frigörs inte till klienten. Asymmetriska nycklar kan skapas i Key Vault.  
--   **Importera**: Gör att en klient kan importera en befintlig nyckel till Key Vault. Asymmetriska nycklar kan importeras till Key Vault att använda ett antal olika förpacknings metoder inom en JWK-konstruktion. 
--   **Uppdatera**: Tillåter en klient med tillräcklig behörighet att ändra de metadata (nyckelattribut) som är associerade med en nyckel som tidigare lagrats i Key Vault.  
--   **Ta bort**: Tillåter en klient med tillräcklig behörighet att ta bort en nyckel från Key Vault.  
--   **Lista**: Tillåter en klient att visa en lista över alla nycklar i en specifik Key Vault.  
--   **List versioner**: Tillåter att en klient visar en lista över alla versioner av en specifik nyckel i en specifik Key Vault.  
--   **Hämta**: Tillåter att en klient hämtar offentliga delar av en viss nyckel i en Key Vault.  
--   **Säkerhets kopiering**: Exporterar en nyckel i ett skyddat formulär.  
--   **Återställ**: Importerar en tidigare säkerhetskopierad nyckel.  
+-   **Skapa**: tillåter att en klient skapar en nyckel i Key Vault. Nyckelns värde genereras av Key Vault och lagras, och frigörs inte till klienten. Asymmetriska nycklar kan skapas i Key Vault.  
+-   **Importera**: tillåter att en klient importerar en befintlig nyckel till Key Vault. Asymmetriska nycklar kan importeras till Key Vault att använda ett antal olika förpacknings metoder inom en JWK-konstruktion. 
+-   **Uppdatera**: tillåter en klient med tillräcklig behörighet att ändra de metadata (nyckelattribut) som är associerade med en nyckel som tidigare lagrats i Key Vault.  
+-   **Ta bort**: tillåter en klient med tillräcklig behörighet att ta bort en nyckel från Key Vault.  
+-   **Lista**: tillåter att en klient listar alla nycklar i en specifik Key Vault.  
+-   **List versioner**: tillåter att en klient listar alla versioner av en specifik nyckel i en specifik Key Vault.  
+-   **Get**: tillåter att en klient hämtar offentliga delar av en viss nyckel i en Key Vault.  
+-   **Säkerhets kopiering**: exporterar en nyckel i ett skyddat formulär.  
+-   **Återställ**: importerar en tidigare säkerhetskopierad nyckel.  
 
 Mer information finns i [nyckel åtgärder i referensen Key Vault REST API](/rest/api/keyvault).  
 
 När en nyckel har skapats i Key Vault kan följande kryptografiska åtgärder utföras med nyckeln:  
 
--   **Logga och verifiera**: Den här åtgärden är endast "signera hash" eller "verifiera hash", eftersom Key Vault inte stöder hashing av innehåll som en del av skapandet av signaturen. Program ska Hasha data för att signeras lokalt och sedan begära att Key Vault signera hashen. Verifiering av signerade hash-värden stöds som en bekvämlighets åtgärd för program som kanske inte har åtkomst till [offentligt] nyckel material. För bästa program prestanda kontrollerar du att åtgärder utförs lokalt.  
--   **Nyckel kryptering/rad brytning**: En nyckel som lagras i Key Vault kan användas för att skydda en annan nyckel, vanligt vis en symmetrisk innehålls krypterings nyckel (CEK). När nyckeln i Key Vault är asymmetrisk, används nyckel kryptering. Till exempel motsvarar RSA-OAEP och WRAPKEY/UNWRAPKEY-åtgärderna dekryptera/DEKRYPTERA. När nyckeln i Key Vault är symmetrisk används nyckel brytning. Till exempel AES-KW. WRAPKEY-åtgärden stöds som en bekvämlighet för program som kanske inte har åtkomst till [offentligt] nyckel material. För bästa prestanda bör WRAPKEY åtgärder utföras lokalt.  
--   **Kryptera och dekryptera**: En nyckel som lagras i Key Vault kan användas för att kryptera eller dekryptera ett enda data block. Storleken på blocket bestäms av nyckel typen och den valda krypteringsalgoritmen. Krypterings åtgärden tillhandahålls för enkelhetens skull, för program som kanske inte har åtkomst till [offentligt] nyckel material. För bästa prestanda bör krypterings åtgärder utföras lokalt.  
+-   **Logga och verifiera**: den här åtgärden är "signera hash" eller "verifiera hash", eftersom Key Vault inte stöder hashing av innehåll som en del av att skapa signaturer. Program ska Hasha data för att signeras lokalt och sedan begära att Key Vault signera hashen. Verifiering av signerade hash-värden stöds som en bekvämlighets åtgärd för program som kanske inte har åtkomst till [offentligt] nyckel material. För bästa program prestanda kontrollerar du att åtgärder utförs lokalt.  
+-   **Nyckel kryptering/inbäddning**: en nyckel som lagras i Key Vault kan användas för att skydda en annan nyckel, vanligt vis en symmetrisk innehålls krypterings nyckel (CEK). När nyckeln i Key Vault är asymmetrisk, används nyckel kryptering. Till exempel motsvarar RSA-OAEP och WRAPKEY/UNWRAPKEY-åtgärderna dekryptera/DEKRYPTERA. När nyckeln i Key Vault är symmetrisk används nyckel brytning. Till exempel AES-KW. WRAPKEY-åtgärden stöds som en bekvämlighet för program som kanske inte har åtkomst till [offentligt] nyckel material. För bästa prestanda bör WRAPKEY åtgärder utföras lokalt.  
+-   **Kryptera och dekryptera**: en nyckel som lagras i Key Vault kan användas för att kryptera eller dekryptera ett enda data block. Storleken på blocket bestäms av nyckel typen och den valda krypteringsalgoritmen. Krypterings åtgärden tillhandahålls för enkelhetens skull, för program som kanske inte har åtkomst till [offentligt] nyckel material. För bästa prestanda bör krypterings åtgärder utföras lokalt.  
 
 Även om WRAPKEY/UNWRAPKEY med asymmetriska nycklar kan verka överflödig (eftersom åtgärden motsvarar kryptering/dekryptering) är det viktigt att använda DISTINCT-åtgärder. Distinktionen ger semantisk och avskiljande av dessa åtgärder och konsekvens när andra nyckel typer stöds av tjänsten.  
 
@@ -162,14 +162,14 @@ Key Vault stöder inte EXPORT åtgärder. När en nyckel har skapats i systemet 
 
 Användare kan begränsa de kryptografiska åtgärder som Key Vault stöder per nyckel med hjälp av egenskapen key_ops för JWK-objektet.  
 
-Mer information om JWK-objekt finns i [JSON-webbnyckel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+Mer information om JWK-objekt finns i [JSON-webbnyckel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
 ###  <a name="key-attributes"></a>Nyckelattribut
 
 Förutom nyckel materialet kan följande attribut anges. I en JSON-begäran krävs attributen nyckelord och klammerparenteser, {}, även om det inte finns några angivna attribut.  
 
-- *aktive rad*: boolesk, valfritt, standardvärdet är **True**. Anger om nyckeln är aktive rad och användbar för kryptografiska åtgärder. Det *aktiverade* attributet används tillsammans med *NBF* och *exp*. När en åtgärd sker mellan *NBF* och *exp*, tillåts den endast om *aktive rad* är inställd på **True**. Åtgärder utanför *NBF* / *exp* -fönstret tillåts inte automatiskt, förutom vissa åtgärds typer under [vissa förhållanden](#date-time-controlled-operations).
-- *nbf*: IntDate, valfritt, standard är nu. Attributet *NBF* (inte före) anger tiden före vilken nyckeln inte får användas för kryptografiska åtgärder, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations). Bearbetningen av *NBF* -attributet kräver att aktuellt datum/tid måste vara efter eller lika med det icke-före-datum/-tid som anges i *NBF* -attributet. Key Vault kan ge vissa små Leeway, vanligt vis inte fler än några minuter, för att kontona ska kunna användas för klock skevning. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
+- *aktive rad*: boolesk, valfritt, standardvärdet är **True**. Anger om nyckeln är aktive rad och användbar för kryptografiska åtgärder. Det *aktiverade* attributet används tillsammans med *NBF* och *exp*. När en åtgärd sker mellan *NBF* och *exp*, tillåts den endast om *aktive rad* är inställd på **True**. Åtgärder utanför *nbf* / *exp* -fönstret tillåts inte automatiskt, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations).
+- *NBF*: IntDate, valfritt, standard är nu. Attributet *NBF* (inte före) anger tiden före vilken nyckeln inte får användas för kryptografiska åtgärder, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations). Bearbetningen av *NBF* -attributet kräver att aktuellt datum/tid måste vara efter eller lika med det icke-före-datum/-tid som anges i *NBF* -attributet. Key Vault kan ge vissa små Leeway, vanligt vis inte fler än några minuter, för att kontona ska kunna användas för klock skevning. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
 - *exp*: IntDate, valfritt, standard är "alltid". Attributet *exp* (förfallo tid) anger förfallo tid för eller efter vilken nyckeln inte får användas för kryptografisk drift, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations). Bearbetningen av *exp* -attributet kräver att aktuellt datum/tid måste vara före det datum/tid som anges i attributet *exp* . Key Vault kan vara en del liten Leeway, vanligt vis inte mer än några minuter, för att kunna använda klock skevning. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
 
 Det finns ytterligare skrivskyddade attribut som ingår i alla svar som innehåller viktiga attribut:  
@@ -181,11 +181,11 @@ Mer information om IntDate och andra data typer finns i [data typer](#data-types
 
 #### <a name="date-time-controlled-operations"></a>Kontrollerade åtgärder för datum/tid
 
-Nycklar som inte är giltiga och som har upphört att gälla utanför *NBF* / *exp* -fönstret fungerar för att **dekryptera**, **packa**upp och **Verifiera** åtgärder (returnerar inte 403, förbjudet). Rationellt för att använda tillstånd som inte är giltigt är att tillåta att en nyckel testas före produktions användningen. Rationellt för att använda tillståndet upphör att gälla är att tillåta återställnings åtgärder för data som skapades när nyckeln var giltig. Du kan också inaktivera åtkomst till en nyckel med Key Vault-principer eller genom att uppdatera det *aktiverade* nyckelattributet till **falskt**.
+Nycklar som inte är giltiga och som har upphört att gälla utanför *nbf* / *exp* -fönstret fungerar för att **dekryptera**, **packa**upp och **Verifiera** åtgärder (returnerar inte 403, förbjudet). Rationellt för att använda tillstånd som inte är giltigt är att tillåta att en nyckel testas före produktions användningen. Rationellt för att använda tillståndet upphör att gälla är att tillåta återställnings åtgärder för data som skapades när nyckeln var giltig. Du kan också inaktivera åtkomst till en nyckel med Key Vault-principer eller genom att uppdatera det *aktiverade* nyckelattributet till **falskt**.
 
 Mer information om data typer finns i [data typer](#data-types).
 
-Mer information om andra möjliga attribut finns i [JSON-webbnyckeln (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Mer information om andra möjliga attribut finns i [JSON-webbnyckeln (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
 ### <a name="key-tags"></a>Nyckel etiketter
 
@@ -201,23 +201,23 @@ Du kan ange ytterligare programspecifika metadata i form av taggar. Key Vault st
 Följande behörigheter kan beviljas, per användare/tjänstens huvud konto, i åtkomst kontroll posten i ett valv. Dessa behörigheter speglar noggrant de åtgärder som tillåts för ett nyckel objekt.  Att bevilja åtkomst till ett tjänst huvud namn i Key Vault är en Databasmigrering-åtgärd och det förblir detsamma för alla Azure-prenumerationer. Du kan använda den för att distribuera så många certifikat som du vill. 
 
 - Behörigheter för nyckel hanterings åtgärder
-  - *Hämta*: Läs den offentliga delen av en nyckel plus dess attribut
-  - *list*: Lista nycklar eller versioner av en nyckel som lagras i ett nyckel valv
-  - *Uppdatera*: Uppdatera attributen för en nyckel
-  - *skapa*: Skapa nya nycklar
-  - *Importera*: Importera en nyckel till ett nyckel valv
-  - *ta bort*: Ta bort nyckelobjektet
-  - *recover*: Återställa en borttagen nyckel
-  - *säkerhets kopiering*: Säkerhetskopiera en nyckel i ett nyckel valv
-  - *Återställ*: Återställa en säkerhets kopie rad nyckel till ett nyckel valv
+  - *Hämta*: Läs den offentliga delen av en nyckel, plus dess attribut
+  - *lista*: visar nycklar eller versioner av en nyckel som lagras i ett nyckel valv
+  - *Uppdatera*: uppdatera attributen för en nyckel
+  - *skapa*: skapa nya nycklar
+  - *Importera*: importera en nyckel till ett nyckel valv
+  - *ta bort*: ta bort nyckelobjektet
+  - *återställa*: Återställ en borttagen nyckel
+  - *säkerhets kopiering*: säkerhetskopiera en nyckel i ett nyckel valv
+  - *återställning*: återställa en säkerhets kopie rad nyckel till ett nyckel valv
 
 - Behörigheter för kryptografiska åtgärder
   - *dekryptera*: Använd nyckeln för att ta bort skyddet för en sekvens med byte
   - *kryptera*: Använd nyckeln för att skydda en godtycklig sekvens med byte
-  - *unwrapKey*: Använd nyckeln för att ta bort skyddet för omslutna symmetriska nycklar
+  - *unwrapKey*: Använd nyckeln för att ta bort skyddet för figursatta symmetriska nycklar
   - *wrapKey*: Använd nyckeln för att skydda en symmetrisk nyckel
   - *Verifiera*: Använd nyckeln för att verifiera sammandrag  
-  - *sign*: Använd nyckeln för att signera sammandrag
+  - *tecken*: Använd nyckeln för att signera sammandrag
     
 - Behörigheter för privilegierade åtgärder
   - *Rensa*: Rensa (ta bort permanent) en borttagen nyckel
@@ -238,8 +238,8 @@ Key Vault stöder också ett contentType-fält för hemligheter. Klienter kan an
 
 Utöver hemliga data kan följande attribut anges:  
 
-- *exp*: IntDate, valfritt, är standard för **alltid**. Attributet *exp* (förfallo tid) anger förfallo tid för eller efter vilken hemliga data inte ska hämtas, förutom i [särskilda situationer](#date-time-controlled-operations). Det här fältet används endast i **informations** syfte eftersom det informerar användare av Key Vault-tjänsten att en viss hemlighet inte får användas. Värdet måste vara ett tal som innehåller ett IntDate-värde.   
-- *nbf*: IntDate, valfritt, standard är **nu**. Attributet *NBF* (inte före) anger den tid före vilken hemliga data inte ska hämtas, förutom i [särskilda situationer](#date-time-controlled-operations). Det här fältet används endast i **informations** syfte. Värdet måste vara ett tal som innehåller ett IntDate-värde. 
+- *exp*: IntDate, valfritt, standard är för **alltid**. Attributet *exp* (förfallo tid) anger förfallo tid för eller efter vilken hemliga data inte ska hämtas, förutom i [särskilda situationer](#date-time-controlled-operations). Det här fältet används endast i **informations** syfte eftersom det informerar användare av Key Vault-tjänsten att en viss hemlighet inte får användas. Värdet måste vara ett tal som innehåller ett IntDate-värde.   
+- *NBF*: IntDate, valfritt, standard är **nu**. Attributet *NBF* (inte före) anger den tid före vilken hemliga data inte ska hämtas, förutom i [särskilda situationer](#date-time-controlled-operations). Det här fältet används endast i **informations** syfte. Värdet måste vara ett tal som innehåller ett IntDate-värde. 
 - *aktive rad*: boolesk, valfritt, standardvärdet är **True**. Det här attributet anger om hemliga data kan hämtas. Det aktiverade attributet används tillsammans med *NBF* och *exp* när en åtgärd sker mellan *NBF* och *exp*, men det är bara tillåtet om aktive rad är inställt på **Sant**. Åtgärder utanför *NBF* och *exp* -fönstret tillåts inte automatiskt, förutom i [vissa situationer](#date-time-controlled-operations).  
 
 Det finns ytterligare skrivskyddade attribut som ingår i alla svar som innehåller hemliga attribut:  
@@ -249,7 +249,7 @@ Det finns ytterligare skrivskyddade attribut som ingår i alla svar som innehål
 
 #### <a name="date-time-controlled-operations"></a>Kontrollerade åtgärder för datum/tid
 
-En hemlighet för **Get** -åtgärden fungerar för ej ännu giltiga och utgångna hemligheter, utanför *NBF* / *exp* -fönstret. Att anropa en hemlig åtgärd för **hämtning** , för en icke-giltig hemlighet, kan användas i test syfte. Hämtning av (**få fram**) en utgånget hemligt kan användas för återställnings åtgärder.
+En hemlig åtgärd för **hämtning** fungerar för ej ännu giltiga och utgångna hemligheter, utanför *NBF* / *exp* -fönstret. Att anropa en hemlig åtgärd för **hämtning** , för en icke-giltig hemlighet, kan användas i test syfte. Hämtning av (**få fram**) en utgånget hemligt kan användas för återställnings åtgärder.
 
 Mer information om data typer finns i [data typer](#data-types).  
 
@@ -261,12 +261,12 @@ Följande behörigheter kan användas, per huvud konto, i åtkomst kontroll post
 
 - Behörigheter för hemliga hanterings åtgärder
   - *Hämta*: Läs en hemlighet  
-  - *list*: Visa en lista över hemligheter eller versioner av en hemlighet som lagras i en Key Vault  
-  - *Ange*: Skapa en hemlighet  
-  - *ta bort*: Ta bort en hemlighet  
-  - *recover*: Återställa en borttagen hemlighet
-  - *säkerhets kopiering*: Säkerhetskopiera en hemlighet i ett nyckel valv
-  - *Återställ*: Återställa en säkerhetskopierad hemlighet till ett nyckel valv
+  - *lista*: visar en lista över hemligheter eller versioner av en hemlighet som lagras i en Key Vault  
+  - *Ange*: skapa en hemlighet  
+  - *ta bort*: ta bort en hemlighet  
+  - *återställa*: Återställ en borttagen hemlighet
+  - *säkerhets kopiering*: säkerhetskopiera en hemlighet i ett nyckel valv
+  - *återställning*: återställa en säkerhetskopierad hemlighet till ett nyckel valv
 
 - Behörigheter för privilegierade åtgärder
   - *Rensa*: Rensa (ta bort permanent) en borttagen hemlighet
@@ -324,13 +324,13 @@ Det finns ytterligare skrivskyddade attribut som ingår i svaret:
 
 -   *skapad*: IntDate: anger när den här versionen av certifikatet skapades.  
 -   *uppdaterad*: IntDate: anger när den här versionen av certifikatet uppdaterades.  
--   *exp*: IntDate: innehåller värdet för det x509-certifikatets utgångs datum.  
--   *nbf*: IntDate: innehåller värdet för datumet för x509-certifikatet.  
+-   *exp*: IntDate: innehåller värdet för det utgångna datumet för x509-certifikatet.  
+-   *NBF*: IntDate: innehåller värdet för datumet för x509-certifikatet.  
 
 > [!Note] 
 > Om ett Key Vault certifikat upphör att gälla, är det adresser bara nyckeln och hemligheten blir oanvändbar.  
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>Taggar
 
  Klientens angivna ord lista med nyckel värdes par, liknar Taggar i nycklar och hemligheter.  
 
@@ -345,7 +345,7 @@ När ett Key Vault-certifikat skapas från grunden måste en princip anges. Prin
 
 En certifikat princip innehåller följande information på hög nivå:  
 
--   Egenskaper för X509-certifikat: Innehåller ämnes namn, alternativa namn på certifikat mottagare och andra egenskaper som används för att skapa en x509-certifikatbegäran.  
+-   Egenskaper för X509-certifikat: innehåller ämnes namn, alternativa namn för certifikat mottagare och andra egenskaper som används för att skapa en x509-certifikatbegäran.  
 -   Nyckel egenskaper: innehåller nyckel typer, nyckel längd, exporter bara och återanvända nyckel fält. Dessa fält instruerar nyckel valvet om hur man genererar en nyckel.  
 -   Hemliga egenskaper: innehåller hemliga egenskaper som innehålls typ för adresser bar hemlighet för att generera det hemliga värdet, för att hämta certifikat som en hemlighet.  
 -   Livs längds åtgärder: innehåller livs längds åtgärder för KV-certifikatet. Varje livs längds åtgärd innehåller:  
@@ -354,7 +354,7 @@ En certifikat princip innehåller följande information på hög nivå:
 
      - Åtgärd: Ange åtgärds typ – *emailContacts* eller *autoförnyelse*  
 
--   Utfärdare Parametrar för den certifikat utfärdare som ska användas för att utfärda x509-certifikat.  
+-   Utfärdare: parametrar om den certifikat utfärdare som ska användas för att utfärda x509-certifikat.  
 -   Princip-attribut: innehåller attribut som är associerade med principen  
 
 #### <a name="x509-to-key-vault-usage-mapping"></a>X509 för att Key Vault användnings mappning
@@ -417,21 +417,21 @@ Om ett certifikats princip ställs in på automatisk förnyelse skickas ett medd
  Följande behörigheter kan användas, per huvud konto, i åtkomst kontroll posten hemligheter i ett nyckel valv och speglar noggrant de åtgärder som tillåts för ett hemligt objekt:  
 
 - Behörigheter för certifikat hanterings åtgärder
-  - *Hämta*: Hämta den aktuella certifikat versionen eller en version av ett certifikat 
-  - *list*: Lista aktuella certifikat eller versioner av ett certifikat  
-  - *Uppdatera*: Uppdatera ett certifikat
-  - *skapa*: Skapa ett Key Vault certifikat
+  - *Hämta*: hämta den aktuella certifikat versionen eller en version av ett certifikat 
+  - *lista*: visar aktuella certifikat eller versioner av ett certifikat  
+  - *Uppdatera*: uppdatera ett certifikat
+  - *skapa*: skapa ett Key Vault certifikat
   - *Importera*: Importera certifikat material till ett Key Vault certifikat
-  - *ta bort*: Ta bort ett certifikat, dess princip och alla dess versioner  
-  - *recover*: Återställa ett borttaget certifikat
-  - *säkerhets kopiering*: Säkerhetskopiera ett certifikat i ett nyckel valv
-  - *Återställ*: Återställa ett säkerhetskopierat certifikat till ett nyckel valv
-  - *managecontacts*: Hantera Key Vault certifikats kontakter  
-  - *manageissuers*: Hantera Key Vault certifikat utfärdare/utfärdare
+  - *ta bort*: ta bort ett certifikat, dess princip och alla dess versioner  
+  - *återställa*: Återställ ett borttaget certifikat
+  - *säkerhets kopiering*: säkerhetskopiera ett certifikat i ett nyckel valv
+  - *återställa*: Återställ ett säkerhetskopierat certifikat till ett nyckel valv
+  - *managecontacts*: hantera Key Vault certifikats kontakter  
+  - *manageissuers*: hantera Key Vault certifikat utfärdare/utfärdare
   - *getissuers*: Hämta ett certifikats myndigheter/utfärdare
   - *listissuers*: Visa en lista över certifikatets myndigheter/utfärdare  
-  - *setissuers*: Skapa eller uppdatera ett Key Vault certifikats myndigheter/utfärdare  
-  - *deleteissuers*: Ta bort ett Key Vault certifikats myndigheter/utfärdare  
+  - *setissuers*: skapa eller uppdatera ett Key Vault certifikats myndigheter/utfärdare  
+  - *deleteissuers*: ta bort en Key Vault certifikatets myndigheter/utfärdare  
  
 - Behörigheter för privilegierade åtgärder
   - *Rensa*: Rensa (ta bort permanent) ett borttaget certifikat
@@ -454,19 +454,19 @@ Mer information finns i [Azure Key Vault lagrings konto nycklar](key-vault-ovw-s
 Följande behörigheter kan användas när du auktoriserar en användare eller ett programs huvud konto för att utföra åtgärder på ett hanterat lagrings konto:  
 
 - Behörigheter för hanterat lagrings konto och SaS-definitions åtgärder
-  - *Hämta*: Hämtar information om ett lagrings konto 
-  - *list*: Visar en lista över lagrings konton som hanteras av en Key Vault
-  - *Uppdatera*: Uppdatera ett lagrings konto
-  - *ta bort*: Ta bort ett lagringskonto  
-  - *recover*: Återställa ett borttaget lagrings konto
-  - *säkerhets kopiering*: Säkerhetskopiera ett lagrings konto
-  - *Återställ*: Återställa ett säkerhetskopierat lagrings konto till en Key Vault
-  - *Ange*: Skapa eller uppdatera ett lagrings konto
-  - *regeneratekey*: Återskapa ett angivet nyckel värde för ett lagrings konto
+  - *Get*: hämtar information om ett lagrings konto 
+  - *lista*: visar en lista över lagrings konton som hanteras av en Key Vault
+  - *Uppdatera*: uppdatera ett lagrings konto
+  - *ta bort*: ta bort ett lagrings konto  
+  - *återställa*: Återställ ett borttaget lagrings konto
+  - *säkerhets kopiering*: säkerhetskopiera ett lagrings konto
+  - *återställa*: Återställ ett säkerhetskopierat lagrings konto till en Key Vault
+  - *Ange*: skapa eller uppdatera ett lagrings konto
+  - *regeneratekey*: återskapa ett angivet nyckel värde för ett lagrings konto
   - *hämtar*till: Hämta information om en SAS-definition för ett lagrings konto
-  - *listor*som: Lista Storage SAS-definitioner för ett lagrings konto
-  - *borttagningar*: Ta bort en SAS-definition från ett lagrings konto
-  - *Setas*: Skapa eller uppdatera en ny SAS-definition/-attribut för ett lagrings konto
+  - *lister*: lista över lagrings-SAS-definitioner för ett lagrings konto
+  - *borttagningar*: ta bort en SAS-definition från ett lagrings konto
+  - *Setas*: skapa eller uppdatera en ny SAS-definition/-attribut för ett lagrings konto
 
 - Behörigheter för privilegierade åtgärder
   - *Rensa*: Rensa (ta bort permanent) ett hanterat lagrings konto

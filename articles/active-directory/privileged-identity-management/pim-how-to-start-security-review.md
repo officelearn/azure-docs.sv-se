@@ -10,26 +10,26 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/27/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2069f0161ea2600a62ab123206d0ebe3c00642c3
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 72d9f0c7df12bd6746cd5cf0336e7bd58b6cc88d
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804378"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809033"
 ---
-# <a name="create-an-access-review-of-azure-ad-roles-in-pim"></a>Skapa en åtkomst granskning av Azure AD-roller i PIM
+# <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Skapa en åtkomst granskning av Azure AD-roller i Privileged Identity Management
 
-Åtkomst till behöriga Azure AD-roller för anställda förändras över tid. För att minska risken för inaktuella roll tilldelningar bör du regelbundet granska åtkomst. Du kan använda Azure Active Directory (Azure AD) Privileged Identity Management (PIM) för att skapa åtkomst granskningar för privilegierade Azure AD-roller. Du kan också konfigurera återkommande åtkomst granskningar som sker automatiskt.
+Krav för användare att få åtkomst till privilegierade Azure Active Directory (Azure AD) roller kan ändras med tiden. För att minska risken för inaktuella roll tilldelningar bör du regelbundet granska åtkomst. Du kan använda Azure AD Privileged Identity Management (PIM) för att skapa åtkomst granskningar för privilegierade Azure AD-roller. Du kan också konfigurera återkommande åtkomst granskningar som sker automatiskt.
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för privilegierade Azure AD-roller.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- [Privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>Öppna åtkomst granskningar
 
@@ -37,19 +37,17 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar f
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Klicka på **Azure AD-roller** i den vänstra menyn och klicka sedan på **åtkomst granskningar**.
+1. Välj **Azure AD-roller** på den vänstra menyn och välj sedan **åtkomst granskningar**.
 
-1. Under hantera klickar du på **åtkomst granskningar**.
+1. Under hantera väljer du **åtkomst granskningar**.
 
     ![Azure AD-roller – åtkomst gransknings listan visar status för alla granskningar](./media/pim-how-to-start-security-review/access-reviews.png)
 
-
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
-
 
 ## <a name="start-the-access-review"></a>Starta åtkomst granskningen
 
-När du har angett inställningarna för åtkomst granskning klickar du på **Start**. Åtkomst granskningen visas i listan med en indikator för dess status.
+När du har angett inställningarna för åtkomst granskning väljer du **Starta**. Åtkomst granskningen visas i listan med en indikator för dess status.
 
 ![Listan åtkomst granskningar som visar statusen för startade granskningar](./media/pim-how-to-start-security-review/access-reviews-list.png)
 

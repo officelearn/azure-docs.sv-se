@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 863989f8e2cb90fe5ec0921ea6e080b61fc1b4ae
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66271542"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808815"
 ---
-[Meddelanderoutning](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) kan skicka telemetridata från dina IoT-enheter till den inbyggda Event Hub-kompatibla slutpunkter eller anpassade slutpunkter som blob storage, Service Bus-köer, Service Bus-ämnen och Händelsehubbar. Om du vill konfigurera anpassade meddelanderoutning måste du skapa [routning frågor](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) att anpassa den väg som matchar ett visst villkor. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. Om meddelandet inte matchar någon av de definierade routning frågorna, dirigeras den till standardslutpunkt.
+Med [meddelanderoutning](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) kan du skicka telemetridata från dina IoT-enheter till inbyggda Event Hub-kompatibla slut punkter eller anpassade slut punkter som Blob storage, Service Bus köer, Service Bus ämnen och Event Hubs. Om du vill konfigurera en anpassad meddelanderoutning skapar du [routningslänkar](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) för att anpassa den väg som matchar ett visst villkor. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. Om ett meddelande inte matchar någon av de definierade Dirigerings frågorna dirigeras det till standard slut punkten.
 
-I de här självstudierna 2 delar du lära dig hur du konfigurerar och använder dessa anpassade routning frågor med IoT Hub. Du vidarebefordra meddelanden från en IoT-enhet till en av flera slutpunkter, inklusive blob-lagring och en Service Bus-kö. Meddelanden i Service Bus-kön slutpunktsstatus uppfattas av en Logikapp och skickas via e-post. Meddelanden som inte har anpassat meddelanderoutning definierats skickas till standardslutpunkt och sedan plockas av Azure Stream Analytics och visas i en Power BI-visualisering.
+I den här självstudien i två delar får du lära dig hur du konfigurerar och använder de här anpassade Dirigerings frågorna med IoT Hub. Du dirigerar meddelanden från en IoT-enhet till en av flera slut punkter, inklusive Blob Storage och en Service Bus kö. Meddelanden till Service Bus kön hämtas av en Logic app och skickas via e-post. Meddelanden som inte har definierats med anpassad meddelanderoutning skickas till standard slut punkten och hämtas sedan Azure Stream Analytics och visas i en Power BI visualisering.
 
-För fullständig delar 1 och 2 i den här självstudien utfört du följande uppgifter:
+För att slutföra del 1 och 2 av den här självstudien utför du följande uppgifter:
 
-**En del I: Skapa resurser, konfigurera meddelanderoutning**
+**Del I: skapa resurser, konfigurera meddelanderoutning**
 > [!div class="checklist"]
-> * Skapa resurser – en IoT-hubb, ett lagringskonto, en Service Bus-kö och en simulerad enhet. Detta kan göras med hjälp av portalen, Azure CLI, Azure PowerShell eller en Azure Resource Manager-mall.
-> * Konfigurera slutpunkter och meddelandevägar i IoT Hub för storage-konto och Service Bus-kö.
+> * Skapa resurserna – en IoT-hubb, ett lagrings konto, en Service Bus kö och en simulerad enhet. Detta kan göras med hjälp av Azure Portal, en Azure Resource Manager mall, Azure CLI eller Azure PowerShell.
+> * Konfigurera slut punkterna och meddelande vägarna i IoT Hub för lagrings kontot och Service Bus kön.
 
-**Del II: Skicka meddelanden till hubben, visa routade resultat**
+**Del II: skicka meddelanden till hubben, Visa dirigerade resultat**
 > [!div class="checklist"]
 > * Skapa en logikapp som utlöses och skickar e-post när ett meddelande läggs till i Service Bus-kön.
 > * Ladda ned och kör en app som simulerar en IoT-enhet som skickar meddelanden till hubben för de olika dirigeringsalternativen.
@@ -36,15 +36,15 @@ För fullständig delar 1 och 2 i den här självstudien utfört du följande up
 > * ...i lagringskontot.
 > * ...i Power BI-visualiseringen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* För del 1 av självstudien:
+* I del 1 av den här självstudien:
   - Du måste ha en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* För en del 2 av den här självstudien:
-  - Du har slutfört del 1 av självstudiekursen och har resurserna som är fortfarande tillgängliga.
+* I del 2 av den här självstudien:
+  - Du måste ha slutfört del 1 av den här självstudien och ha resurserna fortfarande tillgängliga.
   - Installera [Visual Studio](https://www.visualstudio.com/).
-  - Ett Power BI-konto för att analysera Stream Analytics för standardslutpunkten. ([Prova Power BI utan kostnad](https://app.powerbi.com/signupredirect?pbi_source=web).)
-  - Ett Office 365-konto för att skicka e-postmeddelanden.
+  - Få åtkomst till ett Power BI konto för att analysera standard slut punktens Stream Analytics. ([Prova Power BI utan kostnad](https://app.powerbi.com/signupredirect?pbi_source=web).)
+  - Ha ett Office 365-konto för att skicka e-postmeddelanden.
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]

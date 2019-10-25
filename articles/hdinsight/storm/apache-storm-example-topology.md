@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 42819749b019b4b1db77942e22e09ea31a137fe7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 831d3a187a4388a429c6fabb1bb0e0ec6dd584cc
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813853"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800037"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Exempel Apache Storm topologier och komponenter för Apache Storm i HDInsight
 
@@ -25,8 +25,8 @@ Följande är en lista över exempel som skapats och underhålls av Microsoft f�
 | [Event Hub-kanalen och bult-källa](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Källa för Event Hub-kanalen och bult |Java |
 | [Utveckla Java-baserade topologier för Apache Storm i HDInsight][5797064f] |Maven |Java |
 | [Utveckla C# topologier för Apache storm på HDInsight med Visual Studio][16fce2d1] |HDInsight Tools för Visual Studio |C#, Java |
-| [Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)][844d1d81] |Event Hubs |C#och Java |
-| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) (Bearbeta händelser från Azure Event Hubs med Storm i HDInsight (Java)) |Event Hubs |Java |
+| [Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)][844d1d81] |Händelsehubbar |C#och Java |
+| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) (Bearbeta händelser från Azure Event Hubs med Storm i HDInsight (Java)) |Händelsehubbar |Java |
 | [Bearbeta fordons sensor data från Event Hubs med Apache Storm i HDInsight][246ee964] |Event Hubs, Cosmos DB, Azure Storage Blob (WASB) |C#, Java |
 | [Extrahera, transformera och läsa in (ETL) från Azure Event Hubs till Apache HBase med Apache Storm på HDInsight][b4b68194] |Event Hubs, HBase |C# |
 | [Project C# -topologi för Storm-topologi för att arbeta med Azure-tjänster från Apache storm på HDInsight][ce0c02a2] |Event Hubs, Cosmos DB, SQL Database, HBase, SignalR |C#, Java |

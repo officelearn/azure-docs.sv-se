@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: reference
 author: rboucher
 ms.author: robb
-ms.date: 09/20/2019
-ms.openlocfilehash: a418e3d1a59379284422d1d24c1457ab61d84a4c
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/22/2019
+ms.openlocfilehash: e1bf6a55568671ddb8f6999356cc9be43ce6a728
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551764"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804023"
 ---
 # <a name="azure-resource-logs-overview"></a>Översikt över Azure resurs loggar
 Azures resurs loggar är [plattforms loggar](platform-logs-overview.md) som genereras av Azure-resurser som beskriver deras interna åtgärd. Alla resurs loggar delar ett gemensamt schema på högsta nivå med flexibiliteten för varje tjänst för att generera unika egenskaper för sina egna händelser.
@@ -33,64 +33,7 @@ Resurs loggar genereras automatiskt av Azure-resurser som stöds, men de samlas 
 Resurs loggar skiljer sig från gäst loggar på operativ system nivå i Azure Compute-resurser. Beräknings resurser kräver en agent för att samla in loggar och mått från sitt gäst operativ system, inklusive sådana data som händelse loggar, syslog och prestanda räknare. Använd [Diagnostic-tillägget](agents-overview.md#azure-diagnostic-extension) för att dirigera loggdata från virtuella Azure-datorer och [Log Analytics agenten](agents-overview.md#log-analytics-agent) för att samla in loggar och mått från virtuella datorer i Azure, i andra moln och lokalt i en Log Analytics arbets yta. Mer information finns i [källor för övervaknings data för Azure Monitor](data-sources.md) .
 
 ## <a name="resource-logs-schema"></a>Schema för resurs loggar
-Varje Azure-tjänst har sitt eget schema när resurs loggar skrivs till någon av målen, men alla delar ett schema på högsta nivå i följande tabell. Se [tjänstspecifika scheman](#service-specific-schemas) nedan för länkar till schemat för varje tjänst. 
-
-| Namn | Obligatorisk/valfri | Beskrivning |
-|---|---|---|
-| time | Krävs | Tids stämplingen (UTC) för händelsen. |
-| resourceId | Krävs | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
-| TenantId | Krävs för klient loggar | Klient-ID för den Active Directory klient som den här händelsen är kopplad till. Den här egenskapen används bara för loggar på klient nivå, den visas inte i loggar på resurs nivå. |
-| operationName | Krävs | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd är detta namnet på RBAC-åtgärden (t. ex. Microsoft. Storage/storageAccounts/blobServices/blobbar/Read). Vanligt vis modelleras i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Valfritt | Den API-version som är kopplad till åtgärden, om operationName utfördes med hjälp av ett API (t. ex. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Om det inte finns något API som motsvarar den här åtgärden representerar-versionen den åtgärd som är associerad med åtgärden i framtiden. |
-| category | Krävs | Händelsens logg kategori. Kategori är den granularitet som du kan använda för att aktivera eller inaktivera loggar för en viss resurs. Egenskaperna som visas i en händelses egenskaps-BLOB är desamma inom en viss logg kategori och resurs typ. Typiska logg kategorier är "granskning", "körning" och "begäran". |
-| resultType | Valfritt | Händelsens status. Vanliga värden är startad, pågår, lyckades, misslyckades, aktivt och löst. |
-| resultSignature | Valfritt | Händelsens under status. Om den här åtgärden motsvarar ett REST API-anrop är detta HTTP-statuskod för motsvarande REST-anrop. |
-| resultDescription | Valfritt | Den statiska text beskrivningen för den här åtgärden, t. ex. "Hämta lagrings fil". |
-| durationMs | Valfritt | Åtgärdens varaktighet i millisekunder. |
-| callerIpAddress | Valfritt | IP-adressen för anroparen, om åtgärden motsvarar ett API-anrop som kommer från en entitet med en offentligt tillgänglig IP-adress. |
-| correlationId | Valfritt | Ett GUID som används för att gruppera samman en uppsättning relaterade händelser. Normalt, om två händelser har samma operationName men två olika status värden (t. ex. "Startade" och "lyckades") delar samma korrelations-ID. Detta kan även representera andra relationer mellan händelser. |
-| identitet | Valfritt | En JSON-blob som beskriver identiteten för den användare eller det program som utförde åtgärden. Detta inkluderar vanligt vis auktorisering och anspråk/JWT-token från Active Directory. |
-| Nivå | Valfritt | Händelsens allvarlighets grad. Måste vara en av information, varning, fel eller kritisk. |
-| location | Valfritt | Den region i resursen som avger händelsen, t. ex. "USA, östra" eller "Frankrike, södra" |
-| properties | Valfritt | Eventuella utökade egenskaper som är relaterade till den här specifika kategorin av händelser. Alla anpassade/unika egenskaper måste placeras i det här "del B" av schemat. |
-
-## <a name="service-specific-schemas"></a>Tjänstspecifika scheman
-Schemat för resurs diagnostiska loggar varierar beroende på resurs typen som definieras av egenskapen `resourceId`) och `category` egenskaperna. I följande lista visas alla Azure-tjänster som har stöd för resurs loggar med länkar till tjänsten och det projektspecifika schemat där det är tillgängligt.
-
-| Tjänst | Schema & dokument |
-| --- | --- |
-| Azure Active Directory | [Översikt](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), schema för [Gransknings logg](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) och [inloggnings tillägg](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
-| API Management | [API Management diagnostikloggar](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
-| Application Gateways |[Diagnostikloggning för Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
-| Azure Automatisering |[Log Analytics för Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Azure Batch |[Azure Batch diagnostisk loggning](../../batch/batch-diagnostics.md) |
-| Azure-databas för MySQL | [Azure Database for MySQL diagnostikloggar](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure-databas för PostgreSQL | [Azure Database for PostgreSQL diagnostikloggar](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Kognitiva tjänster | [Diagnostisk loggning för Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
-| Content Delivery Network | [Azure-diagnostikloggar för CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
-| CosmosDB | [Azure Cosmos DB loggning](../../cosmos-db/logging.md) |
-| Data Factory | [Övervaka data fabriker med hjälp av Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
-| Data Lake Analytics |[Åtkomst till diagnostikloggar för Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Datasjölagring |[Åtkomst till diagnostikloggar för Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Händelsehubbar |[Azure Event Hubs diagnostikloggar](../../event-hubs/event-hubs-diagnostic-logs.md) |
-| Express Route | Schemat är inte tillgängligt. |
-| Azure Firewall | Schemat är inte tillgängligt. |
-| IoT Hub | [IoT Hub åtgärder](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Azure Key Vault-loggning](../../key-vault/key-vault-logging.md) |
-| Load Balancer |[Logganalys för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
-| Logikappar |[Anpassat Logic Apps B2B-spårningsschema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
-| Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS Protection | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
-| Dedikerad Power BI | [Diagnostisk loggning för Power BI Embedded i Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
-| Recovery Services | [Data modell för Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Sök |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
-| Service Bus |[Azure Service Bus diagnostikloggar](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Azure SQL Database diagnostisk loggning](../../sql-database/sql-database-metrics-diag-logging.md) |
-| Stream Analytics |[Jobb diagnostiska loggar](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Traffic Manager | [Traffic Manager logg schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
-| Virtuella nätverk | Schemat är inte tillgängligt. |
-| Virtual Network-gatewayer | Schemat är inte tillgängligt. |
+Mer information om schema och kategorier för resurs loggar finns i [resurs logg schema](diagnostic-logs-schema.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

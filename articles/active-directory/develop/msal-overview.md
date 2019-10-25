@@ -1,5 +1,6 @@
 ---
-title: Lär dig mer om Microsoft Authentication Library (MSAL) | Azure
+title: Lär dig mer om Microsoft Authentication Library (MSAL)
+titleSuffix: Microsoft identity platform
 description: 'Microsoft Authentication Library (MSAL) gör det möjligt för programutvecklare att förvärva tokens för att anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från tredje part eller ditt eget webb-API. MSAL stöder flera program arkitekturer och plattformar.'
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bec22381d1961c47ce257666177b5faf918cea56
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e9d3cf20e7e950aed01c6a0dc5a4ea95a81f815d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554403"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802578"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Översikt över Microsoft Authentication Library (MSAL)
 Med Microsoft Authentication Library (MSAL) kan utvecklare Hämta [tokens](developer-glossary.md#security-token) från slut punkten för Microsoft Identity Platform för att få åtkomst till säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från tredje part eller ditt eget webb-API. MSAL är tillgängligt för .NET, Java Script, Android och iOS, som har stöd för många olika program arkitekturer och plattformar.

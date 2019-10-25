@@ -1,26 +1,25 @@
 ---
-title: Återskapa ett Azure Search-index eller uppdatera sökbart innehåll – Azure Search
-description: Lägg till nya element, uppdatera befintliga element eller dokument eller ta bort föråldrade dokument i en fullständig återskapning eller delvis stegvis indexering för att uppdatera ett Azure Search-index.
-services: search
-author: HeidiSteen
+title: Återskapa ett Azure Kognitiv sökning-index
+titleSuffix: Azure Cognitive Search
+description: Lägg till nya element, uppdatera befintliga element eller dokument eller ta bort föråldrade dokument i en fullständig återskapning eller delvis stegvis indexering för att uppdatera ett Azure Kognitiv sökning-index.
 manager: nitinme
-ms.service: search
-ms.topic: conceptual
-ms.date: 02/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 26a751924985f94a7d7d12a382d4e6654f36ea48
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719854"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793713"
 ---
-# <a name="how-to-rebuild-an-azure-search-index"></a>Återskapa ett Azure Search-index
+# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Återskapa ett Azure Kognitiv sökning-index
 
-I den här artikeln förklaras hur du återaktiverar ett Azure Search-index, under vilka omständigheter som återuppbyggnadar krävs och rekommendationer för att minimera effekten av återställningar för pågående fråge förfrågningar.
+I den här artikeln förklaras hur du återaktiverar ett Azure Kognitiv sökning-index, under vilka omständigheter som återuppbyggnadar krävs och rekommendationer för att minimera effekten av återuppbyggnad av pågående fråge förfrågningar.
 
-En *Rebuild* syftar på att släppa och återskapa de fysiska data strukturer som är associerade med ett index, inklusive alla fältbaserade inverterade index. I Azure Search kan du inte släppa och återskapa enskilda fält. För att återskapa ett index måste alla fält lagrings enheter tas bort, återskapas baserat på ett befintligt eller uppdaterat index schema och sedan fyllas i igen med data som skickas till indexet eller hämtas från externa källor. Det är vanligt att bygga om index under utvecklingen, men du kan också behöva återskapa ett index på produktions nivå för att hantera strukturella ändringar, till exempel lägga till komplexa typer eller lägga till fält i förslag.
+En *Rebuild* syftar på att släppa och återskapa de fysiska data strukturer som är associerade med ett index, inklusive alla fältbaserade inverterade index. I Azure Kognitiv sökning kan du inte släppa och återskapa enskilda fält. För att återskapa ett index måste alla fält lagrings enheter tas bort, återskapas baserat på ett befintligt eller uppdaterat index schema och sedan fyllas i igen med data som skickas till indexet eller hämtas från externa källor. Det är vanligt att bygga om index under utvecklingen, men du kan också behöva återskapa ett index på produktions nivå för att hantera strukturella ändringar, till exempel lägga till komplexa typer eller lägga till fält i förslag.
 
 Till skillnad från återskapande som tar ett index offline körs *data uppdatering* som en bakgrunds aktivitet. Du kan lägga till, ta bort och ersätta dokument med minimala avbrott för att ställa frågor till arbets belastningar, även om frågor vanligt vis tar längre tid att slutföra. Mer information om hur du uppdaterar index innehåll finns i [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -33,7 +32,7 @@ Till skillnad från återskapande som tar ett index offline körs *data uppdater
 | Uppdatera eller ta bort en analys definition i ett index | Du kan inte ta bort eller ändra en befintlig analys konfiguration (Analyzer, tokenizer, token filter eller char filter) i indexet om du inte bygger om hela indexet. |
 | Lägg till ett fält till en förslags ställare | Om det redan finns ett fält och du vill lägga till det i en [förslags](index-add-suggesters.md) konstruktion måste du återskapa indexet. |
 | Ta bort ett fält | Om du vill ta bort alla spår för ett fält fysiskt måste du återskapa indexet. När en omedelbar återuppbyggnad inte är praktisk kan du ändra program koden för att inaktivera åtkomst till fältet "borttaget". Fysiskt är fält definitionen och innehållet kvar i indexet tills nästa återuppbyggnad när du använder ett schema som utelämnar fältet i fråga. |
-| Växlings nivåer | Om du behöver mer kapacitet finns det ingen uppgradering på plats i Azure Portal. En ny tjänst måste skapas och index måste byggas från grunden på den nya tjänsten. För att automatisera den här processen kan du använda exempel koden **index-Backup-Restore** i den här [Azure Search .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples). Den här appen kommer att säkerhetskopiera ditt index till en serie JSON-filer och sedan återskapa indexet i en Sök tjänst som du anger.|
+| Växlings nivåer | Om du behöver mer kapacitet finns det ingen uppgradering på plats i Azure Portal. En ny tjänst måste skapas och index måste byggas från grunden på den nya tjänsten. Du kan automatisera processen genom att använda exempel koden **index-Backup-Restore** i den här [Azure kognitiv sökning .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples). Den här appen kommer att säkerhetskopiera ditt index till en serie JSON-filer och sedan återskapa indexet i en Sök tjänst som du anger.|
 
 Eventuella andra ändringar kan göras utan att det påverkar befintliga fysiska strukturer. Mer specifikt kräver följande ändringar *inte* en index återuppbyggnad:
 
@@ -45,11 +44,11 @@ Eventuella andra ändringar kan göras utan att det påverkar befintliga fysiska
 + Lägga till, uppdatera eller ta bort CORS-inställningar
 + Lägg till, uppdatera eller ta bort synonymMaps
 
-När du lägger till ett nytt fält får befintliga indexerade dokument ett null-värde för det nya fältet. Vid en framtida data uppdatering ersätter värden från externa källdata de null-värden som läggs till av Azure Search. Mer information om hur du uppdaterar index innehåll finns i [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+När du lägger till ett nytt fält får befintliga indexerade dokument ett null-värde för det nya fältet. Vid en framtida data uppdatering ersätter värden från externa källdata de null-värden som läggs till av Azure Kognitiv sökning. Mer information om hur du uppdaterar index innehåll finns i [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## <a name="partial-or-incremental-indexing"></a>Partiell eller stegvis indexering
 
-I Azure Search kan du inte styra indexeringen baserat på varje fält, välja att ta bort eller återskapa specifika fält. Det finns inte heller någon inbyggd mekanism för [indexering av dokument baserat på kriterier](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Eventuella krav för villkors driven indexering måste uppfyllas genom anpassad kod.
+I Azure Kognitiv sökning kan du inte styra indexeringen baserat på varje fält och välja att ta bort eller återskapa specifika fält. Det finns inte heller någon inbyggd mekanism för [indexering av dokument baserat på kriterier](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Eventuella krav för villkors driven indexering måste uppfyllas genom anpassad kod.
 
 Vad du kan göra enkelt är att *Uppdatera dokument* i ett index. För många Sök lösningar är externa källdata temporära och synkronisering mellan källdata och ett sökindex är en vanlig metod. I kod anropar du åtgärden [Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) eller [.net motsvarande](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) för att uppdatera index innehåll, eller för att lägga till värden för ett nytt fält.
 
@@ -79,7 +78,7 @@ Följande arbets flöde är fördelat mot REST API, men gäller även för .NET 
 
 3. I bröd texten i begäran, ange ett index schema med de ändrade eller ändrade fält definitionerna. Begär ande texten innehåller index schemat, samt konstruktioner för bedömnings profiler, analyser, förslag och CORS-alternativ. Schema krav dokumenteras i [create index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-4. Skicka en begäran om att [Uppdatera index](https://docs.microsoft.com/rest/api/searchservice/update-index) för att återskapa det fysiska uttrycket för indexet på Azure Search. 
+4. Skicka en begäran om att [Uppdatera index](https://docs.microsoft.com/rest/api/searchservice/update-index) för att återskapa det fysiska uttrycket för indexet på Azure kognitiv sökning. 
 
 5. [Läs in indexet med dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) från en extern källa.
 
@@ -88,7 +87,7 @@ När du skapar ett index allokeras det fysiska lagrings utrymmet för varje fäl
 När du läser in indexet fylls varje fälts inverterade index med alla unika, token ord från varje dokument, med en karta till motsvarande dokument-ID. Om du till exempel indexerar en hotell data uppsättning kan ett inverterat index som skapats för ett stads fält innehålla villkor för Seattle, Göteborg och så vidare. Dokument som innehåller Seattle eller Göteborg i fältet stad har sitt dokument-ID som anges tillsammans med termen. På alla åtgärder för att [lägga till, uppdatera eller ta bort](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) uppdateras villkoren och dokument-ID-listan.
 
 > [!NOTE]
-> Om du har stränga SLA-krav kan du överväga att tillhandahålla en ny tjänst särskilt för detta arbete, med utveckling och indexering som inträffar i fullständig isolering från ett produktions index. En separat tjänst körs på sin egen maskin vara, vilket eliminerar risken för resurs konkurrens. När utvecklingen är klar skulle du antingen lämna det nya indexet på plats, omdirigera frågor till den nya slut punkten och indexet, eller så kan du köra slutförd kod för att publicera ett reviderat index på den ursprungliga Azure Searchs tjänsten. Det finns för närvarande ingen mekanism för att flytta ett klart att använda-index till en annan tjänst.
+> Om du har stränga SLA-krav kan du överväga att tillhandahålla en ny tjänst särskilt för detta arbete, med utveckling och indexering som inträffar i fullständig isolering från ett produktions index. En separat tjänst körs på sin egen maskin vara, vilket eliminerar risken för resurs konkurrens. När utvecklingen är klar skulle du antingen lämna det nya indexet på plats, omdirigera frågor till den nya slut punkten och indexet, eller så kan du köra slutförd kod för att publicera ett reviderat index på den ursprungliga Azure Kognitiv sökning-tjänsten. Det finns för närvarande ingen mekanism för att flytta ett klart att använda-index till en annan tjänst.
 
 ## <a name="view-updates"></a>Visa uppdateringar
 
@@ -103,4 +102,4 @@ Du kan börja fråga ett index så snart det första dokumentet har lästs in. O
 + [Azure Cosmos DB-indexeraren](search-howto-index-cosmosdb.md)
 + [Azure Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md)
 + [Azure Table Storage-indexeraren](search-howto-indexing-azure-tables.md)
-+ [Säkerhet i Azure Search](search-security-overview.md)
++ [Säkerhet i Azure Kognitiv sökning](search-security-overview.md)

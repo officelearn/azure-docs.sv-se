@@ -1,29 +1,29 @@
 ---
-title: Introduktion till Knowledge Store (för hands version) – Azure Search
-description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Search och i andra program.
-manager: nitinme
+title: Introduktion till kunskaps lager (för hands version)
+titleSuffix: Azure Cognitive Search
+description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Kognitiv sökning och i andra program.
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: overview
-ms.date: 08/02/2019
+manager: nitinme
 ms.author: heidist
-ms.openlocfilehash: 8a0022ce429b1359d8771f5089589fc779b8a751
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 82f8606f4b4201833667347d3ed16fdd73f70a36
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554885"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790353"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>Vad är kunskaps lager i Azure Search?
+# <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduktion till kunskaps lager i Azure Kognitiv sökning
 
 > [!Note]
 > Kunskaps lagret är i för hands version och är inte avsett för användning i produktion. Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
 >
 
-Kunskap Store är en funktion i Azure Search som sparar utdata från en [AI-pipeline](cognitive-search-concept-intro.md) för senare analys eller annan efterföljande bearbetning. Ett *berikat dokument* är en pipeline-utdata som skapas från innehåll som har extraherats, strukturer ATS och analyser ATS med hjälp av AI-processer. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Med kunskaps lager bevaras de dokument som är omfattande. 
+Kunskap Store är en funktion i Azure Kognitiv sökning som sparar utdata från en [AI-pipeline](cognitive-search-concept-intro.md) för senare analys eller annan efterföljande bearbetning. Ett *berikat dokument* är en pipeline-utdata som skapas från innehåll som har extraherats, strukturer ATS och analyser ATS med hjälp av AI-processer. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Med kunskaps lager bevaras de dokument som är omfattande. 
 
-Om du har använt AI-kunskaper med Azure Search tidigare vet du redan att *färdighetsuppsättningar* flyttar ett dokument genom en sekvens av anrikninger. Resultatet kan vara ett sökindex eller (nytt i den här förhands granskningen) projektioner i ett kunskaps lager. De två utmatningarna, Sök indexet och kunskaps lagret delar samma innehåll, men lagras och används på olika sätt.
+Om du har använt kognitiva färdigheter med Azure Kognitiv sökning tidigare vet du redan att *färdighetsuppsättningar* flyttar ett dokument genom en sekvens av anrikninger. Resultatet kan vara ett sökindex eller (nytt i den här förhands granskningen) projektioner i ett kunskaps lager. De två utmatningarna, Sök indexet och kunskaps lagret delar samma innehåll, men lagras och används på olika sätt.
 
 Fysiskt är ett kunskaps lager [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), antingen Azure Table Storage, Azure Blob Storage eller båda. Alla verktyg eller processer som kan ansluta till Azure Storage kan använda innehållet i ett kunskaps lager.
 
@@ -31,13 +31,13 @@ Fysiskt är ett kunskaps lager [Azure Storage](https://docs.microsoft.com/azure/
 
 Projektioner är din mekanism för att strukturera data i ett kunskaps lager. Genom projektioner kan du till exempel välja om utdata ska sparas som en enskild BLOB eller en samling relaterade tabeller. 
 
-Om du vill använda kunskaps lager lägger du till ett `knowledgeStore`-element i en färdigheter som definierar steg-för-steg-åtgärder i en indexerings pipeline. Under körningen skapar Azure Search ett utrymme i ditt Azure Storage-konto och skapar ett berikat dokument som blobbar eller tabeller, beroende på din konfiguration.
+Om du vill använda kunskaps lager lägger du till ett `knowledgeStore`-element i en färdigheter som definierar steg-för-steg-åtgärder i en indexerings pipeline. Under körningen skapar Azure Kognitiv sökning ett utrymme i ditt Azure Storage-konto och skapar ett berikat dokument som blobbar eller tabeller, beroende på din konfiguration.
 
 ## <a name="benefits-of-knowledge-store"></a>Fördelar med kunskaps lager
 
 Ett kunskaps lager ger dig struktur, kontext och faktiskt innehåll – uppnår från ostrukturerade och delvis strukturerade datafiler som blobbar, bildfiler som har genomgått analyser eller till och med strukturerade data som har ändrats i nya formulär. I en [stegvis genom gång](knowledge-store-howto.md) som skrivs för den här för hands versionen kan du se hur ett kompakt JSON-dokument är partitionerat i under strukturer, rekonstituerat i nya strukturer och på annat sätt görs tillgängligt för efterföljande processer som dator arbets belastningar för inlärning och data vetenskap.
 
-Även om det är användbart att se vad en AI-baserad indexerings pipeline kan skapa, är det möjligt att ändra form på data. Du kan börja med en grundläggande färdigheter och sedan iterera över den för att lägga till ökande struktur nivåer, som du sedan kan kombinera i nya strukturer, som kan förbrukas i andra appar förutom Azure Search.
+Även om det är användbart att se vad en AI-pipeline kan skapa, är det möjligt att ändra form på data. Du kan börja med en grundläggande färdigheter och sedan iterera över den för att lägga till ökande struktur nivåer, som du sedan kan kombinera i nya strukturer, i andra appar förutom Azure Kognitiv sökning.
 
 Räknat, fördelarna med kunskaps lager inkluderar följande:
 
@@ -45,10 +45,10 @@ Räknat, fördelarna med kunskaps lager inkluderar följande:
 
 + Förfina en AI-indexerings pipeline vid fel sökning av steg och färdigheter definitioner. I ett kunskaps lager visas produkten av en färdigheter-definition i en AI-indexerad pipeline. Du kan använda dessa resultat för att utforma en bättre färdigheter, eftersom du kan se exakt vad som kan se ut. Du kan använda [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) i Azure Storage för att visa innehållet i ett kunskaps lager.
 
-+ Forma data till nya formulär. Omformningen är att kodifiera i färdighetsuppsättningar, men punkten är att en färdigheter nu kan tillhandahålla den här funktionen. [Formaren-kunskapen](cognitive-search-skill-shaper.md) i Azure Search har utökats för att kunna hantera den här uppgiften. Med hjälp av omformningen kan du definiera en projektion som anpassas efter den avsedda användningen av data medan du bevarar relationer.
++ Forma data till nya formulär. Omformningen är att kodifiera i färdighetsuppsättningar, men punkten är att en färdigheter nu kan tillhandahålla den här funktionen. [Formaren-kunskapen](cognitive-search-skill-shaper.md) i Azure kognitiv sökning har utökats för att kunna hantera den här uppgiften. Med hjälp av omformningen kan du definiera en projektion som anpassas efter den avsedda användningen av data medan du bevarar relationer.
 
 > [!Note]
-> Är du inte bekant med AI-baserad indexering med Cognitive Services? Azure Search integreras med Cognitive Services vision-och språk funktioner för att extrahera och utöka källdata med OCR (optisk tecken läsning) över bildfiler, entitets igenkänning och nyckel fras extrahering från textfiler med mera. Mer information finns i [Vad är kognitiv sökning?](cognitive-search-concept-intro.md).
+> Är du inte bekant med AI-enrichcment med Cognitive Services? Azure Kognitiv sökning integreras med Cognitive Services vision-och språk funktioner för att extrahera och utöka källdata med OCR (optisk tecken läsning) över bildfiler, enhets igenkänning och nyckel fras extrahering från textfiler med mera. Mer information finns i [AI-anrikning i Azure kognitiv sökning](cognitive-search-concept-intro.md).
 
 ## <a name="creating-a-knowledge-store"></a>Skapa ett kunskaps lager
 
@@ -133,7 +133,7 @@ En `knowledgeStore` består av en anslutning och projektioner.
 
 ### <a name="sources-of-data-for-a-knowledge-store"></a>Data källor för ett kunskaps lager
 
-Om ett kunskaps lager ska matas ut från en AI-pipeline, vilka är indata? De ursprungliga data som du vill extrahera, utöka och slutligen spara till ett kunskaps lager kan komma från alla Azure-Data källor som stöds av Azure Search indexerare: 
+Om ett kunskaps lager ska matas ut från en AI-pipeline, vilka är indata? De ursprungliga data som du vill extrahera, utöka och slutligen spara till ett kunskaps lager kan komma från alla Azure-Data källor som stöds av Sök indexerarna: 
 
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
@@ -153,7 +153,7 @@ Endast två API: er har de tillägg som krävs för att skapa ett kunskaps lager
 |--------|----------|-------------|
 | Data Källa | [Skapa datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | En resurs som identifierar en extern Azure-datakälla som tillhandahåller källdata som används för att skapa dokument med omfattande data.  |
 | färdigheter | [Skapa färdigheter (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som koordinerar användningen av [inbyggda kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) som används i en anriknings pipeline vid indexering. En färdigheter har en `knowledgeStore`-definition som ett underordnat element. |
-| Tabbindex | [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Ett schema som uttrycker ett Azure Search-index. Fält i index kartan till fält i källdata eller till fält som tillverkas under anriknings fasen (till exempel ett fält för organisations namn som skapats av enhets igenkänning). |
+| Tabbindex | [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Ett schema som uttrycker ett sökindex. Fält i index kartan till fält i källdata eller till fält som tillverkas under anriknings fasen (till exempel ett fält för organisations namn som skapats av enhets igenkänning). |
 | Indexer | [Skapa indexerare (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som definierar komponenter som används vid indexering: inklusive en data källa, en färdigheter, fält associationer från käll-och mellanliggande data strukturer till mål index och själva indexet. Att köra indexeraren är utlösaren för data inmatning och berikning. Utdata är ett sökindex baserat på index schemat, ifyllt med källdata, berikade med färdighetsuppsättningar.  |
 
 ### <a name="physical-composition-of-a-knowledge-store"></a>Fysisk sammansättning för ett kunskaps lager
@@ -219,7 +219,7 @@ We recommend the Free service for learning purposes, but be aware that the numbe
 
 When using multiple services, create all of your services in the same region for best performance and to minimize costs. You are not charged for bandwidth for inbound data or outbound data that goes to another service in the same region.
 
-**Step 1: [Create an Azure Search resource](search-create-service-portal.md)** 
+**Step 1: [Create an Azure Cognitive Search resource](search-create-service-portal.md)** 
 
 **Step 2: [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
 

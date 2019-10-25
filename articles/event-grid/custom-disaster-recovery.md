@@ -1,26 +1,26 @@
 ---
-title: Skapa din egen haveriberedskap för anpassade ämnen i Azure Event Grid | Microsoft Docs
-description: Klara av regionala avbrott och håll Azure Event Grid anslutet.
+title: Haveri beredskap för anpassade ämnen i Azure Event Grid
+description: Lär dig hur du överleva regionala avbrott för att hålla Azure Event Grid anslutna.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305080"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790283"
 ---
-# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Skapa din egen katastrofåterställning för anpassade ämnen i Event Grid
+# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Skapa din egen haveri beredskap för anpassade ämnen i Event Grid
 Haveriberedskap handlar om att återställa från en betydande förlust av programfunktion. Den här självstudien vägleder dig genom hur du konfigurerar din händelsearkitektur för att återställa om Event Grid-tjänsten blir skadad i en viss region.
 
 I den här självstudien lär du dig att skapa aktiv-passiv redundansarkitektur för anpassade ämnen i Event Grid. Du utför redundans genom att spegla dina ämnen och prenumerationer mellan två regioner och hanterar sedan redundans när ett ämne blir skadat. Arkitekturen i den här självstudien redundansväxlar över all ny trafik. Det är viktigt att känna till att händelser som redan är på gång inte återställs i den här konfigurationen förrän den skadade regionen återställs igen.
 
 > [!NOTE]
-> Event Grid stöder nu automatisk geo-haveriberedskap (GeoDR) på serversidan. Du kan fortfarande implementera logik för klientsidan disaster recovery om du vill att en större kontroll på redundansprocessen. Mer information om automatisk GeoDR finns [serversidan geo-haveriberedskap i Azure Event Grid](geo-disaster-recovery.md).
+> Event Grid stöder automatisk geo haveri beredskap (följande geodr) på Server sidan nu. Du kan fortfarande implementera katastrof återställnings logik på klient sidan om du vill ha en större kontroll över redundansväxlingen. Mer information om automatisk följande geodr finns i avsnittet [om geo haveri beredskap på Server sidan i Azure Event Grid](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
@@ -46,7 +46,7 @@ Se till att anteckna den här URL:en, eftersom du behöver den senare.
 
 Skapa först två Event Grid-ämnen. De här avsnitten fungerar som din primära och sekundära. Som standard flödar dina händelser genom ditt primära ämne. Om det sker ett tjänstavbrott i den primära regionen tar den sekundära över.
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
 1. Från det övre vänstra hörnet på huvudmenyn i Azure väljer du **Alla tjänster** > sök efter **Event Grid** > välj **Event Grid-ämnen**.
 
@@ -93,7 +93,7 @@ Nu när du har konfigurerat ett regionalt redundant par med ämnen och prenumera
 
 ### <a name="basic-client-side-implementation"></a>Grundläggande implementering på klientsidan
 
-Följande exempelkod är en enkel .NET-utgivare som försöker alltid att publicera till ditt primära ämne först. Om det inte lyckas redundansväxlar den det sekundära ämnet. I båda fallen kontrollerar den även hälso-API för det andra ämnet genom att göra en GET på `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Ett felfritt ämne bör alltid svara med **200 OK** när en GET görs på slutpunkten **/api/health**.
+Följande exempel kod är en enkel .NET-utgivare som alltid kommer att försöka publicera till ditt primära ämne först. Om det inte lyckas redundansväxlar den det sekundära ämnet. I båda fallen kontrollerar den även hälso-API för det andra ämnet genom att göra en GET på `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Ett felfritt ämne bör alltid svara med **200 OK** när en GET görs på slutpunkten **/api/health**.
 
 ```csharp
 using System;
@@ -186,7 +186,7 @@ namespace EventGridFailoverPublisher
 }
 ```
 
-### <a name="try-it-out"></a>Prova det
+### <a name="try-it-out"></a>Prova
 
 Nu när du har alla komponenter på plats kan du testa implementeringen av redundans. Kör exemplet ovan i Visual Studio Code eller din favoritmiljö. Ersätt följande fyra värden med slutpunkterna och nycklarna från dina ämnen:
 

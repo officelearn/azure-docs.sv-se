@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 6f3f0e0b8b5098784359e7703c4a165654ff9894
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179184"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808188"
 ---
 # <a name="create-a-simple-query-in-azure-search"></a>Skapa en enkel fråga i Azure Search
 
@@ -29,13 +29,13 @@ En alternativ frågesyntax är [full Lucene](https://docs.microsoft.com/rest/api
 
 I följande exempel används ett sökindex för NYC-jobb som består av jobb som är tillgängliga baserat på en data uppsättning som tillhandahålls av Göteborg från [New York-data](https://nycopendata.socrata.com/) initiativ. Dessa data ska inte betraktas som aktuella eller fullständiga. Indexet finns på en sandbox-tjänst som tillhandahålls av Microsoft, vilket innebär att du inte behöver en Azure-prenumeration eller Azure Search för att testa dessa frågor.
 
-Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-begäran på GET. Mer information finns i [ Snabbstart: Utforska Azure Search REST API med Postman](search-get-started-postman.md).
+Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-begäran på GET. Mer information finns i [snabb start: utforska Azure Search REST API med Postman](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Ange rubriken för begäran
 
-1. I begär ande huvudet anger du **Content-Type** till `application/json`.
+1. I begär ande huvudet anger du att **innehålls typen** ska `application/json`.
 
-2. Lägg till en **API-nyckel**och ange den som den här strängen `252044BE3886FE4A8E3BAA4F595114BB`:. Det här är en frågeparameter för tjänsten sandbox search som är värd för NYC-jobb indexet.
+2. Lägg till en **API-nyckel**och ange den som den här strängen: `252044BE3886FE4A8E3BAA4F595114BB`. Det här är en frågeparameter för tjänsten sandbox search som är värd för NYC-jobb indexet.
 
 När du har angett rubriken för begäran kan du återanvända det för alla frågor i den här artikeln och bara växla ut **Sök =** strängen. 
 
@@ -49,7 +49,7 @@ Begäran är ett GET-kommando som paras ihop med en URL som innehåller Azure Se
 
 URL-kompositionen har följande element:
 
-+ **`https://azs-playground.search.windows.net/`** är en Sök tjänst i begränsat läge som underhålls av Azure Search Development Team. 
++ **`https://azs-playground.search.windows.net/`** är en tjänst i begränsat läge som underhålls av Azure Search Development Team. 
 + **`indexes/nycjobs/`** är NYC-jobb indexet i index samlingen för den tjänsten. Både tjänst namnet och indexet krävs på begäran.
 + **`docs`** är dokument samlingen som innehåller allt sökbart innehåll. Den API-nyckel för frågor som anges i huvudet för begäran fungerar endast med Läs åtgärder som riktar dokument samlingen.
 + **`api-version=2019-05-06`** anger API-versionen, som är en obligatorisk parameter på varje begäran.
@@ -65,15 +65,15 @@ Klistra in URL: en i en REST-klient som ett verifierings steg och Visa dokument 
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-Frågesträngen **`search=*`** ,, är en ospecificerad Sök motsvarighet till null eller tom sökning. Det är inte särskilt användbart, men det är den enklaste sökningen du kan göra.
+Frågesträngen **`search=*`** , är en ospecificerad Sök motsvarighet till null eller tom sökning. Det är inte särskilt användbart, men det är den enklaste sökningen du kan göra.
 
-Du kan också lägga till **`$count=true`** i URL: en för att returnera ett antal dokument som matchar Sök villkoren. I en tom Sök sträng är detta alla dokument i indexet (cirka 2800 när det gäller NYC-jobb).
+Alternativt kan du lägga till **`$count=true`** till URL: en för att returnera ett antal dokument som matchar Sök villkoren. I en tom Sök sträng är detta alla dokument i indexet (cirka 2800 när det gäller NYC-jobb).
 
 ## <a name="how-to-invoke-simple-query-parsing"></a>Så här anropar du enkel analys av frågor
 
 För interaktiva frågor behöver du inte ange något: enkelt är standardvärdet. Om du tidigare har anropat **frågetyp = fullständig** för fullständig frågesyntax i kod kan du återställa standardvärdet med **queryType = Simple**.
 
-## <a name="example-1-field-scoped-query"></a>Exempel 1: Fält – omfattnings fråga
+## <a name="example-1-field-scoped-query"></a>Exempel 1: fält-omfattnings fråga
 
 Det första exemplet är inte pars-Specific, men vi leder det till att introducera det första grundläggande frågeuttrycket: inne slutningen. Det här exemplet besvarar frågekörningen och svaret på bara några få fält. Att lära dig att strukturera ett läsbart JSON-svar är viktigt när ditt verktyg är Postman eller Sök Utforskaren. 
 
@@ -107,19 +107,19 @@ Du kanske har lagt märke till Sök poängen i svaret. Enhetliga resultat på 1 
 
 Det här exemplet är en bit ovanlig, men när du utvärderar Sök beteenden kanske du vill granska hela innehållet i ett enskilt dokument för att förstå varför det togs med eller uteslöts från resultatet. Om du vill returnera ett enskilt dokument i sin helhet använder du en [Lookup-åtgärd](https://docs.microsoft.com/rest/api/searchservice/lookup-document) för att skicka in dokument-ID: t.
 
-Alla dokument har en unik identifierare. Om du vill testa syntaxen för en uppslags fråga måste du först returnera en lista med dokument-ID: n så att du kan hitta en som ska användas. För NYC-jobb lagras identifierarna i `id` fältet.
+Alla dokument har en unik identifierare. Om du vill testa syntaxen för en uppslags fråga måste du först returnera en lista med dokument-ID: n så att du kan hitta en som ska användas. För NYC-jobb lagras identifierarna i fältet `id`.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=id&$select=id&search=*
 ```
 
-Nästa exempel är en uppslags fråga som returnerar ett särskilt dokument `id` baserat på "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", som visades först i föregående svar. Följande fråga returnerar hela dokumentet, inte bara markerade fält. 
+Nästa exempel är en uppslags fråga som returnerar ett särskilt dokument baserat på `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", som visades först i föregående svar. Följande fråga returnerar hela dokumentet, inte bara markerade fält. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2019-05-06&$count=true&search=*
 ```
 
-## <a name="example-3-filter-queries"></a>Exempel 3: Filtrera frågor
+## <a name="example-3-filter-queries"></a>Exempel 3: filtrera frågor
 
 [Filter-syntax](https://docs.microsoft.com/azure/search/search-query-odata-filter) är ett OData-uttryck som du kan använda med **Sök** eller av sig själv. Ett fristående filter, utan en Sök parameter, är användbart när filter uttrycket fullständigt kvalificerar dokument av intresse. Utan en frågesträng finns det ingen lexikalisk eller språklig analys, ingen poäng (alla poäng är 1) och ingen rangordning. Observera att Sök strängen är tom.
 
@@ -128,7 +128,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "select=job_id, business_title, agency, salary_range_from",
+      "select": "job_id, business_title, agency, salary_range_from",
       "count": "true"
     }
 ```
@@ -143,7 +143,7 @@ Om du vill testa detta i Postman med GET kan du klistra in följande sträng:
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
 ```
 
-Ett annat kraftfullt sätt att kombinera filter och Sök är **`search.ismatch*()`** genom ett filter uttryck där du kan använda en Sök fråga i filtret. Det här filter uttrycket använder ett jokertecken i *planen* för att välja business_title, inklusive termen plan, Planner, planering och så vidare.
+Ett annat kraftfullt sätt att kombinera filter och Sök är genom **`search.ismatch*()`** i ett filter uttryck där du kan använda en Sök fråga i filtret. Det här filter uttrycket använder ett jokertecken i *planen* för att välja business_title, inklusive termen plan, Planner, planering och så vidare.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
@@ -151,9 +151,9 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Mer information om funktionen finns [i Search. ismatch i "Filtrera exempel"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
-## <a name="example-4-range-filters"></a>Exempel 4: Intervall filter
+## <a name="example-4-range-filters"></a>Exempel 4: intervall filter
 
-Intervall filtrering stöds via **`$filter`** uttryck för vilken datatyp som helst. I följande exempel söker du igenom numeriska och sträng fält. 
+Intervall filtrering stöds genom **`$filter`** uttryck för vilken datatyp som helst. I följande exempel söker du igenom numeriska och sträng fält. 
 
 Data typer är viktiga i intervall filter och fungerar bäst när numeriska data är i numeriska fält och sträng data i sträng fält. Numeriska data i sträng fält passar inte för intervall eftersom numeriska strängar inte är jämförbara i Azure Search. 
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 > [!NOTE]
 > Fasettering över intervall med värden är ett vanligt Sök program krav. Mer information och exempel på hur du skapar filter för aspekt navigerings strukturer finns i ["filter baserat på ett intervall" i *så här implementerar du fasett-navigering*](search-faceted-navigation.md#filter-based-on-a-range).
 
-## <a name="example-5-geo-search"></a>Exempel 5: Geo-sökning
+## <a name="example-5-geo-search"></a>Exempel 5: Geo-search
 
 Exempel indexet innehåller ett geo_location-fält med latitud-och longitud-koordinater. I det här exemplet används [geo. Distance-funktionen](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) som filtrerar dokument inom omkretsen för en start punkt, ut till ett godtyckligt avstånd (i kilo meter) som du anger. Du kan justera det sista värdet i frågan (4) för att minska eller förstora frågans yta.
 
@@ -243,9 +243,9 @@ Exempel 3: **`&search="fire department"`** returnerar 82 resultat. Att omsluta s
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search="fire department"
 ```
 
-## <a name="example-7-booleans-with-searchmode"></a>Exempel 7: Booleska värden med searchMode
+## <a name="example-7-booleans-with-searchmode"></a>Exempel 7: booleska värden med searchMode
 
-Enkel syntax stöder booleska operatorer i form av tecken (`+, -, |`). SearchMode-parametern informerar kompromisser mellan precision och återkallande, med `searchMode=any` prioriterat återkallning (som matchar ett kriterium som kvalificerar ett dokument för resultat uppsättningen `searchMode=all` ) och prioriterar precision (alla villkor måste matchas). Standardvärdet `searchMode=any`är, vilket kan vara förvirrande om du stackar en fråga med flera operatorer och får bredare i stället för smalare resultat. Detta är särskilt sant, där resultatet innehåller alla dokument som inte innehåller någon speciell term.
+Enkel syntax stöder booleska operatorer i form av tecken (`+, -, |`). SearchMode-parametern informerar kompromisser mellan precision och återkallande, med `searchMode=any` prioriterat återkallning (som matchar ett villkor som kvalificerar ett dokument för resultat uppsättningen) och `searchMode=all` prioriterad precision (alla villkor måste matchas). Standardvärdet är `searchMode=any`, vilket kan vara förvirrande om du stackar en fråga med flera operatorer och får bredare i stället för smalare resultat. Detta är särskilt sant, där resultatet innehåller alla dokument som inte innehåller någon speciell term.
 
 Med hjälp av standard searchMode (alla) returneras 2800-dokument: de som innehåller multi-del termen "brand Department", plus alla dokument som inte har termen "Metrotech Center".
 
@@ -255,14 +255,14 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Sök läge, valfri](media/search-query-simple-examples/searchmodeany.png)
 
-Ändra searchMode för `all` att verkställa en kumulativ inverkan på kriterier och returnerar en mindre resultat uppsättning – 21 dokument-bestående av dokument som innehåller hela frasen "brand Department", minus jobben på Metrotech Center-adressen.
+Om du ändrar searchMode till `all` tillämpas en ackumulerad inverkan på villkor och returnerar en mindre resultat uppsättning – 21 dokument-bestående av dokument som innehåller hela frasen "brand Department", minus jobben på Metrotech Center-adressen.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
   ![Sök läge alla](media/search-query-simple-examples/searchmodeall.png)
 
-## <a name="example-8-structuring-results"></a>Exempel 8: Strukturerings resultat
+## <a name="example-8-structuring-results"></a>Exempel 8: strukturera resultat
 
 Flera parametrar styr vilka fält som finns i Sök resultaten, antalet dokument som returneras i varje batch och sorterings ordning. I det här exemplet finns några av de föregående exemplen som begränsar resultatet till vissa fält med hjälp av **$Select** -satsen och orda Grant Sök villkor, returnerar 82 matchningar 
 

@@ -1,5 +1,6 @@
 ---
-title: Konfigurera det roll anspråk som utfärdats i SAML-token för företags program i Azure AD | Microsoft Docs
+title: Konfigurera roll anspråk för företags program i Azure AD
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du konfigurerar det roll anspråk som utfärdats i SAML-token för företags program i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,18 +18,18 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c671626a431a47e5100cf42ca0c9e29ab580ab3a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207200"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803489"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Konfigurera det roll anspråk som utfärdats i SAML-token för företags program
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: konfigurera det roll anspråk som utfärdats i SAML-token för företags program
 
 Genom att använda Azure Active Directory (Azure AD) kan du anpassa anspråks typen för roll anspråk i svars-token som du får när du har auktoriserat en app.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure AD-prenumeration med katalog konfiguration.
 - En prenumeration som har enkel inloggning aktive rad (SSO). Du måste konfigurera SSO med ditt program.
@@ -80,7 +81,7 @@ Om programmet förväntar sig att anpassade roller ska skickas i ett SAML-svar, 
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Om du använder flera kataloger följer du det här mönstret:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      Om du använder flera kataloger följer du det här mönstret: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
       ![Dialog rutan Graph Explorer med frågan för att hämta tjänstens huvud namn](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -194,7 +195,7 @@ Utför följande steg för att uppdatera en befintlig roll:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Om du använder flera kataloger följer du det här mönstret:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Om du använder flera kataloger följer du det här mönstret: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Dialog rutan Graph Explorer med frågan för att hämta tjänstens huvud namn](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -232,7 +233,7 @@ Utför följande steg för att ta bort en befintlig roll:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Om du använder flera kataloger följer du det här mönstret:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Om du använder flera kataloger följer du det här mönstret: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Dialog rutan Graph Explorer med frågan för att hämta listan över tjänstens huvud namn](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 

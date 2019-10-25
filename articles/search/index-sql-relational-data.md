@@ -1,23 +1,23 @@
 ---
-title: Utforma SQL-relationella data för import och indexering – Azure Search
-description: Lär dig att modellera Relations data, normaliserade till en fast resultat uppsättning, för indexering och fullständig texts ökning i Azure Search.
+title: Utforma SQL-relationella data för import och indexering
+titleSuffix: Azure Cognitive Search
+description: Lär dig att modellera Relations data, normaliserade till en fast resultat uppsättning, för indexering och fullständig texts ökning i Azure Kognitiv sökning.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/12/2019
 ms.author: heidist
-ms.openlocfilehash: 60dfae48b0aa1d6e0d9bc8e79d5ff2dedd744fd5
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 3b973dd05d23d190c77986ca9bf6d39656739cd8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993582"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790082"
 ---
-# <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-search"></a>Så här modellerar du Relations-SQL-data för import och indexering i Azure Search
+# <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Så här modellerar du Relations-SQL-data för import och indexering i Azure Kognitiv sökning
 
-Azure Search accepterar en fast rad uppsättning som indatamängdar till [indexerings pipelinen](search-what-is-an-index.md). Om dina källdata härstammar från kopplade tabeller i en SQL Server Relations databas, förklarar den här artikeln hur du skapar resultat uppsättningen och hur du skapar en överordnad-underordnad relation i ett Azure Searchs index.
+Azure Kognitiv sökning accepterar en planad rad uppsättning som inmatad till [indexerings pipelinen](search-what-is-an-index.md). Om dina källdata härstammar från kopplade tabeller i en SQL Server Relations databas, förklarar den här artikeln hur du skapar resultat uppsättningen och hur du skapar en överordnad-underordnad relation i ett Azure Kognitiv sökning-index.
 
 Som en illustration kommer vi att referera till en hypotetisk hotell databas, baserat på [demo data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels). Anta att databasen består av en hotell $-tabell med 50 hotell och en rum $-tabell med utrymmen av varierande typer, priser och bekvämligheterna, för totalt 750-rum. Det finns en 1-till-många-relation mellan tabellerna. I vårt tillvägagångs sätt kommer en vy att tillhandahålla den fråga som returnerar 50 rader, en rad per hotell, med associerad rums information inbäddad i varje rad.
 
@@ -26,7 +26,7 @@ Som en illustration kommer vi att referera till en hypotetisk hotell databas, ba
 
 ## <a name="the-problem-of-denormalized-data"></a>Problemet med denormaliserade data
 
-En av utmaningarna i att arbeta med en-till-många-relationer är att standard frågor som bygger på kopplade tabeller kommer att returnera avnormaliserade data, som inte fungerar bra i ett Azure Search scenario. Tänk på följande exempel som ansluter till hotell och rum.
+En av utmaningarna i att arbeta med en-till-många-relationer är att standard frågor som bygger på kopplade tabeller kommer att returnera avnormaliserade data, som inte fungerar bra i ett Azure Kognitiv sökning-scenario. Tänk på följande exempel som ansluter till hotell och rum.
 
 ```sql
 SELECT * FROM Hotels$
@@ -38,13 +38,13 @@ Resultat från den här frågan returnerar alla hotell fält, följt av alla rum
    ![Avnormaliserade data, redundanta hotell data när rums fält läggs till](media/index-sql-relational-data/denormalize-data-query.png "Avnormaliserade data, redundanta hotell data när rums fält läggs till")
 
 
-Även om den här frågan lyckas på ytan (vilket ger alla data i en fast rad uppsättning), går det inte att leverera rätt dokument struktur till den förväntade Sök upplevelsen. Under indexeringen skapar Azure Search ett Sök dokument för varje rad som matas in. Om dina Sök dokument visas som ovan, skulle du ha uppfattat dubbletter-sju separata dokument för det dubbla välvda hotellet. En fråga på "hotell i Florida" skulle returnera sju resultat för bara det dubbla välvda hotellet, och sedan skicka andra relevanta hotell till Sök resultaten.
+Även om den här frågan lyckas på ytan (vilket ger alla data i en fast rad uppsättning), går det inte att leverera rätt dokument struktur till den förväntade Sök upplevelsen. Under indexeringen skapar Azure Kognitiv sökning ett sökdokument för varje rad som infogas. Om dina Sök dokument visas som ovan, skulle du ha uppfattat dubbletter-sju separata dokument för det dubbla välvda hotellet. En fråga på "hotell i Florida" skulle returnera sju resultat för bara det dubbla välvda hotellet, och sedan skicka andra relevanta hotell till Sök resultaten.
 
 Om du vill få en förväntad upplevelse av ett dokument per hotell bör du tillhandahålla en rad uppsättning i rätt kornig het, men med fullständig information. Lyckligt vis kan du enkelt göra detta genom att använda teknikerna i den här artikeln.
 
 ## <a name="define-a-query-that-returns-embedded-json"></a>Definiera en fråga som returnerar inbäddad JSON
 
-För att leverera den förväntade Sök upplevelsen bör din data uppsättning bestå av en rad för varje sökdokument i Azure Search. I vårt exempel vill vi ha en rad för varje hotell, men vi vill även att våra användare ska kunna söka efter andra rums fält som de bryr sig om, till exempel natt pris, storlek och antal förekomster, eller en vy av stranden, som är en del av en rums information.
+För att leverera den förväntade Sök upplevelsen bör din data uppsättning bestå av en rad för varje sökdokument i Azure Kognitiv sökning. I vårt exempel vill vi ha en rad för varje hotell, men vi vill även att våra användare ska kunna söka efter andra rums fält som de bryr sig om, till exempel natt pris, storlek och antal förekomster, eller en vy av stranden, som är en del av en rums information.
 
 Lösningen är att samla in rums information som kapslad JSON och sedan infoga JSON-strukturen i ett fält i en vy, som du ser i det andra steget. 
 
@@ -84,7 +84,7 @@ Lösningen är att samla in rums information som kapslad JSON och sedan infoga J
     GO
     ```
 
-2. Skapa en vy bestående av alla fält i den överordnade tabellen (`SELECT * from dbo.Hotels$`), med tillägg av fältet nytt *rum* som innehåller utdata från en kapslad fråga. En **for JSON Auto** -sats `SELECT * from dbo.Rooms$` på strukturer utdata som JSON. 
+2. Skapa en vy som består av alla fält i den överordnade tabellen (`SELECT * from dbo.Hotels$`), med tillägget ett nytt *rum* som innehåller utdata från en kapslad fråga. En **for JSON Auto** -sats på `SELECT * from dbo.Rooms$` strukturer utdata som JSON. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]
@@ -104,14 +104,14 @@ Lösningen är att samla in rums information som kapslad JSON och sedan infoga J
 
    ![Rad uppsättning från HotelRooms vy](media/index-sql-relational-data/hotelrooms-rowset.png "Rad uppsättning från HotelRooms vy")
 
-Den här rad uppsättningen är nu redo att importeras till Azure Search.
+Den här rad uppsättningen är nu redo att importeras till Azure Kognitiv sökning.
 
 > [!NOTE]
-> Den här metoden förutsätter att Embedded JSON är under den [maximala kolumn storleks gränsen på SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). Om dina data inte får plats kan du prova med en programmerings metod som illustreras i [exempel: Modellerar AdventureWorks Inventory Database för Azure Search](search-example-adventureworks-modeling.md).
+> Den här metoden förutsätter att Embedded JSON är under den [maximala kolumn storleks gränsen på SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). Om dina data inte passar kan du prova en programmerings metod, som du ser i [exemplet: modell The AdventureWorks Inventory Database for Azure kognitiv sökning](search-example-adventureworks-modeling.md).
 
  ## <a name="use-a-complex-collection-for-the-many-side-of-a-one-to-many-relationship"></a>Använd en komplex samling för "många"-sidan i en en-till-många-relation
 
-På Azure Search sidan skapar du ett index schema som modellerar en-till-många-relation med kapslad JSON. Resultat uppsättningen som du skapade i föregående avsnitt motsvarar vanligt vis det index schema som anges nedan (vi har klippt ut några fält för det kortfattat).
+På Azure Kognitiv sökning-sidan skapar du ett index schema som modellerar en-till-många-relation med kapslad JSON. Resultat uppsättningen som du skapade i föregående avsnitt motsvarar vanligt vis det index schema som anges nedan (vi har klippt ut några fält för det kortfattat).
 
 Följande exempel liknar exemplet i [hur du kan modellera komplexa data typer](search-howto-complex-data-types.md#creating-complex-fields). *Rummens* struktur, som har fokus till den här artikeln, finns i fält samlingen för ett index med namnet *Hotels*. I det här exemplet visas också en komplex typ för *adress*, som skiljer sig från *rummen* i att den består av en fast uppsättning objekt, i stället för det flera, godtyckliga antal objekt som tillåts i en samling.
 
@@ -148,7 +148,7 @@ Följande exempel liknar exemplet i [hur du kan modellera komplexa data typer](s
 }
 ```
 
-Med hänsyn till föregående resultat uppsättning och index schemat ovan har du alla nödvändiga komponenter för en lyckad indexerings åtgärd. Den sammanställda data uppsättningen uppfyller indexerings kraven men bevarar detaljerad information. I Azure Search-indexet är Sök resultaten lätt att hitta i hotellbaserade entiteter, samtidigt som du behåller kontexten för enskilda rum och deras attribut.
+Med hänsyn till föregående resultat uppsättning och index schemat ovan har du alla nödvändiga komponenter för en lyckad indexerings åtgärd. Den sammanställda data uppsättningen uppfyller indexerings kraven men bevarar detaljerad information. I Azure Kognitiv sökning-indexet är Sök Resultat lätt att hitta i hotellbaserade entiteter, samtidigt som sammanhanget för enskilda rum och deras attribut bevaras.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -159,4 +159,4 @@ Med din egen data uppsättning kan du använda [guiden Importera data](search-im
 Prova följande snabb start för att lära dig de grundläggande stegen i guiden Importera data.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa ett Sök index med Azure Portal](search-get-started-portal.md)
+> [Snabb start: skapa ett Sök index med Azure Portal](search-get-started-portal.md)

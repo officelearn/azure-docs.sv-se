@@ -1,13 +1,13 @@
 ---
-title: Felsöka OData-samlings filter – Azure Search
-description: Felsöka OData Collection filter-fel i Azure Search frågor.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Felsöka OData-samlings filter
+titleSuffix: Azure Cognitive Search
+description: Felsöka OData Collection filter-fel i Azure Kognitiv sökning-frågor.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fbd43cc13d3b7377668aad2fadc874ae47422ee1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 0af2525a15618c6bfd9022b4388c547209ee957b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647957"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793178"
 ---
-# <a name="troubleshooting-odata-collection-filters-in-azure-search"></a>Felsöka OData Collection filter i Azure Search
+# <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Felsöka OData Collection filter i Azure Kognitiv sökning
 
-För att [filtrera](query-odata-filter-orderby-syntax.md) på samlings fält i Azure Search kan du använda [ `any` operatorerna `all` och](search-query-odata-collection-operators.md) tillsammans med Lambda- **uttryck**. Ett lambda-uttryck är ett del filter som används för varje element i en samling.
+Om du vill [filtrera](query-odata-filter-orderby-syntax.md) på samlings fält i Azure kognitiv sökning kan du använda [operatorerna`any` och `all`](search-query-odata-collection-operators.md) tillsammans med **lambda-uttryck**. Ett lambda-uttryck är ett del filter som används för varje element i en samling.
 
 Alla funktioner i filter uttryck är inte tillgängliga i ett lambda-uttryck. Vilka funktioner som är tillgängliga varierar beroende på data typen för det samlings fält som du vill filtrera. Detta kan resultera i ett fel om du försöker använda en funktion i ett lambda-uttryck som inte stöds i den kontexten. Om du stöter på sådana fel och försöker skriva ett komplext filter över samlings fält kan du felsöka problemet med hjälp av den här artikeln.
 
@@ -38,12 +38,12 @@ I följande tabell visas fel meddelanden som du kan stöta på när du försöke
 
 | Felmeddelande | Tillståndet | Mer information finns i |
 | --- | --- | --- |
-| Funktionen ismatch har inga parametrar som är kopplade till intervall variabeln. Endast obundna fält referenser stöds i lambda-uttryck (any eller all). Ändra filtret så att funktionen "ismatch" är utanför lambda-uttrycket och försök igen. | Använda `search.ismatch` eller`search.ismatchscoring` inuti ett lambda-uttryck | [Regler för filtrering av komplexa samlingar](#bkmk_complex) |
-| Ogiltigt lambda-uttryck. Ett test har hittats för likhet eller olikhet där motsatt förväntades i ett lambda-uttryck som itererar över ett fält av typen Collection (EDM. String). För "any" använder du uttryck i formatet "x EQ y" eller "search.in (...)". För "alla" använder du uttryck i formatet "x Ne y", "not (x EQ y)" eller "not search.in (...)". | Filtrering i ett fält av typen`Collection(Edm.String)` | [Regler för filtrering av sträng samlingar](#bkmk_strings) |
-| Ogiltigt lambda-uttryck. En form av ett komplext boolean-uttryck som inte stöds hittades. För "any" använder du uttryck som är "ORs of ANDs", även kallat Disjunctive normal form. Till exempel: "(a och b) eller (c och d)" där a, b, c, och d är jämförelse-eller likhets under uttryck. För all, använder du uttryck som är "ANDs of ORs", även kallat Conjunctive normal form. Exempel: "(a eller b) och (c eller d)" där a, b, c och d är jämförelse-och olikhets under uttryck. Exempel på jämförelse uttryck: "x gt 5", "x Le 2". Exempel på ett likhets uttryck: x EQ 5. Exempel på ett likhets uttryck: x Ne 5. | Filtrering av fält av typen `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)`, eller`Collection(Edm.Int64)` | [Regler för filtrering av jämförbara samlingar](#bkmk_comparables) |
-| Ogiltigt lambda-uttryck. En användning av Geo. Distance () eller Geo () som inte stöds har påträffats i ett lambda-uttryck som itererar över ett fält av typen Collection (EDM. GeographyPoint). För "any", se till att du jämför geo. Distance () med operatorerna "lt" eller "Le" och se till att all användning av Geo. intersects () inte är negerad. För all, se till att du jämför geo. Distance () med operatorerna "gt" eller "ge" och se till att all användning av Geo. intersects () är negationd. | Filtrering i ett fält av typen`Collection(Edm.GeographyPoint)` | [Regler för filtrering av GeographyPoint-samlingar](#bkmk_geopoints) |
-| Ogiltigt lambda-uttryck. Komplexa booleska uttryck stöds inte i lambda-uttryck som itererar över fält av typen Collection (EDM. GeographyPoint). För "any", koppla under uttryck med "eller"; "och" stöds inte. För all kan du gå med under uttryck med "och"; eller stöds inte. | Filtrering på fält av typen `Collection(Edm.String)` eller`Collection(Edm.GeographyPoint)` | [Regler för filtrering av sträng samlingar](#bkmk_strings) <br/><br/> [Regler för filtrering av GeographyPoint-samlingar](#bkmk_geopoints) |
-| Ogiltigt lambda-uttryck. En jämförelse operator (en av "lt", "Le", "gt" eller "ge") hittades. Endast likhets operatorer tillåts i lambda-uttryck som itererar över fält av typen Collection (EDM. String). För "any" använder du uttryck i formatet ' x EQ '. För "alla" använder du uttryck i formatet "x Ne y" eller "not (x EQ y)". | Filtrering i ett fält av typen`Collection(Edm.String)` | [Regler för filtrering av sträng samlingar](#bkmk_strings) |
+| Funktionen ismatch har inga parametrar som är kopplade till intervall variabeln. Endast obundna fält referenser stöds i lambda-uttryck (any eller all). Ändra filtret så att funktionen "ismatch" är utanför lambda-uttrycket och försök igen. | Använda `search.ismatch` eller `search.ismatchscoring` inuti ett lambda-uttryck | [Regler för filtrering av komplexa samlingar](#bkmk_complex) |
+| Ogiltigt lambda-uttryck. Ett test har hittats för likhet eller olikhet där motsatt förväntades i ett lambda-uttryck som itererar över ett fält av typen Collection (EDM. String). För "any" använder du uttryck i formatet "x EQ y" eller "search.in (...)". För "alla" använder du uttryck i formatet "x Ne y", "not (x EQ y)" eller "not search.in (...)". | Filtrering av ett fält av typen `Collection(Edm.String)` | [Regler för filtrering av sträng samlingar](#bkmk_strings) |
+| Ogiltigt lambda-uttryck. En form av ett komplext boolean-uttryck som inte stöds hittades. För "any" använder du uttryck som är "ORs of ANDs", även kallat Disjunctive normal form. Till exempel: "(a och b) eller (c och d)" där a, b, c, och d är jämförelse-eller likhets under uttryck. För all, använder du uttryck som är "ANDs of ORs", även kallat Conjunctive normal form. Exempel: "(a eller b) och (c eller d)" där a, b, c och d är jämförelse-och olikhets under uttryck. Exempel på jämförelse uttryck: "x gt 5", "x Le 2". Exempel på ett likhets uttryck: x EQ 5. Exempel på ett likhets uttryck: x Ne 5. | Filtrering av fält av typen `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)`eller `Collection(Edm.Int64)` | [Regler för filtrering av jämförbara samlingar](#bkmk_comparables) |
+| Ogiltigt lambda-uttryck. En användning av Geo. Distance () eller Geo () som inte stöds har påträffats i ett lambda-uttryck som itererar över ett fält av typen Collection (EDM. GeographyPoint). För "any", se till att du jämför geo. Distance () med operatorerna "lt" eller "Le" och se till att all användning av Geo. intersects () inte är negerad. För all, se till att du jämför geo. Distance () med operatorerna "gt" eller "ge" och se till att all användning av Geo. intersects () är negationd. | Filtrering av ett fält av typen `Collection(Edm.GeographyPoint)` | [Regler för filtrering av GeographyPoint-samlingar](#bkmk_geopoints) |
+| Ogiltigt lambda-uttryck. Komplexa booleska uttryck stöds inte i lambda-uttryck som itererar över fält av typen Collection (EDM. GeographyPoint). För "any", koppla under uttryck med "eller"; "och" stöds inte. För all kan du gå med under uttryck med "och"; eller stöds inte. | Filtrering av fält av typen `Collection(Edm.String)` eller `Collection(Edm.GeographyPoint)` | [Regler för filtrering av sträng samlingar](#bkmk_strings) <br/><br/> [Regler för filtrering av GeographyPoint-samlingar](#bkmk_geopoints) |
+| Ogiltigt lambda-uttryck. En jämförelse operator (en av "lt", "Le", "gt" eller "ge") hittades. Endast likhets operatorer tillåts i lambda-uttryck som itererar över fält av typen Collection (EDM. String). För "any" använder du uttryck i formatet ' x EQ '. För "alla" använder du uttryck i formatet "x Ne y" eller "not (x EQ y)". | Filtrering av ett fält av typen `Collection(Edm.String)` | [Regler för filtrering av sträng samlingar](#bkmk_strings) |
 
 <a name="bkmk_examples"></a>
 
@@ -61,14 +61,14 @@ Reglerna för att skriva giltiga samlings filter skiljer sig åt för varje data
 
 ## <a name="rules-for-filtering-string-collections"></a>Regler för filtrering av sträng samlingar
 
-I lambda-uttryck för sträng samlingar är `eq` de enda jämförelse operatorer som kan användas och. `ne`
+I lambda-uttryck för sträng samlingar är de enda jämförelse operatorer som kan användas `eq` och `ne`.
 
 > [!NOTE]
-> `lt` Azure Search stöder inte / operatorer`le` för strängar, vare sig inom eller utanför ett lambda-uttryck. / `gt` / `ge`
+> Azure Kognitiv sökning stöder inte `lt`/`le`/`gt`/-operatörer för strängar, vare sig inom eller utanför ett lambda-uttryck.
 
-Bröd texten i en `any` kan bara testa för jämställdhet medan bröd texten i en `all` bara kan testa för olikheter.
+Bröd texten i en `any` kan bara testa för likheter medan bröd texten i en `all` bara kan testa för olikheter.
 
-Det är också möjligt att kombinera flera uttryck via `or` i bröd texten för en `any`, och via `and` i bröd texten i en `all`. Eftersom funktionen motsvarar att kombinera likhets kontroller med `or`, är det också tillåtet i bröd texten i en `any`. `search.in` Omvänt `not search.in` tillåts i bröd texten i en `all`.
+Det är också möjligt att kombinera flera uttryck via `or` i bröd texten i en `any`och via `and` i bröd texten i en `all`. Eftersom `search.in`-funktionen motsvarar att kombinera likhets kontroller med `or`, är det också tillåtet i bröd texten i en `any`. `not search.in` tillåts i bröd texten i en `all`.
 
 Dessa uttryck är till exempel tillåtna:
 
@@ -93,7 +93,7 @@ dessa uttryck är inte tillåtna:
 
 ## <a name="rules-for-filtering-boolean-collections"></a>Regler för filtrering av booleska samlingar
 
-Typen `Edm.Boolean` `ne` stöder`eq` endast operatorerna och. Det gör att det inte är mycket viktigt att tillåta att kombinera sådana satser som kontrollerar samma intervall variabel med `and` / `or` eftersom det alltid skulle leda till tautologies eller motstridiga värden.
+Typen `Edm.Boolean` stöder bara `eq`-och `ne`-operatörer. Därför är det inte bra att tillåta att kombinera sådana satser som kontrollerar samma intervall variabel med `and`/`or` eftersom det alltid skulle leda till tautologies eller motstridiga värden.
 
 Här följer några exempel på filter för booleska samlingar som tillåts:
 
@@ -104,7 +104,7 @@ Här följer några exempel på filter för booleska samlingar som tillåts:
 - `flags/all(f: not f)`
 - `flags/all(f: not (f eq true))`
 
-Till skillnad från sträng samlingar har booleska samlingar inga gränser för vilken operator som kan användas i vilken typ av lambda-uttryck. Både `eq` `any` `all`och `ne` kan användas i bröd texten i eller.
+Till skillnad från sträng samlingar har booleska samlingar inga gränser för vilken operator som kan användas i vilken typ av lambda-uttryck. Både `eq` och `ne` kan användas i bröd texten i `any` eller `all`.
 
 Uttryck som nedan är inte tillåtna för booleska samlingar:
 
@@ -117,15 +117,15 @@ Uttryck som nedan är inte tillåtna för booleska samlingar:
 
 ## <a name="rules-for-filtering-geographypoint-collections"></a>Regler för filtrering av GeographyPoint-samlingar
 
-Värden av typen `Edm.GeographyPoint` i en samling kan inte jämföras direkt med varandra. De måste i stället användas som parametrar till `geo.distance` -och `geo.intersects` -funktionerna. `le` `lt` `ge` `gt`Funktionen i sin tur måste jämföras med ett avstånds värde med hjälp av en av jämförelse operatorerna,, eller. `geo.distance` Dessa regler gäller även för icke-Collection-EDM. GeographyPoint fält.
+Värden av typen `Edm.GeographyPoint` i en samling kan inte jämföras direkt med varandra. De måste i stället användas som parametrar för `geo.distance` och `geo.intersects` funktioner. Den `geo.distance` funktionen i sin tur måste jämföras med ett avstånds värde med någon av jämförelse operatorerna `lt`, `le`, `gt`eller `ge`. Dessa regler gäller även för icke-Collection-EDM. GeographyPoint fält.
 
-Precis som med sträng `Edm.GeographyPoint` samlingar har samlingar vissa regler för hur geo-spatial-funktionerna kan användas och kombineras i olika typer av lambda-uttryck:
+I likhet med sträng samlingar har `Edm.GeographyPoint` samlingar vissa regler för hur geo-spatial-funktionerna kan användas och kombineras i olika typer av lambda-uttryck:
 
-- Vilka jämförelse operatorer du kan använda med `geo.distance` funktionen beror på typen av lambda-uttryck. För `any`kan du bara `lt` använda eller `le`. För `all`kan du bara `gt` använda eller `ge`. Du kan negera uttryck som `geo.distance`rör, men du måste ändra jämförelse operatorn (`geo.distance(...) lt x` blir `not (geo.distance(...) ge x)` och `geo.distance(...) le x` blir `not (geo.distance(...) gt x)`).
-- Funktionen måste vara negationd i bröd texten i en `all`. `geo.intersects` Funktionen får däremot inte vara negationd i bröd texten i en `any`. `geo.intersects`
-- I bröd texten i ett `any`geo-spatial uttryck kan kombineras med hjälp `or`av. I bröd texten i ett `all`kan sådana uttryck kombineras med. `and`
+- Vilka jämförelse operatorer som du kan använda med `geo.distance`-funktionen beror på typen av lambda-uttryck. För `any`kan du bara använda `lt` eller `le`. För `all`kan du bara använda `gt` eller `ge`. Du kan negera uttryck som involverar `geo.distance`, men du måste ändra jämförelse operatorn (`geo.distance(...) lt x` blir `not (geo.distance(...) ge x)` och `geo.distance(...) le x` blir `not (geo.distance(...) gt x)`).
+- I bröd texten i en `all`måste `geo.intersects` funktionen vara negation. I bröd texten i ett `any`får `geo.intersects`-funktionen inte vara negation.
+- I bröd texten i en `any`kan geo-spatiala uttryck kombineras med hjälp av `or`. I bröd texten i en `all`kan sådana uttryck kombineras med `and`.
 
-Ovanstående begränsningar finns av liknande orsaker som begränsningen likhet/olikhet i sträng samlingar. Se [förstå OData Collection filter i Azure Search](search-query-understand-collection-filters.md) för en djupare titt på dessa orsaker.
+Ovanstående begränsningar finns av liknande orsaker som begränsningen likhet/olikhet i sträng samlingar. Se [förstå OData Collection filter i Azure kognitiv sökning](search-query-understand-collection-filters.md) för en djupare titt på dessa orsaker.
 
 Här följer några exempel på filter för `Edm.GeographyPoint` samlingar som tillåts:
 
@@ -154,7 +154,7 @@ Det här avsnittet gäller för alla följande data typer:
 - `Collection(Edm.Int32)`
 - `Collection(Edm.Int64)`
 
-`Edm.Int32` Typer som och `ne` `eq` stöderalla`lt`sex av jämförelse operatorerna`gt`:, `ge`,,, och. `le` `Edm.DateTimeOffset` Lambda-uttryck över samlingar av dessa typer kan innehålla enkla uttryck med någon av dessa operatorer. Detta gäller både `any` och `all`. Dessa filter är till exempel tillåtna:
+Typer som `Edm.Int32` och `Edm.DateTimeOffset` stöder alla sex av jämförelse operatorerna: `eq`, `ne`, `lt`, `le`, `gt`och `ge`. Lambda-uttryck över samlingar av dessa typer kan innehålla enkla uttryck med någon av dessa operatorer. Detta gäller både för `any` och `all`. Dessa filter är till exempel tillåtna:
 
 - `ratings/any(r: r ne 5)`
 - `dates/any(d: d gt 2017-08-24T00:00:00Z)`
@@ -171,10 +171,10 @@ Det finns dock begränsningar för hur jämförelse uttryck kan kombineras i mer
 
     och även om det här uttrycket är tillåtet är det inte användbart eftersom villkoren överlappar varandra:
     - `ratings/any(r: r ne 5 or r gt 7)`
-  - Enkla jämförelse uttryck som `eq`involverar `le` `ge` / `and`,,, eller kan kombineras med`or`. `lt` `gt` Exempel:
+  - Enkla jämförelse uttryck som rör `eq`, `lt`, `le`, `gt`eller `ge` kan kombineras med `and`/`or`. Exempel:
     - `ratings/any(r: r gt 2 and r le 5)`
     - `ratings/any(r: r le 5 or r gt 7)`
-  - Jämförelse uttryck som kombineras med `and` (samverkar) kan kombineras ytterligare med. `or` Det här formuläret är känt i boolesk logik som "[Disjunctive normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form)" (DNF). Exempel:
+  - Jämförelse uttryck som kombineras med `and` (samverkar) kan kombineras ytterligare med hjälp av `or`. Det här formuläret är känt i boolesk logik som "[Disjunctive normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form)" (DNF). Exempel:
     - `ratings/any(r: (r gt 2 and r le 5) or (r gt 7 and r lt 10))`
 - Regler för `all`:
   - Enkla likhets uttryck kan inte kombineras med andra uttryck. Detta uttryck är till exempel tillåtet:
@@ -185,10 +185,10 @@ Det finns dock begränsningar för hur jämförelse uttryck kan kombineras i mer
 
     och även om det här uttrycket är tillåtet är det inte användbart eftersom villkoren överlappar varandra:
     - `ratings/all(r: r eq 5 and r le 7)`
-  - Enkla jämförelse uttryck som `ne`involverar `le` `ge` / `and`,,, eller kan kombineras med`or`. `lt` `gt` Exempel:
+  - Enkla jämförelse uttryck som rör `ne`, `lt`, `le`, `gt`eller `ge` kan kombineras med `and`/`or`. Exempel:
     - `ratings/all(r: r gt 2 and r le 5)`
     - `ratings/all(r: r le 5 or r gt 7)`
-  - Jämförelse uttryck i kombination `or` med (disknutna) kan kombineras ytterligare `and`med. Det här formuläret är känt i boolesk logik som "[Conjunctive normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (CNF). Exempel:
+  - Jämförelse uttryck som kombineras med `or` (disknutna) kan kombineras ytterligare med hjälp av `and`. Det här formuläret är känt i boolesk logik som "[Conjunctive normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (CNF). Exempel:
     - `ratings/all(r: (r le 2 or gt 5) and (r lt 7 or r ge 10))`
 
 <a name="bkmk_complex"></a>
@@ -197,16 +197,16 @@ Det finns dock begränsningar för hur jämförelse uttryck kan kombineras i mer
 
 Lambda-uttryck i komplexa samlingar stöder mycket mer flexibel syntax än lambda-uttryck över samlingar med primitiva typer. Du kan använda valfri filter konstruktion inuti ett lambda-uttryck som du kan använda utanför ett, med endast två undantag.
 
-Först, funktionerna `search.ismatch` och `search.ismatchscoring` inte stöds i lambda-uttryck. Mer information finns i [förstå OData Collection filter i Azure Search](search-query-understand-collection-filters.md).
+Först stöds funktionerna `search.ismatch` och `search.ismatchscoring` inte i lambda-uttryck. Mer information finns i [förstå OData Collection filter i Azure kognitiv sökning](search-query-understand-collection-filters.md).
 
 För det andra är det inte tillåtet att referera till fält som inte är *bundna* till variabeln Range (so-kallas *lediga variabler*). Anta till exempel följande två motsvarande OData filter-uttryck:
 
 1. `stores/any(s: s/amenities/any(a: a eq 'parking')) and details/margin gt 0.5`
 1. `stores/any(s: s/amenities/any(a: a eq 'parking' and details/margin gt 0.5))`
 
-Det första uttrycket är tillåtet, medan det andra formuläret avvisas eftersom `details/margin` det inte är kopplat till intervall variabeln. `s`
+Det första uttrycket kommer att tillåtas, medan det andra formuläret avvisas eftersom `details/margin` inte är kopplat till intervall variabeln `s`.
 
-Den här regeln utökar även uttryck som har variabler som är kopplade till en yttre omfattning. Sådana variabler är kostnads fria i förhållande till omfattningen där de förekommer. Till exempel tillåts det första uttrycket, medan det andra motsvarande uttrycket inte är tillåtet eftersom `s/name` det är kostnads fritt med avseende på intervall variabelns `a`omfång:
+Den här regeln utökar även uttryck som har variabler som är kopplade till en yttre omfattning. Sådana variabler är kostnads fria i förhållande till omfattningen där de förekommer. Till exempel tillåts det första uttrycket, medan det andra motsvarande uttrycket inte är tillåtet eftersom `s/name` är kostnads fritt med avseende på området variabel `a`:
 
 1. `stores/any(s: s/amenities/any(a: a eq 'parking') and s/name ne 'Flagship')`
 1. `stores/any(s: s/amenities/any(a: a eq 'parking' and s/name ne 'Flagship'))`
@@ -217,16 +217,16 @@ Den här begränsningen bör inte vara ett problem i övningen eftersom det allt
 
 I följande tabell sammanfattas reglerna för att skapa giltiga filter för varje samlings data typ.
 
-[!INCLUDE [Limitations on OData lambda expressions in Azure Search](../../includes/search-query-odata-lambda-limitations.md)]
+[!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
 
 Exempel på hur du skapar giltiga filter för varje ärende finns i [så här skriver du giltiga samlings filter](#bkmk_examples).
 
-Om du ofta skriver filter och förstår reglerna från de första principerna, kan du läsa mer än att bara memorera dem genom att [förstå OData Collection filter i Azure Search](search-query-understand-collection-filters.md).
+Om du ofta skriver filter och förstår reglerna från de första principerna, kan du läsa mer än att bara memorera dem genom att [förstå OData Collection filter i Azure kognitiv sökning](search-query-understand-collection-filters.md).
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Att förstå OData-samlingens filter i Azure Search](search-query-understand-collection-filters.md)
-- [Filter i Azure Search](search-filters.md)
-- [OData uttrycks språk översikt för Azure Search](query-odata-filter-orderby-syntax.md)
-- [Syntax-referens för OData-uttryck för Azure Search](search-query-odata-syntax-reference.md)
-- [Sök efter &#40;dokument Azure Search tjänst REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Förstå OData Collection-filter i Azure Kognitiv sökning](search-query-understand-collection-filters.md)
+- [Filter i Azure Kognitiv sökning](search-filters.md)
+- [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
+- [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
+- [Sök efter &#40;dokument Azure-kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

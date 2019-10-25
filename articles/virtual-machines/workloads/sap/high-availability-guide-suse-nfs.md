@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 7af5663b399556d66f86213310858780369215af
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0e4daaa3417ce349111fbc811be36a4615058c76
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101056"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791727"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -120,7 +120,7 @@ Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla
    4. Administratörens användar namn och administratörs lösen ord  
       En ny användare skapas som kan användas för att logga in på datorn.
    5. Undernät-ID  
-      Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-ID&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt; virtuellt nätverks namn&gt;** /subnets/ **&lt;under nät&gt; namn**
+      Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-id&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;virtuella nätverks namn&gt;** /subnets/ **&lt;under näts namn&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
@@ -180,7 +180,7 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
          * Upprepa stegen ovan för port 2049 och UDP för NW2
 
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. TCP _timestamps** till **0**. Mer information finns i [Load Balancer hälso](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)avsökningar.
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. TCP _timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Skapa pacemaker-kluster
 
@@ -188,17 +188,17 @@ Följ stegen i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](
 
 ### <a name="configure-nfs-server"></a>Konfigurera NFS-server
 
-Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
+Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
-1. **[A]**  Konfigurera matcha värdnamn
+1. **[A]** namn matchning för värdnamn
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
    
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
    
    <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
@@ -436,6 +436,10 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 1. **[1]** Lägg till NFS-drbd enheter för SAP system NW1 i kluster konfigurationen
 
+   > [!IMPORTANT]
+   > De senaste testerna visade situationer, där netcat slutar svara på begär Anden på grund av en efter släpning och dess begränsning av hantering av endast en anslutning. Netcat-resursen slutar lyssna på Azure Load Balancer-begäranden och den flytande IP-adressen blir otillgänglig.  
+   > För befintliga pacemaker-kluster rekommenderar vi att du ersätter netcat med socat genom att följa anvisningarna i [Azures identifierings härdning av belastnings utjämning](https://www.suse.com/support/kb/doc/?id=7024128). Observera att ändringen kräver kortare stillestånds tid.  
+
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
    # Enable maintenance mode
@@ -473,7 +477,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    
    sudo crm configure primitive nc_<b>NW1</b>_nfs \
      anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k <b>61000</b>" op monitor timeout=20s interval=10 depth=0
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61000</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW1</b>_nfs \
      fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
@@ -518,7 +522,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    
    sudo crm configure primitive nc_<b>NW2</b>_nfs \
      anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k <b>61001</b>" op monitor timeout=20s interval=10 depth=0
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61001</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW2</b>_nfs \
      fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs

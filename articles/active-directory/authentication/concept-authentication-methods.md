@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0c91357e5ab15b88c92b04fd0896b989e83953
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 18eba93661d9c418a230ced8f9970047a869a7e3
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051441"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808407"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -28,10 +28,10 @@ Microsoft rekommenderar starkt att administratörer låter användare välja fle
 
 |Autentiseringsmetod|Användning|
 | --- | --- |
-| lösenordsinställning | MFA och SSPR |
+| Lösenord | MFA och SSPR |
 | Säkerhetsfrågor | Endast SSPR |
 | E-postadress | Endast SSPR |
-| Microsoft Authenticator-app | MFA och SSPR |
+| Microsoft Authenticator-appen | MFA och SSPR |
 | OATH-token för maskin vara | Offentlig för hands version för MFA och SSPR |
 | SMS | MFA och SSPR |
 | Röstsamtal | MFA och SSPR |
@@ -44,7 +44,7 @@ Microsoft rekommenderar starkt att administratörer låter användare välja fle
 | OATH-maskinvaru-token för MFA och SSPR är offentliga för hands versions funktioner i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
 |     |
 
-## <a name="password"></a>lösenordsinställning
+## <a name="password"></a>Lösenord
 
 Ditt Azure AD-lösenord betraktas som en autentiseringsmetod. Det är en metod som **inte kan inaktive ras**.
 
@@ -98,7 +98,7 @@ Om du använder säkerhets frågor rekommenderar vi att du använder dem tillsam
 
 Alla fördefinierade säkerhets frågor översätts och lokaliseras till en fullständig uppsättning Office 365-språk baserat på användarens språk i webbläsaren.
 
-### <a name="custom-security-questions"></a>Anpassade säkerhetsfrågor
+### <a name="custom-security-questions"></a>Anpassade säkerhets frågor
 
 Anpassade säkerhets frågor är inte lokaliserade. Alla anpassade frågor visas på samma språk som de anges i det administrativa användar gränssnittet, även om användarens webbläsare är annorlunda. Om du behöver lokaliserade frågor bör du använda de fördefinierade frågorna.
 
@@ -119,14 +119,14 @@ E-postadress är **bara tillgänglig i Azure AD-återställning av lösen ord f�
 
 Microsoft rekommenderar att du använder ett e-postkonto som inte kräver att användarens Azure AD-lösenord får åtkomst.
 
-## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-app
+## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-appen
 
 Microsoft Authenticator-appen ger dig ytterligare en säkerhets nivå för ditt Azure AD-arbets-eller skol konto eller din Microsoft-konto.
 
-Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) och [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
+Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) och [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 > [!NOTE]
-> Användarna kan inte registrera sin mobilapp när de registrerar sig för lösen ords återställning via självbetjäning. I stället kan användarna registrera sin mobilapp på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) eller i för hands versionen av säkerhets information på. [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)
+> Användarna kan inte registrera sin mobilapp när de registrerar sig för lösen ords återställning via självbetjäning. I stället kan användarna registrera sin mobilapp på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) eller i förhands granskningen av säkerhets information på [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 >
 
 ### <a name="notification-through-mobile-app"></a>Meddelande via mobilapp
@@ -144,7 +144,7 @@ Om du aktiverar användningen av både meddelanden via mobilappen och verifierin
 > [!NOTE]
 > Om din organisation har personal som arbetar i eller reser i Kina fungerar inte **meddelandet via mobilappen** på **Android-enheter** i det landet. Alternativa metoder bör göras tillgängliga för dessa användare.
 
-### <a name="verification-code-from-mobile-app"></a>Verifieringskod från mobilapp
+### <a name="verification-code-from-mobile-app"></a>Verifierings kod från mobilapp
 
 Microsoft Authenticator app eller andra appar från tredje part kan användas som en programvarubaserad token för att generera en OATH-verifierings kod. När du har angett ditt användar namn och lösen ord anger du koden från appen till inloggnings skärmen. Verifierings koden innehåller en andra form av autentisering.
 
@@ -172,7 +172,7 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 > [!NOTE]
 > Se till att du inkluderar rubrik raden i CSV-filen enligt ovan.
 
-När den är korrekt formaterad som en CSV-fil kan en administratör logga in på Azure Portal och navigera till **Azure Active Directory**, **MFA-Server**, **Oath**-token och ladda upp den resulterande CSV-filen.
+När den är korrekt formaterad som en CSV-fil kan en administratör logga in på Azure Portal och navigera till **Azure Active Directory**, **MFA-Server**, **Oath-token**och ladda upp den resulterande CSV-filen.
 
 Beroende på storleken på CSV-filen kan det ta några minuter att bearbeta. Klicka på knappen **Uppdatera** för att hämta aktuell status. Om det finns några fel i filen, har du möjlighet att ladda ned en CSV-fil som visar eventuella fel som du kan lösa.
 
@@ -180,7 +180,7 @@ När eventuella fel har åtgärd ATS kan administratören aktivera varje nyckel 
 
 Användare kan ha en kombination av upp till fem OATH-token eller Authenticator-program, till exempel Microsoft Authenticator-appen som kon figurer ATS för användning när som helst.
 
-## <a name="phone-options"></a>Telefonalternativ
+## <a name="phone-options"></a>Telefon alternativ
 
 ### <a name="mobile-phone"></a>Mobiltelefon
 
@@ -208,7 +208,7 @@ Ett automatiskt röst samtal görs till det telefonnummer som du anger. Besvara 
 > [!IMPORTANT]
 > Från och med mars 2019 kommer Telefonsamtals alternativen inte att vara tillgängliga för MFA-och SSPR-användare i kostnads fria/utvärderings versioner av Azure AD-klienter. SMS-meddelanden påverkas inte av den här ändringen. Telefonsamtalet fortsätter att vara tillgängligt för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnads fria/utvärderings versioner av Azure AD.
 
-### <a name="office-phone"></a>Arbetstelefon
+### <a name="office-phone"></a>Arbets telefon
 
 Ett automatiskt röst samtal görs till det telefonnummer som du anger. Besvara anropet och tryck på # i telefon tangent bordet för att autentisera.
 

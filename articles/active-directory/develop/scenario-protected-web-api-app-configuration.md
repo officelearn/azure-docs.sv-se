@@ -1,5 +1,6 @@
 ---
-title: Skyddad Web API – kod konfiguration för app | Azure
+title: Skyddad Web API – kod konfiguration för app
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du skapar ett skyddat webb-API och konfigurerar programmets kod.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,20 +17,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fdc30df1f932a35702b01d7146017c4ca82c91a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 49dc3b0542e3f5e24c556ed78c20b16c3a6f1796
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562325"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803696"
 ---
-# <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: Konfiguration av kod
+# <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: kod konfiguration
 
 Om du vill konfigurera koden för ditt skyddade webb-API måste du förstå vad som definierar API: er som skyddade, hur du konfigurerar en Bearer-token och hur du verifierar token.
 
 ## <a name="what-defines-aspnetaspnet-core-apis-as-protected"></a>Vad definierar ASP.NET/ASP.NET Core API: er som skyddade?
 
-Precis som Web Apps är webb-API: erna för ASP.net/ASP.net Core "skyddade" eftersom deras styrenhets åtgärder föregås `[Authorize]` av attributet. Det innebär att kontroll åtgärder endast kan anropas om API: et anropas med en identitet som är auktoriserad.
+Precis som Web Apps är webb-API: erna för ASP.NET/ASP.NET Core "skyddade" eftersom deras styrenhets åtgärder föregås av `[Authorize]`-attributet. Det innebär att kontroll åtgärder endast kan anropas om API: et anropas med en identitet som är auktoriserad.
 
 Tänk på följande frågor:
 
@@ -61,7 +62,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 I det här avsnittet beskrivs hur du konfigurerar en Bearer-token.
 
-### <a name="config-file"></a>Konfigurationsfil
+### <a name="config-file"></a>Konfigurations fil
 
 ```Json
 {
@@ -91,7 +92,7 @@ I det här avsnittet beskrivs hur du konfigurerar en Bearer-token.
 
 ### <a name="code-initialization"></a>Kod initiering
 
-När en app anropas på en styrenhets åtgärd som innehåller `[Authorize]` ett attribut, tittar ASP.net/ASP.net Core på Bearer-token i Authorization-huvudet för den anropande begäran och extraherar åtkomsttoken. Token vidarebefordras sedan till JwtBearer mellanprogram, som anropar Microsoft IdentityModel-tillägg för .NET.
+När en app anropas på en styrenhets åtgärd som innehåller ett `[Authorize]`-attribut, tittar ASP.NET/ASP.NET Core på Bearer-token i Authorization-huvudet för den anropande begäran och extraherar åtkomsttoken. Token vidarebefordras sedan till JwtBearer mellanprogram, som anropar Microsoft IdentityModel-tillägg för .NET.
 
 I ASP.NET Core initieras det här mellanprogram i Startup.cs-filen:
 
@@ -150,11 +151,11 @@ Verifierarna beskrivs i den här tabellen:
 | `ValidateAudience` | Säkerställer att token är för programmet som validerar token (för mig). |
 | `ValidateIssuer` | Säkerställer att token utfärdats av ett betrott STS (från någon jag litar på). |
 | `ValidateIssuerSigningKey` | Säkerställer att programmet validerar token-förtroendet för den nyckel som användes för att signera token. (Specialfall där nyckeln är inbäddad i token. Normalt krävs det inte.) |
-| `ValidateLifetime` | Säkerställer att token fortfarande är (eller redan) giltig. Verifieraren kontrollerar om livs längden för token (`notbefore` och `expires` anspråk) är i intervallet. |
+| `ValidateLifetime` | Säkerställer att token fortfarande är (eller redan) giltig. Verifieraren kontrollerar om token för token (`notbefore` och `expires` anspråk) är inom räckhåll. |
 | `ValidateSignature` | Säkerställer att token inte har manipulerats. |
 | `ValidateTokenReplay` | Säkerställer att token inte spelas upp. (Specialfall för vissa Databasmigrering använder protokoll.) |
 
-Verifierarna är associerade med egenskaperna för `TokenValidationParameters` klassen, som i sin tur initieras från ASP.net/ASP.net Core-konfigurationen. I de flesta fall behöver du inte ändra parametrarna. Det finns ett undantag för appar som inte är enskilda klienter. (Det vill säga webbappar som godkänner användare från vilken organisation som helst eller från personliga Microsoft-konton.) I det här fallet måste utfärdaren verifieras.
+Verifierarna är associerade med egenskaperna för `TokenValidationParameters`-klassen, som i sin tur initieras från ASP.NET/ASP.NET Core-konfigurationen. I de flesta fall behöver du inte ändra parametrarna. Det finns ett undantag för appar som inte är enskilda klienter. (Det vill säga webbappar som godkänner användare från vilken organisation som helst eller från personliga Microsoft-konton.) I det här fallet måste utfärdaren verifieras.
 
 ## <a name="next-steps"></a>Nästa steg
 

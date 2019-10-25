@@ -1,23 +1,23 @@
 ---
-title: 'Exempel: Modellera AdventureWorks Inventory Database – Azure Search'
-description: Lär dig att modellera Relations data, omvandla dem till en förenklad data uppsättning för indexering och fullständig texts ökning i Azure Search.
+title: 'Exempel: utforma AdventureWorks Inventory Database'
+titleSuffix: Azure Cognitive Search
+description: Lär dig att modellera Relations data, omvandla dem till en utplattad data uppsättning för indexering och fullständig texts ökning i Azure Kognitiv sökning.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
-ms.openlocfilehash: c25dd34460e7e92bb20913f5b812044623dd38e3
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274040"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793000"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exempel: Modellera AdventureWorks Inventory Database för Azure Search
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exempel: utforma AdventureWorks Inventory Database för Azure Kognitiv sökning
 
-Azure Search accepterar en utplattad rad uppsättning som indata till [pipeline för indexering (data inmatning)](search-what-is-an-index.md). Om dina källdata härstammar från en SQL Server Relations databas, visar den här artikeln en metod för att skapa en utplattad rad uppsättning före indexering, med hjälp av AdventureWorks-exempel databasen som exempel.
+Azure Kognitiv sökning accepterar en utplattad rad uppsättning som indata till [pipeline för indexering (data inmatning)](search-what-is-an-index.md). Om dina källdata härstammar från en SQL Server Relations databas, visar den här artikeln en metod för att skapa en utplattad rad uppsättning före indexering, med hjälp av AdventureWorks-exempel databasen som exempel.
 
 ## <a name="about-adventureworks"></a>Om AdventureWorks
 
@@ -43,7 +43,7 @@ Att lösa det här problemet är inte lika enkelt som att flytta mål indexet ti
 
 ## <a name="use-a-collection-data-type"></a>Använd en samlings data typ
 
-"Rätt metod" är att använda en Sök schema funktion som inte har en direkt parallell i databas modellen: **Collection(Edm.String)** . Den här konstruktionen definieras i Azure Search index schema. En samlings data typ används när du behöver representera en lista med enskilda strängar, i stället för en mycket lång (enkel) sträng. Om du har taggar eller nyckelord använder du en samlings data typ för det här fältet.
+"Rätt metod" är att använda en Sök schema funktion som inte har en direkt parallell i databas modellen: **Collection (EDM. String)** . Den här konstruktionen definieras i Azure Kognitiv sökning index-schemat. En samlings data typ används när du behöver representera en lista med enskilda strängar, i stället för en mycket lång (enkel) sträng. Om du har taggar eller nyckelord använder du en samlings data typ för det här fältet.
 
 Genom att definiera flera värde index fält för **samling (EDM. String)** för "Color", "size" och "image", bevaras hjälp informationen för fasettering och filtrering utan att det förorenar indexet med dubbla poster. På samma sätt använder du mängd funktioner för de numeriska produkt fälten och indexerar **minListPrice** i stället för varje enskild produkt **listPrice**.
 
@@ -163,4 +163,4 @@ WHERE
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Exempel: Fasett-taxonomier på flera nivåer i Azure Search](search-example-adventureworks-multilevel-faceting.md)
+> [Exempel: Face-taxonomi på flera nivåer i Azure Kognitiv sökning](search-example-adventureworks-multilevel-faceting.md)

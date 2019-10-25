@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5080ec4db46f717a9e9ecdcdfbea42fbe43c349d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 66073052b290a1345dc0bb63ed6df0934fd81c64
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598432"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804140"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 
@@ -305,7 +305,7 @@ Använd de här inställningarna:
 | Inställning |Gäller för| Värde |
 |----|---|---|
 | Klusternamn |alltid| yourclustername |
-| Databricks Runtime |alltid| En icke-ML-körning (icke-ML 4. x, 5. x) |
+| Databricks Runtime |alltid|Non-ML runtime 6,0 (Scala 2,11, Spark 2.4.3) |
 | Python-version |alltid| 3 |
 | Arbetare |alltid| 2 eller senare |
 | VM-typer för arbetsnoder <br>(fastställer Max antal samtidiga iterationer) |Automatisk ML<br>Only| Minnesoptimerade VM-prioritet |
@@ -346,14 +346,17 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
 
 Om installationen lyckades bör det importerade biblioteket se ut ungefär så här:
 
-SDK för Databricks **_utan_** Automatisk maskin inlärning ![Azure Machine Learning SDK för Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+SDK för Databricks **_utan_** Automatisk maskin inlärning ![Azure Machine Learning SDK för Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK för Databricks **med** Automatisk maskin inlärning ![SDK med automatisk maskin inlärning installerat på Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
+SDK för Databricks **med** automatiserad machine Learning ![SDK med automatisk maskin inlärning installerad på Databricks](./media/how-to-configure-environment/automlonadb.png)
 
 ### <a name="start-exploring"></a>Börja utforska
 
 Prova:
 + Även om många exempel antecknings böcker är tillgängliga **fungerar bara [dessa exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) med Azure Databricks.**
+
++ Importera de här exemplen direkt från din arbets yta. Se nedan: ![välja importera](media/how-to-configure-environment/azure-db-screenshot.png)
+![import panelen](media/how-to-configure-environment/azure-db-import.png)
 
 + Lär dig hur du [skapar en pipeline med Databricks som inlärnings beräkning](how-to-create-your-first-pipeline.md).
 
@@ -371,7 +374,7 @@ Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur 
 
 Den här JSON-filen måste finnas i katalog strukturen som innehåller dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog.
 
-Använd `ws=Workspace.from_config()` om du vill använda den här filen från din kod. Den här koden läser in informationen från filen och ansluter till din arbets yta.
+Använd `ws=Workspace.from_config()`om du vill använda den här filen från din kod. Den här koden läser in informationen från filen och ansluter till din arbets yta.
 
 Du kan skapa konfigurations filen på tre sätt:
 

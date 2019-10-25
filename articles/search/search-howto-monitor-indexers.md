@@ -1,25 +1,24 @@
 ---
-title: Övervaka indexerings status och resultat – Azure Search
-description: Övervaka status, förlopp och resultat för Azure Search indexerare i Azure Portal med hjälp av REST API eller .NET SDK.
-ms.date: 06/28/2019
-author: RobDixon22
+title: Övervaka status och resultat för indexerare
+titleSuffix: Azure Cognitive Search
+description: Övervaka status, förlopp och resultat för Azure Kognitiv sökning indexerare i Azure Portal, med hjälp av REST API eller .NET SDK.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 0096334e06051b9ff474543384febb37bdf1c8e2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72533712"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793791"
 ---
-# <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Övervaka Azure Search indexerings status och resultat
+# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Övervaka status och resultat för Azure Kognitiv sökning Indexer
 
-Azure Search tillhandahåller status och övervaknings information om aktuella och historiska körningar av alla indexerare.
+Azure Kognitiv sökning ger status och övervaknings information om aktuella och historiska körningar av alla indexerare.
 
 Indexerare övervakning är användbart när du vill:
 
@@ -75,7 +74,7 @@ Om det fanns användarspecifika problem under körningen visas de i fälten fel 
 
 Varningar är vanliga med vissa typer av indexerare och indikerar inte alltid ett problem. Till exempel indexerare som använder kognitiva tjänster kan rapportera varningar när bild-eller PDF-filer inte innehåller någon text att bearbeta.
 
-Mer information om hur du undersöker index fel och varningar finns [i Felsöka vanliga indexerings problem i Azure Search](search-indexer-troubleshooting.md).
+Mer information om hur du undersöker index fel och varningar finns i [Felsöka vanliga indexerings problem i Azure kognitiv sökning](search-indexer-troubleshooting.md).
 
 <a name="restapi"></a>
 
@@ -128,7 +127,7 @@ Mer information om status koder och övervaknings data för indexerare finns i [
 
 ## <a name="monitor-using-the-net-sdk"></a>Övervaka med hjälp av .NET SDK
 
-Du kan definiera schemat för en indexerare med hjälp av Azure Search .NET SDK. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar en indexerare.
+Du kan definiera schemat för en indexerare med hjälp av Azure Kognitiv sökning .NET SDK. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar en indexerare.
 
 I följande C# exempel skrivs information om en indexerare status och resultatet av den senaste (eller pågående) körningen till-konsolen.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 71c1d1eb91654ea169330715be6bcf2b94207a27
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 569ac844a971970c22f5cc0a511545020fe802c5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099049"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791693"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program
 
@@ -89,7 +89,7 @@ NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HA
 > [!IMPORTANT]
 > Multi-SID-klustring av SAP ASCS/ERS med SUSE Linux som gäst operativ system i virtuella Azure-datorer **stöds inte**. Multi-SID-klustring beskriver installationen av flera SAP ASCS/ERS-instanser med olika sid i ett pacemaker-kluster
 
-### <a name="ascs"></a>(A)SCS
+### <a name="ascs"></a>En SCS
 
 * Konfiguration av klient del
   * IP-10.0.0.7
@@ -97,15 +97,15 @@ NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HA
   * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
 * Avsöknings port
   * Port 620<strong>&lt;nr&gt;</strong>
-* Laddning 
+* Belastning 
 * regler för utjämning
   * 32<strong>&lt;nr&gt;</strong> TCP
-  * <strong>36&lt;nr&gt;</strong>  TCP
+  * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
   * 81<strong>&lt;nr&gt;</strong> TCP
-  * <strong>5&lt;nr&gt;</strong>13 TCP
-  * <strong>5&lt;nr&gt;</strong>14 TCP
-  * <strong>5&lt;nr&gt;</strong>16 TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -118,9 +118,9 @@ NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HA
 * Belastnings Utjämnings regler
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
-  * <strong>5&lt;nr&gt;</strong>13 TCP
-  * <strong>5&lt;nr&gt;</strong>14 TCP
-  * <strong>5&lt;nr&gt;</strong>16 TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Konfigurera en NFS-server med hög tillgänglighet
 
@@ -156,7 +156,7 @@ Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla
    9. Administratörens användar namn och administratörs lösen ord  
       En ny användare skapas som kan användas för att logga in på datorn.
    10. Undernät-ID  
-   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-&gt;ID**/resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt; virtuellt nätverks namn&gt;** /subnets/ **&lt;under nät&gt; namn**
+   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-id&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;virtuella nätverks namn&gt;** /subnets/ **&lt;under näts namn&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
@@ -167,15 +167,15 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
 1. Skapa en tillgänglighets uppsättning  
    Ange Max uppdaterings domän
 1. Skapa virtuell dator 1  
-   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1-avbildningen https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1 avbildning https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
    SLES för SAP-program 12 SP1 används  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Skapa virtuell dator 2  
-   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1-avbildningen https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1 avbildning https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
    SLES för SAP-program 12 SP1 används  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Lägg till minst en datadisk till båda virtuella datorerna  
-   Data diskarna används för/usr/SAP/`<SAPSID`>-katalogen
+   Data diskarna används för/usr/SAP/-`<SAPSID`> Directory
 1. Skapa en Load Balancer (intern)  
    1. Skapa IP-adresser för klient delen
       1. IP-10.0.0.7 för ASCS
@@ -226,7 +226,7 @@ Följ stegen i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](
 
 ### <a name="installation"></a>Installation
 
-Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
+Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
 1. **[A]** installera SUSE Connector
 
@@ -276,15 +276,15 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-1. **[A]**  Konfigurera matcha värdnamn
+1. **[A]** namn matchning för värdnamn
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö   
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö   
 
    <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
@@ -362,6 +362,10 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
 1. **[1]** skapa en virtuell IP-resurs och en hälso avsökning för ASCS-instansen
 
+   > [!IMPORTANT]
+   > De senaste testerna visade situationer, där netcat slutar svara på begär Anden på grund av en efter släpning och dess begränsning av hantering av endast en anslutning. Netcat-resursen slutar lyssna på Azure Load Balancer-begäranden och den flytande IP-adressen blir otillgänglig.  
+   > För befintliga pacemaker-kluster rekommenderar vi att du ersätter netcat med socat genom att följa anvisningarna i [Azures identifierings härdning av belastnings utjämning](https://www.suse.com/support/kb/doc/?id=7024128). Observera att ändringen kräver kortare stillestånds tid.  
+
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive fs_<b>NW1</b>_ASCS Filesystem device='<b>nw1-nfs</b>:/<b>NW1</b>/ASCS' directory='/usr/sap/<b>NW1</b>/ASCS<b>00</b>' fstype='nfs4' \
@@ -374,7 +378,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
@@ -427,10 +431,10 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>02</b>" \
+    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>02</b>,backlog=10,fork,reuseaddr /dev/null" \
     op monitor timeout=20s interval=10 depth=0
    
-   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
    # Do you still want to commit (y/n)? y
    
    sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
@@ -622,7 +626,7 @@ Stegen nedan förutsätter att du installerar program servern på en annan serve
 
 1. Konfigurera operativ system
 
-   Minska storleken på den informationen i cachen. Mer information finns i [låg skrivprestanda på SLES 11/12 servrar med stora RAM](https://www.suse.com/support/kb/doc/?id=7010287).
+   Minska storleken på den ändrade cachen. Mer information finns i [låga skriv prestanda på SLES 11/12-servrar med stort RAM-minne](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>sudo vi /etc/sysctl.conf
 
@@ -633,14 +637,14 @@ Stegen nedan förutsätter att du installerar program servern på en annan serve
 
 1. Konfigurera värd namns matchning
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    ```bash
    sudo vi /etc/hosts
    ```
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
 
    <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
@@ -767,7 +771,7 @@ Följande tester är en kopia av test fallen i Best Practices-handböcker för S
 
 1. Testa HAGetFailoverConfig, HACheckConfig och HACheckFailoverConfig
 
-   Kör följande kommandon som \<sapsid > adm på noden där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: Det finns inte tillräckligt med minne. det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
+   Kör följande kommandon som \<sapsid > adm på noden där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: det finns inte tillräckligt med minne, det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
 
    <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
    

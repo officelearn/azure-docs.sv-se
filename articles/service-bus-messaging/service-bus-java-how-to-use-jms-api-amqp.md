@@ -1,10 +1,9 @@
 ---
-title: Använd AMQP 1,0 med Java Message Service API och Azure Service Bus
+title: Använda AMQP med Java Message Service API & Azure Service Bus
 description: Så här använder du JMS (Java Message Service) med Azure Service Bus och Advanced Message Queueing Protocol (AMQP) 1,0.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
@@ -12,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 9dff2cc11b71f314de81fd99ed3b72c6337d977f
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: f1a679deca8ee33bb4801eb1d1023684a37d0f59
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967969"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793169"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Använda Java Message Service (JMS) med Azure Service Bus och AMQP 1,0
 Den här artikeln förklarar hur du använder Azure Service Bus meddelande funktioner (köer och publicera/prenumerera ämnen) från Java-program med hjälp av den populära API-standarden Java Message Service (JMS). Det finns en [medföljande artikel](service-bus-amqp-dotnet.md) som förklarar hur du gör detta med hjälp av Azure Service Bus .NET API. Du kan använda dessa två guider tillsammans för att lära dig mer om plattforms oberoende meddelanden med AMQP 1,0.
@@ -38,19 +37,19 @@ Den här guiden förutsätter att du redan har ett Service Bus namnrum som inneh
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Hämta klient biblioteket AMQP 1,0 JMS
-Information om var du hämtar den senaste versionen av Apache qpid JMS AMQP 1,0-klient biblioteket finns på [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+Information om var du hämtar den senaste versionen av Apache qpid JMS AMQP 1,0-klient biblioteket finns [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 Du måste lägga till följande fyra JAR-filer från Apache qpid JMS AMQP 1,0 distribution Archive till Java-CLASSPATH när du skapar och kör JMS-program med Service Bus:
 
-* geronimo-jms\_1.1\_spec-1.0.jar
-* qpid-jms-client-[version].jar
+* Geronimo-JMS\_1,1\_spec-1.0. jar
+* qpid-JMS-client-[version]. jar
 
 > [!NOTE]
 > JMS JAR-namn och-versioner kan ha ändrats. Mer information finns i [QPID JMS-AMQP 1,0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 
 ## <a name="coding-java-applications"></a>Koda Java-program
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java-namngivning och katalog gränssnitt (JNDI)
-JMS använder Java-namn och katalog gränssnitt (JNDI) för att skapa en separation mellan logiska namn och fysiska namn. Två typer av JMS-objekt löses med JNDI: ConnectionFactory och mål. JNDI använder en leverantörs modell där du kan koppla olika katalog tjänster för att hantera namn matchnings uppgifter. Apache qpid JMS AMQP 1,0-biblioteket innehåller en filbaserad JNDI-Provider med enkel egenskap som har kon figurer ATS med hjälp av en egenskaps fil med följande format:
+JMS använder Java-namn och katalog gränssnitt (JNDI) för att skapa en separation mellan logiska namn och fysiska namn. Två typer av JMS-objekt löses med JNDI: ConnectionFactory och destination. JNDI använder en leverantörs modell där du kan koppla olika katalog tjänster för att hantera namn matchnings uppgifter. Apache qpid JMS AMQP 1,0-biblioteket innehåller en filbaserad JNDI-Provider med enkel egenskap som har kon figurer ATS med hjälp av en egenskaps fil med följande format:
 
 ```TEXT
 # servicebus.properties - sample JNDI configuration
@@ -342,7 +341,7 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>JMS ämnen jämfört med Avsnitt om Service Bus
+## <a name="jms-topics-vs-service-bus-topics"></a>JMS ämnen jämfört med Service Bus ämnen
 Med hjälp av Azure Service Bus ämnen och prenumerationer via API: t Java Message Service (JMS) får du grundläggande funktioner för att skicka och ta emot. Det är ett bekvämt val när du ska Porta program från andra meddelande hanterare med JMS-kompatibla API: er, även om Service Bus ämnen skiljer sig från JMS ämnen och kräver några justeringar. 
 
 Azure Service Bus ämnen dirigerar meddelanden till namngivna, delade, varaktiga prenumerationer som hanteras via Azure Resource Management-gränssnittet, Azures kommando rads verktyg eller via Azure Portal. Varje prenumeration tillåter upp till 2000 urvals regler, som var och en kan ha ett filter villkor och, för SQL-filter, även en åtgärd för metadata-omvandling. Varje filter villkors matchning väljer det indatameddelande som ska kopieras till tehj-prenumerationen.  

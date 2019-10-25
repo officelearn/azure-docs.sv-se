@@ -1,31 +1,31 @@
 ---
-title: Så här schemalägger du indexerare – Azure Search
-description: Schemalägg Azure Search indexerare för att indexera innehåll regelbundet eller vid vissa tidpunkter.
-ms.date: 05/31/2019
+title: Så här schemalägger du indexerare
+titleSuffix: Azure Cognitive Search
+description: Schemalägg Azure Kognitiv sökning indexerare för att indexera innehåll regelbundet eller vid vissa tidpunkter.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: ''
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.openlocfilehash: d30c4532c43c5df568cf32a1025b796b3be9ee8e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: e9d4f49bd0aec1a04b4839b2084a81fb538f7890
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72533620"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793700"
 ---
-# <a name="how-to-schedule-indexers-for-azure-search"></a>Så här schemalägger du indexerare för Azure Search
+# <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Så här schemalägger du indexerare i Azure Kognitiv sökning
+
 En indexerare körs vanligt vis en gång, omedelbart efter att den har skapats. Du kan köra den igen på begäran med hjälp av portalen, REST API eller .NET SDK. Du kan också konfigurera en indexerare så att den körs regelbundet enligt ett schema.
 
 Några situationer där indexerare schemaläggning är användbart:
 
-* Källdata ändras med tiden och du vill att de Azure Search indexerarna automatiskt ska bearbeta de ändrade data.
+* Källdata ändras med tiden och du vill att Azure Kognitiv sökning indexerare automatiskt ska bearbeta de ändrade data.
 * Indexet fylls från flera data källor och du vill se till att indexerarna körs vid olika tidpunkter för att minska konflikter.
-* Käll informationen är mycket stor och du vill sprida bearbetningen av indexeraren över tid. Mer information om indexering av stora data volymer finns [i så här indexerar du stora data mängder i Azure Search](search-howto-large-index.md).
+* Käll informationen är mycket stor och du vill sprida bearbetningen av indexeraren över tid. Mer information om indexering av stora data volymer finns i [så här indexerar du stora data mängder i Azure kognitiv sökning](search-howto-large-index.md).
 
-Scheduler är en inbyggd funktion i Azure Search. Du kan inte använda en extern Scheduler för att kontrol lera Sök indexerarna.
+Scheduler är en inbyggd funktion i Azure Kognitiv sökning. Du kan inte använda en extern Scheduler för att kontrol lera Sök indexerarna.
 
 ## <a name="define-schedule-properties"></a>Definiera schema egenskaper
 
@@ -88,7 +88,7 @@ Du kan också köra en indexerare på begäran när som helst med hjälp av anro
 
 ## <a name="schedule-using-the-net-sdk"></a>Schemalägg med .NET SDK
 
-Du kan definiera schemat för en indexerare med hjälp av Azure Search .NET SDK. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar en indexerare.
+Du kan definiera schemat för en indexerare med hjälp av Azure Kognitiv sökning .NET SDK. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar en indexerare.
 
 I följande C# exempel skapas en indexerare med hjälp av en fördefinierad data källa och ett index, och det ställs in så att det körs en gång om dagen börjar 30 minuter från nu:
 

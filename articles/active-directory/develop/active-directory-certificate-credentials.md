@@ -1,5 +1,6 @@
 ---
-title: Autentiseringsuppgifter för certifikat i Azure AD | Microsoft Docs
+title: Autentiseringsuppgifter för certifikat i Azure AD
+titleSuffix: Microsoft identity platform
 description: I den här artikeln beskrivs registreringen och användningen av autentiseringsuppgifter för programautentisering
 services: active-directory
 documentationcenter: .net
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835466"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803534"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för program-autentisering
 
@@ -46,16 +47,16 @@ Om du vill beräkna försäkran kan du använda ett av de många [JSON Web token
 
 | Parameter |  Kommentarer |
 | --- | --- |
-| `aud` | Filmen Ska vara  **https://login.microsoftonline.com/ *tenant_Id*/OAuth2/token** |
+| `aud` | Mål grupp: ska vara **https://login.microsoftonline.com/*tenant_Id*/OAuth2/token** |
 | `exp` | Utgångs datum: det datum då token upphör att gälla. Tiden visas som antalet sekunder från 1 januari 1970 (1970-01-01T0:0: 0Z) UTC tills den tid då token giltighet upphör att gälla.|
 | `iss` | Utfärdare: ska vara client_id (program-ID för klient tjänsten) |
 | `jti` | GUID: JWT-ID: t |
 | `nbf` | Inte före: det datum som token inte kan användas. Tiden visas som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0: 0Z) UTC tills den tidpunkt då token utfärdades. |
-| `sub` | Ämne: Som för `iss`, ska vara client_id (program-ID för klient tjänsten) |
+| `sub` | Ämne: som `iss`ska vara client_id (program-ID för klient tjänsten) |
 
-### <a name="signature"></a>Signatur
+### <a name="signature"></a>signatur
 
-Signaturen beräknas med hjälp av certifikatet enligt beskrivningen i [JSON Web token RFC7519](https://tools.ietf.org/html/rfc7519) -specifikationen
+Signaturen beräknas med hjälp av certifikatet enligt beskrivningen i [JSON Web token RFC7519-specifikationen](https://tools.ietf.org/html/rfc7519)
 
 ## <a name="example-of-a-decoded-jwt-assertion"></a>Exempel på en avkodad JWT-kontroll
 
@@ -110,7 +111,7 @@ Med ett certifikat måste du beräkna:
 - `$base64Thumbprint`, som är base64-kodningen för certifikatets hash
 - `$base64Value`, som är base64-kodningen för certifikatets rå data
 
-Du måste också ange en GUID för att identifiera nyckeln i applikations manifestet (`$keyId`).
+Du måste också ange ett GUID för att identifiera nyckeln i applikations manifestet (`$keyId`).
 
 I Azure App-registreringen för klient programmet:
 1. Välj **manifest** för att öppna applikations manifestet.
@@ -129,8 +130,8 @@ I Azure App-registreringen för klient programmet:
    ```
 3. Spara ändringarna i applikations manifestet och ladda upp manifestet till Azure AD. 
 
-   `keyCredentials` Egenskapen har flera värden, så du kan ladda upp flera certifikat för bättre nyckel hantering.
+   Egenskapen `keyCredentials` har flera värden, så du kan ladda upp flera certifikat för bättre nyckel hantering.
    
 ## <a name="code-sample"></a>Kodexempel
 
-Kod exemplet vid [autentisering till Azure AD i daemon-appar med certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) med hjälp `New-SelfSignedCertificate` av PowerShell-kommandot. Du kan också dra nytta av och använda [appens skapande skript](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) för att skapa certifikat, beräkna tumavtryck och så vidare.
+Kod exemplet vid [autentisering till Azure AD i daemon-appar med certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) med hjälp av `New-SelfSignedCertificate` PowerShell-kommandot. Du kan också dra nytta av och använda [appens skapande skript](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) för att skapa certifikat, beräkna tumavtryck och så vidare.

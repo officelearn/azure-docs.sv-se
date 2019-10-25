@@ -1,25 +1,25 @@
 ---
-title: Indexering med flera språk för icke-engelska Sök frågor – Azure Search
-description: Azure Search stöder 56-språk, med hjälp av språk analys verktyg från Lucene och natur bearbetnings teknik från Microsoft.
-author: yahnoosh
+title: Indexering med flera språk för icke-engelska Sök frågor
+titleSuffix: Azure Cognitive Search
+description: Azure Kognitiv sökning stöder 56-språk, och använder språk analys verktyg från Microsoft för att bearbeta teknik från Lucene och naturliga språk.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+author: yahnoosh
 ms.author: jlembicz
-ms.openlocfilehash: 9d2e6418eb925f0d113b7e9a91463951ca52031a
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: ca2bc66c755da2011cc7016f37b194caa6200d9a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186553"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793597"
 ---
-# <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Så här skapar du ett index för flera språk i Azure Search
+# <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Så här skapar du ett index för flera språk i Azure Kognitiv sökning
 
 Index kan innehålla fält som innehåller innehåll från flera språk, till exempel när enskilda fält skapas för språkspecifika strängar. För bästa resultat vid indexering och frågor, tilldelar du en språk analys som innehåller lämpliga språk regler. 
 
-Azure Search erbjuder ett stort urval av språk analys verktyg från både Lucene och Microsoft som kan tilldelas enskilda fält med hjälp av egenskapen Analyzer. Du kan också ange en språk analys i portalen, enligt beskrivningen i den här artikeln.
+Azure Kognitiv sökning erbjuder ett stort urval av språk analys verktyg från både Lucene och Microsoft som kan tilldelas enskilda fält med hjälp av egenskapen Analyzer. Du kan också ange en språk analys i portalen, enligt beskrivningen i den här artikeln.
 
 ## <a name="add-analyzers-to-fields"></a>Lägg till analyser i fält
 
@@ -34,7 +34,7 @@ En språk analys anges när ett fält skapas. Att lägga till en analys i en bef
 
 ![Tilldela språk analyser under fält definition](media/search-language-support/select-analyzer.png "Tilldela språk analyser under fält definition")
 
-Som standard använder alla sökbara fält [standard Lucene Analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , vilket är språk-oberoende. Om du vill visa en fullständig lista över analyser som stöds, se [lägga till språk analys verktyg i ett Azure Search index](index-add-language-analyzers.md).
+Som standard använder alla sökbara fält [standard Lucene Analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , vilket är språk-oberoende. Om du vill visa en fullständig lista över analyser som stöds, se [lägga till språk analys verktyg i ett Azure kognitiv sökning-index](index-add-language-analyzers.md).
 
 I portalen är analys verktyg avsedda att användas som de är. Om du behöver anpassning eller en speciell konfiguration av filter och tokenizers bör du [skapa en anpassad analys](index-add-custom-analyzers.md) i kod. Portalen stöder inte val eller konfiguration av anpassade analyser.
 
@@ -65,4 +65,4 @@ Ibland är språket för den agent som utfärdar en fråga inte känt, och i så
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du är en .NET-utvecklare kan du tänka på att du kan konfigurera språk analyser med hjälp av [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) och [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) -egenskapen. 
+Om du är en .NET-utvecklare kan du tänka på att du kan konfigurera språk analyser med [Azure kognitiv sökning .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) och [analys](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) egenskapen. 

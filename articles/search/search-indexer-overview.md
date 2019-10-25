@@ -1,29 +1,29 @@
 ---
-title: Indexerare för crawlning av data källor under indexering – Azure Search
-description: Crawla en Azure SQL-databas, Azure Cosmos DB eller Azure-lagring för att extrahera sökbara data och fylla ett Azure Search-index.
-author: HeidiSteen
+title: Indexerare för crawlning av data källor under indexering
+titleSuffix: Azure Cognitive Search
+description: Crawla Azure SQL Database, Azure Cosmos DB eller Azure Storage för att extrahera sökbara data och fylla ett Azure Kognitiv sökning-index.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 55a9e06ad09c4c3635a2925956cac75c24b2c3c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5e5d43909dc0e65c12c053515ba534ce5cfa121f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376387"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793667"
 ---
-# <a name="indexers-in-azure-search"></a>Indexerare i Azure Search
+# <a name="indexers-in-azure-cognitive-search"></a>Indexerare i Azure Kognitiv sökning
 
-En *indexerare* i Azure Search är en Crawler som extraherar sökbara data och metadata från en extern Azure-datakälla och fyller ett index baserat på fält-till-fält-mappningar mellan indexet och data källan. Den här metoden kallas ibland för "pull-modell" eftersom tjänsten hämtar data i utan att du behöver skriva kod som lägger till data i ett index.
+En *indexerare* i Azure kognitiv sökning är en Crawler som extraherar sökbara data och metadata från en extern Azure-datakälla och fyller ett index baserat på fält-till-fält-mappningar mellan indexet och data källan. Den här metoden kallas ibland för "pull-modell" eftersom tjänsten hämtar data i utan att du behöver skriva kod som lägger till data i ett index.
 
 Indexerare baseras på data käll typer eller plattformar, med enskilda indexerare för SQL Server på Azure, Cosmos DB Azure Table Storage och Blob Storage. Blob Storage-indexerare har ytterligare egenskaper som är speciella för BLOB-innehållstyp.
 
 Du kan använda en indexerare som enda metod för datapåfyllning eller använda en kombination av tekniker som inbegriper en indexerare för att läsa in bara några av fälten i ditt index.
 
-Du kan köra indexerare på begäran eller enligt ett återkommande data uppdaterings schema som körs så ofta som var femte minut. Mer frekventa uppdateringar kräver en push-modell som uppdaterar data i Azure Search och i din externa datakälla samtidigt.
+Du kan köra indexerare på begäran eller enligt ett återkommande data uppdaterings schema som körs så ofta som var femte minut. För frekventa uppdateringar krävs en push-modell som samtidigt uppdaterar data i både Azure-Kognitiv sökning och den externa data källan.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Metoder för att skapa och hantera indexerare
 
@@ -61,13 +61,13 @@ En indexerare hämtar data källans lutning från ett *data käll* objekt. Defin
 Datakällor konfigureras och hanteras oberoende av indexerarna som använder dem, vilket innebär att en datakälla kan användas av flera indexerare för att läsa in mer än ett index i taget.
 
 ### <a name="step-2-create-an-index"></a>Steg 2: Skapa ett index
-En indexerare automatiserar vissa uppgifter som rör datapåfyllning, men att skapa ett index är vanligtvis inte en av dem. Som krav måste du ha ett fördefinierat index med fält som matchar de i din externa datakälla. Fält måste matcha efter namn och datatyp. Mer information om hur du strukturerar ett index finns i [skapa ett index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) eller en [index klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Om du behöver hjälp med fältkopplingar kan du läsa mer i informationen om [fältmappningar för Azure Search-indexerare](search-indexer-field-mappings.md).
+En indexerare automatiserar vissa uppgifter som rör datapåfyllning, men att skapa ett index är vanligtvis inte en av dem. Som krav måste du ha ett fördefinierat index med fält som matchar de i din externa datakälla. Fält måste matcha efter namn och datatyp. Mer information om att strukturera ett index finns i [skapa ett index (Azure Kognitiv sökning REST API) eller en](https://docs.microsoft.com/rest/api/searchservice/Create-Index) [index klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Hjälp med fält kopplingar finns i [fält mappningar i Azure kognitiv sökning indexerare](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Indexerare kan inte generera ett index åt dig, men du kan få hjälp av guiden **Importera data** i portalen. I de flesta fall kan guiden härleda ett indexschema från befintliga metadata i källan, vilket skapar ett preliminärt indexschema som du kan redigera direkt när guiden är aktiv. När indexet har skapats i tjänsten är ytterligare redigeringar i portalen i huvudsak begränsade till tillägg av nya fält. Överväg att använda guiden för att skapa, men inte revidera, ett index. I [steg-för-steg-beskrivningen för portalen](search-get-started-portal.md) kan du få en praktisk genomgång.
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Steg 3: Skapa och schemalägg indexeraren
-Indexer-definitionen är en konstruktion som sammanställer alla element som är relaterade till data inmatning. De element som krävs är en data källa och ett index. Valfria element innehåller ett schema och fält mappningar. Fält mappning är bara valfritt om käll fält och index fält tydligt motsvarar. En indexerare referera till en datakälla från en annan tjänst så länge som den datakällan är från samma prenumeration. Mer information om att strukturera en indexerare finns i [Skapa et indexerare (REST-API för Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+Indexer-definitionen är en konstruktion som sammanställer alla element som är relaterade till data inmatning. De element som krävs är en data källa och ett index. Valfria element innehåller ett schema och fält mappningar. Fält mappning är bara valfritt om käll fält och index fält tydligt motsvarar. En indexerare referera till en datakälla från en annan tjänst så länge som den datakällan är från samma prenumeration. Mer information om hur du strukturerar en indexerare finns i [skapa indexerare (Azure Kognitiv sökning REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>
 
@@ -130,5 +130,5 @@ Nu när du har lagt grunden är nästa steg att granska krav och uppgifter som �
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Indexera CSV-blobbar med Azure Search Blob-indexeraren](search-howto-index-csv-blobs.md)
-* [Indexera JSON-blobbar med Azure Search Blob-indexeraren](search-howto-index-json-blobs.md)
+* [Indexera CSV-blobar med Azure Kognitiv sökning BLOB-indexeraren](search-howto-index-csv-blobs.md)
+* [Indexera JSON-blobbar med Azure Kognitiv sökning BLOB-indexeraren](search-howto-index-json-blobs.md)

@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure AD i Visual Studio .NET MVC-projekt
+title: Kom igång med Azure AD i Visual Studio .NET MVC-projekt | Azure
 description: Komma igång med att använda Azure Active Directory i .NET MVC-projekt efter anslutning till eller skapa en Azure AD med hjälp av Visual Studio Connected Services
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806961dce41fbdf07572b3d0ab8b79bc9fb682da
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3b0a6265f76cc7c799d162487999c129ec7e6a14
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852029"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803623"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Komma igång med Azure Active Directory (ASP.NET MVC-projekt)
 
@@ -31,11 +31,11 @@ Se [vad som hände med mitt MVC-projekt?](vs-active-directory-dotnet-what-happen
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Kräver autentisering för åtkomst till kontrollanter
 
-Alla kontrollanter i projektet har dekorationer med `[Authorize]` attributet. Det här attributet kräver att användaren autentiseras innan de kan komma åt dessa kontrollanter. Om du vill tillåta att styrenheten används anonymt tar du bort attributet från kontroll enheten. Om du vill ange behörigheterna på en mer detaljerad nivå använder du attributet för varje metod som kräver auktorisering i stället för att använda den i kontroll enhets klassen.
+Alla kontrollanter i projektet har dekorationer med `[Authorize]`-attributet. Det här attributet kräver att användaren autentiseras innan de kan komma åt dessa kontrollanter. Om du vill tillåta att styrenheten används anonymt tar du bort attributet från kontroll enheten. Om du vill ange behörigheterna på en mer detaljerad nivå använder du attributet för varje metod som kräver auktorisering i stället för att använda den i kontroll enhets klassen.
 
 ## <a name="adding-signin--signout-controls"></a>Lägger till kontroller för inloggning/utloggning
 
-Om du vill lägga till kontrollerna logga in/logga in i vyn kan du använda den `_LoginPartial.cshtml` partiella vyn för att lägga till funktionen i en av dina vyer. Här är ett exempel på funktionerna som läggs till i standardvyn `_Layout.cshtml` . (Observera det sista elementet i div med klass navigerings fält – minimera):
+Om du vill lägga till kontrollerna logga in/logga in i vyn kan du använda den `_LoginPartial.cshtml` ofullständiga vyn för att lägga till funktionerna i en av dina vyer. Här är ett exempel på funktionerna som läggs till i standard `_Layout.cshtml`s vyn. (Observera det sista elementet i div med klass navigerings fält – minimera):
 
 ```html
 <!DOCTYPE html>

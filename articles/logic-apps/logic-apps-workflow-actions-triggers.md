@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 9bee329953a1f39720b054ed90e1d56c6743862e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: a6789f409e26d1310d9e583ac2934e0bae462b21
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679875"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799427"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Schema referens guide för utlösare och åtgärds typer i Azure Logic Apps
 
@@ -132,7 +132,7 @@ Den här utlösaren kontrollerar eller *avsöker* en slut punkt med hjälp av [M
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*APIConnection_trigger_name* > | Sträng | Namnet på utlösaren | 
+| <*APIConnection_trigger_name*> | Sträng | Namnet på utlösaren | 
 | <*anslutnings namn* > | Sträng | Namnet på anslutningen till det hanterade API som arbets flödet använder | 
 | <*metod-typ* > | Sträng | HTTP-metoden för att kommunicera med hanterade API: "GET", "placera", "POST", "PATCH", "ta bort" | 
 | < *-API-åtgärd* > | Sträng | API-åtgärden som ska anropas | 
@@ -273,19 +273,21 @@ Denna Utlös ande definition prenumererar på Office 365 Outlook API, tillhandah
 
 ### <a name="http-trigger"></a>HTTP-utlösare
 
-Den här utlösaren kontrollerar eller avsöker den angivna slut punkten baserat på det angivna upprepnings schemat. Svaret på slut punkten avgör om arbets flödet körs.
+Den här utlösaren skickar en begäran till den angivna HTTP-eller HTTPS-slutpunkten baserat på det angivna upprepnings schemat. Utlösaren kontrollerar sedan svaret för att avgöra om arbets flödet körs.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<endpoint-URL>",
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
       "headers": { "<header-content>" },
+      "queries": "<query-parameters>",
       "body": "<body-content>",
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": { "<retry-behavior>" },
-      "queries": "<query-parameters>"
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      }
    },
    "recurrence": {
       "frequency": "<time-unit>",
@@ -303,27 +305,27 @@ Den här utlösaren kontrollerar eller avsöker den angivna slut punkten baserat
 
 *Kunna*
 
-| Värde | Typ | Beskrivning | 
-|-------|------|-------------| 
-| <*metod-typ* > | Sträng | Den HTTP-metod som ska användas för avsökning av den angivna slut punkten: "GET", "placera", "POST", "PATCH", "ta bort" | 
-| <*slut punkt – URL* > | Sträng | HTTP-eller HTTPS-URL för slut punkten som ska avsökas <p>Maximal sträng storlek: 2 KB | 
-| <*tidsenhet* > | Sträng | Den tidsenhet som beskriver hur ofta utlösaren utlöses: "sekund", "minut", "timme", "dag", "vecka", "månad" | 
-| <*antal enheter* > | Integer | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. | 
-|||| 
+| Egenskap | Värde | Typ | Beskrivning |
+|----------|-------|------|-------------|
+| `method` | <*metod-typ* > | Sträng | Den metod som ska användas för att skicka utgående begäran: "GET", "placera", "POST", "PATCH" eller "DELETE" |
+| `uri` | <*http-eller-https-Endpoint-URL* > | Sträng | URL: en för HTTP-eller HTTPS-slutpunkt där du vill skicka den utgående begäran. Maximal sträng storlek: 2 KB <p>För en Azure-tjänst eller resurs inkluderar denna URI-syntax resurs-ID och sökvägen till den resurs som du vill få åtkomst till. |
+| `frequency` | <*tidsenhet* > | Sträng | Den tidsenhet som beskriver hur ofta utlösaren utlöses: "sekund", "minut", "timme", "dag", "vecka", "månad" |
+| `interval` | <*antal enheter* > | Integer | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. |
+|||||
 
 *Valfritt*
 
-| Värde | Typ | Beskrivning | 
-|-------|------|-------------| 
-| <*rubrik – innehålls* > | JSON-objekt | Huvuden som ska skickas med begäran <p>Om du till exempel vill ange språk och typ för en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*bröd text – innehålls* > | Sträng | Meddelande innehållet som ska skickas som nytto last med begäran | 
-| <*autentisering-metod* > | JSON-objekt | Metoden som begäran använder för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). Utöver Scheduler stöds `authority`-egenskapen. Om inget värde anges `https://login.windows.net` standardvärdet, men du kan använda ett annat värde, t. ex. `https://login.windows\-ppe.net`. |
-| <*återförsök-beteende* > | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
- <*fråga – parametrar* > | JSON-objekt | Alla frågeparametrar som ska tas med i begäran <p>Till exempel lägger `"queries": { "api-version": "2018-01-01" }`-objektet `?api-version=2018-01-01` till begäran. | 
-| <*Max-körning* > | Integer | Som standard körs arbets flödes instanser samtidigt eller parallellt med [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
-| <*Max-sekvenser-queue* > | Integer | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på egenskapen `runtimeConfiguration.concurrency.runs`, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
-| <*åtgärd – alternativ* > | Sträng | Du kan ändra standard beteendet genom att ange egenskapen `operationOptions`. Mer information finns i [Åtgärds alternativ](#operation-options). | 
-|||| 
+| Egenskap | Värde | Typ | Beskrivning |
+|----------|-------|------|-------------|
+| `headers` | <*rubrik – innehålls* > | JSON-objekt | Alla rubriker som du måste inkludera i begäran <p>Om du till exempel vill ange språk och typ: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*fråga – parametrar* > | JSON-objekt | Alla frågeparametrar som du behöver använda i begäran <p>Till exempel lägger `"queries": { "api-version": "2018-01-01" }`-objektet `?api-version=2018-01-01` till begäran. |
+| `body` | <*bröd text – innehålls* > | JSON-objekt | Meddelande innehållet som ska skickas som nytto last med begäran |
+| `authentication` | <*autentisering-typ-och-Property-values*> | JSON-objekt | Den autentiseringsmetod som begäran använder för att autentisera utgående begär Anden. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Utöver Scheduler stöds `authority`-egenskapen. Om inget värde anges `https://management.azure.com/`standardvärdet, men du kan använda ett annat värde. |
+| `retryPolicy` > `type` | <*återförsök-beteende* > | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| `runs` | <*Max-körning* > | Integer | Som standard körs arbets flödes instanser samtidigt eller parallellt med [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). |
+| `maximumWaitingRuns` | <*Max-sekvenser-queue* > | Integer | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på egenskapen `runtimeConfiguration.concurrency.runs`, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). |
+| `operationOptions` | <*åtgärd – alternativ* > | Sträng | Du kan ändra standard beteendet genom att ange egenskapen `operationOptions`. Mer information finns i [Åtgärds alternativ](#operation-options). |
+|||||
 
 *Utdata*
 
@@ -374,7 +376,7 @@ Utlösarens beteende beror på de avsnitt som du använder eller utelämnar.
          "uri": "<endpoint-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": { "<retry-behavior>" }
          },
       },
@@ -383,7 +385,7 @@ Utlösarens beteende beror på de avsnitt som du använder eller utelämnar.
          "url": "<endpoint-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" }
+         "authentication": { "<authentication-type>" }
       }
    },
    "runTimeConfiguration": {
@@ -413,7 +415,7 @@ Vissa värden, till exempel <*metod-typ*>, är tillgängliga för både `"subscr
 | <*metod-typ* > | Sträng | HTTP-metoden som ska användas för avbrottsbegäran: "GET", "placera", "POST", "PATCH" eller "DELETE" | 
 | <*slut punkt-Avbryt prenumeration-URL* > | Sträng | Slut punkts-URL: en dit begäran om uppsägning ska skickas | 
 | <*bröd text – innehålls* > | Sträng | Meddelande innehåll som ska skickas i prenumerationen eller uppsägnings förfrågan | 
-| <*autentisering-metod* > | JSON-objekt | Metoden som begäran använder för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
+| <*typ av autentisering*> | JSON-objekt | Den autentiseringsmetod som begäran använder för att autentisera utgående begär Anden. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*återförsök-beteende* > | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*Max-körning* > | Integer | Som standard körs alla arbets flödes instanser samtidigt eller parallellt med [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
 | <*Max-sekvenser-queue* > | Integer | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på egenskapen `runtimeConfiguration.concurrency.runs`, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
@@ -950,7 +952,7 @@ Den här åtgärden skickar en prenumerations förfrågan via HTTP till en slut 
          "uri": "<api-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": "<retry-behavior>",
          "queries": { "<query-parameters>" },
          "<other-action-specific-input-properties>"
@@ -960,7 +962,7 @@ Den här åtgärden skickar en prenumerations förfrågan via HTTP till en slut 
          "uri": "<api-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "<other-action-specific-properties>"
       },
    },
@@ -986,7 +988,7 @@ Vissa värden, till exempel <*metod-typ*>, är tillgängliga för både `"subscr
 | <-*API-avprenumerera-URL* > | Sträng | Den URI som ska användas för prenumerationen från API: et | 
 | <*rubrik – innehålls* > | JSON-objekt | Alla rubriker som ska skickas i begäran <p>Om du till exempel vill ange språk och typ på en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*bröd text – innehålls* > | JSON-objekt | Alla meddelande innehåll som ska skickas i begäran | 
-| <*autentisering-metod* > | JSON-objekt | Metoden som begäran använder för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
+| <*typ av autentisering*> | JSON-objekt | Den autentiseringsmetod som begäran använder för att autentisera utgående begär Anden. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*återförsök-beteende* > | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*fråga – parametrar* > | JSON-objekt | Alla frågeparametrar som ska ingå i API-anropet <p>Till exempel lägger `"queries": { "api-version": "2018-01-01" }`-objektet `?api-version=2018-01-01` till anropet. | 
 | <*andra-åtgärd-Specific-ingångs egenskaper* > | JSON-objekt | Alla andra ingångs egenskaper som gäller för den aktuella åtgärden | 
@@ -1105,9 +1107,9 @@ Den här åtgärden kör kod som hämtar din Logic Apps namn och returnerar text
 
 *Exempel 2*
 
-Den här åtgärden kör kod i en Logic-app som utlöses när ett nytt e-postmeddelande tas emot i ett Office 365 Outlook-konto. Logic app använder också en e-poståtgärd för att skicka godkännande som vidarebefordrar innehållet från den mottagna e-postmeddelandet tillsammans med en begäran om godkännande. 
+Den här åtgärden kör kod i en Logic-app som utlöses när ett nytt e-postmeddelande tas emot i ett Office 365 Outlook-konto. Logic app använder också en e-poståtgärd för att skicka godkännande som vidarebefordrar innehållet från den mottagna e-postmeddelandet tillsammans med en begäran om godkännande.
 
-Koden extraherar e-postadresser från utlösarens `Body` egenskap och returnerar dessa e-postadresser tillsammans med egenskap svärdet `SelectedOption` från godkännande åtgärden. Åtgärden innehåller uttryckligen e-poståtgärden skicka godkännande som ett beroende i attributet `explicitDependencies`  >  `actions`.
+Koden extraherar e-postadresserna från utlösarens `Body` egenskap och returnerar adresserna tillsammans med egenskap svärdet `SelectedOption` från godkännande åtgärden. Åtgärden innehåller uttryckligen e-poståtgärden skicka godkännande som ett beroende i attributet `explicitDependencies`  >  `actions`.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1206,14 +1208,21 @@ Den här åtgärds definitionen anropar den tidigare skapade funktionen "GetProd
 
 ### <a name="http-action"></a>HTTP-åtgärd
 
-Den här åtgärden skickar en begäran till den angivna slut punkten och kontrollerar svaret för att avgöra om arbets flödet ska köras. 
+Den här åtgärden skickar en begäran till den angivna HTTP-eller HTTPS-slutpunkten och kontrollerar svaret för att avgöra om arbets flödet körs.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<HTTP-or-HTTPS-endpoint-URL>"
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
+      "headers": { "<header-content>" },
+      "queries": { "<query-parameters>" },
+      "body": "<body-content>",
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      },
    },
    "runAfter": {}
 }
@@ -1221,23 +1230,24 @@ Den här åtgärden skickar en begäran till den angivna slut punkten och kontro
 
 *Kunna*
 
-| Värde | Typ | Beskrivning | 
-|-------|------|-------------| 
-| <*metod-typ* > | Sträng | Den metod som används för att skicka begäran: "GET", "placera", "POST", "PATCH" eller "DELETE" | 
-| <*http-eller-https-Endpoint-URL* > | Sträng | HTTP-eller HTTPS-slutpunkt som ska anropas. Maximal sträng storlek: 2 KB | 
-|||| 
+| Egenskap | Värde | Typ | Beskrivning |
+|----------|-------|------|-------------|
+| `method` | <*metod-typ* > | Sträng | Den metod som ska användas för att skicka utgående begäran: "GET", "placera", "POST", "PATCH" eller "DELETE" |
+| `uri` | <*http-eller-https-Endpoint-URL* > | Sträng | URL: en för HTTP-eller HTTPS-slutpunkt där du vill skicka den utgående begäran. Maximal sträng storlek: 2 KB <p>För en Azure-tjänst eller resurs inkluderar denna URI-syntax resurs-ID och sökvägen till den resurs som du vill få åtkomst till. |
+|||||
 
 *Valfritt*
 
-| Värde | Typ | Beskrivning | 
-|-------|------|-------------| 
-| <*rubrik – innehålls* > | JSON-objekt | Alla rubriker som ska skickas med begäran <p>Om du till exempel vill ange språk och typ: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*bröd text – innehålls* > | JSON-objekt | Alla meddelande innehåll som ska skickas i begäran | 
-| <*återförsök-beteende* > | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*fråga – parametrar* > | JSON-objekt | Alla frågeparametrar som ska tas med i begäran <p>Till exempel lägger `"queries": { "api-version": "2018-01-01" }`-objektet `?api-version=2018-01-01` till anropet. | 
-| <*andra-åtgärd-Specific-ingångs egenskaper* > | JSON-objekt | Alla andra ingångs egenskaper som gäller för den aktuella åtgärden | 
-| <*andra-åtgärds-/regionsspecifika-egenskaper* > | JSON-objekt | Andra egenskaper som gäller för den här åtgärden | 
-|||| 
+| Egenskap | Värde | Typ | Beskrivning |
+|----------|-------|------|-------------|
+| `headers` | <*rubrik – innehålls* > | JSON-objekt | Alla rubriker som du måste inkludera i begäran <p>Om du till exempel vill ange språk och typ: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*fråga – parametrar* > | JSON-objekt | Alla frågeparametrar som du behöver använda i begäran <p>Till exempel lägger `"queries": { "api-version": "2018-01-01" }`-objektet `?api-version=2018-01-01` till anropet. |
+| `body` | <*bröd text – innehålls* > | JSON-objekt | Meddelande innehållet som ska skickas som nytto last med begäran |
+| `authentication` | <*autentisering-typ-och-Property-values*> | JSON-objekt | Den autentiseringsmetod som begäran använder för att autentisera utgående begär Anden. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Utöver Scheduler stöds `authority`-egenskapen. Om inget värde anges `https://management.azure.com/`standardvärdet, men du kan använda ett annat värde. |
+| `retryPolicy` > `type` | <*återförsök-beteende* > | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| <*andra-åtgärd-Specific-ingångs egenskaper* > | <*in-Property-* > | JSON-objekt | Alla andra ingångs egenskaper som gäller för den aktuella åtgärden |
+| <*andra-åtgärds-/regionsspecifika-egenskaper* > | <*egenskap-värde*> | JSON-objekt | Andra egenskaper som gäller för den här åtgärden |
+|||||
 
 *Exempel*
 
@@ -2665,134 +2675,11 @@ För en enda Logic app-definition har antalet åtgärder som körs var 5: e minu
 }
 ```
 
-<a name="connector-authentication"></a>
+<a name="authenticate-triggers-actions"></a>
 
-## <a name="authenticate-http-triggers-and-actions"></a>Autentisera HTTP-utlösare och åtgärder
+## <a name="authenticate-triggers-and-actions"></a>Autentisera utlösare och åtgärder
 
-HTTP-slutpunkter stöder olika typer av autentisering. Du kan konfigurera autentisering för dessa HTTP-utlösare och åtgärder:
-
-* [HTTP](../connectors/connectors-native-http.md)
-* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
-* [HTTP-webhook](../connectors/connectors-native-webhook.md)
-
-Här är de typer av autentisering som du kan konfigurera:
-
-* [Grundläggande autentisering](#basic-authentication)
-* [Autentisering av klient certifikat](#client-certificate-authentication)
-* [Azure Active Directory (Azure AD) OAuth-autentisering](#azure-active-directory-oauth-authentication)
-
-> [!IMPORTANT]
-> Se till att skydda känslig information som definieras av logiken för ditt Logic app-arbetsflöde. Använd skyddade parametrar och koda data vid behov. Mer information om hur du använder och skyddar parametrar finns i [skydda din Logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="basic-authentication"></a>
-
-### <a name="basic-authentication"></a>Grundläggande autentisering
-
-För [grundläggande autentisering](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) med hjälp av Azure Active Directory kan utlösaren eller åtgärds definitionen innehålla ett `authentication` JSON-objekt, som har de egenskaper som anges i följande tabell. Om du vill komma åt parameter värden vid körning kan du använda det `@parameters('parameterName')` uttrycket, som tillhandahålls av [arbets flödets definitions språk](https://aka.ms/logicappsdocs). 
-
-| Egenskap | Krävs | Värde | Beskrivning | 
-|----------|----------|-------|-------------| 
-| **typ** | Ja | Frö | Autentiseringstypen som ska användas, vilket är "grundläggande" här | 
-| **användar** | Ja | "@parameters (' userNameParam ')" | Användar namnet för att autentisera åtkomsten till mål tjänstens slut punkt |
-| **ords** | Ja | "@parameters (' passwordParam ')" | Lösen ordet för att autentisera åtkomsten till mål tjänstens slut punkt |
-||||| 
-
-I det här exemplet för HTTP-åtgärd anger `authentication` avsnittet `Basic` autentisering. Mer information om hur du använder och skyddar parametrar finns i [skydda din Logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
-         "password": "@parameters('passwordParam')"
-      }
-  },
-  "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Se till att skydda känslig information som definieras av logiken för ditt Logic app-arbetsflöde. Använd skyddade parametrar och koda data vid behov. Mer information om hur du skyddar parametrar finns i [skydda din Logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="client-certificate-authentication"></a>
-
-### <a name="client-certificate-authentication"></a>Autentisering av klient certifikat
-
-För [certifikatbaserad autentisering](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) med hjälp av Azure Active Directory kan utlösaren eller åtgärds definitionen innehålla ett `authentication` JSON-objekt, som har de egenskaper som anges i följande tabell. Om du vill komma åt parameter värden vid körning kan du använda det `@parameters('parameterName')` uttrycket, som tillhandahålls av [arbets flödets definitions språk](https://aka.ms/logicappsdocs). Begränsningar för hur många klient certifikat du kan använda finns i [gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
-
-| Egenskap | Krävs | Värde | Beskrivning |
-|----------|----------|-------|-------------|
-| **typ** | Ja | Mängden | Autentiseringstypen som ska användas för Secure Sockets Layer (SSL)-klient certifikat. Även om självsignerade certifikat stöds, stöds inte självsignerade certifikat för SSL. |
-| **-** | Ja | "@parameters (' pfxParam ') | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) |
-| **ords** | Ja | "@parameters (' passwordParam ')" | Lösen ordet för att komma åt PFX-filen |
-||||| 
-
-I det här exemplet för HTTP-åtgärd anger `authentication` avsnittet `ClientCertificate` autentisering. Mer information om hur du använder och skyddar parametrar finns i [skydda din Logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ClientCertificate",
-         "pfx": "@parameters('pfxParam')",
-         "password": "@parameters('passwordParam')"
-      }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Se till att skydda känslig information som definieras av logiken för ditt Logic app-arbetsflöde. Använd skyddade parametrar och koda data vid behov. Mer information om hur du skyddar parametrar finns i [skydda din Logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="azure-active-directory-oauth-authentication"></a>
-
-### <a name="azure-active-directory-ad-oauth-authentication"></a>Azure Active Directory (AD) OAuth-autentisering
-
-För [Azure AD OAuth-autentisering](../active-directory/develop/authentication-scenarios.md)kan utlösare eller åtgärds definition innehålla ett `authentication` JSON-objekt, som har de egenskaper som anges i följande tabell. Om du vill komma åt parameter värden vid körning kan du använda det `@parameters('parameterName')` uttrycket, som tillhandahålls av [arbets flödets definitions språk](https://aka.ms/logicappsdocs).
-
-| Egenskap | Krävs | Värde | Beskrivning |
-|----------|----------|-------|-------------|
-| **typ** | Ja | `ActiveDirectoryOAuth` | Autentiseringstypen som ska användas, vilket är "ActiveDirectoryOAuth" för Azure AD OAuth |
-| **tullmyndighet** | Nej | <*URL-för-Authority-token-utfärdare* > | URL för den myndighet som tillhandahåller autentiseringstoken |
-| **innehav** | Ja | <*klient organisations-ID* > | Klient-ID för Azure AD-klienten |
-| **filmen** | Ja | <*resurs-till-auktorisera* > | Den resurs som du vill använda för auktorisering, till exempel `https://management.core.windows.net/` |
-| **clientId** | Ja | <*klient-ID* > | Klient-ID för appen som begär auktorisering |
-| **credentialType** | Ja | "Certifikat" eller "hemligt" | Den typ av autentiseringsuppgift som klienten använder för att begära auktorisering. Den här egenskapen och värdet visas inte i den underliggande definitionen, men anger de parametrar som krävs för autentiseringstypen. |
-| **-** | Ja, endast för "certifikat", autentiseringstyp | "@parameters (' pfxParam ') | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) |
-| **ords** | Ja, endast för "certifikat", autentiseringstyp | "@parameters (' passwordParam ')" | Lösen ordet för att komma åt PFX-filen |
-| **icke** | Ja, endast för "hemlig" autentiseringstyp | "@parameters (' secretParam ')" | Klient hemligheten för att begära auktorisering |
-|||||
-
-I det här exemplet för HTTP-åtgärd anger `authentication` avsnittet `ActiveDirectoryOAuth` autentisering och autentiseringstypen "hemlig". Mer information om hur du använder och skyddar parametrar finns i [skydda din Logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ActiveDirectoryOAuth",
-         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-         "audience": "https://management.core.windows.net/",
-         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-         "secret": "@parameters('secretParam')"
-     }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Se till att skydda känslig information som definieras av logiken för ditt Logic app-arbetsflöde. Använd skyddade parametrar och koda data vid behov. Mer information om hur du skyddar parametrar finns i [skydda din Logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+HTTP-och HTTPS-slutpunkter stöder olika typer av autentisering. Baserat på utlösaren eller åtgärden som du använder för att göra utgående anrop eller begär Anden om åtkomst till dessa slut punkter, kan du välja mellan olika typer av autentiseringstyper. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 ## <a name="next-steps"></a>Nästa steg
 

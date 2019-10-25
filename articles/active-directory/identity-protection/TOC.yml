@@ -3,65 +3,49 @@
 - name: Översikt
   items:
     - name: Vad är Azure AD Identity Protection?
-      href: overview.md
-- name: Snabbstarter
-  items:
-    - name: Blockera åtkomst när en sessionsrisk identifieras
-      href: quickstart-sign-in-risk-policy.md
+      href: overview-identity-protection.md
 - name: Begrepp
   expanded: false
   items:
-    - name: Vad är sårbarheter?
-      href: vulnerabilities.md
-    - name: Vad är meddelanden?
-      href: notifications.md
-    - name: Hur är din inloggningsupplevelse?
-      href: flows.md
+    - name: Säkerhetsöversikt
+      href: concept-identity-protection-security-overview.md
+    - name: Vilka är riskerna?
+      href: concept-identity-protection-risks.md
+    - name: Principer om identitetsskydd
+      href: concept-identity-protection-policies.md
+    - name: Hur är inloggningsupplevelsen?
+      href: concept-identity-protection-user-experience.md
     - name: Identitetsskydd och B2B-användare
       href: concept-identity-protection-b2b.md
 - name: Instruktionsguider
   expanded: true
   items:
-    - name: Identity Protection
+    - name: Konfigurera meddelanden
+      href: howto-identity-protection-configure-notifications.md
+    - name: Principkonfiguration
       items:
-        - name: Aktivera Azure AD Identity Protection
-          href: enable.md
         - name: Konfigurera MFA-registreringsprincipen
-          href: howto-mfa-policy.md
-        - name: Konfigurera riskprincipen för inloggning
-          href: howto-sign-in-risk-policy.md
-        - name: Konfigurera riskprincipen för användare
-          href: howto-user-risk-policy.md
-        - name: Stänga aktiva riskidentifieringar
-          href: howto-close-active-risk-events.md
-        - name: Avblockera användare
-          href: howto-unblock-user.md
-        - name: Simulera riskidentifieringar
-          href: playbook.md
-        - name: Vanliga frågor och svar
-          href: faqs.md
-    - name: Identitetsskydd (Uppdaterad)
-      items:
-        - name: Översikt
-          href: overview-v2.md
-        - name: Säkerhetsöversikt
-          href: security-overview.md
-        - name: Undersöka risk
-          href: howto-investigate-risk.md
-        - name: Ge feedback om riskidentifieringar
-          href: howto-provide-risk-event-feedback.md
+          href: howto-identity-protection-configure-mfa-policy.md
         - name: Konfigurera riskprinciper
-          href: howto-configure-risk-policies.md
-        - name: Vanliga frågor och kända problem
-          href: known-issues.md
+          href: howto-identity-protection-configure-risk-policies.md
+    - name: Simulera riskidentifieringar
+      href: howto-identity-protection-simulate-risk.md
+    - name: Undersöka och åtgärda
+      items:
+        - name: Undersöka risk
+          href: howto-identity-protection-investigate-risk.md
+        - name: Åtgärda riskidentifieringar och avblockera
+          href: howto-identity-protection-remediate-unblock.md
+        - name: Använda Microsoft Graph API
+          href: howto-identity-protection-graph-api.md
+    - name: Ge feedback om riskidentifieringar
+      href: howto-identity-protection-risk-feedback.md
+    - name: Vanliga frågor och svar
+      href: troubleshooting-identity-protection-faq.md
 - name: Referens
   items:
-    - name: Använda Microsoft Graph API
-      href: graph-get-started.md
-    - name: Riskidentifieringar
-      href: risk-events-reference.md
     - name: Ordlista
-      href: glossary.md
+      href: reference-identity-protection-glossary.md
 - name: Resurser
   items:
     - name: Azures feedbackforum

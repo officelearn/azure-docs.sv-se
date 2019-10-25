@@ -17,6 +17,11 @@
     - name: Kör din första fråga – PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+- name: Självstudier
+  items:
+    - name: Skapa och dela en fråga i Azure Portal
+      displayName: 'query, portal'
+      href: ./tutorials/create-share-query.md
 - name: Exempel
   items:
     - name: Startfrågor

@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 158222c256e3efc7ca87d7a3781ca68e1c4307b1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: e8a5b8b5794687f9e3b1707fda4cbe381e277317
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750194"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819763"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
 
@@ -29,7 +29,7 @@ Den här artikeln besvarar vanliga frågor om rollbaserad åtkomst kontroll (RBA
 ## <a name="problems-with-rbac-role-assignments"></a>Problem med RBAC-rolltilldelningar
 
 - Om du inte kan lägga till en roll tilldelning i Azure Portal på **åtkomst kontroll (IAM)** eftersom alternativet **Lägg** till  > **Lägg till roll tilldelning** är inaktiverat eller eftersom du får behörighets felet "klienten med objekt-ID: t har inte behörighet att utföra åtgärden, kontrol lera att du är inloggad med en användare som har tilldelats en roll som har behörigheten `Microsoft.Authorization/roleAssignments/write`, till exempel [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) i den omfattning som du försöker tilldela rollen.
-- Om du får fel meddelandet "det går inte att skapa fler roll tilldelningar (kod: RoleAssignmentLimitExceeded)" när du försöker tilldela en roll, kan du försöka minska antalet roll tilldelningar genom att tilldela roller till grupper i stället. Azure har stöd för upp till **2000** rolltilldelningar per prenumeration.
+- Om du får fel meddelandet "det går inte att skapa fler roll tilldelningar (kod: RoleAssignmentLimitExceeded)" när du försöker tilldela en roll, kan du försöka minska antalet roll tilldelningar genom att tilldela roller till grupper i stället. Azure har stöd för upp till **2000** rolltilldelningar per prenumeration. Den här gränsen för roll tilldelningar är fast och går inte att öka.
 
 ## <a name="problems-with-custom-roles"></a>Problem med anpassade roller
 

@@ -1,5 +1,5 @@
 ---
-title: Användnings-och insikts rapport i Azure Active Directorys portalen | Microsoft Docs
+title: Användnings-och insikts rapport | Microsoft Docs
 description: Introduktion till användnings-och insikts rapport i Azure Active Directory portalen
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0c6723c28bf6ab8af112763a6485bc89b46409c6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 568eaa358f6788af525a69cd8ecda76a0591879f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989847"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820935"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Användnings-och insikts rapport i Azure Active Directorys portalen
 
@@ -31,7 +31,7 @@ Med hjälp av rapporten användning och insikter kan du få en programinriktad v
 *   Vilka program har de mest misslyckade inloggningarna? 
 *   Vilka är de vanligaste inloggnings felen för varje program?
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Om du vill komma åt data från rapporten användning och insikter behöver du:
 
@@ -43,7 +43,7 @@ Om du vill komma åt data från rapporten användning och insikter behöver du:
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
 2. Välj rätt katalog, Välj **Azure Active Directory** och välj **företags program**.
-3. I avsnittet **aktivitet** väljer du **användning &** insikter för att öppna rapporten. 
+3. I avsnittet **aktivitet** väljer du **användning & insikter** för att öppna rapporten. 
 
 ![Rapport om användning och insikter](./media/concept-usage-insights-report/main-menu.png)
                                      

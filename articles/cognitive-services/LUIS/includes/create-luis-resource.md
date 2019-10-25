@@ -6,33 +6,33 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 10/23/2019
 ms.author: dapine
-ms.openlocfilehash: 52d8e1355558b197b193a50c7cde571799541268
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ecb172aec37fdab21bed8373ac7484dc52a54829
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717164"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72822042"
 ---
 ## <a name="create-a-luis-resource"></a>Skapa en LUIS-resurs
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com)
-1. Klicka på [skapa **Språkförståelse**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS)
+1. Logga in på [Azure Portal](https://portal.azure.com)
+1. Klicka på [skapa **language Understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 1. Ange alla nödvändiga inställningar:
 
     |Inställning|Värde|
     |--|--|
     |Namn|Önskat namn (2-64 tecken)|
-    |Subscription|Välj lämplig prenumeration|
-    |Location|Välj valfri plats i närheten och tillgänglig|
-    |Prisnivå|`F0` -minimal prisnivån|
-    |Resursgrupp|Välj en tillgänglig resursgrupp|
+    |Prenumeration|Välj lämplig prenumeration|
+    |Plats|Välj valfri närliggande och tillgänglig plats|
+    |Prisnivå|`F0` – den minimala pris nivån|
+    |Resursgrupp|Välj en tillgänglig resurs grupp|
 
-1. Klicka på **skapa** och vänta tills resursen som ska skapas. När den har skapats, gå till resurssidan
-1. Samla in konfigurerats `endpoint` och en API-nyckel:
+1. Klicka på **skapa** och vänta tills resursen har skapats. När den har skapats går du till resurs Sidan
+1. Samla in konfigurerade `endpoint` och en API-nyckel:
 
-    |Resurs-fliken i portalen|Inställning|Value|
+    |Fliken resurs i portalen|Inställning|Värde|
     |--|--|--|
-    |**Översikt**|Slutpunkt|Kopiera slutpunkten. Den liknar `https://luis.cognitiveservices.azure.com/luis/v2.0`|
-    |**nycklar**|API-nyckel|Kopiera 1 av två nycklar. Det är en 32 alfanumeriska tecken lång sträng utan mellanslag eller tankstreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Översikt**|Slutpunkt|Kopiera slut punkten. Det ser ut ungefär som `https://luis.cognitiveservices.azure.com/luis/v2.0`|
+    |**Nyckel**|API-nyckel|Kopia 1 av de två nycklarna. Det är en sträng med 32 alfanumeriska tecken utan blank steg eller bindestreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

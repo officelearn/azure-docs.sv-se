@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6ceed914d1c69ccdfce5d7acb6dcfc1afc9ef868
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028077"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819882"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Avancerat skydd med Azure Security Center
 
@@ -28,19 +28,19 @@ Den här ändringen ger dig omfattande funktioner för identifiering och svar p�
 
 När du använder Microsoft Defender ATP får du:
 
-- **Avancerade sensorer efter intrång i spårning**: Microsoft Defender ATP-sensorer för Windows-servrar samlar in en omfattande uppsättning beteende signaler.
+- **Avancerade sensorer efter intrång**: Microsoft Defender ATP-sensorer för Windows-servrar samlar in en omfattande uppsättning beteende signaler.
 
-- **Analys baserad, identifiering av molnbaserade data efter intrång**: Microsoft Defender ATP anpassar snabbt för att ändra hot. Den använder avancerade analyser och Big data. Microsoft Defender ATP förstärks av kraften hos Intelligent Security Graph med signaler över Windows, Azure och Office för att identifiera okända hot. Den innehåller aviseringar som kan åtgärdas och gör det möjligt att svara snabbt.
+- **Analys baserad, avkänning av intrång i molnet efter intrång**: Microsoft Defender ATP anpassas snabbt för att ändra hot. Den använder avancerade analyser och Big data. Microsoft Defender ATP förstärks av kraften hos Intelligent Security Graph med signaler över Windows, Azure och Office för att identifiera okända hot. Den innehåller aviseringar som kan åtgärdas och gör det möjligt att svara snabbt.
 
 - **Hot information**: Microsoft Defender ATP genererar aviseringar när det identifierar angrepps verktyg, tekniker och procedurer. Den använder data som genererats av Microsoft Threat Hunters och säkerhets team, som tillhandahålls av våra partner.
 
 Följande funktioner är nu tillgängliga i Azure Security Center:
 
-- **Automatiserad onboarding**: Microsoft Defender ATP-sensorn aktive ras automatiskt för Windows-servrar som har publicerats på Azure Security Center.
+- **Automatiserad onboarding**: Microsoft Defender ATP-sensorn aktive ras automatiskt för Windows-servrar som har registrerats för Azure Security Center.
 
-- **En ruta med glas**: I Azure Security Center-konsolen visas Microsoft Defender ATP-aviseringar.
+- **En ruta i glas**: Azure Security Center-konsolen visar Microsoft Defender ATP-aviseringar.
 
-- **Detaljerad dator undersökning**: Azure Security Center kunder kan använda Microsoft Defender ATP-konsolen för att utföra en detaljerad undersökning för att avhjälpa omfattningen av en överträdelse.
+- **Detaljerad dator undersökning**: Azure Security Center kunder kan använda Microsoft Defender ATP-konsolen för att utföra en detaljerad undersökning för att få en detaljerad undersökning av omfattningen av en överträdelse.
 
 ![Azure Security Center, Visa en lista över aviseringar och allmän information om varje avisering](media/security-center-wdatp/image1.png)
 
@@ -50,7 +50,7 @@ Undersök ytterligare genom att använda Microsoft Defender ATP. Microsoft Defen
 
 ## <a name="platform-support"></a>Plattformssupport
 
-Microsoft Defender ATP i Security Center stöder identifiering på Windows Server 2016, 2012 R2 och 2008 R2 SP1 operativ system i en standard tjänst prenumeration.
+Microsoft Defender ATP i Security Center stöder identifiering på Windows Server 2016, 2012 R2 och 2008 R2 SP1 för virtuella Azure-datorer behöver du en prenumeration på en standard nivå och för virtuella datorer som inte är Azure-datorer behöver du endast standard nivå på arbets ytans nivå.
 
 > [!NOTE]
 > När du använder Azure Security Center för att övervaka servrar skapas en Microsoft Defender ATP-klient automatiskt och Microsoft Defender ATP-data lagras i Europa som standard. Om du behöver flytta dina data till en annan plats måste du kontakta Microsoft Support för att återställa klienten. Övervakning av Server slut punkt som använder denna integrering har inaktiverats för Office 365 GCC-kunder.
@@ -70,7 +70,7 @@ Om du vill publicera servrar till Security Center klickar **du på gå till Azur
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Aktivera Microsoft Defender ATP-integrering
 
-Om du vill se om Microsoft Defender ATP-integrering har Aktiver ATS väljer du **& inställningar** för **Security Center** >  > klickar på din prenumeration.
+Om du vill se om Microsoft Defender ATP-integrering är aktive rad väljer du **Security center** > **prissättnings & inställningar** > klickar på din prenumeration.
 Här kan du se de integreringar som är aktiverade för tillfället.
 
   ![Sidan Azure Security Center inställningar för hot identifiering med Microsoft Defender ATP-integrering aktive rad](media/security-center-wdatp/enable-integrations.png)
@@ -114,6 +114,6 @@ Så här skapar du en ofarlig test avisering för Microsoft Defender ATP:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Plattformar och funktioner som stöds av Azure Security Center](security-center-os-coverage.md)
-- [Ställer in säkerhets principer i Azure Security Center](tutorial-security-policy.md): Lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper.
+- [Ange säkerhets principer i Azure Security Center](tutorial-security-policy.md): Lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper.
 - [Hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md): Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
-- [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md): Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
+- [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig hur du övervakar dina Azure-resursers hälsa.

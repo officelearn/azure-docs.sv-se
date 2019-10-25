@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667142"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881313"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Identitetsskydd och B2B-användare
 
@@ -33,9 +33,9 @@ Användar risken för B2B-samarbets användare utvärderas i sin Hem Katalog. In
 
 Det finns begränsningar i implementeringen av Identity Protection för B2B-samarbets användare i en resurs katalog på grund av deras identitet i sin arbets katalog. De största begränsningarna är följande:
 
-- Om en gäst användare utlöser identitets skydds principens användar risk princip för att tvinga lösen ords återställning, kommer de att blockeras. Det här blocket beror på att det inte går att återställa lösen ord i resurs katalogen.
-- Gäst användare visas inte i rapporten riskfyllda användare. Den här förlusten av synlighet beror på riskbedömningen i B2B-användarens Hem Katalog.
-- Administratörer kan inte stänga eller reparera en riskfylld B2B-samarbets användare i sina resurs kataloger. Detta beror på att administratörer i resurs katalogen inte har åtkomst till B2B-användarens Hem Katalog.
+- Om en gäst användare utlöser identitets skydds principens användar risk princip för att tvinga lösen ords återställning, **kommer de att blockeras**. Det här blocket beror på att det inte går att återställa lösen ord i resurs katalogen.
+- **Gäst användare visas inte i rapporten riskfyllda användare**. Den här förlusten av synlighet beror på riskbedömningen i B2B-användarens Hem Katalog.
+- Administratörer **kan inte stänga eller reparera en riskfylld B2B-samarbets användare** i sina resurs kataloger. Detta beror på att administratörer i resurs katalogen inte har åtkomst till B2B-användarens Hem Katalog.
 
 ### <a name="why-cant-i-remediate-risky-b2b-collaboration-users-in-my-directory"></a>Varför kan jag inte reparera riskfyllda B2B-samarbets användare i min katalog?
 
@@ -54,4 +54,3 @@ Om du undantar B2B-användare från din organisations riskfyllda principer för 
 Se följande artiklar om Azure AD B2B-samarbete:
 
 - [Vad är Azure AD B2B-samarbete?](../b2b/what-is-b2b.md)
-- [Vad är villkorlig åtkomst?](../conditional-access/overview.md)

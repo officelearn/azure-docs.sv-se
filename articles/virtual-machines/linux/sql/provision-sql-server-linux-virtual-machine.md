@@ -4,19 +4,19 @@ description: Den här kursen visar hur du skapar virtuell Linux SQL Server 2017-
 services: virtual-machines-linux
 author: MashaMSFT
 manager: craigg
-ms.date: 12/5/2018
+ms.date: 10/22/2019
 ms.topic: conceptual
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: cd87477da15d5c18f94b66cac855672b4a2a3523
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 85d2396a05e7496b56bd83bd834150aa6d864c62
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091350"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882707"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Etablera en virtuell Linux-dator med SQL Server på Azure Portal
 
@@ -33,13 +33,13 @@ I den här guiden får du lära dig att:
 * [Ändra SA-lösenordet](#password)
 * [Konfigurera för fjärranslutningar](#remote)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a id="create"></a> Skapa en virtuell Linux-dator med SQL Server installerat
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
@@ -49,23 +49,19 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
    ![Se alla VM-avbildningar](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
-1. Skriv **SQL Server 2017** i sökrutan och starta sökningen genom att trycka på **Retur**.
+1. I rutan Sök skriver du **SQL Server 2019**och väljer **RETUR** för att starta sökningen.
 
-1. Begränsa sökresultaten genom att välja **Operativsystem** > **Redhat**. Välj sedan **Microsoft** under **Publisher**.
+1. Begränsa sökresultaten genom att välja **Operativsystem** > **Redhat**.
 
-    ![Sökfilter för SQL Server 2017 VM-avbildningar](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
+    ![Sök filter för SQL Server 2019 VM-avbildningar](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-1. Välj en SQL Server 2017 Linux-avbildning från sökresultaten. I den här självstudien används **Kostnadsfri SQL Server-licens: SQL Server 2017 Developer på Red Hat Enterprise Linux 7.4**.
+1. Välj en SQL Server 2019 Linux-avbildning från Sök resultaten. I den här självstudien används **SQL Server 2019 på RHEL74**.
 
    > [!TIP]
    > Med Developer-utgåvan kan du testa eller utveckla med funktionerna i Enterprise-utgåvan, men utan SQL Server-licenskostnader. Du betalar bara för kostnaden för att köra den virtuella Linux-datorn.
 
-1. Välj en distributionsmodell som passar dina arbetsbelastningsbehov under **Välj en distributionsmodell**.
+1. Välj **Skapa**. 
 
-    > [!Note]
-    > Använd **Resource Manager** för nya arbetsbelastningar. Om du vill ansluta till ett befintligt virtuellt nätverk väljer du det virtuella nätverkets distributionsmetod för din arbetsbelastning. Mer information om distributionsmodellerna finns i [Azure Resource Manager och klassiska distributionsmodeller](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
-
-1. Välj **Skapa**.
 
 ### <a name="set-up-your-linux-vm"></a>Konfigurera din virtuella Linux-dator
 
@@ -75,9 +71,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Ange ett namn för din nya virtuella Linux-dator i **Virtuellt datornamn**.
 1. Ange eller välj sedan följande värden:
-   * **Region**: Välj den Azure-region som är rätt för dig.
-   * **Tillgänglighetsalternativ**: Välj det alternativ för tillgänglighet och redundans som passar bäst för dina appar och data.
-   * **Ändra storlek**: Välj det här alternativet om du vill välja en datorstorlek, och välj sedan **Välj** när du är klar. Mer information om storlekar på virtuella datorer finns i [Linux-VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Region**: Välj den Azure-region som passar dig.
+   * **Tillgänglighets alternativ**: Välj det alternativ för tillgänglighet och redundans som passar bäst för dina appar och data.
+   * **Ändra storlek**: Välj det här alternativet om du vill välja dator storlek och när du är färdig väljer du **Välj**. Mer information om storlekar på virtuella datorer finns i [Linux-VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
      ![Välja storlek för virtuella datorer](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -89,11 +85,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
      > [!Note]
      > Du kan välja mellan offentlig SSH-nyckel eller lösenord för autentisering. SSH är säkrare. Instruktioner om hur du genererar en SSH-nyckel finns i [Skapa SSH-nycklar på Linux och Mac för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-   * **Användarnamn**: Ange den virtuella datorns administratörsnamn.
+   * **Användar namn**: Ange administratörs namnet för den virtuella datorn.
    * **Offentlig SSH-nyckel**: Ange din offentliga RSA-nyckel.
-   * **Offentliga inkommande portar**: Välj **Tillåt valda portar** och välj porten **SSH (22)** i listan **Välj offentliga ingående portar**. I den här snabbstarten är det här steget nödvändigt för att ansluta och slutföra SQL Server-konfigurationen. Om du vill fjärransluta till SQL Server kan du också välja **MS SQL (1433)** för att öppna port 1433 för anslutningar över Internet.
+   * **Offentliga inkommande portar**: Välj **Tillåt valda portar** och välj **SSH-porten (22)** i listan **Välj offentliga inkommande portar** . I den här snabbstarten är det här steget nödvändigt för att ansluta och slutföra SQL Server-konfigurationen. Om du vill fjärrans luta till SQL Server måste du manuellt tillåta trafik till standard porten (1433) som används av Microsoft SQL Server för anslutningar via Internet när den virtuella datorn har skapats.
 
-   ![Ingående portar](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+     ![Ingående portar](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
 1. Gör de ändringar du vill i inställningarna i följande ytterligare flikar eller behåll standardinställningarna.
     * **Diskar**

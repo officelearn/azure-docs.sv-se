@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: eb13e6d279ffd8efc0cdb5ce675b77aac5be9c18
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3cec6ee9368b1d9d1f2c9a627108aaf41c6da3c3
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436624"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819847"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
@@ -34,6 +34,27 @@ Den här metoden, till skillnad från klassiska Time Series-metoder, har en för
 Du kan [Konfigurera](#config) hur långt i framtiden prognosen ska utsträckas (prognos Horisont) samt lags med mera. Med automatisk ML får du en enda, men ofta ingrenad modell för alla objekt i data uppsättningen och förutsägelserna. Mer data är därför tillgängliga för att uppskatta modell parametrar och generalisering till osett-serien blir möjlig.
 
 Funktioner som har extraherats från tränings data spelar en viktig roll. Och automatiserade ML utför standard för bearbetnings steg och genererar ytterligare tids serie funktioner för att fånga säsongs effekter och maximera förutsägelse noggrannhet.
+
+## <a name="time-series-and-deep-learning-models"></a>Tids serie-och djup inlärnings modeller
+
+
+Med automatisk ML får användare både interna Time-och djup inlärnings modeller som en del av rekommendations systemet. Dessa lärare är:
++ Prophet
++ ARIMA automatiskt
++ ForecastTCN
+
+Med automatiserad MLs djup inlärning kan du prognostisera univariate-och multivarierad Time Series-data.
+
+Djup inlärnings modeller har tre inbyggda capbailities:
+1. De kan lära sig från valfria mappningar från indata till utdata
+1. De stöder flera indata och utdata
+1. De kan automatiskt extrahera mönster i indata som sträcker sig över långa sekvenser
+
+Med större data kan djup inlärnings modeller, till exempel Microsofts "ForecasTCN, förbättra poängen i den resulterande modellen. 
+
+Interna Time Series-läraare tillhandahålls också som en del av automatiserad ML. Prophet fungerar bäst med tids serier som har starka säsongs effekter och flera säsonger av historiska data. Prophet är korrekt & snabbt, robust för att kunna avvika, saknade data och dramatiska ändringar i din tids serie. 
+
+Autoregressivt Integrated glidande medelvärde (ARIMA) är en populär statistisk metod för tids serie prognoser. Den här metoden för Prognosticering används ofta på kort sikts scenarier där data visar bevis på trender, till exempel cykler, som kan vara oförutsägbara och svåra för modeller eller prognoser. AutoARIMA omvandlar dina data till station ära data för att få konsekventa, pålitliga resultat.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -56,7 +77,7 @@ Den viktigaste skillnaden mellan en typ av Regressions Regressions typ och Regre
     9/7/2018,A,2450,36
     9/7/2018,B,650,36
 
-Den här data uppsättningen är ett enkelt exempel på dagliga försäljnings data för ett företag som har två olika butiker, A och B. Dessutom finns det en funktion för `week_of_year` som gör det möjligt för modellen att identifiera vecko säsongs beroende. Fältet `day_datetime` representerar en ren tids serie med en daglig frekvens och fältet `sales_quantity` är mål kolumnen för att köra förutsägelser. Läs data till en Pandas-dataframe och Använd sedan funktionen `to_datetime` för att se till att tids serien är en `datetime`-typ.
+Den här data uppsättningen är ett enkelt exempel på dagliga försäljnings data för ett företag som har två olika butiker, A och B. Dessutom finns det en funktion för `week_of_year` som gör att modellen kan identifiera varje veckas säsongs beroende. Fältet `day_datetime` representerar en ren tids serie med den dagliga frekvensen och fältet `sales_quantity` är mål kolumnen för att köra förutsägelser. Läs data till en Pandas-dataframe och Använd sedan funktionen `to_datetime` för att se till att tids serien är en `datetime` typ.
 
 ```python
 import pandas as pd
@@ -64,7 +85,7 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-I det här fallet sorteras data redan stigande efter Time-fältet `day_datetime`. Men när du konfigurerar ett experiment ser du till att kolumnen önskad tid sorteras i stigande ordning för att skapa en giltig tids serie. Anta att data innehåller 1 000 poster och gör en deterministisk delning i data för att skapa utbildnings-och test data uppsättningar. Identifiera etikettens kolumn namn och ange den som etikett. I det här exemplet är etiketten `sales_quantity`. Avgränsa sedan etikett fältet från `test_data` för att bilda `test_target`-uppsättningen.
+I det här fallet sorteras data redan stigande efter Time-fältet `day_datetime`. Men när du konfigurerar ett experiment ser du till att kolumnen önskad tid sorteras i stigande ordning för att skapa en giltig tids serie. Anta att data innehåller 1 000 poster och gör en deterministisk delning i data för att skapa utbildnings-och test data uppsättningar. Identifiera etikettens kolumn namn och ange den som etikett. I det här exemplet kommer etiketten att `sales_quantity`. Separera sedan etikett fältet från `test_data` för att skapa `test_target`s uppsättningen.
 
 ```python
 train_data = data.iloc[:950]
@@ -101,7 +122,7 @@ Objektet `AutoMLConfig` definierar de inställningar och data som krävs för en
 
 Mer information finns i [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) .
 
-Skapa tids serie inställningarna som ett Dictionary-objekt. Ange `time_column_name` till fältet `day_datetime` i data uppsättningen. Definiera parametern `grain_column_names` för att säkerställa att **två separata tids serie grupper** skapas för data. en för Store A och B. Ange slutligen `max_horizon` till 50 för att förutsäga för hela test uppsättningen. Ange en prognos period på 10 perioder med `target_rolling_window_size` och ange en enda fördröjning på målvärdena för 2 perioder i förväg med parametern `target_lags`.
+Skapa tids serie inställningarna som ett Dictionary-objekt. Ange `time_column_name` till fältet `day_datetime` i data uppsättningen. Definiera parametern `grain_column_names` för att se till att **två separata tids serie grupper** skapas för data. en för Store A och B. Ange slutligen `max_horizon` till 50 för att förutsäga för hela test uppsättningen. Ange en prognos period på 10 perioder med `target_rolling_window_size`och ange en enda fördröjning på målvärdena för 2 perioder i förväg med parametern `target_lags`.
 
 ```python
 time_series_settings = {
@@ -173,9 +194,9 @@ predict_labels = fitted_model.predict(test_data)
 actual_labels = test_labels.flatten()
 ```
 
-Du kan också använda funktionen `forecast()` i stället för `predict()`, vilket gör det möjligt att ange när förutsägelserna ska starta. I följande exempel ersätter du först alla värden i `y_pred` med `NaN`. Prognosens ursprung är i slutet av tränings data i det här fallet, eftersom det normalt skulle vara när du använder `predict()`. Men om du bara ersatte den andra halvan av `y_pred` med `NaN` lämnar funktionen de numeriska värdena i den första halvan oförändrade, men prognoserar värdena för @no__t 2 i den andra halvan. Funktionen returnerar både de beräknade värdena och de justerade funktionerna.
+Du kan också använda funktionen `forecast()` i stället för `predict()`, vilket gör det möjligt att ange när förutsägelserna ska starta. I följande exempel ersätter du först alla värden i `y_pred` med `NaN`. Prognosens ursprung är i slutet av tränings data i det här fallet, eftersom det normalt skulle vara när du använder `predict()`. Men om du bara ersatte den andra halvan av `y_pred` med `NaN`, lämnar funktionen de numeriska värdena i den första halvan oförändrade, men prognoserar `NaN` värdena i den andra halvan. Funktionen returnerar både de beräknade värdena och de justerade funktionerna.
 
-Du kan också använda parametern `forecast_destination` i funktionen `forecast()` för att beräkna värden fram till ett visst datum.
+Du kan också använda parametern `forecast_destination` i `forecast()`-funktionen för att beräkna värden fram till ett visst datum.
 
 ```python
 label_query = test_labels.copy().astype(np.float)
@@ -184,7 +205,7 @@ label_fcst, data_trans = fitted_pipeline.forecast(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-Beräkna RMSE (rot genomsnitts fel) mellan de faktiska värdena i `actual_labels` och de prognostiserade värdena i `predict_labels`.
+Beräkna RMSE (rot genomsnitts fel) mellan `actual_labels` faktiska värdena och de prognostiserade värdena i `predict_labels`.
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -194,7 +215,7 @@ rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
 rmse
 ```
 
-Nu när den övergripande modell precisionen har fastställts är det mest realistiska nästa steg att använda modellen för att förutsäga okända framtida värden. Du behöver bara ange en data uppsättning i samma format som test uppsättningen `test_data` men med framtida datetime-värden och den resulterande förutsägelse uppsättningen är de prognostiserade värdena för varje tids serie steg. Anta att de senaste tid serie posterna i data uppsättningen var i 12/31/2018. Om du vill prognostisera efter frågan för nästa dag (eller så många perioder som du behöver prognos, < = `max_horizon`), skapar du en enda tids serie post för varje butik för 01/01/2019.
+Nu när den övergripande modell precisionen har fastställts är det mest realistiska nästa steg att använda modellen för att förutsäga okända framtida värden. Du behöver bara ange en data uppsättning i samma format som test uppsättningen `test_data` men med framtida datetime-värden och den resulterande förutsägelse uppsättningen är de prognostiserade värdena för varje tids serie steg. Anta att de senaste tid serie posterna i data uppsättningen var i 12/31/2018. Om du vill prognostisera efter frågan för nästa dag (eller så många perioder som du behöver prognos, < = `max_horizon`), skapar du en post för en tids serie för varje butik för 01/01/2019.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1

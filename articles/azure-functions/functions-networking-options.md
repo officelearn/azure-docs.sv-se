@@ -1,23 +1,22 @@
 ---
 title: Azure Functions nätverks alternativ
 description: En översikt över alla nätverks alternativ som är tillgängliga i Azure Functions
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: bf5ce8da2ce62a5da821588c8f635bbab04dd3c1
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690831"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881574"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions nätverks alternativ
 
-I den här artikeln beskrivs de nätverksfunktioner som är tillgängliga i värd alternativen för Azure Functions. Alla följande nätverks alternativ ger viss möjlighet att komma åt resurser utan att använda Internet adresser som inte är flyttbara eller begränsa Internet åtkomst till en Function-app. 
+I den här artikeln beskrivs de nätverksfunktioner som är tillgängliga i värd alternativen för Azure Functions. Alla följande nätverks alternativ ger viss möjlighet att komma åt resurser utan att använda Internet adresser som inte är flyttbara eller begränsa Internet åtkomst till en Function-app.
 
 Värd modellerna har olika nivåer av nätverks isolering tillgänglig. Genom att välja rätt kan du uppfylla kraven på nätverks isolering.
 
@@ -39,7 +38,6 @@ Du kan vara värd för funktions appar på ett par olika sätt:
 |[Hybridanslutningar](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
 |[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
-
 ## <a name="inbound-ip-restrictions"></a>Inkommande IP-begränsningar
 
 Du kan använda IP-begränsningar för att definiera en prioriterad lista med IP-adresser som tillåts/nekas åtkomst till din app. Listan kan innehålla IPv4-och IPv6-adresser. När det finns en eller flera poster finns implicit "Neka alla" i slutet av listan. IP-begränsningar fungerar med alla funktions värd alternativ.
@@ -51,8 +49,9 @@ Läs mer i [Azure App Service statiska åtkomst begränsningar](../app-service/a
 
 ## <a name="private-site-access"></a>Åtkomst till privat plats
 
-Åtkomst till privata webbplatser syftar bara på att göra appen tillgänglig från ett privat nätverk, till exempel från ett virtuellt Azure-nätverk. 
-* Åtkomst till privata webbplatser är tillgängligt i [Premium](./functions-premium-plan.md), [förbrukning], (Function-Scale. MD # förbrukning-plan) och [App Service plan](functions-scale.md#app-service-plan) när **tjänst slut punkter** konfigureras. 
+Åtkomst till privata webbplatser syftar bara på att göra appen tillgänglig från ett privat nätverk, till exempel från ett virtuellt Azure-nätverk.
+
+* Åtkomst till privata webbplatser är tillgängligt i [Premium](./functions-premium-plan.md)-, [förbruknings](functions-scale.md#consumption-plan) -och [App Service plan](functions-scale.md#app-service-plan) när **tjänst slut punkter** konfigureras.
     * Tjänstens slut punkter kan konfigureras per app under plattforms funktioner > nätverks > Konfigurera åtkomst begränsningar > Lägg till regel. Virtuella nätverk kan väljas nu som "typ" för en regel.
     * Mer information finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md)
         * Tänk på att med tjänst slut punkter har din funktion fortfarande fullständig utgående åtkomst till Internet, även om du har konfigurerat Virtual Network-integrering.
@@ -64,14 +63,14 @@ Med integrering med virtuella nätverk får du till gång till resurser i ett vi
 
 Du kan använda integrering med virtuella nätverk för att ge åtkomst från appar till databaser och webb tjänster som körs i det virtuella nätverket. Med Virtual Network-integrering behöver du inte exponera en offentlig slut punkt för program på den virtuella datorn. Du kan använda privata, icke-Internet-dirigerbart adresser i stället.
 
-Det finns två formulär för funktionen för integrering av virtuella nätverk
+Det finns två former av integrering av virtuella nätverk:
 
-1. Regional integrering av virtuella nätverk möjliggör integrering med virtuella nätverk i samma region. Den här typen av funktion kräver ett undernät i ett virtuellt nätverk i samma region. Den här funktionen är fortfarande i för hands version men stöds för arbets belastningar för Windows-programproduktioner med vissa villkor som anges nedan.
-2. Gateway krävs virtuell nätverks integrering möjliggör integrering med virtuella nätverk i fjärrregioner eller med klassiska virtuella nätverk. Den här versionen av funktionen kräver distribution av en Virtual Network Gateway till ditt VNet. Det här är den punkt-till-plats-baserade VPN-baserade funktionen och stöds bara med Windows-appar.
++ **Regional integrering av virtuella nätverk (för hands version)** : möjliggör integrering med virtuella nätverk i samma region. Den här typen av integrering kräver ett undernät i ett virtuellt nätverk i samma region. Den här funktionen är fortfarande i för hands version, men stöds för Function-appar som körs i Windows, med de varningar som anges nedan.
++ **Gateway krävs virtuell nätverks integrering**: möjliggör integrering med virtuella nätverk i fjärrregioner eller med klassiska virtuella nätverk. Den här typen av integrering kräver distribution av en Virtual Network Gateway till ditt VNet. Det här är en punkt-till-plats-VPN-baserad funktion som bara stöds för Function-appar som körs i Windows.
 
-En app kan bara använda en form av funktionen VNet-integrering i taget. Frågan är sedan vilken funktion du ska använda. Du kan använda antingen för många saker. De tydliga differentieringarna är:
+En app kan bara använda en typ av funktionen VNet-integrering i taget. Även om båda är användbara för många scenarier anger följande tabell var varje ska användas:
 
-| Problem  | Lösning | 
+| Problem  | Lösning |
 |----------|----------|
 | Vill komma åt en RFC 1918-adress (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) i samma region | regional VNet-integrering |
 | Vill du komma åt resurser i ett klassiskt VNet eller ett VNet i en annan region | Gateway krävs VNet-integrering |
@@ -93,10 +92,11 @@ Funktionen för VNet-integrering:
 Det finns vissa saker som VNet-integrering inte stöder, inklusive:
 
 * Montering av en enhet
-* AD-integrering 
+* AD-integrering
 * NetBios
 
 Integrering av virtuella nätverk i functions använder delad infrastruktur med App Service Web Apps. Läs mer om de två typerna av integrering av virtuella nätverk i:
+
 * [Regional VNET-integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [Gateway krävs VNet-integrering](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
@@ -104,7 +104,7 @@ Mer information om hur du använder integrering med virtuella nätverk finns i [
 
 ## <a name="connecting-to-service-endpoint-secured-resources"></a>Ansluter till tjänst slut punktens säkra resurser
 
-> [!note] 
+> [!NOTE]
 > Tillfälligt kan det ta upp till 12 timmar innan nya tjänst slut punkter blir tillgängliga för din Function-app när du konfigurerar åtkomst begränsningar för den underordnade resursen. Under den här tiden är resursen helt otillgänglig för din app.
 
 För att tillhandahålla en högre säkerhets nivå kan du begränsa ett antal Azure-tjänster till ett virtuellt nätverk med hjälp av tjänst slut punkter. Du måste sedan integrera din Function-app med det virtuella nätverket för att få åtkomst till resursen. Den här konfigurationen stöds på alla planer som stöder integrering av virtuella nätverk.
@@ -112,10 +112,11 @@ För att tillhandahålla en högre säkerhets nivå kan du begränsa ett antal A
 [Läs mer om tjänst slut punkter för virtuella nätverk här.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
 ### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk
+
 När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring. Det går för närvarande inte att använda några begränsningar för virtuella nätverk på det här kontot. Om du konfigurerar en tjänst slut punkt för virtuellt nätverk på det lagrings konto som du använder för din Function-app kommer appen att brytas.
 
 [Läs mer om krav för lagrings konton här.](./functions-create-function-app-portal.md#storage-account-requirements
-) 
+)
 
 ## <a name="virtual-network-triggers-non-http"></a>Virtuella nätverks utlösare (icke-HTTP)
 
@@ -140,6 +141,7 @@ Utgående IP-begränsningar är bara tillgängliga för funktioner som distribue
 När du integrerar en Function-app i en Premium-plan eller App Service plan med ett virtuellt nätverk kan appen fortfarande göra utgående anrop till Internet.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Lär dig mer om nätverk och Azure Functions: 
 
 * [Följ självstudien om att komma igång med integrering av virtuella nätverk](./functions-create-vnet.md)

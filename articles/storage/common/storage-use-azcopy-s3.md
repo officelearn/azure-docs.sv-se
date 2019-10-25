@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 73eed48bd34a8c8d81a66872888ebf5481074648
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: b984d194c75924451a52250490b1a5590b996974
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274103"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821379"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Kopiera data från Amazon S3-buckets med hjälp av AzCopy
 
@@ -52,6 +52,9 @@ AzCopy använder plats [blocket från URL](https://docs.microsoft.com/rest/api/s
 
 > [!IMPORTANT]
 > Den här funktionen är för närvarande en förhandsversion. Om du bestämmer dig för att ta bort data från S3-buckets efter en kopierings åtgärd, kontrollerar du att data har kopierats korrekt till ditt lagrings konto innan du tar bort data.
+
+> [!TIP]
+> Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
 
 ### <a name="copy-an-object"></a>Kopiera ett objekt
 
@@ -123,11 +126,11 @@ AzCopy utför följande steg:
 
 1. Ersätter ogiltiga tecken med _.
 
-2. Lägger till strängen `rename_` till början av en ny giltig nyckel.
+2. Lägger till sträng `rename_` till början av en ny giltig nyckel.
 
    Den här nyckeln används för att spara det ursprungliga metadata- **värdet**.
 
-3. Lägger till strängen `rename_key_` till början av en ny giltig nyckel.
+3. Lägger till sträng `rename_key_` till början av en ny giltig nyckel.
    Den här nyckeln används för att spara de ursprungliga metadata- **nyckeln**är ogiltig.
    Du kan använda den här nyckeln för att försöka återställa metadata på Azure-sidan eftersom metadata-nyckeln bevaras som ett värde i Blob Storage-tjänsten.
 

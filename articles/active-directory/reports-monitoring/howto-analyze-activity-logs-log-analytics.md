@@ -1,5 +1,5 @@
 ---
-title: Analysera Azure Active Directory aktivitets loggar med hjälp av Azure Monitor loggar | Microsoft Docs
+title: Analysera aktivitets loggar med Azure Monitor loggar | Microsoft Docs
 description: Lär dig hur du analyserar Azure Active Directory aktivitets loggar med Azure Monitor loggar
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1670c93f83ecd6f5bd557d24ec754998a225db0c
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 52ab1bd445f8af0bf58dcb6b1176904aa073877a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255619"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820960"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analysera Azure AD-aktivitets loggar med Azure Monitor loggar
 
@@ -61,7 +61,7 @@ Loggarna skickas till tabellerna **AuditLogs** och **SigninLogs** i arbets ytan.
 1. Från vyn standard fråga i föregående avsnitt väljer du **schema** och expanderar arbets ytan. 
 
 2. Expandera avsnittet **logg hantering** och expandera sedan antingen **AuditLogs** eller **SignInLogs** för att Visa logg schema.
-    ![Audit loggar @ no__t-1 ![Signin loggar @ no__t-3
+    ![gransknings loggar](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![loggar loggar](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Fråga Azure AD-aktivitets loggarna
 

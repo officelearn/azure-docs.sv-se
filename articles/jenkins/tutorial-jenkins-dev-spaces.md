@@ -1,22 +1,20 @@
 ---
-title: Använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubenetes-tjänsten
+title: Använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubernetes-tjänsten
 description: Lär dig hur du använder plugin-programmet för Azure dev Spaces i en pipeline för kontinuerlig integrering.
 author: tomarchermsft
 ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/31/2019
-ms.openlocfilehash: 3d5e8ba8a29481a6f37ffd10f577d354fc5fbf0a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/23/2019
+ms.openlocfilehash: 7bc2bb63f1382d1c7fd7e436dd5ddfa278262526
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161483"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881884"
 ---
-<!-- GMinchAQ, 06/18/19 -->
-
-# <a name="tutorial-using-the-azure-dev-spaces-plugin-for-jenkins-with-azure-kubenetes-service"></a>Självstudier: Använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubenetes-tjänsten 
+# <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Självstudie: använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubernetes-tjänsten 
 
 Med Azure dev Spaces kan du testa och iterativt utveckla ditt mikroservice-program som körs i Azure Kubernetes service (AKS) utan att behöva replikera eller modellera beroenden. Med plugin-programmet för Azure dev Spaces för Jenkins kan du använda dev-utrymmen i pipeline för kontinuerlig integrering och leverans (CI/CD).
 
@@ -32,7 +30,7 @@ I den här självstudien får du utföra följande uppgifter:
 
 Den här självstudien förutsätter mellanliggande kunskaper om grundläggande Azure-tjänster, AKS, ACR, Azure dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) och plugin-program och GitHub. Grundläggande kunskaper om support verktyg som kubectl och Helm är till hjälp.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -88,9 +86,9 @@ I det här avsnittet skapar du ett dev-utrymme och distribuerar ett exempel prog
 
 Mer information om hur du använder Azure dev Spaces och multi-service-utveckling med Azure dev Spaces finns i [komma igång med Azure dev Spaces med Java](https://docs.microsoft.com/azure/dev-spaces/get-started-java)och [utveckling av flera tjänster med Azure dev Spaces](https://docs.microsoft.com/azure/dev-spaces/multi-service-java). De här självstudierna innehåller ytterligare bakgrunds information som inte ingår här.
 
-1. https://github.com/Azure/dev-spaces Hämta lagrings platsen från GitHub.
+1. Hämta https://github.com/Azure/dev-spaces lagrings platsen från GitHub.
 
-2. `samples/java/getting-started/webfrontend` Öppna mappen i vs Code. (Du kan ignorera eventuella standarduppmaningar om att lägga till felsökningstillgångar eller återställa projektet.)
+2. Öppna mappen `samples/java/getting-started/webfrontend` i VS Code. (Du kan ignorera eventuella standarduppmaningar om att lägga till felsökningstillgångar eller återställa projektet.)
 
 3. Uppdatera `/src/main/java/com/ms/sample/webfrontend/Application.java` för att se ut så här:
 
@@ -124,26 +122,26 @@ Mer information om hur du använder Azure dev Spaces och multi-service-utvecklin
 
 4. Klicka på **Visa** och sedan **Terminal** för att öppna den integrerade terminalen i vs Code.
 
-5. `azds prep` Kör kommandot för att förbereda ditt program så att det körs i ett dev-utrymme. Det här kommandot måste köras från `dev-spaces/samples/java/getting-started/webfrontend` för att programmet ska förberedas korrekt:
+5. Kör kommandot `azds prep` för att förbereda ditt program så att det körs i ett dev-utrymme. Det här kommandot måste köras från `dev-spaces/samples/java/getting-started/webfrontend` för att förbereda programmet korrekt:
 
     ```bash
     azds prep --public
     ```
 
-    `azds prep` Kommandot dev Spaces CLI genererar Docker-och Kubernetes-tillgångar med standardinställningar. Dessa filer behålls under projektets livs längd och kan anpassas:
+    `azds prep` kommandot för dev Spaces CLI genererar Docker-och Kubernetes-tillgångar med standardinställningar. Dessa filer behålls under projektets livs längd och kan anpassas:
 
-    * `./Dockerfile`och `./Dockerfile.develop` beskriver appens behållar avbildning och hur käll koden skapas och körs i behållaren.
+    * `./Dockerfile` och `./Dockerfile.develop` beskriver appens behållar avbildning och hur käll koden skapas och körs i behållaren.
     * Ett [Helm-diagram](https://helm.sh/docs/developing_charts/) under `./charts/webfrontend` beskriver hur du distribuerar containern till Kubernetes.
-    * `./azds.yaml`är konfigurations filen för Azure dev Spaces.
+    * `./azds.yaml` är konfigurations filen för Azure dev Spaces.
 
     Mer information finns i [så här fungerar Azure dev Spaces och har kon figurer ATS](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
 
-6. Skapa och kör programmet i AKS med `azds up` kommandot:
+6. Skapa och kör programmet i AKS med kommandot `azds up`:
 
     ```bash
     azds up
     ```
-    <a name="test_endpoint"></a>Sök igenom konsolens utdata för information om den URL som skapades av `up` kommandot. Den kommer att vara i formen:
+    <a name="test_endpoint"></a>Sök igenom konsolens utdata för information om den URL som skapades med kommandot `up`. Den kommer att vara i formen:
 
     ```bash
     (pending registration) Service 'webfrontend' port 'http' will be available at '<url>'
@@ -153,7 +151,7 @@ Mer information om hur du använder Azure dev Spaces och multi-service-utvecklin
 
 8. Sedan ställer du in och distribuerar *mywebapi*:
 
-    1. Ändra katalog till`dev-spaces/samples/java/getting-started/mywebapi`
+    1. Ändra katalog till `dev-spaces/samples/java/getting-started/mywebapi`
 
     2. Kör
 
@@ -196,7 +194,7 @@ Exempel pipelinen använder Helm och kubectl för att distribuera till dev-ytan.
 
 1. Skapa en SSH-anslutning till Jenkins-huvudservern. 
 
-2. Växla till `jenkins` användaren:
+2. Växla till `jenkins` användare:
     ```bash
     sudo su jenkins
     ```
@@ -207,7 +205,7 @@ Exempel pipelinen använder Helm och kubectl för att distribuera till dev-ytan.
 
 ### <a name="add-credentials-to-jenkins"></a>Lägg till autentiseringsuppgifter i Jenkins
 
-1. Jenkins behöver ett Azure-tjänstens huvud namn för att autentisera och komma åt Azure-resurser. Om du vill skapa tjänstens huvud namn läser du avsnittet [skapa tjänstens huvud namn](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) i självstudien distribuera till Azure App Service. Se till att spara en kopia av utdata från `create-for-rbac` eftersom du behöver den informationen för att slutföra nästa steg. Utdata kommer att se ut ungefär så här:
+1. Jenkins behöver ett Azure-tjänstens huvud namn för att autentisera och komma åt Azure-resurser. Information om hur du skapar tjänstens huvud namn finns i avsnittet [skapa tjänstens huvud namn](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) i självstudien distribuera till Azure App Service. Se till att spara en kopia av utdata från `create-for-rbac` eftersom du behöver informationen för att slutföra nästa steg. Utdata kommer att se ut ungefär så här:
 
     ```json
     {
@@ -221,11 +219,11 @@ Exempel pipelinen använder Helm och kubectl för att distribuera till dev-ytan.
 
 2. Lägg till en *Microsoft Azure tjänstens* typ av autentiseringsuppgifter i Jenkins med hjälp av tjänstens huvud namns information från föregående steg. Namnen i skärm bilden nedan motsvarar utdata från `create-for-rbac`.
 
-    Fältet **ID** är namnet på Jenkins-autentiseringsuppgiften för tjänstens huvud namn. Exemplet använder värdet `displayName` (i den här `xxxxxxxjenkinssp`instansen), men du kan använda vilken text du vill. Det här namnet på autentiseringsuppgifter är värdet för miljövariabeln AZURE_CRED_ID i nästa avsnitt.
+    Fältet **ID** är namnet på Jenkins-autentiseringsuppgiften för tjänstens huvud namn. Exemplet använder värdet för `displayName` (i den här instansen `xxxxxxxjenkinssp`), men du kan använda vilken text du vill. Det här namnet på autentiseringsuppgifter är värdet för miljövariabeln AZURE_CRED_ID i nästa avsnitt.
 
     ![Lägg till autentiseringsuppgifter för tjänstens huvud namn i Jenkins](media/tutorial-jenkins-dev-spaces/add-service-principal-credentials.png)
 
-    **Beskrivningen** är valfri. Mer detaljerad information finns i avsnittet [lägga till tjänstens huvud namn i Jenkins](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) i självstudien distribuera till Azure App Service. 
+    **Beskrivningen** är valfri. Mer detaljerade instruktioner finns i avsnittet [lägga till tjänstens huvud namn i Jenkins](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) i självstudien distribuera till Azure App Service. 
 
 
 
@@ -253,7 +251,7 @@ Exempel pipelinen använder Helm och kubectl för att distribuera till dev-ytan.
     }
     ```
 
-4. Lägg till ett *användar namn med autentiseringstypen lösen ord* i Jenkins. **Användar namnet** är användar namnet från det sista steget, i det här `acr01`exemplet. **Lösen ordet** är värdet för det första lösen ordet, i det här `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`exemplet. **ID: t** för den här autentiseringsuppgiften är värdet för ACR_CRED_ID.
+4. Lägg till ett *användar namn med autentiseringstypen lösen ord* i Jenkins. **Användar namnet** är användar namnet från det sista steget, i det här exemplet `acr01`. **Lösen ordet** är värdet för det första lösen ordet, i det här exemplet `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`. **ID: t** för den här autentiseringsuppgiften är värdet för ACR_CRED_ID.
 
 5. Konfigurera en AKS-autentiseringsuppgift. Lägg till en *Kubernetes (kubeconfig)* -autentiseringstyp i Jenkins (Använd alternativet "Ange direkt"). Kör följande kommando för att få åtkomst behörighet för ditt AKS-kluster:
 
@@ -265,7 +263,7 @@ Exempel pipelinen använder Helm och kubectl för att distribuera till dev-ytan.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-Scenariot som valts för exempel pipelinen baseras på ett verkligt mönster: En pull-begäran utlöser en CI-pipeline som bygger och distribuerar de föreslagna ändringarna i ett Azure dev-utrymme för testning och granskning. Beroende på resultatet av granskningen slås ändringarna samman och distribueras till AKS eller ignoreras. Slutligen tas dev-utrymmet bort.
+Scenariot som valts för exempel pipelinen baseras på ett reellt mönster: en pull-begäran utlöser en CI-pipeline som bygger och distribuerar de föreslagna ändringarna i ett Azure dev-utrymme för testning och granskning. Beroende på resultatet av granskningen slås ändringarna samman och distribueras till AKS eller ignoreras. Slutligen tas dev-utrymmet bort.
 
 Jenkins pipeline-konfiguration och Jenkinsfile definierar stegen i CI-pipeline. Det här flödesschemat visar pipeline-stegen och besluts punkterna som definieras av Jenkinsfile:
 
@@ -304,7 +302,7 @@ Jenkins pipeline-konfiguration och Jenkinsfile definierar stegen i CI-pipeline. 
 
 7. Välj **pipeline-skript från SCM** i **pipeline > definition**.
 8. I **SCM**väljer du **git** och anger sedan din lagrings platsen-URL.
-9. I **gren specifikation**anger `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`du.
+9. I **gren specifikation**anger du `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
 10. Fyll i URL: en för SCM-lagrings platsen och skript Sök vägen "Jenkinsfile".
 11. **Förenklad utcheckning** bör kontrol leras.
 
@@ -355,13 +353,13 @@ För att slutföra steg 3 i det här avsnittet måste du kommentera en del av Je
 
     1. Öppna webbläsaren och gå till den delade versionen `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. TEST_ENDPOINT innehåller URL: en.
 
-    2. Öppna en annan flik och ange sedan PR dev Space-URL: en. Det ser ut ungefär så `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`här. Du hittar länken i **versions historik > < build # > > konsolens utdata** för Jenkins-jobbet. Sök på sidan för `aksapp`eller Visa endast prefixet genom att söka efter. `azdsprefix`
+    2. Öppna en annan flik och ange sedan PR dev Space-URL: en. Det ser ut ungefär som `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. Du hittar länken i **versions historik > < build # > > konsolens utdata** för Jenkins-jobbet. Sök efter `aksapp`på sidan, eller Visa endast prefixet genom att söka efter `azdsprefix`.
 
  
 
 ### <a name="constructing-the-url-to-the-child-dev-space"></a>Skapa URL: en till det underordnade dev-utrymmet
 
-När du arkiverar en pull-begäran skapar Jenkins ett underordnat dev-utrymme baserat på teamets delade dev-utrymme och kör koden från din pull-begäran i det underordnade dev-utrymmet. URL: en till det underordnade dev-området tar `http://$env.azdsprefix.<test_endpoint>`formuläret. 
+När du arkiverar en pull-begäran skapar Jenkins ett underordnat dev-utrymme baserat på teamets delade dev-utrymme och kör koden från din pull-begäran i det underordnade dev-utrymmet. URL: en till det underordnade dev-området tar formuläret `http://$env.azdsprefix.<test_endpoint>`. 
 
 **$ENV. azdsprefix** anges under pipeline-körningen av Azure dev Spaces-plugin-programmet med **devSpacesCreate**:
 
@@ -376,9 +374,9 @@ stage('create dev space') {
 }
 ```
 
-Är URL: en till den webfrontend-app som du tidigare har `azds up`distribuerat med i [distribuera exempel program till AKS-klustret, steg 7.](#test_endpoint) `test_endpoint` Värdet för `$env.TEST_ENDPOINT` anges i pipeline-konfigurationen. 
+`test_endpoint` är URL: en till den webfrontend-app som du tidigare har distribuerat med `azds up`i [distribuera exempel program till AKS-klustret, steg 7](#test_endpoint). Värdet för `$env.TEST_ENDPOINT` anges i pipeline-konfigurationen. 
 
-Följande kodfragment visar hur den underordnade dev Space-URL: en används i `smoketest` scenen. Koden kontrollerar om den underordnade dev Space-TEST_ENDPOINT är tillgänglig, och i så fall hämtar hälsnings texten till stdout:
+Följande kodfragment visar hur den underordnade dev Space-URL: en används i `smoketest`-fasen. Koden kontrollerar om den underordnade dev Space-TEST_ENDPOINT är tillgänglig, och i så fall hämtar hälsnings texten till stdout:
 
 ```Groovy
 stage('smoketest') {

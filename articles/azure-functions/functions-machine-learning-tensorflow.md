@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: dbf2b4b5113598fee742c3864bede782a624773c
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677887"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817453"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Självstudie: använda Machine Learning-modeller i Azure Functions med python och TensorFlow
 
@@ -114,7 +114,7 @@ func new --language python --template HttpTrigger --name classify
 
 En ny mapp med namnet *klassificera* skapas, som innehåller två filer.
 
-- *\_ \_init \_ \_. py*: en fil för huvud funktionen
+- *\_\_init\_\_. py*: en fil för huvud funktionen
 - *Function. JSON*: en fil som beskriver funktionens utlösare och dess indata och utdata-bindningar
 
 ### <a name="run-the-function"></a>Kör funktionen
@@ -179,7 +179,7 @@ Bekräfta att *klassificerar* nu innehåller en fil med namnet *predict.py*.
 Hjälp biblioteket har vissa beroenden som måste installeras. Öppna *Start/Requirements. txt* i redigeraren och Lägg till följande beroenden i filen.
 
 ```txt
-tensorflow==1.15
+tensorflow==1.14
 Pillow
 requests
 ```
@@ -200,7 +200,7 @@ Mer information om globala variabler finns i [Azure Functions python Developer G
 
 ## <a name="update-function-to-run-predictions"></a>Uppdaterings funktion för att köra förutsägelser
 
-Öppna *klassificera/\_ \_init \_ \_. py* i redigeraren. Importera det *förutsägelse* bibliotek som du har lagt till i samma mapp tidigare. Lägg till följande `import`-instruktioner under de andra importerna som redan finns i filen.
+Öppna *klassificera/\_\_init\_\_. py* i redigeraren. Importera det *förutsägelse* bibliotek som du har lagt till i samma mapp tidigare. Lägg till följande `import`-instruktioner under de andra importerna som redan finns i filen.
 
 ```python
 import json

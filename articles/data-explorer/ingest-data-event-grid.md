@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9557923fc2228e8508acaa7e15d1729ac3d29538
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d3f5ef9d2c3359dc61c32d4971100b096b004f2f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028371"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881550"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Mata in blobbar i Azure Datautforskaren genom att prenumerera på Event Grid meddelanden
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-event-grid.md)
+> * [Portalen](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 
@@ -25,7 +25,7 @@ Azure Datautforskaren är en snabb och skalbar data utforsknings tjänst för lo
 
 I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/azure/event-grid/overview) prenumeration och dirigerar händelser till Azure datautforskaren via en Event Hub. Innan du börjar bör du ha ett lagrings konto med en Event Grid-prenumeration som skickar meddelanden till Azure Event Hubs. Sedan skapar du en Event Grid data anslutning och ser data flödet i systemet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 * [Ett kluster och en databas](create-cluster-database-portal.md).
@@ -43,7 +43,7 @@ I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
-    | Name | *test-grid-connection* | Namnet på det händelse rutnät som du vill skapa.|
+    | Namn | *test-grid-connection* | Namnet på det händelse rutnät som du vill skapa.|
     | Händelseschema | *Event Grid schema* | Det schema som ska användas för Event Grid. |
     | Typ av ämne | *Lagringskonto* | Typ av Event Grid-ämne. |
     | Ämnesresurs | *gridteststorage* | Namnet på ditt lagringskonto. |
@@ -53,7 +53,7 @@ I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/
     | Slutpunkt | *test-hub* | Händelsehubben som du skapade. |
     | | |
 
-1. Välj fliken **Ytterligare funktioner** om du vill spåra filer från en specifik container. Ange filter för meddelanden på följande sätt:
+1. Välj fliken **filter** om du vill spåra filer från en speciell behållare. Ange filter för meddelanden på följande sätt:
     * Fältet **subject börjar med** är det *litterala* prefixet för BLOB-behållaren. När mönstret som används är *StartsWith*kan det sträcka sig över flera behållare. Jokertecken får inte användas.
      Det *måste* anges enligt följande: *`/blobServices/default/containers/`* [containerprefix]
     * Fältet **Subject Ends With** (Ämnet slutar med) är det *literala* blobsuffixet. Jokertecken får inte användas.
@@ -94,7 +94,7 @@ Anslut nu till Event Grid från Azure Datautforskaren så att data som flödar t
 
     ![Datainhämtning](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  Välj Anslutnings typ: **BLOB-lagring**.
+1.  Välj Anslutnings typ: **Blob Storage**.
 
 1. Fyll i formuläret med följande information och välj **skapa**.
 
@@ -117,7 +117,7 @@ Anslut nu till Event Grid från Azure Datautforskaren så att data som flödar t
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
-    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. Komprimerings alternativ som stöds: Zip och GZip |
+    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. Komprimerings alternativ som stöds: zip och GZip |
     | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**.|
     | | |
     

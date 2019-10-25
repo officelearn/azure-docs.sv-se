@@ -1,5 +1,5 @@
 ---
-title: Så här installerar du och använder Log Analytics-vyer för Azure Active Directory | Microsoft Docs
+title: Så här installerar och använder du Log Analytics-vyer | Microsoft Docs
 description: Lär dig hur du installerar och använder Log Analytics-vyer för Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,33 +17,33 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb1241387144b691b76ec330a5f90b762ebc11f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 00bca8bca19f9a71c4eeb639017845987682661f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989793"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820906"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installera och Använd Log Analytics-vyerna för Azure Active Directory
 
 I vyerna Azure Active Directory Log Analytics kan du analysera och söka i Azure AD-aktivitets loggarna i Azure AD-klienten. I aktivitets loggarna för Azure AD ingår:
 
-* Gransknings loggar: [Aktivitets rapporten gransknings loggar](concept-audit-logs.md) ger dig till gång till historiken för alla uppgifter som utförs i din klient organisation.
-* Inloggnings loggar: Med [rapporten inloggnings aktivitet](concept-sign-ins.md)kan du bestämma vem som utförde de uppgifter som rapporteras i gransknings loggarna.
+* Gransknings loggar: [aktivitets rapporten gransknings loggar](concept-audit-logs.md) ger dig till gång till historiken för alla uppgifter som utförs i din klient organisation.
+* Inloggnings loggar: med [rapporten inloggnings aktivitet](concept-sign-ins.md)kan du bestämma vem som utförde de uppgifter som rapporteras i gransknings loggarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda Log Analytics-vyerna behöver du:
 
 * En Log Analytics arbets yta i din Azure-prenumeration. Lär dig hur du [skapar en arbets yta för Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Slutför först stegen för att [dirigera Azure AD-aktivitets loggarna till din Log Analytics-arbetsyta](howto-integrate-activity-logs-with-log-analytics.md).
-* Ladda ned vyerna från [GitHub](https://aka.ms/AADLogAnalyticsviews) -lagringsplatsen till den lokala datorn.
+* Ladda ned vyerna från [GitHub-lagringsplatsen](https://aka.ms/AADLogAnalyticsviews) till den lokala datorn.
 
 ## <a name="install-the-log-analytics-views"></a>Installera Log Analytics-vyer
 
 1. Navigera till din Log Analytics-arbetsyta. För att göra det går du först till [Azure Portal](https://portal.azure.com) och väljer **alla tjänster**. Skriv **Log Analytics** i text rutan och välj **Log Analytics arbets ytor**. Välj den arbets yta som du dirigerade aktivitets loggarna till, som en del av förutsättningarna.
 2. Välj **Visa designer**, Välj **Importera** och välj sedan **Välj fil** för att importera vyerna från den lokala datorn.
-3. Välj de vyer som du laddade ned från kraven och välj **Spara** för att spara importen. Gör detta för vyn **Azure AD-konto etablerings händelser** och inloggnings **händelser** .
+3. Välj de vyer som du laddade ned från kraven och välj **Spara** för att spara importen. Gör detta för vyn **Azure AD-konto etablerings händelser** och **inloggnings händelser** .
 
 ## <a name="use-the-views"></a>Använda vyerna
 
@@ -51,15 +51,15 @@ Om du vill använda Log Analytics-vyerna behöver du:
 
 2. När du är i arbets ytan väljer du **arbets ytans Sammanfattning**. Du bör se följande tre vyer:
 
-    * **Azure AD-konto etablerings händelser**: I den här vyn visas rapporter relaterade till gransknings etablerings aktivitet, till exempel antalet nya användare som har upprättat och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen och antalet användare som har upprättat och motsvarande problem.    
-    * **Inloggnings händelser**: I den här vyn visas de mest relevanta rapporterna om övervakning av inloggnings aktivitet, till exempel inloggningar av program, användare, enhet, samt en sammanfattningsvy som spårar antalet inloggningar över tid.
+    * **Azure AD-konto etablerings händelser**: i den här vyn visas rapporter om etablerings aktiviteter, till exempel antalet nya användare som har skapats och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen och antalet användare de har etablerats och motsvarande felen.    
+    * **Inloggnings händelser**: i den här vyn visas de mest relevanta rapporterna om övervakning av inloggnings aktivitet, till exempel inloggningar av program, användare, enhet, samt en sammanfattningsvy som spårar antalet inloggningar över tid.
 
 3. Välj någon av dessa vyer för att hoppa till de enskilda rapporterna. Du kan också ställa in aviseringar på någon av rapport parametrarna. Vi kan till exempel ställa in en avisering för varje gång ett inloggnings fel uppstår. Om du vill göra detta väljer du först vyn **inloggnings händelser** , väljer **Logga in fel över tid** och väljer sedan **analys** för att öppna sidan information med den faktiska frågan bakom rapporten. 
 
     ![Information](./media/howto-install-use-log-analytics-views/details.png)
 
 
-4. Välj **Ange avisering**och välj sedan **när den anpassade loggs ökningen &lt;är logiskt odefinierad&gt;**  under avsnittet **aviserings villkor** . Eftersom vi vill Avisera när det finns ett inloggnings fel anger du tröskelvärdet för standard varnings logiken till **1** och väljer sedan **klart**. 
+4. Välj **Ange avisering**och välj sedan **när den anpassade logg sökningen är &lt;logiskt odefinierade&gt;** under avsnittet **aviserings villkor** . Eftersom vi vill Avisera när det finns ett inloggnings fel anger du **tröskelvärdet** för standard varnings logiken till **1** och väljer sedan **klart**. 
 
     ![Konfigurera signallogiken](./media/howto-install-use-log-analytics-views/configure-signal-logic.png)
 

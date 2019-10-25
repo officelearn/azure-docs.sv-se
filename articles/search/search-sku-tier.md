@@ -1,28 +1,27 @@
 ---
-title: Välj en pris nivå eller SKU för Azure Search Service – Azure Search
-description: 'Azure Search kan tillhandahållas i följande SKU: er: kostnads fri, Basic och standard, och standard är tillgängliga i olika datorkonfigurationer och kapacitets nivåer.'
-services: search
-author: HeidiSteen
+title: Välj en pris nivå eller SKU under Sök tjänst etableringen
+titleSuffix: Azure Cognitive Search
+description: 'Azure Kognitiv sökning kan tillhandahållas i följande SKU: er: kostnads fri, Basic och standard, och standard finns i olika datorkonfigurationer och kapacitets nivåer.'
 manager: nitinme
-tags: ''
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/15/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 249ce8e51ff61bac5d418d9e173ec2caed24e0e5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72331199"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794258"
 ---
-# <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en pris nivå för Azure Search
+# <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
-När du skapar en Azure Search tjänst skapas en [resurs](search-create-service-portal.md) på en pris nivå (eller SKU) som har åtgärd ATS för livs längden för tjänsten. Nivåerna är kostnads fria, Basic, standard och Storage-optimerade. Standard-och lagrings optimering är tillgänglig med flera konfigurationer och kapaciteter.
+När du skapar en Azure Kognitiv sökning-tjänst [skapas en resurs](search-create-service-portal.md) på en pris nivå (eller SKU) som har åtgärd ATS för livs längden för tjänsten. Nivåerna är kostnads fria, Basic, standard och Storage-optimerade. Standard-och lagrings optimering är tillgänglig med flera konfigurationer och kapaciteter.
 
 De flesta kunder börjar med den kostnads fria nivån så att de kan utvärdera tjänsten. Efter utvärdering är det vanligt att skapa en andra tjänst på en av de högre nivåerna för utveckling och produktions distributioner.
 
-Även om alla nivåer, inklusive den kostnads fria nivån, vanligt vis erbjuder funktions paritet, kan större arbets belastningar diktera ett behov för högre nivåer. [AI-anrikning med Cognitive Services](cognitive-search-concept-intro.md) har till exempel långvariga färdigheter som tar slut på en kostnads fri tjänst, om inte data uppsättningen är liten.
+Även om alla nivåer, inklusive den kostnads fria nivån, vanligt vis erbjuder funktions paritet, kan större arbets belastningar diktera ett behov för högre nivåer. [AI-anrikning](cognitive-search-concept-intro.md) har till exempel långvariga färdigheter som tar slut på en kostnads fri tjänst, om inte data uppsättningen är liten.
 
 > [!NOTE] 
 > Undantag för funktions paritet är [indexerare](search-indexer-overview.md)som inte är tillgängliga på S3 HD.
@@ -41,17 +40,17 @@ Nivån som du väljer avgör fakturerings priset. Följande skärm bild från Az
 
 **Kostnads fri** skapar en begränsad Sök tjänst i ett kluster som delas med andra prenumeranter. Du kan slutföra små projekt, inklusive snabb starter och självstudier, men du kan inte skala tjänsten eller köra betydande arbets belastningar. **Basic** och **standard** är de vanligaste fakturerbara nivåerna, med **standard standarden** .
 
-![Pris nivåer för Azure Search](media/search-sku-tier/tiers.png "Pris nivåer för Azure Search")
+![Pris nivåer för Azure Kognitiv sökning](media/search-sku-tier/tiers.png "Pris nivåer för Azure Kognitiv sökning")
 
 Vissa nivåer är optimerade för vissa typer av arbete. Till exempel är **standard 3 hög densitet (S3 HD)** ett *värd läge* för S3, där den underliggande maskin varan är optimerad för ett stort antal mindre index och är avsedd för flera organisationers scenarier. S3 HD har samma kostnad per enhet som S3, men maskin varan är optimerad för snabba fil läsningar på ett stort antal mindre index.
 
 **Lagrings optimerings** nivåer ger större lagrings kapacitet till ett lägre pris per TB än standard nivåerna. Den främsta kompromissen är högre svars tid för frågor, som du bör validera för dina specifika program krav.  Mer information om prestanda överväganden för den här nivån finns i [överväganden för prestanda och optimering](search-performance-optimization.md).
 
-Du kan få mer information om olika nivåer på [sidan prissättning](https://azure.microsoft.com/pricing/details/search/)i avsnittet om [tjänst begränsningar i Azure Search](search-limits-quotas-capacity.md) artikel och på Portal sidan när du ska tillhandahålla en tjänst.
+Du hittar mer information om olika nivåer på [sidan prissättning](https://azure.microsoft.com/pricing/details/search/)i avsnittet [begränsningar för tjänsten i Azure kognitiv sökning](search-limits-quotas-capacity.md) -artikeln och på Portal sidan när du skapar en tjänst.
 
 ## <a name="billable-events"></a>Fakturerbara händelser
 
-En lösning som bygger på Azure Search kan ådra sig kostnaderna på följande sätt:
+En lösning som bygger på Azure Kognitiv sökning kan ådra sig kostnaderna på följande sätt:
 
 + Bas kostnad för tjänst vid lägsta konfiguration (skapa en tjänst)
 + Stegvis kostnad vid skalning (Lägg till repliker eller partitioner)
@@ -60,7 +59,7 @@ En lösning som bygger på Azure Search kan ådra sig kostnaderna på följande 
 
 ### <a name="service-costs"></a>Tjänste kostnader
 
-Till skillnad från virtuella datorer eller andra resurser som kan vara "pausade" för att undvika avgifter, är en Azure Search-tjänst alltid tillgänglig på maskin vara som är dedikerad för exklusiv användning. Därför är att skapa en tjänst en fakturerbar händelse som startar när du skapar tjänsten och slutar när du tar bort tjänsten. 
+Till skillnad från virtuella datorer eller andra resurser som kan vara "pausade" för att undvika avgifter är en Azure Kognitiv sökning-tjänst alltid tillgänglig på maskin vara som är dedikerad för exklusiv användning. Därför är att skapa en tjänst en fakturerbar händelse som startar när du skapar tjänsten och slutar när du tar bort tjänsten. 
 
 Den lägsta avgiften är den första Sök enheten (en partition med en enda replik x) till fakturerings takten. Detta minimum är fast för tjänstens livs längd eftersom tjänsten inte kan köras på något som är mindre än den här konfigurationen. Utöver det lägsta antalet kan du lägga till repliker och partitioner oberoende av varandra. Stegvisa ökningar i kapaciteten via repliker och partitioner ökar din faktura utifrån följande formel: [(repliker x partitioner x hastighet)](#search-units), där den hastighet du debiteras beror på vilken pris nivå du väljer.
 
@@ -68,29 +67,29 @@ När du uppskattar kostnaden för en Sök lösning bör du tänka på att priser
 
 ### <a name="bandwidth-charges"></a>Bandbredds avgifter
 
-Att använda [Azure Search indexerare](search-indexer-overview.md) kan påverka faktureringen, beroende på var tjänsterna finns. Du kan ta bort kostnader för utgående data helt och hållet om du skapar tjänsten Azure Search i samma region som dina data. Här är lite information från [prissättnings sidan för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/):
+Att använda [Azure kognitiv sökning indexerare](search-indexer-overview.md) kan påverka faktureringen, beroende på var tjänsterna finns. Du kan ta bort avgifter för utgående data helt och hållet om du skapar Azure Kognitiv sökning-tjänsten i samma region som dina data. Här är lite information från [prissättnings sidan för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/):
 
-+ Microsoft debiterar inte några inkommande data till någon tjänst i Azure, eller för utgående data från Azure Search.
++ Microsoft debiterar inte några inkommande data till någon tjänst i Azure, eller för utgående data från Azure Kognitiv sökning.
 + I lösningar med flera tjänster är det ingen avgift för data som passerar kabeln när alla tjänster är i samma region.
 
-Avgifterna gäller för utgående data om tjänsterna är i olika regioner. Dessa avgifter är inte en del av din Azure Search faktura. De anges här eftersom om du använder data eller AI-berikade indexerare för att hämta data från olika regioner, ser du kostnader som återspeglas i din övergripande faktura.
+Avgifterna gäller för utgående data om tjänsterna är i olika regioner. Dessa avgifter ingår inte i din Azure Kognitiv sökning-faktura. De anges här eftersom om du använder data eller AI-berikade indexerare för att hämta data från olika regioner, ser du kostnader som återspeglas i din övergripande faktura.
 
-### <a name="cognitive-search-ai-enrichment-with-cognitive-services"></a>Kognitiv search AI-anrikning med Cognitive Services
+### <a name="ai-enrichment-with-cognitive-services"></a>AI-anrikning med Cognitive Services
 
-För [AI-anrikning med Cognitive Services](cognitive-search-concept-intro.md)bör du planera att [koppla en fakturerbar Azure Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md), i samma region som Azure Search, på pris nivån S0 för att betala per användning. Det finns ingen fast kostnad för att bifoga Cognitive Services. Du betalar bara för den bearbetning du behöver.
+För [AI-anrikning](cognitive-search-concept-intro.md)bör du planera att [koppla en fakturerbar Azure Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md), i samma region som Azure kognitiv sökning, på pris nivån S0 för att betala per användning. Det finns ingen fast kostnad för att bifoga Cognitive Services. Du betalar bara för den bearbetning du behöver.
 
 | Åtgärd | Fakturerings påverkan |
 |-----------|----------------|
 | Dokument sprickor, text extrahering | Kostnadsfri |
-| Dokument sprickor, avbildnings extrahering | Faktureras enligt antalet bilder som har extraherats från dina dokument. I en [indexerare-konfiguration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)är **imageAction** den parameter som utlöser avbildnings extrahering. Om **imageAction** är inställt på "ingen" (standard) debiteras du inte för avbildnings extrahering. Hastigheten för avbildnings extrahering dokumenteras på sidan med [pris information](https://azure.microsoft.com/pricing/details/search/) för Azure Search.|
-| [Förbyggda kognitiva färdigheter](cognitive-search-predefined-skills.md) | Faktureras enligt samma takt som om du har utfört uppgiften genom att använda Cognitive Services direkt. |
+| Dokument sprickor, avbildnings extrahering | Faktureras enligt antalet bilder som har extraherats från dina dokument. I en [indexerare-konfiguration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)är **imageAction** den parameter som utlöser avbildnings extrahering. Om **imageAction** är inställt på "ingen" (standard) debiteras du inte för avbildnings extrahering. Hastigheten för avbildnings extrahering dokumenteras på sidan med [pris information](https://azure.microsoft.com/pricing/details/search/) för Azure kognitiv sökning.|
+| [Inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) | Faktureras enligt samma takt som om du har utfört uppgiften genom att använda Cognitive Services direkt. |
 | Anpassade färdigheter | En anpassad färdighet är funktioner som du anger. Kostnaden för att använda en anpassad färdighet beror helt på om anpassad kod anropar andra avgiftsbelagda tjänster. |
 
 <a name="search-units"></a>
 
 ## <a name="billing-formula-r-x-p--su"></a>Fakturerings formel (R x P = SU)
 
-Det viktigaste fakturerings konceptet för att förstå Azure Search åtgärder är *Sök enheten* (SU). Eftersom Azure Search är beroende av både repliker och partitioner för indexering och frågor, är det inte meningsfullt att fakturera med bara en eller ett annat. Faktureringen baseras i stället på en sammansatt av båda.
+Det viktigaste fakturerings konceptet att förstå för Azure Kognitiv sökning-åtgärder är *Sök enheten* (SU). Eftersom Azure Kognitiv sökning är beroende av både repliker och partitioner för indexering och frågor, är det inte bra att fakturera med bara en eller ett annat. Faktureringen baseras i stället på en sammansatt av båda.
 
 SU är produkten av de *repliker* och *partitioner* som används av en tjänst: **(R x P = SU)** .
 
@@ -106,17 +105,17 @@ Utöver följande förslag kan du gå till [fakturerings-och kostnads hantering]
 
 - Skapa alla resurser i samma region, eller i så få regioner som möjligt, för att minimera eller eliminera bandbredds kostnader.
 
-- Konsolidera alla tjänster till en resurs grupp, till exempel Azure Search, Cognitive Services och andra Azure-tjänster som används i din lösning. I Azure Portal letar du reda på resurs gruppen och använder **Cost Management** kommandon för att få inblick i faktiska och planerade utgifter.
+- Konsolidera alla tjänster till en resurs grupp, till exempel Azure Kognitiv sökning, Cognitive Services och andra Azure-tjänster som används i din lösning. I Azure Portal letar du reda på resurs gruppen och använder **Cost Management** kommandon för att få inblick i faktiska och planerade utgifter.
 
 - Överväg att använda Azure Web App för ditt klient program så att förfrågningar och svar stannar inom data centrets gränser.
 
-- Skala upp för resurs krävande åtgärder som indexering och justera sedan nedåt för vanliga frågor och arbets belastningar. Börja med den lägsta konfigurationen för Azure Search (en SU som består av en partition och en replik) och övervaka sedan användar aktivitet för att identifiera användnings mönster som indikerar ett behov av mer kapacitet. Om det finns ett förutsägbart mönster kanske du kan synkronisera skalning med aktivitet (du måste skriva kod för att automatisera detta).
+- Skala upp för resurs krävande åtgärder som indexering och justera sedan nedåt för vanliga frågor och arbets belastningar. Börja med den lägsta konfigurationen för Azure Kognitiv sökning (en SU som består av en partition och en replik) och övervaka sedan användar aktivitet för att identifiera användnings mönster som indikerar ett behov av mer kapacitet. Om det finns ett förutsägbart mönster kanske du kan synkronisera skalning med aktivitet (du måste skriva kod för att automatisera detta).
 
 Du kan inte stänga av en Sök tjänst för att minska din faktura. Dedikerade resurser är alltid operativa, allokeras för exklusiv användning för din tjänsts livs längd. Vad gäller själva tjänsten är det enda sättet att sänka din faktura till att minska antalet repliker och partitioner till en nivå som fortfarande ger acceptabel prestanda och [SLA-efterlevnad](https://azure.microsoft.com/support/legal/sla/search/v1_0/), eller skapa en tjänst på en lägre nivå (S1 Tim pris är lägre än S2 eller S3-priser). Förutsatt att du etablerar tjänsten i det nedre slutet av dina belastnings prognoser, kan du skapa en andra större tjänst, återskapa dina index på den andra tjänsten och sedan ta bort den första.
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Utvärdera kapacitets kraven
 
-I Azure Search struktureras kapaciteten som *repliker* och *partitioner*.
+I Azure Kognitiv sökning struktureras kapaciteten som *repliker* och *partitioner*.
 
 + Repliker är instanser av Sök tjänsten. Varje replik är värd för en belastningsutjämnad kopia av ett index. Till exempel innehåller en tjänst med sex repliker sex kopior av varje index som har lästs in i tjänsten.
 
@@ -161,7 +160,7 @@ Kapacitet och kostnaderna för att köra tjänsten finns i handen. Nivåerna beg
 
 Företags krav avgör vanligt vis hur många index du behöver. Du kan till exempel behöva ett globalt index för en stor lagrings plats för dokument. Eller så kanske du behöver flera index baserade på region, program eller affärs nischmarknader.
 
-Om du vill fastställa storleken på ett index måste du [bygga ett](search-create-index-portal.md). Data strukturen i Azure Search är i första hand en [inverterad index](https://en.wikipedia.org/wiki/Inverted_index) struktur som har andra egenskaper än källdata. För ett inverterat index bestäms storlek och komplexitet av innehåll, inte nödvändigt vis av mängden data som du matar in i det. En stor data källa med hög redundans kan resultera i ett mindre index än en mindre data mängd som innehåller mycket varierande innehåll. Det går sällan att härleda index storleken baserat på storleken på den ursprungliga data uppsättningen.
+Om du vill fastställa storleken på ett index måste du [bygga ett](search-create-index-portal.md). Data strukturen i Azure Kognitiv sökning är i första hand en [inverterad index](https://en.wikipedia.org/wiki/Inverted_index) struktur som har andra egenskaper än källdata. För ett inverterat index bestäms storlek och komplexitet av innehåll, inte nödvändigt vis av mängden data som du matar in i det. En stor data källa med hög redundans kan resultera i ett mindre index än en mindre data mängd som innehåller mycket varierande innehåll. Det går sällan att härleda index storleken baserat på storleken på den ursprungliga data uppsättningen.
 
 > [!NOTE] 
 > Även om det går att uppskatta framtida behov för index och lagring kan det vara värt att göra. Om en nivås kapacitet blir för låg måste du etablera en ny tjänst på en högre nivå och sedan [läsa in indexen](search-howto-reindex.md)på nytt. Det finns ingen uppgradering på plats av en tjänst från en SKU till en annan.
@@ -196,7 +195,7 @@ Dedikerade resurser kan hantera större samplings-och bearbetnings tider för me
 Indexets nummer och storlek är lika viktiga för din analys. Detta beror på att max gränserna uppnås genom fullständig användning av lagrings utrymme (partitioner) eller av maximala gränser för resurser (index, indexerare och så vidare), beroende på vilket som kommer först. Portalen hjälper dig att hålla koll på båda, som visar aktuella användnings-och Max gränser sida vid sida på översikts sidan.
 
 > [!NOTE]
-> Lagrings kraven kan vara deflata om dokumenten innehåller ovidkommande data. Vi rekommenderar att dokument endast innehåller de data som du behöver för Sök funktionen. Binära data är inte sökbara och bör lagras separat (kanske i en Azure-tabell eller Blob-lagring). Ett fält ska sedan läggas till i indexet för att innehålla en URL-referens till externa data. Den maximala storleken för ett enskilt dokument är 16 MB (eller mindre om du överför flera dokument i en begäran). Mer information finns i [tjänst gränser i Azure Search](search-limits-quotas-capacity.md).
+> Lagrings kraven kan vara deflata om dokumenten innehåller ovidkommande data. Vi rekommenderar att dokument endast innehåller de data som du behöver för Sök funktionen. Binära data är inte sökbara och bör lagras separat (kanske i en Azure-tabell eller Blob-lagring). Ett fält ska sedan läggas till i indexet för att innehålla en URL-referens till externa data. Den maximala storleken för ett enskilt dokument är 16 MB (eller mindre om du överför flera dokument i en begäran). Mer information finns i [tjänst begränsningar i Azure kognitiv sökning](search-limits-quotas-capacity.md).
 >
 
 **Fråga om volym överväganden**
@@ -205,7 +204,7 @@ Frågor per sekund (frågor per sekund) är ett viktigt mått under prestanda ju
 
 Standard-nivåerna kan ge en balans mellan repliker och partitioner. Du kan öka leveransen genom att lägga till repliker för belastnings utjämning eller lägga till partitioner för parallell bearbetning. Du kan sedan justera efter prestanda när tjänsten har tillhandahållits.
 
-Om du förväntar dig hög varaktiga frågegrupper från början bör du överväga högre standard nivåer, med mer kraftfulla maskin vara. Du kan sedan ta partitioner och repliker offline, eller till och med växla till en tjänst på lägre nivå, om dessa fråga-volymer inte inträffar. Mer information om hur du beräknar frågans data flöde finns i [Azure Search prestanda och optimering](search-performance-optimization.md).
+Om du förväntar dig hög varaktiga frågegrupper från början bör du överväga högre standard nivåer, med mer kraftfulla maskin vara. Du kan sedan ta partitioner och repliker offline, eller till och med växla till en tjänst på lägre nivå, om dessa fråga-volymer inte inträffar. Mer information om hur du beräknar frågans data flöde finns i [Azure kognitiv sökning prestanda och optimering](search-performance-optimization.md).
 
 De optimerade lagrings nivåerna är användbara för stora data arbets belastningar och stöder mer övergripande tillgängligt index lagring för när svars tids fördröjnings kraven är mindre viktiga. Du bör fortfarande använda ytterligare repliker för belastnings utjämning och ytterligare partitioner för parallell bearbetning. Du kan sedan justera efter prestanda när tjänsten har tillhandahållits.
 
@@ -221,7 +220,7 @@ Den kostnads fria nivån och för hands versions funktionerna tillhandahåller i
 
 ## <a name="next-steps"></a>Nästa steg
 
-Börja med en kostnads fri nivå och skapa ett första index genom att använda en delmängd av dina data för att förstå dess egenskaper. Data strukturen i Azure Search är en inverterad index struktur. Storleken och komplexiteten för ett inverterat index avgörs av innehållet. Kom ihåg att mycket redundant innehåll leder till ett mindre index än innehåll som är mycket oregelbundet. Egenskaper för innehåll i stället för data uppsättningens storlek avgör index lagrings kraven.
+Börja med en kostnads fri nivå och skapa ett första index genom att använda en delmängd av dina data för att förstå dess egenskaper. Data strukturen i Azure Kognitiv sökning är en inverterad index struktur. Storleken och komplexiteten för ett inverterat index avgörs av innehållet. Kom ihåg att mycket redundant innehåll leder till ett mindre index än innehåll som är mycket oregelbundet. Egenskaper för innehåll i stället för data uppsättningens storlek avgör index lagrings kraven.
 
 När du har en första uppskattning av index storleken kan du [etablera en fakturerings bar tjänst](search-create-service-portal.md) på en av de nivåer som beskrivs i den här artikeln: Basic, standard eller Storage optimerad. Minska eventuella artificiella begränsningar för data storlek och [återskapa indexet](search-howto-reindex.md) så att det innehåller alla data som du vill ska vara sökbara.
 

@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 9155df315a5afb9a0fa7722c955333a47a73085a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 250d470e2450820f57720e0e1a6d274291cf162c
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596841"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809623"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa koden i Azure Functions
 
@@ -309,7 +309,8 @@ module.exports = {
     IsPastDue: false
 };
 ```
-Den här modulen implementerar egenskapen `IsPastDue` att stå som en falsk timer-instans.
+
+Den här modulen implementerar egenskapen `IsPastDue` att stå som en falsk timer-instans. Tidsinställda konfigurationer som NCRONTAB-uttryck krävs inte här eftersom test-nätet bara anropar funktionen direkt för att testa resultatet.
 
 Använd sedan tillägget VS Code Functions för att [skapa en ny JavaScript-HTTP-funktion](/azure/javascript/tutorial-vscode-serverless-node-01) och ge den namnet *HttpTrigger*. När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index. test. js**och lägger till följande kod:
 

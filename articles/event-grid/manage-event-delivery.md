@@ -1,18 +1,18 @@
 ---
-title: Principer för obeställbara meddelanden och återförsök för Azure Event Grid prenumerationer
+title: Principer för obeställbara meddelanden och återförsök-Azure Event Grid
 description: Beskriver hur du anpassar alternativ för händelse leverans för Event Grid. Ange ett mål för obeställbara meddelanden och ange hur lång tid överföringen ska göras.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/06/2019
+ms.date: 10/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933363"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794040"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Principer för obeställbara meddelanden och återförsök
 
@@ -99,7 +99,7 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Om du anger både `event-ttl` och `max-deliver-attempts`, använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
+Om du ställer in både `event-ttl` och `max-deliver-attempts`, använder Event Grid den första för att gå ut för att avgöra när händelse leveransen ska stoppas.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -127,11 +127,11 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Om du anger både `EventTtl` och `MaxDeliveryAttempt`, använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
+Om du ställer in både `EventTtl` och `MaxDeliveryAttempt`, använder Event Grid den första för att gå ut för att avgöra när händelse leveransen ska stoppas.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Ett exempel program som använder en Azure Function-app för att bearbeta händelser för obeställbara meddelanden finns i [Azure Event Grid döda brev exempel för .net](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
-* Information om händelseleverans och återförsök, [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
+* Om du vill ha information om händelse leverans och försök kan du [Event Grid meddelande leverans och försöka igen](delivery-and-retry.md).
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Information om hur du snabbt kommer igång med Event Grid finns i [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

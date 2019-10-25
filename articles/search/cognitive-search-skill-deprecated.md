@@ -1,31 +1,30 @@
 ---
-title: Föråldrade kognitiva färdigheter – Azure Search
-description: Den här sidan innehåller en lista med kunskaper om kognitiva sökningar som betraktas som inaktuella och som inte stöds inom en snar framtid.
-services: search
+title: Föråldrade kognitiva färdigheter
+titleSuffix: Azure Cognitive Search
+description: Den här sidan innehåller en lista med kognitiva kunskaper som betraktas som inaktuella och som inte stöds i nära framtid i Azure Kognitiv sökning färdighetsuppsättningar.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e78852ec8b92f1a9e37a4dbcbbcb371c0ac0f97
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265443"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792025"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>Föråldrade kognitiva Sök kunskaper
+# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Föråldrade kognitiva kunskaper i Azure Kognitiv sökning
 
 Det här dokumentet beskriver kognitiva kunskaper som betraktas som föråldrade. Använd följande guide för innehållet:
 
-* Kunskaps namn: Namnet på den kunskap som ska vara inaktuell, mappas till @odata.type attributet.
-* Senaste tillgängliga API-version: Den senaste versionen av Azure Searchs offentliga API genom vilka färdighetsuppsättningar som innehåller motsvarande föråldrade färdighet kan skapas/uppdateras.
-* Supportens slut: Den sista dagen efter vilken motsvarande färdighet betraktas som ej stöds. Tidigare skapade färdighetsuppsättningar bör fortfarande fortsätta att fungera, men användarna rekommenderas att migrera bort från en föråldrad färdighet.
-* Rekommenderade Sökväg för migrering framåt för att använda en färdighet som stöds. Användarna uppmanas att följa rekommendationerna för att fortsätta att få support.
+* Kunskaps namn: namnet på den färdighet som ska vara inaktuell, mappas till @odata.type-attributet.
+* Senaste tillgängliga API-version: den senaste versionen av Azure Kognitiv sökning offentliga API: et som färdighetsuppsättningar som innehåller motsvarande föråldrade färdighet kan skapas/uppdateras.
+* Supportens slut: den sista dagen efter vilken motsvarande färdighet betraktas som ej stöds. Tidigare skapade färdighetsuppsättningar bör fortfarande fortsätta att fungera, men användarna rekommenderas att migrera bort från en föråldrad färdighet.
+* Rekommendationer: sökväg för migrering framåt för att använda en färdighet som stöds. Användarna uppmanas att följa rekommendationerna för att fortsätta att få support.
 
-## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
+## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft. färdigheter. text. NamedEntityRecognitionSkill
 
 ### <a name="last-available-api-version"></a>Senaste tillgängliga API-version
 
@@ -42,13 +41,13 @@ Använd [Microsoft. skicklighets. text. EntityRecognitionSkill](cognitive-search
 Om du vill migrera till [kunskap om enhets igenkänning](cognitive-search-skill-entity-recognition.md)måste du utföra en eller flera av följande ändringar i din kunskaps definition. Du kan uppdatera kunskaps definitionen med [Update färdigheter-API: et](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
 > [!NOTE]
-> För närvarande stöds inte säkerhets Poäng som ett begrepp. `minimumPrecision` Parametern finns`EntityRecognitionSkill` i för framtida användning och bakåtkompatibilitet.
+> För närvarande stöds inte säkerhets Poäng som ett begrepp. Parametern `minimumPrecision` finns på `EntityRecognitionSkill` för framtida användning och bakåtkompatibilitet.
 
-1. *(Krävs)* `@odata.type` Ändra från `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` till. `"#Microsoft.Skills.Text.EntityRecognitionSkill"`
+1. *(Krävs)* Ändra `@odata.type` från `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` till `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 
-2. *(Valfritt)* Om du använder `entities` utdata använder du i `EntityRecognitionSkill` stället det `namedEntities` komplexa samlings resultatet. Du kan använda `targetName` i kunskaps definitionen för att mappa den till en anteckning som kallas `entities`.
+2. *(Valfritt)* Om du använder `entities` utdata använder du `namedEntities` komplex samlings utdata från `EntityRecognitionSkill` i stället. Du kan använda `targetName` i kunskaps definitionen för att mappa den till en anteckning som kallas `entities`.
 
-3. *(Valfritt)* Om du inte uttryckligen anger `categories` `EntityRecognitionSkill` , kan returnera olika typer av kategorier förutom de `NamedEntityRecognitionSkill`som stöds av. Om det här beteendet är oönskat, måste du uttryckligen `categories` ange parametern `["Person", "Location", "Organization"]`till.
+3. *(Valfritt)* Om du inte uttryckligen anger `categories`kan `EntityRecognitionSkill` returnera olika typer av kategorier förutom de som stöds av `NamedEntityRecognitionSkill`. Om det här beteendet är oönskat, måste du uttryckligen ange parametern `categories` för att `["Person", "Location", "Organization"]`.
 
     _Exempel på migrations definitioner_
 
@@ -148,6 +147,6 @@ Om du vill migrera till [kunskap om enhets igenkänning](cognitive-search-skill-
 
 ## <a name="see-also"></a>Se också
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Kompetens för enhets igenkänning](cognitive-search-skill-entity-recognition.md)

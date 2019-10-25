@@ -1,22 +1,21 @@
 ---
-title: Text sammanfogning kognitiv Sök kompetens – Azure Search
-description: Sammanfoga text från en samling fält till ett konsoliderat fält. Använd den här kognitiva kunskapen i en Azure Search anriknings pipeline.
-services: search
+title: Text sammanfogning av kognitiva kunskaper
+titleSuffix: Azure Cognitive Search
+description: Sammanfoga text från en samling fält till ett konsoliderat fält. Använd den här kognitiva kunskapen i en pipeline för AI-anrikning i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e88fcc13d97d92cf9b35616ecb7d71c2d24db1f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c44f37c37bff2ddeb0fbba83d170054bf21129a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265263"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791843"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Text sammanfogning av kognitiva kunskaper
+#   <a name="text-merge-cognitive-skill"></a>Text sammanfogning av kognitiva kunskaper
 
 **Text sammanfognings** kunskapen konsoliderar text från en samling fält till ett enda fält. 
 
@@ -24,7 +23,7 @@ ms.locfileid: "71265263"
 > Den här kunskapen är inte kopplad till ett Cognitive Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en Cognitive Services resurs](cognitive-search-attach-cognitive-services.md), men för att åsidosätta det **kostnads fria** resurs alternativet som begränsar dig till ett litet antal dagliga berikare per dag.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.MergeSkill
+Microsoft. färdigheter. text. MergeSkill
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
@@ -32,8 +31,8 @@ Parametrar är Skift läges känsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| insertPreTag  | Sträng som ska tas med före varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet ställer du in värdet `""`på.  |
-| insertPostTag | Sträng som ska tas med efter varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet ställer du in värdet `""`på.  |
+| insertPreTag  | Sträng som ska tas med före varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet ställer du in värdet på `""`.  |
+| insertPostTag | Sträng som ska tas med efter varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet ställer du in värdet på `""`.  |
 
 
 ##  <a name="sample-input"></a>Exempel på inmatade
@@ -56,7 +55,7 @@ Ett JSON-dokument som ger användbar indatamängd för den här kunskapen kan va
 ```
 
 ##  <a name="sample-output"></a>Exempel på utdata
-I det här exemplet visas resultatet av föregående indata, förutsatt att *insertPreTag* är inställt `" "`på, och *insertPostTag* är inställt på `""`. 
+I det här exemplet visas resultatet av föregående indata, förutsatt att *insertPreTag* är inställt på `" "`och *insertPostTag* är inställt på `""`. 
 
 ```json
 {
@@ -143,6 +142,6 @@ Exemplet ovan förutsätter att det finns ett normaliserat avbildnings fält. F�
 
 ## <a name="see-also"></a>Se också
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

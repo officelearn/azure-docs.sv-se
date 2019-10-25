@@ -3,7 +3,7 @@ title: Hantera Log Analytics arbets ytor i Azure Monitor | Microsoft Docs
 description: Du kan hantera åtkomst till data som lagras i en Log Analytics arbets yta i Azure Monitor med hjälp av behörigheter för resurs, arbets yta eller tabell nivå. Den här artikeln beskriver hur du slutför.
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.author: magoedte
-ms.openlocfilehash: 2f9c50053fca73aeee0ed9a286b4c286486bac86
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.date: 10/22/2019
+ms.author: bwren
+ms.openlocfilehash: 3b8f5cb2d5c8e7ff80d32b288c041b4f153bf526
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532323"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787506"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till logg data och arbets ytor i Azure Monitor
 
@@ -259,20 +259,24 @@ Om du till exempel vill skapa en roll med åtkomst till _pulsslags_ -och _AzureA
 
 ```
 "Actions":  [
-              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
-              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+    "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
   ],
 ```
 
 Skapa en roll med enbart åtkomst till _SecurityBaseline_ och inga andra tabeller genom att skapa en anpassad roll med följande åtgärder:
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
-    ],
-    "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+],
+"NotActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
 ```
 
 ### <a name="custom-logs"></a>Anpassade loggar
@@ -282,9 +286,11 @@ Skapa en roll med enbart åtkomst till _SecurityBaseline_ och inga andra tabelle
  Du kan för närvarande inte bevilja eller neka åtkomst till enskilda anpassade loggar, men du kan bevilja eller neka åtkomst till alla anpassade loggar. Skapa en roll med åtkomst till alla anpassade loggar genom att skapa en anpassad roll med följande åtgärder:
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+],
 ```
 
 ### <a name="considerations"></a>Överväganden

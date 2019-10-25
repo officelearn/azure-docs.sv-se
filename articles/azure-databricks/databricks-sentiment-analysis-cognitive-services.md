@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 1d8b3aad3104f07f8f6499c88f00328c95047816
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 1a0d0426904ef5f9f49a627120ff2cc65f630861
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274215"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785932"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudie: Attitydanalys på strömmad data med hjälp av Azure Databricks
 
@@ -43,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
-> Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=sparkeventhubs-docs-alehall).
+> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -65,11 +65,11 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure Portal.
 
-    ![Databricks på Azure-portalen](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks på Azure-portalen")
+    ![Databricks på Azure Portal](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
 3. Under **Azure Databricks Service** (Azure Databricks-tjänsten) fyller du i värdena för att skapa en Databricks-arbetsyta.
 
-    ![Skapa en arbetsyta för Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-workspace.png "Skapa en arbetsyta för Azure Databricks")
+    ![Skapa en Azure Databricks-arbetsyta](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-workspace.png "Skapa en Azure Databricks-arbetsyta")
 
     Ange följande värden:
 
@@ -85,7 +85,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 4. Det tar några minuter att skapa kontot. När kontot skapas i portalen visas panelen för att **skicka distribution för Azure Databricks** på höger sida. Du kan behöva rulla åt höger på instrumentpanelen för att se panelen. En förloppsindikator visas även längst upp på skärmen. Båda dessa områden visar förloppet.
 
-    ![Distributionspanel för Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-deployment-tile.png "Distributionspanel för Databricks")
+    ![Databricks distributions panel](./media/databricks-sentiment-analysis-cognitive-services/databricks-deployment-tile.png "Databricks distributions panel")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 
@@ -115,17 +115,17 @@ Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ a
 
 1. I en webbläsare går du till [Twitter för utvecklare](https://developer.twitter.com/en/apps)och väljer **skapa en app**. Du kan se ett meddelande om att du måste använda för ett Twitter-konto för utvecklare. Det är kostnads fritt att göra det och när ditt program har godkänts bör du se ett bekräftelse meddelande. Det kan ta flera dagar att godkännas för ett Developer-konto.
 
-    ![Twitter-konto bekräftelse]konto(./media/databricks-sentiment-analysis-cognitive-services/databricks-twitter-dev-confirmation.png "bekräftelse för Twitter-utvecklare")
+    ![Konto bekräftelse för Twitter-utvecklare](./media/databricks-sentiment-analysis-cognitive-services/databricks-twitter-dev-confirmation.png "Konto bekräftelse för Twitter-utvecklare")
 
 2. På sidan **Skapa ett program** anger du information om den nya appen. Välj sedan **Create your Twitter application** (Skapa ditt Twitter-program).
 
-    ![Twitter-programinformation](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Twitter-programinformation")
+    ![Information om Twitter-program](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Information om Twitter-program")
 
-    ![Twitter-programinformation](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details-create.png "Twitter-programinformation")
+    ![Information om Twitter-program](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details-create.png "Information om Twitter-program")
 
 3. På sidan program väljer du fliken **nycklar och tokens** och kopierar värdena för klient-API- **nyckel** och **hemlig nyckel för konsument-API**. Välj också **skapa** under **åtkomst-token och åtkomst till token Secret** för att generera åtkomsttoken. Kopiera värdena för **åtkomsttoken** och **åtkomsttokenhemligheten**.
 
-    ![Twitter-programinformation](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Twitter-programinformation")
+    ![Information om Twitter-program](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Information om Twitter-program")
 
 Spara de värden som du hämtade för Twitter-programmet. Du behöver dem senare i självstudien.
 
@@ -135,7 +135,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
 1. I arbets ytan Azure Databricks väljer du **kluster**och sedan ditt befintliga Spark-kluster. I kluster-menyn väljer du **bibliotek** och klickar på **installera ny**.
 
-   ![Dialog rutan Lägg till bibliotek](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-locate-cluster.png "Lägg till bibliotek leta upp kluster")
+   ![Dialog rutan Lägg till bibliotek](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-locate-cluster.png "Lägg till bibliotek hitta kluster")
 
    ![Dialog rutan Lägg till bibliotek](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-install-new.png "Lägg till bibliotek installera ny")
 
@@ -144,7 +144,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
    * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Ange Maven-koordinater](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search.png "Ange Maven-koordinater")
+     ![Ange maven-koordinater](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search.png "Ange maven-koordinater")
 
      ![Ange maven-koordinater](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search-dialogue.png "Sök maven-koordinater")
 
@@ -152,7 +152,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
 4. Kontrol lera att båda biblioteken är installerade och bifogas korrekt i kluster menyn.
 
-    ![Kontrol lera]bibliotek(./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-check.png "kontrol lera bibliotek")
+    ![Kontrol lera bibliotek](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-check.png "Kontrol lera bibliotek")
 
 6. Upprepa dessa steg för Twitter-paketet `twitter4j-core:4.0.7`.
 
@@ -166,11 +166,11 @@ I den här självstudien använder du [Azure Cognitive Services textanalys-API: 
 
 3. Under Azure Marketplace väljer du **AI och Cognitive Services** > **API för textanalys**.
 
-    ![Skapa Cognitive Services-konto](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Skapa Cognitive Services-konto")
+    ![Skapa konto för kognitiva tjänster](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Skapa konto för kognitiva tjänster")
 
 4. I dialogrutan **Skapa** anger du följande värden:
 
-    ![Skapa Cognitive Services-konto](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Skapa Cognitive Services-konto")
+    ![Skapa konto för kognitiva tjänster](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Skapa konto för kognitiva tjänster")
 
    - Ange ett namn på Cognitive Services-kontot.
    - Välj den Azure-prenumeration som kontot skapas under.
@@ -182,13 +182,13 @@ I den här självstudien använder du [Azure Cognitive Services textanalys-API: 
 
 5. När kontot har skapats går du till fliken **Översikt** och väljer **Visa åtkomstnycklar**.
 
-    ![Visa åtkomstnycklar](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Visa åtkomstnycklar")
+    ![Visa åtkomst nycklar](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Visa åtkomst nycklar")
 
     Kopiera också en del av slutpunkts-URL:en, enligt det som visas i skärmbilden. Du behöver den här URL:en i självstudien.
 
 6. Under **Hantera nycklar** väljer du kopieringsikonen för den nyckel som du vill använda.
 
-    ![Kopiera åtkomstnycklar](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-copy-access-keys.png "Kopiera åtkomstnycklar")
+    ![Kopiera åtkomst nycklar](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-copy-access-keys.png "Kopiera åtkomst nycklar")
 
 7. Spara värdena för slutpunkts-URL:en och åtkomstnyckeln som du hämtade i det här steget. Du behöver dem senare i den här självstudien.
 
@@ -201,11 +201,11 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 
 1. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** och sedan **Anteckningsbok**.
 
-    ![Skapa anteckningsbok i Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
 
 2. I dialogrutan **Skapa anteckningsbok** anger du **SendTweetsToEventHub**, väljer **Scala** som språk och väljer det Spark-kluster som du skapade tidigare.
 
-    ![Skapa anteckningsbok i Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Skapa antecknings bok i Databricks")
 
     Välj **Skapa**.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1533ceebcda15c45a71c04580c35432de4125ccd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 4a1952f5ece4c021834fb98f8a09f1a2738e6469
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984988"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789398"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -33,9 +33,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 
 > [!NOTE]
-    > Du kan nu använda Azure Migrate tjänsten för att migrera AWS-instanser till Azure. [Läs mer](../migrate/tutorial-migrate-physical-virtual-machines.md).
+> Du kan nu använda Azure Migrate tjänsten för att migrera AWS-instanser till Azure. [Läs mer](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - Kontrollera att de virtuella datorer du vill migrera körs på en OS-version som stöds. Versioner som stöds inkluderar: 
   - Windows Server 2016 
   - Windows Server 2012 R2
@@ -122,11 +122,11 @@ Välj följande värden på sidan **Skyddsmål**:
 
 När du är klar, väljerr du **OK** för att fortsätta till nästa avsnitt.
 
-### <a name="2-select-deployment-planning"></a>2: Starta distributionsplanering
+### <a name="2-select-deployment-planning"></a>2: Välj distributions planering
 
 I **Har du slutfört distributionsplanering** väljer du **Jag gör det senare** och klickar sedan på **OK**.
 
-### <a name="3-prepare-source"></a>3: Förbered källa
+### <a name="3-prepare-source"></a>3: Förbered källan
 
 På sidan **Förbered källa** klickar du på **+ Konfigurationsserver**.
 
@@ -149,9 +149,9 @@ På sidan **Förbered källa** klickar du på **+ Konfigurationsserver**.
     11. **Installationsförloppet** visar dig information om installationsprocessen. När den är klar väljer du **Avsluta**. Ett fönster visar ett meddelande om en omstart. Välj **OK**. Därefter visar ett fönster ett meddelande om lösenfrasen för anslutning för konfigurationsservern. Kopiera lösenfrasen till Urklipp och spara den på en säker plats.
 6. Kör cspsconfigtool.exe på den virtuella datorn för att skapa ett eller flera hanteringskonton på konfigurationsservern. Se till att hanteringskontona har administratörsbehörighet på de EC2-instanser som du vill migrera.
 
-När du är klar med konfigurationen av konfigurationsservern går du tillbaka till portalen och väljer den server du skapade för **konfigurationsservern**. Välj **OK** för att gå till 3: Förbered målet.
+När du är klar med konfigurationen av konfigurationsservern går du tillbaka till portalen och väljer den server du skapade för **konfigurationsservern**. Välj **OK** för att gå till 3: förbered målet.
 
-### <a name="4-prepare-target"></a>4: Förbered målet
+### <a name="4-prepare-target"></a>4: Förbered mål
 
 I det här avsnittet anger du information om de resurser som du skapade i [Förbered Azure-resurser](#prepare-azure-resources) tidigare i de här självstudierna.
 
@@ -160,7 +160,7 @@ I det här avsnittet anger du information om de resurser som du skapade i [Förb
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure Storage-konton och nätverk. Det ska vara de resurser som du skapade i [Förbered Azure-resurser](#prepare-azure-resources) tidigare i de här självstudierna.
 4. När du är klar väljer du **Ok**.
 
-### <a name="5-prepare-replication-settings"></a>5: Förbered replikeringsinställningarna
+### <a name="5-prepare-replication-settings"></a>5: Förbered replikeringsinställningar
 
 Innan du kan aktivera replikering, måste du skapa en replikeringsprincip.
 
@@ -231,7 +231,7 @@ Kör redundanstestet i portalen:
 2. Välj en återställningspunkt som ska användas för redundans:
     - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data så den ger ett lågt mål för återställningstid (RTO).
     - **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer till den senaste appkonsekventa återställningspunkten. Tidsstämpeln visas.
-    - **Anpassat**: Välj en annan återställningspunkt.
+    - **Anpassad**: Välj en annan återställningspunkt.
 
 3. I **Redundanstest** väljer du det Azure-målnätverk som de virtuella Azure-datorerna ska ansluta till efter redundans. Det här bör vara det nätverk du skapade i [Förbered Azure-resurser](#prepare-azure-resources).
 4. Välj **OK** för att starta redundansväxlingen. Om du vill spåra förloppet klickar du på den virtuella datorn för visa dess egenskaper. Eller så kan du välja jobbet **Redundanstest** på sidan för ditt valv. Om du vill göra det, väljer du **Övervakning och rapporter** > **Jobb** >  **Site Recovery-jobb**.
@@ -253,7 +253,7 @@ Kör en riktig redundansväxling för EC2-instanserna för att migrera dem till 
    - Detta avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
    - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna. 
 
-     ![Slutför migrering](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Slutföra migrering](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Avbryt inte en redundansväxling som pågår*. Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikera igen.  

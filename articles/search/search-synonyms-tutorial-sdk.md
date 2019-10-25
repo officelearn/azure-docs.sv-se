@@ -1,26 +1,25 @@
 ---
-title: C# Exempel på synonymer – Azure Search
-description: I det C# här exemplet lär du dig hur du lägger till synonym funktionen i ett index i Azure Search. En synonymkarta är en lista med motsvarande termer. Fält med stöd för synonymer expanderar frågor till att innehålla det användarangivna uttrycket och alla relaterade synonymer.
+title: C# Exempel på synonymer
+titleSuffix: Azure Cognitive Search
+description: I det C# här exemplet lär du dig hur du lägger till synonym funktionen i ett index i Azure kognitiv sökning. En synonymkarta är en lista med motsvarande termer. Fält med stöd för synonymer expanderar frågor till att innehålla det användarangivna uttrycket och alla relaterade synonymer.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: ad71a6ab5090e601ef075617edf08c421abebdb0
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 8cc085fd27004928babd7df305a4452d1b068f6e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647759"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794243"
 ---
-# <a name="example-add-synonyms-for-azure-search-in-c"></a>Exempel: Lägga till synonymer för Azure Search i C#
+# <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exempel: Lägg till synonymer för Azure Kognitiv sökning iC#
 
 Med synonymer kan du utöka en fråga genom att matcha mot termer som anses betyda samma sak som den angivna söktermen. Du kanske vill att söktermen ”bil” även ska matcha dokument som innehåller termen ”fordon”. 
 
-I Azure Search definieras synonymer i en *synonymmappning* enligt *mappningsregler* som associerar ekvivalenta termer. I det här exemplet beskrivs viktiga steg för att lägga till och använda synonymer med ett befintligt index. Lär dig att:
+I Azure Kognitiv sökning definieras synonymer i en *synonym mappning*genom *mappnings regler* som associerar motsvarande villkor. I det här exemplet beskrivs viktiga steg för att lägga till och använda synonymer med ett befintligt index. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en synonym mappning med klassen [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
@@ -28,19 +27,19 @@ I Azure Search definieras synonymer i en *synonymmappning* enligt *mappningsregl
 
 Du kan fråga ett synonymt-aktiverat fält som vanligt. Det krävs ingen ytterligare frågesyntax som krävs för att komma åt synonymer.
 
-Du kan skapa flera synonymmappningar, publicera dem som en resurs på tjänstnivå tillgänglig för alla index och sedan referera till den mappning som ska användas på fältnivå. När en fråga körs kommer Azure Search då att söka i den synonymmappning som anges för fälten som används i frågan förutom att söka i indexet.
+Du kan skapa flera synonymmappningar, publicera dem som en resurs på tjänstnivå tillgänglig för alla index och sedan referera till den mappning som ska användas på fältnivå. Vid tidpunkten för frågan, förutom att söka i ett index, gör Azure Kognitiv sökning en sökning i en synonym karta, om ett sådant anges i fält som används i frågan.
 
 > [!NOTE]
 > Synonymer kan skapas program mässigt, men inte i portalen. Om du skulle ha nytta av funktionen Synonymer på Azure Portal vill vi gärna att du skickar din feedback via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien behöver du följande:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Search-tjänsten](search-create-service-portal.md)
+* [Azure Kognitiv sökning-tjänst](search-create-service-portal.md)
 * [.NET-biblioteket Microsoft.Azure.Search](https://aka.ms/search-sdk)
-* [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk) (Så använder du Azure Search från .NET-program)
+* [Använda Azure Kognitiv sökning från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Översikt
 
@@ -78,7 +77,7 @@ Med före-och-efter-frågor kan du se hur användbara synonymer kan vara. I det 
       Console.ReadKey();
   }
 ```
-Stegen där exempelindexet skapas och fylls i beskrivs i [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk) (Så använder du Azure Search från .NET-program).
+Stegen för att skapa och fylla i exempel indexet beskrivs i [använda Azure kognitiv sökning från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 ## <a name="before-queries"></a>”Före”-frågor
 
@@ -129,7 +128,7 @@ Att aktivera synonymer är en tvåstegsprocess. Först definierar vi och laddar 
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
    ```
-   En synonymmappning måste följa det öppna standardformatet `solr`. Formatet förklaras i [Synonyms in Azure Search](search-synonyms.md) (Synonymer i Azure Search) i avsnittet `Apache Solr synonym format`.
+   En synonymmappning måste följa det öppna standardformatet `solr`. Formatet förklaras i [synonymer i Azure kognitiv sökning](search-synonyms.md) under avsnittet `Apache Solr synonym format`.
 
 2. Konfigurera sökbara fält så att synonymmappningen används i indexdefinitionen. I `EnableSynonymsInHotelsIndex` aktiverar vi synonymer för de två fälten `category` och `tags` genom att ange namnet på synonymmappningen för egenskapen `synonymMaps`.
    ```csharp
@@ -170,11 +169,11 @@ Du hittar hela källkoden för exempelprogrammet i den här genomgången på [Gi
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det snabbaste sättet att rensa efter ett exempel är genom att ta bort resurs gruppen som innehåller den Azure Search tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
+Det snabbaste sättet att rensa efter ett exempel är genom att ta bort resurs gruppen som innehåller Azure Kognitiv sökning-tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. I portalen finns resurs gruppens namn på sidan Översikt i Azure Kognitiv sökning-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I det här exemplet demonstreras funktionen synonymer i C# kod för att skapa och publicera mappnings regler och sedan anropa synonym kartan på en fråga. Mer information finns i referensdokumentationen för [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) och [REST-API:t](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
-> [Använda synonymer i Azure Search](search-synonyms.md)
+> [Så här använder du synonymer i Azure Kognitiv sökning](search-synonyms.md)

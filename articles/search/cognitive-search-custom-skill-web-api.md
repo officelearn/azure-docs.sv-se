@@ -1,24 +1,23 @@
 ---
-title: Anpassad kognitiv Sök kompetens – Azure Search
-description: 'Utöka funktionerna i kognitiv search-färdighetsuppsättningar genom att anropa ut till webb-API: er'
-services: search
+title: Anpassad webb-API-kunskap i en anriknings pipeline
+titleSuffix: Azure Cognitive Search
+description: 'Utöka funktionerna i Azure Kognitiv sökning färdighetsuppsättningar genom att anropa ut till webb-API: er. Använd anpassade webb-API-kunskaper för att integrera din anpassade kod.'
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a148f974671e0d909591cbf24a433384a7570842
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693296"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784890"
 ---
-# <a name="custom-web-api-skill"></a>Anpassad webb-API-kunskap
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Anpassad webb-API-kunskap i en Azure Kognitiv sökning anriknings pipeline
 
-Med den **anpassade webb-API-** kunskapen kan du utöka kognitiv sökning genom att anropa till en webb-API-slutpunkt som tillhandahåller anpassade åtgärder. På liknande sätt som inbyggda kunskaper har en **anpassad webb-API-** kunskap indata och utdata. Beroende på indata får ditt webb-API en JSON-nyttolast när indexeraren körs, och utvärderar en JSON-nyttolast som svar, tillsammans med status koden lyckades. Svaret förväntas ha de utdata som anges av din anpassade färdighet. Andra svar betraktas som ett fel och inga berikningar utförs.
+Med den **anpassade webb-API-** kunskapen kan du utöka AI-anrikning genom att anropa till en webb-API-slutpunkt som tillhandahåller anpassade åtgärder. På liknande sätt som inbyggda kunskaper har en **anpassad webb-API-** kunskap indata och utdata. Beroende på indata får ditt webb-API en JSON-nyttolast när indexeraren körs, och utvärderar en JSON-nyttolast som svar, tillsammans med status koden lyckades. Svaret förväntas ha de utdata som anges av din anpassade färdighet. Andra svar betraktas som ett fel och inga berikningar utförs.
 
 Strukturen för JSON-nyttolasterna beskrivs ytterligare ned i det här dokumentet.
 
@@ -204,5 +203,5 @@ När webb-API: t inte är tillgängligt eller returnerar ett HTTP-fel, läggs et
 
 + [Energi kunskaper: ett lager med anpassade kunskaper](https://aka.ms/powerskills)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Lägg till anpassad färdighet i kognitiv sökning](cognitive-search-custom-skill-interface.md)
-+ [Exempel: skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
++ [Lägg till anpassad kompetens i en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)
++ [Exempel: skapa en anpassad färdighet för AI-anrikning (kognitiv-search-Create-example.md-Custom-skicklighet-)

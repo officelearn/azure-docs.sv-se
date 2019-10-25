@@ -1,26 +1,25 @@
 ---
-title: Säkerhets filter för att trimma resultat med Active Directory-Azure Search
-description: Åtkomst kontroll på Azure Search innehåll med hjälp av säkerhets filter och Azure Active Directory-identiteter (AAD).
-author: brjohnstmsft
+title: Säkerhets filter för att trimma resultat med Active Directory
+titleSuffix: Azure Cognitive Search
+description: Åtkomst kontroll på Azure Kognitiv sökning-innehåll med säkerhets filter och Azure Active Directory-identiteter (AAD).
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 11/07/2017
+author: brjohnstmsft
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 8bcc1dcd1d86c0ca18ed03dc60834884a42a39c9
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186532"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794309"
 ---
-# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhets filter för att trimma Azure Search resultat med hjälp av Active Directory identiteter
+# <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Säkerhets filter för att trimma Azure-Kognitiv sökning resultat med hjälp av Active Directory identiteter
 
-Den här artikeln visar hur du använder säkerhets identiteter för Azure Active Directory (AAD) tillsammans med filter i Azure Search för att trimma Sök resultat baserat på användar grupp medlemskap.
+Den här artikeln visar hur du använder säkerhets identiteter för Azure Active Directory (AAD) tillsammans med filter i Azure Kognitiv sökning för att trimma Sök resultat baserat på användar grupp medlemskap.
 
-Den här artikeln beskriver följande uppgifter:
+I den här artikeln beskrivs följande uppgifter:
 > [!div class="checklist"]
 > - Skapa AAD-grupper och användare
 > - Koppla användaren till den grupp som du har skapat
@@ -31,9 +30,9 @@ Den här artikeln beskriver följande uppgifter:
 > [!NOTE]
 > Exempel kod avsnitt i den här artikeln är skrivna C#. Du hittar den fullständiga källkoden [på GitHub](https://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Ditt index i Azure Search måste ha ett [säkerhets fält](search-security-trimming-for-azure-search.md) för att lagra listan över grupp identiteter som har Läs behörighet till dokumentet. Det här användnings fallet förutsätter en en-till-en-korrespondens mellan ett skydds Bart objekt (till exempel en enskild persons skolprogram) och ett säkerhets fält som anger vem som har åtkomst till det objektet (anställnings personal).
+Ditt index i Azure Kognitiv sökning måste ha ett [säkerhets fält](search-security-trimming-for-azure-search.md) för att lagra listan över grupp identiteter som har Läs behörighet till dokumentet. Det här användnings fallet förutsätter en en-till-en-korrespondens mellan ett skydds Bart objekt (till exempel en enskild persons skolprogram) och ett säkerhets fält som anger vem som har åtkomst till det objektet (anställnings personal).
 
 Du måste ha AAD-administratörs behörighet, som krävs i den här genom gången för att skapa användare, grupper och associationer i AAD.
 
@@ -50,9 +49,9 @@ I det här steget integreras ditt program med AAD i syfte att godkänna inloggni
 5. Fortfarande på sidan program registrering går du till > **Microsoft Graph behörigheter** > **Lägg till**.
 6. I Välj behörigheter, lägger du till följande delegerade behörigheter och klickar sedan på **OK**:
 
-   + **Directory.ReadWrite.All**
-   + **Group.ReadWrite.All**
-   + **User.ReadWrite.All**
+   + **Directory. ReadWrite. all**
+   + **Group. ReadWrite. all**
+   + **User. ReadWrite. all**
 
 Microsoft Graph tillhandahåller ett API som ger program mässig åtkomst till AAD via en REST API. Kod exemplet för den här genom gången använder behörigheterna för att anropa Microsoft Graph-API: et för att skapa grupper, användare och associationer. API: erna används också för att cachelagra grupp identifierare för snabbare filtrering.
 
@@ -60,11 +59,11 @@ Microsoft Graph tillhandahåller ett API som ger program mässig åtkomst till A
 
 Om du lägger till en sökning i ett etablerat program kan du ha befintliga användar-och grupp identifierare i AAD. I så fall kan du hoppa över nästa tre steg. 
 
-Men om du inte har befintliga användare kan du använda Microsoft Graph-API: er för att skapa säkerhets objekt. Följande kodfragment visar hur du genererar identifierare, som blir datavärdena för säkerhets fältet i Azure Search indexet. I vårt hypotetiska universitets ansöknings program är detta säkerhets identifierarna för anställda.
+Men om du inte har befintliga användare kan du använda Microsoft Graph-API: er för att skapa säkerhets objekt. Följande kodfragment visar hur du genererar identifierare, som blir datavärdena för säkerhets fältet i Azure Kognitiv sökning indexet. I vårt hypotetiska universitets ansöknings program är detta säkerhets identifierarna för anställda.
 
-Användar-och grupp medlemskap kan vara mycket flytande, särskilt i stora organisationer. Kod som skapar användar-och grupp identiteter bör köras tillräckligt ofta för att hämta ändringar i organisationens medlemskap. På samma sätt kräver ditt Azure Searchs index ett liknande uppdaterings schema för att återspegla den aktuella statusen för tillåtna användare och resurser.
+Användar-och grupp medlemskap kan vara mycket flytande, särskilt i stora organisationer. Kod som skapar användar-och grupp identiteter bör köras tillräckligt ofta för att hämta ändringar i organisationens medlemskap. På samma sätt kräver ditt Azure Kognitiv sökning-index ett liknande uppdaterings schema för att återspegla den aktuella statusen för tillåtna användare och resurser.
 
-### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>Steg 1: Skapa [AAD-grupp](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>Steg 1: skapa [AAD-grupp](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -78,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>Steg 2: Skapa [AAD-användare](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>Steg 2: skapa [AAD-användare](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -93,23 +92,23 @@ User user = new User()
 User newUser = await graph.Users.Request().AddAsync(user);
 ```
 
-### <a name="step-3-associate-user-and-group"></a>Steg 3: Koppla användare och grupp
+### <a name="step-3-associate-user-and-group"></a>Steg 3: koppla användare och grupp
 ```csharp
 await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
-### <a name="step-4-cache-the-groups-identifiers"></a>Steg 4: Cachelagra grupp-ID: n
+### <a name="step-4-cache-the-groups-identifiers"></a>Steg 4: cachelagra grupp-ID: n
 Om du vill minska nätverks fördröjningen kan du cachelagra användar grupps kopplingarna så att när en sökbegäran utfärdas, returneras grupper från cachen och sparar en tur och retur till AAD. Du kan använda [AAD batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) för att skicka en enda http-begäran med flera användare och bygga cacheminnet.
 
 Microsoft Graph har utformats för att hantera en stor mängd begär Anden. Om det uppstår ett överbelastat antal begär Anden, Miss lyckas begäran med HTTP-statuskod 429 i Microsoft Graph. Mer information finns i [Microsoft Graph begränsning](https://developer.microsoft.com/graph/docs/concepts/throttling).
 
 ## <a name="index-document-with-their-permitted-groups"></a>Indexera dokument med deras tillåtna grupper
 
-Fråga-åtgärder i Azure Search körs över ett Azure Search-index. I det här steget importerar en indexerings åtgärd sökbara data till ett index, inklusive de identifierare som används som säkerhets filter. 
+Fråga-åtgärder i Azure-Kognitiv sökning körs över ett Azure Kognitiv sökning-index. I det här steget importerar en indexerings åtgärd sökbara data till ett index, inklusive de identifierare som används som säkerhets filter. 
 
-Azure Search autentiserar inte användar identiteter eller anger logik för att upprätta vilket innehåll en användare har behörighet att visa. Användnings fallet för säkerhets trimning förutsätter att du anger associationen mellan ett känsligt dokument och grupp-ID: t som har åtkomst till dokumentet, som importeras intakt i ett sökindex. 
+Azure Kognitiv sökning autentiserar inte användar identiteter eller ger logik för att fastställa vilket innehåll en användare har behörighet att visa. Användnings fallet för säkerhets trimning förutsätter att du anger associationen mellan ett känsligt dokument och grupp-ID: t som har åtkomst till dokumentet, som importeras intakt i ett sökindex. 
 
-I det hypotetiska exemplet skulle bröd texten i begäran på ett Azure Search index innehålla sökandens skol uppsats eller avskrift tillsammans med grupp-ID: t som har behörighet att visa innehållet. 
+I det hypotetiska exemplet skulle bröd texten i begäran i ett Azure Kognitiv sökning-index innehålla en sökandes skol uppsats eller avskrift tillsammans med grupp-ID: t som har behörighet att visa innehållet. 
 
 I det allmänna exemplet som används i kod exemplet för den här genom gången kan index åtgärden se ut så här:
 
@@ -133,7 +132,7 @@ _indexClient.Documents.Index(batch);
 
 ## <a name="issue-a-search-request"></a>Utfärda en Sök förfrågan
 
-För säkerhets putsning är värdena i säkerhets fältet i indexet statiska värden som används för att inkludera eller exkludera dokument i Sök resultaten. Om grupp identifieraren för-inhämtare till exempel är "A11B22C33D44-E55F66G77-H88I99JKK" inkluderas alla dokument i ett Azure Search index med den identifieraren i den arkiverade säkerhets kopian (eller exkluderas) i Sök resultaten som skickas tillbaka till begär Anden.
+För säkerhets putsning är värdena i säkerhets fältet i indexet statiska värden som används för att inkludera eller exkludera dokument i Sök resultaten. Om grupp identifieraren för-inhämtare till exempel är "A11B22C33D44-E55F66G77-H88I99JKK" inkluderas alla dokument i ett Azure Kognitiv sökning-index som har identifieraren i den arkiverade säkerhets kopian (eller exkluderas) i Sök resultaten som skickas tillbaka till begär Anden.
 
 Granska följande steg för att filtrera dokument som returneras i Sök resultat baserat på grupper av användaren som utfärdade begäran.
 
@@ -179,16 +178,16 @@ SearchParameters parameters = new SearchParameters()
 
 DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<SecuredFiles>("*", parameters);
 ```
-### <a name="step-3-handle-the-results"></a>Steg 3: Hantera resultaten
+### <a name="step-3-handle-the-results"></a>Steg 3: hantera resultaten
 
 Svaret innehåller en filtrerad lista med dokument, som består av de som användaren har behörighet att visa. Beroende på hur du skapar Sök Resultat sidan kanske du vill inkludera visuella tips som visar den filtrerade resultat uppsättningen.
 
 ## <a name="conclusion"></a>Sammanfattning
 
-I den här genom gången har du lärt dig hur du använder AAD-inloggningar för att filtrera dokument i Azure Search resultat och trimma resultatet av dokument som inte matchar det filter som anges i begäran.
+I den här genom gången har du lärt dig hur du använder AAD-inloggningar för att filtrera dokument i Azure Kognitiv sökning resultat, vilket innebär att dokument som inte matchar det filter som anges på begäran rensas.
 
 ## <a name="see-also"></a>Se också
 
-+ [Identitets-baserad åtkomst kontroll med hjälp av Azure Search filter](search-security-trimming-for-azure-search.md)
-+ [Filter i Azure Search](search-filters.md)
-+ [Data säkerhet och åtkomst kontroll i Azure Search åtgärder](search-security-overview.md)
++ [Identitets-baserad åtkomst kontroll med Azure Kognitiv sökning filter](search-security-trimming-for-azure-search.md)
++ [Filter i Azure Kognitiv sökning](search-filters.md)
++ [Data säkerhet och åtkomst kontroll i Azure Kognitiv sökning åtgärder](search-security-overview.md)

@@ -5,15 +5,15 @@ description: Lägg till semantisk, naturlig språk bearbetning och bild analys t
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5f65667ac8ffacdd12e57ae0d46e25c586624a31
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678419"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792474"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Använd AI för att förstå Blob Storage-data
 
@@ -68,7 +68,7 @@ AI-anrikning syftar på moduler som söker efter mönster eller egenskaper och u
 
 I Azure Search är *färdigheter* de enskilda komponenterna i AI-bearbetning som du kan använda fristående eller i kombination med andra kunskaper. 
 
-+ Inbyggda kunskaper backas upp av Cognitive Services, med bild analys baserat på Visuellt innehåll och naturlig språk bearbetning baserat på Textanalys. Du kan granska den fullständiga listan med inbyggda kunskaper i [fördefinierade kunskaper för innehålls berikning](cognitive-search-predefined-skills.md).
++ Inbyggda kunskaper backas upp av Cognitive Services, med bild analys baserat på Visuellt innehåll och naturlig språk bearbetning baserat på Textanalys. En fullständig lista finns i [inbyggda kunskaper för innehålls berikning](cognitive-search-predefined-skills.md).
 
 + Anpassade kunskaper är anpassad kod, omsluten i en [gränssnitts definition](cognitive-search-custom-skill-interface.md) som möjliggör integrering i pipelinen. I kund lösningar är det vanligt att använda båda, med anpassade kunskaper som tillhandahåller AI-moduler med öppen källkod, tredje part eller första part.
 

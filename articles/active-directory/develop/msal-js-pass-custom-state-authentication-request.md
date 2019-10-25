@@ -1,5 +1,6 @@
 ---
-title: Skicka anpassat tillstånd i autentiseringsbegäranden (Microsoft Authentication Library för Java Script) | Azure
+title: Skicka anpassat tillstånd i autentiseringsbegäranden (Microsoft Authentication Library för Java Script)
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du skickar ett anpassat tillstånds parameter värde i autentiseringsbegäran med Microsoft Authentication Library för Java Script (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,17 +18,17 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ae12624b3d897f05437f7795d1a1eee32ca37a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 8d2fa7d7d294d38d29ce8ace744e13bd1bf2d533
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532741"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803030"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Skicka anpassat tillstånd i autentiseringsbegäranden med MSAL. js
 Parametern *State* , som definieras av OAuth 2,0, ingår i en autentiseringsbegäran och returneras också i svaret från token för att förhindra förfalskning av begäran mellan webbplatser. Som standard skickar Microsoft Authentication Library för Java Script (MSAL. js) ett slumpmässigt genererat unikt *tillstånds* parameter värde i autentiseringsbegäranden.
 
-Tillstånds parametern kan också användas för att koda information om appens tillstånd före omdirigeringen. Du kan skicka användarens tillstånd i appen, t. ex. sidan eller vyn som de var på, som indata för den här parametern. Med MSAL. js-biblioteket kan du skicka anpassad status som tillstånds parameter i `Request` objektet:
+Tillstånds parametern kan också användas för att koda information om appens tillstånd före omdirigeringen. Du kan skicka användarens tillstånd i appen, t. ex. sidan eller vyn som de var på, som indata för den här parametern. Med MSAL. js-biblioteket kan du skicka anpassad status som en tillstånds parameter i `Request`-objektet:
 
 ```javascript
 // Request type
@@ -57,7 +58,7 @@ let loginRequest = {
 myMSALObj.loginPopup(loginRequest);
 ```
 
-Det överförda läget läggs till i det unika GUID som anges av MSAL. js när begäran skickas. När svaret returneras söker MSAL. js efter en tillstånds matchning och returnerar sedan det anpassade status `Response` som skickats i objektet som. `accountState`
+Det överförda läget läggs till i det unika GUID som anges av MSAL. js när begäran skickas. När svaret returneras söker MSAL. js efter en tillstånds matchning och returnerar sedan det anpassade tillstånd som skickats i `Response`-objektet som `accountState`.
 
 ```javascript
 export type AuthResponse = {

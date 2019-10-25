@@ -1,26 +1,25 @@
 ---
-title: Bearbeta och extrahera text från bilder i kognitiv sökning – Azure Search
-description: Bearbeta och extrahera text och annan information från bilder i kognitiva Sök pipeliner i Azure Search.
-services: search
+title: Bearbeta och extrahera text från bilder i en pipeline för berikning
+titleSuffix: Azure Cognitive Search
+description: Behandla och extrahera text och annan information från bilder i Azure Kognitiv sökning pipelines.
 manager: nitinme
-author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: LuisCabrer
 ms.author: luisca
-ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265854"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787744"
 ---
-#  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Så här bearbetar och extraherar du information från bilder i kognitiva Sök scenarier
+# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Så här bearbetar och extraherar du information från bilder i AI-anriknings scenarier
 
-Kognitiv sökning har flera funktioner för att arbeta med bilder och bildfiler. Under dokument sprickor kan du använda parametern *imageAction* för att extrahera text från foton eller bilder som innehåller alfanumerisk text, till exempel ordet "Stop" i ett stopp tecken. Andra scenarier är att generera en text representation av en bild, till exempel "Dandelion" för ett foto av en Dandelion eller färgen "gul". Du kan också extrahera metadata om avbildningen, till exempel dess storlek.
+Azure Kognitiv sökning har flera funktioner för att arbeta med bilder och bildfiler. Under dokument sprickor kan du använda parametern *imageAction* för att extrahera text från foton eller bilder som innehåller alfanumerisk text, till exempel ordet "Stop" i ett stopp tecken. Andra scenarier är att generera en text representation av en bild, till exempel "Dandelion" för ett foto av en Dandelion eller färgen "gul". Du kan också extrahera metadata om avbildningen, till exempel dess storlek.
 
-Den här artikeln beskriver bild bearbetning i mer detalj och ger vägledning för att arbeta med bilder i en kognitiv Sök-pipeline.
+Den här artikeln beskriver bild bearbetning i mer detalj och ger vägledning för att arbeta med bilder i en pipeline för AI-anrikning.
 
 <a name="get-normalized-images"></a>
 
@@ -32,14 +31,14 @@ Du kan inte inaktivera avbildnings-normalisering. De färdigheter som itereras �
 
 | Konfigurations parameter | Beskrivning |
 |--------------------|-------------|
-| imageAction   | Ange till "ingen" om ingen åtgärd ska vidtas när inbäddade bilder eller bildfiler påträffas. <br/>Ange till "generateNormalizedImages" om du vill generera en matris med normaliserade avbildningar som en del av dokument sprickor.<br/>Ange till "generateNormalizedImagePerPage" om du vill generera en matris med normaliserade avbildningar där för PDF-filer i data källan återges varje sida till en utgående bild.  Funktionen är samma som "generateNormalizedImages" för filtyper som inte är PDF-filer.<br/>För alla alternativ som inte är "ingen" visas bilderna i fältet *normalized_images* . <br/>Standardvärdet är "ingen". Den här konfigurationen är bara relevant för BLOB-datakällor, när "dataToExtract" är inställt på "contentAndMetadata". <br/>Högst 1000 avbildningar kommer att extraheras från ett givet dokument. Om det finns fler än 1000 avbildningar i ett dokument kommer den första 1000 att extraheras och en varning genereras. |
+| imageAction   | Ange till "ingen" om ingen åtgärd ska vidtas när inbäddade bilder eller bildfiler påträffas. <br/>Ange till "generateNormalizedImages" om du vill generera en matris med normaliserade avbildningar som en del av dokument sprickor.<br/>Ange till "generateNormalizedImagePerPage" om du vill generera en matris med normaliserade avbildningar där varje sida visas till en utgående bild för PDF-filer i data källan.  Funktionen är samma som "generateNormalizedImages" för filtyper som inte är PDF-filer.<br/>För alla alternativ som inte är "ingen" visas bilderna i fältet *normalized_images* . <br/>Standardvärdet är "ingen". Den här konfigurationen är bara relevant för BLOB-datakällor, när "dataToExtract" är inställt på "contentAndMetadata". <br/>Högst 1000 avbildningar kommer att extraheras från ett givet dokument. Om det finns fler än 1000 avbildningar i ett dokument kommer den första 1000 att extraheras och en varning genereras. |
 |  normalizedImageMaxWidth | Den maximala bredden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2000. Det högsta tillåtna värdet är 10000. | 
 |  normalizedImageMaxHeight | Den maximala höjden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2000. Det högsta tillåtna värdet är 10000.|
 
 > [!NOTE]
-> Om du anger egenskapen *imageAction* till något annat än "ingen", kommer du inte att kunna ange egenskapen *parsingMode* till något annat än "default".  Du kan bara ange en av dessa två egenskaper till ett värde som inte är standardvärdet i din indexerare-konfiguration.
+> Om du anger egenskapen *imageAction* till något annat än "ingen" kan du inte ange egenskapen *parsingMode* till något annat än "default".  Du kan bara ange en av dessa två egenskaper till ett värde som inte är standardvärdet i din indexerare-konfiguration.
 
-Ange parametern **parsingMode** till `json` (för att indexera varje blob som ett enskilt dokument) eller `jsonArray` (om Blobbarna innehåller JSON-matriser och du behöver varje element i en matris för att behandlas som ett separat dokument).
+Ange parametern **parsingMode** till `json` (för att indexera varje blob som ett enda dokument) eller `jsonArray` (om Blobbarna innehåller JSON-matriser och du behöver varje element i en matris för att behandlas som ett separat dokument).
 
 Standardvärdet på 2000 bild punkter för de normaliserade bildernas maximala bredd och höjd baseras på de maximala storlekar som stöds av [OCR-kompetensen](cognitive-search-skill-ocr.md) och [bild analysens färdighet](cognitive-search-skill-image-analysis.md). [OCR-kunskaper](cognitive-search-skill-ocr.md) stöder maximal bredd och höjd på 4200 för andra språk än engelska och 10000 för engelska.  Om du ökar Max gränsen kan bearbetningen av större avbildningar gå sönder beroende på din färdigheter-definition och dokumentets språk. 
 
@@ -90,9 +89,9 @@ När *imageAction* är inställt på ett annat värde än "ingen", kommer fälte
 
 ## <a name="image-related-skills"></a>Bildrelaterade kunskaper
 
-Det finns två inbyggda kognitiva färdigheter som tar bilder som inmatade: [OCR](cognitive-search-skill-ocr.md) -och [bild analys](cognitive-search-skill-image-analysis.md). 
+Det finns två inbyggda kognitiva färdigheter som tar bilder som indata: [OCR](cognitive-search-skill-ocr.md) -och [bild analys](cognitive-search-skill-image-analysis.md). 
 
-Dessa kunskaper fungerar för närvarande bara med bilder som genereras från dokument sprickors steget. Därför är `"/document/normalized_images"`det enda som stöds.
+Dessa kunskaper fungerar för närvarande bara med bilder som genereras från dokument sprickors steget. Därför är det enda `"/document/normalized_images"`som stöds.
 
 ### <a name="image-analysis-skill"></a>Bild analys kunskaper
 
@@ -107,7 +106,7 @@ I [bild analysens kunskap](cognitive-search-skill-image-analysis.md) extraheras 
 Ett vanligt scenario är att skapa en enskild sträng som innehåller allt fil innehåll, både text-och bilds Origin text, genom att utföra följande steg:  
 
 1. [Extrahera normalized_images](#get-normalized-images)
-1. Kör OCR-kompetensen `"/document/normalized_images"` med som indatamängd
+1. Kör OCR-kunskaper med `"/document/normalized_images"` som inmatade
 1. Sammanfoga text representationen av dessa bilder med den obehandlade text som extraherats från filen. Du kan använda [text sammanfognings](cognitive-search-skill-textmerger.md) kunskapen för att konsolidera båda text segmenten i en enda stor sträng.
 
 I följande exempel skapar färdigheter ett *merged_text* -fält som innehåller text innehållet i ditt dokument. Den innehåller också OCRed-texten från var och en av de inbäddade bilderna. 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/24/2019
-ms.openlocfilehash: 9d132faf0b4d1de232e2b7e6e5ab6730978e27a8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 83c2264cd3aa3025e911db5079747930d1ae096b
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555235"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809452"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Aktivera Azure Monitor for VMs (för hands version) – Översikt
 
@@ -157,12 +157,12 @@ I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor f
 
 Kart funktionen i Azure Monitor for VMs hämtar data från Microsoft-beroende agenten. Beroende agenten använder den Log Analytics agenten för att ansluta till Log Analytics. Datorn måste ha Log Analytics-agenten installerad och konfigurerad med beroende agenten.
 
-Oavsett om du aktiverar Azure Monitor for VMs för en enskild virtuell Azure-dator eller om du använder distributions metoden för vid-skala, använder du tillägget Azure VM Dependency agent för att installera agenten som en del av upplevelsen.
+Oavsett om du aktiverar Azure Monitor for VMs för en enskild virtuell Azure-dator eller om du använder distributions metoden vid vid skala, använder du tillägget Azure VM Dependency agent för [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) eller [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) för att installera agenten som en del av upplevelsen.
 
 >[!NOTE]
 >Följande information som beskrivs i det här avsnittet gäller även för den [tjänstkarta lösningen](service-map.md).  
 
-I en hybrid miljö kan du ladda ned och installera beroende agenten manuellt. Om dina virtuella datorer finns utanför Azure använder du en automatiserad distributions metod.
+I en hybrid miljö kan du ladda ned och installera beroende agenten manuellt eller med en automatiserad metod.
 
 I följande tabell beskrivs de anslutna källor som kart funktionen stöder i en hybrid miljö.
 

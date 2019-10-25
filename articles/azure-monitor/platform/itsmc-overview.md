@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6ae1792d9ef3f07ef7258451be79b587692a1694
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177651"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809440"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 
@@ -94,7 +94,7 @@ När du har beredd dina ITSM-verktyg följer du stegen nedan för att skapa en a
 
 1. Gå till **alla resurser**, Sök efter **Servicedesk (YourWorkspaceName)** .
 2. Under **arbets ytans data källor** i den vänstra rutan klickar du på **ITSM-anslutningar**.
-   ![ITSM-anslutningar @ no__t-1
+   ![ITSM-anslutningar](media/itsmc-overview/itsm-connections.png)
 
    Den här sidan visar listan över anslutningar.
 3. Klicka på **Lägg till anslutning**.
@@ -297,7 +297,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 2. Om data från ServiceNow inte kommer att synkroniseras till Log Analytics, se till att ServiceNow-instansen inte är i vilo läge. ServiceNow dev-instanser går ibland till ström spar läge när de är inaktiva under en längre tid. Annars kan du rapportera problemet.
 3. Om Log Analytics-aviseringar om brand, men arbets objekt inte skapas i ITSM-produkten eller om konfigurations objekt inte skapas/länkas till arbets objekt eller för någon annan allmän information, tittar du på följande platser:
    -  ITSMC: lösningen visar en sammanfattning av anslutningar/arbets objekt/datorer osv. Klicka på panelen som visar **kopplings status**, som gör att du kan **Logga sökningen** med den relevanta frågan. Mer information hittar du i logg posterna med LogType_S som fel.
-   - Sidan **loggs ökning** : Visa fel-/relaterad information direkt med frågan `*`ServiceDeskLog_CL @ no__t-2.
+   - Sidan **loggs ökning** : Visa fel-/relaterad information direkt med frågan `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution
 1.  Om det uppstår problem med distributionen av webbappar kontrollerar du att du har tillräcklig behörighet i prenumerationen som nämns skapa/distribuera resurser.

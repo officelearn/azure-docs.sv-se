@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 5019951ca9628bc3beb849bdb2b148b575bc8618
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: cc084c9ff118aa5405bc12cf4e92ff1e11f24e2a
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535119"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809416"
 ---
-# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Självstudier: Använd Azure CLI och Azure Portal för att konfigurera IoT Hub meddelanderoutning
+# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Självstudie: Använd Azure CLI och Azure Portal för att konfigurera IoT Hub meddelanderoutning
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -26,11 +26,13 @@ ms.locfileid: "69535119"
 
 I den här självstudien används Azure CLI för att skapa bas resurser och sedan används [Azure Portal](https://portal.azure.com) för att visa hur du konfigurerar meddelanderoutning och konfigurerar den virtuella enheten för testning.
 
-Det finns flera resurs namn som måste vara globalt unika, till exempel IoT Hub namn och lagrings konto namn. För att göra det enklare läggs dessa resurs namn till med ett slumpmässigt alfanumeriskt värde som kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggs till i resurs namnen vid behov i hela skriptet. Om du inte vill att den ska vara slumpmässig, kan du ange den som en tom sträng eller ett angivet värde.
-
 Kopiera och klistra in skriptet nedan i Cloud Shell och tryck på RETUR. Den kör skriptet en rad i taget. Detta skapar bas resurserna för den här självstudien, inklusive lagrings kontot, IoT Hub, Service Bus namnrymd och Service Bus kö.
 
-En kommentar om fel sökning: det här skriptet använder fortsättnings symbolen (det omvända snedstrecket `\`) för att göra skriptet mer läsbart. Om du har problem med att köra skriptet ser du till att det inte finns några blank steg efter något av omvänt snedstreck.
+Det finns flera resurs namn som måste vara globalt unika, till exempel IoT Hub namn och lagrings konto namn. För att göra det enklare läggs dessa resurs namn till med ett slumpmässigt alfanumeriskt värde som kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggs till i resurs namnen vid behov i hela skriptet. Om du inte vill att den ska vara slumpmässig, kan du ange den som en tom sträng eller ett angivet värde.
+
+> [!TIP]
+> Ett tips om fel sökning: det här skriptet använder fortsättnings symbolen (omvänt snedstreck `\`) för att göra skriptet mer läsbart. Om du har problem med att köra skriptet kontrollerar du att Cloud Shell-sessionen körs `bash` och att det inte finns några blank steg efter något av omvända snedstrecken.
+>
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 
@@ -134,7 +136,7 @@ Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderou
 
 2. Välj IoT-hubben under resurs listan. I självstudien används **ContosoTestHub**.
 
-3. Väljmeddelanderoutning. I fönstret meddelanderoutning väljer du +**Lägg till**. I fönstret **Lägg till en väg** väljer du +**Lägg till** bredvid fältet slut punkt för att visa de slut punkter som stöds, som visas på följande bild:
+3. Välj **meddelanderoutning**. I fönstret **meddelanderoutning** väljer du +**Lägg till**. I fönstret **Lägg till en väg** väljer du +**Lägg till** bredvid fältet slut punkt för att visa de slut punkter som stöds, som visas på följande bild:
 
    ![Börja lägga till en slut punkt för en väg](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
 
@@ -162,13 +164,13 @@ Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderou
 
    **Namn**: Ange ett namn för din routningsfråga. I den här självstudien används **ContosoStorageRoute**.
 
-   **Slutpunkt**: Visar den slutpunkt som du nyss skapade.
+   **Slutpunkt**: visar den slutpunkt som du nyss skapade.
 
    **Datakälla**: Välj **Enhetstelemetrimeddelanden** från listrutan.
 
-   **Aktivera rutt**: Se till att det här fältet är `enabled`inställt på.
+   **Aktivera väg**: se till att det här fältet är inställt på `enabled`.
    
-   **Dirigeringsfråga**: Ange `level="storage"` som frågesträng.
+   **Routningsfråga**: Ange `level="storage"` som frågesträng.
 
    ![Skapa en cirkulations fråga för lagrings kontot](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
@@ -180,7 +182,7 @@ Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelander
 
 1. På sidan resurs grupp väljer du din IoT Hub och väljer sedan **meddelanderoutning**.
 
-2. I fönstret meddelanderoutning väljer du +**Lägg till**.
+2. I fönstret **meddelanderoutning** väljer du +**Lägg till**.
 
 3. I fönstret **Lägg till en väg** väljer du +**Lägg till** bredvid fältet slut punkt. Välj **Service Bus-kö**. Du får fram fönstret **Lägg till Service Bus-slutpunkt**.
 
@@ -190,9 +192,9 @@ Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelander
 
    **Slutpunktsnamn**: Ange ett namn på slutpunkten. I den här självstudien används **ContosoSBQueueEndpoint**.
    
-   **Service Bus-namnområde**: Använd List rutan för att välja det Service Bus-namnområde som du har angett i förberedelse stegen. I den här självstudien används **ContosoSBNamespace**.
+   **Service Bus namnrymd**: Använd List rutan för att välja Service Bus-namnområdet som du angav i förberedelse stegen. I den här självstudien används **ContosoSBNamespace**.
 
-   **Service Bus-kö**: Använd List rutan för att välja Service Bus kön. I den här självstudien används **contososbqueue**.
+   **Service Bus kö**: Använd List rutan för att välja kön Service Bus. I den här självstudien används **contososbqueue**.
 
 5. Välj **skapa** för att lägga till Service Bus Queue-slutpunkten. Du kommer tillbaka till fönstret **Lägg till en väg**.
 
@@ -200,11 +202,11 @@ Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelander
 
    **Namn**: Ange ett namn för din routningsfråga. I den här självstudien används **ContosoSBQueueRoute**. 
 
-   **Slutpunkt**: Visar den slutpunkt som du nyss skapade.
+   **Slutpunkt**: visar den slutpunkt som du nyss skapade.
 
    **Datakälla**: Välj **Enhetstelemetrimeddelanden** från listrutan.
 
-   **Dirigeringsfråga**: Ange `level="critical"` som frågesträng. 
+   **Routningsfråga**: Ange `level="critical"` som frågesträng. 
 
    ![Skapa en cirkulations fråga för Service Bus kön](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 

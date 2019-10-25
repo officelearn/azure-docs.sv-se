@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773223"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784821"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet samförsäljning i Partner Center
 
@@ -33,13 +33,13 @@ Välj din erbjudande typ:
 | **Erbjudande typ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
 | Enhet | Ett erbjudande som inbegriper att skapa eller sälja maskin vara från en enhets tillverkare. |
-| IP-adress | Appar eller annat upphovsrättsskyddat material som är licensierat för kundens användning. Till exempel: ett CRM-program som kan licensieras och installeras lokalt. |
-| Tjänsten | Praktiska expert kunskaper för ett särskilt projekt med en gång, som ofta levereras via konsulter. Exempel: Konfigurera en kund databas för en klient (med klienten som förutsätter ansvar för att hantera databasen efter leverans). |
-| Hanterad tjänst | Praktiska expert kunskaper om ett molnbaserad projekt, vanligt vis kontinuerligt. Exempel: Tillhandahålla en plattform och verktyg för att köra en online-databas med kontinuerlig hantering från den hanterade tjänst leverantören. |
+| IP | Appar eller annat upphovsrättsskyddat material som är licensierat för kundens användning. Till exempel: ett CRM-program som kan licensieras och installeras lokalt. |
+| Tjänst | Praktiska expert kunskaper för ett särskilt projekt med en gång, som ofta levereras via konsulter. Exempel: Konfigurera en kund databas för en klient (med klienten som förutsätter ansvar för att hantera databasen efter leverans). |
+| Hanterad tjänst | Praktiska expert kunskaper om ett molnbaserad projekt, vanligt vis kontinuerligt. Exempel: tillhandahålla en plattform och verktyg för att köra en online-databas, med kontinuerlig hantering från den hanterade tjänst leverantören. |
 
 ## <a name="solution-areas"></a>Lösnings områden
 
-Du kan lägga till upp till tre lösnings områden för ditt erbjudande.  För varje lösnings områden kan du välja upp till två del områden för lösningen. Om du vill välja flera under Kategorier använder `Ctrl` du nyckeln (i Windows) eller kommando nyckeln (på Mac OS).
+Du kan lägga till upp till tre lösnings områden för ditt erbjudande.  För varje lösnings områden kan du välja upp till två del områden för lösningen. Om du vill välja flera under Kategorier använder du `Ctrl` nyckel (i Windows) eller kommando nyckel (på Mac OS).
 
 Lösnings områden hjälper dig att definiera scenarier som ditt erbjudande är utformat för att åtgärda.
 
@@ -57,7 +57,7 @@ Lösnings områden hjälper dig att definiera scenarier som ditt erbjudande är 
 | *Andra dokument* | Alternativt kan du överföra upp till fem ytterligare dokument eller videor för att hjälpa Microsofts försäljnings team och kanal åter försäljare att lära sig mer om din lösning, organisation och/eller differentiering. |
 | *Extern referens-URL* | Länken till produktens webbplats där Microsoft Sales Teams och Channel-återförsäljare kan lära sig mer om din lösning. |
 
-## <a name="contacts"></a>Kontakter
+## <a name="contacts"></a>Contacts
 
 Med din kontakt information kan Microsoft sälj team och kanal åter försäljare begära ytterligare information från den aktuella resursen i din organisation. Kontakt information är tillgänglig för alla Microsoft-säljteam. Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet är den här kontakt informationen också tillgänglig för kanal åter försäljare. 
 
@@ -65,17 +65,17 @@ Det här dokumentet ger vägledning om olika roller för partner och hur du väl
 
 Du kan också exportera din befintliga lista med kontakter från ett erbjudande och sedan göra ändringar i filen.
 
-* *Namn (obligatoriskt)* : Kontaktens namn.
-* *E-postadress (krävs)* : Kontaktens e-postadress.
-* *Befattning (krävs)* : Befattning.
+* *Namn (obligatoriskt)* : kontaktens namn.
+* *E-postadress (krävs)* : kontaktens e-postadress.
+* *Jobb titel (krävs)* : befattning.
 * *Roll (krävs)* : Använd någon av följande roller i det här fältet i mallen.
 
     | **Roll**    | **Beskrivning**  |
     | :------------------- | :-------------------|
-    | *Partner marknadsföring* | Den här rollen fokuserar på att marknadsföra din lösning och samar beta kring marknadsförings ansträngningar med Microsofts försäljnings team och kanal åter försäljare. Den huvudsakliga kontakt punkten för marknadsförings engagemang och erbjudande om att visa innehåll, till exempel produkt beskrivningar, bilder och videor. |
-    | *Partner försäljning* | Den här rollen fokuserar på att sälja din lösning och samar beta med försäljning med Microsoft Sales Teams och kanal åter försäljare. För samförsäljnings lösningar anger du minst en partner försäljnings kontakt per region där du vill bli samförsäljnings klar. Samma partner Sälj kontakt kan avse flera regioner. |
-    | *Teknisk försäljning för partner* | Har stöd för tekniska arkitektur-och distributions aspekter under Sälj cykeln, integreringen efter försäljning och distributions perioder. |
-    | *Partner kund lyckad chef* | Har normalt stöd för kunder efter distribution, för att hjälpa dem att få ut mesta möjliga av din lösning och utöka sitt namn i kundens organisation. |
+    | *:::no-loc text="Partner marketing":::* | Den här rollen fokuserar på att marknadsföra din lösning och samar beta kring marknadsförings ansträngningar med Microsofts försäljnings team och kanal åter försäljare. Den huvudsakliga kontakt punkten för marknadsförings engagemang och erbjudande om att visa innehåll, till exempel produkt beskrivningar, bilder och videor. |
+    | *:::no-loc text="Partner sales":::* | Den här rollen fokuserar på att sälja din lösning och samar beta med försäljning med Microsoft Sales Teams och kanal åter försäljare. För samförsäljnings lösningar anger du minst en partner försäljnings kontakt per region där du vill bli samförsäljnings klar. Samma partner Sälj kontakt kan avse flera regioner. |
+    | *:::no-loc text="Partner technical sales":::* | Har stöd för tekniska arkitektur-och distributions aspekter under Sälj cykeln, integreringen efter försäljning och distributions perioder. |
+    | *:::no-loc text="Partner customer success manager":::* | Har normalt stöd för kunder efter distribution, för att hjälpa dem att få ut mesta möjliga av din lösning och utöka sitt namn i kundens organisation. |
 
 * *Länder/regioner (krävs):*  När du fyller i mallen använder du de [två lands koderna för brev/region som visas](./commercial-marketplace-co-sell-countries.md). Om kontakten omfattar alla länder/regioner använder du den tre bokstavs koden "OOO". Om en kontakt täcker mer än ett land/region, anger du var och en av de två bokstavs koderna avgränsade med ett kommatecken (till exempel, ange "US, CA, FR" utan citat tecken i mallen).
 

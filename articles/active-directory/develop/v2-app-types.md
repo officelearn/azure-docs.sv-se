@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6799e604b9e5e2acc3af35e4038ea6f14271d5c8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e07136eed9c14eb4b6eda49ef635171aaf543445
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834725"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809266"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Program typer för Microsoft Identity Platform
 
@@ -37,7 +37,7 @@ Slut punkten för Microsoft Identity Platform (v 2.0) stöder autentisering för
 Du måste registrera varje app som använder Microsoft Identity Platform-slutpunkten på den nya [Appregistreringar portalen](https://go.microsoft.com/fwlink/?linkid=2083908). Registrerings processen för appen samlar in och tilldelar dessa värden för din app:
 
 * Ett **program (klient) ID** som unikt identifierar din app
-* En omdirigerings- **URI** som du kan använda för att dirigera svar tillbaka till appen
+* En **omdirigerings-URI** som du kan använda för att dirigera svar tillbaka till appen
 * Några andra scenario-speciella värden, till exempel typer av konto typer som stöds
 
 Mer information finns i så här [registrerar du en app](quickstart-register-app.md).
@@ -59,7 +59,7 @@ I det här flödet tar appen emot token direkt från Microsoft Identity Platform
 
 Om du vill se hur det här scenariot fungerar kan du prova något av kod exemplen för en enda sida i avsnittet [komma igång med Microsoft Identity Platform](v2-overview.md#getting-started) .
 
-## <a name="web-apps"></a>Webbprogram
+## <a name="web-apps"></a>Webbappar
 
 För webb program (.NET, PHP, Java, ruby, python, Node) som användaren har åtkomst till via en webbläsare kan du använda [OpenID Connect](active-directory-v2-protocols.md) för användar inloggning. I OpenID Connect tar webbappen emot en ID-token. En ID-token är en säkerhetstoken som verifierar användarens identitet och ger information om användaren i form av anspråk:
 
@@ -76,7 +76,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns [](access-tokens.md) i referens för åtkomsttoken och [id_token-referens](id-tokens.md)
+Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns [i referens för åtkomsttoken och](access-tokens.md) [id_token-referens](id-tokens.md)
 
 I Web Server-appar använder inloggnings flödet följande steg på hög nivå:
 
@@ -100,7 +100,7 @@ Accept: application/json
 ...
 ```
 
-Webb-API: et använder åtkomsttoken för att verifiera API-anroparens identitet och för att extrahera information om anroparen från anspråk som kodas i åtkomsttoken. Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns [](access-tokens.md) i referens för åtkomsttoken och [id_token-referens](id-tokens.md)
+Webb-API: et använder åtkomsttoken för att verifiera API-anroparens identitet och för att extrahera information om anroparen från anspråk som kodas i åtkomsttoken. Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns [i referens för åtkomsttoken och](access-tokens.md) [id_token-referens](id-tokens.md)
 
 Ett webb-API kan ge användare möjlighet att välja eller välja ut vissa funktioner eller data genom att exponera behörigheter, även kallade [omfång](v2-permissions-and-consent.md). För att en anropande app ska kunna erhålla behörighet till ett omfång måste användaren godkänna omfånget under ett flöde. Slut punkten för Microsoft Identity Platform ber användaren om behörighet och registrerar sedan behörigheter i alla åtkomsttoken som webb-API: et tar emot. Webb-API: et verifierar de åtkomsttoken den tar emot vid varje anrop och utför verifierings kontroller.
 
@@ -122,7 +122,7 @@ I det här flödet tar appen emot en auktoriseringskod från slut punkten för M
 
 ## <a name="daemons-and-server-side-apps"></a>Daemon och appar på Server Sidan
 
-Appar som har långvariga processer eller som fungerar utan interaktion med en användare behöver också ett sätt att komma åt skyddade resurser, till exempel webb-API: er. Dessa appar kan autentisera och hämta token genom att använda appens identitet, i stället för en användares delegerade identitet, med flödet OAuth 2,0-klientautentiseringsuppgifter. Du kan bevisa appens identitet med hjälp av en klient hemlighet eller ett certifikat. Mer information finns i [autentisera till Microsoft Identity Platform i daemon-appar med certifikat](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
+Appar som har långvariga processer eller som fungerar utan interaktion med en användare behöver också ett sätt att komma åt skyddade resurser, till exempel webb-API: er. Dessa appar kan autentisera och hämta token genom att använda appens identitet, i stället för en användares delegerade identitet, med flödet OAuth 2,0-klientautentiseringsuppgifter. Du kan bevisa appens identitet med hjälp av en klient hemlighet eller ett certifikat. Mer information finns i [autentisera till Microsoft Identity Platform i daemon-appar med certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/).
 
 I det här flödet samverkar appen direkt med `/token` slut punkten för att få åtkomst:
 

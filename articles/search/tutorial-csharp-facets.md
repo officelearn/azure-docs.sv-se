@@ -1,41 +1,42 @@
 ---
-title: C#självstudie om att använda fasetterna för att underlätta navigeringen – Azure Search
-description: Den här självstudien bygger på ”sökresultat sidbrytning – Azure Search”-projektet, lägga till aspekten navigering. Lär dig att fasetter kan användas för att enkelt begränsa sökningen.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: C#själv studie kurs om att använda ansikte för att under lätta navigering
+titleSuffix: Azure Cognitive Search
+description: Den här självstudien bygger på projektet "Sök Resultat sid brytning – Azure Kognitiv sökning" för att lägga till aspekt navigering. Lär dig hur ansikts kan användas för att enkelt begränsa en sökning.
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/20/2019
-ms.openlocfilehash: 62326ad3bc5f2d740ce744819df559bce8658eb7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 9f0d716e9077b2d9702f26b1afe92d9e4faf4a77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443783"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794114"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-search"></a>C#självstudie: Använda fasetterna för att underlätta navigering – Azure Search
+# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>C#Självstudie: använda Faces för att under lätta navigeringen – Azure Kognitiv sökning
 
-Fasetter används för att underlätta navigeringen, genom att ge användaren en uppsättning länkar du använder för att fokusera sökningen. Fasetter är attribut i data (till exempel kategorin eller en specifik funktion i ett hotell i våra exempeldata).
+Ansikte används för att under lätta navigeringen genom att förse användaren med en uppsättning länkar som ska användas för att fokusera sökningen. Facets är attribut för data (till exempel kategorin eller en viss funktion) av ett hotell i våra exempel data.
 
-Den här självstudien bygger på sidindelning projektet har skapats i den [ C# självstudien: Sökresultat sidbrytning – Azure Search](tutorial-csharp-paging.md) självstudien.
+Den här självstudien bygger på det växlings projekt som skapades i [ C# självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> * Ange modellegenskaper som _IsFacetable_
-> * Lägg till aspekten navigering till din app
+> * Ange modell egenskaper som _IsFacetable_
+> * Lägg till aspekt navigering till din app
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-Har den [ C# självstudien: Sökresultat sidbrytning – Azure Search](tutorial-csharp-paging.md) projekt och drift. Det här projektet kan vara din egen version eller installera det från GitHub: [Skapa första app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+[ C# Själv studie kursen: sid brytning av Sök Resultat – Azure kognitiv sökning](tutorial-csharp-paging.md) Project up och igång. Projektet kan antingen vara din egen version eller installeras från GitHub: [skapa första app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
-## <a name="set-model-properties-as-isfacetable"></a>Ange modell-egenskaper som IsFacetable
+## <a name="set-model-properties-as-isfacetable"></a>Ange modell egenskaper som IsFacetable
 
-För en modellegenskap som ska finnas i en aspekten sökning, måste den vara taggad med **IsFacetable**.
+För att en modell egenskap ska finnas i en aspekt-sökning måste den märkas med **IsFacetable**.
 
-1. Granska den **hotell** klass. **Kategori** och **taggar**, till exempel är märkta som **IsFacetable**, men **HotelName** och **beskrivning** finns inte. 
+1. Granska **hotell** klassen. **Kategori** och **taggar**är till exempel Taggade som **IsFacetable**, men **HotelName** och **Description** är inte. 
 
     ```cs
     public partial class Hotel
@@ -81,40 +82,40 @@ För en modellegenskap som ska finnas i en aspekten sökning, måste den vara ta
     }
     ```
 
-2. Vi kommer inte att ändra taggarna som en del av den här kursen, så Stäng filen hotel.cs utan ändringar.
+2. Vi kommer inte att ändra några taggar som en del av den här självstudien, så Stäng hotel.cs-filen utan ändringar.
 
     > [!Note]
-    > En sökning för aspekten genereras ett fel om ett fält som efterfrågas i sökningen inte är taggade på rätt sätt.
+    > En aspekts ökning genererar ett fel om ett fält som begärs i sökningen inte är korrekt taggat.
 
 
-## <a name="add-facet-navigation-to-your-app"></a>Lägg till aspekten navigering till din app
+## <a name="add-facet-navigation-to-your-app"></a>Lägg till aspekt navigering till din app
 
-I det här exemplet vi gör att användaren kan välja en kategori av hotell eller en amenity från en lista över länkar som visas till vänster om resultaten. Användaren startar genom att ange några söktext, och sedan kan du begränsa resultaten av sökningen genom att välja en kategori och kan begränsa resultaten ytterligare genom att välja en amenity eller de kan välja amenity första (ordning inte är viktigt).
+I det här exemplet ska vi göra det möjligt för användaren att välja en kategori av hotellet eller en Amenity från listor över länkar som visas till vänster om resultatet. Användaren startar genom att ange en Sök text och kan begränsa Sök resultatet genom att välja en kategori och kan begränsa resultaten ytterligare genom att välja en Amenity, eller så kan de välja Amenity först (ordningen är inte viktig).
 
-Vi behöver den kontrollenheten för att skicka listan över fasetter till vyn. Vi behöver underhålla användarval medan sökning pågår och igen, använder vi tillfälligt lagringsutrymme som mekanism för att bevara data.
+Vi behöver styrenheten för att skicka listor över ansikte till vyn. Vi måste underhålla användar valen när sökningen pågår, och återigen använder vi tillfällig lagring som mekanism för att bevara data.
 
-![Använda aspekten navigering för att begränsa sökningen av ”pool”](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
+![Använda aspekt navigering för att begränsa en sökning av "pool"](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
 
-### <a name="add-filter-strings-to-the-searchdata-model"></a>Lägga till filtret strängar i SearchData-modellen
+### <a name="add-filter-strings-to-the-searchdata-model"></a>Lägg till filter strängar i SearchData-modellen
 
-1. Öppna filen SearchData.cs och Lägg till egenskaper för anslutningssträngen till den **SearchData** klass för aspekten filtersträngar.
+1. Öppna filen SearchData.cs och Lägg till sträng egenskaper till **SearchData** -klassen för att innehålla fasett filter strängarna.
 
     ```cs
         public string categoryFilter { get; set; }
         public string amenityFilter { get; set; }
     ```
 
-### <a name="add-the-facet-action-method"></a>Lägg till aspekten åtgärdsmetod
+### <a name="add-the-facet-action-method"></a>Lägg till åtgärds metoden aspekt
 
-Kontrollanten home måste en ny åtgärd **aspekten**, och uppdateringar av det befintliga **Index** och **sidan** åtgärder, samt uppdateringar till den **RunQueryAsync**  metod.
+Hem styrenheten behöver en ny åtgärd, **aspekt**och uppdateringar av befintliga **index** -och **sid** åtgärder, samt uppdateringar av **RunQueryAsync** -metoden.
 
-1. Öppna startsida för styrenheten och Lägg till den **med** -uttryck för att aktivera den **lista&lt;sträng&gt;**  konstruera.
+1. Öppna filen med hemkontrollanten och Lägg till instruktionen **using** för att aktivera **List&lt;sträng&gt;** konstruktion.
 
     ```cs
     using System.Collections.Generic;
     ```
 
-2. Ersätt den **Index (SearchData modellen)** åtgärdsmetod.
+2. Byt ut åtgärds metoden **index (SearchData Model)** .
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -139,7 +140,7 @@ Kontrollanten home måste en ny åtgärd **aspekten**, och uppdateringar av det 
         }
     ```
 
-3. Ersätt den **sidan (SearchData modellen)** åtgärdsmetod.
+3. Ersätt sidan med åtgärds metoden **(SearchData Model)** .
 
     ```cs
         public async Task<ActionResult> Page(SearchData model)
@@ -186,7 +187,7 @@ Kontrollanten home måste en ny åtgärd **aspekten**, och uppdateringar av det 
         }
     ```
 
-4. Lägg till en **aspekten (SearchData modellen)** åtgärdsmetod aktiveras när användaren klickar på en länk för aspekten. Modellen innehåller ett sökfilter för kategorin eller ett amenity sökfilter. Kanske lägga till den när den **sidan** åtgärd.
+4. Lägg till en **aspekt (SearchData modell)** åtgärds metod som aktive ras när användaren klickar på en aspekt länk. Modellen innehåller antingen ett Sök filter för kategori eller ett Amenity-sökfilter. Kanske lägger du till det efter **sid** åtgärden.
 
     ```cs
         public async Task<ActionResult> Facet(SearchData model)
@@ -227,11 +228,11 @@ Kontrollanten home måste en ny åtgärd **aspekten**, och uppdateringar av det 
         }
     ```
 
-### <a name="set-up-the-search-filter"></a>Konfigurera sökfiltret
+### <a name="set-up-the-search-filter"></a>Konfigurera Sök filtret
 
-När en användare väljer en viss aspekt (Facet), till exempel de klickar på den **utväg och Spa** kategori och sedan endast hotell som har angetts som den här kategorin ska returneras i resultatet. Om du vill begränsa en sökning på så sätt kan vi behöva ställa in en _filter_.
+När en användare väljer en viss aspekt, till exempel, klickar på kategorin **anläggning och Spa** , kommer bara hotell som anges som den här kategorin att returneras i resultaten. Vi måste skapa ett _filter_för att begränsa en sökning på det här sättet.
 
-1. Ersätt den **RunQueryAsync** metoden med följande kod. Främst den tar en Filtersträng i kategorin och en amenity Filtersträngen och anger den **Filter** -parametern för den **SearchParameters**.
+1. Ersätt **RunQueryAsync** -metoden med följande kod. Främst tar det en kategori filter sträng och en Amenity filter sträng, och anger **filter** parametern för **SearchParameters**.
 
     ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage, string catFilter, string ameFilter)
@@ -315,13 +316,13 @@ När en användare väljer en viss aspekt (Facet), till exempel de klickar på d
         }
     ```
 
-    Vi har lagt till den **kategori** och **taggar** egenskaper i listan över **Välj** objekt som ska returneras. Det här tillägget är inte ett krav för aspekten navigeringen ska fungera, men vi använder den här informationen för att kontrollera att vi filtrerar korrekt.
+    Vi har lagt till **kategori** -och **taggar** -egenskaperna i listan med **Välj** objekt att returnera. Detta tillägg är inte ett krav för att aspekt navigeringen ska fungera, men vi använder den här informationen för att kontrol lera att vi filtrerar korrekt.
 
-### <a name="add-lists-of-facet-links-to-the-view"></a>Lägg till en lista över aspekten länkar till vyn
+### <a name="add-lists-of-facet-links-to-the-view"></a>Lägg till listor över aspekt länkar till vyn
 
-Vyn kommer att kräva några viktiga ändringar. 
+Vyn kommer att kräva några betydande ändringar. 
 
-1. Börja med att öppna filen hotels.css (i mappen wwwroot/css) och Lägg till följande klasser.
+1. Börja med att öppna filen Hotels. CSS (i mappen wwwroot/CSS) och Lägg till följande klasser.
 
     ```html
     .facetlist {
@@ -343,7 +344,7 @@ Vyn kommer att kräva några viktiga ändringar.
     }
     ```
 
-2. Vi ordna utdata i en tabell för vyn, om du vill justera snyggt fasetten visas till vänster och resultaten till höger. Öppna filen index.cshtml. Ersätt hela innehållet i HTML &lt;brödtext&gt; taggar, med följande kod.
+2. För vyn organiserar vi resultatet i en tabell, så att du kan justera fasett-listorna till vänster och resultatet till höger. Öppna filen index. cshtml. Ersätt hela innehållet i HTML-&lt;bröd&gt; Taggar med följande kod.
 
     ```cs
     <body>
@@ -523,40 +524,40 @@ Vyn kommer att kräva några viktiga ändringar.
     </body>
     ```
 
-    Observera användningen av den **Html.ActionLink** anropa. Det här anropet kommunicerar giltigt filtersträngar till kontrollanten, när användaren klickar på en länk för aspekten. 
+    Observera användningen av **HTML. ActionLink-** anropet. Det här anropet kommunicerar giltiga filter strängar till kontroll enheten när användaren klickar på en aspekt länk. 
 
 ### <a name="run-and-test-the-app"></a>Kör och testa appen
 
-Fördelen med aspekten navigering för användaren är att de kan du begränsa sökningar med ett enda klick, visar vi i följande ordning.
+Fördelen med aspekt navigering till användaren är att de kan begränsa sökningar med ett enda klick, som vi kan visa i följande ordning.
 
-1. Kör appen, typ ”flygplats” som söktexten. Kontrollera att listan över fasetter snyggt visas till vänster. Dessa fasetter är allt som gäller för hotell som har ”flygplats” i sina textdata med ett antal av hur ofta de inträffar.
+1. Kör appen, skriv "flyg plats" som Sök text. Kontrol lera att listan över ansikte visas snyggt till vänster. Dessa ansikte är allt som gäller för hotell som har "flyg plats" i sina text data, med en räkning av hur ofta de inträffar.
 
-    ![Använda aspekten navigering för att begränsa sökningen av ”flygplats”](./media/tutorial-csharp-create-first-app/azure-search-facet-airport.png)
+    ![Använda aspekt navigering för att begränsa en sökning efter "flyg plats"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport.png)
 
-2. Klicka på den **utväg och Spa** kategori. Kontrollera alla resultat i den här kategorin.
+2. Klicka på kategorin **anläggning och Spa** . Kontrol lera att alla resultat finns i den här kategorin.
 
-    ![Begränsa sökningen till ”utväg och Spa”](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras.png)
+    ![Begränsa sökningen till "utväg och Spa"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras.png)
 
-3. Klicka på den **all bra** amenity. Kontrollera alla resultat är fortfarande i kategorin ”utväg och Spa” med den valda amenity.
+3. Klicka på den **kontinentala frukost** Amenity. Kontrol lera att alla resultat fortfarande finns i kategorin "utväg och Spa" med den valda Amenity.
 
-    ![Begränsa sökningen till ”all bra”](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras-cb.png)
+    ![Begränsa sökningen till "fast frukost"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras-cb.png)
 
-4. Försök att välja en annan kategori, sedan en amenity och visa resultat. Försök tvärtom, en amenity och sedan en kategori.
+4. Försök att välja någon annan kategori, sedan en Amenity och Visa de smala resultaten. Prova sedan på det andra sättet, en Amenity, och sedan en kategori.
 
     >[!Note]
-    > När en markering har gjorts i en lista för aspekten (till exempel kategori) åsidosätter eventuella tidigare val i kategorilistan.
+    > När ett val görs i en fasett-lista (t. ex. kategori) åsidosätts alla tidigare val i kategori listan.
 
 ## <a name="takeaways"></a>Lärdomar
 
-Överväg följande takeaways från det här projektet:
+Tänk på följande takeaways från det här projektet:
 
-* Det är absolut nödvändigt att markera varje egenskap som **IsFacetable**, om de ska tas med i aspekten navigering.
-* Aspekten navigering ger en användare med ett enkelt och intuitivt sätt att begränsa en sökning.
-* Aspekten navigering är bäst indelade i avsnitt (kategorier av hotell), bekvämligheterna på ett hotell, priset intervall, klassificering intervall, osv, varje avsnitt med lämplig rubrik.
+* Det är absolut nödvändigt att markera varje egenskap som **IsFacetable**, om de ska tas med i aspekt navigering.
+* Aspekt navigering är en användare med ett enkelt och intuitivt sätt att begränsa en sökning.
+* Aspekt navigering är bäst indelad i avsnitt (hotell kategorier, bekvämligheterna av ett hotell, pris intervall, klassificerings intervall osv.), varje avsnitt med en lämplig rubrik.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa självstudie tittar vi på Ordna resultaten. Resultaten ordnas i det här läget bara i den ordning som de finns i databasen.
+I nästa självstudie tittar vi på att beställa resultat. Fram till den här punkten beställs resultatet enkelt i den ordning som de finns i databasen.
 
 > [!div class="nextstepaction"]
-> [C#självstudie: Sortera resultat – Azure Search](tutorial-csharp-orders.md)
+> [C#Självstudie: ordna resultaten – Azure Kognitiv sökning](tutorial-csharp-orders.md)

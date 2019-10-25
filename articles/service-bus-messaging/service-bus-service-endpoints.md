@@ -1,85 +1,84 @@
 ---
-title: Tjänstslutpunkter i virtuella nätverk och regler för Azure Service Bus | Microsoft Docs
-description: Lägg till en slutpunkt för Microsoft.ServiceBus till ett virtuellt nätverk.
+title: Slut punkter för virtuella nätverks tjänster – Azure Service Bus
+description: Lägg till en Microsoft. Service Bus-tjänstens slut punkt i ett virtuellt nätverk.
 services: service-bus
 documentationcenter: ''
 author: axisc
-manager: timlt
 editor: spelluru
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f32a67dc6d3b3f869afaa532403c05b218588552
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471969"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786382"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Använda virtuella nätverksslutpunkter med Azure Service Bus
+# <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Använd Virtual Network tjänst slut punkter med Azure Service Bus
 
-Integreringen av Service Bus med [tjänstslutpunkter i virtuella nätverk (VNet)] [ vnet-sep] möjliggör säker åtkomst till funktioner för meddelanden från arbetsbelastningar som virtuella datorer som är kopplade till virtuella nätverk , sökväg för trafik i nätverket som skyddas i bägge ändar.
+Med tjänst slut punkter för att integrera Service Bus med [Virtual Network (VNet)][vnet-sep] kan du skydda åtkomsten till meddelande funktioner från arbets belastningar som virtuella datorer som är kopplade till virtuella nätverk, med den nätverks trafik väg som skyddas på båda slutar.
 
-När konfigurerad att vara bunden till minst en tjänstslutpunkt för virtuellt nätverk undernät, respektive Service Bus-namnområdet ska inte längre att ta emot trafik från var som helst utan behörighet virtuella nätverk. Ur virtuellt nätverk konfigurerar bindning av en Service Bus-namnområdet till en tjänstslutpunkt ett isolerat nätverk tunnel från det virtuella undernätet till meddelandetjänsten.
+När den har kon figurer ATS för att bindas till minst en tjänst slut punkt för ett virtuellt nätverk, kommer Service Bus namn området inte längre att acceptera trafik från var som helst, men auktoriserade virtuella nätverk (n). I det virtuella nätverkets perspektiv binder du en Service Bus namnrum till en tjänst slut punkt konfigurerar en isolerad nätverks tunnel från det virtuella nätverkets undernät till meddelande tjänsten.
 
-Resultatet är en privata och isolerade relation mellan de arbetsbelastningar som är bundna till undernätet och respektive Service Bus-namnområdet, trots synliga nätverksadressen för den asynkrona service slutpunkt i en offentlig IP-adressintervallet.
+Resultatet är en privat och isolerad relation mellan arbets belastningarna som är kopplade till under nätet och respektive Service Bus-namnrymd, trots att den observerade nätverks adressen för meddelande tjänstens slut punkt är i ett offentligt IP-adressintervall.
 
 >[!WARNING]
 > Genom att implementera integrering av virtuella nätverk kan du förhindra andra Azure-tjänster från att interagera med Service Bus.
 >
-> Betrodda Microsoft-tjänster inte stöds när virtuella nätverk har implementerats.
+> Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
 >
-> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan är **inte** uttömmande)-
+> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
 > - Azure Monitor
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
-> - Azure IoT Hub Routes
-> - Azure IoT Device Explorer
-> - Azure-datautforskaren
+> - Azure IoT Hub vägar
+> - Azure IoT-Device Explorer
+> - Datautforskaren i Azure
 >
-> Den nedan Microsoft services måste vara i ett virtuellt nätverk
+> De Microsoft-tjänster som behövs nedan måste finnas i ett virtuellt nätverk
 > - Azure App Service
 > - Azure Functions
 
 > [!IMPORTANT]
-> Virtuella nätverk stöds bara i [premiumnivån](service-bus-premium-messaging.md) Service Bus-namnområden.
+> Virtuella nätverk stöds endast på [Premium-nivå](service-bus-premium-messaging.md) Service Bus namn områden.
 
-## <a name="enable-service-endpoints-with-service-bus"></a>Aktivera Tjänsteslutpunkter med Service Bus
+## <a name="enable-service-endpoints-with-service-bus"></a>Aktivera tjänst slut punkter med Service Bus
 
-Ett viktigt övervägande när du använder VNet-tjänstslutpunkter med Service Bus är att du inte aktiverar de här slutpunkterna i program som blandar Standard och Premium-nivån Service Bus-namnområden. Slutpunkten är begränsad till Premium-nivån namnområden eftersom Standard-nivån inte har stöd för virtuella nätverk.
+Viktigt att tänka på när du använder VNet-tjänstens slut punkter med Service Bus är att du inte ska aktivera de här slut punkterna i program som blandar standard-och Premium-nivån Service Bus namn områden. Eftersom standard nivån inte stöder virtuella nätverk, är slut punkten begränsad till Premium-nivåns namn område.
 
-## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade scenarier som använder VNet-integrering 
+## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade säkerhets scenarier som aktive ras av VNet-integrering 
 
-Lösningar som kräver nära och avdelningsvis säkerhet och där virtuella undernätverk ger segmentering mellan tjänsterna som compartmentalized behöver oftast fortfarande kommunikationsvägar mellan tjänster som finns i dessa avdelningar.
+Lösningar som kräver tätt och compartmentalized säkerhet, och där undernät för virtuella nätverk tillhandahåller segmentering mellan compartmentalized-tjänsterna, behöver vanligt vis kommunikations vägar mellan tjänster som finns i dessa fack.
 
-Någon omedelbar IP-väg mellan avdelningar, inklusive de som HTTPS via TCP/IP, bär risken för problem från nätverket på upp. Meddelandetjänster ger helt isolerade kommunikationsvägar, där även meddelanden skrivs till disk när de överför mellan parterna. Arbetsbelastningar i två olika virtuella nätverk som är både bundna till samma Service Bus-instans kan kommunicera på ett effektivt och tillförlitligt sätt via meddelanden, medan respektive nätverk isolering gräns integritet bevaras.
+Alla omedelbara IP-vägar mellan avdelningarna, inklusive de som driver HTTPS över TCP/IP, medför risk för utnyttjande av sårbarheter från nätverks skiktet. Meddelande tjänster tillhandahåller fullständigt isolerade kommunikations vägar, där meddelanden är jämnt skrivna till disk när de övergår mellan parter. Arbets belastningar i två distinkta virtuella nätverk som båda är kopplade till samma Service Bus instans kan kommunicera effektivt och tillförlitligt via meddelanden, medan respektive gräns för nätverks isolerings gräns bevaras.
  
-Det innebär att din säkerhet som är känsliga molnlösningar inte bara tillgång till Azure branschledande pålitliga och skalbara asynkrona meddelandefunktioner, men de kan nu använda meddelanden för att skapa kommunikationsvägar mellan säker lösning compartments som är säkrare än vad som kan uppnås med alla peer-to-peer-kommunikationsläge, inklusive HTTPS och andra TLS för säker socket-protokoll.
+Det innebär att dina säkerhets känsliga moln lösningar inte bara får till gång till Azure-branschledande pålitliga och skalbara funktioner för asynkrona meddelanden, men de kan nu använda meddelande hantering för att skapa kommunikations vägar mellan säkra lösnings avdelningar som är mycket säkrare än vad som är möjligt med peer-to-peer-kommunikations läge, inklusive HTTPS och andra TLS-säkrade socket-protokoll.
 
-## <a name="binding-service-bus-to-virtual-networks"></a>Bindningen Service Bus till virtuella nätverk
+## <a name="binding-service-bus-to-virtual-networks"></a>Binda Service Bus till virtuella nätverk
 
-*Virtuella Nätverksregler* är säkerhetsfunktion för brandväggen som styr om Azure Service Bus-server tar emot anslutningar från ett visst virtuellt nätverksundernät.
+*Virtuella nätverks regler* är brand Väggs säkerhetsfunktionen som styr om din Azure Service Bus-Server accepterar anslutningar från ett visst virtuellt nätverks under nät.
 
-Bindning av en Service Bus-namnområde till ett virtuellt nätverk är en tvåstegsprocess. Du måste först skapa en **tjänstslutpunkt för virtuellt nätverk** på ett undernät för virtuellt nätverk och aktivera den för ”Microsoft.ServiceBus” som beskrivs i den [endpoint tjänstöversikt] [ vnet-sep]. När du har lagt till tjänsteslutpunkt kan du binda Service Bus-namnrymden till den med en *virtuell nätverksregel*.
+Att binda ett Service Bus namn område till ett virtuellt nätverk är en två stegs process. Du måste först skapa en **Virtual Network tjänst slut punkt** i ett Virtual Network undernät och aktivera den för "Microsoft. Service Bus" som förklaras i [översikten över tjänstens slut punkt][vnet-sep]. När du har lagt till tjänst slut punkten binder du Service Bus namn området till den med en *regel för virtuellt nätverk*.
 
-Regel för virtuella nätverk är ett nätverk med Service Bus-namnområde med ett virtuellt nätverksundernät. När regeln finns har alla arbetsbelastningar som är bunden till undernätet beviljats åtkomst till Service Bus-namnområdet. Service Bus själva aldrig upprättar utgående anslutningar, behöver inte komma åt och därför beviljas aldrig åtkomst till ditt undernät genom att aktivera den här regeln.
+Den virtuella nätverks regeln är en associering av Service Bus-namnrymden med ett virtuellt nätverks under nät. Även om regeln finns beviljas alla arbets belastningar som är kopplade till under nätet åtkomst till Service Bus namn området. Service Bus själva upprättar aldrig utgående anslutningar, behöver inte få åtkomst och har därför aldrig beviljat åtkomst till ditt undernät genom att aktivera den här regeln.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk med Azure Resource Manager-mallar
+### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en virtuell nätverks regel med Azure Resource Manager mallar
 
-Följande Resource Manager-mallen gör det möjligt att lägga till en regel för virtuella nätverk i en befintlig Service Bus-namnrymd.
+Följande Resource Manager-mall gör det möjligt att lägga till en virtuell nätverks regel i ett befintligt Service Bus-namnområde.
 
 Mallparametrar:
 
-* **namespaceName**: Service Bus-namnområde.
-* **virtualNetworkingSubnetId**: Fullständiga Resource Manager-sökvägen för virtuella nätverkets undernät; till exempel `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standardundernät i ett virtuellt nätverk.
+* **namespaceName**: Service Bus namnrymd.
+* **virtualNetworkingSubnetId**: fullständigt kvalificerad Resource Manager-sökväg för det virtuella nätverkets undernät; till exempel `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standard under nätet för ett virtuellt nätverk.
 
 > [!NOTE]
-> Det finns inga neka regler som är möjligt, Azure Resource Manager-mallen har den standardåtgärd som har angetts till **”Tillåt”** som inte begränsar anslutningar.
-> När du skapar regler för virtuellt nätverk eller brandväggar, vi måste ändra den ***”defaultAction”***
+> Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.
+> När du skapar Virtual Network-eller brand Väggs regler måste vi ändra ***"defaultAction"***
 > 
-> from
+> som
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -189,13 +188,13 @@ Mall:
   }
 ```
 
-Om du vill distribuera mallen genom att följa anvisningarna för [Azure Resource Manager][lnk-deploy].
+Följ anvisningarna för [Azure Resource Manager][lnk-deploy]om du vill distribuera mallen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om virtuella nätverk finns i följande länkar:
 
-- [Tjänstslutpunkter i virtuella Azure-nätverket][vnet-sep]
+- [Tjänst slut punkter för Azure Virtual Network][vnet-sep]
 - [Azure Service Bus IP-filtrering][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md

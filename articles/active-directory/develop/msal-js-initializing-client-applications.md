@@ -1,5 +1,6 @@
 ---
-title: Initiera klient program (Microsoft Authentication Library för Java Script) | Azure
+title: Initiera klient program (Microsoft Authentication Library för Java Script)
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om att initiera klient program med hjälp av Microsoft Authentication Library för Java Script (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,17 +18,17 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d36def4faa98f4b8e42c93cf3e222c2ec7ca89a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b24d9d79bf34325ec033b6ae6847579fa51769ac
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073846"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803096"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klient program med MSAL. js
 I den här artikeln beskrivs hur du initierar Microsoft Authentication Library för Java Script (MSAL. js) med en instans av ett användar agent program. Användar agent programmet är en form av ett offentligt klient program där klient koden körs i en användar agent, till exempel en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig. Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du initierar ett program måste du först [registrera det med Azure Portal](scenario-spa-app-registration.md) så att din app kan integreras med Microsoft Identity Platform. Efter registreringen kan du behöva följande information (som du hittar i Azure Portal):
 
 - Klient-ID (en sträng som representerar ett GUID för ditt program)
@@ -37,9 +38,9 @@ Innan du initierar ett program måste du först [registrera det med Azure Portal
 
 ## <a name="initializing-applications"></a>Initierar program
 
-Du kan använda MSAL. js enligt följande i ett oformaterat JavaScript/typescript-program. Initiera kontexten för MSAL- `UserAgentApplication` autentisering genom att instansiera med ett konfigurations objekt. Den minsta konfiguration som krävs för att initiera MSAL. js är clientID för ditt program som du bör hämta från program registrerings portalen.
+Du kan använda MSAL. js enligt följande i ett oformaterat JavaScript/typescript-program. Initiera MSAL Authentication context genom att instansiera `UserAgentApplication` med ett konfigurations objekt. Den minsta konfiguration som krävs för att initiera MSAL. js är clientID för ditt program som du bör hämta från program registrerings portalen.
 
-För autentiseringsmetoder med omdirigerings flöden`loginRedirect` ( `acquireTokenRedirect`och) måste du explicit registrera ett återanrop för lyckad eller fel via `handleRedirectCallback()` metoden. Detta krävs eftersom omdirigerings flöden inte returnerar löfte som metoder med en popup-upplevelse.
+För autentiseringsmetoder med omdirigerings flöden (`loginRedirect` och `acquireTokenRedirect`) måste du explicit registrera ett återanrop för lyckad eller fel via `handleRedirectCallback()`-metoden. Detta krävs eftersom omdirigerings flöden inte returnerar löfte som metoder med en popup-upplevelse.
 
 ```javascript
 // Configuration object constructed
@@ -60,11 +61,11 @@ function authCallback(error, response) {
 myMSALObj.handleRedirectCallback(authCallback);
 ```
 
-MSAL. js har utformats för att ha en enda instans och konfiguration av `UserAgentApplication` för att representera en enda autentiserings kontext. Flera instanser rekommenderas inte eftersom de orsakar en motstridig cache-poster och beteende i webbläsaren.
+MSAL. js har utformats för att ha en enda instans och konfiguration av `UserAgentApplication` som representerar en enda autentiserings kontext. Flera instanser rekommenderas inte eftersom de orsakar en motstridig cache-poster och beteende i webbläsaren.
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
-MSAL. js har ett konfigurations objekt som visas nedan och som ger en gruppering av konfigurerbara alternativ som är tillgängliga `UserAgentApplication`för att skapa en instans av.
+MSAL. js har ett konfigurations objekt som visas nedan och som ger en gruppering av konfigurerbara alternativ som är tillgängliga för att skapa en instans av `UserAgentApplication`.
 
 ```javascript
 type storage = "localStorage" | "sessionStorage";
@@ -110,36 +111,36 @@ export type Configuration = {
 
 Nedan visas den totala uppsättningen konfigurerbara alternativ som stöds för närvarande i konfigurationsobjektet konfiguration:
 
-- **clientID**: Obligatoriskt. ClientID för ditt program, du bör hämta detta från program registrerings portalen.
+- **clientID**: krävs. ClientID för ditt program, du bör hämta detta från program registrerings portalen.
 
-- **utfärdare**: Valfritt. En URL som anger en katalog som MSAL kan begära token från. Standardvärdet är `https://login.microsoftonline.com/common`:.
-    * I Azure AD&lt;är det av formen https://&lt; &lt;&gt; `https://login.microsoftonline.com`instance&gt;/&gt;, där instance är en identitets leverantörs domän (till exempel) och målgruppen&gt; är en identifierare som representerar inloggnings mål gruppen. &lt; Detta kan vara följande värden:
-        * `https://login.microsoftonline.com/<tenant>`-Tenant är en domän som är kopplad till klienten, till exempel contoso.onmicrosoft.com eller GUID som representerar `TenantID` egenskapen för katalogen som används för att logga in användare av en speciell organisation.
-        * `https://login.microsoftonline.com/common`– Används för att logga in användare med arbets-och skol konton eller ett personligt Microsoft-konto.
-        * `https://login.microsoftonline.com/organizations/`– Används för att logga in användare med arbets-och skol konton.
-        * `https://login.microsoftonline.com/consumers/`– Används för att logga in användare med endast personlig Microsoft-konto (Live).
-    * I Azure AD B2C är det ett formulär `https://<instance>/tfp/<tenant>/<policyName>/`där instansen är den Azure AD B2C domänen, klient organisation är namnet på Azure AD B2C klienten, policyName är namnet på B2C-principen som ska tillämpas.
+- **auktoritet**: valfritt. En URL som anger en katalog som MSAL kan begära token från. Standardvärdet är: `https://login.microsoftonline.com/common`.
+    * I Azure AD är det av formen https://&lt;instans&gt;/&lt;Audience&gt;, där &lt;instance&gt; är en identitets leverantörs domän (till exempel `https://login.microsoftonline.com`) och &lt;Audience&gt; är en identifierare representerar inloggnings mål gruppen. Detta kan vara följande värden:
+        * `https://login.microsoftonline.com/<tenant>`-klient organisation är en domän som är kopplad till klienten, till exempel contoso.onmicrosoft.com eller det GUID som representerar den `TenantID` egenskapen för katalogen som används för att logga in användare av en speciell organisation.
+        * `https://login.microsoftonline.com/common`– används för att logga in användare med arbets-och skol konton eller ett personligt Microsoft-konto.
+        * `https://login.microsoftonline.com/organizations/`– används för att logga in användare med arbets-och skol konton.
+        * `https://login.microsoftonline.com/consumers/` – används för att logga in användare med enbart personliga Microsoft-konto (Live).
+    * I Azure AD B2C är det av formulär `https://<instance>/tfp/<tenant>/<policyName>/`, där instans är Azure AD B2C domän, klient är namnet på Azure AD B2C klienten, policyName är namnet på den B2C-princip som ska tillämpas.
 
 
-- **validateAuthority**: Valfritt.  Verifiera utfärdaren av tokens. Standardvärdet är `true`. För B2C-program, eftersom auktoritets värdet är känt och kan skilja sig åt per princip, så fungerar inte auktoritets verifieringen och måste ställas in på `false`.
+- **validateAuthority**: valfritt.  Verifiera utfärdaren av tokens. Standardvärdet är `true`. För B2C-program, eftersom auktoritets värdet är känt och kan skilja sig åt per princip, kommer verifieringen av auktoriteten inte att fungera och måste ställas in på `false`.
 
-- **redirectUri**: Valfritt.  Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen. Som standard `window.location.href`.
+- **redirectUri**: valfritt.  Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen. Standardvärdet är `window.location.href`.
 
-- **postLogoutRedirectUri**: Valfritt.  Omdirigerar användaren till `postLogoutRedirectUri` efter utloggning. Standardvärdet är `redirectUri`.
+- **postLogoutRedirectUri**: valfritt.  Omdirigerar användaren till `postLogoutRedirectUri` efter utloggning. Standardvärdet är `redirectUri`.
 
-- **navigateToLoginRequestUrl**: Valfritt. Möjlighet att inaktivera standard navigering till start sidan efter inloggningen. Standardvärdet är true. Detta används endast för omdirigerings flöden.
+- **navigateToLoginRequestUrl**: valfritt. Möjlighet att inaktivera standard navigering till start sidan efter inloggningen. Standardvärdet är true. Detta används endast för omdirigerings flöden.
 
-- **cacheLocation**: Valfritt.  Anger webb läsar lagring `localStorage` till `sessionStorage`antingen eller. Standardvärdet är `sessionStorage`.
+- **cacheLocation**: valfritt.  Ställer in webb läsar lagring till antingen `localStorage` eller `sessionStorage`. Standardvärdet är `sessionStorage`.
 
-- **storeAuthStateInCookie**: Valfritt.  Den här flaggan introducerades i MSAL. js v 0.2.2 som en korrigering för [](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) problemet med autentiserings-loopen i Microsoft Internet Explorer och Microsoft Edge. Aktivera flaggan `storeAuthStateInCookie` till true för att dra nytta av den här korrigeringen. När detta är aktiverat kommer MSAL. js att lagra status för auth-begäran som krävs för verifiering av auth-flöden i webbläsarens cookies. Som standard är den här flaggan inställd `false`på.
+- **storeAuthStateInCookie**: valfritt.  Den här flaggan introducerades i MSAL. js v 0.2.2 som en korrigering för problemet med [autentiserings-loopen](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) i Microsoft Internet Explorer och Microsoft Edge. Aktivera flaggan `storeAuthStateInCookie` till true för att dra nytta av den här korrigeringen. När detta är aktiverat kommer MSAL. js att lagra status för auth-begäran som krävs för verifiering av auth-flöden i webbläsarens cookies. Som standard är den här flaggan inställd på `false`.
 
-- **logger**: Valfritt.  Ett logg objekt med en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Information om hur du skickar logg objekt finns i [Logga med msal. js](msal-logging.md).
+- **loggning**: valfritt.  Ett logg objekt med en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Information om hur du skickar logg objekt finns i [Logga med msal. js](msal-logging.md).
 
-- **loadFrameTimeout**: Valfritt.  Antalet millisekunder av inaktivitet innan ett svar på förnyelse av en token från Azure AD bör anses vara tids gränsen. Standardvärdet är 6 sekunder.
+- **loadFrameTimeout**: valfritt.  Antalet millisekunder av inaktivitet innan ett svar på förnyelse av en token från Azure AD bör anses vara tids gränsen. Standardvärdet är 6 sekunder.
 
-- **tokenRenewalOffsetSeconds**: Valfritt. Antalet millisekunder som anger det fönster som offset krävde för att förnya token innan det går ut. Standardvärdet är 300 millisekunder.
+- **tokenRenewalOffsetSeconds**: valfritt. Antalet millisekunder som anger det fönster som offset krävde för att förnya token innan det går ut. Standardvärdet är 300 millisekunder.
 
 Dessa kan endast användas för att skickas ned från MSAL-biblioteket:
-- **unprotectedResources**: Valfritt.  Matris med URI: er som är oskyddade resurser. MSAL kommer inte att koppla en token till utgående begär Anden som har dessa URI: er. Som standard `null`.
+- **unprotectedResources**: valfritt.  Matris med URI: er som är oskyddade resurser. MSAL kommer inte att koppla en token till utgående begär Anden som har dessa URI: er. Standardvärdet är `null`.
 
-- **protectedResourceMap**: Valfritt.  Detta är mappning av resurser till omfattningar som används av MSAL för att automatiskt koppla åtkomsttoken i webb-API-anrop. En enda åtkomsttoken hämtas för resursen. Så du kan mappa en viss resurs Sök väg enligt följande: { https://graph.microsoft.com/v1.0/me"", ["User. Read"]} eller App-URL: en för resursen som {"https://graph.microsoft.com/", ["User. Read", "mail. send"]}. Detta krävs för CORS-anrop. Som standard `null`.
+- **protectedResourceMap**: valfritt.  Detta är mappning av resurser till omfattningar som används av MSAL för att automatiskt koppla åtkomsttoken i webb-API-anrop. En enda åtkomsttoken hämtas för resursen. Så du kan mappa en viss resurs Sök väg enligt följande: {"https://graph.microsoft.com/v1.0/me", ["User. Read"]} eller App-URL: en för resursen som {"https://graph.microsoft.com/", ["User. Read", "mail. send"]}. Detta krävs för CORS-anrop. Standardvärdet är `null`.

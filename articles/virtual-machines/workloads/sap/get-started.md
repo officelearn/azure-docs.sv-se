@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/16/2019
+ms.date: 10/21/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99e3cbc157817321e41a273b2bcf31128d71db18
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9b857ea5380fb13f8c8b1ff30b9dd9d8b6c723c2
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431026"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809674"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -120,7 +120,10 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändringslogg
-- 10/16/2019: korrigera brutna länkar i [säkerhets kopiering och återställning](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-backup-restore)
+- 10/22/2019: ändring i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), [Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker), [hög tillgänglighet för IBM DB2 LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm), och [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) för identifierings härdning av Azure-belastnings utjämning
+- Ändrar ANF-avsnittet och rubrik avsnittet i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- 10/21/2019: version av [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
+- 10/16/2019: korrigera brutna länkar i [säkerhets kopiering och återställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)
 - 10/16/2019: ändra det lägsta rekommenderade OS-värdet från SLES 12 SP3 till SLES 12 SP4 med [hög tillgänglighet för IBM DB2-LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)
 - 10/11/2019: ändringar av konfigurationer med Ultra disk Storage och introduktion av ANF i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 10/01/2019: ändring av grafik för [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) för att få mer klarhet
@@ -129,8 +132,8 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 - 09/17/2019: ändring i NetWeaver planering och distributions guide för att förena villkoren kring VM-tillägget för SAP  
 - 08/22/2019: ändringar i [ställa in pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att uppdatera URL: erna för att skapa en anpassad roll  
 - 08/16/2019: ändringar i [ställa in pacemaker på Red Hat Enterprise Linux i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att påminna kunder om att uppdatera åtgärderna i den anpassade rollen, om de uppdateras till den nya versionen av Azure stängsel-agenten  
-- 08/15/2019: ändringar i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) som motsvarar allmän tillgänglighet för Ultra disk (tidigare Ultra SSD)
-- 08/01/2019: ändringar i [konfiguration av pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att integrera ändringar specifikt för SLES 15 
+- 08/15/2019: ändringar i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) som motsvarar allmän tillgänglighet för Ultra disk (tidigare Ultra SSD)
+- 08/01/2019: ändringar i [konfiguration av pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att integrera ändringar specifikt för SLES 15 
 - 07/23/2019: ändringar i [kluster en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure](sap-high-availability-guide-wsfc-file-share.md) för att återspegla stöd för lagrings utrymme direkt av Azure Site Recovery Services
 - 07/14/2019: versioner av [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md)
 - 07/11/2019: ändringar i olika dokument täcker HANA-stora instanser för att täcka revidering 4 av HANA-stora instanser

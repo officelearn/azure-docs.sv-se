@@ -1,24 +1,23 @@
 ---
-title: Villkorliga inlärnings Sök kunskaper (Azure Search) | Microsoft Docs
-description: Den villkorliga kompetensen gör det möjligt att filtrera, skapa standardvärden och sammanfoga värden.
-services: search
+title: Villkorlig kognitiva kunskaper
+titleSuffix: Azure Cognitive Search
+description: Den villkorliga kunskapen i Azure Kognitiv sökning möjliggör filtrering, skapande av standardvärden och sammanslagning av värden i en färdigheter-definition.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: ea6113b96e2acf70a877e170651be3daa578e518
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265817"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792050"
 ---
-#   <a name="conditional-skill"></a>Villkorlig kompetens
+# <a name="conditional-cognitive-skill"></a>Villkorlig kognitiva kunskaper
 
-Den *villkorliga kompetensen* gör det möjligt Azure Search scenarier som kräver en boolesk åtgärd för att fastställa vilka data som ska tilldelas till utdata. I dessa scenarier ingår filtrering, tilldelning av ett standardvärde och sammanslagning av data baserat på ett villkor.
+Den **villkorliga** kompetensen gör det möjligt för Azure kognitiv sökning scenarier som kräver en boolesk åtgärd för att fastställa vilka data som ska tilldelas till utdata. I dessa scenarier ingår filtrering, tilldelning av ett standardvärde och sammanslagning av data baserat på ett villkor.
 
 Följande pseudocode visar vad den villkorliga kompetensen uppnår:
 
@@ -33,7 +32,7 @@ else
 > Den här kompetensen är inte kopplad till ett Azure Cognitive Services-API och du debiteras inte för att använda den. Du bör dock fortfarande [bifoga en Cognitive Services resurs](cognitive-search-attach-cognitive-services.md) för att åsidosätta resurs alternativet "ledig" som begränsar dig till ett litet antal berikningar per dag.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.ConditionalSkill
+Microsoft. färdigheter. util. ConditionalSkill
 
 
 ## <a name="evaluated-fields"></a>Utvärderade fält
@@ -73,7 +72,7 @@ Följande objekt är giltiga värden för ett uttryck:
         "= !true"
     ```
 
--   Uttryck som använder numeriska operatorer (+,- \*,,,/,%) <br/>
+-   Uttryck som använder numeriska operatorer (+,-, \*,/,%) <br/>
     Exempel: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -88,7 +87,7 @@ Indata är skiftlägeskänsliga.
 
 | Indata   | Beskrivning |
 |-------------|-------------|
-| condition   | Indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar villkoret som ska utvärderas. Det här villkoret bör utvärderas till ett booleskt värde (*Sant* eller *falskt*).   <br/>  Exempel: <br/> "= sant" <br/> "= $ (/Document/Language) = = ' fr ' ' <br/> "= $ (/Document/Pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
+| moduletype   | Indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar villkoret som ska utvärderas. Det här villkoret bör utvärderas till ett booleskt värde (*Sant* eller *falskt*).   <br/>  Exempel: <br/> "= sant" <br/> "= $ (/Document/Language) = = ' fr ' ' <br/> "= $ (/Document/Pages/\*/Language) = = $ (/document/expectedLanguage)" <br/> |
 | whenTrue    | Den här indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar värdet som ska returneras om villkoret utvärderas till *Sant*. Konstanter strängar ska returneras inom enkla citat tecken ("och"). <br/>Exempel värden: <br/> "="-kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/entities/\*)" <br/> |
 | whenFalse   | Den här indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar värdet som ska returneras om villkoret utvärderas till *false*. <br/>Exempel värden: <br/> "="-kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/entities/\*)" <br/>
 
@@ -97,7 +96,7 @@ Det finns ett enda utdata som bara kallas "utdata". Den returnerar värdet *when
 
 ## <a name="examples"></a>Exempel
 
-### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Exempel på kunskaps definition 1: Filtrera dokument för att endast returnera franska dokument
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Exempel på kunskaps definition 1: filtrera dokument för att endast returnera franska dokument
 
 Följande utdata returnerar en matris med meningar ("/document/frenchSentences") om språket i dokumentet är franska. Om språket inte är franska anges värdet *Null*.
 
@@ -133,7 +132,7 @@ Följande utdata skapar en anteckning ("/document/languageWithDefault") som är 
 }
 ```
 
-### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exempel på kunskaps definition 3: Sammanfoga värden från två fält till ett
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exempel på kunskaps definition 3: sammanfoga värden från två fält till ett
 
 I det här exemplet har vissa meningar en *frenchSentiment* -egenskap. När *frenchSentiment* -egenskapen är null vill vi använda *englishSentiment* -värdet. Vi tilldelar utdata till en medlem som heter *sentiment* ("/Document/sentiment/*/sentiment").
 
@@ -151,7 +150,7 @@ I det här exemplet har vissa meningar en *frenchSentiment* -egenskap. När *fre
 ```
 
 ## <a name="transformation-example"></a>Transformerings exempel
-### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Exempel på kunskaps definition 4: Data omvandling i ett enskilt fält
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Exempel på kunskaps definition 4: data omvandling i ett enda fält
 
 I det här exemplet får vi en *sentiment* som är mellan 0 och 1. Vi vill omvandla det till mellan-1 och 1. Vi kan använda den villkorliga kompetensen för att göra denna mindre omvandling.
 
@@ -170,11 +169,11 @@ I det här exemplet använder vi inte den villkorliga aspekten av kunskapen efte
 }
 ```
 
-## <a name="special-considerations"></a>Att tänka på
+## <a name="special-considerations"></a>Särskilda överväganden
 Vissa parametrar utvärderas, så du måste vara särskilt noga med att följa dokumenterat mönster. Uttryck måste börja med ett likhets tecken. En sökväg måste avgränsas med "$ (" och ")". Se till att lägga till strängar inom enkla citat tecken. Det hjälper utvärderaren att skilja mellan strängar och faktiska sökvägar och operatorer. Se också till att lägga till blank steg runt operatorer (t. ex. a "*" i en sökväg betyder något annat än multiplicering).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

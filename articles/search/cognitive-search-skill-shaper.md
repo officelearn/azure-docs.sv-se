@@ -1,22 +1,21 @@
 ---
-title: Formaren kognitiva Sök kunskaper – Azure Search
-description: Extrahera metadata och strukturerad information från ostrukturerade data och forma den som en komplex typ i en Azure Search anriknings pipeline.
-services: search
+title: Formaren kognitiva kunskaper
+titleSuffix: Azure Cognitive Search
+description: Extrahera metadata och strukturerad information från ostrukturerade data och forma den som en komplex typ i en pipeline för AI-anrikning i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84814c317a945fd22ada580dcc3f64ed2adcff7c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265355"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791882"
 ---
-#   <a name="shaper-cognitive-skill"></a>Formaren kognitiva kunskaper
+# <a name="shaper-cognitive-skill"></a>Formaren kognitiva kunskaper
 
 **Formaren** -kompetensen konsoliderar flera indata till en [komplex typ](search-howto-complex-data-types.md) som kan refereras till senare i pipelinen för anrikning. Med **formaren** -kompetensen kan du i princip skapa en struktur, definiera namnet på medlemmarna i strukturen och tilldela värden till varje medlem. Exempel på konsoliderade fält som är användbara i Sök scenarier är att kombinera ett förnamn och efter namn i en enda struktur, stad och stat till en enda struktur, eller namn och födelse datum i en enda struktur för att upprätta unik identitet.
 
@@ -32,7 +31,7 @@ Microsoft. färdigheter. util. ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Scenario 1: komplexa typer
 
-Tänk dig ett scenario där du vill skapa en struktur med namnet *analyzedText* som har två medlemmar: *text* respektive *sentiment*. I ett Azure Search-index kallas ett sökbart fält med flera delar som en *komplex typ* och det skapas ofta när källdata har en motsvarande komplex struktur som mappar till den.
+Tänk dig ett scenario där du vill skapa en struktur med namnet *analyzedText* som har två medlemmar: *text* respektive *sentiment*. I ett index kallas ett sökbart fält med flera delar som en *komplex typ* och det skapas ofta när källdata har en motsvarande komplex struktur som mappar till den.
 
 En annan metod för att skapa komplexa typer är dock genom **formaren** -kompetensen. Genom att inkludera den här kunskapen i en färdigheter, kan åtgärder i minnet under färdigheter-bearbetningen mata ut data former med kapslade strukturer, som sedan kan mappas till en komplex typ i indexet. 
 
@@ -110,7 +109,7 @@ Ett inkommande JSON-dokument som tillhandahåller användbara ininformation för
 
 ### <a name="skill-output"></a>Kompetens utmatning
 
-**Formaren** -kompetensen genererar ett nytt element med namnet *analyzedText* med de kombinerade elementen *text* och *sentiment*. Dessa utdata följer index schemat. Den importeras och indexeras i ett Azure Search-index.
+**Formaren** -kompetensen genererar ett nytt element med namnet *analyzedText* med de kombinerade elementen *text* och *sentiment*. Dessa utdata följer index schemat. Den importeras och indexeras i ett Azure Kognitiv sökning-index.
 
 ```json
 {
@@ -249,8 +248,8 @@ I det här fallet skapar **formaren** en komplex typ. Den här strukturen finns 
 
 ## <a name="see-also"></a>Se också
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Använda komplexa typer](search-howto-complex-data-types.md)
-+ [Översikt över kunskaps lager](knowledge-store-concept-intro.md)
++ [Kunskaps lager (för hands version)](knowledge-store-concept-intro.md)
 + [Så här kommer du igång med kunskaps lager](knowledge-store-howto.md)

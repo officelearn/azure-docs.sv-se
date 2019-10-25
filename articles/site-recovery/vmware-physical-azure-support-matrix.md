@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/22/2019
 ms.author: raynew
-ms.openlocfilehash: 179676ae2a7d68bc0263f897ffededcf8b7a01f4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: de9fd8c7cd9470a7ccc9136d1eac91fe373fe03c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693374"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787291"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -50,7 +50,7 @@ RAM | 16 GB
 Antal diskar | 3 diskar<br/><br/> Diskarna innehåller OS-disken, cache-disken för processervern och lagrings enheten för återställning efter fel.
 Ledigt disk utrymme | 600 GB utrymme för processervern.
 Ledigt disk utrymme | 600 GB utrymme för lagrings enheten.
-Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 med Skriv bords miljö |
+Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 med Skriv bords miljö <br/><br> Om du planerar att använda det inbyggda huvud målet för den här enheten för återställning efter fel kontrollerar du att operativ system versionen är samma eller högre än de replikerade objekten.|
 Nationella inställningar för operativsystem | Engelska (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Krävs inte för konfigurations Server version [9,14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) eller senare. 
 Windows Server-roller | Aktivera inte Active Directory Domain Services; Internet Information Services (IIS) eller Hyper-V. 

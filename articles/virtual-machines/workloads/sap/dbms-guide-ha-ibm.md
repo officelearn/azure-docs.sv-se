@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 7ca6f1bda2dff9a8a9e54cb9d9ce5fd2d34c7245
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428071"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783785"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -341,11 +341,15 @@ Följande objekt föregås av antingen:
 - **[2]** : gäller endast nod 2
 
 **[A]** krav för pacemaker-konfiguration:
-1. Stäng båda databas servrarna med användare DB2 @ no__t-0sid > med db2stop.
-1. Ändra gränssnitts miljön för DB2 @ no__t-0sid > användare till */bin/ksh*. Vi rekommenderar att du använder YaST-verktyget. 
+1. Stäng båda databas servrarna med användar-DB2\<sid > med db2stop.
+1. Ändra skal miljön för DB2\<sid > användaren till */bin/ksh*. Vi rekommenderar att du använder YaST-verktyget. 
 
 
 ### <a name="pacemaker-configuration"></a>Pacemaker-konfiguration
+
+> [!IMPORTANT]
+> De senaste testerna visade situationer, där netcat slutar svara på begär Anden på grund av en efter släpning och dess begränsning av hantering av endast en anslutning. Netcat-resursen slutar lyssna på Azure Load Balancer-begäranden och den flytande IP-adressen blir otillgänglig.  
+> För befintliga pacemaker-kluster rekommenderar vi att du ersätter netcat med socat genom att följa anvisningarna i [Azures identifierings härdning av belastnings utjämning](https://www.suse.com/support/kb/doc/?id=7024128). Observera att ändringen kräver kortare stillestånds tid.  
 
 **[1]** IBM DB2 hadr-Specific pacemaker-konfiguration:
 <pre><code># Put Pacemaker into maintenance mode
@@ -371,7 +375,7 @@ sudo crm configure primitive rsc_ip_db2ptr_<b>PTR</b> IPaddr2 \
 
 # Configure probe port for Azure load Balancer
 sudo crm configure primitive rsc_nc_db2ptr_<b>PTR</b> anything \
-        params binfile="/usr/bin/nc" cmdline_options="-l -k <b>62500</b>" \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>62500</b>,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout="20s" interval="10" depth="0"
 
 sudo crm configure group g_ip_db2ptr_<b>PTR</b> rsc_ip_db2ptr_<b>PTR</b> rsc_nc_db2ptr_<b>PTR</b>
@@ -474,12 +478,12 @@ Om du vill konfigurera Azure Load Balancer rekommenderar vi att du använder [Az
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Gör ändringar i SAP-profiler för att använda virtuell IP-adress för anslutning
 För att ansluta till den primära instansen av HADR-konfigurationen måste SAP-programlagret använda den virtuella IP-adress som du definierade och konfigurerat för Azure Load Balancer. Följande ändringar krävs:
 
-/sapmnt/@no__t – 0SID >/profile/DEFAULT. PFL
+/sapmnt/\<SID >/profile/DEFAULT. PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/@no__t – 0SID >/Global/DB6/db2cli.ini
+/sapmnt/\<SID >/Global/DB6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -558,7 +562,7 @@ Den ursprungliga statusen i ett SAP-system dokumenteras i transaktion DBACOCKPIT
 > Innan du börjar testet måste du kontrol lera att:
 > * Pacemaker har inte några misslyckade åtgärder (CRM-status).
 > * Det finns inga plats begränsningar (rester av migrations test)
-> * Synkroniseringen av IBM DB2-HADR fungerar. Kontrol lera med User DB2 @ no__t-0sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * Synkroniseringen av IBM DB2-HADR fungerar. Kontrol lera med User DB2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migrera noden som kör den primära DB2-databasen genom att köra följande kommando:
@@ -592,9 +596,9 @@ Migrera tillbaka resursen till *azibmdb01* och avmarkera plats begränsningarna
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **CRM-resurs migrera \<res_name > @no__t – 2host >:** Skapar plats begränsningar och kan orsaka problem med övertag Ande
-- {0} **-resurs clear \<res_name >** : tar bort plats begränsningar
-- **CRM-resurs rensning \<res_name >** : rensar alla fel i resursen
+- **CRM-resurs migrera \<res_name > \<värd >:** Skapar plats begränsningar och kan orsaka problem med övertag Ande
+- {0}- **resurs clear \<res_name >** : tar bort plats begränsningar
+- **\<för CRM-resurs rensning res_name >** : rensar alla fel i resursen
 
 ### <a name="test-the-fencing-agent"></a>Testa avgränsnings agenten
 
@@ -767,7 +771,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Som användare DB2 @ no__t-0sid > köra kommandot db2stop Force:
+Som användare DB2\<sid > Kör kommandot db2stop Force:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 

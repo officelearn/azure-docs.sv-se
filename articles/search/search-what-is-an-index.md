@@ -1,26 +1,25 @@
 ---
-title: Skapa en index definition och-koncept – Azure Search
-description: Introduktion till index termer och koncept i Azure Search, inklusive komponent delar och fysisk struktur.
-author: HeidiSteen
+title: Skapa en index definition och-koncept
+titleSuffix: Azure Cognitive Search
+description: Introduktion till index termer och koncept i Azure Kognitiv sökning, inklusive komponent delar och fysisk struktur.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69647374"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794201"
 ---
-# <a name="create-a-basic-index-in-azure-search"></a>Skapa ett grundläggande index i Azure Search
+# <a name="create-a-basic-index-in-azure-cognitive-search"></a>Skapa ett grundläggande index i Azure Kognitiv sökning
 
-I Azure Search är ett *index* ett beständigt arkiv med *dokument* och andra konstruktioner som används för filtrering och fullständig texts ökning i en Azure Search tjänst. Ett dokument är konceptuellt en enskild enhet med sökbara data i ditt index. En återförsäljare som sysslar med e-handel kan till exempel ha ett dokument för varje artikel som företaget säljer, och en nyhetsorganisation kan ha ett dokument för varje nyhetsartikel osv. Om vi matchar dessa koncept till vanliga motsvarigheter i databasvärlden så kan ett *index* begreppsmässigt liknas vid en *tabell* och *dokument* kan grovt jämföras med *rader* i en tabell.
+I Azure Kognitiv sökning är ett *index* ett beständigt arkiv med *dokument* och andra konstruktioner som används för filtrering och fullständig texts ökning på en Azure kognitiv sökning-tjänst. Ett dokument är konceptuellt en enskild enhet med sökbara data i ditt index. En återförsäljare som sysslar med e-handel kan till exempel ha ett dokument för varje artikel som företaget säljer, och en nyhetsorganisation kan ha ett dokument för varje nyhetsartikel osv. Om vi matchar dessa koncept till vanliga motsvarigheter i databasvärlden så kan ett *index* begreppsmässigt liknas vid en *tabell* och *dokument* kan grovt jämföras med *rader* i en tabell.
 
-När du lägger till eller laddar upp ett index skapar Azure Search fysiska strukturer baserat på det schema som du anger. Om ett fält i indexet exempelvis är markerat som sökbar, skapas ett inverterat index för det fältet. När du senare lägger till eller laddar upp dokument eller skickar Sök frågor till Azure Search skickar du begär anden till ett särskilt index i Sök tjänsten. Inläsning av fält med dokument värden kallas *indexering* eller data inmatning.
+När du lägger till eller laddar upp ett index skapar Azure Kognitiv sökning fysiska strukturer baserat på det schema som du anger. Om ett fält i indexet exempelvis är markerat som sökbar, skapas ett inverterat index för det fältet. När du senare lägger till eller laddar upp dokument eller skickar Sök frågor till Azure Kognitiv sökning skickar du begär anden till ett särskilt index i Sök tjänsten. Inläsning av fält med dokument värden kallas *indexering* eller data inmatning.
 
 Du kan skapa ett index i portalen, [REST API](search-create-index-rest-api.md)eller [.NET SDK](search-create-index-dotnet.md).
 
@@ -40,7 +39,7 @@ Att komma till höger index design uppnås normalt genom flera iterationer. Geno
 
    Du växlar till en kod baserad metod i det här läget. Portalen passar inte bra för iteration eftersom du inte kan redigera ett index som redan har skapats. Men du kan använda Postman och REST för återstående uppgifter.
 
-4. [Läs in ditt index med data](search-what-is-data-import.md). Azure Search accepterar JSON-dokument. Om du vill läsa in dina data program mässigt kan du använda Postman med JSON-dokument i nytto lasten för begäran. Om dina data inte är enkla att uttryckas som JSON, är det här steget det mest arbets krävande.
+4. [Läs in ditt index med data](search-what-is-data-import.md). Azure Kognitiv sökning accepterar JSON-dokument. Om du vill läsa in dina data program mässigt kan du använda Postman med JSON-dokument i nytto lasten för begäran. Om dina data inte är enkla att uttryckas som JSON, är det här steget det mest arbets krävande.
 
 5. Fråga ditt index, granska resultaten och upprepa detta genom att upprepa index schemat tills du börjar se de resultat du förväntar dig. Du kan använda [**Sök Utforskaren**](search-explorer.md) eller Postman för att fråga ditt index.
 
@@ -52,7 +51,7 @@ Kod i stället för en portal metod rekommenderas för iterativ design. Om du f�
 
 ## <a name="components-of-an-index"></a>Komponenter i ett index
 
-Schematiskt är ett Azure Search index består av följande element. 
+Schemat är ett Azure Kognitiv sökning-index som består av följande element. 
 
 [*Fält samlingen*](#fields-collection) är vanligt vis den största delen av ett index, där varje fält namnges, skrivs och attributas med tillåtna beteenden som avgör hur det används. Andra element är [förslags ställare](#suggesters), [bedömnings profiler](#scoring-profiles), [analyser](#analyzers) med komponent delar som stöder anpassning, [CORS](#cors) och [krypterings nyckel](#encryption-key) alternativ.
 
@@ -157,7 +156,7 @@ När du definierar ett schema måste du ange namnet, typen och attributet för v
 | *Edm.DateTimeOffset* |Datum/tid-värden som representeras i OData v4-formatet (till exempel `yyyy-MM-ddTHH:mm:ss.fffZ` eller `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |En punkt som representerar en geografisk plats i världen. |
 
-Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Du hittar mer detaljerad information om Azure Kognitiv sökning [data typer som stöds här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Indexera attribut
 
@@ -190,7 +189,7 @@ Indexet baseras på den inbyggda exempel data källan för [fastighets fastighet
 Index som stöder filtrering och sortering är proportionerligt större än index som stöder bara fullständig texts ökning. Anledningen är att filtrera och sortera frågor om exakta matchningar, så att dokument lagras intakt. Sökbara fält som stöder full text och fuzzy search använder inverterade index, som är ifyllda med token-termer som förbrukar mindre utrymme än hela dokument.
 
 > [!Note]
-> Lagrings arkitektur betraktas som en implementerings detalj för Azure Search och kan ändras utan föregående meddelande. Det finns ingen garanti för att det aktuella beteendet är kvar i framtiden.
+> Lagrings arkitektur betraktas som en implementerings detalj i Azure Kognitiv sökning och kan ändras utan föregående meddelande. Det finns ingen garanti för att det aktuella beteendet är kvar i framtiden.
 
 ## <a name="suggesters"></a>Förslag på alternativ
 En förslags ställare är en del av schemat som definierar vilka fält i ett index som används för att stödja automatisk fullständig eller typ av frågor i sökningar. Normalt skickas partiella Sök strängar till [förslagen (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) medan användaren skriver en Sök fråga och API: et returnerar en uppsättning föreslagna fraser. 
@@ -205,7 +204,7 @@ En standard bedömnings profil fungerar i bakgrunden för att beräkna en Sök P
 
 ## <a name="analyzers"></a>Analysverktyg
 
-I elementet analyser anges namnet på den språk analys som ska användas för fältet. Mer information om vilka analys intervall som är tillgängliga finns i [lägga till analyser i ett Azure Search-index](search-analyzers.md). Analys verktyg kan bara användas med sökbara fält. När analysen har tilldelats ett fält kan det inte ändras om du inte bygger om indexet.
+I elementet analyser anges namnet på den språk analys som ska användas för fältet. Mer information om vilka analys intervall som är tillgängliga finns i [lägga till analyser i ett Azure kognitiv sökning-index](search-analyzers.md). Analys verktyg kan bara användas med sökbara fält. När analysen har tilldelats ett fält kan det inte ändras om du inte bygger om indexet.
 
 ## <a name="cors"></a>CORS
 
@@ -221,7 +220,7 @@ Följande alternativ kan ställas in för CORS:
 
 ## <a name="encryption-key"></a>Krypterings nyckel
 
-Alla Azure Search-index krypteras som standard med hjälp av Microsoft-hanterade nycklar, och index kan konfigureras för att krypteras med **Kundhanterade nycklar** i Key Vault. Mer information finns i [Hantera krypterings nycklar i Azure Search](search-security-manage-encryption-keys.md).
+Alla Azure Kognitiv sökning-index krypteras som standard med hjälp av Microsoft-hanterade nycklar, och index kan konfigureras för att krypteras med **kund hanterade nycklar** i Key Vault. Läs mer i [Hantera krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

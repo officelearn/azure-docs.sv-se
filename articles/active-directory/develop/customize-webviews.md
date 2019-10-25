@@ -1,5 +1,6 @@
 ---
-title: Anpassa webbläsare och webbvy | Microsoft Identity Platform
+title: Anpassa webbläsare och webbvyer
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du anpassar webb läsar miljön som används av MSAL för iOS och macOS för att logga in användare
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dd5be3944bdff459f6d920b358ae08efedcc431
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: fcb314e46094bb6c283a17508c35b7fc17e010e5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264195"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803372"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Gör så här: anpassa webbläsare och webbvy för iOS/macOS
 
@@ -87,7 +88,7 @@ Du kan använda en webbläsare i appen eller en speciell system webbläsare, ber
 
 ## <a name="change-per-interactive-request"></a>Ändra per interaktiv begäran
 
-Varje begäran kan konfigureras att åsidosätta standard webbläsaren genom att ändra egenskapen `MSALInteractiveTokenParameters.webviewParameters.webviewType` innan du skickar den till API: et för @no__t 1.
+Varje begäran kan konfigureras för att åsidosätta standard webbläsaren genom att ändra `MSALInteractiveTokenParameters.webviewParameters.webviewType` egenskap innan du skickar den till `acquireTokenWithParameters:completionBlock:`-API: et.
 
 Dessutom stöder MSAL överföring i en anpassad `WKWebView` genom att ange egenskapen `MSALInteractiveTokenParameters.webviewParameters.customWebView`.
 

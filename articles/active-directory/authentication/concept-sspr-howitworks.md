@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9fcac058a510b8b7fed5b3967bbbf439dd4c0f71
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561328"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786739"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självåterställning av lösenord i Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösen ord för självbetjäning i Azure AD
 
 Hur fungerar självbetjäning för återställning av lösen ord (SSPR)? Vad betyder det alternativet i gränssnittet? Fortsätt att läsa för att få mer information om Azure Active Directory (Azure AD) SSPR.
 
@@ -36,7 +36,7 @@ Läs igenom följande steg för att lära dig mer om logiken bakom sidan för l�
 
 1. Användaren väljer länken **kan inte komma åt ditt konto** eller går direkt till [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
    * Baserat på webbläsarens nationella inställningar, återges upplevelsen på det aktuella språket. Lösen ords återställnings upplevelsen lokaliseras på samma språk som Office 365 stöder.
-   * Om du vill visa portalen för återställning av lösen ord på ett annat lokaliserat språk lägger du till "? mkt =" i slutet av URL: en för lösen ords återställning med [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)exemplet som följer nationella inställningar till spanska.
+   * Om du vill visa portalen för återställning av lösen ord på ett annat lokaliserat språk lägger du till "? mkt =" i slutet av URL: en för lösen ords återställning med det exempel som följer nationella inställningar till spanska [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 2. Användaren anger ett användar-ID och skickar en captcha.
 3. Azure AD kontrollerar att användaren kan använda den här funktionen genom att göra följande:
    * Kontrollerar att användaren har den här funktionen aktive rad och har tilldelats en Azure AD-licens.
@@ -56,11 +56,11 @@ Läs igenom följande steg för att lära dig mer om logiken bakom sidan för l�
 
 Om SSPR har Aktiver ATS måste du välja minst ett av följande alternativ för autentiseringsmetoderna. Ibland kan du höra dessa alternativ som kallas "grindar". Vi rekommenderar starkt att du **väljer två eller fler autentiseringsmetoder** så att användarna har större flexibilitet om de inte kan komma åt någon när de behöver dem. Du hittar mer information om de metoder som anges nedan i artikeln [Vad är autentiseringsmetoder?](concept-authentication-methods.md).
 
-* Mobilapp-meddelande
+* Meddelanden via mobilapp
 * Kod för mobilapp
-* Email
+* E-post
 * Mobiltelefon
-* Arbetstelefon
+* Arbets telefon
 * Säkerhetsfrågor
 
 Användare kan bara återställa sina lösen ord om de har data som finns i de autentiseringsmetoder som administratören har aktiverat.
@@ -88,14 +88,20 @@ När du använder en mobilapp, t. ex. Microsoft Authenticator-appen, som en meto
 * När administratörer behöver en metod för att återställa ett lösen ord är verifierings koden det enda tillgängliga alternativet.
 * När administratörer kräver att två metoder används för att återställa ett lösen ord kan användare använda **antingen** meddelande- **eller** verifierings kod förutom andra aktiverade metoder.
 
-| Antal metoder som krävs för återställning | Samtidigt | Två |
+| Antal metoder som krävs för att återställa | Samtidigt | Två |
 | :---: | :---: | :---: |
-| Mobile app-funktioner som är tillgängliga | Kod | Kod eller meddelande |
+| Mobile app-funktioner som är tillgängliga | Programmera | Kod eller meddelande |
 
-Användarna har inte möjlighet att registrera sin mobilapp när de registrerar sig för lösen ords återställning via självbetjäning från [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Användare kan registrera sina mobilappar på [https://aka.ms/mfasetup](https://aka.ms/mfasetup)eller i den nya för hands versionen av säkerhets information på. [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)
+Användarna har inte möjlighet att registrera sin mobilapp när de registrerar sig för självbetjäning för återställning av lösen ord från [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Användare kan registrera sin mobilapp på [https://aka.ms/mfasetup](https://aka.ms/mfasetup)eller i den nya förhands granskningen av säkerhets information på [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!WARNING]
-> Du måste aktivera den [konvergerade registreringen för självbetjäning för återställning av lösen ord och Azure Multi-Factor Authentication (offentlig för hands version)](concept-registration-mfa-sspr-converged.md) innan användarna kan komma åt den [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)nya upplevelsen på.
+> Du måste aktivera den [konvergerade registreringen för självbetjäning för återställning av lösen ord och Azure Multi-Factor Authentication (offentlig för hands version)](concept-registration-mfa-sspr-converged.md) innan användarna kan komma åt den nya upplevelsen på [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
+> [!IMPORTANT]
+> Det går inte att välja Authenticator-appen som den enda autentiseringsmetoden när du konfigurerar en princip för 1-grind. På samma sätt kan inte Authenticator-appen och endast en ytterligare metod väljas när du konfigurerar en princip på 2 portar.
+> När du sedan konfigurerar SSPR-principer som inkluderar Authenticator-appen som en metod, måste du välja minst ytterligare en metod när du konfigurerar en princip för en 1-grind och minst två ytterligare metoder bör väljas när du konfigurerar en princip för 2 portar.
+> Orsaken till det här kravet är att den aktuella SSPR-registreringen inte innehåller alternativet för att registrera Authenticator-appen. Alternativet att registrera Authenticator-appen ingår i den nya [konvergerade registreringen för självbetjäning för återställning av lösen ord och Azure Multi-Factor Authentication (offentlig för hands version)](concept-registration-mfa-sspr-converged.md).
+> Att tillåta att principer som bara använder Authenticator-appen (för 1-grind-principer) eller Authenticator-appen och endast en ytterligare metod (för 2-grind-principer) kan leda till att användare blockeras från att registrera sig för SSPR tills de har kon figurer ATS för att använda den nya registrerings upplevelse.
 
 ### <a name="change-authentication-methods"></a>Ändra autentiseringsmetoder
 
@@ -121,7 +127,7 @@ Exempel:
 Om du aktiverar det här alternativet måste en användare slutföra registreringen av lösen ords återställning om de loggar in i alla program som använder Azure AD. Det här arbets flödet innehåller följande program:
 
 * Office 365
-* Azure Portal
+* Azure portal
 * Åtkomstpanel
 * Federerade program
 * Anpassade program med hjälp av Azure AD
@@ -139,7 +145,7 @@ Det här alternativet bestämmer hur lång tid det tar mellan att ange och bekr�
 
 Giltiga värden är 0 till 730 dagar, med "0", vilket innebär att användare aldrig uppmanas att bekräfta sin autentiseringsinformation.
 
-## <a name="notifications"></a>Aviseringar
+## <a name="notifications"></a>Meddelanden
 
 ### <a name="notify-users-on-password-resets"></a>Meddela användare om lösenordsåterställning
 
@@ -149,7 +155,7 @@ Om det här alternativet är inställt på **Ja**får användare som återställ
 
 Om det här alternativet är inställt på **Ja**får *alla administratörer* ett e-postmeddelande till sin primära e-postadress på filen i Azure AD. E-postmeddelandet meddelar att en annan administratör har ändrat sitt lösen ord med hjälp av SSPR.
 
-Exempel: Det finns fyra administratörer i en miljö. Administratör A återställer lösen ordet med hjälp av SSPR. Administratörer B, C och D får en e-postavisering om att lösen ordet återställs.
+Exempel: det finns fyra administratörer i en miljö. Administratör A återställer lösen ordet med hjälp av SSPR. Administratörer B, C och D får en e-postavisering om att lösen ordet återställs.
 
 ## <a name="on-premises-integration"></a>Lokal integration
 
@@ -164,7 +170,7 @@ På den här sidan får du en snabb status för den lokala tillbakaskrivning-kli
 * Tyvärr kan vi inte kontrol lera din lokala tillbakaskrivning av tillbakaskrivning-klientens status eftersom den installerade versionen av Azure AD Connect är inaktuell. [Uppgradera Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) för att kunna kontrol lera anslutnings status.
 * Tyvärr ser det ut som att vi inte kan ansluta till din lokala tillbakaskrivning-klient just nu. [Felsök Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) för att återställa anslutningen.
 * Tyvärr kan vi inte ansluta till din lokala tillbakaskrivning-klient eftersom tillbakaskrivning av lösen ord inte har kon figurer ATS korrekt. [Konfigurera tillbakaskrivning av lösen ord](howto-sspr-writeback.md) för att återställa anslutningen.
-* Tyvärr ser det ut som att vi inte kan ansluta till din lokala tillbakaskrivning-klient just nu. Detta kan bero på tillfälliga problem på vår sida. Om problemet kvarstår felsöker du [Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) för att återställa anslutningen.
+* Tyvärr ser det ut som att vi inte kan ansluta till din lokala tillbakaskrivning-klient just nu. Detta kan bero på tillfälliga problem på vår sida. Om problemet kvarstår [felsöker du Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) för att återställa anslutningen.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Skriv tillbaka lösen ord till din lokala katalog
 
@@ -188,11 +194,11 @@ Den här kontrollen anger om användare som besöker portalen för återställni
 
 Återställning av lösen ord och ändringar stöds helt och hållet i alla konfigurationer för Business-to-Business (B2B). B2B-återställning av användar lösen ord stöds i följande tre fall:
 
-* **Användare från en partner organisation med en befintlig Azure AD-klient**: Om organisationen som du samarbetar med har en befintlig Azure AD-klient ser vi *hur principerna för återställning av lösen ord är aktiverade på klienten*. För att lösen ords återställning ska fungera måste partner organisationen bara se till att Azure AD SSPR har Aktiver ATS. Det finns ingen extra kostnad för Office 365-kunder och den kan aktive ras genom att följa stegen i guiden [komma igång med lösen ords hantering](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) .
-* **Användare som registrerar sig via** självbetjänings registrering: Om organisationen som du samarbetar med använder funktionen för självbetjänings [registrering](../users-groups-roles/directory-self-service-signup.md) för att ansluta till en klient, kan du återställa lösen ordet med det e-postmeddelande som de registrerade.
-* **B2B-användare**: Alla nya B2B-användare som skapats med hjälp av de nya [Azure AD B2B-funktionerna](../active-directory-b2b-what-is-azure-ad-b2b.md) kommer också att kunna återställa sina lösen ord med det e-postmeddelande som de registrerade under den inbjudna processen.
+* **Användare från en partner organisation med en befintlig Azure AD-klient**: om organisationen som du samarbetar med har en befintlig Azure AD-klient ser vi *hur principerna för återställning av lösen ord är aktiverade på klienten*. För att lösen ords återställning ska fungera måste partner organisationen bara se till att Azure AD SSPR har Aktiver ATS. Det finns ingen extra kostnad för Office 365-kunder och den kan aktive ras genom att följa stegen i guiden [komma igång med lösen ords hantering](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) .
+* **Användare som registrerar sig via** självbetjänings registrering: om den organisation som du samarbetar med använder funktionen för [självbetjänings registrering](../users-groups-roles/directory-self-service-signup.md) för att ansluta till en klient kan vi återställa lösen ordet med det e-postmeddelande som de har registrerat.
+* **B2B-användare**: alla nya B2B-användare som skapats med hjälp av de nya [Azure AD B2B-funktionerna](../active-directory-b2b-what-is-azure-ad-b2b.md) kommer också att kunna återställa sina lösen ord med e-postmeddelandet som de registrerade under den inbjudna processen.
 
-För att testa det här scenariot https://passwordreset.microsoftonline.com går du till med någon av dessa partner användare. Om en annan e-postadress eller ett e-postmeddelande har definierats fungerar lösen ords återställning som förväntat.
+För att testa det här scenariot går du till https://passwordreset.microsoftonline.com med någon av dessa partner användare. Om en annan e-postadress eller ett e-postmeddelande har definierats fungerar lösen ords återställning som förväntat.
 
 > [!NOTE]
 > Microsoft-konton som har beviljats gäst åtkomst till din Azure AD-klient, t. ex. från Hotmail.com, Outlook.com eller andra personliga e-postadresser, kan inte använda Azure AD SSPR. De behöver återställa sina lösen ord med hjälp av informationen i [när du inte kan logga in på Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) -artikeln.
@@ -211,7 +217,7 @@ Följande artiklar ger ytterligare information om lösenordsåterställning via 
 * [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
 * [Hur gör jag för att rapportera på aktivitet i SSPR?](howto-sspr-reporting.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
-* [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag tror att något är brutet. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Azure AD-autentiseringsmetoder som är tillgängliga och kvantitet som krävs"

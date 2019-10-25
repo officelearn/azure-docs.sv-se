@@ -1,61 +1,74 @@
 ---
-title: Kolumn mönster i Azure Data Factory mappa data flöden
-description: Skapa generaliserade data omvandlings mönster med Azure Data Factory kolumn mönster i data flödena för mappning
+title: Kolumn mönster i Azure Data Factory mappa data flöde
+description: Skapa generaliserade data omvandlings mönster med kolumn mönster i Azure Data Factory mappa data flöden
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: a95bbb726f8c391270d3f60ed769d9475004b1e4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/21/2019
+ms.openlocfilehash: 0c9a3c2ef05f4a11933ca7fc81c7c0f87a612293
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388011"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789863"
 ---
-# <a name="mapping-data-flows-column-patterns"></a>Kolumn mönster för att mappa data flöden
+# <a name="using-column-patterns-in-mapping-data-flow"></a>Använda kolumn mönster i mappnings data flödet
 
+Med flera mappnings data flödes omvandlingar kan du referera till mall-kolumner baserat på mönster i stället för hårdkodade kolumn namn. Den här matchningen kallas för *kolumn mönster*. Du kan definiera mönster för att matcha kolumner baserat på namn, datatyp, ström eller position i stället för att kräva exakta fält namn. Det finns två scenarier där kolumn mönster är användbara:
 
+* Om inkommande käll fält ändras ofta, till exempel vid ändring av kolumner i textfiler eller NoSQL-databaser. Det här scenariot kallas [schema avvikelse](concepts-data-flow-schema-drift.md).
+* Om du vill göra en gemensam åtgärd i en stor grupp kolumner. Om du till exempel vill omvandla varje kolumn som har "total" i dess kolumn namn till ett dubbelt värde.
 
-Flera Azure Data Factory data flödes transformationer stöder idén med "kolumn mönster" så att du kan skapa mallgrupper baserat på mönster i stället för hårdkodade kolumn namn. Du kan använda den här funktionen i uttrycks verktyget för att definiera mönster som matchar kolumner för omvandling i stället för att kräva exakta, specifika fält namn. Mönster är användbara om inkommande käll fält ändras ofta, särskilt när det gäller att ändra kolumner i textfiler eller NoSQL-databaser. Det här villkoret kallas ibland "schema avvikelse".
+Kolumn mönster är för närvarande tillgängliga i omvandlingarna härledd kolumn, mängd, Välj och mottagare.
 
-Detta "flexibel schema"-hantering finns för närvarande i den härledda kolumnen och aggregerade omvandlingar samt de valda och Sink-omvandlingarna som "regel baserad mappning".
+## <a name="column-patterns-in-derived-column-and-aggregate"></a>Kolumn mönster i härledd kolumn och mängd
+
+Om du vill lägga till ett kolumn mönster i en härledd kolumn eller fliken Aggregator i en mängd omvandling, klickar du på plus ikonen till höger om en befintlig kolumn. Välj **Lägg till kolumn mönster**. 
+
+![kolumn mönster](media/data-flow/columnpattern.png "Kolumnmönster")
+
+Använd [uttrycks verktyget](concepts-data-flow-expression-builder.md) för att ange matchnings villkor. Skapa ett booleskt uttryck som matchar kolumner baserat på `name`, `type`, `stream`och `position` för kolumnen. Mönstret påverkar alla kolumner, som anges eller definieras, där villkoret returnerar true.
+
+De två uttrycks rutorna under matchnings villkoret anger de nya namnen och värdena för de berörda kolumnerna. Använd `$$` för att referera till det befintliga värdet för det matchade fältet. Rutan till vänster-uttryck definierar det namn och den högra resultat rutan som definierar värdet.
 
 ![kolumn mönster](media/data-flow/columnpattern2.png "Kolumnmönster")
 
-## <a name="column-patterns"></a>Kolumnmönster
-Kolumn mönster är användbara för att hantera både schema drift scenarier och allmänna scenarier. Det är lämpligt för villkor där du inte kan se varje kolumn namn fullständigt. Du kan mönster matchning för kolumn namn och kolumn data typ och skapa ett uttryck för omvandling som utför åtgärden mot alla fält i data strömmen som matchar dina `name` @ no__t-1 @ no__t-2-mönster.
+Mönstret ovan matchar alla kolumner av typen Double och skapar en sammanställd kolumn per matchning. Namnet på den nya kolumnen är den matchade kolumnens namn sammanfogat med _ _ total. Värdet för den nya kolumnen är den rundade, aggregerade summan av det befintliga dubbla värdet.
 
-När du lägger till ett uttryck i en transformering som accepterar mönster, väljer du Lägg till kolumn mönster. Med kolumn mönster kan du matcha matchnings mönster för schema riktnings kolumner.
+För att kontrol lera att ditt matchnings villkor är korrekt kan du validera schemat för definierade kolumner på fliken **Granska** eller hämta en ögonblicks bild av data på fliken **data förhands granskning** . 
 
-När du skapar mallens kolumn mönster använder du `$$` i uttrycket för att representera en referens till varje matchat fält från indata-dataströmmen.
+![kolumn mönster](media/data-flow/columnpattern3.png "Kolumnmönster")
 
-Om du väljer att använda en av uttrycks Byggareets regex-funktioner kan du därefter använda $1, $2, $3... för att referera till de under mönster som matchas från ditt regex-uttryck.
+## <a name="rule-based-mapping-in-select-and-sink"></a>Regel baserad mappning i SELECT och Sink
 
-Ett exempel på ett kolumn mönster scenario använder SUM med en serie inkommande fält. De aggregerade SUM-beräkningarna finns i den sammanställda omvandlingen. Du kan sedan använda SUM på varje matchande fält typ som matchar "Integer" och sedan använda $ $ för att referera till varje matchning i ditt uttryck.
+När du mappar kolumner i källa och väljer omvandlingar kan du lägga till antingen fast mappning eller regelbaserade mappningar. Använd fast mappning om du känner till schemat för dina data och förväntar dig att vissa kolumner från käll data uppsättningen alltid matchar vissa statiska namn. Om du arbetar med flexibla scheman använder du regelbaserade mappningar för att bygga en mönster matchning baserat på `name`, `type`, `stream`och `position` av kolumner. Du kan ha en kombination av fasta och regelbaserade mappningar. 
 
-## <a name="match-columns"></a>Matcha kolumner
-![kolumn mönster typer](media/data-flow/pattern2.png "Mönster typer")
-
-Om du vill bygga mönster baserade på kolumner kan du matcha kolumn namn, typ, ström eller position och använda valfri kombination av dem med uttrycks funktioner och reguljära uttryck.
-
-![kolumn position](media/data-flow/position.png "Kolumn position")
-
-## <a name="rule-based-mapping"></a>Regel baserad mappning
-När du mappar kolumner i källa och väljer omvandlingar kan du välja "fast mappning" eller "regelbaserade mappning". När du känner till schemat för dina data och förväntar dig vissa kolumner från käll data uppsättningen som alltid matchar vissa statiska namn, kan du använda fast mappning. Men när du arbetar med flexibla scheman använder du regelbaserade mappningar. Du kommer att kunna bygga en mönster matchning med hjälp av reglerna som beskrivs ovan.
+Om du vill lägga till en regelbaserade mappning klickar du på **Lägg till mappning** och väljer **regel baserad mappning**.
 
 ![regel baserad mappning](media/data-flow/rule2.png "Regel baserad mappning")
 
-Bygg dina regler med uttrycks verktyget. Uttrycken returnerar ett booleskt värde som antingen matchar kolumner (true) eller exkluderings kolumner (falskt).
+Ange ditt booleska matchnings villkor i rutan till vänster-uttryck. I rutan till höger uttryck anger du vad den matchade kolumnen ska mappas till. Använd `$$` för att referera till det befintliga namnet på det matchade fältet.
 
-## <a name="pattern-matching-special-columns"></a>Mönster som matchar särskilda kolumner
+Om du klickar på ikonen för nedåt kan du ange ett regex-mappnings villkor.
 
-* `$$` översätts till namnet på varje matchning vid design tillfället i fel söknings läge och vid körning vid körning
+Klicka på ikonen glasögon bredvid en regel baserad mappning för att se vilka definierade kolumner som matchar och vad de är mappade till.
+
+![regel baserad mappning](media/data-flow/rule1.png "Regel baserad mappning")
+
+I exemplet ovan skapas två regelbaserade mappningar. Det första tar alla kolumner som inte heter "Movie" och mappar dem till befintliga värden. Den andra regeln använder regex för att matcha alla kolumner som börjar med "Movie" och mappar dem till kolumnen "movieId".
+
+Om regeln resulterar i flera identiska mappningar aktiverar du **hoppa över duplicerade indata** eller **hoppar över dubbla utdata** för att förhindra dubbletter.
+
+## <a name="pattern-matching-expression-values"></a>Mönster matchnings uttrycks värden.
+
+* `$$` översätts till namnet eller värdet för varje matchning vid körnings tillfället
 * `name` representerar namnet på varje inkommande kolumn
 * `type` representerar data typen för varje inkommande kolumn
 * `stream` representerar namnet som är kopplat till varje data ström eller omvandling i ditt flöde
 * `position` är ordnings positionen för kolumner i ditt data flöde
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om data flödes [uttrycks språket](https://aka.ms/dataflowexpressions) för ADF-mappning för data transformationer
+* Läs mer om data flödes [uttrycks språket](data-flow-expression-functions.md) för data omvandlingar
 * Använd kolumn mönster i [omvandling av mottagare](data-flow-sink.md) och [Välj omvandling](data-flow-select.md) med regelbaserade mappning

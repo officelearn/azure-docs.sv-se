@@ -1,5 +1,6 @@
 ---
-title: Microsoft Authentication Library (MSAL) för iOS & macOS | Azure
+title: Microsoft Authentication Library (MSAL) för iOS & macOS
+titleSuffix: Microsoft identity platform
 description: Beskriver användnings skillnader i Microsoft Authentication Library (MSAL) mellan iOS och macOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beb6e55e83412535f29284db48fb37fd514b35d4
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 090f4eaea292c7122db2427ce8730df815506fc0
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269017"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803144"
 ---
-# <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Microsoft Authentication Library för iOS-och macOS-skillnader
+# <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Skillnader mellan Microsoft Authentication Library för iOS och macOS
 
 I den här artikeln förklaras skillnaderna mellan funktionerna i Microsoft Authentication Library (MSAL) för iOS och macOS.
 
@@ -37,7 +38,7 @@ MSAL för macOS är en delmängd av de funktioner som är tillgängliga för iOS
 
 MSAL för macOS stöder inte:
 
-- olika webb läsar typer `ASWebAuthenticationSession`, `SFAuthenticationSession`till `SFSafariViewController`exempel,,.
+- olika webb läsar typer, till exempel `ASWebAuthenticationSession`, `SFAuthenticationSession``SFSafariViewController`.
 - Brokered Authentication via Microsoft Authenticator app stöds inte för macOS.
 
 Delning av nyckel ringar mellan appar från samma utgivare är mer begränsad i macOS 10,14 och tidigare. Använd [åtkomst kontrol listor](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) för att ange sökvägar till de appar som ska dela nyckel ringen. Användaren kan se ytterligare prompter för nyckel ringar.

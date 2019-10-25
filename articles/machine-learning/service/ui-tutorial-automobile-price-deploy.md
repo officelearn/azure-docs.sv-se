@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: ff3ffe4b68d7b5d74ee3a84ca9c59a13d445f43b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 6f8717f70a2cb03a7fd683cfe61f1198461f4305
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692999"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792680"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Självstudie: Distribuera en maskin inlärnings modell med det visuella gränssnittet
 
@@ -40,7 +40,7 @@ För att kunna distribuera din pipeline måste du:
 
 1. Överst på pipeline-arbetsytan väljer du **skapa härlednings pipeline**  > **real tids härlednings pipeline**
 
-    När du väljer **skapa förutsägelse pipeline**inträffar flera saker:
+    När du väljer **skapa en härlednings pipeline**inträffar flera saker:
     
     * Den tränade modellen lagras som en **data uppsättnings** modul i modulens palett. Du kan hitta den under **mina data uppsättningar**.
     * Moduler, som att **träna modell** och **dela data**, tas bort.
@@ -97,7 +97,7 @@ När din AKS-tjänst har slutfört etableringen återgår du till inferencing-pi
 
 1. Välj **Distribuera**.
 
-    [! Skärm bild som visar hur du ställer in en ny slut punkt för Real tid](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Skärm bild som visar hur du konfigurerar en ny slut punkt för Real tid](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
 
     Ett meddelande som visar att arbets ytan visas när distributionen är klar, det kan ta några minuter.
 

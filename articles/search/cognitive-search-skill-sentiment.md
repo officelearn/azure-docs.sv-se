@@ -1,33 +1,32 @@
 ---
-title: Sentiment kognitiva Sök kunskaper – Azure Search
-description: Extrahera en positiv negativ sentiment Poäng från texten i en Azure Search anriknings pipeline.
-services: search
+title: Sentiment kognitiva kunskaper
+titleSuffix: Azure Cognitive Search
+description: Extrahera en positiv negativ sentiment Poäng från text i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 8610506b7d62542e9eb801b06dd49a5e130fa7fa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: cc3aab703b9c5ffcb5f3280060417ce32fcec2fc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265742"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791903"
 ---
-#   <a name="sentiment-cognitive-skill"></a>Sentiment kognitiva kunskaper
+# <a name="sentiment-cognitive-skill"></a>Sentiment kognitiva kunskaper
 
 **Sentiment** -kompetensen utvärderar ostrukturerad text längs ett positivt och negativt värde, och för varje post returneras ett numeriskt resultat mellan 0 och 1. Poäng nära 1 anger positiv känsla och poäng nära 0 anger negativ känsla. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.SentimentSkill
+Microsoft. färdigheter. text. SentimentSkill
 
 ## <a name="data-limits"></a>Databegränsningar
 Den maximala storleken för en post ska vara 5000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
@@ -52,7 +51,7 @@ Parametrar är Skift läges känsliga.
 
 | Namn på utdata | Beskrivning |
 |--------------------|-------------|
-| poäng | Ett värde mellan 0 och 1 som representerar sentiment för den analyserade texten. Värden som är nära 0 har negativa sentiment, nära 0,5 har neutral sentiment och värden nära 1 har positiva sentiment.|
+| resultat | Ett värde mellan 0 och 1 som representerar sentiment för den analyserade texten. Värden som är nära 0 har negativa sentiment, nära 0,5 har neutral sentiment och värden nära 1 har positiva sentiment.|
 
 
 ##  <a name="sample-definition"></a>Exempel definition
@@ -119,5 +118,5 @@ Om ett språk inte stöds genereras ett fel och inget sentiment Poäng returnera
 
 ## <a name="see-also"></a>Se också
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

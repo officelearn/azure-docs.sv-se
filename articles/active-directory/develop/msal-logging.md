@@ -1,5 +1,6 @@
 ---
-title: Logga in MSAL-program (Microsoft Authentication Library) | Azure
+title: Logga in MSAL-program (Microsoft Authentication Library)
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om loggning i MSAL-program (Microsoft Authentication Library).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 87102e3ea71695006e465d1becad0f2ece2a426b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678043"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802967"
 ---
 # <a name="logging-in-msal-applications"></a>Logga in MSAL-program
 
@@ -32,10 +33,10 @@ MSAL-appar (Microsoft Authentication Library) genererar logg meddelanden som kan
 
 MSAL tillhandahåller flera nivåer av loggnings information:
 
-- Fel: Indikerar att något har gått fel och ett fel har genererats. Använd för fel sökning och identifiering av problem.
-- Varning: Det har inte nödvändigt vis uppstått något fel eller fel, men är avsedda för diagnostik och att hitta problem.
-- Statusinformation MSAL kommer att logga händelser som är avsedda för informations ändamål som inte nödvändigt vis är avsedda för fel sökning.
-- utförlig Standard. MSAL loggar fullständig information om biblioteks beteendet.
+- Fel: indikerar att något har gått fel och ett fel genererades. Använd för fel sökning och identifiering av problem.
+- Varning! det har inte nödvändigt vis uppstått något fel eller fel, men är avsedda för diagnostik och att hitta problem.
+- Info: MSAL kommer att logga händelser som är avsedda för informations ändamål som inte nödvändigt vis är avsedda för fel sökning.
+- Verbose: standard. MSAL loggar fullständig information om biblioteks beteendet.
 
 ## <a name="personal-and-organizational-data"></a>Personliga och organisatoriska data
 
@@ -50,7 +51,7 @@ I MSAL 3. x anges loggning per program när appen skapas med hjälp av `.WithLog
 
 - med `Level` kan du bestämma vilken loggnings nivå du vill ha. Om du ställer in det på fel får du bara fel meddelanden
 - med `PiiLoggingEnabled` kan du logga personliga och organisatoriska data om värdet är true. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data.
-- `LogCallback` har angetts till ett ombud som utför loggningen. Om `PiiLoggingEnabled` är sant får den här metoden meddelandena två gånger: När parametern `containsPii` är lika med falskt och meddelandet utan personliga data, och en andra gång med parametern `containsPii` lika med sant och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
+- `LogCallback` har angetts till ett ombud som utför loggningen. Om `PiiLoggingEnabled` har värdet True får den här metoden meddelandena två gånger: en gång med parametern `containsPii` är lika med falskt och meddelandet utan personliga data, och en andra gång med `containsPii`-parametern lika med sant och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
 - `DefaultLoggingEnabled` aktiverar standard loggning för plattformen. Som standard är det falskt. Om du anger värdet till sant används händelse spårning i Desktop/UWP-program, NSLog på iOS och logcat på Android.
 
 ```csharp
@@ -85,9 +86,9 @@ class Program
 Aktivera loggning när appen skapas genom att skapa en loggning för motringning. Återanropet använder följande parametrar:
 
 - `tag` är en sträng som skickas till återanropet av biblioteket. Den är kopplad till logg posten och kan användas för att sortera loggnings meddelanden.
-- med `logLevel` kan du bestämma vilken loggnings nivå du vill ha. De logg nivåer som stöds är: `Error`, `Warning`, `Info` och `Verbose`.
+- med `logLevel` kan du bestämma vilken loggnings nivå du vill ha. De logg nivåer som stöds är: `Error`, `Warning`, `Info`och `Verbose`.
 - `message` är innehållet i logg posten.
-- `containsPII` anger om meddelanden som innehåller personliga data eller organisations data ska loggas. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data. Om `containsPII` är `true` får den här metoden meddelandena två gånger: när den `containsPII`-parametern har angetts till `false` och `message` utan personliga data, och en andra gång med `containsPii`-parametern inställd på `true` och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
+- `containsPII` anger om meddelanden som innehåller personliga data eller organisations data ska loggas. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data. Om `containsPII` är `true`får den här metoden meddelandena två gånger: när den `containsPII`-parametern har angetts till `false` och `message` utan personliga data, och en andra gång med `containsPii`-parametern inställd på `true` och meddelandet kan innehålla person uppgifter. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
 
 ```java
 private StringBuilder mLogs;
@@ -126,9 +127,9 @@ Logger.getInstance().setEnableLogcatLog(true);
  Aktivera loggning i MSAL. js genom att skicka ett loggnings objekt under konfigurationen för att skapa en `UserAgentApplication`-instans. Detta loggnings objekt har följande egenskaper:
 
 - `localCallback`: en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Implementera localCallback-metoden beroende på hur du vill dirigera om loggarna.
-- `level`(valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: `Error`, `Warning`, `Info` och `Verbose`. Standardvärdet är `Info`.
+- `level` (valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: `Error`, `Warning`, `Info`och `Verbose`. Standardvärdet är `Info`.
 - `piiLoggingEnabled` (valfritt): om värdet är true loggas personliga och organisatoriska data. Som standard är detta falskt så att programmet inte loggar personliga data. Personliga data loggar skrivs aldrig till standardutdata som konsol, logcat eller NSLog.
-- `correlationId`(valfritt): en unik identifierare som används för att mappa begäran med svar på fel söknings syfte. Standardvärdet är RFC4122 version 4 GUID (128 bitar).
+- `correlationId` (valfritt): en unik identifierare som används för att mappa begäran med svar för fel söknings syfte. Standardvärdet är RFC4122 version 4 GUID (128 bitar).
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -188,7 +189,7 @@ Objective-C
     }];
 ```
 
-SWIFT
+Swift
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
     if let message = message, !containsPII
@@ -216,7 +217,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = YES;
 MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 ```
 
-SWIFT
+Swift
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
 
@@ -235,7 +236,7 @@ Använd något av följande värden om du vill ange loggnings nivå när du logg
 |---------|---------|
 | `MSALLogLevelNothing`| Inaktivera all loggning |
 | `MSALLogLevelError` | Standard nivå skrivs bara ut information när fel uppstår |
-| `MSALLogLevelWarning` | Varningar |
+| `MSALLogLevelWarning` | Varna |
 | `MSALLogLevelInfo` |  Biblioteks start punkter, med parametrar och olika nyckel rings åtgärder |
 |`MSALLogLevelVerbose`     |  API-spårning       |
 
@@ -246,14 +247,14 @@ Objective-C
 MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
  ```
  
- SWIFT
+ Swift
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
  ```
 
 ### <a name="log-message-format"></a>Logg meddelande format
 
-Meddelande delen av MSAL logg meddelanden har formatet`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+Meddelande delen av MSAL logg meddelanden har formatet `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Exempel:
 

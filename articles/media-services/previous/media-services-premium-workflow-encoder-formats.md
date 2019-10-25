@@ -14,18 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 9ec8e2df8befa28fc023edb30889f177b60939f9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015032"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792594"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow format och codec
 
 > [!NOTE]
-> För Premium Encoder-frågor, e- mepd@microsoft.compost.
-> 
 > Media Encoder Premium Workflow medie processor som diskuteras i det här avsnittet är inte tillgänglig i Kina. 
 
 Det här dokumentet innehåller en lista över in-och utdatafil format och codec-filer som stöds av den offentliga för hands versionen av **Media Encoder Premium Workflow** Encoder.
@@ -55,7 +53,7 @@ I följande avsnitt visas de codecenheter och fil format som medie processorn st
 
 * AVC 8-bitar/10-bit, upp till 4:2:2, inklusive AVCIntra
 * Avid DNxHD (i MXF)
-* DVCPro/DVCProHD (in MXF)
+* DVCPro/DVCProHD (i MXF)
 * HEVC/H. 265, Main och main 10 Profile
 * JPEG2000
 * MPEG-2 (upp till 422 profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10)
@@ -87,20 +85,18 @@ I följande avsnitt visas de codecenheter och fil format som stöds som utdata f
 * Windows Media/ASF
 * AVI (okomprimerad 8bit/10bit)
 * Smooth Streaming fil format (PIFF 1,3)
-* MPEG-TS 
+* MPEG – TS 
 
 ### <a name="output-video-codecs"></a>Codec för video utgång
 
 * AVC (H. 264; 8-bitars, upp till hög profil, nivå 5,2; 4K Ultra HD; AVC Intra)
 * Avid DNxHD (i MXF)
-* DVCPro/DVCProHD (in MXF)
+* DVCPro/DVCProHD (i MXF)
 * MPEG-2 (upp till 422 profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10)
 * MPEG-1
 * Windows Media Video/VC-1
 * Skapa JPEG-miniatyr
 * HEVC (H. 265; 8 bitar och 10 bitar, Main och main 10 Profile)
-
-  Det finns stöd för HDR 10 i vissa scenarier. kontakta mepd@microsoft.com för mer information
 
 
 ### <a name="output-audio-codecs"></a>Ljud-codec för utdata
@@ -141,6 +137,9 @@ Vid utdata är följande alternativ tillgängliga:
 
 Om din indata-video inte innehåller dold textning innehåller utmatnings till gången fortfarande en tom TTML-fil. 
 
+## <a name="need-help"></a>Behöver du hjälp?
+
+Du kan öppna ett support ärende genom att gå till [nytt support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

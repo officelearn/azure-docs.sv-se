@@ -1,30 +1,29 @@
 ---
-title: Säkerhet och data sekretess – Azure Search
-description: Azure Search är kompatibel med SOC 2, HIPAA och andra certifieringar. Anslutning och data kryptering, autentisering och identitets åtkomst genom säkerhets identifierare för användare och grupper i Azure Search filter.
-author: HeidiSteen
+title: Säkerhet och data sekretess
+titleSuffix: Azure Cognitive Search
+description: Azure Kognitiv sökning är kompatibelt med SOC 2, HIPAA och andra certifieringar. Anslutning och data kryptering, autentisering och identitets åtkomst genom säkerhets identifierare för användare och grupper i filter uttryck.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 3a6ac7ff22c04bff5948193c163a7071cf2c2ff5
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2e509535473fa50fd3150965e1513e056ead18a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320397"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794334"
 ---
-# <a name="security-and-data-privacy-in-azure-search"></a>Säkerhet och data sekretess i Azure Search
+# <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Säkerhet och data sekretess i Azure Kognitiv sökning
 
-Omfattande säkerhetsfunktioner och åtkomst kontroller är inbyggda i Azure Search för att säkerställa att privat innehåll förblir på det sättet. Den här artikeln räknar upp inbyggda säkerhetsfunktioner och standarder i Azure Search.
+Omfattande säkerhetsfunktioner och åtkomst kontroller är inbyggda i Azure Kognitiv sökning för att säkerställa att privat innehåll förblir på det sättet. Den här artikeln räknar upp inbyggda säkerhetsfunktioner och standarder i Azure Kognitiv sökning.
 
-Azure Search säkerhets arkitekturen omfattar fysisk säkerhet, krypterade sändningar, krypterad lagring och plattforms oberoende standarder. Åtgärder, Azure Search bara accepterar autentiserade begär Anden. Alternativt kan du lägga till åtkomst kontroller per användare på innehåll via säkerhets filter. Den här artikeln rör säkerhet på varje lager, men fokuserar främst på hur data och åtgärder skyddas i Azure Search.
+Azure Kognitiv sökning säkerhets arkitekturen omfattar fysisk säkerhet, krypterad överföring, krypterad lagring och kompatibilitet med plattforms oberoende standarder. Azure Kognitiv sökning accepterar bara autentiserade begär Anden. Alternativt kan du lägga till åtkomst kontroller per användare på innehåll via säkerhets filter. Den här artikeln rör säkerhet på varje lager, men fokuserar främst på hur data och åtgärder skyddas i Azure Kognitiv sökning.
 
-## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Standarder som följer: ISO 27001, SOC 2, HIPAA
+## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Standarder kompatibilitet: ISO 27001, SOC 2, HIPAA
 
-Azure Search är certifierat för följande standarder, som visas [i juni 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
+Azure Kognitiv sökning är certifierat för följande standarder, som visas [i juni 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [SOC 2 typ 2-kompatibilitet](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) Om du vill ha en fullständig rapport går du till [Azure-och Azure Government SOC 2 Type II-rapport](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
@@ -38,17 +37,17 @@ Standardkompatibiliteten gäller för allmänt tillgängliga funktioner. För ha
 
 ## <a name="encrypted-transmission-and-storage"></a>Krypterad överföring och lagring
 
-Kryptering utökar hela hela indexerings pipelinen: från anslutningar, via överföring och nedåt till indexerade data som lagras i Azure Search.
+Kryptering utökar hela hela indexerings pipelinen: från anslutningar, via överföring och nedåt till indexerade data som lagras i Azure Kognitiv sökning.
 
 | Säkerhets skikt | Beskrivning |
 |----------------|-------------|
-| Kryptering under överföring <br>(HTTPS/SSL/TLS) | Azure Search lyssnar på HTTPS-port 443. Anslutningar till Azure-tjänster på plattformen är krypterade. <br/><br/>Alla klient-till-tjänst-Azure Search-interaktioner är SSL/TLS 1,2-kompatibel.  Se till att använda TLSv 1.2 för SSL-anslutningar till din tjänst.|
-| Vilande kryptering <br>Microsoft-hanterade nycklar | Kryptering är helt inaktive ras i indexerings processen, utan mätbar påverkan på indexerings tiden för slut för ande eller index storlek. Det sker automatiskt vid all indexering, inklusive för stegvisa uppdateringar av ett index som inte är fullständigt krypterat (skapat före januari 2018).<br><br>Internt är kryptering baserat på [Azure Storage tjänst kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)med 256-bitars AES- [kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Kryptering är internt för att Azure Search, med certifikat och krypterings nycklar som hanteras internt av Microsoft och som används universellt. Du kan inte aktivera eller inaktivera kryptering, hantera eller ersätta dina egna nycklar eller Visa krypterings inställningar i portalen eller program mässigt.<br><br>Kryptering i vila presenterades den 24 januari 2018 och gäller för alla tjänst nivåer, inklusive den kostnads fria nivån, i alla regioner. För fullständig kryptering måste index som skapats före det datumet släppas och återskapas för att krypteringen ska ske. Annars krypteras endast nya data som lagts till efter 24 januari.|
-| Vilande kryptering <br>Kundhanterade nycklar | Kryptering med kund hanterade nycklar är en **förhands gransknings** funktion som inte är tillgänglig för kostnads fria tjänster. För betalda tjänster är det bara tillgängligt för Sök tjänster som skapats den 2019 januari, med den senaste för hands versionen av API-versionen (API-version = 2019-05 -06 – för hands version).<br><br>Azure Search index och synonym Maps kan nu krypteras i vila med kund nycklar hanterade nycklar i Azure Key Vault. Mer information finns i [Hantera krypterings nycklar i Azure Search](search-security-manage-encryption-keys.md).<br>Den här funktionen ersätter inte standard krypteringen i vilo läge, utan gäller även för den.<br>Om du aktiverar den här funktionen ökar du antalet index och försämrar frågans prestanda. Utifrån observationer som datum kan du vänta på att se en ökning på 30%-60% i fråge tiderna, även om den faktiska prestandan varierar beroende på index definitionen och typer av frågor. På grund av den här prestandan rekommenderar vi att du bara aktiverar den här funktionen på index som verkligen kräver det.
+| Kryptering under överföring <br>(HTTPS/SSL/TLS) | Azure Kognitiv sökning lyssnar på HTTPS-port 443. Anslutningar till Azure-tjänster på plattformen är krypterade. <br/><br/>Alla Azure Kognitiv sökning-interaktioner från klient till tjänst är SSL/TLS 1,2-kompatibel.  Se till att använda TLSv 1.2 för SSL-anslutningar till din tjänst.|
+| Vilande kryptering <br>Microsoft-hanterade nycklar | Kryptering är helt inaktive ras i indexerings processen, utan mätbar påverkan på indexerings tiden för slut för ande eller index storlek. Det sker automatiskt vid all indexering, inklusive för stegvisa uppdateringar av ett index som inte är fullständigt krypterat (skapat före januari 2018).<br><br>Internt är kryptering baserat på [Azure Storage tjänst kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)med 256-bitars AES- [kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Kryptering är intern för Azure Kognitiv sökning, med certifikat och krypterings nycklar som hanteras internt av Microsoft och som används av universellt. Du kan inte aktivera eller inaktivera kryptering, hantera eller ersätta dina egna nycklar eller Visa krypterings inställningar i portalen eller program mässigt.<br><br>Kryptering i vila presenterades den 24 januari 2018 och gäller för alla tjänst nivåer, inklusive den kostnads fria nivån, i alla regioner. För fullständig kryptering måste index som skapats före det datumet släppas och återskapas för att krypteringen ska ske. Annars krypteras endast nya data som lagts till efter 24 januari.|
+| Vilande kryptering <br>Kundhanterade nycklar | Kryptering med kund hanterade nycklar är en **förhands gransknings** funktion som inte är tillgänglig för kostnads fria tjänster. För betalda tjänster är det bara tillgängligt för Sök tjänster som skapats den 2019 januari, med den senaste för hands versionen av API-versionen (API-version = 2019-05 -06 – för hands version).<br><br>Azure Kognitiv sökning index och synonym Maps kan nu krypteras i vila med kund nycklar hanterade nycklar i Azure Key Vault. Läs mer i [Hantera krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).<br>Den här funktionen ersätter inte standard krypteringen i vilo läge, utan gäller även för den.<br>Om du aktiverar den här funktionen ökar du antalet index och försämrar frågans prestanda. Utifrån observationer som datum kan du vänta på att se en ökning på 30%-60% i fråge tiderna, även om den faktiska prestandan varierar beroende på index definitionen och typer av frågor. På grund av den här prestandan rekommenderar vi att du bara aktiverar den här funktionen på index som verkligen kräver det.
 
 ## <a name="azure-wide-user-access-controls"></a>Azure-wide User Access-kontroller
 
-Flera säkerhetsmekanismer är tillgängliga i hela Azure och är därmed automatiskt tillgängliga för de Azure Search-resurser som du skapar.
+Flera säkerhetsmekanismer är tillgängliga i hela Azure och är därmed automatiskt tillgängliga för de Azure Kognitiv sökning-resurser som du skapar.
 
 + [Lås på prenumerations-eller resurs nivå för att förhindra borttagning](../azure-resource-manager/resource-group-lock-resources.md)
 + [Rollbaserad Access Control (RBAC) för att styra åtkomsten till information och administrativa åtgärder](../role-based-access-control/overview.md)
@@ -59,7 +58,7 @@ Alla Azure-tjänster har stöd för rollbaserad åtkomst kontroll (RBAC) för at
 
 ## <a name="service-access-and-authentication"></a>Tjänst åtkomst och autentisering
 
-Medan Azure Search ärver säkerhets skyddet för Azure-plattformen, ger den också sin egen nyckelbaserad autentisering. En API-nyckel är en sträng som består av slumpmässigt genererade siffror och bokstäver. Typ av nyckel (administratör eller fråga) fastställer åtkomst nivån. Inlämning av en giltig nyckel betraktas som bevis för att begäran härstammar från en betrodd entitet. 
+Azure Kognitiv sökning ärver säkerhets skyddet för Azure-plattformen, men tillhandahåller också sin egen nyckelbaserade autentisering. En API-nyckel är en sträng som består av slumpmässigt genererade siffror och bokstäver. Typ av nyckel (administratör eller fråga) fastställer åtkomst nivån. Inlämning av en giltig nyckel betraktas som bevis för att begäran härstammar från en betrodd entitet. 
 
 Det finns två åtkomst nivåer till din Sök tjänst, som Aktiver ATS av två typer av nycklar:
 
@@ -74,17 +73,17 @@ Autentisering krävs för varje begäran, där varje begäran består av en obli
 
 ## <a name="index-access"></a>Index åtkomst
 
-I Azure Search är ett enskilt index inte ett skydds Bart objekt. I stället fastställs åtkomst till ett index på tjänst lagret (Läs-eller Skriv behörighet), tillsammans med kontexten för en åtgärd.
+I Azure Kognitiv sökning är ett enskilt index inte ett skydds Bart objekt. I stället fastställs åtkomst till ett index på tjänst lagret (Läs-eller Skriv behörighet), tillsammans med kontexten för en åtgärd.
 
 För slut användar åtkomst kan du strukturera förfrågningar om att ansluta med hjälp av en frågegrupp, som gör begäran skrivskyddad och inkludera det särskilda index som används av din app. I en förfrågan finns det ingen idé att koppla index eller att komma åt flera index samtidigt, så att alla begär Anden är riktade mot ett enda index med definition. Därför definierar själva begäran (en nyckel plus ett enskilt mål index) säkerhets gränserna.
 
-Administratörs-och utvecklarens åtkomst till index är inte differentierad: båda behöver Skriv behörighet för att skapa, ta bort och uppdatera objekt som hanteras av tjänsten. Alla med en administratörs nyckel till din tjänst kan läsa, ändra eller ta bort alla index i samma tjänst. För att skydda mot oavsiktlig eller skadlig borttagning av index, är din interna käll kontroll för kod till gångar en påföljd för att återföra en oönskad index borttagning eller ändring. Azure Search har redundans i klustret för att säkerställa tillgängligheten, men den lagrar eller kör inte din egna kod som används för att skapa eller läsa in index.
+Administratörs-och utvecklarens åtkomst till index är inte differentierad: båda behöver Skriv behörighet för att skapa, ta bort och uppdatera objekt som hanteras av tjänsten. Alla med en administratörs nyckel till din tjänst kan läsa, ändra eller ta bort alla index i samma tjänst. För att skydda mot oavsiktlig eller skadlig borttagning av index, är din interna käll kontroll för kod till gångar en påföljd för att återföra en oönskad index borttagning eller ändring. Azure Kognitiv sökning har redundans i klustret för att säkerställa tillgängligheten, men den lagrar eller kör inte din egna kod som används för att skapa eller läsa in index.
 
-För lösningar med flera innehavare som kräver säkerhets gränser på index nivån omfattar sådana lösningar vanligt vis en mellan nivå, som kunder använder för att hantera index isolering. Mer information om användnings fallet för flera innehavare finns i [design mönster för SaaS-program för flera innehavare och Azure Search](search-modeling-multitenant-saas-applications.md).
+För lösningar med flera innehavare som kräver säkerhets gränser på index nivån omfattar sådana lösningar vanligt vis en mellan nivå, som kunder använder för att hantera index isolering. Mer information om användnings fallet för flera innehavare finns i [design mönster för SaaS-program för flera innehavare och Azure kognitiv sökning](search-modeling-multitenant-saas-applications.md).
 
 ## <a name="admin-access"></a>Administratörs åtkomst
 
-[Rollbaserad åtkomst (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) avgör om du har åtkomst till kontroller över tjänsten och dess innehåll. Om du är ägare eller deltagare i en Azure Search tjänst kan du använda portalen eller PowerShell- **AZ. search** -modulen för att skapa, uppdatera eller ta bort objekt i tjänsten. Du kan också använda [Azure Search hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+[Rollbaserad åtkomst (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) avgör om du har åtkomst till kontroller över tjänsten och dess innehåll. Om du är ägare eller deltagare i en Azure Kognitiv sökning-tjänst kan du använda portalen eller PowerShell- **AZ. search** -modulen för att skapa, uppdatera eller ta bort objekt i tjänsten. Du kan också använda [Azure kognitiv sökning Management-REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 ## <a name="user-access"></a>Användaråtkomst
 
@@ -92,14 +91,14 @@ Som standard bestäms användar åtkomst till ett index av åtkomst nyckeln för
 
 Om du behöver detaljerad kontroll över innehåll för varje användare kan du bygga säkerhets filter för dina frågor och returnera dokument som är associerade med en viss säkerhets identitet. I stället för fördefinierade roller och roll tilldelningar implementeras identitetsbaserade åtkomst kontroller som ett *filter* som trimmar Sök Resultat för dokument och innehåll baserat på identiteter. I följande tabell beskrivs två metoder för att trimma Sök Resultat av obehörigt innehåll.
 
-| Metoden | Beskrivning |
+| Form | Beskrivning |
 |----------|-------------|
 |[Säkerhets trimning baserat på identitets filter](search-security-trimming-for-azure-search.md)  | Dokumenterar det grundläggande arbets flödet för att implementera åtkomst kontroll för användar identitet. Det omfattar att lägga till säkerhets identifierare i ett index och sedan förklarar filtreringen för fältet för att trimma resultat från otillåtet innehåll. |
 |[Säkerhets trimning baserat på Azure Active Directory identiteter](search-security-trimming-for-azure-search-with-aad.md)  | Den här artikeln är utökad i föregående artikel, som innehåller steg för att hämta identiteter från Azure Active Directory (AAD), en av de [kostnads fria tjänsterna](https://azure.microsoft.com/free/) i Azure Cloud Platform. |
 
-## <a name="table-permissioned-operations"></a>Partitionstabell Behörighets åtgärder
+## <a name="table-permissioned-operations"></a>Tabell: behörighets åtgärder
 
-I följande tabell sammanfattas de åtgärder som tillåts i Azure Search och vilken nyckel som låser upp åtkomsten till en viss åtgärd.
+I följande tabell sammanfattas de åtgärder som tillåts i Azure Kognitiv sökning och vilken nyckel som låser upp åtkomsten till en viss åtgärd.
 
 | Åtgärd | Behörigheter |
 |-----------|-------------------------|
@@ -110,7 +109,7 @@ I följande tabell sammanfattas de åtgärder som tillåts i Azure Search och vi
 | Fråga ett index | Administratör eller frågegrupp (RBAC-ej tillämpligt) |
 | Fråga system information, till exempel för att returnera statistik, antal och listor över objekt. | Administratörs nyckel, RBAC på resursen (ägare, deltagare, läsare) |
 | Hantera administratörs nycklar | Administratörs nyckel, RBAC-ägare eller deltagare på resursen. |
-| Hantera frågenycklar |  Administratörs nyckel, RBAC-ägare eller deltagare på resursen.  |
+| Hantera frågeinställningar |  Administratörs nyckel, RBAC-ägare eller deltagare på resursen.  |
 
 ## <a name="physical-security"></a>Fysisk säkerhet
 
@@ -123,6 +122,6 @@ Microsoft Data Center ger branschledande fysiska säkerhet och är kompatibla me
 
 + [Kom igång med .NET (visar hur du använder en administratörs nyckel för att skapa ett index)](search-create-index-dotnet.md)
 + [Kom igång REST (visar hur man använder en administratörs nyckel för att skapa ett index)](search-create-index-rest-api.md)
-+ [Identitets-baserad åtkomst kontroll med hjälp av Azure Search filter](search-security-trimming-for-azure-search.md)
-+ [Active Directory identitets baserad åtkomst kontroll med Azure Search-filter](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filter i Azure Search](search-filters.md)
++ [Identitets-baserad åtkomst kontroll med Azure Kognitiv sökning filter](search-security-trimming-for-azure-search.md)
++ [Active Directory identitets baserad åtkomst kontroll med Azure Kognitiv sökning-filter](search-security-trimming-for-azure-search-with-aad.md)
++ [Filter i Azure Kognitiv sökning](search-filters.md)

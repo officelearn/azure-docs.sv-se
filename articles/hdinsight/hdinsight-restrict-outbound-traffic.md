@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 39a7e78085f297838a028489de23c1991b6d672f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693436"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789796"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg (för hands version)
 
@@ -151,7 +151,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Att integrera din Azure-brandvägg med Azure Monitor loggar är användbart när du först får ett program att fungera när du inte är medveten om alla program beroenden. Du kan lära dig mer om Azure Monitor loggar från [analysera loggdata i Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-Mer information om skalnings gränserna för Azure-brandväggen och begär Anden ökar finns i [det här](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) dokumentet.
+Mer information om skalnings gränserna för Azure-brandväggen och begär Anden ökar finns i [det här](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) dokumentet eller [vanliga frågor och svar](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq). 
 
 ## <a name="access-to-the-cluster"></a>Åtkomst till klustret
 När brand väggen har kon figurer ATS kan du använda den interna slut punkten (`https://<clustername>-int.azurehdinsight.net`) för att komma åt Ambari inifrån VNET. 

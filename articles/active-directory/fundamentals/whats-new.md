@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c475bfc6179f3604ed6b83cafc75d34f4359513f
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 4e732e62afcc7af0a2b90d7c525a6de5e65195aa
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532830"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809246"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
->Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in denna URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` i ![RSS feed reader-ikonen ](./media/whats-new/feed-icon-16x16.png) feed reader.
+>Få ett meddelande om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in denna URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` i ![RSS-feed reader-ikonen](./media/whats-new/feed-icon-16x16.png) feed reader.
 
 Azure AD tar emot förbättringar kontinuerligt. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
@@ -55,13 +55,13 @@ Mer information om det nya riskDetection-API: et finns i [referens dokumentation
 
 ## <a name="september-2019"></a>September 2019
 
-### <a name="deprecation-of-the-power-bi-content-packs"></a>Utfasning av Power BI innehålls paket
+### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Plan för ändring: utfasning av Power BI innehålls paket
 
-**Typ:** Föråldrad  
+**Typ:** Planera för ändring  
 **Tjänste kategori:** Uppgiftslämn  
 **Produkt kapacitet:** Övervaka & rapportering
 
-Power BI är inaktuella innehålls paket från sina butiker och från och med den **1 oktober 2019**har vi inte längre stöd för Azure AD Power BI-innehålls paketet. Kunder som för närvarande använder innehålls paketet kan fortsätta att använda det även om de underliggande API: erna är äldre versioner. Som ett alternativ till detta innehålls paket kan du använda Azure AD-arbetsböcker (bygger på Log Analytics) för att få insikter om dina Azure AD-relaterade tjänster.
+Från och med den 1 oktober 2019 börjar Power BI att ta bort alla innehålls paket, inklusive Azure AD Power BI-innehålls paketet. Som ett alternativ till detta innehålls paket kan du använda Azure AD-arbetsböcker för att få insikter om dina Azure AD-relaterade tjänster. Ytterligare arbets böcker kommer, inklusive arbets böcker om principer för villkorlig åtkomst i endast rapport läge, app-baserade insikter med mera.
 
 Mer information om arbets böckerna finns i [så här använder du Azure Monitor-arbetsböcker för Azure Active Directory-rapporter](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Mer information om utfasningen av innehålls paket finns i blogg inlägget om att [presentera Power BI Template Apps allmänt tillgänglighet](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) .
 
@@ -192,18 +192,6 @@ Från och med den 1 juli 2019 erbjuder Microsoft även MFA Server för nya distr
 ---
 
 ## <a name="august-2019"></a>Augusti 2019
-
-### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Plan för ändring: utfasning av Power BI innehålls paket
-
-**Typ:** Planera för ändring  
-**Tjänste kategori:** Uppgiftslämn  
-**Produkt kapacitet:** Övervaka & rapportering
-
-Från och med den 1 oktober 2019 börjar Power BI att ta bort alla innehålls paket, inklusive Azure AD Power BI-innehålls paketet. Som ett alternativ till detta innehålls paket kan du använda Azure AD-arbetsböcker för att få insikter om dina Azure AD-relaterade tjänster. Ytterligare arbets böcker kommer, inklusive arbets böcker om principer för villkorlig åtkomst i endast rapport läge, app-baserade insikter med mera.
-
-Mer information om arbets böckerna finns i [så här använder du Azure Monitor-arbetsböcker för Azure Active Directory-rapporter](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Mer information om utfasningen av innehålls paket finns i blogg inlägget om att [presentera Power BI Template Apps allmänt tillgänglighet](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) .
-
----
 
 ### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>Förbättrad sökning, filtrering och sortering för grupper är tillgängligt i Azure AD-portalen (offentlig för hands version)
 

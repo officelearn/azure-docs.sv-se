@@ -1,20 +1,19 @@
 ---
-title: Språk identifiering kognitiv Sök kompetens – Azure Search
-description: Utvärderar ostrukturerad text, och för varje post returneras en språk identifierare med poäng som anger styrkan i analysen i en Azure Search anriknings pipeline.
-services: search
+title: Kognitiv kompetens för språk identifiering
+titleSuffix: Azure Cognitive Search
+description: Utvärderar ostrukturerad text, och för varje post returneras en språk identifierare med en poäng som anger styrkan i analysen i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: fe21477865b5bbad65f5e4639e8df253f12dc1b6
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e3ec9ea9cfbae314297c5b59f6a07bcebaef6a5c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265428"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791965"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Kognitiv kompetens för språk identifiering
 
@@ -25,13 +24,13 @@ Den här funktionen är särskilt användbar när du behöver ange språket för
 Språk identifieringen utnyttjar Bing: s naturliga språk bearbetnings bibliotek, vilket överskrider antalet [språk och regioner som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) för textanalys. Den exakta listan över språk publiceras inte, men innehåller alla talade språk, plus varianter, dialekter och vissa regionala och kulturella språk. Om du har innehåll som uttryckts på ett mindre vanligt språk kan du [prova språkidentifiering-API: et](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) för att se om det returnerar en kod. Svaret för språk som inte kan identifieras är `unknown`.
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.LanguageDetectionSkill
+Microsoft. färdigheter. text. LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
 Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment Analyzer kan du använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
@@ -50,7 +49,7 @@ Parametrar är Skift läges känsliga.
 |--------------------|-------------|
 | languageCode | ISO 6391-språkkoden för det språk som identifierades. Till exempel "en". |
 | languageName | Språkets namn. Till exempel "engelska". |
-| poäng | Ett värde mellan 0 och 1. Sannolikheten att språket identifieras korrekt. Poängen kan vara lägre än 1 om meningen har blandade språk.  |
+| resultat | Ett värde mellan 0 och 1. Sannolikheten att språket identifieras korrekt. Poängen kan vara lägre än 1 om meningen har blandade språk.  |
 
 ##  <a name="sample-definition"></a>Exempel definition
 
@@ -137,5 +136,5 @@ Om texten uttrycks i ett språk som inte stöds, genereras ett fel och ingen spr
 
 ## <a name="see-also"></a>Se också
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

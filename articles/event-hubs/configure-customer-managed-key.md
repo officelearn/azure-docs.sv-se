@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 63fe6c4a2d02489b5e25100aa6aa23407bbe6bc7
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260878"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809381"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -28,10 +28,10 @@ Att aktivera funktionen BYOK är en tids inställnings process i namn området.
 
 Du kan använda Azure Key Vault för att hantera dina nycklar och granska din nyckel användning. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
 
-Den här artikeln visar hur du konfigurerar ett nyckel valv med Kundhanterade nycklar med hjälp av Azure Portal. Information om hur du skapar ett nyckel valv med hjälp av Azure Portal finns i [] snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure Portal] (.. /key-vault/quick-create-portal.md).
+Den här artikeln visar hur du konfigurerar ett nyckel valv med Kundhanterade nycklar med hjälp av Azure Portal. Information om hur du skapar ett nyckel valv med hjälp av Azure Portal finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure Portal](../key-vault/quick-create-portal.md).
 
 > [!IMPORTANT]
-> Att använda Kundhanterade nycklar med Azure Event Hubs kräver att nyckel valvet har två obligatoriska egenskaper konfigurerade. De är:  **Mjuk borttagning** och **Rensa inte**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckel valv i Azure Portal. Men om du behöver aktivera dessa egenskaper i ett befintligt nyckel valv måste du använda antingen PowerShell eller Azure CLI.
+> Att använda Kundhanterade nycklar med Azure Event Hubs kräver att nyckel valvet har två obligatoriska egenskaper konfigurerade. De är: **mjuk borttagning** och **Rensa inte**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckel valv i Azure Portal. Men om du behöver aktivera dessa egenskaper i ett befintligt nyckel valv måste du använda antingen PowerShell eller Azure CLI.
 
 ## <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
 Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
@@ -101,21 +101,21 @@ Följ dessa steg om du vill aktivera loggar för Kundhanterade nycklar.
 
     ![Välj kund hanterat alternativ för nyckel användar loggar](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
 
-## <a name="log-schema"></a>Log-schema 
+## <a name="log-schema"></a>Logg schema 
 Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post innehåller sträng fält som använder det format som beskrivs i följande tabell. 
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 | ---- | ----------- | 
-| Aktivitetsnamn | Beskrivning av den aktivitet som misslyckats. |
-| Aktivitets-ID | Internt ID som används för spårning. |
+| /TN | Beskrivning av uppgiften som misslyckades. |
+| ActivityId | Internt ID som används för spårning. |
 | category | Definierar klassificeringen för uppgiften. Om nyckeln från ditt nyckel valv till exempel är inaktive rad, är det en informations kategori eller om en nyckel inte kan vara unwrap, kan den falla under fel. |
 | resourceId | Resurs-ID för Azure Resource Manager |
-| KeyVault | Fullständigt namn på nyckel valvet. |
+| keyVault | Fullständigt namn på nyckel valvet. |
 | key | Nyckel namnet som används för att kryptera Event Hubs-namnområdet. |
 | version | Den nyckel version som används. |
-| operation | Åtgärden som utförs på nyckeln i ditt nyckel valv. Du kan till exempel inaktivera/aktivera nyckeln, radbrytas eller packa upp |
-| code | Den kod som är kopplad till åtgärden. Exempel: Felkod, 404 innebär att nyckeln inte hittades. |
-| message | Ett fel meddelande som är kopplat till åtgärden |
+| Reparation | Åtgärden som utförs på nyckeln i ditt nyckel valv. Du kan till exempel inaktivera/aktivera nyckeln, radbrytas eller packa upp |
+| Rikt | Den kod som är kopplad till åtgärden. Exempel: felkod, 404 innebär att nyckeln inte hittades. |
+| meddelande | Ett fel meddelande som är kopplat till åtgärden |
 
 Här är ett exempel på loggen för en kundhanterad nyckel:
 
@@ -149,12 +149,12 @@ Här är ett exempel på loggen för en kundhanterad nyckel:
 }
 ```
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 Vi rekommenderar att du alltid aktiverar loggar som visas i föregående avsnitt. Det hjälper till att spåra aktiviteter när BYOK-kryptering är aktiverat. Det hjälper också att lösa problemen.
 
 Nedan visas vanliga felkoder som du kan titta efter när BYOK-kryptering är aktiverat.
 
-| Action | Felkod | Resulterande data tillstånd |
+| Åtgärd | Felkod | Resulterande data tillstånd |
 | ------ | ---------- | ----------------------- | 
 | Ta bort behörigheten wrap/unwrap från ett nyckel valv | 403 |    Otillgänglig |
 | Ta bort AAD-rollens medlemskap från ett AAD-huvud som beviljats behörigheten wrap/unwrap | 403 |  Otillgänglig |
@@ -175,7 +175,7 @@ Nedan visas vanliga felkoder som du kan titta efter när BYOK-kryptering är akt
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
-- [Event Hubs-översikt](event-hubs-about.md)
+- [Översikt över Event Hubs](event-hubs-about.md)
 - [Översikt över Key Vault](../key-vault/key-vault-overview.md)
 
 

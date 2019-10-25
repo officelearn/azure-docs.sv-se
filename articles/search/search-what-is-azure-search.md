@@ -1,74 +1,78 @@
 ---
-title: Introduktion till Azure Search-Azure Search
-description: Azure Search är en fullständigt hanterad Sök tjänst i molnet som tillhandahålls av Microsoft. Granska funktions beskrivningar, utvecklings arbets flödet, jämförelser med andra Microsoft Search-produkter och hur du kommer igång.
+title: Introduktion till Azure Kognitiv sökning
+titleSuffix: Azure Cognitive Search
+description: Azure Kognitiv sökning är en fullständigt hanterad Sök tjänst i molnet som tillhandahålls av Microsoft. Läs funktions beskrivningar, utvecklings arbets flödet, jämförelser med andra Microsoft Search-produkter och hur du kommer igång.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: overview
-ms.date: 09/03/2019
 ms.author: heidist
-ms.openlocfilehash: b92838f7c43a11cd8bd4e1e19f906d33758bf495
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 51d7cf270a0df665fdcf5bc90cae283c85ae5d22
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331156"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794177"
 ---
-# <a name="what-is-azure-search"></a>Vad är Azure Search?
+# <a name="what-is-azure-cognitive-search"></a>Vad är Azure Kognitiv sökning?
 
-Azure Search är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. Din anpassade kod anropar data inmatning (indexering) för att skapa och läsa in ett index. På den andra sidan utfärdar din program kod frågor om begär Anden och hanterar svar. Sök funktionen definieras i klienten med hjälp av funktioner från Azure Search, med frågekörningen över ett beständigt index som du skapar, äger och lagrar i din tjänst.
+Azure Kognitiv sökning ([tidigare kallat "Azure Search"](whats-new.md#new-service-name)) är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program . Din kod eller ett verktyg anropar data inmatning (indexering) för att skapa och läsa in ett index. Du kan också lägga till kognitiva kunskaper för att tillämpa AI-processer under indexering. På så sätt kan du lägga till ny information och strukturer som är användbara för sökning och andra scenarier.
 
-Arkitektur för ![Azure Search arkitektur](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search")
+På den andra sidan av tjänsten utfärdar din program kod frågor om begär Anden och hanterar svar. Sök funktionen definieras i klienten med hjälp av funktioner från Azure Kognitiv sökning, med frågekörningen över ett beständigt index som du skapar, äger och lagrar i din tjänst.
+
+![Azure Kognitiv sökning-arkitektur](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Kognitiv sökning-arkitektur")
 
 Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [.NET-SDK](search-howto-dotnet-sdk.md) som maskerar den inbyggda komplexiteten i informationshämtning. Förutom API:er tillhandahåller Azure Portal stöd för administration och innehållshantering, med verktyg för indexprototyper och -frågor. Eftersom tjänsten körs i molnet hanteras infrastruktur och tillgänglighet av Microsoft.
 
-## <a name="when-to-use-azure-search"></a>När du ska använda Azure Search
+## <a name="when-to-use-azure-cognitive-search"></a>När du ska använda Azure Kognitiv sökning
 
-Azure Search passar bra för följande program scenarier:
+Azure Kognitiv sökning passar bra för följande program scenarier:
 
-+ Konsolidering av heterogena innehålls typer i ett privat, enskilt, sökbart index. Frågor är alltid över ett index som du skapar och läser in med dokument, och indexet finns alltid i molnet på din Azure Search-tjänst. Du kan fylla i ett index med strömmar av JSON-dokument från valfri källa eller plattform. Du kan också använda en *indexerare* för att hämta data till ett index för innehåll som har ursprung på Azure. Index definition och hantering/ägarskap är en viktig orsak till att använda Azure Search.
++ Konsolidering av heterogena innehålls typer i ett privat, enskilt, sökbart index. Frågor är alltid över ett index som du skapar och läser in med dokument, och indexet finns alltid i molnet på Azure Kognitiv sökning-tjänsten. Du kan fylla i ett index med strömmar av JSON-dokument från valfri källa eller plattform. Du kan också använda en *indexerare* för att hämta data till ett index för innehåll som har ursprung på Azure. Index definition och hantering/ägarskap är ett viktigt skäl till att använda Azure Kognitiv sökning.
 
-+ Enkel implementering av sökrelaterade funktioner. Azure Search-API: er fören klar frågornas konstruktion, fasett navigering, filter (inklusive geo-spatial sökning), synonym mappning, typeahead-frågor och relevans-justering. Med hjälp av inbyggda funktioner kan du tillgodose förväntningar på slutanvändare för en Sök upplevelse som liknar de kommersiella sökmotorer för Webbs ökning.
++ RAW-innehåll är en stor mängd olika text-, bildfiler eller programfiler, till exempel Office-innehållstyp på en Azure-datakälla, till exempel Azure Blob Storage eller Cosmos DB. Du kan använda kognitiva kunskaper under indexeringen för att lägga till struktur eller extrahera mening från avbildnings-och programfiler.
 
-+ Indexera ostrukturerad text eller extrahera text och information från bildfiler. Funktionen [kognitiv sökning](cognitive-search-concept-intro.md) i Azure Search lägger till AI-bearbetning till en indexerings pipeline. Några vanliga användnings fall är OCR över skannade dokument, enhets igenkänning och nyckel fras extrahering över stora dokument, språk identifiering och text översättning och sentiment analys.
++ Enkel implementering av sökrelaterade funktioner. Azure Kognitiv sökning-API: er fören klar fråge konstruktion, fasett navigering, filter (inklusive geo-spatial sökning), synonym mappning, typeahead-frågor och relevans-justering. Med hjälp av inbyggda funktioner kan du tillgodose förväntningar på slutanvändare för en Sök upplevelse som liknar de kommersiella sökmotorer för Webbs ökning.
 
-+ Språkliga krav uppfylls med hjälp av anpassade och språk analys verktyg för Azure Search. Om du har ett annat innehåll än engelska, stöder Azure Search både Lucene-analyser och Microsofts naturliga språk processorer. Du kan också konfigurera analys verktyg för att uppnå specialiserad bearbetning av rå data, till exempel att filtrera ut dia kritiska tecken.
++ Indexera ostrukturerad text eller extrahera text och information från bildfiler. Funktionen [AI-anrikning](cognitive-search-concept-intro.md) i Azure kognitiv sökning lägger till AI-bearbetning till en indexerings pipeline. Några vanliga användnings fall är OCR över skannade dokument, enhets igenkänning och nyckel fras extrahering över stora dokument, språk identifiering och text översättning och sentiment analys.
+
++ Språk krav uppfylls med hjälp av anpassade och språk analyser för Azure Kognitiv sökning. Om du har ett annat innehåll än engelska, stöder Azure Kognitiv sökning både Lucene-analyser och Microsofts naturliga språk processorer. Du kan också konfigurera analys verktyg för att uppnå specialiserad bearbetning av rå data, till exempel att filtrera ut dia kritiska tecken.
 
 <a name="feature-drilldown"></a>
 
 ## <a name="feature-descriptions"></a>Funktions beskrivningar
 
-| Core @ no__t-0search @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 @ no__t-8 @ no__t-9 @ no__t-10 @ no__t-11 @ no__t-12 @ no__t-13 @ no__t-14 @ no__t-15 @ no__t-16 @ no__t-17 @ no__t-18 @ no__t-19 @ no__t-20 @ no__t-21 @ no__t-22 @ no__t-23 @ no__t-24  | Funktioner |
+| Core&nbsp;search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Funktioner |
 |-------------------|----------|
 |Formaliafri textsökning | [**Full texts ökning**](search-lucene-query-architecture.md) är ett primärt användnings fall för de flesta Sök-baserade appar. Frågor kan formuleras med en syntax som stöds. <br/><br/>[**Enkel frågesyntax**](query-simple-syntax.md) innehåller logiska operatorer, frassökoperatorer, suffixoperatorer och prioritetsoperatorer.<br/><br/>[**Lucene-frågesyntax**](query-lucene-syntax.md) innehåller alla åtgärder i enkel syntax, med tillägg för fuzzy-sökning, närhetssökning, termförstärkning och reguljära uttryck.|
-| Relevans | [**Enkel bedömning**](index-add-scoring-profiles.md) är en viktig fördel med Azure Search. Bedömningsprofiler används för att modellera relevans som en funktion av värden i själva dokumenten. Du kanske till exempel vill att nyare produkter eller rabatterade produkter ska visas högre upp i sökresultaten. Du kan också skapa bedömningsprofiler med hjälp av taggar för anpassad bedömning baserat på kunders sökinställningar som du har spårat och lagrat separat. |
-| Geo-sökning | Azure Search bearbetar, filtrerar och visar geografiska platser. Det gör det möjligt för användare att utforska data baserat på ett sökresultats närhet till en fysisk plats. [Titta på den här videon](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) eller [gå igenom det här exemplet](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) om du vill veta mer. |
-| Filter och ansikts | [**Aspektbaserad navigering**](search-faceted-navigation.md) aktiveras genom en enda frågeparameter. Azure Search returnerar en aspektbaserad navigeringsstruktur som du kan använda som koden bakom en lista med kategorier, för automatiskt dirigerad filtrering (till exempel för filtrering av katalogobjekt efter prisintervall eller varumärke). <br/><br/> [**Filter**](query-odata-filter-orderby-syntax.md) kan användas för att införliva aspektbaserad navigering i programmets användargränssnitt, förbättra frågeformulering och filtrera baserat på användar- eller utvecklarangivna villkor. Skapa filter med OData-syntax. |
-| Funktioner för användarupplevelse | [**Funktionen Komplettera automatiskt**](search-autocomplete-tutorial.md) kan aktive ras för typ frågor i ett Sök fält. <br/><br/>[**Sökförslag**](https://docs.microsoft.com/rest/api/searchservice/suggesters) fungerar även för delar av inmatad text i sökfält, men resultaten är faktiska dokument i indexet snarare än frågetermer. <br/><br/>[**Synonymer**](search-synonyms.md) associerar ekvivalenta termer som implicit utökar frågans omfattning utan att användaren behöver ange de alternativa termerna. <br/><br/>[**Träffmarkering**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) tillämpar textformatering på ett matchande nyckelord i sökresultat. Du kan välja vilka fält som ska returnera markerade fragment.<br/><br/>[**Sortering**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) erbjuds för flera fält via indexschemat och växlas sedan vid frågetid med en enda sökparameter.<br/><br/> [**Växling**](search-pagination-page-layout.md) och begränsning av sökresultat är enkelt med den finjusterade kontroll över sökresultaten som Azure Search erbjuder.  <br/><br/>|
+| Relevans | [**Enkel Poäng**](index-add-scoring-profiles.md) är en viktig fördel med Azure kognitiv sökning. Bedömningsprofiler används för att modellera relevans som en funktion av värden i själva dokumenten. Du kanske till exempel vill att nyare produkter eller rabatterade produkter ska visas högre upp i sökresultaten. Du kan också skapa bedömningsprofiler med hjälp av taggar för anpassad bedömning baserat på kunders sökinställningar som du har spårat och lagrat separat. |
+| Geo-sökning | Azure Kognitiv sökning bearbetar, filtrerar och visar geografiska platser. Det gör det möjligt för användare att utforska data baserat på ett sökresultats närhet till en fysisk plats. [Titta på den här videon](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) eller [gå igenom det här exemplet](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) om du vill veta mer. |
+| Filter och ansikts | [**Aspektbaserad navigering**](search-faceted-navigation.md) aktiveras genom en enda frågeparameter. Azure Kognitiv sökning returnerar en fasett-navigerings struktur som du kan använda som kod bakom en kategori lista, för självdirigerad filtrering (till exempel för att filtrera katalog objekt efter pris intervall eller varumärke). <br/><br/> [**Filter**](query-odata-filter-orderby-syntax.md) kan användas för att införliva aspektbaserad navigering i programmets användargränssnitt, förbättra frågeformulering och filtrera baserat på användar- eller utvecklarangivna villkor. Skapa filter med OData-syntax. |
+| Funktioner för användarupplevelse | [**Funktionen Komplettera automatiskt**](search-autocomplete-tutorial.md) kan aktive ras för typ frågor i ett Sök fält. <br/><br/>[**Sökförslag**](https://docs.microsoft.com/rest/api/searchservice/suggesters) fungerar även för delar av inmatad text i sökfält, men resultaten är faktiska dokument i indexet snarare än frågetermer. <br/><br/>[**Synonymer**](search-synonyms.md) associerar ekvivalenta termer som implicit utökar frågans omfattning utan att användaren behöver ange de alternativa termerna. <br/><br/>[**Träffmarkering**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) tillämpar textformatering på ett matchande nyckelord i sökresultat. Du kan välja vilka fält som ska returnera markerade fragment.<br/><br/>[**Sortering**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) erbjuds för flera fält via indexschemat och växlas sedan vid frågetid med en enda sökparameter.<br/><br/> [**Växling**](search-pagination-page-layout.md) och begränsning av Sök resultatet är enkelt med den finjusterade kontroll som Azure kognitiv sökning erbjuder över dina Sök resultat.  <br/><br/>|
 
-| AI @ no__t-0enrichment @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 @ no__t-8 @ no__t-9 @ no__t-10 @ no__t-11       | Funktioner |
+| AI&nbsp;anrikning&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funktioner |
 |-------------------|----------|
-|AI-berikade dokument | [**Kognitiv sökning**](cognitive-search-concept-intro.md) efter bild-och text analyser kan tillämpas på en indexerings-pipeline för att extrahera text information från RAW-innehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |
+|AI-berikade dokument | [**AI-anrikning**](cognitive-search-concept-intro.md) för bild-och text analyser kan tillämpas på en indexerings pipeline för att extrahera text information från RAW-innehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |
 | Lagrade anrikninger för analys och konsumtion| [**Knowledge Store (för hands version)** ](knowledge-store-concept-intro.md) är ett tillägg till AI-baserad indexering. Med Azure Storage som en server del kan du spara berikare som skapats under indexering. Dessa artefakter kan användas för att utforma bättre färdighetsuppsättningar eller skapa form och struktur av amorphous eller tvetydiga data. Du kan skapa projektioner av dessa strukturer som riktar sig mot specifika arbets belastningar eller användare. Du kan också analysera extraherade data direkt eller läsa in dem i andra appar.<br/><br/> |
 
-| Data @ no__t-0import/indexering | Funktioner |
+| Data&nbsp;import/indexering | Funktioner |
 |----------------------------------|----------|
-| Datakällor | Azure Search-index accepterar data från alla källor, förutsatt att de skickas som en JSON-datastruktur. <br/><br/> [**Indexerare**](search-indexer-overview.md) automatiserar data inmatning för Azure-datakällor som stöds och hanterar JSON-serialisering. Anslut till [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md)eller [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) för att extrahera sökbart innehåll i primära data lager. Azure Blob-indexerare kan utföra *dokumentknäckning* för [extrahering av text från större filformat](search-howto-indexing-azure-blob-storage.md), bland annat Microsoft Office-, PDF- och HTML-dokument. |
-| Hierarkiska och kapslade data strukturer | Med [**komplexa typer**](search-howto-complex-data-types.md) och samlingar kan du modellera praktiskt taget vilken typ av JSON-struktur som helst som Azure Search index. En-till-många och många-till-många-kardinalitet kan uttryckas internt via samlingar, komplexa typer och samlingar av komplexa typer.|
+| Datakällor | Azure Kognitiv sökning-index accepterar data från vilken källa som helst, förutsatt att de skickas som en JSON-datastruktur. <br/><br/> [**Indexerare**](search-indexer-overview.md) automatiserar data inmatning för Azure-datakällor som stöds och hanterar JSON-serialisering. Anslut till [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md)eller [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) för att extrahera sökbart innehåll i primära data lager. Azure Blob-indexerare kan utföra *dokumentknäckning* för [extrahering av text från större filformat](search-howto-indexing-azure-blob-storage.md), bland annat Microsoft Office-, PDF- och HTML-dokument. |
+| Hierarkiska och kapslade data strukturer | Med [**komplexa typer**](search-howto-complex-data-types.md) och samlingar kan du modellera i stort sett alla typer av JSON-struktur som ett Azure kognitiv sökning-index. En-till-många och många-till-många-kardinalitet kan uttryckas internt via samlingar, komplexa typer och samlingar av komplexa typer.|
 | Språklig analys | Analysverktyg är komponenter som används för textbearbetning under indexerings- och sökåtgärder. Det finns två typer. <br/><br/>[**Anpassad lexikalisk analys**](index-add-custom-analyzers.md) används för komplexa sökfrågor med fonetisk matchning och reguljära uttryck. <br/><br/>[**Språkanalys**](index-add-language-analyzers.md) från Lucene eller Microsoft används för intelligent hantering av språkspecifik lingvistik, bland annat verbtempus, genus, substantiv med oregelbunden plural (till exempel 'mus' kontra 'möss'), uppdelning av sammansatta ord, ordseparation (för språk utan blanksteg) och mycket mer. <br/><br/>|
 
 
-| Plattform @ no__t-0level @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 @ no__t-8 @ no__t-9 @ no__t-10 @ no__t-11 @ no__t-12 @ no__t-13| Funktioner |
+| Plattform&nbsp;nivå&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Funktioner |
 |-------------------|----------|
 | Verktyg för prototyper och inspektion | I portalen kan du använda [**guiden Importera data**](search-import-data-portal.md) för att konfigurera indexerare, indexdesignern för att sätta upp ett index och [**Sökutforskaren**](search-explorer.md) för att testa frågor och förfina bedömningsprofiler. Du kan också öppna ett index om du vill visa dess schema. |
 | Övervakning och diagnostik | [**Aktivera övervakningsfunktionerna**](search-monitor-usage.md) för att gå bortom måtten – vid en snabb skärm som alltid är synliga i portalen. Mått för frågor per sekund, svarstid och begränsning fångas in och rapporteras på portalsidor utan att ytterligare konfiguration krävs.|
 | Kryptering på serversidan | [**Microsoft-Managed Encrypted Encryption-at-rest**](search-security-overview.md#encrypted-transmission-and-storage) är inbyggt i det interna lagrings lagret och är oåterkalleligt. Alternativt kan du komplettera standard kryptering med [**Kundhanterade krypterings nycklar (för hands version)** ](search-security-manage-encryption-keys.md). Nycklar som du skapar och hanterar i Azure Key Vault används för att kryptera index och synonymer Maps i Azure Search. |
 | Infrastruktur | **Plattformen med hög tillgänglighet** ger en mycket tillförlitlig söktjänst. När det skalas korrekt [erbjuder Azure Search ett serviceavtal på 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> Azure Search är **fullständigt hanterat och skalbart** som en komplett lösning, och kräver ingen som helst infrastrukturhantering. Tjänsten kan skräddarsys efter dina behov genom att skala i två dimensioner för att hantera mer dokumentlagring, högre frågebelastningar eller båda.<br/><br/>|
 
-## <a name="how-to-use-azure-search"></a>Använda Azure Search
+## <a name="how-to-use-azure-cognitive-search"></a>Använda Azure Kognitiv sökning
 ### <a name="step-1-provision-service"></a>Steg 1: Etablera tjänsten
-Du kan etablera en Azure Search-tjänst i [Azure-portalen](https://portal.azure.com/) eller via [Azure Resource Management-API:t](/rest/api/searchmanagement/). Du kan välja den kostnadsfria tjänsten som delas med andra prenumeranter, eller en [betald nivå](https://azure.microsoft.com/pricing/details/search/) som dedikerar resurser som bara används av din tjänst. För betalda nivåer kan du skala en tjänst i två dimensioner: 
+Du kan etablera en Azure Kognitiv sökning-tjänst i [Azure Portal](https://portal.azure.com/) eller via [Azure Resource Management-API: et](/rest/api/searchmanagement/). Du kan välja den kostnadsfria tjänsten som delas med andra prenumeranter, eller en [betald nivå](https://azure.microsoft.com/pricing/details/search/) som dedikerar resurser som bara används av din tjänst. För betalda nivåer kan du skala en tjänst i två dimensioner: 
 
 - Lägg till repliker och öka kapaciteten för hantering av tunga frågebelastningar.   
 - Lägg till partitioner och utöka lagringen för fler dokument. 
@@ -76,7 +80,7 @@ Du kan etablera en Azure Search-tjänst i [Azure-portalen](https://portal.azure.
 Genom att hantera dokumentlagring och frågeflöde separat kan du kalibrera resurser baserat på produktionskrav.
 
 ### <a name="step-2-create-index"></a>Steg 2: Skapa index
-Innan du kan ladda upp sökbart innehåll måste du först definiera ett Azure Search-index. Ett index är som en databastabell som innehåller dina data och kan acceptera sökfrågor. Du definierar indexschemat som ska mappas för att återspegla strukturen för de dokument du vill söka i, ungefär som fält i en databas.
+Innan du kan ladda upp sökbart innehåll måste du först definiera ett Azure Kognitiv sökning-index. Ett index är som en databastabell som innehåller dina data och kan acceptera sökfrågor. Du definierar indexschemat som ska mappas för att återspegla strukturen för de dokument du vill söka i, ungefär som fält i en databas.
 
 Ett schema kan skapas i Azure Portal eller programmässigt med [.NET-SDK](search-howto-dotnet-sdk.md) eller [REST API](/rest/api/searchservice/).
 
@@ -94,15 +98,15 @@ Stega genom att [skapa din första Sökapp](tutorial-csharp-create-first-app.md)
 
 ## <a name="how-it-compares"></a>Jämförelse
 
-Kunder frågar ofta om Azure Search i jämförelse med andra sökrelaterade lösningar. I följande tabell sammanfattas viktiga skillnader.
+Kunder frågar ofta hur Azure Kognitiv sökning jämför med andra sökrelaterade lösningar. I följande tabell sammanfattas viktiga skillnader.
 
 | Jämfört med | Viktiga skillnader |
 |-------------|-----------------|
-|Bing | [API för webbsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) söker i indexen på Bing.com efter matchande termer som du skickar. Index skapas utifrån HTML-, XML- och annat webbinnehåll på offentliga webbplatser. [Anpassad sökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) som bygger på samma grund, erbjuder samma crawlerteknik för webbinnehållstyper, begränsat till enskilda webbplatser.<br/><br/>Azure Search söker i ett index du definierar, som fyllts med data och dokument du äger, ofta från olika källor. Azure Search har crawlerfunktioner för vissa datakällor med hjälp av [indexerare](search-indexer-overview.md), men du kan skicka valfritt JSON-dokument som överensstämmer med indexschemat till en enda konsoliderad sökbar resurs. |
-|Databassökning | Flera olika databasplattformar innehåller en inbyggd sökupplevelse. SQL Server har [fulltextsökning](https://docs.microsoft.com/sql/relational-databases/search/full-text-search). Cosmos DB och liknande tekniker har frågbara index. Vid utvärdering av produkter som kombinerar sökning och lagring, kan det vara svårt att avgöra vad som är bäst. Många lösningar använder både: DBMS för lagring och Azure Search för särskilda sökfunktioner.<br/><br/>Jämfört med sökfunktionen i DBMS så lagrar Azure Search innehåll från heterogena källor och erbjuder särskilda funktioner för textbearbetning, till exempel språkligt medveten textbearbetning (stemming, lemmatisering, ordformulär) på [56 språk](https://docs.microsoft.com/rest/api/searchservice/language-support). Det stöder också autokorrigering av felstavade ord, [synonymer](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions), [bedömningskontroller](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facetter](https://docs.microsoft.com/azure/search/search-filters-facets) och [anpassad tokenisering](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search). [Motorn för fulltextsökning](search-lucene-query-architecture.md) i Azure Search bygger på Apache Lucene, en branschstandard inom informationshämtning. Även om Azure Search kvarhåller data i form av ett inverterat index är det sällan en ersättning för verklig datalagring. För ytterligare information, se det här [foruminlägget](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>Resursutnyttjande är en annan brytpunkt i den här kategorin. Indexering och vissa frågeåtgärder är ofta beräkningsmässigt intensiva. Om sökningen avlastas från DBMS till en dedikerad lösning i molnet, bevaras systemets resurser för transaktionsbearbetning. Genom att dessutom exterrnalisera sökningen kan du enkelt justera skalan utifrån frågevolymen.|
+|Bing | [API för webbsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) söker i indexen på Bing.com efter matchande termer som du skickar. Index skapas utifrån HTML-, XML- och annat webbinnehåll på offentliga webbplatser. [Anpassad sökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) som bygger på samma grund, erbjuder samma crawlerteknik för webbinnehållstyper, begränsat till enskilda webbplatser.<br/><br/>Azure Kognitiv sökning söker i ett index som du definierar, ifyllt med data och dokument som du äger, ofta från olika källor. Azure Kognitiv sökning har Crawler-funktioner för vissa data källor via [indexerare](search-indexer-overview.md), men du kan skicka alla JSON-dokument som följer index schemat till en enda, konsol IDE rad sökbar resurs. |
+|Databassökning | Flera olika databasplattformar innehåller en inbyggd sökupplevelse. SQL Server har [fulltextsökning](https://docs.microsoft.com/sql/relational-databases/search/full-text-search). Cosmos DB och liknande tekniker har frågbara index. Vid utvärdering av produkter som kombinerar sökning och lagring, kan det vara svårt att avgöra vad som är bäst. Många lösningar använder både: DBMS för lagring och Azure Kognitiv sökning för specialiserade Sök funktioner.<br/><br/>Jämfört med DBMS-sökning lagrar Azure Kognitiv sökning innehåll från heterogena källor och innehåller särskilda funktioner för text bearbetning, till exempel språk medveten text bearbetning (ord Forms igenkänning, lemmatisering och ord Forms) på [56 språk](https://docs.microsoft.com/rest/api/searchservice/language-support). Det stöder också autokorrigering av felstavade ord, [synonymer](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions), [bedömningskontroller](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facetter](https://docs.microsoft.com/azure/search/search-filters-facets) och [anpassad tokenisering](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search). [Motorn för full texts ökning](search-lucene-query-architecture.md) i Azure kognitiv sökning bygger på Apache Lucene, en bransch standard i informations hämtning. När Azure Kognitiv sökning sparar data i form av ett inverterat index, är det sällan en ersättning för sann data lagring. För ytterligare information, se det här [foruminlägget](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>Resursutnyttjande är en annan brytpunkt i den här kategorin. Indexering och vissa frågeåtgärder är ofta beräkningsmässigt intensiva. Om sökningen avlastas från DBMS till en dedikerad lösning i molnet, bevaras systemets resurser för transaktionsbearbetning. Genom att dessutom exterrnalisera sökningen kan du enkelt justera skalan utifrån frågevolymen.|
 |Dedikerad söklösning | Under förutsättning att du har valt dedikerad sökning med fullspektrumfunktioner, är en slutlig kategorisk jämförelse mellan lokala lösningar eller en molntjänst. Många söktekniker erbjuder kontroll över indexerings- och frågepipelines, tillgång till mer avancerad fråge- och filtreringssyntax, kontroll över rangordning och relevans, samt funktioner för självdirigerad och intelligent sökning. <br/><br/>En molntjänst är det rätta valet om du vill ha en nyckelfärdig lösning med minimalt merarbete och underhåll, och justerbar skala. <br/><br/>Inom molnparadigmet erbjuder flera leverantörer jämförbara baslinjefunktioner, med fulltextsökning, geo-sökning och möjlighet att hantera en viss nivå av tvetydighet i sökinmatningar. Det är vanligtvis en [specialiserad funktion](#feature-drilldown) eller den övergripande enkelheten i API:er, verktyg och hantering som avgör det bästa valet. |
 
-Bland molnproviders är Azure Search starkast för arbetsbelastningar för fulltextsökning i innehållslager och -databaser på Azure, för appar som främst förlitar sig på sökning för både informationshämtning och innehållsnavigering. 
+I moln leverantörer är Azure Kognitiv sökning starkast för full texts öknings arbets belastningar över innehålls lager och databaser på Azure, för appar som främst är beroende av att söka efter både informations hämtning och innehålls navigering. 
 
 Viktiga fördelar är:
 
@@ -114,13 +118,13 @@ Viktiga fördelar är:
 + [Centrala funktioner som är gemensamma för sökcentriska appar](#feature-drilldown): bedömning, aspektbasering, förslag, synonymer, geo-sökning och mycket mer.
 
 > [!Note]
-> Icke-Azure-datakällor stöds fullt ut, men förlitar sig på en mer kodintensiv push-metod i stället för indexerare. Med hjälp av API:er kan du skicka valfri JSON-dokumentsamling till ett Azure Search-index.
+> Icke-Azure-datakällor stöds fullt ut, men förlitar sig på en mer kodintensiv push-metod i stället för indexerare. Med hjälp av API: er kan du skicka en JSON-dokumenttyp till ett Azure Kognitiv sökning-index.
 
-Bland våra kunder är de som kan dra nytta av det bredaste utbudet av funktioner i Azure Search bland annat onlinekataloger, affärsprogram och program för dokumentidentifiering.
+Bland våra kunder kan de som har nytta av de många funktionerna i Azure Kognitiv sökning inkludera kataloger, branschspecifika program och dokument identifierings program.
 
 ## <a name="rest-api--net-sdk"></a>REST API | .NET SDK
 
-Även om många uppgifter kan utföras i portalen är Azure Search avsett för utvecklare som vill integrera sökfunktioner i befintliga program. Följande programmeringsgränssnitt är tillgängliga.
+Även om många aktiviteter kan utföras i portalen är Azure Kognitiv sökning avsett för utvecklare som vill integrera Sök funktioner i befintliga program. Följande programmeringsgränssnitt är tillgängliga.
 
 |Plattform |Beskrivning |
 |-----|------------|
@@ -143,13 +147,13 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 3. Gå vidare med kod med .NET eller REST-API:et:
 
    + [Använda .NET SDK](search-howto-dotnet-sdk.md) beskriver huvudarbetsflödet i förvaltad kod.  
-   + I [Komma igång med REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) visas samma steg med REST API. Du kan också använda den här snabbstarten för att anropa REST-API:er från Postman eller Fiddler: [Utforska Azure Search REST-API:er](search-get-started-postman.md).
+   + I [Komma igång med REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) visas samma steg med REST API. Du kan också använda den här snabb starten för att anropa REST-API: er från Postman eller Fiddler: [utforska Azure KOGNITIV sökning REST-API: er](search-get-started-postman.md).
 
 ## <a name="watch-this-video"></a>Titta på den här videon
 
-Sökmotorer är vanliga för informationshämtning i mobilappar, på webben och i företags datalager. Azure Search ger dig verktyg för att skapa en sökfunktion som liknar funktionerna på stora kommersiella webbplatser.
+Sökmotorer är vanliga för informationshämtning i mobilappar, på webben och i företags datalager. Med Azure Kognitiv sökning får du verktyg för att skapa en Sök upplevelse som liknar dem på stora kommersiella webbplatser.
 
-I den här 9-minutersvideon från programansvarige Liam Cavanagh får du reda på hur integrering av en sökmotor kan vara till nytta för din app. Korta demonstrationer tar upp viktiga funktioner i Azure Search och hur ett vanligt arbetsflöde ser ut. 
+I den här 9-minutersvideon från programansvarige Liam Cavanagh får du reda på hur integrering av en sökmotor kan vara till nytta för din app. Kort demonstrationer kompletterar viktiga funktioner i Azure Kognitiv sökning och hur ett typiskt arbets flöde ser ut. 
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
  

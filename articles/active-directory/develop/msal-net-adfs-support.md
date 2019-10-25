@@ -1,5 +1,6 @@
 ---
-title: AD FS stöd i Microsoft Authentication Library för .NET | Azure
+title: AD FS stöd i Microsoft Authentication Library för .NET
+titleSuffix: Microsoft identity platform
 description: Läs mer om stöd för Active Directory Federation Services (AD FS) (AD FS) i Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beb1bcc4599a891b8748b63c5e7c5c09f5acdac7
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 24f2d43455ff15089accc2463db83349abcea564
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532684"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802882"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Active Directory Federation Services (AD FS) stöd i MSAL.NET
 Med Active Directory Federation Services (AD FS) (AD FS) i Windows Server kan du lägga till OpenID Connect och OAuth 2,0-baserad autentisering och auktorisering för program som du utvecklar. Dessa program kan sedan autentisera användare direkt mot AD FS. Mer information finns [i AD FS scenarier för utvecklare](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
@@ -39,7 +40,7 @@ MSAL.NET stöder anslutning till Azure AD, som loggar in i hanterade användare 
 Den [myndighet](msal-client-application-configuration.md#authority) som du använder i det här fallet är den vanliga utfärdaren (utfärdarens värdnamn + innehavare, vanliga eller organisationer).
 
 ### <a name="acquiring-a-token-interactively"></a>Att förvärva en token interaktivt
-När du anropar `AcquireTokenInteractive` -metoden är användar upplevelsen normalt:
+När du anropar metoden `AcquireTokenInteractive` är användar upplevelsen normalt:
 
 1. Användaren anger sitt konto-ID.
 2. Azure AD visar ett kort meddelande "som tar dig till din organisations sida".
@@ -48,10 +49,10 @@ När du anropar `AcquireTokenInteractive` -metoden är användar upplevelsen nor
 AD FS versioner som stöds i det här federerade scenariot är AD FS v2, AD FS v3 (Windows Server 2012 R2) och AD FS v4 (AD FS 2016).
 
 ### <a name="acquiring-a-token-using-acquiretokenbyintegratedauthentication-or-acquiretokenbyusernamepassword"></a>Hämta en token med AcquireTokenByIntegratedAuthentication eller AcquireTokenByUsernamePassword
-När du hämtar en token med `AcquireTokenByIntegratedAuthentication` hjälp `AcquireTokenByUsernamePassword` av metoderna eller, hämtar MSAL.net identitets leverantören för att kontakta utifrån användar namnet.  MSAL.NET tar emot en [SAML 1,1](reference-saml-tokens.md) -token efter att ha kontaktat identitets leverantören.  MSAL.NET tillhandahåller sedan SAML-token till Azure AD som en användar kontroll (liknar [flödet på uppdrags](msal-authentication-flows.md#on-behalf-of)sidan) för att få tillbaka en JWT.
+När du hämtar en token med hjälp av `AcquireTokenByIntegratedAuthentication`-eller `AcquireTokenByUsernamePassword`-metoderna får MSAL.NET identitets leverantören att kontakta utifrån användar namnet.  MSAL.NET tar emot en [SAML 1,1-token](reference-saml-tokens.md) efter att ha kontaktat identitets leverantören.  MSAL.NET tillhandahåller sedan SAML-token till Azure AD som en användar kontroll (liknar [flödet på uppdrags](msal-authentication-flows.md#on-behalf-of)sidan) för att få tillbaka en JWT.
 
 ## <a name="msal-connects-directly-to-ad-fs"></a>MSAL ansluter direkt till AD FS
-MSAL.NET stöder anslutning till AD FS 2019, som är öppen ID Connect-kompatibel och förstår PKCE och omfång. Detta stöd kräver att en service pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) tillämpas på Windows Server. När du ansluter direkt till AD FS, liknar den myndighet som du vill använda för att bygga ditt program på `https://mysite.contoso.com/adfs/`samma sätt.
+MSAL.NET stöder anslutning till AD FS 2019, som är öppen ID Connect-kompatibel och förstår PKCE och omfång. Detta stöd kräver att en service pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) tillämpas på Windows Server. När du ansluter direkt till AD FS, liknar den myndighet som du vill använda för att bygga ditt program på samma sätt som `https://mysite.contoso.com/adfs/`.
 
 För närvarande finns det inga planer på att stödja en direkt anslutning till:
 

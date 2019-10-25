@@ -1,20 +1,19 @@
 ---
-title: Text översättning kognitiv Sök kompetens – Azure Search
-description: Utvärderar text och, för varje post, returnerar text som har översatts till det angivna mål språket i en Azure Search anriknings pipeline.
-services: search
+title: Kognitiv kompetens för text översättning
+titleSuffix: Azure Cognitive Search
+description: Utvärderar text och, för varje post, returnerar text som har översatts till det angivna mål språket i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: careyjmac
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 06/25/2019
 ms.author: chalton
-ms.openlocfilehash: ddfb35cbfcfbc262f3eff0de67f5cedfc31ea27e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c2405fe67b39e016e64efb1b36cc551a00a338fc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265716"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791861"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Kognitiv kompetens för text översättning
 
@@ -22,12 +21,12 @@ ms.locfileid: "71265716"
 
 Den här funktionen är användbar om du förväntar dig att dokumenten kanske inte är på ett språk, vilket innebär att du kan normalisera texten till ett enda språk innan du indexerar den genom att översätta den.  Det är också användbart vid lokalisering av användnings fall där du kanske vill ha kopior av samma text som finns på flera språk.
 
-[Translator text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) är en icke-regional kognitiv tjänst, vilket innebär att dina data inte garanterar att de stannar i samma region som din Azure Search eller anslutna Cognitive Services resurs.
+[Translator text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) är en icke-regional kognitiv tjänst, vilket innebär att dina data inte garanterar att de stannar i samma region som din Azure kognitiv sökning eller anslutna Cognitive Services resurs.
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft. färdigheter. text. TranslationSkill
@@ -47,7 +46,7 @@ Parametrar är Skift läges känsliga.
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indatanamn     | Beskrivning |
+| Inmatat namn     | Beskrivning |
 |--------------------|-------------|
 | text | Den text som ska översättas.|
 | toLanguageCode    | En sträng som anger vilket språk texten ska översättas till. Om den här indatamängden inte anges kommer defaultToLanguageCode att användas för att översätta texten. <br/>Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
@@ -151,5 +150,5 @@ Om texten är större än 50 000 tecken kommer endast de första 50 000 tecknen 
 
 ## <a name="see-also"></a>Se också
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

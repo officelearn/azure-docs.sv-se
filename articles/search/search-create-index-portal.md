@@ -1,23 +1,23 @@
 ---
-title: Skapa ett Azure Search-index i Azure Portal-Azure Search
-description: Lär dig hur du skapar ett index för Azure Search med hjälp av en inbyggd Portal för index design.
+title: Skapa ett Azure Kognitiv sökning-index i Azure Portal
+titleSuffix: Azure Cognitive Search
+description: Lär dig hur du skapar ett index för Azure Kognitiv sökning med hjälp av en inbyggd Portal index design.
 manager: nitinme
-author: heidisteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9340b9c058ba780b8d74587f21c1b9fbe59576d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71937268"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792446"
 ---
-# <a name="create-an-azure-search-index-in-the-portal"></a>Skapa ett Azure Search-index i portalen
+# <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>Skapa ett Azure Kognitiv sökning-index i portalen
 
-Azure Search innehåller en inbyggd indexerad designer i portalen som är användbar för prototyper eller skapar ett [sökindex](search-what-is-an-index.md) som finns på din Azure Search-tjänst. Verktyget används för schema konstruktion. När du sparar definitionen, uttrycks ett tomt index fullständigt i Azure Search. Hur du läser in det med sökbart innehåll är upp till dig.
+Azure Kognitiv sökning innehåller en inbyggd indexerad designer i portalen som är användbar för prototyper eller skapar ett [Sök index](search-what-is-an-index.md) som finns på Azure kognitiv sökning-tjänsten. Verktyget används för schema konstruktion. När du sparar definitionen, uttrycks ett tomt index fullständigt i Azure Kognitiv sökning. Hur du läser in det med sökbart innehåll är upp till dig.
 
 Index designern är bara en metod för att skapa ett index. Du kan också både skapa och läsa in ett index med hjälp av [guiden Importera data](search-get-started-portal.md). Guiden fungerar bara med index som skapas av sig själv. Program mässigt kan du skapa ett index med hjälp av [.net](search-create-index-dotnet.md) -eller [rest](search-create-index-rest-api.md) -API: er.
 
@@ -29,7 +29,7 @@ Index designern är bara en metod för att skapa ett index. Du kan också både 
 
    ![Lägg till index länk i kommando fältet](media/search-create-index-portal/add-index.png "Lägg till index länk i kommando fältet")
 
-3. Namnge ditt Azure Search-index. Index namn refereras till i indexerings-och fråge åtgärder. Indexnamnet blir en del av den slutpunkts-URL som används i anslutningar till indexet och för att skicka HTTP-förfrågningar med Azure Search REST-API:t.
+3. Namnge ditt Azure Kognitiv sökning-index. Index namn refereras till i indexerings-och fråge åtgärder. Index namnet blir en del av slut punkts-URL: en som används för anslutningar till indexet och för att skicka HTTP-begäranden i Azure Kognitiv sökning REST API.
 
    * Börja med en bokstav.
    * Använd endast gemena bokstäver, siffror och bindestreck (”-”).
@@ -43,11 +43,11 @@ Indexsammansättningen innehåller en *fält samling* som definierar sökbara da
 
 1. Om inkommande data är hierarkiska bör schemat innehålla [komplexa typer](search-howto-complex-data-types.md) som representerar de kapslade strukturerna. Den inbyggda exempel data uppsättningen, hotell, visar komplexa typer som använder en adress (innehåller flera delfält) som har en 1-till-en-relation med varje hotell, och en komplex samling för rum där flera rum är associerade med varje hotell. 
 
-1. Ange ett *nyckel* fält av typen EDM. String. Ett nyckelfält är obligatoriskt för alla Azure Search-index, och det måste vara en sträng. Värdena i det här fältet måste unikt identifiera varje dokument. Som standard heter fältet *id* men du kan byta namn på det så länge strängen följer [namngivningsreglerna](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Om dina fält exempelvis innehåller *hotell-ID*väljer du det för din nyckel. 
+1. Ange ett *nyckel* fält av typen EDM. String. Ett nyckel fält är obligatoriskt för varje Azure Kognitiv sökning-index och det måste vara en sträng. Värdena i det här fältet måste unikt identifiera varje dokument. Som standard heter fältet *id* men du kan byta namn på det så länge strängen följer [namngivningsreglerna](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Om dina fält exempelvis innehåller *hotell-ID*väljer du det för din nyckel. 
 
 1. Ange attribut för varje fält. Index designern undantar inte attribut som är ogiltiga för data typen, men föreslår inte vad som ska tas med. Läs anvisningarna i nästa avsnitt för att förstå vad attributen är för.
 
-    API-dokumentationen för Azure Search innehåller kodexempel med ett enkelt *hotell*index. I skärm bilden nedan kan du se index definitionen, inklusive den franska språk analys som anges under index definitionen, som du kan återskapa som en övning i portalen.
+    Azure Kognitiv sökning API-dokumentationen innehåller kod exempel med ett enkelt *hotell* index. I skärm bilden nedan kan du se index definitionen, inklusive den franska språk analys som anges under index definitionen, som du kan återskapa som en övning i portalen.
 
     ![Demo index för hotell](media/search-create-index-portal/field-definitions.png "Demo index för hotell")
 
@@ -76,7 +76,7 @@ Fältattributen avgör hur ett fält används, till exempel om det används i fu
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat ett Azure Search-index kan du gå till nästa steg: [ladda upp sökbara data till indexet](search-what-is-data-import.md).
+När du har skapat ett Azure Kognitiv sökning-index kan du gå vidare till nästa steg: [överför sökbara data till indexet](search-what-is-data-import.md).
 
 Alternativt kan du också ta en [djupare titt på index](search-what-is-an-index.md). Förutom samlingen Fält anges i index även analysverktyg, förslagsställare, bedömningsprofiler och CORS-inställningar. Portalen innehåller fliksidor för att definiera de vanligaste elementen: fält, analysverktyg och förslagsställare. Om du vill skapa eller ändra andra element kan du använda REST-API:et eller .NET SDK.
 

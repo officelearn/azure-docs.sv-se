@@ -1,5 +1,6 @@
 ---
-title: Konfigurera ett programs utgivares domän | Azure
+title: Konfigurera ett programs utgivares domän
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du konfigurerar ett programs utgivares domän så att användare vet var deras information skickas.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257922"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803339"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Anvisningar: Konfigurera ett programs utgivares domän (för hands version)
+# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Gör så här: Konfigurera ett programs utgivares domän (för hands version)
 
 Ett programs utgivares domän visas för användare i [appens godkännande fråga](application-consent-experience.md) för att meddela användarna om var informationen skickas. Program med flera klienter som registreras efter den 21 maj 2019 och som inte har någon utgivar domän som inte är **verifierad**. Program med flera klienter är program som stöder konton utanför en enda organisations katalog. till exempel stöd för alla Azure AD-konton eller stöd för alla Azure AD-konton och personliga Microsoft-konton.
 
@@ -38,8 +39,8 @@ I följande tabell sammanfattas standard beteendet för utgivar domänens värde
 
 | Domäner som verifieras av klienter | Standardvärdet för Publisher-domän |
 |-------------------------|----------------------------|
-| null | null |
-| *.onmicrosoft.com | *.onmicrosoft.com |
+| Ha | Ha |
+| *. onmicrosoft.com | *. onmicrosoft.com |
 | -*. onmicrosoft.com<br/>– domain1.com<br/>-domain2.com (primär) | domain2.com |
 
 Om ett program från en annan klient organisation inte är inställt, eller om det är inställt på en domän som slutar på. onmicrosoft.com, visas appens medgivande- **fråga i stället** för utgivarens domän.
@@ -75,7 +76,7 @@ Om din app inte är registrerad i en klient, ser du bara alternativet för att v
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>Så här verifierar du en ny domän för din app
 
-1. Skapa en fil med `microsoft-identity-association.json` namnet och klistra in följande JSON-kodfragment.
+1. Skapa en fil med namnet `microsoft-identity-association.json` och klistra in följande JSON-kodfragment.
 
    ```json
    {
@@ -89,7 +90,7 @@ Om din app inte är registrerad i en klient, ser du bara alternativet för att v
 
 1. Ersätt plats hållaren *{Your-app-ID-här}* med det program-ID (klient) som motsvarar din app.
 
-1. Var värd för filen på `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`:. Ersätt plats hållaren *{your-domain-här}* så att den matchar den verifierade domänen.
+1. Var värd för filen på: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Ersätt plats hållaren *{your-domain-här}* så att den matchar den verifierade domänen.
 
 1. Klicka på knappen **Verifiera och spara domän** .
 
@@ -98,7 +99,7 @@ Om din app inte är registrerad i en klient, ser du bara alternativet för att v
 - Om klienten har verifierat domäner väljer du en av domänerna i list rutan **Välj en verifierad domän** .
 
 >[!Note]
-> Det förväntade Content-Type-huvudet som ska returneras är `application/json`. Du kan få ett fel meddelande som anges nedan om du använder något annat som`application/json; charset=utf-8` 
+> Det förväntade Content-Type-huvudet som ska returneras är `application/json`. Du kan få ett fel meddelande som anges nedan om du använder något annat som `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

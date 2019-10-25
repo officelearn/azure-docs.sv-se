@@ -1,5 +1,6 @@
 ---
-title: Konfigurerbara livstider för token i Azure Active Directory | Microsoft Docs
+title: Konfigurerbara livstider för token i Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du ställer in livs längder för token som utfärdats av Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be2e9d7657d621a285f7177dc6cdd3a01b83470d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 73869773597d372affbf02e6a256642c8c1ce8f4
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024443"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809304"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara livstider för token i Azure Active Directory (för hands version)
 
@@ -44,11 +45,19 @@ Du kan ange en princip som standard princip för din organisation. Principen til
 
 ## <a name="token-types"></a>Token-typer
 
-Du kan ange livs längds principer för token för uppdateringstoken, åtkomsttoken, sessionstoken och ID-token.
+Du kan ange livs längds principer för token för uppdateringstoken, åtkomsttoken, SAML-token, tokens och ID-token.
 
 ### <a name="access-tokens"></a>Åtkomsttokens
 
 Klienter använder åtkomsttoken för att få åtkomst till en skyddad resurs. En åtkomsttoken kan bara användas för en speciell kombination av användare, klient och resurs. Åtkomsttoken kan inte återkallas och är giltiga tills deras förfallo datum har passerats. En skadlig aktör som har fått en åtkomsttoken kan använda den för sin livs längd. Att justera livs längden för en åtkomsttoken är en kompromiss mellan att förbättra systemets prestanda och att öka den tid som klienten behåller åtkomsten efter att användarens konto har inaktiverats. Förbättrad system prestanda uppnås genom att minska antalet gånger som en klient behöver skaffa en ny åtkomsttoken.  Standardvärdet är 1 timme – efter 1 timme, klienten måste använda uppdateringstoken till (normalt tyst) Hämta en ny uppdateringstoken och åtkomsttoken. 
+
+### <a name="saml-tokens"></a>SAML-token
+
+SAML-token används av många webbaserade SAAS-program och hämtas med hjälp av Azure Active Directorys SAML2-protokollets slut punkt.  De används också av program som använder WS-Federation.    Standard livstiden för token är 1 timme. Efter från-och program perspektiv anges giltighets perioden för token genom NotOnOrAfter-värdet för < villkor... > element i token.  Efter giltighets perioden för token måste klienten initiera en ny autentiseringsbegäran, som ofta uppfylls utan interaktiv inloggning som ett resultat av sessionstoken för enkel inloggning (SSO).
+
+Värdet för NotOnOrAfter kan ändras med parametern AccessTokenLifetime i en TokenLifetimePolicy.  Den ställs in på den livstid som kon figurer ATS i principen om det finns någon, plus en klock skev på fem minuter.
+
+Observera att mottagar bekräftelse NotOnOrAfter som anges i <SubjectConfirmationData>-elementet inte påverkas av konfigurationen för token livs längd. 
 
 ### <a name="refresh-tokens"></a>Uppdatera token
 
@@ -57,11 +66,11 @@ När en klient får åtkomst-token för åtkomst till en skyddad resurs får kli
 Det är viktigt att skilja mellan konfidentiella klienter och offentliga klienter, eftersom detta påverkar hur länge uppdaterade token kan användas. Mer information om olika typer av klienter finns i [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Livs längd för token med konfidentiella klient uppdaterings-token
-Konfidentiella klienter är program som säkert kan lagra ett klient lösen ord (hemligt). De kan bevisa att förfrågningar kommer från det skyddade klient programmet och inte från en skadlig aktör. En webbapp är till exempel en konfidentiell klient eftersom den kan lagra en klient hemlighet på webb servern. Den exponeras inte. Eftersom dessa flöden är säkrare är standard livs längden för uppdateringstoken som utfärdats till dessa flöden `until-revoked`, kan inte ändras med hjälp av en princip och kommer inte att återkallas på frivilliga lösen ords återställning.
+Konfidentiella klienter är program som säkert kan lagra ett klient lösen ord (hemligt). De kan bevisa att förfrågningar kommer från det skyddade klient programmet och inte från en skadlig aktör. En webbapp är till exempel en konfidentiell klient eftersom den kan lagra en klient hemlighet på webb servern. Den exponeras inte. Eftersom dessa flöden är säkrare är det `until-revoked`att standard livstiden för uppdateringstoken som utfärdats till dessa flöden är, inte kan ändras med hjälp av en princip och kommer inte att återkallas för frivilliga lösen ords återställning.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Livs längd för token med offentliga klient uppdaterings-token
 
-Offentliga klienter kan inte lagra ett klient lösen ord på ett säkert sätt (hemligt). En iOS/Android-app kan till exempel inte obfuscate en hemlighet från resurs ägaren, så den betraktas som en offentlig klient. Du kan ange principer för resurser för att förhindra att uppdateringstoken från offentliga klienter som är äldre än en angiven period hämtar ett nytt nyckel par för åtkomst/uppdatering. (Om du vill göra detta använder du egenskapen Refresh token Max inaktive rad (`MaxInactiveTime`).) Du kan också använda principer för att ange en period utanför vilken uppdateringstoken inte längre accepteras. (Om du vill göra detta använder du egenskapen Refresh token max ålder.) Du kan justera livs längden för en uppdateringstoken för att styra när och hur ofta användaren måste ange autentiseringsuppgifter igen, i stället för att tyst autentiseras igen när du använder ett offentligt klient program.
+Offentliga klienter kan inte lagra ett klient lösen ord på ett säkert sätt (hemligt). En iOS/Android-app kan till exempel inte obfuscate en hemlighet från resurs ägaren, så den betraktas som en offentlig klient. Du kan ange principer för resurser för att förhindra att uppdateringstoken från offentliga klienter som är äldre än en angiven period hämtar ett nytt nyckel par för åtkomst/uppdatering. (Om du vill göra detta använder du egenskapen Refresh token Max inaktiv tid (`MaxInactiveTime`).) Du kan också använda principer för att ange en period utanför vilken uppdateringstoken inte längre accepteras. (Om du vill göra detta använder du egenskapen Refresh token max ålder.) Du kan justera livs längden för en uppdateringstoken för att styra när och hur ofta användaren måste ange autentiseringsuppgifter igen, i stället för att tyst autentiseras igen när du använder ett offentligt klient program.
 
 ### <a name="id-tokens"></a>ID-tokens
 ID-token skickas till webbplatser och interna klienter. ID-tokens innehåller profil information om en användare. En ID-token är kopplad till en speciell kombination av användare och klient. ID-token anses giltiga tills de upphör att gälla. Vanligt vis matchar ett webb program en användares sessions livs längd i programmet till livs längden för den ID-token som utfärdats för användaren. Du kan justera livs längden för en ID-token för att styra hur ofta webb programmet ska upphöra med programsessionen och hur ofta den kräver att användaren autentiseras igen med Azure AD (antingen tyst eller interaktivt).
@@ -82,20 +91,20 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 | Egenskap | Princip egenskaps sträng | Nätverk | Standard | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
 | Livstid för åtkomsttoken |AccessTokenLifetime<sup>2</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
-| Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
+| Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
 | Högsta ålder för token för enkel uppdatering |MaxAgeSingleFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är den maximala explicita längden som kan anges för dessa attribut.
-* <sup>2</sup> För att Microsoft Teams webb klienten ska fungera, rekommenderar vi att du ställer in AccessTokenLifetime till fler än 15 minuter för Microsoft Teams.
+* <sup>2</sup> För att säkerställa att Microsoft Teams webb klienten fungerar rekommenderar vi att du håller AccessTokenLifetime till mer än 15 minuter för Microsoft Teams.
 
 ### <a name="exceptions"></a>Undantag
 | Egenskap | Nätverk | Standard |
 | --- | --- | --- |
 | Uppdatera token max ålder (utfärdat för federerade användare som har otillräcklig åter kallelse information<sup>1</sup>) |Uppdatera tokens (utfärdat för federerade användare som har otillräcklig återkallnings information<sup>1</sup>) |12 timmar |
-| Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |
+| Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |
 | Maximal ålder för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |Tills den har återkallats |
 
 * <sup>1</sup> Federerade användare som har otillräcklig information om återkallade certifikat inkluderar alla användare som inte har attributet "LastPasswordChangeTimestamp" synkroniserat. Dessa användare ges denna kortaste ålder eftersom AAD inte kan verifiera när token som är knutna till en gammal autentiseringsuppgift (till exempel ett lösen ord som har ändrats) måste kontrol leras oftare för att säkerställa att användaren och tillhör ande token fortfarande är i lämpliga  anseende. För att förbättra den här upplevelsen måste klient administratörerna se till att de synkroniserar attributet "LastPasswordChangeTimestamp" (detta kan anges för användarobjektet med PowerShell eller via AADSync).
@@ -112,12 +121,12 @@ Mer information om relationen mellan program objekt och tjänst huvud objekt fin
 
 Giltighet för token utvärderas vid den tidpunkt då token används. Principen med den högsta prioriteten för det program som används börjar gälla.
 
-Alla tidsintervallen som används här formateras enligt C# [TimeSpan](/dotnet/api/system.timespan) -objektet-D. hh: mm: SS.  Så 80 dagar och 30 minuter skulle bli `80.00:30:00`.  Den inledande D-filen kan släppas om noll, så 90 minuter skulle vara `00:90:00`.  
+Alla tidsintervallen som används här formateras enligt C# [TimeSpan](/dotnet/api/system.timespan) -objektet-D. hh: mm: SS.  Så 80 dagar och 30 minuter skulle vara `80.00:30:00`.  Det inledande D-värdet kan tas bort om noll, så 90 minuter skulle `00:90:00`.  
 
 > [!NOTE]
 > Här är ett exempel scenario.
 >
-> En användare vill ha åtkomst till två webb program: Webb program A och webb program B.
+> En användare vill ha åtkomst till två webb program: webb program A och webb program B.
 > 
 > Förhållanden
 > * Båda webb programmen finns i samma överordnade organisation.
@@ -137,56 +146,56 @@ Alla tidsintervallen som används här formateras enligt C# [TimeSpan](/dotnet/a
 
 ## <a name="configurable-policy-property-details"></a>Konfigurerbar princip egenskaps information
 ### <a name="access-token-lifetime"></a>Livstid för åtkomsttoken
-**Nollängd** AccessTokenLifetime
+**Sträng:** AccessTokenLifetime
 
-**Nätverk** Åtkomsttoken, ID-token
+**Påverkar:** Åtkomsttoken, ID-token, SAML-token
 
-**Drag** Den här principen styr hur länge åtkomst-och ID-token för den här resursen betraktas som giltiga. Att minska livs längden för åtkomsttoken minskar risken för att en åtkomsttoken eller ID-token används av en skadlig aktör under en längre tid. (De här token kan inte återkallas.) Kompromissen är att prestanda påverkas negativt, eftersom token måste ersättas oftare.
+**Sammanfattning:** Den här principen styr hur länge åtkomst-och ID-token för den här resursen betraktas som giltiga. Att minska livs längden för åtkomsttoken minskar risken för att en åtkomsttoken eller ID-token används av en skadlig aktör under en längre tid. (De här token kan inte återkallas.) Kompromissen är att prestanda påverkas negativt, eftersom token måste ersättas oftare.
 
 ### <a name="refresh-token-max-inactive-time"></a>Maximal inaktiv tid för uppdateringstoken
-**Nollängd** MaxInactiveTime
+**Sträng:** MaxInactiveTime
 
-**Nätverk** Uppdatera token
+**Påverkar:** Uppdatera token
 
-**Drag** Den här principen styr hur gammal en uppdateringstoken kan vara innan en klient inte längre kan använda den för att hämta ett nytt nyckel par för åtkomst/uppdatering vid försök att få åtkomst till den här resursen. Eftersom en ny uppdateringstoken vanligt vis returneras när en uppdateringstoken används, förhindrar den här principen åtkomst om klienten försöker få åtkomst till en resurs med hjälp av den aktuella uppdateringstoken under den angivna tids perioden.
+**Sammanfattning:** Den här principen styr hur gammal en uppdateringstoken kan vara innan en klient inte längre kan använda den för att hämta ett nytt nyckel par för åtkomst/uppdatering vid försök att få åtkomst till den här resursen. Eftersom en ny uppdateringstoken vanligt vis returneras när en uppdateringstoken används, förhindrar den här principen åtkomst om klienten försöker få åtkomst till en resurs med hjälp av den aktuella uppdateringstoken under den angivna tids perioden.
 
 Den här principen tvingar användare som inte har varit aktiva på sin klient att autentiseras igen för att hämta en ny uppdateringstoken.
 
 Egenskapen för maximal inaktiv tid för uppdateringstoken måste anges till ett lägre värde än max åldern för token för en token och Multi-Factor Refresh-token.
 
 ### <a name="single-factor-refresh-token-max-age"></a>Högsta ålder för token för enkel uppdatering
-**Nollängd** MaxAgeSingleFactor
+**Sträng:** MaxAgeSingleFactor
 
-**Nätverk** Uppdatera token
+**Påverkar:** Uppdatera token
 
-**Drag** Den här principen styr hur länge en användare kan använda en uppdateringstoken för att hämta ett nytt nyckel par för åtkomst/uppdatering efter att de senast autentiserades genom att använda en enda faktor. När en användare autentiserar och tar emot en ny uppdateringstoken kan användaren använda det för att uppdatera token-flödet under den angivna tids perioden. (Detta är sant så länge den aktuella uppdateringstoken inte har återkallats och är inte kvar längre än den inaktiva tiden.) Då tvingas användaren att autentisera igen för att ta emot en ny uppdateringstoken.
+**Sammanfattning:** Den här principen styr hur länge en användare kan använda en uppdateringstoken för att hämta ett nytt nyckel par för åtkomst/uppdatering efter att de senast autentiserades genom att använda en enda faktor. När en användare autentiserar och tar emot en ny uppdateringstoken kan användaren använda det för att uppdatera token-flödet under den angivna tids perioden. (Detta är sant så länge den aktuella uppdateringstoken inte har återkallats och är inte kvar längre än den inaktiva tiden.) Då tvingas användaren att autentisera igen för att ta emot en ny uppdateringstoken.
 
 Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller lägre än den högsta ålders egenskapen för Multi-Factor Refresh-token.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Högsta ålder för Multi-Factor Refresh-token
-**Nollängd** MaxAgeMultiFactor
+**Sträng:** MaxAgeMultiFactor
 
-**Nätverk** Uppdatera token
+**Påverkar:** Uppdatera token
 
-**Drag** Den här principen styr hur länge en användare kan använda en uppdateringstoken för att hämta ett nytt nyckel par för åtkomst/uppdatering efter att de senast autentiserades med hjälp av flera faktorer. När en användare autentiserar och tar emot en ny uppdateringstoken kan användaren använda det för att uppdatera token-flödet under den angivna tids perioden. (Detta är sant så länge den aktuella uppdateringstoken inte återkallas och inte används längre än den inaktiva tiden.) Då tvingas användarna att autentisera igen för att få en ny uppdateringstoken.
+**Sammanfattning:** Den här principen styr hur länge en användare kan använda en uppdateringstoken för att hämta ett nytt nyckel par för åtkomst/uppdatering efter att de senast autentiserades med hjälp av flera faktorer. När en användare autentiserar och tar emot en ny uppdateringstoken kan användaren använda det för att uppdatera token-flödet under den angivna tids perioden. (Detta är sant så länge den aktuella uppdateringstoken inte återkallas och inte används längre än den inaktiva tiden.) Då tvingas användarna att autentisera igen för att få en ny uppdateringstoken.
 
 Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större än max ålders egenskapen för en token för en enskild faktor.
 
 ### <a name="single-factor-session-token-max-age"></a>Högsta ålder för token för token för en session
-**Nollängd** MaxAgeSessionSingleFactor
+**Sträng:** MaxAgeSessionSingleFactor
 
-**Nätverk** Token för sessioner (beständiga och inte permanenta)
+**Påverkar:** Token för sessioner (beständiga och inte permanenta)
 
-**Drag** Den här principen styr hur länge en användare kan använda en sessionstoken för att hämta ett nytt ID och sessionstoken efter att de senast autentiserades genom att använda en enda faktor. När en användare autentiserar och tar emot en ny sessionstoken, kan användaren använda sessionens token-flöde under den angivna tids perioden. (Detta är sant så länge den aktuella sessionstoken inte har återkallats och har inte gått ut.) Efter den angivna tids perioden tvingas användaren att autentisera igen för att ta emot en ny sessionstoken.
+**Sammanfattning:** Den här principen styr hur länge en användare kan använda en sessionstoken för att hämta ett nytt ID och sessionstoken efter att de senast autentiserades genom att använda en enda faktor. När en användare autentiserar och tar emot en ny sessionstoken, kan användaren använda sessionens token-flöde under den angivna tids perioden. (Detta är sant så länge den aktuella sessionstoken inte har återkallats och har inte gått ut.) Efter den angivna tids perioden tvingas användaren att autentisera igen för att ta emot en ny sessionstoken.
 
 Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller mindre än max ålders egenskapen för Multi-Factor session-token.
 
 ### <a name="multi-factor-session-token-max-age"></a>Högsta ålder för Multi-Factor session
-**Nollängd** MaxAgeSessionMultiFactor
+**Sträng:** MaxAgeSessionMultiFactor
 
-**Nätverk** Token för sessioner (beständiga och inte permanenta)
+**Påverkar:** Token för sessioner (beständiga och inte permanenta)
 
-**Drag** Den här principen styr hur länge en användare kan använda en sessionstoken för att hämta ett nytt ID och sessionstoken efter den senaste gången de autentiserades genom att använda flera faktorer. När en användare autentiserar och tar emot en ny sessionstoken, kan användaren använda sessionens token-flöde under den angivna tids perioden. (Detta är sant så länge den aktuella sessionstoken inte har återkallats och har inte gått ut.) Efter den angivna tids perioden tvingas användaren att autentisera igen för att ta emot en ny sessionstoken.
+**Sammanfattning:** Den här principen styr hur länge en användare kan använda en sessionstoken för att hämta ett nytt ID och sessionstoken efter den senaste gången de autentiserades genom att använda flera faktorer. När en användare autentiserar och tar emot en ny sessionstoken, kan användaren använda sessionens token-flöde under den angivna tids perioden. (Detta är sant så länge den aktuella sessionstoken inte har återkallats och har inte gått ut.) Efter den angivna tids perioden tvingas användaren att autentisera igen för att ta emot en ny sessionstoken.
 
 Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större än den token för token för token med en token.
 
@@ -204,7 +213,7 @@ I exemplen får du lära dig att:
 * Skapa en princip för en intern app som anropar ett webb-API
 * Hantera en avancerad princip
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för appar, tjänstens huvud namn och din övergripande organisation. Om du är nybörjare på Azure AD rekommenderar vi att du lär dig [hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.  
 
 Gör så här för att komma igång:
@@ -222,7 +231,7 @@ Gör så här för att komma igång:
     Get-AzureADPolicy
     ```
 
-### <a name="example-manage-an-organizations-default-policy"></a>Exempel: Hantera en organisations standard princip
+### <a name="example-manage-an-organizations-default-policy"></a>Exempel: hantera en organisations standard princip
 I det här exemplet skapar du en princip som gör det möjligt för användarna att logga in mindre ofta i hela organisationen. Det gör du genom att skapa en token för token för en token för en token som tillämpas i hela organisationen. Principen tillämpas på alla program i din organisation och för varje tjänst huvud konto som inte redan har en princip uppsättning.
 
 1. Skapa en livs längd princip för token.
@@ -259,7 +268,7 @@ I det här exemplet skapar du en princip som gör det möjligt för användarna 
     Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
-### <a name="example-create-a-policy-for-web-sign-in"></a>Exempel: Skapa en princip för webb inloggning
+### <a name="example-create-a-policy-for-web-sign-in"></a>Exempel: skapa en princip för webb inloggning
 
 I det här exemplet skapar du en princip som kräver att användare autentiseras oftare i din webbapp. Den här principen anger livs längden för åtkomst-/ID-token och den maximala åldern för en Multi-Factor session-token till tjänstens huvud namn för din webbapp.
 
@@ -293,7 +302,7 @@ I det här exemplet skapar du en princip som kräver att användare autentiseras
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Exempel: Skapa en princip för en intern app som anropar ett webb-API
+### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Exempel: skapa en princip för en intern app som anropar ett webb-API
 I det här exemplet skapar du en princip som kräver att användare autentiseras mindre ofta. Principen utvärderar också hur lång tid en användare kan vara inaktiv innan användaren måste autentiseras igen. Principen tillämpas på webb-API: et. När den interna appen begär webb-API: t som en resurs, tillämpas den här principen.
 
 1. Skapa en livs längd princip för token.
@@ -322,7 +331,7 @@ I det här exemplet skapar du en princip som kräver att användare autentiseras
     Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
     ```
 
-### <a name="example-manage-an-advanced-policy"></a>Exempel: Hantera en avancerad princip
+### <a name="example-manage-an-advanced-policy"></a>Exempel: hantera en avancerad princip
 I det här exemplet skapar du några principer för att lära dig hur prioritets systemet fungerar. Du lär dig också hur du hanterar flera principer som tillämpas på flera objekt.
 
 1. Skapa en livs längd princip för token.
@@ -355,7 +364,7 @@ I det här exemplet skapar du några principer för att lära dig hur prioritets
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Ange värdet false för flaggan `IsOrganizationDefault`:
+3. Ange `IsOrganizationDefault` flagga till falskt:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false

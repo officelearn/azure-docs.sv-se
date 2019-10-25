@@ -1,5 +1,6 @@
 ---
-title: Hantera token (Microsoft Authentication Library) | Azure
+title: Hantera token (Microsoft Authentication Library)
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om att förvärva och cachelagra token med hjälp av Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,15 +18,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f7914744073f82d8a35d3679a1c65459e10b2f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: aaa6a939fce3eae8b1367c2d01e947e813fa5437
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532882"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803223"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Förvärva och cachelagra token med MSAL
-[](access-tokens.md) Åtkomsttoken gör det möjligt för klienter att på ett säkert sätt anropa webb-API: er som skyddas av Azure. Det finns många sätt att hämta en token med hjälp av Microsoft Authentication Library (MSAL). På vissa sätt krävs användar interaktioner via en webbläsare. Vissa kräver ingen interaktion från användaren. I allmänhet beror det på hur du kan hämta en token på om programmet är ett offentligt klient program (stationär eller mobilapp) eller ett konfidentiellt klient program (webbapp, webb-API eller daemon-program som en Windows-tjänst).
+[Åtkomsttoken gör det](access-tokens.md) möjligt för klienter att på ett säkert sätt anropa webb-API: er som skyddas av Azure. Det finns många sätt att hämta en token med hjälp av Microsoft Authentication Library (MSAL). På vissa sätt krävs användar interaktioner via en webbläsare. Vissa kräver ingen interaktion från användaren. I allmänhet beror det på hur du kan hämta en token på om programmet är ett offentligt klient program (stationär eller mobilapp) eller ett konfidentiellt klient program (webbapp, webb-API eller daemon-program som en Windows-tjänst).
 
 MSAL cachelagrar en token efter att den har hämtats.  Program koden bör försöka hämta en token tyst (från cachen), först innan du hämtar en token på annat sätt.
 
@@ -39,23 +40,23 @@ Ett antal MSAL-metoder för att hämta token kräver en *omfattnings* parameter.
 Det går också att komma åt v 1.0-resurser med MSAL. Mer information finns i avsnittet [om omfång för ett v 1.0-program](msal-v1-app-scopes.md).
 
 ### <a name="request-specific-scopes-for-a-web-api"></a>Begär speciella omfattningar för ett webb-API
-När ditt program behöver begära tokens med specifika behörigheter för ett resurs-API måste du skicka de omfattningar som innehåller app-ID-URI: n för API: et i formatet nedan:  *&lt;app-ID/URI&gt;&lt;-omfång&gt;*
+När ditt program behöver begära tokens med specifika behörigheter för ett resurs-API måste du skicka de omfattningar som innehåller app-ID-URI: n för API: et i formatet nedan: *&lt;app-ID-uri&gt;/&lt;omfånget&gt;*
 
-Exempel: scope för Microsoft Graph API:`https://graph.microsoft.com/User.Read`
+Exempel: scope för Microsoft Graph API: `https://graph.microsoft.com/User.Read`
 
-Eller till exempel omfång för ett anpassat webb-API:`api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
+Eller till exempel omfång för ett anpassat webb-API: `api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
 
-För Microsoft Graph-API: t, mappas ett `user.read` omfångs värde till `https://graph.microsoft.com/User.Read` format och kan användas utbytbart.
+För Microsoft Graph-API: t är det bara ett omfångs värde `user.read` mappar till `https://graph.microsoft.com/User.Read`-format och kan användas utbytbart.
 
 > [!NOTE]
-> Vissa webb-API: er, till https://management.core.windows.net/) exempel Azure Resource Manager API (förväntar sig ett efterföljande "/" i AUD-åtkomsttoken (Audience Claim). I det här fallet är det viktigt att skicka omfånget https://management.core.windows.net//user_impersonation som (Observera det dubbla snedstrecket) för att token ska vara giltig i API: et.
+> Vissa webb-API: er som Azure Resource Manager API (https://management.core.windows.net/) förväntar sig ett efterföljande "/" i AUD-åtkomsttoken. I det här fallet är det viktigt att skicka omfånget som https://management.core.windows.net//user_impersonation (Observera det dubbla snedstrecket) för att token ska vara giltig i API: et.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Begär dynamiska omfattningar för stegvist godkännande
 När du skapar program med hjälp av v 1.0 var du tvungen att registrera en fullständig uppsättning behörigheter (statiska omfattningar) som krävs av programmet för att användaren ska kunna godkänna vid inloggnings tillfället. I v 2.0 kan du begära ytterligare behörigheter efter behov med hjälp av omfattnings parametern. Dessa kallas dynamiska omfattningar och tillåter att användaren ger ett stegvist tillstånd för omfattningar.
 
 Du kan till exempel först logga in användaren och neka alla typer av åtkomst. Senare kan du ge dem möjlighet att läsa användarens kalender genom att begära kalender omfånget i metoderna för att hämta token och få användarens medgivande.
 
-Till exempel: `https://graph.microsoft.com/User.Read` och`https://graph.microsoft.com/Calendar.Read`
+Till exempel: `https://graph.microsoft.com/User.Read` och `https://graph.microsoft.com/Calendar.Read`
 
 ## <a name="acquiring-tokens-silently-from-the-cache"></a>Hämtar token tyst (från cachen)
 MSAL upprätthåller ett token-cache (eller två cacheminnen för konfidentiella klient program) och cachelagrar en token efter att den har hämtats.  I många fall kommer ett försök att hämta en token att hämta en annan token med fler omfång baserat på en token i cacheminnet. Du kan också uppdatera en token när den snart upphör att gälla (eftersom token cache också innehåller en uppdateringstoken).
@@ -94,7 +95,7 @@ För konfidentiella klient program (webb program, webb-API eller daemon-program 
 ## <a name="authentication-results"></a>Verifierings resultat 
 När klienten begär en åtkomsttoken, returnerar Azure AD även ett verifierings resultat som innehåller vissa metadata om åtkomst-token. Den här informationen omfattar förfallo tiden för åtkomsttoken och de omfattningar som den är giltig för. Med den här informationen kan din app utföra intelligent cachelagring av åtkomsttoken utan att behöva parsa åtkomsttoken.  Resultatet av autentiseringen visar:
 
-- Åtkomsttoken [](access-tokens.md) för webb-API: et för att få åtkomst till resurser. Detta är en sträng, vanligt vis en Base64-kodad JWT men klienten bör aldrig titta inuti åtkomsttoken. Formatet är inte garanterat vara stabilt och kan krypteras för resursen. Användare som skriver kod beroende på åtkomsttoken på klienten är en av de största källorna till fel och klient logiks avbrott.
+- Åtkomsttoken [för webb](access-tokens.md) -API: et för att få åtkomst till resurser. Detta är en sträng, vanligt vis en Base64-kodad JWT men klienten bör aldrig titta inuti åtkomsttoken. Formatet är inte garanterat vara stabilt och kan krypteras för resursen. Användare som skriver kod beroende på åtkomsttoken på klienten är en av de största källorna till fel och klient logiks avbrott.
 - Användarens [ID-token](id-tokens.md) (detta är en JWT).
 - Förfallo tiden för token, som anger det datum/tid när token upphör att gälla.
 - Klient-ID: t innehåller innehavaren där användaren hittades. För gäst användare (Azure AD B2B-scenarier) är klient-ID: t gäst klienten, inte den unika klient organisationen. När token levereras i namnet på en användare innehåller verifierings resultatet även information om den här användaren. För konfidentiella klient flöden där tokens begärs utan användare (för programmet) är denna användar information null.

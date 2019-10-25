@@ -1,5 +1,6 @@
 ---
-title: Skillnader mellan MSAL. js och ADAL. js | Azure
+title: Skillnader mellan MSAL. js och ADAL. js
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om skillnaderna mellan Microsoft Authentication Library för Java Script (MSAL. js) och Azure AD Authentication Library för Java Script (ADAL. js) och hur du väljer vilket som ska användas.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7149b9d871c43af083774ffb799255e0d1144113
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8d831f9f1cf8dbf565d569f63ee6215fac80949d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429940"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803166"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Skillnader mellan MSAL JS och ADAL JS
 
@@ -59,9 +60,9 @@ I v 2.0 kan användare med hjälp av `https://login.microsoftonline.com/common`-
 
     v 2.0-protokollet använder omfång i stället för resurs i begär Anden. När ditt program behöver begära token med behörigheter för en resurs, till exempel MS Graph, är skillnaden i värden som skickas till biblioteks metoderna följande:
 
-    v 1.0: Resource = https @ no__t-0//graf. Microsoft. com
+    v 1.0: Resource = https\://graph.microsoft.com
 
-    v 2.0: scope = https @ no__t-0///graf. Microsoft. com/user. Read
+    v 2.0: scope = https\://graph.microsoft.com/User.Read
 
     Du kan begära scope för alla resurs-API: er med hjälp av URI: n för API: et i följande format: appidURI/scope, till exempel: https: \//klient. onmicrosoft. com/myapi/API. Read
 

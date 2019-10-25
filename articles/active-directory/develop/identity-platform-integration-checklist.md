@@ -16,12 +16,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f7e9b738a55248678a207f0b298ef65e6c2761a4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: f3976f69302ff50bf067bbaa2eff4be25ac64f43
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240151"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786344"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Metod tips och rekommendationer för Microsoft Identity Platform
 
@@ -74,7 +74,7 @@ Använd följande check lista för att se till att programmet är effektivt inte
 |---|---|
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Använd moderna autentiserings lösningar (OAuth 2,0, [OpenID Connect](v2-protocols-oidc.md)) för att på ett säkert sätt logga in användare. |
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) |  Program mera inte direkt mot protokoll som OAuth 2,0 och Open ID. Använd i stället [Microsoft Authentication Library (MSAL)](msal-overview.md). MSAL-biblioteken kan på ett säkert sätt figursätta säkerhets protokoll i ett lättanvänt bibliotek, och du får inbyggt stöd för [villkorliga åtkomst](/azure/active-directory/conditional-access/overview) scenarier, [enkel inloggning (SSO)](/azure/active-directory/manage-apps/what-is-single-sign-on)och inbyggt stöd för cachelagring av token. Mer information finns i listan över [klient](reference-v2-libraries.md#microsoft-supported-client-libraries) bibliotek i Microsoft som stöds och [mellan bibliotek](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) och listan över [kompatibla klient bibliotek från tredje part](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>Om du behöver manuell kod för autentiseringsprotokollen bör du följa en metod som [Microsoft sdl](https://www.microsoft.com/sdl/default.aspx). Var noga med säkerhets aspekterna i specifikationerna för varje protokoll.|
-| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) |  Migrera befintliga appar från [Azure Active Directory Authentication Library (ADAL)](active-directory-authentication-libraries.md) till [Microsoft Authentication Library](msal-overview.md). MSAL är Microsofts senaste identitets plattforms lösning och föredras som ADAL. Den är tillgänglig på .NET och Java Script och finns även i offentlig för hands version för Android, iOS, python och Java. Läs mer om att migrera [ADAL.net](msal-net-migration.md)-, [ADAL-. js](msal-compare-msal-js-and-adal-js.md)-och ADAL.net- [och iOS Broker](msal-net-migration-ios-broker.md) -appar.|
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) |  Migrera befintliga appar från [Azure Active Directory Authentication Library (ADAL)](active-directory-authentication-libraries.md) till [Microsoft Authentication Library](msal-overview.md). MSAL är Microsofts senaste identitets plattforms lösning och föredras som ADAL. Den är tillgänglig på .NET, Java Script, Android, iOS, macOS och finns även i offentlig för hands version för python och Java. Läs mer om att migrera [ADAL.net](msal-net-migration.md)-, [ADAL-. js](msal-compare-msal-js-and-adal-js.md)-och ADAL.net- [och iOS Broker](msal-net-migration-ios-broker.md) -appar.|
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) |  För Mobile Apps konfigurerar du varje plattform med hjälp av program registrerings upplevelsen. För att ditt program ska kunna dra nytta av Microsoft Authenticator eller Microsoft Företagsportal för enkel inloggning måste appen ha konfigurerat en "Broker-omdirigerings-URI". Detta gör att Microsoft kan returnera kontroll till programmet efter autentisering. När du konfigurerar varje plattform vägleder vi dig genom processen. Använd snabb starten för att hämta ett arbets exempel. Använd utjämnare och system webbvy när det är möjligt på iOS.|
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) |  I Web Apps eller webb-API: er, Behåll ett token-cache per konto.  För Web Apps bör token-cachen anges av konto-ID: t.  För webb-API: er ska kontot anges genom hashen för den token som används för att anropa API: et. MSAL.NET tillhandahåller anpassad cachelagring av token i .NET Framework-och .NET Core-underplattformar. Av säkerhets-och prestanda skäl är vår rekommendation att serialisera en cache per användare. Mer information finns i about [cache-serialisering för token](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application).|
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Om de data som krävs för din app är tillgängliga via [Microsoft Graph](https://developer.microsoft.com/graph)kan du begära behörigheter för dessa data med hjälp av Microsoft Graph-slutpunkten i stället för enskilda API. |

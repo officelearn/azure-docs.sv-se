@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: dc5c85aaa3c2128b10ba2e6f9c45a66b44593202
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851778"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809222"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrollerad verifiering av Azure AD-anslutningshybrid
 
@@ -55,11 +55,11 @@ Använd följande exempel för att skapa ett grupprincip objekt (GPO) för att d
 
 1. Öppna en grupprincip hanterings konsol och skapa ett nytt grupprincip-objekt i din domän.
    1. Ange ett namn för ditt nyligen skapade grup princip objekt (till exempel ClientSideSCP).
-1. Redigera GRUPPRINCIPOBJEKTet och leta upp följande sökväg: > **Inställningar** >  fördatorkonfigurationWindows-inställningarregister > 
+1. Redigera GRUPPRINCIPOBJEKTet och leta upp följande sökväg: **dator konfiguration** > **Inställningar** > **Windows-inställningar** > **registret**
 1. Högerklicka på registret och välj **nytt** > **register objekt**
    1. På fliken **Allmänt** konfigurerar du följande
-      1. Åtgärd: **Uppdatering**
-      1. Rot **HKEY_LOCAL_MACHINE**
+      1. Åtgärd: **Uppdatera**
+      1. Hive: **HKEY_LOCAL_MACHINE**
       1. Nyckel Sök väg: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Värde namn: **TenantId**
       1. Värdetyp: **REG_SZ**
@@ -67,12 +67,12 @@ Använd följande exempel för att skapa ett grupprincip objekt (GPO) för att d
    1. Klicka på **OK**
 1. Högerklicka på registret och välj **nytt** > **register objekt**
    1. På fliken **Allmänt** konfigurerar du följande
-      1. Åtgärd: **Uppdatering**
-      1. Rot **HKEY_LOCAL_MACHINE**
+      1. Åtgärd: **Uppdatera**
+      1. Hive: **HKEY_LOCAL_MACHINE**
       1. Nyckel Sök väg: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Värde namn: **TenantName**
       1. Värdetyp: **REG_SZ**
-      1. Värde data: Ditt verifierade **domän namn** om du använder federerade miljöer som AD FS. Ditt verifierade **domän namn** eller ditt onmicrosoft.com domän namn till exempel `contoso.onmicrosoft.com` om du använder en hanterad miljö
+      1. Värde data: ditt verifierade **domän namn** om du använder federerade miljöer som AD FS. Ditt verifierade **domän namn** eller ditt onmicrosoft.com domän namn till exempel `contoso.onmicrosoft.com` om du använder en hanterad miljö
    1. Klicka på **OK**
 1. Stäng Redigeraren för det nyligen skapade GRUPPRINCIPOBJEKTet
 1. Länka det nyligen skapade GRUPPRINCIPOBJEKTet till den önskade ORGANISATIONSENHETen som innehåller domänanslutna datorer som tillhör din kontrollerade installations population
@@ -82,7 +82,7 @@ Använd följande exempel för att skapa ett grupprincip objekt (GPO) för att d
 Om du använder AD FS måste du först konfigurera klient sidans SCP genom att följa anvisningarna ovan men länka GRUPPRINCIPOBJEKTet till dina AD FS-servrar. SCP-objektet definierar källan för auktoritet för enhets objekt. Det kan vara lokalt eller i Azure AD. När detta har kon figurer ATS för AD FS, upprättas källan för enhets objekt som Azure AD.
 
 > [!NOTE]
-> Om du inte kunde konfigurera klient sidans SCP på AD FS-servrar, betraktas källan för enhets identiteter som lokalt och AD FS skulle ta bort enhets objekt från den lokala katalogen efter en fastställd period.
+> Om du inte konfigurerar klient sidans SCP på dina AD FS-servrar, betraktas källan för enhets identiteter som lokalt, och om du har tillbakaskrivning av enheten börjar AD FS ta bort enhets objekt från den lokala registrerade enhets behållaren efter en fastställd period.
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Kontrollerad verifiering av hybrid Azure AD-anslutning på Windows-enheter på nivån
 

@@ -1,37 +1,35 @@
 ---
-title: Synonymer för frågans expansion över ett Sök index – Azure Search
-description: Skapa en synonym karta för att expandera omfånget för en Sök fråga på ett Azure Search index. Omfattningen utökas för att inkludera motsvarande termer som du anger i en lista.
-author: brjohnstmsft
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+title: Synonymer för frågans expansion över ett Sök index
+titleSuffix: Azure Cognitive Search
+description: Skapa en synonym karta för att expandera omfånget för en Sök fråga på ett Azure Kognitiv sökning-index. Omfattningen utökas för att inkludera motsvarande termer som du anger i en lista.
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c94ad096cf7d0d01bf2076f6748b49cf4ae1bb4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331186"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794227"
 ---
-# <a name="synonyms-in-azure-search"></a>Synonymer i Azure Search
+# <a name="synonyms-in-azure-cognitive-search"></a>Synonymer i Azure Kognitiv sökning
 
 Synonymer i sökmotorer associerar likvärdiga villkor som implicit expanderar omfånget för en fråga utan att användaren behöver ange termen. Till exempel, med tanke på termen "hund" och synonym associationer för "Canine" och "Puppy", kommer alla dokument som innehåller "hund", "Canine" eller "Puppy" att falla inom frågans omfång.
 
-I Azure Search görs synonym expansion vid tidpunkten för frågan. Du kan lägga till synonym Maps till en tjänst utan avbrott i befintliga åtgärder. Du kan lägga till en **synonymMaps** -egenskap i en fält definition utan att behöva bygga om indexet.
+I Azure Kognitiv sökning görs synonym expansion vid tidpunkten för frågan. Du kan lägga till synonym Maps till en tjänst utan avbrott i befintliga åtgärder. Du kan lägga till en **synonymMaps** -egenskap i en fält definition utan att behöva bygga om indexet.
 
 ## <a name="create-synonyms"></a>Skapa synonymer
 
-Det finns inget Portal stöd för att skapa synonymer, men du kan använda REST API eller .NET SDK. För att komma igång med REST rekommenderar vi att du [använder Postman](search-get-started-postman.md) och formulering av begär Anden med följande API: [skapa synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). För C# utvecklare kan du komma igång med att [lägga till synonymer i Azure- C#sökning med ](search-synonyms-tutorial-sdk.md).
+Det finns inget Portal stöd för att skapa synonymer, men du kan använda REST API eller .NET SDK. För att komma igång med REST rekommenderar vi att du [använder Postman](search-get-started-postman.md) och formulering av begär Anden med följande API: [skapa synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). För C# utvecklare kan du komma igång med att [lägga till synonymer i Azure kognitiv sökning C#med ](search-synonyms-tutorial-sdk.md).
 
 Om du använder [Kundhanterade nycklar](search-security-manage-encryption-keys.md) för tjänstens kryptering på plats kan du tillämpa det skyddet på innehållet i synonym kartan.
 
 ## <a name="use-synonyms"></a>Använd synonymer
 
-I Azure Search baseras synonym stödet på synonym Maps som du definierar och överför till din tjänst. Dessa kartor utgör en oberoende resurs (t. ex. index eller data källor) och kan användas av valfritt sökbart fält i alla index i Sök tjänsten.
+I Azure Kognitiv sökning baseras synonym stödet på synonym Maps som du definierar och överför till din tjänst. Dessa kartor utgör en oberoende resurs (t. ex. index eller data källor) och kan användas av valfritt sökbart fält i alla index i Sök tjänsten.
 
 Synonym Maps och index upprätthålls oberoende av varandra. När du har definierat en synonym mappning och laddat upp den till tjänsten kan du aktivera synonym funktionen i ett fält genom att lägga till en ny egenskap med namnet **synonymMaps** i fält definitionen. Att skapa, uppdatera och ta bort en synonym mappning är alltid en hel dokument åtgärd, vilket innebär att du inte kan skapa, uppdatera eller ta bort delar av synonym kartan stegvis. Det krävs en ombelastning för att uppdatera även en enskild post.
 

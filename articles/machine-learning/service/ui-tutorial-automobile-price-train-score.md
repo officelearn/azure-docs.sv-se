@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: b0c9fd85171020c9b78dc166980f85bcd89d8d67
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 3852531615418ffe5397295bc194de34139d6e81
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692300"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792652"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Självstudie: förutsäga Automobile-priset med det visuella gränssnittet
 
@@ -40,15 +40,15 @@ I [del två](ui-tutorial-automobile-price-deploy.md) av självstudien får du l�
 
 ## <a name="create-a-new-pipeline"></a>Skapa en ny pipeline
 
-Azure Machine Learning pipelines ordnar flera, beroende data bearbetnings steg till en enda resurs. Pipelines hjälper dig att organisera, hantera och återanvända komplexa Machine Learning-arbetsflöden mellan projekt och användare. Om du vill skapa en Azure Machine Learning pipeline behöver du en Azure Machine Learning service-arbetsyta. I det här avsnittet får du lära dig hur du skapar båda dessa resurser.
+Azure Machine Learning pipelines ordnar flera, beroende maskin inlärning och data bearbetnings steg i en enda resurs. Pipelines hjälper dig att organisera, hantera och återanvända komplexa Machine Learning-arbetsflöden mellan projekt och användare. Om du vill skapa en Azure Machine Learning pipeline behöver du en Azure Machine Learning service-arbetsyta. I det här avsnittet får du lära dig hur du skapar båda dessa resurser.
 
 ### <a name="create-a-new-workspace"></a>Skapa en ny arbets yta
 
-Om du har en Azure Machine Learning arbets yta kan du gå vidare till nästa avsnitt.
+Om du har en Azure Machine Learning service-arbetsyta går du vidare till nästa avsnitt.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-### <a name="create-a-pipeline"></a>Skapa en pipeline
+### <a name="create-the-pipeline"></a>Skapa pipelinen
 
 1. Logga in på [ml.Azure.com](https://ml.azure.com) och välj den arbets yta som du vill arbeta med.
 
@@ -56,7 +56,7 @@ Om du har en Azure Machine Learning arbets yta kan du gå vidare till nästa avs
 
     ![Skärm bild av den visuella arbets ytan som visar hur du får åtkomst till det visuella gränssnittet](./media/ui-tutorial-automobile-price-train-score/launch-visual-interface.png)
 
-1. Välj **Tom pipeline**.
+1. Välj **lättanvända inbyggda moduler**.
 
 1. Välj standard pipeline **-namnet "pipeline-skapad-on..."** överst på arbets ytan och Byt namn på den till något meningsfullt. Till exempel **"pris förutsägelse för bil"** . Namnet behöver inte vara unikt.
 
@@ -69,32 +69,6 @@ Det finns flera exempel data uppsättningar som ingår i det visuella gränssnit
 1. Välj data uppsättningen, **bil pris data (RAW)** och dra den till arbets ytan.
 
    ![Dra data till arbets yta](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
-
-1. Välj vilka kolumner med data som ska användas. Skriv **Select** (Sök) i sökrutan överst på paletten för att hitta modulen **Välj kolumner i data uppsättning** .
-
-1. Klicka och dra modulen **Välj kolumner i data uppsättning** till arbets ytan. Släpp modulen under data uppsättnings modulen.
-
-1. Anslut den data uppsättning som du lade till tidigare till modulen **Välj kolumner i data uppsättning** genom att klicka och dra. Dra från data uppsättningens utgående port, som är den lilla cirkeln längst ned i data uppsättningen på arbets ytan, till Indataporten för **Select-kolumner i data uppsättningen**, som är den lilla cirkeln överst i modulen.
-
-    > [!TIP]
-    > Du skapar ett data flöde via din pipeline när du ansluter utdataporten för en modul till en annan indataport.
-    >
-
-    ![Anslut moduler](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
-
-1. Välj modulen **Välj kolumner i data uppsättning** .
-
-1. I fönstret **Egenskaper** till höger om arbets ytan väljer du **Redigera kolumn**.
-
-    I dialog rutan **Välj kolumner** väljer du **alla kolumner** och inkluderar **alla funktioner**.
-
-1. Klicka på **Spara** i det nedre högra hörnet för att stänga kolumn väljaren.
-
-### <a name="run-the-pipeline"></a>Köra en pipeline
-
-Du kan när som helst klicka på utdataporten för en data uppsättning eller modul för att se hur data ser ut som vid den punkten i data flödet. Om fliken **utdata** inte visas måste du först köra pipelinen.
-
-[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
 ### <a name="visualize-the-data"></a>Visualisera datan
 
@@ -114,30 +88,23 @@ Du kan visualisera data för att förstå den data uppsättning som du kommer at
 
 ## <a name="prepare-data"></a>Förbered data
 
-Data uppsättningar kräver vanligt vis lite för bearbetning före analys. Du kanske har lagt märke till att värden saknas vid visualisering av data uppsättningen. Dessa värden som saknas måste rensas bort så att modellen kan analysera informationen korrekt. Du tar bort alla rader som saknar värden.
+Data uppsättningar kräver vanligt vis lite för bearbetning före analys. Du kanske har lagt märke till att värden saknas vid visualisering av data uppsättningen. Dessa värden som saknas måste rensas bort så att modellen kan analysera informationen korrekt. Du tar bort kolumner med många värden som saknas och tar bort alla enskilda rader som saknar värden.
 
-1. Skriv **Select** (Sök) i sökrutan överst på paletten för att hitta modulen **Välj kolumner i data uppsättning** .
+### <a name="remove-a-column"></a>Ta bort en kolumn
+
+När du tränar en modell måste du göra något om de data som saknas. I den här data uppsättningen saknar kolumnen **normaliserade förluster** många värden, så du kan utesluta den kolumnen från modellen helt och hållet.
+
+1. Välj vilka kolumner med data som ska användas. Skriv **Select** (Sök) i sökrutan överst på paletten för att hitta modulen **Välj kolumner i data uppsättning** .
 
 1. Klicka och dra modulen **Välj kolumner i data uppsättning** till arbets ytan. Släpp modulen under data uppsättnings modulen.
 
 1. Anslut den data uppsättning som du lade till tidigare till modulen **Välj kolumner i data uppsättning** genom att klicka och dra. Dra från data uppsättningens utgående port, som är den lilla cirkeln längst ned i data uppsättningen på arbets ytan, till Indataporten för **Select-kolumner i data uppsättningen**, som är den lilla cirkeln överst i modulen.
 
+    > [!TIP]
+    > Du skapar ett data flöde via din pipeline när du ansluter utdataporten för en modul till en annan indataport.
+    >
+
     ![Anslut moduler](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
-
-1. Välj modulen **Välj kolumner i data uppsättning** .
-
-1. I fönstret **Egenskaper** till höger om arbets ytan väljer du **Redigera kolumn**.
-
-    I dialog rutan **Välj kolumner** väljer du **alla kolumner** och inkluderar **alla funktioner**.
-
-1. Klicka på **Spara** i det nedre högra hörnet för att stänga kolumn väljaren.
-
-> [!TIP]
-> Att rensa saknade värden från indata är ett krav för att använda de flesta moduler i det visuella gränssnittet.
-
-### <a name="remove-column"></a>Ta bort kolumn
-
-När du tränar en modell måste du göra något om de data som saknas. I den här data uppsättningen har kolumnen **normaliserade förluster** ett stort antal saknade värden, så du kommer att utesluta den kolumnen från modellen helt och hållet.
 
 1. Välj modulen **Välj kolumner i data uppsättning** .
 
@@ -162,6 +129,9 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 ### <a name="clean-missing-data"></a>Rensa saknade data
 
 Din data uppsättning har fortfarande värden som saknas efter att kolumnen **normaliserade förluster** har tagits bort. Du kan ta bort återstående data som saknas med modulen **Rensa data som saknas** .
+
+> [!TIP]
+> Att rensa saknade värden från indata är ett krav för att använda de flesta moduler i det visuella gränssnittet.
 
 1. Skriv **Rensa** i sökrutan för att hitta modulen **Rensa data som saknas** .
 
@@ -286,7 +256,7 @@ I del ett av de här självstudierna slutförde du följande steg:
 * Träna modellen
 * Betyget och utvärderat modellen
 
-I del två får du lära dig hur du distribuerar din modell som en pipeline-slutpunkt.
+I del två får du lära dig hur du distribuerar din modell som en slut punkt i real tid.
 
 > [!div class="nextstepaction"]
 > [Fortsätt till att distribuera modeller](ui-tutorial-automobile-price-deploy.md)

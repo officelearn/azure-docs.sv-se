@@ -1,5 +1,6 @@
 ---
-title: Rensa token-cachen med Microsoft Authentication Library för .NET – Azure
+title: Rensa token-cachen med Microsoft Authentication Library för .NET
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du rensar token-cachen med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,16 +18,16 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cee6443db0b019f79a80cf5b7c0e2a7a50240f2
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 4bd48078ec87b085a71ee23006d18917881894bf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532656"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802924"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>Rensa token-cachen med MSAL.NET
 
-När du [hämtar en](msal-acquire-cache-tokens.md) åtkomsttoken med Microsoft Authentication Library för .net (MSAL.net) cachelagras token. När programmet behöver en token ska det först anropa `AcquireTokenSilent` metoden för att kontrol lera om en acceptabel token finns i cacheminnet. 
+När du [hämtar en](msal-acquire-cache-tokens.md) åtkomsttoken med Microsoft Authentication Library för .net (MSAL.net) cachelagras token. När programmet behöver en token ska det först anropa `AcquireTokenSilent`-metoden för att kontrol lera om en acceptabel token finns i cacheminnet. 
 
 Att rensa cacheminnet uppnås genom att ta bort kontona från cachen. Detta tar inte bort sessions-cookien som finns i webbläsaren, men.  I följande exempel instansieras ett offentligt klient program, hämtar konton för programmet och tar bort kontona.
 

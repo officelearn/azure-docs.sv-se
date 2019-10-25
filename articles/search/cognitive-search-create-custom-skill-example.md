@@ -1,19 +1,19 @@
 ---
-title: 'Exempel: skapa en anpassad kognitiv kunskap med API för entitetsökning i Bing-Azure Search'
-description: Visar hur du använder tjänsten Entitetssökning i Bing i en anpassad färdighet som är mappad till en kognitiv Sök indexerings pipeline i Azure Search.
+title: 'Exempel: skapa en anpassad kognitiv kompetens med API för entitetsökning i Bing'
+titleSuffix: Azure Cognitive Search
+description: Visar hur du använder tjänsten Entitetssökning i Bing i en anpassad färdighet som är mappad till en AI-fördefinierad indexerings pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: ab2f9e8859fba0c906e181727aab923254e9b620
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692206"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784937"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exempel: skapa en anpassad kunskap med hjälp av API för entitetsökning i Bing
 
@@ -69,7 +69,7 @@ namespace SampleSkills
 {
     /// <summary>
     /// Sample custom skill that wraps the Bing entity search API to connect it with a 
-    /// cognitive search pipeline.
+    /// AI enrichment pipeline.
     /// </summary>
     public static class BingEntitySearch
     {

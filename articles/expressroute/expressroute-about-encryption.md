@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 650e45ca9092b9c81b2127eb995a0297745410a4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b452fccf2ae0915592420bdda3a47fef43eba9a8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244144"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72788700"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute-kryptering
  
@@ -31,7 +31,7 @@ Nej. Om MACsec har kon figurer ATS och en nyckel avvikelse uppstår förlorar du
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Kommer MACsec att aktivera på ExpressRoute direkt försämra nätverks prestanda?
 MACsec kryptering och dekryptering sker i maskin vara på de routrar som vi använder. Det finns ingen inverkan på vår sida. Du bör dock kontrol lera med nätverks leverantören för de enheter du använder och se om MACsec har några prestanda indirekt.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>vilka chiffersviter stöds för kryptering?
-Vi stöder AES128 (GCM – AES-128) och AES256 (GCM – AES – 256).
+Vi har stöd för AES128 och AES256.
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Vanliga frågor och svar från slut punkt till slut punkt för IPsec
 IPsec är en [IETF-standard](https://tools.ietf.org/html/rfc6071). Den krypterar data på Internet Protocol (IP) eller nätverks nivå 3. Du kan använda IPsec för att kryptera en slutpunkt-till-slutpunkt-anslutning mellan ditt lokala nätverk och ditt virtuella nätverk (VNET) i Azure. Se andra vanliga frågor och svar nedan.

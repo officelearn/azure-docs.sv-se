@@ -1,21 +1,23 @@
 ---
-title: Säkerhet för Internet of Things (IoT) från grunden
-description: Den här artikeln beskrivs de inbyggda säkerhetsfunktionerna i Microsoft Azure IoT-Lösningsacceleratorer
+title: Säkerhet för Sakernas Internet (IoT) från grunden
+description: I den här artikeln beskrivs de inbyggda säkerhetsfunktionerna i Microsoft Azure IoT Solution Accelerators
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 5d4034aa3ea2ceb3a3c294e05952461d46835895
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7072e2c0bfa054a670ac3fb09590378d3ef055a3
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626490"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789733"
 ---
+# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Säkerhet för Sakernas Internet (IoT) från grunden
+
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om IoT Hub-säkerhet i [styra åtkomsten till IoT Hub](../iot-hub/iot-hub-devguide-security.md) i utvecklarhandboken för IoT Hub.
+Läs mer om IoT Hub säkerhet i [kontrol lera åtkomst till IoT Hub](../iot-hub/iot-hub-devguide-security.md) i IoT Hub Developer Guide.

@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: 28478f38df6ba6ea356626cc36c23ad498fc1f47
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692238"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792636"
 ---
-En pipeline körs på ett beräknings mål, en beräknings resurs som är kopplad till din arbets yta.  När du har skapat ett beräknings mål kan du återanvända det för framtida körningar.
+En pipeline körs på ett beräknings mål som är en beräknings resurs som är kopplad till din arbets yta. När du har skapat ett beräknings mål kan du återanvända det för framtida körningar.
 
 1. Välj **Kör** överst på arbets ytan för att köra pipelinen.
 
@@ -36,6 +36,9 @@ En pipeline körs på ett beräknings mål, en beräknings resurs som är koppla
 1. Välj **Kör**.
 
 1. I dialog rutan **Konfigurera pipeline-körning** väljer du **+ nytt experiment** för **experimentet**
+
+    > [!NOTE]
+    > Experiment grupp liknande pipeliner körs tillsammans. Om du kör en pipeline flera gånger kan du välja samma experiment för efterföljande körningar.
 
     * Ange ett beskrivande **experiment namn**
 

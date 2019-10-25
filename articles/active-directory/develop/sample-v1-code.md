@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41ff9bce6135936a4b23096fb18efecf7be1e1e2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: a71eaebcc6345d6550d6ddd38350fe709706d740
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374101"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809295"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory kod exempel (v 1.0-slut punkt)
 
@@ -81,7 +81,7 @@ Följande exempel illustrerar offentliga klient program (deskto/pmobile-program)
 
 Klient program | Plattform | Flöde/tilldelning | Anrop Microsoft Graph | Anropar ett ASP.NET-eller ASP.NET Core 2. x-webb-API
 ------------------ | -------- | ---------- | -------------------- | -------------------------
-Desktop (WPF)           | ![Den här bilden visar .NET/C# logo typen](media/sample-v2-code/logo_NET.png)  | Interaktiv | Del av [dotNet-internt-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [DotNet – inbyggd – skriv bord](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotNet-Native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotNet-WebAPI-manuell-JWT-Validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
+Desktop (WPF)           | ![Den här bilden visar .NET/C# logo typen](media/sample-v2-code/logo_NET.png)  | Interaktiv | Del av [dotNet-internt-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [DotNet – inbyggd – skriv bord](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotNet-Native-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore/)</p> [dotNet-WebAPI-manuell-JWT-Validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
 Mobil (UWP)            | .![Den här bilden visar .NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interaktiv | [dotNet-Native-UWP-WAM](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Det här exemplet använder [WAM](/windows/uwp/security/web-account-manager), inte [ADAL.net](https://aka.ms/adalnet)|  [dotNet-Windows-Store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (UWP-program som använder ADAL.net för att anropa en enda klient webb-API) </p> [dotNet-WebAPI-multiinnehavare-Windows-Store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (UWP-program med ADAL.net för att anropa en webb-API för flera innehavare)|
 Mobil (Android, iOS, UWP)   | ![Den här bilden visar .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interaktiv | [dotNet-internt-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Mobil (Android)           | ![Den här bilden visar Android-logotypen](media/sample-v2-code/logo_Android.png) | Interaktiv |   [Android](https://github.com/Azure-Samples/active-directory-android) |

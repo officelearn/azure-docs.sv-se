@@ -1,5 +1,6 @@
 ---
-title: Skapa identitet för Azure-appen i portalen | Microsoft Docs
+title: Skapa identitet för Azure-appen i portalen
+titleSuffix: Microsoft identity platform
 description: Beskriver hur du skapar ett nytt Azure Active Directory program och tjänstens huvud namn som kan användas med rollbaserad åtkomst kontroll i Azure Resource Manager för att hantera åtkomst till resurser.
 services: active-directory
 documentationcenter: na
@@ -16,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f8163a3695260234107ad41cc7be125adc9091
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d60c1a01f3a4ca3a191ddb322def7d86a316c58f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324729"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803327"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser
 
@@ -126,7 +127,7 @@ Kom ihåg att du kan behöva konfigurera tilläggs behörigheter för resurser s
 1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt nyckel valv och väljer **åtkomst principer**.  
 1. Välj **Lägg till åtkomst princip**och välj sedan de nyckel-, hemlighet-och certifikat behörigheter som du vill ge ditt program.  Välj tjänstens huvud namn som du skapade tidigare.
 1. Välj **Lägg** till för att lägga till åtkomst principen och spara för att **Spara** ändringarna.
-    ![Add åtkomst princip @ no__t-1
+    ![lägga till åtkomst princip](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 

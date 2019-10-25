@@ -1,29 +1,28 @@
 ---
-title: Hantera samtidiga skrivningar till resurser – Azure Search
-description: Använd optimistisk samtidighet för att undvika konflikter i luften vid uppdateringar eller borttagningar av Azure Search index, indexerare, data källor.
-author: HeidiSteen
+title: Hantera samtidiga skrivningar till resurser
+titleSuffix: Azure Cognitive Search
+description: Använd optimistisk samtidighet för att undvika konflikter i luften vid uppdateringar eller borttagningar till Azure Kognitiv sökning index, indexerare, data källor.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/21/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656727"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792220"
 ---
-# <a name="how-to-manage-concurrency-in-azure-search"></a>Hantera samtidighet i Azure Search
+# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Hantera samtidighet i Azure Kognitiv sökning
 
-När du hanterar Azure Search resurser, till exempel index och data källor, är det viktigt att uppdatera resurserna på ett säkert sätt, särskilt om resurser kan nås samtidigt av olika komponenter i ditt program. När två klienter samtidigt uppdaterar en resurs utan samordning är det möjligt att tävla. För att förhindra detta erbjuder Azure Search en *optimistisk samtidighets modell*. Det finns inga lås på en resurs. I stället finns det en ETag för varje resurs som identifierar resurs versionen så att du kan ställa förfrågningar som förhindrar oavsiktlig överskrivning.
+När du hanterar Azure Kognitiv sökning-resurser, till exempel index och data källor, är det viktigt att uppdatera resurserna på ett säkert sätt, särskilt om resurser kan nås samtidigt av olika komponenter i ditt program. När två klienter samtidigt uppdaterar en resurs utan samordning är det möjligt att tävla. För att förhindra detta erbjuder Azure Kognitiv sökning en *optimistisk samtidighets modell*. Det finns inga lås på en resurs. I stället finns det en ETag för varje resurs som identifierar resurs versionen så att du kan ställa förfrågningar som förhindrar oavsiktlig överskrivning.
 
 > [!Tip]
-> Konceptuell kod i en [exempel C# lösning](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) förklarar hur samtidighets kontrollen fungerar i Azure Search. Koden skapar villkor som anropar samtidighets kontroll. Att läsa [kodfragmentet nedan](#samplecode) är förmodligen tillräckligt för de flesta utvecklare, men om du vill köra det kan du redigera appSettings. JSON för att lägga till tjänst namnet och en Admin-API-nyckel. Med en tjänst-URL `http://myservice.search.windows.net`, är `myservice`tjänstens namn.
+> Konceptuell kod i en [exempel C# lösning](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) förklarar hur concurrency-kontrollen fungerar i Azure kognitiv sökning. Koden skapar villkor som anropar samtidighets kontroll. Att läsa [kodfragmentet nedan](#samplecode) är förmodligen tillräckligt för de flesta utvecklare, men om du vill köra det kan du redigera appSettings. JSON för att lägga till tjänst namnet och en Admin-API-nyckel. Med en tjänst-URL för `http://myservice.search.windows.net`, är tjänst namnet `myservice`.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Optimistisk samtidighet implementeras genom åtkomst villkors kontroller i API-anrop för att skriva till index, indexerare, data källor och synonymMap-resurser.
 
@@ -32,7 +31,7 @@ Alla resurser har en [*Entity-tagg (etag)* ](https://en.wikipedia.org/wiki/HTTP_
 + REST API använder en [etag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) i begär ande huvudet.
 + .NET SDK anger ETag genom ett accessCondition-objekt, vilket anger [If-Match | If-Match-none-huvud](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) på resursen. Alla objekt som ärver från [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) har ett accessCondition-objekt.
 
-Varje gång du uppdaterar en resurs ändras dess ETag automatiskt. När du implementerar samtidiga hantering, kommer allt du gör att införa ett villkor för den uppdateringsbegäran som kräver att fjär resursen har samma ETag som kopian av resursen som du ändrade på klienten. Om en samtidig process redan har ändrat fjär resursen, stämmer inte ETagen överens med villkoret och begäran Miss fungerar med HTTP 412. Om du använder .NET SDK visas manifestet som en `CloudException` `IsAccessConditionFailed()` där tilläggs metoden returnerar true.
+Varje gång du uppdaterar en resurs ändras dess ETag automatiskt. När du implementerar samtidiga hantering, kommer allt du gör att införa ett villkor för den uppdateringsbegäran som kräver att fjär resursen har samma ETag som kopian av resursen som du ändrade på klienten. Om en samtidig process redan har ändrat fjär resursen, stämmer inte ETagen överens med villkoret och begäran Miss fungerar med HTTP 412. Om du använder .NET SDK visas detta manifest som en `CloudException` där metoden `IsAccessConditionFailed()`-tillägg returnerar true.
 
 > [!Note]
 > Det finns bara en mekanism för samtidighet. Den används alltid oavsett vilket API som används för resurs uppdateringar.
@@ -51,7 +50,7 @@ Följande kod visar accessCondition-kontroller för nyckel uppdaterings åtgärd
     class Program
     {
         // This sample shows how ETags work by performing conditional updates and deletes
-        // on an Azure Search index.
+        // on an Azure Cognitive Search index.
         static void Main(string[] args)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -62,14 +61,14 @@ Följande kod visar accessCondition-kontroller för nyckel uppdaterings åtgärd
             Console.WriteLine("Deleting index...\n");
             DeleteTestIndexIfExists(serviceClient);
 
-            // Every top-level resource in Azure Search has an associated ETag that keeps track of which version
+            // Every top-level resource in Azure Cognitive Search has an associated ETag that keeps track of which version
             // of the resource you're working on. When you first create a resource such as an index, its ETag is
             // empty.
             Index index = DefineTestIndex();
             Console.WriteLine(
                 $"Test index hasn't been created yet, so its ETag should be blank. ETag: '{index.ETag}'");
 
-            // Once the resource exists in Azure Search, its ETag will be populated. Make sure to use the object
+            // Once the resource exists in Azure Cognitive Search, its ETag will be populated. Make sure to use the object
             // returned by the SearchServiceClient! Otherwise, you will still have the old object with the
             // blank ETag.
             Console.WriteLine("Creating index...\n");
@@ -129,9 +128,9 @@ Följande kod visar accessCondition-kontroller för nyckel uppdaterings åtgärd
             serviceClient.Indexes.Delete("test", accessCondition: AccessCondition.GenerateIfExistsCondition());
 
             // This is slightly better than using the Exists method since it makes only one round trip to
-            // Azure Search instead of potentially two. It also avoids an extra Delete request in cases where
+            // Azure Cognitive Search instead of potentially two. It also avoids an extra Delete request in cases where
             // the resource is deleted concurrently, but this doesn't matter much since resource deletion in
-            // Azure Search is idempotent.
+            // Azure Cognitive Search is idempotent.
 
             // And we're done! Bye!
             Console.WriteLine("Complete.  Press any key to end application...\n");
@@ -170,7 +169,7 @@ Följande kod visar accessCondition-kontroller för nyckel uppdaterings åtgärd
 
 Ett design mönster för att implementera optimistisk samtidighet bör innehålla en slinga som försöker få åtkomst till villkors kontroll, ett test för åtkomst villkoret och hämtar en uppdaterad resurs innan du försöker återställa ändringarna igen.
 
-Det här kodfragmentet illustrerar hur en synonymMap läggs till i ett index som redan finns. Den här koden är från [synonym C# exemplet för Azure Search](search-synonyms-tutorial-sdk.md).
+Det här kodfragmentet illustrerar hur en synonymMap läggs till i ett index som redan finns. Den här koden är från [synonym C# exemplet för Azure kognitiv sökning](search-synonyms-tutorial-sdk.md).
 
 Kodfragmentet hämtar indexet "Hotels", kontrollerar objekt versionen vid en uppdaterings åtgärd, genererar ett undantag om villkoret Miss lyckas och försöker sedan utföra åtgärden igen (upp till tre gånger), med början från index hämtning från servern för att hämta den senaste versionen.
 
@@ -217,6 +216,6 @@ Försök att ändra något av följande exempel för att inkludera ETags-eller A
 
 ## <a name="see-also"></a>Se också
 
-[Vanliga](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-http[-status koder](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
-för HTTP-förfrågningar och svars rubriker[(REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Vanliga HTTP-begäranden och svarshuvuden](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[http-statuskod](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+[index åtgärder (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

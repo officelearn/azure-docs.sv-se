@@ -1,33 +1,32 @@
 ---
-title: Användnings analys av kognitiva Sök kunskaper – Azure Search
-description: Extrahera semantisk text via bild analys med hjälp av ImageAnalysis kognitiva kunskaper i en Azure Search anriknings pipeline.
-services: search
+title: Inlärnings kunskap för bild analys
+titleSuffix: Azure Cognitive Search
+description: Extrahera semantisk text via bild analys med hjälp av funktionen för inlärning av bild analys i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 08/28/2019
 ms.author: luisca
-ms.openlocfilehash: 69e798601dc53ffb666aa9dcddd68980256fa3fc
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 04114d00f3905675a1794a3875e650661febc832
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265460"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791996"
 ---
-#   <a name="image-analysis-cognitive-skill"></a>Inlärnings kunskap för bild analys
+# <a name="image-analysis-cognitive-skill"></a>Inlärnings kunskap för bild analys
 
 I **bild analysens** kunskap extraheras en omfattande uppsättning visuella funktioner baserat på avbildningens innehåll. Du kan till exempel generera en under text från en bild, generera taggar eller identifiera kändisar och landmärken. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. 
 
 > [!NOTE]
-> Små volymer (under 20 transaktioner) kan utföras kostnads fritt i Azure Search, men större arbets belastningar kräver att du [kopplar en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
+> Små volymer (under 20 transaktioner) kan utföras kostnads fritt i Azure Kognitiv sökning, men större arbets belastningar kräver att du [kopplar en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Vision.ImageAnalysisSkill 
+Microsoft. färdigheter. vision. ImageAnalysisSkill 
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
@@ -37,13 +36,13 @@ Parametrar är Skift läges känsliga.
 |--------------------|-------------|
 | defaultLanguageCode   |  En sträng som anger det språk som ska returneras. Tjänsten returnerar igenkännings resultat på ett angivet språk. Om den här parametern inte anges är standardvärdet "en". <br/><br/>Språk som stöds: <br/>*en* – engelska (standard) <br/> *zh* – förenklad kinesiska|
 |visualFeatures |   En sträng mat ris som anger vilka visuella funktions typer som ska returneras. Giltiga typer av visuella funktioner är:  <ul><li> *Kategorier* – kategoriserar bild innehåll enligt en taxonomi som definierats i Cognitive Services [visuellt innehåll-dokumentationen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li> *taggar* – Taggar avbildningen med en detaljerad lista över ord relaterade till bild innehållet.</li><li>*Beskrivning* – beskriver bild innehållet med en hel engelsk mening.</li><li>*ansikten* – identifierar om det finns ansikten. Om det finns genererar koordinater, kön och ålder.</li><li>    *imageType* – identifierar om bilden är ClipArt eller en linje ritning.</li><li>  *färg* – bestämmer dekor färg, dominerande färg och om en bild är svart & vit.</li><li>*vuxen* – identifierar om avbildningen är pornografiskt (visar nakenhet eller en kön Act). Sexuellt innehåll är också identifierat.</li></ul> Namn på visuella funktioner är Skift läges känsliga.|
-| details   | En sträng mat ris som visar vilken datorspecifik information som ska returneras. Giltiga typer av visuella funktioner är: <ul><li>*kändisar* – identifierar kändisar om det identifierats i avbildningen.</li><li>*landmärken* – identifierar landmärken om de upptäcks i bilden. </li></ul> |
+| Information   | En sträng mat ris som visar vilken datorspecifik information som ska returneras. Giltiga typer av visuella funktioner är: <ul><li>*kändisar* – identifierar kändisar om det identifierats i avbildningen.</li><li>*landmärken* – identifierar landmärken om de upptäcks i bilden. </li></ul> |
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indatanamn      | Beskrivning                                          |
+| Inmatat namn      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
-| image         | Komplex typ. För närvarande fungerar det bara med "/Document/normalized_images"-fältet som skapas av Azure Blob- ```imageAction``` indexeraren när har angetts till ett ```none```annat värde än. Se [exemplet](#sample-output) för mer information.|
+| mallar         | Komplex typ. För närvarande fungerar det bara med fältet "/Document/normalized_images" som skapas av Azure Blob-indexeraren när ```imageAction``` har ett annat värde än ```none```. Se [exemplet](#sample-output) för mer information.|
 
 
 
@@ -503,7 +502,7 @@ I följande fel fall extraheras inga element.
 | NotSupportedImage | Bild som inte stöds, t. ex. barn pornografi. |
 | InvalidDetails | En domänbaserad modell som inte stöds. |
 
-Om du får det fel som `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`liknar kontrollerar du sökvägen. Både kändisar och landmärken är egenskaper under `detail`.
+Om du får det fel som liknar `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`kontrollerar du sökvägen. Både kändisar och landmärken är egenskaper under `detail`.
 
 ```json
 "categories":[  
@@ -521,6 +520,6 @@ Om du får det fel som `"One or more skills are invalid. Details: Error in skill
 
 ## <a name="see-also"></a>Se också
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

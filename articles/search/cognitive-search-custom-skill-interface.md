@@ -1,25 +1,25 @@
 ---
-title: Gränssnitts definition för anpassade kunskaper i kognitiv sökning – Azure Search
-description: Anpassat data extraherings gränssnitt för anpassad kunskap om webb-API i kognitiva Sök pipeliner i Azure Search.
+title: Gränssnitts definition för anpassade kunskaper
+titleSuffix: Azure Cognitive Search
+description: Anpassat data extraherings gränssnitt för anpassad kunskap om webb-API i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 2c4af40886a81cbf8f8e11318737db05f570a1f0
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: f86c34dcc1276b8677e3e60514661a6d0b974005
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692180"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787555"
 ---
-# <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Lägga till en anpassad färdighet i en kognitiv sökning-pipeline
+# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Så här lägger du till en anpassad färdighet i en Azure Kognitiv sökning-rikare pipeline
 
-En [kognitiv Sök indexerings pipeline](cognitive-search-concept-intro.md) i Azure Search kan samlas in från [fördefinierade kunskaper](cognitive-search-predefined-skills.md) och [anpassade kunskaper](cognitive-search-custom-skill-web-api.md) som du själv skapar och lägger till i pipelinen. I den här artikeln lär du dig hur du skapar en anpassad färdighet som visar ett gränssnitt som gör att det kan tas med i en kognitiv Sök pipeline. 
+En [pipeline](cognitive-search-concept-intro.md) i Azure kognitiv sökning kan samlas in från [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) samt [anpassade kunskaper](cognitive-search-custom-skill-web-api.md) som du själv skapar och lägger till i pipelinen. I den här artikeln lär du dig hur du skapar en anpassad färdighet som visar ett gränssnitt som gör det möjligt att inkludera i en AI-pipeline. 
 
-Genom att skapa en anpassad färdighet får du ett sätt att infoga omvandlingar som är unika för ditt innehåll. En anpassad färdighet körs oberoende av varandra och använder det steg du behöver. Du kan till exempel definiera specifika anpassade entiteter, skapa anpassade klassificerings modeller för att särskilja affärs-och finansiella kontrakt och dokument, eller lägga till en kunskap om tal igenkänning för att komma djupare till ljudfilerna för relevant innehåll. Ett steg-för-steg-exempel finns i [exempel: skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md).
+Genom att skapa en anpassad färdighet får du ett sätt att infoga omvandlingar som är unika för ditt innehåll. En anpassad färdighet körs oberoende av varandra och använder det steg du behöver. Du kan till exempel definiera specifika anpassade entiteter, skapa anpassade klassificerings modeller för att särskilja affärs-och finansiella kontrakt och dokument, eller lägga till en kunskap om tal igenkänning för att komma djupare till ljudfilerna för relevant innehåll. Ett steg-för-steg-exempel finns i [exempel: skapa en anpassad färdighet för AI-berikning](cognitive-search-create-custom-skill-example.md).
 
  Vilken anpassad funktion du behöver finns det ett enkelt och tydligt gränssnitt för att ansluta en anpassad färdighet till resten av pipelinen för anrikning. Det enda kravet för att inkludera i en [färdigheter](cognitive-search-defining-skillset.md) är möjligheten att acceptera indata och generera utdata på ett sätt som kan användas i färdigheter som helhet. Fokus för den här artikeln är i indata-och utdataformat som krävs för anriknings pipelinen.
 

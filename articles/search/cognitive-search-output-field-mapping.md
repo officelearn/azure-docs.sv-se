@@ -1,27 +1,27 @@
 ---
-title: Mappa kognitiva sökfält för att mata in fält – Azure Search
-description: Extrahera och utöka käll data fält och mappa till utdatakolumner i ett Azure Search index.
+title: Mappa AI – berikade inmatnings fält till utdatakolumner
+titleSuffix: Azure Cognitive Search
+description: Extrahera och utöka käll data fält och mappa till utmatnings fält i ett Azure Kognitiv sökning-index.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 4ceb8e6290e3e7f4fb552db13c97558db1c8c97e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 77f378f4e0c4a8e4827523e244f7b18c2a9ba336
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265511"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792112"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Så här mappar du omfattande fält till ett sökbart index
+# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Så här mappar du AI-berikade fält till ett sökbart index
 
 I den här artikeln får du lära dig hur du mappar informativa inmatnings fält till utdatakolumner i ett sökbart index. När du har [definierat en färdigheter](cognitive-search-defining-skillset.md)måste du mappa utmatnings fälten för alla färdigheter som direkt bidrar med värden till ett angivet fält i ditt sökindex. Fält mappningar krävs för att flytta innehåll från berikade dokument till indexet.
 
 
 ## <a name="use-outputfieldmappings"></a>Använd outputFieldMappings
-Om du vill mappa fält `outputFieldMappings` lägger du till den i index definitions definitionen enligt nedan:
+Om du vill mappa fält lägger du till `outputFieldMappings` i din index definition enligt nedan:
 
 ```http
 PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -64,7 +64,7 @@ Bröd texten i begäran är strukturerad enligt följande:
 ```
 För varje fält mappning för utdata anger du namnet på det berikade fältet (sourceFieldName) och namnet på fältet som det refereras till i indexet (targetFieldName).
 
-Sökvägen i en sourceFieldName kan representera ett eller flera element. I exemplet ovan ```/document/content/sentiment``` representerar ett enkelt numeriskt värde, medan ```/document/content/organizations/*/description``` representerar flera organisations beskrivningar. I de fall där det finns flera element blir de "förenklade" i en matris som innehåller varje element. Mer konkret, ```/document/content/organizations/*/description``` i exemplet skulle data i fältet *beskrivningar* se ut som en plan mat ris med beskrivningar innan de indexeras:
+Sökvägen i en sourceFieldName kan representera ett eller flera element. I exemplet ovan representerar ```/document/content/sentiment``` ett enskilt numeriskt värde medan ```/document/content/organizations/*/description``` representerar flera organisations beskrivningar. I de fall där det finns flera element blir de "förenklade" i en matris som innehåller varje element. Mer konkret, för ```/document/content/organizations/*/description``` exemplet, skulle data i fältet *beskrivningar* se ut som en fast uppsättning beskrivningar innan de indexeras:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
@@ -72,4 +72,4 @@ Sökvägen i en sourceFieldName kan representera ett eller flera element. I exem
 ## <a name="next-steps"></a>Nästa steg
 När du har mappat dina berikade fält till sökbara fält kan du ange fältattribut för varje sökbart fält [som en del av index definitionen](search-what-is-an-index.md).
 
-Mer information om fält mappning finns [i fält mappningar i Azure Search indexerare](search-indexer-field-mappings.md).
+Mer information om fält mappning finns i [fält mappningar i Azure kognitiv sökning indexerare](search-indexer-field-mappings.md).

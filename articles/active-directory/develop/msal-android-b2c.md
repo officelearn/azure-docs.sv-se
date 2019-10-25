@@ -1,5 +1,6 @@
 ---
-title: Azure AD B2C (Microsoft Authentication Library för Android) | Azure
+title: Azure AD B2C (Microsoft Authentication Library för Android)
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Azure AD B2C med Microsoft Authentication Library för Android (MSAL. Android
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55356b19c8150c76858efb4edc593406c1722a4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8b5061f1ab341e5872dfa82c9f5c5b133ae40bdf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679742"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803233"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Använda MSAL för Android med B2C
 
@@ -58,7 +59,7 @@ Konfigurations filen för appen deklarerar två `authorities`. En för varje pri
 }
 ```
 
-@No__t-0 måste registreras i appens konfiguration, och även i `AndroidManifest.xml` för att stödja omdirigering under det [utfärdande flödet för auktoriseringskod](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+`redirect_uri` måste registreras i appens konfiguration och också i `AndroidManifest.xml` för att stödja omdirigering under det [utfärdande flödet för auktoriseringskod](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## <a name="initialize-ipublicclientapplication"></a>Initiera IPublicClientApplication
 
@@ -85,7 +86,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>Hämta en token interaktivt
 
-Om du vill hämta en token interaktivt med MSAL skapar du en `AcquireTokenParameters`-instans och anger den till `acquireToken`-metoden. Token-begäran nedan använder `default`-utfärdaren.
+Om du vill hämta en token interaktivt med MSAL skapar du en `AcquireTokenParameters`-instans och anger den till `acquireToken`-metoden. Token-begäran nedan använder `default` utfärdare.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -143,7 +144,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Ange en princip
 
-Eftersom principerna i B2C representeras som separata myndigheter, så kan du anropa en annan princip än standardvärdet genom att ange en `fromAuthority`-sats när du skapar `acquireToken`-eller `acquireTokenSilent`-parametrar.  Exempel:
+Eftersom principer i B2C representeras som separata myndigheter, så uppnår du en annan princip än standardvärdet genom att ange en `fromAuthority`-sats när du konstruerar `acquireToken`-eller `acquireTokenSilent` parametrar.  Exempel:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -219,7 +220,7 @@ String id = account.getId();
 // Get the IdToken Claims
 //
 // For more information about B2C token claims, see reference documentation
-// https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens
+// https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
 Map<String, ?> claims = account.getClaims();
 
 // Get the 'preferred_username' claim through a convenience function
@@ -231,7 +232,7 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken-anspråk
 
-Anspråk som returneras i IdToken fylls i av Security Token Service (STS), inte av MSAL. Beroende på vilken identitets leverantör (IdP) som används kan vissa anspråk saknas. Vissa IDP: er ger för närvarande inte `preferred_username`-anspråket. Eftersom detta anspråk används av MSAL för cachelagring används ett värde för plats hållare `MISSING FROM THE TOKEN RESPONSE` och används i sitt ställe. Mer information om B2C IdToken-anspråk finns i [Översikt över tokens i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Anspråk som returneras i IdToken fylls i av Security Token Service (STS), inte av MSAL. Beroende på vilken identitets leverantör (IdP) som används kan vissa anspråk saknas. Vissa IDP: er tillhandahåller för närvarande inte `preferred_username`-anspråk. Eftersom detta anspråk används av MSAL för cachelagring används ett värde för plats hållare, `MISSING FROM THE TOKEN RESPONSE`, i sitt ställe. Mer information om B2C IdToken-anspråk finns i [Översikt över tokens i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Hantera konton och principer
 

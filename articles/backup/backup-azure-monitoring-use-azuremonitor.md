@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d460688392ae017c0d87ce60fa980701e5d47d3
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528186"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792842"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
@@ -29,7 +29,7 @@ Azure Backup tillhandahåller [inbyggda övervaknings-och aviserings funktioner]
 ## <a name="using-log-analytics-workspace"></a>Använda Log Analytics arbets yta
 
 > [!NOTE]
-> Data från virtuella Azure-säkerhetskopieringar, Azure Backup-agenten, System Center Data Protection Manager, SQL-säkerhetskopieringar i virtuella Azure-datorer och Azure Files dela säkerhets kopiorna pumpas till Log Analytics arbets ytan via diagnostikinställningar.
+> Data från virtuella Azure-säkerhetskopieringar, Azure Backup-agenten, System Center Data Protection Manager, SQL-säkerhetskopieringar i virtuella Azure-datorer och Azure Files dela säkerhets kopiorna pumpas till Log Analytics arbets ytan via diagnostikinställningar. Stöd för Microsoft Azure Backup Server (MABS) kommer snart att läggas till
 
 För att övervaka/rapportera i skala behöver du funktionerna i två Azure-tjänster. *Diagnostikinställningar* skickar data från flera Azure Resource Manager resurser till en annan resurs. *Log Analytics* skapar anpassade aviseringar där du kan använda åtgärds grupper för att definiera andra meddelande kanaler.
 

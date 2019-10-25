@@ -1,27 +1,28 @@
 ---
-title: Visa ett kunskaps lager med Storage Explorer-Azure Search
-description: Visa och analysera en Azure Search kunskaps lager med Azure Portals Storage Explorer.
+title: Visa ett kunskaps lager med Storage Explorer
+titleSuffix: Azure Cognitive Search
+description: Visa och analysera Azure Kognitiv sökning kunskaps lager med Azure Portals Storage Explorer.
+manager: nitinme
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265608"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789980"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visa ett kunskaps lager med Storage Explorer
 
 > [!Note]
-> Kunskaps lagret är i för hands version och bör inte användas i produktionen. [Azure Search REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
+> Kunskaps lagret är i för hands version och bör inte användas i produktionen. [Azure Kognitiv sökning REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för .NET SDK.
 >
 I den här artikeln får du lära dig hur du ansluter och utforskar ett kunskaps lager med hjälp av Storage Explorer i Azure Portal. Om du vill skapa ett kunskaps lager exempel som används i den här genom gången, se [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Följ stegen i [skapa ett kunskaps lager i Azure Portal](knowledge-store-create-portal.md) för att skapa ett exempel på kunskaps lager som används i den här genom gången.
 

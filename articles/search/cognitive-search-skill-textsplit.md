@@ -1,22 +1,21 @@
 ---
-title: Text delning kognitiv Sök kompetens – Azure Search
-description: Dela upp text i segment eller sidor med text baserat på längd i en Azure Search anriknings pipeline.
-services: search
+title: Text delning kognitiv kunskap
+titleSuffix: Azure Cognitive Search
+description: Dela upp text i segment eller sidor med text baserat på längd i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a6e46970b6c0fc91c464207049d2dedaaee1afdd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2172ac30cd5b4251933e5012affdb41a0202a344
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265673"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784853"
 ---
-#   <a name="text-split-cognitive-skill"></a>Text delning kognitiv kunskap
+# <a name="text-split-cognitive-skill"></a>Text delning kognitiv kunskap
 
 **Texten Split** -kompetensen avbryter text i segment med text. Du kan ange om du vill dela upp texten i meningar eller på sidor med en viss längd. Den här kunskapen är särskilt användbar om det finns maximalt text längds krav i andra färdigheter. 
 
@@ -33,7 +32,7 @@ Parametrar är Skift läges känsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | textSplitMode      | Antingen "Pages" eller "meningar" | 
-| maximumPageLength | Om textSplitMode är inställt på "Pages", refererar detta till den maximala sid längden `String.Length`som mäts av. Minimivärdet är 100.  Om textSplitMode är inställt på "Pages" försöker algoritmen dela upp texten i segment som har flest "maximumPageLength" i storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något lägre än "maximumPageLength". | 
+| maximumPageLength | Om textSplitMode är inställt på "Pages", refererar detta till den maximala sid längden som mäts av `String.Length`. Minimivärdet är 100.  Om textSplitMode är inställt på "Pages" försöker algoritmen dela upp texten i segment som har flest "maximumPageLength" i storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något lägre än "maximumPageLength". | 
 | defaultLanguageCode   | valfritt En av följande språk koder: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.</li><li>Om språket inte finns i den föregående listan, delar den delade kompetensen texten vid tecken gränser.</li><li>Att ange en språkkod är användbart för att undvika att klippa ut ett ord på hälften för icke-utrymmes språk, till exempel kinesiska, japanska och koreanska.</li></ul>  |
 
 
@@ -133,5 +132,5 @@ Om ett språk inte stöds genereras en varning och texten delas upp vid tecken g
 
 ## <a name="see-also"></a>Se också
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

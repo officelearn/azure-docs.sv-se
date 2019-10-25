@@ -1,24 +1,25 @@
 ---
-title: C#Självstudie om att beställa resultat – Azure Search
-description: Den här självstudien bygger på projektet "Sök Resultat sid brytning – Azure Search" för att lägga till ordningen för Sök resultat. Lär dig hur du beställer resultat på en primär egenskap och för resultat som har samma primära egenskap och hur du beställer resultat på en sekundär egenskap. Slutligen kan du lära dig att beställa resultat baserat på en bedömnings profil.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: C#Självstudie om att beställa resultat
+titleSuffix: Azure Cognitive Search
+description: Den här självstudien bygger på projektet "Sök Resultat sid brytning – Azure Kognitiv sökning" för att lägga till ordningen för Sök resultat. Lär dig hur du beställer resultat på en primär egenskap och för resultat som har samma primära egenskap och hur du beställer resultat på en sekundär egenskap. Slutligen kan du lära dig att beställa resultat baserat på en bedömnings profil.
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/21/2019
-ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327653"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794058"
 ---
-# <a name="c-tutorial-order-the-results---azure-search"></a>C#gång Ordna resultaten – Azure Search
+# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C#Självstudie: ordna resultaten – Azure Kognitiv sökning
 
 Fram till den här punkten i våra självstudier, returneras och visas resultaten i en standard ordning. Detta kan vara den ordning som data finns i, eller så kanske en standard _bedömnings profil_ har definierats, som kommer att användas när inga ordnings parametrar har angetts. I den här självstudien får vi gå till hur du beställer resultat baserat på en primär egenskap och sedan för resultat som har samma primära egenskap, hur du beställer det valet på en sekundär egenskap. Som ett alternativ till att sortera baserat på numeriska värden visar det sista exemplet hur du beställer baserat på en anpassad bedömnings profil. Vi kommer också att gå djupare in i visningen av _komplexa typer_.
 
-För att kunna jämföra returnerade resultat enkelt, bygger det här projektet på det oändliga rullande projektet som skapats i självstudien [C# : Sid brytning för Sök Resultat – Azure Search @ no__t-0 – själv studie kurs.
+För att kunna jämföra returnerade resultat enkelt, bygger det här projektet på det oändliga rullnings bara projektet som skapades i [ C# självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -27,11 +28,11 @@ I den här guiden får du lära dig att:
 > * Filtrera resultat baserat på ett avstånd från en geografisk punkt
 > * Beställ resultat baserat på en bedömnings profil
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-Ha den oändliga rullnings bara versionen av självstudien [C# : Sid brytning för Sök Resultat – Azure Search @ no__t-0 projektet är igång. Projektet kan antingen vara din egen version eller installeras från GitHub: [Skapa första app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Ha den oändliga rullnings bara versionen av [ C# självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) Project up och igång. Projektet kan antingen vara din egen version eller installeras från GitHub: [skapa första app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="order-results-based-on-one-property"></a>Ordna resultat baserat på en egenskap
 
@@ -435,7 +436,7 @@ För att visa resultat baserat på geografisk avstånd krävs flera steg.
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Även om resultatet returnerades av Azure Search med ett avstånds filter, returneras _inte_ det beräknade avståndet mellan data och den angivna punkten. Beräkna om värdet i vyn eller kontroll enheten om du vill visa det i resultatet.
+3. Även om resultatet returnerades av Azure Kognitiv sökning med ett avstånds filter, returneras _inte_ det beräknade avståndet mellan data och den angivna punkten. Beräkna om värdet i vyn eller kontroll enheten om du vill visa det i resultatet.
 
     Följande kod beräknar avståndet mellan två Lat/Lon-punkter.
 
@@ -465,7 +466,7 @@ För att visa resultat baserat på geografisk avstånd krävs flera steg.
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Beställ resultat baserat på en bedömnings profil
 
-I exemplen i självstudien visar vi hur man beställer numeriska värden (klassificering, renoverings datum, geografiskt avstånd), vilket ger en _exakt_ beställning av ordning. Vissa sökningar och vissa data lånar dock inte ut till en enkel jämförelse mellan två data element. I Azure Search ingår begreppet _poängsättning_. _Bedömnings profiler_ kan anges för en uppsättning data som kan användas för att tillhandahålla mer komplexa och kvalitativa jämförelser, som bör vara mest värdefulla när du antar textbaserade data för att bestämma vilka som ska visas först.
+I exemplen i självstudien visar vi hur man beställer numeriska värden (klassificering, renoverings datum, geografiskt avstånd), vilket ger en _exakt_ beställning av ordning. Vissa sökningar och vissa data lånar dock inte ut till en enkel jämförelse mellan två data element. I Azure Kognitiv sökning ingår begreppet _resultat_. _Bedömnings profiler_ kan anges för en uppsättning data som kan användas för att tillhandahålla mer komplexa och kvalitativa jämförelser, som bör vara mest värdefulla när du antar textbaserade data för att bestämma vilka som ska visas först.
 
 Bedömnings profiler definieras inte av användare, men vanligt vis av administratörer för en data uppsättning. Flera bedömnings profiler har kon figurer ATS på hotell data. Nu ska vi titta på hur en bedömnings profil definieras och sedan försöka skriva kod för att söka efter dem.
 
@@ -543,7 +544,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
 
 ### <a name="add-code-to-the-view-to-compare-profiles"></a>Lägg till kod i vyn för att jämföra profiler
 
-1. Öppna filen index. cshtml och ersätt avsnittet &lt;body @ no__t-1 med följande kod.
+1. Öppna filen index. cshtml och ersätt avsnittet &lt;Body&gt; med följande kod.
 
     ```cs
     <body>
@@ -957,7 +958,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
 
 ### <a name="resources"></a>Resurser
 
-Mer information finns i följande [lägga till bedömnings profiler i ett Azure Search index](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+Mer information finns i följande [lägga till bedömnings profiler i ett Azure kognitiv sökning-index](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
 
 ## <a name="takeaways"></a>Lärdomar
 
@@ -971,6 +972,6 @@ Tänk på följande takeaways från det här projektet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har slutfört den här C# serien med självstudier – du bör ha fått värdefulla kunskaper om Azure Search API: er.
+Du har slutfört den här C# serien med självstudier – du bör ha fått värdefull kunskap om Azure kognitiv sökning API: er.
 
-Om du vill ha mer information och själv studie kurser kan du läsa [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure)eller de andra självstudierna i [Azure Search-dokumentationen](https://docs.microsoft.com/azure/search/).
+Om du vill ha mer information och själv studie kurser kan du läsa [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure)eller de andra självstudierna i [Azure kognitiv sökning-dokumentationen](https://docs.microsoft.com/azure/search/).

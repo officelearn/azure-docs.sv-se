@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: akjosh
-ms.openlocfilehash: 3a999b93ce7246a91db8dd3df7536513b6e11029
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 86c05519e7027ec8b7434919bf43f9b4602b0300
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174034"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789963"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använd Azures anpassade skript tillägg version 2 med virtuella Linux-datorer
 Det anpassade skript tillägget version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, program varu installation eller andra konfigurations-och hanterings åtgärder. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internet plats, eller så kan du ange dem till tilläggets körnings miljö. 
@@ -33,12 +33,12 @@ Det finns två anpassade skript tillägg för Linux:
 * Version 1-Microsoft. OSTCExtensions. CustomScriptForLinux
 * Version 2-Microsoft. Azure. Extensions. CustomScript
 
-Växla mellan nya och befintliga distributioner för att använda den nya version 2 i stället. Den nya versionen är avsedd att vara en ersättning. Därför är migreringen lika enkel som att ändra namn och version. du behöver inte ändra tilläggs konfigurationen.
+Växla mellan nya och befintliga distributioner för att använda den nya version 2 i stället. Den nya versionen är avsedd att vara en lättillgänglig ersättning. Därför är migreringen lika enkel som att ändra namn och version. Du behöver inte ändra tilläggskonfigurationen.
 
 
 ### <a name="operating-system"></a>Operativsystem
 
-Det anpassade skript tillägget för Linux kommer att köras på tillägget tillägg som stöds, mer information finns i den här [artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+Det anpassade skript tillägget för Linux kommer att köras på tillägget tillägg som stöds, mer information finns i den här [artikeln](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
 ### <a name="script-location"></a>Skript plats
 
@@ -55,7 +55,7 @@ Om ditt skript finns på en lokal server kanske du fortfarande behöver fler bra
 * Kontrol lera att skripten inte kräver användarindata när de körs.
 * Det finns 90 minuter som tillåts för att skriptet ska kunna köras. allt längre leder till en misslyckad etablering av tillägget.
 * Starta inte om omstarter inuti skriptet. Detta leder till problem med andra tillägg som installeras och efter omstarten kommer tillägget inte att fortsätta efter omstarten. 
-* Om du har ett skript som utlöser en omstart installerar program, kör skript osv. Du bör schemalägga en omstart med hjälp av ett cron-jobb eller använda verktyg som DSC eller chef, Puppet-tillägg.
+* Om du har ett skript som gör en omstart installerar du program och kör skript osv. Du bör schemalägga en omstart med hjälp av ett cron-jobb eller använda verktyg som DSC eller chef, Puppet-tillägg.
 * Tillägget kör bara ett skript en gång, om du vill köra ett skript vid varje start, kan du använda [Cloud-Init-avbildning](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) och använda [skript per](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) startmodul. Du kan också använda skriptet för att skapa en system tjänst enhet.
 * Om du vill schemalägga när ett skript ska köras ska du använda tillägget för att skapa ett cron-jobb. 
 * När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du vill ha mer frekventa status uppdateringar för ett skript som körs måste du skapa en egen lösning.
@@ -70,7 +70,7 @@ Konfigurationen för det anpassade skript tillägget anger saker som skript plat
 
 Du kan lagra känsliga data i en skyddad konfiguration, som krypteras och bara dekrypteras i den virtuella datorn. Den skyddade konfigurationen är användbar när körnings kommandot innehåller hemligheter som lösen ord.
 
-De här objekten ska behandlas som känsliga data och anges i konfigurationerna för tilläggen för skyddad inställning. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn.
+De här objekten ska behandlas som känsliga data och anges i konfigurationerna för tilläggen för skyddad inställning. Skyddade inställnings data för Azure VM-tillägg krypteras och endast dekrypteras på den virtuella mål datorn.
 
 ```json
 {
@@ -104,30 +104,30 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 }
 ```
 
-### <a name="property-values"></a>Egenskapsvärden
+### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värdet / exempel | Datatyp | 
+| Namn | Värde/exempel | Datatyp | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | date |
-| publisher | Microsoft. Compute. Extensions | sträng |
-| type | CustomScript | sträng |
+| apiVersion | 2019-03-01 | datum |
+| Förläggare | Microsoft. Compute. Extensions | sträng |
+| typ | CustomScript | sträng |
 | typeHandlerVersion | 2.0 | int |
-| fileUris (t. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (t. ex.) | python MyPythonScript.py \<My-param1 > | sträng |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | sträng |
-| skipDos2Unix (t. ex.) | false | boolean |
-| timestamp (t.ex.) | 123456789 | 32-bitars heltal |
+| fileUris (t. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
+| commandToExecute (t. ex.) | python-MyPythonScript.py \<param1 > | sträng |
+| -skriptet | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | sträng |
+| skipDos2Unix (t. ex.) | false | boolesk |
+| tidsstämpel (t. ex.) | 123456789 | 32-bitars heltal |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
-| storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
+| storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | sträng |
 
 ### <a name="property-value-details"></a>Information om egenskaps värde
 * `skipDos2Unix`: (valfritt, boolesk) hoppa över dos2unix-konvertering av skriptbaserade fil-URL: er eller skript.
-* `timestamp`(valfritt, 32-bitars heltal) Använd bara det här fältet för att utlösa en ny körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
+* `timestamp` (valfritt, 32-bitars heltal) Använd endast det här fältet för att utlösa en ny körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
   * `commandToExecute`: (**krävs** om skript inte har angetts, sträng) Start punkt skriptet som ska köras. Använd det här fältet i stället om kommandot innehåller hemligheter som lösen ord.
 * `script`: (**krävs** om commandToExecute inte har angetts, sträng) ett base64-kodat (och eventuellt gzip'ed) skript som körs av/bin/sh.
 * `fileUris`: (valfritt, sträng mat ris) URL: er för fil (er) som ska hämtas.
-* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter för lagring måste `fileUris` alla vara URL: er för Azure-blobar.
-* `storageAccountKey`: (valfritt, sträng) åtkomst nyckeln för lagrings kontot
+* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter för lagring måste alla `fileUris` vara URL: er för Azure-blobar.
+* `storageAccountKey`: (valfri, sträng) åtkomst nyckeln för lagrings kontot
 
 
 Följande värden kan anges i offentliga eller skyddade inställningar. tillägget kommer att neka alla konfigurationer där värdena nedan anges i både offentliga och skyddade inställningar.
@@ -143,9 +143,9 @@ Offentliga inställningar skickas i klartext till den virtuella dator där skrip
 
 Standardvärdet är false, vilket innebär att dos2unix **-konverteringen körs.**
 
-Den tidigare versionen av CustomScript, Microsoft. OSTCExtensions. CustomScriptForLinux, konverterar automatiskt dos-filer till UNIX-filer genom `\r\n` att översätta till. `\n` Den här översättningen finns fortfarande och är på som standard. Den här konverteringen tillämpas på alla filer som laddats ned från fileUris eller skript inställningen baserat på något av följande kriterier.
+Den tidigare versionen av CustomScript, Microsoft. OSTCExtensions. CustomScriptForLinux, konverterar automatiskt DOS-filer till UNIX-filer genom att översätta `\r\n` till `\n`. Den här översättningen finns fortfarande och är på som standard. Den här konverteringen tillämpas på alla filer som laddats ned från fileUris eller skript inställningen baserat på något av följande kriterier.
 
-* Om `.sh`tillägget är en av `.txt` `.py`,, eller `.pl` kommer att konverteras. Skript inställningen matchar alltid det här kriteriet eftersom det antas vara ett skript som körs med/bin/sh och som sparas som script.sh på den virtuella datorn.
+* Om tillägget är ett av `.sh`, `.txt`, `.py`eller `.pl` kommer det att konverteras. Skript inställningen matchar alltid det här kriteriet eftersom det antas vara ett skript som körs med/bin/sh och som sparas som script.sh på den virtuella datorn.
 * Om filen börjar med `#!`.
 
 Dos2unix-omvandlingen kan hoppas över genom att ange skipDos2Unix till true.
@@ -201,7 +201,7 @@ CustomScript använder följande algoritm för att köra ett skript.
 
 
 ## <a name="template-deployment"></a>Malldistribution
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Det JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager mall för att köra det anpassade skript tillägget under en Azure Resource Manager mall-distribution. En exempel mall som innehåller tillägget för anpassat skript hittar du här, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Det JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager mall för att köra det anpassade skript tillägget under en Azure Resource Manager mall-distribution. En exempel mall som innehåller tillägget för anpassat skript hittar du här, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 
 ```json
@@ -328,7 +328,7 @@ az vm extension set \
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 När det anpassade skript tillägget körs, skapas eller laddas skriptet ned till en katalog som liknar följande exempel. Kommandots utdata sparas också i den här katalogen i `stdout` och `stderr` filer.
 
 ```bash

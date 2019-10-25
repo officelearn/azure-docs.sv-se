@@ -1,25 +1,25 @@
 ---
-title: Skapa en färdigheter i en kognitiv Sök pipeline – Azure Search
-description: Definiera data extrahering, naturlig språk bearbetning eller bild analys steg för att utöka och extrahera strukturerad information från dina data för användning i Azure Search.
+title: Skapa en färdigheter i en anriknings pipeline
+titleSuffix: Azure Cognitive Search
+description: Definiera data extrahering, naturlig språk bearbetning eller bild analys steg för att utöka och extrahera strukturerad information från dina data för användning i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71265518"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787470"
 ---
-# <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Så här skapar du en färdigheter i en anriknings pipeline
+# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Så här skapar du en färdigheter i en pipeline för AI-anrikning i Azure Kognitiv sökning 
 
-Kognitiv sökning extraherar och berikar data så att de kan sökas i Azure Search. Vi anropar extraherings-och anriknings stegen *kognitiva färdigheter*, kombinerat med en *färdigheter* som refereras under indexeringen. En färdigheter kan använda [inbyggda kunskaper](cognitive-search-predefined-skills.md) eller anpassade kunskaper (se [exempel: skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md) för mer information).
+AI-anrikningen extraherar och berikar data så att det går att söka i Azure Kognitiv sökning. Vi anropar extraherings-och anriknings stegen *kognitiva färdigheter*, kombinerat med en *färdigheter* som refereras under indexeringen. En färdigheter kan använda [inbyggda kunskaper](cognitive-search-predefined-skills.md) eller anpassade kunskaper (se [exempel: skapa en anpassad färdighet i en AI-pipeline](cognitive-search-create-custom-skill-example.md) för mer information).
 
-I den här artikeln får du lära dig hur du skapar en rikare pipeline för de kunskaper du vill använda. En färdigheter är kopplad till en Azure Search- [indexerare](search-indexer-overview.md). En del av pipeline-designen, som beskrivs i den här artikeln, konstruerar själva färdigheter. 
+I den här artikeln får du lära dig hur du skapar en rikare pipeline för de kunskaper du vill använda. En färdigheter är kopplad till en Azure Kognitiv sökning- [indexerare](search-indexer-overview.md). En del av pipeline-designen, som beskrivs i den här artikeln, konstruerar själva färdigheter. 
 
 > [!NOTE]
 > En annan del av pipeline-designen är att ange en indexerare som beskrivs i [Nästa steg](#next-step). En indexare-definition innehåller en referens till färdigheter, plus fält mappningar som används för att ansluta indata till utdata i mål indexet.
@@ -45,10 +45,10 @@ Följande diagram illustrerar en hypotetisk anriknings pipeline:
 ![En hypotetisk anriknings pipeline](media/cognitive-search-defining-skillset/sample-skillset.png "En hypotetisk anriknings pipeline")
 
 
-När du har en god uppfattning om vad du vill ha i pipelinen kan du uttrycka färdigheter som innehåller de här stegen. Funktionen färdigheter uttrycks när du laddar upp din index-definition till Azure Search. Mer information om hur du överför indexeraren finns i [dokumentationen för indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+När du har en god uppfattning om vad du vill ha i pipelinen kan du uttrycka färdigheter som innehåller de här stegen. Funktionen färdigheter uttrycks när du laddar upp din index-definition till Azure Kognitiv sökning. Mer information om hur du överför indexeraren finns i [dokumentationen för indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
-I diagrammet sker steget för att *knäcka dokument* automatiskt. Azure Search vet i princip hur man öppnar välkända filer och skapar ett *innehålls* fält som innehåller den text som extraheras från varje dokument. De vita rutorna är inbyggda och de prickade Entitetssökning i Bings rutan representerar en anpassad berikare som du skapar. Som illustreras innehåller färdigheter tre kunskaper.
+I diagrammet sker steget för att *knäcka dokument* automatiskt. Azure Kognitiv sökning vet i princip hur man öppnar välkända filer och skapar ett *innehålls* fält som innehåller den text som extraheras från varje dokument. De vita rutorna är inbyggda och de prickade Entitetssökning i Bings rutan representerar en anpassad berikare som du skapar. Som illustreras innehåller färdigheter tre kunskaper.
 
 ## <a name="skillset-definition-in-rest"></a>Färdigheter-definition i REST
 
@@ -243,11 +243,11 @@ Ett sannolikt resultat skulle vara en genererad struktur som liknar följande bi
 
 ![Exempel på utdata-struktur](media/cognitive-search-defining-skillset/enriched-doc.png "Exempel på utdata-struktur")
 
-Fram till nu har den här strukturen endast internt, endast minne och används endast i Azure Search index. Tillägget av ett kunskaps lager ger dig ett sätt att spara formad berikare för användning utanför sökningen.
+Fram till nu har den här strukturen endast internt, endast minne och används i Azure Kognitiv sökning index. Tillägget av ett kunskaps lager ger dig ett sätt att spara formad berikare för användning utanför sökningen.
 
 ## <a name="add-a-knowledge-store"></a>Lägg till ett kunskaps lager
 
-[Kunskaps lager](knowledge-store-concept-intro.md) är en förhands gransknings funktion i Azure Search för att spara ditt förrikade dokument. Ett kunskaps lager som du skapar, som backas upp av ett Azure Storage-konto, är den lagrings plats där dina berikade data hamnar. 
+[Knowledge Store](knowledge-store-concept-intro.md) är en förhands gransknings funktion i Azure kognitiv sökning för att spara ditt förrikade dokument. Ett kunskaps lager som du skapar, som backas upp av ett Azure Storage-konto, är den lagrings plats där dina berikade data hamnar. 
 
 En kunskaps lager definition har lagts till i en färdigheter. En genom gång av hela processen finns i [så här kommer du igång med kunskaps lager](knowledge-store-howto.md).
 

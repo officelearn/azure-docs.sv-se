@@ -11,14 +11,14 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: e80d79c16b0748e25e549365001990fb014b5f14
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 895425232dabc78650b6ee7ed035048471084237
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030550"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793901"
 ---
-# <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
+# <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskin inlärning?
 
 Automatisk maskin inlärning, som även kallas automatiserad ML, är en process för att automatisera tids krävande, repetitiva uppgifter om utveckling av Machine Learning-modeller. Det gör det möjligt för data experter, analytiker och utvecklare att bygga ML-modeller med hög skalbarhet, effektivitet och produktivitet samtidigt som modell kvaliteten försämras. Automatisk ML baseras på en Ban brytande från vår [Microsoft Research-avdelning](https://arxiv.org/abs/1705.05355).
 
@@ -50,7 +50,7 @@ Med hjälp av **Azure Machine Learning**kan du utforma och köra dina AUTOMATISE
 
 1. **Identifiera det ml-problem** som ska lösas: klassificering, Prognosticering eller regression
 
-1. **Ange källa och format för de märkta tränings data**: Numpy-matriser eller Pandas-dataframe
+1. **Ange källa och format för etiketten utbildnings data**: numpy-matriser eller Pandas-dataframe
 
 1. **Konfigurera beräknings målet för modell träning**, till exempel din [lokala dator, Azure Machine Learning beräkningar, fjärranslutna virtuella datorer eller Azure Databricks](how-to-set-up-training-targets.md).  Lär dig mer om automatisk utbildning [på en fjär resurs](how-to-auto-train-remote.md).
 
@@ -62,7 +62,7 @@ Med hjälp av **Azure Machine Learning**kan du utforma och köra dina AUTOMATISE
 
 Under utbildningen skapar Azure Machine Learning ett antal parallella pipelines som testar olika algoritmer och parametrar. Det stoppas när det träffar de slut kriterier som definierats i experimentet.
 
-Du kan också kontrol lera den loggade körnings informationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Inlärnings körningen skapar ett serialiserat python-objekt (`.pkl`-fil) som innehåller modellen och data förbearbetningen.
+Du kan också kontrol lera den loggade körnings informationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Inlärnings körningen skapar ett serialiserat python-objekt (`.pkl` fil) som innehåller modellen och data förbearbetningen.
 
 När modell byggnaden automatiseras, kan du också [lära dig hur viktiga eller relevanta funktioner är](how-to-configure-auto-train.md#explain) i de genererade modellerna.
 
@@ -81,7 +81,7 @@ I varje automatiserad maskin inlärnings experiment förbehandlas dina data med 
 
 I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt eller normaliseras för att hjälpa algoritmerna att fungera bra.  I modell utbildningen används en av följande skalnings-eller normaliserings tekniker för varje modell.
 
-|Skala @ no__t-0 @ no__t-1 @ no__t-2normalization| Beskrivning |
+|Skala&nbsp;&&nbsp;normalisering| Beskrivning |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardisera funktioner genom att ta bort medelvärdet och skalan till enhets avvikelse  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transformerar funktioner genom att skala varje funktion efter minsta och högsta värde för kolumnen  |
@@ -95,9 +95,9 @@ I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt
 
 Ytterligare avancerade för bearbetnings-och funktionalisering är också tillgängliga, t. ex. saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess). Aktivera den här inställningen med:
 
-+ Azure-portalen: Markera kryss rutan för **process** i **Avancerade inställningar** [med de här stegen](how-to-create-portal-experiments.md).
++ Azure Portal: genom att markera kryss rutan för **process** i **Avancerade inställningar** [med de här stegen](how-to-create-portal-experiments.md).
 
-+ Python SDK: Ange `"preprocess": True` för [klassen `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ Python SDK: Ange `"preprocess": True` för [`AutoMLConfig`-klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 
 ## <a name="time-series-forecasting"></a>Tidsserieprognoser
@@ -108,6 +108,8 @@ Ett automatiserat experiment med tids serier behandlas som ett multivarierad Reg
 Läs mer och se ett exempel på [automatiserad maskin inlärning för tids serie prognoser](how-to-auto-train-forecast.md). Eller, se [antecknings boken för energi förbrukning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) för detaljerade kod exempel på avancerad prognos konfiguration, inklusive:
 
 * jul avkänning och funktionalisering
+* Time-Series och DNN-elever (Auto-ARIMA, Prophet, ForecastTCN)
+* många modell stöd genom gruppering
 * kors validering av rullande ursprung
 * konfigurerbar lags
 * mängd funktioner för rullande fönster
@@ -172,7 +174,7 @@ Automatisk ML är också tillgängligt i andra Microsoft-lösningar som:
 
 Se exempel och lär dig hur du skapar modeller med hjälp av automatisk maskin inlärning:
 
-+ Följ [Tutorial: Träna en Regressions modell automatiskt med Azures automatiserad Machine Learning @ no__t-0
++ Följ [själv studie kursen: träna en Regressions modell automatiskt med Azures automatiserade Machine Learning](tutorial-auto-train-models.md)
 
 + Konfigurera inställningarna för automatiskt utbildnings experiment:
   + [Använd de här stegen](how-to-create-portal-experiments.md)i Azure Portal gränssnitt eller landnings sidan för arbets ytan (för hands version).

@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt över de centrala Azure-
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 4aca2a4495d4b6c3669982b2e7757b7252d70f6a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 6c01df071f263f7080f6c89b539d9a40aeff282f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828563"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792625"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över Azure Virtual Machines-säkerhet
 Den här artikeln innehåller en översikt över de centrala Azure-säkerhetsfunktioner som kan användas med virtuella datorer.
@@ -45,22 +45,10 @@ Microsoft Antimalware för Azure Cloud Services och Virtual Machines är en real
 
 Microsoft Antimalware för Azure är en lösning för en enskild agent för program-och klient miljöer. Den är utformad för att köras i bakgrunden utan mänsklig inblandning. Du kan distribuera skydd baserat på dina arbets belastningar för dina program, med antingen grundläggande säkerhet eller avancerad anpassad konfiguration, inklusive övervakning av program mot skadlig kod.
 
-När du distribuerar och aktiverar Microsoft Antimalware för Azure är följande kärn funktioner tillgängliga:
-
-* **Real tids skydd**: Övervakar aktivitet i Cloud Services och på Virtual Machines för att identifiera och blockera körning av skadlig kod.
-* **Schemalagd genomsökning**: Utför regelbundet genomsökning för att identifiera skadlig kod, inklusive aktivt aktiva program.
-* **Reparation av skadlig kod**: Vidtar automatiskt åtgärder vid identifierad skadlig kod, som att ta bort eller sätta skadliga filer och rensa skadliga register poster.
-* **Uppdateringar av signatur**: Installerar automatiskt de senaste skydds signaturerna (virus definitioner) för att säkerställa att skyddet är uppdaterat på en fördefinierad frekvens.
-* **Uppdateringar av motorn för program mot skadlig kod**: Uppdaterar automatiskt Microsoft Antimalware för Azure-motorn.
-* **Plattforms uppdateringar för program mot skadlig kod**: Uppdaterar automatiskt Microsoft Antimalware för Azure-plattformen.
-* **Aktivt skydd**: Rapporterar telemetri-metadata till Azure om identifierade hot och misstänkta resurser för att säkerställa snabba svar. Möjliggör överföring av synkron signatur i real tid via Microsoft Active Protection System (MAPS).
-* **Exempel rapportering**: Innehåller och rapporterar exempel till Microsoft Antimalware för Azure-tjänsten för att förbättra tjänsten och aktivera fel sökning.
-* **Undantag**: Gör det möjligt för program-och tjänst administratörer att konfigurera vissa filer, processer och enheter för att undanta dem från skydd och genomsökning av prestanda och andra orsaker.
-* **Insamling av program mot skadlig kod**: Registrerar hälso tillstånd för program mot skadlig kod, misstänkta aktiviteter och reparations åtgärder som vidtagits i operativ systemets händelse logg och samlar in dem i ditt Azure Storage-konto.
+Läs mer om [Microsofts program mot skadlig kod för Azure](antimalware.md) och de viktigaste funktionerna som är tillgängliga.
 
 Lär dig mer om program mot skadlig kod för att hjälpa till att skydda dina virtuella datorer:
 
-* [Microsoft Antimalware för Azure Cloud Services och Virtual Machines](antimalware.md)
 * [Distribuera lösningar för skydd mot skadlig kod i Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Så här installerar och konfigurerar du Trend Micro djupgående säkerhet som en tjänst på en virtuell Windows-dator](/azure/virtual-machines/windows/classic/install-trend)
 * [Så här installerar och konfigurerar du Symantec Endpoint Protection på en virtuell Windows-dator](/azure/virtual-machines/windows/classic/install-symantec)
@@ -102,7 +90,7 @@ Lösningen är integrerad med Azure Key Vault som hjälper dig att styra och han
 Läs mer:
 
 * [Azure Disk Encryption för virtuella IaaS-datorer](/azure/security/azure-security-disk-encryption-overview)
-* [Snabbstart: Kryptera en virtuell Windows IaaS-dator med Azure PowerShell @ no__t-0
+* [Snabb start: kryptera en virtuell Windows IaaS-dator med Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Säkerhetskopiering av virtuell dator
 
@@ -120,10 +108,10 @@ En viktig del av din organisations BCDR strategi är att ta reda på hur du hål
 Site Recovery:
 
 * **Fören klar din BCDR-strategi**: Site Recovery gör det enkelt att hantera replikering, redundans och återställning av flera arbets belastningar och appar från en enda plats. Site Recovery dirigerar replikering och redundans men fångar inte dina program data eller har ingen information om den.
-* **Tillhandahåller flexibel replikering**: Med hjälp av Site Recovery kan du replikera arbets belastningar som körs på virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows-och Linux-servrar.
-* **Stöder redundans och återställning**: Site Recovery tillhandahåller redundanstest för att stödja haveri beredskap utan att påverka produktions miljöer. Du kan också köra planerade redundansväxlingar utan någon dataförlust för förväntade driftsavbrott, eller oplanerade redundansväxlingar med minimal dataförlust (beroende på replikeringsfrekvens) för oväntade haverier. Efter redundansväxlingen kan du växla tillbaka till dina primära platser. Site Recovery tillhandahåller återställningsplaner som kan innehålla skript och Azure Automation Runbook-rutiner så att du kan anpassa redundans och återställning av program med flera nivåer.
-* **Eliminerar sekundära Data Center**: Du kan replikera till en sekundär lokal plats eller till Azure. Om du använder Azure som mål för haveri beredskap elimineras kostnaden och komplexiteten med att underhålla en sekundär plats. Replikerade data lagras i Azure Storage.
-* **Integrerar med befintliga BCDR-tekniker**: Site Recovery partner med andra programs BCDR-funktioner. Du kan till exempel använda Site Recovery för att skydda SQL Server backend-delen av företags arbets belastningar. Detta inkluderar inbyggt stöd för SQL Server Always on för att hantera redundans för tillgänglighets grupper.
+* **Ger flexibel replikering**: genom att använda Site Recovery kan du replikera arbets belastningar som körs på virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows-och Linux-servrar.
+* **Stöder redundans och återställning**: Site Recovery tillhandahåller redundanstest som stöder haveri beredskap utan att påverka produktions miljöer. Du kan också köra planerade redundansväxlingar utan någon dataförlust för förväntade driftsavbrott, eller oplanerade redundansväxlingar med minimal dataförlust (beroende på replikeringsfrekvens) för oväntade haverier. Efter redundansväxlingen kan du växla tillbaka till dina primära platser. Site Recovery tillhandahåller återställningsplaner som kan innehålla skript och Azure Automation Runbook-rutiner så att du kan anpassa redundans och återställning av program med flera nivåer.
+* **Eliminerar sekundära Data Center**: du kan replikera till en sekundär lokal plats eller till Azure. Om du använder Azure som mål för haveri beredskap elimineras kostnaden och komplexiteten med att underhålla en sekundär plats. Replikerade data lagras i Azure Storage.
+* Är **integrerat med befintliga BCDR-tekniker**: Site Recovery partner med andra PROGRAMs BCDR-funktioner. Du kan till exempel använda Site Recovery för att skydda SQL Server backend-delen av företags arbets belastningar. Detta inkluderar inbyggt stöd för SQL Server Always on för att hantera redundans för tillgänglighets grupper.
 
 Läs mer:
 
@@ -164,14 +152,14 @@ Azure Virtual Machines är certifierat för FISMA, FedRAMP, HIPAA, PCI DSS nivå
 
 Läs mer:
 
-* [Microsoft säkerhets Center: Kompatibilitet @ no__t-0
-* [Trusted Cloud: Microsoft Azure säkerhet, sekretess och efterlevnad @ no__t-0
+* [Microsoft säkerhets Center: efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance)
+* [Betrott moln: Microsoft Azure säkerhet, sekretess och efterlevnad](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## <a name="confidential-computing"></a>Konfidentiell dator användning
 
 Även om konfidentiella data behandling inte är tekniskt en del av säkerheten för virtuella datorer, ingår avsnittet om säkerhet på den virtuella datorn på den högre nivån av "Compute"-säkerhet. Konfidentiell data behandling ingår i kategorin "Compute"-säkerhet.
 
-Konfidentiell bearbetning garanterar att när data är "i klartext", vilket krävs för effektiv bearbetning, skyddas data i en betrodd körnings miljö https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE-även kallat en enklaven), ett exempel på som visas i bilden nedan.  
+Konfidentiell bearbetning garanterar att när data är "i klartext", vilket krävs för effektiv bearbetning, skyddas data i en betrodd körnings miljö https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE, även kallat en enklaven), ett exempel på som visas i bilden nedan.  
 
 TEEs se till att det inte finns något sätt att visa data eller åtgärderna inuti utanför, även med en fel sökare. De säkerställer även att endast auktoriserad kod tillåts komma åt data. Om koden ändras eller manipuleras, nekas åtgärderna och miljön inaktive rad. TEE tillämpar dessa skydd i hela körningen av kod i den.
 
@@ -179,3 +167,7 @@ Läs mer:
 
 * [Introduktion till Azures konfidentiella data behandling](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Azures konfidentiella data behandling](https://azure.microsoft.com/blog/azure-confidential-computing/)  
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om [rekommenderade säkerhets metoder](iaas.md) för virtuella datorer och operativ system.

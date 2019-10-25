@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511013"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784837"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -64,7 +64,7 @@ Ja. Information om hur du skapar en aliasresurspost för domän namns toppen fö
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Anser Traffic Manager klient under nät adressen vid hantering av DNS-frågor? 
 
 Ja, förutom käll-IP-adressen för den DNS-fråga som den tar emot (som vanligt vis är IP-adressen för DNS-matcharen), vid sökning efter geografiska, prestanda-och under nätets routningsmetoder, tar Traffic Manager även hänsyn till klient under nät adressen om den ingår i frågan av matcharen och gör begäran åt slutanvändaren.  
-Mer specifikt, [RFC 7871 – klient under nät i DNS-frågor](https://tools.ietf.org/html/rfc7871) som tillhandahåller en utöknings [metod för DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) som kan överföra klient under nätets adress från matchare som stöder det.
+Mer specifikt, [RFC 7871 – klient under nät i DNS-frågor](https://tools.ietf.org/html/rfc7871) som tillhandahåller en [utöknings metod för DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) som kan överföra klient under nätets adress från matchare som stöder det.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Vad är DNS TTL och hur påverkar det mina användare?
 
@@ -172,7 +172,7 @@ Du kan ange det maximala antalet slut punkter som ska returneras och multivärde
 
 Vi kan inte garantera att samma uppsättning slut punkter returneras i varje fråga. Detta påverkas också av att några av slut punkterna kan hamna i fel tillstånd när de inte tas med i svaret
 
-## <a name="real-user-measurements"></a>Faktisk slutanvändarmätning
+## <a name="real-user-measurements"></a>Real User Measurements
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Vilka är fördelarna med att använda Faktisk slutanvändarmätning?
 
@@ -252,7 +252,7 @@ Nej, du behöver inte vara värd för någon komponent på Server sidan på Azur
 
 Som vi nämnt i föregående svar ägs och hanteras Server sidans komponenter i Faktisk slutanvändarmätning och hanteras av Azure. Det innebär att din Azure bandbredds användning inte ökar eftersom du använder Faktisk slutanvändarmätning. Detta omfattar inte bandbredds användningen utanför Azure-avgifterna. Vi minimerar bandbredden som används genom att bara hämta en bild punkts bild för att mäta svars tiden för en Azure-region. 
 
-## <a name="traffic-view"></a>Trafikvy
+## <a name="traffic-view"></a>Traffic View
 
 ### <a name="what-does-traffic-view-do"></a>Vad gör Trafikvy?
 
@@ -326,7 +326,7 @@ Normalt används Traffic Manager för att dirigera trafik till program som distr
 
 Azure-slutpunkter som är associerade med en Traffic Manager-profil spåras med hjälp av deras resurs-ID. När en Azure-resurs som används som en slut punkt (t. ex. offentlig IP, klassisk moln tjänst, WebApp eller en annan Traffic Manager profil som används på ett kapslat sätt) flyttas till en annan resurs grupp eller prenumeration ändras resurs-ID: t. I det här scenariot måste du för närvarande uppdatera Traffic Manager profilen genom att först ta bort och sedan lägga till tillbaka slut punkterna till profilen.
 
-## <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager slut punkts övervakning
+## <a name="traffic-manager-endpoint-monitoring"></a>Slutpunktsövervakning för Traffic Manager
 
 ### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>Är Traffic Manager elastisk till Azures regions problem?
 
@@ -345,7 +345,7 @@ Azure Resource Manager kräver att alla resurs grupper anger en plats, vilket av
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Hur gör jag för att avgöra den aktuella hälsan för varje slut punkt?
 
-Den aktuella övervaknings statusen för varje slut punkt, utöver den övergripande profilen, visas i Azure Portal. Den här informationen är också tillgänglig via trafik övervaknings [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager)-cmdletar och plattforms [oberoende Azure CLI](../cli-install-nodejs.md).
+Den aktuella övervaknings statusen för varje slut punkt, utöver den övergripande profilen, visas i Azure Portal. Den här informationen är också tillgänglig via trafik övervaknings [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.trafficmanager)och plattforms [oberoende Azure CLI](../cli-install-nodejs.md).
 
 Du kan också använda Azure Monitor för att spåra hälso tillståndet för dina slut punkter och se en visuell representation av dem. Mer information om hur du använder Azure Monitor finns i [dokumentationen för Azure-övervakning](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
@@ -382,25 +382,25 @@ När en fråga tas emot mot en profil hittar Traffic Manager först den slut pun
 
 För profiler med någon annan routningsmetod än multivärde:
 
-|Begäran om inkommande fråga|    Typ av slutpunkt|  Svar har angetts|
+|Begäran om inkommande fråga|    Slut punkts typ|  Svar har angetts|
 |--|--|--|
-|HELST |  A / AAAA / CNAME |  Mål slut punkt| 
-|G |    A / CNAME | Mål slut punkt|
-|G |    AAAA |  INGA DATA |
-|AAAA | AAAA / CNAME |  Mål slut punkt|
-|AAAA | G | INGA DATA |
+|HELST |  A/AAAA/CNAME |  Mål slut punkt| 
+|A |    A/CNAME | Mål slut punkt|
+|A |    AAAA |  Inga DATA |
+|AAAA | AAAA/CNAME |  Mål slut punkt|
+|AAAA | A | Inga DATA |
 |CNAME |    CNAME | Mål slut punkt|
-|CNAME  |A/AAAA | INGA DATA |
+|CNAME  |A/AAAA | Inga DATA |
 |
 
 För profiler med routningsmetod inställd på multivärde:
 
-|Begäran om inkommande fråga|    Typ av slutpunkt | Svar har angetts|
+|Begäran om inkommande fråga|    Slut punkts typ | Svar har angetts|
 |--|--|--|
 |HELST |  Blandning av A och AAAA | Mål slut punkter|
-|G |    Blandning av A och AAAA | Endast mål slut punkter av typen A|
+|A |    Blandning av A och AAAA | Endast mål slut punkter av typen A|
 |AAAA   |Blandning av A och AAAA|     Endast mål slut punkter av typen AAAA|
-|CNAME |    Blandning av A och AAAA | INGA DATA |
+|CNAME |    Blandning av A och AAAA | Inga DATA |
 
 ### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Kan jag använda en profil med IPv4/IPv6-adresserade slut punkter i en kapslad profil?
 
@@ -416,7 +416,10 @@ Ja. Du kan ange TCP som övervaknings protokoll och Traffic Manager kan initiera
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Vilka speciella svar krävs från slut punkten vid användning av TCP-övervakning?
 
-När TCP-övervakning används startar Traffic Manager en tre-vägs TCP-handskakning genom att skicka en SYN-begäran till slut punkten på den angivna porten. Den väntar sedan under en tids period (som anges i tids gräns inställningarna) för ett svar från slut punkten. Om slut punkten svarar på SYN förfrågan med ett SYN bekräftelse svar inom den tids gräns som anges i övervaknings inställningarna betraktas slut punkten som felfri. Om SYN-ACK-svaret tas emot återställer Traffic Manager anslutningen genom att svara igen med en och samma.
+När TCP-övervakning används startar Traffic Manager en tre-vägs TCP-handskakning genom att skicka en SYN-begäran till slut punkten på den angivna porten. Det väntar sedan på ett SYN bekräftelse svar från slut punkten under en tids period (anges i tids gräns inställningarna).
+
+- Om ett SYN-ACK-svar tas emot inom den tids gräns som anges i övervaknings inställningarna betraktas slut punkten som felfri. En RÄNTETRANS eller RÄNTETRANS-ACK är det förväntade svaret från Traffic Manager när den stänger en socket med jämna mellanrum.
+- Om ett SYN-ACK-svar tas emot efter den angivna tids gränsen, kommer Traffic Manager att svara med en tids gräns för att återställa anslutningen.
 
 ### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>Hur snabbt kan Traffic Manager flytta mina användare bort från en felaktig slut punkt?
 
@@ -477,8 +480,8 @@ Det finns ingen negativ inverkan på användningen av kapslade profiler.
 
 Traffic Manager faktureringen har två komponenter: hälso kontroller för slut punkter och miljon tals DNS-frågor
 
-* Hälso kontroller för slut punkt: Det kostar inget att ange en underordnad profil när den är konfigurerad som en slut punkt i en överordnad profil. Övervakning av slut punkterna i den underordnade profilen faktureras på vanligt sätt.
-* DNS-frågor: Varje fråga räknas bara en gång. En fråga mot en överordnad profil som returnerar en slut punkt från en underordnad profil räknas endast till den överordnade profilen.
+* Hälso kontroller för slut punkt: det kostar inget att debitera en underordnad profil när den är konfigurerad som en slut punkt i en överordnad profil. Övervakning av slut punkterna i den underordnade profilen faktureras på vanligt sätt.
+* DNS-frågor: varje fråga räknas bara en gång. En fråga mot en överordnad profil som returnerar en slut punkt från en underordnad profil räknas endast till den överordnade profilen.
 
 Fullständig information finns på sidan med [Traffic Manager priser](https://azure.microsoft.com/pricing/details/traffic-manager/).
 

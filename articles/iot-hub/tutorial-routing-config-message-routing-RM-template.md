@@ -1,6 +1,6 @@
 ---
-title: Konfigurera meddelanderoutning för Azure IoT Hub med en Azure Resource Manager-mall | Microsoft Docs
-description: Konfigurera meddelanderoutning för Azure IoT Hub med en Azure Resource Manager-mall
+title: Konfigurera meddelanderoutning för Azure IoT Hub att använda en Azure Resource Manager-mall | Microsoft Docs
+description: Konfigurera meddelanderoutning för Azure IoT Hub att använda en Azure Resource Manager-mall
 author: robinsh
 manager: philmeagit st
 ms.service: iot-hub
@@ -9,92 +9,92 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ef73aed577645af5af82c439abb57022b389d040
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163282"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809718"
 ---
-# <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Självstudier: Använda en Azure Resource Manager-mall för att konfigurera IoT Hub meddelanderoutning
+# <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Självstudie: Använd en Azure Resource Manager-mall för att konfigurera IoT Hub meddelanderoutning
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
 [!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-## <a name="message-routing"></a>Meddelanderedigering
+## <a name="message-routing"></a>Meddelanderoutning
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-## <a name="download-the-template-and-parameters-file"></a>Ladda ned mall och parametrar-filen
+## <a name="download-the-template-and-parameters-file"></a>Ladda ned mallen mall och parametrar
 
-För den andra delen av den här självstudiekursen ska du hämta och kör ett Visual Studio-program för att skicka meddelanden till IoT Hub. Det finns en mapp i den uppdatering som innehåller Azure Resource Manager-mallen och parameterfilen, samt Azure CLI och PowerShell-skript.
+För den andra delen av den här självstudien kan du hämta och köra ett Visual Studio-program för att skicka meddelanden till IoT Hub. Det finns en mapp i den hämtade filen som innehåller Azure Resource Manager mall och parameter filen, samt Azure CLI-och PowerShell-skript.
 
-Gå vidare och ladda ned den [Azure IoT C# exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) nu. Packa upp filen master.zip. Resource Manager-mallen och parameterfilen är i /iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **template_iothub.json** och **template_iothub_parameters.json**.
+Gå vidare och hämta [Azure C# IoT-exemplen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) nu. Zippa upp Master. zip-filen. Resource Manager-mallen och parameter filen är i/iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **template_iothub. JSON** och **template_iothub_parameters. JSON**.
 
 ## <a name="create-your-resources"></a>Skapa dina resurser
 
-Du ska använda en mall för Azure Resource Manager (RM) för att skapa alla dina resurser. Azure CLI och PowerShell-skript kan köras några rader i taget. En mall i RM distribueras i ett enda steg. Den här artikeln beskrivs i avsnitt separat för att hjälpa dig att förstå var och en. Sedan den visas hur du distribuerar mallen och skapa den virtuella enheten för att testa. När mallen har distribuerats kan visa du meddelandet routningskonfiguration i portalen.
+Du kommer att använda en Azure Resource Manager (RM)-mall för att skapa alla dina resurser. Azure CLI-och PowerShell-skripten kan köras några rader i taget. En RM-mall distribueras i ett enda steg. Den här artikeln visar avsnitten separat för att hjälpa dig att förstå var och en. Sedan visar den hur du distribuerar mallen och skapar den virtuella enheten för testning. När mallen har distribuerats kan du Visa konfigurationen för meddelanderoutning i portalen.
 
-Det finns flera resursnamn som måste vara globalt unikt, till exempel IoT Hub-namn och namnet på lagringskontot. Om du vill göra namnger resurser enklare, konfigurera dessa resursnamn att lägga till ett slumpmässigt alfanumeriskt värde som genereras från aktuellt datum och tid. 
+Det finns flera resurs namn som måste vara globalt unika, till exempel IoT Hub namn och lagrings konto namn. För att göra det lättare att namnge resurserna är dessa resurs namn inställda för att lägga till ett slumpmässigt alfanumeriskt värde som genereras från aktuellt datum/tid. 
 
-Om du tittar på mallen, ser du där variabler ser dessa resurser som använder den parameter som skickas och sammanfoga *randomValue* -parameter. 
+Om du tittar på mallen ser du var variabler har kon figurer ATS för de här resurserna som tar parametern som skickas i och sammanfogar *randomValue* till parametern. 
 
 I följande avsnitt beskrivs de parametrar som används.
 
 ### <a name="parameters"></a>Parametrar
 
-De flesta av dessa parametrar har standardvärden. De som slutar med **_in** sammanfogas med *randomValue* så att de globalt unikt. 
+De flesta av dessa parametrar har standardvärden. De som slutar med **_In** kombineras med *randomValue* för att göra dem globalt unika. 
 
-**randomValue**: Det här värdet skapas från aktuellt datum och tid när du distribuerar mallen. Det här fältet är inte i parameterfilen, eftersom de genereras i själva mallen.
+**randomValue**: det här värdet genereras från aktuellt datum/tid när du distribuerar mallen. Det här fältet finns inte i parameter filen, eftersom det genereras i själva mallen.
 
-**subscriptionId**: Det här fältet har angetts för du till den prenumeration som du distribuerar mallen. Det här fältet är inte i parameterfilen eftersom den är inställd för dig.
+**subscriptionId**: det här fältet har angetts till den prenumeration som du distribuerar mallen till. Det här fältet finns inte i parameter filen eftersom det har angetts för dig.
 
-**IoTHubName_in**: Det här fältet är det grundläggande namnet på IoT Hub, som är sammanfogat med randomValue vara globalt unikt.
+**IoTHubName_in**: det här fältet är bas IoT Hub namnet, som sammanfogas med randomValue som ska vara globalt unikt.
 
-**Plats**: Det här fältet är den Azure-region dit du distribuerar, till exempel ”westus”.
+**plats**: det här fältet är den Azure-region som du distribuerar till, till exempel "väst".
 
-**consumer_group**: Det här fältet är konsumentgruppen för meddelanden som skickas routning slutpunkten. Den används för att filtrera resultat i Azure Stream Analytics. Det är exempelvis hela stream där får du allt, eller om du har data som skickas med consumer_group inställd **Contoso**, och du kan ställa in ett Azure Stream Analytics stream och Power BI-rapport som visar bara de posterna. Det här fältet används i del 2 av den här självstudien.
+**consumer_group**: det här fältet är konsument grupps uppsättningen för meddelanden som kommer genom Dirigerings slut punkten. Det används för att filtrera resultat i Azure Stream Analytics. Det finns till exempel hela strömmen där du får allt, eller om du har data som kommer till med consumer_group inställt på **contoso**, kan du ställa in en Azure Stream Analytics Stream (och Power BI rapporten) för att bara visa dessa poster. Det här fältet används i del 2 av den här självstudien.
 
-**sku_name**: Det här fältet är skalning för IoT-hubben. Det här värdet måste vara S1 eller senare; en kostnadsfri nivå fungerar inte för den här självstudiekursen eftersom det inte tillåter flera slutpunkter.
+**sku_name**: det här fältet är skalningen för IoT Hub. Värdet måste vara S1 eller högre. en kostnads fri nivå fungerar inte för den här självstudien eftersom den inte tillåter flera slut punkter.
 
-**sku_units**: Det här fältet följer med den **sku_name**, och är antalet IoT Hub-enheter som kan användas.
+**sku_units**: det här fältet går till **sku_name**och är antalet IoT Hub enheter som kan användas.
 
-**d2c_partitions**: Det här fältet är antalet partitioner som används för händelseströmmen.
+**d2c_partitions**: det här fältet är antalet partitioner som används för händelse strömmen.
 
-**storageAccountName_in**: Det här fältet är namnet på lagringskontot som ska skapas. Meddelanden dirigeras till en behållare i lagringskontot. Det här fältet är sammanfogat med randomValue att göra det unikt globalt.
+**storageAccountName_in**: det här fältet är namnet på det lagrings konto som ska skapas. Meddelanden dirigeras till en behållare i lagrings kontot. Det här fältet kombineras med randomValue för att göra det globalt unikt.
 
-**storageContainerName**: Det här fältet är namnet på behållaren där de meddelanden som dirigeras till lagringskontot lagras.
+**storageContainerName**: det här fältet är namnet på behållaren där meddelandena som dirigeras till lagrings kontot lagras.
 
-**storage_endpoint**: Det här fältet är namnet på storage-konto slutpunkten som används av den meddelanderoutning.
+**storage_endpoint**: det här fältet är namnet på lagrings konto slut punkten som används av meddelanderoutning.
 
-**service_bus_namespace_in**: Det här fältet är namnet på Service Bus-namnområde som ska skapas. Det här värdet är sammanfogat med randomValue att göra det unikt globalt.
+**service_bus_namespace_in**: det här fältet är namnet på Service Bus namn området som ska skapas. Det här värdet sammanfogas med randomValue för att göra det globalt unikt.
 
-**service_bus_queue_in**: Det här fältet är namnet på Service Bus-kö som används för att dirigera meddelanden. Det här värdet är sammanfogat med randomValue att göra det unikt globalt.
+**service_bus_queue_in**: det här fältet är namnet på den Service Bus kö som används för att dirigera meddelanden. Det här värdet sammanfogas med randomValue för att göra det globalt unikt.
 
-**AuthRules_sb_queue**: Det här fältet är auktoriseringsregler för service bus-kö, som används för att hämta anslutningssträngen för kön.
+**AuthRules_sb_queue**: det här fältet är auktoriseringsregler för Service Bus-kön som används för att hämta anslutnings strängen för kön.
 
 ### <a name="variables"></a>Variabler
 
-Dessa värden används i mallen och härleds huvudsakligen från parametrar.
+Dessa värden används i mallen och är mest härledda från parametrar.
 
-**queueAuthorizationRuleResourceId**: Det här fältet är ResourceId för auktoriseringsregeln för Service Bus-kö. Resurs-ID används i sin tur för att hämta anslutningssträngen för kön.
+**queueAuthorizationRuleResourceId**: det här fältet är ResourceID för auktoriseringsregeln för Service Bus kön. ResourceId används i sin tur för att hämta anslutnings strängen för kön.
 
-**iotHubName**: Det här fältet är namnet på IoT Hub efter att ha randomValue sammanfogas. 
+**iotHubName**: det här fältet är namnet på IoT Hub efter att ha randomValue sammanfogats. 
 
-**storageAccountName**: Det här fältet är namnet på lagringskontot efter att ha randomValue sammanfogas. 
+**storageAccountName**: det här fältet är namnet på lagrings kontot efter att randomValue har länkats. 
 
-**service_bus_namespace**: Det här fältet är namnområde när randomValue sammanfogas.
+**service_bus_namespace**: det här fältet är namn området efter att randomValue har länkats.
 
-**service_bus_queue**: Det här fältet är namnet på Service Bus-kön när randomValue sammanfogas.
+**service_bus_queue**: det här fältet är namnet på Service Bus kön efter att randomValue har länkats.
 
-**sbVersion**: Versionen av Service Bus-API för att använda. I det här fallet är det ”2017-04-01”.
+**sbVersion**: den version av Service Bus-API som ska användas. I det här fallet är det "2017-04-01".
 
-### <a name="resources-storage-account-and-container"></a>Resurser: Lagringskontot och behållaren
+### <a name="resources-storage-account-and-container"></a>Resurser: lagrings konto och behållare
 
-Den första resursen som skapats är lagringskontot, tillsammans med den behållare som dirigeras meddelanden. Behållaren är en resurs under storage-konto. Den har en `dependsOn` sats för storage-konto, att storage-konto skapas innan behållaren.
+Den första resursen som skapas är lagrings kontot, tillsammans med den behållare som meddelanden dirigeras till. Behållaren är en resurs under lagrings kontot. Det har en `dependsOn`-sats för lagrings kontot som kräver att lagrings kontot skapas innan behållaren.
 
-Här är det här avsnittet ser det ut:
+Det här avsnittet ser ut så här:
 
 ```json
 {
@@ -124,9 +124,9 @@ Här är det här avsnittet ser det ut:
 }
 ```
 
-### <a name="resources-service-bus-namespace-and-queue"></a>Resurser: Service Bus-namnområde och kö
+### <a name="resources-service-bus-namespace-and-queue"></a>Resurser: Service Bus namnrymd och kö
 
-Den andra resursen som skapats är Service Bus-namnområdet, tillsammans med Service Bus-kö som dirigeras meddelanden. SKU: N anges som standard. API-versionen har hämtats från variablerna. Det är också ange att aktivera Service Bus-namnområdet när den distribuerar det här avsnittet (status: aktiva). 
+Den andra resursen som skapas är Service Bus namnrymd, tillsammans med den Service Bus kö som meddelanden dirigeras till. SKU: n är inställd på standard. API-versionen hämtas från variablerna. Den är också inställd på att aktivera Service Bus namn området när det distribuerar det här avsnittet (status: aktiv). 
 
 ```json
 {
@@ -149,7 +149,7 @@ Den andra resursen som skapats är Service Bus-namnområdet, tillsammans med Ser
 }
 ```
 
-Det här avsnittet skapar Service Bus-kö. Den här delen av skriptet har en `dependsOn` satsen som säkerställer att namnområdet har skapats innan kön.
+I det här avsnittet skapas Service Bus kön. Den här delen av skriptet har en `dependsOn`-sats som säkerställer att namn området skapas före kön.
 
 ```json
 {
@@ -165,11 +165,11 @@ Det här avsnittet skapar Service Bus-kö. Den här delen av skriptet har en `de
 }
 ```
 
-### <a name="resources-iot-hub-and-message-routing"></a>Resurser: IOT Hub och meddelanderoutning
+### <a name="resources-iot-hub-and-message-routing"></a>Resurser: IoT-hubb och meddelanderoutning
 
-Nu när lagringskontot och Service Bus-kö har skapats kan skapa du IoT-hubben som skickar meddelanden till dem. RM-mallen använder `dependsOn` satser så att den inte försöker skapa hubben innan Service Bus-resurser och storage-kontot har skapats. 
+Nu när lagrings kontot och Service Bus kön har skapats skapar du IoT Hub som dirigerar meddelanden till dem. RM-mallen använder `dependsOn`-satser så att den inte försöker skapa navet innan Service Bus resurser och lagrings kontot har skapats. 
 
-Här är den första delen av avsnittet IoT Hub. Den här delen av mallen ställer in beroenden och börjar med egenskaper.
+Här är den första delen av avsnittet IoT Hub. Den här delen av mallen konfigurerar beroendena och börjar med egenskaperna.
 
 ```json
 {
@@ -191,11 +191,11 @@ Här är den första delen av avsnittet IoT Hub. Den här delen av mallen ställ
             },
 ```
 
-Nästa avsnitt är avsnittet för meddelande routningskonfiguration för Iot-hubben. Först är avsnittet för slutpunkter. Den här delen av mallen ställer in Routning slutpunkterna för Service Bus-kö och storage-konto, inklusive anslutningssträngar.
+Nästa avsnitt är avsnittet för konfigurationen av meddelanderoutning för IoT Hub. Första avsnittet för slut punkterna. Den här delen av mallen konfigurerar Dirigerings slut punkter för Service Bus kön och lagrings kontot, inklusive anslutnings strängarna.
 
-För att skapa anslutningssträngen för kön, behöver du queueAuthorizationRulesResourcedId, vilket är hämtade infogade. För att skapa anslutningssträngen för lagringskontot, hämtar den primära lagringsnyckeln och använda den i formatet för anslutningssträngen.
+Om du vill skapa anslutnings strängen för kön behöver du queueAuthorizationRulesResourcedId, som hämtas infogas. För att skapa anslutnings strängen för lagrings kontot hämtar du den primära lagrings nyckeln och använder den sedan i formatet för anslutnings strängen.
 
-Konfigurationen av slutpunkten är också där du anger blobbformatet `AVRO` eller `JSON`.
+Slut punkts konfigurationen är också där du ställer in BLOB-formatet på `AVRO` eller `JSON`.
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
@@ -229,9 +229,9 @@ Konfigurationen av slutpunkten är också där du anger blobbformatet `AVRO` ell
     },
 ```
 
-Nästa avsnitt avser meddelandevägar till slutpunkterna. Det finns en uppsättning upp för varje slutpunkt, så det finns en för Service Bus-kö och en för lagringskontobehållare.
+Det här nästa avsnitt gäller för meddelande vägar till slut punkterna. Det finns en inställning för varje slut punkt, så det finns en för Service Bus kö och en för lagrings konto behållaren.
 
-Kom ihåg att frågevillkoret för meddelanden som vidarebefordras till lagring är `level="storage"`, och frågevillkoret för meddelanden som dirigeras till Service Bus-kön är `level="critical"`.
+Kom ihåg att villkoren för de meddelanden som dirigeras till lagring är `level="storage"`och att villkoren för de meddelanden som dirigeras till Service Bus kön är `level="critical"`.
 
 ```json
 "routes": [
@@ -256,7 +256,7 @@ Kom ihåg att frågevillkoret för meddelanden som vidarebefordras till lagring 
 ],
 ```
 
-Det här json visar resten av avsnittet IoT Hub, som innehåller standardinformation om- och SKU för hubben.
+Detta JSON visar resten av IoT Hub-avsnittet som innehåller standard information och SKU för hubben.
 
 ```json
             "fallbackRoute": {
@@ -301,9 +301,9 @@ Det här json visar resten av avsnittet IoT Hub, som innehåller standardinforma
 }
 ```
 
-### <a name="resources-service-bus-queue-authorization-rules"></a>Resurser: Auktoriseringsregler för Service Bus-kö
+### <a name="resources-service-bus-queue-authorization-rules"></a>Resurser: Service Bus auktoriseringsregler för kön
 
-Auktoriseringsregel för Service Bus-kö används för att hämta anslutningssträngen för Service Bus-kö. Den använder en `dependsOn` -satsen för att kontrollera att den inte har skapats innan du Service Bus-namnområde och Service Bus-kö.
+Auktoriseringsregeln för Service Bus kön används för att hämta anslutnings strängen för Service Bus kön. Den använder en `dependsOn`-sats för att säkerställa att den inte skapas innan Service Bus-namnrymden och Service Bus kön.
 
 ```json
 {
@@ -324,9 +324,9 @@ Auktoriseringsregel för Service Bus-kö används för att hämta anslutningsstr
 },
 ```
 
-### <a name="resources-consumer-group"></a>Resurser: Konsumentgrupp
+### <a name="resources-consumer-group"></a>Resurser: konsument grupp
 
-I det här avsnittet skapar du en konsumentgrupp för IoT Hub-data som ska användas av Azure Stream Analytics i den andra delen av den här självstudiekursen.
+I det här avsnittet skapar du en konsument grupp för de IoT Hub data som ska användas av Azure Stream Analytics i den andra delen av den här självstudien.
 
 ```json
 {
@@ -339,9 +339,9 @@ I det här avsnittet skapar du en konsumentgrupp för IoT Hub-data som ska anvä
 }
 ```
 
-### <a name="resources-outputs"></a>Resurser: Utdata
+### <a name="resources-outputs"></a>Resurser: utdata
 
-Om du vill skicka ett värde till skriptet för distribution som ska visas, kan du använda en outputs-avsnittet. Den här delen av mallen returnerar anslutningssträngen för Service Bus-kö. Returnerar ett värde krävs inte, ingår den som ett exempel på hur du returnerar resultat till anropande skriptet.
+Om du vill skicka ett värde tillbaka till distributions skriptet som ska visas använder du ett utdata-avsnitt. Den här delen av mallen returnerar anslutnings strängen för Service Bus kön. Att returnera ett värde är inte obligatoriskt, det ingår som ett exempel på hur du returnerar resultat till det anropande skriptet.
 
 ```json
 "outputs": {
@@ -352,33 +352,33 @@ Om du vill skicka ett värde till skriptet för distribution som ska visas, kan 
   }
 ```
 
-## <a name="deploy-the-rm-template"></a>Distribuera mallen RM
+## <a name="deploy-the-rm-template"></a>Distribuera RM-mallen
 
-Ladda upp mallen och parameterfilen till Azure Cloud Shell för att distribuera mallen till Azure, och sedan köra ett skript för att distribuera mallen. Öppna Azure Cloud Shell och logga in. Det här exemplet används PowerShell.
+Distribuera mallen till Azure genom att överföra mallen och parameter filen till Azure Cloud Shell och sedan köra ett skript för att distribuera mallen. Öppna Azure Cloud Shell och logga in. I det här exemplet används PowerShell.
 
-Om du vill ladda upp filer, Välj den **uppladdning/nedladdning filer** ikonen i verktygsfältet och väljer sedan ladda upp.
+Om du vill överföra filerna väljer du ikonen **Ladda upp/ladda ned filer** på Meny raden och väljer sedan ladda upp.
 
-![Cloud Shell menyraden med uppladdning/nedladdning filer markerat](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Cloud Shell meny raden med Ladda upp/ladda ned filer markerade](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
-Använda Utforskaren som visas, för att hitta filer på den lokala hårddisken och välja dem och välj sedan **öppna**.
+Använd Utforskaren som öppnas för att hitta filerna på den lokala disken och markera dem och välj sedan **Öppna**.
 
-När filerna överförs visas en dialogruta med ett resultat något som liknar följande bild.
+När filerna har laddats upp visas en resultat dialog ruta som liknar följande bild.
 
-![Cloud Shell menyraden med uppladdning/nedladdning filer markerat](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
+![Cloud Shell meny raden med Ladda upp/ladda ned filer markerade](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
 
-Filerna har överförts till resursen som används av din Cloud Shell-instans. 
+Filerna överförs till resursen som används av Cloud Shell-instansen. 
 
-Kör skript för att utföra distributionen. Den sista raden i det här skriptet hämtar den variabel som har ställts in att returneras--anslutningssträng för Service Bus-kö.
+Kör skriptet för att utföra distributionen. Den sista raden i det här skriptet hämtar variabeln som har kon figurer ATS för att returneras--Service Bus Queue-anslutningssträng.
 
-Dessa variabler anges i det här skriptet.
+Skriptet anger och använder dessa variabler:
 
-**$RGName** är resursgruppens namn som du vill distribuera mallen. Det här fältet har skapats innan du distribuerar mallen.
+**$RGName** är namnet på den resurs grupp som mallen ska distribueras till. Det här fältet skapas innan du distribuerar mallen.
 
-**$location** är den Azure-platsen som ska användas för mallen, till exempel ”westus”.
+**$location** är Azure-platsen som ska användas för mallen, till exempel "väst".
 
-**deploymentname** är ett namn du tilldela till distributionen att hämta det returnerar värdet på variabeln.
+**deploymentname** är ett namn som du tilldelar distributionen för att hämta det returnerade variabelvärdet.
 
-Här är PowerShell-skriptet. Kopiera följande PowerShell-skript och klistra in den i Cloud Shell-fönstret och klicka sedan på RETUR för att köra den.
+Här är PowerShell-skriptet. Kopiera det här PowerShell-skriptet och klistra in det i Cloud Shell fönstret och tryck sedan på RETUR för att köra det.
 
 ```powershell
 $RGName="ContosoResources"
@@ -406,7 +406,7 @@ New-AzResourceGroupDeployment `
 (Get-AzResourceGroupDeployment -ResourceGroupName $RGName -Name $deploymentname).Outputs.sbq_connectionString.value
 ```
 
-Om du har skriptfel kan du redigera skriptet lokalt, ladda upp den igen till Cloud Shell och kör skriptet igen. När skriptet har körts, kan du fortsätta till nästa steg.
+Om du har skript fel kan du redigera skriptet lokalt, ladda upp det igen till Cloud Shell och köra skriptet igen. När skriptet har körts klart fortsätter du till nästa steg.
 
 ## <a name="create-simulated-device"></a>Skapa simulerad enhet
 
@@ -418,7 +418,7 @@ Om du har skriptfel kan du redigera skriptet lokalt, ladda upp den igen till Clo
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har alla resurser som ställer in och meddelandevägar har konfigurerats, kan du gå vidare till nästa självstudie och lär dig hur du bearbetar och visa information om routade meddelanden.
+Nu när du har konfigurerat alla resurser och meddelande vägarna har kon figurer ATS kan du gå vidare till nästa självstudie för att lära dig att bearbeta och Visa information om de dirigerade meddelandena.
 
 > [!div class="nextstepaction"]
-> [Del 2 – visa meddelandet routningsresultat](tutorial-routing-view-message-routing-results.md)
+> [Del 2 – Visa resultatet av meddelanderoutning](tutorial-routing-view-message-routing-results.md)

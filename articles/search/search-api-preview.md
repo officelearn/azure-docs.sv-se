@@ -1,26 +1,23 @@
 ---
-title: Förhandsgranska REST API för Azure Search 2019-05-06 – för hands version – Azure Search
-description: Azure Search Service REST API version 2019-05-06 – för hands version innehåller experimentella funktioner som kunskaps lager och Kundhanterade krypterings nycklar.
-services: search
-author: HeidiSteen
+title: REST API version 2019-05-06 – för hands version
+titleSuffix: Azure Cognitive Search
+description: Azure Kognitiv sökning service REST API version 2019-05-06 – för hands version innehåller experimentella funktioner som kunskaps lager och Kundhanterade krypterings nycklar.
 manager: nitinme
-ms.service: search
-ms.devlang: rest-api
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: search
-ms.date: 05/02/2019
-ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7fa280742556b7bc42d2c7fb30c880f836eef62b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: a4daaac6abababcedb5d6dd7eb2122ef29846ef4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649985"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792537"
 ---
-# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Azure Search Service REST API-version 2019-05-06-för hands version
-I den här artikeln `api-version=2019-05-06-Preview` beskrivs vilken version av Azure Search Service REST API som erbjuder experimentella funktioner som ännu inte är allmänt tillgängliga.
+# <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure Kognitiv sökning service REST API-version 2019-05-06-för hands version
+
+I den här artikeln beskrivs `api-version=2019-05-06-Preview` versionen av search service REST API, som erbjuder experimentella funktioner som ännu inte är allmänt tillgängliga.
 
 > [!NOTE]
 > För hands versions funktionerna är tillgängliga för testning och experimentering med målet att samla in feedback och kan komma att ändras. Vi rekommenderar starkt att du använder för hands versioner av API: er i produktions program.
@@ -34,7 +31,7 @@ I den här artikeln `api-version=2019-05-06-Preview` beskrivs vilken version av 
 
 ## <a name="other-preview-features"></a>Andra för hands versions funktioner
 
-Funktioner som meddelats i tidigare förhands granskningar finns fortfarande i offentlig för hands version. Om du anropar ett API med en tidigare för hands version av API-version kan du fortsätta att använda den versionen eller `2019-05-06-Preview` växla till utan att ändra förväntat beteende.
+Funktioner som meddelats i tidigare förhands granskningar finns fortfarande i offentlig för hands version. Om du anropar ett API med en tidigare för hands version av API-version kan du fortsätta att använda den versionen eller växla till `2019-05-06-Preview` utan att ändra förväntat beteende.
 
 + [moreLikeThis Query-parameter](search-more-like-this.md) hittar dokument som är relevanta för ett speciellt dokument. Den här funktionen finns i tidigare för hands versioner. 
 * [CSV-BLOB-indexering](search-howto-index-csv-blobs.md) skapar ett dokument per rad, i stället för ett dokument per text-blob.
@@ -43,17 +40,17 @@ Funktioner som meddelats i tidigare förhands granskningar finns fortfarande i o
 
 ## <a name="how-to-call-a-preview-api"></a>Så här anropar du ett för hands versions-API
 
-Äldre förhands visningar fungerar fortfarande, men blir inaktuella över tid. Om dina kod anrop `api-version=2016-09-01-Preview` eller `api-version=2017-11-11-Preview`, är dessa anrop fortfarande giltiga. Men endast den nyaste för hands versionen har uppdaterats med förbättringar. 
+Äldre förhands visningar fungerar fortfarande, men blir inaktuella över tid. Om din kod anropar `api-version=2016-09-01-Preview` eller `api-version=2017-11-11-Preview`är dessa anrop fortfarande giltiga. Men endast den nyaste för hands versionen har uppdaterats med förbättringar. 
 
 Följande exempel på syntax illustrerar ett anrop till för hands versionen av API-versionen.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
 
-Azure Searchs tjänsten är tillgänglig i flera versioner. Mer information finns i [API-versioner](search-api-versions.md).
+Azure Kognitiv sökning-tjänsten är tillgänglig i flera versioner. Mer information finns i [API-versioner](search-api-versions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs dokumentationen om Azure Search Service REST API Reference. Om du stöter på problem kan du be oss om hjälp om [StackOverflow](https://stackoverflow.com/) eller [kontakta supporten](https://azure.microsoft.com/support/community/?product=search).
+Läs REST API referens dokumentation för Sök. Om du stöter på problem kan du be oss om hjälp om [StackOverflow](https://stackoverflow.com/) eller [kontakta supporten](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Sök tjänst REST API referens](https://docs.microsoft.com/rest/api/searchservice/)

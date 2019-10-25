@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: c9339b5c7c35378fb85daeae19a6daa01d54f350
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162334"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809642"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering för att övervaka frågor och förbättra arbets Belastningens prestanda
 
@@ -34,7 +34,7 @@ Automatisk justering kan aktive ras på servern eller databas nivån via [Azure 
 
 På server nivå kan du välja att ärva konfigurationen för automatisk justering från "Azure-standardvärden" eller att inte ärva konfigurationen. Azure-standardvärden är FORCE_LAST_GOOD_PLAN, CREATE_INDEX är aktiverat och DROP_INDEX är inaktive rad.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Om du vill aktivera automatisk justering på Azure SQL Database logisk **Server**navigerar du till servern i Azure Portal och väljer sedan **Automatisk justering** i menyn.
 
@@ -60,7 +60,7 @@ Med Azure SQL Database kan du individuellt ange konfigurationen för automatisk 
 > Den allmänna rekommendationen är att hantera konfigurationen för automatisk justering på **Server nivå** så att samma konfigurations inställningar kan tillämpas automatiskt på alla databaser. Konfigurera automatisk justering endast på en enskild databas om du behöver att databasen har andra inställningar än andra som ärver inställningar från samma server.
 >
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Om du vill aktivera automatisk justering på en **enskild databas**går du till databasen i Azure Portal och väljer **Automatisk justering**.
 
@@ -103,6 +103,12 @@ Hitta våra fler om verifieringen T-SQL-alternativ för att konfigurera automati
 ## <a name="disabled-by-the-system"></a>Inaktiverat av systemet
 
 Automatisk justering övervakar alla åtgärder som det tar i databasen och i vissa fall kan det ta reda på att automatisk justering inte fungerar korrekt i databasen. I den här situationen inaktive ras justerings alternativet av systemet. I de flesta fall beror detta på att Frågearkivet inte är aktiverat eller att det är i skrivskyddat läge för en speciell databas.
+
+## <a name="permissions"></a>Behörigheter
+
+Eftersom automatisk justering är Azure-funktion måste du använda Azures inbyggda RBAC-roller för att använda den. Att endast använda SQL-autentisering är inte tillräckligt för att använda funktionen från Azure Portal.
+
+För att kunna använda automatisk justering är den minsta behörighet som krävs för att bevilja användaren Azure: s inbyggda roll för [SQL DB-deltagare](../role-based-access-control/built-in-roles.md#sql-db-contributor) . Du kan också överväga att använda högre behörighets roller, t. ex. SQL Server deltagare, deltagare och ägare.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Konfigurera e-postmeddelanden för automatisk justering
 

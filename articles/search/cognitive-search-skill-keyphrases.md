@@ -1,20 +1,19 @@
 ---
-title: Nyckel fras extrahering inlärning Sök kunskaper – Azure Search
-description: Utvärderar ostrukturerad text och returnerar en lista med nyckel fraser i en Azure Search anriknings pipeline för varje post.
-services: search
+title: Extrahering av diskussionsämne kognitiva kunskaper
+titleSuffix: Azure Cognitive Search
+description: Utvärderar ostrukturerad text och returnerar en lista med nyckel fraser i en pipeline för AI-anrikning i Azure Kognitiv sökning för varje post.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: luisca
-ms.openlocfilehash: ffaa2afbfa12770168cb5a92b7022addc039f0fb
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: ccdd25d82af2b4893260af18dac818816d9e4579
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265785"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791982"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Extrahering av diskussionsämne kognitiva kunskaper
 
@@ -23,13 +22,13 @@ Den **extrahering av diskussionsämnea** kunskapen utvärderar ostrukturerad tex
 Den här funktionen är användbar om du snabbt behöver identifiera de viktigaste pratar punkterna i posten. Till exempel, den inmatade texten "livsmedlet var Delicious och det var en fantastiskt anställd", returnerar tjänsten "mat" och "trevlig personal".
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.KeyPhraseExtractionSkill 
+Microsoft. färdigheter. text. KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Databegränsningar
 Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
@@ -123,5 +122,5 @@ Om texten är större än 50 000 tecken kommer endast de första 50 000 tecknen 
 
 ## <a name="see-also"></a>Se också
 
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

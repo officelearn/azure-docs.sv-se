@@ -1,5 +1,6 @@
 ---
-title: Undvik hämtning av sidor (Microsoft Authentication Library för Java Script) | Azure
+title: Undvik att hämta sidor (Microsoft Authentication Library för Java Script)
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du undviker hämtning av sidor vid hämtning och förnyelse av tokens i bakgrunden med Microsoft Authentication Library för Java Script (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,29 +18,29 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c382c78cf631def74272768b78ee489e49820d04
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 29edafdc27a3835653f82ec36d576a4871e66155
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532828"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803099"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Undvik hämtning av sidor vid hämtning och förnyelse av tokens tyst med MSAL. js
-Microsoft Authentication Library för Java Script (MSAL. js) `iframe` använder dolda element för att hämta och förnya token tyst i bakgrunden. Azure AD returnerar token tillbaka till den registrerade redirect_uri som anges i Tokenbegäran (som standard är appens rot sida). Eftersom svaret är en 302 resulterar det i HTML-koden som `redirect_uri` motsvarar inläsningen `iframe`i. Vanligt vis `redirect_uri` är appens rot sida och det gör att den kan läsas in på nytt.
+Microsoft Authentication Library för Java Script (MSAL. js) använder dolda `iframe`-element för att hämta och förnya token tyst i bakgrunden. Azure AD returnerar token tillbaka till den registrerade redirect_uri som anges i Tokenbegäran (som standard är appens rot sida). Eftersom svaret är en 302 resulterar det i HTML-koden som motsvarar `redirect_uri` som läses in i `iframe`. Vanligt vis är appens `redirect_uri` rot sidan och detta gör att den kan läsas in på nytt.
 
-I andra fall kan det hända att om du navigerar till appens rot sida kräver autentisering, kan det `iframe` leda till `X-Frame-Options: deny` kapslade element eller fel.
+I andra fall kan det hända att om du navigerar till appens rot sida kräver autentisering, kan det leda till kapslade `iframe` element eller `X-Frame-Options: deny` fel.
 
-Eftersom MSAL. js inte kan stänga 302 som utfärdats av Azure AD och som krävs för att bearbeta den returnerade token, `redirect_uri` kan den inte förhindra att `iframe`den läses in i.
+Eftersom MSAL. js inte kan stänga av 302 som utfärdats av Azure AD och som krävs för att bearbeta den returnerade token, kan den inte hindra `redirect_uri` från att läsas in i `iframe`.
 
 För att undvika att hela appen laddas om igen eller andra fel som orsakas av detta, följer du dessa lösningar.
 
 ## <a name="specify-different-html-for-the-iframe"></a>Ange en annan HTML för iframe
 
-Ställ in `redirect_uri` egenskapen på config på en enkel sida som inte kräver autentisering. Du måste kontrol lera att den matchar den `redirect_uri` registrerade i Azure Portal. Detta påverkar inte användarens inloggnings upplevelse eftersom MSAL sparar start sidan när användaren påbörjar inloggnings processen och dirigerar tillbaka till den exakta platsen när inloggningen har slutförts.
+Ange egenskapen `redirect_uri` i konfig till en enkel sida som inte kräver autentisering. Du måste kontrol lera att den matchar `redirect_uri` som är registrerad i Azure Portal. Detta påverkar inte användarens inloggnings upplevelse eftersom MSAL sparar start sidan när användaren påbörjar inloggnings processen och dirigerar tillbaka till den exakta platsen när inloggningen har slutförts.
 
 ## <a name="initialization-in-your-main-app-file"></a>Initiera i huvud program filen
 
-Om din app är strukturerad så att det finns en central JavaScript-fil som definierar appens initiering, Routning och andra saker kan du villkorligt läsa in dina app-moduler baserat på om appen läses `iframe` in eller inte. Exempel:
+Om din app är strukturerad så att det finns en central JavaScript-fil som definierar appens initiering, Routning och andra saker kan du villkorligt läsa in dina app-moduler baserat på om appen läses in i en `iframe` eller inte. Exempel:
 
 I AngularJS: app. js
 

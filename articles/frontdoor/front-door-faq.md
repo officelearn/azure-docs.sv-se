@@ -1,6 +1,6 @@
 ---
-title: Azure ytterdörren Service – vanliga frågor om åtkomsten | Microsoft Docs
-description: Den här sidan innehåller svar på vanliga frågor och svar om Azure ytterdörren Service
+title: Azure-tjänsten för front dörr – vanliga frågor och svar för front dörren | Microsoft Docs
+description: Den här sidan innehåller svar på vanliga frågor om Azure-tjänsten för front dörr
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,154 +11,156 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4001b3ed8d7a92d8a751486ab4fd3a097d032373
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442886"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809733"
 ---
-# <a name="frequently-asked-questions-for-azure-front-door-service"></a>Vanliga frågor och svar för Azure ytterdörren Service
+# <a name="frequently-asked-questions-for-azure-front-door-service"></a>Vanliga frågor och svar om Azure-tjänsten för front dörr
 
-Den här artikeln får du svar på vanliga frågor om Azure ytterdörren Service och funktioner. Om du inte ser svar på din fråga, kan du kontakta oss via följande kanaler (i ständigt växande ordning):
+I den här artikeln besvaras vanliga frågor om funktioner och funktioner i Azure frontend-tjänsten. Om du inte ser svaret på din fråga kan du kontakta oss genom följande kanaler (i eskalerad ordning):
 
-1. Kommentarer i den här artikeln.
-2. [Azure ytterdörren Service UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
-3. **Microsoft Support:** Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
+1. Avsnittet kommentarer i den här artikeln.
+2. [UserVoice för Azure frontend-tjänsten](https://feedback.azure.com/forums/217313-networking?category_id=345025).
+3. **Microsoft Support:** Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
 
 ## <a name="general"></a>Allmänt
 
 ### <a name="what-is-azure-front-door-service"></a>Vad är Azure Front Door Service?
 
-Azure ytterdörren Service är en Application Delivery Network (ADN) som en tjänst erbjuder olika layer 7-belastningsutjämning funktioner för dina program. Det ger acceleration av dynamisk webbplats (DSA) tillsammans med globala Utjämning av nätverksbelastning med nästan i realtid redundans. Det är en mycket tillgänglig och skalbar tjänst som hanteras fullständigt av Azure.
+Azure frontend-tjänsten är en Application Delivery Network (och) som en tjänst som erbjuder olika belastnings Utjämnings funktioner i lager 7 för dina program. Den tillhandahåller en dynamisk webbplats acceleration (DSA) tillsammans med global belastnings utjämning med nästan real tids redundans. Tjänsten är en hög tillgänglig och skalbar tjänst som hanteras helt av Azure.
 
-### <a name="what-features-does-azure-front-door-service-support"></a>Vilka funktioner stöder Azure ytterdörren Service?
+### <a name="what-features-does-azure-front-door-service-support"></a>Vilka funktioner stöder Azure-tjänsten för front dörr?
 
-Azure ytterdörren Service stöder acceleration av dynamisk webbplats (DSA), SSL-avlastning och slutpunkt till slutpunkt SSL, Brandvägg för webbaserade program, Cookiebaserad sessionstillhörighet, url-sökvägsbaserad routning, kostnadsfri certifikat och flera domänhantering och annat. En fullständig lista över funktioner som stöds finns i [översikt för Azure ytterdörren Service](front-door-overview.md).
+Azures frontend-tjänst stöder dynamisk webbplats acceleration (DSA), SSL-avlastning och slut punkt till slut punkt SSL, brand vägg för webb program, cookie-baserad sessionsgräns, URL-sökväg baserad routning, kostnads fria certifikat och flera domän hantering, och andra. En fullständig lista över funktioner som stöds finns i [Översikt över Azure frontend-tjänsten](front-door-overview.md).
 
-### <a name="what-is-the-difference-between-azure-front-door-service-and-azure-application-gateway"></a>Vad är skillnaden mellan Azure ytterdörren Service och Azure Application Gateway?
+### <a name="what-is-the-difference-between-azure-front-door-service-and-azure-application-gateway"></a>Vad är skillnaden mellan Azure frontend-tjänsten och Azure Application Gateway?
 
-Även om både ytterdörren och Application Gateway är layer 7 belastningsutjämnare för (HTTP/HTTPS), är den viktigaste skillnaden att åtkomsten är en global tjänst Application Gateway är en regional tjänst. Medan ytterdörren kan belastningsutjämna mellan dina olika skalningsenheter enheter/kluster/stämpel i olika regioner, kan du belastningsutjämna mellan dina virtuella datorer/behållare etc. som ligger inom skalningsenheten Application Gateway.
+Både front dörren och Application Gateway är Layer 7-belastningsutjämnare (HTTP/HTTPS), den främsta skillnaden är att frontend-dörren är en global tjänst, medan Application Gateway är en regional tjänst. Även om en front dörr kan belastningsutjämna mellan dina olika skal enheter/kluster/Stamp-enheter över flera regioner kan du Application Gateway belastningsutjämna mellan dina virtuella datorer/behållare osv. i skalnings enheten.
 
-### <a name="when-should-we-deploy-an-application-gateway-behind-front-door"></a>När ska vi distribuera en Application Gateway bakom åtkomsten?
+### <a name="when-should-we-deploy-an-application-gateway-behind-front-door"></a>När bör vi distribuera en Application Gateway bakom en front dörr?
 
-Viktiga scenarier varför en ska använda Application Gateway bakom åtkomsten är:
+De viktiga scenarier som bör använda Application Gateway bakom front dörren är:
 
-- Åtkomsten kan utföra sökvägsbaserad belastningsutjämning bara på global nivå men om någon vill läsa in belastningsutjämna trafik ytterligare i sina virtuella nätverk (VNET) och sedan de ska använda Application Gateway.
-- Eftersom ytterdörren inte fungerar på en virtuell dator/container-nivå, så den kan inte göra Anslutningstömning. Application Gateway kan du göra Anslutningstömning. 
-- Med Application Gateway bakom AFD uppnå en 100% SSL-avlastning och dirigera endast HTTP-begäranden i sina virtuella nätverk (VNET).
-- Ytterdörren och Application Gateway stöder sessionstillhörighet. Medan ytterdörren kan dirigera efterföljande trafik från en användarsession till samma kluster eller serverdelen i en viss region, kan Application Gateway direkt tilldela trafiken till samma server i klustret.  
+- Front dörren kan bara utföra Path-baserad belastnings utjämning på global nivå, men om en vill belastningsutjämna trafik ytterligare i det virtuella nätverket (VNET) bör de använda Application Gateway.
+- Eftersom front dörren inte fungerar på en VM/container-nivå, så det går inte att tömma anslutningen. Application Gateway gör det dock möjligt att tömma anslutningarna. 
+- Med en Application Gateway bakom AFD kan du uppnå 100% SSL-avläsning och bara dirigera HTTP-begäranden inom sitt virtuella nätverk (VNET).
+- Främre dörren och Application Gateway både tillhörighet mellan sessioner. Även om front dörren kan dirigera efterföljande trafik från en användarsession till samma kluster eller Server del i en specifik region, kan Application Gateway dirigera tilldela trafiken till samma server i klustret.  
 
-### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Kan vi distribuera Azure Load Balancer bakom åtkomsten?
+### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Kan vi Distribuera Azure Load Balancer bakom en front dörr?
 
-Azure ytterdörren tjänsten måste en offentlig VIP eller ett offentligt tillgängliga DNS-namn för att dirigera trafiken till. Distribuera en Azure Load Balancer bakom ytterdörren är ett vanligt användningsfall.
+Azure-tjänsten för front dörr behöver ett offentligt VIP-namn eller ett offentligt tillgängligt DNS-namn för att dirigera trafiken till. Att distribuera en Azure Load Balancer bakom en front dörr är ett vanligt användnings fall.
 
-### <a name="what-protocols-does-azure-front-door-service-support"></a>Vilka protokoll som stöder Azure ytterdörren Service?
+### <a name="what-protocols-does-azure-front-door-service-support"></a>Vilka protokoll stöder Azure-tjänsten för front dörr?
 
-Azure ytterdörren Service stöder HTTP, HTTPS och HTTP/2.
+Azure-tjänsten för front dörr stöder HTTP, HTTPS och HTTP/2.
 
-### <a name="how-does-azure-front-door-service-support-http2"></a>Hur stöder Azure ytterdörren Service HTTP/2?
+### <a name="how-does-azure-front-door-service-support-http2"></a>Hur stöder Azure-tjänsten för front dörr HTTP/2?
 
-Stöd för HTTP/2-protokollet är tillgängligt för klienter som ansluter till Azure ytterdörren Service endast. Kommunikation till serverdelar i serverdelspoolen är över HTTP/1.1. Stöd för HTTP/2 är aktiverat som standard.
+Stöd för HTTP/2-protokoll är endast tillgängligt för klienter som ansluter till Azure-tjänsten för front dörr. Kommunikationen till Server delen i backend-poolen är över HTTP/1.1. HTTP/2-stöd är aktiverat som standard.
 
-### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Vilka resurser som stöds i dag som en del av backend-pool?
+### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Vilka resurser stöds idag som en del av backend-poolen?
 
-Serverdelspooler kan bestå av lagring, Web App, Kubernetes instanser eller andra anpassade värdnamnet som har offentlig anslutning. Azure ytterdörren-tjänsten kräver att serverdelar definieras via en offentlig IP-adress eller ett offentligt matchat DNS-värdnamn. Medlemmar i serverdelspooler kan vara i olika zoner, regioner, och även utanför Azure så länge som de har offentlig anslutning.
+Backend-pooler kan bestå av lagring, webbappar, Kubernetes-instanser eller andra anpassade värd namn som har offentlig anslutning. Azure-tjänsten för front dörr kräver att Server delarna definieras antingen via en offentlig IP-adress eller ett offentligt matchat DNS-värdnamn. Medlemmar i backend-pooler kan vara mellan zoner, regioner eller till och med utanför Azure så länge de har offentlig anslutning.
 
-### <a name="what-regions-is-the-service-available-in"></a>Vilka regioner är tillgängliga i tjänsten?
+### <a name="what-regions-is-the-service-available-in"></a>Vilka regioner finns tjänsten i?
 
-Azure ytterdörren-tjänsten är en global tjänst och är inte kopplat till någon specifik Azure-region. Den enda plats måste du ange när du skapar en ytterdörren är resursgruppens plats, vilket är i princip som anger var metadata för resursgruppen kommer att lagras. Själva ytterdörren resursen skapas som en global resurs och konfigurationen distribueras globalt till alla POP (Point of Presence). 
+Azure frontend-tjänsten är en global tjänst som inte är kopplad till någon annan Azure-region. Den enda plats som du måste ange när du skapar en front dörr är resurs gruppens plats, som i princip anger var metadata för resurs gruppen ska lagras. Resursen front dörr skapas som en global resurs och konfigurationen distribueras globalt till alla pop (punkt för närvaro). 
 
-### <a name="what-are-the-pop-locations-for-azure-front-door-service"></a>Vad är de POP-platserna för Azure ytterdörren Service?
+### <a name="what-are-the-pop-locations-for-azure-front-door-service"></a>Vilka är POP-platserna för Azure frontend-tjänsten?
 
-Azure ytterdörren-tjänsten har samma lista över närvaropunkter (Point of Presence) som Azure CDN från Microsoft. Den fullständiga listan med vår POP, finns [Azure CDN POP-platser från Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
+Azure-tjänsten för front dörr har samma lista med POP (Point of Presence)-platser som Azure CDN från Microsoft. En fullständig lista över våra pop- [platser finns Azure CDN pop-platser från Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
 
-### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Är Azure ytterdörren Service en dedikerad distribution för mitt program eller delas mellan kunder?
+### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Är Azure frontend service en dedikerad distribution för mitt program eller delas den mellan kunder?
 
-Azure ytterdörren Service är en globalt distribuerad tjänst för flera innehavare. Därför delas infrastrukturen för ytterdörren mellan alla sina kunder. Men genom att skapa en ytterdörren-profil kan du definiera specifika konfigurationen som krävs för ditt program och inga ändringar till dörren påverka andra ytterdörren konfigurationer.
+Azure frontend-tjänsten är en globalt distribuerad tjänst för flera innehavare. Därför delas infrastrukturen för front dörren över alla sina kunder. Genom att skapa en profil för en frontend-profil definierar du dock den specifika konfiguration som krävs för ditt program och inga ändringar som gjorts i din front dörr påverkar andra konfigurations inställningar för front dörren.
 
-### <a name="is-http-https-redirection-supported"></a>Är HTTP -> HTTPS-omdirigering stöds?
+### <a name="is-http-https-redirection-supported"></a>Stöds HTTP-> HTTPS-omdirigering?
 
-Ja. I själva verket Azure ytterdörren Service har stöd för värden, sökväg, och fråga sträng omdirigering såväl som en del av URL-omdirigering. Läs mer om [URL-omdirigering](front-door-url-redirect.md). 
+Ja. I själva verket stöder Azure frontend-tjänsten värd, sökväg och omdirigering av frågesträngar samt en del av URL-omdirigeringen. Läs mer om [URL-omdirigering](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>I vilken ordning bearbetas routningsregler?
 
-Vägar för ytterdörren sorteras inte och en specifik väg väljs baserat på bästa möjliga matchning. Läs mer om [hur ytterdörren matchar begäranden till en routningsregel](front-door-route-matching.md).
+Vägar för din front dörr sorteras inte och en viss väg väljs utifrån den bästa matchningen. Läs mer om [hur front dörr matchar begär anden till en regel för routning](front-door-route-matching.md).
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Hur jag låsa åtkomsten till min serverdel till endast Azure åtkomsten?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Hur gör jag för att du bara låsa åtkomsten till min server del till Azures front dörr?
 
-Om du vill låsa programmet accepterar endast trafik från ytterdörren specifika, behöver du konfigurera IP-åtkomstkontrollistor för din serverdel och sedan begränsar uppsättningen av godkända värden för sidhuvudet ”X-vidarebefordrade-värd, skickas genom Azure ytterdörren. De här stegen beskrivs ut enligt nedan:
+Om du vill låsa ditt program så att det bara accepterar trafik från din specifika front dörr måste du konfigurera IP-ACL: er för Server delen och sedan begränsa uppsättningen godkända värden för rubriken "X-vidarebefordrad"-värd "som skickas av Azures front dörr. De här stegen beskrivs nedan:
 
-- Konfigurera IP-ACLing för serverdelen för att ta emot trafik från Azure Front dörren backend IP-adressutrymme och Azures infrastrukturtjänster endast. Vi arbetar för att integrera med [Azure IP-intervall och Tjänsttaggar](https://www.microsoft.com/download/details.aspx?id=56519) men du kan nu finns IP-adressintervall enligt nedan:
+- Konfigurera IP-ACLing för dina Server delar för att acceptera trafik från Azure-klientens Server dels IP-adressutrymme och Azures infrastruktur tjänster. Vi arbetar på att integrera med [Azure IP-intervall och service märken,](https://www.microsoft.com/download/details.aspx?id=56519) men för närvarande kan du referera till IP-intervallen enligt nedan:
  
-    - Front dörren **IPv4** backend-IP-adressutrymme: `147.243.0.0/16`
-    - Front dörren **IPv6** backend-IP-adressutrymme: `2a01:111:2050::/44`
-    - Azures [grundläggande infrastrukturtjänster](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) genom virtualiserade värd-IP-adresser: `168.63.129.16` och `169.254.169.254`
+    - Frontend-serverns **IPv4** -Server utrymme: `147.243.0.0/16`
+    - IP-utrymme för **IPv6** -Server delen i front dörren: `2a01:111:2050::/44`
+    - Azures [grundläggande infrastruktur tjänster](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) via virtualiserade värd-IP-adresser: `168.63.129.16` och `169.254.169.254`
 
     > [!WARNING]
-    > Front dörren backend IP-adressutrymme kan ändras senare, men vi kommer innan se till att det sker så att vi skulle har integrerat med [Azure IP-intervall och Tjänsttaggar](https://www.microsoft.com/download/details.aspx?id=56519). Vi rekommenderar att du prenumererar på [Azure IP-intervall och Tjänsttaggar](https://www.microsoft.com/download/details.aspx?id=56519) för alla ändringar och uppdateringar.
+    > Front dörrens IP-utrymme kan ändras senare, men vi kommer att se till att vi har integrerat med [Azure IP-intervall och service Taggar](https://www.microsoft.com/download/details.aspx?id=56519)innan det inträffar. Vi rekommenderar att du prenumererar på [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för ändringar eller uppdateringar.
 
--   Filter på värden för inkommande rubriken ”**X-vidarebefordrade-värd**' skickas av ytterdörren. De enda tillåtna värdena för sidhuvudet bör vara alla frontend-värdar som definierats i ytterdörren config. I själva verket ännu mer specifikt endast de värdnamn som du vill ta emot trafik från, på den här specifika serverdelen av alla storlekar.
-    - Exempel – Låt oss säga att ytterdörren-config har följande frontend-värdar _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C), och _`notifications.contoso.com`_ (D). Anta att du har två serverdelar X och Y. 
-    - Serverdelen X tar bara trafik från värdnamn A och B. serverdel Y kan ta trafik från A, C och D.
-    - Därför i serverdelen X du bör bara godkänna trafik med rubriken ”**X-vidarebefordrade-värd**” inställd på antingen _`contoso.azurefd.net`_ eller _`www.contoso.com`_ . För alla andra bör serverdel X avvisa trafiken.
-    - På samma sätt på serverdelen Y du bör bara godkänna trafik med rubriken ”**X-vidarebefordrade-värd**” inställd på antingen _`contoso.azurefd.net`_ , _`api.contoso.com`_ eller  _`notifications.contoso.com`_ . För alla andra bör serverdel Y avvisa trafiken.
+-   Filtrera på värdena för det inkommande huvudet "**X-forwarded-Host**", som skickats av front dörren. De enda tillåtna värdena för rubriken bör vara alla klient dels värdar som har definierats i din konfiguration av din front dörr. I själva verket är det bara de värdnamn för vilka du vill acceptera trafik från, på just den här server delen av din.
+    - Exempel – låt oss säga att konfigurationen av den främre dörren har följande klient dels värdar _`contoso.azurefd.net`_ (a), _`www.contoso.com`_ (B), _ (C) och _`notifications.contoso.com`_ (D). Vi antar att du har två server delar X och Y. 
+    - Server del X ska bara ta trafik från värdnamn A och B. backend Y kan ta trafik från A, C och D.
+    - På Server sidan X bör du bara acceptera trafik som har värdet "**X-forwarded-Host**" inställd på antingen _`contoso.azurefd.net`_ eller _`www.contoso.com`_ . För allt annat ska Server del X avvisa trafiken.
+    - På backend-sidan bör du på Server sidan bara acceptera trafik med rubriken "**X-forwarded-Host**" inställd på antingen _`contoso.azurefd.net`_ , _`api.contoso.com`_ eller _`notifications.contoso.com`_ . För allt annat bör backend Y avvisa trafiken.
 
-### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Anycast IP-Adressen kan ändras med livslängden för min åtkomsten?
+### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Kan anycast-IP-förändring under hela front dörren?
 
-Frontend-IP för anycast för ytterdörren vanligtvis bör inte ändra och kan vara statisk under livslängden för åtkomsten. Det finns dock **inga garantier** för samma. Se inte vidta några direkta beroenden på IP-Adressen.
+Klient delens anycast-IP för din front dörr bör normalt inte ändras och kan vara statisk för livs längden för front dörren. Det finns dock **inga garantier** för samma. Skriv inte några direkta beroenden på IP-adressen.
 
-### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>Stöder Azure ytterdörren Service statiska eller dedikerade IP-adresser?
+### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>Stöder Azure frontend-tjänsten statiska eller dedikerade IP-adresser?
 
-Nej, Azure ytterdörren Service stöder för närvarande inte statisk eller dedikerade klientdel anycast IP-adresser. 
+Nej, Azure-frontend-tjänsten stöder för närvarande inte statisk eller dedikerad anycast-IP för klient del. 
 
-### <a name="does-azure-front-door-service-support-x-forwarded-for-headers"></a>Azure ytterdörren Service har stöd för x-vidarebefordrade-för-huvuden?
+### <a name="does-azure-front-door-service-support-x-forwarded-for-headers"></a>Har Azure frontend-tjänsten stöd för x-vidarebefordrade – för rubriker?
 
-Ja, stöder Azure ytterdörren Service rubriker för X-vidarebefordrade-för X-vidarebefordrade-värd och X-vidarebefordrade-protokoll. För X-vidarebefordrade-för om rubriken fanns redan sedan ytterdörren lägger till klientens socket IP-Adressen till den. Annars läggs rubriken med klientens socket IP-Adressen som värde. För X-vidarebefordrade-värd och X-vidarebefordrade-Proto åsidosätts värdet.
+Ja, Azures frontend-tjänst stöder de X-vidarebefordrade-för-, X-vidarebefordrade-värd-och X-forwarded-proto-huvudena. För X-vidarebefordrad – för om huvudet redan fanns lägger front dörren till klientens socket-IP till den. Annars lägger den till rubriken med klientens socket-IP som värde. För X-vidarebefordrad-värd och X-forwarded-proto, åsidosätts värdet.
 
-Läs mer om den [ytterdörren stöd för HTTP-huvuden](front-door-http-headers-protocol.md).  
+Läs mer om [HTTP-huvuden som stöds av frontend-dörren](front-door-http-headers-protocol.md).  
 
-### <a name="how-long-does-it-take-to-deploy-an-azure-front-door-service-does-my-front-door-still-work-when-being-updated"></a>Hur lång tid tar det för att distribuera en Azure ytterdörren tjänst? Min ytterdörren fortfarande fungerar när uppdateras?
+### <a name="how-long-does-it-take-to-deploy-an-azure-front-door-service-does-my-front-door-still-work-when-being-updated"></a>Hur lång tid tar det att distribuera en Azure-frontend-tjänst? Fungerar min front dörr fortfarande när den uppdateras?
 
-Skapa en ny ytterdörren eller några uppdateringar till en befintlig ytterdörren tar cirka 3 till 5 minuter för global distribution. Det innebär att på 3 till 5 minuter ytterdörren konfigurationen kommer att distribueras på alla våra POP globalt.
+En ny front dörr skapas eller alla uppdateringar av en befintlig front dörr tar cirka 3 till 5 minuter för global distribution. Det innebär att när du använder 3 till 5 minuter, distribueras din konfiguration av din front dörr över alla dina pop globalt.
 
-Obs! – anpassad SSL-certifikatuppdateringar tar cirka 30 minuter för att distribueras globalt.
+Obs! anpassade uppdateringar av SSL-certifikatet tar cirka 30 minuter att distribueras globalt.
 
 ## <a name="configuration"></a>Konfiguration
 
-### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Kan Azure ytterdörren belastningsutjämning eller dirigera trafik, inom ett virtuellt nätverk?
+### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Kan Azures belastnings utjämning för front dörren eller dirigera trafik inom ett virtuellt nätverk?
 
-Azure ytterdörren (AFD) kräver en offentlig IP-adress eller offentligt matchat DNS-namn för att dirigera trafik. Svaret är alltså, ingen AFD direkt kan inte routa inom ett virtuellt nätverk, men använder en Application Gateway eller Azure Load Balancer mellan kommer att lösa det här scenariot.
+Azures front dörr (AFD) kräver en offentlig IP-adress eller offentligt matchat DNS-namn för att dirigera trafik. Svaret är därför ingen AFD direkt kan inte dirigera inom ett virtuellt nätverk, men att använda en Application Gateway eller Azure Load Balancer mellan kommer att lösa det här scenariot.
 
-### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door-service"></a>Vilka är de olika tidsgränser och begränsningar för Azure ytterdörren tjänsten?
+### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door-service"></a>Vilka är de olika tids gränserna och begränsningarna för Azure-tjänsten för front dörr?
 
-Lär dig mer om alla dokumentet [tidsgränser och begränsningar för Azure ytterdörren tjänsten](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
+Lär dig mer om alla dokumenterade [tids gränser och begränsningar för Azure-tjänsten för front dörr](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
 
 ## <a name="performance"></a>Prestanda
 
-### <a name="how-does-azure-front-door-service-support-high-availability-and-scalability"></a>Hur stöder Azure ytterdörren Service hög tillgänglighet och skalbarhet?
+### <a name="how-does-azure-front-door-service-support-high-availability-and-scalability"></a>Hur stöder Azure frontend service hög tillgänglighet och skalbarhet?
 
-Azure ytterdörren Service är en globalt distribuerad plattform flera innehavare med stora volymer av kapacitet för att uppfylla programmets behov av skalbarhet. Levereras från gränsen på Microsofts globala nätverk innehåller ytterdörren globala belastningsutjämning funktioner som gör det möjligt att växla över hela programmet eller även enskilda mikrotjänster över regioner eller flera moln.
+Azures frontend-tjänst är en globalt distribuerad plattform för flera innehavare med enorma volymer av kapacitet för att tillgodose ditt programs skalbarhets behov. Front dörren är en global belastnings Utjämnings funktion som gör att du kan redundansväxla hela programmet eller till och med enskilda mikrotjänster i regioner eller olika moln.
 
 ## <a name="ssl-configuration"></a>SSL-konfiguration
 
-### <a name="what-tls-versions-are-supported-by-azure-front-door-service"></a>Vilka TLS-versioner som stöds av Azure ytterdörren Service?
+### <a name="what-tls-versions-are-supported-by-azure-front-door-service"></a>Vilka TLS-versioner stöds av tjänsten Azure frontend-dörr?
 
-Dörren har stöd för TLS 1.0, 1.1 och 1.2. TLS 1.3 stöds inte ännu.
+Alla profiler för front dörren som skapats efter september 2019 använder TLS 1,2 som standard minimum.
 
-### <a name="what-certificates-are-supported-on-azure-front-door-service"></a>Vilka certifikat stöds på Azure ytterdörren Service?
+Frontend-dörren stöder TLS-versionerna 1,0, 1,1 och 1,2. TLS 1,3 stöds inte ännu.
 
-Om du vill aktivera HTTPS-protokollet för att säkert leverera innehåll på en anpassad domän ytterdörren, kan du använda ett certifikat som hanteras av Azure ytterdörren Service eller använda ditt eget certifikat.
-Åtkomsten hanteras alternativet tillhandahåller ett standard SSL-certifikat via Digicert och lagras framför dörrens Key Vault. Om du väljer att använda ditt eget certifikat så du kan registrera ett certifikat från en Certifikatutfärdare som stöds och kan vara ett standard SSL, utökad validering certifikat eller även ett jokerteckencertifikat. Självsignerade certifikat stöds inte. Lär dig [aktivera HTTPS för en anpassad domän](https://aka.ms/FrontDoorCustomDomainHTTPS).
+### <a name="what-certificates-are-supported-on-azure-front-door-service"></a>Vilka certifikat stöds i Azure frontend-tjänsten?
 
-### <a name="does-front-door-support-autorotation-of-certificates"></a>Stöder ytterdörren autorotationen av certifikat?
+Om du vill aktivera HTTPS-protokollet för säker leverans av innehåll på en anpassad domän i en annan dator, kan du välja att använda ett certifikat som hanteras av Azures tjänst för front dörr eller använda ditt eget certifikat.
+Alternativet front dörr Managed tillhandahåller ett SSL-standardcertifikat via DigiCert och lagras i front dörrens Key Vault. Om du väljer att använda ditt eget certifikat kan du publicera ett certifikat från en certifikat utfärdare som stöds och det kan vara ett standard-SSL, ett utökat verifierings certifikat eller ett certifikat med jokertecken. Självsignerade certifikat stöds inte. Lär dig [hur du aktiverar HTTPS för en anpassad domän](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
-För alternativet ytterdörren hanteras certifikat är certifikat autorotated genom ytterdörren. Om du använder ett ytterdörren hanterade certifikat och se att förfallodatum för certifikat som är mindre än 60 dagar, ett supportärende.
-</br>Autorotationen finns inte stöd för dina egna anpassade SSL-certifikat. Liknande hur det har ställts in första gången för en viss anpassade domän, du behöver till punkt åtkomsten till rätt certifikat-versionen i Key Vault och kontrollera att tjänstens huvudnamn för ytterdörren fortfarande har åtkomst till Key Vault. Den här uppdaterade certifikatåtgärden distributionen genom att åtkomsten är atomiska och inte orsakar några angivna ämnesnamnet att produktionen påverkas eller SAN-nätverk för certifikatet ändras inte.
+### <a name="does-front-door-support-autorotation-of-certificates"></a>Stöder front dörren autorotation av certifikat?
 
-### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Vilka är de aktuella krypteringssviter som stöds av Azure ytterdörren Service?
+För alternativet klient som hanteras av den främre dörren, roteras certifikaten autoefter front dörren. Om du använder ett certifikat från en front dörr och ser att utgångs datumet för certifikatet är mindre än 60 dagar, File a Support Ticket.
+</br>Autorotation stöds inte för ditt eget anpassade SSL-certifikat. På samma sätt som när den konfigurerades första gången för en viss anpassad domän måste du peka fram sidan till rätt certifikat version i din Key Vault och kontrol lera att tjänstens huvud namn för front dörren fortfarande har åtkomst till Key Vault. Den här uppdaterade certifikat distributions åtgärden efter front dörren är atomisk och orsakar ingen produktions påverkan förutsatt att ämnes namnet eller SAN-nätverket för certifikatet inte ändras.
 
-Följande är de aktuella krypteringssviter som stöds av Azure ytterdörren Service:
+### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Vilka är de aktuella chiffersviter som stöds av Azure frontend-tjänsten?
+
+Följande är de aktuella chiffersviter som stöds av tjänsten Azure frontend-dörr:
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -179,37 +181,37 @@ Följande är de aktuella krypteringssviter som stöds av Azure ytterdörren Ser
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
 
-### <a name="does-azure-front-door-service-also-support-re-encryption-of-traffic-to-the-backend"></a>Stöder Azure ytterdörren Service också omkryptering av trafik till serverdelen?
+### <a name="does-azure-front-door-service-also-support-re-encryption-of-traffic-to-the-backend"></a>Stöder Azure frontend-tjänsten även Omkryptering av trafik till Server delen?
 
-Ja, Azure ytterdörren Service har stöd för SSL-avlastning och slutpunkt till slutpunkt SSL, som krypterar trafiken till serverdelen. I själva verket eftersom anslutningarna till serverdelen sker via det är offentlig IP-adress, vi rekommenderar att du konfigurerar ytterdörren för att använda HTTPS som protokoll för vidarebefordran.
+Ja, Azures frontend-tjänst har stöd för SSL-avlastning och slut punkt till slut punkt SSL, som krypterar trafiken till Server delen igen. Eftersom anslutningarna till Server delen sker över den offentliga IP-adressen rekommenderar vi i själva verket att du konfigurerar din front dörr att använda HTTPS som protokoll för vidarebefordran.
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Kan jag konfigurera SSL-princip för att styra SSL-protokoll version?
+### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Kan jag konfigurera SSL-principer för att kontrol lera SSL-protokoll versioner?
 
-Nej, ytterdörren stöder inte för närvarande för att neka specifika TLS-versioner eller kan ange den lägsta TLS-versionen. 
+Du kan konfigurera en lägsta TLS-version i Azures front dörr via [Azure-REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). För närvarande kan du välja mellan 1,0 och 1,2.
 
-### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Kan jag konfigurera åtkomsten för endast specifika krypteringssviter?
+### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Kan jag konfigurera front dörren till att bara stödja vissa chiffersviter?
 
-Nej, konfigurera åtkomsten för specifika krypteringssviter som stöds inte. 
+Nej, det finns inte stöd för att konfigurera front dörren för speciella chiffersviter. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnostik och loggning
 
-### <a name="what-types-of-metrics-and-logs-are-available-with-azure-front-door-service"></a>Vilka typer av mått och loggar är tillgängliga med Azure ytterdörren Service?
+### <a name="what-types-of-metrics-and-logs-are-available-with-azure-front-door-service"></a>Vilka typer av mått och loggar är tillgängliga med Azure frontend-tjänsten?
 
-Information om loggar och andra diagnostiska funktioner finns i [övervakning mått och loggar för ytterdörren](front-door-diagnostics.md).
+Information om loggar och andra diagnostiska funktioner finns i [övervaka mått och loggar för front dörren](front-door-diagnostics.md).
 
-### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Vad är bevarandeprincipen på diagnostikloggar?
+### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Vad är bevarande principen för diagnostikloggar?
 
-Flöde för diagnostikloggar till kunder storage-konto och kunder kan definiera bevarandeprincipen baserat på deras prioritet. Diagnostikloggar kan också skickas till en Event Hub eller Azure Monitor loggar. Mer information finns i [Azure ytterdörren Tjänstdiagnostiken](front-door-diagnostics.md).
+Diagnostikloggar loggar till lagrings kontot för kunder och kunderna kan ange bevarande principen utifrån deras preferens. Diagnostikloggar kan också skickas till en Event Hub-eller Azure Monitor-loggar. Mer information finns i [Azure-diagnostik för front dörrs tjänsten](front-door-diagnostics.md).
 
-### <a name="how-do-i-get-audit-logs-for-azure-front-door-service"></a>Hur får jag granskningsloggarna för Azure ytterdörren Service?
+### <a name="how-do-i-get-audit-logs-for-azure-front-door-service"></a>Hur gör jag för att hämta gransknings loggar för Azure frontend-tjänsten?
 
-Granskningsloggarna är tillgängliga för Azure ytterdörren Service. I portalen klickar du på **aktivitetsloggen** menyn blad ytterdörren för att få åtkomst till granskningsloggen. 
+Gransknings loggar är tillgängliga för Azure-tjänsten för frontend-dörren. I portalen klickar du på **aktivitets logg** på Meny bladet för din front dörr för att få åtkomst till gransknings loggen. 
 
-### <a name="can-i-set-alerts-with-azure-front-door-service"></a>Kan jag ställa in aviseringar med Azure ytterdörren Service?
+### <a name="can-i-set-alerts-with-azure-front-door-service"></a>Kan jag ställa in aviseringar med Azure frontend-tjänsten?
 
-Ja, Azure ytterdörren Service har stöd för aviseringar. Aviseringar kan konfigureras på mått. 
+Ja, Azure-tjänsten för front dörr stöder aviseringar. Aviseringar har kon figurer ATS för mått. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Lär dig hur du [skapar en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).

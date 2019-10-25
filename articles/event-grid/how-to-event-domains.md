@@ -1,18 +1,18 @@
 ---
-title: Hantera stora uppsättningar avsnitt i Azure Event Grid med händelse domäner
+title: Publicera händelser med händelse domäner med Azure Event Grid
 description: Visar hur du hanterar stora uppsättningar av ämnen i Azure Event Grid och publicerar händelser till dem med hjälp av händelse domäner.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 9d7cef35ef6d1138b037f7c520f21bee86567aa8
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 10/22/2019
+ms.openlocfilehash: 1d07227249806b7d54523af66817a170c19354ee
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842575"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786545"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Hantera ämnen och publicera händelser med hjälp av händelse domäner
 
@@ -78,16 +78,16 @@ Lyckad generering returnerar följande värden:
 }
 ```
 
-Observera att `id` och när de krävs för att hantera domänen och publicera händelser. `endpoint`
+Observera `endpoint` och `id` som krävs för att hantera domänen och publicera händelser.
 
 ## <a name="manage-access-to-topics"></a>Hantera åtkomst till ämnen
 
 Hantering av åtkomst till ämnen görs via [roll tilldelning](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Roll tilldelningen använder rollbaserad åtkomst kontroll för att begränsa åtgärder på Azure-resurser till behöriga användare i ett visst omfång.
 
-Event Grid har två inbyggda roller som du kan använda för att tilldela särskilda användare åtkomst till olika ämnen i en domän. De här rollerna är `EventGrid EventSubscription Contributor (Preview)`, som gör det möjligt att skapa och ta bort prenumerationer och `EventGrid EventSubscription Reader (Preview)`, som endast tillåter att lista över händelse prenumerationer.
+Event Grid har två inbyggda roller som du kan använda för att tilldela särskilda användare åtkomst till olika ämnen i en domän. De här rollerna är `EventGrid EventSubscription Contributor (Preview)`, vilket gör det möjligt att skapa och ta bort prenumerationer och `EventGrid EventSubscription Reader (Preview)`, vilket endast tillåter registrering av händelse prenumerationer.
 
 # <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
-Följande Azure CLI-kommando begränsar `alice@contoso.com` för att skapa och ta bort händelse prenumerationer `demotopic1`endast i avsnittet:
+Följande Azure CLI-kommando begränsar `alice@contoso.com` för att skapa och ta bort händelse prenumerationer endast i avsnittet `demotopic1`:
 
 ```azurecli-interactive
 az role assignment create \
@@ -97,7 +97,7 @@ az role assignment create \
 ```
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-Följande PowerShell-kommando begränsar `alice@contoso.com` för att skapa och ta bort händelse prenumerationer `demotopic1`endast i avsnittet:
+Följande PowerShell-kommando begränsar `alice@contoso.com` för att skapa och ta bort händelse prenumerationer endast i avsnittet `demotopic1`:
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment `
@@ -113,7 +113,7 @@ Mer information om hur du hanterar åtkomst för Event Grid åtgärder finns [Ev
 
 Event Grid tjänsten skapar och hanterar automatiskt motsvarande ämne i en domän baserat på anropet för att skapa en händelse prenumeration för ett domän ämne. Det finns inget separat steg för att skapa ett ämne i en domän. Även om den sista händelse prenumerationen för ett ämne tas bort, tas även avsnittet bort.
 
-Att prenumerera på ett ämne i en domän är detsamma som att prenumerera på andra Azure-resurser. För käll resurs-ID anger du det händelse domän-ID som du returnerade när du skapade domänen tidigare. Om du vill ange det ämne som du vill prenumerera på `/topics/<my-topic>` lägger du till i slutet av käll resurs-ID: t. Om du vill skapa en händelse prenumeration för domän omfånget som tar emot alla händelser i domänen anger du händelsens domän-ID utan att ange några ämnen.
+Att prenumerera på ett ämne i en domän är detsamma som att prenumerera på andra Azure-resurser. För käll resurs-ID anger du det händelse domän-ID som du returnerade när du skapade domänen tidigare. Om du vill ange det ämne som du vill prenumerera på lägger du till `/topics/<my-topic>` i slutet av käll resurs-ID: t. Om du vill skapa en händelse prenumeration för domän omfånget som tar emot alla händelser i domänen anger du händelsens domän-ID utan att ange några ämnen.
 
 Användaren som du har beviljat åtkomst till i föregående avsnitt skulle vanligt vis skapa prenumerationen. För att förenkla den här artikeln skapar du prenumerationen. 
 
@@ -146,7 +146,7 @@ Behörigheter som har angetts för ett ämne lagras i Azure Active Directory och
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Publicera händelser till en Event Grid domän
 
-Publicering av händelser till en domän är detsamma som [att publicera till ett anpassat ämne](./post-to-custom-topic.md). Men i stället för att publicera till det anpassade ämnet publicerar du alla händelser till domänens slut punkt. I data för JSON-händelsen anger du det ämne som du vill att händelserna ska gå till. Följande händelse mat ris resulterar i händelse `"id": "1111"` av ämne `demotopic1` när händelse med `"id": "2222"` skulle skickas till ämnet `demotopic2`:
+Publicering av händelser till en domän är detsamma som [att publicera till ett anpassat ämne](./post-to-custom-topic.md). Men i stället för att publicera till det anpassade ämnet publicerar du alla händelser till domänens slut punkt. I data för JSON-händelsen anger du det ämne som du vill att händelserna ska gå till. Följande händelse mat ris leder till att `"id": "1111"` till ämnet `demotopic1` när en händelse med `"id": "2222"` skulle skickas till ämnet `demotopic2`:
 
 ```json
 [{

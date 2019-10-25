@@ -1,22 +1,22 @@
 ---
-title: Skala partitioner och repliker för frågor och indexering – Azure Search
-description: Justera partitions-och replik dator resurser i Azure Search, där varje resurs priss ätts i de fakturerbara Sök enheterna.
-author: HeidiSteen
+title: Skala upp partitioner och repliker för att lägga till kapacitet för frågor och index-arbetsbelastningar
+titleSuffix: Azure Cognitive Search
+description: Justera partitions-och replik dator resurser i Azure Kognitiv sökning, där varje resurs priss ätts i de fakturerbara Sök enheterna.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/01/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69650067"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792506"
 ---
-# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Skala partitioner och repliker för att köra frågor och indexera arbets belastningar i Azure Search
+# <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Skala upp partitioner och repliker för att lägga till kapacitet för frågor och index-arbetsbelastningar i Azure Kognitiv sökning
+
 När du har [valt en pris nivå](search-sku-tier.md) och [tillhandahåller en Sök tjänst](search-create-service-portal.md), är nästa steg att välja att öka antalet repliker eller partitioner som används av tjänsten. Varje nivå erbjuder ett fast antal fakturerings enheter. I den här artikeln förklaras hur du allokerar dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för frågekörningen, indexering och lagring.
 
 Resurs konfigurationen är tillgänglig när du konfigurerar en tjänst på Basic- [nivån](https://aka.ms/azuresearchbasic) eller någon av de [optimerade standard-eller lagrings nivåerna](search-limits-quotas-capacity.md). För tjänster på dessa nivåer köps kapaciteten i steg om *Sök enheter* (SUS) där varje partition och replik räknas som en su. 
@@ -24,7 +24,7 @@ Resurs konfigurationen är tillgänglig när du konfigurerar en tjänst på Basi
 Att använda färre SUs-resultat i en proportionellt lägre faktura. Faktureringen gäller så länge tjänsten har kon figurer ATS. Om du tillfälligt inte använder en tjänst är det enda sättet att undvika fakturering genom att ta bort tjänsten och sedan återskapa den när du behöver den.
 
 > [!Note]
-> När du tar bort en tjänst tas allt på den bort. Det finns ingen funktion i Azure Search för säkerhets kopiering och återställning av sparade Sök data. Om du vill distribuera om ett befintligt index i en ny tjänst bör du köra programmet som används för att skapa och läsa in det ursprungligen. 
+> När du tar bort en tjänst tas allt på den bort. Det finns ingen funktion i Azure Kognitiv sökning för säkerhets kopiering och återställning av sparade Sök data. Om du vill distribuera om ett befintligt index i en ny tjänst bör du köra programmet som används för att skapa och läsa in det ursprungligen. 
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologi: repliker och partitioner
 Repliker och partitioner är de primära resurser som återställer en Sök tjänst.
@@ -40,7 +40,7 @@ Repliker och partitioner är de primära resurser som återställer en Sök tjä
 
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>Så här allokerar du repliker och partitioner
-I Azure Search allokeras en tjänst ursprungligen till en minimal resurs nivå som består av en partition och en replik. För nivåer som stöder det kan du stegvis justera beräknings resurser genom att öka partitionerna om du behöver mer lagrings utrymme och I/O, eller lägga till fler repliker för större volymer eller bättre prestanda. En enskild tjänst måste ha tillräckligt med resurser för att hantera alla arbets belastningar (indexering och frågor). Du kan inte dela upp arbets belastningar mellan flera tjänster.
+I Azure Kognitiv sökning allokeras en tjänst ursprungligen till en minimal resurs nivå som består av en partition och en replik. För nivåer som stöder det kan du stegvis justera beräknings resurser genom att öka partitionerna om du behöver mer lagrings utrymme och I/O, eller lägga till fler repliker för större volymer eller bättre prestanda. En enskild tjänst måste ha tillräckligt med resurser för att hantera alla arbets belastningar (indexering och frågor). Du kan inte dela upp arbets belastningar mellan flera tjänster.
 
 Om du vill öka eller ändra tilldelningen av repliker och partitioner rekommenderar vi att du använder Azure Portal. Portalen tillämpar gränser på tillåtna kombinationer som ligger under max gränsen. Om du behöver en skript-baserad eller kod baserad etablerings metod är [Azure PowerShell](search-manage-powershell.md) eller [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) alternativa lösningar.
 
@@ -72,7 +72,7 @@ I allmänhet behöver Sök program fler repliker än partitioner, särskilt när
 
 
 > [!NOTE]
-> När en tjänst har allokerats kan den inte uppgraderas till en högre SKU. Du måste skapa en Sök tjänst på den nya nivån och läsa in index på nytt. Se [skapa en Azure Search-tjänst i portalen](search-create-service-portal.md) för hjälp med tjänst etablering.
+> När en tjänst har allokerats kan den inte uppgraderas till en högre SKU. Du måste skapa en Sök tjänst på den nya nivån och läsa in index på nytt. Se [skapa en Azure kognitiv sökning-tjänst i portalen](search-create-service-portal.md) för hjälp med tjänst etablering.
 >
 >
 
@@ -97,7 +97,7 @@ Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande ko
 SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
-> Antalet repliker och partitioner delas upp jämnt i 12 (särskilt, 1, 2, 3, 4, 6, 12). Detta beror på att Azure Search i förväg delar upp varje index i 12 Shards så att det kan spridas i lika stora delar av alla partitioner. Om din tjänst till exempel har tre partitioner och du skapar ett index, kommer varje partition att innehålla fyra Shards av indexet. Hur Azure Search Shards ett index är en implementerings information som kan komma att ändras i framtida versioner. Även om talet är 12 i dag, bör du inte vänta att antalet alltid är 12 i framtiden.
+> Antalet repliker och partitioner delas upp jämnt i 12 (särskilt, 1, 2, 3, 4, 6, 12). Detta beror på att Azure Kognitiv sökning fördelar varje index i 12 Shards så att det kan spridas i lika stora delar av alla partitioner. Om din tjänst till exempel har tre partitioner och du skapar ett index, kommer varje partition att innehålla fyra Shards av indexet. Hur Azure Kognitiv sökning Shards ett index är en implementerings information som kan komma att ändras i framtida versioner. Även om talet är 12 i dag, bör du inte vänta att antalet alltid är 12 i framtiden.
 >
 
 
@@ -112,16 +112,16 @@ Allmänna rekommendationer för hög tillgänglighet:
 
 * Tre eller flera repliker för hög tillgänglighet av Läs-och skriv arbets belastningar (frågor plus indexering när enskilda dokument läggs till, uppdateras eller tas bort)
 
-Service avtal (SLA) för Azure Search riktas mot åtgärder och vid index uppdateringar som består av att lägga till, uppdatera eller ta bort dokument.
+Service avtal (SLA) för Azure Kognitiv sökning riktas mot åtgärder och vid index uppdateringar som består av att lägga till, uppdatera eller ta bort dokument.
 
 Basic-nivån ligger utanför en partition och tre repliker. Om du vill att flexibiliteten omedelbart ska svara på fluktuationer i behov för både indexering och frågans data flöde, bör du överväga en av standard nivåerna.  Om du upptäcker att dina lagrings krav ökar mycket snabbare än din fråga genom att använda en av de optimerade lagrings nivåerna.
 
 ### <a name="index-availability-during-a-rebuild"></a>Index tillgänglighet under en återskapning
 
-Hög tillgänglighet för Azure Search gäller frågor och index uppdateringar som inte innebär att återskapa ett index. Om du tar bort ett fält, ändrar en datatyp eller byter namn på ett fält måste du återskapa indexet. För att återskapa indexet måste du ta bort indexet, återskapa indexet och läsa in data på nytt.
+Hög tillgänglighet för Azure Kognitiv sökning avser frågor och index uppdateringar som inte innebär att återskapa ett index. Om du tar bort ett fält, ändrar en datatyp eller byter namn på ett fält måste du återskapa indexet. För att återskapa indexet måste du ta bort indexet, återskapa indexet och läsa in data på nytt.
 
 > [!NOTE]
-> Du kan lägga till nya fält i ett Azure Search index utan att återskapa indexet. Värdet för det nya fältet kommer att vara null för alla dokument som redan finns i indexet.
+> Du kan lägga till nya fält i ett Azure Kognitiv sökning-index utan att bygga om indexet. Värdet för det nya fältet kommer att vara null för alla dokument som redan finns i indexet.
 
 Du måste ha en kopia av indexet med ett annat namn på samma tjänst, eller en kopia av indexet med samma namn på en annan tjänst, och sedan ange omdirigering eller växlings logik i din kod för att bevara indexets tillgänglighet under en ny version.
 
@@ -133,7 +133,7 @@ Svars tid är en indikator som ytterligare repliker behövs. Ett första steg f�
 
 Vi kan inte tillhandahålla hårda uppskattningar av frågor per sekund (frågor per sekund): fråga om prestanda beror på frågans komplexitet och konkurrerande arbets belastningar. Även om du lägger till repliker tydligt resulterar i bättre prestanda är resultatet inte strikt linjärt: om du lägger till tre repliker garanterar vi inte tredubbel data flöde.
 
-Vägledning för att uppskatta frågor per sekund för dina arbets belastningar finns i [Azure Search prestanda-och optimerings överväganden](search-performance-optimization.md).
+Vägledning för att uppskatta frågor per sekund för dina arbets belastningar finns i [Azure kognitiv sökning prestanda-och optimerings överväganden](search-performance-optimization.md).
 
 ## <a name="increase-indexing-performance-with-partitions"></a>Öka indexerings prestanda med partitioner
 Sök efter program som kräver data uppdatering i nära real tid måste ha proportionellt sett fler partitioner än repliker. Att lägga till partitioner sprider Läs-och skriv åtgärder över ett större antal beräknings resurser. Du får också mer disk utrymme för att lagra ytterligare index och dokument.
@@ -143,4 +143,4 @@ Större index tar längre tid att fråga. Därför kanske du upptäcker att varj
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Välj en pris nivå för Azure Search](search-sku-tier.md)
+[Välj en pris nivå för Azure Kognitiv sökning](search-sku-tier.md)

@@ -1,24 +1,23 @@
 ---
-title: Vanliga fel och varningar – Azure Search
-description: Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Search.
-services: search
-manager: heidist
+title: Vanliga fel och varningar
+titleSuffix: Azure Cognitive Search
+description: Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Kognitiv sökning.
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: a8d5fc30299dbb16373b1cfbbd89563bad471f39
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553609"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787982"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Vanliga fel och varningar i AI-pipeline för anrikning i Azure Search
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Vanliga fel och varningar för AI-pipeline i Azure Kognitiv sökning
 
-Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Search.
+Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Kognitiv sökning.
 
 ## <a name="errors"></a>Fel
 Indexeringen stoppas när antalet fel överstiger ["maxFailedItems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -210,3 +209,14 @@ Om du vill se till att all text analyseras bör du överväga att använda [dela
 
 ### <a name="web-api-skill-response-contains-warnings"></a>Kunskaps svar för webb-API: n innehåller varningar
 Indexeraren kunde köra en färdighet i färdigheter, men svaret från webb-API-begäran angav att det fanns varningar under körningen. Granska varningarna för att förstå hur dina data påverkas och huruvida en åtgärd krävs eller inte.
+
+### <a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>Den aktuella indexerare-konfigurationen stöder inte stegvist förlopp
+Den här varningen inträffar bara för Cosmos DB data källor.
+
+Stegvis förlopp under indexeringen säkerställer att om körningen av Indexer avbryts vid tillfälliga haverier eller körnings tids gräns, kan indexeraren Hämta var den slutade nästa gång den körs, i stället för att behöva indexera om hela samlingen från grunden. Detta är särskilt viktigt när du indexerar stora samlingar.
+
+Möjligheten att återuppta ett index jobb som inte är klart är predikat på att dokumentet har beställts av `_ts` kolumnen. Indexeraren använder tidsstämpeln för att avgöra vilket dokument som ska plockas härnäst. Om kolumnen `_ts` saknas eller om indexeraren inte kan avgöra om en anpassad fråga beställs, börjar indexeraren i början och du ser den här varningen.
+
+Det är möjligt att åsidosätta det här beteendet, aktivera stegvisa framsteg och ignorera den här varningen med hjälp av konfigurations egenskapen `assumeOrderByHighWatermarkColumn`.
+
+[Mer information om hur du Cosmos DB stegvisa framsteg och anpassade frågor.](https://go.microsoft.com/fwlink/?linkid=2099593)

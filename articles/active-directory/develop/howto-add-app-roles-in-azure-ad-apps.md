@@ -1,6 +1,7 @@
 ---
-title: Lägga till roller i Azure Active Directory-registrerade programmet och tar emot dem i token
-description: Lär dig hur du lägger till roller i ett program i Azure Active Directory, tilldela användare och grupper till de här rollerna och tar emot dem i den `roles` anspråk i token.
+title: Lägg till app-roller i din Azure Active Directory-registrerade app och ta emot dem i token
+titleSuffix: Microsoft identity platform
+description: Lär dig hur du lägger till app-roller i ett program som är registrerat i Azure Active Directory, tilldela användare och grupper till dessa roller och ta emot dem i `roles`-anspråk i token.
 services: active-directory
 documentationcenter: ''
 author: kkrishna
@@ -17,52 +18,52 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87660c6ef8266d3ebfbad1b7a8a7cb98b936e9c6
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299152"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803354"
 ---
-# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Anvisningar: Lägg till roller i ditt program och tar emot dem i token
+# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
-Rollbaserad åtkomstkontroll (RBAC) är en populär mekanism auktorisering i program. När du använder RBAC kan beviljar en administratör behörigheter till roller och inte till enskilda användare eller grupper. Administratören kan sedan tilldela roller till olika användare och grupper för att kontrollera vem som har åtkomst till vilka innehåll och funktioner.
+Rollbaserad åtkomst kontroll (RBAC) är en populär mekanism för att genomdriva auktorisering i program. När du använder RBAC beviljar en administratör behörigheter till roller och inte till enskilda användare eller grupper. Administratören kan sedan tilldela roller till olika användare och grupper för att kontrol lera vem som har åtkomst till det innehåll och de funktioner som finns.
 
-Med RBAC med programroller och Rollanspråk, kan utvecklare på ett säkert sätt använda auktorisering i sina appar utan besvär själva.
+Med hjälp av RBAC med program roller och roll anspråk kan utvecklare på ett säkert sätt framtvinga auktorisering i sina appar med lite ansträngning på sin sida.
 
-En annan metod är att använda Azure AD-grupper och gruppanspråk, enligt [WebApp-GroupClaims-DotNet](https://github.com/Azure-Samples/WebApp-GroupClaims-DotNet). Azure AD-grupper och roller för programmet är inte menat ömsesidigt uteslutande; de kan användas tillsammans för att ge ännu finare detaljerade åtkomstkontroll.
+En annan metod är att använda Azure AD-grupper och grupp anspråk, som du ser i [webapp-GroupClaims-dotNet](https://github.com/Azure-Samples/WebApp-GroupClaims-DotNet). Azure AD-grupper och program roller är inte heller ömsesidigt uteslutande; de kan användas i tandem för att ge ännu bättre kornig åtkomst kontroll.
 
 ## <a name="declare-roles-for-an-application"></a>Deklarera roller för ett program
 
-Dessa programroller definieras i den [Azure-portalen](https://portal.azure.com) i applikationsmanifestet registrering.  När en användare loggar in i programmet, Azure AD skickar en `roles` anspråk för varje roll som användaren har beviljats individuellt till användaren och från deras gruppmedlemskap.  Tilldelningen av användare och grupper till roller kan vara klar via portalens Användargränssnittet eller programmässigt med [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i programmets registrerings manifest.  När en användare loggar in i programmet, genererar Azure AD ett `roles`-anspråk för varje roll som användaren har beviljats individuellt för användaren och från grupp medlemskapet.  Tilldelning av användare och grupper till roller kan göras via portalens användar gränssnitt eller program mässigt med hjälp av [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
 
-### <a name="declare-app-roles-using-azure-portal"></a>Deklarera roller med hjälp av Azure portal
+### <a name="declare-app-roles-using-azure-portal"></a>Deklarera rollbaserade appar med hjälp av Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. I det översta fältet väljer du ditt konto, och sedan **växla katalog**.
-1. När den **katalog + prenumeration** öppnas, Välj den Active Directory-klient som du vill registrera ditt program från den **Favoriter** eller **alla kataloger**lista.
-1. Välj **alla tjänster** i det vänstra navigeringsfältet och välj **Azure Active Directory**.
-1. I den **Azure Active Directory** väljer **appregistreringar** att visa en lista över alla dina program.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. I det översta fältet väljer du ditt konto och byter sedan **katalog**.
+1. När fönstret **katalog + prenumeration** öppnas väljer du den Active Directory klient organisation där du vill registrera ditt program, från listan **Favoriter** eller **alla kataloger** .
+1. Välj **alla tjänster** i det vänstra navigerings fältet och välj **Azure Active Directory**.
+1. I fönstret **Azure Active Directory** väljer du **Appregistreringar** för att visa en lista över alla dina program.
 
-     Om du inte ser programmet som du vill att visas här använder du olika filtren högst upp på den **appregistreringar** för att begränsa listan eller bläddra nedåt i listan för att hitta ditt program.
+     Om du inte ser det program som du vill visa här använder du de olika filtren överst i **Appregistreringars** listan för att begränsa listan eller bläddra nedåt i listan för att hitta programmet.
 
-1. Välj det program som du vill definiera roller i.
-1. I bladet för ditt program, väljer **Manifest**.
-1. Redigera appmanifestet genom att leta upp den `appRoles` inställning och lägga till alla programroller.
+1. Välj det program som du vill definiera app-roller i.
+1. Välj **manifest**i bladet för ditt program.
+1. Redigera appens manifest genom att leta upp `appRoles`s inställningen och lägga till alla dina program roller.
 
      > [!NOTE]
-     > Varje approlldefinitionen i manifestet måste ha ett annat giltigt GUID för den `id` egenskapen. 
+     > Varje app Role-definition i det här manifestet måste ha ett annat giltigt GUID för egenskapen `id`. 
      > 
-     > Den `value` egenskapen för varje approlldefinitionen bör exakt matcha de strängar som används i koden i programmet. Den `value` egenskapen får inte innehålla blanksteg. I annat fall får ett fel när du sparar manifestet.
+     > Egenskapen `value` för varje app Role-definition bör exakt matcha de strängar som används i koden i programmet. Egenskapen `value` får inte innehålla blank steg. Om det gör det får du ett fel meddelande när du sparar manifestet.
      
 1. Spara manifestet.
 
 ### <a name="examples"></a>Exempel
 
-I följande exempel visas den `appRoles` som du kan tilldela `users`.
+I följande exempel visas de `appRoles` som du kan tilldela till `users`.
 
 > [!NOTE]
->Den `id` måste vara ett unikt GUID.
+>`id` måste vara ett unikt GUID.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -82,9 +83,9 @@ I följande exempel visas den `appRoles` som du kan tilldela `users`.
 ```
 
 > [!NOTE]
->Den `displayName` får inte innehålla blanksteg.
+>`displayName` får inte innehålla blank steg.
 
-Du kan definiera roller till målet `users`, `applications`, eller båda. När det är tillgängligt för `applications`, visas de roller som programbehörigheter i den **nödvändiga behörigheter** bladet. I följande exempel visas en app-roll som är riktade mot en `Application`.
+Du kan definiera app-roller för att ange mål `users`, `applications`eller båda. När det är tillgängligt för att `applications`visas app-roller som program behörigheter på bladet **nödvändiga behörigheter** . I följande exempel visas en app-roll som riktar sig mot en `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -103,35 +104,35 @@ Du kan definiera roller till målet `users`, `applications`, eller båda. När d
 "availableToOtherTenants": false,
 ```
 
-Antalet roller definieras påverkar de gränser som har programmanifestet. De har diskuterats i detalj på den [manifest gränser](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) sidan.
+Antalet definierade roller påverkar de gränser som applikations manifestet har. De har diskuterats i detalj på sidan [manifest gränser](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) .
 
-### <a name="assign-users-and-groups-to-roles"></a>Tilldela roller användare och grupper
+### <a name="assign-users-and-groups-to-roles"></a>Tilldela roller till användare och grupper
 
-När du har lagt till roller i ditt program, kan du tilldela användare och grupper till dessa roller.
+När du har lagt till app-roller i ditt program kan du tilldela de här rollerna användare och grupper.
 
-1. I den **Azure Active Directory** väljer **företagsprogram** från den **Azure Active Directory** vänstra navigeringsmenyn.
-1. Välj **alla program** att visa en lista över alla dina program.
+1. I fönstret **Azure Active Directory** väljer du **företags program** från **Azure Active Directory** vänster navigerings meny.
+1. Välj **alla program** om du vill visa en lista över alla dina program.
 
-     Om du inte ser programmet som du vill att visas här använder du olika filtren högst upp på den **alla program** för att begränsa listan eller bläddra nedåt i listan för att hitta ditt program.
+     Om du inte ser det program som du vill visa här, använder du de olika filtren överst i listan **alla program** för att begränsa listan eller bläddra nedåt i listan för att hitta programmet.
 
-1. Välj det program som du vill tilldela roller användare eller säkerhetsgrupp.
-1. Välj den **användare och grupper** fönstret på programmets vänstra navigeringsmenyn.
-1. Överst på den **användare och grupper** väljer den **Lägg till användare** knappen för att öppna den **Lägg till tilldelning** fönstret.
-1. Välj den **användare och grupper** selector från den **Lägg till tilldelning** fönstret.
+1. Välj det program som du vill tilldela användare eller säkerhets grupp till roller.
+1. Välj fönstret **användare och grupper** i programmets vänstra navigerings meny.
+1. Klicka på knappen **Lägg till användare** längst upp i listan **användare och grupper** för att öppna fönstret **Lägg till tilldelning** .
+1. Välj Välj **användare och grupper** i fönstret **Lägg till tilldelning** .
 
-     En lista över användare och säkerhetsgrupper kommer att visas tillsammans med en textruta för att söka efter och hitta en viss användare eller grupp. Den här skärmen kan du välja flera användare och grupper i en går.
+     En lista över användare och säkerhets grupper visas tillsammans med en text ruta där du kan söka efter och hitta en viss användare eller grupp. På den här skärmen kan du välja flera användare och grupper i en enda go.
 
-1. När du har valt de användare och grupper, tryck på den **Välj** knappen längst ned för att flytta till nästa del.
-1. Välj den **Välj roll** selector från den **Lägg till tilldelning** fönstret. Alla roller som deklarerats tidigare i appmanifestet visas.
-1. Välj en roll och tryck på den **Välj** knappen.
-1. Tryck på den **tilldela** knappen längst ned att slutföra tilldelningar av användare och grupper till appen.
-1. Bekräfta att användare och grupper som du har lagt till visas i den uppdaterade **användare och grupper** lista.
+1. När du är färdig med att välja användare och grupper trycker du på knappen **Välj** längst ned för att gå vidare till nästa del.
+1. Välj **Välj roll** väljare i fönstret **Lägg till tilldelning** . Alla roller som har deklarerats tidigare i app-manifestet visas.
+1. Välj en roll och klicka på knappen **Välj** .
+1. Tryck på knappen **tilldela** längst ned för att slutföra tilldelningen av användare och grupper till appen.
+1. Bekräfta att de användare och grupper som du har lagt till visas i listan uppdaterade **användare och grupper** .
 
 ## <a name="more-information"></a>Mer information
 
-- [Auktorisering i en webbapp med Azure AD-programroller &amp; rollanspråk (exempel)](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-roleclaims/)
-- [Använda säkerhetsgrupper och programroller i dina appar (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
-- [Azure Active Directory, nu med gruppanspråk och programroller](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
-- [Azure Active Directory-appmanifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Auktorisering i en webbapp med hjälp av Azure AD-programroller &amp; roll anspråk (exempel)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
+- [Använda säkerhets grupper och program roller i dina appar (video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Azure Active Directory, nu med grupp anspråk och program roller](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
+- [Azure Active Directory app-manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [AAD-åtkomsttoken](access-tokens.md)
-- [AAD `id_tokens`](id-tokens.md)
+- [AAD-`id_tokens`](id-tokens.md)

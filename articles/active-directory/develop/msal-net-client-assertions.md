@@ -1,5 +1,6 @@
 ---
-title: Klient kontroll i Microsoft Authentication Library för .NET | Azure
+title: Klient kontroll i Microsoft Authentication Library för .NET
+titleSuffix: Microsoft identity platform
 description: Läs om stöd för signerade klienter för konfidentiella klient program i Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: fcf11ac8dc39dcb1d70b932dbe870687f5446a52
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442496"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802845"
 ---
 # <a name="confidential-client-assertions"></a>Konfidentiell klient kontroll
 För att bevisa sin identitet utbyter konfidentiella klient program en hemlighet med Azure AD. Hemligheten kan vara:
@@ -50,13 +51,13 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 De anspråk som förväntas av Azure AD är:
 
-Anspråks typ | Value | Beskrivning
+Anspråks typ | Värde | Beskrivning
 ---------- | ---------- | ----------
 AUD | https://login.microsoftonline.com/{tenantId}/v2.0 | Anspråket "AUD" (Audience) identifierar mottagarna som JWT är avsett för (här Azure AD) se [RFC 7519, section 4.1.3]
-exp | Tor Jun 27 2019 15:04:17 GMT + 0200 (romantik, sommar tid) | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning. Se [RFC 7519, section 4.1.4]
+EXP | Tor Jun 27 2019 15:04:17 GMT + 0200 (romantik, sommar tid) | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning. Se [RFC 7519, section 4.1.4]
 ISS | ClientID | Anspråket "ISS" (utfärdare) identifierar det huvud konto som utfärdade JWT. Bearbetningen av detta påstående är programspecifik. Värdet "ISS" är en Skift läges känslig sträng som innehåller ett StringOrURI-värde. [RFC 7519, avsnitt 4.1.1]
 jti | (ett GUID) | Anspråket "JTI" (JWT ID) tillhandahåller en unik identifierare för JWT. Identifier-värdet måste tilldelas på ett sätt som garanterar att det är en försumbar sannolikhet att samma värde har tilldelats av misstag till ett annat data objekt. om programmet använder flera utfärdare, måste kollisioner förhindras mellan värden som skapas av olika utfärdare. JTI-anspråket kan användas för att förhindra att JWT spelas upp. Värdet "JTI" är en Skift läges känslig sträng. [RFC 7519, section 4.1.7]
-nbf | Tor Jun 27 2019 14:54:17 GMT + 0200 (romantik, sommar tid) | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning. [RFC 7519, avsnitt 4.1.5]
+NBF | Tor Jun 27 2019 14:54:17 GMT + 0200 (romantik, sommar tid) | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning. [RFC 7519, avsnitt 4.1.5]
 Build | ClientID | Anspråket "sub" (subject) identifierar ämnet för JWT. Anspråken i en JWT-sats är normalt uttryck för ämnet. Subject-värdet måste antingen vara lokalt unikt i kontexten för utfärdaren eller vara globalt unikt. Se [RFC 7519, avsnitt 4.1.2]
 
 Här är ett exempel på hur du kan hantverka dessa anspråk:
@@ -135,7 +136,7 @@ string GetAssertion()
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`som standard skapas en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka. Här är ett kodfragment om hur du gör det.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` som standard skapas en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka. Här är ett kodfragment om hur du gör det.
 
 ```CSharp
 string ipAddress = "192.168.1.2";
@@ -150,4 +151,4 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Om något av anspråken i ord listan som du skickar in är samma som ett av de obligatoriska anspråken, tas det ytterligare anspråkets värde med i beräkningen. Den åsidosätter de anspråk som beräknas av MSAL.NET.
 
-Om du vill ange egna anspråk, inklusive obligatoriska anspråk som förväntas av Azure AD, kan du `false` skicka in `mergeWithDefaultClaims` för-parametern.
+Om du vill tillhandahålla egna anspråk, inklusive obligatoriska anspråk som förväntas av Azure AD, måste du skicka `false` för `mergeWithDefaultClaims`-parametern.

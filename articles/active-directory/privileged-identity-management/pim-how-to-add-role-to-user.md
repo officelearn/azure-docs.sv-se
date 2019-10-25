@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61efc9d9d12cb67ea9c22e44ba0060db0f224f73
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5ad03e69df4ca03d58bba98b912ade354f90042e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554304"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809211"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Tilldela Azure AD-roller i Privileged Identity Management
 
@@ -38,25 +38,25 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
     Om du inte har startat Privileged Identity Management i Azure Portal ännu går du till [börja använda Privileged Identity Management](pim-getting-started.md).
 
-1. Klicka på **Azure AD-roller**.
+1. Välj **Azure AD-roller**.
 
-1. Klicka på **roller** eller **medlemmar**.
+1. Välj **roller** eller **medlemmar**.
 
     ![Meny alternativ för Azure AD-roller med roller och medlemmar markerade](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
-1. Klicka på **Lägg till medlem** för att öppna Lägg till hanterade medlemmar.
+1. Välj **Lägg till medlem** för att öppna Lägg till hanterade medlemmar.
 
-1. Klicka på **Välj en roll**, klicka på en roll som du vill hantera och klicka sedan på **Välj**.
+1. Välj **Välj en roll**, Välj en roll som du vill hantera och välj sedan **Välj**.
 
     ![Välj ett roll fönster som visar Azure AD-roller](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
-1. Klicka på **Välj medlemmar**, Välj de användare som du vill tilldela rollen och klicka sedan på **Välj**.
+1. Välj **Välj medlemmar**, Välj de användare som du vill tilldela rollen och välj sedan **Välj**.
 
     ![Fönstret Välj medlemmar där du kan välja en användare](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. I Lägg till hanterade medlemmar klickar du på **OK** för att lägga till användaren i rollen.
+1. I Lägg till hanterade medlemmar väljer du **OK** för att lägga till användaren i rollen.
 
-1. I listan över roller klickar du på den roll som du just har tilldelat för att visa listan över medlemmar.
+1. I listan över roller väljer du den roll som du just har tilldelat för att visa listan över medlemmar.
 
      När rollen har tilldelats visas den användare som du har valt i listan medlemmar som **giltig** för rollen.
 
@@ -72,15 +72,15 @@ Som standard är nya användare endast berättigade till en administratörs roll
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Klicka på **Azure AD-roller**.
+1. Välj **Azure AD-roller**.
 
-1. Klicka på **medlemmar**.
+1. Välj **medlemmar**.
 
     ![Azure AD-roller – medlems lista som visar roll-och aktiverings tillstånd](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. Klicka på en **berättigad** roll som du vill göra permanent.
+1. Välj en **berättigad** roll som du vill göra permanent.
 
-1. Klicka på **mer** och sedan på **skapa**behörighet.
+1. Välj **mer** och välj sedan **skapa**behörighet.
 
     ![I fönstret visas en användare som är berättigad till en roll med fler meny alternativ öppna](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
@@ -116,7 +116,9 @@ Följ dessa steg om du vill ta bort en särskild användare från en administrat
 
 ## <a name="authorization-error-when-assigning-roles"></a>Auktoriseringsfel vid tilldelning av roller
 
-Om du nyligen har aktiverat Privileged Identity Management för en Azure-prenumeration och du får ett auktoriseringsfel när du försöker göra en användare tillgänglig för en Azure AD-administratör, kan det bero på att tjänstens huvud namn för MS-PIM ännu inte har rätt åtkomst. För att tilldela roller måste MS-PIM-tjänstens huvud konto tilldelas [rollen administratör för användar åtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) i rollbaserad åtkomst kontroll för Azure-resurs åtkomst (till skillnad från administrations roller för Azure AD). I stället för att vänta tills MS-PIM tilldelas rollen administratör för användar åtkomst kan du tilldela den manuellt.
+Scenario: som en aktiv ägare eller administratör för användar åtkomst för en Azure-resurs kan du se din resurs inuti Privileged Identity Management men inte utföra några åtgärder som att göra en berättigad tilldelning eller Visa en lista över roll tilldelningar från resurs översikts sida. Alla dessa åtgärder resulterar i ett auktoriseringsfel.
+
+För att tilldela roller måste MS-PIM-tjänstens huvud konto tilldelas [rollen administratör för användar åtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) i rollbaserad åtkomst kontroll för Azure-resurs åtkomst (till skillnad från administrations roller för Azure AD). I stället för att vänta tills MS-PIM tilldelas rollen administratör för användar åtkomst kan du tilldela den manuellt.
 
 Följande steg tilldelar rollen administratör för användar åtkomst till tjänstens huvud namn för MS-PIM för en prenumeration.
 
@@ -147,7 +149,6 @@ Följande steg tilldelar rollen administratör för användar åtkomst till tjä
    Efter en liten stund tilldelas tjänstens huvud namn rollen administratör för användar åtkomst i prenumerations omfånget.
 
    ![Åtkomst kontroll (IAM) bladet som visar roll tilldelning av användar åtkomst administratör för MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
-
 
 ## <a name="next-steps"></a>Nästa steg
 

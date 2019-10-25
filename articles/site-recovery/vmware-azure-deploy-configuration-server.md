@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f5fe49130742d116775b75f17c726b56150c574f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331963"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792354"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -28,7 +28,7 @@ Konfigurations servern måste vara konfigurerad som en virtuell VMware-dator med
 
 ## <a name="prerequisites"></a>Krav
 
-De minsta maskin varu kraven för en konfigurations Server sammanfattas i följande tabell.
+De minsta maskin varu kraven för en konfigurations Server sammanfattas i följande avsnitt.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -37,31 +37,19 @@ De minsta maskin varu kraven för en konfigurations Server sammanfattas i följa
 Du behöver en användare med **någon av följande** behörigheter som anges i AAD (Azure Active Directory) för att registrera konfigurations servern med Azure Site Recovery Services.
 
 1. Användaren ska ha rollen Application Developer för att skapa program.
-   1. För att verifiera loggar du in på Azure Portal</br>
-   1. Navigera till Azure Active Directory > roller och administratörer</br>
-   1. Kontrol lera att användaren har tilldelats rollen Application Developer. Annars kan du använda en användare med den här behörigheten eller kontakta [administratören för att aktivera behörigheten](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - För att verifiera loggar du in på Azure Portal</br>
+    - Navigera till Azure Active Directory > roller och administratörer</br>
+    - Kontrol lera att användaren har tilldelats rollen Application Developer. Annars kan du använda en användare med den här behörigheten eller kontakta [administratören för att aktivera behörigheten](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
-1. Om rollen "programutvecklare" inte kan tilldelas kontrollerar du att flaggan användare kan registrera program har angetts som true för att användaren ska kunna skapa identiteten. Om du vill aktivera ovanstående behörigheter
-   1. Logga in på Azure Portal
-   1. Navigera till Azure Active Directory > användar inställningar
-   1. Under * * Appregistreringar "," användare kan registrera program "ska väljas som" Ja ".
+2. Om rollen "programutvecklare" inte kan tilldelas kontrollerar du att flaggan användare kan registrera program har angetts som true för att användaren ska kunna skapa identiteten. Om du vill aktivera ovanstående behörigheter
+    - Logga in på Azure Portal
+    - Navigera till Azure Active Directory > användar inställningar
+    - Under * * Appregistreringar "," användare kan registrera program "ska väljas som" Ja ".
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Active Directory Federation Services (AD FS) (ADFS) **stöds inte**. Använd ett konto som hanteras via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
-
-## <a name="capacity-planning"></a>Kapacitetsplanering
-
-Storleks kraven för konfigurations servern beror på den potentiella data ändrings hastigheten. Använd den här tabellen som en guide.
-
-| **REGISTRERA** | **Minnesoptimerade** | **Cachestorlek för cache** | **Data ändrings takt** | **Skyddade datorer** |
-| --- | --- | --- | --- | --- |
-| 8 virtuella processorer (2 Sockets * 4 kärnor \@ 2,5 GHz) |16 GB |300 GB |500 GB eller mindre |Replikera färre än 100 datorer. |
-| 12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz) |18 GB |600 GB |500 GB till 1 TB |Replikera 100-150-datorer. |
-| 16 virtuella processorer (2 Sockets * 8 kärnor \@ 2,5 GHz) |32 GB |1 TB |1 TB till 2 TB |Replikera 150-200-datorer. |
-
-Om du replikerar mer än en virtuell VMware-dator kan du läsa [överväganden vid kapacitets planering](site-recovery-plan-capacity-vmware.md). Kör [verktyget Deployment Planner](site-recovery-deployment-planner.md) för VMware-replikering.
 
 ## <a name="download-the-template"></a>Ladda ned mallen
 
@@ -149,7 +137,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurations servern
 
-Följ dessa [steg](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)om du vill uppgradera konfigurations servern till den senaste versionen. För detaljerade anvisningar om hur du uppgraderar alla Site Recovery-komponenter, klickar du [här](service-updates-how-to.md).
+Följ dessa [steg](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)om du vill uppgradera konfigurations servern till den senaste versionen. Detaljerade anvisningar om hur du uppgraderar alla Site Recovery-komponenter finns i [hantering av tjänst uppdateringar](service-updates-how-to.md).
 
 ## <a name="manage-the-configuration-server"></a>Hantera konfigurationsservern
 
@@ -159,7 +147,7 @@ För att undvika avbrott i kontinuerlig replikering, kontrol lera att konfigurat
 
 1. Hur länge är licensen på konfigurations servern som distribueras via OVF giltig? Vad händer om jag inte återaktiverar licensen?
 
-    Den licens som tillhandahölls med en artikelmall-mall är en utvärderings licens som är giltig i 180 dagar. Innan du går ut måste du aktivera licensen. Annars kan det leda till frekvent avstängning av konfigurations servern och därmed orsaka att replikeringen störs.
+    Den licens som tillhandahölls med en artikelmall-mall är en utvärderings licens som är giltig i 180 dagar. Innan du går ut måste du aktivera licensen. Annars kan det leda till frekvent avstängning av konfigurations servern och därmed orsaka hinder för replikering av aktiviteter. Mer information finns i artikeln om att [Hantera konfigurations Server licens](vmware-azure-manage-configuration-server.md#update-windows-license).
 
 2. Kan jag använda den virtuella datorn, där konfigurations servern är installerad, för olika syfte?
 

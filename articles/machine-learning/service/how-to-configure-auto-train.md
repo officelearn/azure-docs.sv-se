@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 04753ca4c9b14d7ccc265cfcf971b3fd63c861ae
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 11cd90da1b1ca85893dbdad2ced191326af51238
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72384164"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793873"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 
@@ -56,8 +56,9 @@ Klassificering | Regression | Prognosticering för tids serier
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [DNN-klassificerare](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN modellerings regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN modellerings regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [DNN linjär klassificerare](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linjär modellerings regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Linjär modellerings regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[Stochastic gradient brantaste (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)||[ARIMA automatiskt](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Stochastic gradient brantaste (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)||[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+|||ForecastTCN
 
 Använd parametern `task` i konstruktorn `AutoMLConfig` för att ange din experiment typ.
 
@@ -70,28 +71,24 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>Data källa och format
 
-Automatisk Machine Learning stöder data som finns på ditt lokala skriv bord eller i molnet, till exempel Azure Blob Storage. Data kan läsas i en Pandas-DataFrame eller en Azure Machine Learning data uppsättning. Följande kod exempel visar hur du lagrar data i dessa format. [Läs mer om datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+Automatisk Machine Learning stöder data som finns på ditt lokala skriv bord eller i molnet, till exempel Azure Blob Storage. Data kan läsas i en Pandas- **DataFrame** eller en **Azure Machine Learning TabularDataset**.  [Läs mer om datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+
+Krav för tränings data:
+- Data måste vara i tabell form.
+- Värdet som ska förutsäga, mål kolumnen, måste finnas i datan.
+
+Följande kod exempel visar hur du lagrar data i dessa format.
 
 * TabularDataset
+  ```python
+  from azureml.core.dataset import Dataset
+  
+  tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
+  train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
+  label = "Label"
+  ```
+
 * Pandas dataframe
-
->[!Important]
-> Krav för tränings data:
->* Data måste vara i tabell form.
->* Värdet som du vill förutse (mål kolumnen) måste finnas i data.
-
-Exempel:
-
-* TabularDataset
-```python
-    from azureml.core.dataset import Dataset
-
-    tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
-    train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
-    label = "Label"
-```
-
-*   Pandas dataframe
 
     ```python
     import pandas as pd
@@ -117,11 +114,11 @@ Du kan ange separata tåg-och validerings uppsättningar direkt i konstruktorn `
 
 ### <a name="k-folds-cross-validation"></a>Kors validering med K-vikning
 
-Använd inställningen `n_cross_validations` för att ange antalet kors valideringar. Tränings data uppsättningen delas upp slumpmässigt i `n_cross_validations`-vikning av samma storlek. Under varje kors validerings avrundning används en av vik stegen för att verifiera modellen som tränas på återstående vikning. Den här processen upprepas för `n_cross_validations` avrundas tills varje vikning används en gång som validerings uppsättning. Genomsnitts poängen för alla `n_cross_validations`-avrundade rapporteras och motsvarande modell kommer att omtränas på hela data uppsättningen för träning.
+Använd `n_cross_validations` inställningen för att ange antalet kors valideringar. Träning-datauppsättningen delas upp slumpmässigt i `n_cross_validations` vikning av samma storlek. Under varje kors validerings avrundning används en av vik stegen för att verifiera modellen som tränas på återstående vikning. Den här processen upprepas för `n_cross_validations` avrundas tills varje vikning används en gång som validerings uppsättningen. Genomsnitts poängen för alla `n_cross_validations` avrundade rapporteras och motsvarande modell kommer att omtränas på hela träning-datauppsättningen.
 
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Monte Carlo kors validering (upprepad slumpmässig under sampling)
 
-Använd `validation_size` för att ange den procentuella andelen av inlärnings data uppsättningen som ska användas för verifiering och Använd `n_cross_validations` för att ange antalet kors valideringar. Under varje kors validerings avrundning väljs en delmängd av storleken `validation_size` slumpmässigt för validering av modellen som har tränats på återstående data. Slutligen rapporteras genomsnitts poängen över alla `n_cross_validations` avrundade och motsvarande modell kommer att omtränas på hela data uppsättningen för träning. Monte Carlo stöds inte för tids serie prognoser.
+Använd `validation_size` för att ange procent andelen av den tränings data uppsättning som ska användas för verifiering och Använd `n_cross_validations` för att ange antalet kors valideringar. Under varje kors validerings avrundning väljs en delmängd av storlek `validation_size` slumpmässigt för att verifiera den modell som har tränats på återstående data. Slutligen rapporteras genomsnitts poängen över alla `n_cross_validations`s avrundning, och motsvarande modell kommer att omtränas på hela inlärnings data uppsättningen. Monte Carlo stöds inte för tids serie prognoser.
 
 ### <a name="custom-validation-dataset"></a>Anpassad verifierings data uppsättning
 
@@ -203,7 +200,7 @@ Tids seriens `forecasting`-aktivitet kräver ytterligare parametrar i konfigurat
 
 1. `time_column_name`: obligatorisk parameter som definierar namnet på kolumnen i dina utbildnings data som innehåller en giltig tids serie.
 1. `max_horizon`: definierar den tids längd som du vill förutsäga baserat på tränings datans periodicitet. Om du till exempel har utbildnings information med dagliga tids kärnor definierar du hur långt ut i dagar du vill att modellen ska tränas.
-1. `grain_column_names`: definierar namnet på kolumner som innehåller individuella tids serie data i dina utbildnings data. Om du till exempel ska prognostisera försäljning av ett visst varumärke med Store definierar du butiks-och märkes kolumner som dina korn kolumner. Separata tids serier och prognoser skapas för varje kornig het/gruppering. 
+1. `grain_column_names`: definierar namnet på kolumner som innehåller individuella tids serie data i dina tränings data. Om du till exempel ska prognostisera försäljning av ett visst varumärke med Store definierar du butiks-och märkes kolumner som dina korn kolumner. Separata tids serier och prognoser skapas för varje kornig het/gruppering. 
 
 Exempel på de inställningar som används nedan finns i [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
@@ -243,7 +240,7 @@ Ensemble-modeller är aktiverade som standard och visas som de slutliga körning
 Det finns flera standard argument som kan anges som `kwargs` i ett `AutoMLConfig`-objekt för att ändra standardvärdet för egenskapen ensemble.
 
 * `stack_meta_learner_type`: meta-eleven är en modell som är utbildad i resultatet av de enskilda heterogena-modellerna. Standardmetadata för metadata är `LogisticRegression` för klassificerings uppgifter (eller `LogisticRegressionCV` om kors validering är aktiverat) och `ElasticNet` för regression/prognos uppgifter (eller `ElasticNetCV` om kors validering är aktive rad). Den här parametern kan vara en av följande strängar: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` eller `LinearRegression`.
-* `stack_meta_learner_train_percentage`: anger andelen av inlärnings uppsättningen (när du väljer Train-och validerings typ för utbildning) som ska reserveras för att träna meta-eleven. Standardvärdet är `0.2`.
+* `stack_meta_learner_train_percentage`: anger andelen av inlärnings uppsättningen (när du väljer träna och validerings typ av utbildning) som ska reserveras för att träna meta-eleven. Standardvärdet är `0.2`.
 * `stack_meta_learner_kwargs`: valfria parametrar som ska skickas till initieraren för meta-eleven. Dessa parametrar och parameter typer speglar de från motsvarande modell-konstruktor och vidarebefordras till modell-konstruktorn.
 
 Följande kod visar ett exempel på hur du anger anpassade Ensemble-beteenden i ett `AutoMLConfig`-objekt.
@@ -272,7 +269,7 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
-Ensemble-utbildning är aktiverat som standard, men det kan inaktive ras med hjälp av parametrarna `enable_voting_ensemble` och `enable_stack_ensemble`.
+Ensemble-utbildning är aktiverat som standard, men det kan inaktive ras med hjälp av `enable_voting_ensemble` och `enable_stack_ensemble` booleska parametrar.
 
 ```python
 automl_classifier = AutoMLConfig(
@@ -311,14 +308,14 @@ run = experiment.submit(automl_config, show_output=True)
 
 >[!NOTE]
 >Beroenden installeras först på en ny dator.  Det kan ta upp till 10 minuter innan utdata visas.
->Om du anger `show_output` till `True` visas utdata som visas i-konsolen.
+>Om du anger `show_output` för att `True` resultatet visas utdata i-konsolen.
 
 ### <a name="exit-criteria"></a>Avslutnings villkor
 Det finns några alternativ som du kan definiera för att avsluta experimentet.
 1. Inga kriterier: om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
-1. Antal iterationer: du definierar antalet iterationer för experimentet som ska köras. Du kan också lägga till `iteration_timeout_minutes` om du vill definiera en tids gräns i minuter per iteration.
-1. Avsluta efter en viss tid: om du använder `experiment_timeout_minutes` i dina inställningar kan du definiera hur lång tid i minuter som ett experiment ska fortsätta köras.
-1. Avsluta efter att poängen har uppnåtts: om du använder `experiment_exit_score` slutförs experimentet när ett primärt mått har nåtts.
+1. Antal iterationer: du definierar antalet iterationer för experimentet som ska köras. Du kan också lägga till `iteration_timeout_minutes` för att definiera en tids gräns i minuter per iteration.
+1. Avsluta efter en viss tid: om du använder `experiment_timeout_minutes` i dina inställningar kan du definiera hur länge i minuter som ett experiment ska fortsätta att köras.
+1. Avsluta efter att poängen har uppnåtts: om du använder `experiment_exit_score` slutförs experimentet efter att ett primärt mått har nåtts.
 
 ### <a name="explore-model-metrics"></a>Utforska modell mått
 
@@ -350,7 +347,7 @@ Tänk på det här exemplet:
 
 Använd de här två API: erna i det första steget i den monterade modellen för att förstå mer.  Se [den här exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-+ API 1: `get_engineered_feature_names()` returnerar en lista med namn på de funktioner som har utvecklats.
++ API 1: `get_engineered_feature_names()` returnerar en lista med namn på de bevisade funktionerna.
 
   Användning:
   ```python
@@ -475,7 +472,7 @@ Med automatisk maskin inlärning kan du förstå funktions vikten.  Under inlär
 
 Det finns två sätt att generera funktions prioritet.
 
-*   När ett experiment har slutförts kan du använda `explain_model`-metoden på valfri iteration.
+*   När ett experiment har slutförts kan du använda `explain_model` metod på valfri iteration.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -492,7 +489,7 @@ Det finns två sätt att generera funktions prioritet.
     print(per_class_summary)
     ```
 
-*   Om du vill visa funktions prioritet för alla iterationer anger du `model_explainability`-flaggan till `True` i AutoMLConfig.
+*   Om du vill visa funktions prioritet för alla iterationer anger `model_explainability` flagga till `True` i AutoMLConfig.
 
     ```python
     automl_config = AutoMLConfig(task='classification',

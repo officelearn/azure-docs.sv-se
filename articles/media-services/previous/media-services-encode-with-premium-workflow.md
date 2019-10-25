@@ -1,6 +1,6 @@
 ---
 title: Avancerad kodning med Media Encoder Premium Workflow | Microsoft Docs
-description: Lär dig mer om att koda med Media Encoder Premium Workflow. Kodexemplen är skrivna C# och använda Media Services SDK för .NET.
+description: Lär dig hur du kodar med Media Encoder Premium Workflow. Kod exempel skrivs i C# och använder Media Services SDK för .net.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,63 +13,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d20fc0cee6bce1389649e6287170b1963e799ccf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca5de657ad45f53cff0cb01d5fe9cc412baf4533
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463925"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792293"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Avancerad kodning med Media Encoder Premium Workflow
 > [!NOTE]
-> Media Encoder Premium Workflow mediebearbetare som beskrivs i den här artikeln är inte tillgänglig i Kina.
+> Media Encoder Premium Workflow medie processor som diskuteras i den här artikeln är inte tillgänglig i Kina.
 >
 >
-
-Premium-kodare frågor kan e- mepd@microsoft.com.
 
 ## <a name="overview"></a>Översikt
-Microsoft Azure Media Services presenterar den **Media Encoder Premium Workflow** medieprocessor. Den här processor erbjuder avancerade funktioner för dina arbetsflöden för på begäran av premium-kodning.
+Microsoft Azure Media Services introducerar **Media Encoder Premium Workflow** medie processorn. I den här processorn finns funktioner för att koda för dina Premium-arbets flöden på begäran.
 
-I följande avsnitt beskriver information som rör **Media Encoder Premium Workflow**:
+Följande avsnitt innehåller information om **Media Encoder Premium Workflow**:
 
-* [Formaterar stöds av Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – Discusses filen format och codecs för stöds av **Media Encoder Premium Workflow**.
-* [Översikt och jämförelse av kodare för Azure på begäran media](media-services-encode-asset.md) jämför kodningsfunktioner av **Media Encoder Premium Workflow** och **Media Encoder Standard**.
+* [Format som stöds av Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – beskriver de fil format och codecenheter som stöds av **Media Encoder Premium Workflow**.
+* [Översikt och jämförelse av Azure on-demand Media encoders](media-services-encode-asset.md) jämför kodnings funktionerna i **Media Encoder Premium Workflow** och **Media Encoder Standard**.
 
-Den här artikeln visar hur du koda med **Media Encoder Premium Workflow** med hjälp av .NET.
+Den här artikeln visar hur du kodar med **Media Encoder Premium Workflow** med hjälp av .net.
 
-Kodningsuppgifter för den **Media Encoder Premium Workflow** kräver en separat konfigurationsfil som kallas en arbetsflödesfil. De här filerna har filnamnstillägget .workflow och skapas med den [Arbetsflödesdesigner](media-services-workflow-designer.md) verktyget.
+Kodning av aktiviteter för **Media Encoder Premium Workflow** kräver en separat konfigurations fil som kallas för en arbets flödes fil. De här filerna har fil namns tillägget. Workflow och skapas med hjälp av [arbetsflödesdesigner](media-services-workflow-designer.md) -verktyget.
 
-Du kan också få standard Arbetsflödesfiler [här](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Mappen innehåller också en beskrivning av dessa filer.
+Du kan också hämta standard arbets flödes filerna [här](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Mappen innehåller också en beskrivning av de här filerna.
 
-Arbetsflödesfiler måste överföras till Media Services-kontot som en tillgång och den här tillgången ska skickas till aktiviteten kodning.
+Arbets flödes filen måste överföras till ditt Media Services-konto som en till gång, och den här till gången ska skickas till encoding-aktiviteten.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
 Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
 
-## <a name="encoding-example"></a>Kodning exempel
+## <a name="encoding-example"></a>Kodnings exempel
 
-I följande exempel visar hur du koda med **Media Encoder Premium Workflow**.
+Följande exempel visar hur du kodar med **Media Encoder Premium Workflow**.
 
-Utför följande steg:
+Följande steg utförs:
 
-1. Skapa en tillgång och ladda upp en arbetsflödesfil.
-2. Skapa en tillgång och överför en mediefil källa.
-3. Hämta mediebearbetare ”Media Encoder Premium Workflow”.
+1. Skapa en till gång och överför en arbets flödes fil.
+2. Skapa en till gång och överför en käll medie fil.
+3. Hämta medie processorn "Media Encoder Premium Workflow".
 4. Skapa ett jobb och en uppgift.
 
-    I de flesta fall konfigurationssträngen för aktiviteten är tom (som i följande exempel). Det finns vissa avancerade scenarier (som kräver att du kan ange egenskaper för runtime dynamiskt) i så fall skulle du ange en XML-sträng till kodning aktivitet. Exempel på sådana scenarier är: skapa ett överlägg, parallella eller sekventiella media häfta ihop det, textning.
-5. Lägg till två inkommande tillgångar i uppgiften.
+    I de flesta fall är konfigurations strängen för aktiviteten tom (som i följande exempel). Det finns vissa avancerade scenarier (som kräver att du anger körnings egenskaper dynamiskt), vilket innebär att du anger en XML-sträng till encoding-aktiviteten. Exempel på sådana scenarier är: skapa ett överlägg, parallellt eller sekventiellt medie häftning, under textning.
+5. Lägg till två inmatade till gångar i uppgiften.
 
-   1. 1 – arbetsflöde för tillgången.
-   2. 2 – video tillgången.
+   1. 1st – arbets flödets till gång.
+   2. andra – video till gången.
 
       >[!NOTE]
-      >Arbetsflöde för tillgången måste läggas till uppgiften innan media tillgången.
-      Konfigurationssträngen för den här uppgiften ska vara tomt.
+      >Arbets flödets till gång måste läggas till i aktiviteten innan medie till gången.
+      Konfigurations strängen för den här aktiviteten måste vara tom.
    
-6. Skicka kodningsjobbet.
+6. Skicka kodnings jobbet.
 
 ```csharp
 using System;
@@ -231,7 +229,9 @@ namespace MediaEncoderPremiumWorkflowSample
 }
 ```
 
-Premium-kodare frågor kan e- mepd@microsoft.com.
+## <a name="need-help"></a>Behöver du hjälp?
+
+Du kan öppna ett support ärende genom att gå till [nytt support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

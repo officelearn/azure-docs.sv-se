@@ -1,42 +1,41 @@
 ---
-title: Referens indata och utdata i kognitiva Sök pipeliner – Azure Search
-description: Förklarar anteckningens syntax och hur du refererar till en anteckning i indata och utdata för en färdigheter i en kognitiv Sök pipeline i Azure Search.
-services: search
+title: Referens indata och utdata i en pipeline för AI-anrikning
+titleSuffix: Azure Cognitive Search
+description: Förklarar anteckningens syntax och hur du refererar till en anteckning i indata och utdata för en färdigheter i en pipeline för AI-anrikning i Azure Kognitiv sökning.
 manager: nitinme
-author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: LuisCabrer
 ms.author: luisca
-ms.openlocfilehash: 40559744f0650c64afb1dc63c38f56efaa0219d7
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265538"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787778"
 ---
-# <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Så här refererar du till anteckningar i en kognitiv search-färdigheter
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Så här refererar du till anteckningar i ett Azure Kognitiv sökning-färdigheter
 
 I den här artikeln får du lära dig hur du refererar till kommentarer i kunskaps definitioner, med hjälp av exempel för att illustrera olika scenarier. När innehållet i ett dokument flödar genom en uppsättning kunskaper får den omfattande anteckningar. Anteckningar kan användas som indata för ytterligare nedströms berikning eller mappas till ett utmatnings fält i ett index. 
  
-Exemplen i den här artikeln baseras på *innehålls* fältet som genereras automatiskt av [Azure Blob-indexerare](search-howto-indexing-azure-blob-storage.md) som en del av dokumentets cracking-fas. När du refererar till dokument från en BLOB-behållare ska du använda ett `"/document/content"`format, till exempel, där *innehålls* fältet är en del av *dokumentet*. 
+Exemplen i den här artikeln baseras på *innehålls* fältet som genereras automatiskt av [Azure Blob-indexerare](search-howto-indexing-azure-blob-storage.md) som en del av dokumentets cracking-fas. När du refererar till dokument från en BLOB-behållare ska du använda ett format som `"/document/content"`, där *innehålls* fältet är en del av *dokumentet*. 
 
 ## <a name="background-concepts"></a>Koncept i bakgrunden
 
 Innan du tittar på syntaxen ska vi gå tillbaka till några viktiga begrepp för att bättre förstå de exempel som beskrivs längre fram i den här artikeln.
 
-| Term | Beskrivning |
+| Period | Beskrivning |
 |------|-------------|
 | Omfattande dokument | Ett berikat dokument är en intern struktur som skapas och används av pipelinen för att innehålla alla anteckningar relaterade till ett dokument. Tänk på ett berikat dokument som ett träd med anteckningar. En anteckning som skapats från en tidigare anteckning blir i allmänhet dess underordnade.<p/>Omfattande dokument finns bara för varaktigheten för färdigheter-körning. När innehållet har mappats till Sök indexet behövs inte längre det berikade dokumentet. Även om du inte interagerar med berikade dokument direkt, är det praktiskt att ha en psykiska modell av dokumenten när du skapar en färdigheter. |
-| Anriknings kontext | Sammanhanget där berikning sker, vad gäller vilket element som är berikat. Som standard är anriknings kontexten på `"/document"` nivån, begränsad till enskilda dokument. När en kunskap körs, blir utmatningarna för den aktuella egenskapen [Egenskaper för den definierade kontexten](#example-2).|
+| Anriknings kontext | Sammanhanget där berikning sker, vad gäller vilket element som är berikat. Som standard är anriknings kontexten på `"/document"` nivå, begränsad till enskilda dokument. När en kunskap körs, blir utmatningarna för den aktuella egenskapen [Egenskaper för den definierade kontexten](#example-2).|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>Exempel 1: Referens för enkel anteckning
+## <a name="example-1-simple-annotation-reference"></a>Exempel 1: enkel antecknings referens
 
-I Azure Blob Storage antar vi att du har en rad olika filer som innehåller referenser till personens namn som du vill extrahera med hjälp av enhets igenkänning. I kunskaps definitionen nedan `"/document/content"` är en text representation av hela dokumentet och "människor" är en extraktion av fullständiga namn för entiteter som identifieras som personer.
+I Azure Blob Storage antar vi att du har en rad olika filer som innehåller referenser till personens namn som du vill extrahera med hjälp av enhets igenkänning. I kunskaps definitionen nedan är `"/document/content"` text representationen av hela dokumentet och "människor" är en extraktion av fullständiga namn för entiteter som identifieras som personer.
 
-Eftersom standard kontexten är `"/document"`kan listan över personer nu refereras som. `"/document/people"` I det här fallet `"/document/people"` är en anteckning som nu kan mappas till ett fält i ett index eller som används i en annan färdighet i samma färdigheter.
+Eftersom standard kontexten är `"/document"`kan listan över personer nu refereras som `"/document/people"`. I det här fallet `"/document/people"` är en anteckning som nu kan mappas till ett fält i ett index eller användas i en annan färdighet i samma färdigheter.
 
 ```json
   {
@@ -60,11 +59,11 @@ Eftersom standard kontexten är `"/document"`kan listan över personer nu refere
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>Exempel 2: Referera till en matris i ett dokument
+## <a name="example-2-reference-an-array-within-a-document"></a>Exempel 2: referera till en matris i ett dokument
 
 Det här exemplet bygger på den tidigare, som visar hur du anropar ett anriknings steg flera gånger i samma dokument. Anta att det tidigare exemplet genererade en sträng mat ris med 10 person namn från ett enda dokument. Ett rimligt nästa steg kan vara en andra anrikning som extraherar efter namnet från ett fullständigt namn. Eftersom det finns 10 namn vill du att det här steget ska kallas 10 gånger i det här dokumentet, en gång för varje person. 
 
-Om du vill anropa rätt antal iterationer anger du kontexten som `"/document/people/*"`, där asterisken (`"*"`) representerar alla noder i det berikade dokumentet som underordnade för `"/document/people"`. Även om den här kunskapen bara definieras en gång i kunskaps mat ris, anropas den för varje medlem i dokumentet tills alla medlemmar bearbetas.
+Om du vill anropa rätt antal iterationer ställer du in kontexten som `"/document/people/*"`, där asterisken (`"*"`) representerar alla noder i det berikade dokumentet som underordnade för `"/document/people"`. Även om den här kunskapen bara definieras en gång i kunskaps mat ris, anropas den för varje medlem i dokumentet tills alla medlemmar bearbetas.
 
 ```json
   {
@@ -88,15 +87,15 @@ Om du vill anropa rätt antal iterationer anger du kontexten som `"/document/peo
   }
 ```
 
-När anteckningar är matriser eller samlings samlingar kan du vilja rikta in sig på specifika medlemmar i stället för matrisen som helhet. Exemplet ovan genererar en anteckning som kallas `"last"` under varje nod som representeras av kontexten. Om du vill referera till den här serien med anteckningar kan du använda syntaxen `"/document/people/*/last"`. Om du vill referera till en viss anteckning kan du använda ett explicit index: `"/document/people/1/last`"för att referera till efter namnet på den första person som identifierats i dokumentet. Observera att i denna syntax är "0 indexerad".
+När anteckningar är matriser eller samlings samlingar kan du vilja rikta in sig på specifika medlemmar i stället för matrisen som helhet. Exemplet ovan genererar en anteckning med namnet `"last"` under varje nod som representeras av kontexten. Om du vill referera till den här serien med anteckningar kan du använda syntaxen `"/document/people/*/last"`. Om du vill referera till en viss anteckning kan du använda ett explicit index: `"/document/people/1/last`"för att referera till efter namnet på den första person som identifierats i dokumentet. Observera att i denna syntax är "0 indexerad".
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Exempel 3: Referens medlemmar inom en matris
+## <a name="example-3-reference-members-within-an-array"></a>Exempel 3: referens medlemmar inom en matris
 
-Ibland måste du gruppera alla anteckningar av en viss typ för att skicka dem till en viss färdighet. Överväg en hypotetisk anpassad färdighet som identifierar det vanligaste efter namnet från alla efter namn som extraherats i exempel 2. Om du bara vill använda de sista namnen på den anpassade kunskapen anger du `"/document"` kontexten som och `"/document/people/*/lastname"`inmatat som.
+Ibland måste du gruppera alla anteckningar av en viss typ för att skicka dem till en viss färdighet. Överväg en hypotetisk anpassad färdighet som identifierar det vanligaste efter namnet från alla efter namn som extraherats i exempel 2. Om du bara vill använda de sista namnen på den anpassade kunskapen anger du kontexten som `"/document"` och inmatade värden som `"/document/people/*/lastname"`.
 
-Observera att kardinalitet för `"/document/people/*/lastname"` är större än dokumentet. Det kan finnas 10 LastName-noder när det bara finns en dokument-nod för det här dokumentet. I så fall kommer systemet automatiskt att skapa en matris `"/document/people/*/lastname"` som innehåller alla element i dokumentet.
+Observera att `"/document/people/*/lastname"`ens kardinalitet är större än dokumentet. Det kan finnas 10 LastName-noder när det bara finns en dokument-nod för det här dokumentet. I så fall kommer systemet automatiskt att skapa en matris med `"/document/people/*/lastname"` som innehåller alla element i dokumentet.
 
 ```json
   {

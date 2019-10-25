@@ -1,41 +1,40 @@
 ---
-title: Sök kunskaper om OCR-inlärning – Azure Search
-description: Extrahera text från bildfiler med optisk tecken läsning (OCR) i en Azure Search anriknings pipeline.
-services: search
+title: Kunskap om OCR-kognitivhet
+titleSuffix: Azure Cognitive Search
+description: Extrahera text från bildfiler med optisk tecken läsning (OCR) i en pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: da1ca218f7a3d33e6ceb08b3f8d0f632b8b752b7
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: bdb510113a8d65ac04b54e77158f46d03cccd9de
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265334"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791929"
 ---
 # <a name="ocr-cognitive-skill"></a>Kunskap om OCR-kognitivhet
 
-OCR (optisk tecken läsning) vet utskrift och handskriven text i bildfiler. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. **OCR** -kunskapen mappar till följande funktioner:
+Den **optiska tecken läsningen (OCR)** känner igen utskrift och handskriven text i bildfiler. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. **OCR** -kunskapen mappar till följande funktioner:
 
 + API: t ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) används för andra språk än engelska. 
 + För engelska används det nya ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) -API: et.
 
 **OCR** -kompetensen extraherar text från bildfiler. Fil format som stöds är:
 
-+ .JPEG
-+ .JPG
-+ .PNG
-+ .BMP
-+ .GIF
-+ .TIFF
++ . -
++ . JPEG
++ . KÄLLFIL
++ . BITMAPPSBILD
++ . OBJEKT
++ . TIFF
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
@@ -52,9 +51,9 @@ Tidigare fanns det en parameter med namnet "textExtractionAlgorithm" för att an
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indatanamn      | Beskrivning                                          |
+| Inmatat namn      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
-| image         | Komplex typ. För närvarande fungerar det bara med "/Document/normalized_images"-fältet som skapas av Azure Blob- ```imageAction``` indexeraren när har angetts till ett ```none```annat värde än. Se [exemplet](#sample-output) för mer information.|
+| mallar         | Komplex typ. För närvarande fungerar det bara med fältet "/Document/normalized_images" som skapas av Azure Blob-indexeraren när ```imageAction``` har ett annat värde än ```none```. Se [exemplet](#sample-output) för mer information.|
 
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
@@ -135,7 +134,7 @@ Tidigare fanns det en parameter med namnet "textExtractionAlgorithm" för att an
 }
 ```
 
-## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exempel: Sammanfoga text som extraherats från inbäddade bilder med dokumentets innehåll.
+## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exempel: sammanfoga text som extraherats från inbäddade bilder med dokumentets innehåll.
 
 Ett vanligt användnings fall för text fusion är möjligheten att slå samman text representationen av bilder (text från en OCR-färdighet eller bild text) i innehålls fältet i ett dokument.
 
@@ -206,7 +205,7 @@ Exemplet ovan färdigheter förutsätter att det finns ett normaliserat-avbildni
 ```
 
 ## <a name="see-also"></a>Se också
-+ [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
++ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [TextMerger-kompetens](cognitive-search-skill-textmerger.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

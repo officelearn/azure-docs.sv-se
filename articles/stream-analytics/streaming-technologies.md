@@ -1,62 +1,62 @@
 ---
-title: Välj en analys i realtid och streaming bearbetningsteknik i Azure
-description: Läs mer om hur du väljer rätt realtidsanalys och bearbetning av strömningsteknik att skapa ditt program på Azure.
+title: Välj en bearbetnings lösning i real tid och Stream i Azure
+description: Lär dig mer om hur du väljer rätt teknik för analys och strömning i real tid för att bygga ditt program på Azure.
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f46a35d971c008b61d4899e30101ea562d3cefea
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 3bde2964c40553d02a56f57f9c459cc6afa3f660
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483413"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924900"
 ---
-# <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Välj en analys i realtid och streaming bearbetningsteknik i Azure
+# <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Välj en teknik för analys och strömning i real tid i Azure
 
-Det finns flera tjänster som är tillgängliga för analys i realtid och strömmande bearbetning på Azure. Den här artikeln innehåller information som du måste bestämma vilken teknik som är bäst för ditt program.
+Det finns flera tillgängliga tjänster för analys och strömning i real tid i Azure. Den här artikeln innehåller den information du behöver för att bestämma vilken teknik som passar bäst för ditt program.
 
-## <a name="when-to-use-azure-stream-analytics"></a>När du använder Azure Stream Analytics
+## <a name="when-to-use-azure-stream-analytics"></a>När du ska använda Azure Stream Analytics
 
-Azure Stream Analytics är den rekommendera tjänsten för stream analytics på Azure. Den är avsedd för en mängd olika scenarier som inkluderar men inte begränsat till:
+Azure Stream Analytics är den rekommenderade tjänsten för Stream Analytics på Azure. Den är avsedd för ett brett utbud av scenarier som omfattar men är inte begränsat till:
 
-* Instrumentpaneler för datavisualisering
-* I realtid [aviseringar](stream-analytics-set-up-alerts.md) från temporal och spatial mönster eller avvikelser
+* Instrument paneler för data visualisering
+* [Aviseringar](stream-analytics-set-up-alerts.md) i real tid från temporala och spatiala mönster eller avvikelser
 * Extrahera, transformera, läsa in (ETL)
-* [Mönstret händelsekällor](/azure/architecture/patterns/event-sourcing)
+* [Mönster för händelse källor](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
-Att lägga till ett Azure Stream Analytics jobb till ditt program är det snabbaste sättet att få streaming analytics upp och som körs i Azure med SQL-språk du redan kan. Azure Stream Analytics är en tjänst, så att du inte behöver lägga ned tid hantera kluster och du inte behöver bekymra dig om driftstopp med ett serviceavtal på 99,9% på jobbnivån. Debiteringen görs också på jobbnivån att start-kostnader med låg (en Streaming Unit), men skalbar (upp till 192 enheter för strömning). Det är mycket mer kostnadseffektivt att köra några Stream Analytics-jobb än att kör och underhåller ett kluster.
+Att lägga till ett Azure Stream Analytics jobb i ditt program är det snabbaste sättet att få fram direkt uppspelnings analys i Azure med det SQL-språk som du redan känner till. Azure Stream Analytics är en jobb tjänst så att du inte behöver ägna tid åt att hantera kluster, och du behöver inte bekymra dig om drift stopp med ett service avtal på 99,9% på jobb nivå. Faktureringen görs också på jobb nivå med låg belastning (en enhet för strömning), men skalbar (upp till 192 enheter för strömning). Det är mycket mer kostnads effektivt att köra några Stream Analytics jobb än att köra och underhålla ett kluster.
 
-Azure Stream Analytics har en omfattande produkten. Du kan omedelbart dra nytta av följande funktioner utan ytterligare inställningar:
+Azure Stream Analytics har en omfattande upplevelse av sig. Du kan direkt dra nytta av följande funktioner utan ytterligare inställningar:
 
-* Temporala operatorer är inbyggda, till exempel [fönsteraggregeringar](stream-analytics-window-functions.md), temporal kopplingar och temporala analysfunktioner.
-* Intern Azure [inkommande](stream-analytics-add-inputs.md) och [utdata](stream-analytics-define-outputs.md) nätverkskort
-* Stöd för långsam ändra [referensdata](stream-analytics-use-reference-data.md) (även kallat en uppslagstabeller), inklusive sammankoppling med geospatiala referensdata för geofencing.
-* Integrerade lösningar, till exempel [Avvikelseidentifiering](stream-analytics-machine-learning-anomaly-detection.md)
-* Flera tidsfönster i samma fråga
-* Möjlighet att skapa flera temporala operatorer i godtyckliga sekvenser.
-* Under 100 ms inklusive svarstid slutpunkt till slutpunkt från indata anländer till Event Hubs, att mata ut startsida i Event Hubs, nätverk fördröjningen från och till Event Hubs med varaktigt högt dataflöde
+* Inbyggda temporala operatorer, till exempel [fönster mängd](stream-analytics-window-functions.md), temporala kopplingar och temporala analys funktioner.
+* Interna Azure- [indata](stream-analytics-add-inputs.md) och [utmatnings](stream-analytics-define-outputs.md) kort
+* Stöd för långsam ändring av [referens data](stream-analytics-use-reference-data.md) (kallas även för uppslags tabeller), inklusive anslutning med geospatiala referens data för polystaket.
+* Integrerade lösningar, till exempel [avvikelse identifiering](stream-analytics-machine-learning-anomaly-detection.md)
+* Flera Time-fönster i samma fråga
+* Möjlighet att skapa flera temporala operatörer i godtycklig sekvenser.
+* Under 100-MS svars tid från slut punkt till slut punkt från indata till Event Hubs, för att nå landning i Event Hubs, inklusive nätverks fördröjning från och till Event Hubs, i varaktigt högt data flöde
 
 ## <a name="when-to-use-other-technologies"></a>När du ska använda andra tekniker
 
-### <a name="you-need-to-input-from-or-output-to-kafka"></a>Du behöver indata från eller utdata till Kafka
+### <a name="you-need-to-input-from-or-output-to-kafka"></a>Du måste mata in från eller mata ut till Kafka
 
-Azure Stream Analytics inte har ett Apache Kafka-indata eller utdata nätverkskort. Om du har händelser som hamnar i eller skicka till Kafka och du inte har ett krav att köra dina egna Kafka-kluster, kan du fortsätta att använda Stream Analytics genom att skicka händelser till Event Hubs med Event Hubs Kafka-API: N utan att ändra avsändaren händelse. Om du behöver att köra dina egna Kafka-kluster, kan du använda Spark Structured Streaming, som har fullt stöd för [Azure Databricks](../azure-databricks/index.yml), eller för Storm på [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
+Azure Stream Analytics har inget indata-eller utmatnings kort för Apache Kafka. Om du har händelser som vilplan i eller behöver skicka till Kafka och du inte har ett krav för att köra ditt eget Kafka-kluster, kan du fortsätta att använda Stream Analytics genom att skicka händelser till Event Hubs med hjälp av Event Hubs Kafka API utan att ändra händelse avsändaren. Om du behöver köra ditt eget Kafka-kluster kan du använda Spark Structured streaming, som stöds fullt ut på [Azure Databricks](../azure-databricks/index.yml)eller storm på [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
-### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Vill du skriva UDF och UDA anpassade deserializers i ett annat språk än JavaScript ellerC#
+### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Du vill skriva UDF: er, Uda: er och anpassade deserialiserare på ett annat språk än java script ellerC#
 
-Azure Stream Analytics stöder användardefinierade funktioner (UDF) eller användardefinierade aggregeringar (UDA) i JavaScript för molnjobb och C# för IoT Edge-jobb. C#användardefinierade deserializers stöds också. Om du vill implementera en deserialiserare, en UDF eller en UDA på andra språk, till exempel Java eller Python, kan du använda Spark Structured Streaming. Du kan också köra Event Hubs **EventProcessorHost** på dina egna virtuella datorer att göra godtyckliga strömmande bearbetning.
+Azure Stream Analytics stöder UDF (User-Defined Functions) eller användardefinierade agg regeringar (UDA) i Java Script för moln jobb C# och för IoT Edge jobb. C#användardefinierade avserialiseringar stöds också. Om du vill implementera en deserialiserare, en UDF-eller en UDA på andra språk, till exempel Java eller python, kan du använda Spark Structured streaming. Du kan också köra Event Hubs- **EventProcessorHost** på dina egna virtuella datorer för att utföra godtycklig strömnings bearbetning.
 
-### <a name="your-solution-is-in-a-multi-cloud-or-on-premises-environment"></a>Din lösning är i en miljö med flera moln eller på plats
+### <a name="your-solution-is-in-a-multi-cloud-or-on-premises-environment"></a>Din lösning är i en miljö med flera moln eller i en lokal miljö
 
-Azure Stream Analytics är Microsofts upphovsrättsskyddad teknik och är bara tillgängligt på Azure. Om du behöver din lösning kan flyttas mellan moln eller på plats kan du tekniker för öppen källkod som Spark Structured Streaming eller Storm.
+Azure Stream Analytics är Microsofts patentskyddade teknik och är bara tillgänglig i Azure. Om du behöver din lösning för att vara portabel över moln eller lokalt kan du använda tekniker med öppen källkod, till exempel Spark-strukturerad strömning eller storm.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](stream-analytics-quick-create-portal.md)
-* [Skapa ett Stream Analytics-jobb med hjälp av Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Skapa ett Stream Analytics-jobb med hjälp av Visual Studio](stream-analytics-quick-create-vs.md)
-* [Skapa ett Stream Analytics-jobb med hjälp av Visual Studio Code](quick-create-vs-code.md)
+* [Skapa ett Stream Analytics jobb genom att använda Azure Portal](stream-analytics-quick-create-portal.md)
+* [Skapa ett Stream Analytics jobb med Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Skapa ett Stream Analytics jobb med hjälp av Visual Studio](stream-analytics-quick-create-vs.md)
+* [Skapa ett Stream Analytics jobb med hjälp av Visual Studio Code](quick-create-vs-code.md)

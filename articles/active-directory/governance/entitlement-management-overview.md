@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a467856550bf2deaab931b3fe2f54b7986f12f8a
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 136a9994415b42c456ebdb0caa8ed6edcc7b4534
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430308"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934379"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är berättigandehantering i Azure AD? (Förhandsversion)
 
@@ -121,6 +121,7 @@ För att bättre förstå hantering av rättigheter och dess dokumentation bör 
 | Resurs typ | Typ av resurs, som omfattar grupper, program och SharePoint Online-webbplatser. |
 | resurs roll | En samling behörigheter som är kopplade till en resurs. |
 | resurs katalog | En katalog som har en eller flera resurser som ska delas. |
+| ansluten organisation | En extern Azure AD-katalog eller domän som du har en relation med. |
 | tilldelade användare | En tilldelning av ett Access-paket till en användare, så att användaren har alla resurs roller för det åtkomst paketet. |
 | Använd | Processen för att göra ett åtkomst paket tillgängligt för användare att begära. |
 

@@ -19,12 +19,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 208c644c26006fb99139abe1b05c63f90eff448d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 514a74ed0ae52fb7f2a7b7d7f19c0b364dc2ba91
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803272"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934864"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrera program till MSAL för iOS och macOS
 
@@ -73,7 +73,7 @@ Det finns två sätt att tillhandahålla omfång i MSAL:
 
 * Ange en lista över alla behörigheter som dina appar behöver. Exempel: 
 
-    `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
+    `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
     I det här fallet begär appen `directory.read`-och `directory.write` behörigheter. Användaren uppmanas att godkänna behörigheten om de inte har samtyckt till dem före för den här appen. Programmet kan också få ytterligare behörigheter som användaren redan har samtyckt till för programmet. Användaren uppmanas bara att ange medgivande för nya behörigheter eller behörigheter som inte har beviljats.
 

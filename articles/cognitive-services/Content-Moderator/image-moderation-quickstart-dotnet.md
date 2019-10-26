@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 3fdc3fa0b7c624558aef84f86afd85c5aedb7054
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 13b0952f38fb0c8c922be415f782b3a0a0861729
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757303"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931745"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Snabb start: analysera bilder för stötande innehåll iC#
 
@@ -25,7 +25,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Krav
 
-- En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator och få din nyckel.
+- En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content moderator. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en med namnet `CONTENT_MODERATOR_SUBSCRIPTION_KEY` respektive `CONTENT_MODERATOR_ENDPOINT`.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
 
@@ -49,20 +49,20 @@ Nu ska du kopiera och klistra in koden från den här guiden i ditt projekt för
 
 Lägg till följande `using`-instruktioner överst i *Program.cs*-filen.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-7)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?name=snippet_using)]
 
 ### <a name="create-the-content-moderator-client"></a>Skapa Content Moderator-klienten
 
-Lägg till följande kod i filen *Program.cs* för att skapa en Content Moderator-klient för din prenumeration. Lägg till koden tillsammans med **programklassen** i samma namnområde. Du behöver uppdatera fälten **AzureRegion** och **CMSubscriptionKey** med värdena för din regionsidentifierare och prenumerationsnyckel.
+Lägg till följande kod i filen *Program.cs* för att skapa en Content Moderator-klient för din prenumeration. Lägg till klassen tillsammans med **program** klassen i samma namnrymd. Du måste uppdatera fälten **AzureBaseURL** och **CMSubscriptionKey** med värdena för din slut punkts-URL och prenumerations nyckel. Du hittar dessa på fliken **snabb start** i resursen i Azure Portal.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=83-106)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?name=snippet_client)]
 
 
 ### <a name="set-up-input-and-output-targets"></a>Konfigurera inkommande och utgående mål
 
 Lägg till följande statiska fält till klassen **Program** i _Program.cs_. De här fälten anger filerna för innehåll för indata och JSON-innehåll.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=48-52)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?name=snippet_fields)]
 
 Du måste skapa *ImageFiles. txt* -indatafilen och uppdatera sökvägen efter detta (relativa sökvägar är relativa till körnings katalogen). Öppna _ImageFiles.txt_ och lägg till webbadresserna för bilderna som ska modereras. Den här snabbstarten använder följande webbadresser som exempelindata.
 
@@ -75,20 +75,20 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Lägg till följande kod till *Program.cs* tillsammans med **programklassen** i samma namnområde. Du kommer att använda en instans av den här klassen för att registrera modereringsresultatet för de granskade bilderna.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=108-123)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?name=snippet_dataclass)]
 
 
 ### <a name="define-the-image-evaluation-method"></a>Definiera metod för bildutvärdering
 
 Lägg till följande metod i klassen **Program**. Den här metoden utvärderar en enskild bild på tre olika sätt och returnerar utvärderingsresultatet. Om du vill veta mer om vad de här enskilda åtgärderna gör följer du länken i avsnittet [Nästa steg](#next-steps).
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=54-80)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?name=snippet_evaluate)]
 
 ### <a name="load-the-input-images"></a>Läsa in indatabilder
 
 Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden konfigurerar programmet för att hämta utvärderings data för varje bild-URL i indatafilen. Sedan skriver dessa data till en enda utdatafil.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=16-45)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?name=snippet_main)]
 
 ## <a name="run-the-program"></a>Köra programmet
 

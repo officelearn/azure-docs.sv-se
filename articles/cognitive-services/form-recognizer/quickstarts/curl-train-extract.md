@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0b357a36afc44ceac8ed2c951e0f25901be9d93d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 098dc5e2ab7d4b9533f58e03557db533eaa49a90
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264374"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931281"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med vändning
 
@@ -38,7 +38,7 @@ Först behöver du en uppsättning tränings data i en Azure Storage-blob. Du b�
 
 Om du vill träna en formulär tolknings modell med dokumenten i din Azure Blob-behållare anropar du **träna** API genom att köra följande spiral kommando. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick med din prenumerations nyckel för formulär igenkänning. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 1. Ersätt `<SAS URL>` med Azure Blob Storages behållares URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det ska ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
@@ -93,7 +93,7 @@ Observera värdet `"modelId"`. Du behöver den i följande steg.
 
 Härnäst ska du analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **modell-** API: et genom att köra kommandot spiral som följer. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick från ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick från formulär igenkännings prenumerationen.
 1. Ersätt `<modelID>` med modell-ID: t som du fick i föregående avsnitt.
 1. Ersätt `<path to your form>` med fil Sök vägen för ditt formulär (till exempel C:\temp\file.pdf). I den här snabb starten kan du använda filerna under mappen **test** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Ersätt `<file type>` med filtypen. Typer som stöds: `application/pdf`, `image/jpeg`, `image/png`.

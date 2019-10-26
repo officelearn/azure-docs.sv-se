@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 5c501e6c2bc1a30273682352a68565ccc897ff50
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: cc0539462fad0a73d5fc7eb75d2078e513df4e5d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699205"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926541"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
 
@@ -31,13 +31,13 @@ Vanliga orsaker till det här problemet är:
 |   | SMB 2.1 <br>(Monteras på virtuella datorer inom samma Azure-region) | SMB 3.0 <br>(Monteras från lokala platser och över flera regioner) |
 | --- | :---: | :---: |
 | Ubuntu Server | 14.04 + | 16.04 + |
-| RHEL | 7+ | 7.5 + |
-| CentOS | 7+ |  7.5 + |
-| Debian | 8+ |   |
+| RHEL | 7 + | 7.5 + |
+| CentOS | 7 + |  7.5 + |
+| Debian | 8 + |   |
 | openSUSE | 13.2 + | 42.3 + |
-| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3 + |
 
-- CIFS-verktyg (CFS-utils) är inte installerade på klienten.
+- CIFS-verktyg (CIFS-utils) är inte installerade på klienten.
 - Lägsta SMB/CIFS-version, 2,1, är inte installerad på klienten.
 - SMB 3,0-kryptering stöds inte på klienten. Tabellen ovan innehåller en lista över Linux-distributioner som stöder montering från lokala platser och över flera regioner med hjälp av kryptering. Andra distributioner kräver kernel 4.11 och senare versioner.
 - Du försöker ansluta till ett lagrings konto via TCP-port 445, vilket inte stöds.
@@ -54,9 +54,9 @@ Lös problemet genom att använda [fel söknings verktyget för Azure Files mont
 * Samlar in diagnostiska spårningar.
 
 <a id="mounterror13"></a>
-## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>”Monteringsfel(13): Åtkomst nekad” när du monterar en Azure-filresurs
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Monterings fel (13): behörighet nekad" när du monterar en Azure-filresurs
 
-### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: Okrypterad kommunikations kanal
+### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: okrypterad kommunikations kanal
 
 Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om inställningen [Säker överföring krävs ](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. En krypterad kommunikationskanal tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
 
@@ -67,7 +67,7 @@ Mer information finns i [Krav för att montera en Azure-filresurs med Linux och 
 1. Anslut från en klient som har stöd för SMB-kryptering eller Anslut från en virtuell dator i samma data Center som det Azure Storage-konto som används för Azure-filresursen.
 2. Kontrol lera att inställningen för [säker överföring](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är inaktive rad på lagrings kontot om klienten inte stöder SMB-kryptering.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: Virtuella nätverks-eller brand Väggs regler är aktiverade på lagrings kontot 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: virtuella nätverk eller brand Väggs regler är aktiverade på lagrings kontot 
 
 Om virtuellt nätverk (VNET) och brandväggsregler har konfigurerats på lagringskontot tillåts inte nätverkstrafik om inte åtkomst tillåts för klientens IP-adress eller virtuella nätverk.
 
@@ -80,7 +80,7 @@ Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurera
 
 I Linux får du ett fel meddelande som liknar följande:
 
-**\<fil namns > [behörighet nekad] disk kvoten överskreds**
+**\<fil namn > [behörighet nekad] disk kvoten överskreds**
 
 ### <a name="cause"></a>Orsak
 
@@ -107,18 +107,18 @@ Om du vill stänga öppna referenser för en fil resurs, katalog eller fil anvä
     - Använd [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för överföring mellan två fil resurser.
     - Genom att använda CP eller DD med parallell kan du förbättra kopierings hastigheten, antalet trådar beror på ditt användnings fall och arbets belastning. I följande exempel används sex: 
     - CP-exempel (CP använder standard block storleken för fil systemet som segment storlek): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
-    - DD exempel (detta kommando anger explicit segment storlek till 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - DD exempel (detta kommando anger explicit segment storlek till 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Öppna käll kods verktyg från tredje part, till exempel:
         - [GNU parallellt](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) – sorterar filer och packar dem i partitioner.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) – använder Fpart och ett kopierings verktyg för att skapa flera instanser för att migrera data från src_dir till dst_url.
         - [Multi](https://github.com/pkolano/mutil) -multi-threaded CP och md5sum baserat på GNU coreutils.
-- Att ange fil storleken i förväg, i stället för att göra varje skrivning till en utökad skrivning, bidrar till att förbättra kopierings hastigheten i scenarier där fil storleken är känd. Om du behöver undvika att utöka skrivningar kan du ange en mål fil storlek med `truncate - size <size><file>` kommando. Efter det `dd if=<source> of=<target> bs=1M conv=notrunc`kommer kommandot att kopiera en källfil utan att behöva uppdatera storleken på målfilen upprepade gånger. Du kan till exempel ange mål fils storleken för varje fil som du vill kopiera (anta att en resurs monteras under/mnt/share):
+- Att ange fil storleken i förväg, i stället för att göra varje skrivning till en utökad skrivning, bidrar till att förbättra kopierings hastigheten i scenarier där fil storleken är känd. Om utökning av skrivningar behöver undvikas, kan du ange en mål fil storlek med `truncate - size <size><file>` kommandot. Efter det kommer `dd if=<source> of=<target> bs=1M conv=notrunc`kommandot att kopiera en källfil utan att behöva uppdatera storleken på målfilen upprepade gånger. Du kan till exempel ange mål fils storleken för varje fil som du vill kopiera (anta att en resurs monteras under/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - och kopierar sedan filer utan att utöka skrivningar parallellt:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - och kopierar sedan filer utan att utöka skrivningar parallellt: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>”Monteringsfel(115): Åtgärden pågår nu” när du monterar Azure Files med SMB 3.0
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Monterings fel (115): åtgärden pågår nu" när du monterar Azure Files med SMB 3,0
 
 ### <a name="cause"></a>Orsak
 
@@ -136,15 +136,15 @@ Om din Linux SMB-klient inte stöder kryptering monterar du Azure Files med SMB 
 När du bläddrar till en Azure-filresurs i portalen kan du få följande fel meddelande:
 
 Auktoriseringen misslyckades  
-Du saknar åtkomst
+Du har inte åtkomst
 
-### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 1: Ditt användar konto har inte åtkomst till lagrings kontot
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 1: ditt användar konto har inte åtkomst till lagrings kontot
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
 Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: Virtuella nätverks-eller brand Väggs regler är aktiverade på lagrings kontot
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: virtuella nätverk eller brand Väggs regler är aktiverade på lagrings kontot
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
@@ -170,7 +170,7 @@ Om SMB-klienterna har stängt alla öppna referenser och problemet fortsätter a
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Långsamma prestanda på en Azure-filresurs som är monterad på en virtuell Linux-dator
 
-### <a name="cause-1-caching"></a>Orsak 1: Cachelagring
+### <a name="cause-1-caching"></a>Orsak 1: cachelagring
 
 En möjlig orsak till långsamma prestanda är inaktive rad cachelagring. Cachelagring kan vara användbart om du använder en fil flera gånger, annars kan det vara en omkostnader. Kontrol lera att du använder cacheminnet innan du inaktiverar det.
 
@@ -192,7 +192,7 @@ Du kan också kontrol lera om rätt alternativ används genom att köra kommando
 
 Om alternativet **cache = Strict** eller **serverino** inte finns kan du demontera och montera Azure Files igen genom att köra monterings kommandot från [dokumentationen](../storage-how-to-use-files-linux.md). Kontrol lera sedan att posten **/etc/fstab** har rätt alternativ.
 
-### <a name="cause-2-throttling"></a>Orsak 2: Begränsning
+### <a name="cause-2-throttling"></a>Orsak 2: begränsning
 
 Det är möjligt att du drabbas av begränsning och att dina förfrågningar skickas till en kö. Du kan kontrol lera detta genom att dra nytta av [Azure Storage mått i Azure Monitor](../common/storage-metrics-in-azure-monitor.md).
 
@@ -209,7 +209,7 @@ På Linux/UNIX-plattformar fungerar inte **CP-p-** kommandot om olika användare
 
 Force-flaggan **f** i COPYFILE resulterar i att **CP-p-f** körs på UNIX. Det här kommandot kan inte heller bevara tidsstämpeln för filen som du inte äger.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 Använd lagrings konto användaren för att kopiera filerna:
 
@@ -218,22 +218,22 @@ Använd lagrings konto användaren för att kopiera filerna:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: det går inte&lt;att&gt;komma åt sökvägen: Fel i indata/utdata
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: det går inte att komma åt&lt;sökväg&gt;: indata/utdata-fel
 
 När du försöker att lista filer i en Azure-filresurs med hjälp av ls-kommandot låser kommandot när filer visas. Du får följande fel meddelande:
 
-**ls: det går inte&lt;att&gt;komma åt sökvägen: Fel i indata/utdata**
+**ls: det går inte att komma åt&lt;sökväg&gt;: indata/utdata-fel**
 
 
 ### <a name="solution"></a>Lösning
 Uppgradera Linux-kärnan till följande versioner som har en lösning på det här problemet:
 
-- 4.4.87+
-- 4.9.48+
-- 4.12.11+
+- 4.4.87 +
+- 4.9.48 +
+- 4.12.11 +
 - Alla versioner som är större än eller lika med 4,13
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Det går inte att skapa symboliska länkar-LN: det gick inte att skapa en symbolisk länk: Åtgärden stöds inte
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Det går inte att skapa symboliska länkar-LN: det gick inte att skapa en symbolisk länk: åtgärden stöds inte
 
 ### <a name="cause"></a>Orsak
 Som standard kan du montera Azure-filresurser i Linux med hjälp av CIFS stöder inte stöd för symboliska länkar (symlinks). Du ser ett fel som detta:
@@ -261,7 +261,7 @@ Du kan sedan skapa symlinks som det föreslås i [wikin](https://wiki.samba.org/
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 <a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>”Monteringsfel(112): Värden är inte tillgänglig på grund av en tids gräns för åter anslutning
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Mount-fel (112): värden är inte tillgänglig på grund av en tids gräns för åter anslutning
 
 Monteringsfel 112 uppstår på Linux-klienten när klienten har varit inaktiv under en längre tid. Tidsgränsen för anslutningen nås efter en längre tids inaktivitet och klienten kopplas från.  
 
@@ -278,12 +278,12 @@ Det här återanslutningsproblemet i Linux-kernel har nu åtgärdats som en del 
 
 - [Korrigering av återanslutning för att inte skjuta upp smb3-sessionsåteranslutning långt efter socketåteranslutning](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 - [Anrop av ekotjänst omedelbart efter socketåteranslutning](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS: Korrigering av en möjlig minnesskada under återanslutning](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
-- [CIFS: Korrigering av möjlig dubbel låsning av mutex under återanslutning (för kernel v4.9 och senare)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
+- [CIFS: åtgärda en möjlig minnes skada under åter anslutning](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: åtgärda en möjlig dubbel låsning av mutex under åter anslutning (för kernel v 4.9 och senare)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 De här ändringarna kan emellertid inte portas ännu till alla Linux-distributioner. Den här korrigeringen och andra återanslutningskorrigeringar finns i avsnittet [Minsta rekommenderade versioner med motsvarande monteringsfunktioner (SMB-version 2.1 eller SMB-version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) i artikeln [Använda Azure Files med Linux](storage-how-to-use-files-linux.md). Du kan få den här korrigeringen genom att uppgradera till någon av dessa rekommenderade kernel-versioner.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 Du kan undvika det här problemet genom att ange en hårdmontering. Med en hårdmontering tvingas klienten vänta tills en anslutning har upprättats eller tills den avbryts explicit. Du kan använda den för att undvika fel på grund av att tidsgränsen nås för nätverket. Den här lösningen kan dock orsaka obestämd väntan. Var beredd på att stoppa anslutningar vid behov.
 

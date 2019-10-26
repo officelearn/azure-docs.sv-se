@@ -1,5 +1,5 @@
 ---
-title: Testa Azure Stream Analytics frågor lokalt med Visual Studio
+title: Testa Azure Stream Analytics frågor lokalt i Visual Studio
 description: Den här artikeln beskriver hur du testar frågor lokalt med Azure Stream Analytics verktyg för Visual Studio.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 4ec427ad7af18f4f301e1e62ca21af643a0425aa
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 01383531293635af8c15f891928eec004e05b54d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914011"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925044"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Testa Stream Analytics frågor lokalt med Visual Studio
 
@@ -75,8 +75,8 @@ Du kan se förloppet i fönstret **utdata** .
 ## <a name="next-steps"></a>Nästa steg
 
 
-* [Snabbstart: Skapa ett Stream Analytics jobb med Visual Studio](stream-analytics-quick-create-vs.md)
+* [Snabb start: skapa ett Stream Analytics jobb med Visual Studio](stream-analytics-quick-create-vs.md)
 * [Använda Visual Studio för att visa Azure Stream Analytics-jobb](stream-analytics-vs-tools.md)
 * [Testa Live data lokalt med Azure Stream Analytics verktyg för Visual Studio (för hands version)](stream-analytics-live-data-local-testing.md)
-* [Självstudier: Distribuera ett Azure Stream Analytics jobb med CI/CD med Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Självstudie: Distribuera ett Azure Stream Analytics jobb med CI/CD med hjälp av Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integrera och utveckla kontinuerligt med Stream Analytics-verktyg](stream-analytics-tools-for-visual-studio-cicd.md)

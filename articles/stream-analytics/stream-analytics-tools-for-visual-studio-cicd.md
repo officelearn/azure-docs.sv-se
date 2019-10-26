@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Stream Analytics CI/CD NuGet-paketet för integrering och utveckling
+title: Använd Azure Stream Analytics CI/CD NuGet-paketet
 description: Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NuGet-paket för att konfigurera en kontinuerlig integrering och distributions process.
 services: stream-analytics
 author: su-jie
@@ -8,19 +8,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 47bcd29ca8a1da0c42f7bc39aeb4ffc1ad8e8571
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 6f5ba06841af580cd80b3b46bec972f717ded044
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172907"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934248"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Använd Azure Stream Analytics CI/CD NuGet-paketet för integrering och utveckling 
 Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NuGet-paketet för att skapa en kontinuerlig integrering och distributions process.
 
 Använd version 2.3.0000.0 eller senare av [Stream Analytics verktyg för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) för att få stöd för MSBuild.
 
-Det finns ett NuGet-paket: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Det tillhandahåller de MSBuild-, lokala körnings-och distributions verktyg som har stöd för kontinuerlig integrering och distributions processen för [Stream Analytics Visual Studio-projekt](stream-analytics-vs-tools.md). 
+Det finns ett NuGet-paket: [Microsoft. Azure. Stream Analytics. CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Det tillhandahåller de MSBuild-, lokala körnings-och distributions verktyg som har stöd för kontinuerlig integrering och distributions processen för [Stream Analytics Visual Studio-projekt](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > NuGet-paketet kan bara användas med 2.3.0000.0 eller över versionen av Stream Analytics Tools för Visual Studio. Om du har projekt som skapats i tidigare versioner av Visual Studio-verktyg öppnar du dem bara med 2.3.0000.0 eller över-versionen och sparar. De nya funktionerna är aktiverade. 
 
@@ -93,6 +93,6 @@ Exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart: Skapa ett Azure Stream Analytics moln jobb i Visual Studio](stream-analytics-quick-create-vs.md)
-* [Testa Stream Analytics-frågor lokalt med Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Snabb start: skapa ett Azure Stream Analytics moln jobb i Visual Studio](stream-analytics-quick-create-vs.md)
+* [Testa Stream Analytics frågor lokalt med Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Utforska Azure Stream Analytics-jobb med Visual Studio](stream-analytics-vs-tools.md)

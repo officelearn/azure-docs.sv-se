@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 07/15/2019
+ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 25017e6ea0be5d4320832298cdadbec7ec5a05cc
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330736"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929371"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
@@ -47,9 +47,12 @@ Utdata sparas i en Azure-blob. Eftersom data läggs till i en Azure-Blob kan du 
 Sökvägen till utdata i bloben följer den här syntaxen:
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
+
+>[!Note]
+> I tidigare versioner av SDK: n innan `0.1.0a16` `designation` argumentet `identifier`. Om din kod har utvecklats med en tidigare version måste du uppdatera detta.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -80,8 +83,8 @@ Om du vill aktivera det måste du:
 
     ```python
     global inputs_dc, prediction_dc
-    inputs_dc = ModelDataCollector("best_model", identifier="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
-    prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
+    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
+    prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
     *CorrelationId* är en valfri parameter, du behöver inte konfigurera den om din modell inte kräver det. Genom att använda ett correlationId på plats kan du enklare mappa med andra data. (Exempel: LoanNumber, CustomerId osv.)
@@ -122,7 +125,7 @@ Om du redan har en tjänst med beroenden som är installerade i **miljö filen**
 
 1. Avmarkera **Aktivera modell data insamling**i **Avancerade inställningar**. 
 
-    [Data insamling för @no__t 1check](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
+    [![kontrol lera data insamling](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
    I det här fönstret kan du också välja "Aktivera Appinsights diagnostik" för att spåra hälso tillståndet för din tjänst.  
 
@@ -139,11 +142,11 @@ Du kan sluta samla in data när som helst. Använd python-kod eller Azure Portal
 
   1. Gå till **distributioner** -> **Välj tjänst** -> **Redigera**.
 
-     [alternativet ![Edit](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![redigerings alternativ](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. Avmarkera **Aktivera modell data insamling**i **Avancerade inställningar**. 
 
-     [Data insamling för @no__t 1Uncheck](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![avmarkera data insamling](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Välj **Uppdatera** för att tillämpa ändringen.
 
@@ -165,12 +168,12 @@ För att snabbt komma åt data från din BLOB:
 1. Öppna din arbets yta.
 1. Klicka på **lagring**.
 
-    [![Storage](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
+    [![lagring](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
 1. Följ sökvägen till utdata i blobben med följande syntax:
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
@@ -188,15 +191,15 @@ För att snabbt komma åt data från din BLOB:
 
 1. Välj behållaren **modeldata** och klicka på **Redigera**. 
 
-    [![PBI Navigator](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
+    [![PBI-navigatören](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. Klicka under kolumnen namn i Frågeredigeraren och Lägg till ditt lagrings konto 1. Modell Sök väg i filtret. Obs: om du bara vill titta på filer från ett speciellt år eller månad expanderar du bara filter Sök vägen. Titta exempelvis bara på mars-data:/modeldata/subscriptionId >/ResourceGroupName >/workspacename >/webservicename >/ModelName >/modelversion >/Identifier >/Year >/3
+1. Klicka under kolumnen namn i Frågeredigeraren och Lägg till ditt lagrings konto 1. Modell Sök väg i filtret. Obs: om du bara vill titta på filer från ett speciellt år eller månad expanderar du bara filter Sök vägen. Titta exempelvis bara på mars-data:/modeldata/subscriptionId >/ResourceGroupName >/workspacename >/webservicename >/ModelName >/modelversion >/Designation >/Year >/3
 
 1. Filtrera data som är relevanta för dig baserat på **namn**. Om du har lagrat **förutsägelser** och **indata**måste du skapa en fråga för var och en.
 
 1. Klicka på den dubbelriktade pilen för att kombinera filerna i kolumnen **innehåll** . 
 
-    [![PBI innehåll](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
+    [![PBI-innehåll](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
 1. Klicka på OK så inläsnings data förvaras.
 
@@ -217,11 +220,11 @@ För att snabbt komma åt data från din BLOB:
 
 1. I arbets ytan databricks väljer du **Ladda upp data**.
 
-    [![DB uppladdning](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
+    [![DB-överföring](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 
 1. Skapa en ny tabell och välj **andra data källor** – > Azure Blob Storage-> skapa tabell i antecknings boken.
 
-    [![DB tabell](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+    [![DB-tabell](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
 1. Uppdatera platsen för dina data. Här är ett exempel:
 
@@ -230,7 +233,7 @@ För att snabbt komma åt data från din BLOB:
     file_type = "csv"
     ```
  
-    [![DBsetup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
+    [![med DBSetup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Följ stegen på mallen för att visa och analysera dina data. 
 

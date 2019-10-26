@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Extrahera indata med hjälp av typografiska formulär igenkänning'
+title: 'Snabb start: extrahera indata med hjälp av text igenkänning i sväng format'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten använder du formulär tolken REST API med sväng för att extrahera data från bilder av försäljnings kvitton.
 author: PatrickFarley
@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: badd674030ec014f2e70050c3c45599a26b17882
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c533949cf0ce69ddc5237dd893dd75e43447c4a9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073815"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931589"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Snabbstart: Extrahera indata med formulär tolken REST API med vändning
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Snabb start: extrahera indata från formulär tolken REST API med en sväng
 
 I den här snabb starten använder du Azures formulär igenkännings REST API med sväng för att extrahera och identifiera relevant information i försäljnings kvitton.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här snabb starten måste du ha:
 - Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
 - [spiralen](https://curl.haxx.se/windows/) är installerad.
@@ -36,7 +36,7 @@ För att slutföra den här snabb starten måste du ha:
 
 Om du vill börja analysera ett kvitto anropar du API: et för att **analysera kvitto** med hjälp av kommandot vänd nedan. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
 1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto avbildning.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 
@@ -44,7 +44,7 @@ Om du vill börja analysera ett kvitto anropar du API: et för att **analysera k
 curl -i -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/asyncBatchAnalyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
 ```
 
-Du får ett `202 (Success)` svar som innehåller en **Åtgärds plats** rubrik. Värdet för den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter status för åtgärden och hämta resultatet. I följande exempel är strängen efter `operations/` åtgärds-ID: t.
+Du får ett `202 (Success)` svar som innehåller en **Åtgärds plats** rubrik. Värdet för den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter status för åtgärden och hämta resultatet. I följande exempel är strängen efter `operations/` åtgärds-ID.
 
 ```console
 https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -63,7 +63,7 @@ curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/ope
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Du får ett `200 (Success)` svar med JSON-utdata. Det första fältet, `"status"`anger status för åtgärden. Om åtgärden har slutförts `"recognitionResults"` innehåller fältet alla rader med text som har extraherats från inleveransen `"understandingResults"` och fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot. Om åtgärden inte är slutförd kommer värdet för `"status"` att vara `"Running"` eller `"NotStarted"`, och du bör anropa API: et igen, antingen manuellt eller genom ett skript. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
+Du får ett `200 (Success)` svar med JSON-utdata. Det första fältet `"status"`anger status för åtgärden. Om åtgärden har slutförts innehåller fältet `"recognitionResults"` alla rader med text som har extraherats från inleveransen och fältet `"understandingResults"` innehåller nyckel/värde-information för de mest relevanta delarna av kvittot. Om åtgärden inte är slutförd kommer värdet för `"status"` att `"Running"` eller `"NotStarted"`och du bör anropa API: et igen, antingen manuellt eller genom ett skript. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
 
 Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kort ATS för läsbarhet.
 

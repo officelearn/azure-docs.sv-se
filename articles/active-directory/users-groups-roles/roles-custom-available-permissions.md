@@ -13,43 +13,36 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7ebffbc1c451404d93383a483eecdd4a25acf6b6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033310"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928607"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Under typer och behörigheter för program registrering i Azure Active Directory
 
 Den här artikeln innehåller tillgängliga registrerings behörigheter för program för anpassade roll definitioner i Azure Active Directory (Azure AD).
 
-## <a name="single-tenant-v-multi-tenant-permissions"></a>Single-Tenant v. behörigheter för flera innehavare
+## <a name="permissions-for-managing-single-directory-applications"></a>Behörigheter för att hantera program med en enda katalog
 
-Anpassade roll behörigheter skiljer sig åt för program med en enda klient och flera innehavare. Program med en enda klient är bara tillgängliga för användare i Azure AD-organisationen där programmet är registrerat. Program med flera klienter är tillgängliga för alla Azure AD-organisationer. Program med en enda klient organisation definieras som att de **konto typer som stöds** har angetts till "konton endast i den här organisations katalogen". I Graph API har signInAudience-egenskapen angetts till "AzureADMyOrg" i en enda klient.
+När du väljer behörigheter för den anpassade rollen har du möjlighet att ge åtkomst till endast hantera program i en katalog. Program med en enda katalog är bara tillgängliga för användare i Azure AD-organisationen där programmet är registrerat. Program med en enda katalog definieras som att de **konto typer som stöds** har angetts till "konton endast i den här organisations katalogen". I Graph API har signInAudience-egenskapen angetts till "AzureADMyOrg" i en enda katalog.
 
-## <a name="application-registration-subtypes-and-permissions"></a>Under typer och behörigheter för program registrering
+Om du vill bevilja åtkomst till endast hantera program med en katalog använder du behörigheterna nedan med under typen **program. organisationen**. Till exempel Microsoft. Directory/Applications. min organisation/Basic/Update.
 
 Se [översikten över anpassade roller](roles-custom-overview.md) för att få en förklaring av det allmänna villkorets undertyp, behörighet och egenskaps uppsättnings medelvärde. Följande information är specifik för program registreringar.
-
-### <a name="subtypes"></a>Undertyper
-
-Det finns bara en under typ av program registrering – program. organisationen. Till exempel Microsoft. Directory/Applications. min organisation/Basic/Update. Den här under typen anges på sidan **autentisering** för en speciell app-registrering och motsvarar att ange egenskapen signInAudience till "AzureADMyOrg" med hjälp av Graph API eller PowerShell. Under typen begränsar behörigheten till app-registreringar som är markerade som tillgängliga endast av konton i din organisation (program med en enda klient).
-
-Du kan använda begränsad behörighet för att bevilja Läs-eller hantera behörigheter till interna program utan att bevilja Läs-eller hanterings behörigheter till program som är tillgängliga för konton i andra organisationer.
-
-Det finns program. mina organisations versioner av alla Läs-och uppdaterings behörigheter samt behörigheten Ta bort. Det finns inga program. min organisations version av Create just nu. Standard behörigheter (till exempel Microsoft. Directory/Applications/Basic/Update) bevilja Läs-eller hanterings behörigheter för alla registrerings typer för appar.
-
-![Deklarera ett program med en enda klient organisation eller ett program för flera klienter](./media/roles-custom-available-permissions/supported-account-types.png)
-
-Information om följande behörigheter för för hands versionen av anpassade roller visas i listan [tillgängliga anpassade roll behörigheter i Azure Active Directory](roles-custom-available-permissions.md).
 
 ### <a name="create-and-delete"></a>Skapa och ta bort
 
 Det finns två tillgängliga behörigheter för att ge möjlighet att skapa program registreringar, var och en med olika beteenden:
 
-- **Microsoft. Directory/Applications/createAsOwner**: Genom att tilldela det här behörighets resultatet i skaparen som lagts till som första ägare till den skapade app-registreringen, så räknas den skapade program registreringen mot skapare objekt kvoten 250 skapade objekt.
-- **Microsoft. Directory/applicationPolicies/skapa**: Om du tilldelar det här behörighets resultatet i skaparen, läggs det inte till som första ägare till den skapade app-registreringen, och den skapade app-registreringen räknas inte mot skapare objekt kvoten 250 skapade objekt. Använd den här behörigheten noggrant, eftersom det inte finns något hinder för att skapa registrerings program förrän kvoten på katalog nivå har nåtts. Om båda behörigheterna tilldelas, prioriteras den här behörigheten.
+#### <a name="microsoftdirectoryapplicationscreateasowner"></a>Microsoft. Directory/Applications/createAsOwner
+
+Genom att tilldela det här behörighets resultatet i skaparen som lagts till som första ägare till den skapade app-registreringen, så räknas den skapade program registreringen mot skapare objekt kvoten 250 skapade objekt.
+
+#### <a name="microsoftdirectoryapplicationscreate"></a>Microsoft. Directory/program/skapa
+
+Om du tilldelar det här behörighets resultatet i skaparen, läggs det inte till som första ägare till den skapade app-registreringen, och den skapade app-registreringen räknas inte mot skapare objekt kvoten 250 skapade objekt. Använd den här behörigheten noggrant, eftersom det inte finns något hinder för att skapa registrerings program förrän kvoten på katalog nivå har nåtts. Om båda behörigheterna tilldelas, prioriteras den här behörigheten.
 
 Om båda behörigheterna tilldelas har/Create-behörigheten företräde. Även om/createAsOwner-behörigheten inte automatiskt lägger till skaparen som den första ägaren, kan ägarna anges under skapandet av appens registrering när de använder Graph API: er eller PowerShell-cmdletar.
 
@@ -78,19 +71,11 @@ Alla medlems användare i organisationen kan läsa registrerings information fö
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesread"></a>Microsoft. Directory/Applications/allProperties/Read
 
-Möjlighet att läsa alla egenskaper för program med en enda klient och flera innehavare utanför känsliga egenskaper som autentiseringsuppgifter.
+Möjlighet att läsa alla egenskaper för program med en enda klient och flera innehavare utanför egenskaper som inte kan läsas i någon situation som autentiseringsuppgifter.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesread"></a>Microsoft. Directory/Applications. min organisation/allProperties/läsa
 
 Ger samma behörigheter som Microsoft. Directory/Applications/allProperties/Read, men endast för program med en enda klient.
-
-#### <a name="microsoftdirectoryapplicationsstandardread-grants-access-to-all-fields-on-the-application-registration-branding-page"></a>Microsoft. Directory/Applications/standard/Read: Ger åtkomst till alla fält på anpassnings sidan för program registrering
-
-![Den här behörigheten ger åtkomst till anpassnings sidan för program registrering](./media/roles-custom-available-permissions/app-registration-branding.png)
-
-#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>Microsoft. Directory/Applications. min organisation/standard/läsa
-
-Ger samma behörigheter som Microsoft. Directory/Applications/standard/Read, men endast för program med en enda klient.
 
 #### <a name="microsoftdirectoryapplicationsownersread"></a>Microsoft. Directory/program/ägare/läsa
 
@@ -98,46 +83,19 @@ Ger möjlighet att läsa egenskapen ägare för en enskild klient och flera klie
 
 ![Den här behörigheten beviljar åtkomst till sidan för program registrerings ägare](./media/roles-custom-available-permissions/app-registration-owners.png)
 
-Ger åtkomst till följande egenskaper för entiteten program:
+#### <a name="microsoftdirectoryapplicationsstandardread"></a>Microsoft. Directory/program/standard/Read
 
-- AllowActAsForAllClients
-- AllowPassthroughUsers
-- AppAddress
-- AppBrandingElements
-- AppCategory
-- AppCreatedDateTime
-- AppData
-- appId
-- AppInformationalUrl
-- ApplicationTag
-- AppLogoUrl
-- AppMetadata
-- AppOptions
-- BinaryExtensionAttribute
-- BooleanExtensionAttribute
-- CountriesBlockedForMinors
-- CreatedOnBehalfOf
-- DateTimeExtensionAttribute
-- DisplayName
-- ExtensionAttributeDefinition
-- IntegerExtensionAttribute
-- KnownClientApplications
-- LargeIntegerExtensionAttribute
-- LegalAgeGroupRule
-- LocalizedAppBrandingElements
-- MainLogo
-- MsaAppId
-- ResourceApplicationSet
-- ServiceDiscoveryEndpoint
-- StringExtensionAttribute
-- TrustedCertificateSubject
-- WebApi
-- WebApp
-- WwwHomepage
+Ger åtkomst till läsa standard program registrerings egenskaper. Detta inkluderar egenskaper för program registrerings sidor.
+
+#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>Microsoft. Directory/Applications. min organisation/standard/läsa
+
+Ger samma behörigheter som Microsoft. Directory/Applications/standard/Read, men endast för program med en enda klient.
 
 ### <a name="update"></a>Uppdatera
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. Directory/Applications/allProperties/Update
+
+Möjlighet att uppdatera alla egenskaper för program med en enda katalog och flera kataloger.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>Microsoft. Directory/Applications. min organisation/allProperties/Update
 
@@ -145,14 +103,9 @@ Ger samma behörigheter som Microsoft. Directory/Applications/allProperties/Upda
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>Microsoft. Directory/program/mål grupp/uppdatering
 
-Ger åtkomst till alla fält på sidan för autentisering av program registrering:
+Möjlighet att uppdatera den signInAudience-egenskap som stöds i en och flera katalog program.
 
-![Den här behörigheten beviljar åtkomst till sidan för registrering av appar](./media/roles-custom-available-permissions/supported-account-types.png)
-
-Ger åtkomst till följande egenskaper för program resursen:
-
-- AvailableToOtherTenants
-- SignInAudience
+![Den här behörigheten beviljar åtkomst till den konto typ egenskap som stöds på sidan för program registrering](./media/roles-custom-available-permissions/supported-account-types.png)
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationaudienceupdate"></a>Microsoft. Directory/Applications. min organisation/mål grupp/uppdatering
 
@@ -164,20 +117,6 @@ Möjlighet att uppdatera svars-URL: en, inloggnings-URL, implicit flöde och pub
 
 ![Beviljar åtkomst till app Registration-autentisering men inte konto typer som stöds](./media/roles-custom-available-permissions/supported-account-types.png)
 
- Ger åtkomst till följande egenskaper för program resursen:
-
-- AcceptMappedClaims
-- AccessTokenAcceptedVersion
-- Tillägg
-- GroupMembershipClaims
-- IsDeviceOnlyAuthSupported
-- OAuth2LegacyUrlPathMatching
-- OauthOidcResponsePolicyBitmap
-- OptionalClaims
-- OrgRestrictions
-- PublicClient
-- UseCustomTokenSigningKey
-
 #### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>Microsoft. Directory/Applications. min organisation/autentisering/uppdatering
 
 Ger samma behörigheter som Microsoft. Directory/program/autentisering/uppdatering, men endast för program med en klient.
@@ -188,58 +127,15 @@ Möjlighet att uppdatera namn, logo typ, URL-adress för webb sidor, användning
 
 ![Den här behörigheten ger åtkomst till anpassnings sidan för program registrering](./media/roles-custom-available-permissions/app-registration-branding.png)
 
-Ger åtkomst till följande egenskaper för program resursen:
-
-- AllowActAsForAllClients
-- AllowPassthroughUsers
-- AppAddress
-- AppBrandingElements
-- AppCategory
-- AppData
-- appId
-- AppInformationalUrl
-- ApplicationTag
-- AppLogoUrl
-- AppMetadata
-- AppOptions
-- BinaryExtensionAttribute
-- BooleanExtensionAttribute
-- CountriesBlockedForMinors
-- CreatedOnBehalfOf
-- DateTimeExtensionAttribute
-- DisplayName
-- ExtensionAttributeDefinition
-- IntegerExtensionAttribute
-- KnownClientApplications
-- LargeIntegerExtensionAttribute
-- LegalAgeGroupRule
-- LocalizedAppBrandingElements
-- MainLogo
-- MsaAppId
-- ResourceApplicationSet
-- ServiceDiscoveryEndpoint
-- StringExtensionAttribute
-- TrustedCertificateSubject
-- WebApi
-- WebApp
-- WwwHomepage
-
 #### <a name="microsoftdirectoryapplicationsmyorganizationbasicupdate"></a>Microsoft. Directory/Applications. min organisation/Basic/Update
 
 Ger samma behörigheter som Microsoft. Directory/Applications/Basic/Update, men endast för program med en klient.
 
-#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directory/applications/credentials/update
+#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>Microsoft. Directory/program/autentiseringsuppgifter/uppdatera
 
 Möjlighet att uppdatera egenskaperna för certifikat och klient hemligheter på program med en enda klient och flera innehavare. Ger åtkomst till alla fält på sidan program registrerings certifikat & hemligheter:
 
 ![Den här behörigheten ger åtkomst till sidan för app-registrering av certifikat & hemligheter](./media/roles-custom-available-permissions/app-registration-secrets.png)
-
-Ger åtkomst till följande egenskaper för program resursen:
-- AsymmetricKey
-- EncryptedSecretKey
-- Beskrivning av Beskrivning
-- SharedKeyReference
-- TokenEncryptionKeyId
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>Microsoft. Directory/Applications. min organisation/autentiseringsuppgifter/uppdatera
 
@@ -250,9 +146,6 @@ Ger samma behörigheter som Microsoft. Directory/Applications/credentials/Update
 Möjlighet att uppdatera egenskapen owner på en enskild klient och flera innehavare. Ger åtkomst till alla fält på sidan program registrerings ägare:
 
 ![Den här behörigheten beviljar åtkomst till sidan för program registrerings ägare](./media/roles-custom-available-permissions/app-registration-owners.png)
-
-Ger åtkomst till följande egenskaper för program resursen:
-- Ägare
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationownersupdate"></a>Microsoft. Directory/Applications. min organisation/ägare/uppdatera
 
@@ -265,14 +158,6 @@ Möjlighet att uppdatera delegerade behörigheter, program behörigheter, auktor
 ![Den här behörigheten ger åtkomst till sidan registrerings-API-behörigheter för appen](./media/roles-custom-available-permissions/app-registration-api-permissions.png)
 
 ![Den här behörigheten beviljar åtkomst till appens registrering visar en API-sida](./media/roles-custom-available-permissions/app-registration-expose-api.png)
-
-Ger åtkomst till följande egenskaper för program resursen:
-
-- AppIdentifierUri
-- Berättigande
-- PreAuthorizedApplications
-- RecordConsentConditions
-- RequiredResourceAccess
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>Microsoft. Directory/Applications. min organisation/behörigheter/uppdatera
 

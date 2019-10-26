@@ -1,5 +1,5 @@
 ---
-title: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure DevOps
+title: Distribuera Azure Stream Analytics jobb med CI/CD och Azure DevOps
 description: Den här artikeln beskriver hur du distribuerar ett Stream Analytics-jobb med CI/CD med hjälp av Azure DevOps Services.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e05e4eab8bd3c307334b62df00dc03e56ce60ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60763042"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925075"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines
 Den här artikeln beskriver hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Stream Analytics-jobb med hjälp av Azure Pipelines. 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Skapa en versionspipeline i Azure Pipelines
 > * distribuera och uppgradera ett program automatiskt.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Se till att du har följande innan du börjar:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -83,7 +83,7 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
     
     ![Aktivera utlösarstatus för kontinuerlig integrering](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
-4. Byggen utlöses också vid push-överföring och incheckning. Om du vill kontrollera förloppet för bygget växlar du till fliken **Builds** (Byggen).  När du har kontrollerat att bygget körs rätt måste du definiera en versionspipeline som distribuerar programmet till ett kluster. Högerklicka på ellipsen intill bygg-pipelinen och välj **Redigera**.
+4. Byggen utlöses också vid push-överföring och incheckning. Om du vill kontrol lera Bygg förloppet växlar du till fliken **versioner** .  När du har kontrollerat att versionen körs måste du definiera en versions pipeline som distribuerar ditt program till ett kluster. Högerklicka på ellipsen intill bygg-pipelinen och välj **Redigera**.
 
 5.  I **Uppgifter** anger du "Hosted" som **Agent queue** (Agentkö).
     
@@ -152,7 +152,7 @@ När du skickar ändringar till Azure DevOps Services via push-överföring utl�
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömningsenheter som förbrukas av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i självstudien med följande steg:
+Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i självstudien med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade.  
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.

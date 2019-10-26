@@ -1,23 +1,18 @@
 ---
 title: OMS-portalen flyttar till Azure | Microsoft Docs
 description: OMS-portalen sunsetted med alla funktioner som flyttas till Azure Portal. Den här artikeln innehåller information om den här över gången.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 08/22/2019
+ms.openlocfilehash: 170973d15b5f49021a0507bdd2fd6a2632777d48
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915874"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932156"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen flyttar till Azure
 
@@ -64,7 +59,7 @@ I båda fallen måste administratören manuellt tilldela dig rätt roll från f�
 
 | Behörighet för OMS-portalen | Azure-roll |
 |:---|:---|
-| Skrivskyddad | Log Analytics Reader |
+| ReadOnly | Log Analytics Reader |
 | Deltagare | Log Analytics Contributor |
 | Administratör | Ägare | 
  
@@ -93,7 +88,7 @@ OMS-mobilappen kommer att sunsetted tillsammans med OMS-portalen. I stället fö
 
 På så sätt har Application Insights-anslutningsprogram föråldrats och tagits bort från Azure Marketplace tillsammans med OMS-portalen föråldrad 30 mars 2019. Befintliga anslutningar fortsätter att fungera fram till den 30 juni 2019. Med OMS-portalen är det inte möjligt att konfigurera och ta bort befintliga anslutningar från portalen. Detta kommer att stödjas med REST API som kommer att göras tillgängligt i januari 2019 och ett meddelande publiceras på [Azure updates](https://azure.microsoft.com/updates/). 
 
-## <a name="azure-network-security-group-analytics"></a>Azure Network Security Group Analytics
+## <a name="azure-network-security-group-analytics"></a>Azure-nätverkssäkerhetsgruppanalys
 [Azure-nätverkssäkerhetsgruppanalys lösningen](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) ersätts med nyligen startade [trafikanalys](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) som ger insyn i användar-och program aktivitet i moln nätverk. Trafikanalys hjälper dig att granska organisationens nätverks aktivitet, säkra program och data, optimera arbets Belastningens prestanda och hålla koll på kraven. 
 
 Den här lösningen analyserar NSG Flow-loggar och ger insikter om följande.

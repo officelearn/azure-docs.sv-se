@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa och hantera ett Stream Analytics-jobb med hjälp av Azure-portalen'
+title: Skapa och hantera ett Stream Analytics-jobb med hjälp av Azure-portalen
 description: I den här självstudien finns en omfattande beskrivning av hur du använder Azure Stream Analytics för att analysera bedrägliga samtal i en telefonsamtalsström.
 services: stream-analytics
 author: mamccrea
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 540cd0e136dc602848c34edbd3914d69ca725758
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 128859a00402c3381edfa65918a7135c9fd775de
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000546"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925277"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analysera telefonsamtalsdata med Stream Analytics och visualisera resultat på en Power BI-instrumentpanel
 
@@ -30,12 +30,12 @@ I den här guiden får du lära dig att:
 > * Testa och starta jobbet
 > * Visualisera resultat i Power BI
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar utför du följande åtgärder:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 * Ladda ned telefonsamtalets händelsegeneratorapp [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) från Microsoft Download Center eller hämta källkoden från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Du behöver Power BI-konto.
 
@@ -45,7 +45,7 @@ Innan Stream Analytics kan analysera dataströmmen med bedrägliga samtal behöv
 
 Använd följande steg för att skapa en händelsehubb och skickar samtalsdata till den händelsehubben:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Skapa en resurs** > **Sakernas Internet** > **Event Hubs**.
 
    ![Skapa en Azure-händelsehubb på portalen](media/stream-analytics-manage-job/find-event-hub-resource.png)
@@ -53,10 +53,10 @@ Använd följande steg för att skapa en händelsehubb och skickar samtalsdata t
 
    |**Inställning**  |**Föreslaget värde** |**Beskrivning**  |
    |---------|---------|---------|
-   |Name     | myEventHubsNS        |  Ett unikt namn för att identifiera händelsehubbens namnområde.       |
-   |Subscription     |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du vill skapa händelsehubben.      |
-   |Resource group     |   MyASADemoRG      |  Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto.       |
-   |Location     |   USA, västra 2      |    Plats där händelsehubbens namnområde kan distribueras.     |
+   |Namn     | myEventHubsNS        |  Ett unikt namn för att identifiera händelsehubbens namnområde.       |
+   |Prenumeration     |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du vill skapa händelsehubben.      |
+   |Resursgrupp     |   MyASADemoRG      |  Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto.       |
+   |Plats     |   USA, västra 2      |    Plats där händelsehubbens namnområde kan distribueras.     |
 
 4. Använd standardalternativ för de återstående inställningarna och välj **Skapa**.
 
@@ -137,11 +137,11 @@ Nu nr du har en ström av anropshändelser kan du skapa ett Stream Analytics-job
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Jobbnamn     |  ASATutorial       |   Ett unikt namn för att identifiera händelsehubbens namnområde.      |
-   |Subscription    |  \<Din prenumeration\>   |   Välj en Azure-prenumeration där du vill skapa jobbet.       |
-   |Resource group   |   MyASADemoRG      |   Välj **Använd befintlig** och ange ett nytt resursgruppsnamn för ditt konto.      |
-   |Location   |    USA, västra 2     |      Plats där jobbet kan distribueras. Vi rekommenderar att du placerar jobbet och händelsehubben i samma region för bästa prestanda och så att du inte ska betala för att överföra data mellan regioner.      |
-   |Värdmiljö    | Molnet        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet.    |
-   |Strömningsenheter     |    1       |      Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är inställt på 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).      |
+   |Prenumeration    |  \<Din prenumeration\>   |   Välj en Azure-prenumeration där du vill skapa jobbet.       |
+   |Resursgrupp   |   MyASADemoRG      |   Välj **Använd befintlig** och ange ett nytt resursgruppsnamn för ditt konto.      |
+   |Plats   |    USA, västra 2     |      Plats där jobbet kan distribueras. Vi rekommenderar att du placerar jobbet och händelsehubben i samma region för bästa prestanda och så att du inte ska betala för att överföra data mellan regioner.      |
+   |Värdmiljö    | I molnet        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet.    |
+   |Enheter för strömning     |    1       |      Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är inställt på 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).      |
 
 4. Använd standard alternativen för återstående inställningar, Välj **skapa**och vänta tills distributionen har slutförts.
 
@@ -160,8 +160,8 @@ Nästa steg är att definiera en indatakälla som jobbet använder för att läs
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Inmatat alias     |  CallStream       |  Ange ett eget namn som identifierar din inmatning. Indataaliaset får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3-63 tecken långt.       |
-   |Subscription    |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du skapade händelsehubben. Händelsehubben kan finnas i samma eller en annan prenumeration som Stream Analytics-jobbet.       |
-   |Namnrymd för händelshubb    |  myEventHubsNS       |  Välj namnområdet för händelsehubben som du skapade i föregående avsnitt. Alla händelsehubbnamnområden som finns i din aktuella prenumeration visas i listrutan.       |
+   |Prenumeration    |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du skapade händelsehubben. Händelsehubben kan finnas i samma eller en annan prenumeration som Stream Analytics-jobbet.       |
+   |Namnområde för händelsehubb    |  myEventHubsNS       |  Välj namnområdet för händelsehubben som du skapade i föregående avsnitt. Alla händelsehubbnamnområden som finns i din aktuella prenumeration visas i listrutan.       |
    |Namn på händelsehubb    |   MyEventHub      |  Välj händelsehubben som du skapade i föregående avsnitt. Alla händelsehubbar som finns i din aktuella prenumeration visas i listrutan.       |
    |Principnamn för Event Hub   |  Policy       |  Välj händelsehubbens delade princip som du skapade i föregående avsnitt. Alla händelsehubbprinciper som finns i din aktuella prenumeration visas i listrutan.       |
 
@@ -212,7 +212,7 @@ I det här exemplet görs bedrägliga samtal från samma användare inom fem sek
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Sedan kan du söka efter anrops poster där värdet `CallingIMSI` (det ursprungliga numret) är detsamma, men värdet för @no__t 1 (ursprungsland/regionen) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON**-satsen för kopplingen med hjälp av funktionen [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
+   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Sedan kan du söka efter anrops poster där `CallingIMSI` värde (det ursprungliga numret) är detsamma, men `SwitchNum` svärdet (ursprungsland/regionen) skiljer sig åt. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON**-satsen för kopplingen med hjälp av funktionen [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
    Frågan är som en vanlig SQL-koppling förutom funktionen **DATEDIFF**. Den **DATEDIFF**-funktion som används i den här frågan är specifik för Streaming Analytics och måste visas i `ON...BETWEEN`-satsen.
 

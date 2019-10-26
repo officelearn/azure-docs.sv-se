@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a2eb8bf10454ee01953ddd37025f0c0048d00a0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b0fa4dbc336067ee3e3b2baa49ec872f65a3154b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813755"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933519"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
-[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
+[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och Azure virtuella datorer.
 
 Den här artikeln visar hur du konfigurerar haveriberedskap till en sekundär plats för lokala virtuella Hyper-V-datorer som hanteras i System Center Virtual Machine Manager-moln (VMM). I den här artikeln kan du se hur du:
 
@@ -29,7 +29,10 @@ Den här artikeln visar hur du konfigurerar haveriberedskap till en sekundär pl
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en virtuell dator
 
-## <a name="prerequisites"></a>Förutsättningar
+> [!WARNING]
+> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](scvmm-site-recovery-deprecation.md) informationen innan du fortsätter.
+
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen gör du följande:
 
@@ -38,7 +41,7 @@ För att slutföra den här kursen gör du följande:
 - Kontrollera att de virtuella datorer som du vill replikera uppfyller [stöd för replikerad dator](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Förbereda VMM-servrar för nätverksmappning.
 
-### <a name="prepare-for-network-mapping"></a>Förbereda för nätverksmappning
+### <a name="prepare-for-network-mapping"></a>Förbered för nätverksmappning
 
 [Nätverksmappning](hyper-v-vmm-network-mapping.md) mappar mellan lokala VMM-VM-nätverk i käll- och målmoln. Mappning utför följande:
 
@@ -64,10 +67,10 @@ Förbereda VMM:er på följande sätt:
 
 Välj vad och vart du vill replikera.
 
-1. Klicka på **Webbplatsåterställning** > **steg 1: Förbered infrastrukturen** > **Skyddsmål**.
+1. Klicka på **Site Recovery** > **Steg 1: Förbereda infrastrukturen** > **Skyddsmål**.
 2. Välj **Till återställningsplats** och **Ja, med Hyper-V**.
 3. Välj **Ja** för att indikera att du använder VMM för att hantera Hyper-V-värdar.
-4. Välj **Ja** om du har en sekundär VMM-server. Om du distribuerar replikering mellan moln på en enda VMM-server klickar du på **Nej**. Klicka sedan på **OK**.
+4. Välj **Ja** om du har en sekundär VMM-server. Om du distribuerar replikering mellan moln på en enda VMM-server klickar du på **Nej**. Klicka på **OK**.
 
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
@@ -95,7 +98,7 @@ Installera Azure Site Recovery-providern på VMM-servrarna och identifiera och r
 5. När installationen är klar klickar du på **Registrera** för att registrera servern i valvet.
 
     ![Installationsplats](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
-6. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på **Nästa**.
+6. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på **Next**.
 7. I **proxyanslutning** anger du hur den provider som körs på VMM-servern ska ansluta till Azure.
    - Du kan ange att providern ska ansluta direkt till Internet eller via en proxy. Ange proxyinställningar efter behov.
    - Om du använder en proxy skapas ett RunAs-konto (DRAProxyAccount) i VMM automatiskt med de angivna proxyautentiseringsuppgifterna. Konfigurera proxyservern så att det här kontot kan autentiseras. Du kan ändra inställningarna för RunAs-kontot i VMM-konsolen > **Inställningar** > **Säkerhet** > **Kör-som-konton**.
@@ -105,7 +108,7 @@ Installera Azure Site Recovery-providern på VMM-servrarna och identifiera och r
 10. I **Servernamn** anger du ett eget namn som identifierar VMM-servern i valvet. I ett kluster anger du namnet på VMM-klusterrollen.
 11. I **Synkronisera molnmetadata** väljer du om du vill synkronisera metadata för alla moln på VMM-servern. Den här åtgärden behöver bara göras en gång på varje server. Om du inte vill synkronisera alla moln lämnar du den här inställningen avmarkerad. Du kan synkronisera varje moln individuellt i molnegenskaperna i VMM-konsolen.
 12. Slutför processen genom att klicka på **Nästa**. Efter registreringen hämtar Site Recovery metadata från VMM-servern. Servern visas i **Servrar** > **VMM-servrar** i valvet.
-13. När servern visas i valvet går du till **Källa** > **Förbered källa** och markerar VMM-servern. Välj det moln där Hyper-V-värden hanteras. Klicka sedan på **OK**.
+13. När servern visas i valvet går du till **Källa** > **Förbered källa** och markerar VMM-servern. Välj det moln där Hyper-V-värden hanteras. Klicka på **OK**.
 
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
@@ -115,10 +118,10 @@ Välj VMM-målservern och molnet:
 1. Klicka på **Förbered infrastruktur** > **Mål** och välj VMM-målservern.
 2. VMM-moln som är synkroniserade med Site Recovery visas. Välj målmolnet.
 
-   ![Mål](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Målinrikta](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
-## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
+## <a name="set-up-a-replication-policy"></a>Konfigurera en replikeringsprincip
 
 Innan du börjar bör du se till att alla värdar som använder principen har samma operativsystem. Om värdarna kör olika versioner av Windows Server behöver du flera replikeringsprinciper.
 
@@ -132,11 +135,11 @@ Innan du börjar bör du se till att alla värdar som använder principen har sa
 1. I **Kopieringsfrekvens** anger du hur ofta du vill replikera förändringsdata (delta) efter den första replikeringen (med 30 sekunders mellanrum, var femte minut eller varje kvart).
 2. I **Kvarhållning av återställningspunkt** anger du hur länge (i antal timmar) kvarhållningsperioden för varje återställningspunkt ska vara. Replikerade datorer kan återställas till valfri punkt inom en period.
 3. I **Appkompatibel ögonblicksbildsfrekvens** anger du hur ofta (1–12 timmar) återställningspunkter som innehåller programkonsekventa ögonblicksbilder skapas. Hyper-V använder två typer av ögonblicksbilder:
-    - **Standardögonblicksbild**: Tillhandahåller en inkrementell ögonblicksbild av hela den virtuella datorn.
-    - **Appkonsekvent ögonblicksbild**: Tar en ögonblicksbild som baseras på tidpunkt av programdata i den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att apparna är i ett konsekvent tillstånd när ögonblicksbilden tas. Om du aktiverar programkonsekventa ögonblicksbilder påverkas prestanda på virtuella källdatorer. Ange ett värde som är mindre än det antal ytterligare återställningspunkter som du konfigurerar.
+    - **Standardögonblicksbild**: tillhandahåller en inkrementell ögonblicksbild av hela den virtuella datorn.
+    - **Appkonsekvent ögonblicksbild**: tar en ögonblicksbild som baseras på tidpunkt av programdata i den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att apparna är i ett konsekvent tillstånd när ögonblicksbilden tas. Om du aktiverar programkonsekventa ögonblicksbilder påverkas prestanda på virtuella källdatorer. Ange ett värde som är mindre än det antal ytterligare återställningspunkter som du konfigurerar.
 4. I **Komprimering av dataöverföring** anger du huruvida överförda replikeringsdata ska komprimeras.
 5. Välj **Delete replica VM** (Ta bort virtuell replikdator) för att ange att den replikerade virtuella datorn ska tas bort om du inaktiverar skydd för den virtuella källdatorn. Om du aktiverar den här inställningen gäller att när du inaktiverar skydd för den virtuella källdatorn så tas den bort från Site Recovery-konsolen, Site Recovery-inställningarna för VMM tas bort från VMM-konsolen och repliken tas bort.
-6. I **Metod för inledande replikering** gäller att om du replikerar över nätverket så anger du huruvida du vill starta den inledande replikeringen eller schemalägga den. För att spara nätverksbandbredd kan det vara bra att schemalägga den utanför kontorstid. Klicka sedan på **OK**.
+6. I **Metod för inledande replikering** gäller att om du replikerar över nätverket så anger du huruvida du vill starta den inledande replikeringen eller schemalägga den. För att spara nätverksbandbredd kan det vara bra att schemalägga den utanför kontorstid. Klicka på **OK**.
 
      ![Replikeringsprincip](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
@@ -146,7 +149,7 @@ Innan du börjar bör du se till att alla värdar som använder principen har sa
 ## <a name="enable-replication"></a>Aktivera replikering
 
 1. Klicka på **Replikera program** > **Källa**. 
-2. I **Källa** väljer du VMM-servern och det moln där de Hyper-V-värdar som du vill replikera finns. Klicka sedan på **OK**.
+2. I **Källa** väljer du VMM-servern och det moln där de Hyper-V-värdar som du vill replikera finns. Klicka på **OK**.
 3. I **Mål** kontrollerar du den sekundära VMM-servern och molnet.
 4. I **Virtuella datorer** väljer du de virtuella datorer du vill skydda i listan.
 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 27063702729d8a61ab8919c2685fcfc6f743ce09
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858989"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935401"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Vad är IoT Plug and Play Preview?
 
@@ -26,7 +26,7 @@ Med IoT Plug and Play Preview kan lösningar utvecklare integrera enheter med si
 
 Du kan återanvända gränssnitt mellan enhets kapacitets modeller för att förenkla samarbetet och påskynda utvecklingen.
 
-För att kunna göra IoT Plug and Play fungerar sömlöst med [Azure Digitals](../digital-twins/about-digital-twins.md), definieras IoT plug and Play-schemat med hjälp av det [digitala DTDL (Digital Definition Language)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Plug and Play och DTDL är öppna för communityn och Microsoft välkomnar samarbetet med kunder, partner och branschen. Båda baseras på öppna W3C-standarder som JSON-LD och RDF, vilket möjliggör enklare införande mellan tjänster och verktyg. Det finns dessutom ingen extra kostnad för att använda IoT Plug and Play och DTDL. Standardpriserna för [azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md)och andra Azure-tjänster förblir desamma.
+För att kunna göra IoT Plug and Play fungerar sömlöst med [Azure Digitals](../digital-twins/about-digital-twins.md), definieras IoT plug and Play-schemat med hjälp av det [digitala DTDL (Digital Definition Language)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Plug and Play och DTDL är öppna för communityn och Microsoft välkomnar samarbetet med kunder, partner och branschen. Båda baseras på öppna W3C-standarder som JSON-LD och RDF, vilket möjliggör enklare införande mellan tjänster och verktyg. Det finns dessutom ingen extra kostnad för att använda IoT Plug and Play och DTDL. Standardpriserna för [azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/core/overview-iot-central.md)och andra Azure-tjänster förblir desamma.
 
 Lösningar som bygger på IoT Hub eller IoT Central kan dra nytta av IoT-Plug and Play.
 
@@ -37,7 +37,7 @@ Den här artikeln beskriver:
 - Utveckla ett IoT-enhets program som stöder IoT Plug and Play.
 - Så här certifierar du en IoT Plug and Play-enhet och publicerar den till [certifierad för IoT-katalogen](https://catalog.azureiotsolutions.com/).
 
-## <a name="user-roles"></a>Användarroller
+## <a name="user-roles"></a>Användar roller
 
 IoT Plug and Play är användbart för två typer av utvecklare:
 
@@ -48,7 +48,7 @@ IoT Plug and Play är användbart för två typer av utvecklare:
 
 Som en lösnings utvecklare kan du utveckla en IoT-lösning i molnet som använder IoT Plug and Play-enheter. Du kan använda någon av följande Azure-tjänster:
 
-- [IoT Central](../iot-central/overview-iot-central.md) – en fullständigt hanterad IoT-lösning för program vara som en tjänst som gör det enkelt att skapa produkter som ansluter till fysiska och digitala världar.
+- [IoT Central](../iot-central/core/overview-iot-central.md) – en fullständigt hanterad IoT-lösning för program vara som en tjänst som gör det enkelt att skapa produkter som ansluter till fysiska och digitala världar.
 - [IoT Hub](../iot-hub/about-iot-hub.md) – en hanterad moln tjänst, som fungerar som en meddelande hubb för säker, dubbelriktad kommunikation mellan IoT-programmet och dina enheter.
 
 Du kan hitta IoT Plug and Play-enheter via Azure-certifierad för IoT-katalogen. Varje IoT Plug and Play-enhet i katalogen har verifierats och har en enhets kapacitets modell. Visa enhetens kapacitets modell för att förstå enhetens funktioner eller Använd den för att simulera enheten i Azure IoT Central.

@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d3794f409b2cdc11373dc330099e5ff93d65a2a1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527111"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934400"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Styra åtkomsten för externa användare i Azure AD-hantering av rättigheter (för hands version)
 
@@ -50,11 +50,13 @@ Följande diagram och steg ger en översikt över hur externa användare bevilja
 
 ![Diagram över livs cykeln för externa användare](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
+1. Du [lägger till en ansluten organisation](entitlement-management-organization.md) för den Azure AD-katalog eller domän som du vill samar beta med.
+
 1. Du skapar ett Access-paket i din katalog som innehåller en princip [för användare som inte finns i din katalog](entitlement-management-access-package-create.md#for-users-not-in-your-directory).
 
 1. Du skickar en [länk till min åtkomst Portal](entitlement-management-access-package-settings.md) till din kontakt i den externa organisationen som de kan dela med sina användare för att begära åtkomst paketet.
 
-1. En extern användare (**begär ande A** i det här exemplet) använder länken min åtkomst Portal för att [begära åtkomst](entitlement-management-request-access.md) till Access-paketet.
+1. En extern användare (**begär ande A** i det här exemplet) använder länken min åtkomst Portal för att [begära åtkomst](entitlement-management-request-access.md) till Access-paketet. Hur användaren loggar in beror på vilken typ av katalog eller domän som definierats i den anslutna organisationen.
 
 1. En god kännare [godkänner begäran](entitlement-management-request-approve.md) (eller också godkänns begäran automatiskt).
 
@@ -116,6 +118,6 @@ Du kan också ändra den här inställningen när du har skapat katalogen.
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Lägg till en ansluten organisation](entitlement-management-organization.md)
 - [För användare som inte är i din katalog](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Skapa och hantera en katalog med resurser](entitlement-management-catalog-create.md)
-- [Delegering och roller](entitlement-management-delegate.md)

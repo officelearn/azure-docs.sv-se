@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 70273a45bb60fca57292275ea0bb564e17a6f4e9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389511"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934790"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Skapa ett nytt Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -68,9 +68,9 @@ Här följer de övergripande stegen för att skapa ett nytt Access-paket.
 
 1. Klicka på **åtkomst paket**på den vänstra menyn.
 
-    ![Hantering av rättigheter i Azure Portal](./media/entitlement-management-shared/elm-access-packages.png)
-
 1. Klicka på **nytt Access-paket**.
+
+    ![Hantering av rättigheter i Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>Grundläggande inställningar
 
@@ -104,7 +104,7 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
 
     Om du skapar ett Access-paket i en befintlig katalog kan du välja vilken resurs som helst som redan finns i katalogen utan att du äger den.
 
-    Om du är global administratör, en användar administratör eller katalog ägare har du ytterligare möjlighet att välja resurser som inte finns i katalogen än. Om du väljer resurser som inte finns i den valda katalogen, kommer dessa resurser också att läggas till i katalogen för andra katalog administratörer för att bygga åtkomst paket med. Om du bara vill välja resurser som för närvarande finns i den valda katalogen markerar du kryss rutan **endast se** överst i Välj panorera.
+    Om du är global administratör, en användar administratör eller en katalog ägare har du ytterligare möjlighet att välja resurser som inte finns i katalogen än. Om du väljer resurser som inte finns i den valda katalogen, kommer dessa resurser också att läggas till i katalogen för andra katalog administratörer för att bygga åtkomst paket med. Om du bara vill välja resurser som för närvarande finns i den valda katalogen markerar du kryss rutan **endast se** överst i fönstret Välj.
 
 1. När du har valt resurserna väljer du den roll som du vill att användarna ska tilldelas för resursen i listan **roll** .
 
@@ -118,7 +118,7 @@ På fliken **förfrågningar** skapar du den första principen för att ange vem
 
 ![Fliken åtkomst paket – begär Anden](./media/entitlement-management-access-package-create/requests.png)
 
-Utför stegen i något av följande avsnitt.
+Utför stegen i något av följande avsnitt, beroende på vem du vill kunna begära det här åtkomst paketet.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 

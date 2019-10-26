@@ -1,72 +1,131 @@
 ---
-title: Gränser för begäran och begränsning, Azure Resource Manager
-description: Beskriver hur du använder begränsningar med Azure Resource Manager-begäranden när prenumerationsbegränsningar har uppnåtts.
+title: Begär ande gränser och begränsning – Azure Resource Manager
+description: Beskriver hur du använder begränsning med Azure Resource Manager begär anden när prenumerations gränserna har nåtts.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 29d319541e92abfc52cb3f351aeaf50fc5d5687b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302834"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931849"
 ---
-# <a name="throttling-resource-manager-requests"></a>Begränsningsbegäranden Resource Manager
+# <a name="throttling-resource-manager-requests"></a>Begränsa Resource Manager-begäranden
 
-För varje Azure-prenumeration och en klient, Resource Manager kan upp till 12 000 läsa förfrågningar per timme och 1 200 skriva förfrågningar per timme. Dessa gränser är begränsade till säkerhetsobjektet (användare eller program) som gör begär Anden och prenumerations-ID eller klient-ID. Om dina begär Anden kommer från fler än ett säkerhets objekt är gränsen för din prenumeration eller klient större än 12 000 och 1 200 per timme.
+I den här artikeln beskrivs hur Azure Resource Manager begränsnings begär Anden. Det visar hur du spårar antalet begär Anden som återstår innan gränsen nås och hur du svarar när du har nått gränsen.
 
-Begäranden som tillämpas på din prenumeration eller din klient. Prenumerations förfrågningar är sådana som innebär att du skickar ditt prenumerations-ID, till exempel att hämta resurs grupperna i din prenumeration. Klient-begäranden inkluderar inte ditt prenumerations-ID, till exempel hämta giltiga Azure-platser.
+Begränsning sker på två nivåer. Azure Resource Manager begränsar begär Anden för prenumerationen och klienten. Om begäran är under begränsnings gränserna för prenumerationen och klient organisationen dirigerar Resource Manager begäran till resurs leverantören. Resurs leverantören tillämpar begränsnings begränsningar som är skräddarsydda för dess åtgärder. Följande bild visar hur begränsningen används som en begäran går från användaren till Azure Resource Manager och resurs leverantören.
 
-Dessa begränsningar gäller för varje Azure Resource Manager-instans. Det finns flera instanser i varje Azure-region och Azure Resource Manager distribueras till alla Azure-regioner.  Så i praktiken gränserna är effektivt mycket högre än de här gränserna, som användare är begäranden vanligtvis underhålls av många olika instanser.
+![Begär begränsning](./media/resource-manager-request-limits/request-throttling.svg)
 
-Om ditt program eller skript når gränserna kan behöva du begränsa dina önskemål. Den här artikeln visar hur du avgör de återstående förfrågningar som du har innan du når gränsen och hur du svarar när du har nått gränsen.
+## <a name="subscription-and-tenant-limits"></a>Prenumerations-och klient gränser
 
-När du når gränsen kan du få HTTP-statuskoden **429 för många begäranden**.
+Alla åtgärder på prenumerations nivå och klient nivå är föremål för begränsning av gränser. Prenumerations förfrågningar är sådana som innebär att du skickar ditt prenumerations-ID, till exempel att hämta resurs grupperna i din prenumeration. Klient begär Anden omfattar inte ditt prenumerations-ID, t. ex. att ta emot giltiga Azure-platser.
 
-Azure Resource Graph begränsar antalet begär anden till åtgärder. Stegen i den här artikeln för att fastställa de återstående förfrågningarna och hur du svarar när gränsen nås gäller även för resurs diagram. Resurs diagram anger dock sin egen gräns och återställnings takt. Mer information finns i avsnittet [om begränsning i Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
+Standard begränsningarna för begränsning per timme visas i följande tabell.
 
-## <a name="remaining-requests"></a>Återstående begäranden
-Du kan bestämma antalet återstående begäranden genom att undersöka svarshuvuden. Läs begär Anden returnerar ett värde i rubriken för antalet återstående Läs begär Anden. Skriv förfrågningar innehåller ett värde för antalet återstående Skriv förfrågningar. I följande tabell beskrivs de svarshuvuden som du kan undersöka för dessa värden:
+| Omfång | Operations | Gräns |
+| ----- | ---------- | ------- |
+| Prenumeration | läsoperationer | 12000 |
+| Prenumeration | text | 15 000 |
+| Prenumeration | skriver | 1200 |
+| Klientorganisation | läsoperationer | 12000 |
+| Klientorganisation | skriver | 1200 |
 
-| Svarshuvud | Beskrivning |
+De här gränserna gäller det säkerhetsobjekt (användare eller program) som skickar förfrågningarna och prenumerationens eller klientorganisationens ID. Om dina förfrågningar kommer från fler än ett säkerhetsobjekt är begränsningen för prenumerationen eller klientorganisationen högre än 12 000 respektive 1 200 per timme.
+
+Dessa gränser gäller för varje Azure Resource Manager instans. Det finns flera instanser i varje Azure-region och Azure Resource Manager distribueras till alla Azure-regioner.  I praktiken är gränserna högre än dessa gränser. Begär Anden från en användare hanteras vanligt vis av olika instanser av Azure Resource Manager.
+
+## <a name="resource-provider-limits"></a>Resource Provider-gränser
+
+Resurs leverantörer tillämpar egna begränsnings gränser. Eftersom resurs hanterarens begränsningar efter ägar-ID och en instans av Resource Manager, kan det hända att resurs leverantören får fler förfrågningar än standard gränserna i föregående avsnitt.
+
+I det här avsnittet beskrivs begränsnings gränserna för vissa vanliga resurs leverantörer.
+
+### <a name="storage-throttling"></a>Lagrings begränsning
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+### <a name="network-throttling"></a>Nätverks begränsning
+
+Microsoft. Network Resource-providern tillämpar följande begränsningar:
+
+| Åtgärd | Gräns |
+| --------- | ----- |
+| Skriv/ta bort (placering) | 1000 per 5 minuter |
+| läsa (Hämta) | 10000 per 5 minuter |
+
+### <a name="compute-throttling"></a>Beräknings begränsning
+
+Information om hur du begränsar gränserna för beräknings åtgärder finns i [FELSÖKA API begränsnings fel – beräkna](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+
+Använd [Virtual Machine Scale Sets åtgärder](/rest/api/compute/virtualmachinescalesetvms)för att kontrol lera virtuella dator instanser i en skalnings uppsättning för virtuella datorer. Använd till exempel [virtuella datorer för skalnings uppsättning för virtuella datorer – lista](/rest/api/compute/virtualmachinescalesetvms/list) med parametrar för att kontrol lera energi läget för virtuella dator instanser. Detta API minskar antalet begär Anden.
+
+### <a name="azure-resource-graph-throttling"></a>Begränsning av Azure-resurs diagram
+
+Azure Resource Graph begränsar antalet begär anden till åtgärder. Stegen i den här artikeln för att fastställa de återstående förfrågningarna och hur du svarar när gränsen nås gäller även för resurs diagram. Resurs diagram anger dock sin egen gräns och återställnings takt. Mer information finns i [Begränsningar i Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
+
+## <a name="request-increase"></a>Begär ökning
+
+Ibland kan begränsnings begränsningar ökas. Om du vill se om begränsnings gränserna för ditt scenario kan ökas, skapar du en support förfrågan. Information om ditt anrops mönster kommer att utvärderas.
+
+## <a name="error-code"></a>Felkod
+
+När du når gränsen får du HTTP-statuskoden **429 för många begär Anden**. Svaret innehåller ett värde för **återförsök efter** , som anger antalet sekunder som programmet ska vänta (eller vila) innan nästa förfrågan skickas. Om du skickar en begäran innan värdet för återförsök har förflutit, bearbetas inte din begäran och ett nytt värde för återförsök returneras.
+
+När du har väntat den angivna tiden kan du också stänga och öppna anslutningen till Azure igen. Genom att återställa anslutningen kan du ansluta till en annan instans av Azure Resource Manager.
+
+Om du använder en Azure SDK kan SDK: n ha en automatisk omförsöks konfiguration. Mer information finns i [vägledning för återförsök för Azure-tjänster](/azure/architecture/best-practices/retry-service-specific).
+
+Vissa resurs leverantörer returnerar 429 för att rapportera ett tillfälligt problem. Problemet kan vara ett överbelastnings tillstånd som inte direkt orsakas av din begäran. Eller så kan det representera ett tillfälligt fel meddelande om status för mål resursen eller beroende resursen. Nätverks resurs leverantören returnerar till exempel 429 med **RetryableErrorDueToAnotherOperation** -felkoden när mål resursen är låst av en annan åtgärd. Ta reda på om felet kommer från begränsning eller ett tillfälligt tillstånd genom att visa fel informationen i svaret.
+
+## <a name="remaining-requests"></a>Återstående förfrågningar
+
+Du kan fastställa antalet återstående förfrågningar genom att undersöka svarshuvuden. Läs begär Anden returnerar ett värde i rubriken för antalet återstående Läs begär Anden. Skriv förfrågningar innehåller ett värde för antalet återstående Skriv förfrågningar. I följande tabell beskrivs de svarshuvuden som du kan undersöka för dessa värden:
+
+| Svars huvud | Beskrivning |
 | --- | --- |
-| x-MS-ratelimit-Remaining-Subscription-Reads |Prenumeration som omfattar läser återstående. Det här värdet returneras på läsåtgärder. |
-| x-MS-ratelimit-Remaining-Subscription-Writes |Prenumeration som omfattar skriver återstående. Det här värdet returneras på skrivåtgärder. |
-| x-MS-ratelimit-Remaining-tenant-Reads |Klient begränsad läser återstående |
-| x-MS-ratelimit-Remaining-tenant-Writes |Klient begränsad skriver återstående |
-| x-MS-ratelimit-Remaining-Subscription-Resource-Requests |Prenumeration begränsade typen resursbegäranden återstående.<br /><br />Det här rubrikvärdet returneras bara om en tjänst har åsidosatts Standardgränsen. Resource Manager lägger till det här värdet i stället för den prenumeration läsåtgärder eller skrivåtgärder. |
-| x-MS-ratelimit-Remaining-Subscription-Resource-entities-Read |Prenumeration begränsade typen samling resursbegäranden återstående.<br /><br />Det här rubrikvärdet returneras bara om en tjänst har åsidosatts Standardgränsen. Det här värdet visar antalet begäranden om återstående (lista resurser). |
-| x-MS-ratelimit-Remaining-tenant-Resource-Requests |Klient begränsade typen resursbegäranden återstående.<br /><br />Den här rubriken läggs endast för begäranden på klientnivån och endast om en tjänst har åsidosättas Standardgränsen. Resource Manager lägger till det här värdet i stället för den klient läsåtgärder eller skrivåtgärder. |
-| x-MS-ratelimit-Remaining-tenant-Resource-entities-Read |Klient begränsade typen samling resursbegäranden återstående.<br /><br />Den här rubriken läggs endast för begäranden på klientnivån och endast om en tjänst har åsidosättas Standardgränsen. |
+| x-MS-ratelimit-återstående-prenumeration-läsningar |Återstående läsning av prenumerations omfång. Det här värdet returneras vid Läs åtgärder. |
+| x-MS-ratelimit-återstående – prenumeration-skrivningar |Prenumerationens omfångs skrivningar är kvar. Det här värdet returneras vid Skriv åtgärder. |
+| x-MS-ratelimit-rest-Tenant-läsningar |Återstående läsningar av klient organisations område |
+| x-MS-ratelimit-rest-Tenant-skrivningar |Återstående skrivningar för klient omfånget |
+| x-MS-ratelimit-återstående – prenumeration-resurs-begär Anden |Prenumerationens omfattning av resurs typ begär Anden återstår.<br /><br />Detta huvud värde returneras endast om en tjänst har åsidosatt standard gränsen. Resource Manager lägger till det här värdet i stället för prenumerationen läser eller skriver. |
+| x-MS-ratelimit-återstående – prenumeration-Resource-entities-läsa |Prenumerationens omfattning av resurs typs samlings begär Anden återstår.<br /><br />Detta huvud värde returneras endast om en tjänst har åsidosatt standard gränsen. Det här värdet anger antalet återstående samlings begär Anden (list resurser). |
+| x-MS-ratelimit-återstående-klient-resurs-begär Anden |Klient omfånget resurs typ begär Anden återstår.<br /><br />Den här rubriken läggs bara till för begär Anden på klient nivå och endast om en tjänst har åsidosatt standard gränsen. Resource Manager lägger till det här värdet i stället för klienten som läser eller skriver. |
+| x-MS-ratelimit-rest-Tenant-Resource-entities-Read |Klient delens webbprogramsomfattande resurs typ samling begär Anden återstår.<br /><br />Den här rubriken läggs bara till för begär Anden på klient nivå och endast om en tjänst har åsidosatt standard gränsen. |
 
-## <a name="retrieving-the-header-values"></a>Hämta huvudvärden
-Hämtar dessa värden i huvudet i din kod eller skript skiljer än att hämta alla huvudets värde. 
+Resurs leverantören kan även returnera svarshuvuden med information om återstående förfrågningar. Information om svarshuvuden som returneras av Compute Resource providern finns i svarshuvuden för [anrops frekvens information](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
 
-Till exempel i **C#** , du hämta huvudvärde från en **HttpWebResponse** objekt med namnet **svar** med följande kod:
+## <a name="retrieving-the-header-values"></a>Hämtar rubrik värden
+
+Att hämta dessa rubrik värden i din kod eller ditt skript skiljer sig inte från att hämta något huvud värde. 
+
+I **C#** kan du till exempel hämta Head-värdet från ett **HttpWebResponse** -objekt med namnet **Response** med följande kod:
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
 ```
 
-I **PowerShell**, du hämta huvudets värde från en Invoke-WebRequest-åtgärd.
+I **PowerShell**hämtar du huvud värde från en Invoke-webbegäran-åtgärd.
 
 ```powershell
 $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
-En fullständig PowerShell-exempel finns i [Kontrollera Resource Manager-gränserna för en prenumeration](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
+Ett fullständigt PowerShell-exempel finns i [kontrol lera Resource Manager-gränser för en prenumeration](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 
-Om du vill se begäranden för felsökning kan du ange den **-felsöka** parametern på din **PowerShell** cmdlet.
+Om du vill se återstående begär Anden för fel sökning kan du ange parametern **-Debug** i **PowerShell** -cmdleten.
 
 ```powershell
 Get-AzResourceGroup -Debug
 ```
 
-Som returnerar flera värden, inklusive följande Svarsvärde:
+Detta returnerar många värden, inklusive följande svars värde:
 
 ```powershell
 DEBUG: ============================ HTTP RESPONSE ============================
@@ -79,13 +138,13 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 11999
 ```
 
-Använd en skrivåtgärd för att få skrivning gränser kan: 
+Använd en Skriv åtgärd för att få Skriv gränser: 
 
 ```powershell
 New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
-Som returnerar flera värden, inklusive följande värden:
+Detta returnerar många värden, inklusive följande värden:
 
 ```powershell
 DEBUG: ============================ HTTP RESPONSE ============================
@@ -98,13 +157,13 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
-I **Azure CLI**, du hämta huvudets värde med hjälp av alternativet mer utförlig.
+I **Azure CLI**hämtar du huvud-värdet med hjälp av mer utförligt alternativ.
 
 ```azurecli
 az group list --verbose --debug
 ```
 
-Som returnerar flera värden, inklusive följande värden:
+Detta returnerar många värden, inklusive följande värden:
 
 ```azurecli
 msrest.http_logger : Response status: 200
@@ -118,13 +177,13 @@ msrest.http_logger :     'Vary': 'Accept-Encoding'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 ```
 
-Använd en skrivåtgärd för att få skrivning gränser kan: 
+Använd en Skriv åtgärd för att få Skriv gränser: 
 
 ```azurecli
 az group create -n myresourcegroup --location westus --verbose --debug
 ```
 
-Som returnerar flera värden, inklusive följande värden:
+Detta returnerar många värden, inklusive följande värden:
 
 ```azurecli
 msrest.http_logger : Response status: 201
@@ -137,11 +196,8 @@ msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
-## <a name="waiting-before-sending-next-request"></a>Att vänta innan nästa begäran skickas
-När du når gränsen för förfrågningar Resource Manager returnerar den **429** HTTP-statuskoden och en **Retry-After** värdet i huvudet. Den **Retry-After** värdet anger hur många sekunder som programmet bör vänta (eller strömsparläge) innan nästa förfrågan skickas. Om du skickar en begäran innan återförsöksvärdet har gått ut kan bearbeta inte din begäran och ett nytt försök värde returneras.
-
 ## <a name="next-steps"></a>Nästa steg
 
-* En fullständig PowerShell-exempel finns i [Kontrollera Resource Manager-gränserna för en prenumeration](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
-* Mer information om begränsningar och kvoter finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
-* Läs om hur du hanterar asynkrona REST-begäranden i [spåra asynkrona åtgärder i Azure](resource-manager-async-operations.md).
+* Ett fullständigt PowerShell-exempel finns i [kontrol lera Resource Manager-gränser för en prenumeration](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
+* Mer information om gränser och kvoter finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../azure-subscription-service-limits.md).
+* Information om hur du hanterar asynkrona REST-begäranden finns i [spåra asynkrona Azure-åtgärder](resource-manager-async-operations.md).

@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 08a18dc115990ad7d44a8b20412e07995c9af390
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dad2841d680702786cfc1f175a70390158444e02
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069513"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928628"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Skapa och Använd en intern Load Balancer App Service-miljön 
 
@@ -31,7 +31,7 @@ Den här artikeln visar hur du kan skapa en intern belastningsutjämnare i apptj
 
 ## <a name="overview"></a>Översikt 
 
-Du kan distribuera en ASE med en internet-tillgänglig slutpunkt eller med en IP-adress i ditt VNet. Om du ska konfigurera IP-adressen till en VNet-adress måste ASE vara distribuerad med en ILB. När du distribuerar din ASE med en ILB måste du ange namnet på din ASE. Namnet på din ASE används i domänsuffix för apparna i din ASE.  Domänsuffixet för din ILB-ASE är &lt;ASE name&gt;. appservicewebsites.net. Appar som görs i en ILB-ASE placeras inte i den offentliga DNS-tjänsten. 
+Du kan distribuera en ASE med en internet-tillgänglig slutpunkt eller med en IP-adress i ditt VNet. Om du ska konfigurera IP-adressen till en VNet-adress måste ASE vara distribuerad med en ILB. När du distribuerar din ASE med en ILB måste du ange namnet på din ASE. Namnet på din ASE används i domänsuffix för apparna i din ASE.  Domänsuffixet för din ILB-ASE är &lt;ASE namn&gt;. appserviceenvironment.net. Appar som görs i en ILB-ASE placeras inte i den offentliga DNS-tjänsten. 
 
 Tidigare versioner av ILB-ASE krävde att du anger ett domänsuffix och ett standard certifikat för HTTPS-anslutningar. Domänsuffixet samlas inte in längre vid skapande av ILB-ASE och ett standard certifikat samlas inte längre in. När du skapar en ILB-ASE nu tillhandahålls standard certifikatet av Microsoft och är betrott av webbläsaren. Du kan fortfarande ange anpassade domän namn på appar i din ASE och ange certifikat för dessa anpassade domän namn. 
 
@@ -80,7 +80,7 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
 Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanligtvis.
 
-1. I Azure Portal väljerdu **skapa en resurs** > **webb** > webbapp.
+1. I Azure Portal väljer du **skapa en resurs** > **Web** >  **-** webbapp.
 
 1. Ange appens namn.
 
@@ -102,24 +102,25 @@ Både Functions och webbjobb går att använda på en ILB ASE, men för att port
 
 ## <a name="dns-configuration"></a>DNS-konfiguration 
 
-När du använder en extern VIP hanteras DNS av Azure. Appar som skapas i din ASE läggs till automatiskt till Azure DNS, som är en offentlig DNS. I en ILB ASE måste du hantera din egen DNS. Det domänsuffix som används med en ILB-ASE beror på namnet på ASE. Domänsuffixet är  *&lt;ASE&gt;Name. appserviceenvironment.net*. IP-adressen för din ILB finns i portalen under **IP-adresser**. 
+När du använder en extern VIP hanteras DNS av Azure. Appar som skapas i din ASE läggs till automatiskt till Azure DNS, som är en offentlig DNS. I en ILB ASE måste du hantera din egen DNS. Det domänsuffix som används med en ILB-ASE beror på namnet på ASE. Domänsuffixet är *&lt;ASE namn&gt;. appserviceenvironment.net*. IP-adressen för din ILB finns i portalen under **IP-adresser**. 
 
 Så här konfigurerar du DNS:
 
-- skapa en zon för  *&lt;ASE name&gt;. appserviceenvironment.net*
-- skapa en A-post i den zonen som pekar på ILB IP-adress 
-- skapa en zon i  *&lt;ASE name&gt;. appserviceenvironment.net* med namnet SCM
-- skapa en A-post i SCM-zonen som pekar på ILB-IP-adressen
+- skapa en zon för *&lt;ASE namn&gt;. appserviceenvironment.net*
+- skapa en A-post i den zonen som pekar på ILB IP-adress
+- skapa en A-post i den zonen som pekar @ på ILB IP-adress
+- skapa en zon i *&lt;ASE namn&gt;. appserviceenvironment.net* med namnet SCM
+- skapa en A-post i SCM-zonen som pekar på ILB IP-adress
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicera med en ILB ASE
 
-För varje app som skapas finns det två slutpunkter. I en ILB-ASE har  *&lt;du ett namn&gt;på&lt; appen. ILB ASE-&gt; domän* och  *&lt;app&gt;-namn.&lt; SCM. ILB ASE-&gt;domän*. 
+För varje app som skapas finns det två slutpunkter. I en ILB-ASE har du *&lt;app-namn&gt;.&lt;ILB ASE domain&gt;* och *&lt;App Name&gt;. scm.&lt;ILB ASE Domain&gt;* . 
 
 SCM-webbplatsens namn tar dig till Kudu-konsolen som heter **Avancerad portal** inom Azure-portalen. Med Kudu-konsolen kan du visa miljövariabler, utforska disken, använda en konsol och mycket mer. Mer information finns i [kudu-konsolen för Azure App Service][Kudu]. 
 
 Internetbaserade CI-system, t.ex GitHub och Azure DevOps, fungerar fortfarande med en ILB ASE om Build Agent är tillgänglig via Internet och på samma nätverk som ILB ASE. För Azure DevOps gäller att om Build Agent har skapats på samma virtuella nätverk som ILB ASE (olika undernät går bra) kan den hämta koden från Azure DevOps-git och distribuera till ILB ASE. Om du inte vill skapa en egen Build Agent måste du använda ett CI-system som använder en pull-modell, till exempel Dropbox.
 
-Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Den här domänen visas i appens publiceringsprofil och i appens portalblad (**Översikt** > **Essentials** och även **Egenskaper**). Om du har en ILB-ASE med domänsuffix  *&lt;ASE name&gt;. appserviceenvironment.net*och en app som heter *test*använder du test av *test.&lt; ASE name&gt;. appserviceenvironment.net* för FTP och *mytest.scm.contoso.net* för webb distribution.
+Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Den här domänen visas i appens publiceringsprofil och i appens portalblad (**Översikt** > **Essentials** och även **Egenskaper**). Om du har en ILB-ASE med domänsuffix *&lt;ASE namn&gt;. appserviceenvironment.net*och en app som heter *test*använder du *test.&lt;ASE namn&gt;. appserviceenvironment.net* för FTP och  *mytest.scm.contoso.net* för webb distribution.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Konfigurera en ILB-ASE med en WAF-enhet ##
 
@@ -131,7 +132,7 @@ Mer information om hur du konfigurerar ILB-ASE med en WAF-enhet finns i [Konfigu
 
 ILB-ASE som gjordes före maj 2019 krävde att du ställer in domänsuffix under ASE skapas. Du måste också ladda upp ett standard certifikat som baseras på det domänsuffix. Med en äldre ILB-ASE kan du också inte utföra enkel inloggning till kudu-konsolen med appar i som ILB ASE. När du konfigurerar DNS för en äldre ILB-ASE måste du ange jokertecken för en post i en zon som matchar ditt domänsuffix. 
 
-## <a name="get-started"></a>Kom igång ##
+## <a name="get-started"></a>Kom i gång ##
 
 * Information om hur du kommer igång med ASE finns i [Introduktion till App Service miljöer][Intro]. 
 

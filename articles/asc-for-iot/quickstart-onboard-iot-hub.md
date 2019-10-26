@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 7cdf9f61c88d93f0cbf0b80576aa30dff5ce9cab
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 45eaa6d4c66c9ec8e25d728fb70f389912a00793
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551590"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928428"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Snabb start: onboard Azure Security Center for IoT service i IoT Hub
 
@@ -43,13 +43,7 @@ Den här artikeln innehåller en förklaring av hur du aktiverar Azure Security 
 Så här aktiverar du säkerhet på IoT Hub: 
 
 1. Öppna din **IoT Hub** i Azure Portal. 
-1. Under menyn **säkerhet** klickar du på **skydda din IoT-lösning**.
-1. Lämna **Aktivera** valt som standard. 
-1. Välj Log Analytics-arbetsytan.
-1. Ange Log Analytics arbets ytans information. 
-   - Välj om du vill aktivera en **delad samling** genom att låta den **dubbla samlingen** **vara aktive ras.**
-   - Välj att lagra **rå händelser** utöver standard informations typerna för lagring genom att välja lagrings **enhetens säkerhets händelser** i Log Analytics. Lämna den **råa händelsen** växling **vid**händelse. 
-    
+1. Under menyn **säkerhet** klickar du på **skydda din IoT-lösning**.    
 1. Klicka på **Save** (Spara). 
 
 Gratulerar! Du har slutfört aktiveringen Azure Security Center för IoT på din IoT Hub. 

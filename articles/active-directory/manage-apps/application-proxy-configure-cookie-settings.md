@@ -1,6 +1,6 @@
 ---
-title: Cookie programproxyinställningar - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory (Azure AD) har åtkomst- och sessionsprinciper cookies för åtkomst till lokala program via programproxyn. I den här artikeln får du veta hur du använder och konfigurera cookie-inställningar.
+title: Cookie-inställningar för programproxy – Azure Active Directory | Microsoft Docs
+description: Azure Active Directory (Azure AD) har åtkomst och sessionscookies för att komma åt lokala program via programproxyn. I den här artikeln får du veta hur du använder och konfigurerar inställningarna för cookies.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -12,40 +12,52 @@ ms.date: 01/16/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2e7f1bb54ce316a10eca0d020519779b0536c9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca5f1b41e345caafdc465872c948be76c31d55e8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825751"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928861"
 ---
-# <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie-inställningar för att komma åt lokala program i Azure Active Directory
+# <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie-inställningar för åtkomst till lokala program i Azure Active Directory
 
-Azure Active Directory (Azure AD) har åtkomst- och sessionsprinciper cookies för åtkomst till lokala program via programproxyn. Ta reda på hur du använder cookie-inställningar för Application Proxy. 
+Azure Active Directory (Azure AD) har åtkomst och sessionscookies för att komma åt lokala program via programproxyn. Ta reda på hur du använder cookie-inställningar för programproxy. 
 
-## <a name="what-are-the-cookie-settings"></a>Vad är cookie-inställningar?
+## <a name="what-are-the-cookie-settings"></a>Vilka är cookie-inställningarna?
 
-[Programproxy](application-proxy.md) använder följande inställningar för åtkomst och sessions-cookie.
+[Application Proxy](application-proxy.md) använder följande cookie-inställningar för åtkomst och session.
 
 | Cookie-inställning | Standard | Beskrivning | Rekommendationer |
 | -------------- | ------- | ----------- | --------------- |
-| Använd endast HTTP-Cookie | **Nej** | **Ja** tillåter Application Proxy att inkludera flaggan HTTPOnly i HTTP-svarshuvuden. Den här flaggan innehåller ytterligare säkerhetsfördelarna, till exempel förhindras klientsidan scripting (CSS) kopiera eller ändrar cookies.<br></br><br></br>Innan vi stöds endast HTTP-inställningen Application Proxy krypteras och överförs cookies via en säker SSL-kanal för att skydda mot ändring. | Använd **Ja** på grund av de ytterligare säkerhetsfördelarna.<br></br><br></br>Använd **nr** för klienter eller användaragenter som kräver åtkomst till sessions-cookie. Till exempel använda **nr** för en RDP- eller MTSC-klient som ansluter till en Remote Desktop Gateway-server via programproxy.|
-| Använd en säker Cookie | **Nej** | **Ja** tillåter Application Proxy att inkludera Secure flaggan i HTTP-svarshuvuden. Säkra Cookies ökar säkerheten genom att överföra cookies via en säker TLS-kanal, till exempel HTTPS. Detta förhindrar att cookies som observeras obehöriga personer på grund av överföring av cookien i klartext. | Använd **Ja** på grund av de ytterligare säkerhetsfördelarna.|
-| Använda beständiga Cookie | **Nej** | **Ja** tillåter Application Proxy att ange dess åtkomst cookies för att inte upphör att gälla när webbläsaren stängs. Persistence varar tills den åtkomst-token upphör att gälla eller tills användaren manuellt tar bort beständiga cookies. | Använd **nr** på grund av säkerhetsrisk som är associerade med gör att användare som autentiseras.<br></br><br></br>Vi föreslår att du endast använder **Ja** för äldre program som inte kan dela cookies mellan processer. Är det bättre att uppdatera programmet ska hantera delning cookies mellan processer istället för att använda beständiga cookies. Du kanske till exempel behöver beständiga cookies för att tillåta användare att öppna Office-dokument i explorer-vy från en SharePoint-webbplats. Utan beständiga cookies kan den här åtgärden misslyckas om cookies som åtkomst inte delas mellan webbläsaren, explorer-processen och Office-process. |
+| Använd endast HTTP-cookie | **Nej** | **Ja** tillåter att Application Proxy inkluderar HTTPOnly-flaggan i HTTP-svarshuvuden. Den här flaggan ger ytterligare säkerhets fördelar, till exempel förhindrar skript på klient sidan (CSS) från att kopiera eller ändra cookies.<br></br><br></br>Innan vi stödde den HTTP-bara inställningen är programproxy krypterad och skickade cookies via en skyddad SSL-kanal för att skydda mot ändring. | Använd **Ja** på grund av de ytterligare säkerhets fördelarna.<br></br><br></br>Använd **Nej** för klienter eller användar agenter som behöver åtkomst till sessions-cookien. Använd till exempel **Nej** för en RDP-eller MTSC-klient som ansluter till en server för fjärrskrivbordsgateway via programproxyn.|
+| Använd säker cookie | **Nej** | **Ja** låter programproxyn ta med säker flagga i HTTP-svarshuvuden. Säkra cookies ökar säkerheten genom att skicka cookies via en säker TLS-kanal, till exempel HTTPS. Detta förhindrar att cookies observeras av obehöriga parter på grund av överföring av cookien i klartext. | Använd **Ja** på grund av de ytterligare säkerhets fördelarna.|
+| Använd beständig cookie | **Nej** | **Ja** tillåter att programproxyn anger att åtkomst-cookies inte upphör att gälla när webbläsaren stängs. Persistence varar tills åtkomsttoken upphör att gälla, eller tills användaren manuellt tar bort de permanenta cookies. | Använd **Nej** på grund av säkerhets risken som är kopplad till användarens autentiserade.<br></br><br></br>Vi rekommenderar att du bara använder **Ja** för äldre program som inte kan dela cookies mellan processer. Det är bättre att uppdatera ditt program för att hantera delning av cookies mellan processer i stället för att använda beständiga cookies. Du kan till exempel behöva beständiga cookies för att tillåta att en användare öppnar Office-dokument i Utforskarvyn från en SharePoint-webbplats. Utan permanenta cookies kan den här åtgärden Miss Miss kan uppstå om åtkomst-cookies inte delas mellan webbläsaren, Explorer-processen och Office-processen. |
 
-## <a name="set-the-cookie-settings---azure-portal"></a>Ange cookie-inställningar – Azure-portalen
-Ange cookie-inställningar med hjälp av Azure portal:
+## <a name="samesite-cookies"></a>SameSite cookies
+Från och med version [Chrome 80](https://support.google.com/chrome/a/answer/7679408?hl=en) och slutligen i webbläsare som använder [krom](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html), kommer cookies som inte anger attributet [SameSite](https://web.dev/samesite-cookies-explained) att behandlas som om de var inställda på **SameSite = lax**. Attributet SameSite deklarerar hur cookies ska begränsas till en kontext på samma plats. När värdet är inställt på lax, skickas cookien endast till begäran om samma plats eller navigering på den översta nivån. Programproxyn kräver dock att dessa cookies bevaras i den tredje partens sammanhang för att användarna ska vara korrekt inloggade under sessionen. På grund av detta gör vi uppdateringar till programproxyns åtkomst och sessionscookies för att undvika negativ påverkan på den här ändringen. Uppdateringarna omfattar:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
-2. Gå till **Azure Active Directory** > **företagsprogram** > **alla program**.
-3. Välj det program som du vill aktivera en cookie-inställning.
-4. Klicka på **programproxy**.
-5. Under **ytterligare inställningar**, ange inställningen cookie till **Ja** eller **nr**.
-6. Klicka på **spara** att tillämpa ändringarna. 
+* **SameSite** -attributet anges till **ingen**– detta gör att programproxy-åtkomst och sessioner cookies kan skickas korrekt i den tredje partens kontext.
+* Ställer in inställningen **Använd säker cookie** så att den använder **Ja** som standard. Chrome kräver också att cookies anger den säkra flaggan eller avvisas. Den här ändringen gäller för alla befintliga program som publicerats via programproxy. Observera att Access-cookies för programproxy alltid har angetts till säker och endast skickas via HTTPS. Den här ändringen gäller endast för sessionscookies.
+
+De här ändringarna i Application Proxy-cookies kommer att distribueras under de kommande två veckorna innan versions datumet för Chrome 80.
+
+Om ditt serverprogram har cookies som måste vara tillgängliga i en tredjeparts-kontext måste du dessutom uttryckligen välja att ändra ditt program till att använda SameSite = none för dessa cookies. Programproxyn översätter set-cookie-sidhuvudet till dess URL: er och följer inställningarna för dessa cookies som anges av Server dels programmet.
+
+
+
+## <a name="set-the-cookie-settings---azure-portal"></a>Ange cookie-inställningar – Azure Portal
+Ange cookie-inställningar med hjälp av Azure Portal:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
+2. Gå till **Azure Active Directory** > **företags program** > **alla program**.
+3. Välj det program som du vill aktivera en cookie-inställning för.
+4. Klicka på **Application Proxy**.
+5. Under **ytterligare inställningar**ställer du in cookie-inställningen på **Ja** eller **Nej**.
+6. Klicka på **Spara** för att tillämpa ändringarna. 
 
 ## <a name="view-current-cookie-settings---powershell"></a>Visa aktuella cookie-inställningar – PowerShell
 
-Använd det här PowerShell-kommandot för att visa de aktuella cookie-inställningarna för programmet:  
+Använd följande PowerShell-kommando för att se de aktuella cookie-inställningarna för programmet:  
 
 ```powershell
 Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl * 
@@ -53,23 +65,23 @@ Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl *
 
 ## <a name="set-cookie-settings---powershell"></a>Ange cookie-inställningar – PowerShell
 
-I följande PowerShell-kommandon ```<ObjectId>``` är ObjectId för programmet. 
+I följande PowerShell-kommandon är ```<ObjectId>``` ObjectId för programmet. 
 
-**Endast http-Cookie** 
+**Http-Only cookie** 
 
 ```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $false 
 ```
 
-**Säker Cookie**
+**Säker cookie**
 
 ```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $false 
 ```
 
-**Beständiga Cookies**
+**Beständiga cookies**
 
 ```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $true 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Användardefinierade funktioner i Azure Stream Analytics JavaScript | Microsoft Docs '
+title: Användardefinierade funktioner i Azure Stream Analytics JavaScript
 description: I den här självstudien får utföra avancerade frågor med användardefinierade JavaScript-funktioner
 services: stream-analytics
 author: rodrigoamicrosoft
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8a26e369783da8b59837e669dcd45a338ce82722
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329367"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935004"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript
  
@@ -46,16 +46,16 @@ Här följer några saker som du inte kan göra med användardefinierade JavaScr
 Även om funktioner som **Date.GetDate()** eller **Math.random()** inte blockeras i definitionen av funktioner du bör undvika att använda dem. Dessa funktioner returnerar **inte** samma resultat varje gång du anropar dem, och Azure Stream Analytics-tjänsten sparar inte funktionsanrop och returnerade resultat. Om en funktion returnerar olika resultat för samma händelser, kan inte repeterbarhet garanteras när du eller Stream Analytics-tjänsten startar ett jobb.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Lägga till en användardefinierad JavaScript-funktion i Azure Portal
-Följ dessa steg om du vill skapa en enkel JavaScript-användardefinierade funktion under ett befintligt Stream Analytics-jobb:
+Följ dessa steg om du vill skapa en enkel användardefinierad JavaScript-funktion under ett befintligt Stream Analytics jobb:
 
 > [!NOTE]
-> De här stegen fungerar Stream Analytics-jobb som körs i molnet. Om ditt Stream Analytics-jobb är konfigurerad för att köras på Azure IoT Edge, i stället använda Visual Studio och [skriva den användardefinierade funktionen med hjälp av C# ](stream-analytics-edge-csharp-udf.md).
+> De här stegen fungerar på Stream Analytics jobb som kon figurer ATS för att köras i molnet. Om Stream Analytics jobbet är konfigurerat för att köras på Azure IoT Edge ska du i stället använda Visual Studio och [skriva den användardefinierade funktionen med C#hjälp av ](stream-analytics-edge-csharp-udf.md).
 
 1.  Öppna ditt Stream Analytics-jobb på Azure Portal.
 
-2. Under den **jobbtopologi** väljer **Functions**. En tom lista över funktioner visas.
+2. Under rubriken **jobb Topology** väljer du **Functions**. En tom lista över funktioner visas.
 
-3.  Om du vill skapa en ny användardefinierad funktion, Välj **+ Lägg till**.
+3.  Om du vill skapa en ny användardefinierad funktion väljer du **+ Lägg till**.
 
 4.  På bladet **Ny funktion** för **funktionstypen** väljer du **JavaScript**. En standardmall för funktionen visas i redigeraren.
 
@@ -73,7 +73,7 @@ Följ dessa steg om du vill skapa en enkel JavaScript-användardefinierade funkt
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Anropa en användardefinierad JavaScript-funktion i en fråga
 
-1. I frågeredigeraren under den **jobbtopologi** väljer **fråga**.
+1. I Frågeredigeraren under rubriken **jobb Topology** väljer du **fråga**.
 2.  Redigera frågan och anropa sedan den användardefinierade funktionen så här:
 
     ```SQL
@@ -102,8 +102,8 @@ Stream Analytics | JavaScript
 bigint | Siffra (JavaScript kan bara representera heltal upp till exakt 2^53)
 DateTime | Datum (JavaScript stöder endast millisekunder)
 double | Tal
-nvarchar(MAX) | String
-Spela in | Object
+nvarchar(MAX) | Sträng
+Spela in | Objekt
 Matris | Matris
 NULL | Null
 
@@ -114,16 +114,16 @@ Här är konverteringarna från JavaScript till Stream Analytics:
 JavaScript | Stream Analytics
 --- | ---
 Tal | Bigint (om talet är avrundat och mellan long.MinValue och long.MaxValue, i annat fall stöds det inte)
-Date | DateTime
-String | nvarchar(MAX)
-Object | Spela in
+Datum | DateTime
+Sträng | nvarchar(MAX)
+Objekt | Spela in
 Matris | Matris
 Null, odefinierad | NULL
 Annan typ (till exempel en funktion eller fel) | Stöds inte (resulterar i körningsfel)
 
-JavaScript-språket är skiftlägeskänsligt och versaler och gemener i fälten objekt i JavaScript-kod måste matcha versaler och gemener i fälten i den inkommande data. Observera att jobb med kompatibilitetsnivå 1.0 konverterar fält från SQL SELECT-instruktionen är gemener. Under kompatibilitetsnivå 1.1 och högre har fält från SELECT-instruktion samma gemener och versaler som anges i SQL-frågan.
+JavaScript-språket är Skift läges känsligt och Skift läge för objekt fälten i JavaScript-koden måste matcha versaler och gemener i fälten i inkommande data. Observera att jobb med kompatibilitetsnivån 1,0 kommer att konvertera fält från SQL SELECT-instruktionen till gemener. Under kompatibilitetsnivå 1,1 och högre har fält från SELECT-instruktionen samma Skift läge som anges i SQL-frågan.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 JavaScript-körningsfel betraktas som allvarliga och exponeras via aktivitetsloggen. För att hämta loggen i Azure Portal går du till jobbet och väljer **aktivitetsloggen**.
 
 
@@ -155,7 +155,7 @@ FROM
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömningsenheter som förbrukas av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
+Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade.  
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 78482b5d7013ffa3bbb0a34dd04c8c48626dc77a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514772"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926657"
 ---
 # <a name="azcopy-copy"></a>azcopy kopiera
 
@@ -150,7 +150,7 @@ Se https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html fö
 
 Kopiera alla buckets till Blob Storage från Amazon Web Services (AWS) med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-- AzCopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
+- AzCopy CP "https://s3.amazonaws.com/ " "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
 
 Kopiera alla buckets till Blob Storage från ett Amazon Web Services (AWS)-region med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
@@ -172,7 +172,7 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--kontrol lera längd**                         Kontrol lera längden på en fil på målet efter överföringen. Om det finns ett matchnings fel mellan källan och målet markeras överföringen som misslyckad. (standard sant)
 
-**--kontrol lera-MD5-** sträng anger hur strikt MD5-hashar ska verifieras vid hämtning. Endast tillgängligt vid hämtning. Tillgängliga alternativ: nocheck, inloggning, FailIfDifferent, FailIfDifferentOrMissing. (standard "FailIfDifferent") (standard "FailIfDifferent")
+**--kontrol lera-MD5-** sträng anger hur strikt MD5-hashar ska verifieras vid hämtning. Endast tillgängligt vid hämtning. Tillgängliga alternativ: nocheck, inloggning, FailIfDifferent, FailIfDifferentOrMissing. (standard "FailIfDifferent")
 
 **--innehålls-dispositions** sträng ange innehålls-dispositions rubriken. Returnerades vid nedladdning.
 
@@ -204,15 +204,15 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--Inkludera-mönster** sträng inkludera endast dessa filer vid kopiering. Det här alternativet stöder jokertecken (*). Separera filer med hjälp av en ";".
 
-**--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: info (alla begär Anden/svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information). (standard information)
+**--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: info (alla begär Anden/svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information)
 
 **--** sträng överföring av metadata till Azure Storage med dessa nyckel/värde-par som metadata.
 
 **--no-gissning-MIME-type**                   Förhindrar AzCopy från att identifiera innehålls typ baserat på fil namns tillägget eller innehållet i filen.
 
-**--Skriv över** sträng skriver över konfliktskapande filer och blobbar på målet om den här flaggan har angetts till true. (default ' true ') Möjliga värden är true, false och prompt. (standard "true")
+**--Skriv över** sträng skriver över konfliktskapande filer och blobbar på målet om den här flaggan har angetts till true. Möjliga värden är true, false och prompt. (standard "true")
 
-**--sid-BLOB-skiktets** sträng överförings-blob till Azure Storage att använda denna BLOB-nivå. (standard saknas). (standard "ingen")
+**--sid-BLOB-skiktets** sträng överförings-blob till Azure Storage att använda denna BLOB-nivå. (standard "ingen")
 
 **--bevara-senaste ändrings tid**          Endast tillgängligt om målet är fil system.
 
@@ -222,9 +222,9 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--S2S-detect-källa-ändrad**           Kontrol lera om källan har ändrats efter uppräkningen.
 
-**--S2S-handle-ogiltig-metadata** -sträng anger hur ogiltiga nycklar för nycklar hanteras. Tillgängliga alternativ: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (standard ' ExcludeIfInvalid '). (standard "ExcludeIfInvalid")
+**--S2S-handle-ogiltig-metadata** -sträng anger hur ogiltiga nycklar för nycklar hanteras. Tillgängliga alternativ: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (standard "ExcludeIfInvalid")
 
-**--S2S-konserver-Access-Tier**             Bevara åtkomst nivån under tjänst-till-tjänst-kopiering. Se [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) lag rings nivåer för att säkerställa att mål lagrings kontot har stöd för att ange åtkomst nivå. I de fall då det inte finns stöd för att ange åtkomst nivå kan du använda s2sPreserveAccessTier = false för att kringgå kopiering av åtkomst nivå. (standard är sant).  (standard sant)
+**--S2S-konserver-Access-Tier**             Bevara åtkomst nivån under tjänst-till-tjänst-kopiering. Se [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) lag rings nivåer för att säkerställa att mål lagrings kontot har stöd för att ange åtkomst nivå. I de fall då det inte finns stöd för att ange åtkomst nivå kan du använda s2sPreserveAccessTier = false för att kringgå kopiering av åtkomst nivå. (standard sant)
 
 **--S2S-bevara-egenskaper**              Behåll fullständiga egenskaper under tjänst-till-tjänst-kopiering. För AWS S3 och Azure File non-EnFile Source, returnerar List-åtgärden inte fullständiga egenskaper för objekt och filer. För att bevara fullständig egenskaper måste AzCopy skicka ytterligare en begäran per objekt eller fil. (standard sant)
 

@@ -1,17 +1,17 @@
 ---
-title: Testa Azure Stream Analytics frågor lokalt med Visual Studio Code (för hands version)
+title: Testa Azure Stream Analytics frågor med Visual Studio Code
 description: Den här artikeln beskriver hur du testar frågor lokalt med Azure Stream Analytics verktyg för Visual Studio Code.
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 751cdf50fccc654dfab06b4d18428531312d08e6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 2791fb923f193815d718dbd2269cbcd11583a4ea
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673031"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924977"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio-code"></a>Testa Stream Analytics frågor lokalt med Visual Studio Code
 
@@ -19,7 +19,7 @@ Du kan använda Azure Stream Analytics verktyg för Visual Studio Code för att 
 
 Använd den här [snabb](quick-create-vs-code.md) starten för att lära dig hur du skapar ett Stream Analytics jobb med Visual Studio Code.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Installera [.net Core SDK](https://dotnet.microsoft.com/download).
 * Starta om Visual Studio Code.
  
@@ -27,7 +27,7 @@ Använd den här [snabb](quick-create-vs-code.md) starten för att lära dig hur
 
 Du kan använda Azure Stream Analytics tillägget för Visual Studio Code för att testa dina Stream Analytics-jobb lokalt med exempel data.
 
-1. När du har skapat ditt Stream Analytics jobb använder du **Ctrl + Shift + P** för att öppna kommando paletten. Skriv och välj **ASA: Lägg till inmatade @ no__t-0.
+1. När du har skapat ditt Stream Analytics jobb använder du **Ctrl + Shift + P** för att öppna kommando paletten. Skriv och välj sedan **ASA: Lägg till inmatade**.
 
     ![Lägg till ASA-ininformation i Visual Studio Code](./media/vscode-local-run/add-input.png)
 

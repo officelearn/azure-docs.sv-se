@@ -1,77 +1,80 @@
 ---
-title: Hantera Azure Site Recovery-åtkomst med rollbaserad åtkomstkontroll (RBAC) | Microsoft Docs
-description: Den här artikeln beskriver hur du använder rollbaserad åtkomstkontroll (RBAC) för att hantera åtkomst för Azure Site Recovery.
+title: Hantera Azure Site Recovery åtkomst med rollbaserad åtkomst kontroll (RBAC) | Microsoft Docs
+description: Den här artikeln beskriver hur du använder rollbaserad åtkomst kontroll (RBAC) för att hantera Azure Site Recovery åtkomst.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471442"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929224"
 ---
-# <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Hantera Site Recovery-åtkomst med rollbaserad åtkomstkontroll (RBAC)
+# <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Hantera Site Recovery åtkomst med rollbaserad åtkomst kontroll (RBAC)
 
-Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du särskilja ansvarsområden i ditt team och bevilja endast specifika åtkomstbehörigheter till användare som behövs för att utföra specifika arbetsuppgifter.
+Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du åtskilja ansvars områden i ditt team och bara bevilja vissa åtkomst behörigheter till användare som behövs för att utföra vissa jobb.
 
-Azure Site Recovery tillhandahåller 3 inbyggda roller som styr Site Recovery-hanteringsåtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
+Azure Site Recovery tillhandahåller tre inbyggda roller för att kontrol lera Site Recovery hanterings åtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
 
-* [Site Recovery-bidragsgivare](../role-based-access-control/built-in-roles.md#site-recovery-contributor) – Den här rollen har alla behörigheter som krävs för att hantera Azure Site Recovery-åtgärder i ett Recovery Services-valv. En användare med denna roll kan dock inte skapa eller ta bort ett Recovery Services-valv eller tilldela behörighet till andra användare. Den här rollen lämpar sig bäst för haveriberedskapsadministratörer som kan aktivera och hantera haveriberedskap för program eller hela organisationer som omständigheterna.
-* [Site Recovery-operatör](../role-based-access-control/built-in-roles.md#site-recovery-operator) – Den här rollen har behörighet att utföra och hantera operationer för redundans och återställning av fel. En användare med den här rollen kan inte aktivera eller inaktivera replikering, skapa eller ta bort valv, registrera ny infrastruktur eller tilldela åtkomstbehörigheter till andra användare. Den här rollen lämpar sig bäst för en haveriberedskapsoperatör som kan redundansväxling för virtuella datorer eller program efter instruktioner från programägare och IT-administratörer i en situation med faktiska eller simulerade haveriberedskap som en DR Visa detaljer. Publicera lösning av katastrofen DR-operatorn kan skydda igen och återställa virtuella datorer.
-* [Site Recovery-läsare](../role-based-access-control/built-in-roles.md#site-recovery-reader) – Den här rollen har behörighet att visa all Site Recovery-hantering. Den här rollen lämpar sig bäst för en IT-chef som kan övervaka aktuell skyddsnivå och skapa supportärenden om det behövs.
+* [Site Recovery-bidragsgivare](../role-based-access-control/built-in-roles.md#site-recovery-contributor) – Den här rollen har alla behörigheter som krävs för att hantera Azure Site Recovery-åtgärder i ett Recovery Services-valv. En användare med denna roll kan dock inte skapa eller ta bort ett Recovery Services-valv eller tilldela behörighet till andra användare. Den här rollen lämpar sig bäst för haveri beredskaps administratörer som kan aktivera och hantera haveri beredskap för program eller hela organisationer, om det är fallet.
+* [Site Recovery-operatör](../role-based-access-control/built-in-roles.md#site-recovery-operator) – Den här rollen har behörighet att utföra och hantera operationer för redundans och återställning av fel. En användare med den här rollen kan inte aktivera eller inaktivera replikering, skapa eller ta bort valv, registrera ny infrastruktur eller tilldela behörigheter till andra användare. Den här rollen lämpar sig bäst för en haveri beredskaps operatör som kan redundansväxla virtuella datorer eller program när de instrueras av program ägare och IT-administratörer i en verklig eller simulerad katastrof situation, till exempel en DR-granskning. Efter haveri stängningen kan DR-operatören återskydda och återställa de virtuella datorerna.
+* [Site Recovery-läsare](../role-based-access-control/built-in-roles.md#site-recovery-reader) – Den här rollen har behörighet att visa all Site Recovery-hantering. Den här rollen lämpar sig bäst för en IT-övervakning som kan övervaka det aktuella skyddet och utlösa support biljetter om så behövs.
 
-Om du vill definiera egna roller för ännu mer kontroll, se hur du [skapa anpassade roller](../role-based-access-control/custom-roles.md) i Azure.
+Om du vill definiera egna roller för ännu mer kontroll, se så här [skapar du anpassade roller](../role-based-access-control/custom-roles.md) i Azure.
 
 ## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Behörigheter som krävs för att aktivera replikering för nya virtuella datorer
-När en ny virtuell dator replikeras till Azure med hjälp av Azure Site Recovery, verifieras åtkomstnivåer för den associerade användaren så att användaren har behörighet att använda Azure-resurserna till Site Recovery.
+När en ny virtuell dator replikeras till Azure med hjälp av Azure Site Recovery verifieras den associerade användarens åtkomst nivåer för att säkerställa att användaren har de behörigheter som krävs för att använda de Azure-resurser som krävs för att Site Recovery.
 
-Om du vill aktivera replikering för en ny virtuell dator, måste användarna ha:
-* Behörighet att skapa en virtuell dator i den valda resursgruppen
+Om du vill aktivera replikering för en ny virtuell dator måste en användare ha:
+* Behörighet att skapa en virtuell dator i den valda resurs gruppen
 * Behörighet att skapa en virtuell dator i det valda virtuella nätverket
-* Behörighet att skriva till det valda lagringskontot
+* Behörighet att skriva till det valda lagrings kontot
 
-En användare behöver följande behörigheter till fullständig replikering av en ny virtuell dator.
+En användare behöver följande behörigheter för att slutföra replikeringen av en ny virtuell dator.
 
 > [!IMPORTANT]
->Se till att relevant behörighet läggs per distributionsmodell (Resource Manager / klassiska) används för resursdistribution av.
+>Se till att relevanta behörigheter läggs till per distributions modell (Resource Manager/klassisk) som används för resurs distribution.
 
-| **Resurstyp** | **Distributionsmodell** | **Permission** |
+> [!NOTE]
+> Om du aktiverar replikering för en virtuell Azure-dator och vill tillåta att Site Recovery hanterar uppdateringar och samtidigt aktiverar replikering, kan du även skapa ett nytt Automation-konto, vilket innebär att du måste ha behörighet att skapa ett Automation-konto i samma även prenumerationen som valvet.
+
+| **Resurstyp** | **Distributions modell** | **Permission** |
 | --- | --- | --- |
-| Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |
-|  |  | Microsoft.Compute/virtualMachines/read |
-|  |  | Microsoft.Compute/virtualMachines/write |
-|  |  | Microsoft.Compute/virtualMachines/delete |
-|  | Klassisk | Microsoft.ClassicCompute/domainNames/read |
-|  |  | Microsoft.ClassicCompute/domainNames/write |
-|  |  | Microsoft.ClassicCompute/domainNames/delete |
-|  |  | Microsoft.ClassicCompute/virtualMachines/read |
-|  |  | Microsoft.ClassicCompute/virtualMachines/write |
-|  |  | Microsoft.ClassicCompute/virtualMachines/delete |
-| Nätverk | Resource Manager | Microsoft.Network/networkInterfaces/read |
-|  |  | Microsoft.Network/networkInterfaces/write |
-|  |  | Microsoft.Network/networkInterfaces/delete |
-|  |  | Microsoft.Network/networkInterfaces/join/action |
-|  |  | Microsoft.Network/virtualNetworks/read |
-|  |  | Microsoft.Network/virtualNetworks/subnets/read |
-|  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
-|  | Klassisk | Microsoft.ClassicNetwork/virtualNetworks/read |
-|  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
-|  |  | Microsoft.Storage/storageAccounts/listkeys/action |
-|  | Klassisk | Microsoft.ClassicStorage/storageAccounts/read |
-|  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| Resursgrupp | Resource Manager | Microsoft.Resources/deployments/* |
-|  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
+| Databearbetning | Resurshanterare | Microsoft. Compute/availabilitySets/Read |
+|  |  | Microsoft. Compute/virtualMachines/Read |
+|  |  | Microsoft. Compute/virtualMachines/Write |
+|  |  | Microsoft. Compute/virtualMachines/Delete |
+|  | Klassisk | Microsoft. ClassicCompute/domän namn/läsa |
+|  |  | Microsoft. ClassicCompute/domän namn/skrivning |
+|  |  | Microsoft. ClassicCompute/domän namn/ta bort |
+|  |  | Microsoft. ClassicCompute/virtualMachines/Read |
+|  |  | Microsoft. ClassicCompute/virtualMachines/Write |
+|  |  | Microsoft. ClassicCompute/virtualMachines/Delete |
+| Nätverk | Resurshanterare | Microsoft. Network/networkInterfaces/Read |
+|  |  | Microsoft. Network/networkInterfaces/Write |
+|  |  | Microsoft. Network/networkInterfaces/Delete |
+|  |  | Microsoft. Network/networkInterfaces/JOIN/åtgärd |
+|  |  | Microsoft. Network/virtualNetworks/Read |
+|  |  | Microsoft. Network/virtualNetworks/subnets/Read |
+|  |  | Microsoft. Network/virtualNetworks/subnets/Join/Action |
+|  | Klassisk | Microsoft. ClassicNetwork/virtualNetworks/Read |
+|  |  | Microsoft. ClassicNetwork/virtualNetworks/JOIN/åtgärd |
+| Lagring | Resurshanterare | Microsoft. Storage/storageAccounts/Read |
+|  |  | Microsoft. Storage/storageAccounts/listnycklar/åtgärd |
+|  | Klassisk | Microsoft. ClassicStorage/storageAccounts/Read |
+|  |  | Microsoft. ClassicStorage/storageAccounts/Listnycklar/Action |
+| Resursgrupp | Resurshanterare | Microsoft. Resources/Deployments/* |
+|  |  | Microsoft. Resources/Subscriptions/resourceGroups/Read |
 
-Överväg att använda ”virtuell Datordeltagare” och ”klassisk virtuell Datordeltagare” [inbyggda roller](../role-based-access-control/built-in-roles.md) för Resource Manager och klassisk distribution modeller respektive.
+Överväg att använda de [inbyggda rollerna](../role-based-access-control/built-in-roles.md) "Virtual Machine Contributor" och "klassisk virtuell dator deltagare" för Resource Manager respektive klassiska distributions modeller.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md): Kom igång med RBAC i Azure-portalen.
-* Lär dig mer om att hantera åtkomst med:
+* [Rollbaserad Access Control](../role-based-access-control/role-assignments-portal.md): kom igång med RBAC i Azure Portal.
+* Lär dig hur du hanterar åtkomst med:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-  * [REST-API](../role-based-access-control/role-assignments-rest.md)
-* [Role-Based Access Control – felsökning](../role-based-access-control/troubleshooting.md): Få förslag för att åtgärda vanliga problem.
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
+* [Rollbaserad Access Control fel sökning](../role-based-access-control/troubleshooting.md): få förslag på hur du löser vanliga problem.

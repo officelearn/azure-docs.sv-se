@@ -1,19 +1,19 @@
 ---
-title: Förstå kompatibilitetsnivån för Azure Stream Analytics-jobb
-description: Lär dig hur du ställer in en kompatibilitetsnivå för Azure Stream Analytics-jobb och större ändringar i senaste kompatibilitetsnivå
+title: Azure Stream Analytics kompatibilitetsnivå
+description: Lär dig hur du ställer in en kompatibilitetsnivå för ett Azure Stream Analytics jobb och större ändringar på den senaste kompatibilitetsnivån
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: d6d31506a13656a954c48dfee00f14d8ab381fd5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 888c1f0bb38a5317cc27790ea47917c182d49593
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173246"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925628"
 ---
-# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
+# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics jobb
 
 I den här artikeln beskrivs alternativet kompatibilitetsnivå i Azure Stream Analytics. Stream Analytics är en hanterad tjänst, med regelbundna funktions uppdateringar och prestanda förbättringar. De flesta av tjänstens körnings uppdateringar görs automatiskt tillgängliga för slutanvändare. 
 
@@ -21,7 +21,7 @@ Vissa nya funktioner i tjänsten kan dock medföra en större förändring, till
 
 ## <a name="choose-a-compatibility-level"></a>Välj en kompatibilitetsnivå
 
-Kompatibilitetsnivån styr beteende under körning av ett stream analytics-jobb. 
+Kompatibilitetsnivå styr körnings beteendet för ett Stream Analytics-jobb. 
 
 Azure Stream Analytics stöder för närvarande tre kompatibilitetsnivå:
 
@@ -40,14 +40,14 @@ Du kan ange kompatibilitetsnivån för ett Stream Analytics jobb i Azure Portal 
 Så här uppdaterar du kompatibilitetsnivån för jobbet i Azure Portal:
 
 1. Använd [Azure Portal](https://portal.azure.com) för att leta upp Stream Analytics jobb.
-2. **Stoppa** jobbet innan du uppdaterar kompatibilitetsnivån. Du kan inte uppdatera kompatibilitetsnivå om jobbet är i körningstillstånd.
+2. **Stoppa** jobbet innan du uppdaterar kompatibilitetsnivån. Du kan inte uppdatera kompatibilitetsnivån om jobbet är i ett körnings läge.
 3. Under **Konfigurera** rubrik väljer du **kompatibilitetsnivå**.
 4. Välj det värde för kompatibilitetsnivå som du vill använda.
 5. Välj **Spara** längst ned på sidan.
 
-![Stream Analytics kompatibilitetsnivå i Azure-portalen](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Stream Analytics kompatibilitetsnivå i Azure Portal](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
-När du uppdaterar kompatibilitetsnivå, verifierar T-SQL-kompilatorn jobbet med den syntax som motsvarar den valda kompatibilitetsnivån.
+När du uppdaterar kompatibilitetsnivån verifierar T-SQL-kompilatorn jobbet med den syntax som motsvarar den valda kompatibilitetsnivån.
 
 ## <a name="compatibility-level-12-preview"></a>Kompatibilitetsnivå 1,2 (för hands version)
 
@@ -81,7 +81,7 @@ Upsert beteende är *Infoga eller Ersätt*.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset vid skrivning till SQL-utdata
 
-**Tidigare nivåer:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) -typer justerades till UTC.
+**Tidigare nivåer:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) -typerna justerades till UTC.
 
 **1,2-nivå:** DateTimeOffset är inte längre justerad.
 
@@ -101,9 +101,9 @@ Upsert beteende är *Infoga eller Ersätt*.
 
 **Tidigare nivåer:** Det finns ingen strikt verifiering av funktions prefix.
 
-**1,2-nivå:** Azure Stream Analytics har en strikt validering av funktions prefix. Om du lägger till ett prefix i en inbyggd funktion uppstår ett fel. Stöds till exempel`myprefix.ABS(…)` inte.
+**1,2-nivå:** Azure Stream Analytics har en strikt validering av funktions prefix. Om du lägger till ett prefix i en inbyggd funktion uppstår ett fel. `myprefix.ABS(…)` stöds till exempel inte.
 
-Att lägga till ett prefix i inbyggda mängder resulterar också i fel. Stöds till exempel `myprefix.SUM(…)` inte.
+Att lägga till ett prefix i inbyggda mängder resulterar också i fel. `myprefix.SUM(…)` stöds till exempel inte.
 
 Om du använder prefixet "system" för användardefinierade funktioner resulterar det i fel.
 
@@ -115,7 +115,7 @@ Om du använder prefixet "system" för användardefinierade funktioner resultera
 
 ## <a name="compatibility-level-11"></a>Kompatibilitetsnivå 1,1
 
-Följande viktiga ändringar har introducerats i kompatibilitetsnivå 1.1:
+Följande större ändringar introduceras i kompatibilitetsnivån 1,1:
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML-format
 
@@ -132,19 +132,19 @@ Följande viktiga ändringar har introducerats i kompatibilitetsnivå 1.1:
 **1,1 nivå:** Skift läges känslighet är bestående för fält namn när de bearbetas av Azure Stream Analyticss motorn.
 
 > [!NOTE]
-> Bevara skiftlägeskänslighet är ännu inte tillgängligt för Stream Analytics-jobb med hjälp av Edge-miljö. Därför kan konverteras alla fältnamn till gemener om ditt jobb finns i Microsoft Edge.
+> Kvarhållning av Skift läge – känslighet är inte tillgängligt ännu för Stream-analys jobb som hanteras med hjälp av gräns miljön. Detta innebär att alla fält namn konverteras till gemener om jobbet finns på gränsen.
 
 ### <a name="floatnandeserializationdisabled"></a>FloatNaNDeserializationDisabled
 
-**1,0-nivå:** CREATE TABLE kommandot filtrerade inte händelser med NaN (inte ett tal. Till exempel oändligt, -Infinity) i en kolumn för FLYTTAL anger eftersom de inte uppfyller det dokumenterade intervallet för dessa siffror.
+**1,0-nivå:** CREATE TABLE kommandot filtrerade inte händelser med NaN (inte ett tal. Till exempel oändligt, oändlighet) i en flytt ALS kolumn typ eftersom de ligger utanför det dokumenterade intervallet för dessa tal.
 
-**1,1-nivå:** Med CREATE TABLE kan du ange ett starkt schema. Stream Analytics-motorn validerar att informationen som överensstämmer med det här schemat. Med den här modellen kan kommandot Filtrera händelser med NaN-värden.
+**1,1-nivå:** Med CREATE TABLE kan du ange ett starkt schema. Stream Analyticss motorn verifierar att data överensstämmer med det här schemat. Med den här modellen kan kommandot filtrera händelser med NaN-värden.
 
 ### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Inaktivera automatisk uppsändning för datetime-strängar i JSON
 
 **1,0-nivå:** JSON-parsern omvandlar automatiskt sträng värden med datum-/tids-/zon information till DateTime-typ och konverterar den sedan till UTC. Det här beteendet resulterade i förlust av tids zons informationen.
 
-**1,1-nivå:** Det går inte att automatiskt omvandla sträng värden automatiskt med datum-/tids-/zon information till DateTime-typen. Därför kan sparas informationen om tidszonen.
+**1,1-nivå:** Det går inte att automatiskt omvandla sträng värden automatiskt med datum-/tids-/zon information till DateTime-typen. Därför behålls timezone-informationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

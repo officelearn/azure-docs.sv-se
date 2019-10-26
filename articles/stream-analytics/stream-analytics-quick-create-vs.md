@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Azure Stream Analytics jobb med hjälp av Visual Studio
+title: Skapa ett Azure Stream Analytics jobb med Visual Studio
 description: Den här snabbstarten visar hur du kommer igång genom att skapa ett Stream Analytics-jobb, konfigurerar indata och utdata samt definierar en fråga med Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: eb3b25387df33f8d366a088f9fa63e0dc96290bf
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 834447d15336fcd6d56f2979113aaef7e22ecb8f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173263"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934301"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Snabbstart: Skapa ett Azure Stream Analytics jobb med hjälp av Visual Studio
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Visual Studio
 
 Den här snabbstarten visar hur du skapar och kör ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-verktyg för Visual Studio. Exempeljobbet läser strömmande data från en IoT Hub-enhet. Du definierar ett jobb som beräknar medeltemperaturen när den överstiger 27° och skriver utdatahändelser till en ny fil i Blob Storage.
 
@@ -22,7 +22,7 @@ Den här snabbstarten visar hur du skapar och kör ett Stream Analytics-jobb med
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 
 * Installera Visual Studio 2019, Visual Studio 2015 eller Visual Studio 2013 uppdatering 4. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte.
 
@@ -32,7 +32,7 @@ Den här snabbstarten visar hur du skapar och kör ett Stream Analytics-jobb med
 
 Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senare konfigureras som jobbindata. Förbered de indata som krävs för jobbet genom att utföra följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj **Skapa en resurs** > **Sakernas internet** > **IoT Hub**.
 
@@ -40,8 +40,8 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
    
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
-   |Subscription  | \<Din prenumeration\> |  Ange den prenumeration som du vill använda. |
-   |Resource group   |   asaquickstart-resourcegroup  |   Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto. |
+   |Prenumeration  | \<Din prenumeration\> |  Ange den prenumeration som du vill använda. |
+   |Resursgrupp   |   asaquickstart-resourcegroup  |   Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto. |
    |Region  |  \<Välj den region som är närmast dina användare\> | Välj en geografisk plats där du kan hantera din IoT-hubb. Använd den plats som är närmast dina användare. |
    |IoT-hubbnamn  | MyASAIoTHub  |   Välj ett namn för din IoT-hubb.   |
 
@@ -111,11 +111,11 @@ Lägg märke till de element som ingår i ett Azure Stream Analytics-projekt.
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**   |
    |---------|---------|---------|
    |Indataalias  |  Indata   |  Ange ett namn som identifierar jobbets indata.   |
-   |Källtyp   |  Dataström |  Välj lämplig indatakälla: Dataström eller referensdata.   |
-   |Source  |  IoT-hubb |  Välj lämplig indatakälla.   |
-   |Resource  | Välj datakälla från det aktuella kontot | Välj att ange data manuellt eller välj ett befintligt konto.   |
-   |Subscription  |  \<Din prenumeration\>   | Välj den Azure-prenumeration som innehåller den IoT-hubb du skapade.   |
-   |IoT-hubb  |  MyASAIoTHub   |  Välj eller ange namnet på IoT-hubben. IoT-hubbnamn identifieras automatiskt om de skapas i samma prenumeration.   |
+   |Källtyp   |  Dataström |  Välj lämplig indatakälla: dataström eller referensdata.   |
+   |Källa  |  IoT Hub |  Välj lämplig indatakälla.   |
+   |Resurs  | Välj datakälla från det aktuella kontot | Välj att ange data manuellt eller välj ett befintligt konto.   |
+   |Prenumeration  |  \<Din prenumeration\>   | Välj den Azure-prenumeration som innehåller den IoT-hubb du skapade.   |
+   |IoT Hub  |  MyASAIoTHub   |  Välj eller ange namnet på IoT-hubben. IoT-hubbnamn identifieras automatiskt om de skapas i samma prenumeration.   |
    
 3. Låt standardvärdena stå kvar för övriga alternativ och välj **Spara** för att spara inställningarna.  
 
@@ -129,10 +129,10 @@ Lägg märke till de element som ingår i ett Azure Stream Analytics-projekt.
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**   |
    |---------|---------|---------|
-   |Utdataalias  |  Output   |  Ange ett namn som identifierar jobbets utdata.   |
-   |Kanalmottagare   |  Blobblagring |  Välj lämplig kanalmottagare.    |
-   |Resource  |  Ange inställningar för datakälla manuellt |  Välj att ange data manuellt eller välj ett befintligt konto.   |
-   |Subscription  |  \<Din prenumeration\>   | Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration.   |
+   |Utdataalias  |  Resultat   |  Ange ett namn som identifierar jobbets utdata.   |
+   |Kanalmottagare   |  Blob-lagring |  Välj lämplig kanalmottagare.    |
+   |Resurs  |  Ange inställningar för datakälla manuellt |  Välj att ange data manuellt eller välj ett befintligt konto.   |
+   |Prenumeration  |  \<Din prenumeration\>   | Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration.   |
    |Lagringskonto  |  asaquickstartstorage   |  Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.   |
    |Container  |  container1   |  Välj en befintlig container som du skapade i ditt lagringskonto.   |
    |Sökvägsmönster  |  utdata   |  Ange namnet för en sökväg som ska skapas i containern.   |

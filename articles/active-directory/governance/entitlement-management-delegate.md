@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d44a4265c3729bff3d983395a37a6cb64a463d4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: fd9eb97b88be3ed68398cf7844b03e6a1fc9cd1b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389121"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934444"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Delegering och roller i hantering av Azure AD-rättigheter (för hands version)
 
@@ -99,6 +99,7 @@ I följande tabell visas de aktiviteter som rättighets hanterings rollerna kan 
 | Aktivitet | Innehavaradministration | Katalog skapare | Katalog ägare | Åtkomst till paket hanteraren |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegera till en katalog skapare](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
+| [Lägg till en ansluten organisation](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
 | [Skapa en ny katalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Lägga till en resurs i en katalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Lägg till en katalog ägare](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |

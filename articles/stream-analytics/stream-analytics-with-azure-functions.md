@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Kör Azure Functions med Azure Stream Analytics-jobb | Microsoft Docs'
+title: Kör Azure Functions i Azure Stream Analytics-jobb
 description: I den här självstudien får du lära dig att konfigurera Azure Functions som kanalmottagare för Stream Analytics-jobb.
 services: stream-analytics
 author: mamccrea
@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 5aa2616bfbfd4b31d3e5e5aeee71da8fd511faed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1ea454f82232fdae17544efc2f0bdfd4601c497e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066729"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934201"
 ---
-# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Självstudier: Köra Azure Functions från Azure Stream Analytics-jobb 
+# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Självstudie: köra Azure Functions från Azure Stream Analytics-jobb 
 
 Du kan köra Azure Functions från Azure Stream Analytics genom att konfigurera Functions som en av kanalmottagarna för Stream Analytics-jobbet. Functions är en händelsedriven upplevelse med beräkning på begäran där du kan implementera kod som utlöses av händelser i Azure eller tjänster från tredje part. Azure Functions kapacitet att reagera på utlösare gör det till ett naturligt utdatamål för Stream Analytics-jobb.
 
@@ -26,7 +26,7 @@ Stream Analytics anropar Functions med HTTP-utlösare. Med utdataadaptern i Func
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa och köra ett Stream Analytics-jobb
+> * Skapa och köra ett Stream Analytics jobb
 > * Skapa en Azure Cache for Redis-instans
 > * Skapa en Azure-funktion
 > * Kontrollera resultatet i Azure Cache for Redis
@@ -41,7 +41,7 @@ Det här avsnittet visar hur du konfigurerar ett Stream Analytics-jobb att köra
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Skapa ett Stream Analytics-jobb med Event Hubs som indata
 
-Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md) och skapa en händelsehubb. Starta händelsegeneratorprogrammet och skapa Stream Analytics-jobbet. Hoppa över stegen för att skapa frågan och utdata. Läs följande avsnitt för att konfigurera en Azure Functions-utdata.
+Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-analytics-real-time-fraud-detection.md) och skapa en händelsehubb. Starta händelsegeneratorprogrammet och skapa Stream Analytics-jobbet. Hoppa över stegen för att skapa frågan och utdata. I stället kan du använda följande avsnitt för att skapa en Azure Functions utdata.
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Skapa en Azure Cache for Redis-instans
 
@@ -55,7 +55,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 1. Läs avsnittet [Skapa en funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) i dokumentationen till Functions. Du får anvisningar för hur du skapar en funktionsapp och en [HTTP-utlöst funktion i Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) med språket CSharp.  
 
-2. Gå till funktionen **run.csx**. Uppdatera den med nedanstående kod. Ersätt **”\<din Azure-Cache för Redis-anslutningssträng här\>”** med Azure Cache för Redis primär anslutningssträng som du hämtade i föregående avsnitt. 
+2. Gå till funktionen **run.csx**. Uppdatera den med nedanstående kod. Ersätt **"\<anslutnings strängen för Azure cache för Redis här\>"** med Azure-cachen för Redis primära anslutnings sträng som du hämtade i föregående avsnitt. 
 
     ```csharp
     using System;
@@ -106,7 +106,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
    ```
 
-   När Stream Analytics tar emot undantaget ”För stor HTTP-förfrågningsentitet” från funktionen, minskar storleken på batcharna som skickas till Functions. Följande kod säkerställer att Stream Analytics inte skickar för stora batchar. Se till att de värden för maximalt antal batchar och maximal batchstorlek som används i funktionen stämmer överens med de värden som angetts i Stream Analytics-portalen.
+   När Stream Analytics tar emot undantaget ”För stor HTTP-förfrågningsentitet” från funktionen, minskar storleken på batcharna som skickas till Functions. Följande kod säkerställer att Stream Analytics inte skickar överändrade batchar. Se till att de värden för maximalt antal batchar och maximal batchstorlek som används i funktionen stämmer överens med de värden som angetts i Stream Analytics-portalen.
 
     ```csharp
     if (dataArray.ToString().Length > 262144)
@@ -115,7 +115,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
         }
    ```
 
-3. Skapa en JSON-fil med namnet **project.json** i valfri textredigerare. Klistra in följande kod och spara den på din lokala dator. Den här filen innehåller de NuGet-paketberoenden som krävs av C#-funktionen.  
+3. Skapa en JSON-fil med namnet **project.json** i valfri textredigerare. Klistra in följande kod och spara den på den lokala datorn. Den här filen innehåller de NuGet-paketberoenden som krävs av C#-funktionen.  
    
     ```json
     {
@@ -155,9 +155,9 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
    |Max batchantal|Anger det maximala antalet händelser i varje batch som skickas till funktionen. Standardvärdet är 100. Den här egenskapen är valfri.|
    |Nyckel|Gör att du kan använda en funktion från en annan prenumeration. Ange nyckelvärdet för att få åtkomst till din funktion. Den här egenskapen är valfri.|
 
-3. Ange ett namn för utdataaliaset. I den här självstudien heter **saop1**, men du kan använda vilket namn du önskar. Fyll i övrig information.
+3. Ange ett namn för utdataaliaset. I den här självstudien får den namnet **saop1**, men du kan välja valfritt namn. Fyll i övrig information.
 
-4. Öppna Stream Analytics-jobbet och uppdatera frågan till följande. Om du inte namnge din utdatamottagare **saop1**, Kom ihåg att ändra den i frågan.  
+4. Öppna Stream Analytics-jobbet och uppdatera frågan till följande. Kom ihåg att ändra den i frågan, om du inte har angett ditt utmatnings mottagare **saop1**.  
 
    ```sql
     SELECT
@@ -170,7 +170,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Starta programmet telcodatagen.exe genom att köra följande kommando på kommandoraden. Kommandot använder formatet `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
+5. Starta telcodatagen. exe-programmet genom att köra följande kommando på kommando raden. Kommandot använder formatet `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
    
    ```cmd
    telcodatagen.exe 1000 0.2 2
@@ -182,7 +182,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 1. Bläddra till Azure-portalen och leta rätt på din Azure Cache for Redis. Välj **Konsol**.  
 
-2. Verifiera att dina data finns i Azure Cache for Redis genom att använda [Azure Cache for Redis-kommandon](https://redis.io/commands). (Kommandot har formatet Get {nyckel}.) Exempel:
+2. Verifiera att dina data finns i Azure Cache for Redis genom att använda [Azure Cache for Redis-kommandon](https://redis.io/commands). (Kommandot använder formatet get {Key}.) Exempel:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
@@ -205,7 +205,7 @@ Användning av [HTTP-routning](https://docs.microsoft.com/sandbox/functions-reci
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömningsenheter som förbrukas av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
+Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade.  
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.

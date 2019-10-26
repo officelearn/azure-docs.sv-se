@@ -1,6 +1,6 @@
 ---
-title: Övervaka och hantera Azure Stream Analytics-jobb med hjälp av PowerShell
-description: Den här artikeln beskriver hur du använder Azure PowerShell och cmdletar för att övervaka och hantera Azure Stream Analytics-jobb.
+title: Övervaka och hantera Azure Stream Analytics jobb med PowerShell
+description: Den här artikeln beskriver hur du använder Azure PowerShell och cmdlets för att övervaka och hantera Azure Stream Analytics-jobb.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 57dee438dca81d46d2bdfda0c7f255f32f203d60
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67612304"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925133"
 ---
-# <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Övervaka och hantera Stream Analytics-jobb med Azure PowerShell-cmdlets
-Lär dig mer om att övervaka och hantera Stream Analytics-resurser med Azure PowerShell-cmdlets och powershell-skript som kör grundläggande Stream Analytics-uppgifter.
+# <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Övervaka och hantera Stream Analytics jobb med Azure PowerShell-cmdletar
+Lär dig hur du övervakar och hanterar Stream Analytics-resurser med Azure PowerShell-cmdletar och PowerShell-skript som kör grundläggande Stream Analytics uppgifter.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Förutsättningar för att köra Azure PowerShell-cmdlets för Stream Analytics
-* Skapa en Azure-resursgrupp i din prenumeration. Följande är ett exempelskript för Azure PowerShell. Azure PowerShell information finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview);  
+## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Krav för att köra Azure PowerShell-cmdlet: ar för Stream Analytics
+* Skapa en Azure-resurs grupp i din prenumeration. Följande är ett exempel på ett Azure PowerShell-skript. Azure PowerShell information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview);  
 
 Azure PowerShell 0.9.8:  
 
@@ -37,7 +37,7 @@ Select-AzureSubscription -SubscriptionName <subscription name>
 New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 ```
 
-Azure PowerShell 1.0:
+Azure PowerShell 1,0:
 
 ```powershell
 # Log in to your Azure account
@@ -52,16 +52,16 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
 > [!NOTE]
-> Stream Analytics-jobb som skapats via programmering behöver inte övervaka aktiverad som standard.  Du kan aktivera övervakning manuellt i Azure Portal genom att gå till jobbets övervaknings sida och klicka på knappen Aktivera, eller så kan du göra detta program mässigt genom att följa stegen i [Azure Stream Analytics-övervaka Stream Analytics jobb Program mässigt](stream-analytics-monitor-jobs.md).
+> Stream Analytics jobb som skapats program mässigt har inte övervakning aktiverat som standard.  Du kan aktivera övervakning manuellt i Azure Portal genom att gå till jobbets övervaknings sida och klicka på knappen Aktivera, eller så kan du göra detta program mässigt genom att följa stegen i [Azure Stream Analytics-övervaka Stream Analytics jobb Program mässigt](stream-analytics-monitor-jobs.md).
 > 
 > 
 
-## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Azure PowerShell-cmdlets för Stream Analytics
+## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Azure PowerShell-cmdletar för Stream Analytics
 Följande Azure PowerShell-cmdletar kan användas för att övervaka och hantera Azure Stream Analytics-jobb. Observera att Azure PowerShell har olika versioner. 
-**I exemplen som visas är det första kommandot för Azure PowerShell 0.9.8, det andra kommandot är för Azure PowerShell 1.0.** Azure PowerShell 1,0-kommandon kommer alltid att ha "AZ" i kommandot.
+**I exemplen som visas i det första kommandot är Azure PowerShell 0.9.8, det andra kommandot är för Azure PowerShell 1,0.** Azure PowerShell 1,0-kommandon kommer alltid att ha "AZ" i kommandot.
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
-Visar en lista över alla Stream Analytics-jobb som definierats i Azure-prenumeration eller angivna resursgruppen eller hämtar jobbinformation om om ett specifikt jobb i en resursgrupp.
+Visar en lista över alla Stream Analytics jobb som definierats i Azure-prenumerationen eller en angiven resurs grupp, eller hämtar jobb information om ett visst jobb inom en resurs grupp.
 
 **Exempel 1**
 
@@ -71,13 +71,13 @@ Azure PowerShell 0.9.8:
 Get-AzureStreamAnalyticsJob
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Get-AzStreamAnalyticsJob
 ```
 
-Det här PowerShell-kommandot returnerar information om alla Stream Analytics-jobb i Azure-prenumeration.
+Det här PowerShell-kommandot returnerar information om alla Stream Analytics jobb i Azure-prenumerationen.
 
 **Exempel 2**
 
@@ -87,13 +87,13 @@ Azure PowerShell 0.9.8:
 Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Get-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
 ```
 
-Det här PowerShell-kommandot returnerar information om alla Stream Analytics-jobb i resursgruppen StreamAnalytics-standard-Central-US.
+Det här PowerShell-kommandot returnerar information om alla Stream Analytics jobb i resurs gruppen StreamAnalytics-default-Central-US.
 
 **Exempel 3**
 
@@ -103,16 +103,16 @@ Azure PowerShell 0.9.8:
 Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Get-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
 ```
 
-Det här PowerShell-kommandot returnerar information om Stream Analytics-jobbet StreamingJob i resursgruppen StreamAnalytics-standard-Central-US.
+Det här PowerShell-kommandot returnerar information om Stream Analytics Job StreamingJob i resurs gruppen StreamAnalytics-default-Central-US.
 
 ### <a name="get-azurestreamanalyticsinput--get-azstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzStreamAnalyticsInput
-Visar en lista över alla indata som definieras i ett angivet Stream Analytics-jobb eller hämtar information om specifika indata.
+Visar alla indata som har definierats i ett angivet Stream Analytics jobb eller hämtar information om en specifik inmatning.
 
 **Exempel 1**
 
@@ -122,13 +122,13 @@ Azure PowerShell 0.9.8:
 Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Get-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 ```
 
-Det här PowerShell-kommandot returnerar information om alla de indata som definierats i jobbet StreamingJob.
+Det här PowerShell-kommandot returnerar information om alla indata som definierats i jobbets StreamingJob.
 
 **Exempel 2**
 
@@ -138,16 +138,16 @@ Azure PowerShell 0.9.8:
 Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Get-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
 ```
 
-Det här PowerShell-kommandot returnerar information om indata med namnet EntryStream som definierats i jobbet StreamingJob.
+Det här PowerShell-kommandot returnerar information om den indata med namnet EntryStream som definierats i jobbets StreamingJob.
 
 ### <a name="get-azurestreamanalyticsoutput--get-azstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzStreamAnalyticsOutput
-Visar en lista över alla utdata som definieras i ett angivet Stream Analytics-jobb eller hämtar information om en specifik utdata.
+Visar en lista över alla utdata som har definierats i ett angivet Stream Analytics jobb eller hämtar information om en specifik utmatning.
 
 **Exempel 1**
 
@@ -157,13 +157,13 @@ Azure PowerShell 0.9.8:
 Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Get-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 ```
 
-Det här PowerShell-kommandot returnerar information om de utdata som definierats i jobbet StreamingJob.
+Det här PowerShell-kommandot returnerar information om de utdata som definierats i jobbets StreamingJob.
 
 **Exempel 2**
 
@@ -173,16 +173,16 @@ Azure PowerShell 0.9.8:
 Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Get-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
 ```
 
-Det här PowerShell-kommandot returnerar information om utdata med namnet utdata som definierats i jobbet StreamingJob.
+Det här PowerShell-kommandot returnerar information om utdata med namnet utdata som definierats i jobbets StreamingJob.
 
 ### <a name="get-azurestreamanalyticsquota--get-azstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzStreamAnalyticsQuota
-Hämtar information om kvoten för strömningsenheterna i en specifik region.
+Hämtar information om kvoten för enheter för strömning i en angiven region.
 
 **Exempel 1**
 
@@ -192,16 +192,16 @@ Azure PowerShell 0.9.8:
 Get-AzureStreamAnalyticsQuota –Location "Central US" 
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Get-AzStreamAnalyticsQuota –Location "Central US" 
 ```
 
-Det här PowerShell-kommandot returnerar information om kvot och användning av enheter för strömning i regionen USA, centrala.
+Det här PowerShell-kommandot returnerar information om kvoten och användningen av enheter för strömning i regionen USA, centrala.
 
 ### <a name="get-azurestreamanalyticstransformation--get-azstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | Get-AzStreamAnalyticsTransformation
-Hämtar information om en omvandling som definierats i ett Stream Analytics-jobb.
+Hämtar information om en viss omvandling som definierats i ett Stream Analytics jobb.
 
 **Exempel 1**
 
@@ -211,22 +211,22 @@ Azure PowerShell 0.9.8:
 Get-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Get-AzStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
 ```
 
-Det här PowerShell-kommandot returnerar information om omvandlingen kallas StreamingJob i jobbet StreamingJob.
+Det här PowerShell-kommandot returnerar information om omvandlingen som heter StreamingJob i jobb-StreamingJob.
 
 ### <a name="new-azurestreamanalyticsinput--new-azstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzStreamAnalyticsInput
-Skapar en ny indata inom ett Stream Analytics-jobb eller uppdaterar en befintlig angivna indata.
+Skapar ett nytt inflöde i ett Stream Analytics jobb eller uppdaterar en befintlig angiven Indatatyp.
 
-Namnet på indata kan anges i JSON-fil eller från kommandoraden. Om båda anges måste namnet på kommandoraden vara samma som det i filen.
+Namnet på indatan kan anges i. JSON-filen eller på kommando raden. Om båda anges måste namnet på kommando raden vara samma som det i filen.
 
-Om du anger indata som redan finns och att du inte anger parametern – Force, cmdlet: en får du frågan om att ersätta befintliga indata eller inte.
+Om du anger en inmatare som redan finns och inte anger parametern – Force frågar cmdleten om du vill ersätta den befintliga indatamängden.
 
-Om du anger – tvinga parametern och ange en befintlig ange namn, kommer att ersättas indata utan bekräftelse.
+Om du anger parametern – Force och anger ett befintligt indatamängds namn ersätts indatamängden utan bekräftelse.
 
 Detaljerad information om JSON-filens struktur och innehåll finns i avsnittet [skapa indata (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] i [referens biblioteket för Stream Analytics hanterings REST API][stream.analytics.rest.api.reference].
 
@@ -238,13 +238,13 @@ Azure PowerShell 0.9.8:
 New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 New-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
 ```
 
-Det här PowerShell-kommando skapar en ny indata från Input.json-filen. Om en befintlig indata med namnet som angetts i definitionsfilen för indata har redan definierats, ber cmdleten huruvida du ersätta den.
+Detta PowerShell-kommando skapar en ny indata från filen indata. JSON. Om det redan finns en befintlig indata med det namn som angetts i definitions filen för indata, kommer cmdleten att be om att ersätta den.
 
 **Exempel 2**
 
@@ -254,13 +254,13 @@ Azure PowerShell 0.9.8:
 New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 New-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
 ```
 
-Det här PowerShell-kommando skapar en ny indata i de jobb som heter EntryStream. Om en befintlig indata med det här namnet har redan definierats, ber cmdleten huruvida du ersätta den.
+Detta PowerShell-kommando skapar en ny inmatare i jobbet med namnet EntryStream. Om en befintlig indatamängd med det här namnet redan har definierats, kommer cmdleten att be om att ersätta den.
 
 **Exempel 3**
 
@@ -270,22 +270,22 @@ Azure PowerShell 0.9.8:
 New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 New-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
 ```
 
-Det här PowerShell-kommandot ersätter definitionen av befintliga Indatakällan kallas EntryStream med definitionen från filen.
+Detta PowerShell-kommando ersätter definitionen av den befintliga Indatakällan med namnet EntryStream med definitionen från filen.
 
 ### <a name="new-azurestreamanalyticsjob--new-azstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzStreamAnalyticsJob
-Skapar ett nytt Stream Analytics-jobb i Microsoft Azure eller uppdaterar definitionen av ett befintligt angivna jobb.
+Skapar ett nytt Stream Analytics jobb i Microsoft Azure eller uppdaterar definitionen för ett befintligt angivet jobb.
 
-Namnet på jobbet kan anges i JSON-fil eller från kommandoraden. Om båda anges måste namnet på kommandoraden vara samma som det i filen.
+Namnet på jobbet kan anges i. JSON-filen eller på kommando raden. Om båda anges måste namnet på kommando raden vara samma som det i filen.
 
-Om du anger ett Jobbnamn som redan finns och inte anger parametern – Force, cmdlet: en får du frågan om att ersätta det befintliga jobbet eller inte.
+Om du anger ett jobbnamn som redan finns och inte anger parametern – Force frågar cmdleten om det befintliga jobbet ska ersättas eller inte.
 
-Om du anger – framtvinga parametern och ange ett befintligt jobbnamn jobbdefinitionen ersätts utan bekräftelse.
+Om du anger parametern – Force och anger ett befintligt jobb namn ersätts jobb definitionen utan bekräftelse.
 
 Detaljerad information om JSON-filens struktur och innehåll finns i avsnittet [skapa Stream Analytics jobb][msdn-rest-api-create-stream-analytics-job] i [referens biblioteket för Stream Analytics hanterings REST API][stream.analytics.rest.api.reference].
 
@@ -297,13 +297,13 @@ Azure PowerShell 0.9.8:
 New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 New-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
 ```
 
-Det här PowerShell-kommando skapar ett nytt jobb från definitionen i JobDefinition.json. Om ett befintligt projekt med namnet som angetts i definitionsfilen för jobbet har redan definierats, ber cmdleten huruvida du ersätta den.
+Det här PowerShell-kommandot skapar ett nytt jobb från definitionen i jobb definitionen. JSON. Om ett befintligt jobb med det namn som anges i jobb definitions filen redan har definierats, kommer cmdleten att be om att ersätta den.
 
 **Exempel 2**
 
@@ -313,22 +313,22 @@ Azure PowerShell 0.9.8:
 New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 New-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
 ```
 
-Det här PowerShell-kommandot ersätter jobbdefinitionen för StreamingJob.
+Det här PowerShell-kommandot ersätter jobb definitionen för StreamingJob.
 
 ### <a name="new-azurestreamanalyticsoutput--new-azstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzStreamAnalyticsOutput
-Skapar en ny utdatakanal inom ett Stream Analytics-jobb eller uppdaterar en befintlig utdata.  
+Skapar ett nytt utdata i ett Stream Analytics jobb eller uppdaterar en befintlig utmatning.  
 
-Namnet på utdata kan anges i JSON-fil eller från kommandoraden. Om båda anges måste namnet på kommandoraden vara samma som det i filen.
+Namnet på utdata kan anges i. JSON-filen eller på kommando raden. Om båda anges måste namnet på kommando raden vara samma som det i filen.
 
-Om du anger utdata som redan finns och att du inte anger parametern – Force, cmdlet: en får du frågan om att ersätta befintliga utdata eller inte.
+Om du anger ett utdata som redan finns och inte anger parametern – Force, kommer cmdleten att fråga om den befintliga utdatan ska ersättas eller inte.
 
-Om du anger – tvinga parametern och ange en befintlig utdata namn, utdata kommer att ersättas utan bekräftelse.
+Om du anger parametern – Force och anger ett befintligt utdatafil ersätts utdata utan bekräftelse.
 
 Detaljerad information om JSON-filens struktur och innehåll finns i avsnittet [skapa utdata (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] i [referens biblioteket för Stream Analytics hanterings REST API][stream.analytics.rest.api.reference].
 
@@ -340,13 +340,13 @@ Azure PowerShell 0.9.8:
 New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 New-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
 ```
 
-Det här PowerShell-kommando skapar en ny utdatakanal som kallas ”utdata” i jobbet StreamingJob. Om en befintlig utdata med det här namnet har redan definierats, ber cmdleten huruvida du ersätta den.
+Detta PowerShell-kommando skapar nya utdata som kallas "utdata" i jobbets StreamingJob. Om en befintlig utmatning med det här namnet redan har definierats, kommer cmdleten att fråga om den ska ersättas eller inte.
 
 **Exempel 2**
 
@@ -356,22 +356,22 @@ Azure PowerShell 0.9.8:
 New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 New-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
 ```
 
-Det här PowerShell-kommando ersätter du definitionen för ”utdata” i jobbet StreamingJob.
+Det här PowerShell-kommandot ersätter definitionen för "output" i jobbets StreamingJob.
 
 ### <a name="new-azurestreamanalyticstransformation--new-azstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzStreamAnalyticsTransformation
-Skapar en ny omvandling inom ett Stream Analytics-jobb eller uppdaterar befintliga transformeringen.
+Skapar en ny omvandling i ett Stream Analytics jobb eller uppdaterar den befintliga omvandlingen.
 
-Namnet på omvandlingen kan anges i JSON-fil eller från kommandoraden. Om båda anges måste namnet på kommandoraden vara samma som det i filen.
+Namnet på omvandlingen kan anges i. JSON-filen eller på kommando raden. Om båda anges måste namnet på kommando raden vara samma som det i filen.
 
-Om du anger en transformation som redan finns och inte anger parametern – Force, cmdlet: en får du frågan om att ersätta befintliga transformeringen eller inte.
+Om du anger en omvandling som redan finns och inte anger parametern – Force frågar cmdleten om den befintliga omvandlingen ska ersättas eller inte.
 
-Om du anger – framtvinga parametern och ange ett befintligt namn i omvandling transformeringen ersätts utan bekräftelse.
+Om du anger parametern – Force och anger ett befintligt omvandlings namn ersätts omvandlingen utan bekräftelse.
 
 Detaljerad information om JSON-filens struktur och innehåll finns i avsnittet om att [skapa transformering (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] i [referens biblioteket för Stream Analytics hanterings REST API][stream.analytics.rest.api.reference].
 
@@ -383,13 +383,13 @@ Azure PowerShell 0.9.8:
 New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 New-AzStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
 ```
 
-Det här PowerShell-kommando skapar en ny omvandling som kallas StreamingJobTransform i jobbet StreamingJob. Om en befintlig omvandling har redan definierats med det här namnet, ber cmdleten huruvida du ersätta den.
+Detta PowerShell-kommando skapar en ny omvandling med namnet StreamingJobTransform i jobbets StreamingJob. Om en befintlig omvandling redan har definierats med det här namnet kommer cmdleten att fråga om den ska ersättas eller inte.
 
 **Exempel 2**
 
@@ -399,17 +399,17 @@ Azure PowerShell 0.9.8:
 New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 New-AzStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
 ```
 
- Det här PowerShell-kommandot ersätter definitionen av StreamingJobTransform i jobbet StreamingJob.
+ Detta PowerShell-kommando ersätter definitionen av StreamingJobTransform i jobb-StreamingJob.
 
 ### <a name="remove-azurestreamanalyticsinput--remove-azstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzStreamAnalyticsInput
-Tar bort specifika indata asynkront från ett Stream Analytics-jobb i Microsoft Azure.  
-Om du anger parametern – Force, kommer att tas bort indata utan bekräftelse.
+Tar bort en angiven Indatatyp asynkront från ett Stream Analytics jobb i Microsoft Azure.  
+Om du anger parametern – Force tas indatatypen bort utan bekräftelse.
 
 **Exempel 1**
 
@@ -419,17 +419,17 @@ Azure PowerShell 0.9.8:
 Remove-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Remove-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
 ```
 
-Det här PowerShell-kommandot tar bort den inkommande EventStream i jobbet StreamingJob.  
+Detta PowerShell-kommando tar bort EventStream i jobbet StreamingJob.  
 
 ### <a name="remove-azurestreamanalyticsjob--remove-azstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzStreamAnalyticsJob
-Asynkront tar du bort ett specifikt Stream Analytics-jobb i Microsoft Azure.  
-Om du anger parametern – Force, jobbet kommer att tas bort utan bekräftelse.
+Tar bort ett särskilt Stream Analytics jobb asynkront i Microsoft Azure.  
+Om du anger parametern – Force tas jobbet bort utan bekräftelse.
 
 **Exempel 1**
 
@@ -439,17 +439,17 @@ Azure PowerShell 0.9.8:
 Remove-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Remove-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 ```
 
-Det här PowerShell-kommandot tar bort jobbet StreamingJob.  
+Detta PowerShell-kommando tar bort jobbets StreamingJob.  
 
 ### <a name="remove-azurestreamanalyticsoutput--remove-azstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzStreamAnalyticsOutput
-Tar bort en specifik utdata asynkront från ett Stream Analytics-jobb i Microsoft Azure.  
-Om du anger parametern – Force, utdata kommer att tas bort utan bekräftelse.
+Tar bort ett särskilt utdata asynkront från ett Stream Analytics jobb i Microsoft Azure.  
+Om du anger parametern – Force tas utdata bort utan bekräftelse.
 
 **Exempel 1**
 
@@ -459,16 +459,16 @@ Azure PowerShell 0.9.8:
 Remove-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Remove-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 ```
 
-Det här PowerShell-kommandot tar bort utdata utdata i jobbet StreamingJob.  
+Detta PowerShell-kommando tar bort utdata från jobbets StreamingJob.  
 
 ### <a name="start-azurestreamanalyticsjob--start-azstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzStreamAnalyticsJob
-Asynkront distribuerar och startar ett Stream Analytics-jobb i Microsoft Azure.
+Distribuerar och startar ett Stream Analytics jobb asynkront i Microsoft Azure.
 
 **Exempel 1**
 
@@ -478,16 +478,16 @@ Azure PowerShell 0.9.8:
 Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Start-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
 ```
 
-Det här PowerShell-kommandot startar jobbet StreamingJob med anpassade utdata starttid som har angetts till 12 December 2012 12:12:12 UTC.
+Det här PowerShell-kommandot startar jobbet StreamingJob med en anpassad start tid för utdata angivet till 12 december 2012 12:12:12 UTC.
 
-### <a name="stop-azurestreamanalyticsjob--stop-azstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzStreamAnalyticsJob
-Asynkront stoppar ett Stream Analytics-jobb körs i Microsoft Azure och frigör resurser som har som användes. Jobbdefinitionen och metadata är fortsatt tillgängliga i din prenumeration via både Azure-portalen och API: er, hantering, så att jobbet kan redigeras och startas om. Du debiteras inte för ett jobb i ett stoppat tillstånd.
+### <a name="stop-azurestreamanalyticsjob--stop-azstreamanalyticsjob"></a>Stopp-AzureStreamAnalyticsJob | Stop-AzStreamAnalyticsJob
+Stoppar asynkront ett Stream Analytics jobb från att köras i Microsoft Azure och allokerar de resurser som användes. Jobb definitionen och metadata är fortfarande tillgängliga i din prenumeration via både API: erna för Azure Portal och hantering, så att jobbet kan redige ras och startas om. Du debiteras inte för ett jobb i stoppat tillstånd.
 
 **Exempel 1**
 
@@ -497,16 +497,16 @@ Azure PowerShell 0.9.8:
 Stop-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Stop-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 ```
 
-Det här PowerShell-kommando stoppar jobbet StreamingJob.  
+Detta PowerShell-kommando stoppar jobbets StreamingJob.  
 
 ### <a name="test-azurestreamanalyticsinput--test-azstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzStreamAnalyticsInput
-Testar möjligheten för Stream Analytics för att ansluta till en angivna indata.
+Testar möjligheten för Stream Analytics att ansluta till en angiven indatamängd.
 
 **Exempel 1**
 
@@ -516,16 +516,16 @@ Azure PowerShell 0.9.8:
 Test-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Test-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
 ```
 
-Det här PowerShell-kommandot testar anslutningsstatus för inkommande EntryStream i StreamingJob.  
+Det här PowerShell-kommandot testar anslutnings status för EntryStream för indatamängden i StreamingJob.  
 
 ### <a name="test-azurestreamanalyticsoutput--test-azstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzStreamAnalyticsOutput
-Testar möjligheten för Stream Analytics för att ansluta till en angiven utdata.
+Testar möjligheten för Stream Analytics att ansluta till en angiven utmatning.
 
 **Exempel 1**
 
@@ -535,16 +535,16 @@ Azure PowerShell 0.9.8:
 Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 ```
 
-Azure PowerShell 1.0:  
+Azure PowerShell 1,0:  
 
 ```powershell
 Test-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 ```
 
-Det här PowerShell-kommando tester anslutningsstatus för utdata utdata i StreamingJob.  
+Det här PowerShell-kommandot testar anslutnings status för utdata i StreamingJob.  
 
 ## <a name="get-support"></a>Få support
-För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

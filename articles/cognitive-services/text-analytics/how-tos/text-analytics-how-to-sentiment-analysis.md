@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: ea145239d38a4030423a4517fe02c62b8eefa08a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 359c4da22374d3bf1ccca2430ec15594408bdb50
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211769"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931539"
 ---
-# <a name="example-detect-sentiment-with-text-analytics"></a>Exempel: Identifiera sentiment med Textanalys
+# <a name="example-detect-sentiment-with-text-analytics"></a>Exempel: identifiera sentiment med Textanalys
 
 [Azure ATTITYDANALYS API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) utvärderar text ingångar och returnerar en sentiment Poäng för varje dokument. Resultat intervallet är 0 (negativt) till 1 (positivt).
 
@@ -28,7 +28,7 @@ För närvarande stöder Attitydanalys API: t engelska, tyska, spanska och frans
 > [!TIP]
 > Azure API för textanalys tillhandahåller också en Linux-baserad Docker-behållar avbildning för sentiment-analys, så att du kan [Installera och köra textanalys-behållaren](text-analytics-how-to-install-containers.md) nära dina data.
 
-## <a name="concepts"></a>Begrepp
+## <a name="concepts"></a>Koncept
 
 Textanalys använder en klassificering i maskininlärningsalgoritmen för att generera ett attitydpoäng mellan 0 och 1. Resultat nära 1 visar positiv attityd medan resultat nära 0 indikerar negativ attityd. Modellen har förtränats med en omfattande textmassa med attitydassociationer. För närvarande går det inte att tillhandahålla dina egna tränings data. Modellen använder en kombination av metoder under text analys. Tekniker omfattar text bearbetning, del av tal analys, ord placering och Word-associationer. Läs mer om algoritmen [Introduktion till textanalys](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
 
@@ -36,7 +36,7 @@ Attitydanalys utförs i hela dokumentet, till skillnad från åsiktsextrahering 
 
 ## <a name="preparation"></a>Förberedelse
 
-Sentiment-analys ger bättre resultat när du ger den mindre text segment att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata därefter.
+Sentiment-analys ger bättre resultat när du ger den mindre text segment att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata på ett lämpligt sätt.
 
 Du måste ha JSON-dokument i det här formatet: ID, text och språk.
 
@@ -80,7 +80,7 @@ Mer information om definition av begäran finns i [anropa API för textanalys](t
 
 + Skapa en POST-begäran. Information om hur du granskar API-dokumentationen för den här begäran finns i [ATTITYDANALYS API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
 
-+ Ange HTTP-slutpunkten för sentiment-analys genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta `/text/analytics/v2.1/sentiment` med i URL: en. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
++ Ange HTTP-slutpunkten för sentiment-analys genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste inkludera `/text/analytics/v2.1/sentiment` i URL: en. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
 
 + Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
 
@@ -96,7 +96,7 @@ Analysen utförs när begäran har tagits emot. Information om storlek och antal
 Kom ihåg att tjänsten är tillståndslös. Inga data lagras i ditt konto. Resultaten returneras omedelbart i svaret.
 
 
-## <a name="step-3-view-the-results"></a>Steg 3: Visa resultatet
+## <a name="step-3-view-the-results"></a>Steg 3: Visa resultaten
 
 Sentiment Analyzer klassificerar texten som huvudsakligen positiv eller negativ. Det tilldelar en poäng mellan 0 och 1. Värden nära 0,5 är neutrala eller obestämda. Ett resultat på 0,5 anger neutralitet. När en sträng inte kan analyseras för sentiment eller saknar sentiment är poängen alltid 0,5 exakt. Om du skickar in en spansk sträng i kod för engelska är poängen 0,5.
 
@@ -134,24 +134,25 @@ I följande exempel visas svaret på dokument samlingen i den här artikeln:
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Attitydanalys v3 offentlig för hands version
 
-[Nästa version av Attitydanalys](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) är nu tillgänglig för offentlig för hands version. Den ger betydande förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning.
+[Nästa version av Attitydanalys](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) är nu tillgänglig för offentlig för hands version. Den ger betydande förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning.
 
 > [!NOTE]
 > * Formatet för förfrågnings formatet för Attitydanalys v3 och [data begränsningarna](../overview.md#data-limits) är desamma som i den tidigare versionen.
 > * Attitydanalys v3 vid detta tillfälle:
->    * Stöder för närvarande engelska, franska, italienska, japanska, förenklade och traditionella kinesiska språk.
->    * Är tillgängligt i `Australia East`följande regioner:, `East US 2` ,`West US 2` ,, `East Asia`,,,,,, och `Central US` `Central Canada` `East US` `North Europe` `Southeast Asia` `South Central US` `UK South` `West Europe` .
+>    * Stöder för närvarande engelska (`en`), japanska (`ja`), Kinesisk (förenklad) (`zh-Hans`), traditionell kinesiska (`zh-Hant`), franska (`fr`), italienska (`it`), spanska (`es`), nederländska (`nl`), portugisiska (`pt`) och tyska (`de`) språk.
+>    * Är tillgängligt i följande regioner: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`och `West US 2`.
 
 |Funktion |Beskrivning  |
 |---------|---------|
 |Förbättrad precision     | Funktionen är mycket bättre på att identifiera positiva, neutrala, negativa och blandade sentiment i textdokument jämfört med tidigare versioner.           |
 |Sentiment Poäng för dokument och menings nivåer     | Identifiera sentiment i dokumentet och i de enskilda meningar. Om dokumentet innehåller flera meningar tilldelas även de enskilda meningarna sentimentpoäng.         |
-|Sentiment-kategori och Poäng     | API: et returnerar nu sentiment-kategorier för text, förutom en sentiment poäng. `positive`Kategorierna är `negative` ,,och`mixed`. `neutral`       |
+|Sentiment-etiketter och poängsättning     | API: et returnerar nu sentiment-kategorier för text, förutom en sentiment poäng. Kategorierna är `positive`, `negative`, `neutral`och `mixed`.       |
 | Förbättrade utdata | Sentiment analys returnerar nu information för både ett helt text dokument och dess enskilda meningar. |
+| modell versions parameter | En valfri parameter för att välja vilken version av Textanalys modellen som används på dina data. |
 
 ### <a name="sentiment-labeling"></a>Sentiment-etikettering
 
-Attitydanalys v3 kan returnera Poäng och etiketter på en menings-och dokument nivå. Poängen och etiketterna är `positive`, `negative`och `neutral`. På dokument nivå kan du `mixed` även returnera sentiment-etiketten (inte poängen). Sentiment av dokumentet bestäms genom att aggregera poängen i meningarna.
+Attitydanalys v3 kan returnera Poäng och etiketter på en menings-och dokument nivå. Poängen och etiketterna är `positive`, `negative`och `neutral`. På dokument nivå kan du även returnera `mixed` sentiment-etiketten (inte poängen). Sentiment av dokumentet bestäms genom att aggregera poängen i meningarna.
 
 | Mening sentiment                                                        | Etikett för returnerat dokument |
 |---------------------------------------------------------------------------|----------------|
@@ -159,6 +160,23 @@ Attitydanalys v3 kan returnera Poäng och etiketter på en menings-och dokument 
 | Minst en negativ mening och resten av meningarna är neutrala.  | `negative`     |
 | Minst en negativ mening och minst en positiv mening.         | `mixed`        |
 | Alla meningar är neutrala.                                                 | `neutral`      |
+
+### <a name="model-versioning"></a>Modell version
+
+Från API för textanalys och med version 3,0 kan du välja den Textanalys modell som används på dina data. Använd den valfria `model-version` parametern för att välja en version av modellen i dina begär Anden. Om den här parametern inte anges kommer API: et att vara standard `latest`, den senaste stabila modell versionen.
+
+Tillgängliga modell versioner:
+* `2019-10-01` (`latest`)
+
+Varje svar från v3-slutpunkterna innehåller ett `model-version`-fält som anger modell versionen som användes.
+
+```json
+{
+    “documents”: […]
+    “errors”: []
+    “model-version”: “2019-10-01”
+}
+```
 
 ### <a name="sentiment-analysis-v3-example-request"></a>Exempel förfrågan om Attitydanalys v3
 
@@ -261,7 +279,7 @@ Du kan hitta ett exempel C# program som anropar den här versionen av Attitydana
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för sentiment-analys genom att använda Textanalys i Azure Cognitive Services. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för sentiment-analys genom att använda Textanalys i Azure Cognitive Services. Sammanfattning:
 
 + [Attitydanalys-API: et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) är tillgängligt för valda språk.
 + JSON-dokument i begär ande texten innehåller ID, text och språkkod.

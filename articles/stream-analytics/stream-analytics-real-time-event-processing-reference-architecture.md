@@ -1,6 +1,6 @@
 ---
-title: Händelsebearbetning med i realtid med hjälp av Azure Stream Analytics händelsebearbetning
-description: Den här artikeln beskriver Referensarkitektur för att uppnå händelsebearbetning i realtid och analytics med hjälp av Azure Stream Analytics.
+title: Händelse bearbetning i real tid med hjälp av Azure Stream Analytics
+description: Den här artikeln beskriver referens arkitekturen för att uppnå händelse bearbetning och analys i real tid med hjälp av Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,44 +8,44 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: ab1ca89427f332151120420c3c087902584706f4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 21a0e4e468b606ec7bb7e33bf1a616e68cd6cf50
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621788"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925100"
 ---
-# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Referensarkitektur: Händelsebearbetning i realtid med Microsoft Azure Stream Analytics
-Referensarkitektur för händelsebearbetning i realtid med Azure Stream Analytics är avsedd att ge en allmän skiss för att distribuera en i realtid plattform som en tjänst (PaaS) bearbetning av dataströmmen lösning med Microsoft Azure.
+# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Referens arkitektur: händelse bearbetning i real tid med Microsoft Azure Stream Analytics
+Referens arkitekturen för händelse bearbetning i real tid med Azure Stream Analytics är avsedd att ge en allmän skiss för distribution av en PaaS-lösning (Platform as a Service) för real tids bearbetning med Microsoft Azure.
 
 ## <a name="summary"></a>Sammanfattning
-Traditionellt har baseras Analyslösningar på funktioner som ETL (extract, transform, load) och datalagring, där data lagras före analys. Ändrade krav, inklusive mer snabbt inkommande data, skickar den här befintliga modellen med gränsen. Möjligheten att analysera data i flytta strömmar innan storage är en lösning och det är inte en ny funktion, metoden har inte tagits brett över alla vertikala branscher. 
+Traditionellt har analys lösningar baserats på funktioner som ETL (extrahering, transformering, belastning) och data lager hantering, där data lagras före analys. Om du ändrar krav, inklusive snabbare data som kommer att skickas, skickas den befintliga modellen till gränsen. Möjligheten att analysera data i rörliga data strömmar före lagring är en lösning, och även om den inte är en ny funktion har metoden inte använts på ett brett sätt för alla branscher. 
 
-Microsoft Azure tillhandahåller en omfattande katalog med analytics-tekniker som stöder en matris med olika lösningsscenarier och krav. Att välja vilka Azure-tjänster att distribuera för en slutpunkt till slutpunkt-lösning kan vara en utmaning som gett bredden av erbjudanden. Det här dokumentet är avsett att beskrivs de interoperation olika Azure-tjänster som har stöd för en lösning för direktuppspelning. Den förklarar också några scenarier där kunder kan dra nytta av den här typen av metoden.
+Microsoft Azure tillhandahåller en omfattande katalog med analys tekniker som kan stödja en matris med olika lösnings scenarier och krav. Att välja vilka Azure-tjänster som ska distribueras för en slut punkt till slut punkt kan vara en utmaning med bredden av erbjudanden. Det här dokumentet är utformat för att beskriva funktionerna och funktionerna i de olika Azure-tjänsterna som har stöd för en händelse strömnings lösning. Här beskrivs också några av de scenarier där kunderna kan dra nytta av den här typen av metod.
 
 ## <a name="contents"></a>Innehåll
-* Sammanfattning
-* Introduktion till analys i realtid
-* Förslagsvärde realtidsdata i Azure
-* Vanliga scenarier för analys i realtid
+* Sammanfattning av chefer
+* Introduktion till real tids analys
+* Värde förslag på real tids data i Azure
+* Vanliga scenarier för analys i real tid
 * Arkitektur och komponenter
   * Datakällor
-  * Dataintegrering lager
-  * Analys i realtid lager
-  * Datalager för lagring
-  * Presentation / förbrukning Layer
+  * Data integrations lager
+  * Analys lager i real tid
+  * Data lagrings lager
+  * Presentation/förbruknings lager
 * Sammanfattning
 
-**Skapad av:** Charles Feddersen, Solution Architect, Data Insights Center of Excellence, Microsoft Corporation
+**Författare:** Charles Feddersen, lösnings arkitekt, data insikter Center of expert, Microsoft Corporation
 
 **Publicerad:** Januari 2015
 
-**Revision:** 1.0
+**Revision:** 1,0
 
-**Ladda ned:** [Händelsebearbetning i realtid med Microsoft Azure Stream Analytics](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
+**Ladda ned:** [händelse bearbetning i Real tid med Microsoft Azure Stream Analytics](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>Få hjälp
-För mer hjälp kan du prova den [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Om du behöver ytterligare hjälp kan du prova [Azure Stream Analytics-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

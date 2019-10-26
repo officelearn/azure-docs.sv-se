@@ -1,6 +1,6 @@
 ---
-title: LiveEvent tillstånd och fakturering i Azure Media Services | Microsoft Docs
-description: Det här avsnittet ger en översikt över Azure Media Services LiveEvent tillstånd och fakturering.
+title: LiveEvent-tillstånd och fakturering i Azure Media Services | Microsoft Docs
+description: Det här avsnittet ger en översikt över Azure Media Services LiveEvent-tillstånd och fakturering.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,20 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 10/24/2019
 ms.author: juliako
-ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af3d4b51dadfaa99a166ca0ce475c5a110d8f6e8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074900"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933685"
 ---
-# <a name="live-event-states-and-billing"></a>Live-händelse tillstånd och fakturering
+# <a name="live-event-states-and-billing"></a>Live händelse tillstånd och fakturering
 
-I Azure Media Services, en direktsänd händelse börjar fakturering när dess status övergår till **kör**. Du måste stoppa Live-händelsen för att stoppa Live-händelse från fakturering.
+I Azure Media Services börjar en Live-händelse att faktureras så fort dess tillstånds över gångar **körs**. Om du vill stoppa direkt sändningen från fakturering måste du stoppa Live-händelsen.
 
-När **LiveEventEncodingType** på din [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) är inställd på Standard- eller Premium1080p, Media Services automatiskt stängs av en Live-händelse som fortfarande är i den **kör** tillstånd 12 timmar efter inkommande flödet går förlorad och det finns inga **Live utdata**datorer som körs. Men du kommer fortfarande att debiteras för tiden Live-händelsen som fanns i den **kör** tillstånd.
+När **LiveEventEncodingType** på din [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents) är inställt på standard eller Premium1080p, stänger Media Services automatiskt av all direkt händelse som fortfarande är i **körnings** tillstånd 12 timmar efter att inmatnings flödet förloras och det inte finns några **direktsända utdata** s körs. Men du kommer fortfarande att faktureras för den tidpunkt då Live-händelsen var i **körnings** tillstånd.
+
+> [!NOTE]
+> Direkt sändnings händelser stängs inte av automatiskt och måste stoppas explicit genom API: et för att undvika överdriven fakturering. 
 
 ## <a name="states"></a>Tillstånd
 
@@ -32,13 +35,13 @@ Live-händelsen kan vara i något av följande tillstånd.
 
 |Status|Beskrivning|
 |---|---|
-|**Stoppad**| Det här är starttillståndet för Live-händelsen när du har skapat (såvida inte autostart har angetts till true.) Ingen debitering sker i det här tillståndet. Egenskaper för Live-händelse kan uppdateras men strömning är inte tillåtet i det här tillståndet.|
-|**Startar**| Live-händelsen startas och resurser allokeras. Ingen debitering sker i det här tillståndet. Uppdateringar eller strömning tillåts inte i det här tillståndet. Om ett fel inträffar återgår Live-händelse till tillståndet stoppad.|
-|**Körs**| Live-händelsen resurser som har allokerats, mata in och förhandsgranska URL: er har genererats och är det kan ta emot direktsända strömmar. Fakturering är nu aktiv. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering.|
-|**Stoppar**| Live-händelsen stoppas och resurser som ska enhetstiden. Ingen debitering sker i den här tillfälligt tillstånd. Uppdateringar eller strömning tillåts inte i det här tillståndet.|
-|**Tar bort**| Live-händelse tas bort. Ingen debitering sker i den här tillfälligt tillstånd. Uppdateringar eller strömning tillåts inte i det här tillståndet.|
+|**Stoppats**| Det här är start läget för Live-händelsen när den har skapats (om inte Autostart har angetts till true.) Ingen fakturering sker i det här läget. I det här tillståndet kan direktsändningens egenskaper uppdateras, men strömning är inte tillåtet.|
+|**Leds**| Direktsänd händelse startas och resurserna allokeras. Ingen fakturering sker i det här läget. Uppdateringar eller strömmande tillåts inte i det här läget. Om ett fel inträffar återgår Live-händelsen till stoppat tillstånd.|
+|**Körs**| Live Event-resurserna har allokerats, inmatnings-och för hands-URL: er har genererats och kan ta emot Live-strömmar. Faktureringen är nu aktiv. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering.|
+|**Stoppas**| Direkt sändningen stoppas och resurserna etableras. Ingen fakturering sker i det här tillfälliga läget. Uppdateringar eller strömmande tillåts inte i det här läget.|
+|**Rader**| Direktsändningen tas bort. Ingen fakturering sker i det här tillfälliga läget. Uppdateringar eller strömmande tillåts inte i det här läget.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Direktsänd strömning översikt](live-streaming-overview.md)
-- [Live direktuppspelning självstudien](stream-live-tutorial-with-api.md)
+- [Översikt över direkt uppspelning](live-streaming-overview.md)
+- [Själv studie kurs om Live-direktuppspelning](stream-live-tutorial-with-api.md)

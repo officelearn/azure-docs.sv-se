@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3576f7cc0297ff1e9b10373ccc27b09e1a0ae8ae
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 07c23d3b93c85e3409814ab0eb635a51344e2ab2
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436707"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929256"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 
@@ -55,15 +55,15 @@ När du registrerar en Azure Storage-lösning som ett data lager skapar du autom
 
 ### <a name="using-the-python-sdk"></a>Använda Python SDK
 
-Alla register metoder finns i klassen [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) och har formatet register_azure_ *.
+Alla register metoder finns i [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) -klassen och har formatet register_azure_ *.
 
 Den information du behöver för att fylla i metoden register () finns i [Azure Portal](https://ms.portal.azure.com). Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. Sidan **Översikt** innehåller information, till exempel konto namn och behållare eller fil resurs namn. För autentiseringsinformation, som konto nyckel eller SAS-token, navigerar du till **konto nycklar** i fönstret **Inställningar** till vänster. 
 
 I följande exempel visas hur du registrerar en Azure Blob-behållare eller en Azure-filresurs som ett data lager.
 
-+ Använd [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) för en **Azure Blob container data lager**
++ För en **Azure Blob container data lager**använder [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
-    Följande kod skapar och registrerar data lagret `my_datastore`, till arbets ytan `ws`. I det här data lagret används Azure Blob-behållaren `my_blob_container`, på Azure Storage-kontot `my_storage_account` med den angivna konto nyckeln.
+    Följande kod skapar och registrerar data lagret, `my_datastore`till arbets ytan `ws`. Detta data lager har åtkomst till Azure Blob-behållaren `my_blob_container`på Azure Storage-kontot `my_storage_account` att använda den angivna konto nyckeln.
 
     ```Python
        datastore = Datastore.register_azure_blob_container(workspace=ws, 
@@ -73,10 +73,11 @@ I följande exempel visas hur du registrerar en Azure Blob-behållare eller en A
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
     ```
+    Om ditt lagrings konto finns i ett VNET stöds endast skapande av Azure Blob-datalager. Ange parametern `grant_workspace_access` att `True` för att ge din arbets yta åtkomst till ditt lagrings konto.
 
-+ Använd [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)för en **Azure-fil resurs data lager**. 
++ Använd [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)för ett **fil resurs data lager i Azure**. 
 
-    Följande kod skapar och registrerar data lagret `my_datastore`, till arbets ytan `ws`. I det här data lagret används Azure-filresursen `my_file_share`, på Azure Storage-kontot `my_storage_account` med den angivna konto nyckeln.
+    Följande kod skapar och registrerar data lagret, `my_datastore`till arbets ytan `ws`. I det här data lagret får du till gång till Azure-filresursen `my_file_share`på Azure Storage-kontot `my_storage_account` att använda den angivna konto nyckeln.
 
     ```Python
        datastore = Datastore.register_azure_file_share(workspace=ws, 
@@ -126,7 +127,7 @@ for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
 
-När du skapar en arbets yta registreras en Azure Blob-behållare och en Azure-filresurs till arbets ytan med namnet `workspaceblobstore` respektive `workspacefilestore`. De lagrar anslutnings informationen för BLOB-behållaren och fil resursen som är etablerad i det lagrings konto som är kopplat till arbets ytan. @No__t-0 anges som standard data lager.
+När du skapar en arbets yta registreras en Azure Blob-behållare och en Azure-filresurs till arbets ytan med namnet `workspaceblobstore` respektive `workspacefilestore`. De lagrar anslutnings informationen för BLOB-behållaren och fil resursen som är etablerad i det lagrings konto som är kopplat till arbets ytan. `workspaceblobstore` anges som standard data lager.
 
 Så här hämtar du arbets ytans standard data lager:
 
@@ -134,7 +135,7 @@ Så här hämtar du arbets ytans standard data lager:
 datastore = ws.get_default_datastore()
 ```
 
-Om du vill definiera ett annat standard data lager för den aktuella arbets ytan använder du metoden [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) på objektet arbets yta:
+Om du vill definiera ett annat standard data lager för den aktuella arbets ytan använder du [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) metoden på objektet arbets yta:
 
 ```Python
 #define default datastore for current workspace
@@ -161,9 +162,9 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-Parametern `target_path` anger platsen i fil resursen (eller BLOB-behållaren) som ska överföras. Standardvärdet är `None`, vilket innebär att data laddas upp till roten. När `overwrite=True` skrivs alla befintliga data på `target_path` över.
+Parametern `target_path` anger platsen i fil resursen (eller BLOB-behållaren) som ska överföras. Standardvärdet är `None`, vilket innebär att data laddas upp till roten. När `overwrite=True` befintliga data på `target_path` skrivs över.
 
-Eller ladda upp en lista med enskilda filer till data lagret via metoden `upload_files()`.
+Eller ladda upp en lista med enskilda filer till data lagret via `upload_files()`-metoden.
 
 ### <a name="download"></a>Ladda ned
 
@@ -175,7 +176,7 @@ datastore.download(target_path='your target path',
                    show_progress=True)
 ```
 
-Parametern `target_path` är platsen för den lokala katalogen där data ska hämtas till. Om du vill ange en sökväg till mappen i fil resursen (eller BLOB-behållaren) som ska laddas ned anger du sökvägen till `prefix`. Om `prefix` är `None` kommer allt innehåll i din fil resurs (eller BLOB-behållare) att hämtas.
+Parametern `target_path` är platsen för den lokala katalog där data ska hämtas till. Om du vill ange en sökväg till mappen i fil resursen (eller BLOB-behållaren) som ska laddas ned anger du sökvägen till `prefix`. Om `prefix` är `None` kommer allt innehåll i din fil resurs (eller BLOB-behållare) att hämtas.
 
 <a name="train"></a>
 ## <a name="access-your-data-during-training"></a>Få åtkomst till dina data under utbildningen
@@ -201,7 +202,7 @@ datastore.as_mount()
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
-> Alla angivna `datastore`-eller `datastore.path`-objekt matchas mot ett miljö variabel namn för formatet `"$AZUREML_DATAREFERENCE_XXXX"`, vars värde representerar monterings-/hämtnings Sök vägen i mål beräkningen. Data lagrets sökväg i mål beräkningen kanske inte är samma som körnings Sök vägen för utbildnings skriptet.
+> Alla angivna `datastore`-eller `datastore.path`-objekt matchas mot ett miljö variabel namn i formatet `"$AZUREML_DATAREFERENCE_XXXX"`, vars värde representerar monterings-/hämtnings Sök vägen i mål beräkningen. Data lagrets sökväg i mål beräkningen kanske inte är samma som körnings Sök vägen för utbildnings skriptet.
 
 ### <a name="examples"></a>Exempel 
 
@@ -243,16 +244,16 @@ Data lager har för närvarande stöd för lagring av anslutnings information ti
 |Databearbetning|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) - [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
 |--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
 | Lokal|[as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|Gäller inte         |Gäller inte                                                                         |
-| Azure Machine Learning Compute |[as_mount ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ml @ no__t-4pipelines](concept-ml-pipelines.md)|[as_mount ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ml @ no__t-4pipelines](concept-ml-pipelines.md)|Gäller inte         |Gäller inte                                                                         |
+| Azure Machine Learning Compute |[as_mount ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ml&nbsp;pipelines](concept-ml-pipelines.md)|[as_mount ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ml&nbsp;pipelines](concept-ml-pipelines.md)|Gäller inte         |Gäller inte                                                                         |
 | Virtuella maskiner               |[as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |Gäller inte         |Gäller inte                                                                         |
 | HDInsight                      |[as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |Gäller inte         |Gäller inte                                                                         |
-| Dataöverföring                  |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                               |Gäller inte                                           |[ML @ no__t-1pipelines](concept-ml-pipelines.md)            |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                                                            |
-| Databricks                     |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                              |Gäller inte                                           |[ML @ no__t-1pipelines](concept-ml-pipelines.md)             |Gäller inte                                                                         |
-| Azure Batch                    |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                               |Gäller inte                                           |Gäller inte         |Gäller inte                                                                         |
-| Azure DataLake-analys       |Gäller inte                                           |Gäller inte                                           |[ML @ no__t-1pipelines](concept-ml-pipelines.md)             |Gäller inte                                                                         |
+| Dataöverföring                  |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                               |Gäller inte                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)            |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                                                            |
+| Databricks                     |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                              |Gäller inte                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)             |Gäller inte                                                                         |
+| Azure Batch                    |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                               |Gäller inte                                           |Gäller inte         |Gäller inte                                                                         |
+| Azure DataLake-analys       |Gäller inte                                           |Gäller inte                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)             |Gäller inte                                                                         |
 
 > [!NOTE]
-> Det kan finnas scenarier där hög iterativa data processer körs snabbare med `as_download()` i stället för `as_mount()`; Detta kan verifieras experimentellt.
+> Det kan finnas scenarier där mycket iterativa stora data processer körs snabbare med `as_download()` i stället för `as_mount()`; Detta kan verifieras experimentellt.
 
 ### <a name="accessing-source-code-during-training"></a>Åtkomst till käll kod under träning
 

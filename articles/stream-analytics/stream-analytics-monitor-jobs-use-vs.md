@@ -1,5 +1,5 @@
 ---
-title: Övervaka och hantera Azure Stream Analytics-jobb med hjälp av Visual Studio
+title: Övervaka och hantera Azure Stream Analytics med Visual Studio
 description: Den här artikeln beskriver hur du använder Visual Studio för att övervaka och hantera Azure Stream Analytics-jobb.
 services: stream-analytics
 author: su-jie
@@ -9,44 +9,44 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e673d4f1c2d58a61c541cca4f8448dffc003f9fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 684f034393dd3f53900100dd964d9ea07d200897
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479448"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934964"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Övervaka och hantera Stream Analytics-jobb med Visual Studio
 
-Den här artikeln visar hur du övervakar ditt Stream Analytics-jobb i Visual Studio. Azure Stream Analytics-verktyg för Visual Studio tillhandahåller en övervakningsupplevelse som liknar Azure-portalen utan att behöva lämna din IDE. Du kan börja övervaka ett jobb så snart som du **skicka till Azure** från din **Script.asaql**, eller du kan övervaka befintliga jobb oavsett hur de skapades. 
+Den här artikeln visar hur du övervakar Stream Analytics jobb i Visual Studio. Azure Stream Analytics Tools för Visual Studio ger en övervaknings miljö som liknar Azure Portal utan att du behöver lämna IDE-versionen. Du kan börja övervaka ett jobb så snart du **skickar till Azure** från **skriptet. asaql**, eller så kan du övervaka befintliga jobb oavsett hur de har skapats. 
 
-## <a name="job-summary"></a>Jobbsammanfattning
+## <a name="job-summary"></a>Jobb Sammanfattning
 
-Den **jobbsammanfattning** och **Jobbmått** ge en ögonblicksbild av jobbet. På ett ögonblick, kan du fastställa ett jobb samt händelseinformation information.]
+**Jobb sammanfattningen** och **jobb måtten** ger en snabb ögonblicks bild av ditt jobb. Du kan snabbt se ett jobbs status-och händelse information.]
 
 <img src="./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-job-summary-metrics.png" alt="Stream Analytics job summary and job metrics" width="300px"/> 
 
 
-## <a name="job-metrics"></a>Jobbmått
+## <a name="job-metrics"></a>Jobb mått
 
-Du kan dölja den **jobbsammanfattning** och klicka på den **Jobbmått** fliken för att visa ett diagram med viktiga mått. Kontrollera och avmarkera mått typer för att lägga till och ta bort dem från diagrammet.
+Du kan komprimera **jobb sammanfattningen** och klicka på fliken **jobb mått** om du vill visa en graf med viktiga mått. Kontrol lera och avmarkera mått typer för att lägga till och ta bort dem från grafen.
 
-![Stream Analytics-mått i Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
+![Stream Analytics mått i Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
 
 
-## <a name="error-monitoring"></a>Fel vid övervakning
+## <a name="error-monitoring"></a>Fel övervakning
 
-Du kan också övervaka fel genom att klicka på den **fel** fliken.
+Du kan också övervaka fel genom att klicka på fliken **fel** .
 
-![Stream Analytics-fel i Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
+![Stream Analytics fel i Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
 
 
 ## <a name="get-support"></a>Få support
-För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
-* [Skapa ett Azure Stream Analytics-jobb med Visual Studio](stream-analytics-quick-create-vs.md)
-* [Installera Azure Stream Analytics-verktyg för Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 
+* [Skapa ett Azure Stream Analytics jobb med Visual Studio](stream-analytics-quick-create-vs.md)
+* [Installera Azure Stream Analytics verktyg för Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 
 
 

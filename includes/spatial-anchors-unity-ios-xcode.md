@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562470"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933480"
 ---
 Välj **build**. I dialog rutan som öppnas väljer du en mapp att exportera Xcode-projektet till.
 
@@ -26,14 +26,14 @@ I den exporterade Xcode-projektmappen kör du det här kommandot i terminalen f�
 pod install --repo-update
 ```
 
-Nu kan du öppna `Unity-iPhone.xcworkspace` projektet i Xcode:
+Nu kan du öppna `Unity-iPhone.xcworkspace` för att öppna projektet i Xcode:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Om du ser ett `library not found for -lPods-Unity-iPhone` fel har du förmodligen `.xcodeproj` öppnat filen i stället för `.xcworkspace` filen. 
+> Se fel söknings stegen [här](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015) om du har CocoaPod problem efter uppgraderingen till MacOS Catalina (10,15).
 
 Välj den rot **Uppunions-iPhone-** noden för att visa projekt inställningarna och välj sedan fliken **Allmänt** .
 
@@ -50,3 +50,6 @@ Ansluta iOS-enheten till Mac-datorn och ange **det aktiva schemat** till iOS-enh
 Välj **Build and then run the current scheme** (Skapa och kör sedan det aktuella schemat).
 
 ![Distribuera och köra](./media/spatial-anchors-unity/deploy-run.png)
+
+> [!NOTE]
+> Om du ser ett `library not found for -lPods-Unity-iPhone` fel har du förmodligen öppnat `.xcodeproj` filen i stället för `.xcworkspace`-filen.

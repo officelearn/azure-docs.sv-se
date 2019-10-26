@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Moderate Facebook content - Content Moderator'
+title: 'Självstudie: måttlig Facebook-innehåll – Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: I självstudien lär du dig att använda maskininlärningsbaserade Content Moderator till att moderera Facebook-inlägg och kommentarer.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bd2ed09294ad122b7e8af045f01d3c6f63fcc510
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5aa4cc24484a4ba1da608da9676ade492db35b6c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564944"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936013"
 ---
-# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Självstudier: Måttlig Facebook-inlägg och-kommandon med Azure Content Moderator
+# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Självstudie: måttlig Facebook-inlägg och-kommandon med Azure Content Moderator
 
 I den här självstudien får du lära dig hur du använder Azure-Content Moderator för att få hjälp med att måttliga inlägg och kommentarer på en Facebook-sida. Facebook skickar det innehåll som publiceras av besökarna till tjänsten Content Moderator. Sedan kommer dina Content Moderator-arbetsflöden att publicera innehållet eller skapa granskningar i gransknings verktyget, beroende på innehållet i poängen och tröskelvärdena. Se [Build 2017 demo-videon](https://channel9.msdn.com/Events/Build/2017/T6033) för ett arbets exempel för det här scenariot.
 
@@ -37,7 +37,7 @@ Det här diagrammet illustrerar varje komponent i det här scenariot:
 > [!IMPORTANT]
 > I 2018 implementerade Facebook en mer strikt först konsumentsajter av Facebook-appar. Du kommer inte att kunna slutföra stegen i den här själv studie kursen om din app inte har granskats och godkänts av Facebooks gransknings teamet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator-tjänsten och få din nyckel.
 - Ett [Facebook-konto](https://www.facebook.com/).
@@ -68,11 +68,11 @@ Logga in på [Azure Portal](https://portal.azure.com/) och följ de här stegen:
 1. Gå till den nyligen skapade Funktionsapp.
 1. I appen går du till fliken **plattforms funktioner** och väljer **konfiguration**. I avsnittet **program inställningar** på nästa sida väljer du **ny program inställning** för att lägga till följande nyckel/värde-par:
     
-    | Namn på App-inställning | value   | 
+    | Namn på App-inställning | värde   | 
     | -------------------- |-------------|
     | cm:TeamId   | Ditt team-ID för Content Moderator  | 
     | cm:SubscriptionKey | Prenumerationsnyckeln för Content Moderator – Se [Autentiseringsuppgifter](review-tool-user-guide/credentials.md) |
-    | cm:Region | Regionnamnet i Content Moderator utan blanksteg. |
+    | cm:Region | Regionnamnet i Content Moderator utan blanksteg. Du hittar detta i fältet **plats** på fliken **Översikt** i Azure-resursen.|
     | cm:ImageWorkflow | Namnet på arbetsflödet som ska köras på bilderna |
     | cm:TextWorkflow | Namnet på arbetsflödet som ska köras på texten |
     | cm:CallbackEndpoint | URL för CMListener-Funktionsapp som du kommer att skapa senare i den här hand boken |
@@ -81,18 +81,18 @@ Logga in på [Azure Portal](https://portal.azure.com/) och följ de här stegen:
 
     Klicka på knappen **Spara** överst på sidan.
 
-1. Gå tillbaka till fliken **plattforms funktioner** . Använd knappen i det vänstra fönstret för att öppna fönstret **ny funktion.** **+** Funktionen som du håller på att skapa kommer att ta emot händelser från Facebook.
+1. Gå tillbaka till fliken **plattforms funktioner** . använd knappen **+** i det vänstra fönstret för att öppna fönstret **ny funktion** . Funktionen som du håller på att skapa kommer att ta emot händelser från Facebook.
 
     ![Azure Functions fönstret med knappen Lägg till funktion markerat.](images/new-function.png)
 
-    1. Klicka på panelen med texten **http-** utlösare.
+    1. Klicka på panelen med texten **http-utlösare**.
     1. Ange namnet **FBListener**. Fältet **Auktorisationsnivå** ska vara inställt på **Funktion**.
     1. Klicka på **Skapa**.
     1. Ersätt innehållet i filen **Run. CSX** med innehållet från **FbListener/Run. CSX**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
-1. Skapa en ny **http-** utlösare med namnet **CMListener**. Den här funktionen tar emot händelser från Content Moderator. Ersätt innehållet i filen **Run. CSX** med innehållet från **CMListener/Run. CSX**
+1. Skapa en ny **http-utlösare** med namnet **CMListener**. Den här funktionen tar emot händelser från Content Moderator. Ersätt innehållet i filen **Run. CSX** med innehållet från **CMListener/Run. CSX**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 

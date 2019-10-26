@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: ee51841046962a6896b4c16e651f85ff761a69fc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 546c97421fdb3a581a22e34f6110986a1a0732b6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592473"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929152"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Fel söknings guide för vanliga problem
 
@@ -119,7 +119,7 @@ Om avsökningen avbryts kan du fortfarande använda följande kommando för att 
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Se till att programmet är paketerat i rätt [format för JAR-format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). Annars visas ett felmeddelande som liknar följande:
+Kontrollera att programmet är paketerat i korrekt [körbart jar-format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). Annars visas ett felmeddelande som liknar följande:
 
 `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
 
@@ -165,7 +165,7 @@ Miljövariabler meddelar Azure våren Cloud Framework, så att Azure förstår v
             </dependency>
         ```
 
-1. När Start punktens slut punkt är aktive rad går du till Azure Portal och söker efter konfigurations sidan för ditt program.  Lägg till en miljö variabel med namnet `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value ` * '. 
+1. När Start punktens slut punkt är aktive rad går du till Azure Portal och söker efter konfigurations sidan för ditt program.  Lägg till en miljö variabel med namnet `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` och värdet `*`. 
 
 1. Starta om programmet.
 

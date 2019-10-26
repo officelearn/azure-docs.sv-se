@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Extrahera indata med hjälp av python-formulär igenkänning'
+title: 'Snabb start: extrahera kvitto data med hjälp av python-formulär igenkänning'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten använder du formulär tolken REST API med python för att extrahera data från bilder av försäljnings kvitton.
 author: PatrickFarley
@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 44121b959d13a92ca1f4cca0e5a0c00341d1ac18
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: ef5c9e8d548e8acbcbdbe83f6e7c9965c798ad44
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073752"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931272"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabbstart: Extrahera kvitto data med hjälp av formulär tolken REST API med python
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera kvitto data med hjälp av formulär tolken REST API med python
 
 I den här snabb starten använder du Azures formulär igenkännings REST API med python för att extrahera och identifiera relevant information i försäljnings kvitton.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här snabb starten måste du ha:
 - Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
@@ -36,7 +36,7 @@ För att slutföra den här snabb starten måste du ha:
 
 Du börjar analysera ett kvitto genom att anropa API för att **analysera kvitto** med hjälp av python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
 1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto avbildning.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 
@@ -70,7 +70,7 @@ Du börjar analysera ett kvitto genom att anropa API för att **analysera kvitto
 1. Öppna ett kommandotolksfönster.
 1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python form-recognizer-receipts.py`.
 
-Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter status för åtgärden och få analys resultatet. I följande exempel värde är strängen efter `operations/` åtgärds-ID: t.
+Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter status för åtgärden och få analys resultatet. I följande exempel värde är strängen efter `operations/` åtgärds-ID.
 
 ```console
 https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -100,11 +100,11 @@ while True:
 ```
 
 1. Spara skriptet.
-1. Använd `python` kommandot igen för att köra exemplet. Till exempel `python form-recognize-analyze.py`.
+1. Använd kommandot `python` igen för att köra exemplet. Till exempel `python form-recognize-analyze.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Skriptet kommer att skriva ut svar till konsolen tills åtgärden analysera har slutförts. Sedan skrivs den extraherade text informationen in i JSON-format. Fältet innehåller alla rader med text som har extraherats från inleveransen `"understandingResults"` och fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot. `"recognitionResults"`
+Skriptet kommer att skriva ut svar till konsolen tills åtgärden analysera har slutförts. Sedan skrivs den extraherade text informationen in i JSON-format. Fältet `"recognitionResults"` innehåller alla rader med text som har extraherats från inleveransen och fältet `"understandingResults"` innehåller nyckel/värde-information för de mest relevanta delarna av kvittot.
 
 Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kort ATS för läsbarhet.
 

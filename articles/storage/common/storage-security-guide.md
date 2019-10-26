@@ -1,6 +1,6 @@
 ---
 title: Azure Storage säkerhets guide | Microsoft Docs
-description: Information om många metoder för att skydda Azure Storage, inklusive men inte begränsat till RBAC, Kryptering för lagringstjänst, kryptering på klient sidan, SMB 3,0 och Azure Disk Encryption.
+description: Information om metoder för att skydda Azure Storage konton, inklusive hanterings plan säkerhet, auktorisering, nätverks säkerhet, kryptering osv.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,44 +9,54 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 72e695762f2e45309787e6f62fa97aae4c959f34
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 15c59a29bff50f13eea104cb436d1a3764f6d713
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598092"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926709"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage säkerhets guide
 
-Azure Storage innehåller en omfattande uppsättning säkerhetsfunktioner som tillsammans gör det möjligt för utvecklare att skapa säkra program:
+Azure Storage innehåller en omfattande uppsättning säkerhetsfunktioner som tillsammans gör det möjligt för organisationer att skapa och distribuera säkra program:
 
-- Alla data (inklusive metadata) som skrivs till Azure Storage krypteras automatiskt med hjälp av [kryptering för lagringstjänst (SSE)](storage-service-encryption.md). Mer information finns i avsnittet [om att presentera standard kryptering för Azure-blobar, filer, tabeller och Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- Azure Active Directory (Azure AD) och rollbaserad Access Control (RBAC) stöds för Azure Storage för både resurs hanterings åtgärder och data åtgärder, enligt följande:   
+- Alla data (inklusive metadata) som skrivs till Azure Storage krypteras automatiskt med hjälp av [kryptering för lagringstjänst (SSE)](storage-service-encryption.md). Mer information finns i avsnittet [om att presentera standard kryptering för Azure-blobar, filer, tabeller och lagrings köer](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Azure Active Directory (Azure AD) och rollbaserad Access Control (RBAC) stöds för både resurs hanterings åtgärder och data Plans åtgärder:   
     - Du kan tilldela RBAC-roller som är begränsade till lagrings kontot för säkerhets objekt och använda Azure AD för att auktorisera resurs hanterings åtgärder, till exempel nyckel hantering.
-    - Azure AD-integrering stöds för blob-och Queue data-åtgärder. Du kan tilldela RBAC-roller begränsade till en prenumeration, en resurs grupp, ett lagrings konto eller en enskild behållare eller kö till ett säkerhets objekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory](storage-auth-aad.md).   
+    - Azure AD-integrering stöds för blob-och Queue data-åtgärder. RBAC-roller kan begränsas till en prenumeration, resurs grupp, lagrings konto, enskild behållare eller kö. Roller kan tilldelas till ett säkerhets objekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory](storage-auth-aad.md).
 - Data kan skyddas vid överföring mellan ett program och Azure med hjälp av [kryptering på klient sidan](../storage-client-side-encryption.md), https eller SMB 3,0.  
 - Operativ system och data diskar som används av virtuella Azure-datorer kan krypteras med hjälp av [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).
 - Delegerad åtkomst till data objekt i Azure Storage kan beviljas med hjälp av en signatur för delad åtkomst. Mer information finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
+- Säkerhet i nätverks lager mellan dina program komponenter och lagring kan aktive ras med hjälp av lagrings brand väggen, tjänst slut punkter eller privata slut punkter.
 
-Den här artikeln innehåller en översikt över de säkerhets funktioner som kan användas med Azure Storage. Det finns länkar till artiklar som innehåller information om varje funktion så att du enkelt kan utföra ytterligare undersökningar på varje ämne.
+Den här artikeln innehåller en översikt över de säkerhets funktioner som kan användas med Azure Storage. Det finns länkar till artiklar som innehåller ytterligare information om varje funktion.
 
-Här följer de avsnitt som beskrivs i den här artikeln:
+Här följer de områden som beskrivs i den här artikeln:
 
-* [Säkerhet för hanterings plan](#management-plane-security) – skydda ditt lagrings konto
+* [Säkerhet för hanterings plan](#management-plane-security) – skydda resurs nivå åtkomst till ditt lagrings konto
 
-  Hanterings planet består av de resurser som används för att hantera ditt lagrings konto. I det här avsnittet beskrivs Azure Resource Manager distributions modell och hur du använder rollbaserad Access Control (RBAC) för att kontrol lera åtkomsten till dina lagrings konton. Den behandlar också hantering av lagrings konto nycklar och hur du återskapar dem.
-* [Säkerhet för data planet](#data-plane-security) – skydda åtkomsten till dina data
+  Hanterings planet består av de åtgärder som används för att hantera ditt lagrings konto. I det här avsnittet beskrivs Azure Resource Manager distributions modell och hur du använder rollbaserad Access Control (RBAC) för att kontrol lera åtkomsten till dina lagrings konton. Den behandlar också hantering av lagrings konto nycklar och hur du återskapar dem.
 
-  I det här avsnittet ska vi titta på att tillåta åtkomst till de faktiska data objekten på ditt lagrings konto, till exempel blobbar, filer, köer och tabeller, med hjälp av signaturer för delad åtkomst och lagrade åtkomst principer. Vi kommer att avse SAS på både service nivå och konto nivå. Vi kommer också att se hur du begränsar åtkomsten till en speciell IP-adress (eller ett intervall med IP-adresser), hur du begränsar det protokoll som används för HTTPS och hur du återkallar en signatur för delad åtkomst utan att vänta tills den upphör att gälla.
+* [Nätverks säkerhet](#network-security) – skydda nätverks nivå åtkomst till ditt lagrings konto
+
+  Det här avsnittet beskriver hur du kan skydda åtkomsten på nätverks nivå till lagrings tjänsternas slut punkter. Den beskriver hur du kan använda lagrings brand väggen för att tillåta åtkomst till dina data från vissa virtuella nätverk eller IP-adressintervall. Det omfattar också användning av tjänstens slut punkter och privata slut punkter med lagrings konton.
+
+* [Auktorisering](#authorization) – auktorisera åtkomst till dina data
+
+  I det här avsnittet beskrivs åtkomst till data objekt i ditt lagrings konto, till exempel blobbar, filer, köer och tabeller, med hjälp av signaturer för delad åtkomst och lagrade åtkomst principer. Vi kommer att avse SAS på både service nivå och konto nivå. Vi kommer också att se hur du begränsar åtkomsten till en speciell IP-adress (eller ett intervall med IP-adresser), hur du begränsar det protokoll som används för HTTPS och hur du återkallar en signatur för delad åtkomst utan att vänta tills den upphör att gälla.
+
 * [Kryptering vid överföring](#encryption-in-transit)
 
-  I det här avsnittet beskrivs hur du skyddar data när du överför dem till eller från Azure Storage. Vi pratar om den rekommenderade användningen av HTTPS och kryptering som används av SMB 3,0 för Azure-filresurser. Vi tar också en titt på kryptering på klient sidan, vilket gör att du kan kryptera data innan de överförs till lagringen i ett klient program och dekryptera data när de har överförts från lagrings utrymmet.
+  I det här avsnittet beskrivs hur du skyddar data när du överför dem till eller från Azure Storage. Vi pratar om den rekommenderade användningen av HTTPS och kryptering som används av SMB 3,0 för Azure-filresurser. Vi kommer också att diskutera kryptering på klient sidan, vilket gör att du kan kryptera data före överföring till lagring och dekryptera data när de har överförts från lagrings utrymmet.
+
 * [Kryptering i vila](#encryption-at-rest)
 
   Vi kommer att prata om Kryptering för lagringstjänst (SSE), som nu aktive ras automatiskt för nya och befintliga lagrings konton. Vi kommer också att se hur du kan använda Azure Disk Encryption och utforska de grundläggande skillnaderna och fallen av disk kryptering jämfört med SSE jämfört med kryptering på klient sidan. Vi ska kort se FIPS-kompatibiliteten för amerikanska myndighets datorer.
+
 * Använda [Lagringsanalys](#storage-analytics) för att granska åtkomst till Azure Storage
 
   I det här avsnittet beskrivs hur du hittar information i Storage Analytics-loggarna för en begäran. Vi tar en titt på Real Storage Analytics-loggdata och se hur du fram om en begäran görs med lagrings konto nyckeln, med en signatur för delad åtkomst eller anonymt, och om den lyckades eller misslyckades.
+
 * [Aktivera webbläsarbaserade klienter med CORS](#cross-origin-resource-sharing-cors)
 
   Det här avsnittet handlar om hur du tillåter resurs delning mellan ursprung (CORS). Vi pratar om åtkomst mellan domäner och hur du hanterar det med de CORS-funktioner som är inbyggda i Azure Storage.
@@ -112,16 +122,16 @@ Lagrings konto nycklar är 512-bitars strängar som skapats av Azure och som til
 
 Varje lagrings konto har två nycklar som kallas "nyckel 1" och "nyckel 2" i [Azure Portal](https://portal.azure.com/) och i PowerShell-cmdletar. Dessa kan återskapas manuellt med hjälp av en av flera metoder, inklusive, men inte begränsat till att använda [Azure Portal](https://portal.azure.com/), PowerShell, Azure CLI eller program mässigt med hjälp av .net-lagrings klient biblioteket eller Azure Storage tjänster REST API.
 
-Det finns ett antal skäl för att återskapa dina lagrings konto nycklar.
+Det finns olika anledningar till att återskapa dina lagrings konto nycklar.
 
-* Du kan återskapa dem regelbundet av säkerhets skäl.
-* Du skulle återskapa dina lagrings konto nycklar om någon har hanterat att hacka i ett program och hämta nyckeln som var hårdkodad eller sparade i en konfigurations fil, vilket ger dem fullständig åtkomst till ditt lagrings konto.
-* Ett annat exempel är om ditt team använder ett Storage Explorer program som behåller lagrings konto nyckeln och en av team medlemmarna lämnar. Programmet fortsätter att fungera, vilket ger dem åtkomst till ditt lagrings konto när de har varit borta. Detta är faktiskt den primära orsaken som de skapade signaturer för delad åtkomst på konto nivå – du kan använda en SAS på konto nivå i stället för att lagra åtkomst nycklarna i en konfigurations fil.
+* Du kan återskapa dem med jämna mellanrum för säkerhet.
+* Du kan återskapa dina lagrings konto nycklar om ditt program eller din nätverks säkerhet komprometteras.
+* En annan instans för att återskapa nyckeln är när grupp medlemmar med åtkomst till nycklarna lämnas. Signaturer för delad åtkomst har utformats främst för att hantera det här scenariot. du bör dela en SAS-anslutningssträng på konto nivå eller token, i stället för att dela åtkomst nycklar, med de flesta användare eller program.
 
 #### <a name="key-regeneration-plan"></a>Plan för återskapande av nyckel
-Du vill inte bara återskapa den nyckel som du använder utan planering. Om du gör det kan du kapa all åtkomst till lagrings kontot, vilket kan orsaka större störningar. Det finns därför två nycklar. Du bör återskapa en nyckel i taget.
+Du bör inte återskapa en åtkomst nyckel som används utan planering. När du återskapar en snabb nyckel kan du blockera åtkomst till ett lagrings konto för befintliga program, vilket orsakar större störningar. Azure Storage konton innehåller två nycklar, så att du kan återskapa en nyckel i taget.
 
-Innan du återskapar nycklar, se till att du har en lista över alla dina program som är beroende av lagrings kontot, samt andra tjänster som du använder i Azure. Om du till exempel använder Azure Media Services som är beroende av ditt lagrings konto, måste du synkronisera om åtkomst nycklarna med medie tjänsten när du har återskapat nyckeln. Om du använder ett program, till exempel en lagrings Utforskare, behöver du även ange de nya nycklarna till dessa program. Om du har virtuella datorer vars VHD-filer lagras i lagrings kontot kommer de inte att påverkas av återskapande av lagrings konto nycklar.
+Innan du återskapar nycklar, se till att du har en lista över alla program som är beroende av lagrings kontot, samt andra tjänster som du använder i Azure. Om du till exempel använder Azure Media Services använda ditt lagrings konto måste du synkronisera om åtkomst nycklarna med medie tjänsten när du har återskapat nyckeln. Om du använder ett program, till exempel en lagrings Utforskare, måste du även tillhandahålla nya nycklar till dessa program. Om du har virtuella datorer vars VHD-filer lagras i lagrings kontot kommer de inte att påverkas av återskapande av lagrings konto nycklar.
 
 Du kan återskapa dina nycklar i Azure Portal. När nycklarna har återskapats kan de ta upp till 10 minuter att synkroniseras över lagrings tjänsterna.
 
@@ -135,11 +145,11 @@ Om du för närvarande använder nyckel 2 kan du använda samma process, men byt
 
 Du kan migrera över några dagar, ändra varje program till att använda den nya nyckeln och publicera det. När alla är klara bör du gå tillbaka och återskapa den gamla nyckeln så att den inte längre fungerar.
 
-Ett annat alternativ är att ange lagrings konto nyckeln i en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som en hemlighet och att dina program hämtar nyckeln därifrån. När du sedan återskapar nyckeln och uppdaterar den Azure Key Vault, behöver inte programmen omdistribueras eftersom de kommer att hämta den nya nyckeln från Azure Key Vault automatiskt. Observera att du kan få programmet att läsa nyckeln varje gång du behöver det, eller så kan du cachelagra det i minnet och om det Miss lyckas när du använder det, hämtar du nyckeln igen från Azure Key Vault.
+Ett annat alternativ är att ange lagrings konto nyckeln i en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som en hemlighet och att dina program hämtar nyckeln därifrån. När du sedan återskapar nyckeln och uppdaterar den Azure Key Vault, behöver inte programmen omdistribueras eftersom de kommer att hämta den nya nyckeln från Azure Key Vault automatiskt. Du kan låta programmet läsa nyckeln varje gång det behövs, eller så kan programmet cachelagra det i minnet och om det Miss lyckas när du använder det, hämtar du nyckeln igen från Azure Key Vault.
 
-Med Azure Key Vault lägger också till en annan säkerhets nivå för dina lagrings nycklar. Om du använder den här metoden kommer du aldrig att ha lagrings nyckeln hårdkodad i en konfigurations fil, vilket tar bort minimering från någon som får åtkomst till nycklarna utan någon speciell behörighet.
+Med Azure Key Vault lägger också till en annan säkerhets nivå för dina lagrings nycklar. Med hjälp av Key Vault kan du undvika att skriva lagrings nycklar i konfigurationsfiler för program. Det förhindrar också att nycklar exponeras för alla med åtkomst till dessa konfigurationsfiler.
 
-En annan fördel med att använda Azure Key Vault är att du också kan styra åtkomsten till dina nycklar med hjälp av Azure Active Directory. Det innebär att du kan bevilja åtkomst till fåtal för program som behöver hämta nycklar från Azure Key Vault och vet att andra program inte kommer att kunna komma åt nycklarna utan att ge dem behörighet.
+Azure Key Vault har också fördelen med att använda Azure AD för att kontrol lera åtkomsten till dina nycklar. Du kan bevilja åtkomst till de program som behöver hämta nycklar från Key Vault, utan att exponera dem för andra program som inte behöver åtkomst till nycklarna.
 
 > [!NOTE]
 > Microsoft rekommenderar att du bara använder en av nycklarna i alla dina program på samma tidpunkt. Om du använder nyckel 1 på vissa platser och nyckel 2 i andra kommer du inte att kunna rotera dina nycklar utan att några program förlorar åtkomst.
@@ -149,7 +159,35 @@ En annan fördel med att använda Azure Key Vault är att du också kan styra å
 * [Hantera inställningar för lagringskonton i Azure-portalen](storage-account-manage.md)
 * [Referens för REST-API för Azure Storage Resource Provider](https://msdn.microsoft.com/library/mt163683.aspx)
 
-## <a name="data-plane-security"></a>Säkerhet för data planet
+## <a name="network-security"></a>Nätverkssäkerhet
+Med nätverks säkerhet kan du begränsa åtkomsten till data i ett Azure Storage konto från Välj nätverk. Du kan använda Azure Storage brand vägg för att begränsa åtkomsten till klienter från vissa offentliga IP-adressintervall, välja virtuella nätverk (virtuella nätverk) på Azure eller till vissa Azure-resurser. Du kan också välja att skapa en privat slut punkt för ditt lagrings konto i VNet som behöver åtkomst och blockera all åtkomst via den offentliga slut punkten.
+
+Du kan konfigurera nätverks åtkomst reglerna för ditt lagrings konto via fliken [brand väggar och virtuella nätverk](storage-network-security.md) i Azure Portal. Med hjälp av lagrings brand väggen kan du neka åtkomst för offentlig Internet trafik och bevilja åtkomst till utvalda klienter baserat på de konfigurerade nätverks reglerna.
+
+Du kan också använda [privata slut punkter](../../private-link/private-endpoint-overview.md) för privat och säkert ansluta till ett lagrings konto från ett virtuellt nätverk med [privata länkar](../../private-link/private-link-overview.md).
+
+Lagrings brand Väggs regler gäller endast för den offentliga slut punkten för lagrings kontot. Under nätet som är värd för en privat slut punkt för ett lagrings konto får du implicit åtkomst till kontot när du godkänner skapandet av den privata slut punkten.
+
+> [!NOTE]
+> Lagrings brand Väggs reglerna gäller inte för lagrings hanterings åtgärder som utförs via Azure Portal och hanterings-API: et för Azure Storage.
+
+### <a name="access-rules-for-public-ip-address-ranges"></a>Åtkomst regler för offentliga IP-adressintervall
+Azure Storage brand väggen kan användas för att begränsa åtkomsten till ett lagrings konto från vissa offentliga IP-adressintervall. Du kan använda IP-adress regler för att begränsa åtkomsten till vissa Internetbaserade tjänster som kommunicerar på en fast offentlig IP-slutpunkt, eller för att välja lokala nätverk.
+
+### <a name="access-rules-for-azure-virtual-networks"></a>Åtkomst regler för virtuella Azure-nätverk
+Lagrings konton accepterar som standard anslutningar från klienter i ett nätverk. Du kan begränsa klient åtkomsten till data i ett lagrings konto till valda nätverk med hjälp av lagrings brand väggen. Med [tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md) kan trafik dirigeras från ett virtuellt Azure-nätverk till lagrings kontot. 
+
+### <a name="granting-access-to-specific-trusted-resource-instances"></a>Bevilja åtkomst till vissa betrodda resurs instanser
+Du kan tillåta att en [delmängd av Azure-betrodda tjänster](storage-network-security.md#trusted-microsoft-services) får åtkomst till lagrings kontot genom brand väggen med stark autentisering baserat på tjänst resurs typ eller en resurs instans.
+
+För de tjänster som har stöd för resurs instans-baserad åtkomst via lagrings brand väggen kan endast den valda instansen komma åt data i lagrings kontot. I det här fallet måste tjänsten ha stöd för resurs instans autentisering med systemtilldelade [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md).
+
+### <a name="using-private-endpoints-for-securing-connections"></a>Använda privata slut punkter för att skydda anslutningar
+Azure Storage stöder privata slut punkter som ger säker åtkomst till lagrings kontot från ett virtuellt Azure-nätverk. Privata slut punkter tilldelar en privat IP-adress från ditt VNet-adressutrymme till lagrings tjänsten. När du använder privata slut punkter omdirigerar lagrings anslutnings strängen trafiken som är avsedd för lagrings kontot till den privata IP-adressen. Anslutningen mellan den privata slut punkten och lagrings kontot använder en privat länk. Med privata slut punkter kan du blockera exfiltrering av data från ditt VNet.
+
+Lokala nätverk som är anslutna via VPN eller [ExpressRoute](../../expressroute/expressroute-locations.md) privat peering och andra peer-kopplade virtuella nätverk kan också komma åt lagrings kontot över den privata slut punkten. Den privata slut punkten för dina lagrings konton kan skapas i ett VNet i vilken region som helst, vilket möjliggör en säker global räckvidd. Du kan också skapa privata slut punkter för lagrings konton i andra [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) klienter.
+
+## <a name="authorization"></a>Autentisering
 Säkerhet för data planet avser de metoder som används för att skydda de data objekt som lagras i Azure Storage – blobbar, köer, tabeller och filer. Vi har sett metoder för att kryptera data och säkerhet vid överföring av data, men hur gör du för att kontrol lera åtkomsten till objekten?
 
 Du har tre alternativ för att auktorisera åtkomst till data objekt i Azure Storage, inklusive:
@@ -159,8 +197,6 @@ Du har tre alternativ för att auktorisera åtkomst till data objekt i Azure Sto
 - Använd signaturer för delad åtkomst för att ge kontrollerade behörigheter till vissa data objekt under en angiven tids period.
 
 För Blob Storage kan du dessutom bevilja offentlig åtkomst till dina blobbar genom att ange åtkomst nivån för den behållare som innehåller blobarna i enlighet därmed. Om du anger åtkomst för en behållare till BLOB eller container får den offentlig Läs behörighet för blobarna i behållaren. Det innebär att alla med en URL som pekar på en BLOB i den behållaren kan öppna den i en webbläsare utan att använda en signatur för delad åtkomst eller med lagrings konto nycklarna.
-
-Förutom att begränsa åtkomst via auktorisering kan du också använda [brand väggar och virtuella nätverk](storage-network-security.md) för att begränsa åtkomsten till lagrings kontot baserat på nätverks regler.  Med den här metoden kan du neka åtkomst till offentlig Internet trafik och endast ge åtkomst till vissa virtuella Azure-nätverk eller offentliga IP-adressintervall.
 
 ### <a name="storage-account-keys"></a>Lagringskontonycklar
 Lagrings konto nycklar är 512-bitars strängar som skapats av Azure och som, tillsammans med lagrings kontots namn, kan användas för att komma åt de data objekt som lagras i lagrings kontot.
@@ -236,6 +272,11 @@ Mer detaljerad information om hur du använder signaturer för delad åtkomst oc
     Den här artikeln innehåller exempel på hur du kan använda en SAS på service nivå med blobbar, köa meddelanden, tabell intervall och filer.
   * [Skapa en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Skapa ett konto SAS](https://msdn.microsoft.com/library/mt584140.aspx)
+
+* Det här är en själv studie kurs om hur du använder .NET-klient biblioteket för att skapa signaturer för delad åtkomst och lagrade åtkomst principer.
+  * [Använda signaturer för delad åtkomst (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
+
+    Den här artikeln innehåller en förklaring av SAS-modellen, exempel på signaturer för delad åtkomst och rekommendationer för bästa praxis att använda SAS. Dessutom behandlas åter kallelsen av den beviljade behörigheten.
 
 * Autentisering
 

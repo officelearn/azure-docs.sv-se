@@ -1,17 +1,17 @@
 ---
-title: Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage utdata (för hands version)
+title: Autentisera BLOB-utdata med hanterad identitets Azure Stream Analytics
 description: Den här artikeln beskriver hur du använder hanterade identiteter för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage-utdata.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 2bde1e8556fb1255e27595630e061f6b80870ce1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4215dc85da6d507b08f23cf248044ea807fe5319
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278699"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935126"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage utdata (för hands version)
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du aktiverar hanterad identitet för BLOB-utdata fö
 
    ![Konfigurera Stream Analytics hanterad identitet](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
 
-2. I fönstret utdata-egenskaper i Azure Blob Storage utgående mottagare väljer du List rutan autentiseringsläge och väljer **hanterad identitet**. Information om andra egenskaper för utdata finns i [förstå utdata från Azure Stream Analytics](./stream-analytics-define-outputs.md). När du är klar klickar du på **spara**.
+2. I fönstret utdata-egenskaper i Azure Blob Storage utgående mottagare väljer du List rutan autentiseringsläge och väljer **hanterad identitet**. Information om andra egenskaper för utdata finns i [förstå utdata från Azure Stream Analytics](./stream-analytics-define-outputs.md). Klicka på **Spara**när du är färdig.
 
    ![Konfigurera Azure Blob Storage-utdata](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
 

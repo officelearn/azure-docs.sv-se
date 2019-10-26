@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: e4e65f38f71b458c34a6747c434ebcd1d8a1b350
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264433"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931577"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabb start: formulär tolkens klient bibliotek för .NET
 
@@ -43,7 +43,7 @@ Använd formulär tolkens klient bibliotek för .NET för att:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln med namnet `FORM_RECOGNIZER_KEY`.
+När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln och slut punkten, med namnet `FORM_RECOGNIZER_KEY` respektive `FORM_RECOGNIZER_ENDPOINT`.
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
 
@@ -120,7 +120,6 @@ De här kodfragmenten visar hur du utför följande uppgifter med formulär tolk
 
 Innan du definierar några metoder lägger du till följande variabel definitioner överst i **program** klassen. Du måste fylla i några av variablerna själv. 
 
-* Du kan hitta tjänstens slut punkts värde i **översikts** avsnittet i Azure Portal. 
 * Om du vill hämta SAS-URL: en för dina utbildnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det ska ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Om du behöver ett exempel formulär för att analysera kan du använda en av filerna under mappen **test** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451). I den här guiden används endast PDF-formulär.
 

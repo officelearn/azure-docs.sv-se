@@ -8,39 +8,39 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56360238db8632e74a95c057a7fe643b5cea3151
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 42a97646a6881ead61ceeaff3fe8c0c8d73d6057
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206839"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929399"
 ---
-# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Snabbstart: Skapa en iOS-app med Azure Spatial Anchors i antingen Swift eller Objective-C
+# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Snabb start: skapa en iOS-app med molnbaserade ankare, antingen i Swift eller mål-C
 
-I den här snabbstarten beskrivs hur du skapar en iOS-app med hjälp av [Azure Spatial Anchors](../overview.md) i antingen Swift eller Objective-C. Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa Mixed Reality-upplevelser med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARKit iOS-app som kan spara och återkalla en spatial fästpunkt.
+I den här snabbstarten beskrivs hur du skapar en iOS-app med hjälp av [Azure Spatial Anchors](../overview.md) i antingen Swift eller Objective-C. Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARKit iOS-app som kan spara och återkalla en spatial fästpunkt.
 
 Du lär dig följande:
 
 > [!div class="checklist"]
 > * Skapa ett Spatial Anchors-konto
-> * Konfigurera kontoidentifierare och kontonyckel för Spatial Anchors
+> * Konfigurera konto-ID och kontonyckel för Spatial Anchors
 > * Distribuera och köra på en iOS-enhet
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 - En utvecklaraktiverad macOS-dator med <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10+</a> och <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installerat.
-- Git installerade via HomeBrew. Ange följande kommando i en enda rad terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git`.
+- Git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git`.
 - En utvecklaraktiverad <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit-kompatibel</a> iOS-enhet.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="open-the-sample-project"></a>Öppna exempelprojektet
 
-Använda terminalen för att utföra följande åtgärder.
+Använd terminalen för att utföra följande åtgärder.
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -68,6 +68,9 @@ Kör `pod install --repo-update` för att installera CocoaPods för projektet.
 
 Öppna nu `.xcworkspace` i Xcode.
 
+> [!NOTE]
+> Se fel söknings stegen [här](#cocoapods-issues-on-macos-catalina-1015) om du har CocoaPod problem efter uppgraderingen till MacOS Catalina (10,15).
+
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
 ```bash
@@ -82,9 +85,9 @@ open ./SampleObjC.xcworkspace
 
 ---
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
-Nästa steg är att konfigurera appen att använda ditt konto-ID och kontonyckeln. Du kopierade dem i en textredigerare när [konfigurerar Spatial ankare resursen](#create-a-spatial-anchors-resource).
+Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
@@ -92,7 +95,7 @@ Nästa steg är att konfigurera appen att använda ditt konto-ID och kontonyckel
 
 Leta upp fältet `spatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
-Leta upp fältet `spatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
+Leta upp fältet `spatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
 
 # <a name="objective-ctabopenproject-objc"></a>[Objective-C](#tab/openproject-objc)
 
@@ -100,7 +103,7 @@ Leta upp fältet `spatialAnchorsAccountId` och ersätt `Set me` med kontoidentif
 
 Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
-Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
+Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
 
 ---
 
@@ -119,9 +122,21 @@ Välj **Build and then run the current scheme** (Skapa och kör sedan det aktuel
 
 I Xcode stoppar du appen genom att trycka på **Stoppa**.
 
+## <a name="troubleshooting"></a>Felsöka
+
+### <a name="cocoapods-issues-on-macos-catalina-1015"></a>CocoaPods problem på macOS Catalina (10,15)
+
+Om du nyligen har uppdaterat till macOS Catalina (10,15) och hade CocoaPods installerat i förväg, kan CocoaPods vara i ett trasigt tillstånd och inte konfigurera poddar och `.xcworkspace` projektfiler korrekt. För att lösa det här problemet måste du installera om CocoaPods genom att köra följande kommandon:
+
+```shell
+brew update
+brew install cocoapods --build-from-source
+brew link --overwrite cocoapods
+```
+
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Självstudie: Dela Spatial Anchors mellan olika enheter](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Självstudie: dela spatiala ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)

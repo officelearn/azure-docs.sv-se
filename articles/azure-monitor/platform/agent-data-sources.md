@@ -1,24 +1,18 @@
 ---
 title: Konfigurera agent data källor i Azure Monitor | Microsoft Docs
 description: Data källor definierar de loggdata som Azure Monitor samlar in från agenter och andra anslutna källor.  I den här artikeln beskrivs hur Azure Monitor använder data källor, förklarar hur du konfigurerar dem och ger en översikt över de olika data källor som är tillgängliga.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: f4e86a3a7b6a0781ea6c020bd0afc9364b7132f7
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.date: 11/28/2018
+ms.openlocfilehash: f7960adca1c3665dbf8737cb10a898c58b1542ec
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839351"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932824"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Agent data källor i Azure Monitor
 De data som Azure Monitor samlar in från agenter definieras av de data källor som du konfigurerar.  Data från agenter lagras som [loggdata](data-platform-logs.md) med en uppsättning poster.  Varje data källa skapar poster av en viss typ med varje typ som har en egen uppsättning egenskaper.
@@ -29,7 +23,7 @@ De data som Azure Monitor samlar in från agenter definieras av de data källor 
 I följande tabell visas de agent data källor som för närvarande är tillgängliga i Azure Monitor.  Varje har en länk till en separat artikel som innehåller information om data källan.   Den innehåller också information om deras metod och frekvens för insamling. 
 
 
-| Datakälla | Plattform | Log Analytics-agent | Operations Manager agent | Azure-lagring | Operations Manager krävs. | Operations Manager agent data som skickas via hanterings gruppen | Insamlingsfrekvens |
+| Data Källa | Plattform | Log Analytics-agent | Operations Manager agent | Azure Storage | Operations Manager krävs. | Operations Manager agent data som skickas via hanterings gruppen | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Anpassade loggar](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | vid ankomsten |
 | [Anpassade loggar](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | vid ankomsten |

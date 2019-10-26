@@ -1,24 +1,18 @@
 ---
 title: Hantera Azure Log Analytics-agenten | Microsoft Docs
 description: I den här artikeln beskrivs de olika hanterings aktiviteter som du vanligt vis utför under livs cykeln för den Log Analytics Windows-eller Linux-Agent som distribueras på en dator.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/14/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 0c128aaf8102b3072b6a63c80ea860ceefbf5124
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 06/14/2019
+ms.openlocfilehash: 8dec91a3987aed978bb088d1aeab48a6fd0f9fb4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67146296"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932792"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantera och underhålla Log Analytics agent för Windows och Linux
 
@@ -36,19 +30,19 @@ Log Analytics agent för Windows och Linux kan uppgraderas till den senaste vers
 
 ### <a name="upgrade-windows-agent"></a>Uppgradera Windows-agent 
 
-Om du vill uppdatera agenten på en virtuell Windows-dator till den senaste versionen som inte är installerad med Log Analytics VM-tillägget, kan du antingen köra från kommando tolken, skriptet eller någon annan Automation\<-\>lösning eller genom att använda MMASetup-Platform. msi-installationen Konfigurationsguide.  
+Om du vill uppdatera agenten på en virtuell Windows-dator till den senaste versionen som inte installerats med Log Analytics VM-tillägget, kan du antingen köra från kommando tolken, skriptet eller någon annan Automation-lösning eller genom att använda installations guiden för MMASetup-\<Platform\>. msi.  
 
 Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytics arbets yta genom att utföra följande steg.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
+2. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
 3. I listan med Log Analytics arbets ytor väljer du arbets ytan.
 
 4. I arbets ytan Log Analytics väljer du **Avancerade inställningar**och väljer sedan **anslutna källor**och slutligen **Windows-servrar**.
 
-5. På sidan **Windows-servrar** väljer du lämplig version av **Windows** -agenten som ska laddas ned beroende på processor arkitekturen i Windows-operativsystemet.
+5. På sidan **Windows-servrar** väljer du lämplig version av **Windows-agenten** som ska laddas ned beroende på processor arkitekturen i Windows-operativsystemet.
 
 >[!NOTE]
 >Under uppgraderingen av Log Analytics agent för Windows, stöder den inte konfiguration eller omkonfiguration av en arbets yta att rapportera till. Om du vill konfigurera agenten måste du följa en av de metoder som stöds under [lägga till eller ta bort en arbets yta](#adding-or-removing-a-workspace).
@@ -58,7 +52,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. Kör **MMASetup-\<Platform\>. exe** för att starta installations guiden.
+2. Starta installations guiden genom att köra **MMASetup-\<platform\>. exe** .
 
 3. Klicka på **Nästa**på den första sidan i installations guiden.
 
@@ -72,7 +66,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. Om du vill extrahera installationsfilerna för agenten, kan du köra `MMASetup-<platform>.exe /c` från en upphöjd kommando tolk och uppmana dig att ange sökvägen för att extrahera filer till. Alternativt kan du ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Full Path>`.
+2. Om du vill extrahera installationsfilerna för agenten kör du `MMASetup-<platform>.exe /c` i en upphöjd kommando tolk och du uppmanas att ange sökvägen för att extrahera filer till. Alternativt kan du ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Full Path>`.
 
 3. Kör följande kommando, där D:\ är platsen för uppgraderings logg filen.
 
@@ -82,7 +76,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 ### <a name="upgrade-linux-agent"></a>Uppgradera Linux-agenten 
 
-Uppgradering från tidigare versioner (> 1.0.0-47) stöds. Genom att utföra installationen med `--upgrade` kommandot uppgraderas alla komponenter i agenten till den senaste versionen.
+Uppgradering från tidigare versioner (> 1.0.0-47) stöds. Om du utför installationen med kommandot `--upgrade` uppgraderas alla komponenter i agenten till den senaste versionen.
 
 Kör följande kommando för att uppgradera agenten.
 
@@ -137,7 +131,7 @@ $mma.ReloadConfiguration()
 ```
 
 >[!NOTE]
->Om du har använt kommando raden eller skriptet tidigare för att installera eller konfigurera agenten `EnableAzureOperationalInsights` ersattes av `AddCloudWorkspace` och `RemoveCloudWorkspace`.
+>Om du har använt kommando raden eller skriptet tidigare för att installera eller konfigurera agenten har `EnableAzureOperationalInsights` ersatts av `AddCloudWorkspace` och `RemoveCloudWorkspace`.
 >
 
 ### <a name="linux-agent"></a>Linux-Agent
@@ -244,14 +238,14 @@ Använd någon av följande procedurer för att avinstallera Windows-eller Linux
 3. Klicka på **Microsoft Monitoring Agent**i **program och funktioner**, klicka på **Avinstallera**och klicka sedan på **Ja**.
 
 >[!NOTE]
->Installations guiden för agenten kan också köras genom att dubbelklicka på **MMASetup\<-\>Platform. exe**, som är tillgänglig för nedladdning från en arbets yta i Azure Portal.
+>Installations guiden för agenten kan också köras genom att dubbelklicka på **\<MMASetup platform\>. exe**, som är tillgänglig för nedladdning från en arbets yta i Azure Portal.
 
 #### <a name="uninstall-from-the-command-line"></a>Avinstallera från kommando raden
 Den hämtade filen för agenten är ett fristående installations paket som skapas med IExpress. Installations programmet för agenten och de filer som stöds finns i paketet och måste extraheras för att avinstallationen ska slutföras med kommando raden som visas i följande exempel.
 
 1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. Om du vill extrahera installationsfilerna för agenten, kan du köra `extract MMASetup-<platform>.exe` från en upphöjd kommando tolk och uppmana dig att ange sökvägen för att extrahera filer till. Alternativt kan du ange sökvägen genom att skicka argumenten `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Mer information om kommando rads växlar som stöds av IExpress finns i [kommando rads växlar för IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) och uppdatera sedan exemplet så att det passar dina behov.
+2. Om du vill extrahera installationsfilerna för agenten kör du `extract MMASetup-<platform>.exe` i en upphöjd kommando tolk och du uppmanas att ange sökvägen för att extrahera filer till. Alternativt kan du ange sökvägen genom att skicka argumenten `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Mer information om kommando rads växlar som stöds av IExpress finns i [kommando rads växlar för IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) och uppdatera sedan exemplet så att det passar dina behov.
 
 3. Skriv `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`i prompten.
 
@@ -292,14 +286,14 @@ Utför följande steg för att konfigurera Log Analytics agent för Linux att ra
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-1. Redigera filen`/etc/opt/omi/conf/omiserver.conf`
+1. Redigera filen `/etc/opt/omi/conf/omiserver.conf`
 
-2. Se till att raden som börjar `httpsport=` med definierar port 1270. Till exempel:`httpsport=1270`
+2. Kontrol lera att den rad som börjar med `httpsport=` definierar port 1270. Till exempel: `httpsport=1270`
 
-3. Starta om OMI-servern:`sudo /opt/omi/bin/service_control restart`
+3. Starta om OMI-servern: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [fel sökning av Linux](agent-linux-troubleshoot.md) -agenten om det uppstår problem när du installerar eller hanterar Linux-agenten.
+- Granska [fel sökning av Linux-agenten](agent-linux-troubleshoot.md) om det uppstår problem när du installerar eller hanterar Linux-agenten.
 
-- Granska [fel sökning av Windows](agent-windows-troubleshoot.md) -agenten om det uppstår problem när du installerar eller hanterar Windows-agenten.
+- Granska [fel sökning av Windows-agenten](agent-windows-troubleshoot.md) om det uppstår problem när du installerar eller hanterar Windows-agenten.

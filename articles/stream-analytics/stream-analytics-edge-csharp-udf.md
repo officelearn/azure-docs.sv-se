@@ -1,5 +1,5 @@
 ---
-title: Skriv C# användardefinierade funktioner för Azure Stream Analytics Edge-jobb i Visual Studio (för hands version)
+title: Skriv C# användardefinierade funktioner för Azure Stream Analytics Edge-jobb
 description: Lär dig hur du skriver användardefinierade funktioner med c# för Stream Analytics Edge-jobb i Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -9,14 +9,14 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: cadc603a94d5d17ad2df419f8507c37f9e3272f8
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2ddb5f6c57c49b33c992b13f38c969cbc5e91225
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173312"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925627"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Självstudie: Skriva en C#-användardefinierad funktion för ett Azure Stream Analytics Edge-jobb (förhandsversion)
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Självstudie: skriva en C# användardefinierad funktion för Azure Stream Analytics Edge-jobb (förhands granskning)
 
 Med användardefinierade funktioner med C# (UDF skapas i Visual Studio) kan du utöka Azure Stream Analytics-frågespråket med dina egna funktioner. Du kan återanvända befintlig kod (inklusive DLL-filer) och använda matematiska eller komplex logik med C#. Det finns tre sätt att implementera UDF:er: CodeBehind-filer i ett Stream Analytics-projekt, UDF:er från ett lokalt C#-projekt eller UDF:er från ett befintligt paket från ett lagringskonto. Den här självstudien använder metoden CodeBehind för att implementera en grundläggande C#-funktion. UDF-funktionen för Stream Analytics Edge-jobb är en förhandsversion och bör inte användas i produktionsarbetsbelastningar.
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Testa ditt Stream Analytics Edge-jobb lokalt.
 > * Publicera ditt Edge-jobb på Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar bör du kontrollera att du har slutfört följande krav:
 
@@ -62,7 +62,7 @@ Containern du skapar används för att lagra kompilerade C#-paketet och distribu
     |**Inställning**  |**Föreslaget värde**  |
     |---------|---------|
     |Sammansättningskälla  |  Referens för det lokala projektet eller CodeBehind   |
-    |Resource  |  Välj data från det aktuella kontot   |
+    |Resurs  |  Välj data från det aktuella kontot   |
     |Prenumeration  |  Välj din prenumeration.   |
     |Lagringskonto  |  Välj ditt lagringskonto.   |
     |Container  |  Välj den container som du skapade i ditt storage-konto.   |

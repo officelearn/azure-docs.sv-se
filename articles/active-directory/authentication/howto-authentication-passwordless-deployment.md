@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea4b8ea98365ec13f7f027215a75b9d79ea5c54e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6996b6163c1d5a2a4747093743a937dfd9eb7d4f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453139"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933125"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Slutför en distribution av lösenordsskyddad autentisering
 
@@ -185,7 +185,7 @@ Följande är exempel test fall för lösen ords utan autentisering med säkerhe
 | Användaren kan logga in med FIDO2-enheten (1809) | Användaren kan välja säkerhets nyckel från inloggnings fönstret och logga in. |
 | Användaren kan registrera FIDO2-enheten (1903) | Användaren kan registrera FIDO2-enheten på Inställningar > Konton > inloggning alternativ > säkerhets nyckel |
 | Användaren kan återställa FIDO2-enheten (1903) | Användaren kan återställa FIDO2-enheten på Inställningar > Konton > inloggning alternativ > säkerhets nyckel |
-| Användaren kan logga in med FIDO2-enheten (1809) | Användaren kan välja säkerhets nyckel från inloggnings fönstret och logga in. |
+| Användaren kan logga in med FIDO2-enheten (1903) | Användaren kan välja säkerhets nyckel från inloggnings fönstret och logga in. |
 
 **Lösen ords lös FIDO logga in på Azure AD-webbappar**
 

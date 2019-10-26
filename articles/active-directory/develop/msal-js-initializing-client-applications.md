@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24d9d79bf34325ec033b6ae6847579fa51769ac
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: c4cd3e2ab18c05c8adfda1a54ea4f7820916eab5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803096"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934890"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klient program med MSAL. js
 I den här artikeln beskrivs hur du initierar Microsoft Authentication Library för Java Script (MSAL. js) med en instans av ett användar agent program. Användar agent programmet är en form av ett offentligt klient program där klient koden körs i en användar agent, till exempel en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig. Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
@@ -91,6 +91,7 @@ export type SystemOptions = {
     logger?: Logger;
     loadFrameTimeout?: number;
     tokenRenewalOffsetSeconds?: number;
+    navigateFrameWait?: number;
 };
 
 // Developer App Environment Support
@@ -139,6 +140,8 @@ Nedan visas den totala uppsättningen konfigurerbara alternativ som stöds för 
 - **loadFrameTimeout**: valfritt.  Antalet millisekunder av inaktivitet innan ett svar på förnyelse av en token från Azure AD bör anses vara tids gränsen. Standardvärdet är 6 sekunder.
 
 - **tokenRenewalOffsetSeconds**: valfritt. Antalet millisekunder som anger det fönster som offset krävde för att förnya token innan det går ut. Standardvärdet är 300 millisekunder.
+
+- **navigateFrameWait**: valfritt. Antalet millisekunder som anger vänte tiden innan dolda iframes navigerar till sitt mål. Standardvärdet är 500 millisekunder.
 
 Dessa kan endast användas för att skickas ned från MSAL-biblioteket:
 - **unprotectedResources**: valfritt.  Matris med URI: er som är oskyddade resurser. MSAL kommer inte att koppla en token till utgående begär Anden som har dessa URI: er. Standardvärdet är `null`.

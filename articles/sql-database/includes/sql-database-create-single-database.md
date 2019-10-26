@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: d4c426c5fe31f8fc2bfaf4697c05456124cafcb1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff5505c2cb35d088565773e8d0ba01e8abb4b8c3
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099014"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933240"
 ---
 I det här steget ska du skapa en Azure SQL Database enskild databas. 
 
@@ -19,7 +19,7 @@ I det här steget ska du skapa en Azure SQL Database enskild databas.
 >
 > Mer information finns i [skapa en brand Väggs regel på databas nivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa vilken IP-adress som används för brand Väggs regeln på server nivå för datorn se [skapa en brand vägg på server nivå](../sql-database-server-level-firewall-rule.md).  
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
@@ -31,18 +31,18 @@ Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
 3. På fliken **grundläggande** i avsnittet **projekt information** skriver eller väljer du följande värden:
 
-   - **Prenumeration**: Välj rätt prenumeration i den nedrullningsbara listrutan om den inte visas.
-   - **Resursgrupp**: Välj **Skapa ny**, Skriv `myResourceGroup`och välj **OK**.
+   - **Prenumeration**: list rutan och välj rätt prenumeration om den inte visas.
+   - **Resurs grupp**: Välj **Skapa ny**, skriv `myResourceGroup`och välj **OK**.
 
      ![Ny SQL-databas – fliken grundläggande](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
 4. I avsnittet **databas information** skriver eller väljer du följande värden:
 
-   - **Databasnamn**: Ange `mySampleDatabase`.
+   - **Databas namn**: Ange `mySampleDatabase`.
    - **Server**: Välj **Skapa ny**, ange följande värden och välj sedan **Välj**.
-       - **Servernamn**: Skriv `mysqlserver`; tillsammans med vissa siffror för unikhet.
-       - **Inloggning för serveradministratör**: Skriv `azureuser`.
-       - **Lösenord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
+       - **Server namn**: typ `mysqlserver`; tillsammans med en del siffror för unikhet.
+       - **Inloggning för Server administratör**: Skriv `azureuser`.
+       - **Lösen ord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
        - **Plats**: Välj en plats i list rutan, till exempel `West US`.
 
          ![Ny server](../media/sql-database-get-started-portal/new-server.png)
@@ -59,12 +59,12 @@ Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
      ![Etablerade Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Granska inställningarna för **Max virtuella kärnor**, **min virtuella kärnor**, AutoPause **Delay**och **data Max storlek**. Ändra dem efter behov.
+   - Granska inställningarna för **Max virtuella kärnor**, **min virtuella kärnor**, **AutoPause Delay**och **data Max storlek**. Ändra dem efter behov.
    - Godkänn villkoren för för hands versionen och klicka på **OK**.
    - Välj **Använd**.
 
 5. Välj fliken **ytterligare inställningar** . 
-6. I avsnittet **data källa** , under **Använd befintliga data**, väljer `Sample`du.
+6. I avsnittet **data källa** , under **Använd befintliga data**, väljer du `Sample`.
 
    ![Ytterligare SQL DB-inställningar](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
@@ -142,6 +142,15 @@ Skapa en resurs grupp och en enkel databas med PowerShell.
    $database
    ```
 
+Den här delen av artikeln använder följande PowerShell-cmdlets:
+
+| Kommando | Anteckningar |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brand Väggs regel för en logisk server. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en ny Azure SQL Database enskild databas. | 
+
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Skapa en resurs grupp och en enkel databas med AZ CLI.
@@ -207,5 +216,16 @@ Skapa en resurs grupp och en enkel databas med AZ CLI.
       --family Gen5 \
       --capacity 2
    ```
+
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+
+| Kommando | Anteckningar |
+|---|---|
+| [AZ-konto uppsättning](/cli/azure/account?view=azure-cli-latest#az-account-set) | Anger att en prenumeration är den aktuella aktiva prenumerationen. | 
+| [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
+| [AZ SQL Server-brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule) | Skapar en servers brand Väggs regler. | 
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Skapar en databas. | 
+
 
 ---

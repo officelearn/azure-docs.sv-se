@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Moderera produktbilder för e-handel – Content Moderator'
+title: 'Självstudie: medelhög produkt avbildning för e-handel – Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: Konfigurera ett program för att analysera och klassificera produkt avbildningar med angivna etiketter (med Azure Visuellt innehåll och Custom Vision). Tagga olämpliga bilder för att granskas ytterligare (med Azure Content Moderator).
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b118a509f72af2146abf854b881fa34d8de302a1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564922"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936039"
 ---
-# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Självstudier: Moderera produktbilder för e-handel med Azure Content Moderator
+# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Självstudie: medelhög produkt avbildning för e-handel med Azure Content Moderator
 
 I den här självstudien får du lära dig hur du använder Azure Cognitive Services, inklusive Content Moderator, för att klassificera och ändra produkt avbildningar för ett e-handelsscenario. Du ska använda visuellt innehåll och Custom vision för att lägga till taggar (etiketter) till bilder, och sedan skapar du en grupp granskning som kombinerar Content moderator dator inlärnings tekniker med mänsklig gransknings grupp för att tillhandahålla ett intelligent moderator system.
 
@@ -34,7 +34,7 @@ Den fullständiga exempelkoden är tillgänglig på lagringsplatsen [Samples eCo
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator-tjänsten och få din nyckel.
 - En prenumerationsnyckel för visuellt innehåll (samma instruktioner som ovan).
@@ -65,7 +65,9 @@ I den här självstudien används tre kognitiva tjänster; Därför krävs tre m
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-Du måste uppdatera `___Key` fälten med värdena för dina prenumerations nycklar (du kommer `CustomVisionKey` igång senare) och du `___Uri` kan behöva ändra fälten så att de innehåller rätt regions identifierare. Fyll i `YOURTEAMID`-delen av fältet `ReviewUri` med ID:t för granskningsteamet som du skapade tidigare. Du kommer att fylla i den sista delen av `CustomVisionUri` fältet senare.
+Du måste uppdatera `___Key` fält med värdena för dina prenumerations nycklar och du måste ändra `___Uri` fälten till rätt slut punkts-URL: er (du får Custom Vision nyckeln och slut punkten senare). Du hittar dessa värden på **snabb start** -flikarna för varje Azure-resurs. Fyll i `YOURTEAMID`-delen av fältet `ReviewUri` med ID:t för granskningsteamet som du skapade tidigare. Du kommer att fylla i den sista delen av `CustomVisionUri` fältet senare.
+
+[!INCLUDE [subdomains note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="primary-method-calls"></a>Primära metodanrop
 
@@ -91,7 +93,7 @@ Sedan kan du titta på metoden **EvaluateCustomVisionTags** som klassificerar de
 
 ![Custom Vision-webbsida med inlärningsbilder av pennor, leksaker och flaggor](images/tutorial-ecommerce-custom-vision.PNG)
 
-När du har tränat klassificeraren kan du hämta URL: en för förutsägelse-och förutsägelse slut punkt (se [Hämta URL-adressen och förutsägelse nyckeln](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) om du behöver hjälp med att hämta dem) och `CustomVisionKey` tilldela `CustomVisionUri` dessa värden till dina respektive fält. Metoden använder dessa värden för att fråga klassificeraren. Om klassificeraren hittar en eller flera av de anpassade taggarna i bilden ställer den här metoden in de motsvarande värdena i matrisen **ReviewTags** på **True**.
+När du har tränat klassificeraren kan du hämta URL: en för förutsägelse-och förutsägelse slut punkt (se [Hämta URL-adressen och förutsägelse nyckeln](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) om du behöver hjälp med att hämta dem) och tilldela dessa värden till `CustomVisionKey` respektive `CustomVisionUri` fält. Metoden använder dessa värden för att fråga klassificeraren. Om klassificeraren hittar en eller flera av de anpassade taggarna i bilden ställer den här metoden in de motsvarande värdena i matrisen **ReviewTags** på **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

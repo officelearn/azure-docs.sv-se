@@ -1,34 +1,34 @@
 ---
-title: Snabbstart för att lära dig hur du använder Azure SignalR Service med ASP.NET
-description: En Snabbstart för Azure SignalR Service för att skapa en chattrum med ASP.NET framework.
+title: Snabb start för att lära dig att använda Azure SignalR-tjänsten med ASP.NET
+description: En snabb start för att använda Azure SignalR-tjänsten för att skapa ett chattrum med ASP.NET Framework.
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: 2020ee02d236ca13431adb736d9f48171d33b4f3
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 8dfb74fc941a9bb6d235093287ac47983c0e0564
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147424"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931829"
 ---
-# <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Snabbstart: Skapa en chattrum med ASP.NET och SignalR Service
+# <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Snabb start: skapa ett chattrum med ASP.NET och SignalR-tjänsten
 
-Azure SignalR Service baseras på [SignalR för ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), vilket är **inte** 100% kompatibel med ASP.NET SignalR. Azure SignalR Service implementerats nytt ASP.NET SignalR data protocol baserat på de senaste ASP.NET Core-teknikerna. När du använder Azure SignalR Service för ASP.NET SignalR kan vissa ASP.NET SignalR-funktioner stöds inte längre, till exempel Azure SignalR titta inte meddelanden när klienten återansluter. Alltid ramens transport- och JSONP är dessutom inte support. Vissa ändringar i koden och rätt version av beroende bibliotek krävs för att göra ASP.NET SignalR program fungerar med SignalR Service. 
+Azure SignalR service baseras på [SignalR för ASP.NET Core 2,0](https://docs.microsoft.com/aspnet/core/signalr/introduction), som **inte** är 100% kompatibel med ASP.net-signalerare. Azure SignalR service har återimplementerat ASP.NET SignalR data Protocol baserat på de senaste ASP.NET Core teknikerna. När du använder Azure SignalR-tjänsten för ASP.NET-signaler, stöds inte längre vissa ASP.NET-signaler-funktioner, till exempel kan inte Azure-signaler spela upp meddelanden igen när klienten återansluter. Dessutom stöds inte alltid-och JSONP för alltid-ramar. Vissa kod ändringar och rätt version av beroende bibliotek krävs för att göra ASP.NET SignalR-program fungera med SignalR-tjänsten. 
 
-Referera till den [version skillnader doc](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) för en fullständig lista över funktionsjämförelse mellan ASP.NET SignalR och ASP.NET Core SignalR.
+Se [versions skillnaders dokumentet](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) för en fullständig lista över funktions jämförelser mellan ASP.net-signalerare och ASP.net Core signalerare.
 
-I den här snabbstarten får du lära dig hur du kommer igång med ASP.NET och Azure SignalR Service för en liknande [chattrum programmet](./signalr-quickstart-dotnet-core.md).
+I den här snabb starten får du lära dig hur du kommer igång med ASP.NET och Azure SignalR-tjänsten för ett liknande [chattrum-program](./signalr-quickstart-dotnet-core.md).
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
-* [ASP.NET SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
+* [ASP.NET-SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -36,9 +36,9 @@ Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-*Serverlös* läge stöds inte för ASP.NET SignalR-program. Använd alltid *standard* eller *klassiska* för Azure SignalR Service-instansen.
+Läge utan *Server* stöds inte för ASP.net SignalR-program. Använd alltid *standard* eller *klassisk* för Azure SignalR service-instansen.
 
-Du kan också skapa Azure-resurser som används i den här snabbstarten med [skapa ett skript med SignalR Service](scripts/signalr-cli-create-service.md).
+Du kan också skapa Azure-resurser som används i den här snabb starten med [skapa ett skript för signalering](scripts/signalr-cli-create-service.md).
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -52,17 +52,17 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
 
-## <a name="configure-and-run-chat-room-web-app"></a>Konfigurera och köra webbprogram i chattrum
+## <a name="configure-and-run-chat-room-web-app"></a>Konfigurera och kör chattrum-webbappen
 
-1. Starta Visual Studio och öppna lösningen i den *aspnet-samples/ChatRoom/* mapp i den klonade lagringsplatsen.
+1. Starta Visual Studio och öppna lösningen i mappen *ASPNET-samples/ChatRoom/* på den klonade lagrings platsen.
 
-1. Hitta och väljer du den instans som du skapade i webbläsaren där Azure-portalen öppnas.
+1. I webbläsaren där Azure Portal öppnas söker du efter och väljer den instans som du skapade.
 
 1. Välj **Nycklar** för att visa anslutningssträngarna för SignalR Service-instansen.
 
 1. Markera och kopiera den primära anslutningssträngen.
 
-1. Ställa in anslutningssträngen i filen web.config.
+1. Ange nu anslutnings strängen i filen Web. config.
 
     ```xml
     <configuration>
@@ -73,7 +73,7 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
     </configuration>
     ```
 
-1. I *Startup.cs*, i stället för att anropa `MapSignalR()`, måste du anropa `MapAzureSignalR({your_applicationName})` och ange anslutningssträngen som gör programmet ansluta till tjänsten i stället för som är värd för SignalR ensamt. Ersätt `{YourApplicationName}` till namnet på ditt program. Det här namnet är ett unikt namn för att skilja det här programmet från dina andra program. Du kan använda `this.GetType().FullName` som värde.
+1. I *startup.cs*, i stället för att anropa `MapSignalR()`, måste du anropa `MapAzureSignalR({your_applicationName})` och skicka anslutnings strängen för att programmet ska kunna ansluta till tjänsten i stället för att vara värd för SignalR. Ersätt `{YourApplicationName}` till namnet på ditt program. Det här namnet är ett unikt namn som särskiljer det här programmet från andra program. Du kan använda `this.GetType().FullName` som värde.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -83,31 +83,31 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
     }
     ```
 
-    Du måste också referera till tjänst-SDK innan du använder dessa API: er. Öppna den **verktyg | NuGet-Pakethanteraren | Pakethanterarkonsolen** och kör kommandot:
+    Du måste också referera till service SDK innan du använder dessa API: er. Öppna **verktygen | NuGet-paket hanterare | Package Manager-konsolen** och kör kommando:
 
     ```powershell
     Install-Package Microsoft.Azure.SignalR.AspNet
     ```
 
-    Allt annat detsamma än de här ändringarna kan du fortfarande använda gränssnittet hub som du redan är bekant med att skriva affärslogik.
+    Förutom dessa ändringar är allt annat detsamma, men du kan fortfarande använda hubb gränssnittet som du redan är bekant med för att skriva affärs logik.
 
     > [!NOTE]
-    > För att genomföra en slutpunkt `/signalr/negotiate` exponeras för förhandling av Azure SignalR Service SDK. Ett särskilt förhandling svar returneras när klienter försöker ansluta och omdirigera klienter till tjänsteslutpunkt som definierats i anslutningssträngen.
+    > I implementeringen visas en slut punkt `/signalr/negotiate` för förhandling av Azure SignalR service SDK. Det returnerar ett särskilt förhandlings svar när klienter försöker ansluta och omdirigera klienter till tjänstens slut punkt som definierats i anslutnings strängen.
 
-1. Tryck på **F5** att köra projektet i felsökningsläge. Du kan se programmet körs lokalt. I stället för som är värd för ett SignalR för körning av själva programmet, nu ansluter den till Azure SignalR Service.
+1. Tryck på **F5** för att köra projektet i fel söknings läge. Du kan se att programmet körs lokalt. I stället för att vara värd för en signal körning av själva programmet ansluter den nu till Azure SignalR-tjänsten.
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
 
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 > 
 > 
 
 Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...** . Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera efter namn...). Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
    
 ![Ta bort](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
@@ -116,7 +116,7 @@ Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapade en ny Azure SignalR Service-resurs och använder den med en ASP.NET webbapp. Därefter lär du dig hur du utvecklar program i realtid med Azure SignalR Service med ASP.NET Core.
+I den här snabb starten skapade du en ny Azure SignalR service-resurs och använde den med en ASP.NET-webbapp. Härnäst lär du dig hur du utvecklar real tids program med hjälp av Azure SignalR-tjänsten med ASP.NET Core.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR Service med ASP.NET Core](./signalr-quickstart-dotnet-core.md)
+> [Azure SignalR service med ASP.NET Core](./signalr-quickstart-dotnet-core.md)

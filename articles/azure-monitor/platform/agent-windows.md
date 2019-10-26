@@ -1,24 +1,18 @@
 ---
 title: Anslut Windows-datorer till Azure Monitor | Microsoft Docs
 description: Den här artikeln beskriver hur du ansluter Windows-datorer som finns i andra moln eller lokalt för att Azure Monitor med Log Analytics agent för Windows.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/07/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 6c8d25a9df49323866e99487ef6c648dede40ec4
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/07/2019
+ms.openlocfilehash: abe114a989c4ec672d391a7fd7d83341d4c52638
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033950"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932780"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Anslut Windows-datorer till Azure Monitor
 
@@ -44,7 +38,7 @@ Om du vill förstå konfigurationen som stöds, så granska [de Windows-operativ
 ## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
 Innan du installerar Log Analytics agent för Windows behöver du arbets ytans ID och nyckel för din Log Analytics-arbetsyta.  Den här informationen krävs under installationen från varje installations metod för att konfigurera agenten korrekt och se till att den kan kommunicera med Azure Monitor i Azures kommersiella och amerikanska myndighets moln. 
 
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+1. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. I listan med Log Analytics arbets ytor väljer du den arbets yta som du vill konfigurera agenten att rapportera till.
 3. Välj **Avancerade inställningar**.<br><br> ![Avancerade inställningar i Log Analytics](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Välj **Anslutna källor** och välj sedan **Windows-servrar**.   
@@ -67,9 +61,9 @@ Om du vill konfigurera användningen av [TLS 1,2](https://docs.microsoft.com/win
 
 Konfigurera .NET Framework 4,6 eller senare för att stödja säker kryptografi, som standard är inaktiverat. Den [starka kryptografi](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) användningen använder säkrare nätverks protokoll som TLS 1,2 och blockerar protokoll som inte är säkra. 
 
-1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
+1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319**.  
 2. Skapa DWORD-värdet **SchUseStrongCrypto** under den här under nyckeln med värdet **1**.  
-3. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
+3. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319**.  
 4. Skapa DWORD-värdet **SchUseStrongCrypto** under den här under nyckeln med värdet **1**. 
 5. Starta om systemet för att inställningarna ska börja gälla. 
 
@@ -110,7 +104,7 @@ I följande tabell visas de olika parametrarna som stöds av installations progr
 |OPINSIGHTS_PROXY_USERNAME               | Användar namn för åtkomst till en autentiserad proxy |
 |OPINSIGHTS_PROXY_PASSWORD               | Lösen ord för åtkomst till en autentiserad proxy |
 
-1. Om du vill extrahera installationsfilerna för agenten kör du `MMASetup-<platform>.exe /c` från en upphöjd kommando tolk och du uppmanas att ange sökvägen för att extrahera filer till.  Alternativt kan du ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Full Path>`.  
+1. Om du vill extrahera installationsfilerna för agenten kör du `MMASetup-<platform>.exe /c` i en upphöjd kommando tolk och du uppmanas att ange sökvägen för att extrahera filer till.  Alternativt kan du ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. Om du vill installera agenten tyst och konfigurera den för att rapportera till en arbets yta i Azures kommersiella moln, från den mapp som du extraherade installationsfilerna till skriver du: 
    
      ```dos
@@ -129,7 +123,7 @@ I följande tabell visas de olika parametrarna som stöds av installations progr
 
 Du kan använda följande skript exempel för att installera agenten med hjälp av Azure Automation DSC.   Om du inte har ett Automation-konto kan du läsa [komma igång med Azure Automation](/azure/automation/) för att förstå krav och anvisningar för att skapa ett Automation-konto som krävs innan du använder Automation DSC.  Om du inte är bekant med Automation DSC kan du läsa [komma igång med Automation DSC](../../automation/automation-dsc-getting-started.md).
 
-I följande exempel installeras 64-bitars agenten som identifieras av värdet `URI`. Du kan också använda 32-bitars versionen genom att ersätta URI-värdet. URI: erna för båda versionerna är:
+I följande exempel installeras 64-bitars agenten som identifieras av `URI` svärdet. Du kan också använda 32-bitars versionen genom att ersätta URI-värdet. URI: erna för båda versionerna är:
 
 - Windows 64-bitars agent- https://go.microsoft.com/fwlink/?LinkId=828603
 - Windows 32-bitars agent- https://go.microsoft.com/fwlink/?LinkId=828604
@@ -138,7 +132,7 @@ I följande exempel installeras 64-bitars agenten som identifieras av värdet `U
 >[!NOTE]
 >Den här proceduren och skript exemplet stöder inte uppgradering av agenten som redan har distribuerats till en Windows-dator.
 
-32-bitars-och 64-bitars versionerna av agent paketet har olika produkt koder och nya versioner som släpps har också ett unikt värde.  Produkt koden är en GUID som är huvud-ID för ett program eller en produkt och representeras av egenskapen Windows Installer **ProductCode** .  Värdet `ProductId` i skriptet **MMAgent. ps1** måste matcha produkt koden från installations paketet 32-bitars eller 64-bitars agent.
+32-bitars-och 64-bitars versionerna av agent paketet har olika produkt koder och nya versioner som släpps har också ett unikt värde.  Produkt koden är en GUID som är huvud-ID för ett program eller en produkt och representeras av egenskapen Windows Installer **ProductCode** .  `ProductId`-värdet i skriptet **MMAgent. ps1** måste matcha produkt koden från installations paketet 32-bitars eller 64-bitars agent.
 
 Om du vill hämta produkt koden från agent installations paketet direkt kan du använda Orca. exe från Windows SDK- [komponenter för Windows Installer utvecklare](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) som är en del av Windows Software Development Kit eller använda PowerShell efter en [ exempel skript](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) som skrivits av en Microsoft Valuable Professional (MVP).  För båda metoderna måste du först extrahera filen **MOMAgent. msi** från MMASetup-installations paketet.  Detta visas tidigare i det första steget under avsnittet [Installera agenten med hjälp av kommando raden](#install-the-agent-using-the-command-line).  
 
@@ -182,7 +176,7 @@ Om du vill hämta produkt koden från agent installations paketet direkt kan du 
 
     ```
 
-4. Uppdatera värdet `ProductId` i skriptet med produkt koden som extraherats från den senaste versionen av agent installations paketet med hjälp av de metoder som rekommenderas tidigare. 
+4. Uppdatera `ProductId`-värdet i skriptet med produkt koden som extraherats från den senaste versionen av agent installations paketet med hjälp av de metoder som rekommenderas tidigare. 
 5. [Importera konfigurations skriptet MMAgent. ps1](../../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) till ditt Automation-konto. 
 5. [Tilldela en Windows-dator eller-nod](../../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) till konfigurationen. Inom 15 minuter kontrollerar noden konfigurationen och agenten flyttas till noden.
 
@@ -190,11 +184,11 @@ Om du vill hämta produkt koden från agent installations paketet direkt kan du 
 
 När installationen av agenten är klar kan du kontrol lera att den har anslutits och rapportering kan utföras på två sätt.  
 
-På datorn går du till **Kontrollpanelen** och letar upp objektet **Microsoft Monitoring Agent**.  Välj den. På fliken **Azure Log Analytics** bör agenten visa ett meddelande där det står: **Microsoft Monitoring Agent har anslutit till Microsoft Operations Management Suite tjänsten.**<br><br> ![MMA-anslutningsstatus till Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+På datorn går du till **Kontrollpanelen** och letar upp objektet **Microsoft Monitoring Agent**.  Välj det och på fliken **Azure-Log Analytics** bör agenten Visa ett meddelande om **att Microsoft Monitoring Agent har anslutit till Microsoft Operations Management Suites tjänsten.**<br><br> ![MMA-anslutningsstatus till Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 Du kan också utföra en enkel logg fråga i Azure Portal.  
 
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Azure Monitor**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure Monitor**.  
+1. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Azure Monitor**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure Monitor**.  
 2. Välj **loggar** på menyn. 
 2. I fönstret loggar i fältet frågefält skriver du:  
 

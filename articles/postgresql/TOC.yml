@@ -251,6 +251,10 @@
           items:
             - name: Azure Portal
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: Felsöka
+          items:
+            - name: Felsöka anslutningsfel
+              href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: Referens
   items:
     - name: Azure CLI

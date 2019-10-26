@@ -12,7 +12,7 @@
     - name: Ansluta en enhet till IoT Hub
       href: quickstart-connect-pnp-device.md
     - name: Ansluta en enhet till IoT Central
-      href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Ansluta till en enhet i din lösning
       href: quickstart-connect-pnp-device-solution.md
 - name: Självstudier

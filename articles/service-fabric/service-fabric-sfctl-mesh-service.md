@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI – sfctl nät tjänst | Microsoft Docs
 description: Beskriver kommandona för mask tjänst för Service Fabric CLI-sfctl.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 6afcb891de763f156705bc9825ab7575a272c1db
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: d2ddc34f8b298a4037a1c8286eceb9ef13b1f416
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035037"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901158"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 Hämta tjänst information och lista över tjänster för en program resurs.
@@ -27,7 +28,7 @@ Hämta tjänst information och lista över tjänster för en program resurs.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| list | Visar en lista över alla tjänst resurser. |
+| lista | Visar en lista över alla tjänst resurser. |
 | visa | Hämtar tjänst resursen med det aktuella namnet. |
 
 ## <a name="sfctl-mesh-service-list"></a>sfctl nät tjänst lista
@@ -47,8 +48,8 @@ Hämtar information om alla tjänster i en program resurs. Informationen inklude
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-mesh-service-show"></a>sfctl nät tjänst show
@@ -69,8 +70,8 @@ Hämtar information om tjänst resursen med det aktuella namnet. Informationen i
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 

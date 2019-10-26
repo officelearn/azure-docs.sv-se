@@ -11,12 +11,12 @@ metadata:
   author: jpconnock
   ms.author: jpconnock
   ms.date: 09/26/2019
-  ms.openlocfilehash: 0dcbe8d01761e8feb06cd5705a104d8c9e5196e0
-  ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+  ms.openlocfilehash: 671093610cc53fae3a06f9b185ef258ab2097305
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/08/2019
-  ms.locfileid: "72038609"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72933367"
 landingContent:
 - title: Om Azure Spring Cloud
   linkLists:
@@ -38,6 +38,22 @@ landingContent:
     links:
     - text: Förbereda en Java Spring-app för distribution
       url: spring-cloud-tutorial-prepare-app-deployment.md
+- title: Konfigurera din tjänst
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Använda konfigurationsservern för att underhålla programkonfigurationen
+      url: spring-cloud-tutorial-config-server.md
+    - text: Skala ditt program manuellt
+      url: spring-cloud-tutorial-scale-manual.md
+  - linkListType: how-to-guide
+    links:
+    - text: Automatisera din CI/CD-pipeline i Azure Spring Cloud
+      url: spring-cloud-howto-cicd.md
+    - text: Aktivera blå-gröna distributioner med Azure Spring Cloud
+      url: spring-cloud-howto-staging-environment.md
+    - text: Använda beständig lagring i Azure Spring Cloud
+      url: spring-cloud-howto-persistent-storage.md
 - title: Övervaka ditt program
   linkLists:
   - linkListType: tutorial
@@ -60,19 +76,3 @@ landingContent:
       url: spring-cloud-tutorial-bind-mysql.md
     - text: Binda ditt program till Azure CosmosDB
       url: spring-cloud-tutorial-bind-cosmos.md
-- title: Konfigurera din tjänst
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Använda konfigurationsservern för att underhålla programkonfigurationen
-      url: spring-cloud-tutorial-config-server.md
-    - text: Skala ditt program manuellt
-      url: spring-cloud-tutorial-scale-manual.md
-  - linkListType: how-to-guide
-    links:
-    - text: Automatisera din CI/CD-pipeline i Azure Spring Cloud
-      url: spring-cloud-howto-cicd.md
-    - text: Aktivera blå-gröna distributioner med Azure Spring Cloud
-      url: spring-cloud-howto-staging-environment.md
-    - text: Använda beständig lagring i Azure Spring Cloud
-      url: spring-cloud-howto-persistent-storage.md

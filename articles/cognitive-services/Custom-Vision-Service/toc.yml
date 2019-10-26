@@ -97,7 +97,7 @@
 - name: Resurser
   items:
     - name: Exempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=vision'
     - name: Begränsningar och kvoter
       href: limits-and-quotas.md
     - name: UserVoice

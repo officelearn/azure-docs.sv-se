@@ -15,30 +15,28 @@ ms.workload: NA
 ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: da7e41ae77226c2a18b92329507855ac30891058
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0226c9f1b90495cdfd47a5c5c7a415a36761753d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816102"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901596"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Översikt över Azure Service Fabric
-Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av inbyggda molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Service Fabric representerar nästa generations plattform för att skapa och hantera dessa molskalningsprogram i företagsklass på nivå 1 som körs i containrar.
+Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av inbyggda molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Service Fabric representerar nästa generations plattform för att skapa och hantera dessa molnskalningsprogram i företagsklass på nivå 1 som körs i containrar.
 
 Denna korta video presenterar Service Fabric och mikrotjänster:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="compliance"></a>Efterlevnad
-Azure Service Fabric Resource Provider är tillgänglig i alla Azure-regioner och är kompatibel med alla certifikat för regelefterlevnad som Azure har; Detta omfattar följande: SOC, ISO, PCI DSS, HIPAA och GDPR. Läs igenom följande om du vill ha en fullständig lista över certifikat för regelefterlevnad: [Erbjudanden för regelefterlevnad](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Azure Service Fabric Resource Provider är tillgänglig i alla Azure-regioner och är kompatibel med alla certifikat för regelefterlevnad som Azure har; Detta omfattar följande: SOC, ISO, PCI DSS, HIPAA och GDPR. Läs igenom följande om du vill ha en fullständig lista över certifikat för regelefterlevnad: [krav på efterlevnad](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Program som består av mikrotjänster 
 Med Service Fabric kan du skapa och hantera skalbara och tillförlitliga program som består av mikrotjänster och som körs med hög densitet på en delad pool med datorer, som kallas ett kluster. Det ger en avancerad och lättviktig körning för att skapa distribuerade, skalbara, tillståndslösa och tillståndskänsliga mikrotjänster som körs i containrar. Det ger även omfattande funktioner för programhantering för att etablera, distribuera, övervaka, uppgradera/korrigera och ta bort distribuerade program, inklusive tjänster i containrar.
 
 Service Fabric används idag för många Microsoft-tjänster, inklusive Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Dynamics 365, Skype for Business och många fler Azure-tjänster.
 
-Service Fabric har skräddarsytts för att skapa inbyggda molntjänster som kan vara små inledningsvis och sedan växa efter behov till enorm skala med hundratals eller tusentals datorer.
-
-Dagens tjänster med Internetskala består av mikrotjänster. Exempel på mikrotjänster är protokollgatewayar, användarprofiler, kundvagnar, lagerbearbetning, köer och cacheminnen. Service Fabric är en mikrotjänstplattform som ger alla mikrotjänster (eller containrar) ett unikt namn som kan vara antingen tillståndslöst eller tillståndskänsligt.
+Service Fabric har skräddarsytts för att skapa inbyggda molntjänster som kan vara små inledningsvis och sedan växa efter behov till enorm skala med hundratals eller tusentals datorer. Dagens tjänster med Internetskala består av mikrotjänster. Exempel på mikrotjänster är protokollgatewayar, användarprofiler, kundvagnar, lagerbearbetning, köer och cacheminnen. 
 
 Service Fabric ger omfattande funktioner för körning och livscykelhantering i program som består av dessa mikrotjänster. Det fungerar som värd för mikrotjänster i containrar som distribueras och aktiveras i Service Fabric-klustret. Genom att flytta från virtuella datorer till containrar blir det möjligt att få en densitetsökning i storleksordning. På samma sätt blir en annan densitet i storleksordning möjlig när du övergår från containrar till mikrotjänster i dessa containrar. Ett enda kluster för Azure SQL Database kan till exempel bestå av hundratals datorer som kör tiotusentals containrar som är värdar för hundratusentals databaser. Varje databas är en tillståndskänslig Service Fabric-mikrotjänst. 
 

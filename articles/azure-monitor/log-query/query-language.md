@@ -1,68 +1,62 @@
 ---
-title: Azure Monitor-loggfrågor | Microsoft Docs
-description: Referenser till resurser för att lära dig hur du skriver loggfrågor i Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Azure Monitor logg frågor | Microsoft Docs
+description: Referenser till resurser för att lära dig hur du skriver logg frågor i Azure Monitor.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/11/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/11/2019
+ms.openlocfilehash: 7c6530416f0eb6b822b6f5f3eb53f59aeae05d53
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560857"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894340"
 ---
-# <a name="azure-monitor-log-queries"></a>Azure Monitor log-frågor
-Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågor använder en version av samma Kusto-frågespråket. Den [Kusto-fråga språkdokumentation](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Azure Monitor log-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Azure Monitor-implementering för språket.
+# <a name="azure-monitor-log-queries"></a>Azure Monitor logg frågor
+Azure Monitor loggar bygger på Azure Datautforskaren och Azure Monitor logg frågor använder en version av samma Kusto. [Dokumentationen för Kusto-frågespråket](/azure/kusto/query) innehåller all information om språket och bör vara din primära resurs för att skriva Azure Monitor logg frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och om skillnader med Azure Monitor implementering av språket.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
-- [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) är en lektion för att skriva frågor och arbeta med resultat i Azure-portalen.
-- [Kom igång med Azure Monitor log-frågor](get-started-queries.md) är en lektion för att skriva frågor med Azure Monitor-loggdata.
+- [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) är en lektion för att skriva frågor och arbeta med resultat i Azure Portal.
+- [Kom igång med Azure Monitor logg frågor](get-started-queries.md) är en lektion för att skriva frågor med hjälp av Azure Monitor loggdata.
 
-## <a name="concepts"></a>Begrepp
-- [Analysera loggdata i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) ger en kort översikt över log frågar och beskriver hur Azure Monitor-loggdata är strukturerad.
-- [Visa och analysera loggdata i Azure Monitor](../../azure-monitor/log-query/portals.md) förklarar portalerna där du skapar och kör loggfrågor.
+## <a name="concepts"></a>Koncept
+- [Analysera loggdata i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) ger en kort översikt över logg frågor och beskriver hur Azure Monitor loggdata struktureras.
+- Om du [visar och analyserar loggdata i Azure Monitor](../../azure-monitor/log-query/portals.md) beskrivs de portaler där du skapar och kör logg frågor.
 
 ## <a name="reference"></a>Referens
 
-- [Frågespråksreferens](/azure/kusto/query) är klar Språkreferens för Kusto-frågespråket.
-- [Azure Monitor log-fråga språkskillnader](data-explorer-difference.md) beskriver skillnaderna mellan versioner av Kusto-frågespråket.
-- [Standardegenskaper i Azure Monitor loggposter](../../azure-monitor/platform/log-standard-properties.md) beskriver egenskaper som är standard för alla Azure Monitor-loggdata.
-- [Utföra loggfrågor mellan resurser i Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) beskriver hur du skriver loggfrågor som använder data från flera Log Analytics-arbetsytor och Application Insights-program.
+- Språk [referens för frågor](/azure/kusto/query) är den fullständiga språk referensen för Kusto-frågespråket.
+- [Azure Monitor logg frågor språk skillnader](data-explorer-difference.md) beskriver skillnaderna mellan versioner av Kusto-frågespråket.
+- [Standard egenskaper i Azure Monitor logg poster](../../azure-monitor/platform/log-standard-properties.md) beskriver egenskaper som är standard för alla Azure Monitor loggdata.
+- [Utföra kors resurs logg frågor i Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) beskriver hur du skriver logg frågor som använder data från flera Log Analytics arbets ytor och Application Insights program.
 
 
 ## <a name="examples"></a>Exempel
 
-- [Azure Monitor log-fråga exempel](examples.md) innehåller exempel på frågor med hjälp av Azure Monitor-loggdata.
+- Exempel [på Azure Monitor logg frågor](examples.md) innehåller exempel frågor som använder Azure Monitor loggdata.
 
 
 
 ## <a name="lessons"></a>Lektioner
 
-- [Arbeta med strängar i Azure Monitor loggfrågor](string-operations.md) beskriver hur du arbetar med.
-- [Arbeta med datum-tid-värdena i Azure Monitor loggfrågor](datetime-operations.md) beskriver hur du arbetar med datum och tid. 
-- [Aggregeringar i Azure Monitor logga frågor](aggregations.md) och [avancerade aggregeringar i Azure Monitor loggfrågor](advanced-aggregations.md) beskrivs hur du sammanställer och sammanfattar data.
-- [Kopplingar i Azure Monitor loggfrågor](joins.md) beskriver hur du ansluter till data från flera tabeller.
-- [Arbeta med JSON och datastrukturer i Azure Monitor loggfrågor](json-data-structures.md) beskriver hur du parsa json-data.
-- [Skriva avancerade logga frågor i Azure Monitor](advanced-query-writing.md) beskrivs strategier för att skapa komplexa frågor och återanvända kod.
-- [Skapar diagram och diagram från Azure Monitor loggfrågor](charts.md) beskriver hur du visualisera data från en loggfråga.
+- När du [arbetar med strängar i Azure Monitor logg frågor](string-operations.md) beskrivs hur du arbetar med sträng data.
+- [Arbeta med datum tids värden i Azure Monitor logg frågor](datetime-operations.md) beskriver hur du arbetar med datum-och tids data. 
+- [Agg regeringar i Azure Monitor logg frågor](aggregations.md) och [avancerade agg regeringar i Azure Monitor logg frågor](advanced-aggregations.md) beskriver hur du sammanställer och sammanfattar data.
+- [Kopplingar i Azure Monitor logg frågor](joins.md) beskriver hur du kopplar data från flera tabeller.
+- Att [arbeta med JSON och data strukturer i Azure Monitor logg frågor](json-data-structures.md) beskriver hur du tolkar JSON-data.
+- Om du [skriver avancerade logg frågor i Azure Monitor](advanced-query-writing.md) beskrivs strategier för att skapa komplexa frågor och återanvända kod.
+- Att [skapa diagram och diagram från Azure Monitor logg frågor](charts.md) beskriver hur du visualiserar data från en logg fråga.
 
 ## <a name="cheatsheets"></a>Översiktsblad
 
--  [SQL Azure Monitor log-frågan](sql-cheatsheet.md) hjälper användare som redan är bekant med SQL.
--  [Splunk till Azure Monitor loggfråga](splunk-cheatsheet.md) hjälper användare som redan är bekant med Splunk.
+-  [SQL till Azure Monitor logg fråga](sql-cheatsheet.md) hjälper användare som redan är bekanta med SQL.
+-  [Splunk för att Azure Monitor logg fråga](splunk-cheatsheet.md) hjälper användare som redan är bekanta med Splunk.
  
 ## <a name="next-steps"></a>Nästa steg
 
-- Få åtkomst till den fullständiga [referensdokumentation för det Kusto-frågespråket](/azure/kusto/query/).
+- Få till gång till fullständig [referens dokumentation för Kusto-frågespråket](/azure/kusto/query/).

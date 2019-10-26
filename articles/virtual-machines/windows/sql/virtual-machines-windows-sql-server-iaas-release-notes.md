@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 599dd2b44f934bb864acfa9ffe8d03fa0e8bb850
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2f89b57257088b0b647fd5f0159a58c2ac03bda7
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757471"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897266"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Dokumentations ändringar för SQL Server på Azure Virtual Machines
 
@@ -28,6 +28,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 | Något | Information |
 | --- | --- |
+| **Registrering av Mass resurs leverantör** | Nu kan du [Mass registrera](virtual-machines-windows-sql-bulk-register-with-resource-provider.md) virtuella SQL-datorer med resurs leverantören. | 
 | **Prestandaoptimerad lagrings konfiguration** | Du kan nu [helt anpassa lagrings konfigurationen](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) när du skapar en ny SQL Server VM. |
 | **Premium-filresurs för FCI** | Nu kan du skapa en instans av ett kluster för växling vid fel med en [Premium-filresurs](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) i stället för den ursprungliga [Lagringsdirigering](virtual-machines-windows-portal-sql-create-failover-cluster.md)-metoden. 
 | &nbsp; | &nbsp; |

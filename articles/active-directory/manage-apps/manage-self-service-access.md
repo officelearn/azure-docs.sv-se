@@ -1,6 +1,6 @@
 ---
-title: Så här konfigurerar du tilldelning av programåtkomst via självbetjäning | Microsoft Docs
-description: Aktivera självbetjäning programåtkomst så att användarna kan hitta sina egna program
+title: Så här konfigurerar du självbetjäning för program tilldelning | Microsoft Docs
+description: Aktivera självbetjäning för program åtkomst så att användarna kan hitta sina egna program
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -12,83 +12,83 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 10/23/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66b842fc1b438e2d0046b4359712c3537f568e5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbeb25f1190754b4264cfbab9d8a03a6b65c4dff
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824441"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895969"
 ---
-# <a name="how-to-configure-self-service-application-assignment"></a>Så här konfigurerar du tilldelning av programåtkomst via självbetjäning
+# <a name="how-to-configure-self-service-application-assignment"></a>Så här konfigurerar du självbetjäning för program tilldelning
 
-Innan användarna kan själva upptäcka program från sina åtkomstpaneler, måste du aktivera **självbetjäningsåtkomsten** för program som du vill tillåta användare att identifiera själv och begära åtkomst till.
+Innan användarna kan identifiera program från sina åtkomst paneler måste du aktivera självbetjänings **program åtkomst** till alla program som du vill ge användare möjlighet att själv identifiera och begära åtkomst till. Den här funktionen är tillgänglig för program som har lagts till från [Azure AD-galleriet](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) eller lades till via [användare eller administrativa medgivande](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
 
-Den här funktionen är ett bra sätt att spara tid och pengar som en IT-grupp och rekommenderas starkt som en del av en distribution för moderna program med Azure Active Directory.
+Den här funktionen är ett bra sätt att spara tid och pengar som en IT-grupp och är starkt rekommenderat som en del av en modern program distribution med Azure Active Directory.
 
-Den här funktionen kan du:
+Med den här funktionen kan du:
 
--   Låta användare själva upptäcka program från den [Programåtkomstpanelen](https://myapps.microsoft.com/) utan stör IT-gruppen.
+-   Låt användare själv identifiera program från [program åtkomst panelen](https://myapps.microsoft.com/) utan att bry dig om IT-gruppen.
 
--   Lägga till dessa användare i en förkonfigurerad så att du kan se vem som har begärt åtkomst, ta bort åtkomst och hantera roller som tilldelats.
+-   Lägg till dessa användare i en förkonfigurerad grupp så att du kan se vem som har begärt åtkomst, ta bort åtkomst och hantera de roller som har tilldelats dem.
 
--   Du kan också kan ett företagsgodkännaren att godkänna åtkomstbegäranden för programmet så att IT-gruppen inte behöver.
+-   Alternativt kan en företags god kännare godkänna begär Anden om program åtkomst så att IT-gruppen inte behöver.
 
 -   Du kan också konfigurera upp till 10 personer som kan godkänna åtkomst till det här programmet.
 
--   Om du vill tillåta ett företag godkännaren att ange lösenorden dessa användare kan använda för att logga in på programmet, direkt från företagsgodkännaren [Programåtkomstpanelen](https://myapps.microsoft.com/).
+-   Alternativt kan en företags god kännare ange de lösen ord som användarna kan använda för att logga in till programmet, direkt från affärs god kännaens [program åtkomst panel](https://myapps.microsoft.com/).
 
--   Du kan också automatiskt tilldela självbetjäning tilldelade användare till en programroll direkt.
+-   Du kan också automatiskt tilldela självbetjänings användare till en program roll direkt.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Aktivera självbetjäning programåtkomst så att användarna kan hitta sina egna program
+## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Aktivera självbetjäning för program åtkomst så att användarna kan hitta sina egna program
 
-Självbetjäning för programåtkomst är ett bra sätt så att användarna kan identifiera lokal program, låta affärsgrupp att godkänna åtkomst till dessa program. Du kan tillåta affärsgrupp att hantera de autentiseringsuppgifter som har tilldelats till de användarna av lösenord för enkel inloggning på program direkt från sina åtkomstpaneler.
+Åtkomst till självbetjänings program är ett bra sätt att ge användare möjlighet att identifiera program, vilket gör det möjligt för företags gruppen att godkänna åtkomst till dessa program. Du kan tillåta att affärs gruppen hanterar de autentiseringsuppgifter som tilldelats dessa användare för lösen ords program med enkel inloggning direkt från sina åtkomst paneler.
 
-Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till ett program:
+Följ stegen nedan om du vill aktivera självbetjänings program åtkomst till ett program:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory-vänstra navigeringsmenyn.
+4.  Klicka på **företags program** i Azure Active Directory vänster hand navigerings meny.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5.  Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+    * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6.  Välj det program som du vill ge åtkomst till i listan.
+6.  Välj det program som du vill aktivera självbetjänings åtkomst till i listan.
 
-7.  När programmet har lästs in klickar du på **självbetjäning** från programmets vänstra navigeringsmenyn.
+7.  När programmet har lästs in klickar du på **självbetjäning** från programmets vänstra navigerings meny.
 
-8.  Om du vill aktivera självbetjäningsåtkomsten för det här programmet, aktivera den **Tillåt användare att begära åtkomst till det här programmet?** växla till **Ja.**
+8.  Aktivera självbetjäning för program åtkomst för det här programmet genom att aktivera alternativet **Tillåt användare att begära åtkomst till det här programmet?** växla till **Ja.**
 
-9.  Klicka sedan på väljaren bredvid etiketten för att välja gruppen till vilken användare som begär åtkomst till det här programmet ska läggas till, **till vilken grupp ska tilldelade användare läggas?** och välj en grupp.
+9.  Välj sedan den grupp som användare som begär åtkomst till det här programmet ska läggas till genom att klicka på väljaren bredvid etiketten som **gruppen ska tilldelas användare till?** och välja en grupp.
   
     > [!NOTE]
-    > Grupper som synkroniserats från lokalt stöds inte för att användas för gruppen som användare som begär åtkomst till det här programmet ska läggas till.
+    > Grupper som synkroniseras från lokalt stöds inte för att användas för den grupp som användare som begär åtkomst till det här programmet ska läggas till.
   
-10. **Valfritt:** Om du inte vill att kräva ett företag godkännande innan användarna får åtkomst genom att ange den **kräver godkännande innan du beviljar åtkomst till det här programmet?** växla till **Ja**.
+10. **Valfritt:** Om du vill kräva ett affärs godkännande innan användarna tillåts måste du ställa in **Kräv godkännande innan jag beviljar åtkomst till det här programmet?** växla till **Ja**.
 
-11. **Valfritt: För program som använder lösenord för enkel inloggning på endast** om du vill att dessa företagsgodkännaren att ange de lösenord som skickas till det här programmet för godkända användare kan ställa in den **godkännare ha tillåtelse att konfigurera användarens lösenord för det här program?**  växla till **Ja**.
+11. **Valfritt: endast för program som använder enkel inloggning med lösen ord,** om du vill att de affärs god kännarna ska kunna ange lösen ord som skickas till det här programmet för godkända användare ställer du in alternativet **Tillåt god kännare att ange användarens lösen ord för det här program?** Växla till **Ja**.
 
-12. **Valfritt:** Om du vill ange den företagsgodkännaren som har behörighet att bevilja åtkomst till det här programmet, klickar du på väljaren bredvid etiketten **som har behörighet att bevilja åtkomst till det här programmet?** att välja upp till 10 enskilda företagsgodkännaren.
+12. **Valfritt:** Om du vill ange de affärs god kännare som tillåts att godkänna åtkomst till det här programmet klickar du på väljaren bredvid den etikett **som har behörighet att godkänna åtkomst till det här programmet?** om du vill välja upp till 10 enskilda affärs god kännare.
 
      > [!NOTE]
      > Grupper stöds inte.
      >
      >
 
-13. **Valfritt:** **För program som exponera roller**, om du vill tilldela självbetjäning godkända användare till en roll, klickar du på väljaren bredvid den **till vilken roll ska användarna tilldelas i det här programmet?** att välja rollen som Dessa användare ska tilldelas.
+13. **Valfritt:** **för program som visar roller**, om du vill tilldela självbetjänings godkända användare till en roll, klickar du på väljaren bredvid **rollen till vilken roll ska användare tilldelas i det här programmet?** om du vill välja rollen som dessa användare ska tilldelas.
 
-14. Klicka på den **spara** längst upp på bladet för att slutföra.
+14. Klicka på knappen **Spara** överst på bladet för att avsluta.
 
-När du har slutfört konfigurationen av programåtkomst via självbetjäning kan användare navigera till sina [Programåtkomstpanelen](https://myapps.microsoft.com/) och klicka på den **+ Lägg till** för att hitta de appar som du har aktiverat självbetjäning åtkomst. Företagsgodkännaren får även ett meddelande i sina [Programåtkomstpanelen](https://myapps.microsoft.com/). Du kan aktivera ett e-postmeddelande om när en användare har begärt åtkomst till ett program som kräver godkännande. 
+När du har slutfört självbetjänings program konfigurationen kan användarna navigera till sin [program åtkomst panel](https://myapps.microsoft.com/) och klicka på knappen **+ Lägg** till för att hitta appar som du har aktiverat självbetjänings åtkomst till. Affärs god kännare ser också ett meddelande i sin [program åtkomst panel](https://myapps.microsoft.com/). Du kan aktivera ett e-postmeddelande som meddelar dem när en användare har begärt åtkomst till ett program som kräver godkännande. 
 
-Dessa godkännanden stöder enkel godkännandearbetsflöden, vilket innebär att om du anger flera godkännare kan en enda godkännare kan godkännaren åtkomst till programmet.
+Dessa godkännanden har stöd för enskilda arbets flöden för godkännande, vilket innebär att om du anger flera god kännare kan en enskild god kännare godkänna åtkomst till programmet.
 
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera Azure Active Directory för grupphantering via självbetjäning](../users-groups-roles/groups-self-service-management.md)
+[Konfigurera Azure Active Directory för självbetjänings grupp hantering](../users-groups-roles/groups-self-service-management.md)

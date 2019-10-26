@@ -1,62 +1,56 @@
 ---
-title: 'Skicka användarkontext ID: N för att aktivera användning upplevelser i Azure Application Insights | Microsoft Docs'
-description: Spåra hur användarna flyttar via tjänsten genom att tilldela dem en unik, permanent ID-sträng i Application Insights.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: csharp
+title: 'Skicka användar kontext-ID: n för att aktivera användnings upplevelser i Azure Application Insights | Microsoft Docs'
+description: Spåra hur användare går igenom tjänsten genom att tilldela var och en av dem en unik, beständig ID-sträng i Application Insights.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 7c458867b89a76a2f19bbd632c8a884c629f5765
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf639be5db90e3632b8931564ac397c42e1d8403
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371843"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899367"
 ---
-# <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Skicka användarkontext ID: N för att aktivera användning upplevelser i Azure Application Insights
+# <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Skicka användar kontext-ID: n för att aktivera användnings upplevelser i Azure Application Insights
 
 ## <a name="tracking-users"></a>Spåra användare
 
-Application Insights kan du övervaka och spåra dina användare via en uppsättning verktyg för användning av produkten:
+Med Application Insights kan du övervaka och spåra dina användare via en uppsättning produkt användnings verktyg:
 
 - [Användare, sessioner, händelser](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 - [Trattar](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- [Kvarhållning](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) kohorter
+- [Kvarhållning](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Kohorter
 - [Arbetsböcker](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-För att kunna spåra vad en användare gör med tiden, måste ett ID för varje användare eller en session i Application Insights. Inkludera följande-ID i varje anpassad händelse eller sidvisning.
+För att kunna spåra vad en användare använder med tiden behöver Application Insights ett ID för varje användare eller session. Inkludera följande ID: n i varje anpassad händelse-eller sid visning.
 
-- Användare, Trattar, kvarhållning och kohorter: Inkludera användar-ID.
-- Sessioner: Inkludera sessions-ID.
+- Användare, trattar, kvarhållning och kohorter: inkludera användar-ID.
+- Sessioner: ta med sessions-ID.
 
 > [!NOTE]
-> Det här är en avancerad artikel som beskriver de manuella stegen för att spåra användaraktivitet med Application Insights. Med många webbprogram **de här stegen kan inte krävas**, som standard serversidan SDK: er i samband med den [/webbläsare på klientsidan JavaScript SDK](../../azure-monitor/app/website-monitoring.md ), ofta är tillräckliga för att spåra automatiskt användaraktivitet. Om du inte har konfigurerat [övervakning på klientsidan –](../../azure-monitor/app/website-monitoring.md ) förutom SDK för serversidan, gör du detta och kontrollera om analysverktyg för användaren beteende fungerar som förväntat.
+> Det här är en avancerad artikel som beskriver de manuella stegen för att spåra användar aktivitet med Application Insights. Med många webb program behöver **de här stegen inte utföras**eftersom standard-SDK: er för Server sidan tillsammans med [klient-och webb läsar sidans JavaScript SDK](../../azure-monitor/app/website-monitoring.md )är ofta tillräckliga för att automatiskt spåra användar aktivitet. Om du inte har konfigurerat [övervakning på klient sidan](../../azure-monitor/app/website-monitoring.md ) utöver SDK för Server sidan, gör du det först och testar för att se om verktygen för användar beteende analys fungerar som förväntat.
 
 ## <a name="choosing-user-ids"></a>Välja användar-ID
 
-Användar-ID ska sparas i användarsessioner att spåra hur användarna ska fungera över tid. Det finns olika metoder för att spara ID.
+Användar-ID: n bör bevaras över användarsessioner som spårar hur användare beter sig över tid. Det finns olika metoder för att bevara ID: t.
 
 - En definition av en användare som du redan har i din tjänst.
-- Om tjänsten har åtkomst till en webbläsare, kan det skicka webbläsaren en cookie med ID i den. ID: T finns kvar för så länge cookien finns kvar i användarens webbläsare.
-- Om det behövs kan du använda ett nytt ID varje session, men resultatet om användare begränsas. Exempelvis kan du inte se hur en användares beteende ändras över tid.
+- Om tjänsten har åtkomst till en webbläsare kan den skicka en cookie med ett ID i webbläsaren. ID: t är kvar så länge cookien finns kvar i användarens webbläsare.
+- Om det behövs kan du använda ett nytt ID varje session, men resultatet om användarna är begränsat. Du kan till exempel inte se hur en användares beteende förändras över tid.
 
-ID: T ska vara ett Guid eller en annan sträng som är tillräckligt komplext för att unikt identifiera varje användare. Exempelvis kan det vara ett långt slumptal.
+ID: t ska vara ett GUID eller en annan sträng som är tillräckligt komplex för att identifiera varje användare unikt. Det kan till exempel vara ett långt slumptal.
 
-Om det ID: T innehåller personlig information om användaren kan är det inte ett lämpligt värde att skicka till Application Insights som ett användar-ID. Du kan skicka sådana ett ID som en [autentiserad användar-ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), men den inte uppfyller kravet på användar-ID för Användningsscenarier.
+Om ID: t innehåller personligt identifierad information om användaren, är det inte ett lämpligt värde att skicka till Application Insights som ett användar-ID. Du kan skicka ett sådant ID som ett [autentiserat användar-ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), men det uppfyller inte användar-ID-kravet för användnings scenarier.
 
-## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET-appar: Ange användarkontexten i en ITelemetryInitializer
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET appar: Ange användar kontexten i en ITelemetryInitializer
 
-Skapa en telemetri-initierare som beskrivs i detalj [här](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer). Skicka sessions-ID via begärandetelemetri som och ange Context.User.Id och Context.Session.Id.
+Skapa en telemetri-initierare enligt beskrivningen i detalj [här](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer). Skicka sessions-ID: t via telemetri för begäran och ange Context.User.Id och Context.Session.Id.
 
-Det här exemplet anger användar-ID till en identifierare som upphör att gälla efter sessionen. Använd om möjligt ett användar-ID som bevaras mellan sessioner.
+I det här exemplet anges användar-ID: t till en identifierare som upphör att gälla efter sessionen. Använd om möjligt ett användar-ID som finns kvar mellan sessioner.
 
 ### <a name="telemetry-initializer"></a>Telemetri-initierare
 
@@ -136,9 +130,9 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill aktivera användning upplevelser börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sidvisningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Om du redan skicka anpassade händelser eller sidvisningar, utforska användningsverktygen om du vill veta hur användarna använder din tjänst.
-    - [Användningsöversikten](usage-overview.md)
+- Börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sid visningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)om du vill aktivera användnings upplevelser.
+- Om du redan skickar anpassade händelser eller sid visningar, utforska användnings verktygen för att lära dig hur användarna använder tjänsten.
+    - [Översikt över användning](usage-overview.md)
     - [Användare, sessioner och händelser](usage-segmentation.md)
     - [Trattar](usage-funnels.md)
     - [Kvarhållning](usage-retention.md)

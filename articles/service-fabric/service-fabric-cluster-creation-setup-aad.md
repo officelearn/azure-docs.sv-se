@@ -14,23 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/28/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6c195357c4a037534307571a53589b2ae861d88b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 77814d04daca0ebb649ffa2e8ff46becddec4f0f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67486010"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901509"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
 
-För kluster som körs på Azure rekommenderas Azure Active Directory (Azure AD) för att skydda åtkomsten till hanterings slut punkter.  Den här artikeln beskriver hur du konfigurerar Azure AD för att autentisera klienter för ett Service Fabric kluster, vilket måste göras innan [klustret skapas](service-fabric-cluster-creation-via-arm.md).  Med Azure AD kan organisationer (som kallas klientorganisationer) hantera användaråtkomst till program. Programmen är indelade i de med ett webbaserat inloggnings gränssnitt och de har en inbyggd klient upplevelse. 
+För kluster som körs på Azure rekommenderas Azure Active Directory (Azure AD) för att skydda åtkomsten till hanterings slut punkter. Den här artikeln beskriver hur du konfigurerar Azure AD för att autentisera klienter för ett Service Fabric kluster.
 
-Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, däribland den webbaserade [Service Fabric Explorer][service-fabric-visualizing-your-cluster] och [Visual Studio][service-fabric-manage-application-in-visual-studio]. Därför kan du skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program.  När programmen har skapats tilldelar du användare till roller som skrivskyddad och administratör.
+I den här artikeln kommer termen "program" att användas för att referera till [Azure Active Directory program](../active-directory/develop/developer-glossary.md#client-application), inte Service Fabric program. skillnaden kommer att göras där det behövs. Med Azure AD kan organisationer (som kallas klientorganisationer) hantera användaråtkomst till program.
+
+Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, däribland den webbaserade [Service Fabric Explorer][service-fabric-visualizing-your-cluster] och [Visual Studio][service-fabric-manage-application-in-visual-studio]. Därför kan du skapa två Azure AD-program för att kontrol lera åtkomsten till klustret: ett webb program och ett internt program. När programmen har skapats tilldelar du användare till skrivskyddade och administratörs roller.
 
 > [!NOTE]
-> Du måste slutföra följande steg innan du skapar klustret. Eftersom skripten förväntar sig klusternamn och slutpunkter bör värdena vara planerade och inte värden som du redan har skapat.
+> I Linux måste du utföra följande steg innan du skapar klustret. I Windows har du också möjlighet att [Konfigurera Azure AD-autentisering för ett befintligt kluster](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 I den här artikeln förutsätter vi att du redan har skapat en klientorganisation. Om du inte har gjort det börjar du med att läsa avsnittet om [hur du skaffar en Azure Active Directory-klientorganisation][active-directory-howto-tenant].
 
 Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa av de steg som används för att konfigurera Azure AD med Service Fabric-kluster.
@@ -57,7 +59,7 @@ Du kan hitta ditt *TenantId* genom att köra PowerShell-kommandot `Get-AzureSubs
 
 *ClusterName* (Klusternamn) används för att prefigera de AD-program som skapas av skriptet. Det behöver inte matcha det faktiska klusternamnet exakt. Det är endast avsett att göra det enklare att mappa Azure AD-artefakter till det Service Fabric-kluster som de används med.
 
-*WebApplicationReplyUrl* är den standardslutpunkt som Azure AD returnerar till dina användare när de har slutfört inloggningen. Ange den här slutpunkten som Service Fabric Explorer-slutpunkt för ditt kluster, vilken som standard är:
+*WebApplicationReplyUrl* är den standardslutpunkt som Azure AD returnerar till dina användare när de har slutfört inloggningen. Ange den här slut punkten som Service Fabric Explorer slut punkt för klustret. Om du skapar Azure AD-program som ska representera ett befintligt kluster kontrollerar du att URL: en matchar det befintliga klustrets slut punkt. Om du skapar program för ett nytt kluster bör du planera slut punkten som klustret kommer att ha och se till att inte använda slut punkten för ett befintligt kluster. Som standard är Service Fabric Explorer slut punkten:
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
@@ -66,7 +68,7 @@ Du uppmanas att logga in på ett konto som har administratörsbehörighet för A
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
 
-Skriptet skriver ut JSON-filen som krävs av Azure Resource Manager-mallen när du [skapar klustret](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), så det är en bra idé att låta PowerShell-fönstret vara öppet.
+Skriptet skriver ut JSON-filen som krävs av Azure Resource Manager-mallen när du [skapar ditt AAD-aktiverade kluster](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), så det är en bra idé att låta PowerShell-fönstret vara öppet.
 
 ```json
 "azureActiveDirectory": {
@@ -85,30 +87,30 @@ När du har loggat in på Azure AD i Service Fabric Explorer återgår webbläsa
 
 ![Dialog rutan SFX-certifikat][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>Reason
+#### <a name="reason"></a>Orsak
 Användaren har inte tilldelats någon roll i Azure AD-klustret. Azure AD-autentisering Miss lyckas därför på Service Fabric klustret. Service Fabric Explorer hamnar tillbaka till certifikatautentisering.
 
 #### <a name="solution"></a>Lösning
-Följ anvisningarna för att konfigurera Azure AD och tilldela användar roller. Vi rekommenderar också att du aktiverar "användar tilldelning krävs för att få åtkomst till appen" `SetupApplications.ps1` .
+Följ anvisningarna för att konfigurera Azure AD och tilldela användar roller. Vi rekommenderar också att du aktiverar "användar tilldelning krävs för att få åtkomst till appen" som `SetupApplications.ps1` gör.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>Anslutning med PowerShell Miss lyckas med ett fel: "De angivna autentiseringsuppgifterna är ogiltiga"
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>Anslutning med PowerShell Miss lyckas med ett fel: "de angivna autentiseringsuppgifterna är ogiltiga"
 #### <a name="problem"></a>Problem
-När du använder PowerShell för att ansluta till klustret genom att använda säkerhets läget "AzureActiveDirectory" när du har loggat in på Azure AD, Miss lyckas anslutningen med ett fel: "De angivna autentiseringsuppgifterna är ogiltiga."
+När du använder PowerShell för att ansluta till klustret genom att använda säkerhets läget "AzureActiveDirectory" när du har loggat in på Azure AD, Miss lyckas anslutningen med ett fel: "de angivna autentiseringsuppgifterna är ogiltiga."
 
 #### <a name="solution"></a>Lösning
 Den här lösningen är samma som föregående.
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer returnerar ett problem när du loggar in: "AADSTS50011"
 #### <a name="problem"></a>Problem
-När du försöker logga in på Azure AD i Service Fabric Explorer returnerar sidan ett problem: "AADSTS50011: Svars &lt;adressens&gt; URL stämmer inte överens med de svars adresser &lt;som har kon figurer ATS för programmet: GUID&gt;. "
+När du försöker logga in på Azure AD i Service Fabric Explorer returnerar sidan ett fel: "AADSTS50011: svars adressen &lt;URL&gt; matchar inte svars adresserna som har kon figurer ATS för programmet: &lt;-GUID&gt;."
 
 ![Svars adressen för SFX matchar inte][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>Reason
+#### <a name="reason"></a>Orsak
 Kluster (webb) som representerar Service Fabric Explorer försöker autentisera mot Azure AD, och som en del av begäran tillhandahåller URL: en för omdirigerings RETUR. Men URL: en visas inte i listan Azure AD Application **svars-URL** .
 
 #### <a name="solution"></a>Lösning
-Välj Appregistreringar på AAD-sidan, Välj ditt kluster program och välj sedan knappen svars- **URL: er** . På sidan svars-URL: er lägger du till URL: en för Service Fabric Explorer i listan eller ersätter ett objekt i listan. När du är färdig sparar du ändringen.
+Välj Appregistreringar på AAD-sidan, Välj ditt kluster program och välj sedan knappen **svars-URL: er** . På sidan svars-URL: er lägger du till URL: en för Service Fabric Explorer i listan eller ersätter ett objekt i listan. När du är färdig sparar du ändringen.
 
 ![Webb program svars-URL][web-application-reply-url]
 
@@ -125,7 +127,7 @@ Mer information finns i [cmdleten Connect-ServiceFabricCluster](https://docs.mic
 Ja. Kom ihåg att lägga till URL: en för Service Fabric Explorer till ditt kluster (webb program). Annars fungerar inte Service Fabric Explorer.
 
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Varför behöver jag fortfarande ett Server certifikat när Azure AD är aktiverat?
-FabricClient och FabricGateway utför en ömsesidig autentisering. Vid Azure AD-autentisering tillhandahåller Azure AD-integrering en klient identitet för servern och Server certifikatet används för att verifiera Server identiteten. Mer information om Service Fabric certifikat finns i avsnittet om [X. 509-certifikat och Service Fabric][x509-certificates-and-service-fabric].
+FabricClient och FabricGateway utför en ömsesidig autentisering. Vid Azure AD-autentisering tillhandahåller Azure AD-integrering en klient identitet för servern och Server certifikatet används av klienten för att verifiera serverns identitet. Mer information om Service Fabric certifikat finns i avsnittet om [X. 509-certifikat och Service Fabric][x509-certificates-and-service-fabric].
 
 ## <a name="next-steps"></a>Nästa steg
 När du har konfigurerat Azure Active Directory program och ställt in roller för användare [konfigurerar du och distribuerar ett kluster](service-fabric-cluster-creation-via-arm.md).

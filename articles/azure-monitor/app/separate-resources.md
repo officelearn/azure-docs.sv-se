@@ -1,47 +1,42 @@
 ---
-title: Att separera telemetri från utveckling, testa och släppa i Azure Application Insights | Microsoft Docs
-description: Direct telemetri till olika resurser för utveckling, testning och produktion stämplar.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Åtskilj telemetri från utveckling, testning och lansering i Azure Application Insights | Microsoft Docs
+description: Dirigera telemetri till olika resurser för utveckling, testning och produktions märken.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/15/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 2e9c599c12ed10327d352baee02500d2284d98d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/15/2017
+ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713478"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899915"
 ---
-# <a name="separating-telemetry-from-development-test-and-production"></a>Att separera telemetri från utveckling, testning och produktion
+# <a name="separating-telemetry-from-development-test-and-production"></a>Åtskilj telemetri från utveckling, testning och produktion
 
-När du skapar i nästa version av ett program kan du inte vill blanda ihop den [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetri från den nya versionen och den redan utgivna versionen. Skicka telemetri från olika utveckling faser för att separera Application Insights-resurser med separat instrumenteringsnycklar (ikeys) för att undvika förvirring. Om du vill göra det lättare att ändra instrumenteringsnyckeln som en version som flyttar från ett stadium till en annan, kan det vara praktiskt att ange nyckeln i koden i stället för i konfigurationsfilen. 
+När du utvecklar nästa version av ett webb program vill du inte blanda [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetri från den nya versionen och den version som redan har släppts. Undvik förvirring genom att skicka Telemetrin från olika utvecklings steg till att separera Application Insights-resurser med separata instrumentande nycklar (ikeys). För att göra det enklare att ändra Instrumentation-nyckeln när en version flyttas från ett steg till en annan, kan det vara praktiskt att ange iKey i kod i stället för i konfigurations filen. 
 
-(Om datorn är en Azure-molntjänst är det [ett annat sätt för att ange olika ikeys](../../azure-monitor/app/cloudservices.md).)
+(Om systemet är en Azure-moln tjänst finns det [en metod för att ställa in separata ikeys](../../azure-monitor/app/cloudservices.md).)
 
-## <a name="about-resources-and-instrumentation-keys"></a>Om resurser och instrumenteringsnycklar
+## <a name="about-resources-and-instrumentation-keys"></a>Om resurser och instrumentande nycklar
 
-När du har konfigurerat Application Insights-övervakning för din webbapp kan du skapa en Application Insights *resource* i Microsoft Azure. Du öppnar den här resursen i Azure-portalen för att kunna se och analysera telemetri som samlas in från din app. Resursen har identifierats av en *instrumenteringsnyckeln* (ikey). När du installerar Application Insights-paketet för att övervaka din app kan konfigurera du den med instrumenteringsnyckeln, så att den vet att skicka telemetri.
+När du konfigurerar Application Insights övervakning för din webbapp skapar du en Application Insights *resurs* i Microsoft Azure. Du öppnar den här resursen i Azure Portal för att se och analysera telemetri som samlats in från din app. Resursen identifieras av en *Instrumentation-nyckel* (iKey). När du installerar Application Insights-paketet för att övervaka din app konfigurerar du den med Instrumentation-nyckeln, så att den vet var du vill skicka telemetrit.
 
-Du väljer normalt att använda separata resurser eller en enda delad resurs i olika scenarier:
+Du väljer vanligt vis att använda separata resurser eller en enda delad resurs i olika scenarier:
 
-* Olika oberoende program - använda en separat resurs och ikey för varje app.
-* Flera komponenter eller roller i ett affärsprogram – Använd en [enkel delad resurs](../../azure-monitor/app/app-map.md) för alla appar som komponenten. Telemetri kan filtreras eller uppdelat efter egenskapen cloud_RoleName.
-* Utveckling, testning och version – Använd en separat resurs och ikey för versioner av systemet i ”stämpel” eller steget i produktion.
-* A | B-testning - använda en enskild resurs. Skapa en TelemetryInitializer om du vill lägga till en egenskap i telemetrin som identifierar varianterna.
+* Olika, oberoende program – Använd en separat resurs-och iKey för varje app.
+* Flera komponenter eller roller för ett företags program – Använd en [enda delad resurs](../../azure-monitor/app/app-map.md) för alla komponent program. Telemetri kan filtreras eller segmenteras av egenskapen cloud_RoleName.
+* Utveckling, testning och lansering – Använd en separat resurs-och iKey för versioner av systemet i "Stamp" eller produktions stadiet.
+* En | B-testning – Använd en enda resurs. Skapa en TelemetryInitializer för att lägga till en egenskap i Telemetrin som identifierar varianterna.
 
 
-## <a name="dynamic-ikey"></a> Dynamisk instrumenteringsnyckeln
+## <a name="dynamic-ikey"></a>Dynamisk Instrumentation-nyckel
 
-Om du vill göra det lättare att ändra nyckeln när koden flyttas mellan faser i produktion, anger du det i kod i stället för i konfigurationsfilen.
+För att göra det enklare att ändra iKey när koden flyttas mellan produktions faser, ställer du in den i kod i stället för i konfigurations filen.
 
-Ange nyckeln i en initieringsmetod, till exempel global.aspx.cs i en ASP.NET-tjänst:
+Ange nyckeln i en initierings metod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
 *C#*
 
@@ -53,12 +48,12 @@ Ange nyckeln i en initieringsmetod, till exempel global.aspx.cs i en ASP.NET-tj�
           WebConfigurationManager.AppSettings["ikey"];
       ...
 
-I det här exemplet placeras ikeys för olika resurser i olika versioner av Webbkonfigurationsfilen. Växlar Webbkonfigurationsfilen – som du kan göra som en del av skriptet release - kommer växla målresursen.
+I det här exemplet placeras ikeys för de olika resurserna i olika versioner av webb konfigurations filen. Växling av webb konfigurations filen – som du kan göra som en del av versions skriptet – byter mål resurs.
 
 ### <a name="web-pages"></a>Webbsidor
-Nyckeln används också i din app för webbsidor, i den [skript som du fick från Snabbstart-bladet](../../azure-monitor/app/javascript.md). I stället för att koda den bokstavligen till skriptet, generera du den från servern. Till exempel i en ASP.NET-app:
+IKey används också i appens webb sidor, i det [skript som du fick från snabb starts bladet](../../azure-monitor/app/javascript.md). I stället för att koda det bokstavligen i skriptet kan du generera det från Server tillstånd. Till exempel i en ASP.NET-app:
 
-*JavaScript in Razor*
+*Java Script i kniv*
 
     <script type="text/javascript">
     // Standard Application Insights web page script:
@@ -71,44 +66,44 @@ Nyckeln används också i din app för webbsidor, i den [skript som du fick frå
     }) // ...
 
 
-## <a name="create-additional-application-insights-resources"></a>Skapa ytterligare Application Insights-resurser
-För att avgränsa telemetri för olika programkomponenter eller för olika stämplar (dev/test/produktion) av samma komponent du kommer att behöva skapa en ny Application Insights-resurs.
+## <a name="create-additional-application-insights-resources"></a>Skapa ytterligare Application Insights resurser
+För att separera telemetri för olika program komponenter, eller för olika stämplar (utveckling/testning/produktion) av samma komponent, måste du skapa en ny Application Insights-resurs.
 
-I den [portal.azure.com](https://portal.azure.com), lägga till en Application Insights-resurs:
+Lägg till en Application Insights-resurs i [Portal.Azure.com](https://portal.azure.com):
 
 ![Klicka på Nytt, Application Insights](./media/separate-resources/01-new.png)
 
-* **Programtyp** påverkar vad som visas på översiktsbladet och egenskaper som är tillgängliga i [metric explorer](../../azure-monitor/app/metrics-explorer.md). Om du inte ser din typ av app, väljer du en av de web-typerna för webbsidor.
-* **Resursgrupp** är att underlätta för att hantera egenskaper som [åtkomstkontroll](../../azure-monitor/app/resources-roles-access-control.md). Du kan använda separata resursgrupper för utveckling, testning och produktion.
-* **Prenumeration** är ditt betalningskonto i Azure.
-* **Plats** är där vi sparar dina data. För närvarande kan inte ändras. 
-* **Lägga till instrumentpanelen** placerar en panel för snabb åtkomst för din resurs på startsidan för Azure. 
+* **Program typen** påverkar det du ser i översikts bladet och de egenskaper som är tillgängliga i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md). Om du inte ser din typ av app väljer du någon av webb typerna för webb sidor.
+* **Resurs gruppen** är en bekvämlighet för att hantera egenskaper som [åtkomst kontroll](../../azure-monitor/app/resources-roles-access-control.md). Du kan använda separata resurs grupper för utveckling, testning och produktion.
+* **Prenumeration** är ditt betalnings konto i Azure.
+* **Platsen** är den plats där vi behåller dina data. För närvarande går det inte att ändra. 
+* **Lägg till på instrument panelen** placerar en snabb åtkomst panel för din resurs på din Azures start sida. 
 
-Det tar några sekunder att skapa resursen. Du ser en avisering när den är klar.
+Det tar några sekunder att skapa resursen. Du ser en avisering när den är färdig.
 
-(Du kan skriva en [PowerShell-skript](../../azure-monitor/app/powershell-script-create-resource.md) att skapa en resurs automatiskt.)
+(Du kan skriva ett [PowerShell-skript](../../azure-monitor/app/powershell-script-create-resource.md) för att skapa en resurs automatiskt.)
 
-### <a name="getting-the-instrumentation-key"></a>Hämta instrumenteringsnyckeln
-Instrumenteringsnyckeln som identifierar den resurs som du skapade. 
+### <a name="getting-the-instrumentation-key"></a>Hämtar instrumentande nyckel
+Instrumentation-nyckeln identifierar den resurs som du har skapat. 
 
-![Klicka på Essentials, Instrumenteringsnyckeln, CTRL + C](./media/separate-resources/02-props.png)
+![Klicka på Essentials, klicka på Instrumentation-tangenten, CTRL + C](./media/separate-resources/02-props.png)
 
-Du behöver instrumenteringsnycklar över alla resurser som din app skickar data.
+Du behöver Instrumentation-nycklarna för alla resurser som din app ska skicka data till.
 
-## <a name="filter-on-build-number"></a>Filtrera på build-nummer
-När du publicerar en ny version av din app kommer du att kunna skilja telemetri från olika versioner.
+## <a name="filter-on-build-number"></a>Filter för build-nummer
+När du publicerar en ny version av din app vill du kunna separera Telemetrin från olika versioner.
 
-Du kan ange egenskapen programversion så att du kan filtrera [search](../../azure-monitor/app/diagnostic-search.md) och [metric explorer](../../azure-monitor/app/metrics-explorer.md) resultat.
+Du kan ställa in egenskapen för program version så att du kan filtrera [Sök](../../azure-monitor/app/diagnostic-search.md) -och [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) -resultat.
 
 ![Filtrera efter en egenskap](./media/separate-resources/050-filter.png)
 
-Det finns flera olika metoder för att ange egenskapen programversion.
+Det finns flera olika metoder för att ange program versions egenskapen.
 
 * Ange direkt:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Omsluter den raden i en [telemetriinitieraren](../../azure-monitor/app/api-custom-events-metrics.md#defaults) att kontrollera att alla TelemetryClient-instanser är konsekvent.
-* [ASP.NET] Ange version `BuildInfo.config`. Webbmodulen tar över versionen från noden BuildLabel. Inkludera den här filen i projektet och Kom ihåg att ange egenskapen Kopiera alltid i Solution Explorer.
+* Radbryt raden i en [telemetri initierare](../../azure-monitor/app/api-custom-events-metrics.md#defaults) för att säkerställa att alla TelemetryClient-instanser anges konsekvent.
+* [ASP.NET] Ange versionen i `BuildInfo.config`. Webbmodulen hämtar versionen från BuildLabel-noden. Ta med den här filen i projektet och kom ihåg att ange egenskapen kopiera alltid i Solution Explorer.
 
     ```XML
 
@@ -123,7 +118,7 @@ Det finns flera olika metoder för att ange egenskapen programversion.
     </DeploymentEvent>
 
     ```
-* [ASP.NET] Generera BuildInfo.config automatiskt i MSBuild. Gör detta genom att lägga till några rader till din `.csproj` fil:
+* [ASP.NET] Generera BuildInfo. config automatiskt i MSBuild. Det gör du genom att lägga till några rader i `.csproj`-filen:
 
     ```XML
 
@@ -132,11 +127,11 @@ Det finns flera olika metoder för att ange egenskapen programversion.
     </PropertyGroup>
     ```
 
-    Detta genererar en fil med namnet *yourProjectName*. BuildInfo.config. Publiceringsprocessen byter namn på den till BuildInfo.config.
+    Detta genererar en fil med namnet *yourProjectName*. BuildInfo. config. publicerings processen byter namn till BuildInfo. config.
 
-    Build-etiketten innehåller platshållare (AutoGen_...) när du skapar med Visual Studio. Men när skapats med MSBuild, fylls den med rätt versionsnumret.
+    Versions etiketten innehåller en plats hållare (AutoGen_...) när du skapar med Visual Studio. Men när det har skapats med MSBuild fylls det i med rätt versions nummer.
 
-    Om du vill tillåta MSBuild att generera versionsnummer, anger du versionen som `1.0.*` i AssemblyReference.cs
+    Om du vill tillåta att MSBuild genererar versions nummer ställer du in versionen som `1.0.*` i AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Spårning av versionen och utgåva
 Om du vill kunna spåra programversionen, se till att `buildinfo.config` genereras av Microsoft Build Engine-processen. I filen .csproj lägger du till:  
@@ -153,10 +148,10 @@ När Application Insights-webbmodulen har fått versionsinformationen läggs **p
 Observera dock att build-versionsnumret endast genereras av Microsoft Build Engine, och inte av utvecklarversionen i Visual Studio.
 
 ### <a name="release-annotations"></a>Versionsanteckningar
-Om du använder Azure DevOps kan du [få en anteckningsmarkör](../../azure-monitor/app/annotations.md) tillagd i diagrammen när du släpper en ny version. Följande bild visar hur markeringen visas.
+Om du använder Azure DevOps kan du [få en antecknings markör](../../azure-monitor/app/annotations.md) tillagd i dina diagram när du släpper en ny version. Följande bild visar hur markeringen visas.
 
 ![Skärmbild av exempel på versionsanteckning i ett diagram](media/separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>Nästa steg
 
 * [Delade resurser för flera roller](../../azure-monitor/app/app-map.md)
-* [Skapa en telemetri-initierare för att skilja mellan en | B-varianter](../../azure-monitor/app/api-filtering-sampling.md#add-properties)
+* [Skapa en telemetri-initierare för att särskilja en | B-varianter](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

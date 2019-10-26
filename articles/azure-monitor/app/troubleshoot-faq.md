@@ -1,25 +1,20 @@
 ---
 title: Vanliga frågor och svar om Azure Application Insights | Microsoft Docs
 description: Vanliga frågor och svar om Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/16/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 09/16/2019
+ms.openlocfilehash: 55a096cd4971664e55bb2cfd17f9f8927d7c32f5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802290"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899511"
 ---
-# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
+# <a name="application-insights-frequently-asked-questions"></a>Application Insights: vanliga frågor och svar
 
 ## <a name="configuration-problems"></a>Konfigurations problem
 *Jag har problem med att konfigurera mitt:*
@@ -69,8 +64,8 @@ Informationen beror på projekt typen. För ett webb program:
 
 * Lägger till de här filerna i projektet:
 
-  * ApplicationInsights.config.
-  * ai.js
+  * ApplicationInsights. config.
+  * AI. js
 * Installerar dessa NuGet-paket:
 
   * *Application Insights API* – Core API
@@ -78,19 +73,19 @@ Informationen beror på projekt typen. För ett webb program:
   * *Application Insights API för JavaScript-program* – används för att skicka telemetri från klienten
 
     Paketen innehåller följande sammansättningar:
-  * Microsoft.ApplicationInsights
-  * Microsoft.ApplicationInsights.Platform
+  * Microsoft. ApplicationInsights
+  * Microsoft. ApplicationInsights. Platform
 * Infogar objekt i:
 
   * Web.config
-  * packages.config
+  * packages. config
 * (Endast nya projekt – om du [lägger till Application Insights i ett befintligt projekt][start]måste du göra det manuellt.) Infogar kodfragment i klient-och Server koden för att initiera dem med Application Insights resurs-ID. I en MVC-app infogas till exempel kod i vyerna för huvud sidan/Shared/_Layout. cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hur gör jag för att uppgradering från äldre SDK-versioner?
 Se [viktig information](release-notes.md) om SDK: n som passar din typ av program.
 
 ## <a name="update"></a>Hur kan jag ändra vilken Azure-resurs mitt projekt skickar data till?
-I Solution Explorer högerklickar du på `ApplicationInsights.config` och väljer **Uppdatera Application Insights**. Du kan skicka data till en befintlig eller ny resurs i Azure. Uppdaterings guiden ändrar Instrumentation-nyckeln i ApplicationInsights. config, som avgör var serverns SDK skickar dina data. Om du inte avmarkerar kryss rutan uppdatera alla, ändras även nyckeln där den visas på dina webb sidor.
+I Solution Explorer högerklickar du på `ApplicationInsights.config` och väljer **uppdatera Application Insights**. Du kan skicka data till en befintlig eller ny resurs i Azure. Uppdaterings guiden ändrar Instrumentation-nyckeln i ApplicationInsights. config, som avgör var serverns SDK skickar dina data. Om du inte avmarkerar kryss rutan uppdatera alla, ändras även nyckeln där den visas på dina webb sidor.
 
 ## <a name="what-is-status-monitor"></a>Vad är Statusövervakaren?
 
@@ -137,12 +132,12 @@ Läs mer om [ASP.net](api-filtering-sampling.md) eller [Java](java-filter-teleme
 
 Vi letar upp IP-adressen (IPv4 eller IPv6) för webb klienten med hjälp av [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
-* Webb läsar telemetri: Vi samlar in avsändarens IP-adress.
+* Webb läsar telemetri: vi samlar in avsändarens IP-adress.
 * Server telemetri: Application Insights-modulen samlar in klientens IP-adress. Den samlas inte in om `X-Forwarded-For` har angetts.
 * Mer information om hur IP-adress och data för geolokalisering samlas in i Application Insights finns i den här [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-Du kan konfigurera `ClientIpHeaderTelemetryInitializer` att ta med IP-adressen från en annan rubrik. I vissa system flyttas den till exempel av en proxy, belastningsutjämnare eller CDN till `X-Originating-IP`. [Läs mer](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+Du kan konfigurera `ClientIpHeaderTelemetryInitializer` att ta IP-adressen från en annan rubrik. I vissa system flyttas den till exempel av en proxy, belastningsutjämnare eller CDN till `X-Originating-IP`. [Läs mer](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 Du kan [använda Power BI](export-power-bi.md ) för att visa din begär ande telemetri på en karta.
 
@@ -196,17 +191,17 @@ Använd en enda resurs för alla komponenter eller roller i ett enda företags s
 | Tillgänglighets diagram |[Webbtester](monitor-web-app-availability.md) |Vet att din webbapp är igång |
 | Server App-prestanda: svars tider,... |[Lägg till Application Insights i projektet](asp-net.md) eller [installera AI-statusövervakare på servern](monitor-performance-live-website-now.md) (eller Skriv din egen kod för att [spåra beroenden](api-custom-events-metrics.md#trackdependency)) |Identifiera prestanda problem |
 | Beroende telemetri |[Installera AI-Statusövervakare på servern](monitor-performance-live-website-now.md) |Diagnostisera problem med databaser eller andra externa komponenter |
-| Hämta stack spår från undantag |[Infoga TrackException-anrop i din kod](asp-net-exceptions.md) (men vissa rapporteras automatiskt) |Identifiera och diagnostisera undantag |
+| Hämta stack spår från undantag |[Infoga TrackException-anrop i koden](asp-net-exceptions.md) (men vissa rapporteras automatiskt) |Identifiera och diagnostisera undantag |
 | Sök logg spårningar |[Lägg till ett loggnings kort](asp-net-trace-logs.md) |Diagnostisera undantag, prestanda problem |
-| Grundläggande om klient användning: sidvyer, sessioner,... |[JavaScript-initierare på webb sidor](javascript.md) |Användninganalys |
+| Grundläggande om klient användning: sidvyer, sessioner,... |[JavaScript-initierare på webb sidor](javascript.md) |Användningsanalys |
 | Anpassade mått för klienter |[Spåra samtal på webb sidor](api-custom-events-metrics.md) |Förbättrad användarupplevelse |
-| Anpassade mått för Server |[Spåra anrop i Server](api-custom-events-metrics.md) |Business Intelligence |
+| Anpassade mått för Server |[Spåra anrop i Server](api-custom-events-metrics.md) |Business intelligence |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Varför är antalet i Sök-och mått diagram desamma?
 
 [Sampling](sampling.md) minskar antalet telemetridata (begär Anden, anpassade händelser osv.) som faktiskt skickas från din app till portalen. I sökningen visas antalet objekt som faktiskt har tagits emot. I mått diagram som visar antalet händelser visas antalet ursprungliga händelser som har inträffat. 
 
-Varje objekt som överförs har en `itemCount` egenskap som visar hur många ursprungliga händelser som objektet representerar. Du kan köra den här frågan i Analytics för att se hur prover fungerar:
+Varje objekt som överförs har en `itemCount`-egenskap som visar hur många ursprungliga händelser som objektet representerar. Du kan köra den här frågan i Analytics för att se hur prover fungerar:
 
 ```
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
@@ -249,9 +244,9 @@ Vi rekommenderar att du använder våra SDK [: er](api-custom-events-metrics.md)
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Kan jag övervaka en intranät webb server?
 
 Ja, men du måste tillåta trafik till våra tjänster genom brand Väggs undantag eller omdirigering av proxy.
-- QuickPulse`https://rt.services.visualstudio.com:443` 
-- ApplicationIdProvider`https://dc.services.visualstudio.com:443` 
-- TelemetryChannel`https://dc.services.visualstudio.com:443` 
+- QuickPulse `https://rt.services.visualstudio.com:443` 
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
+- TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
 
 Läs vår fullständiga lista över tjänster och IP-adresser [här](../../azure-monitor/app/ip-addresses.md).
@@ -265,7 +260,7 @@ Tillåt att din webb server skickar telemetri till våra slut punkter.
 Dirigera trafik från servern till en gateway på intranätet genom att skriva över slut punkter i konfigurationen.
 Om dessa "slut punkts egenskaper" inte finns i konfigurationen, använder dessa klasser standardvärdena som visas nedan i exemplet ApplicationInsights. config. 
 
-Din gateway ska dirigera trafik till vår slut punkts bas adress. Ersätt standardvärdena i konfigurationen med `http://<your.gateway.address>/<relative path>`.
+Din gateway ska dirigera trafik till vår slut punkts bas adress. I konfigurationen ersätter du standardvärdena med `http://<your.gateway.address>/<relative path>`.
 
 
 #### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Exempel på ApplicationInsights. config med standard slut punkter:
@@ -308,7 +303,7 @@ Mer information finns i dotNet-artikeln på [DefaultProxy](https://docs.microsof
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan jag köra tillgänglighets webb test på en intranät Server?
 
-Våra [](monitor-web-app-availability.md) webbtester körs på närvaro punkter som distribueras världen över. Det finns två lösningar:
+Våra [webbtester](monitor-web-app-availability.md) körs på närvaro punkter som distribueras världen över. Det finns två lösningar:
 
 * Brand Väggs dörr – Tillåt förfrågningar till servern från [den långa och den ändrings bara listan med webb test agenter](ip-addresses.md).
 * Skriv din egen kod för att skicka periodiska förfrågningar till servern inifrån intranätet. Du kan köra Visual Studio-webbtester för detta ändamål. Testaren kan skicka resultatet till Application Insights med hjälp av TrackAvailability ()-API: et.

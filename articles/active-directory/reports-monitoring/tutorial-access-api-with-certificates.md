@@ -1,5 +1,5 @@
 ---
-title: Självstudie hämta data med hjälp av Azure AD repor ting API med certifikat | Microsoft Docs
+title: Självstudie för AD repor ting API med certifikat | Microsoft Docs
 description: I den här självstudien beskrivs hur du använder Azure AD repor ting-API med autentiseringsuppgifter för certifikat för att hämta data från kataloger utan åtgärder från användaren.
 services: active-directory
 documentationcenter: ''
@@ -16,20 +16,20 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdab5bc4be366f778213127a307fb4fcf7cf38a3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 3fe5f2a6d1957a544c63cb8a7c223ba9734786f8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989486"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895133"
 ---
-# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Självstudier: Hämta data med hjälp av Azure Active Directory Reporting-API:et med certifikat
+# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Självstudie: Hämta data med hjälp av Azure Active Directory rapporterings-API med certifikat
 
 [Azure Active Directory reporting API: er](concept-reporting-api.md) ger programmässig åtkomst till data via en uppsättning REST-baserade API: er. Du kan anropa API: erna från en mängd olika programmeringsspråk och verktyg. Om du vill få åtkomst till Azure AD repor ting-API utan åtgärder från användaren måste du konfigurera åtkomsten till att använda certifikat.
 
 I den här självstudien får du lära dig hur du använder ett test certifikat för att komma åt MS-Graph API för rapportering. Vi rekommenderar inte att du använder test certifikat i en produktions miljö. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Kontrol lera att du har en Azure Active Directory-klient med en Premium-licens (P1/P2) för att få åtkomst till inloggnings data. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. Observera att om du inte har några aktivitetsdata före uppgraderingen tar det ett par dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens. 
 
@@ -44,7 +44,7 @@ I den här självstudien får du lära dig hur du använder ett test certifikat 
     - Åtkomsttoken från användare, programnycklar och certifikat med ADAL
     - Växlingsbara resultat för Graph API-hantering
 
-6. Om det är första gången du använder modulen kör **install-MSCloudIdUtilsModule**, annars importerar du den med hjälp av PowerShell **-kommandot Import-Module** . Sessionen bör likna följande skärm: ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Om det är första gången du använder modulen kör **install-MSCloudIdUtilsModule**, annars importerar du den med hjälp av PowerShell **-kommandot Import-Module** . Din session bör se ut ungefär så här: ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 7. Använd PowerShell **-kommandot New-SelfSignedCertificate** för att skapa ett test certifikat.
 
@@ -63,7 +63,7 @@ I den här självstudien får du lära dig hur du använder ett test certifikat 
 
 1. Gå till [Azure Portal](https://portal.azure.com), Välj **Azure Active Directory**och välj sedan **Appregistreringar** och välj ditt program i listan. 
 
-2. Välj **Inställningar** > **nycklar** och välj **överför offentlig nyckel**.
+2. Välj **inställningar** > **nycklar** och välj **överför offentlig nyckel**.
 
 3. Välj certifikat filen i föregående steg och välj **Spara**. 
 
@@ -87,15 +87,15 @@ I den här självstudien får du lära dig hur du använder ett test certifikat 
   
 7. Nu kan du hämta en åtkomsttoken för MS Graph API att använda det här certifikatet. Använd cmdleten **Get-MSCloudIdMSGraphAccessTokenFromCert** från MSCloudIdUtils PowerShell-modulen för att skicka in program-ID och det tumavtryck som du fick från föregående steg. 
 
-   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Använd åtkomsttoken i PowerShell-skriptet för att fråga Graph API. Använd cmdleten **Invoke-MSCloudIdMSGraphQuery** från MSCloudIDUtils för att räkna upp inloggningar och directoryAudits-slutpunkten. Denna cmdlet hanterar flera växlade resultat och skickar dessa resultat till PowerShell-pipeline.
 
 9. Fråga directoryAudits-slutpunkten för att hämta gransknings loggarna. 
-   ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Azure-portalen](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. Fråga inloggningar-slutpunkten för att hämta inloggnings loggarna.
-    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Azure-portalen](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. Du kan nu välja att exportera dessa data till en CSV-fil och spara dem i ett SIEM-system. Du kan också ta med skriptet i en schemalagd aktivitet för att regelbundet hämta Azure AD-data från din klientorganisation utan att behöva lagra programnycklar i källkoden. 
 

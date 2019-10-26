@@ -1,81 +1,77 @@
 ---
-title: Profilera live Azure App Service-appar med Application Insights | Microsoft Docs
-description: Profilera live-appar på Azure App Service med Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Profilera Live Azure App Service-appar med Application Insights | Microsoft Docs
+description: Profilera Live-appar på Azure App Service med Application Insights Profiler.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 71a8a0e268c1b264a0a1a7f955f310bfddc830d2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: d463732fc8e8f488851a57fe520f138b101eb6cf
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439947"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899948"
 ---
-# <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilera live Azure App Service-appar med Application Insights
+# <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilera Live Azure App Service-appar med Application Insights
 
-Du kan köra Profiler på ASP.NET och ASP.NET Core-appar som körs på Azure App Service med hjälp av grundläggande tjänstenivå eller högre. Aktivera Profiler på Linux är för närvarande bara möjligt via [den här metoden](profiler-aspnetcore-linux.md).
+Du kan köra profiler på ASP.NET och ASP.NET Core appar som körs på Azure App Service med hjälp av Basic Service Tier eller högre. Det går för närvarande bara att aktivera profiler på Linux via [den här metoden](profiler-aspnetcore-linux.md).
 
-## <a id="installation"></a> Aktivera Profiler för din app
-Följ anvisningarna nedan om du vill aktivera Profiler för en app. Om du kör en annan typ av Azure-tjänst, följer du anvisningarna för att aktivera Profiler för andra plattformar som stöds:
+## <a id="installation"></a>Aktivera profiler för din app
+Följ anvisningarna nedan om du vill aktivera profiler för en app. Om du kör en annan typ av Azure-tjänst, finns här instruktioner för att aktivera profiler på andra plattformar som stöds:
 * [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric-program](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric program](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Application Insights Profiler är förinstallerat som en del av App Services-runtime. Stegen nedan visar hur du aktiverar det för App Service. Följ dessa steg även om du tar med App Insights SDK i ditt program vid Byggtiden.
+Application Insights Profiler är förinstallerat som en del av App Services Runtime. I stegen nedan visas hur du aktiverar det för App Service. Följ dessa steg även om du har inkluderat App Insights SDK i ditt program i bygge-tid.
 
-1. Aktivera inställningen ”alltid på” för app service. Du kan uppdatera inställningen i konfigurationssidan för App Service under allmänna inställningar.
-1. Gå till den **Apptjänster** fönstret i Azure-portalen.
-1. Gå till **Inställningar > Application Insights** fönstret.
+1. Aktivera inställningen "Always On" för din app service. Du kan uppdatera inställningen på sidan konfiguration i App Service under allmänna inställningar.
+1. Gå till rutan **app Services** i Azure Portal.
+1. Gå till **inställningar > Application Insightss** fönstret.
 
-   ![Aktivera App Insights på App Services-portalen](./media/profiler/AppInsights-AppServices.png)
+   ![Aktivera App Insights på App Services Portal](./media/profiler/AppInsights-AppServices.png)
 
-1. Antingen följer du anvisningarna i fönstret för att skapa en ny resurs eller välj en befintlig App Insights-resurs för att övervaka din app. Kontrollera också att Profiler är **på**. Om Application Insights-resursen är i en annan prenumeration från din App Service, kan du inte använda den här sidan för att konfigurera Application Insights. Du kan fortfarande göra det manuellt om genom att skapa de nödvändiga app-inställningarna manuellt. [Nästa avsnitt innehåller anvisningar för att manuellt Aktivera Profiler.](#enable-profiler-manually-or-with-azure-resource-manager) 
+1. Följ anvisningarna i fönstret för att skapa en ny resurs eller Välj en befintlig App Insights-resurs för att övervaka din app. Se också till att profileraren är **på**. Om din Application Insights-resurs finns i en annan prenumeration än App Service kan du inte använda den här sidan för att konfigurera Application Insights. Du kan fortfarande göra det manuellt, genom att skapa nödvändiga appinställningar manuellt. [Nästa avsnitt innehåller instruktioner för att manuellt aktivera profiler.](#enable-profiler-manually-or-with-azure-resource-manager) 
 
-   ![Lägg till App Insights-webbplatstillägg][Enablement UI]
+   ![Lägg till App Insights-webbplatsens tillägg][Enablement UI]
 
-1. Profiler har nu aktiverats med hjälp av en Appinställning för App Services.
+1. Profileraren har nu Aktiver ATS med en App Services app-inställning.
 
-    ![App-inställning för Profiler][profiler-app-setting]
+    ![App-inställning för profiler][profiler-app-setting]
 
-## <a name="enable-profiler-manually-or-with-azure-resource-manager"></a>Aktivera Profiler manuellt eller med Azure Resource Manager
-Application Insights Profiler kan aktiveras genom att skapa appinställningar för Azure App Service. Sidan med alternativen som visas ovan skapar dessa app-inställningarna åt dig. Men du kan automatisera skapandet av de här inställningarna med hjälp av en mall eller på annat sätt. De här inställningarna fungerar även om Application Insights-resursen är i en annan prenumeration från Azure App Service.
-Här följer inställningarna som krävs för att aktivera profiler:
+## <a name="enable-profiler-manually-or-with-azure-resource-manager"></a>Aktivera profiler manuellt eller med Azure Resource Manager
+Application Insights Profiler kan aktive ras genom att skapa app-inställningar för din Azure App Service. Sidan med de alternativ som visas ovan skapar dessa inställningar för appen. Men du kan automatisera skapandet av de här inställningarna med hjälp av en mall eller på annat sätt. De här inställningarna kommer också att fungera om din Application Insights-resurs finns i en annan prenumeration än din Azure App Service.
+Här är de inställningar som krävs för att aktivera profileraren:
 
 |Programinställning    | Värde    |
 |---------------|----------|
-|APPINSIGHTS_INSTRUMENTATIONKEY         | iKey för Application Insights-resursen    |
+|APPINSIGHTS_INSTRUMENTATIONKEY         | iKey för din Application Insights-resurs    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-|DiagnosticServices_EXTENSION_VERSION | ~3 |
+|DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 
-Du kan ange dessa värden med hjälp av [Azure Resource Manager-mallar](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure Powershell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp), [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+Du kan ange dessa värden med hjälp av [Azure Resource Manager mallar](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure POWERSHELL](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp), [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
-### <a name="enabling-profiler-for-other-clouds-manually"></a>Aktivera Profiler för andra moln manuellt
+### <a name="enabling-profiler-for-other-clouds-manually"></a>Aktivera profiler för andra moln manuellt
 
-Om du vill aktivera profiler för andra moln, kan du använda den under appinställningar.
+Om du vill aktivera profileraren för andra moln kan du använda inställningarna för den här appen nedan.
 
-|Programinställning    | US Government-värden| Kina, moln |   
+|Programinställning    | AMERIKANSKA myndighets värden| Kina, moln |   
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
 |ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
 
-## <a name="disable-profiler"></a>Inaktivera Profiler
+## <a name="disable-profiler"></a>Inaktivera profiler
 
-Stoppa eller starta om Profiler för en enskild app-instansen under **Webbjobb**, gå till app-resursen. Ta bort Profiler genom att gå till **tillägg**.
+För att stoppa eller starta om profiler för en enskild app-instans går du till app-resursen under **webb jobb**. Om du vill ta bort profiler går du till **tillägg**.
 
-![Inaktivera Profiler för ett webbjobb][disable-profiler-webjob]
+![Inaktivera profiler för ett webb jobb][disable-profiler-webjob]
 
-Vi rekommenderar att du har Profiler som är aktiverad på alla dina appar för att identifiera några prestandaproblem så tidigt som möjligt.
+Vi rekommenderar att du har profilerare aktiverat på alla dina appar för att upptäcka prestanda problem så tidigt som möjligt.
 
-Profilers filer kan tas bort när du använder WebDeploy för att distribuera ändringar i ditt webbprogram. Du kan förhindra att borttagningen genom att exkludera mappen App_Data tas bort under distributionen. 
+Profiler-filer kan tas bort när du använder WebDeploy för att distribuera ändringar i ditt webb program. Du kan förhindra borttagning genom att utesluta mappen App_Data från att tas bort under distributionen. 
 
 
 ## <a name="next-steps"></a>Nästa steg

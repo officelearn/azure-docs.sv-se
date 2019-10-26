@@ -1,33 +1,27 @@
 ---
-title: Kopplingar i Azure Monitor loggfrågor | Microsoft Docs
-description: Den här artikeln innehåller en lektion med kopplingar i Azure Monitor log-frågor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Kopplingar i Azure Monitor logg frågor | Microsoft Docs
+description: Den här artikeln innehåller en lektion om hur du använder kopplingar i Azure Monitor logg frågor.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60520097"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900287"
 ---
-# <a name="joins-in-azure-monitor-log-queries"></a>Kopplingar i Azure Monitor log-frågor
+# <a name="joins-in-azure-monitor-log-queries"></a>Kopplingar i Azure Monitor logg frågor
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) och [loggfrågor i Azure Monitor](get-started-queries.md) innan du slutför den här lektionen.
+> Du bör slutföra [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) och [Azure Monitor logg frågor](get-started-queries.md) innan du går igenom den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Kopplingar kan du analysera data från flera tabeller i samma fråga. De sammanfogar raderna i två uppsättningar data efter matchande värdena i de angivna kolumnerna.
+Med kopplingar kan du analysera data från flera tabeller, i samma fråga. De sammanfogar raderna med två data uppsättningar genom att matcha värdena i de angivna kolumnerna.
 
 
 ```Kusto
@@ -44,23 +38,23 @@ SecurityEvent
 | top 10 by Duration desc
 ```
 
-I det här exemplet filtrerar den första datauppsättningen för alla inloggningshändelser. Detta är kopplad till en andra datauppsättning som filtrerar för alla utloggning händelser. De beräknade kolumnerna är _datorn_, _konto_, _TargetLogonId_, och _TimeGenerated_. Datauppsättningarna kopplas ihop av en delad kolumn _TargetLogonId_. Utdata är en post per korrelation, vilket visar båda inloggning och utloggning tid.
+I det här exemplet är det första data uppsättnings filtret för alla inloggnings händelser. Detta är anslutet med en andra data uppsättning som filtrerar för alla inloggnings händelser. De beräknade kolumnerna är _Computer_, _Account_, _TargetLogonId_och _TimeGenerated_. Data uppsättningarna korreleras av en delad kolumn, _TargetLogonId_. Utdata är en enskild post per korrelation, som har både inloggnings-och utloggnings tid.
 
-Om båda datauppsättningar har kolumner med samma namn, kolumner i datauppsättningen höger skulle ges ett indextal och i det här exemplet resultatet skulle alltså _TargetLogonId_ med värden från den vänstra tabellen och  _TargetLogonId1_ med värden från den högra tabellen. I det här fallet andra _TargetLogonId1_ kolumnen togs bort med hjälp av den `project-away` operator.
+Om båda data uppsättningarna har kolumner med samma namn, skulle kolumnerna i data uppsättningen på den högra sidan ges ett index nummer. i det här exemplet visar resultatet _TargetLogonId_ med värden från den vänstra tabellen och _TargetLogonId1_ med värden från den högra tabellen. I det här fallet togs den andra _TargetLogonId1_ -kolumnen bort med hjälp av `project-away`-operatorn.
 
 > [!NOTE]
-> För att förbättra prestanda, Behåll endast relevanta kolumner i de anslutna-datauppsättningar, med hjälp av den `project` operator.
+> Om du vill förbättra prestandan ska du bara behålla relevanta kolumner i de anslutna data uppsättningarna med `project`-operatorn.
 
 
-Använd följande syntax för att ansluta till två datauppsättningar och domänansluten nyckeln har ett annat namn mellan två tabeller:
+Använd följande syntax för att ansluta två data uppsättningar och den kopplade nyckeln har ett annat namn mellan de två tabellerna:
 ```
 Table1
 | join ( Table2 ) 
 on $left.key1 == $right.key2
 ```
 
-## <a name="lookup-tables"></a>Uppslagstabeller
-Ett vanligt användningsområde för kopplingar använder statiska mappningen av värden med hjälp av `datatable` som kan underlätta vid övergång resultaten till blir lite snyggare. Till exempel om du vill utöka säkerheten händelsedata med händelsenamn för varje händelse-ID.
+## <a name="lookup-tables"></a>Uppslags tabeller
+En vanlig användning av kopplingar använder statiska mappningar av värden med hjälp av `datatable` som kan hjälpa till att omvandla resultatet till ett mer beskrivande sätt. Till exempel för att utöka säkerhets händelse data med händelse namnet för varje händelse-ID.
 
 ```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
@@ -81,35 +75,35 @@ SecurityEvent
 | summarize count() by eventName
 ```
 
-![Ansluta med en datatable](media/joins/dim-table.png)
+![Delta med en DataTable](media/joins/dim-table.png)
 
-## <a name="join-kinds"></a>Ansluta till typer
-Ange vilken typ av koppling med den _typ_ argumentet. Varje typ av utför en annan matchning mellan poster i de angivna tabellerna som beskrivs i följande tabell.
+## <a name="join-kinds"></a>Kopplings typer
+Ange typ av anslutning med _typ_ argumentet. Varje typ utför en annan matchning mellan posterna i de tabeller som anges i följande tabell.
 
-| Kopplingstyp | Beskrivning |
+| Kopplings typ | Beskrivning |
 |:---|:---|
-| innerunique | Det här är standardläget för koppling. Först värdena för den matchande kolumnen i den vänstra tabellen finns och duplicerade värden tas bort.  Uppsättning med unika värden matchas sedan mot den högra tabellen. |
-| inre | Endast matchande poster i båda tabellerna som ingår i resultatet. |
-| leftouter | Alla poster i den vänstra tabellen och matchande poster i den högra tabellen ingår i resultatet. Oöverträffad output-egenskaper innehåller null-värden.  |
-| leftanti | Poster från vänster sida som inte har några matchningar från höger ingår i resultatet. Endast kolumner från den vänstra tabellen har resultattabellen. |
-| leftsemi | Poster från den vänstra sidan som har matchningar från höger ingår i resultatet. Endast kolumner från den vänstra tabellen har resultattabellen. |
+| innerunique | Detta är standard läget för koppling. De första värdena i den matchade kolumnen i den vänstra tabellen hittas och dubblettvärden tas bort.  Sedan matchas uppsättningen av unika värden mot den högra tabellen. |
+| innersta | Endast matchande poster i båda tabellerna ingår i resultaten. |
+| leftouter | Alla poster i den vänstra tabellen och matchande poster i den högra tabellen ingår i resultaten. Omatchade utmatnings egenskaper innehåller null-värden.  |
+| leftanti | Poster från den vänstra sidan som inte har några matchningar från höger ingår i resultaten. Resultat tabellen har bara kolumner från den vänstra tabellen. |
+| leftsemi | Poster från den vänstra sidan som har matchningar från höger ingår i resultaten. Resultat tabellen har bara kolumner från den vänstra tabellen. |
 
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
-Tänk på följande för optimala prestanda:
+Tänk på följande när du ska uppnå optimala prestanda:
 
-- Använd ett tidsfilter i varje tabell för att minska de poster som ska utvärderas för kopplingen.
-- Använd `where` och `project` att minska antalet rader och kolumner i tabellerna indata innan kopplingen.
-- Om en tabell alltid är mindre än den andra, kan du använda den som vänster sida i kopplingen.
+- Använd ett tids filter i varje tabell för att minska de poster som måste utvärderas för kopplingen.
+- Använd `where` och `project` för att minska antalet rader och kolumner i inmatade tabeller före kopplingen.
+- Om en tabell alltid är mindre än den andra, använder du den som vänster i kopplingen.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda Azure Monitor log-frågor:
+Se andra lektioner för att använda Azure Monitor logg frågor:
 
-- [Strängåtgärder](string-operations.md)
-- [Aggregeringsfunktioner](aggregations.md)
-- [Avancerade aggregeringar](advanced-aggregations.md)
-- [JSON och datastrukturer](json-data-structures.md)
-- [Avancerad fråga skrivning](advanced-query-writing.md)
-- [Diagram](charts.md)
+- [Sträng åtgärder](string-operations.md)
+- [Agg regerings funktioner](aggregations.md)
+- [Avancerade agg regeringar](advanced-aggregations.md)
+- [JSON och data strukturer](json-data-structures.md)
+- [Avancerad fråge utskrift](advanced-query-writing.md)
+- [Hierarkidiagram](charts.md)

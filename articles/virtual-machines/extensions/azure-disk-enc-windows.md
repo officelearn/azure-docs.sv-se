@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 00891122015bb3e6adb500b6f6c30fa031161b92
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 056bd1293e0593a7fb7f9909cfd85043577686c4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598003"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901338"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption för Windows (Microsoft. Azure. Security. AzureDiskEncryption)
 
@@ -36,11 +36,11 @@ En fullständig lista över krav finns i [Azure Disk Encryption för virtuella L
 
 ## <a name="extension-schemata"></a>Scheman för tillägg
 
-Det finns två scheman för Azure Disk Encryption: v 1.1, ett senare, rekommenderat schema som inte använder Azure Active Directory (AAD) egenskaper och v 0,1, ett äldre schema som kräver AAD-egenskaper. Du måste använda den schema version som motsvarar det tillägg som du använder: schema v 1.1 för AzureDiskEncryption-tillägget version 1,1, schema v 0,1 för AzureDiskEncryption-tillägget version 0,1.
+Det finns två scheman för Windows AzureDiskEncryption-tillägget: v 2.2, ett nyare, rekommenderat schema som inte använder Azure Active Directory-egenskaper (AAD) och v 1.1, ett äldre schema som kräver AAD-egenskaper. Du måste använda den schema version som motsvarar det tillägg som du använder: schema v 2.2 för AzureDiskEncryption-tillägget version 2,2, schema v 1.1 för AzureDiskEncryption-tillägget version 1,1.
 
-### <a name="schema-v11-no-aad-recommended"></a>Schema v 1.1: ingen AAD (rekommenderas)
+### <a name="schema-v22-no-aad-recommended"></a>Schema v 2.2: ingen AAD (rekommenderas)
 
-Schemat v 1.1 rekommenderas och kräver inte Azure Active Directory egenskaper.
+V 2.2-schemat rekommenderas för alla nya virtuella datorer och kräver inte Azure Active Directory egenskaper.
 
 ```json
 {
@@ -67,9 +67,9 @@ Schemat v 1.1 rekommenderas och kräver inte Azure Active Directory egenskaper.
 ```
 
 
-### <a name="schema-v01-with-aad"></a>Schema v 0,1: med AAD 
+### <a name="schema-v11-with-aad"></a>Schema v 1.1: med AAD 
 
-Schemat för 0,1 kräver `aadClientID` och antingen `aadClientSecret` eller `AADClientCertificate`.
+Schemat för 1,1 kräver `aadClientID` och antingen `aadClientSecret` eller `AADClientCertificate` och rekommenderas inte för nya virtuella datorer.
 
 Använda `aadClientSecret`:
 
@@ -139,10 +139,10 @@ Använda `AADClientCertificate`:
 | apiVersion | 2015-06-15 | datum |
 | Förläggare | Microsoft. Azure. Security | sträng |
 | typ | AzureDiskEncryptionForLinux | sträng |
-| typeHandlerVersion | 0,1, 1,1 | int |
-| (0,1-schema) AADClientID | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | LED | 
-| (0,1-schema) AADClientSecret | lösenord | sträng |
-| (0,1-schema) AADClientCertificate | begäran | sträng |
+| typeHandlerVersion | 1,1, 2,2 | sträng |
+| (1,1-schema) AADClientID | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | LED | 
+| (1,1-schema) AADClientSecret | lösenord | sträng |
+| (1,1-schema) AADClientCertificate | begäran | sträng |
 | DiskFormatQuery | {"dev_path": "", "namn": "", "FILE_SYSTEM": ""} | JSON-ordlista |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | sträng | 
 | KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | sträng |

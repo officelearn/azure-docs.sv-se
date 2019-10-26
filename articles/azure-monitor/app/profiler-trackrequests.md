@@ -1,33 +1,29 @@
 ---
-title: Skriva kod för att spåra begäranden med Azure Application Insights | Microsoft Docs
-description: Skriv kod för att spåra begäranden med Application Insights så att du kan hämta profiler för dina begäranden.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Skriv kod för att spåra begär Anden med Azure Application Insights | Microsoft Docs
+description: Skriv kod för att spåra begär Anden med Application Insights så att du kan hämta profiler för dina begär Anden.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 4782e560b580b7f565724dbb35ed9876bffdc256
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 3f449c98ed44f13fb6b3849ef2457cd8fbd916de
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730862"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900016"
 ---
-# <a name="write-code-to-track-requests-with-application-insights"></a>Skriva kod för att spåra begäranden med Application Insights
+# <a name="write-code-to-track-requests-with-application-insights"></a>Skriv kod för att spåra begär Anden med Application Insights
 
-Om du vill visa profiler för ditt program på sidan prestanda, behöver Azure Application Insights för att spåra begäranden för ditt program. Application Insights kan automatiskt spåra förfrågningar för program som bygger på redan har instrumenterats ramverk. Två exempel är ASP.NET och ASP.NET Core. 
+Om du vill visa profiler för ditt program på sidan prestanda måste du Azure Application Insights för att spåra begär Anden för ditt program. Application Insights kan automatiskt spåra begär Anden för program som bygger på redan instrumenterade ramverk. Två exempel är ASP.NET och ASP.NET Core. 
 
-För andra program, till exempel arbetsroller i Azure Cloud Services och Service Fabric tillståndslösa API: er, måste du skriva kod för att berätta för Application Insights där dina begäranden börjar- och slutdatum. När du har skrivit koden skickas begäranden telemetri till Application Insights. Du kan visa telemetri på sidan prestanda och profiler har samlats in för dessa begäranden. 
+För andra program, till exempel Azure Cloud Services Worker-roller och Service Fabric tillstånds lösa API: er, måste du skriva kod för att tala om för Application Insights där begär Anden börjar och slutar. När du har skrivit koden skickas begär ande telemetri till Application Insights. Du kan visa telemetri på sidan prestanda och profilerna samlas in för dessa begär Anden. 
 
-Om du vill spåra förfrågningar manuellt gör du följande:
+Gör så här om du vill spåra begär Anden manuellt:
 
-  1. Lägg till följande kod tidigt i program-livstid:  
+  1. I början av programmets livs längd lägger du till följande kod:  
 
         ```csharp
         using Microsoft.ApplicationInsights.Extensibility;
@@ -35,9 +31,9 @@ Om du vill spåra förfrågningar manuellt gör du följande:
         // Replace with your own Application Insights instrumentation key.
         TelemetryConfiguration.Active.InstrumentationKey = "00000000-0000-0000-0000-000000000000";
         ```
-      Läs mer om den här nyckeln globala instrumentation är konfigurerad, [används Service Fabric med Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
+      Mer information om den här nyckel konfigurationen för global Instrumentation finns i [använda Service Fabric med Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  1. För alla typer av kod som du vill att instrumentera, lägga till en `StartOperation<RequestTelemetry>` **med** instruktionen runt den som visas i följande exempel:
+  1. Lägg till en `StartOperation<RequestTelemetry>` **med hjälp** av instruktionen, som du ser i följande exempel:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -51,7 +47,7 @@ Om du vill spåra förfrågningar manuellt gör du följande:
         }
         ```
 
-        Anropa `StartOperation<RequestTelemetry>` inom en annan `StartOperation<RequestTelemetry>` omfång stöds inte. Du kan använda `StartOperation<DependencyTelemetry>` i den kapslade omfång i stället. Exempel:  
+        Det går inte att anropa `StartOperation<RequestTelemetry>` inom ett annat `StartOperation<RequestTelemetry>` omfång. Du kan använda `StartOperation<DependencyTelemetry>` i det kapslade omfånget i stället. Exempel:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

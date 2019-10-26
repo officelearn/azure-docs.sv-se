@@ -1,99 +1,93 @@
 ---
 title: Optimera din SQL Server-miljö med Azure Monitor | Microsoft Docs
-description: Med Azure Monitor kan använda du SQL-hälsokontroll-lösningen för att utvärdera risker och bedöm hälsotillståndet i dina miljöer med regelbundna intervall.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: Med Azure Monitor kan du använda SQL Health Check-lösningen för att bedöma hälso tillståndet och hälsan för dina miljöer med jämna mellanrum.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/28/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/28/2019
+ms.openlocfilehash: 7808ead7ec4191bdf17e3ab225aeaa909abd7d08
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120655"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900668"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Azure Monitor
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med SQL Server Health Check-lösning i Azure Monitor
 
-![SQL-hälsokontroll symbol](./media/sql-assessment/sql-assessment-symbol.png)
+![Kontroll Symbol för SQL-hälsa](./media/sql-assessment/sql-assessment-symbol.png)
 
-Du kan använda SQL-hälsokontroll-lösningen för att utvärdera risker och bedöm hälsotillståndet i servermiljöer med regelbundna intervall. Den här artikeln beskriver hur du installerar lösningen så att du kan vidta åtgärder för potentiella problem.
+Du kan använda SQL-kontrollen för hälso kontroll för att bedöma Server miljöernas risker och hälsa med jämna mellanrum. Den här artikeln hjälper dig att installera lösningen så att du kan vidta nödvändiga åtgärder för eventuella problem.
 
-Den här lösningen ger en prioriterad lista över rekommendationer som är specifika för din distribuerade serverinfrastruktur. Rekommendationerna kategoriseras i sex fokusområden som hjälper dig att snabbt förstå risken och vidta åtgärder.
+Den här lösningen ger en prioriterad lista med rekommendationer som är speciella för din distribuerade Server infrastruktur. Rekommendationerna kategoriseras i sex fokus områden som hjälper dig att snabbt förstå risken och vidta lämpliga åtgärder.
 
-Rekommendationerna baseras på kunskap och erfarenhet av Microsoft-tekniker från tusentals kunder besök. Varje rekommendation ger vägledning om varför ett problem kan är viktiga för dig och hur du implementerar de föreslagna ändringarna.
+Rekommendationerna baseras på den kunskap och erfarenhet som Microsoft-tekniker har fått från tusentals kund besök. Varje rekommendation ger vägledning om varför ett problem kan vara viktigt för dig och hur du implementerar de föreslagna ändringarna.
 
-Du kan välja fokusområden som är viktigast för din organisation och spåra förloppet mot att köra en risk kostnadsfria och hälsosam miljö.
+Du kan välja fokus områden som är viktigast för din organisation och följa förloppet för att köra en risk fri och felfri miljö.
 
-När du har lagt till lösningen och en utvärdering är klar, sammanfattande informationen för fokusområden visas på den **SQL-hälsokontroll** instrumentpanel för infrastrukturen i din miljö. I följande avsnitt beskrivs hur du använder informationen på den **SQL-hälsokontroll** instrumentpanelen där du kan visa och sedan vidta rekommenderade åtgärder för din SQL Server-infrastruktur.
+När du har lagt till lösningen och en utvärdering har slutförts visas sammanfattnings information för fokus områden på instrument panelen för **SQL Health-kontroll** för infrastrukturen i din miljö. I följande avsnitt beskrivs hur du använder informationen på instrument panelen för **SQL Health-kontroll** , där du kan visa och sedan vidta rekommenderade åtgärder för din SQL Server-infrastruktur.
 
-![Bild av SQL-hälsokontroll panel](./media/sql-assessment/sql-healthcheck-summary-tile.png)
+![bild av kontroll panelen för SQL-hälsa](./media/sql-assessment/sql-healthcheck-summary-tile.png)
 
-![Bild av SQL-hälsokontroll instrumentpanelen](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
+![bild av kontroll panelen för SQL Health-kontroll](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Hälsokontrollen för SQL-lösning kräver en version som stöds av .NET Framework 4 vara installerat på varje dator som har den Microsoft Monitoring Agent (MMA) installerat.  MMA-agenten används av System Center 2016 – Operations Manager och Operations Manager 2012 R2 och Azure Monitor.  
-* Lösningen har stöd för SQL Server version 2012, 2014 och 2016.
-* En Log Analytics-arbetsyta för att lägga till den SQL-hälsokontroll lösningen från Azure marketplace i Azure-portalen.  För att kunna installera lösningen måste du vara administratör eller bidragsgivare i Azure-prenumeration.
+* SQL Health Check-lösningen kräver att en version av .NET Framework 4 som stöds har installerats på alla datorer där Microsoft Monitoring Agent (MMA) har installerats.  MMA-agenten används av System Center 2016-Operations Manager och Operations Manager 2012 R2 och Azure Monitor.  
+* Lösningen stöder SQL Server version 2012, 2014 och 2016.
+* En Log Analytics arbets yta för att lägga till hälso kontroll lösningen för SQL från Azure Marketplace i Azure Portal.  Du måste vara administratör eller deltagare i Azure-prenumerationen för att kunna installera lösningen.
 
   > [!NOTE]
-  > När du har lagt till lösningen, läggs filen AdvisorAssessment.exe till servrar med agenter. Konfigurationsdata läsa och sedan skickas till Azure Monitor i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data.
+  > När du har lagt till lösningen läggs filen AdvisorAssessment. exe till i servrar med agenter. Konfigurations data läses och skickas sedan till Azure Monitor i molnet för bearbetning. Logik tillämpas på mottagna data och molntjänsten registrerar data.
   >
   >
 
-Om du vill utföra hälsokontroll mot din SQL Server-servrar, kräver de en agent och en anslutning till Azure Monitor med någon av följande metoder:
+För att utföra hälso kontrollen mot dina SQL Server-servrar, kräver de en agent och anslutning för att Azure Monitor med någon av följande metoder som stöds:
 
-1. Installera den [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) om servern inte är redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
-2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Azure Monitor, kan servern ha flera värdar med Log Analytics för att samla in data och vidarebefordra till tjänsten och fortfarande vara övervakas av Operations Manager.  
-3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i din arbetsyta.  
+1. Installera [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) om servern inte redan övervakas av System Center 2016-Operations Manager eller Operations Manager 2012 R2.
+2. Om den övervakas med System Center 2016-Operations Manager eller Operations Manager 2012 R2 och hanterings gruppen inte är integrerad med Azure Monitor, kan servern ha flera hem med Log Analytics för att samla in data och vidarebefordra till tjänsten och fortfarande vara övervakas av Operations Manager.  
+3. Annars, om din Operations Manager hanterings grupp är integrerad med tjänsten, måste du lägga till domän kontrol Lanterna för data insamling av tjänsten genom att följa stegen under [Lägg till agent-hanterade datorer](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i platsen.  
 
-Agenten på vilka rapporter till en Operations Manager-hanteringsgrupp, samlar in data, SQL-servern vidarebefordrar till dess tilldelade hanteringsserver och sedan skickas direkt från en hanteringsserver till Azure Monitor.  Data skrivs inte till Operations Manager-databaserna.  
+Agenten på SQL Server som rapporterar till en Operations Manager hanterings grupp, samlar in data, vidarebefordrar till den tilldelade hanterings servern och sedan skickas direkt från en hanterings server till Azure Monitor.  Data skrivs inte till Operations Manager-databaser.  
 
-Om SQL Server övervakas av Operations Manager, måste du konfigurera en Operations Manager kör som-konto. Se [Operations Manager kör som-konton för Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) nedan för mer information.
+Om SQL Server övervakas av Operations Manager måste du konfigurera ett Kör som-konto för Operations Manager. Mer information finns i [Operations Manager kör som-konton för Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) nedan.
 
-## <a name="sql-health-check-data-collection-details"></a>SQL-hälsokontroll data samling information
-SQL-hälsokontroll samlar in data från följande källor med hjälp av agent som du har aktiverat:
+## <a name="sql-health-check-data-collection-details"></a>Information om data insamling för SQL Health-kontroll
+SQL Health-kontroll samlar in data från följande källor med hjälp av den agent som du har aktiverat:
 
 * Windows Management Instrumentation (WMI)
-* Registret
+* Register
 * Prestandaräknare
-* SQL Server dynamic management visa resultat
+* SQL Server dynamisk hantering av visnings resultat
 
-Data som samlas in på SQL Server och vidarebefordras till logganalys var sjunde dag.
+Data samlas in på SQL Server och vidarebefordras till Log Analytics var sjunde dag.
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Operations Manager kör som-konton för Log Analytics
-Log Analytics använder gruppen Operations Manager agent och en hanteringsserver för att samla in och skicka data till Log Analytics-tjänsten. Log Analytics bygger på hanteringspaket för arbetsbelastningar att ge mervärde tjänster. Varje arbetsbelastning kräver belastningsspecifikt behörighet att köra hanteringspaket i en säkerhetskontext, till exempel ett domänanvändarkonto. Du måste ange autentiseringsuppgifter genom att konfigurera en Operations Manager kör som-konto.
+Log Analytics använder Operations Manager agent och hanterings grupp för att samla in och skicka data till Log Analyticss tjänsten. Log Analytics bygger på hanterings paket för arbets belastningar för att tillhandahålla värde-Lägg till tjänster. För varje arbets belastning krävs arbets belastnings bara privilegier för att köra hanterings paket i en annan säkerhets kontext, till exempel ett domän användar konto. Du måste ange autentiseringsinformation genom att konfigurera ett Kör som-konto för Operations Manager.
 
-Använd följande information för att ställa in Operations Manager kör som-kontot för SQL-hälsokontroll.
+Använd följande information för att ange Operations Manager kör som-konto för SQL Health-kontroll.
 
-### <a name="set-the-run-as-account-for-sql-health-check"></a>Ange kör som-kontot för SQL-hälsokontroll
- Om du redan använder SQL Server-hanteringspaketet, bör du använda den kör som-konfigurationen.
+### <a name="set-the-run-as-account-for-sql-health-check"></a>Ange kör som-konto för SQL-hälsokontroll
+ Om du redan använder SQL Server hanterings paketet bör du använda den som kör som-konfiguration.
 
-#### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>Konfigurera SQL kör som-kontot i Operations-konsolen
+#### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>Konfigurera SQL-kör som-kontot i drift konsolen
 > [!NOTE]
-> Som standard arbetsflöden i management pack som körs i säkerhetskontexten för kontot Lokalt System. Om du använder Microsoft Monitoring Agent är direkt anslutna till tjänsten i stället rapporter direkt till en Operations Manager-hanteringsgrupp, hoppa över steg 1 till 5 nedan och köra T-SQL eller PowerShell-exempel, ange NT AUTHORITY\SYSTEM som den användarnamn.
+> Som standard körs arbets flöden i hanterings paketet i säkerhets kontexten för det lokala system kontot. Om du använder Microsoft Monitoring Agent som är ansluten direkt till tjänsten i stället för att rapportera direkt till en Operations Manager hanterings grupp, hoppar du över steg 1-5 nedan och kör antingen T-SQL-eller PowerShell-exemplet och anger NT instans\system som användar namn.
 >
 >
 
-1. Öppna driftkonsolen i Operations Manager, och klicka sedan på **Administration**.
-2. Under **kör som-konfiguration**, klickar du på **profiler**, och öppna **SQL utvärdering av kör som-profil**.
-3. På den **kör som-konton** klickar du på **Lägg till**.
-4. Välj en Windows kör som-konto som innehåller de autentiseringsuppgifter som krävs för SQL Server, eller klicka på **New** att skapa en.
+1. I Operations Manager öppnar du drift konsolen och klickar sedan på **Administration**.
+2. Under **Kör som-konfiguration**klickar du på **profiler**och öppnar **SQL-utvärdering kör som-profil**.
+3. På sidan **Kör som-konton** klickar du på **Lägg till**.
+4. Välj ett Kör som-konto i Windows som innehåller de autentiseringsuppgifter som krävs för SQL Server eller klicka på **nytt** för att skapa ett.
 
    > [!NOTE]
-   > Kör som-kontotyp måste vara Windows. Kör som-kontot måste också ingå i gruppen lokala administratörer på alla Windows-servrar som är värd för SQL Server-instanser.
+   > Kör som-kontots typ måste vara Windows. Kör som-kontot måste också vara en del av den lokala administratörs gruppen på alla Windows-servrar som är värdar för SQL Server instanser.
    >
    >
-5. Klicka på **Spara**.
-6. Ändra och kör följande T-SQL-exempel på varje SQL Server-instans för att tilldela minsta möjliga behörigheter som krävs för Kör som-kontot för hälsokontrollen. Dock behöver du inte göra det om ett kör som-konto redan är en del av serverrollen sysadmin på SQL Server-instanser.
+5. Klicka på **Save** (Spara).
+6. Ändra och kör sedan följande T-SQL-exempel på varje SQL Server instans för att bevilja de lägsta behörigheter som krävs för att kör som-kontot ska utföra hälso kontrollen. Men du behöver inte göra detta om ett Kör som-konto redan är en del av sysadmin-serverrollen på SQL Server instanser.
 
 ```
     ---
@@ -114,8 +108,8 @@ Använd följande information för att ställa in Operations Manager kör som-ko
 
 ```
 
-#### <a name="to-configure-the-sql-run-as-account-using-windows-powershell"></a>Konfigurera SQL kör som-kontot med hjälp av Windows PowerShell
-Öppna ett PowerShell-fönster och kör följande skript när du har uppdaterat den med din information:
+#### <a name="to-configure-the-sql-run-as-account-using-windows-powershell"></a>Konfigurera SQL-kör som-kontot med hjälp av Windows PowerShell
+Öppna ett PowerShell-fönster och kör följande skript när du har uppdaterat det med din information:
 
 ```
     import-module OperationsManager
@@ -126,129 +120,129 @@ Använd följande information för att ställa in Operations Manager kör som-ko
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```
 
-## <a name="understanding-how-recommendations-are-prioritized"></a>Förstå hur rekommendationer är prioriterade
-Varje rekommendation ges ett värde-värde som identifierar den relativa prioriteten för rekommendationen. Bara de tio viktigaste rekommendationerna visas.
+## <a name="understanding-how-recommendations-are-prioritized"></a>Förstå hur rekommendationer prioriteras
+Varje rekommendation ges ett vikt värde som identifierar rekommendationens relativa betydelse. Endast de tio viktigaste rekommendationerna visas.
 
-### <a name="how-weights-are-calculated"></a>Hur vikterna beräknas
+### <a name="how-weights-are-calculated"></a>Hur vikter beräknas
 Viktningar är aggregerade värden baserat på tre viktiga faktorer:
 
-* Den *sannolikheten* ett identifierat problem medför problem. En högre sannolikhet motsvarar en större övergripande poäng för rekommendationen.
-* Den *inverkan* av problemet i din organisation om det uppstår ett problem. En högre inverkan motsvarar en större övergripande poäng för rekommendationen.
-* Den *arbete* krävs för att implementera rekommendationen. En högre ansträngning motsvarar en mindre övergripande poäng för rekommendationen.
+* *Sannolikheten* för att ett problem har identifierats kan orsaka problem. En högre sannolikhet motsvarar en större total poäng för rekommendationen.
+* *Effekten* av problemet i din organisation om det uppstår problem. En högre påverkan motsvarar en större total poäng för rekommendationen.
+* Den *insats* som krävs för att implementera rekommendationen. En högre ansträngning motsvarar en mindre övergripande Poäng för rekommendationen.
 
-Värde för varje rekommendation uttrycks som en procentandel av den sammanlagda poängen för varje fokusområde. Till exempel om en rekommendation i Fokusområde säkerhets- och har ett resultat på 5%, ökar implementera den här rekommendationen din övergripande poäng av 5% för säkerhet och efterlevnad.
+Viktningen för varje rekommendation uttrycks som en procent andel av det totala antalet poäng som är tillgängliga för varje fokus-sektion. Till exempel, om en rekommendation i fokus för säkerhet och efterlevnad har en poäng på 5%, kommer den här rekommendationen att öka din övergripande Poäng för säkerhet och efterlevnad med 5%.
 
-### <a name="focus-areas"></a>Fokusområden
-**Säkerhet och efterlevnad** – den här Fokusområde visar rekommendationer för potentiella säkerhetshot och överträdelser företagets principer och krav på teknisk, juridisk och regelmässig efterlevnad.
+### <a name="focus-areas"></a>Fokus områden
+**Säkerhet och efterlevnad** – i det här fokus avsnittet visas rekommendationer för potentiella säkerhetshot och överträdelser, företags principer och tekniska, juridiska och regler för efterlevnad.
 
-**Tillgänglighet och affärskontinuitet** – den här Fokusområde visar rekommendationer för tjänstens tillgänglighet, återhämtning för din infrastruktur och verksamhetsskydd.
+**Tillgänglighet och affärs kontinuitet** – det här fokus avsnittet visar rekommendationer för tjänst tillgänglighet, återhämtning av din infrastruktur och affärs skydd.
 
-**Prestanda och skalbarhet** – den här Fokusområde visar rekommendationer för att din organisations IT-infrastruktur växa, se till att din IT-miljö uppfyller aktuella prestandakrav och kan svara på förändrade infrastruktur behov.
+**Prestanda och skalbarhet** – i fokus avsnittet visas rekommendationer som hjälper organisationens IT-infrastruktur att växa, se till att din IT-miljö uppfyller aktuella prestanda krav och kan svara på föränderliga infrastruktur behov.
 
-**Uppgradering, migrering och distribution** – den här Fokusområde visar rekommendationer som hjälper dig att uppgradera, migrera och distribuera SQL Server till din befintliga infrastruktur.
+**Uppgradering, migrering och distribution** – det här fokus avsnittet visar rekommendationer för att hjälpa dig att uppgradera, migrera och distribuera SQL Server till din befintliga infrastruktur.
 
-**Åtgärder och övervakning** – den här Fokusområde visar rekommendationer för att effektivisera din IT-verksamhet, implementera förebyggande underhåll och maximera prestanda.
+**Åtgärder och övervakning** – det här fokus avsnittet visar rekommendationer som hjälper dig att effektivisera IT-verksamheten, implementera förebyggande underhåll och maximera prestanda.
 
-**Ändrings- och konfigurationshantering** – den här Fokusområde visar rekommendationer för att skydda dagliga uppgifter, se till att ändringar inte negativt påverkar din infrastruktur, upprätta procedurer för ändringskontroll, och för att spåra och granska systemkonfigurationer.
+**Ändrings-och konfigurations hantering** – det här fokus avsnittet visar rekommendationer för att hjälpa till att skydda den dagliga verksamheten, se till att ändringarna inte påverkar infrastrukturen negativt, etablera ändrings kontroll procedurer och spåra och granska system konfigurationer.
 
-### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Bör du försöka poäng 100% i varje Fokusområde?
-Inte nödvändigtvis. Rekommendationerna baseras på de kunskaper och erfarenheter som gjorts av Microsofts tekniker till tusentals kunder besök. Men ingen två server-infrastrukturer är desamma och specifika rekommendationer kan vara mer eller mindre relevant för dig. Exempelvis kanske vissa säkerhetsrekommendationer mindre relevant om dina virtuella datorer inte exponeras för Internet. Vissa rekommendationer för tillgänglighet kan vara mindre användbart för tjänster som erbjuder låg prioritet ad hoc-insamling och rapportering. Problem som är viktiga för en mogen affärsverksamhet som kan vara mindre viktiga för en startfil. Du kanske vill identifiera vilka fokusområden som är dina prioriteringar och titta på hur ditt resultat ändras med tiden.
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Bör du 100% i varje fokus områden?
+Inte nödvändigtvis. Rekommendationerna baseras på den kunskap och de erfarenheter som Microsoft-tekniker har fått på tusentals kund besök. Dock är inte två server infrastrukturer identiska, och vissa rekommendationer kan vara mer eller mindre relevanta för dig. Vissa säkerhets rekommendationer kan till exempel vara mindre relevanta om dina virtuella datorer inte är exponerade för Internet. Vissa tillgänglighets rekommendationer kan vara mindre relevanta för tjänster som tillhandahåller låg prioritet för insamling och rapportering av ad hoc-data. Problem som är viktiga för en vuxen verksamhet kan vara mindre viktiga för en start. Du kanske vill identifiera vilka fokus områden som är dina prioriteringar och titta sedan på hur dina resultat förändras över tid.
 
-Varje rekommendation innehåller information om varför det är viktigt. Du bör använda den här vägledningen för att utvärdera om implementerar rekommendationen är lämplig för dig, baserat på typen av dina IT-tjänster och affärsbehoven för din organisation.
+Varje rekommendation innehåller vägledning om varför det är viktigt. Du bör använda den här vägledningen för att utvärdera om implementering av rekommendationen passar dig, baserat på dina IT-tjänsters beskaffenhet och organisationens affärs behov.
 
-## <a name="use-health-check-focus-area-recommendations"></a>Använd rekommendationer för hälsokontroll fokus-området
-Innan du kan använda en lösning i Azure Monitor, måste du ha installerat lösningen.  När den har installerats, du kan visa en sammanfattning av rekommendationer med hjälp av SQL-hälsokontroll panelen på den **översikt** sidan för Azure Monitor i Azure-portalen.
+## <a name="use-health-check-focus-area-recommendations"></a>Använd rekommendationer för fokus området för hälso kontroll
+Innan du kan använda en utvärderings lösning i Azure Monitor måste du ha lösningen installerad.  När den har installerats kan du Visa en sammanfattning av rekommendationerna med hjälp av SQL-kontroll panelen på sidan **Översikt** för Azure Monitor i Azure Portal.
 
-Visa de sammanfattade efterlevnad utvärderingarna för din infrastruktur och sedan gå till rekommendationer.
+Visa de sammanfattade efterlevnadarna för din infrastruktur och gå sedan till rekommendationer.
 
-### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
+### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Så här visar du rekommendationer för ett fokus fält och vidtar lämpliga åtgärder
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Monitor**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Monitor**.
-3. I den **Insights** avsnittet i menyn och välj **mer**.  
-4. På den **översikt** klickar du på den **SQL-hälsokontroll** panelen.
-5. På den **hälsokontrollen** granskar den sammanfattande informationen i något av bladen fokus område och klicka sedan på ett om du vill visa rekommendationer för den fokusområde.
-6. På någon av sidorna fokus området, kan du visa prioriterade rekommendationer för din miljö. Klicka på en rekommendation under **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Bild av SQL-hälsokontroll rekommendationer](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
-7. Du kan vidta korrigerande åtgärder som föreslås i **föreslagna åtgärder**. När objektet har utförts, registrera senare utvärderingar som rekommenderar åtgärder som utförts och din kompatibilitetspoäng ökar. Korrigerad objekt visas som **skickas objekt**.
+3. I avsnittet **insikter** på menyn väljer du **mer**.  
+4. På sidan **Översikt** klickar du på **kontroll panelen SQL-hälso kontroll** .
+5. På sidan **hälso kontroll** granskar du sammanfattnings informationen på ett av bladet för fokus området och klickar sedan på en för att Visa rekommendationer för det fokus området.
+6. På någon av sidorna för fokus områden kan du se prioritets rekommendationer som gjorts för din miljö. Klicka på en rekommendation under **berörda objekt** om du vill visa information om varför rekommendationen görs.<br><br> ![avbildning av SQL Health Check-rekommendationer](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
+7. Du kan vidta lämpliga åtgärder som föreslås i **föreslagna åtgärder**. När objektet har åtgärd ATS kommer senare utvärderingar registrera att de rekommenderade åtgärderna vidtogs och att poängen ökar. Korrigerade objekt visas som **överförda objekt**.
 
 ## <a name="ignore-recommendations"></a>Ignorera rekommendationer
-Om du har synpunkter som du vill ignorera kan du skapa en textfil som Azure Monitor använder för att förhindra rekommendationer visas i din utvärdering av resultaten.
+Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Azure Monitor använda för att förhindra att rekommendationer visas i utvärderings resultatet.
 
-### <a name="to-identify-recommendations-that-you-will-ignore"></a>Att identifiera rekommendationer som kommer att ignoreras
-1. I Azure Monitor-menyn klickar du på **loggar**.
-2. Använd följande fråga för att lista över rekommendationer som har misslyckats för datorer i din miljö.
+### <a name="to-identify-recommendations-that-you-will-ignore"></a>Identifiera rekommendationer som du kommer att ignorera
+1. Klicka på **loggar**på Azure Monitor-menyn.
+2. Använd följande fråga för att lista rekommendationer som har misslyckats för datorer i din miljö.
 
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    Här är en skärmbild som visar log-frågan:<br><br> ![misslyckade rekommendationer](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Här är en skärm bild som visar logg frågan:<br><br> ![misslyckade rekommendationer](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Välj rekommendationer som du vill ignorera. Du använder värdena för RecommendationId i nästa procedur.
 
-### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Du skapar och använder en IgnoreRecommendations.txt textfil
-1. Skapa en fil med namnet IgnoreRecommendations.txt.
-2. Klistra in eller ange varje RecommendationId för varje rekommendation som du vill att Azure Monitor för att ignorera på separata rader och sedan spara och stäng filen.
-3. Placera filen i följande mapp på varje dator där du vill att Azure Monitor för att ignorera rekommendationer.
-   * På datorer med Microsoft Monitoring Agent (anslutet direkt eller via Operations Manager) - *SystemDrive*: \Program\Microsoft Monitoring Agent\Agent
-   * På hanteringsservern för Operations Manager - *SystemDrive*: \Program\Microsoft System Center 2012 R2\Operations Manager\Server
-   * På hanteringsservern för Operations Manager 2016 - *SystemDrive*: \Program\Microsoft System Center 2016\Operations Manager\Server
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Skapa och använda en textfil av typen IgnoreRecommendations. txt
+1. Skapa en fil med namnet IgnoreRecommendations. txt.
+2. Klistra in eller Skriv varje RecommendationId för varje rekommendation som du vill Azure Monitor ignorera på en separat rad och spara och stäng sedan filen.
+3. Placera filen i följande mapp på varje dator där du vill Azure Monitor ignorera rekommendationer.
+   * På datorer med Microsoft Monitoring Agent (ansluten direkt eller via Operations Manager)- *systemen het*: \Program Files\Microsoft Monitoring Agent\Agent
+   * På Operations Manager Management Server – *systemen het*: \Program\microsoft System Center 2012 R2\Operations Manager\Server
+   * På Operations Manager 2016-hanterings Server- *systemen het*: \Program Files\Microsoft System Center 2016 \ Operations Manager\Server
 
-### <a name="to-verify-that-recommendations-are-ignored"></a>Kontrollera att rekommendationer ignoreras
-1. I nästa schemalagda utvärdering körs som standard var sjunde dag, de angivna rekommendationerna markeras ignoreras och visas inte på instrumentpanelen för utvärdering av.
-2. Du kan använda följande Loggsökning frågor för att lista alla ignorerade rekommendationer.
+### <a name="to-verify-that-recommendations-are-ignored"></a>Så här kontrollerar du att rekommendationer ignoreras
+1. När nästa schemalagda utvärdering körs, som standard var 7: e dag, markeras de angivna rekommendationerna som ignorerade och visas inte på utvärderings instrument panelen.
+2. Du kan använda följande logg Sök frågor för att lista alla ignorerade rekommendationer.
 
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-3. Om du senare bestämmer att du vill ta bort IgnoreRecommendations.txt filer om du vill visa ignorerade rekommendationer, eller du kan ta bort RecommendationIDs från dem.
+3. Om du senare bestämmer dig för att du vill se ignorerade rekommendationer tar du bort alla IgnoreRecommendations. txt-filer, eller så kan du ta bort RecommendationIDs från dem.
 
-## <a name="sql-health-check-solution-faq"></a>SQL-hälsokontroll lösning vanliga frågor och svar
-*Hur ofta körs en hälsokontroll?*
+## <a name="sql-health-check-solution-faq"></a>Vanliga frågor och svar om SQL Health Check-lösning
+*Hur ofta körs en hälso kontroll?*
 
 * Kontrollen körs var sjunde dag.
 
 *Finns det ett sätt att konfigurera hur ofta kontrollen körs?*
 
-* Inte just nu.
+* Nej, inte just nu.
 
-*Om en annan server identifieras när jag har lagt till den SQL-hälsokontroll lösningen så kommer det kontrolleras?*
+*Kontrollerar du att en annan server identifieras när jag har lagt till hälso kontroll lösningen för SQL?*
 
-* Ja, när den identifieras de kontrolleras från sedan, var sjunde dag.
+* Ja, när den har identifierats kontrol leras den från och med, var sjunde dag.
 
-*Om en server är inaktiverad, när den tas bort från hälsokontrollen?*
+*Om en server inaktive ras kommer den att tas bort från hälso kontrollen?*
 
-* Om en server inte lämnar data för tre veckor, tas den bort.
+* Om en server inte skickar data i 3 veckor tas den bort.
 
-*Vad är namnet på processen som gör datainsamlingen?*
+*Vad är namnet på processen som utför data insamlingen?*
 
-* AdvisorAssessment.exe
+* AdvisorAssessment. exe
 
-*Hur lång tid tar det för de data som samlas in?*
+*Hur lång tid tar det för data att samlas in?*
 
-* Den faktiska datainsamlingen på servern tar ungefär 1 timme. Det kan ta längre tid på servrar som har ett stort antal SQL-instanser eller databaser.
+* Den faktiska data insamlingen på servern tar cirka 1 timme. Det kan ta längre tid på servrar som har ett stort antal SQL-instanser eller databaser.
 
-*Vilken typ av data som samlas in?*
+*Vilken typ av data samlas in?*
 
-* Följande typer av data har samlats in:
-  * WMI
-  * Registret
+* Följande typer av data samlas in:
+  * TJÄNST
+  * Register
   * Prestandaräknare
-  * SQL dynamiska hanteringsvyer (DMV).
+  * SQL Dynamic Management views (DMV).
 
-*Finns det ett sätt att konfigurera när data har samlats in?*
+*Finns det något sätt att konfigurera när data samlas in?*
 
-* Inte just nu.
+* Nej, inte just nu.
 
-*Varför måste jag konfigurera en Kör som-konto?*
+*Varför måste jag konfigurera ett Kör som-konto?*
 
-* För SQL Server körs ett litet antal SQL-frågor. Ett kör som-konto med åtkomstbehörighet för VIEW SERVER STATE SQL måste användas i ordning att köra.  Dessutom för att fråga WMI krävs lokal administratörsbehörighet.
+* För SQL Server körs ett litet antal SQL-frågor. För att de ska kunna köras måste ett Kör som-konto med Visa SERVER TILLSTÅNDs behörighet till SQL användas.  För att kunna fråga WMI krävs dessutom autentiseringsuppgifter för lokal administratör.
 
-*Varför visas endast de översta 10 rekommendationerna?*
+*Varför ska du bara visa de 10 viktigaste rekommendationerna?*
 
-* Istället för att ge dig en fullständig överväldigande förteckning av uppgifter, rekommenderar vi att du kan fokusera på adressering prioriterade rekommendationer först. När du har gått dem blir ytterligare rekommendationer tillgängliga. Om du vill se en detaljerad lista kan visa du alla rekommendationer med hjälp av Log Analytics-loggsökning.
+* I stället för att ge dig en omfattande lista över aktiviteter, rekommenderar vi att du fokuserar på att adressera prioritets rekommendationerna först. När du har adresserat dem blir ytterligare rekommendationer tillgängliga. Om du vill se den detaljerade listan kan du Visa alla rekommendationer med hjälp av Log Analytics loggs ökning.
 
-*Finns det ett sätt att ignorera en rekommendation?*
+*Finns det något sätt att ignorera en rekommendation?*
 
-* Ja, se [Ignorera rekommendationer](#ignore-recommendations) ovan.
+* Ja, se avsnittet om att [Ignorera rekommendationer](#ignore-recommendations) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Loggar frågor](../log-query/log-query-overview.md) att lära dig hur du analyserar detaljerade SQL-hälsokontroll data och rekommendationer.
+* [Logga frågor](../log-query/log-query-overview.md) för att lära dig hur du analyserar detaljerade SQL Health Check-data och rekommendationer.

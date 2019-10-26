@@ -1,24 +1,19 @@
 ---
 title: Hantera användning och kostnader för Azure Application Insights | Microsoft Docs
 description: Hantera telemetri volymer och övervaka kostnader i Application Insights.
-services: application-insights
-documentationcenter: ''
-author: DaleKoetke
-manager: carmonm
-ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 10/03/2019
+author: DaleKoetke
 ms.author: dalek
-ms.openlocfilehash: f9d92f03b1f55ad9d1f1e272886095ae48033266
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.date: 10/03/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: 5d8c0420f680371ab63a2ddd09071769586a42ca
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750385"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900028"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -77,13 +72,15 @@ Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management +
 
 Du kan få mer förståelse för din användning genom att [Ladda ned din användning från Azure-portalen](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID", som är "innehåller Microsoft. Insights/komponenter ".  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
-## <a name="managing-your-data-volume"></a>Hantera din data volym 
+## <a name="understanding-ingested-data-volume"></a>Förstå inmatad data volym
 
-För att förstå hur mycket data din app skickar kan du:
+För att förstå hur mycket data som matas in i Application Insights kan du:
 
-* Gå till fönstret **användning och uppskattad kostnad** för att se diagrammet över dagliga data volymer. 
-* I Metrics Explorer lägger du till ett nytt diagram. För diagram måttet väljer du **data punkts volym**. Aktivera **gruppering**och gruppera sedan efter **datatyp**.
-* Använd data typen `systemEvents`. Om du till exempel vill se data volymen som matats in under den senaste dagen skulle frågan bli:
+1. Gå till fönstret **användning och uppskattad kostnad** för att se diagrammet för dagligt data volym enligt beskrivningen ovan.
+2. I Metrics Explorer lägger du till ett nytt diagram. För diagram måttet väljer du **data punkts volym**. Aktivera **gruppering**och gruppera sedan efter **datatyp**.
+3. Använd `systemEvents` tabellen som visas nedan. 
+
+Du kan till exempel använda tabellen `systemEvents` för att se data volymen som matats in under de senaste 24 timmarna med frågan:
 
 ```kusto
 systemEvents 
@@ -94,7 +91,20 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes)
 ```
 
+Om du vill se ett diagram med data volym efter datatyp under de senaste 30 dagarna kan du använda:
+
+```kusto
+systemEvents 
+| where timestamp >= ago(30d)
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
+```
+
 Den här frågan kan användas i en [Azure logg avisering](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) för att konfigurera aviseringar på data volymer. 
+
+## <a name="managing-your-data-volume"></a>Hantera din data volym 
 
 Mängden data som du skickar kan hanteras med hjälp av följande tekniker:
 
@@ -172,8 +182,6 @@ Om du vill ändra kvarhållning går du till sidan **användning och uppskattade
 
 Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. 
 
-När faktureringen börjar för längre kvarhållning i början av december 2019 faktureras data som är längre än 90 dagar som samma pris som för närvarande faktureras för Azure Log Analytics data kvarhållning. Läs mer på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Håll dig uppdaterad om varierande behållnings förlopp genom [röstning för det här förslaget](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
-
 ## <a name="data-transfer-charges-using-application-insights"></a>Avgifter för data överföring med Application Insights
 
 Att skicka data till Application Insights kan medföra avgifter för data bandbredd. Som det beskrivs i [prissättnings sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)är data överföringen mellan Azure-tjänster som finns i två regioner debiterad som utgående data överföring enligt normal taxa. Inkommande data överföring är kostnads fri. Den här avgiften är dock väldigt liten (några%) jämfört med kostnaderna för Application Insights logg data inmatning. Därför bör du kontrol lera kostnaderna för Log Analytics behöver fokusera på din inmatade data volym och vi har vägledning som hjälper dig att förstå den [här](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume).   
@@ -250,4 +258,5 @@ Du kan skriva ett skript för att ställa in pris nivån med hjälp av Azure Res
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/

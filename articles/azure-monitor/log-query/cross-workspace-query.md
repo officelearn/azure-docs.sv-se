@@ -1,24 +1,18 @@
 ---
 title: Fråga över resurser med Azure Monitor | Microsoft Docs
 description: Den här artikeln beskriver hur du kan fråga mot resurser från flera arbets ytor och App Insights-appen i din prenumeration.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/05/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a1ea4012b7cda5b5deab82027e5547a9c9ef786f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 06/05/2019
+ms.openlocfilehash: e74c81956ab0590b8b7237d3ecf60ae242a43b73
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650158"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894494"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra kors resurs logg frågor i Azure Monitor  
 
@@ -110,7 +104,7 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Använda frågor över flera resurser för flera resurser
 När du använder frågor över flera resurser för att korrelera data från flera arbets ytor Log Analytics och Application Insights resurser, kan frågan bli komplex och svår att underhålla. Du bör använda [funktioner i Azure Monitor logg frågor](functions.md) för att avgränsa fråge logiken från omfånget för frågans resurser, vilket fören klar fråge strukturen. I följande exempel visas hur du kan övervaka flera Application Insights resurser och visualisera antalet misslyckade förfrågningar efter program namn. 
 
-Skapa en fråga som refererar till omfånget för Application Insights resurser. `withsource= SourceApp` Kommandot lägger till en kolumn som anger det program namn som skickade loggen. [Spara frågan som funktion](functions.md#create-a-function) med aliaset _applicationsScoping_.
+Skapa en fråga som refererar till omfånget för Application Insights resurser. Kommandot `withsource= SourceApp` lägger till en kolumn som anger det program namn som skickade loggen. [Spara frågan som funktion](functions.md#create-a-function) med aliaset _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources

@@ -1,18 +1,18 @@
 ---
 title: HDInsight 4,0 – översikt – Azure
 description: Jämför HDInsight 3.6 med HDInsight 4.0 när det gäller funktioner, begränsningar och uppgraderingsrekommendationer.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 74cd6a6919db1c01535fb984d1e8e0d0ad2d5ade
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 10/22/2019
+ms.openlocfilehash: 0463e3297bbb2fda50adfeefaa89f0a7a3ef8b0a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879324"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901518"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Översikt över Azure HDInsight 4,0
 
@@ -40,7 +40,7 @@ Nu har Hive stöd för dynamiska materialiserade vyer, eller förbearbetning av 
 
 I HDI 4.0 ingår Apache Hive 3, som kräver ACIP-kompatibilitet (atomicitet, konsekvens, isolering och varaktighet) för transaktionstabeller i Hive-informationslagret. ACID-kompatibla tabeller och tabelldata nås och hanteras av Hive. Data i CRUD-tabeller (skapa, hämta, uppdatera och ta bort) måste vara i ORC-filformat, tabeller för endast infogning stöder alla filformat.
 
-* ACID v2 har prestandaförbättringar både för lagringsformat och för körningsmotorn. 
+* ACID v2 har prestandaförbättringar både för lagringsformat och för körningsmotorn.
 
 * ACID är aktiverat som standard för att ge fullständigt stöd för datauppdateringar.
 
@@ -71,7 +71,6 @@ Du behöver inte längre oroa dig över att av misstag komma åt Hive-transaktio
 
 Läs mer om [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
-
 ### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie 4.3.1 ingår i HDI 4.0 med följande ändringar:
@@ -91,9 +90,9 @@ Det finns ingen uppgraderings väg som stöds från tidigare versioner av HDInsi
 ## <a name="limitations"></a>Begränsningar
 
 * HDInsight 4,0 har inte stöd för MapReduce för Apache Hive. Använd Apache Tez i stället. Läs mer om [Apache Tez](https://tez.apache.org/).
-* HDInsight 4,0 har inte stöd för Apache Storm. 
-* Hive-vyn är inte längre tillgänglig i HDInsight 4,0. 
-* Shell-tolken i Apache Zeppelin stöds inte i Spark och i Interaktiva frågekluster.
+* HDInsight 4,0 har inte stöd för Apache Storm.
+* Hive-vyn är inte längre tillgänglig i HDInsight 4,0.
+* Shell-tolken i Apache Zeppelin stöds inte i Spark-och Interactive Query-kluster.
 * Det går inte att *inaktivera* LLAP i ett Spark-LLAP-kluster. Du kan bara inaktivera LLAP.
 * Azure Data Lake Storage Gen2 kan inte spara Juypter-anteckningsböcker i ett Spark-kluster.
 

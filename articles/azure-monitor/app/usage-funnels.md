@@ -1,59 +1,54 @@
 ---
-title: Azure Application Insights Trattar
-description: Lär dig hur du kan använda Trattar för att identifiera hur kunder interagerar med programmet.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights-trattar
+description: Lär dig hur du kan använda trattar för att upptäcka hur kunderna interagerar med ditt program.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/17/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 2cb7e15b701b53e74618c21bf219a355d495f985
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/17/2017
+ms.reviewer: mbullwin
+ms.openlocfilehash: d6a6e34f9688747891ac91401941a96b6e85d76a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372931"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899461"
 ---
-# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Upptäck hur kunder använder ditt program med Application Insights Trattar
+# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Upptäck hur kunder använder ditt program med Application Insights-trattar
 
-Förstå kundupplevelsen är av stor betydelse för din verksamhet. Om ditt program omfattar flera faser, som du behöver veta om de flesta kunder fortskrider genom hela processen, eller om de avsluta processen vid en viss tidpunkt. Förlopp i en serie steg i ett webbprogram som kallas en *tratt*. Du kan använda Azure Application Insights Trattar insikter om dina användare och övervaka stegvisa konverteringstakten. 
+Att förstå kund upplevelsen är av yttersta vikt för ditt företag. Om ditt program omfattar flera steg, måste du veta om de flesta kunder går igenom hela processen eller om de avslutar processen vid en viss tidpunkt. Förloppet mellan en serie steg i ett webb program kallas för en *tratt*. Du kan använda Azure Application Insights-trattar för att få insikter om dina användare, och för att övervaka steg-för-steg-omräknings takt. 
 
 ## <a name="create-your-funnel"></a>Skapa din tratt
-Innan du skapar din tratt besluta om du vill att besvara frågan. Exempelvis kan du ändå vill veta hur många användare visar sidan, visa en kundprofil och skapa en biljett. I det här exemplet ägarna av Fabrikam-Fiber-företag som vill veta procentandelen av kunder som har skapar ett ärende för kunden.
+Innan du skapar din tratt bestämmer du den fråga som du vill besvara. Du kanske till exempel vill veta hur många användare som visar start sidan, visar en kund profil och skapar en biljett. I det här exemplet vill ägarna till det Fabrikam-fiber företag som vill veta hur många procent av kunderna som kunde skapa en kund biljett.
 
-Här är de steg som de vidta för att skapa sina tratten.
+Här följer de steg som du vidtar för att skapa en tratt.
 
-1. Välj i Application Insights tratt-verktyget **New**.
-1. Från den **tidsintervall** nedrullningsbara menyn och välj **senaste 90 dagarna**. Välj antingen **Mina trattar** eller **delade trattar**.
-1. Från den **steg 1** listrutan, väljer **Index**. 
-1. Från den **steg 2** väljer **kunden**.
-1. Från den **steg3** väljer **skapa**.
-1. Lägg till ett namn till tratten och välj **spara**.
+1. I verktyget Application Insights trattar väljer du **nytt**.
+1. I den nedrullningsbara menyn **tidsintervall** väljer du de **senaste 90 dagarna**. Välj antingen **Mina trattar** eller **delade trattar**.
+1. Välj **index**i list rutan **steg 1** . 
+1. I listan **steg 2** väljer du **kund**.
+1. I listan **steg 3** väljer du **skapa**.
+1. Lägg till ett namn i tratten och välj **Spara**.
 
-Följande skärmbild visar ett exempel på vilken typ av data tratt-verktyget genererar. Fabrikam-ägare kan se att under de senaste 90 dagarna, 54.3 procent av sina kunder som har gjort Besök startsidan skapas en kund-biljett. De kan också se att 2,700 kundernas Kom till indexet på startsidan. Detta kan indikera ett problem med uppdateringen.
+Följande skärm bild visar ett exempel på vilken typ av data som skapas av tratt-verktyget. Fabrikam-ägare kan se att under de senaste 90 dagarna, 54,3 procent av sina kunder som besökte start sidan skapade en kund biljett. De kan också se att 2 700 av sina kunder kommer till indexet från start sidan. Detta kan tyda på ett uppdaterings problem.
 
 
-![Skärmbild av tratt-verktyget med data](media/usage-funnels/funnel1.png)
+![Skärm bild av trattdiagram-verktyget med data](media/usage-funnels/funnel1.png)
 
-### <a name="funnels-features"></a>Trattar funktioner
-Föregående skärmbild innehåller fem markerade områden. Det här är funktionerna i Trattar. I följande lista innehåller mer information om varje motsvarande område i skärmbilden:
-1. Om din app samplas visas en banderoll för sampling. Om du väljer banderollen öppnas en kontextfönster förklarar hur du inaktiverar sampling. 
-2. Du kan exportera din tratten [Power BI](../../azure-monitor/app/export-power-bi.md ).
-3. Välj ett steg för att se mer information till höger. 
-4. Historisk konvertering diagrammet visar valutaomvandling under de senaste 90 dagarna. 
-5. Förstå användarna bättre genom att gå till användare-verktyget. Du kan använda filter i varje steg. 
+### <a name="funnels-features"></a>Trattens funktioner
+Föregående skärm bild innehåller fem markerade områden. Dessa är funktioner i trattar. I följande lista beskrivs mer om varje motsvarande del i skärm bilden:
+1. Om din app är samplad visas en banderoll. Om du väljer banderollen öppnas ett kontext fönster som förklarar hur du inaktiverar sampling. 
+2. Du kan exportera din tratt till [Power BI](../../azure-monitor/app/export-power-bi.md ).
+3. Välj ett steg om du vill visa mer information till höger. 
+4. Det historiska konverterings diagrammet visar konverterings kurserna under de senaste 90 dagarna. 
+5. Förstå användarna bättre genom att komma åt användar verktyget. Du kan använda filter i varje steg. 
 
 ## <a name="next-steps"></a>Nästa steg
-  * [Användningsöversikten](usage-overview.md)
+  * [Översikt över användning](usage-overview.md)
   * [Användare, sessioner och händelser](usage-segmentation.md)
   * [Kvarhållning](usage-retention.md)
   * [Arbetsböcker](../../azure-monitor/app/usage-workbooks.md)
-  * [Lägg till användarkontext](usage-send-user-context.md)
+  * [Lägg till användar kontext](usage-send-user-context.md)
   * [Exportera till Power BI](../../azure-monitor/app/export-power-bi.md )
 

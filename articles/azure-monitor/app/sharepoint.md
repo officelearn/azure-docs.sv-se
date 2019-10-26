@@ -1,23 +1,18 @@
 ---
 title: Övervaka en SharePoint-webbplats med Application Insights
 description: Börja övervaka ett nytt program med en ny instrumentationsnyckel
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/11/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 027d5485b29deb434953470023d8a290cc0af58a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/11/2018
+ms.openlocfilehash: 271ef590d7cdbefc824a7f80aef110b0c08b6d6d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784629"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899870"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Övervaka en SharePoint-webbplats med Application Insights
 Azure Application Insights övervakar dina appars tillgänglighet, prestanda och användning. Här lär du dig att ställa in det för en SharePoint-webbplats.
@@ -50,7 +45,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 </script>
 ```
 
-Infoga skriptet precis före &lt;/head&gt;-taggen för alla sidor som du vill spåra. Om din webbplats har en huvudsida kan du placera skriptet där. Till exempel, i ett ASP.NET MVC-projekt, placerar du det i View\Shared\_Layout.cshtml
+Infoga skriptet precis före &lt;/Head&gt;-taggen på varje sida som du vill spåra. Om din webbplats har en huvud sida kan du Spara skriptet där. Till exempel, i ett ASP.NET MVC-projekt, placerar du det i View\Shared\_Layout.cshtml
 
 Skriptet innehåller instrumenteringsnyckeln som dirigerar telemetri till din Application Insights-resurs.
 

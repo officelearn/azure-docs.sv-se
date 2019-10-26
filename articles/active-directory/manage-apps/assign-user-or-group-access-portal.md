@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f7e830079c224e9e15dd45d14c1741376f8762
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6d28b9c31b8fbad8a565ff8cbdf717bfb3bc1309
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851700"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896478"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en företags app i Azure Active Directory
 
-Om du vill tilldela en användare eller grupp till en företags app måste du ha rätt behörighet för att hantera företags appen och du måste vara global administratör för katalogen. För Microsoft-program (till exempel Office 365-appar) använder du PowerShell för att tilldela användare till en företags app.
+Om du vill tilldela en användare eller grupp till en företags app bör du ha tilldelat någon av dessa administratörs roller: global administratör, program administratör, moln program administratör eller tilldelad som ägare till företags appen.  För Microsoft-program (till exempel Office 365-appar) använder du PowerShell för att tilldela användare till en företags app.
 
 > [!NOTE]
 > För licensierings krav för de funktioner som beskrivs i den här artikeln, se [sidan Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory).
@@ -87,7 +87,7 @@ Om du vill tilldela en användare eller grupp till en företags app måste du ha
 
 Mer information om hur du tilldelar en användare till en program roll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
-Om du vill tilldela en grupp till en företags-app måste du `Get-AzureADUser` ersätta `Get-AzureADGroup`med.
+Om du vill tilldela en grupp till en företags app måste du ersätta `Get-AzureADUser` med `Get-AzureADGroup`.
 
 ### <a name="example"></a>Exempel
 
@@ -113,7 +113,7 @@ I det här exemplet tilldelas användaren Britta Simon till Microsoft-programmet
 
    ![Visar de roller som är tillgängliga för en användare med rollen arbets plats analys](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
-1. Tilldela roll namnet till `$app_role_name` variabeln.
+1. Tilldela roll namnet till variabeln `$app_role_name`.
 
     ```powershell
     # Assign the values to the variables

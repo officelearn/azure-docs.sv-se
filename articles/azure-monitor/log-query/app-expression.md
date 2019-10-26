@@ -1,54 +1,48 @@
 ---
-title: App() uttryck i Azure Monitor loggfrågor | Microsoft Docs
-description: App-uttryck används i en Azure Monitor log-fråga för att hämta data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: app ()-uttryck i Azure Monitor logg frågor | Microsoft Docs
+description: App-uttrycket används i en Azure Monitor log-fråga för att hämta data från en speciell Application Insights-app i samma resurs grupp, en annan resurs grupp eller en annan prenumeration.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 01/25/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.date: 01/25/2019
+ms.openlocfilehash: fd6bfd40eadfc09008c992d263b065d7b41ffa1f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589252"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894462"
 ---
-# <a name="app-expression-in-azure-monitor-query"></a>App() uttryck i Azure Monitor-fråga
+# <a name="app-expression-in-azure-monitor-query"></a>app ()-uttryck i Azure Monitor fråga
 
-Den `app` uttryck används i en Azure Monitor-fråga för att hämta data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Detta är användbart att inkludera programdata i en Azure Monitor log-fråga och för att köra frågor mot data över flera program i en Application Insights-fråga.
+`app`-uttrycket används i en Azure Monitor-fråga för att hämta data från en speciell Application Insights-app i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta är användbart om du vill inkludera program data i en Azure Monitor logg fråga och fråga efter data över flera program i en Application Insights fråga.
 
 
 
 ## <a name="syntax"></a>Syntax
 
-`app(`*Identifier*`)`
+`app(`*identifierare*`)`
 
 
 ## <a name="arguments"></a>Argument
 
-- *Identifieraren*: Identifierar appen med någon av format i tabellen nedan.
+- *Identifierare*: identifierar appen med något av formaten i tabellen nedan.
 
-| identifierare | Beskrivning | Exempel
+| Beteckning | Beskrivning | Exempel
 |:---|:---|:---|
-| Resursnamn | Mänskliga läsbara namnet på appen (AKA ”komponentnamn”) | app("fabrikamapp") |
-| Kvalificerat namn | Fullständigt namn för appen i formatet: ”subscriptionName/resourceGroup/componentName” | App('AI-prototype/Fabrikam/fabrikamapp') |
-| ID | GUID för appen | app("988ba129-363e-4415-8fe7-8cbab5447518") |
-| Azure Resource ID | Identifierare för Azure-resursen |App("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/Microsoft.Insights/Components/fabrikamapp") |
+| Resursnamn | Namnet på appens läsliga namn (AKA "komponent namn") | app ("fabrikamapp") |
+| Kvalificerat namn | Appens fullständiga namn i formatet: "subscriptionName/resourceGroup/componentName" | app (' AI-Prototype/Fabrikam/fabrikamapp ') |
+| ID | Appens GUID | app ("988ba129-363e-4415-8fe7-8cbab5447518") |
+| Resurs-ID för Azure | Identifierare för Azure-resursen |app ("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
 ## <a name="notes"></a>Anteckningar
 
-* Du måste ha läsbehörighet till programmet.
-* Identifierar ett program med namnet förutsätter att det är unikt för alla tillgängliga prenumerationer. Om du har flera program med det angivna namnet att frågan misslyckas på grund av tvetydighet. I det här fallet måste du använda en av de andra identifierarna.
-* Använd relaterade uttrycket [arbetsytan](workspace-expression.md) till frågan i Log Analytics-arbetsytor.
-* App() uttrycket stöds för närvarande inte i frågan med Azure-portalen för att skapa en [aviseringsregeln för anpassad sökning](../platform/alerts-log.md), såvida inte ett Application Insights-program kan användas som resursen för regeln.
+* Du måste ha Läs behörighet till programmet.
+* Att identifiera ett program med hjälp av namnet förutsätter att det är unikt för alla tillgängliga prenumerationer. Om du har flera program med det angivna namnet går det inte att köra frågan på grund av tvetydighet. I det här fallet måste du använda någon av de andra identifierarna.
+* Använd [arbets ytan](workspace-expression.md) relaterad-uttryck för att fråga i Log Analytics arbets ytor.
+* App ()-uttrycket stöds för närvarande inte i Sök frågan när du använder Azure Portal för att skapa en [anpassad varnings regel för loggs ökning](../platform/alerts-log.md), om inte ett Application Insights program används som resurs för varnings regeln.
 
 ## <a name="examples"></a>Exempel
 
@@ -78,6 +72,6 @@ union
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se den [arbetsytan uttryck](workspace-expression.md) att referera till en Log Analytics-arbetsyta.
+- Se ett [arbets ytans uttryck](workspace-expression.md) för att referera till en Log Analytics-arbetsyta.
 - Läs om hur [Azure Monitor data](../../azure-monitor/log-query/log-query-overview.md) lagras.
-- Få åtkomst till fullständig dokumentation för den [Kusto-frågespråket](/azure/kusto/query/).
+- Få fullständig dokumentation för [Kusto-frågespråket](/azure/kusto/query/).

@@ -1,45 +1,39 @@
 ---
-title: Lösning för kapacitet och prestanda i Azure Monitor | Microsoft Docs
-description: Använda lösningen kapacitet och prestanda i Övervakaren för att förstå kapaciteten för Hyper-V-servrar.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Kapacitet och prestanda lösning i Azure Monitor | Microsoft Docs
+description: Använd Kapacitet och prestanda lösning i Övervakaren för att hjälpa dig att förstå kapaciteten hos dina Hyper-V-servrar.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/13/2017
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/13/2017
+ms.openlocfilehash: 8b130b800b53afadc40e0c9b9a2b730f24da396e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101922"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899066"
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planera kapacitet för Hyper-V-virtuella datorer med kapacitet och prestanda-lösningen (inaktuell)
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planera kapaciteten för virtuella Hyper-V-datorer med Kapacitet och prestanda-lösningen (inaktuell)
 
-![Symbol för kapacitet och prestanda](./media/capacity-performance/capacity-solution.png)
+![Kapacitet och prestanda symbol](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
-> Lösningen kapacitet och prestanda är inaktuell.  Kunder som redan har installerat lösningen kan fortsätta att använda den, men kapacitet och prestanda kan inte läggas till nya arbetsytor.
+> Den Kapacitet och prestanda lösningen är föråldrad.  Kunder som redan har installerat lösningen kan fortsätta att använda den, men Kapacitet och prestanda kan inte läggas till i nya arbets ytor.
 
-Du kan använda lösningen kapacitet och prestanda i Övervakaren för att förstå kapaciteten för Hyper-V-servrar. Lösningen ger insikter om Hyper-V-miljön genom att visa det övergripande utnyttjandet (processor, minne och disk) på värdarna och de virtuella datorerna som körs på dessa Hyper-V-värdar. Mått har samlats in för CPU, minne och diskar mellan alla värdar och de virtuella datorerna körs på dem.
+Du kan använda Kapacitet och prestanda lösning i Övervakaren för att hjälpa dig att förstå kapaciteten hos dina Hyper-V-servrar. Lösningen ger insikter i din Hyper-V-miljö genom att visa den övergripande användningen (processor, minne och disk) för värdarna och de virtuella datorer som körs på dessa Hyper-V-värdar. Mått samlas in för CPU, minne och diskar över alla dina värdar och de virtuella datorer som körs på dem.
 
-Lösning:
+Lösningen:
 
--   Visar värdar med högsta och lägsta användning av processor och minne
--   Visar virtuella datorer med högsta och lägsta användning av processor och minne
--   Visar virtuella datorer med högsta och lägsta IOPS och dataflöden användning
+-   Visar värdar med högsta och lägsta processor-och minnes användning
+-   Visar virtuella datorer med högsta och lägsta processor-och minnes användning
+-   Visar virtuella datorer med högsta och lägsta IOPS och data flödes användning
 -   Visar vilka virtuella datorer som körs på vilka värdar
--   Visar de översta diskarna med stora dataflöden, IOPS och svarstider i klusterdelade volymer
+-   Visar de vanligaste diskarna med högt data flöde, IOPS och svars tid i klusterdelade volymer
 - Gör att du kan anpassa och filtrera baserat på grupper
 
 > [!NOTE]
-> Den tidigare versionen av kapacitet och prestanda lösningen kallas Kapacitetshanteringsområde krävs både System Center Operations Manager och System Center Virtual Machine Manager. Den här uppdaterade lösningen har inte dessa beroenden.
+> Den tidigare versionen av Kapacitet och prestanda-lösningen som kallas för kapacitets hantering krävde både System Center Operations Manager och System Center Virtual Machine Manager. Den här uppdaterade lösningen har inte dessa beroenden.
 
 
 ## <a name="connected-sources"></a>Anslutna källor
@@ -48,92 +42,92 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | Ansluten källa | Support | Beskrivning |
 |---|---|---|
-| [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in information om kapacitet och prestanda från Windows-agenter. |
-| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda från direkt Linux-agenter.|
-| [SCOM-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) | Ja |Lösningen samlar in data för kapacitet och prestanda från agenter i en ansluten SCOM-hanteringsgrupp. En direktanslutning från SCOM-agenten till Log Analytics krävs inte.|
-| [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Azure storage inkluderar inte kapacitet och prestanda.|
+| [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in information om kapacitet och prestanda data från Windows-agenter. |
+| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda data från Direct Linux-agenter.|
+| [SCOM-hanterings grupp](../../azure-monitor/platform/om-agents.md) | Ja |Lösningen samlar in kapacitets-och prestanda data från agenter i en ansluten SCOM-hanterings grupp. Det krävs ingen direkt anslutning från SCOM agent till Log Analytics.|
+| [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Azure Storage omfattar inte kapacitets-och prestanda data.|
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Windows- eller Operations Manager-agenter måste installeras på Windows Server 2012 eller högre Hyper-V-värdar, inte virtuella datorer.
+- Windows-eller Operations Manager-agenter måste installeras på Windows Server 2012 eller högre Hyper-V-värdar, inte virtuella datorer.
 
 
 ## <a name="configuration"></a>Konfiguration
 
-Utför följande steg för att lägga till lösning för kapacitet och prestanda för din arbetsyta.
+Utför följande steg för att lägga till Kapacitet och prestanda-lösningen på din arbets yta.
 
-- Lägga till lösning för kapacitet och prestanda för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+- Lägg till Kapacitet och prestanda lösning i arbets ytan Log Analytics med processen som beskrivs i [Lägg till Log Analytics lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md).
 
 ## <a name="management-packs"></a>Hanteringspaket
 
-Om din SCOM-hanteringsgrupp är ansluten till Log Analytics-arbetsytan kan sedan installeras följande hanteringspaket i SCOM när du lägger till den här lösningen. Det krävs ingen konfigurering eller underhåll av dessa hanteringspaket.
+Om din SCOM Management-grupp är ansluten till din Log Analytics-arbetsyta installeras följande hanterings paket i SCOM när du lägger till den här lösningen. Det krävs ingen konfigurering eller underhåll av dessa hanteringspaket.
 
-- Microsoft.IntelligencePacks.CapacityPerformance
+- Microsoft. IntelligencePacks. CapacityPerformance
 
-Händelsen 1201 liknar:
+1201-händelsen liknar:
 
 
 ```
 New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", version:"1.10.3190.0" received.
 ```
 
-När lösningen kapacitet och prestanda uppdateras ändras versionsnumret.
+När Kapacitet och prestandas lösningen uppdateras, kommer versions numret att ändras.
 
 Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Använda lösningen
 
-När du lägger till lösningen kapacitet och prestanda i din arbetsyta, har kapacitet och prestanda lagts till instrumentpanelen. Den här panelen visar antal aktiva Hyper-V-värdar och antalet aktiva virtuella datorer som har övervakas för tidsperioden väljas.
+När du lägger till Kapacitet och prestanda-lösningen i din arbets yta läggs Kapacitet och prestanda till på översikts instrument panelen. Den här panelen visar ett antal aktiva Hyper-V-värdar och antalet aktiva virtuella datorer som övervakades för den valda tids perioden.
 
-![Panel för kapacitet och prestanda](./media/capacity-performance/capacity-tile.png)
+![Kapacitet och prestanda panel](./media/capacity-performance/capacity-tile.png)
 
 
 ### <a name="review-utilization"></a>Granska användning
 
-Klicka på panelen kapacitet och prestanda för att öppna instrumentpanelen kapacitet och prestanda. Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn listar upp till tio objekt som matchar denna kolumns kriterier för specificerat omfång och tidsintervall. Du kan köra en loggsökning som returnerar alla poster genom att klicka på **Se alla** längst ned i kolumnen eller genom att klicka på kolumnrubriken.
+Öppna instrument panelen Kapacitet och prestanda genom att klicka på panelen Kapacitet och prestanda. Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn listar upp till tio objekt som matchar denna kolumns kriterier för specificerat omfång och tidsintervall. Du kan köra en loggsökning som returnerar alla poster genom att klicka på **Se alla** längst ned i kolumnen eller genom att klicka på kolumnrubriken.
 
-- **Värdar**
-    - **Vara värd för processoranvändning** visar en grafisk trend över CPU-utnyttjande på värddatorer och en lista över värdar, baserat på den valda tidsperioden. Hovra över linjediagrammet att visa detaljer för en specifik tidpunkt. Klicka på diagrammet om du vill visa mer information i loggsökning. Klicka på alla värdnamn för att öppna loggsökning och visa information om prestandaräknare för processor för värdbaserade virtuella datorer.
-    - **Vara värd för minnesanvändning** visar en grafisk trend över värddatorer minnesanvändning och en lista över värdar, baserat på den valda tidsperioden. Hovra över linjediagrammet att visa detaljer för en specifik tidpunkt. Klicka på diagrammet om du vill visa mer information i loggsökning. Klicka på alla värdnamn för att öppna loggsökning och visa information om prestandaräknare minne för värdbaserade virtuella datorer.
+- **Lagras**
+    - **Processor användning för värd** Visar en grafisk trend för processor användningen för värddatorer och en lista över värdar, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på valfritt värdnamn om du vill öppna loggs ökning och Visa information om processor räknare för virtuella datorer som är värdar.
+    - **Minnes användning för värd** Visar en grafisk trend för minnes användningen av värddatorer och en lista över värdar, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på alla värdnamn för att öppna loggs ökning och Visa minnes räknar information för virtuella datorer som är värdar.
 - **Virtual Machines**
-    - **Processoranvändning för virtuell dator** visar en grafisk trend över CPU-utnyttjande på virtuella datorer och en lista över virtuella datorer, baserat på den valda tidsperioden. Hovra över linjediagrammet att visa detaljer för en specifik tidpunkt för de översta 3 virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggsökning. Klicka på alla VM-namn för att öppna loggsökning och visa sammanställs information om prestandaräknare för processor för den virtuella datorn.
-    - **Minnesanvändning för virtuell dator** visar en grafisk trend över minnesanvändning för virtuella datorer och en lista över virtuella datorer, baserat på den valda tidsperioden. Hovra över linjediagrammet att visa detaljer för en specifik tidpunkt för de översta 3 virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggsökning. Klicka på alla VM-namn för att öppna loggsökning och se information om prestandaräknare aggregerade minne för den virtuella datorn.
-    - **VM totalt Disk-IOPS** visar en grafisk trend över den totala disken IOPS för virtuella datorer och en lista över virtuella datorer med IOPS för varje baserat på den valda tidsperioden. Hovra över linjediagrammet att visa detaljer för en specifik tidpunkt för de översta 3 virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggsökning. Klicka på alla VM-namn för att öppna loggsökning och visa aggregerade IOPs per disk prestandaräknaren information för den virtuella datorn.
-    - **VM totalt Diskgenomflöde** visar en grafisk trend över det totala diskgenomflödet för virtuella datorer och en lista över virtuella datorer med det totala diskgenomflödet för varje baserat på den valda tidsperioden. Hovra över linjediagrammet att visa detaljer för en specifik tidpunkt för de översta 3 virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggsökning. Klicka på alla VM-namn för att öppna loggsökning och visa sammanställda totala dataflödet räknaren diskinformation för den virtuella datorn.
+    - **Processor användning för virtuell dator** Visar en grafisk trend för processor användningen för virtuella datorer och en lista över virtuella datorer, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt för de tre översta virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på namnet på den virtuella datorn för att öppna loggs ökning och Visa information om sammanställd CPU-räknare för den virtuella datorn.
+    - **Minnes användning för virtuell dator** Visar en grafisk trend för minnes användningen av virtuella datorer och en lista över virtuella datorer, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt för de tre översta virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på namnet på den virtuella datorn för att öppna loggs ökning och Visa information om sammanställd minnes räknare för den virtuella datorn.
+    - **VM totalt disk-IOPS** Visar en grafisk trend för den totala disk IOPS för virtuella datorer och en lista över virtuella datorer med IOPS för var och en, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt för de tre översta virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på namnet på den virtuella datorn för att öppna loggs ökning och Visa information om räknare för aggregerad disk-IOPS för den virtuella datorn.
+    - **Disk data flöde för total virtuell dator** Visar en grafisk trend för det totala disk data flödet för virtuella datorer och en lista över virtuella datorer med det totala disk data flödet för varje, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt för de tre översta virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på namnet på den virtuella datorn för att öppna loggs ökning och Visa sammanställd information om totala disk data flöde för den virtuella datorn.
 - **Klusterdelade volymer**
-    - **Totalt dataflöde** visar summan av både läsningar och skrivningar på klusterdelade volymer.
-    - **Totalt antal IOPS** visar summan av indata/utdataåtgärder per sekund på klusterdelade volymer.
-    - **Total svarstid** visar den totala svarstiden på klusterdelade volymer.
-- **Vara värd för densitet** övre panelen visar det totala antalet värdar och virtuella datorer som är tillgängliga i lösningen. Klicka på övre panelen för att visa ytterligare information i loggsökning. Visas även alla värdar och antalet virtuella datorer som finns. Klicka på en värd att öka detaljnivån i VM-resultaten i en loggsökning.
+    - **Totalt data flöde** Visar summan av både läsningar och skrivningar på klusterdelade volymer.
+    - **Totalt antal IOPS** Visar summan av in-/utdata-åtgärder per sekund på klusterdelade volymer.
+    - **Total svars tid** Visar den totala svars tiden för klusterdelade volymer.
+- **Värd densitet** Den övre panelen visar det totala antalet värdar och virtuella datorer som är tillgängliga för lösningen. Klicka på den övre panelen om du vill visa mer information i loggs ökningen. Visar även alla värdar och antalet virtuella datorer som finns. Klicka på en värd för att öka detalj nivån i VM-resultatet i en loggs ökning.
 
 
-![instrumentpanelen värdar bladet](./media/capacity-performance/dashboard-hosts.png)
+![bladet värd för instrument panel](./media/capacity-performance/dashboard-hosts.png)
 
-![bladet för instrumentpanelen för virtuella datorer](./media/capacity-performance/dashboard-vms.png)
+![bladet instrument panel för virtuella datorer](./media/capacity-performance/dashboard-vms.png)
 
 
 ### <a name="evaluate-performance"></a>Utvärdera prestanda
 
-Produktion datormiljöer skiljer sig avsevärt från en organisation till en annan. Dessutom kapacitet och prestanda arbetsbelastningar kan bero på hur dina virtuella datorer körs, och vad du vill normal. Specifika procedurer som hjälper dig att mått prestanda förmodligen inte gäller för din miljö. Så mer generaliserad normativ vägledning passar bättre för att. Microsoft publicerar en mängd olika vägledningsartiklar för att du mäta prestanda.
+Miljöer för produktions data behandling skiljer sig kraftigt från en organisation till en annan. Arbets belastningar för kapacitet och prestanda kan också vara beroende av hur dina virtuella datorer körs och vad du vill ha normalt. Vissa procedurer som hjälper dig att mäta prestanda gäller förmodligen inte för din miljö. Därför är mer generaliserad vägledning bättre att hjälpa dig. Microsoft publicerar en rad olika vägledningar om vägledning som hjälper dig att mäta prestanda.
 
-Sammanfattningsvis lösningen samlar in kapacitet och prestandadata från olika källor, inklusive prestandaräknare. Dessa data för kapacitet och prestanda som presenteras i olika ytor i lösningen, och jämför resultaten till webbplatser på den [mäta prestanda på Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) artikeln. Även om artikeln har publicerats tid sedan är den mått, överväganden och riktlinjer fortfarande giltiga. Artikeln innehåller länkar till andra användbara resurser.
+För att sammanfatta samlar lösningen in kapacitets-och prestanda data från en mängd olika källor, inklusive prestanda räknare. Använd dessa kapacitets-och prestanda data som presenteras på olika ytor i lösningen och jämför resultaten med dem i artikeln [Mät prestanda i Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) . Även om artikeln publicerades någon tid sedan, är måtten, övervägandena och rikt linjerna fortfarande giltiga. Artikeln innehåller länkar till andra användbara resurser.
 
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 
-Följande tabell innehåller exempel på loggsökningar för kapacitet och prestanda Mina data som samlas in och beräknas genom att den här lösningen.
+Följande tabell innehåller exempel på loggs ökningar för kapacitets-och prestanda data som samlas in och beräknas av den här lösningen.
 
 
 | Söka i data | Beskrivning |
 |:--- |:--- |
-| Alla värdminnen | Perf &#124; där ObjectName == ”kapacitet och prestanda” och CounterName == ”värd tilldelat minne MB” &#124; sammanfatta MB = avg(CounterValue) av instansnamn |
-| Alla konfigurationer av minnen för virtuell dator | Perf &#124; där ObjectName == ”kapacitet och prestanda” och CounterName == ”VM tilldelat minne MB” &#124; sammanfatta MB = avg(CounterValue) av instansnamn |
-| Analys av totalt Disk-IOPS i alla virtuella datorer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”VHD läsningar/s” eller CounterName == ”VHD skrivningar/s”) &#124; sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 1 timme), CounterName, instansnamn |
-| Analys av totalt Diskgenomflöde i alla virtuella datorer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”VHD Läs MB/s” eller CounterName == ”VHD skriva MB/s”) &#124; sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 1 timme), CounterName, instansnamn |
-| Analys av totalt IOPS i alla klusterdelade volymer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”CSV läsningar/s” eller CounterName == ”CSV skrivningar/s”) &#124; sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 1 timme), CounterName, instansnamn |
-| Analys av totalt genomflöde i alla klusterdelade volymer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”CSV läsningar/s” eller CounterName == ”CSV skrivningar/s”) &#124; sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 1 timme), CounterName, instansnamn |
-| Analys av Totalfördröjning i alla klusterdelade volymer | Perf &#124; där ObjectName == ”kapacitet och prestanda” och (CounterName == ”CSV Läs latens” eller CounterName == ”CSV skriva svarstid”) &#124; sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 1 timme), CounterName, instansnamn |
+| Alla konfigurationer av värd minne | Perf &#124; WHERE ObjectName = = "kapacitet och prestanda" och CounterName = = "Host Assigned Memory MB &#124; " sammanfatta MB = AVG (CounterValue) efter instancename |
+| Alla konfigurationer för virtuella datorer | Perf &#124; WHERE ObjectName = = "kapacitet och prestanda" och CounterName = = "VM Assigned Memory MB &#124; " sammanfatta MB = AVG (CounterValue) efter instancename |
+| Nedbrytning av total disk-IOPS i alla virtuella datorer | Perf &#124; WHERE ObjectName = = "kapacitet och prestanda" och (CounterName = = "VHD-läsningar/s" eller CounterName = = "VHD-skrivningar/ &#124; s") sammanfatta AggregatedValue = AVG (CounterValue) per bin (TimeGenerated, 1H), CounterName, instancename |
+| Analys av totalt disk data flöde på alla virtuella datorer | Perf &#124; WHERE ObjectName = = "kapacitet och prestanda" och (CounterName = = "VHD Read MB/s" eller CounterName = = "VHD Write MB/s") &#124; sammanfatta AggregatedValue = AVG (CounterValue) per bin (TimeGenerated, 1H), CounterName, instancename |
+| Nedbrytning av total IOPS i alla CSV: er | Perf &#124; WHERE ObjectName = = "kapacitet och prestanda" och (CounterName = = "CSV-läsningar/s" eller CounterName = = "CSV-skrivningar/ &#124; s") sammanfatta AggregatedValue = AVG (CounterValue) per bin (TimeGenerated, 1H), CounterName, instancename |
+| Analys av totalt genomflöde i alla CSV: er | Perf &#124; WHERE ObjectName = = "kapacitet och prestanda" och (CounterName = = "CSV-läsningar/s" eller CounterName = = "CSV-skrivningar/ &#124; s") sammanfatta AggregatedValue = AVG (CounterValue) per bin (TimeGenerated, 1H), CounterName, instancename |
+| Nedbrytning av total svars tid för alla CSV: er | Perf &#124; WHERE ObjectName = = "kapacitet och prestanda" och (CounterName = = "CSV Read latenion" eller CounterName = = "CSV Skriv fördröjning" &#124; ) sammanfatta AggregatedValue = AVG (CounterValue) per bin (TimeGenerated, 1H), CounterName, instancename |
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad information om kapacitet och prestanda.
+* Använd [loggs ökningar i Log Analytics](../../azure-monitor/log-query/log-query-overview.md) om du vill visa detaljerade kapacitet och prestanda data.

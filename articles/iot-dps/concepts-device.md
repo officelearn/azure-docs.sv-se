@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: dc4ffc4965d6a3c05693c7566a2c51538584f372
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173389"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897586"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Koncept för IoT Hub Device Provisioning Service enhet
 
@@ -44,7 +44,7 @@ Enhets hemligheter kan också lagras i program vara (minne), men det är en mind
 
 ## <a name="registration-id"></a>Registrerings-ID
 
-Registrerings-ID: t används för att unikt identifiera en enhet i enhets etablerings tjänsten. Registrerings-ID: t måste vara unikt i etablerings tjänstens [ID-omfång](#id-scope). Varje enhet måste ha ett registrerings-ID. Registrerings-ID: t är alfanumeriskt, gemener och får innehålla bindestreck.
+Registrerings-ID: t används för att unikt identifiera en enhet i enhets etablerings tjänsten. Enhets-ID: t måste vara unikt i etablerings tjänstens [ID-omfång](#id-scope). Varje enhet måste ha ett registrerings-ID. Registrerings-ID är alfanumeriskt, SKIFT läges okänsligt och kan innehålla specialtecken, inklusive kolon, punkt, under streck och bindestreck.
 
 * När det gäller TPM anges registrerings-ID: t av själva TPM: en.
 * Om det gäller X. 509-baserad attestering anges registrerings-ID: t som certifikatets ämnes namn.

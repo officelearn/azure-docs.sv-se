@@ -1,24 +1,18 @@
 ---
 title: Azure Key Vault lösning i Azure Monitor | Microsoft Docs
 description: Du kan använda Azure Key Vault lösning i Azure Monitor för att granska Azure Key Vault loggar.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/27/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 03/27/2019
+ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997690"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899214"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
@@ -57,7 +51,7 @@ Använd följande instruktioner för att installera och konfigurera Azure Key Va
 8. Klicka på *Spara* för att aktivera loggning av diagnostik till Log Analytics arbets ytan.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Aktivera Key Vault diagnostik med PowerShell
-Följande PowerShell-skript innehåller ett exempel på hur du kan `Set-AzDiagnosticSetting` använda för att aktivera diagnostisk loggning för Key Vault:
+Följande PowerShell-skript innehåller ett exempel på hur du använder `Set-AzDiagnosticSetting` för att aktivera diagnostisk loggning för Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -79,7 +73,7 @@ I följande tabell visas metoder för data insamling och annan information om hu
 | Azure |  |  |&#8226; |  |  | vid ankomsten |
 
 ## <a name="use-azure-key-vault"></a>Använda Azure Key Vault
-När du har [installerat lösningen](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)kan du Visa Key Vault data genom att klicka på panelen **Key Vault-analys** på sidan Azure Monitor **Översikt** . Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om insikter. 
+När du har [installerat lösningen](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)kan du Visa Key Vault data genom att klicka på panelen **Key Vault-analys** på sidan Azure Monitor **Översikt** . Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om **insikter** . 
 
 ![bild av Azure Key Vault panel](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
@@ -120,8 +114,8 @@ Azure Key Vault-lösningen analyserar poster som har en typ av nyckel **valv** s
 | `Resource` |Nyckel valvets namn |
 | `ResourceGroup` |Nyckel valvets resurs grupp |
 | `ResourceId` |Azure Resource Manager Resource-ID. För Key Vault loggar är detta Key Vault resurs-ID. |
-| `ResourceProvider` |*UTFORSKAREN. KEYVAULT* |
-| `ResourceType` | *VAULTS* |
+| `ResourceProvider` |*Utforskaren. KEYVAULT* |
+| `ResourceType` | *VALV* |
 | `ResultSignature` |HTTP-status (till exempel *OK*) |
 | `ResultType` |Resultat av REST API begäran (till exempel *lyckad*) |
 | `SubscriptionId` |Prenumerations-ID för Azure som innehåller Key Vault |
@@ -138,18 +132,18 @@ Så här använder du den uppdaterade lösningen:
 1. [Konfigurera diagnostik så att den skickas direkt till en Log Analytics arbets yta från Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Aktivera Azure Key Vault-lösningen genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md)
 3. Uppdatera eventuella sparade frågor, instrument paneler eller aviseringar för att använda den nya data typen
-   + Typen ändras från: Nyckel valv till AzureDiagnostics. Du kan använda ResourceType för att filtrera till Key Vault loggar.
-   + I stället för `KeyVaults`: använder du`AzureDiagnostics | where ResourceType'=="VAULTS"`
-   + Fält (Fält namn är Skift läges känsliga)
-   + För alla fält med suffixet \_s, \_d eller \_g i namnet ändrar du det första symbolen till gemener
-   + För fält som har suffixet \_o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen. Till exempel lagras UPN för anroparen i ett fält`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Typen är ändra från: nyckel valv till AzureDiagnostics. Du kan använda ResourceType för att filtrera till Key Vault loggar.
+   + Använd `AzureDiagnostics | where ResourceType'=="VAULTS"` i stället för: `KeyVaults`
+   + Fält: (fält namn är Skift läges känsliga)
+   + För alla fält som har suffixet \_s, \_d eller \_g i namnet, ändrar du det första symbolen till gemener
+   + För fält som har suffixet \_o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen. Till exempel lagras UPN för anroparen i ett fält `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    + Fältet CallerIpAddress ändrades till CallerIPAddress
    + Fältet RemoteIPCountry finns inte längre
-4. Ta bort den *Key Vault-analys (föråldrade)* lösningen. Om du använder PowerShell använder du`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Ta bort den *Key Vault-analys (föråldrade)* lösningen. Om du använder PowerShell använder du `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Data som samlas in innan ändringen visas inte i den nya lösningen. Du kan fortsätta att fråga efter dessa data med hjälp av de gamla typ-och fält namnen.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,23 +1,24 @@
 ---
-title: Anpassad webb-API-kunskap i en anriknings pipeline
-titleSuffix: Azure Cognitive Search
-description: 'Utöka funktionerna i Azure Kognitiv sökning färdighetsuppsättningar genom att anropa ut till webb-API: er. Använd anpassade webb-API-kunskaper för att integrera din anpassade kod.'
+title: Anpassad kognitiv Sök kompetens – Azure Search
+description: 'Utöka funktionerna i kognitiv search-färdighetsuppsättningar genom att anropa ut till webb-API: er'
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: HT
+ms.date: 05/02/2019
+ms.author: luisca
+ms.openlocfilehash: fda4f96c2c73c5a2d39435a509afcf654ed77b70
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784890"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901325"
 ---
-# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Anpassad webb-API-kunskap i en Azure Kognitiv sökning anriknings pipeline
+# <a name="custom-web-api-skill"></a>Anpassad webb-API-kunskap
 
-Med den **anpassade webb-API-** kunskapen kan du utöka AI-anrikning genom att anropa till en webb-API-slutpunkt som tillhandahåller anpassade åtgärder. På liknande sätt som inbyggda kunskaper har en **anpassad webb-API-** kunskap indata och utdata. Beroende på indata får ditt webb-API en JSON-nyttolast när indexeraren körs, och utvärderar en JSON-nyttolast som svar, tillsammans med status koden lyckades. Svaret förväntas ha de utdata som anges av din anpassade färdighet. Andra svar betraktas som ett fel och inga berikningar utförs.
+Med den **anpassade webb-API-** kunskapen kan du utöka kognitiv sökning genom att anropa till en webb-API-slutpunkt som tillhandahåller anpassade åtgärder. På liknande sätt som inbyggda kunskaper har en **anpassad webb-API-** kunskap indata och utdata. Beroende på indata får ditt webb-API en JSON-nyttolast när indexeraren körs, och utvärderar en JSON-nyttolast som svar, tillsammans med status koden lyckades. Svaret förväntas ha de utdata som anges av din anpassade färdighet. Andra svar betraktas som ett fel och inga berikningar utförs.
 
 Strukturen för JSON-nyttolasterna beskrivs ytterligare ned i det här dokumentet.
 
@@ -41,6 +42,7 @@ Parametrar är Skift läges känsliga.
 | httpHeaders | En samling nyckel/värde-par där nycklarna representerar rubrik namn och värden representerar huvud värden som skickas till ditt webb-API tillsammans med nytto lasten. Följande rubriker är förbjudna att tas med i samlingen: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | Valfritt Anger tids gränsen för http-klienten som gör API-anropet. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Till exempel `PT60S` i 60 sekunder. Om inget värde anges väljs ett standardvärde på 30 sekunder. Tids gränsen kan anges till högst 230 sekunder och minst 1 sekund. |
 | batchSize | Valfritt Anger hur många "data poster" (se _JSON_ nytto Last strukturen nedan) som ska skickas per API-anrop. Om den inte anges väljs standardvärdet 1000. Vi rekommenderar att du använder den här parametern för att uppnå en lämplig kompromiss mellan indexering av data flödet och belastningen på ditt API |
+| degreeOfParallelism | Valfritt Anger hur många anrop som indexeraren ska göra parallellt med den slut punkt som du har angett. Du kan minska det här värdet om slut punkten har misslyckats under för hög belastning på begäran, eller öka den om slut punkten kan ta emot fler begär Anden och du vill ha en ökning av prestandan för indexeraren.  Om inget värde anges används standardvärdet 5. DegreeOfParallelism kan anges till högst 10 och minst 1. |
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
@@ -146,7 +148,7 @@ Den kommer alltid att följa dessa begränsningar:
    * En `data` egenskap, som är ett objekt där fälten är anrikninger som matchar "namn" i `output` och vars värde betraktas som berikning.
    * En `errors` egenskap, en matris som visar eventuella fel som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha ett `null` värde.
    * En `warnings` egenskap, en matris som visar alla varningar som kommer att läggas till i körnings historiken för indexeraren. Den här egenskapen är obligatorisk, men kan ha ett `null` värde.
-* Objekten i `values` matrisen behöver inte vara i samma ordning som objekten i `values` mat ris skickas som en begäran till webb-API: et. @No__t_0 används dock för korrelation så att alla poster i svaret som innehåller en `recordId` som inte var en del av den ursprungliga begäran till webb-API: et ignoreras.
+* Objekten i `values` matrisen behöver inte vara i samma ordning som objekten i `values` mat ris skickas som en begäran till webb-API: et. `recordId` används dock för korrelation så att alla poster i svaret som innehåller en `recordId` som inte var en del av den ursprungliga begäran till webb-API: et ignoreras.
 
 ```json
 {
@@ -203,5 +205,5 @@ När webb-API: t inte är tillgängligt eller returnerar ett HTTP-fel, läggs et
 
 + [Energi kunskaper: ett lager med anpassade kunskaper](https://aka.ms/powerskills)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Lägg till anpassad kompetens i en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)
-+ [Exempel: skapa en anpassad färdighet för AI-anrikning (kognitiv-search-Create-example.md-Custom-skicklighet-)
++ [Lägg till anpassad färdighet i kognitiv sökning](cognitive-search-custom-skill-interface.md)
++ [Exempel: skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory inloggnings logg schema i Azure Monitor | Microsoft Docs
+title: Inloggnings logg schema i Azure Monitor | Microsoft Docs
 description: Beskriv Azure AD-inloggningens logg schema för användning i Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -17,16 +17,16 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3a05a531fd03cbd77bf3460ec45300692764565
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4259a23778db175de2a0331e692e878df39d0a07
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259160"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895010"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Tolka schemat för inloggnings loggar för Azure AD i Azure Monitor
 
-I den här artikeln beskrivs inloggnings logg schema för Azure Active Directory (Azure AD) i Azure Monitor. De flesta av de uppgifter som är relaterade till inloggningar tillhandahålls under `records` objektets *egenskap* attribut.
+I den här artikeln beskrivs inloggnings logg schema för Azure Active Directory (Azure AD) i Azure Monitor. Merparten av den information som är relaterad till inloggningar tillhandahålls under attributet *Egenskaper* för `records`-objektet.
 
 
 ```json
@@ -145,27 +145,27 @@ I den här artikeln beskrivs inloggnings logg schema för Azure Active Directory
 
 | Fältnamn | Beskrivning |
 |------------|-------------|
-| Time | Datumet och tiden, i UTC. |
+| Tid | Datumet och tiden, i UTC. |
 | ResourceId | Värdet är omappat och du kan bortse från det här fältet.  |
 | OperationName | För inloggningar är det här värdet alltid *inloggnings aktivitet*. |
-| OperationVersion | Den REST API version som begärs av klienten. |
-| Category | För inloggningar är det här värdet alltid *inloggnings*värde. | 
+| operationVersion | Den REST API version som begärs av klienten. |
+| Kategori | För inloggningar är det här värdet alltid *inloggnings*värde. | 
 | TenantId | Klient-GUID som är associerat med loggarna. |
-| ResultType | Resultatet av inloggnings åtgärden kan lyckas *eller Miss* *lyckas* . | 
-| ResultSignature | Innehåller eventuell felkod för inloggnings åtgärden. |
-| ResultDescription | Innehåller fel beskrivningen för inloggnings åtgärden. |
-| riskDetail | riskDetail | Tillhandahåller orsaken bakom ett särskilt tillstånd för en riskfylld användare, inloggning eller risk identifiering. De möjliga värdena är: `none` `userPerformedSecuredPasswordChange`, `adminGeneratedTemporaryPassword` `userPerformedSecuredPasswordReset` ,,`adminConfirmedSigninCompromised`,,,,,, .`unknownFutureValue` `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` Värdet `none` innebär att ingen åtgärd har utförts för användaren eller inloggning hittills. <br>**Obs:** Information om den här egenskapen kräver en Azure AD Premium P2-licens. Andra licenser returnerar värdet `hidden`. |
-| riskEventTypes | riskEventTypes | Typer av risk identifiering som är associerade med inloggningen. Möjliga värden är: `unlikelyTravel` ,`malwareInfectedIPAddress` ,,`investigationsThreatIntelligence`,,, ,`generic`, och .`unknownFutureValue` `anonymizedIPAddress` `maliciousIPAddress` `unfamiliarFeatures` `suspiciousIPAddress` `leakedCredentials` |
-| riskLevelAggregated | riskLevel | Aggregerad risk nivå. Möjliga värden `none`är: `low` `medium`, ,,,`high`och .`unknownFutureValue` `hidden` Värdet `hidden` innebär att användaren eller inloggningen inte har Aktiver ATS för Azure AD Identity Protection. **Obs:** Information om den här egenskapen är endast tillgänglig för Azure AD Premium P2-kunder. Alla andra kunder kommer att returneras `hidden`. |
-| riskLevelDuringSignIn | riskLevel | Risk nivå under inloggningen. Möjliga värden `none`är: `low` `medium`, ,,,`high`och .`unknownFutureValue` `hidden` Värdet `hidden` innebär att användaren eller inloggningen inte har Aktiver ATS för Azure AD Identity Protection. **Obs:** Information om den här egenskapen är endast tillgänglig för Azure AD Premium P2-kunder. Alla andra kunder kommer att returneras `hidden`. |
-| riskState | riskState | Rapporterar status för riskfylld användare, inloggning eller risk identifiering. `none`Möjliga värden är: `confirmedSafe` `remediated`, ,,`dismissed`,,, .`unknownFutureValue` `atRisk` `confirmedCompromised` |
+| resultType | Resultatet av inloggnings åtgärden kan lyckas *eller Miss* *lyckas* . | 
+| resultSignature | Innehåller eventuell felkod för inloggnings åtgärden. |
+| resultDescription | Innehåller fel beskrivningen för inloggnings åtgärden. |
+| riskDetail | riskDetail | Tillhandahåller orsaken bakom ett särskilt tillstånd för en riskfylld användare, inloggning eller risk identifiering. Möjliga värden är: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. Värdet `none` innebär att ingen åtgärd har utförts för användaren eller inloggning hittills. <br>**Obs:** Information om den här egenskapen kräver en Azure AD Premium P2-licens. Andra licenser returnerar värdet `hidden`. |
+| riskEventTypes | riskEventTypes | Typer av risk identifiering som är associerade med inloggningen. Möjliga värden är: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic`och `unknownFutureValue`. |
+| riskLevelAggregated | riskLevel | Aggregerad risk nivå. Möjliga värden är: `none`, `low`, `medium`, `high`, `hidden`och `unknownFutureValue`. Värdet `hidden` innebär att användaren eller inloggningen inte har Aktiver ATS för Azure AD Identity Protection. **Obs:** Information om den här egenskapen är endast tillgänglig för Azure AD Premium P2-kunder. Alla andra kunder kommer att returneras `hidden`. |
+| riskLevelDuringSignIn | riskLevel | Risk nivå under inloggningen. Möjliga värden är: `none`, `low`, `medium`, `high`, `hidden`och `unknownFutureValue`. Värdet `hidden` innebär att användaren eller inloggningen inte har Aktiver ATS för Azure AD Identity Protection. **Obs:** Information om den här egenskapen är endast tillgänglig för Azure AD Premium P2-kunder. Alla andra kunder kommer att returneras `hidden`. |
+| riskState | riskState | Rapporterar status för riskfylld användare, inloggning eller risk identifiering. Möjliga värden är: `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
 | . Durationms |  Värdet är omappat och du kan bortse från det här fältet. |
-| CallerIpAddress | IP-adressen för klienten som gjorde begäran. | 
+| callerIpAddress | IP-adressen för klienten som gjorde begäran. | 
 | CorrelationId | Det valfria GUID som skickas av klienten. Det här värdet kan hjälpa till att korrelera åtgärder på klient sidan med åtgärder på Server sidan, och det är användbart när du spårar loggar som omfattar tjänster. |
 | Identitet | Identiteten från den token som angavs när du gjorde begäran. Det kan vara ett användar konto, ett system konto eller ett huvud namn för tjänsten. |
 | Nivå | Tillhandahåller meddelande typen. För granskning är det alltid *information*. |
-| Location | Anger platsen för inloggnings aktiviteten. |
-| properties | Visar en lista över alla egenskaper som är associerade med inloggningar. Mer information finns i [Microsoft Graph API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Schemat använder samma attributnamn som inloggnings resursen för läsbarhet.
+| Plats | Anger platsen för inloggnings aktiviteten. |
+| Egenskaper | Visar en lista över alla egenskaper som är associerade med inloggningar. Mer information finns i [Microsoft Graph API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Schemat använder samma attributnamn som inloggnings resursen för läsbarhet.
 
 ## <a name="next-steps"></a>Nästa steg
 

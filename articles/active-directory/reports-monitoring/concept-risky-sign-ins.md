@@ -1,5 +1,5 @@
 ---
-title: Rapporten om riskfyllda inloggningar i Azure Active Directory-portalen | Microsoft Docs
+title: Rapport över riskfyllda inloggningar i portalen | Microsoft Docs
 description: Lär dig mer om rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
 services: active-directory
 author: cawrites
@@ -15,16 +15,16 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72493400ba20ef3c838a636b66afdf26aa00ff62
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 31a002af32ac6c07e6358a3ccd0f1420d3e8c9ef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127426"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895187"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
 
-Azure Active Directory (Azure AD) identifierar misstänkta åtgärder som är relaterade till dina användar konton. För varje identifierad åtgärd skapas en post som kallas **identifiering av risker** . Mer information finns i identifieringar av [Azure AD-risker](concept-risk-events.md). 
+Azure Active Directory (Azure AD) identifierar misstänkta åtgärder som är relaterade till dina användar konton. För varje identifierad åtgärd skapas en post som kallas **identifiering av risker** . Mer information finns i [identifieringar av Azure AD-risker](concept-risk-events.md). 
 
 Du kan komma åt säkerhetsrapporterna via [Azure-portalen](https://portal.azure.com) genom att välja bladet **Azure Active Directory** och sedan navigera till avsnittet **Säkerhet**. 
 
@@ -42,9 +42,9 @@ Information om hur du konfigurerar principerna som utlöser dessa risk identifie
 
 De riskfyllda inloggnings rapporterna är tillgängliga för användare i följande roller:
 
-- Säkerhetsadministratör
+- Säkerhets administratör
 - Global administratör
-- Säkerhetsläsare
+- Säkerhets läsare
 
 Information om hur du tilldelar administrativa roller till en användare i Azure Active Directory finns i [Visa och tilldela administratörs roller i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
@@ -117,7 +117,7 @@ När du väljer en användare får du en detaljerad rapportvy för den här anv�
 
 - Återställ användarens lösenord
 
-- Stäng alla händelser
+- Ignorera alla händelser
 
 - Undersök rapporterade risk identifieringar för användaren. 
 

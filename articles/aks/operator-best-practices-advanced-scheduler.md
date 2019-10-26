@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: a31f839b4bad79a52f5cab386d17e3084314784b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026107"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900114"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metod tips för avancerade Scheduler-funktioner i Azure Kubernetes service (AKS)
 
@@ -69,7 +69,7 @@ spec:
     effect: "NoSchedule"
 ```
 
-När den här Pod distribueras, t. ex. genom att använda `kubectl apply -f gpu-toleration.yaml`, kan Kubernetes schemalägga Pod på noderna med den använda bismaken. Med den här logiska isoleringen kan du kontrol lera åtkomsten till resurser i ett kluster.
+När den här Pod distribueras, till exempel med hjälp av `kubectl apply -f gpu-toleration.yaml`, kan Kubernetes schemalägga Pod på noderna med den tillämpade bismaken. Med den här logiska isoleringen kan du kontrol lera åtkomsten till resurser i ett kluster.
 
 När du använder smakarna arbetar du med dina programutvecklare och ägare för att tillåta dem att definiera de nödvändiga tolererarna i sina distributioner.
 
@@ -179,7 +179,7 @@ Ett exempel är ett webb program som också använder en Azure-cache för Redis.
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Det här exemplet är en mer komplex distribution än att använda Node-väljare eller Node-tillhörighet. I distributionen får du kontroll över hur Kubernetes schemalägger poddar på noder och kan isolera resurser logiskt. Ett komplett exempel på det här webb programmet med Azure cache för Redis-exempel finns i [Placera poddar på samma nod][k8s-pod-affinity].
+Det här exemplet är en mer komplex distribution än att använda Node-väljare eller Node-tillhörighet. I distributionen får du kontroll över hur Kubernetes schemalägger poddar på noder och kan isolera resurser logiskt. Ett komplett exempel på detta webb program med Azure cache för Redis-exempel finns i [samordna poddar på samma nod][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Nästa steg
 

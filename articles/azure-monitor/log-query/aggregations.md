@@ -1,38 +1,32 @@
 ---
-title: Aggregeringar i Azure Monitor logga frågor | Microsoft Docs
-description: Beskriver aggregeringsfunktioner i Azure Monitor log-frågor som erbjuder ett bra sätt att analysera dina data.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Agg regeringar i Azure Monitor logg frågor | Microsoft Docs
+description: Beskriver agg regerings funktioner i Azure Monitor logg frågor som erbjuder användbara sätt att analysera dina data.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 86b84e76b4716c1fddda23a6d52c65c0700c5663
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602726"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900419"
 ---
-# <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregeringar i Azure Monitor log-frågor
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Agg regeringar i Azure Monitor logg frågor
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Analytics-portalen](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
+> Du bör slutföra [Kom igång med Analytics Portal](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Den här artikeln beskriver aggregeringsfunktioner i Azure Monitor log-frågor som erbjuder ett bra sätt att analysera dina data. Alla funktioner använder den `summarize` operator som du skapar en tabell med aggregerade resultatet av indatatabellen.
+I den här artikeln beskrivs agg regerings funktioner i Azure Monitor logg frågor som erbjuder användbara sätt att analysera dina data. Dessa funktioner fungerar med `summarize`-operatorn som skapar en tabell med sammanställda resultat för tabellen indatamängd.
 
-## <a name="counts"></a>Antal
+## <a name="counts"></a>Mäter
 
 ### <a name="count"></a>count
-Räkna antalet rader i resultatmängden efter eventuella filter har använts. I följande exempel returneras det totala antalet rader i den _Perf_ tabell från de senaste 30 minuterna. Resultatet returneras i en kolumn med namnet *count_* om du inte tilldelar den ett visst namn:
+Räkna antalet rader i resultat uppsättningen efter att filter har tillämpats. I följande exempel returneras det totala antalet rader i _perf_ -tabellen från de senaste 30 minuterna. Resultatet returneras i en kolumn med namnet *count_* , om du inte tilldelar det ett särskilt namn:
 
 
 ```Kusto
@@ -47,7 +41,7 @@ Perf
 | summarize num_of_records=count() 
 ```
 
-En tidsdiagram visualisering kan vara användbart att se en trend över tid:
+En timechart visualisering kan vara användbar för att se en trend över tid:
 
 ```Kusto
 Perf 
@@ -56,13 +50,13 @@ Perf
 | render timechart
 ```
 
-Utdata från det här exemplet visar perf antalet poster i trendlinjen i 5 minuters intervall:
+Utdata från det här exemplet visar trend linjen med antal prestanda poster i intervall om 5 minuter:
 
-![Antal trend](media/aggregations/count-trend.png)
+![Antal trender](media/aggregations/count-trend.png)
 
 
-### <a name="dcount-dcountif"></a>DCount dcountif
-Använd `dcount` och `dcountif` att räkna distinkta värden i en viss kolumn. Följande fråga utvärderar hur många olika datorer skickat pulsslag under den senaste timmen:
+### <a name="dcount-dcountif"></a>DCount, dcountif
+Använd `dcount` och `dcountif` för att räkna distinkta värden i en viss kolumn. Följande fråga utvärderar hur många distinkta datorer som har skickat pulsslag under den senaste timmen:
 
 ```Kusto
 Heartbeat 
@@ -70,7 +64,7 @@ Heartbeat
 | summarize dcount(Computer)
 ```
 
-Om du vill räkna endast de Linux-datorer som har skickat pulsslag, använda `dcountif`:
+Använd `dcountif`för att räkna antalet Linux-datorer som har skickat pulsslag:
 
 ```Kusto
 Heartbeat 
@@ -78,8 +72,8 @@ Heartbeat
 | summarize dcountif(Computer, OSType=="Linux")
 ```
 
-### <a name="evaluating-subgroups"></a>Utvärdera undergrupper
-Om du vill utföra ett antal eller andra aggregeringar på undergrupper i dina data kan du använda den `by` nyckelord. Till exempel vill räkna antalet olika Linux-datorer som har skickat pulsslag i varje land/region:
+### <a name="evaluating-subgroups"></a>Utvärderar under grupper
+Om du vill utföra ett antal eller andra agg regeringar för under grupper i dina data använder du nyckelordet `by`. Om du till exempel vill räkna antalet distinkta Linux-datorer som har skickat pulsslag i varje land/region:
 
 ```Kusto
 Heartbeat 
@@ -96,7 +90,7 @@ Heartbeat
 |Nederländerna      | 2                   |
 
 
-Om du vill analysera ännu mindre undergrupper av dina data, lägger du till ytterligare en kolumn som ska den `by` avsnittet. Du kanske vill räkna distinkta datorer från varje land/region per OSType:
+Om du vill analysera ännu mindre under grupper av dina data lägger du till ytterligare kolumn namn i `by` avsnittet. Du kanske till exempel vill räkna de distinkta datorerna från varje land/region per OSType:
 
 ```Kusto
 Heartbeat 
@@ -105,10 +99,10 @@ Heartbeat
 ```
 
 ## <a name="percentiles-and-variance"></a>Percentiler och varians
-När du utvärderar numeriska värden, det är vanligt att genomsnittlig dem med hjälp av `summarize avg(expression)`. Medelvärden påverkas av extrema värden som utmärker endast några ärenden. Om du vill åtgärda problemet, kan du använda mindre känsliga funktioner som `median` eller `variance`.
+När du utvärderar numeriska värden är en vanlig metod att beräkna dem med hjälp av `summarize avg(expression)`. Genomsnitt påverkas av extrema värden som enbart kännetecknar några få fall. För att lösa problemet kan du använda mindre känsliga funktioner, till exempel `median` eller `variance`.
 
-### <a name="percentile"></a>: E percentilen
-Hitta medianvärdet i `percentile` funktion med ett värde för att ange den: e percentilen:
+### <a name="percentile"></a>Percentil
+Du hittar median värdet genom att använda funktionen `percentile` med ett värde för att ange percentilen:
 
 ```Kusto
 Perf
@@ -117,7 +111,7 @@ Perf
 | summarize percentiles(CounterValue, 50) by Computer
 ```
 
-Du kan också ange olika percentilerna för att få ett aggregerat resultat för varje:
+Du kan också ange olika percentiler för att få ett sammanställt resultat för varje:
 
 ```Kusto
 Perf
@@ -126,10 +120,10 @@ Perf
 | summarize percentiles(CounterValue, 25, 50, 75, 90) by Computer
 ```
 
-Detta kan visa att en dator CPU: er har liknande median värden, men vissa är konstant runt medianvärdet, andra datorer har rapporterat mycket lägre och högre CPU-värden vilket innebär att de råkade ut toppar.
+Detta kan visa att vissa dator processorer har liknande median värden, men vissa är konstanta runt median, men andra datorer har rapporterat mycket lägre och högre processor värden, vilket innebär att de har haft höga mängder.
 
 ### <a name="variance"></a>Varians
-För att utvärdera direkt variansen för ett värde, använder du standardavvikelse och varians metoder:
+Om du vill utvärdera var Ian sen för ett värde direkt använder du standard avvikelser och varians metoder:
 
 ```Kusto
 Perf
@@ -138,7 +132,7 @@ Perf
 | summarize stdev(CounterValue), variance(CounterValue) by Computer
 ```
 
-Ett bra sätt att analysera stabiliteten för CPU-användningen är att kombinera stdev med median beräkningen:
+Ett bra sätt att analysera CPU-användningens stabilitet är att kombinera STDAV med beräkningen av median:
 
 ```Kusto
 Perf
@@ -147,12 +141,12 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Se andra lektioner för att använda den [Kusto-frågespråket](/azure/kusto/query/) logga data med Azure Monitor:
+Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/) med Azure Monitor loggdata:
 
-- [Strängåtgärder](string-operations.md)
-- [Åtgärder för datum och tid](datetime-operations.md)
-- [Avancerade aggregeringar](advanced-aggregations.md)
-- [JSON och datastrukturer](json-data-structures.md)
-- [Avancerad fråga skrivning](advanced-query-writing.md)
+- [Sträng åtgärder](string-operations.md)
+- [Datum-och tids åtgärder](datetime-operations.md)
+- [Avancerade agg regeringar](advanced-aggregations.md)
+- [JSON och data strukturer](json-data-structures.md)
+- [Avancerad fråge utskrift](advanced-query-writing.md)
 - [Kopplingar](joins.md)
-- [Diagram](charts.md)
+- [Hierarkidiagram](charts.md)

@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 4a865102cbc33da4140f3e25e4b4926eade8e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 241349724929845afa2fd2a4bacabf9b5017cc7c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599967"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901557"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric kluster med Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure-portalen](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
 Ett [Azure Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella datorer där dina mikrotjänster distribueras och hanteras.  Ett Service Fabric kluster som körs i Azure är en Azure-resurs och distribueras med hjälp av Azure Resource Manager. I den här artikeln beskrivs hur du distribuerar ett säkert Service Fabric kluster i Azure med hjälp av Resource Manager. Du kan använda en mall för standard kluster eller en anpassad mall.  Om du inte redan har en anpassad mall kan du [lära dig hur du skapar en](service-fabric-cluster-creation-create-template.md).
 
-Kluster säkerhet konfigureras när klustret först konfigureras och kan inte ändras senare. Innan du konfigurerar ett kluster bör du läsa [Service Fabric kluster säkerhets scenarier][service-fabric-cluster-security]. I Azure använder Service Fabric x509-certifikat för att skydda klustret och dess slut punkter, autentisera klienter och kryptera data. Azure Active Directory rekommenderas också att skydda åtkomsten till hanterings slut punkter. Azure AD-klienter och användare måste skapas innan klustret skapas.  Mer information finns [i Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
+Den typ av säkerhet som valts för att skydda klustret (t. ex. Windows-identitet, X509 osv.) måste anges för den inledande skapandet av klustret och kan inte ändras därefter. Innan du konfigurerar ett kluster bör du läsa [Service Fabric kluster säkerhets scenarier][service-fabric-cluster-security]. I Azure använder Service Fabric x509-certifikat för att skydda klustret och dess slut punkter, autentisera klienter och kryptera data. Azure Active Directory rekommenderas också att skydda åtkomsten till hanterings slut punkter. Mer information finns [i Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
 
 Om du skapar ett produktions kluster för att köra produktions arbets belastningar rekommenderar vi att du först läser igenom [Check listan för produktions beredskap](service-fabric-production-readiness-checklist.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 I den här artikeln använder du modulerna Service Fabric RM PowerShell eller Azure CLI för att distribuera ett kluster:
 
 * [Azure PowerShell 4,1 och uppåt][azure-powershell]
 * [Azure CLI version 2,0 och senare][azure-CLI]
 
 Referens dokumentationen för Service Fabric moduler finns här:
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
+* [AZ. ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
 * [AZ SF CLI-modul](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -74,7 +74,7 @@ Den mall som används är tillgänglig i [Azure Service Fabric Template-exempel:
 Följande kommando kan skapa antingen Windows-eller Linux-kluster, du måste ange operativ systemet. PowerShell/CLI-kommandona skickar även certifikatet i den angivna *CertificateOutputFolder*. kontrol lera dock att mappen redan har skapats. Kommandot tar även med andra parametrar, till exempel VM SKU.
 
 > [!NOTE]
-> Följande PowerShell-kommando fungerar endast med Azure PowerShell `Az` -modulen. Om du vill kontrol lera den aktuella versionen av Azure Resource Manager PowerShell-version kör du följande PowerShell-kommando "Get-module AZ". Följ [den här länken](/powershell/azure/install-Az-ps) om du vill uppgradera din Azure Resource Manager PowerShell-version. 
+> Följande PowerShell-kommando fungerar bara med modulen Azure PowerShell `Az`. Om du vill kontrol lera den aktuella versionen av Azure Resource Manager PowerShell-version kör du följande PowerShell-kommando "Get-module AZ". Följ [den här länken](/powershell/azure/install-Az-ps) om du vill uppgradera din Azure Resource Manager PowerShell-version. 
 >
 >
 
@@ -173,7 +173,7 @@ Använd följande kommando för att skapa kluster, om du har ett certifikat som 
 Om det här är ett CA-signerat certifikat som du kommer att använda i andra syfte, rekommenderar vi att du anger en specifik resurs grupp specifikt för ditt nyckel valv. Vi rekommenderar att du sätter nyckel valvet i sin egen resurs grupp. Med den här åtgärden kan du ta bort resurs grupperna för beräkning och lagring, inklusive resurs gruppen som innehåller Service Fabric klustret, utan att förlora nycklar och hemligheter. **Resurs gruppen som innehåller nyckel valvet *måste finnas i samma region* som det kluster som använder det.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Använd standardvärdet på fem noder, en mall för nodtyp som levereras i modulen
-Den mall som används är tillgänglig i [Azure-exempel: Mall för](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) Windows-mall och [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+Den mall som används är tillgänglig i Azure- [exempel:](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) mall-och [Ubuntu-mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure) för Windows
 
 Distribuera klustret med PowerShell:
 

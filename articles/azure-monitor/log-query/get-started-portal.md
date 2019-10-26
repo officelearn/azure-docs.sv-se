@@ -1,19 +1,18 @@
 ---
 title: Kom igång med Azure Monitor Log Analytics | Microsoft Docs
 description: Den här artikeln innehåller en själv studie kurs om hur du använder Log Analytics i Azure Portal för att skriva frågor.
-services: log-analytics
-author: bwren
-manager: carmonm
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/19/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 950768326228960192f48d99e5c5fa849b2c2bda
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: MT
+ms.date: 07/19/2019
+ms.openlocfilehash: 1babd0828e21f0125dba55199d808a579a10f049
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076831"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900352"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Kom igång med Log Analytics i Azure Monitor
 
@@ -41,11 +40,11 @@ Log Analytics är ett webb verktyg som används för att skriva och köra Azure 
 ## <a name="firewall-requirements"></a>Brand Väggs krav
 Om du vill använda Log Analytics måste webbläsaren ha åtkomst till följande adresser. Om webbläsaren har åtkomst till Azure Portal via en brand vägg måste du aktivera åtkomst till dessa adresser.
 
-| URI | IP-adress | Portar |
+| URI | IP | Portar |
 |:---|:---|:---|
-| portal.loganalytics.io | Dynamisk | 80,443 |
-| api.loganalytics.io | Dynamisk | 80,443 |
-| docs.loganalytics.io | Dynamisk | 80,443 |
+| portal.loganalytics.io | Dynamisk | 80 443 |
+| api.loganalytics.io | Dynamisk | 80 443 |
+| docs.loganalytics.io | Dynamisk | 80 443 |
 
 ## <a name="basic-queries"></a>Grundläggande frågor
 Frågor kan användas för att söka efter termer, identifiera trender, analysera mönster och tillhandahålla många andra insikter baserade på dina data. Börja med en grundläggande fråga:
@@ -69,8 +68,8 @@ I det här exemplet är **sökningen** begränsad till _händelse_ tabellen, och
 ## <a name="running-a-query"></a>Köra en fråga
 Kör en fråga genom att klicka på knappen **Kör** eller trycka på **SKIFT + RETUR**. Tänk på följande information som avgör vilken kod som ska köras och vilka data som returneras:
 
-- Rad brytningar: En enda rast gör det lättare att läsa frågan. Flera rad brytningar delas upp i separata frågor.
-- Pekaralternativ Placera markören någonstans i frågan för att köra den. Den aktuella frågan anses vara koden upp tills en tom rad har hittats.
+- Rad brytningar: en enda rast gör det lättare att läsa frågan. Flera rad brytningar delas upp i separata frågor.
+- Markör: Placera markören någonstans i frågan för att köra den. Den aktuella frågan anses vara koden upp tills en tom rad har hittats.
 - Tidsintervall – ett tidsintervall under de _senaste 24 timmarna_ anges som standard. Om du vill använda ett annat intervall använder du tids väljaren eller lägger till ett explicit tidsintervall filter i frågan.
 
 
@@ -79,7 +78,7 @@ Schemat är en samling tabeller som är visuellt grupperade under en logisk kate
 
 ![Schema](media/get-started-portal/schema.png)
 
-I varje tabell ordnas data i kolumner med olika data typer som anges av ikoner bredvid kolumn namnet. Till exempel den _händelse_ tabellen som visas i skärmbilden innehåller kolumner som _datorn_ som är text, _EventCategory_ som är ett tal och _TimeGenerated_ som är datum/tid.
+I varje tabell ordnas data i kolumner med olika data typer som anges av ikoner bredvid kolumn namnet. _Händelse_ tabellen som visas i skärm bilden innehåller till exempel kolumner, till exempel _dator_ , _EventCategory_ , som är ett tal och _TimeGenerated_ som är datum/tid.
 
 ## <a name="filter-the-results"></a>Filtrera resultaten
 Börja med att hämta allt i _händelse_ tabellen.
@@ -90,13 +89,13 @@ Event
 
 Log Analytics automatiskt omfångs resultat efter:
 
-- Tidsintervall:  Som standard är frågorna begränsade till de senaste 24 timmarna.
-- Antal resultat: Resultaten är begränsade till högst 10 000 poster.
+- Tidsintervall: som standard är frågorna begränsade till de senaste 24 timmarna.
+- Antal resultat: resultaten är begränsade till högst 10 000 poster.
 
 Den här frågan är mycket allmän och returnerar för många resultat för att vara användbar. Du kan filtrera resultaten antingen via tabell elementen eller genom att uttryckligen lägga till ett filter i frågan. Filtrering av resultat via tabell elementen gäller för den befintliga resultat uppsättningen, medan ett filter till själva frågan returnerar en ny filtrerad resultat uppsättning och kan därför skapa mer exakta resultat.
 
 ### <a name="add-a-filter-to-the-query"></a>Lägg till ett filter i frågan
-Det finns en pil till vänster om varje post. Klicka på pilen för att öppna informationen för en viss post.
+Det finns en pil till vänster om varje post. Klicka på den här pilen för att öppna informationen för en speciell post.
 
 Hovra ovanför ett kolumn namn för ikonerna "+" och "-" som ska visas. Om du vill lägga till ett filter som bara kommer att returnera poster med samma värde klickar du på tecknet "+". Klicka på "-" om du vill utesluta poster med det här värdet och klicka sedan på **Kör** för att köra frågan igen.
 
@@ -107,7 +106,7 @@ Nu ska vi fokusera på händelser med allvarlighets graden _fel_. Detta anges i 
 
 Klicka på filter ikonen bredvid kolumn rubriken och välj värden som _börjar med_ text _felet_i popup-fönstret:
 
-![Filter](media/get-started-portal/filter.png)
+![Filtrera](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>Sortera och gruppera resultat
@@ -122,7 +121,7 @@ Ett annat sätt att ordna resultaten är av grupper. Om du vill gruppera resulta
 ## <a name="select-columns-to-display"></a>Välj kolumner som ska visas
 Resultat tabellen innehåller ofta många kolumner. Du kanske upptäcker att några av de returnerade kolumnerna inte visas som standard, eller att du vill ta bort några kolumner som visas. Klicka på knappen kolumner om du vill välja kolumner som ska visas:
 
-![Välja kolumner](media/get-started-portal/select-columns.png)
+![Välj kolumner](media/get-started-portal/select-columns.png)
 
 
 ## <a name="select-a-time-range"></a>Välj ett tidsintervall
@@ -135,7 +134,7 @@ När du väljer ett anpassat tidsintervall är de valda värdena i UTC, vilket k
 Om frågan uttryckligen innehåller ett filter för _TimeGenerated_, visas rubriken för tid väljaren _i frågan_. Manuellt val kommer att inaktive ras för att förhindra en konflikt.
 
 
-## <a name="charts"></a>Diagram
+## <a name="charts"></a>Hierarkidiagram
 Förutom att returnera resultat i en tabell, kan frågeresultaten visas i visuella format. Använd följande fråga som exempel:
 
 ```Kusto
@@ -151,7 +150,7 @@ Som standard visas resultaten i en tabell. Klicka på _diagram_ för att visa re
 
 Resultatet visas i ett liggande stapeldiagram. Klicka på _staplad kolumn_ och välj _cirkel_ för att visa en annan vy av resultaten:
 
-![Cirkeldiagram](media/get-started-portal/pie-chart.png)
+![Cirkel diagram](media/get-started-portal/pie-chart.png)
 
 Olika egenskaper för vyn, till exempel x-och y-axlar, eller grupperings-och delnings inställningar, kan ändras manuellt från kontroll fältet.
 
@@ -169,9 +168,9 @@ Om du vill fästa ett diagram eller en tabell till någon av dina delade Azure-i
 
 Vissa förenklingar tillämpas på ett diagram när du fäster det på en instrument panel:
 
-- Tabell kolumner och rader: För att fästa en tabell på instrument panelen måste den ha fyra eller färre kolumner. Endast de sju översta raderna visas.
-- Tids begränsning: Frågor begränsas automatiskt till de senaste 14 dagarna.
-- Begränsning av lager plats antal: Om du visar ett diagram som har många diskreta lager platser grupperas mindre fyllda lager platser automatiskt till en _annan_ lager plats.
+- Tabell kolumner och rader: för att fästa en tabell på instrument panelen måste den ha fyra eller färre kolumner. Endast de sju översta raderna visas.
+- Tids begränsning: frågor begränsas automatiskt till de senaste 14 dagarna.
+- Begränsning av lager antal fack: om du visar ett diagram som har många separata lager platser grupperas mindre fyllda lager platser automatiskt till en _annan_ lager plats.
 
 ## <a name="save-queries"></a>Spara frågor
 När du har skapat en användbar fråga kanske du vill spara den eller dela med andra. Ikonen **Spara** är i det översta fältet.
@@ -188,14 +187,14 @@ Log Analytics frågor sparas alltid på en vald arbets yta och delas med andra a
 ## <a name="load-queries"></a>Läs in frågor
 Ikonen i Query Explorer är längst upp till höger. Här visas alla sparade frågor efter kategori. Du kan också markera vissa frågor som favoriter för att snabbt hitta dem i framtiden. Dubbelklicka på en sparad fråga för att lägga till den i det aktuella fönstret.
 
-![Frågeutforskaren](media/get-started-portal/query-explorer.png)
+![Query Explorer](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exportera och dela som länk
 Log Analytics stöder flera export metoder:
 
 - Excel: Spara resultatet som en CSV-fil.
-- Power BI: Exportera resultaten till Power BI. Mer information finns i [importera Azure Monitor loggdata till Power BI](../../azure-monitor/platform/powerbi.md) .
-- Dela en länk: Själva frågan kan delas som en länk som sedan kan skickas och köras av andra användare som har åtkomst till samma arbets yta.
+- Power BI: exportera resultaten till Power BI. Mer information finns i [importera Azure Monitor loggdata till Power BI](../../azure-monitor/platform/powerbi.md) .
+- Dela en länk: själva frågan kan delas som en länk som sedan kan skickas och köras av andra användare som har åtkomst till samma arbets yta.
 
 ## <a name="next-steps"></a>Nästa steg
 

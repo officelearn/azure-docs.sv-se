@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 37e833e5ba2fcbc9fcfe0a27d5b607a5c6cdd55b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39abe054869bf68a254b9305a680ecc892359300
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079534"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898876"
 ---
 # <a name="download-the-template-for-a-vm"></a>Ladda ned mallen för en virtuell dator
 När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell skapas en Resource Manager-mall automatiskt åt dig. Du kan använda den här mallen för att snabbt duplicera en distribution. Mallen innehåller information om alla resurser i en resurs grupp. För en virtuell dator innebär detta att mallen innehåller allt som skapas i stöd för den virtuella datorn i resurs gruppen, inklusive nätverks resurserna.
@@ -32,17 +32,13 @@ När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell
 5. Välj **Ladda ned** på menyn längst upp och spara. zip-filen på den lokala datorn.
 6. Öppna. zip-filen och extrahera filerna till en mapp. Zip-filen innehåller:
    
-   * deploy.ps1
-   * deploy.sh 
-   * Deployer. RB
-   * DeploymentHelper.cs
-   * parameters.json
-   * template.json
+   * Parameters. JSON
+   * Template. JSON
 
 Filen Template. JSON är mallen.
 
 ## <a name="download-the-template-using-powershell"></a>Ladda ned mallen med PowerShell
-Du kan också hämta. JSON-mallfilen med cmdleten [export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) . Du kan använda `-path` parametern för att ange fil namn och sökväg för. JSON-filen. Det här exemplet visar hur du hämtar mallen för resurs gruppen med namnet **myResourceGroup** till mappen **C:\users\public\downloads** på den lokala datorn.
+Du kan också hämta. JSON-mallfilen med cmdleten [export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) . Du kan använda parametern `-path` för att ange fil namn och sökväg för. JSON-filen. Det här exemplet visar hur du hämtar mallen för resurs gruppen med namnet **myResourceGroup** till mappen **C:\users\public\downloads** på den lokala datorn.
 
 ```powershell
     Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"

@@ -4,15 +4,15 @@ description: För CSP-partner hjälper Azure delegerad resurs hantering att för
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/17/2019
+ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: cdb9eaf0b1f1a6e7a136432586ad186308e4e3d3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: cf9b834d79fa36bbe327a72089388b3f1a1a0c14
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550295"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901838"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure-Lighthouse och Cloud Solution Provider-programmet
 
@@ -36,6 +36,11 @@ Med Azure-delegerad resurs hantering kan du tilldela olika grupper till olika ku
 När du registrerar en prenumeration som du har skapat via CSP-programmet följer du stegen som beskrivs i [publicera en prenumeration på Azure-delegerad resurs hantering](../how-to/onboard-customer.md). Alla användare som har rollen administratörs agent i din klient organisation kan utföra denna onboarding.
 
 ![Hantering av innehavare med ADMINISTRATE och Azure delegerad resurs hantering](../media/csp-2.jpg)
+
+> [!NOTE]
+> Sidan [ **Mina kunder** i Azure Portal](../how-to/view-manage-customers.md) innehåller nu en **moln lösnings leverantör (förhands granskning)** , som visar fakturerings information och resurser för CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och är under Azure-prenumerationen. Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](https://docs.microsoft.com/azure/billing/mpa-overview).
+>
+> CSP-kunder kan visas i det här avsnittet oavsett om de har publicerats för Azure-delegerad resurs hantering. Om de har det visas de också i avsnittet **kunder** , enligt beskrivningen i [Visa och hantera kunder och delegerade resurser](../how-to/view-manage-customers.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

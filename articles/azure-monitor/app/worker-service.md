@@ -1,23 +1,18 @@
 ---
 title: Application Insights för Worker service-appar (icke-HTTP-appar) | Microsoft Docs
 description: Övervaka .NET Core/. NET Framework-appar som inte är HTTP-appar med Application Insights.
-services: application-insights
-documentationcenter: .net
-author: cijothomas
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/15/2019
+author: cijothomas
 ms.author: cithomas
-ms.openlocfilehash: 2185f5b0c4148e643e90741235054fd06fdbb151
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 09/15/2019
+ms.openlocfilehash: ccc7218575638c7ede2c56a99e41dd68cbd475c0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174623"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899234"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
@@ -138,7 +133,7 @@ ELLER `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 Normalt anger `APPINSIGHTS_INSTRUMENTATIONKEY` Instrumentation-nyckeln för program som distribueras till Web Apps som webb jobb.
 
 > [!NOTE]
-> En Instrumentation-nyckel som anges i Code WINS över miljövariabeln `APPINSIGHTS_INSTRUMENTATIONKEY`, som WINS över andra alternativ.
+> En Instrumentation-nyckel som anges i kod WINS över miljövariabeln `APPINSIGHTS_INSTRUMENTATIONKEY`, som vinner över andra alternativ.
 
 ## <a name="aspnet-core-background-tasks-with-hosted-services"></a>ASP.NET Core bakgrunds aktiviteter med värdbaserade tjänster
 [Det här](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&tabs=visual-studio) dokumentet beskriver hur du skapar aktiviteter för bakgrunder i ASP.net Core 2.1/2.2-program.
@@ -301,7 +296,7 @@ Det här konsol programmet använder också samma standard `TelemetryConfigurati
 
 Kör ditt program. Exempel arbetarna från alla ovanstående steg gör ett HTTP-anrop varje sekund till bing.com och ger också några loggar med hjälp av ILogger. Dessa rader omsluts i `StartOperation`-anropet av `TelemetryClient` som används för att skapa en åtgärd (i det här exemplet `RequestTelemetry` med namnet "operation"). Application Insights samlar in dessa ILogger-loggar (varning eller över som standard) och beroenden, och de korreleras till `RequestTelemetry` med överordnad-underordnad relation. Korrelationen fungerar också som en kors process/nätverks gränser. Om till exempel anropet gjordes till en annan övervakad komponent kommer den också att korreleras med den överordnade.
 
-Den här anpassade åtgärden i `RequestTelemetry` kan ses som en motsvarighet till en inkommande webbegäran i ett typiskt webb program. Även om det inte är nödvändigt att använda en åtgärd passar den bäst med [Application Insights korrelations data modell](https://docs.microsoft.com/azure/azure-monitor/app/correlation) – med `RequestTelemetry` fungerar som den överordnade åtgärden, och varje telemetri som genereras inom arbetarnas iteration behandlas som logiskt tillhörde till samma åtgärd. Den här metoden säkerställer också att all telemetri som genereras (automatisk och manuell) har samma `operation_id`. När samplingen baseras på `operation_id`, behåller samplings algoritmen eller tappar all telemetri från en enda iteration.
+Den här anpassade åtgärden i `RequestTelemetry` kan ses som en motsvarighet till en inkommande webbegäran i ett typiskt webb program. Även om det inte är nödvändigt att använda en åtgärd passar den bäst med [Application Insights korrelations data modell](https://docs.microsoft.com/azure/azure-monitor/app/correlation) – med `RequestTelemetry` fungerar som den överordnade åtgärden, och varje telemetri som genereras inom arbetarnas iteration behandlas som logiskt tillhörde till samma åtgärd. Den här metoden garanterar också att all telemetri som genereras (automatisk och manuell) har samma `operation_id`. När samplingen baseras på `operation_id`behåller eller släpper algoritmen all telemetri från en enda iteration.
 
 Nedan visas en lista över all telemetri som samlats in automatiskt av Application Insights.
 

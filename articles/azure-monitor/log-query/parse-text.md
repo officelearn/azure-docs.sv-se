@@ -1,75 +1,71 @@
 ---
-title: Parsa textdata i Azure Monitor-loggar | Microsoft Docs
-description: Beskriver olika alternativ för parsning av loggdata i Azure Monitor-poster när data matas in och när de hämtas i en fråga, att jämföra de relativa fördelarna för var och en.
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: log-analytics
+title: Parsa text data i Azure Monitor loggar | Microsoft Docs
+description: Beskriver olika alternativ för att parsa loggdata i Azure Monitor poster när data matas in och när de hämtas i en fråga, jämför de relativa fördelarna för var och en.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/04/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/04/2018
+ms.openlocfilehash: 5a3b6852563955bfac940073bdda7d0afa02e77f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61426739"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900250"
 ---
-# <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa textdata i Azure Monitor-loggar
-Vissa loggdata som samlas in av Azure Monitor innehåller flera typer av information i en enskild egenskap. Dela dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel loggpost med flera värden i en enskild egenskap. Du kan söka genom att skapa olika egenskaper för de olika värdena och sammanställda på var och en.
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa text data i Azure Monitor loggar
+Vissa loggdata som samlas in av Azure Monitor innehåller flera informations delar i en enda egenskap. Att parsa dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel logg post med flera värden i en enda egenskap. Genom att skapa separata egenskaper för de olika värdena kan du söka efter och aggregera dem.
 
-Den här artikeln beskrivs olika alternativ för parsning av loggdata i Azure Monitor när data matas in och när de hämtas i en fråga, att jämföra de relativa fördelarna för var och en.
+I den här artikeln beskrivs olika alternativ för att parsa loggdata i Azure Monitor när data matas in och när de hämtas i en fråga, jämför de relativa fördelarna för var och en.
 
 
-## <a name="parsing-methods"></a>Parsning metoder
-Du kan parsa data antingen vid inmatning tidpunkt när data har samlats in eller fråga när du analysera data med en fråga. Varje strategi har unika fördelar som beskrivs nedan.
+## <a name="parsing-methods"></a>Tolknings metoder
+Du kan parsa data antingen vid inläsnings tiden när data samlas in eller vid tidpunkten när data analyseras med en fråga. Varje strategi har unika fördelar enligt beskrivningen nedan.
 
-### <a name="parse-data-at-collection-time"></a>Tolka data när samlingen
-När du analyserar data samlingen när du konfigurerar [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) som skapar nya egenskaper i tabellen. Frågor inte innehåller någon logik för parsning och bara använda de här egenskaperna som andra fält i tabellen.
+### <a name="parse-data-at-collection-time"></a>Parsa data vid samlings tid
+När du parsar data vid samlings tiden konfigurerar du [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) som skapar nya egenskaper i tabellen. Frågor behöver inte inkludera någon tolknings logik och använder bara dessa egenskaper som andra fält i tabellen.
 
-Fördelar med att den här metoden är följande:
+Fördelarna med den här metoden är följande:
 
-- Enklare att fråga insamlade data eftersom du inte behöver inkludera parsa kommandon i frågan.
-- Bättre frågeprestanda eftersom frågan inte behöver utföra parsning.
+- Enklare att fråga efter insamlade data eftersom du inte behöver inkludera analys kommandon i frågan.
+- Bättre frågeresultat eftersom frågan inte behöver parsas.
  
-Nackdelar med att den här metoden är följande:
+Nack delarna med den här metoden är följande:
 
-- Måste definieras i förväg. Det går inte att ta med data som redan har samlats in.
-- Om du ändrar parsning logiken det endast att tillämpas för nya data.
-- Färre tolkning än tillgängliga i frågor.
-- Ökar svarstid tid för att samla in data.
-- Fel kan vara svårt att hantera.
+- Måste definieras i förväg. Det går inte att inkludera data som redan har samlats in.
+- Om du ändrar tolknings logiken kommer den endast att gälla för nya data.
+- Färre tolknings alternativ än vad som är tillgängligt i frågor.
+- Ökar svars tiden för insamling av data.
+- Det kan vara svårt att hantera fel.
 
 
-### <a name="parse-data-at-query-time"></a>Tolka data när en fråga körs
-När du analyserar data i databasfrågor inkludera logik i din fråga för att tolka data i flera fält. Själva faktiska tabellen ändras inte.
+### <a name="parse-data-at-query-time"></a>Parsa data vid tid för fråga
+När du parsar data vid tidpunkten för frågor inkluderar du logik i din fråga för att analysera data i flera fält. Själva tabellen ändras inte.
 
-Fördelar med att den här metoden är följande:
+Fördelarna med den här metoden är följande:
 
 - Gäller för alla data, inklusive data som redan har samlats in.
-- Ändringar i logik kan tillämpas direkt på alla data.
-- Flexibel parsning alternativ inklusive fördefinierade logik för viss datastrukturer.
+- Ändringar i logiken kan tillämpas direkt på alla data.
+- Flexibla tolknings alternativ inklusive fördefinierad logik för specifika data strukturer.
  
-Nackdelar med att den här metoden är följande:
+Nack delarna med den här metoden är följande:
 
-- Kräver mer komplexa frågor. Detta kan undvikas genom att använda [functions för att simulera en tabell](#use-function-to-simulate-a-table).
-- Måste replikera parsning logiken i flera frågor. Dela logik via funktioner.
-- Kan skapa overhead när du kör komplex logik mot mycket stora post skalningsuppsättningar (miljarder poster).
+- Kräver mer komplexa frågor. Detta kan minimeras genom att använda [funktioner för att simulera en tabell](#use-function-to-simulate-a-table).
+- Måste replikera logik för parsning i flera frågor. Kan dela en del logik via functions.
+- Kan skapa overhead när du kör komplex logik mot mycket stora post uppsättningar (miljard tals poster).
 
-## <a name="parse-data-as-its-collected"></a>Tolka data eftersom den har samlats in
-Se [skapa anpassade fält i Azure Monitor](../platform/custom-fields.md) mer information om parsning data eftersom den har samlats in. Detta skapar anpassade egenskaper i den tabell som kan användas av frågor, precis som någon annan egenskap.
+## <a name="parse-data-as-its-collected"></a>Parsa data när de samlas in
+Information om hur du tolkar data när de samlas in finns i [skapa anpassade fält i Azure Monitor](../platform/custom-fields.md) . Detta skapar anpassade egenskaper i tabellen som kan användas av frågor precis som andra egenskaper.
 
-## <a name="parse-data-in-query-using-patterns"></a>Dela upp data från frågan med mönster
-När de data du vill parsa kan identifieras genom ett mönster som upprepas över poster, du kan använda olika operatorer i den [Kusto-frågespråket](/azure/kusto/query/) att extrahera viss typ av data till en eller flera nya egenskaper.
+## <a name="parse-data-in-query-using-patterns"></a>Parsa data i fråga med hjälp av mönster
+När de data som du vill parsa kan identifieras av ett mönster som upprepas i poster, kan du använda olika operatorer i [Kusto-frågespråket](/azure/kusto/query/) för att extrahera specifika data till en eller flera nya egenskaper.
 
-### <a name="simple-text-patterns"></a>Enkel textmönster
+### <a name="simple-text-patterns"></a>Enkla text mönster
 
-Använd den [parsa](/azure/kusto/query/parseoperator) operator i frågan för att skapa en eller flera anpassade egenskaper som kan extraheras från ett stränguttryck. Anger mönstret som ska identifieras och namnen på egenskaperna för att skapa. Detta är särskilt användbart för data med nyckel / värde-strängar med ett formulär som _nyckel = värde_.
+Använd operatorn [parsa](/azure/kusto/query/parseoperator) i frågan för att skapa en eller flera anpassade egenskaper som kan extraheras från ett sträng uttryck. Du anger det mönster som ska identifieras och namnen på de egenskaper som ska skapas. Detta är särskilt användbart för data med nyckel värdes strängar med ett formulär liknande _nyckel = värde_.
 
-Överväg att en anpassad logg med data i följande format.
+Överväg en anpassad logg med data i följande format.
 
 ```
 Time=2018-03-10 01:34:36 Event Code=207 Status=Success Message=Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
@@ -79,7 +75,7 @@ Time=2018-03-10 01:38:22 Event Code=302 Status=Error Message=Application could n
 Time=2018-03-10 01:31:34 Event Code=303 Status=Error Message=Application lost connection to database
 ```
 
-Följande fråga skulle parsa dessa data till enskilda egenskaper. Raden med _projekt_ läggs till endast returnera beräknade egenskaper och inte _\data_, vilket är den enda egenskapen hela posten från anpassad logg.
+Följande fråga tolkar dessa data i enskilda egenskaper. Raden med _projektet_ läggs till för att endast returnera de beräknade egenskaperna och inte _RawData_, vilket är den enskilda egenskapen som innehåller hela posten från den anpassade loggen.
 
 ```Kusto
 MyCustomLog_CL
@@ -87,7 +83,7 @@ MyCustomLog_CL
 | project EventTime, Code, Status, Message
 ```
 
-Följande är ett annat exempel som delar upp användarnamnet för ett UPN i den _AzureActivity_ tabell.
+Följande är ett annat exempel som avbryter användar namnet för ett UPN i _AzureActivity_ -tabellen.
 
 ```Kusto
 AzureActivity
@@ -98,7 +94,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>Reguljära uttryck
-Om dina data kan identifieras med ett reguljärt uttryck, kan du använda [funktioner med reguljära uttryck](/azure/kusto/query/re2) att extrahera enskilda värden. I följande exempel används [extrahera](/azure/kusto/query/extractfunction) kan dela upp den _UPN_ från _AzureActivity_ registrerar och sedan returnera specifika användare.
+Om dina data kan identifieras med ett reguljärt uttryck kan du använda [funktioner som använder reguljära uttryck](/azure/kusto/query/re2) för att extrahera enskilda värden. I följande exempel används [Extract](/azure/kusto/query/extractfunction) för att dela upp _UPN_ -fältet från _AzureActivity_ -poster och sedan returnera distinkta användare.
 
 ```Kusto
 AzureActivity
@@ -106,16 +102,16 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-Om du vill aktivera effektiv parsning i stor skala Azure Monitor använder re2 version av reguljära uttryck, vilket är liknande men inte är identiska med några av de andra varianterna för reguljärt uttryck. Referera till den [re2 uttryckssyntax](https://aka.ms/kql_re2syntax) mer information.
+För att möjliggöra effektiv parsning i stor skala, Azure Monitor använder re2-versionen av reguljära uttryck som liknar men inte identiska med några av de andra varianterna av reguljära uttryck. Mer information finns i [syntaxen för re2-uttrycket](https://aka.ms/kql_re2syntax) .
 
 
-## <a name="parse-delimited-data-in-a-query"></a>Parsa avgränsad data i en fråga
-Avgränsad data avgränsar fält med en vanliga tecken, till exempel ett kommatecken i en CSV-fil. Använd den [dela](/azure/kusto/query/splitfunction) funktionen att parsa avgränsad data med hjälp av en avgränsare som du anger. Du kan använda detta med [utöka](/azure/kusto/query/extendoperator) operatorn att returnera alla fält i data eller för att ange enskilda fält som ska ingå i utdata.
+## <a name="parse-delimited-data-in-a-query"></a>Parsa avgränsade data i en fråga
+Avgränsade data separerar fält med ett gemensamt Character, till exempel ett kommatecken i en CSV-fil. Använd funktionen [Split](/azure/kusto/query/splitfunction) för att parsa avgränsade data med hjälp av en avgränsare som du anger. Du kan använda detta med [Extend](/azure/kusto/query/extendoperator) -operatorn för att returnera alla fält i data eller för att ange enskilda fält som ska ingå i utdata.
 
 > [!NOTE]
-> Eftersom delning returnerar ett dynamiskt objekt, kan resultaten behöva uttryckligen att omvandla till datatyper, till exempel sträng som ska användas i operatorer och filter.
+> Eftersom Split returnerar ett dynamiskt objekt kan resultaten behöva skickas explicit till data typer, till exempel en sträng som ska användas i operatorer och filter.
 
-Överväg att en anpassad logg med data i följande CSV-format.
+Överväg en anpassad logg med data i följande CSV-format.
 
 ```
 2018-03-10 01:34:36, 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
@@ -125,7 +121,7 @@ Avgränsad data avgränsar fält med en vanliga tecken, till exempel ett kommate
 2018-03-10 01:31:34, 303,Error,Application lost connection to database
 ```
 
-Följande fråga skulle parsa informationen och summera efter två av de beräknade egenskaperna. Den första raden delar upp de _\data_ egenskapen till en strängmatris. Varje nästa rad ger ett namn till enskilda egenskaper och lägger till dem i utdata med funktioner för att konvertera dem till rätt datatyp.
+Följande fråga tolkar dessa data och sammanfattar med två av de beräknade egenskaperna. Den första raden delar upp egenskapen _RawData_ i en sträng mat ris. Var och en av de följande raderna ger ett namn för enskilda egenskaper och lägger till dem i utdata med hjälp av funktioner för att konvertera dem till rätt datatyp.
 
 ```Kusto
 MyCustomCSVLog_CL
@@ -139,18 +135,18 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>Parsa fördefinierade strukturer i en fråga
-Om dina data är formaterad med en känd struktur, du kan använda en av funktionerna i den [Kusto-frågespråket](/azure/kusto/query/) för parsning av fördefinierade strukturer:
+Om dina data är formaterade i en känd struktur kan du kanske använda en av funktionerna i [Kusto-frågespråket](/azure/kusto/query/) för att parsa fördefinierade strukturer:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
-- [XML](/azure/kusto/query/parse-xmlfunction)
-- [IPv4](/azure/kusto/query/parse-ipv4function)
+- [FIL](/azure/kusto/query/parse-xmlfunction)
+- [IPv6](/azure/kusto/query/parse-ipv4function)
 - [URL](/azure/kusto/query/parseurlfunction)
-- [URL-frågan](/azure/kusto/query/parseurlqueryfunction)
+- [URL-fråga](/azure/kusto/query/parseurlqueryfunction)
 - [Filsökväg](/azure/kusto/query/parsepathfunction)
-- [Användaragent](/azure/kusto/query/parse-useragentfunction)
-- [Versionssträng](/azure/kusto/query/parse-versionfunction)
+- [Användar agent](/azure/kusto/query/parse-useragentfunction)
+- [Versions sträng](/azure/kusto/query/parse-versionfunction)
 
-Följande exempelfråga Parsar den _egenskaper_ i den _AzureActivity_ tabellen, vilket är strukturerade i JSON. Det sparar resultatet i en dynamisk egenskap som kallas _parsedProp_, som innehåller de enskilda namngivet värde i JSON. Dessa värden används för att filtrera och sammanfattar resultatet av frågan.
+I följande exempel fråga parsar fältet _Egenskaper_ i _AzureActivity_ -tabellen som är strukturerad i JSON. Resultatet sparas i en dynamisk egenskap med namnet _parsedProp_, som innehåller det enskilda namngivna värdet i JSON. Dessa värden används för att filtrera och sammanfatta frågeresultaten.
 
 ```Kusto
 AzureActivity
@@ -159,9 +155,9 @@ AzureActivity
 | summarize count() by ResourceGroup, tostring(parsedProp.tags.businessowner)
 ```
 
-Dessa parsning funktioner kan vara processorintensiva, så att de bör endast användas när din fråga använder flera egenskaper från formaterade data. Annars blir enkla mönstermatchning bearbetning snabbare.
+Dessa analys funktioner kan vara processor intensiva, så de bör endast användas när frågan använder flera egenskaper från de formaterade data. Annars blir enkel mönster matchnings bearbetning snabbare.
 
-I följande exempel visar fördelningen av domänkontrollanten TGT förauktorisering typen. Typen finns bara i fältet EventData, som är en XML-sträng, men inga andra data från det här fältet krävs. I det här fallet [parsa](/azure/kusto/query/parseoperator) används för att hitta den nödvändiga typ av data.
+I följande exempel visas fördelningen av TGT-typen för domänkontrollanten. Typen finns bara i fältet EventData, som är en XML-sträng, men inga andra data från det här fältet behövs. I det här fallet används [parse](/azure/kusto/query/parseoperator) för att hämta de data som krävs.
 
 ```Kusto
 SecurityEvent
@@ -171,9 +167,9 @@ SecurityEvent
 ```
 
 ## <a name="use-function-to-simulate-a-table"></a>Använd funktionen för att simulera en tabell
-Du kan ha flera frågor som utför samma parsningen av en viss tabell. I det här fallet [skapa en funktion](functions.md) som returnerar tolkade data istället för att replikera parsning logiken i varje fråga. Du kan sedan använda funktionsalias i stället för den ursprungliga tabellen i andra frågor.
+Du kan ha flera frågor som utför samma parsning av en viss tabell. I det här fallet [skapar du en funktion](functions.md) som returnerar parsade data i stället för att replikera tolknings logiken i varje fråga. Du kan sedan använda funktions Ali Aset i stället för den ursprungliga tabellen i andra frågor.
 
-Överväg att kommaavgränsad anpassad logg-exemplet ovan. Skapa en funktion med följande fråga för att kunna använda tolkade data i flera frågor, och spara den med alias _MyCustomCSVLog_.
+Överväg det kommaavgränsade anpassade logg exemplet ovan. För att kunna använda parsade data i flera frågor, skapar du en funktion med hjälp av följande fråga och sparar den med aliaset _MyCustomCSVLog_.
 
 ```Kusto
 MyCustomCSVLog_CL
@@ -184,7 +180,7 @@ MyCustomCSVLog_CL
 | extend Message   = tostring(CSVFields[3]) 
 ```
 
-Du kan nu använda aliaset _MyCustomCSVLog_ i stället för faktiska tabellnamnet i frågor som liknar följande.
+Du kan nu använda aliaset _MyCustomCSVLog_ i stället för det faktiska tabell namnet i frågor som följande.
 
 ```Kusto
 MyCustomCSVLog
@@ -193,4 +189,4 @@ MyCustomCSVLog
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logga frågor](log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [logg frågor](log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 10/10/2019
-ms.openlocfilehash: 54f8a1248688a6d62192e4f34cf6b98a94086da8
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a558658d7c853560f0939c99dc5dce739d985944
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274781"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900701"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Skapa och få åtkomst till data uppsättningar (för hands version) i Azure Machine Learning
 
@@ -82,7 +82,7 @@ datastore = Datastore.get(workspace, datastore_name)
 ```
 #### <a name="create-tabulardatasets"></a>Skapa TabularDatasets
 
-Använd metoden [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) i `TabularDatasetFactory`-klassen för att läsa filer i CSV-eller TSV-format och skapa en oregistrerad TabularDataset. Om du läser från flera filer aggregeras resultaten i en tabell representation.
+Använd [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) -metoden i `TabularDatasetFactory`-klassen för att läsa filer i CSV-eller TSV-format och skapa en oregistrerad TabularDataset. Om du läser från flera filer aggregeras resultaten i en tabell representation.
 
 ```Python
 # create a TabularDataset from multiple paths in datastore
@@ -107,7 +107,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, fru. John Bradley (Florence Briggs to...|kvinna|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|1|3|Heikkinen, saknar. Laina|kvinna|26,0|0|0|STON/O2. 3101282|7,9250||S
 
-Använd metoden [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) i `TabularDatasetFactory`-klassen för att läsa från Azure SQL Database.
+Använd [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) -metoden i `TabularDatasetFactory`-klassen för att läsa från Azure SQL Database.
 
 ```Python
 
@@ -120,7 +120,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 I TabularDatasets kan en tidstämpel anges från en kolumn i data eller Sök vägs data lagras i för att möjliggöra en tids serie egenskap, vilket möjliggör enkel och effektiv filtrering med tiden.
 
-Använd metoden [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) i `TabularDataset`-klassen för att ange tidsstämpel-kolumnen och aktivera filtrering efter tid. Fler exempel och information hittar du [här](https://aka.ms/azureml-tsd-notebook).
+Använd [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) -metoden i `TabularDataset`-klassen för att ange din tidsstämpel-kolumn och aktivera filtrering efter tid. Fler exempel och information hittar du [här](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
 # create a TabularDataset with time series trait
@@ -187,11 +187,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="version-datasets"></a>Versions data uppsättningar
 
-Du kan registrera en ny data uppsättning med samma namn genom att skapa en ny version. Data uppsättnings version är ett sätt att lägga till data i data uppsättningen, så att du kan använda en speciell version av data uppsättningen för experimentering eller framtida åter givning. Typiska scenarier att överväga för versions hantering är: 
-
-* När nya data är tillgängliga för omträning.
-* När du använder olika metoder för data förberedelse eller funktions teknik.
-
+Du kan registrera en ny data uppsättning med samma namn genom att skapa en ny version. Data uppsättnings version är ett sätt att lägga till data i data uppsättningen, så att du kan använda en speciell version av data uppsättningen för experimentering eller framtida åter givning. Läs mer om [data uppsättnings versioner](how-to-version-track-datasets.md).
 ```Python
 # create a TabularDataset from Titanic training data
 web_paths = [
@@ -210,7 +206,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="access-datasets-in-your-script"></a>Få åtkomst till data uppsättningar i skriptet
 
-Registrerade data uppsättningar kan nås lokalt och via fjärr anslutning på beräknings kluster som Azure Machine Learning Compute. Använd följande kod för att hämta din arbets yta och registrerad data uppsättning efter namn för att få åtkomst till din registrerade data uppsättning över experiment. Metoden [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) i klassen `Dataset` som standard returnerar den senaste versionen av data uppsättningen som är registrerad på arbets ytan.
+Registrerade data uppsättningar kan nås lokalt och via fjärr anslutning på beräknings kluster som Azure Machine Learning Compute. Använd följande kod för att hämta din arbets yta och registrerad data uppsättning efter namn för att få åtkomst till din registrerade data uppsättning över experiment. [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) -metoden i klassen `Dataset` som standard returnerar den senaste versionen av data uppsättningen som är registrerad på arbets ytan.
 
 ```Python
 %%writefile $script_folder/train.py
@@ -231,6 +227,6 @@ df = titanic_ds.to_pandas_dataframe()
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig [hur du tränar med data uppsättningar](how-to-train-with-datasets.md)
+* Lär dig [hur du tränar med data uppsättningar](how-to-train-with-datasets.md).
 * Använd automatisk maskin inlärning för att [träna med TabularDatasets](https://aka.ms/automl-dataset).
 * Fler exempel på utbildning med data uppsättningar finns i [exempel antecknings böckerna](https://aka.ms/dataset-tutorial).

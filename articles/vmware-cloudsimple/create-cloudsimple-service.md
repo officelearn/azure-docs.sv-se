@@ -8,19 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 99194c42dbc6ef07301be517021bf0fb4b4e7c23
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8648f2c9cc0175050d4b7642f5235d47159ecfaf
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173510"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893951"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Skapa Azure VMware-lösningen av CloudSimple-tjänsten
 
 För att komma igång med Azure VMware-lösningen från CloudSimple skapar du Azure VMware-lösningen från CloudSimple-tjänsten i Azure Portal.
 
-> [!IMPORTANT]
-> Innan du skapar CloudSimple-tjänsten måste du registrera Resource-providern för Microsoft. VMwareCloudSimple på din Azure-prenumeration. Följ stegen i [Aktivera resurs leverantören Microsoft. VMwareCloudSimple på din Azure-prenumeration](enable-cloudsimple-service.md).
+## <a name="before-you-begin"></a>Innan du börjar
+
+Allokera ett/28 CIDR-block för gateway-undernätet. Ett Gateway-undernät krävs per CloudSimple-tjänst och är unikt för den region där det skapats. Gateway-undernätet används för gräns nätverks tjänster och kräver ett/28 CIDR-block. Adress utrymmet för Gateway-under nätet måste vara unikt. Det får inte överlappa något nätverk som kommunicerar med CloudSimple-miljön. De nätverk som kommunicerar med CloudSimple omfattar lokala nätverk och virtuella Azure-nätverk.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -30,10 +31,10 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **Alla tjänster**.
 2. Sök efter **CloudSimple-tjänster**.
-    ![Search CloudSimple service @ no__t-1
+    ![search CloudSimple service](media/create-cloudsimple-service-search.png)
 3. Välj **CloudSimple-tjänster**.
 4. Klicka på **Lägg till** för att skapa en ny tjänst.
-    ![Add CloudSimple service @ no__t-1
+    ![lägga till CloudSimple-tjänsten](media/create-cloudsimple-service-add.png)
 5. Välj den prenumeration där du vill skapa CloudSimple-tjänsten.
 6. Välj resurs grupp för tjänsten. Om du vill lägga till en ny resurs grupp klickar du på **Skapa ny**.
 7. Ange namnet för att identifiera tjänsten.

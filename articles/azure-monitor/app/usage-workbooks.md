@@ -1,130 +1,125 @@
 ---
-title: Skapa interaktiva rapporter med Azure Monitor arbetsböcker | Microsoft docs
-description: Förenkla komplexa rapportering med fördefinierade och anpassade parametriserade arbetsböcker
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Skapa interaktiva rapporter med Azure Monitor arbets böcker | Microsoft-dokument
+description: Förenkla komplex rapportering med förbyggda och anpassade parameterstyrda arbets böcker
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569613"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899377"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor-arbetsböcker
+# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor arbets böcker
 
-Arbetsböcker kombinera text, [analysfrågor](https://docs.microsoft.com/azure/application-insights/app-insights-analytics), Azure-mått och parametrar i interaktiva rapporter. Arbetsböcker kan redigeras av andra gruppmedlemmar som har åtkomst till samma Azure-resurser.
+Arbets böcker kombinerar text, [analys frågor](https://docs.microsoft.com/azure/application-insights/app-insights-analytics), Azure-mått och parametrar till omfattande interaktiva rapporter. Arbets böcker kan redige ras av andra team medlemmar som har åtkomst till samma Azure-resurser.
 
-Arbetsböcker är användbart för scenarier som:
+Arbets böcker är användbara för scenarier som:
 
-* Utforska användningen av din app när du inte vet mätvärden i förväg: antal användare, lagringshastighet, konverteringstakten osv. Till skillnad från andra analysverktyg för användning kan arbetsböcker du kombinera flera typer av visualiseringar och analyser, vilket gör dem bra för den här typen av egen utforskning.
-* Förklarar hur du utför en nyligen utgiven funktion till ditt team, av användaren som visar antal för viktiga interaktioner och andra mått.
-* Dela resultatet av en A / B experimentera i din app med andra medlemmar i ditt team. Du kan förklara mål för experiment med text och sedan visa varje användningsstatistik och Analytics-fråga som används för att utvärdera experiment, tillsammans med tydliga pratbubblor för om varje mått var ovan - eller nedan-mål.
-* Rapporterar effekten av ett avbrott på användningen av din app, kombinera data, text förklaring och en beskrivning av nästa steg för att förhindra avbrott i framtiden.
+* Utforska användningen av din app när du inte känner till mått på intresse i förväg: antal användare, Kvarhållning, konverterings priser osv. Till skillnad från andra verktyg för användnings analys kan du med arbets böcker kombinera flera olika typer av visualiseringar och analyser, vilket gör dem fantastiska för den här typen av kostnads fri utforskning.
+* Vi förklarar ditt team hur en nyligen utgiven funktion utförs genom att visa antalet användare för viktiga interaktioner och andra mått.
+* Dela resultatet av ett A/B-experiment i din app med andra medlemmar i din grupp. Du kan förklara målen för experimentet med text, och sedan Visa alla användnings mått och analys frågor som används för att utvärdera experimentet, tillsammans med tydliga anrop för anrop för om varje mått var över eller under mål.
+* Rapporterar effekten av ett avbrott i användningen av din app, kombinera data, text förklaring och en beskrivning av nästa steg för att förhindra avbrott i framtiden.
 
-## <a name="starting-with-a-template-or-saved-workbook"></a>Börja med en mall eller sparat arbetsboken
+## <a name="starting-with-a-template-or-saved-workbook"></a>Starta med en mall eller Sparad arbets bok
 
-En arbetsbok består av avsnitt som består av oberoende redigerbara diagram, tabeller, text, och ange kontroller. För att bättre förstå arbetsböcker, är det bäst att öppna en. 
+En arbets bok består av avsnitt som består av oberoende redigerbara diagram, tabeller, text och inmatade kontroller. För att bättre förstå arbets böcker är det bäst att öppna en. 
 
-Välj **arbetsböcker** på den vänstra menyn från inuti upplevelse Application Insights för din app.
+Välj **arbets böcker** i den vänstra menyn inifrån Application Insights upplevelsen för din app.
 
-![Skärmbild av navigering till arbetsböcker](./media/usage-workbooks/001-workbooks.png)
+![Skärm bild av navigering till arbets böcker](./media/usage-workbooks/001-workbooks.png)
 
-Detta startar ett arbetsboken galleri med ett antal fördefinierade arbetsböcker hjälper dig att komma igång.
+Detta startar ett arbets boks galleri med ett antal färdiga arbets böcker som hjälper dig att komma igång.
 
-![Skärmbild av arbetsboken galleriet](./media/usage-workbooks/002-workbook-gallery.png)
+![Skärm bild av arbets boks Galleri](./media/usage-workbooks/002-workbook-gallery.png)
 
-Vi börjar med den **standardmall**, som finns under rubriken **Snabbstart**.
+Vi börjar med **standard mal len**, som finns under rubriken **snabb start**.
 
-![Skärmbild av arbetsboken galleriet](./media/usage-workbooks/003-default-template.png)
+![Skärm bild av arbets boks Galleri](./media/usage-workbooks/003-default-template.png)
 
-## <a name="editing-rearranging-cloning-and-deleting-workbook-sections"></a>Redigera, ändra sorteringen, kloning och ta bort arbetsbok avsnitt
+## <a name="editing-rearranging-cloning-and-deleting-workbook-sections"></a>Avsnitt om att redigera, ordna om, klona och ta bort arbets böcker
 
-Arbetsböcker har två lägen: **redigeringsläge**, och **läsläge**. När standardarbetsboken startas första gången, öppnas den i **redigeringsläge**. Detta visar allt innehåll i arbetsboken, inklusive alla steg och parametrar som annars är dolda. **Läsläge** anger formatet för förenklad rapportvyn. På så sätt kan du att abstrahera bort komplexiteten som skickades i att skapa en rapport medan du fortfarande har underliggande säkerhetsnivån endast några få klick vid behov ändras.
+Arbets böcker har två lägen: **redigerings läge**och **läsläge**. När standard arbets boken först startas öppnas den i **redigerings läge**. Detta visar allt innehåll i arbets boken, inklusive alla steg och parametrar som annars är dolda. **Läsläge** visar en förenklad vy för rapport format. På så sätt kan du sammanställa komplexiteten som ingick i att skapa en rapport samtidigt som de underliggande Mechanics bara har några klickningar borta när de behöver ändras.
 
-![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/editing-controls-new.png)
+![Avsnittet redigerings kontroller för Application Insights-arbetsböcker](./media/usage-workbooks/editing-controls-new.png)
 
-1. När du är klar redigerar ett avsnitt, klickar du på **klar redigera** i det nedre vänstra hörnet i avsnittet.
+1. När du är klar med redigeringen av ett avsnitt klickar du på **klar redigering** i det nedre vänstra hörnet av avsnittet.
 
-2. Om du vill skapa en dubblett av ett avsnitt, klickar du på den **klona det här avsnittet** ikon. Det är en bra sätt att iterera på en fråga utan att förlora tidigare iterationer för att skapa dubbla avsnitt.
+2. Om du vill skapa en dubblett av ett avsnitt klickar du på ikonen **klona det här avsnittet** . Att skapa duplicerade avsnitt är ett bra sätt att iterera på en fråga utan att förlora tidigare iterationer.
 
-3. Om du vill flytta upp ett avsnitt i en arbetsbok, klickar du på den **Flytta upp** eller **Flytta ned** ikon.
+3. Om du vill flytta upp ett avsnitt i en arbets bok klickar du på ikonen **Flytta upp** eller **Flytta ned** .
 
-4. Om du vill ta bort ett avsnitt permanent, klickar du på den **ta bort** ikon.
+4. Om du vill ta bort ett avsnitt permanent klickar du på ikonen **ta bort** .
 
-## <a name="adding-text-and-markdown-sections"></a>Att lägga till text- och Markdown-avsnitt
+## <a name="adding-text-and-markdown-sections"></a>Lägga till text-och markdown-avsnitt
 
-Att lägga till rubriker, förklaringar och kommentarer till dina arbetsböcker omvandla hjälper dig att en uppsättning tabeller och diagram till en berättelse. Delar av texten i stödet för arbetsböcker på [markdownsyntax](https://daringfireball.net/projects/markdown/) för textformatering som rubriker, fet stil, kursiv stil och punktlistor.
+Genom att lägga till rubriker, förklaringar och kommentarer i dina arbets böcker kan du omvandla en uppsättning tabeller och diagram till en rad olika. Text avsnitt i arbets böcker stöder [markdown-syntaxen](https://daringfireball.net/projects/markdown/) för textformatering, t. ex. rubrik, fet, kursiv stil och punkt listor.
 
-Lägg till ett textavsnitt i din arbetsbok, använda den **Lägg till text** knappen längst ned i arbetsboken eller längst ned i ett avsnitt.
+Om du vill lägga till ett text avsnitt i din arbets bok använder du knappen **Lägg till text** längst ned i arbets boken eller längst ned i ett avsnitt.
 
-## <a name="adding-query-sections"></a>Att lägga till frågan avsnitt
+## <a name="adding-query-sections"></a>Lägga till fråge avsnitt
 
-![Frågeavsnitt i arbetsböcker](./media/usage-workbooks/analytics-section-new.png)
+![Avsnittet fråga i arbets böcker](./media/usage-workbooks/analytics-section-new.png)
 
-Lägg till frågeavsnitt i din arbetsbok, använda den **Lägg till fråga** knappen längst ned i arbetsboken eller längst ned i ett avsnitt.
+Om du vill lägga till en fråga i din arbets bok använder du knappen **Lägg till fråga** längst ned i arbets boken eller längst ned i ett avsnitt.
 
-Fråga avsnitt är mycket flexibel och kan användas för att besvara frågor som:
+Fråge avsnitt är mycket flexibla och kan användas för att besvara frågor som:
 
-* Hur många undantag webbplatsen throw under samma tidsperiod som en nedgång i användningen?
-* Vad var distributionen av sidans belastning för användare som visar några sidan?
-* Hur många användare visas en uppsättning sidor på webbplatsen, men inte en annan uppsättning sidor? Detta kan vara användbar för att förstå om du har kluster av användare som använder olika delmängder av webbplatsens funktioner (Använd den `join` operator med den `kind=leftanti` modifieraren i den [Kusto-frågespråket](/azure/kusto/query/)).
+* Hur många undantag utlöste din webbplats under samma tids period när användningen skulle nekas?
+* Vad är distributionen av sid inläsnings tider för användare som visar någon sida?
+* Hur många användare visade en uppsättning sidor på din webbplats, men inte någon annan uppsättning sidor? Detta kan vara användbart för att förstå om du har kluster av användare som använder olika del mängder av platsens funktioner (Använd `join`-operatorn med `kind=leftanti` modifieraren i Kusto- [frågespråket](/azure/kusto/query/)).
 
-Du också är inte endast begränsad till frågor från kontexten för programmet som du startade arbetsboken från. Du kan fråga över flera Application Insights övervakas appar samt Log Analytics-arbetsytor som du har åtkomstbehörighet till dessa resurser.
+Du är inte bara begränsad till att fråga från kontexten för det program som du startade arbets boken från. Du kan fråga över flera Application Insights övervakade appar samt Log Analytics arbets ytor så länge du har åtkomst behörighet till dessa resurser.
 
-Att frågan från ytterligare extern Application Insights-resurser används den **app** identifierare.
+Om du vill fråga från ytterligare externa Application Insights resurser använder du **app** -ID.
 
 ```
 union app('app01').requests, app('app02').requests, requests
 | summarize count() by bin(timestamp, 1h)
 ```  
 
-Den här frågan som ska slås samman begäranden från tre olika program. En app med namnet app01, en app med namnet app02 och förfrågningar från den lokala Application Insights-resursen.
+Den här frågan kombinerar begär Anden från tre olika program. En app med namnet app01, en app med namnet app02 och begär Anden från den lokala Application Insights resursen.
 
-Att dra in data från en extern Log Analytics-arbetsyta används den **arbetsytan** identifierare.
+Använd **arbetsyte** -ID för att hämta data från en extern Log Analytics arbets yta.
 
-Lär dig mer om frågor mellan resurser finns på den [officiella vägledning](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).
+Mer information om frågor över flera resurser hittar du i den [officiella vägledningen](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).
 
-### <a name="advanced-analytic-query-settings"></a>Avancerade inställningar för analytisk fråga
+### <a name="advanced-analytic-query-settings"></a>Avancerade inställningar för analys fråga
 
-Varje avsnitt har sin egen avancerade inställningar är tillgängliga via ikonen för inställningar ![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/005-settings.png) finns till höger om den **lägga till parametrar** knappen.
+Varje avsnitt har sina egna avancerade inställningar, som du kan komma åt via inställnings ikonen ![Application Insights arbetsböcker-avsnittet redigerings kontroller](./media/usage-workbooks/005-settings.png) finns till höger om knappen **Lägg till parametrar** .
 
-![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/0006-settings-expanded.png)
+![Avsnittet redigerings kontroller för Application Insights-arbetsböcker](./media/usage-workbooks/0006-settings-expanded.png)
 
    |         |          |
    | ---------------- |:-----|
-   | **Anpassad storlek**    | Ange det här alternativet om du vill göra ett objekt en godtycklig storlek, så att du kan anpassa många objekt på en enda rad så att du kan organisera dina diagram och tabeller i interaktiva rapporter.  |
-   | **Villkorligt synligt** | Används för att dölja stegen utifrån en parameter i läsläge. |
-   | **Exportera en parameter**| På så sätt kan en vald rad i rutnätet eller diagrammet kan orsaka senare steg för att ändra värden eller bli synliga.  |
-   | **Visa fråga när du inte redigerar** | Detta visar frågan ovanför diagrammet eller tabellen även när du i läsläge.
-   | **Visa öppna i analytics knappen när du inte redigerar** | Ikonen Analytics läggs till det högra hörnet i diagrammet för att tillåta åtkomst med ett klick.|
+   | **Anpassad bredd**    | Ange det här alternativet om du vill göra ett objekt till en godtycklig storlek, så att du kan passa många objekt på en enda rad så att du bättre kan organisera dina diagram och tabeller i interaktiva interaktiva rapporter.  |
+   | **Villkorligt synlig** | Använd den här för att dölja steg baserat på en parameter i läsläge. |
+   | **Exportera en parameter**| Detta gör att en vald rad i rutnätet eller diagrammet kan orsaka senare steg att ändra värden eller bli synlig.  |
+   | **Visa fråga när du inte redigerar** | Detta visar frågan ovanför diagrammet eller tabellen även i läsläge.
+   | **Visa knappen Öppna i Analytics när du inte redigerar** | Detta lägger till den blå analys ikonen i det högra hörnet i diagrammet för att tillåta åtkomst till ett klick.|
 
-De flesta av de här inställningarna är ganska intuitiva, men att förstå **exportera en parameter** är det bättre att undersöka en arbetsbok som använder den här funktionen.
+De flesta av dessa inställningar är ganska intuitiva, men för att förstå **export av en parameter** är det bättre att granska en arbets bok som använder den här funktionen.
 
-En av de fördefinierade arbetsböckerna ger information om aktiva användare.
+En av de färdiga arbets böckerna innehåller information om aktiva användare.
 
-Den första delen av arbetsboken baseras på analytisk fråga data:
+Det första avsnittet i arbets boken baseras på analys frågans data:
 
-![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/003-active-users.png)
+![Avsnittet redigerings kontroller för Application Insights-arbetsböcker](./media/usage-workbooks/003-active-users.png)
 
-Det andra avsnittet bygger också på analytisk fråga data, men att välja en rad i den första tabellen interaktivt uppdaterar innehållet i diagrammet:
+Det andra avsnittet baseras också på analys frågans data, men om du markerar en rad i den första tabellen uppdateras innehållet i diagrammet interaktivt:
 
-![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/004-active-users-trend.png)
+![Avsnittet redigerings kontroller för Application Insights-arbetsböcker](./media/usage-workbooks/004-active-users-trend.png)
 
- Det är möjligt med hjälp av den **när ett objekt är markerat kan du exportera en parameter** avancerade inställningar som är aktiverade i tabellens Analytics-fråga.
+ Detta är möjligt genom att använda **när ett objekt är markerat, exportera en parameter** avancerade inställningar som är aktiverade i tabellens Analytics-fråga.
 
-![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/007-settings-export.png)
+![Avsnittet redigerings kontroller för Application Insights-arbetsböcker](./media/usage-workbooks/007-settings-export.png)
 
-Den andra analytics-frågan använder sedan de exporterade värdena när en rad har valts. Om ingen rad väljs standard den rad som representerar de övergripande värdena. 
+Den andra analys frågan använder sedan de exporterade värdena när en rad är markerad. Om ingen rad är markerad är den som standard den rad som representerar de övergripande värdena. 
 
 ```
 let start = startofday(ago({TimeRange} + {Metric}));
@@ -139,60 +134,60 @@ union customEvents, pageViews
 | render timechart 
 ```
 
-## <a name="adding-metrics-sections"></a>Att lägga till mått-avsnitt
+## <a name="adding-metrics-sections"></a>Lägga till mått avsnitt
 
-Mått avsnitt får du fullständig åtkomst att införliva Azure Monitor metrics data i dina interaktiva rapporter. Många av de fördefinierade arbetsböckerna innehåller både analytisk fråga data- och måttdata som gör att du kan dra full nytta av bäst av båda funktionerna på samma plats. Du har också möjlighet att dra in måttdata från resurser i någon av de prenumerationer som du har åtkomst till.
+Mått avsnitt ger dig fullständig åtkomst till att införliva Azure Monitor Mät data i dina interaktiva rapporter. Många av de färdiga arbets böckerna kommer att innehålla både analytiska frågedata och mät data så att du kan dra full nytta av det bästa av båda funktionerna på ett och samma ställe. Du kan också hämta mått data från resurser i någon av de prenumerationer som du har åtkomst till.
 
-Här är ett exempel på VM-data att hämtas i en arbetsbok att tillhandahålla en grid visualisering av CPU-prestanda:
+Här är ett exempel på data för virtuella datorer som hämtas till en arbets bok för att tillhandahålla en rutnäts visualisering av processor prestanda:
 
-![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/008-metrics-grid.png)
+![Avsnittet redigerings kontroller för Application Insights-arbetsböcker](./media/usage-workbooks/008-metrics-grid.png)
 
-## <a name="adding-parameter-sections"></a>Att lägga till parametern-avsnitt
+## <a name="adding-parameter-sections"></a>Lägga till parameter avsnitt
 
-Arbetsboksparametrar kan du ändra värden i arbetsboken utan att behöva manuellt redigera avsnitten fråga eller text.  Detta undanröjer behovet av behöver förstå underliggande analytics-frågespråket och utökar avsevärt potentiella målgrupp arbetsboken-baserade rapporter.
+Med arbets boks parametrar kan du ändra värden i arbets boken utan att behöva redigera fråge-eller text avsnitten manuellt.  Detta tar bort behovet av att förstå det underliggande Analytics-frågespråket och utökar den potentiella mål gruppen för arbets boksbaserade rapporter.
 
-Värdena för parametrarna ersätts i fråga, text eller andra avsnitt i parametern genom att ange namnet på parametern inom klammerparenteser, till exempel ``{parameterName}``.  Parameternamn är begränsade till liknande regler som JavaScript-identifierare, i princip alfabetiska tecken eller understreck, följt av alfanumeriska tecken eller understreck. Till exempel **a1** tillåts, men **1a** tillåts inte.
+Värdena för parametrarna ersätts i frågor, text eller andra parameter avsnitt genom att namnet på parametern anges i klamrar, t. ex. ``{parameterName}``.  Parameter namn är begränsade till liknande regler som JavaScript-identifierare, i princip alfabetiska tecken eller under streck, följt av alfanumeriska tecken eller under streck. Till exempel tillåts **a1** , men **1a** tillåts inte.
 
-Parametrar är linjär börjar högst upp på en arbetsbok och flödar ned senare steg.  Parametrarna som har deklarerats senare i en arbetsbok kan åsidosätta de som deklarerades högre upp.  Detta kan också att använda frågor för att komma åt värden från parametrar som definierats upp ytterligare parametrar.  Inom en parameter steget själva är parametrar heller linjär, vänster till höger, där parametrar till höger kan lita på en parameter som deklarerats tidigare i det samma steget.
+Parametrar är linjära, med början från början av en arbets bok och flödar ned till senare steg.  Parametrar som deklarerats senare i en arbets bok kan åsidosätta de som har deklarerats ytterligare.  Detta gör det också möjligt att använda parametrar som använder frågor för att få åtkomst till värdena från parametrarna som definierats ytterligare.  I själva steget för en parameter är parametrarna också linjära, vänster till höger, där parametrar till höger kan vara beroende av en parameter som har deklarerats tidigare i samma steg.
  
 Det finns fyra olika typer av parametrar som stöds för närvarande:
 
   |         |          |
    | ---------------- |:-----|
-   | **Text**    | användaren kommer att redigera en textruta och du kan också ange en fråga för att fylla i standardvärdet. |
-   | **Nedrullningsbar listruta** | Användaren ska välja från en uppsättning värden. |
-   | **Tidsintervallsväljare**| Användaren ska välja från en fördefinierad uppsättning intervallet tidsvärden eller välj från ett anpassat tidsintervall.|
-   | **Resursväljare** | Användaren ska välja från resurser som valts för arbetsboken.|
+   | **Text**    | användaren redigerar en text ruta och du kan också ange en fråga för att fylla i standardvärdet. |
+   | **Listruta** | Användaren kommer att välja från en uppsättning värden. |
+   | **Intervall väljare**| Användaren väljer från en fördefinierad uppsättning tidsintervalls värden eller väljer från ett anpassat tidsintervall.|
+   | **Resurs väljare** | Användaren väljer bland de resurser som valts för arbets boken.|
 
-### <a name="using-a-text-parameter"></a>Med hjälp av en textparameter
+### <a name="using-a-text-parameter"></a>Använda en text parameter
 
-Det värde som en användare skriver i textrutan ersätts direkt i frågan, utan undantagstecken eller citera. Om värdet som du behöver är en sträng är frågan bör ha citattecken runt parametern (t.ex. **'{parameter}'** ).
+Värdet som en användar typ i text rutan ersätts direkt i frågan, utan några undantag eller citat tecken. Om värdet du behöver är en sträng ska frågan ha citat tecken runt parametern (t. ex. **{parameter}** ).
 
-Detta gör att värdet i en textruta som ska användas var som helst. Det kan vara ett tabellnamn, kolumnnamn, funktionsnamn, operatorn osv.
+Detta gör att värdet i en text ruta kan användas var som helst. Det kan vara ett tabell namn, ett kolumn namn, ett funktions namn, en operator osv.
 
-Parametertypen text har en inställning **hämta standardvärdet från analysfrågan**, vilket gör att arbetsboksförfattare att använda en fråga för att fylla i standardvärdet för den textrutan.
+Text parameter typen har inställningen **Hämta standardvärde från Analytics-frågan**, vilket gör att arbets bokens författare kan använda en fråga för att fylla i standardvärdet för text rutan.
 
-När du använder standardvärdet från en analytics-fråga, används bara det första värdet i den första raden (rad 0, kolumn 0) som standardvärde. Därför rekommenderas det att begränsa din fråga för att returnera bara en rad och en kolumn. Andra data som returneras av frågan ignoreras. 
+När du använder standardvärdet från en Analytics-fråga används endast det första värdet på den första raden (rad 0, kolumn 0) som standardvärdet. Vi rekommenderar därför att du begränsar frågan så att den returnerar bara en rad och en kolumn. Andra data som returneras av frågan ignoreras. 
 
-Det värde frågan returnerar ersätts direkt med ingen undantagstecken eller citera. Om frågan returnerar inga rader, resultatet av parametern är en tom sträng (om parametern inte är obligatoriskt) eller odefinierad (om parametern krävs).
+Vilket värde som frågan returnerar ersätts direkt utan att det visas några undantag eller citat tecken. Om frågan inte returnerar några rader är resultatet av parametern antingen en tom sträng (om parametern inte krävs) eller odefinierad (om parametern krävs).
 
-### <a name="using-a-dropdown"></a>Med hjälp av en listruta
+### <a name="using-a-dropdown"></a>Använda en listruta
 
-Parametertypen listrutan kan du skapa en listmeny-kontroll, vilket gör att valet av en eller flera värden.
+Med den nedrullningsbara parameter typen kan du skapa en List Rute kontroll, så att du kan välja ett eller flera värden.
 
-Listrutan innehåller en analytics-fråga. Om frågan returnerar en kolumn, värdena i kolumnen är både den **värdet** och **etikett** i listmeny-kontroll. Om frågan returnerar två kolumner, den första kolumnen är den **värdet**, och den andra kolumnen är den **etikett** visas i listrutan.  Om frågan returnerar tre kolumner, används den 3: e kolumnen för att indikera standardvalet på den nedrullningsbara.  Den här kolumnen kan vara valfri, men det enklaste är att använda bool eller numeriska typer, där 0 är FALSKT och 1 är sant.
+List rutan fylls i med en analys fråga. Om frågan returnerar en kolumn, är värdena i den kolumnen både **värdet** och **etiketten** i list rutan. Om frågan returnerar två kolumner är den första kolumnen **värdet**och den andra kolumnen är den **etikett** som visas i list rutan.  Om frågan returnerar tre kolumner används den tredje kolumnen för att ange standard valet i list rutan.  Den här kolumnen kan vara vilken typ som helst, men det enklaste är att använda bool-eller numeric-typer, där 0 är falskt och 1 är sant.
 
- Om kolumnen är en strängtyp, null/tomt sträng anses FALSKT och andra värden anses vara sant. Det första värdet med värdet SANT används för enstaka markering listrutorna som standardvalet.  Alla värden med värdet SANT används för flera val av listrutor, som standarduppsättningen valt. Objekten i listrutan visas i ordningen frågan returnerade rader. 
+ Om kolumnen är en sträng typ anses null/tom sträng vara falskt och andra värden betraktas som sanna. För enstaka markerings List rutor används det första värdet med ett sant värde som standard val.  För List rutor med flera markeringar används alla värden med ett sant värde som standard vald uppsättning. Objekten i list rutan visas i den ordning frågan returnerade rader. 
 
-Låt oss titta på parametrarna som finns i rapporten aktiva användare. Klicka på Redigera symbolen bredvid **TimeRange**.
+Nu ska vi titta på de parametrar som finns i rapporten aktiva användare. Klicka på Redigera-symbolen bredvid **TimeRange**.
 
-![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/009-time-range.png)
+![Avsnittet redigerings kontroller för Application Insights-arbetsböcker](./media/usage-workbooks/009-time-range.png)
 
-Redigera parameterobjekt startas:
+Då startas meny alternativet Redigera parameter:
 
-![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/010-time-range-edit.png)
+![Avsnittet redigerings kontroller för Application Insights-arbetsböcker](./media/usage-workbooks/010-time-range-edit.png)
 
-Frågan använder en funktion i analytics-frågespråket som kallas en **datatable** som hjälper dig att generera en godtycklig tabell fulla av innehåll, utanför tunn air! Till exempel följande analytics-frågan:
+Frågan använder en funktion i Analytics-frågespråket som kallas för en **DataTable** som gör att du kan generera en godtycklig tabell, fullständig innehåll, slut på tunn luft! Till exempel följande analys fråga:
 
 ```
 datatable( column1:string, column2:string )
@@ -204,9 +199,9 @@ datatable( column1:string, column2:string )
 
 Genererar resultatet:
 
-![Application Insights arbetsböcker avsnittet redigeringskontroller](./media/usage-workbooks/011-data-table.png)
+![Avsnittet redigerings kontroller för Application Insights-arbetsböcker](./media/usage-workbooks/011-data-table.png)
 
-En lämpligare exempel är att använda en listruta för att välja från en uppsättning länder/regioner efter namn:
+Ett mer tillämpligt exempel är att använda en listruta för att välja från en uppsättning länder/regioner efter namn:
 
 ```
 customEvents
@@ -217,51 +212,51 @@ customEvents
 | order by client_CountryOrRegion asc
 ```
 
-Frågan visar resultat på följande sätt:
+Frågan visar resultat enligt följande:
 
-![Land listrutan](./media/usage-workbooks/012-country-dropdown.png)
+![Listruta för land](./media/usage-workbooks/012-country-dropdown.png)
 
-Listrutor är otroligt kraftfulla verktyg för att anpassa och skapa interaktiva rapporter.
+List rutor är otroligt kraftfulla verktyg för att anpassa och skapa interaktiva rapporter.
 
-### <a name="time-range-parameters"></a>Intervallet körningsparametrar
+### <a name="time-range-parameters"></a>Intervall parametrar
 
-Medan du kan göra dina egna anpassade tid intervallet parametern via parametertypen listrutan, kan du också använda parametertypen för out-of-box tid intervall om du inte behöver samma grad av flexibilitet. 
+Även om du kan skapa en egen anpassad tids intervall parameter via den nedrullningsbara parameter typen, kan du också använda parameter typen out-of-box för tidsintervallen om du inte behöver samma grad av flexibilitet. 
 
-Parametertyper intervall för tid har 15 intervall av förvalda som går mellan fem minuter till de senaste 90 dagarna. Det finns också ett alternativ för att tillåta val av anpassat tidsintervall, vilket gör att operatorn i rapporten att välja explicit starta och stoppa värden för tidsintervall.
+Parameter typer för tidsintervall har 15 standard intervall som går från fem minuter till de senaste 90 dagarna. Det finns också ett alternativ för att tillåta val av anpassat tidsintervall, vilket gör att rapportens operatör kan välja explicita start-och stopp värden för tidsintervallet.
 
-### <a name="resource-picker"></a>Resursväljare
+### <a name="resource-picker"></a>Resurs väljare
 
-Resurstypen väljare parametern ger dig möjlighet att definiera omfattningen av rapporten för att vissa typer av resurser. Ett exempel på fördefinierade arbetsbok som utnyttjar väljare resurstypen är den **fel insikter** arbetsboken.
+Parameter typen resurs väljare ger dig möjlighet att begränsa rapporten till vissa typer av resurser. Ett exempel på en fördefinierad arbets bok som använder resurs väljar typen är arbets boken med **felaktiga insikter** .
 
-![Land listrutan](./media/usage-workbooks/013-resource-picker.png)
+![Listruta för land](./media/usage-workbooks/013-resource-picker.png)
 
-## <a name="saving-and-sharing-workbooks-with-your-team"></a>Spara och dela arbetsböcker med ditt team
+## <a name="saving-and-sharing-workbooks-with-your-team"></a>Spara och dela arbets böcker med ditt team
 
-Arbetsböcker sparas i en Application Insights-resurs i den **Mina rapporter** avsnitt som är privata för dig eller i den **delade rapporter** avsnitt som är tillgängliga för alla med åtkomst till den Application Insights-resurs. Om du vill visa alla arbetsböcker i resursen, klickar du på den **öppna** knappen i åtgärdsfältet.
+Arbets böcker sparas i en Application Insights resurs, antingen i avsnittet **Mina rapporter** som är privat för dig eller i avsnittet **delade rapporter** som är tillgängliga för alla som har åtkomst till Application Insights resursen. Om du vill visa alla arbets böcker i resursen klickar du på knappen **Öppna** i åtgärds fältet.
 
-Dela en arbetsbok som för närvarande finns i **Mina rapporter**:
+Så här delar du en arbets bok som för närvarande finns i **Mina rapporter**:
 
-1. Klicka på **öppna** i Åtgärdsfältet
-2. Klicka på knappen ”...” bredvid arbetsboken som du vill dela
-3. Klicka på **flytta till delade rapporter**.
+1. Klicka på **Öppna** i åtgärds fältet
+2. Klicka på "..." bredvid den arbets bok som du vill dela
+3. Klicka på **Flytta till delade rapporter**.
 
-Om du vill dela en arbetsbok med en länk eller via e-post, klickar du på **dela** i åtgärdsfältet. Tänk på att mottagarna av länken behöver åtkomst till den här resursen i Azure portal för att visa arbetsboken. När du vill redigera mottagarna behöver minst deltagarbehörighet för resursen.
+Om du vill dela en arbets bok med en länk eller via e-post, klickar du på **dela** i åtgärds fältet. Tänk på att mottagare av länken behöver åtkomst till den här resursen i Azure Portal för att kunna visa arbets boken. För att göra redigeringar behöver mottagarna minst deltagar behörigheter för resursen.
 
-Att fästa en länk till en arbetsbok till en Azure-instrumentpanelen:
+Fästa en länk till en arbets bok på en Azure-instrumentpanel:
 
-1. Klicka på **öppna** i Åtgärdsfältet
-2. Klicka på knappen ”...” bredvid arbetsboken som du vill fästa
+1. Klicka på **Öppna** i åtgärds fältet
+2. Klicka på "..." bredvid den arbets bok som du vill fästa
 3. Klicka på **Fäst vid instrumentpanelen**.
 
-## <a name="contributing-workbook-templates"></a>Bidra med arbetsboksmallar
+## <a name="contributing-workbook-templates"></a>Bidra till mallar för arbets böcker
 
-Har du skapat en arbetsboksmall för fantastiska och vill dela den med communityn? Mer information, Besök vår [GitHub-lagringsplatsen](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md).
+Har du skapat en fantastisk arbetsboksmall och vill dela den med communityn? Mer information finns på vår [GitHub-lagrings platsen](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill aktivera användning upplevelser börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sidvisningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Om du redan skicka anpassade händelser eller sidvisningar, utforska användningsverktygen om du vill veta hur användarna använder din tjänst.
+- Börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sid visningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)om du vill aktivera användnings upplevelser.
+- Om du redan skickar anpassade händelser eller sid visningar, utforska användnings verktygen för att lära dig hur användarna använder tjänsten.
     - [Användare, sessioner, händelser](../../azure-monitor/app/usage-segmentation.md)
     - [Trattar](../../azure-monitor/app/usage-funnels.md)
     - [Kvarhållning](../../azure-monitor/app/usage-retention.md)
     - [Användarflöden](../../azure-monitor/app/usage-flows.md)
-    - [Lägg till användarkontext](../../azure-monitor/app/usage-send-user-context.md)
+    - [Lägg till användar kontext](../../azure-monitor/app/usage-send-user-context.md)

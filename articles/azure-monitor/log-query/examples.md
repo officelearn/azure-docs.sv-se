@@ -1,24 +1,18 @@
 ---
 title: Exempel på Azure Monitor logg frågor | Microsoft Docs
 description: Exempel på logg frågor i Azure Monitor att använda frågespråket i Kusto.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/01/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 7cdd471e6618e83483f6cc304f284a1669f3b67b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.openlocfilehash: 2ded97e427c8ecf4584ee486408de14a26f014eb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718902"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900373"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exempel på Azure Monitor logg frågor
 Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md) som använder [Kusto-frågespråket](/azure/kusto/query/) för att hämta olika typer av loggdata från Azure Monitor. Olika metoder används för att konsolidera och analysera data, så att du kan använda dessa exempel för att identifiera olika strategier som du kan använda för dina egna krav.  
@@ -28,7 +22,7 @@ Mer information om de olika nyckelord som används i de här exemplen finns i [s
 ## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Sök efter program nivå händelser som beskrivs som "kryptografisk"
-Det här exemplet söker igenom **tabellen över händelser** för poster där **Händelselogg** är _programmet_ och **utförd beskrivning** innehåller _kryptografi_. Poster från de senaste 24 timmarna ingår.
+I det här exemplet genomsöks tabellen **Events** efter poster där **EventLog** är _Application_ och **RenderedDescription** innehåller _kryptografiskt_. Inkluderar poster från de senaste 24 timmarna.
 
 ```Kusto
 Event
@@ -44,7 +38,7 @@ Sök tabell **händelse** -och **SecurityEvents** efter poster som nämner _konv
 search in (Event, SecurityEvent) "unmarshaling"
 ```
 
-## <a name="heartbeat"></a>Pulsslag
+## <a name="heartbeat"></a>Tveka
 
 ### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Visa en veckas över-Week-vy över antalet datorer som skickar data
 
@@ -79,7 +73,7 @@ Heartbeat
 ### <a name="match-protected-status-records-with-heartbeat-records"></a>Matcha skyddade status poster med pulsslags poster
 
 Det här exemplet hittar relaterade skydds status poster och pulsslags poster, matchade på både dator och tid.
-Observera att Time-fältet rundas av till närmaste minut. Vi använde beräkning av kör tids lager för att `round_time=bin(TimeGenerated, 1m)`göra det:.
+Observera att Time-fältet rundas av till närmaste minut. Vi använde beräkning av kör tids lager för att göra det: `round_time=bin(TimeGenerated, 1m)`.
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -205,10 +199,10 @@ Perf
 | render timechart
 ```
 
-## <a name="protection-status"></a>Skyddsstatus
+## <a name="protection-status"></a>Skydds status
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Datorer med status varaktighet för icke-rapporterings skydd
-Det här exemplet listar datorer med statusen _rapporterar ej_ och hur länge de befann sig i den här statusen.
+I det här exemplet visas datorer som har en skydds status som _inte rapporterar_ och den varaktighet som de hade i denna status.
 
 ```Kusto
 ProtectionStatus
@@ -237,7 +231,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Räkna säkerhets händelser per aktivitets-ID
 
 
-Det här exemplet använder den fasta strukturen i **aktivitets** kolumnen: \<ID\>--namn.\<\>
+Det här exemplet använder den fasta strukturen i **aktivitets** kolumnen: \<-ID\>-\<namn\>.
 Det tolkar **aktivitets** värdet i två nya kolumner och räknar förekomsten av varje **activityID**.
 
 ```Kusto
@@ -249,7 +243,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>Räkna säkerhets händelser relaterade till behörigheter
-Det här exemplet visar antalet poster med **säkerhetshändelser** där **aktivitetskolumnen** innehåller hela termen _behörigheter_. Förfrågan gäller för poster som skapats under de senaste 30 minuterna.
+I det här exemplet visas antalet **securityEvent** -poster, där **aktivitets** kolumnen innehåller hela term _behörigheterna_. Frågan gäller poster som skapats under de senaste 30 minuterna.
 
 ```Kusto
 SecurityEvent
@@ -278,7 +272,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Namn och ID för parse-aktivitet
-De två exemplen nedan förlitar sig på den fasta strukturen i **aktivitets** kolumnen: \<ID\>--namn.\<\> I det första exemplet används **parse** -operatorn för att tilldela värden till två nya kolumner: **activityID** och **activityDesc**.
+De två exemplen nedan förlitar sig på den fasta strukturen i **aktivitets** kolumnen: \<-ID\>-\<namn\>. I det första exemplet används **parse** -operatorn för att tilldela värden till två nya kolumner: **activityID** och **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -409,7 +403,7 @@ Usage
 ```
 
 ### <a name="usage-of-specific-computers-today"></a>Användning av vissa datorer idag
-I det här exemplet hämtas användnings data från den sista dagen för dator namn som innehåller strängen _ContosoFile_. Resultaten sorteras efter **TimeGenerated**.
+I det här exemplet hämtas **användnings** data från den sista dagen för dator namn som innehåller strängen _ContosoFile_. Resultaten sorteras efter **TimeGenerated**.
 
 ```Kusto
 Usage

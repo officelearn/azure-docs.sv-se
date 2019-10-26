@@ -1,32 +1,26 @@
 ---
-title: Övervaka replikeringsstatus för Active Directory med Azure Monitor | Microsoft Docs
-description: Active Directory-replikeringsstatus-lösningspaket övervakar regelbundet Active Directory-miljön för eventuella replikeringsfel.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Övervaka Active Directory replikeringsstatus med Azure Monitor | Microsoft Docs
+description: Active Directory-replikeringsstatus Solution Pack övervakar regelbundet din Active Directory-miljö för eventuella replikeringsfel.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 01/24/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.date: 01/24/2018
+ms.openlocfilehash: 47f57fd9e9fe9cc84df5058794bc21e1d5cce11b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60495195"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899180"
 ---
-# <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Övervaka replikeringsstatus för Active Directory med Azure Monitor
+# <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Övervaka Active Directory replikeringsstatus med Azure Monitor
 
-![Symbol för AD-replikeringsstatus](./media/ad-replication-status/ad-replication-status-symbol.png)
+![AD-replikeringsstatus symbol](./media/ad-replication-status/ad-replication-status-symbol.png)
 
-Active Directory är en viktig del av ett företags IT-miljö. För att säkerställa hög tillgänglighet och hög prestanda, har varje domänkontrollant sin egen kopia av Active Directory-databasen. Domänkontrollanterna med varandra för att sprida ändringarna i hela företaget. Fel i replikeringsprocessen kan orsaka en mängd olika problem i hela företaget.
+Active Directory är en viktig del av företagets IT-miljö. För att säkerställa hög tillgänglighet och hög prestanda har varje domänkontrollant en egen kopia av Active Directory databasen. Domänkontrollanter replikeras med varandra för att kunna sprida ändringar i företaget. Fel i den här replikeringsrelationen kan orsaka en rad olika problem i företaget.
 
-AD-replikeringsstatus-lösningspaket övervakar regelbundet Active Directory-miljön för eventuella replikeringsfel.
+AD-replikeringsstatus Solution Pack övervakar regelbundet din Active Directory-miljö för eventuella replikeringsfel.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
@@ -34,25 +28,25 @@ AD-replikeringsstatus-lösningspaket övervakar regelbundet Active Directory-mil
 Använd följande information för att installera och konfigurera lösningen.
 
 ### <a name="install-agents-on-domain-controllers"></a>Installera agenter på domänkontrollanter
-Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till Azure Monitor. Information om hur du ansluter Windows-datorer till Azure Monitor finns i [ansluta Windows-datorer till Azure Monitor](../../azure-monitor/platform/agent-windows.md). Om domänkontrollanten finns redan i en befintlig System Center Operations Manager-miljö som du vill ansluta till Azure Monitor finns i [ansluta Operations Manager till Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Du måste installera agenter på domänkontrollanter som är medlemmar i domänen för att kunna utvärderas. Eller så måste du installera agenter på medlems servrar och konfigurera agenterna för att skicka AD Replication-data till Azure Monitor. Information om hur du ansluter Windows-datorer till Azure Monitor finns i [ansluta Windows-datorer till Azure Monitor](../../azure-monitor/platform/agent-windows.md). Om din domänkontrollant redan är en del av en befintlig System Center Operations Manager-miljö som du vill ansluta till Azure Monitor, se [ansluta Operations Manager till Azure Monitor](../../azure-monitor/platform/om-agents.md).
 
 ### <a name="enable-non-domain-controller"></a>Aktivera icke-domänkontrollant
-Om du inte vill att ansluta alla dina domänkontrollanter direkt till Azure Monitor, kan du använda vilken dator som helst i din domän som är anslutna till Azure Monitor för att samla in data för AD-replikeringsstatus-lösningspaketet och den skickar data.
+Om du inte vill ansluta någon av domän kontrol Lanterna direkt till Azure Monitor kan du använda en annan dator i domänen som är ansluten till Azure Monitor för att samla in data för AD-replikeringsstatus lösnings paketet och skicka data.
 
-1. Kontrollera att datorn är medlem i den domän som du vill övervaka med hjälp av AD-replikeringsstatus-lösning.
-2. [Ansluta Windows-dator till Azure Monitor](../../azure-monitor/platform/om-agents.md) eller [ansluta den med hjälp av den befintliga Operations Manager-miljön och Azure Monitor](../../azure-monitor/platform/om-agents.md), om den inte redan är ansluten.
-3. På datorn, anger du följande registernyckel:<br>Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Värde: **IsTarget**<br>Värdedata: **SANT**
+1. Kontrol lera att datorn är medlem i den domän som du vill övervaka med hjälp av AD-replikeringsstatus-lösningen.
+2. [Anslut Windows-datorn för att Azure Monitor](../../azure-monitor/platform/om-agents.md) eller [Anslut den med din befintliga Operations Manager miljö till Azure Monitor](../../azure-monitor/platform/om-agents.md), om den inte redan är ansluten.
+3. På den datorn anger du följande register nyckel:<br>Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management grupper\<ManagementGroupName > \Solutions\ADReplication**<br>Värde: **IsTarget**<br>Värde data: **True**
 
    > [!NOTE]
-   > De här ändringarna börjar inte gälla förrän du startar om tjänsten Microsoft Monitoring Agent (HealthService.exe).
-   > ### <a name="install-solution"></a>Installera lösningen
-   > Följ processen som beskrivs i [installera en övervakningslösning](solutions.md#install-a-monitoring-solution) att lägga till den **Active Directory-replikeringsstatus** lösning till Log Analytics-arbetsytan. Det krävs ingen ytterligare konfiguration.
+   > Ändringarna börjar inte gälla förrän du startar om tjänsten Microsoft Monitoring Agent (HealthService. exe).
+   > ### <a name="install-solution"></a>Installera lösning
+   > Följ processen som beskrivs i [installera en övervaknings lösning](solutions.md#install-a-monitoring-solution) för att lägga till **Active Directory-replikeringsstatus** -lösningen i Log Analytics-arbetsytan. Det krävs ingen ytterligare konfiguration.
 
 
-## <a name="ad-replication-status-data-collection-details"></a>AD-replikeringsstatus data samling information
-I följande tabell visas data samlingsmetoder och annan information om hur data samlas in för AD-replikeringsstatus.
+## <a name="ad-replication-status-data-collection-details"></a>Information om AD-replikeringsstatus data insamling
+I följande tabell visas metoder för data insamling och annan information om hur data samlas in för AD-replikeringsstatus.
 
-| Plattform | Direktagent | SCOM-agent | Azure Storage | SCOM krävs? | SCOM-agenten data som skickas via hanteringsgruppen | Insamlingsfrekvens |
+| Systemet | Direkt agent | SCOM-agent | Azure Storage | SCOM krävs? | SCOM agent-data som skickats via hanterings grupp | samlings frekvens |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |var femte dag |
 
@@ -62,97 +56,97 @@ I följande tabell visas data samlingsmetoder och annan information om hur data 
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-AD-replikeringsstatus-panelen visar hur många replikeringsfel som du har för närvarande. **Kritiskt replikeringsfel** finns fel eller högre än 75% av den [tombstone-livslängden](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) för Active Directory-skogen.
+Panelen AD-replikeringsstatus visar hur många replikeringsfel du för närvarande har. **Kritiska replikeringsfel** är fel som ligger på eller över 75% av tombstone- [livstiden](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) för Active Directory skogen.
 
-![AD-replikeringsstatus panelen](./media/ad-replication-status/oms-ad-replication-tile.png)
+![AD-replikeringsstatus panel](./media/ad-replication-status/oms-ad-replication-tile.png)
 
-När du klickar på panelen kan visa du mer information om felen.
-![AD-replikeringsstatus](./media/ad-replication-status/oms-ad-replication-dash.png)
+När du klickar på panelen kan du Visa mer information om felen.
+![AD-replikeringsstatus instrument panel](./media/ad-replication-status/oms-ad-replication-dash.png)
 
-### <a name="destination-server-status-and-source-server-status"></a>Status för målserver och Status för källserver
-Dessa kolumner visar status för målservrarna och källservrar som upplever replikeringsfel. Siffran efter varje domänkontrollantens namn anger hur många replikeringsfel på domänkontrollanten.
+### <a name="destination-server-status-and-source-server-status"></a>Status för mål server och käll Server status
+De här kolumnerna visar status för mål servrar och käll servrar som har fel vid replikering. Antalet efter varje namn på domänkontrollanten anger antalet replikeringsfel på domänkontrollanten.
 
-Fel för både målservrarna och källservrar visas eftersom vissa problem är enklare att felsöka från perspektiv för källan server och andra mål server perspektiv.
+Felen för både mål servrar och käll servrar visas eftersom vissa problem är enklare att felsöka från käll serverns perspektiv och andra från mål servern.
 
-I det här exemplet ser du att många målservrar har ungefär samma antal fel, men det finns en källserver (ADDC35) som har många fler fel än alla andra. Det är troligt att det finns problem på ADDC35 som orsakar den för att kunna skicka data till dess replikeringspartners. Åtgärda problemen på ADDC35 kan du lösa många av de fel som visas i målområdet för servern.
+I det här exemplet kan du se att många mål servrar har ungefär samma antal fel, men det finns en käll Server (ADDC35) som har många fler fel än alla andra. Det är troligt att det finns problem med ADDC35 som gör att det inte går att skicka data till replikeringspartner. Att åtgärda problemen på ADDC35 kan lösa många av de fel som visas i mål server delen.
 
-### <a name="replication-error-types"></a>Typ av replikeringsfel
-Det här området innehåller information om vilka typer av fel som identifierats i hela företaget. Varje fel innehåller en unik numerisk kod och ett meddelande som kan hjälpa dig avgöra den bakomliggande orsaken till felet.
+### <a name="replication-error-types"></a>Fel typer för replikering
+Det här avsnittet innehåller information om vilka typer av fel som identifieras i företaget. Varje fel har en unik numerisk kod och ett meddelande som kan hjälpa dig att avgöra orsaken till felet.
 
-Ringdiagram överst ger dig en uppfattning om vilka fel förekomma mer och mindre ofta i din miljö.
+Ring högst upp ger dig en uppfattning om vilka fel som visas mer och mindre ofta i din miljö.
 
-Den visar när flera domänkontrollanter får samma replikeringsfel. I det här fallet kan du identifiera eller identifiera en lösning på en domänkontrollant och sedan upprepa på andra domänkontrollanter som påverkas av samma fel.
+Det visar när flera domänkontrollanter upplever samma replikeringsfel. I det här fallet kanske du kan identifiera eller identifiera en lösning på en domänkontrollant och sedan upprepa den på andra domänkontrollanter som påverkas av samma fel.
 
 ### <a name="tombstone-lifetime"></a>Tombstone-livstid
-Tombstone-livslängden avgör hur lång tid ett borttaget objekt, kallas en tombstone, sparas i Active Directory-databasen. När ett borttaget objekt har passerat tombstone-livslängden bort datainsamlingsprocess för skräpinsamling automatiskt från Active Directory-databasen.
+Tombstone-livstiden avgör hur länge ett borttaget objekt, som kallas tombstone, bevaras i Active Directory databasen. När ett borttaget objekt passerar tombstone-livstiden tar en skräp insamlings process automatiskt bort från den Active Directory databasen.
 
-Standard tombstone-livstiden är 180 dagar för de senaste versionerna av Windows, men det var 60 dagar på äldre versioner och kan ändras uttryckligen en Active Directory-administratör.
+Standard-tombstone-livstiden är 180 dagar för de senaste versionerna av Windows, men den var 60 dagar i äldre versioner och kan ändras explicit av en Active Directory administratör.
 
-Det är viktigt att veta om du har replikeringsfel som närmar eller som har passerat tombstone-livslängden. Om två domänkontrollanter uppstår ett replikeringsfel som kvarstår efter tombstone-livslängden inaktivera replikering mellan de två domänkontrollanterna, även om den underliggande replikeringsfel har lösts.
+Det är viktigt att veta om du har replikeringsfel som närmar sig eller som har passerat tombstone-livstiden. Om två domänkontrollanter upplever ett replikeringsfel som fortsätter förbi tombstone-livstiden inaktive ras replikeringen mellan de två domän kontrol Lanterna, även om det underliggande replikeringsfel är löst.
 
-Området Tombstone-livslängden hjälper dig att identifiera platser där inaktiverad replikering är i risk för händer. Varje fel i den **över 100% TLS** kategori representerar en partition som inte har replikerat mellan dess källa och mål för minst tombstone-livslängden för skogen.
+Med hjälp av tombstone-livstiden kan du identifiera platser där inaktiverad replikering är en risk för att det sker. Varje fel i kategorin **över 100% TLS** representerar en partition som inte har repliker ATS mellan käll-och mål servern för minst tombstone-livstiden för skogen.
 
-I så fall kan bara åtgärda replikering inte räcker. Du måste undersöka manuellt för att identifiera och rensa kvarstående objekt innan du kan starta om replikeringen som ett minimum. Du kan även behöva ställa av en domänkontrollant.
+I den här situationen räcker det inte att åtgärda replikeringen för att lösa problemet. Du måste minst manuellt undersöka för att identifiera och rensa kvarvarande objekt innan du kan starta om replikeringen. Du kan även behöva inaktivera en domänkontrollant.
 
-Förutom att identifiera eventuella replikeringsfel som beständiga tidigare tombstone-livslängden du även vill ta hänsyn till eventuella fel i den **50 75% TLS** eller **75 – 100% TLS** kategorier.
+Förutom att identifiera eventuella replikeringsfel som tidigare har gått förbi tombstone-livstiden, vill du också ta hänsyn till eventuella fel som ligger i kategorierna **50-75% TLS** eller **75-100% TLS** .
 
-Det här är fel som är tydligt kvarvarande, tillfälligt, så att de behöver förmodligen göra något att lösa. Den goda nyheten är att de inte har nått tombstone-livslängden. Om du åtgärda problemen snabbt och *innan* de når tombstone-livslängden, replikering kan starta om med minimal manuella åtgärder.
+Detta är fel som är tydligt kvarvarande, inte tillfälligt, så att de förmodligen behöver åtgärdas. Den goda nyheten är att de ännu inte har nått tombstone-livstiden. Om du åtgärdar problemen och *innan* de når tombstone-livstiden kan replikeringen starta om med minimala manuella åtgärder.
 
-Som nämnts tidigare, på instrumentpanelen för AD-replikeringsstatus-lösningen visar hur många *kritiska* replikeringsfel i din miljö som har definierats som fel som är över 75% av tombstone-livslängden (inklusive fel som är över 100% av TLS). Strävar efter att hålla det här värdet 0.
+Som tidigare nämnts visar instrument panelens panel för AD-replikeringsstatuss lösningen antalet *kritiska* replikeringsfel i din miljö, som definieras som fel som ligger över 75% av tombstone-livstiden (inklusive fel som är över 100% av TLS). Sträva efter att behålla det här talet vid 0.
 
 > [!NOTE]
-> Alla tombstone livslängd procentberäkningar baseras på faktiska tombstone-livslängden för dina Active Directory-skog så att du kan lita på att dessa procenttal är korrekta, även om du har ett värde för anpassad tombstone-livstid som anges.
+> Alla beräkningar för tombstone-procent i procent baseras på den faktiska tombstone-livstiden för Active Directory skogen, så du kan lita på att dessa procent andelar är korrekta, även om du har ett anpassat värde för tombstone-livstid.
 >
 >
 
-### <a name="ad-replication-status-details"></a>Statusinformation för AD-replikering
-När du klickar på ett objekt i någon av listor visas ytterligare information om den med hjälp av en loggfråga. Resultaten filtreras för att visa de fel som rör objektet. Exempel: Om du klickar på den första domänkontrollanten i listan under **Status för målserver (ADDC02)** , visas frågeresultat som filtrerats till Visa fel med den domänkontrollanten som listas som målservern:
+### <a name="ad-replication-status-details"></a>Status information för AD-replikering
+När du klickar på ett objekt i en av listorna visas ytterligare information om den med hjälp av en logg fråga. Resultatet filtreras så att endast de fel som är relaterade till objektet visas. Om du till exempel klickar på den första domänkontrollanten i listan under **mål server status (ADDC02)** visas frågeresultat filtrerade för att visa fel med domänkontrollanten som visas som mål server:
 
-![AD-replikering status fel i frågeresultatet](./media/ad-replication-status/oms-ad-replication-search-details.png)
+![Status fel för AD-replikering i frågeresultat](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Härifrån kan du filtrera ytterligare, ändra log-frågan och så vidare. Läs mer om hur du använder loggfrågor i Azure Monitor, [analysera loggdata i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Härifrån kan du filtrera ytterligare, ändra logg frågan och så vidare. Mer information om hur du använder logg frågor i Azure Monitor finns i [analysera loggdata i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Den **HelpLink** fältet visar Webbadressen till en TechNet-sida med ytterligare information om det specifika felet. Du kan kopiera och klistra in den här länken i webbläsarfönstret för att visa information om felsökning och åtgärda felet.
+I fältet **HelpLink** visas URL: en till en TechNet-sida med ytterligare information om felet. Du kan kopiera och klistra in länken i webbläsarfönstret för att se information om fel sökning och korrigering av felet.
 
-Du kan också klicka på **exportera** att exportera resultaten till Excel. Exportera data kan hjälpa dig att visualisera data för replikering fel på något sätt som du vill ha.
+Du kan också exportera resultaten till Excel genom att klicka på **Exportera** . Genom att exportera data kan du visualisera replikeringsdata på ett valfritt sätt som du vill.
 
-![exporterade AD status replikeringsfel i Excel](./media/ad-replication-status/oms-ad-replication-export.png)
+![status fel i exporterad AD-replikering i Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>AD-replikeringsstatus vanliga frågor och svar
-**F: Hur ofta är AD status replikeringsdata uppdateras?**
-S: Informationen uppdateras var femte dag.
+**F: hur ofta uppdateras status data för AD Replication?**
+A: informationen uppdateras var femte dag.
 
-**F: Finns det ett sätt att konfigurera hur ofta data ska uppdateras?**
-S: Inte just nu.
+**F: finns det ett sätt att konfigurera hur ofta dessa data ska uppdateras?**
+A: inte just nu.
 
-**F: Behöver jag Lägg till alla domänkontrollanter i Min arbetsyta för Log Analytics för att visa replikeringsstatus?**
-S: Nej, endast en enda domänkontrollant måste läggas till. Om du har flera domänkontrollanter i Log Analytics-arbetsytan skickas data från dem alla till Azure Monitor.
+**F: behöver jag lägga till alla mina domänkontrollanter till min Log Analytics-arbetsyta för att se replikeringsstatus?**
+A: Nej, endast en enda domänkontrollant måste läggas till. Om du har flera domänkontrollanter på arbets ytan Log Analytics skickas data från alla dem till Azure Monitor.
 
-**F: Jag vill inte att lägga till alla domänkontrollanter i Min arbetsyta för Log Analytics. Kan jag fortfarande använda AD-replikeringsstatus-lösningen?**
+**F: Jag vill inte lägga till några domänkontrollanter i min Log Analytics-arbetsyta. Kan jag fortfarande använda AD-replikeringsstatus lösningen?**
 
-S: Ja. Du kan ange värdet för en registernyckel för att aktivera den. Se [aktivera icke-domänkontrollant](#enable-non-domain-controller).
+S: Ja. Du kan ange värdet för en register nyckel för att aktivera det. Se [Aktivera icke-domänkontrollant](#enable-non-domain-controller).
 
-**F: Vad är namnet på processen som gör datainsamlingen?**
-S: AdvisorAssessment.exe
+**F: Vad är namnet på processen som utför data insamlingen?**
+A: AdvisorAssessment. exe
 
-**F: Hur lång tid tar det för de data som samlas in?**
-S: Tid för insamling av data beror på storleken på Active Directory-miljö, men tar normalt mindre än 15 minuter.
+**F: hur lång tid tar det för data att samlas in?**
+A: data insamlings tiden beror på Active Directorys miljöns storlek, men det tar vanligt vis mindre än 15 minuter.
 
-**F: Vilken typ av data som samlas in?**
-S: Replikeringsinformation som samlas in via LDAP.
+**F: vilken typ av data samlas in?**
+A: replikeringsinformation samlas in via LDAP.
 
-**F: Finns det ett sätt att konfigurera när data har samlats in?**
-S: Inte just nu.
+**F: finns det ett sätt att konfigurera när data samlas in?**
+A: inte just nu.
 
-**F: Vilka behörigheter behöver jag att samla in data?**
-S: Normal användarbehörigheter till Active Directory är tillräckliga.
+**F: vilka behörigheter behöver jag för att samla in data?**
+A: normala användar behörigheter till Active Directory räcker.
 
-## <a name="troubleshoot-data-collection-problems"></a>Felsöka problem med insamling
-För att samla in data, kräver AD-replikeringsstatus-lösningspaket minst en domänkontrollant som är anslutna till Log Analytics-arbetsytan. Tills du ansluter en domänkontrollant, visas ett meddelande som anger att **data samlas fortfarande**.
+## <a name="troubleshoot-data-collection-problems"></a>Felsöka problem med data insamling
+För att kunna samla in data kräver AD-replikeringsstatus Solution Pack att minst en domänkontrollant är ansluten till Log Analytics-arbetsytan. Innan du ansluter en domänkontrollant visas ett meddelande som anger att **data fortfarande samlas in**.
 
-Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa dokumentationen på [ansluta Windows-datorer till Azure Monitor](../../azure-monitor/platform/om-agents.md). Om domänkontrollanten är redan ansluten till en befintlig System Center Operations Manager-miljö kan du också visa dokumentationen på [ansluta System Center Operations Manager till Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Om du behöver hjälp med att ansluta en av dina domänkontrollanter kan du Visa dokumentation på [Anslut Windows-datorer till Azure Monitor](../../azure-monitor/platform/om-agents.md). Alternativt, om domänkontrollanten redan är ansluten till en befintlig System Center Operations Managers miljö, kan du Visa dokumentationen vid [anslutning System Center Operations Manager till Azure Monitor](../../azure-monitor/platform/om-agents.md).
 
-Om du inte vill att ansluta alla dina domänkontrollanter direkt till Azure Monitor eller System Center Operations Manager, se [aktivera icke-domänkontrollant](#enable-non-domain-controller).
+Om du inte vill ansluta någon av domän kontrol Lanterna direkt till Azure Monitor eller System Center Operations Manager, se [Aktivera icke-domänkontrollant](#enable-non-domain-controller).
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [logga frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad status för data för Active Directory-replikering.
+* Använd [logg frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) om du vill visa detaljerad information om Active Directory replikeringsstatus.

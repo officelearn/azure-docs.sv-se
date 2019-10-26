@@ -1,59 +1,54 @@
 ---
-title: Felsöka användaren beteende analysverktyg i Azure Application Insights
-description: Felsökningsguide för – analysera plats och appanvändning med Application Insights.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Felsöka verktyg för användar beteende analys i Azure Application insikter
+description: Fel söknings guide – analysera webbplats-och program användning med Application Insights.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9222f4611f87869c1bacf3084035c0ab9322fa40
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371860"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899355"
 ---
-# <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Felsöka användaren beteende analysverktyg i Application Insights
-Om du har frågor om den [användaren beteende analysverktyg i Application Insights](usage-overview.md): [Användare, sessioner, händelser](usage-segmentation.md), [Trattar](usage-funnels.md), [Användarflöden](usage-flows.md), [kvarhållning](usage-retention.md), eller kohorter? Här är några svar.
+# <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Felsöka verktyg för användar beteende analys i Application Insights
+Har du frågor om [verktyg för användar beteende analys i Application Insights](usage-overview.md): [användare, sessioner, händelser](usage-segmentation.md), [trattar](usage-funnels.md), [användarflöden](usage-flows.md), [kvarhållning](usage-retention.md)eller kohorter? Här är några svar.
 
-## <a name="counting-users"></a>Räkna användare
-**Analysverktyg för användaren beteende visar att min app har en användarsession, men jag min app har många användare/sessioner. Hur kan jag åtgärda de här felaktiga antal?**
+## <a name="counting-users"></a>Inventering av användare
+**Analys verktygen för användar beteende visar att min app har en användare/session, men jag vet att min app har många användare/sessioner. Hur kan jag åtgärda dessa felaktiga antal?**
 
-Alla händelser i Application Insights har en [anonym användar-ID](../../azure-monitor/app/data-model-context.md) och en [sessions-ID](../../azure-monitor/app/data-model-context.md) som två av deras standardegenskaper. Som standard räknas alla analysverktyg användning användare och sessioner baserat på dessa ID: N. Om dessa standardegenskaper inte uppdateras med unika ID: N för varje användare och sessioner av din app, visas ett felaktigt antal användare och sessioner i analysverktyg för användning.
+Alla telemetri-händelser i Application Insights ha ett [anonymt användar-ID](../../azure-monitor/app/data-model-context.md) och ett [sessions-ID](../../azure-monitor/app/data-model-context.md) som två av deras standard egenskaper. Som standard räknar alla användnings analys verktyg användare och sessioner baserat på dessa ID: n. Om dessa standard egenskaper inte fylls med unika ID: n för varje användare och session av appen, ser du ett felaktigt antal användare och sessioner i verktygen för användnings analys.
 
-Om du övervakar en webbapp, den enklaste lösningen är att lägga till den [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md) till din app och kontrollera att skriptet kodfragmentet har lästs in på varje sida som du vill övervaka. JavaScript SDK kan du automatiskt genererar anonym användare och sessioner ID: N och sedan fylls telemetrihändelser med dessa ID: N som de har skickats från din app.
+Om du övervakar en webbapp är den enklaste lösningen att lägga till [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md) till din app, och se till att skript kodfragmentet läses in på varje sida som du vill övervaka. Java Script SDK genererar automatiskt anonyma användar-och sessions-ID: n och fyller sedan i telemetri-händelser med dessa ID: n när de skickas från din app.
 
-Om du övervakar en webbtjänst (inget användargränssnitt) [skapa en telemetri-initierare som fyller på egenskaperna för anonyma användare-ID och session-ID](usage-send-user-context.md) enligt din tjänsts begrepp för unika användare och sessioner.
+Om du övervakar en webb tjänst (inget användar gränssnitt) skapar du [en telemetri-initierare som fyller i egenskaperna anonym användar-ID och sessions-ID](usage-send-user-context.md) enligt din tjänsts begrepp för unika användare och sessioner.
 
-Om din app skickar [autentiserad användar-ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), du kan räkna utifrån autentiserat användar-ID i verktyget användare. I listrutan ”Visa” Välj ”autentiserade användare”.
+Om din app skickar [autentiserade användar-ID: n](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)kan du räkna utifrån autentiserade användar-ID: n i användar verktyget. Välj "autentiserade användare" i list rutan "Visa".
 
-Analysverktyg för användaren beteende stöder för närvarande inte cykliska användare eller sessioner baserat på egenskaper än anonym användar-ID, autentiserat användar-ID eller sessions-ID.
+Analys verktygen för användar beteende stöder för närvarande inte räkning av användare eller sessioner baserat på andra egenskaper än anonymt användar-ID, autentiserat användar-ID eller sessions-ID.
 
-## <a name="naming-events"></a>Namngivning av händelser
-**Min app har tusentals olika Sidvisning och namn på anpassad händelse. Det är svårt att skilja mellan dem och analysverktyg för användaren beteende svarar ofta. Hur kan jag åtgärda problemen namngivning?**
+## <a name="naming-events"></a>Namnge händelser
+**Min app har tusentals olika sid visning och anpassade händelse namn. Det är svårt att skilja mellan dem och analys verktygen för användar beteende svarar ofta inte. Hur kan jag åtgärda dessa namngivnings problem?**
 
-Sidvy och anpassad händelsenamn används i analysverktyg som användaren beteende. Namnge händelser väl är viktigt att hämta värdet från dessa verktyg. Målet är en balans mellan har för få, alltför allmänt namn (”knappen klickade på”) och gör att för många, alltför specifika namn (”redigeringsknappen klickade på http:\//www.contoso.com/index”).
+Sid visning och anpassade händelse namn används i analys verktygen för användar beteende. Att namnge händelser är mycket viktigt för att få värde från dessa verktyg. Målet är en balans mellan att ha för få, alltför generiska namn ("knapp klickningar") och att det har för många, mer detaljerade namn ("Redigera knapp som klickas på http:\//www.contoso.com/index").
 
-Om du vill göra ändringar i Sidvisning och anpassad händelsenamn som din app skickar, som du behöver ändra källkoden och distribuera om din app. **All telemetri i Application Insights lagras i 90 dagar och kan inte tas bort**, så att ändringar du gör i händelsenamn tar 90 dagar kan fullständigt visas. I 90 dagar när du har gjort ändringar, ska både gamla och nya händelsenamn visas i telemetrin, så justera frågor och kommunicerade dina team i enlighet med detta.
+Om du vill göra ändringar i sid visningen och de anpassade händelse namnen som appen skickas, måste du ändra appens källkod och omdistribuera. **Alla telemetridata i Application Insights lagras i 90 dagar och kan inte tas bort**, så ändringar som du gör i händelse namn tar 90 dagar till fullständigt manifest. För 90 dagar efter att namnet ändras visas både de gamla och nya händelse namnen i din telemetri, så du kan justera frågor och kommunicera i dina team.
 
-Om din app skickar för många vynamn för sidan, kontrollerar du om dessa sidan Visa namn anges manuellt i koden eller om de är skickas automatiskt av Application Insights JavaScript SDK:
+Om din app skickar för många sid visnings namn kontrollerar du om de här sid visnings namnen har angetts manuellt i koden eller om de skickas automatiskt av Application Insights Java Script SDK:
 
-* Om sidan vynamn manuellt anges i kod med hjälp av den [ `trackPageView` API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md), ändra namnet till mindre specifikt. Undvika vanliga misstag som placera URL: en namnet på Sidvisning. Använd i stället URL-parameter för den `trackPageView` API. Flytta annan information från vyn sidnamn i anpassade egenskaper.
+* Om sid visnings namnen anges manuellt i kod med hjälp av [`trackPageView`-API: et](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md), ändra namnet till mindre specifik. Undvik vanliga misstag som att placera URL: en i namnet på sid visningen. Använd i stället URL-parametern för `trackPageView`-API: et. Flytta övrig information från sid visnings namnet till anpassade egenskaper.
 
-* Om Application Insights JavaScript SDK skickar automatiskt visa sidnamn, du antingen ändra din sidor titlar eller växla till skickar han eller hon sidan vynamn. SDK: N skickar den [rubrik](https://developer.mozilla.org/docs/Web/HTML/Element/title) på varje sida som sidnamn för vyn, som standard. Du kan ändra din rubriker för att vara mer allmän, men Tänk också på SEO och andra konsekvenser som den här ändringen kan ha. Att manuellt ange Sidvisning namn med den `trackPageView` API åsidosätter automatiskt insamlade namn, så att du kan skicka mer allmänna namn i telemetri utan att ändra rubriker.   
+* Om Application Insights JavaScript SDK skickar automatiskt sid visnings namn, kan du antingen ändra sidornas titlar eller växla till att skicka sid visnings namn manuellt. SDK: n skickar [rubriken](https://developer.mozilla.org/docs/Web/HTML/Element/title) för varje sida som ett sid visnings namn som standard. Du kan ändra att rubrikerna är mer generella, men vara mindfula för SEO och andra effekter som den här ändringen kan ha. Om du anger namn på sid visningar manuellt med `trackPageView` API åsidosätter de automatiskt insamlade namnen, så du kan skicka fler allmänna namn i telemetri utan att ändra sid titlar.   
 
-Om din app skickar för många anpassade händelsenamn, ändrar du namnet i koden ska vara mindre specifikt. Igen, Undvik att placera URL: er och andra per sida och dynamisk information i anpassad händelsenamn direkt. I stället flytta dessa detaljer i anpassade egenskaper på den anpassade händelsen med den `trackEvent` API. Till exempel i stället för `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`, föreslår vi att något som liknar `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
+Om din app skickar för många anpassade händelse namn ändrar du namnet i koden till mindre. Undvik att lägga till URL: er och annan per sida eller dynamisk information i anpassade händelse namn direkt. Flytta i stället informationen till anpassade egenskaper för den anpassade händelsen med `trackEvent`-API: et. I stället för `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`föreslår vi till exempel något som `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över användarens beteende analytics-verktyg](usage-overview.md)
+* [Översikt över användar beteende analys verktyg](usage-overview.md)
 
 ## <a name="get-help"></a>Få hjälp
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)

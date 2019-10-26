@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI – sfctl nät secretvalue | Microsoft Docs
 description: Beskriver startsecretvalue-kommandona för Service Fabric CLI-sfctl.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 5200c40afe62ce3a236a3a16b59b64deb8d24ced
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 96ce4efe00d89c136a0c11d445170b2f67be6fcd
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035937"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901181"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Hämta och ta bort nät secretvalue-resurser.
@@ -27,9 +28,9 @@ Hämta och ta bort nät secretvalue-resurser.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| radera | Tar bort det angivna värdet för den namngivna hemliga resursen. |
-| list | Lista namn på alla värden för den angivna hemliga resursen. |
-| visa | Hämta värdet för en angiven version av en hemlig resurs. |
+| delete | Tar bort det angivna värdet för den namngivna hemliga resursen. |
+| lista | Lista namn på alla värden för den angivna hemliga resursen. |
+| visa | Visar det angivna värdet för den hemliga resursen. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl nät secretvalue ta bort
 Tar bort det angivna värdet för den namngivna hemliga resursen.
@@ -49,8 +50,8 @@ Tar bort den hemliga värde resurs som identifieras med namnet. Namnet på resur
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-mesh-secretvalue-list"></a>sfctl nät secretvalue-lista
@@ -70,12 +71,12 @@ Hämtar information om alla hemliga värde resurser för den angivna hemliga res
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-mesh-secretvalue-show"></a>sfctl nät secretvalue show
-Hämta värdet för en angiven version av en hemlig resurs.
+Visar det angivna värdet för den hemliga resursen.
 
 ### <a name="arguments"></a>Argument
 
@@ -91,8 +92,8 @@ Hämta värdet för en angiven version av en hemlig resurs.
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 

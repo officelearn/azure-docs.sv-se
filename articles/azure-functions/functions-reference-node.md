@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 86bacbe22ce23fc4b0355374d81a96310e59178a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fbecb1d02c2d262487683cb493db2d5a8f0d1c3e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255009"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898946"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -188,7 +188,7 @@ Alternativen för `dataType` är: `binary`, `stream` och `string`.
 ## <a name="context-object"></a>kontext objekt
 Körningen använder ett `context`-objekt för att skicka data till och från din funktion och för att låta dig kommunicera med körnings miljön. Context-objektet kan användas för att läsa och ställa in data från bindningar, skriva loggar och använda återanropet `context.done` när den exporterade funktionen är synkron.
 
-@No__t-0-objektet är alltid den första parametern för en funktion. Det bör inkluderas eftersom det har viktiga metoder som `context.done` och `context.log`. Du kan namnge objektet oavsett om du vill (till exempel `ctx` eller `c`).
+`context`-objektet är alltid den första parametern för en funktion. Det bör inkluderas eftersom det har viktiga metoder som `context.done` och `context.log`. Du kan namnge objektet oavsett om du vill (till exempel `ctx` eller `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -348,7 +348,7 @@ HTTP-och webhook-utlösare och HTTP-utgående bindningar använder begäran-och 
 
 ### <a name="request-object"></a>Begär ande objekt
 
-@No__t-0 (Request)-objektet har följande egenskaper:
+`context.req` (Request)-objektet har följande egenskaper:
 
 | Egenskap      | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
@@ -421,7 +421,7 @@ I följande tabell visas den Node. js-version som används av varje huvud versio
 | Funktions version | Node. js-version | 
 |---|---|
 | 1.x | 6.11.2 (låst av körningen) |
-| 2x  | _Aktiva LTS_ -och _underhålls LTS_ Node. js-versioner (~ 10 rekommenderas). Rikta in dig på versionen i Azure genom att ange WEBSITE_NODE_DEFAULT_VERSION- [appen](functions-how-to-use-azure-function-app-settings.md#settings) till `~10`.|
+| 2x  | _Aktiva LTS_ -och _underhålls LTS_ Node. js-versioner (~ 10 rekommenderas). Rikta in dig på versionen i Azure genom att ange WEBSITE_NODE_DEFAULT_VERSION- [appens inställning](functions-how-to-use-azure-function-app-settings.md#settings) till `~10`.|
 
 Du kan se den aktuella versionen som körningen använder genom att kontrol lera appen ovan eller genom att skriva ut `process.version` från vilken funktion som helst.
 
@@ -465,7 +465,7 @@ Det finns två sätt att installera paket på Funktionsapp:
 
 ## <a name="environment-variables"></a>Miljövariabler
 
-I funktioner visas [appinställningar](functions-app-settings.md), till exempel tjänst anslutnings strängar, som miljövariabler under körningen. Du kan komma åt de här inställningarna med hjälp av `process.env`, som visas här i det andra och tredje anropet till `context.log()` där vi loggar `AzureWebJobsStorage`-och `WEBSITE_SITE_NAME`-miljövariablerna:
+I funktioner visas [appinställningar](functions-app-settings.md), till exempel tjänst anslutnings strängar, som miljövariabler under körningen. Du kan komma åt de här inställningarna med hjälp av `process.env`, som visas här i den andra och tredje anropet till `context.log()` där vi loggar `AzureWebJobsStorage` och `WEBSITE_SITE_NAME` miljövariablerna:
 
 ```javascript
 module.exports = async function (context, myTimer) {
@@ -483,7 +483,7 @@ När du kör lokalt läses AppData från projekt filen [Local. Settings. JSON](f
 
 ## <a name="configure-function-entry-point"></a>Konfigurera funktionens start punkt
 
-@No__t-0-egenskaperna `scriptFile` och `entryPoint` kan användas för att konfigurera platsen och namnet på den exporterade funktionen. Dessa egenskaper kan vara viktiga när ditt java script är indelat.
+`function.json` egenskaperna `scriptFile` och `entryPoint` kan användas för att konfigurera platsen och namnet på den exporterade funktionen. Dessa egenskaper kan vara viktiga när ditt java script är indelat.
 
 ### <a name="using-scriptfile"></a>Använda `scriptFile`
 
@@ -503,7 +503,7 @@ FunctionApp
  | - package.json
 ```
 
-@No__t-0 för `myNodeFunction` ska innehålla en `scriptFile`-egenskap som pekar på filen med den exporterade funktionen som ska köras.
+`function.json` för `myNodeFunction` ska innehålla en `scriptFile`-egenskap som pekar på filen med den exporterade funktionen som ska köras.
 
 ```json
 {
@@ -668,7 +668,7 @@ module.exports = function (context) {
 
 Med hjälp av nyckelorden `async` och `await` kan du undvika båda dessa fel. Använd Node. js [-verktyget `util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) om du vill aktivera fel-första funktions sätt för callback-format till inväntade funktioner.
 
-I exemplet nedan går det inte att utföra alla ohanterade undantag som genererades under funktions körningen, men det enskilda anropet som utlöste ett undantag kunde inte utföras. Nyckelordet `await` innebär att steg som följer `readFileAsync` bara körs efter att `readFile` har slutförts. Med `async` och `await` behöver du inte heller anropa återanropet från @no__t 2.
+I exemplet nedan går det inte att utföra alla ohanterade undantag som genererades under funktions körningen, men det enskilda anropet som utlöste ett undantag kunde inte utföras. Nyckelordet `await` innebär att steg som följer `readFileAsync` bara körs efter att `readFile` har slutförts. Med `async` och `await`behöver du inte heller anropa `context.done()` motringning.
 
 ```javascript
 // Recommended pattern
@@ -677,8 +677,9 @@ const util = require('util');
 const readFileAsync = util.promisify(fs.readFile);
 
 module.exports = async function (context) {
+    let data;
     try {
-        const data = await readFileAsync('./hello.txt');
+        data = await readFileAsync('./hello.txt');
     } catch (err) {
         context.log.error('ERROR', err);
         // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation

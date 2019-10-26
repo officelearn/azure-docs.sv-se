@@ -1,88 +1,82 @@
 ---
 title: Övervaka Surface Hub med Azure Monitor | Microsoft Docs
-description: Använda Surface Hub-lösning för att spåra hälsotillståndet för dina Surface Hub och förstå hur de används.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: Använd Surface Hub lösning för att spåra hälso tillståndet för dina Surface Hub och förstå hur de används.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/16/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 7e0dbb4c3cd8ae4bb552e7b7f0748f1bde2f51de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/16/2018
+ms.openlocfilehash: 7ced5f678b9f8b2d4aa073a984276f41b8b7c4b9
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232782"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900624"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Övervaka Surface Hub med Azure Monitor för att spåra deras hälsa
 
-![Surface Hub-symbol](./media/surface-hubs/surface-hub-symbol.png)
+![Surface Hub symbol](./media/surface-hubs/surface-hub-symbol.png)
 
-Den här artikeln beskrivs hur du kan använda Surface Hub-lösning i Azure Monitor för att övervaka Microsoft Surface Hub-enheter. Lösningen kan du spåra hälsotillståndet för dina Surface Hub samt förstå hur de används.
+I den här artikeln beskrivs hur du kan använda Surface Hub lösning i Azure Monitor för att övervaka Microsoft Surface Hub-enheter. Lösningen hjälper dig att spåra hälso tillståndet för dina Surface Hub och förstå hur de används.
 
-Varje Surface Hub har Microsoft Monitoring Agent installerad. Dess genom att du kan skicka data från Surface Hub till en Log Analytics-arbetsyta i Azure Monitor-agenten. Loggfiler läses från dina Surface Hub och kan sedan skickas till Azure Monitor. Problem som servrar är offline, kalendern inte synkroniserar, eller om enhetskontot inte kan logga in på Skype visas på instrumentpanelen för Surface Hub i Azure Monitor. Du kan identifiera enheter som inte körs eller som är har andra problem, och eventuellt tillämpa korrigeringar för upptäckta problem med hjälp av data i instrumentpanelen.
+Varje Surface Hub har Microsoft Monitoring Agent installerad. Genom agenten kan du skicka data från Surface Hub till en Log Analytics arbets yta i Azure Monitor. Loggfilerna läses från dina Surface Hub och skickas sedan till Azure Monitor. Problem som servrar som är offline, kalender som inte synkroniseras eller om enhets kontot inte kan logga in på Skype visas i Surface Hub instrument panelen i Azure Monitor. Genom att använda data i instrument panelen kan du identifiera enheter som inte kör eller som har andra problem och eventuellt tillämpa korrigeringar för de problem som upptäckts.
 
 ## <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
-Använd följande information för att installera och konfigurera lösningen. För att kunna hantera dina Surface Hub i Azure Monitor, behöver du följande:
+Använd följande information för att installera och konfigurera lösningen. För att kunna hantera Surface Hub i Azure Monitor behöver du följande:
 
-* En [Log Analytics-prenumeration](https://azure.microsoft.com/pricing/details/log-analytics/) nivå som har stöd för antalet enheter som du vill övervaka. Log Analytics priset varierar beroende på hur många enheter har registrerats och hur mycket data det processer. Du vill ha i åtanke när du planerar distributionen Surface Hub.
+* En [Log Analytics prenumerations](https://azure.microsoft.com/pricing/details/log-analytics/) nivå som stöder antalet enheter som du vill övervaka. Log Analytics prissättningen varierar beroende på hur många enheter som har registrerats och hur mycket data de bearbetar. Du bör tänka på detta när du planerar distributionen av Surface Hub.
 
-Nu ska ska du lägga till en befintlig Log Analytics-arbetsyta eller skapa en ny. Detaljerade instruktioner för med någon av metoderna är på [skapa en Log Analytics-arbetsyta i Azure-portalen](../learn/quick-create-workspace.md). När du har konfigurerat Log Analytics-arbetsytan, finns det två sätt att registrera dina Surface Hub-enheter:
+Sedan kan du antingen lägga till en befintlig Log Analytics arbets yta eller skapa en ny. Detaljerade instruktioner för hur du använder någon av metoderna finns i [skapa en Log Analytics arbets yta i Azure Portal](../learn/quick-create-workspace.md). När Log Analytics arbets ytan har kon figurer ATS finns det två sätt att registrera dina Surface Hub enheter:
 
 * Automatiskt via Intune
-* Manuellt via **inställningar** på Surface Hub-enhet.
+* Manuellt via **inställningarna** på Surface Hubs enheten.
 
 ## <a name="set-up-monitoring"></a>Konfigurera övervakning
-Du kan övervaka hälsotillståndet och aktiviteten hos dina Surface Hub med Azure Monitor. Du kan registrera Surface Hub med hjälp av Intune eller lokalt med hjälp av **inställningar** på Surface Hub.
+Du kan övervaka hälsa och aktivitet för din Surface Hub med hjälp av Azure Monitor. Du kan registrera Surface Hub med hjälp av Intune eller lokalt genom att använda **inställningarna** på Surface Hub.
 
-## <a name="connect-surface-hubs-to-azure-monitor-through-intune"></a>Ansluta Surface Hub till Azure Monitor via Intune
-Du behöver arbetsyte-ID och arbetsytenyckel för Log Analytics-arbetsytan som hanterar Surface hub. Du kan hämta dem från arbetsyteinställningar i Azure-portalen.
+## <a name="connect-surface-hubs-to-azure-monitor-through-intune"></a>Anslut Surface Hub-Azure Monitor via Intune
+Du behöver arbets ytans ID och arbets ytans nyckel för Log Analytics arbets ytan som hanterar Surface Hub. Du kan hämta dem från inställningarna för arbets ytan i Azure Portal.
 
-Intune är en Microsoftprodukt som låter dig centralt hantera konfigurationsinställningarna för Log Analytics-arbetsyta tillämpas på en eller flera av dina enheter. Följ dessa steg om du vill konfigurera dina enheter via Intune:
+Intune är en Microsoft-produkt som gör att du kan hantera konfigurations inställningarna för Log Analytics arbets ytan centralt som tillämpas på en eller flera av dina enheter. Följ dessa steg om du vill konfigurera dina enheter via Intune:
 
 1. Logga in på Intune.
-2. Gå till **inställningar** > **anslutna källor**.
-3. Skapa eller redigera en princip som baseras på Surface Hub-mallen.
-4. Gå till avsnittet Azure Operational Insights av principen och lägga till Log Analytics *arbetsyte-ID* och *Arbetsytenyckel* till principen.
+2. Navigera till **inställningar** > **anslutna källor**.
+3. Skapa eller redigera en princip baserat på Surface Hub-mallen.
+4. Gå till avsnittet Azure-Operational Insights i principen och Lägg till Log Analytics *arbetsyte-ID* och *arbets ytans nyckel* till principen.
 5. Spara principen.
-6. Associera principen med den aktuella gruppen med enheter.
+6. Koppla principen till en lämplig enhets grupp.
 
    ![Intune-princip](./media/surface-hubs/intune.png)
 
-Intune synkroniserar sedan inställningarna för Log Analytics med enheter i målgruppen, registrera dem i Log Analytics-arbetsytan.
+Intune synkroniserar sedan Log Analytics inställningarna med enheterna i mål gruppen och registrerar dem i arbets ytan Log Analytics.
 
-## <a name="connect-surface-hubs-to-azure-monitor-using-the-settings-app"></a>Ansluta Surface Hub till Azure Monitor med appen inställningar
-Du behöver arbetsyte-ID och arbetsytenyckel för Log Analytics-arbetsytan som hanterar Surface hub. Du kan hämta dem från inställningarna för Log Analytics-arbetsyta i Azure-portalen.
+## <a name="connect-surface-hubs-to-azure-monitor-using-the-settings-app"></a>Anslut Surface Hub-Azure Monitor med appen Inställningar
+Du behöver arbets ytans ID och arbets ytans nyckel för Log Analytics arbets ytan som hanterar Surface Hub. Du kan hämta dem från inställningarna för arbets ytan Log Analytics i Azure Portal.
 
-Om du inte använder Intune för att hantera din miljö kan du registrera enheter manuellt via **inställningar** på varje Surface Hub:
+Om du inte använder Intune för att hantera din miljö kan du registrera enheter manuellt via **Inställningar** på varje Surface Hub:
 
-1. Öppna från dina Surface Hub **inställningar**.
-2. Ange administratörsautentiseringsuppgifter för enheten när du tillfrågas.
-3. Klicka på **enheten**, och under **övervakning**, klickar du på **konfigurera inställningar för Log Analytics**.
-4. Välj **aktivera övervakning**.
-5. I inställningsdialogrutan för Log Analytics, skriver du den Log Analytics **arbetsyte-ID** och Skriv den **Arbetsytenyckel**.  
-   ![Inställningar](./media/surface-hubs/settings.png)
-6. Klicka på **OK** att slutföra konfigurationen.
+1. Öppna **Inställningar**från Surface Hub.
+2. Ange autentiseringsuppgifter för enhets administratören när du uppmanas till det.
+3. Klicka på **den här enheten**och klicka på **Konfigurera Log Analytics inställningar**under **övervakning**.
+4. Välj **Aktivera övervakning**.
+5. I dialog rutan Log Analytics inställningar anger du Log Analytics **arbetsyte-ID** och anger **arbets ytans nyckel**.  
+   ![inställningar](./media/surface-hubs/settings.png)
+6. Slutför konfigurationen genom att klicka på **OK** .
 
-Om huruvida konfigurationen tillämpades på enheten visas en bekräftelse. Om den var, visas ett meddelande om att agenten har anslutits till Azure Monitor. Enheten börjar skicka data till Azure Monitor kan du visa och vidta åtgärder för den.
+En bekräftelse visas som talar om huruvida konfigurationen har tillämpats på enheten eller inte. I så fall visas ett meddelande om att agenten har anslutits till Azure Monitor. Enheten börjar sedan skicka data till Azure Monitor där du kan visa och agera på den.
 
-## <a name="monitor-surface-hubs"></a>Övervaka Surface hub
-Övervakning av Surface Hub är med Azure Monitor mycket lik övervakning av andra registrerade enheter.
+## <a name="monitor-surface-hubs"></a>Övervaka Surface Hub
+Att övervaka dina Surface Hub med Azure Monitor är mycket som att övervaka andra registrerade enheter.
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-När du klickar på panelen Surface Hub visas enhetens hälsotillstånd.
+När du klickar på panelen Surface Hub visas enhetens hälsa.
 
-   ![Surface Hub-instrumentpanelen](./media/surface-hubs/surface-hub-dashboard.png)
+   ![Surface Hub instrument panel](./media/surface-hubs/surface-hub-dashboard.png)
 
-Du kan skapa [aviseringar](../platform/alerts-overview.md) baserat på befintliga eller anpassade sökningar i loggen. Med hjälp av data som Azure Monitor samlar in från Surface Hub, kan du söka efter problem och avisering på de villkor som du definierar för dina enheter.
+Du kan skapa [aviseringar](../platform/alerts-overview.md) baserat på befintliga eller anpassade loggs ökningar. Med hjälp av data Azure Monitor som samlas in från dina Surface Hub kan du söka efter problem och aviseringar om de villkor som du definierar för dina enheter.
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [logga frågor i Azure Monitor](../log-query/log-query-overview.md) att visa detaljerad Surface Hub-data.
-* Skapa [aviseringar](../platform/alerts-overview.md) att meddela dig när problem uppstår med Surface hub.
+* Använd [logg frågor i Azure Monitor](../log-query/log-query-overview.md) om du vill visa detaljerade Surface Hub data.
+* Skapa [aviseringar](../platform/alerts-overview.md) för att meddela dig när problem uppstår med Surface Hub.

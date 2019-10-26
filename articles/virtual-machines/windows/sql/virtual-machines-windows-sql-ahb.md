@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: aac20034fb4a528e48d5b383f39205a952878539
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262859"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900699"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Ändra licens modell för en SQL Server virtuell dator i Azure
 I den här artikeln beskrivs hur du ändrar licens modellen för en SQL Server virtuell dator (VM) i Azure med hjälp av den nya providern för SQL VM-resurs, **Microsoft. SqlVirtualMachine**.
@@ -31,7 +31,7 @@ Modellen "betala per användning" innebär att kostnaden för den virtuella Azur
 
 Azure Hybrid-förmån tillåter användningen av SQL Server licenser med Software Assurance ("kvalificerad licens") på virtuella Azure-datorer. Med Azure Hybrid-förmån debiteras kunderna inte för att använda en SQL Server-licens på en virtuell dator. Men de måste fortfarande betala för kostnaden för den underliggande moln beräkningen (det vill säga bas priset), lagringen och säkerhets kopieringarna. De måste också betala för I/O som är kopplade till deras användning av tjänsterna (om det är tillämpligt).
 
-Enligt Microsofts produkt villkor: "Kunderna måste ange att de använder Azure SQL Database (hanterad instans, Elastisk pool och Enkel databas), Azure Data Factory, SQL Server Integration Services eller SQL Server Virtual Machines under Azure Hybrid-förmån för SQL Server när du konfigurerar arbets belastningar på Azure. "
+Enligt Microsofts produkt villkor: "kunder måste ange att de använder Azure SQL Database (hanterad instans, Elastisk pool och Enkel databas), Azure Data Factory, SQL Server Integration Services eller SQL Server Virtual Machines under Azure Hybrid-förmånen för SQL Server när du konfigurerar arbets belastningar på Azure. "
 
 Om du vill ange användningen av Azure Hybrid-förmån för SQL Server på en virtuell Azure-dator och är kompatibel, har du tre alternativ:
 
@@ -41,7 +41,7 @@ Om du vill ange användningen av Azure Hybrid-förmån för SQL Server på en vi
 
 Licens typen för SQL Server anges när den virtuella datorn har tillhandahållits. Du kan ändra det när som helst efteråt. Växling mellan licens modeller medför ingen nedtid, startar inte om den virtuella datorn, lägger till ingen ytterligare kostnad och börjar gälla omedelbart. Aktiverings Azure Hybrid-förmån *minskar* i själva verket kostnaderna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna använda SQL VM-IaaS måste tillägget SQL Server. Därför behöver du följande:
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
@@ -51,7 +51,7 @@ För att kunna använda SQL VM-IaaS måste tillägget SQL Server. Därför behö
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>Ändra licensen för virtuella datorer som redan har registrerats hos resurs leverantören 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -149,12 +149,12 @@ Du kan ändra licens typen för en SQL Server VM som "betala per användning" el
 
 ## <a name="known-errors"></a>Kända fel
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>Det gick inte att hitta resursen Microsoft. SqlVirtualMachine\</SqlVirtualMachines/resurs grupp > under resurs\<gruppen resurs grupp >.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>Det gick inte att hitta resursen Microsoft. SqlVirtualMachine/SqlVirtualMachines/\<Resource Group > under resurs gruppen\<resurs grupp >.
 Det här felet uppstår när du försöker ändra licens modellen på en SQL Server VM som inte har registrerats med SQL VM-resurs leverantören:
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
-Du måste registrera resurs leverantören för din [prenumeration](virtual-machines-windows-sql-register-with-resource-provider.md#register-the-sql-vm-resource-provider-with-a-subscription)och [Registrera SQL Server VM med resurs leverantören](virtual-machines-windows-sql-register-with-resource-provider.md). 
+Du måste registrera din prenumeration med resurs leverantören och sedan [registrera SQL Server VM med resurs leverantören](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>Det går inte att verifiera argumentet för parametern SKU
 Du kan stöta på det här felet när du försöker ändra SQL Server VM licens modell genom att använda Azure PowerShell versioner senare än 4,0:

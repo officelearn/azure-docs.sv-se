@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828616"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896960"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagrings konfiguration för SQL Server virtuella datorer
 
@@ -28,7 +28,7 @@ I det här avsnittet beskrivs hur Azure konfigurerar lagring för dina SQL Serve
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda de automatiserade konfigurations inställningarna för lagring måste den virtuella datorn ha följande egenskaper:
 
@@ -40,7 +40,7 @@ Om du vill använda de automatiserade konfigurations inställningarna för lagri
 
 I följande avsnitt beskrivs hur du konfigurerar lagring för nya SQL Server virtuella datorer.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 När du konfigurerar en virtuell Azure-dator med hjälp av en SQL Server Galleri avbildning väljer du **ändra konfiguration** på fliken **SQL Server inställningar** för att öppna konfigurations sidan Prestandaoptimerad lagring. Du kan antingen lämna värdena som standard eller ändra vilken typ av disk konfiguration som passar dina behov bäst utifrån din arbets belastning. 
 
@@ -99,7 +99,7 @@ För befintliga SQL Server virtuella datorer kan du ändra vissa lagrings instä
 * SQL-data
 * SQL-logg
 * Annat (icke-SQL-lagring)
-* Tillgängligt
+* Tillgänglig
 
 Om du vill ändra lagrings inställningarna väljer du **Konfigurera** under **Inställningar**. 
 
@@ -111,7 +111,7 @@ Du kan ändra disk inställningarna för de enheter som konfigurerades under SQL
 
 
 
-## <a name="storage-configuration"></a>Lagringskonfiguration
+## <a name="storage-configuration"></a>Storage-konfiguration
 
 Det här avsnittet innehåller en referens för de lagrings konfigurations ändringar som Azure utför automatiskt vid etablering eller konfiguration av SQL VM i Azure Portal.
 
@@ -124,31 +124,28 @@ Information om priser finns på sidan för [lagrings priser](https://azure.micro
 
 Azure använder följande inställningar för att skapa lagringspoolen på SQL Server virtuella datorer.
 
-| Inställning | Value |
+| Inställning | Värde |
 | --- | --- |
 | Rand storlek |256 KB (data lager hantering); 64 KB (transaktion) |
 | Diskstorlekar |1 TB varje |
 | Cache |Läsa |
 | Fördelnings storlek |storlek för 64 KB NTFS-allokeringsenhet |
-| Snabb fil initiering |Aktiverad |
-| Låsa sidor i minnet |Aktiverad |
-| Återställning |Enkel återställning (ingen återhämtning) |
-| Antal kolumner |Antal data diskar<sup>1</sup> |
-| TempDB-plats |Lagrat på data diskar<sup>2</sup> |
+| Återställning | Enkel återställning (ingen återhämtning) |
+| Antal kolumner |Antal data diskar upp till 8<sup>1</sup> |
+
 
 <sup>1</sup> när lagringspoolen har skapats kan du inte ändra antalet kolumner i lagringspoolen.
 
-<sup>2</sup> den här inställningen gäller endast den första enhet som du skapar med hjälp av lagrings konfigurations funktionen.
 
 ## <a name="workload-optimization-settings"></a>Inställningar för arbets belastnings optimering
 
 I följande tabell beskrivs de tre tillgängliga alternativen för arbets belastnings typer och deras motsvarande optimeringar:
 
-| Typ av arbetsbelastning | Beskrivning | Optimeringar |
+| Arbets belastnings typ | Beskrivning | Optimeringar |
 | --- | --- | --- |
-| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Inga |
+| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Inget |
 | **Transaktionell bearbetning** |Optimerar lagringen för traditionella databas OLTP-arbetsbelastningar |Spårnings flagga 1117<br/>Spårnings flagga 1118 |
-| **Datalagring** |Optimerar lagringen för analys-och rapporterings arbets belastningar |Spårnings flagga 610<br/>Spårnings flagga 1117 |
+| **Data lager hantering** |Optimerar lagringen för analys-och rapporterings arbets belastningar |Spårnings flagga 610<br/>Spårnings flagga 1117 |
 
 > [!NOTE]
 > Du kan bara ange arbets belastnings typen när du etablerar en virtuell SQL-dator genom att välja den i steget lagrings konfiguration.

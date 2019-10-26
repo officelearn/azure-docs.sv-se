@@ -1,23 +1,18 @@
 ---
 title: Vanliga frågor och svar – Övervakare av nätverksprestanda lösning i Azure | Microsoft Docs
 description: Den här artikeln innehåller vanliga frågor om Övervakare av nätverksprestanda i Azure. Övervakare av nätverksprestanda (NPM) hjälper dig att övervaka nätverkets prestanda i nära real tid och identifiera och hitta Flask halsar i nätverks prestanda.
-services: log-analytics
-documentationcenter: ''
-author: vinynigam
-manager: agummadi
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/12/2018
+author: vinynigam
 ms.author: vinigam
-ms.openlocfilehash: b3274c214aa60c930e62e651af960d5f01cbdd20
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
-ms.translationtype: MT
+ms.date: 10/12/2018
+ms.openlocfilehash: 26e9215c7e00eca59d33f7e8d259a689ad642f19
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782115"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898857"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
@@ -64,7 +59,7 @@ För noden för att stödja övervakning med TCP-protokoll:
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Hur kan jag ändra TCP-porten som används av NPM för övervakning?
-Du kan ändra TCP-porten som används av NPM för övervakning genom att köra skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript) . Du måste ange det port nummer som du vill använda som parameter. Om du till exempel vill aktivera TCP på port 8060 kör `EnableRules.ps1 8060`du. Se till att du använder samma TCP-port på alla noder som används för övervakning.
+Du kan ändra TCP-porten som används av NPM för övervakning genom att köra skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript) . Du måste ange det port nummer som du vill använda som parameter. Om du till exempel vill aktivera TCP på port 8060 kör du `EnableRules.ps1 8060`. Se till att du använder samma TCP-port på alla noder som används för övervakning.
 
 Skriptet konfigurerar endast Windows-brandväggen lokalt. Om du har regler för nätverks brand vägg eller nätverks säkerhets grupp (NSG) kontrollerar du att de tillåter trafik till TCP-porten som används av NPM.
 
@@ -136,7 +131,7 @@ NPM kan övervaka anslutningar till tjänster i valfri del av världen, från en
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Vilka regioner stöds för NPM ExpressRoute-övervakaren?
 NPM kan övervaka dina ExpressRoute-kretsar som finns i valfri Azure-region. Om du vill publicera till NPM måste du ha en Log Analytics arbets yta som måste finnas i någon av de [regioner som stöds](/azure/expressroute/how-to-npm)
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Varför har vissa hopp marker ATS som oidentifierade i vyn nätverkstopologi?
 NPM använder en modifierad version av traceroute för att identifiera topologin från käll agenten till målet. Ett oidentifierat hopp representerar att nätverks hoppet inte svarade på käll agentens traceroute-begäran. Om tre efterföljande nätverks hopp inte svarar på agentens traceroute, markerar lösningen de svar som inte svarar som oidentifierade och försöker inte identifiera fler hopp.
@@ -165,7 +160,7 @@ E2EMedianLatency är svars tiden uppdaterad var tredje minut efter att ha samlat
 
 ### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Varför skiljer sig hopp på hopp-nummer från HopLatencyValues 
 HopLatencyValues är källa till slut punkt.
-Till exempel: Humle – A, B, C. AvgHopLatency – 10, 15, 20. Det innebär att källa till en svars tid = 10, källa till B latens = 15 och källa till C-svars tid är 20. UI beräknar en-B-hopp fördröjning som 5 i topologin
+Till exempel: humle-A, B, C. AvgHopLatency – 10, 15, 20. Det innebär att källa till en svars tid = 10, källa till B latens = 15 och källa till C-svars tid är 20. UI beräknar en-B-hopp fördröjning som 5 i topologin
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>Lösningen visar 100% förlust, men det finns en anslutning mellan källan och målet
 Detta kan inträffa om antingen värd brand väggen eller den mellanliggande brand väggen (nätverks brand väggen eller Azure-NSG) blockerar kommunikationen mellan käll agenten och målet via den port som används för övervakning av NPM (som standard är porten 8084, om inte kunden har ändrat detta).
@@ -175,7 +170,7 @@ Detta kan inträffa om antingen värd brand väggen eller den mellanliggande bra
 * Kontrol lera att en mellanliggande nätverks brand vägg eller Azure-NSG inte blockerar kommunikationen på den begärda porten genom att använda PsPing för tredje part med hjälp av anvisningarna nedan:
   * psping-verktyget är tillgängligt för nedladdning [här](https://technet.microsoft.com/sysinternals/psping.aspx) 
   * Kör följande kommando från Källnoden.
-    * psping-n 15 \<-målnod IPAddress\>:p ortnumber som standard använder NPM 8084-port. Om du uttryckligen har ändrat detta genom att använda skriptet EnableRules. ps1 anger du det anpassade port numret som du använder). Det här är ett ping från en Azure-dator till en lokal plats
+    * psping-n 15 \<målnod IPAddress\>:p ortNumber som standard använder NPM 8084-port. Om du uttryckligen har ändrat detta genom att använda skriptet EnableRules. ps1 anger du det anpassade port numret som du använder). Det här är ett ping från en Azure-dator till en lokal plats
 * Kontrol lera att pingarna fungerar. Annars indikerar det att en mellanliggande nätverks brand vägg eller Azure-NSG blockerar trafiken på den här porten.
 * Kör nu kommandot från målnod till nodens IP-adress.
 
@@ -190,7 +185,7 @@ NPM identifierar nu ExpressRoute-kretsar och peering-anslutningar i alla prenume
 
 Det kan finnas ett scenario där det finns en felfri anslutning mellan de lokala och Azure-noderna, men trafiken går inte över ExpressRoute-kretsen som kon figurer ATS för att övervakas av NPM. 
 
-Detta kan inträffa om:
+Detta kan inträffa i följande fall:
 
 * ER-kretsen är inte tillgänglig.
 * Flödes filtren konfigureras på ett sådant sätt att de ger prioritet till andra vägar (t. ex. en VPN-anslutning eller en annan ExpressRoute-krets) över avsedd ExpressRoute-krets. 
@@ -219,7 +214,7 @@ Detta kan inträffa om en eller flera är sanna:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>I tjänst anslutnings övervakarens funktion är svars tiden för tjänsten, men både nätverks förlust och svars tid är giltiga
 Detta kan inträffa om mål tjänsten inte är ett webb program, men testet är konfigurerat som ett webb test. Redigera test konfigurationen och välj test typ som nätverk i stället för webben.
 
-## <a name="miscellaneous"></a>Diverse
+## <a name="miscellaneous"></a>Övrigt
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Påverkas prestandan på noden som används för övervakning?
 NPM-processen har kon figurer ATS att stoppa om den använder mer än 5% av värd processor resurserna. Detta är för att säkerställa att du kan fortsätta att använda noderna för sina vanliga arbets belastningar utan att påverka prestandan.

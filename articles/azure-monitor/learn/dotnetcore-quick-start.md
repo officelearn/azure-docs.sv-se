@@ -1,29 +1,27 @@
 ---
 title: Snabbstart med Azure Application Insights | Microsoft Docs
 description: Innehåller instruktioner för att snabbt konfigurera en ASP.NET Core-webbapp för övervakning med Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: 313e0c6cb487ed986c38610131c4bc19f2eeb846
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: ec39380409d5170efb56530c86a41d934e41728a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916191"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900576"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
-Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. 
+Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. 
 
 I den här snabb starten får du hjälp med att lägga till Application Insights SDK i ett befintligt ASP.NET Core-webbprogram. Läs mer om hur du konfigurerar Application Insights utan Visual Studio checka in den här [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -39,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
@@ -52,11 +50,11 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
     En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
-   | Inställningar        |  Value           | Beskrivning  |
+   | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
    | **Resursgrupp**     | myResourceGroup      | Namnet på den nya resursgrupp som är värd för App Insights-data |
-   | **Location** | East US | Välj en plats nära dig eller nära där appen finns |
+   | **Plats** | USA, östra | Välj en plats nära dig eller nära där appen finns |
 
 2. Klicka på **Skapa**.
 
@@ -70,26 +68,26 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 3. Välj ditt konto och din prenumeration > Välj den **befintliga resurs** som du skapade i Azure Portal > Klicka på **Registrera**.
 
-4. Välj **projekt** > **Hantera NuGet paket** > **Källa: NuGet.org** > **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
+4. Välj **projekt** > **Hantera NuGet-paket** > **paket källa: NuGet.org** > **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
 
 5. Välj **Felsök** > **Starta utan felsökning** (Ctrl + F5) för att starta appen.
 
-    ![översiktsvyn för Application Insights](./media/dotnetcore-quick-start/3debug.png)
+    ![Översiktsmenyn i Application Insights](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
-> Det tar 3–5 minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta mått endast registreras när det finns aktiva begäranden eller åtgärder.
+> Det tar 3-5 minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta måtten endast registreras när det finns aktiva begäranden eller åtgärder.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 
 1. Öppna sidan Application Insights **Översikt** i Azure Portal genom att välja **Start** och under senaste resurser väljer du den resurs som du skapade tidigare för att visa information om ditt program som körs.
 
-   ![översiktsvyn för Application Insights](./media/dotnetcore-quick-start/4overview.png)
+   ![Översiktsmenyn i Application Insights](./media/dotnetcore-quick-start/4overview.png)
 
 2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-   ![Programkarta](./media/dotnetcore-quick-start/5appmap.png)
+   ![Programavbildning](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Klicka på ikonen ![](./media/dotnetcore-quick-start/006.png) program karta för **app Analytics** **i Analytics**. Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Klicka på ikonen för **app Analytics** ![program karta](./media/dotnetcore-quick-start/006.png) **vyn i Analytics**. Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
    ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -97,9 +95,9 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![diagram med hälsotillståndsöversiktens tidslinje](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-5. Klicka på **mått**till vänster. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan klicka på **Lägg till nytt diagram** om du vill skapa fler anpassade vyer eller välja **Redigera** för att ändra befintliga diagramtyper, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsarens sid inläsnings tid" från insamlingen mått och "AVG". Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. Klicka på **mått**till vänster. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan klicka på **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagramtyper, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsarens sid inläsnings tid" från insamlingen mått och "AVG". Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
-     ![Fliken mått: Genomsnittligt diagram över sid inläsnings tid i webbläsare](./media/dotnetcore-quick-start/8metrics.png)
+     ![Fliken mått: genomsnittlig sid inläsnings tid i webbläsaren](./media/dotnetcore-quick-start/8metrics.png)
 
 ## <a name="video"></a>Video
 

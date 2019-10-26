@@ -1,150 +1,144 @@
 ---
-title: Network Performance Monitor-lösningen i Azure Log Analytics | Microsoft Docs
-description: Använd funktionen för ExpressRoute-övervakning i Övervakare av nätverksprestanda för att övervaka anslutningar slutpunkt till slutpunkt och prestanda mellan dina avdelningskontor och Azure, via Azure ExpressRoute.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Övervakare av nätverksprestanda lösning i Azure Log Analytics | Microsoft Docs
+description: Använd ExpressRoute Monitor-funktionen i Övervakare av nätverksprestanda för att övervaka anslutnings möjligheter från slut punkt till slut punkt och prestanda mellan dina avdelnings kontor och Azure, via Azure ExpressRoute.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/27/2018
+author: abshamsft
 ms.author: absha
-ms.openlocfilehash: 7f9c0d905a7b2bc81063e59229d78a1200894d47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/27/2018
+ms.openlocfilehash: 5383402816eddba4c631c240585723b7c7119cef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963874"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898882"
 ---
-# <a name="expressroute-monitor"></a>ExpressRoute-övervakning
+# <a name="expressroute-monitor"></a>Övervakaren ExpressRoute
 
-Du kan använda funktionen för Azure ExpressRoute-övervakning [Övervakare av nätverksprestanda](network-performance-monitor.md) att övervaka anslutningar slutpunkt till slutpunkt och prestanda mellan dina avdelningskontor och Azure, via Azure ExpressRoute. Viktiga fördelar är: 
+Du kan använda Azure ExpressRoute Monitor-funktionen i [övervakare av nätverksprestanda](network-performance-monitor.md) för att övervaka anslutnings möjligheter från slut punkt till slut punkt och prestanda mellan dina avdelnings kontor och Azure, via Azure ExpressRoute. Viktiga fördelar: 
 
-- Autoidentifiering av ExpressRoute-kretsar som är associerade med prenumerationen.
-- Spårning av bredbandsanvändning, förlust och svarstid i kretsen, peering och Azure Virtual Network-nivå för ExpressRoute.
-- Identifiering av nätverkstopologin för ExpressRoute-kretsarna.
+- Automatisk identifiering av ExpressRoute-kretsar som är associerade med din prenumeration.
+- Spårning av bandbredds användning, förlust och svars tid på kretsen, peering och Azure Virtual Network nivå för ExpressRoute.
+- Identifiering av nätverk sto pol Ogin för dina ExpressRoute-kretsar.
 
-![ExpressRoute-övervakning](media/network-performance-monitor-expressroute/expressroute-intro.png)
+![Övervakaren ExpressRoute](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
 ## <a name="configuration"></a>Konfiguration 
-För att öppna konfigurationen för Övervakare av nätverksprestanda, öppna den [Network Performance Monitor-lösningen](network-performance-monitor.md) och välj **konfigurera**.
+Öppna konfigurationen för Övervakare av nätverksprestanda genom att öppna [övervakare av nätverksprestanda lösning](network-performance-monitor.md) och välja **Konfigurera**.
 
-### <a name="configure-network-security-group-rules"></a>Konfigurera regler för nätverkssäkerhetsgrupper 
-För servrar i Azure som används för övervakning via Övervakare av nätverksprestanda, kan du konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta TCP-trafik på porten som används av Övervakare av nätverksprestanda för syntetiska transaktioner. Standardporten är 8084. Den här konfigurationen kan Log Analytics-agenten installeras på Azure virtuella datorer ska kunna kommunicera med en lokal övervakningsagent. 
+### <a name="configure-network-security-group-rules"></a>Konfigurera regler för nätverks säkerhets grupper 
+För de servrar i Azure som används för övervakning via Övervakare av nätverksprestanda konfigurerar du regler för nätverks säkerhets grupper (NSG) för att tillåta TCP-trafik på den port som används av Övervakare av nätverksprestanda för syntetiska transaktioner. Standard porten är 8084. Med den här konfigurationen kan Log Analytics-agenten som är installerad på virtuella Azure-datorer kommunicera med en lokal övervaknings agent. 
 
-Mer information om Nätverkssäkerhetsgrupper finns i [Nätverkssäkerhetsgrupper](../../virtual-network/manage-network-security-group.md). 
+Mer information om NSG: er finns i [nätverks säkerhets grupper](../../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
-> Innan du fortsätter med det här steget kan installera en lokal server-agenten och Azure server-agenten och kör EnableRules.ps1 PowerShell-skript. 
+> Innan du fortsätter med det här steget ska du installera den lokala server agenten och Azure Server agenten och köra PowerShell-skriptet EnableRules. ps1. 
 
  
-### <a name="discover-expressroute-peering-connections"></a>Identifiera peering ExpressRoute-anslutningar 
+### <a name="discover-expressroute-peering-connections"></a>Identifiera ExpressRoute peering-anslutningar 
  
-1. Välj den **ExpressRoute Peerings** vy.
-2. Välj **identifiera nu** att identifiera alla ExpressRoute privat peering-sessioner som är anslutna till de virtuella nätverken i Azure-prenumeration som är kopplad till den här Azure Log Analytics-arbetsytan.
+1. Välj vyn **ExpressRoute peering** .
+2. Välj **identifiera nu** för att identifiera alla ExpressRoute-privata peer-datorer som är anslutna till de virtuella nätverken i Azure-prenumerationen som är länkad till den här Azure Log Analytics-arbetsytan.
 
     >[!NOTE]
-    > Lösningen identifierar för närvarande endast ExpressRoute privat peering-sessioner. 
+    > Lösningen identifierar för närvarande endast ExpressRoute privata peering. 
 
     >[!NOTE]
-    > Endast identifieras privata peerkopplingar som är anslutna till virtuella nätverk som är associerade med prenumerationen är kopplad till den här Log Analytics-arbetsytan. Om ExpressRoute är ansluten till virtuella nätverk utanför den prenumeration som är länkad till den här arbetsytan kan du skapa en Log Analytics-arbetsyta i dessa prenumerationer. Använd sedan Övervakare av nätverksprestanda för att övervaka de peer-kopplingar. 
+    > Endast privata peer-anslutningar anslutna till de virtuella nätverk som är kopplade till den prenumeration som är länkad till den här Log Analytics arbets ytan identifieras. Om ExpressRoute är anslutet till virtuella nätverk utanför den prenumeration som är länkad till den här arbets ytan skapar du en Log Analytics arbets yta i dessa prenumerationer. Använd sedan Övervakare av nätverksprestanda för att övervaka dessa peer-kopplingar. 
 
-    ![Konfiguration av ExpressRoute-övervakning](media/network-performance-monitor-expressroute/expressroute-configure.png)
+    ![Konfiguration av ExpressRoute-övervakaren](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
-   När identifieringen är klar visas de identifierade privata peering-anslutningarna i en tabell. Övervakning för dessa peer-kopplingar är först i ett inaktiverat tillstånd. 
+   När identifieringen är klar visas de identifierade privata peering-anslutningarna i en tabell. Övervakningen av dessa peer-kopplingar är inlednings vis i inaktiverat tillstånd. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>Aktivera övervakning av ExpressRoute-peering-anslutningar 
 
-1. Välj den privata peering-anslutningen som du vill övervaka.
-2. I rutan till höger väljer den **övervaka denna Peering** markerar du kryssrutan. 
-3. Om du tänker skapa health-händelser för den här anslutningen väljer **aktivera övervakning av hälsotillstånd för denna peering**. 
-4. Välj övervakning villkor. Du kan ange anpassade tröskelvärden för generering av fönsterhändelse hälsa genom att ange tröskelvärden. När värdet för villkoret går över det valda tröskelvärdet för peering-anslutningen, genereras en hälsotillståndshändelse. 
-5. Välj **Lägg till agenter** välja övervakningsagenter som du planerar att använda för att övervaka denna peering-anslutningen. Se till att du lägger till agenter i bägge ändar av anslutningen. Du behöver minst en agent i det virtuella nätverket som är anslutna till den här peeringen. Du måste också minst en lokal agent som är anslutna till den här peeringen. 
-6. Välj **spara** att spara konfigurationen. 
+1. Välj den privata peering-anslutning som du vill övervaka.
+2. Markera kryss rutan **övervaka denna peering** i rutan till höger. 
+3. Om du tänker skapa hälso händelser för den här anslutningen väljer du **Aktivera hälso övervakning för denna peering**. 
+4. Välj övervaknings villkor. Du kan ange anpassade tröskelvärden för generering av hälso händelser genom att ange tröskelvärdena. När värdet för villkoret hamnar ovanför det valda tröskelvärdet för peering-anslutningen genereras en hälso händelse. 
+5. Välj **Lägg till agenter** för att välja de övervaknings agenter som du vill använda för övervakning av den här peering-anslutningen. Se till att du lägger till agenter i båda ändar av anslutningen. Du behöver minst en agent i det virtuella nätverket som är anslutet till denna peering. Du behöver också minst en lokal agent som är ansluten till denna peering. 
+6. Välj **Spara** för att spara konfigurationen. 
 
    ![Konfiguration av ExpressRoute-övervakning](media/network-performance-monitor-expressroute/expressroute-configure-discovery.png)
 
 
-När du har aktiverat de regler och select-värden och agenter Vänta 30 till 60 minuter att fylla i värdena och **ExpressRoute-övervakning** paneler visas. När du ser övervakning panelerna övervakas din ExpressRoute-kretsar och anslutningsresurser nu av Övervakare av nätverksprestanda. 
+När du har aktiverat reglerna och valt värden och agenter, vänta 30 till 60 minuter för värdena att fylla i och **ExpressRoute övervaknings** paneler visas. När du ser övervaknings panelerna övervakas nu ExpressRoute-kretsarna och anslutnings resurserna av Övervakare av nätverksprestanda. 
 
 >[!NOTE]
-> Den här funktionen fungerar på ett tillförlitligt sätt på arbetsytor som har uppgraderat till det nya frågespråket.
+> Den här funktionen fungerar tillförlitligt på arbets ytor som har uppgraderats till det nya frågespråket.
 
 ## <a name="walkthrough"></a>Genomgång 
 
-Network Performance Monitor-instrumentpanelen visar en översikt över hälsotillståndet för ExpressRoute-kretsar och peering-anslutningar. 
+Instrument panelen Övervakare av nätverksprestanda visar en översikt över hälso tillståndet för ExpressRoute-kretsar och peering-anslutningar. 
 
-![Network Performance Monitor-instrumentpanel](media/network-performance-monitor-expressroute/npm-dashboard-expressroute.png) 
+![Övervakare av nätverksprestanda instrument panel](media/network-performance-monitor-expressroute/npm-dashboard-expressroute.png) 
 
-### <a name="circuits-list"></a>Kretsar lista 
+### <a name="circuits-list"></a>Krets lista 
 
-Om du vill se en lista över alla övervakade ExpressRoute-kretsar, väljer du panelen ExpressRoute-kretsar. Du kan välja en krets och visa dess hälsotillstånd, trenddiagram för paketförlust, nyttjandet av bandbredd och latens. Diagrammen är interaktiva. Du kan välja ett anpassat tidsintervall för diagrammen. Dra musen över ett område i diagrammet att zooma in och se detaljerade datapunkter. 
+Om du vill se en lista över alla övervakade ExpressRoute-kretsar väljer du panelen ExpressRoute-kretsar. Du kan välja en krets och visa dess hälso tillstånd, trend diagram för paket förlust, bandbredds användning och svars tid. Diagrammen är interaktiva. Du kan välja ett anpassat tids fönster för att rita diagram. Dra musen över ett yta i diagrammet för att zooma in och se detaljerade data punkter. 
 
-![ExpressRoute-kretsar lista](media/network-performance-monitor-expressroute/expressroute-circuits.png) 
+![Lista med ExpressRoute-kretsar](media/network-performance-monitor-expressroute/expressroute-circuits.png) 
 
-### <a name="trends-of-loss-latency-and-throughput"></a>Trender för dataförlust, svarstid och dataflöde 
+### <a name="trends-of-loss-latency-and-throughput"></a>Trender för förlust, svars tid och data flöde 
 
-Bandbredd användning, svarstid och förlust diagram är interaktiva. Du kan zooma in till ett visst avsnitt dessa diagram med hjälp av musen kontroller. Du kan också se den bandbredd, svarstid och förlust av data om du för andra intervall. I det övre vänstra hörnet under den **åtgärder** knapp, väljer **datum/tid**. 
+Diagrammets användnings-, latens-och förlust diagram är interaktiva. Du kan zooma in till ett avsnitt i dessa diagram med hjälp av mus kontroller. Du kan också se bandbredd, latens och förlust data för andra intervall. I det övre vänstra hörnet under knappen **åtgärder** väljer du **datum/tid**. 
 
-![ExpressRoute-svarstid](media/network-performance-monitor-expressroute/expressroute-latency.png) 
+![ExpressRoute-svars tid](media/network-performance-monitor-expressroute/expressroute-latency.png) 
 
-### <a name="peerings-list"></a>Peerkopplingar lista 
+### <a name="peerings-list"></a>Peering-lista 
 
-Om du vill ta fram en lista över alla anslutningar till virtuella nätverk över privat peering, Välj den **privat Peerings** panelen på instrumentpanelen. Här kan du kan välja en virtuell nätverksanslutning och visa dess hälsotillstånd, trenddiagram för paketförlust, nyttjandet av bandbredd och latens. 
+Om du vill visa en lista över alla anslutningar till virtuella nätverk via privat peering väljer du panelen **privata peer** -kopplingar på instrument panelen. Här kan du välja en virtuell nätverks anslutning och visa dess hälso tillstånd, trend diagram för paket förlust, bandbredds användning och svars tid. 
 
-![ExpressRoute-peerkopplingar](media/network-performance-monitor-expressroute/expressroute-peerings.png) 
+![ExpressRoute-peering](media/network-performance-monitor-expressroute/expressroute-peerings.png) 
 
-### <a name="circuit-topology"></a>Kretsen topologi 
+### <a name="circuit-topology"></a>Krets sto pol Ogin 
 
-Om du vill visa krets topologi, Välj den **topologi** panelen. Den här åtgärden tar dig till vyn topologin för den valda krets eller -peering. Diagram över topologi ger svarstiden för varje segment i nätverket och varje layer 3-hopp representeras av en nod i diagrammet. Att välja ett hopp visar mer information om hoppet. Om du vill öka nivån av synlighet att inkludera den lokala hopp skjutreglaget under **filter**. Flytta skjutreglaget till vänster eller höger ökar eller minskar antalet hopp i diagrammet topologi. Fördröjning mellan varje segment är synliga, vilket gör att för snabbare isolering med lång svarstid segment i nätverket.
+Om du vill visa krets sto pol Ogin väljer du panelen **topologi** . Den här åtgärden tar dig till Topology-vyn för den valda kretsen eller peering. Topology-diagrammet ger svars tiden för varje segment i nätverket och varje nivå 3-hopp representeras av en nod i diagrammet. Genom att välja ett hopp visar du mer information om hoppet. Om du vill öka Synlighets nivån så att den inkluderar lokala hopp, flytta du skjutreglaget under **filter**. Om du flyttar skjutreglaget till vänster eller höger ökar eller minskar du antalet hopp i Topology-diagrammet. Svars tiden för varje segment visas, vilket möjliggör snabbare isolering av segment med hög latens i nätverket.
 
 ![ExpressRoute-topologi](media/network-performance-monitor-expressroute/expressroute-topology.png)
 
-### <a name="detailed-topology-view-of-a-circuit"></a>Topologi för detaljerad vy av en krets 
+### <a name="detailed-topology-view-of-a-circuit"></a>Detaljerad Topology-vy över en krets 
 
-Den här vyn visar virtuella nätverksanslutningar. 
+I den här vyn visas virtuella nätverks anslutningar. 
 
-![ExpressRoute-anslutningar för virtuellt nätverk](media/network-performance-monitor-expressroute/expressroute-vnet.png)
+![ExpressRoute virtuella nätverks anslutningar](media/network-performance-monitor-expressroute/expressroute-vnet.png)
  
 ## <a name="diagnostics"></a>Diagnostik 
 
-Övervakare av nätverksprestanda hjälper dig att diagnostisera anslutningsproblem för flera krets. Några av de problem som du kan se listas nedan.
+Övervakare av nätverksprestanda hjälper dig att diagnostisera flera problem med anslutning till kretsen. Några av de problem som du kan se visas nedan.
 
-Du kan se Meddelandekoderna och ställa in aviseringar på dem via **LogAnalytics**. På den **NPM diagnostik** kan du se beskrivningar för varje diagnostik-meddelande utlöst.
+Du kan se meddelande koderna och ange aviseringar på dem via **LogAnalytics**. På sidan **NPM Diagnostics** kan du se beskrivningar för varje diagnostik-meddelande som utlöses.
 
-| Meddelandekod (loggar) | Beskrivning |
+| Meddelande kod (loggar) | Beskrivning |
 | --- | --- |
-| 5501 | Det går inte att passera genom den sekundära anslutningen av ExpressRoute-krets |
-| 5502 | Det går inte att passera genom den primära anslutningen av ExpressRoute-krets |
-| 5503 | Ingen krets hittades för den prenumeration som är länkat till arbetsytan | 
-| 5508 | Det går inte att fastställa om trafiken passerar genom några kretsar för sökvägen |
+| 5501 | Det går inte att passera genom den sekundära anslutningen av ExpressRoute-kretsen |
+| 5502 | Det gick inte att passera genom den primära anslutningen av ExpressRoute-kretsen |
+| 5503 | Ingen krets hittades för den prenumeration som är länkad till arbets ytan | 
+| 5508 | Det går inte att avgöra om trafiken passerar genom en eller flera kretsar för sökvägen |
 | 5510 | Trafiken passerar inte genom den avsedda kretsen | 
 | 5511 | Trafiken passerar inte genom det avsedda virtuella nätverket | 
 
-**Kretsen har stoppats.** Övervakare av nätverksprestanda meddelar dig så snart anslutningen mellan dina lokala resurser och Azure-nätverk går förlorad. Det här meddelandet kan du vidta proaktiva åtgärder innan du får användaren kundproblem och minskade tider för driftstopp.
+**Kretsen är avstängd.** Övervakare av nätverksprestanda meddelar dig så snart anslutningen mellan dina lokala resurser och virtuella Azure-nätverk förloras. Det här meddelandet hjälper dig att vidta förebyggande åtgärder innan du får användar eskaleringer och minskar stillestånds tiden.
 
 ![ExpressRoute-kretsen är nere](media/network-performance-monitor-expressroute/expressroute-circuit-down.png)
  
 
-**Trafik som passerar inte genom avsedda kretsen.** Övervakare av nätverksprestanda meddelar dig när trafiken inte är passerar genom den avsedda ExpressRoute-kretsen. Det här problemet kan inträffa om kretsen är nere och trafik som flödar genom säkerhetskopiering vägen. Det kan också inträffa om det finns ett routningsproblem. Den här informationen hjälper dig att proaktivt hantera eventuella konfigurationsproblem i dina principer för Routning och se till att den mest optimala och säker vägen används. 
+**Trafik flödar inte genom avsedd krets.** Övervakare av nätverksprestanda meddelar dig när trafiken inte flödar genom avsedd ExpressRoute-krets. Det här problemet kan inträffa om kretsen är avstängd och trafik flödar genom säkerhets kopierings vägen. Det kan också inträffa om det uppstår ett problem med routningen. Den här informationen hjälper dig att proaktivt hantera eventuella konfigurations problem i routningsprinciperna och se till att den mest optimala och säkra vägen används. 
 
  
 
-**Trafik som passerar inte genom primära kretsen.** Övervakare av nätverksprestanda meddelar dig när trafik som flödar genom den sekundära ExpressRoute-kretsen. Även om det inte uppstår några problem med nätverksanslutningen i det här fallet, proaktivt gör felsökning av problem med den primära kretsen dig bättre förberedd. 
+**Trafiken flödar inte genom primär krets.** Övervakare av nätverksprestanda meddelar dig när trafik flödar genom den sekundära ExpressRoute-kretsen. Även om du inte kommer att uppleva några anslutnings problem i det här fallet, kan du proaktivt felsöka problemen med den primära kretsen för beredde bättre. 
 
  
-![ExpressRoute trafikflöde](media/network-performance-monitor-expressroute/expressroute-traffic-flow.png)
+![ExpressRoute-trafikflöde](media/network-performance-monitor-expressroute/expressroute-traffic-flow.png)
 
 
-**Prestandaförsämring på grund av högsta användning.** Du kan jämföra användningstrend bandbredd med svarstid trenden att identifiera om Azure-arbetsbelastning försämringen är på grund av en topp i bandbreddsanvändningen eller inte. Du kan sedan vidta åtgärder i enlighet med detta.
+**Försämring på grund av hög belastning.** Du kan korrelera trenden för bandbredds användning med svars tids trenden för att identifiera om Azures arbets belastnings försämring beror på en belastning i bandbredds användningen eller inte. Sedan kan du vidta åtgärder i enlighet med detta.
 
-![Bandbreddsanvändningen för ExpressRoute](media/network-performance-monitor-expressroute/expressroute-peak-utilization.png)
+![ExpressRoute bandbredds användning](media/network-performance-monitor-expressroute/expressroute-peak-utilization.png)
 
  
 
 ## <a name="next-steps"></a>Nästa steg
-[Söka loggarna](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad nätverk prestanda dataposter.
+[Sök i loggar](../../azure-monitor/log-query/log-query-overview.md) om du vill visa detaljerade data poster för nätverks prestanda.

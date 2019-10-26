@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6e74830a3a62ea54c5d8e7f9815fe2ba6eed6d58
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: MT
+ms.openlocfilehash: 49567ae52b8ea706ebf7e093880e919cc8bbdbad
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166498"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901650"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob filesystem-drivrutinen (ABFS): en dedikerad Azure Storage driv rutin för Hadoop
 
@@ -54,11 +54,11 @@ ABFS-drivrutinen stöder två typer av autentisering så att Hadoop-programmet k
 
 All konfiguration för ABFS-drivrutinen lagras i konfigurations filen <code>core-site.xml</code>. På Hadoop-distributioner med [Ambari](https://ambari.apache.org/)kan konfigurationen också hanteras med hjälp av webb portalen eller Ambari REST API.
 
-Information om alla konfigurations poster som stöds anges i den [officiella Hadoop-dokumentationen](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
+Information om alla konfigurations poster som stöds anges i den [officiella Hadoop-dokumentationen](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
 
 ### <a name="hadoop-documentation"></a>Hadoop-dokumentation
 
-ABFS-drivrutinen är fullständigt dokumenterad i den [officiella Hadoop-dokumentationen](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)
+ABFS-drivrutinen är fullständigt dokumenterad i den [officiella Hadoop-dokumentationen](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
 
 ## <a name="next-steps"></a>Nästa steg
 

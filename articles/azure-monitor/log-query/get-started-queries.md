@@ -1,24 +1,18 @@
 ---
 title: Kom igång med logg frågor i Azure Monitor | Microsoft Docs
 description: Den här artikeln innehåller en självstudie för att komma igång med att skriva logg frågor i Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/09/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: MT
+ms.date: 05/09/2019
+ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076748"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894309"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med logg frågor i Azure Monitor
 
@@ -63,7 +57,7 @@ Frågan som visas ovan returnerar 10 resultat från tabellen *SecurityEvent* , i
 * Pipe-tecknet (|) separerar kommandon, så utdata från den första i indata för följande kommando. Du kan lägga till valfritt antal skickas-element.
 * Efter denna pipe finns kommandot **ta** , som returnerar ett angivet antal godtyckliga poster från tabellen.
 
-Vi kunde faktiskt köra frågan även utan att lägga `| take 10` till – som fortfarande är giltig, men den kan returnera upp till 10 000 resultat.
+Vi kunde faktiskt köra frågan även utan att lägga till `| take 10` – som fortfarande är giltig, men den kan returnera upp till 10 000 resultat.
 
 ### <a name="search-queries"></a>Sökfrågor
 Sök frågor är mindre strukturerade och passar i allmänhet bättre för att hitta poster som innehåller ett särskilt värde i någon av kolumnerna:
@@ -73,7 +67,7 @@ search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-Den här frågan söker efter poster som innehåller frasen "kryptografisk" i *SecurityEvent* -tabellen. Av dessa poster returneras och visas 10 poster. Om vi utelämnar `in (SecurityEvent)` delen och bara kör `search "Cryptographic"`så fortsätter sökningen över *alla* tabeller, vilket skulle ta längre tid och vara mindre effektivt.
+Den här frågan söker efter poster som innehåller frasen "kryptografisk" i *SecurityEvent* -tabellen. Av dessa poster returneras och visas 10 poster. Om vi utelämnar `in (SecurityEvent)` delen och bara kör `search "Cryptographic"`, fortsätter sökningen över *alla* tabeller, vilket skulle ta längre tid och vara mindre effektivt.
 
 > [!WARNING]
 > Sök frågor är vanligt vis långsammare än tabellbaserade frågor eftersom de måste bearbeta mer data. 
@@ -135,14 +129,14 @@ SecurityEvent
 ```
     
 > [!NOTE]
-> Värden kan ha olika typer, så du kan behöva omvandla dem för att utföra jämförelse av rätt typ. Till exempel är kolumnen SecurityEvent *nivå* av typen sträng, så du måste omvandla den till en numerisk typ, till exempel *int* eller *Long*, innan du kan använda numeriska operatorer på den:`SecurityEvent | where toint(Level) >= 10`
+> Värden kan ha olika typer, så du kan behöva omvandla dem för att utföra jämförelse av rätt typ. Till exempel är kolumnen SecurityEvent *nivå* av typen sträng, så du måste omvandla den till en numerisk typ, till exempel *int* eller *Long*, innan du kan använda numeriska operatorer på den: `SecurityEvent | where toint(Level) >= 10`
 
 ## <a name="specify-a-time-range"></a>Ange ett tidsintervall
 
 ### <a name="time-picker"></a>Tids väljare
 Tids väljaren är bredvid knappen Kör och anger att vi bara vill fråga efter poster från de senaste 24 timmarna. Detta är standard tidsintervallet som används för alla frågor. Om du bara vill hämta poster från den senaste timmen väljer du _senaste timmen_ och kör frågan igen.
 
-![Tidsväljare](media/get-started-queries/timepicker.png)
+![Tidväljaren](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Tids filter i fråga
@@ -154,7 +148,7 @@ SecurityEvent
 | where toint(Level) >= 10
 ```
 
-I ovanstående tids filter `ago(30m)` innebär "30 minuter sedan" så den här frågan returnerar bara poster från de senaste 30 minuterna. Andra tidsenheter inkluderar dagar (2D), minuter (25m) och sekunder (tiotal).
+I ovanstående tids filter `ago(30m)` innebär "30 minuter sedan" så att den här frågan endast returnerar poster från de senaste 30 minuterna. Andra tidsenheter inkluderar dagar (2D), minuter (25m) och sekunder (tiotal).
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>Projekt och utöka: Välj och beräkna kolumner
@@ -226,7 +220,7 @@ Perf
 ```
 
 ### <a name="summarize-by-a-time-column"></a>Sammanfatta per tids kolumn
-Grupp resultat kan också baseras på en tids kolumn eller ett annat kontinuerligt värde. `by TimeGenerated` Om du bara sammanfattar flera gånger skapas grupper för varje enskild millisekund över tidsintervallet, eftersom dessa är unika värden. 
+Grupp resultat kan också baseras på en tids kolumn eller ett annat kontinuerligt värde. Om du bara sammanfattar `by TimeGenerated` skapas grupper för varje enskild millisekund över tidsintervallet, eftersom dessa är unika värden. 
 
 Om du vill skapa grupper baserat på kontinuerliga värden, är det bäst att dela upp intervallet i hanterbara enheter med hjälp av **lager**. Följande fråga analyserar *prestanda* poster som mäter ledigt minne (*Tillgängliga megabyte*) på en speciell dator. Den beräknar genomsnitts värdet för varje timme-period under de senaste 7 dagarna:
 

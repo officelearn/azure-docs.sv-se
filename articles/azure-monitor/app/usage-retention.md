@@ -1,61 +1,56 @@
 ---
-title: Kvarhållning av Användaranalys för webbprogram med Azure Application Insights | Microsoft docs
-description: Hur många användare som återvänder till din app?
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Analys av användar kvarhållning för webb program med Azure Application Insights | Microsoft-dokument
+description: Hur många användare kommer tillbaka till din app?
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/03/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
-ms.openlocfilehash: bda79520dd86cc14161f6f22cd24feb2e35849ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 05/03/2017
+ms.reviewer: mbullwin
+ms.openlocfilehash: 5f5f6235354adc565815ac2eab0a1c774267102d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372642"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899421"
 ---
-# <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Kvarhållning av Användaranalys för webbprogram med Application Insights
+# <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analys av användar kvarhållning för webb program med Application Insights
 
-Funktionen kvarhållning i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) kan du analysera hur många användare som återvänder till din app och hur ofta de utföra vissa åtgärder eller uppnå mål. Om du kör en game plats, kan du jämföra antalet användare som gå tillbaka till platsen efter att förlora ett spel med antalet som returnerar efter vann. Den här kunskapen kan hjälpa dig att förbättra både din användarupplevelse och din strategi.
+Med funktionen kvarhållning i [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md) kan du analysera hur många användare som kommer tillbaka till din app och hur ofta de utför specifika uppgifter eller uppnå mål. Om du till exempel kör en spel webbplats kan du jämföra antalet användare som återvänder till webbplatsen efter att ha förlorat ett spel med det antal som returneras efter att ha vunnit. Den här kunskapen kan hjälpa dig att förbättra både din användar upplevelse och din affärs strategi.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
-Om du ännu inte visas data i verktyget kvarhållning i Application Insights-portalen [Lär dig hur du kommer igång med verktyg för användning](usage-overview.md).
+Om du ännu inte ser data i kvarhållning verktyget i Application Insights Portal, lär du [dig hur du kommer igång med användnings verktygen](usage-overview.md).
 
-## <a name="the-retention-tool"></a>Kvarhållnings-verktyget
+## <a name="the-retention-tool"></a>Kvarhållning-verktyget
 
 ![Kvarhållningsverktyg](./media/usage-retention/retention.png)
 
-1. I verktygsfältet kan du skapa nya rapporter för kvarhållning, öppna befintliga kvarhållning rapporter, spara den aktuella kvarhållning rapporten eller spara som, återställa ändringar som gjorts i sparade rapporter, uppdatera data i rapporten, dela rapport via e-post eller Direktlänk och få åtkomst till dokumentationen sidan. 
-2. Kvarhållning visas alla användare som gjort något sedan kom tillbaka och gjorde något annat under en period som standard. Du kan välja olika kombinationer av händelser för att begränsa fokus på specifika användaraktiviteter.
-3. Lägg till ett eller flera filter på Egenskaper. Exempelvis kan du fokusera på användare i ett visst land eller region. Klicka på **uppdatering** när du har angett filtren. 
-4. Övergripande kvarhållningsdiagram visar en sammanfattning av lagringstid för användare i den valda tidsperioden. 
-5. Rutnätet visar antalet användare som behålls enligt Frågeverktyget i #2. Varje rad motsvarar en kohort för användare som utförde en händelse i den tid som tidsperiod visas. Varje cell i raden visar hur många av den kohorten returneras minst en gång i en senare period. Vissa användare kan returnera i mer än en period. 
-6. Insights-korten visar översta fem initierande händelser och översta fem returnerade händelser att ge användarna en bättre förståelse för deras kvarhållning rapporten. 
+1. I verktygsfältet kan användarna skapa nya bevarande rapporter, öppna befintliga bevarande rapporter, Spara aktuell kvarhållning eller Spara som, återställa ändringar som gjorts i sparade rapporter, uppdatera data i rapporten, dela rapporten via e-post eller Direct Link och komma åt dokumentationen tvåsidig. 
+2. Som standard visar kvarhållning alla användare som gjorde något och sedan kom tillbaka och gjorde något mer under en viss period. Du kan välja olika kombinationer av händelser för att begränsa fokuseringen på specifika användar aktiviteter.
+3. Lägg till ett eller flera filter för egenskaper. Du kan till exempel fokusera på användare i ett visst land eller en viss region. Klicka på **Uppdatera** när du har angett filtren. 
+4. Det övergripande kvarhållning diagrammet visar en sammanfattning av användar kvarhållning för den valda tids perioden. 
+5. Rutnätet visar antalet användare som behålls enligt Frågeverktyget i #2. Varje rad representerar en kohort användare som utförde en händelse under den tids period som visas. Varje cell i raden visar hur många av de kohort som returnerade minst en gång i en senare period. Vissa användare kan returnera mer än en period. 
+6. Insikts korten visar de fem främsta inledande händelserna och de fem främsta returnerade händelserna för att ge användarna en bättre förståelse för deras kvarhållning rapport. 
 
-![Kvarhållning muspekaren](./media/usage-retention/hover.png)
+![Mus hovring för kvarhållning](./media/usage-retention/hover.png)
 
-Användarna kan hovra över celler i kvarhållnings-verktyget för att få åtkomst till analytics-knappen och verktygstips förklarar vad cellen innebär. Knappen Analytics tar användarna till analysverktyg med en i förväg fråga generera användare från cellen. 
+Användare kan hovra över celler på kvarhållningsintervallet för att få åtkomst till analys knappen och verktygs tips som förklarar vad cellen innebär. Analytics-knappen tar användare till analys verktyget med en i förväg ifylld fråga för att generera användare från cellen. 
 
-## <a name="use-business-events-to-track-retention"></a>Använda affärshändelser för att spåra kvarhållning
+## <a name="use-business-events-to-track-retention"></a>Använd affärs händelser för att spåra kvarhållning
 
-För att få den mest användbara kvarhållning analysen kan du mäta händelser som representerar viktiga aktiviteter. 
+För att få den mest användbara bevarande analysen kan du mäta händelser som representerar betydande affärs aktiviteter. 
 
-Många användare kan till exempel öppna en sida i din app utan spelar spel som visas. Spåra bara sidvisningar skulle därför tillhandahålla en felaktig uppskattning av hur många som returneras för att spela upp spelet när du har haft nytta av den tidigare. Om du vill ha en tydlig bild av returnerar spelare, ska din app skicka en anpassad händelse när en användare faktiskt spelas upp.  
+Många användare kan till exempel öppna en sida i din app utan att spela upp spelet som visas. Att bara spåra sid visningarna skulle därför ge en felaktig uppskattning av hur många personer som går tillbaka till att spela spelet efter att ha besökt det tidigare. För att få en tydlig bild av att returnera spelare, ska appen skicka en anpassad händelse när en användare faktiskt spelar.  
 
-Det är bra att koda anpassade händelser som representerar viktiga åtgärder och använda dem för din analys för kvarhållning. Om du vill samla in spel resultatet, måste du skriva en rad med kod för att skicka en anpassad händelse till Application Insights. Om du skriver i webbsidans kod eller i Node.JS, ser ut så här:
+Det är en bra idé att koda anpassade händelser som representerar viktiga affärs åtgärder och använda dem för din bevarande analys. Om du vill avbilda spel resultatet måste du skriva en kodrad för att skicka en anpassad händelse till Application Insights. Om du skriver det i webb sidans kod eller Node. JS ser det ut så här:
 
 ```JavaScript
     appinsights.trackEvent("won game");
 ```
 
-Eller i ASP.NET server-kod:
+Eller i ASP.NET-Server kod:
 
 ```csharp
    telemetry.TrackEvent("won game");
@@ -65,12 +60,12 @@ Eller i ASP.NET server-kod:
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill aktivera användning upplevelser börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sidvisningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Om du redan skicka anpassade händelser eller sidvisningar, utforska användningsverktygen om du vill veta hur användarna använder din tjänst.
+- Börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sid visningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)om du vill aktivera användnings upplevelser.
+- Om du redan skickar anpassade händelser eller sid visningar, utforska användnings verktygen för att lära dig hur användarna använder tjänsten.
     - [Användare, sessioner, händelser](usage-segmentation.md)
     - [Trattar](usage-funnels.md)
     - [Användarflöden](usage-flows.md)
     - [Arbetsböcker](../../azure-monitor/app/usage-workbooks.md)
-    - [Lägg till användarkontext](usage-send-user-context.md)
+    - [Lägg till användar kontext](usage-send-user-context.md)
 
 

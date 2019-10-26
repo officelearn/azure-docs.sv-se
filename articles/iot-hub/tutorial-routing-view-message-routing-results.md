@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f1dfbbc6036273e6ddf724e185e23073e7a78505
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: HT
+ms.openlocfilehash: 6d40f7d81faa77a48a32aadefdf44ed89e184efb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809103"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900790"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Självstudie: del 2 – Visa dirigerade meddelanden
 
@@ -116,9 +116,9 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
-4. Under **jobb sto pol Ogin**väljer du **indata**.
+1. Under **jobb sto pol Ogin**väljer du **indata**.
 
-5. I rutan **indata** väljer du **Lägg till Stream-indata** och väljer IoT Hub. På skärmen som visas fyller du i följande fält:
+2. I rutan **indata** väljer du **Lägg till Stream-indata** och väljer IoT Hub. På skärmen som visas fyller du i följande fält:
 
    **Inmatat alias**: Den här självstudien använder **contosoinputs**.
 
@@ -138,7 +138,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
    ![Konfigurera indata för Stream Analytics-jobbet](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. Välj **Spara**.
+3. Välj **Spara**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Lägga till utdata till Stream Analytics-jobbet
 

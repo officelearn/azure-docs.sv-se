@@ -1,25 +1,19 @@
 ---
 title: Skapa och dela instrumentpaneler med data från Azure Log Analytics | Microsoft Docs
 description: Den här självstudien hjälper dig att förstå hur Log Analytics instrument paneler kan visualisera alla sparade logg frågor, vilket ger dig en enkel lins att visa din miljö.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
-ms.date: 06/19/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: c859fb9b8b3509e8369559a3a9a4d45cb4e34125
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: baa510e060a3bca46110842600262345072b1a18
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414155"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894798"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Skapa och dela instrumentpaneler för Log Analytics
 
@@ -33,13 +27,13 @@ Log Analytics instrument paneler kan visualisera alla dina sparade logg frågor,
 
 Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
  
-## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure Portal
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-shared-dashboard"></a>Skapa delade instrumentpaneler
 Välj **instrument panel** för att öppna standard [instrument panelen](../../azure-portal/azure-portal-dashboards.md). Instrument panelen kommer att se annorlunda ut än i exemplet nedan.
 
-![Instrumentpanelen för Azure portal](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
+![Azure Portal instrument panel](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Här kan du samla de driftdata som är viktigast för IT över alla dina Azure-resurser, inklusive telemetri från Azure Log Analytics.  Innan vi går vidare med visualiseringen av en logg fråga ska vi först skapa en instrument panel och dela den.  Vi kan sedan fokusera på vårt exempel på prestanda logg frågor, som kommer att återges som ett linje diagram och lägga till den på instrument panelen.  
 
@@ -47,7 +41,7 @@ Om du vill skapa en instrumentpanel väljer du knappen **Ny instrumentpanel** br
 
 ![Skapa en ny instrument panel i Azure Portal](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
 
-Detta skapar en ny, tom, privat instrumentpanel och du hamnar i anpassningsläge. Där kan du ge instrumentpanelen ett namn och lägga till eller ordna om paneler. Redigera namnet på instrument panelen och ange *exempel instrument panel* för den här självstudien och välj sedan anpassningen har **gjorts**.<br><br> ![Spara anpassade instrumentpaneler i Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+Detta skapar en ny, tom, privat instrumentpanel och du hamnar i anpassningsläge. Där kan du ge instrumentpanelen ett namn och lägga till eller ordna om paneler. Redigera namnet på instrument panelen och ange *exempel instrument panel* för den här självstudien och välj sedan **anpassningen har gjorts**.<br><br> ![Spara anpassade instrumentpaneler i Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
 
 Instrumentpaneler är privata som standard när de skapas, vilket innebär att du är den enda som kan se dem. Använd knappen **Dela** som visas tillsammans med andra kommandon i instrumentpanelen för att visa den för andra.
 

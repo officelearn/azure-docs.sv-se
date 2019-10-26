@@ -5,22 +5,22 @@ keywords: App Service, Azure App Service, skala, App Service-plan, ändra, skapa
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 10/24/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a5e69209c30eae816837ce8f00a065231a5fd821
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e8bdc749ee354e75a6043dbd6dac3f93a606f79e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067213"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898970"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera ett App Service plan i Azure
 
@@ -33,23 +33,17 @@ En [Azure App Service-plan](overview-hosting-plans.md) tillhandahåller de resur
 
 Du kan skapa en tom App Service plan, eller så kan du skapa en plan som en del av att skapa en app.
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **ny** > **webb + mobil**och väljer sedan webbapp eller någon annan typ av App Service app.
-
-2. Välj en befintlig App Service plan eller skapa en plan för den nya appen.
+1. I [Azure Portal](https://portal.azure.com)väljer du **ny** > **webbapp** eller någon annan typ av App Service app.
 
    ![Skapa en app i Azure Portal.][createWebApp]
 
-   Så här skapar du en plan:
+2. Konfigurera avsnittet **instans information** innan du konfigurerar app service plan. Inställningar som **publicera** och **operativ system** kan ändra de tillgängliga pris nivåerna för din app service plan. **Region** fastställer var App Service plan skapas.
+   
+3. I avsnittet **App Service plan** väljer du en befintlig plan eller skapar en plan genom att välja **Skapa nytt**.
 
-   a. Välj **[+] Skapa ny**.
+   ![Skapa en App Service plan.][createASP] 
 
-      ![Skapa en App Service plan.][createASP] 
-
-   b. För **App Service plan**anger du namnet på planen.
-
-   c. För **plats**väljer du en lämplig plats.
-
-   d. Välj en lämplig pris nivå för tjänsten för **pris nivå**. Välj **Visa alla** för att visa fler pris alternativ, till exempel **kostnads fri** och **delad**. När du har valt pris nivån klickar du på knappen **Välj** .
+4. När du skapar en plan kan du välja pris nivån för den nya planen. I **SKU och storlek**väljer du **ändra storlek** för att ändra pris nivån. 
 
 <a name="move"></a>
 
@@ -65,25 +59,20 @@ Du kan flytta en app till en annan App Service plan, så länge käll planen och
 
 1. I [Azure Portal](https://portal.azure.com)bläddrar du till den app som du vill flytta.
 
-1. Gå till avsnittet **App Service plan** på menyn.
+2. Välj **ändra App Service plan**på menyn till vänster.
 
-1. Välj **ändra App Service plan** för att öppna **App Service plan** väljaren.
+3. I list rutan **App Service plan** väljer du en befintlig plan att flytta appen till. List rutan visar bara de planer som finns i samma resurs grupp och geografiska region som den aktuella App Service plan. Om det inte finns någon sådan plan kan du skapa en plan som standard. Du kan också skapa en ny plan manuellt genom att välja **Skapa ny**.
 
+4. Om du skapar en plan kan du välja pris nivån för den nya planen. På **pris nivå**väljer du den befintliga nivån för att ändra den. 
+   
+   > [!IMPORTANT]
+   > Om du flyttar en app från en högre nivå plan till en plan med lägre nivåer, till exempel från **D1** till **F1**, kan appen förlora vissa funktioner i mål planen. Om din app exempelvis använder SSL-certifikat kan du se det här fel meddelandet:
+   >
+   > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+
+5. När du är färdig väljer du **OK**.
+   
    ![App Service plan väljare.][change] 
-
-1. I **App Service plan** väljar väljer du en befintlig plan att flytta appen till.   
-
-Sidan **välj App Service plan** visar bara planer som finns i samma resurs grupp och geografiska region som den aktuella appens App Service plan.
-
-Varje plan har sin egen pris nivå. Om du till exempel flyttar en webbplats från en **kostnads fri** nivå till en **standard** -nivå kan alla appar tilldelas till den för att använda **standard** nivåns funktioner och resurser. Men om du flyttar en app från en plan med högre nivå till en plan med lägre nivåer innebär det att du inte längre har åtkomst till vissa funktioner. Om din app använder en funktion som inte är tillgänglig i mål planen får du ett fel meddelande som visar vilken funktion som inte är tillgänglig. 
-
-Om till exempel en av dina appar använder SSL-certifikat kan du se det här fel meddelandet:
-
-`Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
-
-I det här fallet måste du, innan du kan flytta appen till mål planen, antingen:
-- Skala upp pris nivån för mål planen till **Basic** eller högre.
-- Ta bort alla SSL-anslutningar till din app.
 
 ## <a name="move-an-app-to-a-different-region"></a>Flytta en app till en annan region
 

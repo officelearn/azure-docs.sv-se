@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI – sfctl, nät volym | Microsoft Docs
 description: Beskriver sfctl CLI-volym kommandon Service Fabric för masken.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 4e2413a152048e08d6218783891c20b66ac2e618
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: cc26a0a3170f6cd75f5a1cbb3981044d28d9aba3
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034990"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901135"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Hämta och ta bort volym resurser.
@@ -27,8 +28,8 @@ Hämta och ta bort volym resurser.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| radera | Tar bort volym resursen. |
-| list | Visar en lista över alla volym resurser. |
+| delete | Tar bort volym resursen. |
+| lista | Visar en lista över alla volym resurser. |
 | visa | Hämtar volym resursen med det aktuella namnet. |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl nät volym borttagning
@@ -48,8 +49,8 @@ Tar bort volym resursen som identifieras av namnet.
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-mesh-volume-list"></a>sfctl nät volym lista
@@ -63,8 +64,8 @@ Hämtar information om alla volym resurser i en specifik resurs grupp. Informati
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-mesh-volume-show"></a>sfctl nät volym Visa
@@ -84,8 +85,8 @@ Hämtar information om volym resursen med det aktuella namnet. Informationen ink
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 

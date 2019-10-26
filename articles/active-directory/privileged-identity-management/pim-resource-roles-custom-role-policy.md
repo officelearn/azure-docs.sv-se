@@ -1,5 +1,5 @@
 ---
-title: Använd anpassade roller för Azure-resurser i PIM-Azure Active Directory | Microsoft Docs
+title: Använd anpassade roller för Azure-resurser i Privileged Identity Management-Azure Active Directory | Microsoft Docs
 description: Lär dig hur du använder anpassade roller för Azure-resurser i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/30/2018
+ms.date: 10/23/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d36514c97cf1f45ee0a435d3b716019d2762e5a
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 8e940dd0e4c653ed4921a9e8f245aab34107ba95
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804192"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895713"
 ---
-# <a name="use-custom-roles-for-azure-resources-in-pim"></a>Använd anpassade roller för Azure-resurser i PIM
+# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Använd anpassade roller för Azure-resurser i Privileged Identity Management
 
-Du kan behöva använda inställningar för strikt Azure Active Directory (Azure AD) Privileged Identity Management (PIM) för vissa medlemmar i en roll, samtidigt som du ger större självständighet för andra. Tänk dig ett scenario där din organisation anställer flera kontrakts partner för att hjälpa till med utvecklingen av ett program som kommer att köras i en Azure-prenumeration.
+Du kan behöva använda inställningar för strikt Privileged Identity Management (PIM) för vissa användare i en privilegie rad roll i din Azure Active Directory (Azure AD)-organisation, samtidigt som de ger större självständighet för andra. Överväg till exempel ett scenario där din organisation anlitar flera kontrakt för att hjälpa till med utvecklingen av ett program som kommer att köras i en Azure-prenumeration.
 
 Som resurs administratör vill du att personalen ska vara berättigad till åtkomst utan att kräva godkännande. Dock måste alla kontrakts partner godkännas när de begär åtkomst till organisationens resurser.
 
-Följ stegen som beskrivs i nästa avsnitt för att konfigurera riktade PIM-inställningar för Azure-resurs roller.
+Följ stegen som beskrivs i nästa avsnitt för att konfigurera riktade Privileged Identity Management inställningar för Azure-resurs roller.
 
 ## <a name="create-the-custom-role"></a>Skapa den anpassade rollen
 
@@ -40,15 +40,15 @@ När du skapar en anpassad roll ska du inkludera ett beskrivande namn så att du
 
 ## <a name="apply-pim-settings"></a>Använd PIM-inställningar
 
-När rollen har skapats i din klient går du till fönstret **Privileged Identity Management Azure-resurser** i Azure Portal. Välj den resurs som rollen gäller för.
+När rollen har skapats i din Azure AD-organisation går du till sidan **Privileged Identity Management-Azure-resurser** i Azure Portal. Välj den resurs som rollen gäller för.
 
 ![Fönstret Privileged Identity Management-Azure-resurser](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
-[Konfigurera inställningar för PIM-roller](pim-resource-roles-configure-role-settings.md) som ska gälla för dessa medlemmar i rollen.
+[Konfigurera Privileged Identity Management roll inställningar](pim-resource-roles-configure-role-settings.md) som ska gälla för dessa medlemmar i rollen.
 
 Ange slutligen [roller](pim-resource-roles-assign-roles.md) för den distinkta gruppen med medlemmar som du vill ska vara mål för de här inställningarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera inställningar för Azure-resurs roller i PIM](pim-resource-roles-configure-role-settings.md)
+- [Konfigurera inställningar för Azure-resurs roll i Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Anpassade roller i Azure](../../role-based-access-control/custom-roles.md)

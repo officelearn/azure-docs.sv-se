@@ -1,26 +1,20 @@
 ---
 title: Application Insights Telemetry i Visual Studio CodeLens | Microsoft Docs
 description: Kom snabbt åt din Application Insights-begäran och undantagstelemetri med CodeLens i Visual Studio.
-services: application-insights
-documentationcenter: .net
-author: NumberByColors
-manager: carmonm
-ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
-ms.service: application-insights
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: d4f7cfab8291fcb6d0160035b9e421a8d47b2396
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: vs-azure
+ms.openlocfilehash: 4232431be221fca076a6bff9305093354f08c44d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255185"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899327"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry i Visual Studio CodeLens
 Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag och förfrågningssvarstider. Om du installerar [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) i ditt program visas telemetrin i Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) – anteckningarna längst upp för varje funktion där du är van att se användbar information som antalet platser som refererar till funktionen, eller den person som senast redigerade den.
@@ -41,7 +35,7 @@ Leta efter Application Insights Telemetry i CodeLens-indikatorer för offentliga
 > 
 
 ## <a name="exceptions-in-codelens"></a>Undantag i CodeLens
-![TBD](./media/visual-studio-codelens/codelens-exceptions.png)
+![Inte klart](./media/visual-studio-codelens/codelens-exceptions.png)
 
 Indikatorn CodeLens-undantag visar antalet undantag som har inträffat under de senaste 24 timmarna från de 15 oftast inträffade undantagen i din app under denna period, vid bearbetning av den begäran som hanteras av metoden.
 
@@ -63,7 +57,7 @@ Om du vill se mer information klickar du på indikatorn CodeLens-undantag:
 > 
 
 ## <a name="requests-in-codelens"></a>Begäranden i CodeLens
-![TBD](./media/visual-studio-codelens/codelens-requests.png)
+![Inte klart](./media/visual-studio-codelens/codelens-requests.png)
 
 Indikatorn CodeLens-begäran visar antalet HTTP-begäranden som har hanterats av en metod under de senaste 24 timmarna, plus den procent av dessa begäranden som misslyckats.
 

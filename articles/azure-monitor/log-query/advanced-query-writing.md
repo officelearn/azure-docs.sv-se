@@ -1,34 +1,28 @@
 ---
 title: Avancerade frågor i Azure Monitor | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att skriva frågor i Azure Monitor Analytics-portalen.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: Den här artikeln innehåller en själv studie kurs om hur du använder Analytics Portal för att skriva frågor i Azure Monitor.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/15/2018
+ms.openlocfilehash: 8895224bef037c8c3f8b28a6085359837478d924
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589581"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894507"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Skriva avancerade frågor i Azure Monitor
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
+> Du bör slutföra [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-## <a name="reusing-code-with-let"></a>Återanvända kod med låter
-Använd `let` att tilldela resultaten till en variabel och referera till det senare i frågan:
+## <a name="reusing-code-with-let"></a>Återanvända kod med Let
+Använd `let` för att tilldela resultat till en variabel och referera till den senare i frågan:
 
 ```Kusto
 // get all events that have level 2 (indicates warning level)
@@ -40,7 +34,7 @@ warning_events
 | summarize count() by Computer 
 ```
 
-Du kan också tilldela variabler konstanta värden. Det ger stöd för en metod för att ställa in parametrar för de fält som du behöver ändra varje gång du kör frågan. Ändra de här parametrarna efter behov. Till exempel för att beräkna ledigt utrymme och ledigt minne (i percentiler) under en viss tidsperiod:
+Du kan också tilldela variabler konstanta värden. Detta stöder en metod för att ställa in parametrar för de fält som du behöver ändra varje gång du kör frågan. Ändra parametrarna efter behov. För att till exempel beräkna ledigt disk utrymme och ledigt minne (i percentiler) i ett angivet tidsintervall:
 
 ```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
@@ -58,10 +52,10 @@ Perf
 union FreeDiskSpace, FreeMemory
 ```
 
-Detta gör det enkelt att ändra på början av sluttid nästa gång du kör frågan.
+Detta gör det enkelt att ändra starten på slut tiden nästa gången du kör frågan.
 
 ### <a name="local-functions-and-parameters"></a>Lokala funktioner och parametrar
-Använd `let` -uttryck för att skapa funktioner som kan användas i samma fråga. Till exempel definiera en funktion som tar ett datetime-fält (i UTC-format) och konverterar den till ett standardformat i USA. 
+Använd `let`-instruktioner för att skapa funktioner som kan användas i samma fråga. Du kan till exempel definiera en funktion som tar ett datum/tid-fält (i UTC-format) och konverterar det till ett standard format för USA. 
 
 ```Kusto
 let utc_to_us_date_format = (t:datetime)
@@ -75,8 +69,8 @@ Event
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
 
-## <a name="print"></a>Skriv ut
-`print` Returnerar en tabell med en enda kolumn och en enskild rad som visar resultatet av en beräkning. Det här används ofta i fall där du behöver en enkel beräkning. Till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:
+## <a name="print"></a>Utskriftsvy
+`print` returnerar en tabell med en enda kolumn och en enskild rad, vilket visar resultatet av en beräkning. Detta används ofta i fall där du behöver en enkel beräkning. Om du till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:
 
 ```Kusto
 print nowPst = now()-8h
@@ -84,7 +78,7 @@ print nowPst = now()-8h
 ```
 
 ## <a name="datatable"></a>DataTable
-`datatable` När du vill definiera en uppsättning data. Du anger ett schema och en uppsättning värden och sedan skicka tabellen i alla andra element i fråga. Till exempel för att skapa en tabell med RAM-användning och beräkna sina medelvärdet per timme:
+med `datatable` kan du definiera en uppsättning data. Du kan ange ett schema och en uppsättning värden och sedan skicka tabellen till andra frågeuttryck. Till exempel för att skapa en tabell med RAM-användning och beräkna deras genomsnittliga värde per timme:
 
 ```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
@@ -101,7 +95,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 | summarize avg(usage_percent) by bin(TimeGenerated, 1h)
 ```
 
-DataTable konstruktioner är också mycket användbara när du skapar en uppslagstabell. Till exempel för att mappa tabelldata, till exempel händelse-ID från den _SecurityEvent_ tabellen för att händelsetyper visas någon annanstans, skapa en uppslagstabell med händelsetyper genom att använda `datatable` och delta i denna datatable med  _SecurityEvent_ data:
+DataTable-konstruktioner är också mycket användbara när du skapar en uppslags tabell. Om du till exempel vill mappa tabell data, till exempel händelse-ID: n från tabellen _SecurityEvent_ , till händelse typer som anges någon annan stans, skapar du en uppslags tabell med händelse typer som använder `datatable` och ansluter till denna DataTable med _SecurityEvent_ data:
 
 ```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
@@ -130,12 +124,12 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda den [Kusto-frågespråket](/azure/kusto/query/) logga data med Azure Monitor:
+Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/) med Azure Monitor loggdata:
 
-- [Strängåtgärder](string-operations.md)
-- [Åtgärder för datum och tid](datetime-operations.md)
-- [Aggregeringsfunktioner](aggregations.md)
-- [Avancerade aggregeringar](advanced-aggregations.md)
-- [JSON och datastrukturer](json-data-structures.md)
+- [Sträng åtgärder](string-operations.md)
+- [Datum-och tids åtgärder](datetime-operations.md)
+- [Agg regerings funktioner](aggregations.md)
+- [Avancerade agg regeringar](advanced-aggregations.md)
+- [JSON och data strukturer](json-data-structures.md)
 - [Kopplingar](joins.md)
-- [Diagram](charts.md)
+- [Hierarkidiagram](charts.md)

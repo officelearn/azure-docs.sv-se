@@ -4,16 +4,17 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 968e55cc07d10a0d4b54d4a7e866417d18e98bb5
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 04358f21af79838f894dc50d5d9c165da67a332c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258873"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894161"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funktioner för Azure Resource Manager mallar
+
 I den här artikeln beskrivs alla funktioner som du kan använda i en Azure Resource Manager-mall. Information om hur du använder funktioner i din mall finns i [syntax för mallar](template-expressions.md).
 
 Information om hur du skapar dina egna funktioner finns i [användardefinierade funktioner](resource-group-authoring-templates.md#functions).
@@ -39,22 +40,22 @@ Information om hur du skapar dina egna funktioner finns i [användardefinierade 
 ## <a name="array-and-object-functions"></a>Funktioner för matris och objekt
 Resource Manager innehåller flera funktioner för att arbeta med matriser och objekt.
 
-* [array](resource-group-template-functions-array.md#array)
+* [lagringsmatriser](resource-group-template-functions-array.md#array)
 * [coalesce](resource-group-template-functions-array.md#coalesce)
 * [concat](resource-group-template-functions-array.md#concat)
-* [contains](resource-group-template-functions-array.md#contains)
+* [ingår](resource-group-template-functions-array.md#contains)
 * [createArray](resource-group-template-functions-array.md#createarray)
-* [empty](resource-group-template-functions-array.md#empty)
-* [first](resource-group-template-functions-array.md#first)
-* [intersection](resource-group-template-functions-array.md#intersection)
-* [json](resource-group-template-functions-array.md#json)
-* [last](resource-group-template-functions-array.md#last)
-* [length](resource-group-template-functions-array.md#length)
+* [saknas](resource-group-template-functions-array.md#empty)
+* [förstagångskörningen](resource-group-template-functions-array.md#first)
+* [överlappning](resource-group-template-functions-array.md#intersection)
+* [utgör](resource-group-template-functions-array.md#json)
+* [pågå](resource-group-template-functions-array.md#last)
+* [krävande](resource-group-template-functions-array.md#length)
 * [minimum](resource-group-template-functions-array.md#min)
-* [max](resource-group-template-functions-array.md#max)
-* [range](resource-group-template-functions-array.md#range)
-* [skip](resource-group-template-functions-array.md#skip)
-* [take](resource-group-template-functions-array.md#take)
+* [bekräftat](resource-group-template-functions-array.md#max)
+* [intervall](resource-group-template-functions-array.md#range)
+* [Ignorera](resource-group-template-functions-array.md#skip)
+* [gå](resource-group-template-functions-array.md#take)
 * [Union](resource-group-template-functions-array.md#union)
 
 <a id="equals" aria-hidden="true" />
@@ -69,7 +70,7 @@ Resource Manager innehåller flera funktioner för att göra jämförelser i din
 * [är lika med](resource-group-template-functions-comparison.md#equals)
 * [minskad](resource-group-template-functions-comparison.md#less)
 * [lessOrEquals](resource-group-template-functions-comparison.md#lessorequals)
-* [greater](resource-group-template-functions-comparison.md#greater)
+* [störst](resource-group-template-functions-comparison.md#greater)
 * [Större](resource-group-template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" aria-hidden="true" />
@@ -81,7 +82,7 @@ Resource Manager innehåller följande funktioner för att hämta värden från 
 
 * [spridningen](resource-group-template-functions-deployment.md#deployment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
-* [variables](resource-group-template-functions-deployment.md#variables)
+* [användarvariabler](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -112,17 +113,18 @@ Resource Manager innehåller följande funktioner för att arbeta med logiska vi
 ## <a name="numeric-functions"></a>Numeriska funktioner
 Resource Manager innehåller följande funktioner för att arbeta med heltal:
 
-* [add](resource-group-template-functions-numeric.md#add)
+* [skapa](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
-* [div](resource-group-template-functions-numeric.md#div)
+* [tagg](resource-group-template-functions-numeric.md#div)
 * [flyta](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
 * [minimum](resource-group-template-functions-numeric.md#min)
-* [max](resource-group-template-functions-numeric.md#max)
-* [mod](resource-group-template-functions-numeric.md#mod)
+* [bekräftat](resource-group-template-functions-numeric.md#max)
+* [rest](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [Build](resource-group-template-functions-numeric.md#sub)
 
+<a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
 <a id="list" aria-hidden="true" />
 <a id="providers" aria-hidden="true" />
@@ -130,19 +132,24 @@ Resource Manager innehåller följande funktioner för att arbeta med heltal:
 <a id="resourcegroup" aria-hidden="true" />
 <a id="resourceid" aria-hidden="true" />
 <a id="subscription" aria-hidden="true" />
+<a id="subscriptionResourceId" aria-hidden="true" />
+<a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Resursfunktioner
-Resource Manager tillhandahåller följande funktioner för att hämta resurs-värden:
+Resource Manager tillhandahåller följande funktioner för att hämta resurs värden:
 
+* [extensionResourceId](resource-group-template-functions-resource.md#extensionresourceid)
 * [listAccountSas](resource-group-template-functions-resource.md#list)
 * [Listnycklar](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
-* [lista *](resource-group-template-functions-resource.md#list)
-* [Providers](resource-group-template-functions-resource.md#providers)
-* [Referens](resource-group-template-functions-resource.md#reference)
-* [ResourceGroup](resource-group-template-functions-resource.md#resourcegroup)
-* [Resurs-ID](resource-group-template-functions-resource.md#resourceid)
-* [subscription](resource-group-template-functions-resource.md#subscription)
+* [lista](resource-group-template-functions-resource.md#list)
+* [finansiär](resource-group-template-functions-resource.md#providers)
+* [förhållande](resource-group-template-functions-resource.md#reference)
+* [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
+* [resourceId](resource-group-template-functions-resource.md#resourceid)
+* [prenumeration](resource-group-template-functions-resource.md#subscription)
+* [subscriptionResourceId](resource-group-template-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](resource-group-template-functions-resource.md#tenantresourceid)
 
 <a id="base64" aria-hidden="true" />
 <a id="base64tojson" aria-hidden="true" />
@@ -178,34 +185,34 @@ Resource Manager tillhandahåller följande funktioner för att hämta resurs-v�
 ## <a name="string-functions"></a>Strängfunktioner
 Resource Manager innehåller följande funktioner för att arbeta med strängar:
 
-* [base64](resource-group-template-functions-string.md#base64)
+* [Base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
 * [concat](resource-group-template-functions-string.md#concat)
-* [contains](resource-group-template-functions-string.md#contains)
+* [ingår](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)
 * [dataUriToString](resource-group-template-functions-string.md#datauritostring)
-* [empty](resource-group-template-functions-string.md#empty)
+* [saknas](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
-* [first](resource-group-template-functions-string.md#first)
-* [format](resource-group-template-functions-string.md#format)
-* [guid](resource-group-template-functions-string.md#guid)
+* [förstagångskörningen](resource-group-template-functions-string.md#first)
+* [formatering](resource-group-template-functions-string.md#format)
+* [LED](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
-* [last](resource-group-template-functions-string.md#last)
+* [pågå](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
-* [length](resource-group-template-functions-string.md#length)
+* [krävande](resource-group-template-functions-string.md#length)
 * [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
-* [replace](resource-group-template-functions-string.md#replace)
-* [skip](resource-group-template-functions-string.md#skip)
+* [bytt](resource-group-template-functions-string.md#replace)
+* [Ignorera](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [string](resource-group-template-functions-string.md#string)
-* [substring](resource-group-template-functions-string.md#substring)
-* [take](resource-group-template-functions-string.md#take)
+* [nollängd](resource-group-template-functions-string.md#string)
+* [under sträng](resource-group-template-functions-string.md#substring)
+* [gå](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
-* [trim](resource-group-template-functions-string.md#trim)
+* [reducera](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
 * [URI](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
@@ -213,6 +220,7 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar:
 * [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>Nästa steg
+
 * En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](resource-group-authoring-templates.md)
 * Om du vill slå samman flera mallar, se [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md)
 * Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md)

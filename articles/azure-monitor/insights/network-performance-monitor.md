@@ -1,24 +1,18 @@
 ---
 title: Övervakare av nätverksprestanda lösning i Azure | Microsoft Docs
 description: Övervakare av nätverksprestanda i Azure hjälper dig att övervaka nätverkets prestanda, i nära real tid, för att identifiera och hitta Flask halsar i nätverks prestanda.
-services: log-analytics
-documentationcenter: ''
-author: vinynigam
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/20/2018
+author: vinynigam
 ms.author: vinigam
-ms.openlocfilehash: 185bdd5f666da04238a575f3b7704baf10f5e281
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.date: 02/20/2018
+ms.openlocfilehash: 943f6cee70367d8a1ff0dc003d06e46b487e3a48
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303474"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898812"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
 
@@ -43,14 +37,14 @@ Mer information om de olika funktionerna som stöds av [övervakare av nätverks
  
 ## <a name="supported-regions"></a>Regioner som stöds
 NPM kan övervaka anslutningar mellan nätverk och program i valfri del av världen, från en arbets yta som finns i någon av följande regioner:
-* Västeuropa
+* Europa, västra
 * USA, västra centrala
-* Östra USA
+* USA, östra
 * Östra Japan
 * Sydostasien
 * Sydöstra Australien
 * Södra Storbritannien
-* Centrala Indien
+* Indien, centrala
 * AMERIKANSKA myndigheter i Virginia
 * Kina, östra 2
 

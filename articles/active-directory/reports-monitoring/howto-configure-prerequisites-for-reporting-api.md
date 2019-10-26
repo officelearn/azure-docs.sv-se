@@ -1,5 +1,5 @@
 ---
-title: 'Krav för att få åtkomst till API: et för Azure Active Directory rapportering | Microsoft Docs'
+title: Krav för Azure Active Directory rapporterings-API | Microsoft Docs
 description: Läs om förutsättningarna för att få åtkomst till Azure AD repor ting API
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b6fab4a4a36691bbdeb11975c7a93b97ab86cb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: af5e198a900241bc7bb0b6aff9a57eed59d1cd86
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241565"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895235"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Krav för att få åtkomst till API: et för Azure Active Directory rapportering
 
@@ -41,9 +41,9 @@ För att förbereda din åtkomst till rapporterings-API: et måste du:
 
 Du måste ha någon av följande roller tilldelade för att få åtkomst till rapporterings data via API: t:
 
-- Säkerhetsläsare
+- Säkerhets läsare
 
-- Säkerhetsadministratör
+- Säkerhets administratör
 
 - Global administratör
 
@@ -76,11 +76,11 @@ Om du vill konfigurera din katalog för att få åtkomst till Azure AD repor tin
 
     ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
-    a. I text rutan **namn** skriver `Reporting API application`du.
+    a. I text rutan **namn** skriver du `Reporting API application`.
 
     b. För **konto typer som stöds**väljer du **konton endast i den här organisationen**.
 
-    c. I **URL: en för omdirigering** väljer du `https://localhost` **webb** text rutan, skriver.
+    c. I rutan **omdirigerings-URL** väljer du **webb** text rutan, skriver `https://localhost`.
 
     d. Välj **Registrera**. 
 
@@ -91,7 +91,7 @@ Beroende på vilket API du vill ha åtkomst till måste du ge appen följande be
 
 | API | Behörighet |
 | --- | --- |
-| Windows Azure Active Directory | Läsa katalogdata |
+| Windows Azure Active Directory | Läsa katalog data |
 | Microsoft Graph | Läs alla Gransknings logg data |
 
 
@@ -118,7 +118,7 @@ I följande avsnitt visas stegen för båda API: erna. Om du inte vill använda 
 
     ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
-5. Obs! **Microsoft Graph** läggs till som standard under API-registrering.
+5. Obs: **Microsoft Graph** läggs till som standard under API-registrering.
 
     ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
@@ -179,11 +179,11 @@ Du behöver dessa värden när du konfigurerar anrop till rapporterings-API: et.
 
 5. På sidan **Lägg till en klient hemlighet** lägger du till:
 
-    a. I text rutan **Beskrivning** skriver `Reporting API`du.
+    a. I text rutan **Beskrivning** skriver du `Reporting API`.
 
     b. Välj **i två år**som **förfaller**.
 
-    c. Klicka på **Spara**.
+    c. Klicka på **Save** (Spara).
 
     d. Kopiera nyckelvärdet.
 
@@ -195,30 +195,30 @@ Det här avsnittet innehåller vanliga fel meddelanden som du kan köra i när d
 
 Vi stöder för närvarande inte Microsoft Graph v2-slutpunkten – se till att få åtkomst till aktivitets loggarna med hjälp av Microsoft Graph v1-slutpunkten.
 
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Fel: Det gick inte att hämta användar roller från AD Graph
+### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Fel: det gick inte att hämta användar roller från AD Graph
 
  Logga in på ditt konto med hjälp av båda inloggnings knapparna i graphs användar gränssnitt för att undvika att få ett fel när du försöker logga in med Graph Explorer. 
 
 ![Graph-testaren](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Fel: Det gick inte att kontrol lera Premium-licens från AD Graph 
+### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Fel: det gick inte att kontrol lera Premium-licens från AD Graph 
 
 Om du stöter på det här fel meddelandet när du försöker få åtkomst till inloggningar med Graph Explorer väljer du **ändra behörigheter** under ditt konto i det vänstra navigerings fältet och väljer **Tasks. readwrite** och **Directory. Read. all**. 
 
 ![Ändra behörighets gränssnitt](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Fel: Klienten är inte B2C eller så har klienten ingen Premium-licens
+### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Fel: klienten är inte B2C eller så har klienten ingen Premium-licens
 
 Åtkomst till inloggnings rapporter kräver en licens för Azure Active Directory Premium 1 (P1). Om du ser det här fel meddelandet vid åtkomst till inloggningar kontrollerar du att klienten är licensierad med en Azure AD P1-licens.
 
-### <a name="error-the-allowed-roles-does-not-include-user"></a>Fel: De tillåtna rollerna omfattar inte användare. 
+### <a name="error-the-allowed-roles-does-not-include-user"></a>Fel: de tillåtna rollerna omfattar inte användare. 
 
  Undvik fel vid försök att få åtkomst till gransknings loggar eller inloggning med hjälp av API: et. Kontrol lera att ditt konto är en del av rollen **säkerhets läsare** eller **rapport läsare** i Azure Active Directory klient organisationen.
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>Fel: Program som saknar AAD-behörighet för Läs katalog data 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>Fel: appen saknar AAD-behörighet för Läs katalog data 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Fel: Program saknar MSGraph API ' Läs alla Gransknings logg data ' behörighet
+### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Fel: programmet saknar MSGraph API ' Läs alla Gransknings logg data ' behörighet
 
 Följ stegen i [kraven för att få åtkomst till Azure Active Directory rapporterings-API: et](howto-configure-prerequisites-for-reporting-api.md) för att se till att programmet körs med rätt behörighets uppsättning. 
 

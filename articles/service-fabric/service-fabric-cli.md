@@ -2,18 +2,18 @@
 title: Kom igång med Azure Service Fabric CLI
 description: Lär dig hur du använder Azure Service Fabric CLI. Lär dig hur du ansluter till ett kluster och hanterar program.
 services: service-fabric
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: d5b6f183a59e3f47aa5867b5e09e06541a6a67db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: e0146504bd06a3c56de8113cc59c9eedd375d06f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803238"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901371"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -21,11 +21,11 @@ Azure Service Fabric-kommandoradsgränssnittet (CLI) är ett kommandoradsverktyg
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kontrollera att din miljö har både Python och pip installerade före installationen. Mer information finns i [snabbstartdokumentationen för pip](https://pip.pypa.io/en/latest/quickstart/) och den officiella [dokumentationen för installation av Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-CLI stöder Python versioner 2.7, 3.5, 3.6 och 3.7. Python 3.x är den rekommenderade versionen, eftersom Python 2.7 når slutet av stödet snart.
+CLI stöder python-versionerna 2,7, 3,5, 3,6 och 3,7. Python 3. x är den rekommenderade versionen eftersom python 2,7 når snart slut på supporten.
 
 ### <a name="service-fabric-target-runtime"></a>Service Fabric-mål-runtime
 
@@ -33,7 +33,8 @@ Service Fabric CLI är tänkt att stödja den senaste runtime-versionen av Servi
 
 | CLI-version   | runtime-version som stöds |
 |---------------|---------------------------|
-| Senaste (~ = 7)  | Senaste (~ = 6.4)            |
+| Senaste (~ = 8)  | Senaste (~ = 6,5)            |
+| 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
@@ -58,11 +59,11 @@ Du kan installera pip och Python på din plattform på många olika sätt. Följ
 
 I Windows 10, Windows Server 2016 och Windows Server 2012 R2 använder du de officiella anvisningarna för standardinstallation. Python-installationsprogrammet installerar även pip som standard.
 
-1. Gå till officiellt [nedladdningssidan för Python](https://www.python.org/downloads/), och ladda ned den senaste versionen av Python 3.7.
+1. Gå till den officiella [sidan för python-nedladdningar](https://www.python.org/downloads/)och ladda ned den senaste versionen av python 3,7.
 
 2. Starta installationsprogrammet.
 
-3. Längst ned i uppmaningen Välj **lägga till Python 3.7 till SÖKVÄGEN**.
+3. Klicka på **Lägg till Python 3,7 i sökvägen**längst ned i prompten.
 
 4. Välj **Installera nu** och slutför installationen.
 
@@ -73,7 +74,7 @@ python --version
 pip --version
 ```
 
-Kör sedan följande kommando för att installera Azure Service Fabric CLI (sfctl) och visa hjälpsidan CLI:
+Kör sedan följande kommando för att installera Azure Service Fabric CLI (sfctl) och Visa hjälp sidan för CLI:
 
 ```bat
 pip install sfctl
@@ -115,7 +116,7 @@ sudo pip3 install sfctl
 
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
 
-Om du vill installera Service Fabric CLI på Red Hat, kör du följande kommandon:
+Kör följande kommandon för att installera Service Fabric CLI i Red Hat:
 
 ```bash
 sudo yum install -y python34
@@ -124,7 +125,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-Testa installationen, kan du referera till stegen som beskrivs i **Ubuntu- och Windows-undersystem för Linux** avsnittet
+För att testa installationen kan du läsa de steg som beskrivs i avsnittet **Ubuntu och Windows-undersystem för Linux**
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -135,7 +136,7 @@ För MacOS rekommenderar vi att du använder [HomeBrew-pakethanteraren](https://
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Sedan från terminalen installera Python 3.7, pip och Service Fabric CLI genom att köra följande kommandon:
+Installera sedan python 3,7, pip och Service Fabric CLI från terminalen genom att köra följande kommandon:
 
 ```bash
 brew install python3
@@ -241,7 +242,7 @@ Kontrollera att den angivna kluster-slutpunkten är tillgänglig och lyssnar. Ko
 
 ### <a name="detailed-logs"></a>Detaljerade loggar
 
-Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. Den `--debug` flagga ökar detaljnivån i utdata.
+Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. `--debug`-flaggan ökar utförligheten för utdata.
 
 ### <a name="command-help-and-syntax"></a>Hjälp och syntax för kommandon
 

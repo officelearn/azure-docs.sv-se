@@ -1,25 +1,19 @@
 ---
 title: Svara på händelser med Azure Log Analytics-aviseringar | Microsoft Docs
 description: Den här självstudien hjälper dig att förstå aviseringar i Log Analytics som visar viktig information på din arbetsyta. Du kan få tidiga meddelanden om problem eller anropa åtgärder om du vill försöka åtgärda dem.
-services: log-analytics
-documentationcenter: log-analytics
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
-ms.date: 10/05/2018
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 6521688e595230951e0753fd67c2bf9b02e0a6ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a30b7569c14aaccb40b357cc5acb82b0e32d2895
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589901"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894662"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Svara på händelser med Azure Monitor-aviseringar
 Med aviseringar i Azure Monitor kan du identifiera viktig information på Log Analytics-lagringsplatsen. De skapas från varningsregler som automatiskt kör regelbundna loggsökningar. Om resultatet från loggsökningen matchar särskilda kriterier, skapas en aviseringspost som kan konfigureras till en automatisk åtgärd.  Den här självstudien är en fortsättning på självstudien [Skapa och dela instrumentpaneler med Log Analytics-data](tutorial-logs-dashboards.md).   
@@ -32,7 +26,7 @@ I den här guiden får du lära dig att:
 
 Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](../../azure-monitor/learn/quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
 
-## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure Portal
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-alerts"></a>Skapa aviseringar
@@ -40,7 +34,7 @@ Aviseringar skapas av aviseringsregler i Azure Monitor och kan automatiskt köra
 
 I följande exempel skapar du ett måttaviseringsregel som baseras på frågan *Virtuella datorer i Azure – processoranvändning* som sparats i kursen [Visualisera data](tutorial-logs-dashboards.md).  En avisering skapas för varje virtuell dator som överskrider ett tröskelvärde på 90 %.  
 
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+1. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Skapa en ny avisering genom att välja **Aviseringar** det vänstra fönstret och sedan klicka på **Ny aviseringsregel** högst upp på sidan.<br><br> ![Skapa en ny aviseringsregel](./media/tutorial-response/alert-rule-02.png)<br>
 3. I det första steget ska du välja din Log Analytics-arbetsyta som resurs i avsnittet **Skapa avisering** eftersom detta är en loggbaserad aviseringssignal.  Filtrera resultaten genom att välja en specifik **prenumeration** från den nedrullningsbara listan, om du har mer än en prenumeration, som innehåller den virtuella datorn och Log Analytics-arbetsytan som du skapade tidigare.  Filtrera **resurstypen** genom att välja **Log Analytics** i den nedrullningsbara listan.  Välj slutligen **resursen** **DefaultLAWorkspace** och klicka spå **Klar**.<br><br> ![Skapa en aviseringssteg 1-uppgift](./media/tutorial-response/alert-rule-03.png)<br>
 4. Välj din sparade fråga genom att klicka på **Lägg till villkor** i avsnittet **Aviseringskriterier** och ange sedan den logik som aviseringsregeln följer.  Välj *Virtuella datorer i Azure – processoranvändning* från listan i rutan **Konfigurera signallogik** .  Fönstret uppdateras och visar aviseringens konfigurationsinställningar.  Högst upp visas resultaten för den valda signalens senaste 30 minuter och själva sökfrågan.  

@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 2de24d36d78ebf5edf6ef65471e85b53d954486e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350563"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900745"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Skapa, utforska och distribuera automatiserade Machine Learning-experiment med Azure Machine Learning s landnings sida för arbets ytan (för hands version)
 
@@ -24,13 +24,13 @@ ms.locfileid: "71350563"
 
  Om du föredrar en mer kod baserad upplevelse kan du också [Konfigurera dina automatiserade maskin inlärnings experiment i python](how-to-configure-auto-train.md) med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 1. Logga in på [sidan med landnings sidan för arbets ytan](https://ml.azure.com/workspaceportal/). 
 
@@ -38,7 +38,7 @@ ms.locfileid: "71350563"
 
 1. Navigera till den vänstra rutan. Välj **Automatisk ml** under avsnittet **författare** .
 
-[![Azure Portal navigerings fönster](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+[![Azure Portal navigerings fönstret](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
  Om det här är första gången du gör ett experiment visas skärmen **Kom igång** . 
 
@@ -56,7 +56,7 @@ Annars ser du din automatiserade instrument panel för **maskin inlärning** med
 
     Fält|Beskrivning
     ---|---
-    Namn på Machine Learning-beräkning| Ange ett unikt namn som identifierar din beräknings kontext.
+    Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
     Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
     Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data. Ange det maximala antalet noder för din beräkning. Standardvärdet är 6 noder för en AML-beräkning.
     
@@ -82,10 +82,10 @@ Annars ser du din automatiserade instrument panel för **maskin inlärning** med
 
         Fält| Beskrivning
         ----|----
-        Filformat| Definierar layout och typ av data som lagras i en fil.
+        Fil format| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
-        Kodning| Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.
-        Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.
+        Encoding| Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.
+        Kolumn rubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.
         Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.
     
         Välj **Nästa**.
@@ -99,18 +99,18 @@ Annars ser du din automatiserade instrument panel för **maskin inlärning** med
 1. Välj mål kolumn; Det här är den kolumn som du vill göra förutsägelser på.
 
 1. För Prognosticering:
-    1. Välj tids kolumn: Den här kolumnen innehåller de tids data som ska användas.
+    1. Välj tids kolumn: den här kolumnen innehåller de tids data som ska användas.
 
-    1. Välj horisont för prognos: Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
+    1. Välj prognos Horisont: Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
 
 1. Valfritt Avancerade inställningar: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
 
     Avancerade inställningar|Beskrivning
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#explore-model-metrics).
-    Avslutnings villkor| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (minuter)* : Hur lång tid det tar för utbildnings jobbet att köras.  <br> *Max antal iterationer*: Maximalt antal pipeliner (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer. <br> *Mät*värdes tröskel:  Lägsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
+    Avslutnings villkor| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (minuter)* : hur lång tid det tar att köra utbildnings jobbet.  <br> *Max antal iterationer*: maximalt antal pipelines (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer. <br> *Mät*värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
     Förbearbeta| Välj det här alternativet om du vill aktivera eller inaktivera förbearbetningen som gjorts genom automatisk maskin inlärning. För bearbetning inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner. [Läs mer om för bearbetning](#preprocess).
-    Verifiering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. [Läs mer om kors validering](how-to-configure-auto-train.md).
+    Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. [Läs mer om kors validering](how-to-configure-auto-train.md).
     Samtidighet| Välj de gränser för flera kärnor som du vill använda när du använder data bearbetning i flera kärnor.
     Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet.
 
@@ -128,17 +128,17 @@ Statistik|Beskrivning
 Funktion| Namn på den kolumn som sammanfattas.
 Profil| Infogad visualisering baserat på den härledda typen. Strängar, booleska värden och datum har till exempel värde antal, medan decimaler (numeriska värden) har ungefärligt histogram. På så sätt får du en snabb förståelse för data fördelningen.
 Typ distribution| Antal värden i en kolumn. Nullvärden är deras egna typ, så den här visualiseringen är användbar för att identifiera udda eller saknade värden.
-type|Den härledda typen för kolumnen. Möjliga värden är: strängar, booleska värden, datum och decimaler.
+Typ|Den härledda typen för kolumnen. Möjliga värden är: strängar, booleska värden, datum och decimaler.
 Min| Minsta värde för kolumnen. Tomma poster visas för funktioner vars typ inte har en inbyggd ordning (t. ex. booleska värden).
-Max| Max värde för kolumnen. 
-Count| Totalt antal saknade och icke-saknade poster i kolumnen.
+Max.| Max värde för kolumnen. 
+Antal| Totalt antal saknade och icke-saknade poster i kolumnen.
 Antal saknas inte| Antal poster i kolumnen som inte saknas. Tomma strängar och fel behandlas som värden, så de kommer inte att bidra till det antal som saknas.
-Kvantiler| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
+Quantiles| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
 Medelvärde| Aritmetiskt medelvärde eller genomsnitt för kolumnen.
 Standardavvikelse| Mått på mängden spridning eller variation för den här kolumnens data.
-Avvikelse| Mått på hur långt spridning av den här kolumnens data är från det genomsnittliga värdet. 
+Varians| Mått på hur långt spridning av den här kolumnens data är från det genomsnittliga värdet. 
 Snedhet| Mått på hur olika data från den här kolumnen kommer från en normal distribution.
-Kurtosis| Mått på hur mycket data som har staplats i den här kolumnens data jämförs med en normal distribution.
+Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data jämförs med en normal distribution.
 
 <a name="preprocess"></a>
 
@@ -146,11 +146,11 @@ Kurtosis| Mått på hur mycket data som har staplats i den här kolumnens data j
 
 När du konfigurerar experimenten kan du aktivera den avancerade inställningen `Preprocess`. Detta innebär att följande steg för för bearbetning av data och funktionalisering utförs automatiskt.
 
-|Förbehandlings&nbsp;steg| Beskrivning |
+|Förbearbeta&nbsp;steg| Beskrivning |
 | ------------- | ------------- |
-|Ta bort hög kardinalitet- eller inga varians-funktioner|Ta bort dessa från inlärnings-och validerings uppsättningar, inklusive funktioner med alla värden som saknas, samma värde på alla rader eller med mycket hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
-|Sedan imputera värden som saknas|För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det mest frekventa värdet.|
-|Generera ytterligare funktioner|För DateTime-funktioner: År, månad, dag, veckodag, dag på år, kvartal, vecka på år, timme, minut och sekund.<br/><br/>För text funktioner: Term frekvens baserat på unigrams, bi-gram och Tri-Character-gram.|
+|Släpp hög kardinalitet eller inga varians funktioner|Ta bort dessa från inlärnings-och validerings uppsättningar, inklusive funktioner med alla värden som saknas, samma värde på alla rader eller med mycket hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
+|Imputerade värden som saknas|För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det mest frekventa värdet.|
+|Generera ytterligare funktioner|För DateTime-funktioner: år, månad, dag, veckodag, dag på år, kvartal, vecka på år, timme, minut och sekund.<br/><br/>För text funktioner: term frekvens baserat på unigrams, bi-gram och Tri-Character-gram.|
 |Transformera och koda |Numeriska funktioner med få unika värden omvandlas till kategoriska-funktioner.<br/><br/>En-frekvent kodning utförs för kategoriska med låg kardinalitet. för hög kardinalitet, en-frekvent-hash-kodning.|
 |Word-inbäddningar|Text upplärda som konverterar vektorer med text-token till menings vektorer med en förtränad modell. Varje ords inbäddnings vektor i ett dokument sammanställs tillsammans för att skapa en dokument funktions vektor.|
 |Mål kodningar|För kategoriska-funktioner, mappar varje kategori med genomsnittligt målvärde för Regressions problem och till sannolikheten för varje klass för klassificerings problem. Frekvens-baserad viktning och mellanliggande kors validering används för att minska överbelastningen av mappningen och bruset som orsakas av glesa data kategorier.|
@@ -168,13 +168,13 @@ När experiment förberedelse fasen är färdig visas skärmen körnings informa
 
 Utbildnings jobb kan ta en stund för varje pipeline att slutföras.
 
-[![Körnings informations instrument panel](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
+[instrument panel för![körnings information](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### <a name="view-training-run-details"></a>Visa information om tränings körningar
 
 Öka detalj nivån för någon av utmatnings modellerna för att se information om utbildnings körning, till exempel prestanda mått och distributions diagram. [Lär dig mer om diagram](how-to-understand-automated-ml.md).
 
-[![Upprepnings information](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
+[![upprepnings information](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>Distribuera din modell
 
@@ -184,15 +184,15 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
 1. Du har ett par alternativ för distribution. 
 
-    + Alternativ 1: Om du vill distribuera den bästa modellen (enligt de mått kriterier som du har definierat) väljer du distribuera bästa modell på sidan körnings information.
+    + Alternativ 1: om du vill distribuera den bästa modellen (enligt de mått kriterier som du har definierat) väljer du distribuera bästa modell på sidan körnings information.
 
-    + Alternativ 2: Om du vill distribuera en speciell modell iteration från det här experimentet kan du gå nedåt i modellen för att öppna sidan körnings information och välja distribuera modell.
+    + Alternativ 2: om du vill distribuera en speciell modell iteration från det här experimentet går du nedåt i modellen för att öppna sidan körnings information och väljer distribuera modell.
 
 1. Fyll i fönstret **distribuera modell** .
 
-    Fält| Value
+    Fält| Värde
     ----|----
-    Distributionsnamn| Ange ett unikt namn för din distribution.
+    Distributions namn| Ange ett unikt namn för din distribution.
     Distributions Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
     Bedömnings skript| Skapa eller ladda upp din egen bedömnings fil automatiskt. [Läs mer om bedömnings skript](how-to-deploy-and-where.md#script)
     Miljö skript| Skapa eller ladda upp din egen miljö fil automatiskt.
@@ -205,7 +205,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
     ![Distributionen är klar](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
-Nu har du en fungerande webb tjänst för att generera förutsägelser!
+Nu har du en fungerande webb tjänst för att generera förutsägelser! Du kan testa förutsägelserna genom att fråga tjänsten från [Power BI inbyggda Azure Machine Learning-supporten](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## <a name="next-steps"></a>Nästa steg
 

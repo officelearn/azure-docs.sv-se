@@ -1,20 +1,20 @@
 ---
-title: Mönster för Azure Stream Analytics lösning
-description: Lär dig mer om de olika vanliga lösnings mönstren för Azure Stream Analytics.
+title: Azure Stream Analytics-lösningsmönster
+description: Lär dig mer om vanliga lösnings mönster för Azure Stream Analytics, till exempel instrument paneler, händelse meddelanden, data lager, referens data och övervakning.
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: cbc9ffe9510cf0888e8d8b62ea112b6517117eed
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2d936a538a54edce9e3f13ea7865d57b8243c4a5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173045"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901681"
 ---
-# <a name="azure-stream-analytics-solution-patterns"></a>Mönster för Azure Stream Analytics lösning
+# <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics-lösningsmönster
 
 Precis som många andra tjänster i Azure används Stream Analytics bäst med andra tjänster för att skapa en större lösning från slut punkt till slut punkt. I den här artikeln beskrivs enkla Azure Stream Analytics lösningar och olika arkitektur mönster. Du kan bygga vidare på dessa mönster för att utveckla mer komplexa lösningar. Mönstren som beskrivs i den här artikeln kan användas i många olika scenarier. Exempel på scenario-/regionsspecifika mönster finns tillgängliga i [Azures lösnings arkitekturer](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
 
@@ -72,7 +72,7 @@ Det här mönstret förbättrar systemets återhämtning och hanterbarhet. Men �
 
 ## <a name="use-reference-data-for-application-customization"></a>Använda referens data för program anpassning
 
-Funktionen Azure Stream Analytics referens data har utformats specifikt för anpassning av slutanvändare, t. ex. aviserings tröskel, [](geospatial-scenarios.md)bearbetnings regler och avgränsningar. Program lagret kan acceptera parameter ändringar och lagra dem i en SQL-databas. Stream Analyticss jobbet begär regelbundet ändringar från databasen och gör anpassnings parametrarna tillgängliga via en referens data koppling. Mer information om hur du använder referens data för program anpassning finns i referens data för [SQL](sql-reference-data.md) och [referens data anslutning](/stream-analytics-query/reference-data-join-azure-stream-analytics).
+Funktionen Azure Stream Analytics referens data har utformats specifikt för anpassning av slutanvändare, t. ex. aviserings tröskel, bearbetnings regler och [avgränsningar](geospatial-scenarios.md). Program lagret kan acceptera parameter ändringar och lagra dem i en SQL-databas. Stream Analyticss jobbet begär regelbundet ändringar från databasen och gör anpassnings parametrarna tillgängliga via en referens data koppling. Mer information om hur du använder referens data för program anpassning finns i referens data för [SQL](sql-reference-data.md) och [referens data anslutning](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
 Det här mönstret kan också användas för att implementera en regel motor där regelns tröskelvärden definieras från referens data. Mer information om regler finns [i processen konfigurations bara tröskel-baserade regler i Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
@@ -132,7 +132,7 @@ Det finns två viktiga saker att övervaka:
 
     Måttet visar hur långt bakom bearbetnings pipelinen är i väggens Klock tid (sekunder). En del av fördröjningen hänförs till den olika bearbetnings logiken. Därför är det mycket viktigare att övervaka den ökande trenden än att övervaka det absoluta värdet. Den stabila tillstånds fördröjningen bör åtgärdas av din program design, inte av övervakning eller aviseringar.
 
-Vid fel är aktivitets loggar och [](stream-analytics-job-diagnostic-logs.md) diagnostikloggar de bästa platserna för att börja söka efter fel.
+Vid fel är aktivitets [loggar och diagnostikloggar](stream-analytics-job-diagnostic-logs.md) de bästa platserna för att börja söka efter fel.
 
 ## <a name="build-resilient-and-mission-critical-applications"></a>Bygg elastiska och verksamhets kritiska program
 
@@ -174,7 +174,7 @@ För att kunna fylla på, är det fortfarande viktigt att minst tillfälligt eta
 |**Instrument panel**   |Skapar mellanrum    |OK för kort avbrott    |Använd för långvarigt avbrott |
 |**Aviseringar**   |Användas |OK för kort avbrott    |Inte nödvändigt |
 |**App för händelse källa** |Användas |OK för kort avbrott    |Använd för långvarigt avbrott |
-|**Datalagring**   |Data förlust  |Användas |Inte nödvändigt |
+|**Data lager hantering**   |Data förlust  |Användas |Inte nödvändigt |
 |**Offline-analys**  |Data förlust  |Användas |Inte nödvändigt|
 
 ## <a name="putting-it-all-together"></a>Färdigställa allt

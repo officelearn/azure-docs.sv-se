@@ -1,5 +1,5 @@
 ---
-title: Självstudie – arkivera Azure Active Directory loggar till ett lagrings konto | Microsoft Docs
+title: Självstudie – arkivera katalog loggar till ett lagrings konto | Microsoft Docs
 description: Lär dig hur du konfigurerar Azure-diagnostik att skicka Azure Active Directory loggar till ett lagrings konto
 services: active-directory
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98fb0677b864fccfb5abd2b08381db1bd1c9c8f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: bce2c032eaa5ec77544477ff75e22492d70a650e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989740"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895089"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Självstudier: Arkivera Azure AD-loggar till ett Azure Storage-konto
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Självstudie: arkivera Azure AD-loggar till ett Azure Storage-konto
 
 I den här självstudien får du lära dig hur du konfigurerar Azure Monitor-diagnostikinställningar för att dirigera Azure Active Directory-loggar (Azure AD) till ett Azure-lagringskonto.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Om du vill använda den här funktionen behöver du:
 
@@ -38,7 +38,7 @@ Om du vill använda den här funktionen behöver du:
 
 ## <a name="archive-logs-to-an-azure-storage-account"></a>Arkivera loggar till ett Azure-lagringskonto
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
 2. Välj **Azure Active Directory** > **Aktivitet** > **Spårningsloggar**. 
 

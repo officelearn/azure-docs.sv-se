@@ -1,18 +1,18 @@
 ---
 title: Struktur för Azure Monitor loggar | Microsoft Docs
 description: Du behöver en logg fråga för att hämta loggdata från Azure Monitor.  Den här artikeln beskriver hur nya logg frågor används i Azure Monitor och innehåller begrepp som du behöver förstå innan du skapar en.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: b1d22729724c2d1a8e3705e017762dcef588245e
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/22/2019
+ms.openlocfilehash: 091d7f598a9841ae45b4248ad8a07a355203445a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034875"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894251"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktur för Azure Monitor loggar
 Möjligheten att snabbt få insikter om dina data med hjälp av en [logg fråga](log-query-overview.md) är en kraftfull funktion i Azure Monitor. Om du vill skapa effektiva och användbara frågor bör du förstå några grundläggande begrepp, till exempel var de data du söker finns och hur de struktureras. Den här artikeln innehåller grundläggande begrepp som du behöver för att komma igång.
@@ -26,7 +26,7 @@ Följande bild visar exempel på data källor som skriver till olika tabeller so
 
 ![Tabeller](media/logs-structure/queries-tables.png)
 
-## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
+## <a name="log-analytics-workspace"></a>Log Analytics arbets yta
 Alla data som samlas in av Azure Monitor loggar förutom Application Insights lagras på en [Log Analytics arbets yta](../platform/manage-access.md). Du kan skapa en eller flera arbets ytor beroende på dina specifika krav. [Data källor](../platform/data-sources.md) som aktivitets loggar och diagnostiska loggar från Azure-resurser, agenter på virtuella datorer och data från insikter och övervaknings lösningar skriver data till en eller flera arbets ytor som du konfigurerar som en del av deras onboarding. Andra tjänster som [Azure Security Center](/azure/security-center/) och [Azure Sentinel](/azure/sentinel/) använder också en Log Analytics arbets yta för att lagra sina data så att de kan analyseras med hjälp av logg frågor tillsammans med övervaknings data från andra källor.
 
 Olika typer av data lagras i olika tabeller i arbets ytan och varje tabell har en unik uppsättning egenskaper. En standard uppsättning tabeller läggs till i en arbets yta när den skapas och nya tabeller läggs till för olika data källor, lösningar och tjänster, när de har publicerats. Du kan också skapa anpassade tabeller med hjälp av [API: et för data insamling](../platform/data-collector-api.md).
@@ -59,11 +59,11 @@ Till skillnad från en Log Analytics arbets yta har ett Application Insights-pro
 | browserTimings      | Data om klient prestanda, till exempel hur lång tid det tar att bearbeta inkommande data. |
 | customEvents        | Anpassade händelser som skapats av ditt program. |
 | customMetrics       | Anpassade mått som skapats av ditt program. |
-| beroenden        | Anropar från programmet till externa komponenter. |
-| undantag          | Undantag som har utlösts av program körningen. |
-| pageViews           | Data om varje webbplats-vy med webb läsar information. |
+| Relation        | Anropar från programmet till externa komponenter. |
+| Undantag          | Undantag som har utlösts av program körningen. |
+| PageViews           | Data om varje webbplats-vy med webb läsar information. |
 | performanceCounters | Prestanda mått från beräknings resurserna som stöder programmet. |
-| Begäranden            | Information om varje program förfrågan.  |
+| Autentiseringsbegäran            | Information om varje program förfrågan.  |
 | Anden              | Resultat från distribuerad spårning. |
 
 Du kan visa schemat för varje tabell på fliken **schema** i Log Analytics för programmet.
@@ -73,10 +73,10 @@ Du kan visa schemat för varje tabell på fliken **schema** i Log Analytics för
 ## <a name="standard-properties"></a>Standardegenskaper
 Varje tabell i Azure Monitor-loggar har ett eget schema, men det finns standard egenskaper som delas av alla tabeller. Mer information om var och en finns [i standard egenskaper i Azure Monitor loggar](../platform/log-standard-properties.md) .
 
-| Log Analytics-arbetsyta | Application Insights program | Beskrivning |
+| Log Analytics arbets yta | Application Insights program | Beskrivning |
 |:---|:---|:---|
-| TimeGenerated | timestamp  | Datum och tid då posten skapades. |
-| type          | itemType   | Namnet på tabellen som posten hämtades från. |
+| TimeGenerated | tidsstämpel  | Datum och tid då posten skapades. |
+| Typ          | ItemType   | Namnet på tabellen som posten hämtades från. |
 | _ResourceId   |            | Unik identifierare för den resurs som posten är kopplad till. |
 | _IsBillable   |            | Anger om inmatade data är fakturerbara. |
 | _BilledSize   |            | Anger storleken i byte på data som ska faktureras. |

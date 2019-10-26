@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 07/18/2019
-ms.openlocfilehash: 095ecc360e5639a5d47dff4bc4675fc237cf81da
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 35e768e15aae13376ca6663ed5ca5109cb0a159b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348920"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893532"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Bring Your Own Key support
 
@@ -65,7 +65,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Rikt linjer för att konfigurera Azure Key Vault
 
-- Skapa ett nyckel valv med skydd mot [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) och rensning som är aktiverat för att skydda mot data förlust i händelse av oavsiktlig nyckel – eller Key Vault – borttagning.  Du måste använda [PowerShell för att aktivera egenskapen "mjuk borttagning"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) i nyckel valvet (det här alternativet är inte tillgängligt från AKV-portalen ännu – men krävs av Azure SQL):  
+- Skapa ett nyckel valv med skydd mot [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) och rensning som är aktiverat för att skydda mot data förlust i händelse av oavsiktlig nyckel – eller Key Vault – borttagning. Du måste aktivera egenskapen "mjuk borttagning" i Key Vault via [CLI](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete) eller [PowerShell](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) (det här alternativet är inte tillgängligt från AKV-portalen ännu – men krävs av Azure SQL):  
   - Mjuk borttagna resurser behålls under en viss tids period, 90 dagar om de inte återställs eller rensas.
   - Åtgärder för att **återställa** och **Rensa** har sina egna behörigheter som är kopplade till en åtkomst princip för nyckel valv.
 - Ange ett resurs lås i nyckel valvet för att kontrol lera vem som kan ta bort den här kritiska resursen och hjälp för att förhindra oavsiktlig eller obehörig borttagning.  [Läs mer om resurs lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
@@ -94,7 +94,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
    > I test syfte är det möjligt att skapa en nyckel med Azure Key Vault, men den här nyckeln kan inte deponerats eftersom den privata nyckeln inte kan lämna nyckel valvet.  Säkerhetskopiera alltid och Depositions nycklar som används för att kryptera produktions data, eftersom den förlorade nyckeln (oavsiktlig borttagning i Key Vault, förfallo datum osv.) resulterar i permanent data förlust.
 
 - Om du använder en nyckel med ett utgångs datum – implementera ett varnings system för förfallo datum för att rotera nyckeln innan den upphör att gälla: **när nyckeln har gått ut förlorar de krypterade databaserna åtkomst till deras TDE-skydd och kommer inte att vara tillgängligt** och alla inloggningar kommer att nekas tills nyckeln har roterats till en ny nyckel och valts som den nya nyckeln och standard skydds TDE för den logiska SQL-servern.
-- Se till att nyckeln är aktive rad och har behörighet att utföra *Get*-, *wrap*-och unwrap-nycklar.
+- Se till att nyckeln är aktive rad och har behörighet att utföra *Get*-, *wrap*-och *unwrap* -nycklar.
 - Skapa en säkerhets kopia av en Azure Key Vault nyckel innan du använder nyckeln i Azure Key Vault för första gången. Läs mer om kommandot [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) .
 - Skapa en ny säkerhets kopia när ändringar görs i nyckeln (till exempel lägga till ACL: er, Lägg till taggar, Lägg till nyckelattribut).
 - **Behåll tidigare versioner** av nyckeln i nyckel valvet när du roterar nycklar, så att äldre databas säkerhets kopior kan återställas. När TDE-skyddet ändras för en databas, uppdateras gamla säkerhets kopior av databasen **inte** för att använda det senaste TDE-skyddet.  Varje säkerhets kopiering måste ha TDE-skyddskomponenten som den skapades med vid återställnings tiden. Nyckel rotationer kan utföras genom att följa anvisningarna i [rotera Transparent datakryptering-skydd med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
@@ -123,7 +123,7 @@ Om den logiska SQL-servern förlorar åtkomsten till det Kundhanterade TDE-skydd
 
 ## <a name="high-availability-geo-replication-and-backup--restore"></a>Hög tillgänglighet, geo-replikering och säkerhets kopiering/återställning
 
-### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap
+### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och katastrofåterställning
 
 Hur du konfigurerar hög tillgänglighet med Azure Key Vault beror på databasens konfiguration och SQL Database servern, och här är de rekommenderade konfigurationerna för två olika fall.  Det första fallet är en fristående databas eller SQL Database Server utan konfigurerad GEO-redundans.  Det andra fallet är en databas eller SQL Database Server som kon figurer ATS med failover-grupper eller GEO-redundans, där det måste säkerställas att varje Geo-redundant kopia har en lokal Azure Key Vault i gruppen redundans för att säkerställa att GEO-redundans fungerar.
 
@@ -198,7 +198,7 @@ När en databas har krypterats med TDE med hjälp av en nyckel från Key Vault k
 
 Om du vill återställa en säkerhets kopia som är krypterad med ett TDE-skydd från Key Vault kontrollerar du att nyckel materialet fortfarande finns kvar i det ursprungliga valvet under det ursprungliga nyckel namnet. När TDE-skyddet ändras för en databas, uppdateras gamla säkerhets kopior av databasen **inte** för att använda det senaste TDE-skyddet. Därför rekommenderar vi att du behåller alla gamla versioner av TDE-skyddskomponenten i Key Vault, så att databas säkerhets kopior kan återställas.
 
-Om en nyckel som kan behövas för att återställa en säkerhets kopia inte längre finns i det ursprungliga nyckel valvet, returneras följande fel meddelande: "Mål servern `<Servername>` har inte åtkomst till alla AKV-URI: er \<som skapats mellan tidsstämpel #1 > och \<tidsstämpel #2 >. Försök igen när du har återställt alla AKV-URI: er. "
+Om en nyckel som kan behövas för att återställa en säkerhets kopia inte längre finns i det ursprungliga nyckel valvet returneras följande fel meddelande: "mål server `<Servername>` har inte åtkomst till alla AKV-URI: er som skapats mellan \<tidsstämpel #1 > och \<tidsstämpel #2 > . Försök igen när du har återställt alla AKV-URI: er. "
 
 Du kan åtgärda detta genom att köra cmdleten [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) för att returnera listan över nycklar från Key Vault som har lagts till på servern (om de inte har tagits bort av en användare). Säkerställ att alla säkerhets kopior kan återställas genom att kontrol lera att mål servern för säkerhets kopian har åtkomst till alla dessa nycklar.
 
@@ -210,4 +210,4 @@ Get-AzSqlServerKeyVaultKey `
 
 Mer information om säkerhets kopierings återställning för SQL Database finns i [återställa en Azure SQL-databas](sql-database-recovery-using-backups.md). Mer information om säkerhets kopierings återställning för SQL Data Warehouse finns i [återställa en Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md).
 
-Ytterligare överväganden för säkerhetskopierade loggfiler: Säkerhetskopierade loggfiler förblir krypterade med den ursprungliga TDE-Krypteraren, även om TDE-skyddet roterades och databasen nu använder ett nytt TDE-skydd.  Vid återställnings tiden krävs båda nycklarna för att återställa databasen.  Om logg filen använder ett TDE-skydd som lagras i Azure Key Vault, krävs den här nyckeln vid återställnings tiden, även om databasen har ändrats för att använda tjänstehanterade TDE under tiden.
+Ytterligare överväganden för säkerhetskopierade loggfiler: säkerhetskopierade loggfiler förblir krypterade med den ursprungliga TDE-Krypteraren, även om TDE-skyddet roterades och databasen nu använder ett nytt TDE-skydd.  Vid återställnings tiden krävs båda nycklarna för att återställa databasen.  Om logg filen använder ett TDE-skydd som lagras i Azure Key Vault, krävs den här nyckeln vid återställnings tiden, även om databasen har ändrats för att använda tjänstehanterade TDE under tiden.

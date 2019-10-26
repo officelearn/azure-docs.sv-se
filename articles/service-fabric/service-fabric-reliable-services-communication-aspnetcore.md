@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 39e6273382133493a77321deed2baec4718bc912
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b2a1b1426af3e72756a7a85a173ef4a2a5671b02
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383670"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900200"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core i Azure Service Fabric Reliable Services
 
@@ -59,12 +59,12 @@ En tillförlitlig tjänst instans representeras av tjänst klassen som härleds 
 ![Diagram för att vara värd för ASP.NET Core i en tillförlitlig tjänst][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Core ICommunicationListeners
-@No__t-0-implementeringar för Kestrel och HTTP. sys i `Microsoft.ServiceFabric.AspNetCore.*`-NuGet paket har liknande användnings mönster. Men de utför något annorlunda åtgärder som är beroende av varje webb server. 
+`ICommunicationListener` implementeringar för Kestrel och HTTP. sys i `Microsoft.ServiceFabric.AspNetCore.*` NuGet-paket har liknande användnings mönster. Men de utför något annorlunda åtgärder som är beroende av varje webb server. 
 
 Båda kommunikations lyssnarna tillhandahåller en konstruktor som tar följande argument:
  - **`ServiceContext serviceContext`** : det här är det `ServiceContext`-objekt som innehåller information om den aktiva tjänsten.
  - **`string endpointName`** : det här är namnet på en `Endpoint`-konfiguration i ServiceManifest. xml. Det är främst där de två kommunikations lyssnarna skiljer sig. HTTP. sys *kräver* en `Endpoint`-konfiguration medan Kestrel inte är det.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : det här är ett lambda-tecken som du implementerar, där du kan skapa och returnera en `IWebHost`. Det gör att du kan konfigurera `IWebHost` på det sätt som du normalt skulle göra i ett ASP.NET Core program. Lambda-värdet är en URL som genereras åt dig, beroende på Service Fabric integrerings alternativ som du använder och den @no__t 0-konfiguration som du anger. Du kan sedan ändra eller använda den URL: en för att starta webb servern.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : det här är ett lambda-tecken som du implementerar, där du kan skapa och returnera en `IWebHost`. Det gör att du kan konfigurera `IWebHost` på det sätt som du normalt skulle göra i ett ASP.NET Core program. Lambda-filen innehåller en URL som genereras åt dig, beroende på Service Fabric integrerings alternativ som du använder och den `Endpoint` konfiguration som du anger. Du kan sedan ändra eller använda den URL: en för att starta webb servern.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric integration mellan
 NuGet-paketet `Microsoft.ServiceFabric.AspNetCore` innehåller tillägget `UseServiceFabricIntegration` på `IWebHostBuilder` som lägger till Service Fabric-medvetna mellanprogram. Detta mellanprogram konfigurerar Kestrel eller HTTP. sys `ICommunicationListener` för att registrera en unik tjänst-URL med Service Fabric Naming Service. Den verifierar sedan klient begär Anden för att säkerställa att klienterna ansluter till rätt tjänst. 
@@ -185,7 +185,7 @@ Ange port numret i `Endpoint`-konfigurationen om du vill använda en statisk por
 ```
 
 #### <a name="use-httpsys-with-a-dynamic-port"></a>Använda HTTP. sys med en dynamisk port
-Om du vill använda en dynamiskt tilldelad port med HTTP. sys utelämnar du egenskapen `Port` i konfigurationen för @no__t 1:
+Om du vill använda en dynamiskt tilldelad port med HTTP. sys utelämnar du egenskapen `Port` i `Endpoint`-konfigurationen:
 
 ```xml
   <Resources>
@@ -339,6 +339,9 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 I den här konfigurationen väljer `KestrelCommunicationListener` automatiskt en oanvänd port från program port intervallet.
+
+För HTTPS ska den ha slut punkten konfigurerad med HTTPS-protokollet utan att ha en port angiven i ServiceManifest. xml och skicka slut punkts namnet till KestrelCommunicationListener-konstruktorn.
+
 
 ## <a name="service-fabric-configuration-provider"></a>Service Fabric Konfigurationsprovider
 App-konfigurationen i ASP.NET Core baseras på nyckel/värde-par som skapats av konfigurationsprovidern. Läs [konfiguration i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) om du vill veta mer om allmän ASP.net Core konfigurations stöd.
@@ -513,7 +516,7 @@ Tillstånds känsliga tjänster som bara anropas från i klustret bör använda 
 
 |  |  | **Anteckningar** |
 | --- | --- | --- |
-| Webbserver | Kestrel | @No__t-0 har inte utformats för användning av tillstånds känsliga tjänster där repliker delar en värd process. |
+| Webbserver | Kestrel | `HttpSysCommunicationListener` är inte avsedd att användas av tillstånds känsliga tjänster där repliker delar en värd process. |
 | Port konfiguration | dynamiskt tilldelad | Flera repliker av en tillstånds känslig tjänst kan dela en värd process eller ett värd operativ system, vilket kräver att unika portar krävs. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Med dynamisk port tilldelning förhindrar den här inställningen förskriven identitets problem som beskrivits tidigare. |
 

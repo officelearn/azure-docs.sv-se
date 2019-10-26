@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: dcd6f2ea6f5c79664af0c2431da07549e71c26bc
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 726ac906b5f237cfc40a8399b7b1bef3071f98f3
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72035680"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901790"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning
 
@@ -169,6 +169,8 @@ I den här experiment kontexten betraktas **VotingEnsemble** som den bästa mode
     
 Nu har du en fungerande webb tjänst för att generera förutsägelser.
 
+Fortsätt till [**Nästa steg**](#next-steps) om du vill lära dig mer om hur du använder din nya webb tjänst och testa dina förutsägelser med hjälp av Power BI har inbyggd Azure Machine Learning support.
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Distributions filer är större än data-och experiment-filer, så att de kostar mer att lagra. Ta bara bort distributions filerna för att minimera kostnaderna till ditt konto, eller om du vill behålla arbets ytan och experimentet. Annars tar du bort hela resurs gruppen om du inte planerar att använda någon av filerna.  
@@ -192,7 +194,7 @@ Ta bara bort distributions instansen från Azure Portal, om du vill behålla res
 I den här automatiska självstudien för maskin inlärning använde du sidan för att skapa och distribuera en klassificerings modell. Se de här artiklarna för mer information och nästa steg:
 
 > [!div class="nextstepaction"]
-> [Använda en webb tjänst](how-to-consume-web-service.md)
+> [Använda en webb tjänst](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Läs mer om för [bearbetning](how-to-create-portal-experiments.md#preprocess).
 + Läs mer om [data profilering](how-to-create-portal-experiments.md#profile).

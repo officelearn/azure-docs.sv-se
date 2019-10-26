@@ -1,144 +1,139 @@
 ---
-title: Azure Application Insights användning kohorter | Microsoft Docs
+title: Azure Application insikter om användning kohorter | Microsoft Docs
 description: Analysera olika uppsättningar eller användare, sessioner, händelser eller åtgärder som har något gemensamt
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6762ac9253c838f715588451441aa9aa467f673
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604113"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899501"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorter
 
-En kohort är en uppsättning användare, sessioner, händelser eller åtgärder som har något gemensamt. I Azure Application Insights definieras kohorter av en analytics-fråga. I fall där du behöver analysera en specifik uppsättning användare eller händelser upprepade gånger kohorter kan du större flexibilitet att uttrycka exakt den uppsättning som du är intresserad av.
+En kohort är en uppsättning användare, sessioner, händelser eller åtgärder som har något gemensamt. I Azure Application insikter definieras kohorter av en analys fråga. I de fall där du behöver analysera en viss uppsättning användare eller händelser upprepade gånger kan kohorter ge dig mer flexibilitet för att uttrycka exakt den mängd du är intresse rad av.
 
-![Kohorter fönstret](./media/usage-cohorts/001.png)
+![Fönstret kohorter](./media/usage-cohorts/001.png)
 
 ## <a name="cohorts-versus-basic-filters"></a>Kohorter jämfört med grundläggande filter
 
-Kohorter används på ett sätt som liknar filter. Men kohorter definitioner skapas från anpassade analytics-frågor, så att de är anpassningsbart och mycket mer komplexa. Till skillnad från filter, kan du spara kohorter så att andra medlemmar i ditt team kan återanvända dem.
+Kohorter används på liknande sätt som filter. Men kohorter-definitioner skapas utifrån anpassade analys frågor, så de är mycket mer anpassningsbara och komplexa. Till skillnad från filter kan du spara kohorter så att andra medlemmar i ditt team kan återanvända dem.
 
-Du kan definiera en kohort för användare som har alla försökt en ny funktion i din app. Du kan spara den här kohorten i Application Insights-resursen. Det är enkelt att analysera den här sparade grupp med specifika användare i framtiden.
+Du kan definiera en kohort av användare som har försökt med en ny funktion i din app. Du kan spara den här kohort i din Application Insights-resurs. Det är enkelt att analysera den här sparade gruppen av vissa användare i framtiden.
 
 > [!NOTE]
-> När de skapas, är kohorter tillgängliga från användare, sessioner, händelser och Användarflöden verktyg.
+> När de har skapats är kohorter tillgängliga från verktygen användare, sessioner, händelser och Användarflöden.
 
-## <a name="example-engaged-users"></a>Exempel: Engagerade användare
+## <a name="example-engaged-users"></a>Exempel: engagerade användare
 
-Ditt team definierar en engagerade användare som alla som använder din app fem eller fler gånger under en månad. I det här avsnittet definierar du en kohort dessa engagerade användare.
+Ditt team definierar en engagerad användare som alla som använder appen fem eller fler gånger under en månad. I det här avsnittet definierar du en kohort för dessa användare.
 
 1. Öppna verktyget kohorter.
 
-2. Välj den **mallgalleriet** fliken. Du kan se en samling mallar för olika kohorter.
+2. Välj fliken **mallgalleriet** . Du ser en samling mallar för olika kohorter.
 
-3. Välj **engagerade användare – dagar använt**.
+3. Välj **engagerade användare – efter dagar som används**.
 
-    Det finns tre parametrar för den här kohorten:
-    * **Aktiviteter**, där du väljer vilka händelser och sidvisningar räknas som ”användning”.
-    * **Period**, definitionen av en månad.
-    * **UsedAtLeastCustom**, antalet gånger som användare måste du använda något inom en period räkna när engagerade.
+    Det finns tre parametrar för den här kohort:
+    * **Aktiviteter**där du väljer vilka händelser och sid visningar som ska räknas som "användning".
+    * **Period**, definitionen för en månad.
+    * **UsedAtLeastCustom**, antalet gånger som användare måste använda något inom en period för att räknas som sysselsatt.
 
-4. Ändra **UsedAtLeastCustom** till **5 + dagar**, och lämna **Period** på standardvärdet 28 dagar.
+4. Ändra **UsedAtLeastCustom** till **5 + dagar**och lämna **period** på standardvärdet 28 dagar.
 
     ![Engagerade användare](./media/usage-cohorts/003.png)
 
-    Nu den här kohorten representerar alla användar-ID som skickas med valfri anpassad händelse eller Sidvisning på 5 avgränsa dagar tidigare 28.
+    Nu representerar den här kohort alla användar-ID: n som skickas med en anpassad händelse-eller sid visning på 5 separata dagar under de senaste 28.
 
 5. Välj **Spara**.
 
    > [!TIP]
-   > Ge din kohort ett namn som ”Engaged användare (5 + dagar)”. Spara den till ”Mina rapporter” eller ”delade rapporter”, beroende på om du vill att andra personer som har åtkomst till den här Application Insights-resursen för att se den här kohorten.
+   > Ge ditt kohort ett namn, t. ex. "engagerade användare (5 + dagar)". Spara den i "Mina rapporter" eller "delade rapporter", beroende på om du vill att andra personer som har åtkomst till den här Application Insights resursen för att se den här kohort.
 
 6. Välj **tillbaka till galleriet**.
 
-### <a name="what-can-you-do-by-using-this-cohort"></a>Vad kan du göra med hjälp av den här kohorten?
+### <a name="what-can-you-do-by-using-this-cohort"></a>Vad kan du göra med hjälp av den här kohort?
 
-Öppna verktyget användare. I den **visa** listrutan väljer du den kohort som du skapade under **användare som tillhör**.
+Öppna användar verktyget. I list rutan **Visa** väljer du den kohort som du skapade under **användare som tillhör**.
 
-Nu filtreras användarverktyget till den här användarkohort:
+Nu filtreras användar verktyget till denna kohort av användare:
 
-![Användare-fönstret som filtrerats till en viss kohort](./media/usage-cohorts/004.png)
+![Fönstret användare filtrerat till en viss kohort](./media/usage-cohorts/004.png)
 
-Några viktiga saker att Observera:
+Några viktiga saker att känna till:
 
-* Du kan inte skapa den här uppsättningen via normal filter. Logiken som datum är mer avancerad.
-* Du kan filtrera den här kohorten ytterligare med hjälp av de normala filter i verktyget användare. Så även om kohorten har definierats i 28-dagars windows kan kan du fortfarande justera tidsintervallet i verktyget användare vara 30, 60 eller 90 dagar.
+* Du kan inte skapa den här uppsättningen via normala filter. Datum logiken är mer avancerad.
+* Du kan filtrera den här kohort ytterligare genom att använda normala filter i användar verktyget. Så även om kohort har definierats i 28-dagars period kan du fortfarande ändra tidsintervallet i användar verktyget till 30, 60 eller 90 dagar.
 
-Dessa filter har stöd för mer avancerade frågor som är omöjligt att uttrycka via Frågeverktyget. Ett exempel är _personer som ägnat under de senaste 28 dagarna. Hur fungerar personer samma under de senaste 60 dagarna?_
+Dessa filter har stöd för mer avancerade frågor som är omöjliga att uttrycka via Frågeverktyget. Ett exempel är _personer som var engagerade under de senaste 28 dagarna. Hur har de samma personer som beter sig över de senaste 60 dagarna?_
 
-## <a name="example-events-cohort"></a>Exempel: Kohort för händelser
+## <a name="example-events-cohort"></a>Exempel: Events kohort
 
-Du kan också göra kohorter av händelser. I det här avsnittet definierar du en kohort för händelser och sidvisningar. Sedan kan du se hur du använder dem från andra verktyg. Den här kohorten kan definiera en uppsättning händelser som ditt team betraktar _active användning_ eller en uppsättning relaterade till vissa en ny funktion.
+Du kan också göra kohorter av händelser. I det här avsnittet definierar du en kohort för vyerna händelser och sidor. Sedan kan du se hur du använder dem från andra verktyg. Den här kohort kan definiera en uppsättning händelser som ditt team betraktar för _aktiv användning_ eller en uppsättning som är relaterad till en viss ny funktion.
 
 1. Öppna verktyget kohorter.
 
-2. Välj den **mallgalleriet** fliken. Du ser en samling mallar för olika kohorter.
+2. Välj fliken **mallgalleriet** . Du ser en samling mallar för olika kohorter.
 
-3. Välj **händelser väljare**.
+3. Välj **händelse väljare**.
 
-    ![Skärmbild av händelser väljare](./media/usage-cohorts/006.png)
+    ![Skärm bild av händelse väljaren](./media/usage-cohorts/006.png)
 
-4. I den **aktiviteter** listrutan väljer du de händelser som du vill ska vara i kohorten.
+4. I list rutan **aktiviteter** väljer du de händelser som du vill ska finnas i kohort.
 
-5. Spara kohorten och ge den ett namn.
+5. Spara kohort och ge den ett namn.
 
-## <a name="example-active-users-where-you-modify-a-query"></a>Exempel: Aktiva användare där du har ändrat en fråga
+## <a name="example-active-users-where-you-modify-a-query"></a>Exempel: aktiva användare där du ändrar en fråga
 
-Föregående två kohorter definierades med hjälp av listrutorna. Men du kan också definiera kohorter med analytics-frågor för total flexibilitet. Se hur du skapar en användarkohort från Storbritannien.
+Föregående två kohorter definierades med list rutor. Men du kan också definiera kohorter med analys frågor för total flexibilitet. Om du vill se hur skapar du en kohort av användare från Storbritannien.
 
-![Animerade avbildning walking med hjälp av verktyget kohorter](./media/usage-cohorts/cohorts0001.gif)
+![Animerad bild går genom användning av kohorter-verktyget](./media/usage-cohorts/cohorts0001.gif)
 
-1. Öppna verktyget kohorter, Välj den **mallgalleriet** och sedan **kohort för tomma användare**.
+1. Öppna kohorter-verktyget, Välj fliken **mall Galleri** och välj **tomma användare kohort**.
 
-    ![Kohort för tomma användare](./media/usage-cohorts/001.png)
+    ![Tomma användare kohort](./media/usage-cohorts/001.png)
 
     Det finns tre avsnitt:
-   * Ett Markdown textavsnitt, där du beskriver kohort i detalj för andra i din grupp.
+   * Ett markdown text avsnitt där du beskriver kohort i mer detalj för andra i ditt team.
 
-   * Ett avsnitt med parametrar, där du kan göra dina egna parametrar som **aktiviteter** och andra listrutorna i föregående två exempel.
+   * Avsnittet Parameters, där du gör egna parametrar, t. ex. **aktiviteter** och andra nedrullningsbara List rutor från föregående två exempel.
 
-   * Ett fråga avsnitt, där du kan definiera kohorten med hjälp av en analytics-fråga.
+   * Avsnittet fråga där du definierar kohort med hjälp av en analys fråga.
 
-     I avsnittet frågan du [skriva en analytics-fråga](/azure/kusto/query). Frågan väljer vissa uppsättningen rader som beskriver den kohort som du vill definiera. Verktyget kohorter implicit lägger till en ”| summera efter user_Id ”-sats i frågan. Dessa data förhandsgranskas nedan frågan i en tabell, så kontrollera att frågan returnerar resultat.
+     I avsnittet fråga [skriver du en analys fråga](/azure/kusto/query). Frågan väljer en viss uppsättning rader som beskriver de kohort som du vill definiera. Verktyget kohorter lägger sedan implicit till "| sammanfatta by user_Id-satsen i frågan. Dessa data förhandsgranskas under frågan i en tabell, så du kan se till att frågan returnerar resultat.
 
      > [!NOTE]
-     > Om du inte ser frågan kan du prova att ändra storlek i avsnittet om du vill göra den högre och visa frågan. Animerad GIF i början av det här avsnittet visar vad storleksändring.
+     > Om du inte ser frågan kan du prova att ändra storlek på avsnittet för att göra det högre och Visa frågan. Den animerade. gif i början av det här avsnittet visar hur storleks ändringen fungerar.
 
-2. Kopiera och klistra in följande text i frågeredigeraren:
+2. Kopiera och klistra in följande text i Frågeredigeraren:
 
     ```KQL
     union customEvents, pageViews
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Välj **Kör fråga**. Om du inte ser användar-ID som visas i tabellen, ändra till ett land/en region där ditt program har användare.
+3. Välj **Kör fråga**. Om du inte ser användar-ID: n visas i tabellen ändrar du till ett land/en region där ditt program har användare.
 
-4. Spara och namnge kohorten.
+4. Spara och namnge kohort.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
-_Jag har definierat en kohort användare från ett visst land/region. När jag jämföra den här kohorten i verktyget användare för att bara ange ett filter på den land/regionen, visas olika resultat. Varför?_
+_Jag har definierat en kohort för användare från ett visst land/region. När jag jämför den här kohort i användar verktyget och bara anger ett filter för landet/regionen visas olika resultat. Varför?_
 
-Kohorter och filter är olika. Anta att du har en kohort användare från Storbritannien (definieras som i föregående exempel), och du jämför resultaten till att ange filtret ”land = Förenade kungariket”.
+Kohorter och filter är olika. Anta att du har en kohort av användare från Storbritannien (definieras som i föregående exempel) och jämför dess resultat med att ställa in filtret "land eller region = Storbritannien".
 
-* Kohort-versionen innehåller alla händelser från användare som skickade en eller flera händelser från Storbritannien i det aktuella tidsintervallet. Om du dela upp efter land eller region, ser du antagligen många länder och regioner till.
-* Filter-versionen visas endast händelser från Storbritannien. Men om du dela upp efter land eller region, visas endast Storbritannien.
+* Kohort-versionen visar alla händelser från användare som har skickat en eller flera händelser från Storbritannien under det aktuella tidsintervallet. Om du delar efter land eller region ser du förmodligen många länder och regioner.
+* Filter versionen visar bara händelser från Storbritannien. Men om du delar efter land eller region visas endast Storbritannien.
 
 ## <a name="learn-more"></a>Läs mer
 
-* [Analytics-frågespråket](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Analytics-frågespråk](https://go.microsoft.com/fwlink/?linkid=856587)
 * [Användare, sessioner, händelser](usage-segmentation.md)
-* [Användarflöden](usage-flows.md)
-* [Användningsöversikten](usage-overview.md)
+* [Användar flöden](usage-flows.md)
+* [Översikt över användning](usage-overview.md)

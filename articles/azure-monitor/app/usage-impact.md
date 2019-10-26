@@ -1,96 +1,91 @@
 ---
-title: Azure Application Insights användning inverkan | Microsoft docs
-description: Analysera hur olika egenskaper potentiellt påverka konverteringstakt för delar av dina appar.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Användnings påverkan för Azure Application Insights | Microsoft-dokument
+description: Analysera hur olika egenskaper kan påverka konverterings takten för delar av dina appar.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffe71cb80be7795201ab672ca632788f4f18e5c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604193"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899453"
 ---
-# <a name="impact-analysis-with-application-insights"></a>Konsekvensanalys med Application Insights
+# <a name="impact-analysis-with-application-insights"></a>Effekt analys med Application Insights
 
-Påverkan analyserar hur inläsningstider och andra egenskaper påverkar konverteringstakt för olika delar av appen. Om du vill placera mer exakt som identifieras hur **någon annan dimension** av en **Sidvisning**, **anpassad händelse**, eller **begäran** påverkar användningen av en olika **Sidvisning** eller **anpassad händelse**. 
+Påverkan analyserar hur inläsnings tider och andra egenskaper påverkar konverterings takten för olika delar av din app. För att göra det mer exakt, upptäcks hur **någon dimension** i **vyn sid visning**, **Anpassad händelse**eller **begäran** påverkar användningen av en annan **sidvy** eller **Anpassad händelse**. 
 
-![Påverkan verktyget](./media/usage-impact/0001-impact.png)
+![Verktyget effekt](./media/usage-impact/0001-impact.png)
 
-## <a name="still-not-sure-what-impact-does"></a>Fortfarande osäker vad inverkan gör?
+## <a name="still-not-sure-what-impact-does"></a>Är du fortfarande osäker på vilken påverkan det gör?
 
-Ett sätt att tänka på påverkan är som ultimate verktyg för att reglera argument med någon i teamet om hur långsamhet i någon aspekt av webbplatsen påverkar om användare behålla. Även om användarna kan tolerera fel på en viss mängd långsamhet, ger påverkan inblick i hur detta bäst att balansera optimering och prestanda för att maximera användarkonvertering.
+Ett sätt att tänka på påverkas är att det ultimata verktyget för att lösa argument med någon i ditt team om hur långsamma på en viss aspekt av din webbplats påverkar om användarna är fästa. Även om användarna kan tolerera en viss mängd långsamma effekter ger du bättre inblick i hur du kan balansera optimering och prestanda för att maximera användar konverteringen.
 
-Men det är bara en delmängd av påverkans funktioner att analysera prestanda. Eftersom påverkan har stöd för anpassade händelser och dimensioner, är svar på frågor som hur användarens webbläsare val korrelera med olika växelkurser bara några få klick.
+Men att analysera prestanda är bara en del av Påverkanens funktioner. Eftersom påverkan har stöd för anpassade händelser och dimensioner, är det bara några klick att svara på frågor som om hur ser ut som användarens webbläsare.
 
-![Skärmbild konvertering av webbläsare](./media/usage-impact/0004-browsers.png)
+![Skärm bilds konvertering av webbläsare](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Application Insights-resursen måste innehålla sidvisningar eller anpassade händelser och använder verktyget påverkan. [Lär dig hur du ställer in din app för att samla in sidvisningar automatiskt med Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md). Också tänka på att eftersom du analyserar så kommer exempel storlek är viktig.
+> Din Application Insights-resurs måste innehålla sidvyer eller anpassade händelser för att kunna använda verktyget effekt. [Lär dig hur du konfigurerar din app för att samla in sid visningar automatiskt med Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md). Tänk också på att eftersom du analyserar korrelation, exempel storlek.
 >
 >
 
-## <a name="is-page-load-time-impacting-how-many-people-convert-on-my-page"></a>Sidinläsningstiden påverkar hur många personer konvertera på sidan?
+## <a name="is-page-load-time-impacting-how-many-people-convert-on-my-page"></a>Påverkar sid inläsnings tiden hur många personer som ska konvertera på min sida?
 
-Välj en inledande Sidvisning, anpassad händelse eller begäran om du vill börja svara på frågor med verktyget påverkan.
+Om du vill börja besvara frågor med verktyget effekt väljer du en inledande sidvy, en anpassad händelse eller en begäran.
 
-![Påverkan verktyget](./media/usage-impact/0002-dropdown.png)
+![Verktyget effekt](./media/usage-impact/0002-dropdown.png)
 
-1. Välj en Sidvisning från den **för sidvisning** listrutan.
-2. Lämna den **analysera hur dess** listmenyerna på standardinställningen **varaktighet** (i det här sammanhanget **varaktighet** är ett alias för **sidinläsningstiden**.)
-3. För den **påverkar användningen av** listrutan, Välj en anpassad händelse. Den här händelsen ska motsvara ett UI-element i vyn sidan som du valde i steg 1.
+1. Välj en sidvy från List rutan **för sid visning** .
+2. Lämna **analysera hur** List rutan i standard valet av **varaktighet** (i den här kontextens **varaktighet** är ett alias för **sid inläsnings tid**.)
+3. För att **påverkar användningen av** List rutan väljer du en anpassad händelse. Den här händelsen ska motsvara ett UI-element i sid visningen som du valde i steg 1.
 
-![Skärmbild av resultat](./media/usage-impact/0003-results.png)
+![Skärm bild av resultat](./media/usage-impact/0003-results.png)
 
-I den här instansen som **produktsidan** inläsningstid ökar konverteringstakt till **Köp produkt klickade** kraschar. Baserat på distributionsplatsdatorn ovan, kan en optimal sidan belastningen varaktighet 3,5 sekunder riktas för att uppnå en potentiell 55% konverteringsgraden. Ytterligare prestandaförbättringar för att minska inläsningstid nedan 3,5 sekunder för närvarande inte stämmer med ytterligare konvertering fördelar.
+I denna instans som **produktens sid** inläsnings tid ökar konverterings hastigheten till **köp produkt som du klickar på** . Baserat på distributionen ovan kan en optimal sid inläsnings tid på 3,5 sekunder vara avsedd att uppnå en potentiell 55% konverterings takt. Ytterligare prestanda förbättringar för att minska inläsnings tiden under 3,5 sekunder motsvarar inte för närvarande ytterligare konverterings förmåner.
 
-## <a name="what-if-im-tracking-page-views-or-load-times-in-custom-ways"></a>Vad händer om jag spåra sidvisningar eller läsa in gånger på anpassade sätt?
+## <a name="what-if-im-tracking-page-views-or-load-times-in-custom-ways"></a>Vad händer om jag spårar sid visningar eller inläsnings tider på anpassade sätt?
 
-Påverkan har stöd för både standardentiteter och anpassade egenskaper och mätningar av. Använda vad du vill. I stället för kommer att använda filter på de primära och sekundära händelserna för att bli lite mer specifika.
+Påverkan stöder både standard-och anpassade egenskaper och mått. Använd vad du vill. I stället för varaktighet använder du filter på de primära och sekundära händelserna för att få mer information.
 
-## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>Konverterar användare från olika länder eller regioner med olika hastigheter?
+## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>Kan användare från olika länder eller regioner konverteras till olika priser?
 
-1. Välj en Sidvisning från den **för sidvisning** listrutan.
-2. Välj ”land eller region” i **analysera hur dess** listrutan
-3. För den **påverkar användningen av** listrutan en anpassad händelse som motsvarar ett UI-element på sidan vyn du valde i steg 1.
+1. Välj en sidvy från List rutan **för sid visning** .
+2. Välj land eller region i **analysera hur dess** listruta
+3. För att **påverkar användningen av** List rutan väljer du en anpassad händelse som motsvarar ett gränssnitts element i sid visningen som du valde i steg 1.
 
-I det här fallet resultatet inte längre får plats i en kontinuerlig x-axel-modell som de gjorde i det första exemplet. I stället visas en visualisering som liknar en segmenterade tratt. Sortera efter **användning** att visa variationen för konvertering till din anpassade händelse baserat på land/region.
+I det här fallet får resultaten inte längre till en kontinuerlig x-axel-modell som i det första exemplet. I stället presenteras en visualisering som liknar en segmenterad tratt. Sortera efter **användning** för att Visa variationen av konverteringen till din anpassade händelse baserat på land/region.
 
 
-## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Hur beräknas priserna konvertering av verktyget inverkan?
+## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Hur beräknar verktyget effekt dessa konverterings hastigheter?
 
-Under huven, verktyget påverkan är beroende av den [Pearson korrelationskoefficienten](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Resultaten beräknas mellan 1 och 1 med -1 som representerar en negativ linjär korrelation och 1 som motsvarar en positiv linjär korrelation.
+Verktyget effekt är i taket beroende av [korrelationskoefficienten till Pearson](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Resultaten beräknas mellan-1 och 1 med-1 som representerar en negativ linjär korrelation och 1 som representerar en positiv linjär korrelation.
 
-Grundläggande uppdelning av hur konsekvensanalys fungerar är följande:
+Den grundläggande fördelningen av hur påverkan analys fungerar är följande:
 
-Låt _A_ = huvudsidan vy/anpassat event/begäran du väljer i den första listrutan. (**För sidvisning**).
+Låt _A_ = vyn huvud sid visning/anpassad händelse/begäran som du väljer i den första List rutan. (**För sid visning**).
 
-Låt _B_ = sekundära sidan Visa/anpassad händelse som du väljer (**påverkar användningen av**).
+Låt _B_ = den sekundära sid visningen/anpassade händelsen som du väljer (**påverkar användningen av**).
 
-Påverkan tittar på ett sampel från alla sessioner från användare i det valda tidsintervallet. För varje session den letar efter varje förekomst av _A_.
+Påverkan ser ut som ett exempel på alla sessioner från användare i det valda tidsintervallet. För varje session söker den efter varje förekomst av _A_.
 
-Sessioner delas sedan upp i två olika typer av _subsessions_ baserat på en av två villkor:
+Sessioner delas sedan upp i två olika typer av _undersessioner_ baserat på ett av två villkor:
 
-- En konverterade undersession består av en session som slutar med en _B_ händelse och innehåller alla _A_ händelser som inträffar före _B_.
-- En inte är konverterat subsession inträffar när alla _A_användarens sker utan en terminal _B_.
+- En konverterad undersession består av en session som slutar med ett _B_ _-evenemang och omfattar alla händelser_ som inträffar före _B_.
+- En avkonverterad undersession inträffar när alla _en_inträffar utan en Terminal _B_.
 
-Hur beräknas slutligen inverkan varierar beroende på om vi analyserar av mått eller per dimension. För alla mått _A_är en undersession är ett genomsnitt. Medan dimensions värdet för varje _A_ bidrar _1/N_ att värdet som tilldelas _B_ där _N_ är antalet _A_är i undersessionen.
+Hur påverkan beräknas i slut ändan beroende på om vi analyserar av mått eller dimension. För mått är alla _en_under session genomsnitts värde. För dimensioner är värdet för varje _A_ till _1/N_ till värdet som tilldelats _B_ där _N_ är numret på _en_av undersessionerna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill aktivera användning upplevelser börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sidvisningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Om du redan skicka anpassade händelser eller sidvisningar, utforska användningsverktygen om du vill veta hur användarna använder din tjänst.
+- Börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sid visningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)om du vill aktivera användnings upplevelser.
+- Om du redan skickar anpassade händelser eller sid visningar, utforska användnings verktygen för att lära dig hur användarna använder tjänsten.
     - [Trattar](usage-funnels.md)
     - [Kvarhållning](usage-retention.md)
     - [Användarflöden](usage-flows.md)
     - [Arbetsböcker](../../azure-monitor/app/usage-workbooks.md)
-    - [Lägg till användarkontext](usage-send-user-context.md)
+    - [Lägg till användar kontext](usage-send-user-context.md)

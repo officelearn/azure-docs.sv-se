@@ -1,77 +1,72 @@
 ---
 title: Visa och analysera data i Azure Log Analytics | Microsoft Docs
-description: Hjälp för användare av loggsökning i Log Analytics till Azure Monitor log-fråga upplevelse.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: Hjälp för användare av Log Analytics loggs ökning för att Azure Monitor logg fråga.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/16/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/16/2019
+ms.openlocfilehash: b738d532cb458506ca50a07dea11687040f99e02
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519906"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900334"
 ---
-# <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Övergång från loggsökning i Log Analytics till Azure Monitor-loggar
-Loggsökning i Log Analytics har nyligen har ersatts med en ny upplevelse för att analysera loggar med Azure Monitor. Sidan Log search är för närvarande fortfarande är tillgängliga via den **loggar (klassisk)** menyalternativ i det **Log Analytics-arbetsytor** sida i Azure portal, men kommer att tas bort den 15 februari 2019. Den här artikeln beskrivs skillnaderna mellan de båda upplevelserna för att du övergår från loggsökning. 
+# <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Över gång från Log Analytics loggs ökning till Azure Monitor loggar
+Loggs ökningen i Log Analytics ersattes nyligen med en ny upplevelse för analys av Azure Monitors loggar. Sidan för loggs ökning är för närvarande fortfarande tillgänglig via meny alternativet **loggar (klassisk)** på sidan **Log Analytics arbets ytor** i Azure Portal men kommer att tas bort 15 februari 2019. I den här artikeln beskrivs skillnaderna mellan de två upplevelserna som hjälper dig att övergå från loggs ökning. 
 
-## <a name="filter-results-of-a-query"></a>Filtrera resultatet av en fråga
-I Loggsökning visas en lista över filter som sökresultat levereras. Välj ett filter och klicka på **tillämpa** att köra frågan med det valda filtret.
+## <a name="filter-results-of-a-query"></a>Filtrera resultat från en fråga
+I loggs ökningen visas en lista med filter som Sök Resultat levereras. Välj ett filter och klicka på **tillämpa** för att köra frågan med det valda filtret.
 
-![Logga sökfilter](media/log-search-transition/filter-log-search.png)
+![Loggs öknings filter](media/log-search-transition/filter-log-search.png)
 
-I Azure Monitor-loggar, Välj *Filter (förhandsversion)* att visa filter. Klicka på filterikonen för att visa ytterligare filter. Välj ett filter och klicka på **tillämpa och kör** att köra frågan med det valda filtret.
+I Azure Monitor loggar väljer du *filter (för hands version)* för att visa filter. Klicka på filter ikonen för att Visa tilläggs filter. Välj ett filter och klicka på **använd & kör** för att köra frågan med det valda filtret.
 
 ![Loggar filter](media/log-search-transition/filter-logs.png)
 
 ## <a name="extract-custom-fields"></a>Extrahera anpassade fält 
-I Log Search för att extrahera [anpassade fält](../platform/custom-fields.md) från listvyn, där ett fält menyn innefattar åtgärden _extrahera fält från tabellen_.
+I loggs ökning extraherar du [anpassade fält](../platform/custom-fields.md) från listvyn där fältets meny innehåller åtgärden _extrahera fält från tabellen_.
 
-![Logga extrahera sökfält](media/log-search-transition/extract-fields-log-search.png)
+![Hämta fält för loggs ökning](media/log-search-transition/extract-fields-log-search.png)
 
-I Azure Monitor-loggarna för att extrahera fält från tabellvyn. Expandera en post genom att klicka på pilen till vänster och sedan klicka på ellipsen för att komma åt den _extrahera fält_ åtgärd.
+I Azure Monitor loggar extraherar du anpassade fält från vyn tabell. Expandera en post genom att klicka på pilen till vänster och klicka sedan på ellipsen för att få åtkomst till åtgärden _extrahera fält_ .
 
 ![Loggar extrahera fält](media/log-search-transition/extract-fields-logs.png)
 
-## <a name="functions-and-computer-groups"></a>Funktioner och datorgrupper
-Välj för att spara en sökning i Loggsökning **sparade sökningar** och **Lägg till** måste ange ett namn, kategori och frågetexten. Skapa en [datorgrupp](../platform/computer-groups.md) genom att lägga till ett funktionsalias.
+## <a name="functions-and-computer-groups"></a>Funktioner och dator grupper
+Om du vill spara en sökning i loggs ökning väljer du **sparade sökningar** och **lägger till** för att ange namn, kategori och frågetext. Skapa en [dator grupp](../platform/computer-groups.md) genom att lägga till ett funktions Ali Aset.
 
-![Spara loggsökning](media/log-search-transition/save-search-log-search.png)
+![Spara loggs ökning](media/log-search-transition/save-search-log-search.png)
 
-Om du vill spara den aktuella frågan i Azure Monitor-loggar, Välj **spara**. Ändra **Spara som** till _funktionen_ och ger en **Funktionsalias** att skapa en [funktionen](functions.md). Välj _spara frågan som en datorgrupp_ att använda funktionsalias för en [datorgrupp](../platform/computer-groups.md).
+Om du vill spara den aktuella frågan i Azure Monitor loggar väljer du **Spara**. Ändra **Spara som** och ange ett **funktions Ali Aset** _för att skapa_ en [funktion](functions.md). Välj _Spara den här frågan som en dator grupp_ om du vill använda funktions Ali Aset för en [dator grupp](../platform/computer-groups.md).
 
-![Spara loggfråga](media/log-search-transition/save-query-logs.png)
+![Spara logg fråga](media/log-search-transition/save-query-logs.png)
 
 ## <a name="saved-queries"></a>Sparade frågor
-I Loggsökning, din sparade frågor som är tillgängliga via uppgiften fältet **sparade sökningar**. I Azure Monitor-loggar, få åtkomst till sparade frågor från [Frågeutforskaren](../log-query/get-started-portal.md#save-queries).
+I loggs ökningen är dina sparade frågor tillgängliga via åtgärds fältets **sparade sökningar**. I Azure Monitor loggar får du åtkomst till sparade frågor från [query Explorer](../log-query/get-started-portal.md#save-queries).
 
-![Frågeutforskaren](media/log-search-transition/query-explorer.png)
+![Query Explorer](media/log-search-transition/query-explorer.png)
 
-## <a name="drill-down-on-summarized-rows"></a>Öka detaljnivån för sammanfattad rader
-Du kan klicka på en rad i en sammanfattande fråga för att starta en annan fråga som visar detaljinformation på den raden i Log Search.
+## <a name="drill-down-on-summarized-rows"></a>Öka detalj nivån för summerade rader
+I loggs ökningen kan du klicka på en rad i en summerad fråga för att starta en annan fråga som visar detaljerade poster på raden.
 
-![Log Search detaljgranska](media/log-search-transition/drilldown-search.png)
+![Loggs öknings specificering](media/log-search-transition/drilldown-search.png)
 
-I Azure Monitor-loggar, måste du ändra frågan så att dessa poster. Expandera någon av raderna i resultatet och klicka på den **+** bredvid värdet som ska lägga till i frågan. Sedan kommentera ut den **sammanfatta** kommandot och kör frågan igen.
+I Azure Monitor loggar måste du ändra frågan för att returnera dessa poster. Expandera en av raderna i resultaten och klicka på **+** bredvid värdet för att lägga till den i frågan. Kommentera sedan ut kommandot **sammanfatta** och kör frågan igen.
 
-![Azure Monitor loggar detaljgranska](media/log-search-transition/drilldown-logs.png)
+![Azure Monitor loggar-nedbrytning](media/log-search-transition/drilldown-logs.png)
 
 ## <a name="take-action"></a>Vidta åtgärd
-I Loggsökning, kan du [startar en runbook](take-action.md) från ett sökresultat genom att välja **vidta åtgärder**.
+I loggs ökning kan du [starta en Runbook](take-action.md) från ett Sök resultat genom att välja **vidta åtgärd**.
 
 ![Vidta åtgärd](media/log-search-transition/take-action-log-search.png)
 
-I Azure Monitor-loggar, [skapar en avisering från loggfråga](../platform/alerts-log.md). Konfigurera en grupp med en eller flera åtgärder som körs som svar på aviseringen.
+I Azure Monitor loggar [skapar du en avisering från logg frågan](../platform/alerts-log.md). Konfigurera en åtgärds grupp med en eller flera åtgärder som ska köras som svar på aviseringen.
 
-![Åtgärdsgrupp](media/log-search-transition/action-group.png)
+![Åtgärds grupp](media/log-search-transition/action-group.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om den nya [Azure Monitor loggar upplevelse](get-started-portal.md).
+- Lär dig mer om den nya [upplevelsen av Azure Monitor loggar](get-started-portal.md).

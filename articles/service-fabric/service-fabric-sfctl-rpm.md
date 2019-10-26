@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI – sfctl rpm | Microsoft Docs
 description: Beskriver kommandona för kommandot Service Fabric CLI sfctl RPM.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 3f40451087aba5af5b02625ad3ac1ca6231d976c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 9c37dc8131f14a3b35e68b3e88502c91f96810f6
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035884"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901035"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Fråga och skicka kommandon till tjänsten Repair Manager.
@@ -28,8 +29,8 @@ Fråga och skicka kommandon till tjänsten Repair Manager.
 |Kommando|Beskrivning|
 | --- | --- |
 | Godkänn-Force | Tvingar godkännandet av den aktuella reparations uppgiften. |
-| radera | Tar bort en slutförd reparations uppgift. |
-| list | Hämtar en lista över reparations aktiviteter som matchar de aktuella filtren. |
+| delete | Tar bort en slutförd reparations uppgift. |
+| lista | Hämtar en lista över reparations aktiviteter som matchar de aktuella filtren. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm-godkännande-Force
 Tvingar godkännandet av den aktuella reparations uppgiften.
@@ -49,8 +50,8 @@ Detta API stöder Service Fabric plattform; den är inte avsedd att användas di
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-rpm-delete"></a>ta bort sfctl rpm
@@ -71,8 +72,8 @@ Detta API stöder Service Fabric plattform; den är inte avsedd att användas di
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-rpm-list"></a>sfctl rpm-lista
@@ -84,9 +85,9 @@ Detta API stöder Service Fabric plattform; den är inte avsedd att användas di
 
 |Argument|Beskrivning|
 | --- | --- |
-| --executor-filter | Namnet på den reparations-utförar vars begärda uppgifter ska tas med i listan. |
-| --state-filter | Ett bitvis-eller av följande värden som anger vilka uppgifts tillstånd som ska ingå i resultat listan. <br> 1 – skapad <br>2-begärd  <br>4 – förbereder  <br>8-godkänd  <br>16-körning  <br>32 – återställning  <br>64-slutförd |
-| --task-id-filter | Det ID-prefix för reparations aktivitet som ska matchas. |
+| --utförar-filter | Namnet på den reparations-utförar vars begärda uppgifter ska tas med i listan. |
+| --tillstånd-filter | Ett bitvis-eller av följande värden som anger vilka uppgifts tillstånd som ska ingå i resultat listan. <br> 1 – skapad <br>2-begärd  <br>4 – förbereder  <br>8-godkänd  <br>16-körning  <br>32 – återställning  <br>64-slutförd |
+| --aktivitets-ID-filter | Det ID-prefix för reparations aktivitet som ska matchas. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -94,8 +95,8 @@ Detta API stöder Service Fabric plattform; den är inte avsedd att användas di
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 

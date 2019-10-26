@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9030a1d9d0b1e3f9b84f6636b0d3d758ab4cfa3b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4a2fe8238a1ac6f668450aca4e2fd6d2b4ba04a5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599982"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901535"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Skapa en Service Fabric Cluster Resource Manager-mall
 
@@ -38,7 +38,7 @@ Exempel på Resource Manager-mallar finns i [Azure-exemplen på GitHub](https://
 I den här artikeln används mallarna för säker kluster och mallparametrar i [fem noder][service-fabric-secure-cluster-5-node-1-nodetype] . Ladda ned *azuredeploy. JSON* och *azuredeploy. Parameters. JSON* till datorn och öppna båda filerna i din favorit text redigerare.
 
 > [!NOTE]
-> För nationella moln (Azure Government, Azure Kina, Azure Germany) bör du `fabricSettings` även lägga till följande i mallen: `AADLoginEndpoint`, `AADTokenEndpointFormat` och `AADCertEndpointFormat`.
+> För nationella moln (Azure Government, Azure Kina, Azure Germany) bör du även lägga till följande `fabricSettings` i mallen: `AADLoginEndpoint`, `AADTokenEndpointFormat` och `AADCertEndpointFormat`.
 
 ## <a name="add-certificates"></a>Lägg till certifikat
 Du lägger till certifikat i en kluster resurs hanterare-mall genom att referera till nyckel valvet som innehåller certifikat nycklarna. Lägg till dessa nyckel-valv parametrar och värden i en parameter fil för Resource Manager-mall (*azuredeploy. Parameters. JSON*).
@@ -146,7 +146,7 @@ Certifikatet för klientautentisering måste konfigureras i både den Service Fa
 Du lägger till Azure AD-konfigurationen i en kluster resurs hanterare-mall genom att referera till nyckel valvet som innehåller certifikat nycklarna. Lägg till de Azure AD-parametrar och-värden i en parameter fil för Resource Manager-mall (*azuredeploy. Parameters. JSON*). 
 
 > [!NOTE]
-> Azure AD-klienter och användare måste skapas innan klustret skapas.  Mer information finns [i Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
+> I Linux måste du skapa Azure AD-klienter och användare innan du skapar klustret.  Mer information finns [i Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
@@ -263,12 +263,12 @@ Nu när du har en mall för klustret kan du lära dig hur du [distribuerar klust
 
 Information om JSON-syntaxen och egenskaperna för de resurser som distribueras i den här artikeln finns i:
 
-* [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
-* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft. ServiceFabric/kluster](/azure/templates/microsoft.servicefabric/clusters)
+* [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 * [Microsoft. Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
 * [Microsoft. Network/belastningsutjämnare](/azure/templates/microsoft.network/loadbalancers)
-* [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
+* [Microsoft. Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
 
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md

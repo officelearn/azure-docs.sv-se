@@ -1,23 +1,23 @@
 ---
 title: Översikt över logg frågor i Azure Monitor | Microsoft Docs
 description: Svarar på vanliga frågor om logg frågor och hjälper dig att komma igång med att använda dem.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/19/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 89633d77a6270b5c34cd9b4f52bc7286f84b1976
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.date: 06/19/2019
+ms.openlocfilehash: 08af0ff3121d6721c9f5c1457655c345f50f91e0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827303"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900260"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Översikt över logg frågor i Azure Monitor
 Med logg frågor kan du utnyttja värdet för de data som samlas in i [Azure Monitor loggar](../platform/data-platform-logs.md). Ett kraftfullt frågespråk gör att du kan koppla data från flera tabeller, aggregera stora mängder data och utföra komplexa åtgärder med minimal kod. I stort sett kan alla frågor besvaras och analyseras så länge som stödjande data har samlats in och du förstår hur du skapar rätt fråga.
 
-Vissa funktioner i Azure Monitor, till [](../insights/insights-overview.md) exempel insikter och [lösningar](../insights/solutions-inventory.md) , bearbetar loggdata utan att du exponerar de underliggande frågorna. För att helt utnyttja andra funktioner i Azure Monitor bör du förstå hur frågor skapas och hur du kan använda dem för att interaktivt analysera data i Azure Monitor loggar.
+Vissa funktioner i Azure Monitor, till exempel [insikter](../insights/insights-overview.md) och [lösningar](../insights/solutions-inventory.md) , bearbetar loggdata utan att du exponerar de underliggande frågorna. För att helt utnyttja andra funktioner i Azure Monitor bör du förstå hur frågor skapas och hur du kan använda dem för att interaktivt analysera data i Azure Monitor loggar.
 
 Använd den här artikeln som en start punkt för att lära dig om logg frågor i Azure Monitor. Den svarar på vanliga frågor och innehåller länkar till annan dokumentation som innehåller mer information och lektioner.
 
@@ -79,7 +79,7 @@ I [Kom igång med logg frågor i Azure Monitor](get-started-queries.md) finns en
 ## <a name="what-is-log-analytics"></a>Vad är Log Analytics?
 Log Analytics är det primära verktyget i Azure Portal för att skriva logg frågor och analysera resultaten interaktivt. Även om en logg fråga används någon annan stans i Azure Monitor, skriver du vanligt vis och testar frågan först med Log Analytics.
 
-Du kan starta Log Analytics från flera platser i Azure Portal. Omfattningen av de data som är tillgängliga för Log Analytics bestäms av hur du startar den. Mer information finns i [fråge](scope.md) omfånget.
+Du kan starta Log Analytics från flera platser i Azure Portal. Omfattningen av de data som är tillgängliga för Log Analytics bestäms av hur du startar den. Mer information finns i [fråge omfånget](scope.md) .
 
 - Välj **loggar** på menyn **Azure Monitor** eller **Log Analytics arbets ytor** .
 - Välj **analys** på sidan **översikt** i ett Application Insights program.

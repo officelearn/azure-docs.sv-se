@@ -1,21 +1,19 @@
 ---
 title: 'Snabb start: övervaka med Azure Application insikter'
 description: Innehåller instruktioner för att snabbt konfigurera en Node.js-webbapp för övervakning med Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
-ms.service: application-insights
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: 84be9c2b1d8e28fb847e52bda36f9857bd28da28
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 23fdf326bd1d3deac56f138130c3767427d062e5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528867"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894946"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Snabb start: börja övervaka Node. js-webbappen med Azure Application insikter
 
@@ -92,7 +90,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![Application Insights program karta](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. Välj ikonen för **program analys** ![Application kart ikonen ](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **vyn i Analytics**.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Välj ikonen för **app Analytics** ![program kartans ikon](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **vyn i Analytics**.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
    ![Application Insights Analytics-diagram](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 

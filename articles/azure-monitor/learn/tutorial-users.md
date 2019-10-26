@@ -1,21 +1,19 @@
 ---
 title: Förstå dina kunder i Azure Application Insights | Microsoft Docs
 description: Självstudiekurs om att använda Azure Application Insights till att förstå hur kunderna använder din app.
-keywords: ''
-services: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 90357c13003820a25ee52aab5cda83029c9d85ff
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 08da1ad5d934116db8f110d7b75a8e0a60ffc84a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601552"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894673"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Använda Azure Application Insights till att förstå hur kunderna använder din app
 
@@ -31,11 +29,11 @@ Azure Application Insights samlar in användningsinformation för att hjälpa di
 > * Inspekterar hur användarna navigerar genom appen
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
-- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
     - ASP.NET och webbutveckling
     - Azure Development
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -59,11 +57,11 @@ På panelen **Användare** kan du få förstå viktig information om dina använ
 
     ![Ändra tidsintervallet](media/tutorial-users/TimeRange.png)
 
-4. Klicka på listrutan **Dela med** för att lägga till en uppdelning av en användaregenskap i diagrammet.  Välja **land eller region**.  Diagrammet innehåller samma data, men du kan visa en detaljerad analys av hur många användare för varje land/region.
+4. Klicka på listrutan **Dela med** för att lägga till en uppdelning av en användaregenskap i diagrammet.  Välja **land eller region**.  Diagrammet innehåller samma data, men du kan visa en uppdelning av antalet användare för varje land/region.
 
     ![Diagram för land eller region](media/tutorial-users/CountryorRegion.png)
 
-5. Placera markören över olika staplarna i diagrammet och Observera att antalet för varje land/region återspeglar endast den tidsperioden som representeras av verktygsfältet.
+5. Placera markören över olika staplar i diagrammet och Observera att antalet för varje land/region endast visar tids perioden som representeras av det fältet.
 6. Ta en titt på kolumnen **Insikter** till höger som utför analyser av dina användardata.  Det här ger information som antalet unika sessioner under tidsperioden och poster med gemensamma egenskaper som utgör en betydande del av användardata 
 
     ![Kolumnen Insikter](media/tutorial-users/insights.png)
@@ -86,7 +84,7 @@ Panelen **Sessioner** liknar panelen **Användare**.  **Användare** hjälper di
     ![Sessionstidslinje](media/tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Gruppera liknande användare
-En **kohort** är en uppsättning användare som är grupperade efter liknande egenskaper.  Du kan använda kohorter för att filtrera data i andra panelen, så att du kan analysera olika grupper av användare.  Till exempel kanske du bara vill analysera användare som har slutfört ett köp.
+En **kohort** är en uppsättning användare grupperade på liknande egenskaper.  Du kan använda kohorter för att filtrera data i andra panelen, så att du kan analysera olika grupper av användare.  Till exempel kanske du bara vill analysera användare som har slutfört ett köp.
 
 1.  Välj **Kohorter** på menyn.
 2.  Klicka på **Nytt** om du vill skapa en kohort.

@@ -1,152 +1,147 @@
 ---
 title: Övervaka appens hälsa och användning med Application Insights
-description: Kom igång med Application Insights. Analysera användningen, tillgängligheten och prestanda i din lokala eller Microsoft Azure-program.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40650472-e860-4c1b-a589-9956245df307
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+description: Kom igång med Application Insights. Analysera användning, tillgänglighet och prestanda för dina lokala eller Microsoft Azure program.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebf6fa6d3dac6c63dfaa349a77a08bc81d402ef8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60373154"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899305"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Övervaka prestanda i webbprogram
 
 
-Kontrollera att ditt program fungerar och lär dig snabbt eventuella fel. [Application Insights] [ start] berättar om några prestandaproblem och undantag, och hjälper dig att hitta och diagnostisera den bakomliggande orsaken.
+Kontrol lera att programmet fungerar bra och ta reda på mer om eventuella fel. [Application Insights][start] meddelar dig om prestanda problem och undantag, och hjälper dig att hitta och diagnostisera rotor saken.
 
-Application Insights kan övervaka Java- och ASP.NET-webbprogram och tjänster, WCF-tjänster. De kan vara hanteras lokalt, på virtuella datorer eller som Microsoft Azure-webbplatser. 
+Application Insights kan övervaka både Java-och ASP.NET-webbprogram och-tjänster, WCF-tjänster. De kan finnas lokalt, på virtuella datorer eller som Microsoft Azure webbplatser. 
 
-På klientsidan, kan Application Insights ta telemetri från webbsidor och en mängd olika enheter, inklusive iOS, Android och Windows Store-appar.
+På klient sidan kan Application Insights ta telemetri från webb sidor och en rad olika enheter, inklusive iOS-, Android-och Windows Store-appar.
 
-## <a name="setup"></a>Konfigurera övervakning av programprestanda
-Om du inte har lagt till Application Insights i projektet (det vill säga om den inte redan har ApplicationInsights.config), väljer du något av dessa sätt att komma igång:
+## <a name="setup"></a>Konfigurera prestanda övervakning
+Om du ännu inte har lagt till Application Insights i projektet (det vill säga om det inte har ApplicationInsights. config) väljer du något av följande sätt för att komma igång:
 
 * [ASP.NET-webbappar](../../azure-monitor/app/asp-net.md)
-  * [Lägg till undantagsövervakning](../../azure-monitor/app/asp-net-exceptions.md)
-  * [Lägg till beroendeövervakning](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [Lägg till undantags övervakning](../../azure-monitor/app/asp-net-exceptions.md)
+  * [Lägg till beroende övervakning](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Java EE-webbappar](../../azure-monitor/app/java-get-started.md)
-  * [Lägg till beroendeövervakning](../../azure-monitor/app/java-agent.md)
+  * [Lägg till beroende övervakning](../../azure-monitor/app/java-agent.md)
 
-## <a name="view"></a>Utforska prestandamått
-I [Azure-portalen](https://portal.azure.com), bläddra till Application Insights-resursen som du har konfigurerat för ditt program. Översiktsbladet visas grundläggande prestandadata:
+## <a name="view"></a>Utforska prestanda mått
+I [Azure Portal](https://portal.azure.com)bläddrar du till den Application Insights resurs som du har konfigurerat för ditt program. Bladet översikt visar grundläggande prestanda information:
 
-Klicka på ett diagram för att se mer information och för att se resultat för en längre period. Klicka till exempel begäranden panelen och välj sedan ett tidsintervall:
+Klicka på ett diagram om du vill se mer information och visa resultaten under en längre period. Klicka till exempel på panelen begär Anden och välj sedan ett tidsintervall:
 
-![Klicka vidare till mer data och välj ett tidsintervall](./media/web-monitor-performance/appinsights-48metrics.png)
+![Klicka dig till mer data och välj ett tidsintervall](./media/web-monitor-performance/appinsights-48metrics.png)
 
-Klicka på ett diagram om du vill välja vilka mått som det visas, eller Lägg till ett nytt diagram och välja dess mått:
+Klicka på ett diagram om du vill välja vilka mått som visas, eller Lägg till ett nytt diagram och markera dess mått:
 
 ![Klicka på ett diagram om du vill välja mått](./media/web-monitor-performance/appinsights-61perfchoices.png)
 
 > [!NOTE]
-> **Avmarkera alla mått** Visa fullständig urval som är tillgänglig. Mått faller inom grupper. När alla medlemmar i en grupp väljs, visas endast de andra medlemmarna i gruppen.
+> **Avmarkera alla mått** om du vill se hela det tillgängliga valet. Måtten hamnar i grupper; När någon medlem i en grupp har valts visas endast de andra medlemmarna i gruppen.
 
-## <a name="metrics"></a>Vad betyder det alla? Prestanda-paneler och rapporter
-Det finns olika prestandamått som du kan hämta. Låt oss börja med de som visas som standard på programbladet.
+## <a name="metrics"></a>Vad betyder det? Prestanda paneler och rapporter
+Det finns olika prestanda mått som du kan hämta. Vi börjar med de som visas som standard på bladet program.
 
 ### <a name="requests"></a>Begäranden
-Antal HTTP-begäranden som tas emot i en angiven period. Jämför detta med resultatet för andra rapporter att se hur din app fungerar när belastningen varierar.
+Antalet mottagna HTTP-begäranden under en angiven period. Jämför detta med resultaten i andra rapporter för att se hur appen beter sig när belastningen varierar.
 
-HTTP-begäranden inkluderar alla GET eller POST-begäranden för sidor, data och avbildningar.
+HTTP-begäranden innehåller alla GET-eller POST-förfrågningar för sidor, data och bilder.
 
-Klicka på ikonen för att hämta antalet för specifika URL: er.
+Klicka på panelen för att hämta antalet för vissa URL: er.
 
-### <a name="average-response-time"></a>Genomsnittlig svarstid
-Mäter tiden mellan en webbegäran som att ange ditt program och svaret returneras.
+### <a name="average-response-time"></a>Genomsnittlig svars tid
+Mäter tiden mellan en webbdelsbegäran som anger ditt program och svaret som returneras.
 
-Poäng visar det genomsnittliga en flytta dem. Om det finns många begäranden kan finnas det något som avviker från genomsnittliga utan en uppenbar högsta eller sjunker i diagrammet.
+Poängen visar ett glidande medelvärde. Om det finns många begär Anden kan det vara något som avviker från genomsnittet utan en uppenbar topp eller dip i grafen.
 
-Leta efter ovanliga toppar. I allmänhet förväntar sig svarstid för att öka med en ökning av begäranden. Om den är oproportionerligt, kan din app ha drabbats av en resursgräns t.ex CPU eller kapaciteten för en tjänst som används.
+Sök efter ovanliga toppar. I allmänhet förväntar du svars tiden på att öka med en ökning av begär Anden. Om riset är oproportionerligt kan din app träffa en resurs gräns, till exempel CPU eller en tjänsts kapacitet som används.
 
-Klicka på panelen för att få gånger för specifika URL: er.
+Klicka på panelen för att hämta tider för vissa URL: er.
 
 ![](./media/web-monitor-performance/appinsights-42reqs.png)
 
-### <a name="slowest-requests"></a>Långsammaste begäranden
+### <a name="slowest-requests"></a>Långsammaste begär Anden
 ![](./media/web-monitor-performance/appinsights-44slowest.png)
 
-Visar vilka förfrågningar kan behöva prestandajustering.
+Visar vilka begär Anden som kan kräva prestanda justering.
 
 ### <a name="failed-requests"></a>Misslyckade förfrågningar
 ![](./media/web-monitor-performance/appinsights-46failed.png)
 
-Antalet begäranden som utlöste undantag utan felhantering.
+Antal begär Anden som utlöste undantag som inte har fångats.
 
-Klicka på panelen för att se information om specifika problem och välj en enskild begäran att se dess information. 
+Klicka på panelen om du vill se information om specifika problem och välj en enskild begäran om du vill visa information om den. 
 
-Ett representativt urval fel sparas för enskilda granskning.
+Endast ett representativt urval av haverier bevaras för individuell granskning.
 
 ### <a name="other-metrics"></a>Andra mått
-Om du vill se vad ange andra mått som du kan visa, klickar du på ett diagram och sedan avmarkera alla mått för att se fullständiga som är tillgängliga. Klicka på (i) om du vill se varje mått definition.
+Om du vill se vilka andra mått du kan visa klickar du på en graf och avmarkerar sedan alla mått för att se den fullständiga tillgängliga uppsättningen. Klicka (i) om du vill se varje mått definition.
 
-![Avmarkera alla mått för att se hela uppsättningen](./media/web-monitor-performance/appinsights-62allchoices.png)
+![Avmarkera alla mått om du vill se hela uppsättningen](./media/web-monitor-performance/appinsights-62allchoices.png)
 
-Om du väljer vilka mått som helst inaktiveras andra som inte får förekomma i samma schema.
+Om du väljer något mått inaktive ras de andra som inte kan visas i samma diagram.
 
 ## <a name="set-alerts"></a>Ange aviseringar
-Lägg till en avisering om du vill meddelas via e-post med ovanliga värden för alla mått. Du kan välja att skicka e-postmeddelandet till kontoadministratörer eller till specifika e-postadresser.
+För att få ett meddelande via e-post om ovanliga värden för alla mått, Lägg till en avisering. Du kan antingen välja att skicka e-postmeddelandet till konto administratörer eller till vissa e-postadresser.
 
 ![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
-Ställ in resursen innan de andra egenskaperna. Välj inte webbtest resurser om du vill ställa in varningar för mått för prestanda och användning.
+Ange resursen före de andra egenskaperna. Välj inte webbtest-resurserna om du vill ange aviseringar för prestanda-eller användnings statistik.
 
-Var noga med att tänka på de enheter där du uppmanas att ange ett tröskelvärde.
+Var noga med att anteckna vilka enheter som du uppmanas att ange tröskelvärdet för.
 
-*Knappen Lägg till avisering visas inte.* -Är detta en grupp konto som du har skrivskyddad åtkomst? Kontakta kontoadministratör.
+*Jag ser inte knappen Lägg till avisering.* – Är detta ett grupp konto som du har skrivskyddad åtkomst till? Kontakta konto administratören.
 
 ## <a name="diagnosis"></a>Diagnostisera problem
-Här följer några tips för att hitta och diagnostisera prestandaproblem:
+Här följer några tips för att hitta och diagnostisera prestanda problem:
 
-* Konfigurera [webbtester] [ availability] att aviseras om webbplatsen stängs av eller svarar långsamt eller felaktigt. 
-* Jämför antalet begäranden med andra mått för att se om misslyckade eller långsamma svar är relaterade till att läsa in.
-* [Infoga och Sök spårningsinstruktioner] [ diagnostic] i din kod för att identifiera problem.
-* Övervaka din webbapp på åtgärden med [Live Metrics Stream][livestream].
-* Spara tillståndet för ditt .NET-program med [Snapshot Debugger][snapshot].
+* Konfigurera [webbtester][availability] för att bli aviserad om din webbplats slutar fungera eller om den svarar felaktigt eller långsamt. 
+* Jämför antalet begär Anden med andra mått för att se om felen eller långsamma svar är relaterade till belastningen.
+* [Infoga och Sök efter spårnings uttryck][diagnostic] i koden för att hitta problem.
+* Övervaka din webbapp i drift med [Live Metrics Stream][livestream].
+* Avbilda statusen för ditt .NET-program med [Snapshot debugger][snapshot].
 
-## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Hitta och åtgärda flaskhalsar i prestanda med upplevelse med prestandaundersökning
+## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Hitta och åtgärda prestanda Flask halsar med prestanda undersökning
 
-Du kan använda upplevelsen med prestandaundersökning för att granska långsamma utför åtgärder i din webbapp. Du kan snabbt välja en viss långsam åtgärd och använda [Profiler](../../azure-monitor/app/profiler.md) till rot orsaka långsam åtgärderna ned kod. Med den nya varaktighetsfördelning som visas för den valda åtgärden kan du snabbt i korthet utvärdera hur allvarligt upplevelsen är för dina kunder. Du kan se hur många användarinteraktioner som har påverkats för varje långsam åtgärd. I exemplet nedan har vi valt att ta en närmare titt på upplevelsen för GET Customers/Details-åtgärden. Vi kan se att det finns tre toppar i varaktighet-distributionen. Längst till vänster topp är cirka 400 ms och representerar bra dynamiska upplevelse. Mitten topp är runt 1,2 s och representerar en medelmåttiga upplevelse. Slutligen på 3.6 s vi har en annan små topp som representerar den 99: e percentil-upplevelsen, som kan leda till våra kunder att lämna missnöjd. Den upplevelsen är tio gånger långsammare än den bästa upplevelsen för samma åtgärd. 
+Du kan använda prestanda gransknings upplevelsen för att granska långsamma drifts åtgärder i din webbapp. Du kan snabbt välja en enskild långsam åtgärd och använda [profiler](../../azure-monitor/app/profiler.md) för att leda till att de långsamma åtgärderna går ned till kod. Med den nya varaktighets fördelningen som visas för den valda åtgärden kan du snabbt och enkelt utvärdera hur dåligt upplevelsen är för dina kunder. Du kan se hur många av dina användar interaktioner som har påverkats för varje långsam åtgärd. I följande exempel har vi beslutat att ta en närmare titt på hur du kan hämta kunder/information. I varaktighets fördelningen ser vi att det finns tre toppar. Insamlad vänster-insamling är cirka 400 MS och representerar bra svars upplevelser. Mellan insamling är cirka 1,2 s och representerar en mediocre upplevelse. 3,6 slutligen har vi en annan liten insamling som representerar 99 percentilen, vilket sannolikt skulle göra att våra kunder lämnar missnöjda. Den här upplevelsen är tio gånger långsammare än den fantastiska upplevelsen av samma åtgärd. 
 
-![GET Customers/Details tre varaktighet toppar](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
+![Hämta kunder/information tre varaktighets toppar](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
-Om du vill få en bättre uppfattning om användarupplevelser för den här åtgärden kan välja vi ett större tidsintervall. Vi kan sedan också upptäcka tidpunkt på ett specifikt tidsfönster där åtgärden gick långsamt. I följande exempel har vi växlat från standardvärdet 24 timmar tidsintervallet 7 dagar tidsintervall och sedan zoomar in 9:47 till 12:47 tidsfönstret mellan TIS 12 och ons 13. Både varaktighetsfördelning och antalet exemplet och profiler-spårningar har uppdaterats till höger.
+Vi kan välja ett större tidsintervall för att få en bättre uppfattning om användar upplevelsen för den här åtgärden. Vi kan sedan också begränsa tids perioden för ett särskilt tidsintervall där åtgärden var långsam. I följande exempel har vi växlat från standardvärdet för 24 timmar till tidsintervallet sju dagar och zoomat in i fönstret 9:47 till 12:47 tids period mellan tis 12 och ons 13. Både varaktighets fördelningen och antalet prov-och profiler spår har uppdaterats till höger.
 
-![GET Customers/Details tre varaktighet toppar i 7 dagar intervall med en tidsperiod](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Hämta kunder/information tre varaktigheter i intervallet för 7 dagar med ett tidsfönster](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
-Om du vill begränsa i på långsamma upplevelser kan vi sedan zooma in i varaktigheter som faller mellan 95: e och 99: e percentilen. Dessa representerar 4-% av användarinteraktioner som var långsamt.
+För att begränsa den långsamma upplevelsen kan vi härnäst zooma in de varaktigheter som ligger mellan 95 och 99 percentilen. Dessa representerar 4% av användar interaktioner som var långsamma.
 
-![GET Customers/Details tre varaktighet toppar i 7 dagar intervall med en tidsperiod](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Hämta kunder/information tre varaktigheter i intervallet för 7 dagar med ett tidsfönster](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
-Vi kan nu antingen titt på representativt exempel genom att klicka på knappen exempel eller på representativa profiler-spårningar genom att klicka på knappen Profiler-spårningar. I det här exemplet finns det fyra spårningar som har samlats in för GET Customers/Details i varaktighet för fönstret och intervallet av intresse.
+Vi kan nu antingen titta på de representativa exemplen genom att klicka på knappen exempel eller vid spårning av representativa profiler, genom att klicka på spårnings knappen för profiler. I det här exemplet finns fyra spår som har samlats in för Hämta kunder/information i tids perioden och intervallets varaktighet.
 
-Kan ibland inte problemet i koden, men i stället i ett beroende koden anropar. Du kan växla till fliken beroenden i prestandasorteringsvyn att undersöka sådana långsamma beroenden. Som standard är prestandavyn populära medelvärden, men vad du vill att titta på är den 95: e percentilen (eller 99th, om du övervakar en mogen tjänst). I följande exempel har vi fokuserat på att den långsamma Azure BLOB-beroenden där vi anropar PUT fabrikamaccount. Bästa upplevelser kluster cirka 40 ms, medan de långsamma anrop till samma beroendet är tre gånger långsammare, klustring cirka 120 ms. Du inte göra många av dessa anrop att lägga till till respektive åtgärden att märkbart långsammare. Du kan se representativt exempel och profiler-spårningar, precis som med fliken åtgärder.
+Ibland kommer problemet inte att finnas i din kod, utan i stället ett beroende av kod anrop. Du kan växla till fliken beroenden i vyn prestanda prioritering för att undersöka sådana långsamma beroenden. Som standard är vyn prestanda trenden i genomsnitt, men det du verkligen vill titta på är den 95 percentilen (eller 99, om du övervakar en vuxen tjänst). I följande exempel har vi fokuserat på det långsamma Azure BLOB-beroendet, där vi anropar skicka fabrikamaccount. Kluster med hög upplevelse runt 40 MS, medan långsamma anrop till samma beroende är tre gånger långsammare, klustring runt 120 MS. Det tar inte flera av dessa anrop att lägga till upp för att göra så att respektive åtgärd märkbart saktar ned. Du kan öka detalj nivån i representativa exempel och profiler spår, precis som du kan med fliken åtgärder.
 
-![GET Customers/Details tre varaktighet toppar i 7 dagar intervall med en tidsperiod](./media/web-monitor-performance/SlowDependencies95thTrend.png)
+![Hämta kunder/information tre varaktigheter i intervallet för 7 dagar med ett tidsfönster](./media/web-monitor-performance/SlowDependencies95thTrend.png)
 
-Upplevelsen med prestandaundersökning visar relevant information längs sida exempeldata som du valt att fokusera på. Det bästa sättet att se alla tillgängliga insikter är att växla till ett tidsintervall för 30 dagar och välj sedan övergripande att se insikter över alla åtgärder för den senaste månaden.
+Prestanda undersöknings upplevelsen visar relevanta insikter längs den exempel uppsättning som du beslutade att fokusera på. Det bästa sättet att titta på alla tillgängliga insikter är att växla till ett tidsintervall i 30 dagar och sedan välja övergripande för att se insikter över alla åtgärder under den senaste månaden.
 
-![GET Customers/Details tre varaktighet toppar i 7 dagar intervall med en tidsperiod](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![Hämta kunder/information tre varaktigheter i intervallet för 7 dagar med ett tidsfönster](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next"></a>Nästa steg
-[Webbtester] [ availability] -har begäranden skickas till programmet med jämna mellanrum från hela världen.
+[Webbtester][availability] – låt webb förfrågningar skickas till ditt program med jämna mellanrum från hela världen.
 
-[Samla och söka diagnostikspårningar] [ diagnostic] – Spårningsanrop och gå igenom resultaten till att identifiera problem.
+[Avbilda och Sök diagnostiska spårningar][diagnostic] – infoga spårnings anrop och gå igenom resultaten för att hitta problem.
 
-[Användningsspårning] [ usage] – ta reda på hur människor använder programmet.
+[Användnings spårning][usage] – ta reda på hur användare använder ditt program.
 
-[Felsöka] [ qna] - och frågor och svar
+[Fel sökning][qna] och frågor och svar & A
 
 
 

@@ -1,24 +1,18 @@
 ---
 title: Optimera din Active Directory-miljö med Azure Monitor | Microsoft Docs
 description: Du kan använda en lösning för Active Directory hälso kontroll för att utvärdera miljö risker och hälso tillstånd med jämna mellanrum.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/10/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a0ffe7b8726ee78ca81751687bebd3c435365576
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 09/10/2019
+ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883079"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899190"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimera din Active Directory miljö med lösningen för Active Directory hälso kontroll i Azure Monitor
 
@@ -40,14 +34,14 @@ När du har lagt till lösningen och en kontroll har slutförts visas sammanfatt
 
 ![bild av kontroll panelen för AD Health-kontroll](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Active Directory Health Check-lösningen kräver en version av .NET Framework 4.5.2 som stöds och som är installerad på varje dator som har Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)) installerad.  Agenten används av System Center 2016-Operations Manager, Operations Manager 2012 R2 och Azure Monitor.
 * Lösningen stöder domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
 * En Log Analytics arbets yta där du kan lägga till Active Directory hälso kontroll från Azure Marketplace i Azure Portal. Ingen ytterligare konfiguration krävs.
 
   > [!NOTE]
-  > När du har lagt till lösningen läggs filen AdvisorAssessment. exe till i servrar med agenter. Konfigurations data läses och skickas sedan till Azure Monitor i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data.
+  > När du har lagt till lösningen läggs filen AdvisorAssessment. exe till i servrar med agenter. Konfigurations data läses och skickas sedan till Azure Monitor i molnet för bearbetning. Logik tillämpas på mottagna data och molntjänsten registrerar data.
   >
   >
 
@@ -64,7 +58,7 @@ Agenten på domänkontrollanten som rapporterar till en Operations Manager hante
 Active Directory hälso kontroll samlar in data från följande källor med hjälp av den agent som du har aktiverat:
 
 - Register
-- LDAP
+- VIA
 - .NET Framework
 - Händelse logg
 - ADSI (Active Directory Service Interfaces)
@@ -179,7 +173,7 @@ Efter nästa schemalagda hälso kontroll körs som standard var sjunde dag, och 
 
 *Finns det något sätt att konfigurera hur ofta hälso kontrollen körs?*
 
-* Inte just nu.
+* Nej, inte just nu.
 
 *Om en annan server för identifieras efter att jag har lagt till en hälso kontroll lösning, kontrol leras den*
 
@@ -191,7 +185,7 @@ Efter nästa schemalagda hälso kontroll körs som standard var sjunde dag, och 
 
 *Vad är namnet på processen som utför data insamlingen?*
 
-* AdvisorAssessment.exe
+* AdvisorAssessment. exe
 
 *Hur lång tid tar det för data att samlas in?*
 
@@ -199,7 +193,7 @@ Efter nästa schemalagda hälso kontroll körs som standard var sjunde dag, och 
 
 *Finns det något sätt att konfigurera när data samlas in?*
 
-* Inte just nu.
+* Nej, inte just nu.
 
 *Varför ska du bara visa de 10 viktigaste rekommendationerna?*
 

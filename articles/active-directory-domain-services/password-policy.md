@@ -11,18 +11,21 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 3876c6f80e9f18059ab4abac67732cdbf2ca24fa
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ffcff84c7778ec3d6395e1c7a706c0deb2a0dc90
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248313"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893441"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Principer för lösen ords-och konto utelåsning på hanterade domäner
 
 Om du vill hantera användar säkerhet i Azure Active Directory Domain Services (Azure AD DS) kan du definiera detaljerade lösen ords principer som styr inställningarna för konto utelåsning eller minsta längd och komplexitet för lösen ord. En standard detaljerad lösen ords princip skapas och tillämpas på alla användare i en Azure AD DS-hanterad domän. För att ge detaljerad kontroll och uppfylla specifika krav för affärs-eller efterlevnad kan ytterligare principer skapas och tillämpas på specifika användar grupper.
 
 Den här artikeln visar hur du skapar och konfigurerar en detaljerad lösen ords princip i Azure AD DS med hjälp av Active Directory Administrationscenter.
+
+> [!NOTE]
+> Lösen ords principer är bara tillgängliga för Azure AD DS-hanterade domäner som skapats med distributions modellen för Resource Manager. För äldre hanterade domäner som skapats med klassisk [migrering från den klassiska virtuella nätverks modellen till Resource Manager][migrate-from-classic].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -34,6 +37,7 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
   * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
   * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+  * Azure AD DS-instansen måste ha skapats med distributions modellen för Resource Manager. Om det behövs [migrerar du från den klassiska virtuella nätverks modellen till Resource Manager][migrate-from-classic].
 * En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
   * Om det behövs kan du slutföra självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 * Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
@@ -130,3 +134,4 @@ Mer information om lösen ords principer och hur du använder Active Directory a
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[migrate-from-classic]: migrate-from-classic-vnet.md

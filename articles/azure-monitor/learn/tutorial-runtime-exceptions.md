@@ -1,21 +1,19 @@
 ---
 title: Diagnostisera körningsundantag med hjälp av Azure Application Insights | Microsoft Docs
 description: Självstudie om att hitta och diagnostisera körningsundantag i dina program med hjälp av Azure Application Insights.
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 70ecc5dc95aced3eb901f24910339eb059ba0c17
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595602"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900475"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -30,11 +28,11 @@ Azure Application Insights samlar in telemetri från ditt program för att ident
 > * skapa ett nytt arbetsobjekt för att åtgärda den felaktiga koden.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
-- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
     - ASP.NET och webbutveckling
     - Azure Development
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -75,7 +73,7 @@ Application Insights samlar in eventuella fel i programmet, och du kan se frekve
     ![Undantagsinformation](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identifiera felaktig kod
-Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. Därefter har möjlighet att felsöka källkoden genom att ladda ned ögonblicksbilden och öppna den i Visual Studio 2019 Enterprise.
+Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. Efteråt har du möjlighet att felsöka käll koden genom att hämta ögonblicks bilden och öppna den i Visual Studio 2019 Enterprise.
 
 1. Klicka på **Open debug snapshot** (Öppna ögonblicksbild för felsökning) i egenskaperna för undantaget.
 2. Panelen **Debug Snapshot** (Ögonblicksbild för felsökning) öppnas med anropsstacken för förfrågningen.  Om du klickar på en metod visas värdena för alla lokala variabler vid tidpunkten för förfrågningen.  Om du börjar med den översta metoden i det här exemplet ser vi att det finns lokala variabler som inte har något värde.
@@ -84,7 +82,7 @@ Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt
 
 3. Det första anropet som har giltiga värden är **ValidZipCode**, och vi kan se att ett postnummer angavs tillsammans med bokstäver som inte kan översättas till ett heltal.  Det här verkar vara felet i koden som måste åtgärdas.
 
-    ![Felsök ögonblicksbilden](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![Ögonblicksbild för felsökning](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. Sedan kan du ladda ned den här ögonblicksbilden till Visual Studio och leta rätt på den faktiska kod som behöver åtgärdas. Det gör du genom att klicka på **Ladda ned ögonblicksbild**.
 5. Ögonblicksbilden läses in i Visual Studio.
@@ -98,7 +96,7 @@ Alla data som samlas in av Application Insights lagras i Azure Log Analytics, s�
 
 1. Klicka på CodeLens-informationen över koden om du vill visa telemetrin som tillhandahålls av Application Insights.
 
-    ![Kod](media/tutorial-runtime-exceptions/codelens.png)
+    ![Programmera](media/tutorial-runtime-exceptions/codelens.png)
 
 1. Klicka på **Analyze impact** (Analysera påverkan) för att öppna Application Insights Analytics.  Det fylls i med flera frågor som kan ge detaljerad information om misslyckade förfrågningar, till exempel vilka användare, webbläsare och regioner som påverkas.<br><br>![Analys](media/tutorial-runtime-exceptions/analytics.png)<br>
 
@@ -109,7 +107,7 @@ Om du ansluter Application Insights till ett spårningssystem som Azure DevOps e
 2. Klicka på **Nytt arbetsobjekt**.
 3. Panelen **Nytt arbetsobjekt** öppnas med detaljer om undantaget ifyllda.  Du kan lägga till ytterligare information innan du sparar objektet.
 
-    ![Ny arbetsuppgift](media/tutorial-runtime-exceptions/new-work-item.png)
+    ![Nytt arbetsobjekt](media/tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig hur du identifierar körningsundantag går du vidare till nästa självstudie, där du får lära dig hur du identifierar och diagnostiserar prestandaproblem.

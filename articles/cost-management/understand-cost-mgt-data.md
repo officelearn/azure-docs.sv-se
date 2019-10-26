@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 6870297eea194b89a84a89e1e8ef8decf5c1788e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 0b93f898924d73636c31826b6b63a228f75fc8ba
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374535"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900169"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
 Den här artikeln hjälper dig att få bättre förståelse för Azures kostnads-och användnings data som ingår i Azure Cost Management. Det förklarar hur ofta data bearbetas, samlas in, visas och stängs. Du faktureras för Azure-användning varje månad. Även om fakturerings cykler är månads perioder varierar cykelns start-och slutdatum efter prenumerations typ. Hur ofta Cost Management tar emot användnings data varierar beroende på olika faktorer. Dessa faktorer omfattar hur lång tid det tar att bearbeta data och hur ofta Azure-tjänster genererar användning till fakturerings systemet.
 
-Cost Management omfattar all användning och alla inköp, inklusive reservationer och erbjudanden från tredje part för Enterprise-avtal-konton (EA). Microsoft Customer Agreement-konton (MCA) och enskilda prenumerationer med priser enligt principen betala per användning omfattar bara användning från Azure-och Marketplace-tjänster. Support och andra kostnader ingår inte. Kostnaderna beräknas tills en faktura genereras och inte är en faktor i kredit.
+Cost Management omfattar all användning och alla inköp, inklusive reservationer och erbjudanden från tredje part för Enterprise-avtal-konton (EA). Microsofts kund avtals konton och enskilda prenumerationer med priser enligt principen betala per användning omfattar bara användning från Azure-och Marketplace-tjänster. Support och andra kostnader ingår inte. Kostnaderna beräknas tills en faktura genereras och inte är en faktor i kredit.
 
 ## <a name="supported-microsoft-azure-offers"></a>Microsoft Azure erbjudanden som stöds
 
@@ -32,9 +32,9 @@ Följande information visar de [Microsoft Azure erbjudanden](https://azure.micro
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Maj 2014<sup>1</sup> |
 | **Enterprise-avtal (EA)** | Enterprise – utveckling/testning                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Maj 2014<sup>1</sup> |
 | **Enterprise-avtal (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Maj 2014<sup>1</sup> |
-| **Microsofts kund avtal** | [Microsoft Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Gäller inte | Mars 2019<sup>3</sup> |
-| **Microsofts kund avtal** | [Microsoft Azure plan för utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Gäller inte | Mars 2019<sup>3</sup> |
-| **Microsoft partner avtal** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01, CSPDEVTEST_2018-05-01 | Gäller inte | Oktober 2019 |
+| **Microsoft-kundavtal** | [Microsoft Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Gäller inte | Mars 2019<sup>3</sup> |
+| **Microsoft-kundavtal** | [Microsoft Azure plan för utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Gäller inte | Mars 2019<sup>3</sup> |
+| **Microsofts kund avtal som stöds av partners** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01 och CSPDEVTEST_2018-05-01<br><br>Kvot-ID: t används återanvänds för Microsofts kund avtal och tidigare CSP-prenumerationer. För närvarande stöds endast prenumerationer av Microsoft-kundavtal. | Gäller inte | Oktober 2019 |
 | **Microsoft Developer Network (MSDN)** | [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 oktober 2018<sup>2</sup> |

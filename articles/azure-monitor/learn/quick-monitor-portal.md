@@ -1,29 +1,27 @@
 ---
 title: Övervaka din ASP.NET-livewebbapp med Azure Application Insights | Microsoft Docs
 description: Innehåller instruktioner för att snabbt konfigurera en ASP.NET-webbapp för övervakning med Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: 1edb83fcbe03fd113c59986bdbb6afcf2a0970bb
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 1aab9009c2c33522abdeae6ca865a35b9fc104e4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916124"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900496"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Börja övervaka din ASP.NET-webbapp
 
-Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende på tillgänglighet, prestanda och användning.  Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem.  Med hjälp av informationen du samlar in från Application Insights om appens prestanda och effektivitet kan du göra välgrundade val för att underhålla och förbättra ditt program.
+Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning.  Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem.  Med hjälp av informationen du samlar in från Application Insights om appens prestanda och effektivitet kan du göra välgrundade val för att underhålla och förbättra ditt program.
 
 Den här snabbstarten visar hur du lägger till Application Insights till en befintlig ASP.NET-webbapp och börjar analysera livestatistik. Det är bara en av de olika metoderna du kan använda för att analysera din app. Om du inte har ett ASP.NET-webbprogram kan du skapa ett som följer snabb starten för att [skapa en ASP.NET-webbapp](../../app-service/app-service-web-get-started-dotnet-framework.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här snabbstarten behöver du:
 
 - Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
@@ -47,7 +45,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 4. Välj din prenumeration och klicka på **Registrera**.
 
-5. Välj **projekt** > **Hantera NuGet paket** > **Källa: NuGet.org** > **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
+5. Välj **projekt** > **Hantera NuGet-paket** > **paket källa: NuGet.org** > **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
 
 6. Kör ditt program genom att antingen välja alternativet för att **starta felsökning** på menyn **Felsök** eller genom att trycka på tangenten F5.
 
@@ -65,15 +63,15 @@ Nu kan du öppna Application Insights i Azure-portalen för att visa olika detal
 
 1. Expandera mappen **anslutna tjänster** (moln-och plugin-ikonen) i Solution Explorer högerklicka sedan på mappen **Application Insights** och klicka på **Öppna Application Insights Portal**.  Du ser viss information om ditt program och många andra alternativ.
 
-    ![Programkarta](media/quick-monitor-portal/04-overview.png)
+    ![Programavbildning](media/quick-monitor-portal/04-overview.png)
 
 2. Klicka på **Programkarta** för en visuell layout av beroenden mellan programkomponenterna.  För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-    ![Programkarta](media/quick-monitor-portal/05-appmap.png)
+    ![Programavbildning](media/quick-monitor-portal/05-appmap.png)
 
-3. Klicka på vyn program översikt](media/quick-monitor-portal/app-viewinlogs-icon.png) för ![ **app Analytics** -ikon **i loggar (Analytics)** på en av program komponenterna. Detta öppnar **loggar (analyser)** , som innehåller ett omfattande frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Klicka på ikonen för program **analys** ![program karta](media/quick-monitor-portal/app-viewinlogs-icon.png) **vyn i loggar (analys)** på en av program komponenterna. Detta öppnar **loggar (analyser)** , som innehåller ett omfattande frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
-    ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
+    ![Analyser](media/quick-monitor-portal/6viewanalytics.png)
 
 4. Klicka på **Live Metrics Stream** till vänster under Undersök. Här ser du livestatistik om programmet när medan det körs. Det innehåller information som antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. Du kan även granska kritiska prestandavärden, till exempel processor och minne.
 

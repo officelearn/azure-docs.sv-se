@@ -1,45 +1,41 @@
 ---
-title: Profilera web apps som körs på en virtuell Azure-dator med hjälp av Application Insights Profiler | Microsoft Docs
-description: Profilera web apps på en Azure-dator med hjälp av Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Profilera webbappar som körs på en virtuell Azure-dator med hjälp av Application Insights Profiler | Microsoft Docs
+description: Profilera webbappar på en virtuell Azure-dator med hjälp av Application Insights Profiler.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: ab30351bfff9c5bbf070a1e8a54a4919e4d2231a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 44f45c53a12c7ac73c3de3f2734f024cb9bc6dd5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66226270"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899988"
 ---
-# <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profil för web apps som körs på virtuella Azure-datorer eller en virtuell datorskalning in med hjälp av Application Insights Profiler
+# <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilera webbappar som körs på en virtuell Azure-dator eller en virtuell dators skalnings uppsättning med hjälp av Application Insights Profiler
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Du kan också distribuera Azure Application Insights Profiler på de här tjänsterna:
-* [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+Du kan också Distribuera Azure Application Insights profiler på följande tjänster:
+* [Azure Apptjänst](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Distribuera Profiler på en virtuell dator eller en VM-skalningsuppsättning
-Den här artikeln visar hur du hämtar Application Insights Profiler som körs på din Azure-dator (VM) eller Azure virtual machine scale Sets. Profiler har installerats med Azure Diagnostics-tillägget för virtuella datorer. Konfigurera tillägg för att köra Profiler och skapa Application Insights SDK i ditt program.
+## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Distribuera profiler på en virtuell dator eller en skalnings uppsättning för virtuella datorer
+Den här artikeln visar hur du kan få Application Insights Profiler som körs på din virtuella Azure-dator (VM) eller skalnings uppsättning för virtuella Azure-datorer. Profiler installeras med Azure-diagnostik-tillägget för virtuella datorer. Konfigurera tillägget för att köra profiler och skapa Application Insights SDK i ditt program.
 
-1. Lägg till Application Insights SDK till din [ASP.NET-program](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+1. Lägg till Application Insights SDK i [ASP.net-programmet](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
 
-   Om du vill visa profiler för dina begäranden, måste du skicka begärandetelemetri till Application Insights.
+   Om du vill visa profiler för dina begär Anden måste du skicka begäran om telemetri till Application Insights.
 
-1. Installera Azure-diagnostiktillägget på den virtuella datorn. Fullständig Resource Manager-mallexempel finns:  
+1. Installera Azure-diagnostik tillägget på den virtuella datorn. Fullständiga exempel på Resource Manager-mallar finns i:  
    * [Virtuell dator](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-   * [Virtual machine scale Sets](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+   * [Skalnings uppsättning för virtuell dator](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
     
-     Den viktiga delen är ApplicationInsightsProfilerSink i WadCfg. Om du vill att Azure Diagnostics aktivera Profiler att skicka data till din iKey måste du lägga till en annan mottagare till det här avsnittet.
+     Nyckel delen är ApplicationInsightsProfilerSink i WadCfg. Om du vill att Azure-diagnostik aktivera profiler för att skicka data till din iKey lägger du till ytterligare en mottagare i det här avsnittet.
     
      ```json
      "SinksConfig": {
@@ -56,11 +52,11 @@ Den här artikeln visar hur du hämtar Application Insights Profiler som körs p
      },
      ```
 
-1. Distribuera distributionsdefinitionen ändrade miljö.  
+1. Distribuera den ändrade miljö distributions definitionen.  
 
-   Tillämpa ändringarna som vanligtvis innebär att en fullständig mall-distribution eller en molnbaserad tjänst publicera via PowerShell-cmdletar eller Visual Studio.  
+   Att tillämpa ändringarna innebär vanligt vis en fullständig mall distribution eller en molnbaserad publicering via PowerShell-cmdletar eller Visual Studio.  
 
-   Följande PowerShell-kommandon är en alternativ metod för befintliga virtuella datorer som touch endast Azure Diagnostics-tillägget. Lägg till de tidigare nämnda ProfilerSink config som returneras av kommandot Get-AzVMDiagnosticsExtension. Sedan skicka uppdaterad konfig till kommandot Set-AzVMDiagnosticsExtension.
+   Följande PowerShell-kommandon är en alternativ metod för befintliga virtuella datorer som bara vidrör Azure-diagnostik-tillägget. Lägg till de tidigare nämnda ProfilerSink i konfigurationen som returneras av kommandot Get-AzVMDiagnosticsExtension. Skicka sedan den uppdaterade konfigurationen till kommandot Set-AzVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -71,14 +67,14 @@ Den här artikeln visar hur du hämtar Application Insights Profiler som körs p
     Set-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-1. Om det avsedda programmet körs [IIS](https://www.microsoft.com/web/downloads/platform.aspx), aktivera den `IIS Http Tracing` Windows-funktionen.
+1. Om det avsedda programmet körs via [IIS](https://www.microsoft.com/web/downloads/platform.aspx)aktiverar du `IIS Http Tracing` Windows-funktionen.
 
-   a. Upprätta fjärråtkomst till miljön och sedan använda den [lägga till Windows-funktioner]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) fönster. Eller kör följande kommando i PowerShell (som administratör):  
+   a. Upprätta fjärråtkomst till miljön och Använd sedan fönstret [Lägg till Windows-funktioner]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) . Eller kör följande kommando i PowerShell (som administratör):  
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   b. Om upprätta fjärråtkomst har uppstått ett problem, kan du använda den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) att köra följande kommando:  
+   b. Om du har problem med att upprätta fjärråtkomst kan du använda [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) för att köra följande kommando:  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
@@ -86,38 +82,38 @@ Den här artikeln visar hur du hämtar Application Insights Profiler som körs p
 
 1. Distribuera ditt program.
 
-## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Ställ in Profiler för mottagare med hjälp av Azure Resource Explorer
-Vi har ännu inte möjlighet att ange mottagare för Application Insights Profiler från portalen. I stället för med hjälp av powershell som beskrivs ovan, du kan använda Azure Resource Explorer för att ange mottagaren. Men Observera att om du distribuerar den virtuella datorn igen, mottagaren kommer att gå förlorade. Du måste du uppdatera den konfiguration som du använder när du distribuerar den virtuella datorn för att bevara den här inställningen.
+## <a name="set-profiler-sink-using-azure-resource-explorer"></a>Ange profilerings mottagare med hjälp av Azure Resource Explorer
+Vi har ännu inget sätt att ange Application Insights Profiler mottagare från portalen. I stället för att använda PowerShell som det som beskrivs ovan kan du använda Azure Resource Explorer för att ange mottagaren. Men Observera att om du distribuerar den virtuella datorn igen går sinken förlorad. Du måste uppdatera den konfiguration som du använder när du distribuerar den virtuella datorn för att bevara den här inställningen.
 
-1. Kontrollera att Windows Azure Diagnostics-tillägget har installerats genom att visa de tillägg som installerats för den virtuella datorn.  
+1. Kontrol lera att Windows Azure-diagnostik-tillägget har installerats genom att visa de tillägg som är installerade för den virtuella datorn.  
 
-    ![Kontrollera om WAD tillägget har installerats][wadextension]
+    ![Kontrol lera om WAD-tillägget har installerats][wadextension]
 
-1. Hitta VM Diagnostics-tillägg för den virtuella datorn. Expandera din resursgrupp, Microsoft.Compute virtualMachines, namn på virtuell dator och tillägg.  
+1. Hitta tillägget för VM-diagnostik för den virtuella datorn. Expandera resurs gruppen, Microsoft. Compute-virtualMachines, namn på virtuell dator och tillägg.  
 
-    ![Gå till WAD config i Azure Resource Explorer][azureresourceexplorer]
+    ![Navigera till WAD-konfiguration i Azure Resource Explorer][azureresourceexplorer]
 
-1. Lägg till Application Insights Profiler mottagare i noden SinksConfig under WadCfg. Om du inte redan har ett SinksConfig avsnitt, kan du behöva lägga till en. Glöm inte att ange den rätt Application Insights i dina inställningar. Du behöver växla Utforskare-läge till Läs/Skriv i det övre högra hörnet och tryck på den blå redigera-knappen.
+1. Lägg till Application Insights Profiler-Sink i SinksConfig-noden under WadCfg. Om du inte redan har ett SinksConfig-avsnitt kan du behöva lägga till ett. Se till att ange rätt Application Insights iKey i dina inställningar. Du måste växla Explorer-läget till läsa/skriva i det övre högra hörnet och trycka på den blå knappen Redigera.
 
     ![Lägg till Application Insights Profiler mottagare][resourceexplorersinksconfig]
 
-1. När du är klar redigera config, tryck på ”Placera”. Om put lyckas visas en grön bock mitt på skärmen.
+1. När du är klar med redigeringen av config trycker du på "flytta". Om placeringen lyckas visas en grön bock i mitten av skärmen.
 
-    ![Skicka put-begäran att tillämpa ändringar][resourceexplorerput]
-
-
+    ![Skicka skicka begäran om att tillämpa ändringarna][resourceexplorerput]
 
 
 
 
-## <a name="can-profiler-run-on-on-premises-servers"></a>Profiler kan köras på lokala servrar?
-Vi har inga planer på att stöd för Application Insights Profiler för lokala servrar.
+
+
+## <a name="can-profiler-run-on-on-premises-servers"></a>Kan profiler köras på lokala servrar?
+Vi har ingen plan för att stödja Application Insights Profiler för lokala servrar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Generera trafik till ditt program (till exempel starta en [tillgänglighetstestet](monitor-web-app-availability.md)). Vänta 10 till 15 minuter innan spårningarna starta som ska skickas till Application Insights-instans.
-- Se [Profiler-spårningar](profiler-overview.md?toc=/azure/azure-monitor/toc.json) i Azure-portalen.
-- Om du vill ha hjälp med felsökning av problem med Profiler finns i [Profiler felsökning](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+- Generera trafik till ditt program (till exempel starta ett [tillgänglighets test](monitor-web-app-availability.md)). Vänta sedan 10 till 15 minuter så att spårningar börjar skickas till Application Insights-instansen.
+- Se [profilerade spår](profiler-overview.md?toc=/azure/azure-monitor/toc.json) i Azure Portal.
+- Hjälp med fel sökning av profilerings problem finns i [fel sökning av profileraren](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
 [azureresourceexplorer]: ./media/profiler-vm/azure-resource-explorer.png
 [resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png

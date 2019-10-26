@@ -8,48 +8,48 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 729b832c068dcd401fa6e9d2f4af9193d3859a83
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845547"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899022"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Översikt över CloudSimple-noder
 
 Noder är Bygg blocken i ett privat moln. En nod är:
 
 * En dedikerad beräknings värd för Bare Metal där en VMware ESXi-hypervisor installeras  
-* En enhet med data behandling som du kan köpa eller reservera för att skapa privata moln
-* Tillgängligt för köp eller reserv i en region där CloudSimple-tjänsten är tillgänglig
+* En beräknings enhet som du kan etablera eller reservera för att skapa privata moln
+* Tillgängligt för etablering eller reserv i en region där CloudSimple-tjänsten är tillgänglig
 
-Du skapar ett privat moln från de köpta noderna. Om du vill skapa ett privat moln måste du ha minst tre noder av samma SKU. Lägg till ytterligare noder för att expandera ett privat moln.  Du kan lägga till noder i ett befintligt kluster eller skapa ett nytt kluster genom att köpa noder i Azure Portal och associera dem med CloudSimple-tjänsten.  Alla köpta noder är synliga under CloudSimple-tjänsten.  
+Du skapar ett privat moln från de etablerade noderna. Om du vill skapa ett privat moln måste du ha minst tre noder av samma SKU. Lägg till ytterligare noder för att expandera ett privat moln.  Du kan lägga till noder i ett befintligt kluster eller skapa ett nytt kluster genom att etablering av noder i Azure Portal och associera dem med CloudSimple-tjänsten.  Alla etablerade noder är synliga under CloudSimple-tjänsten.  
 
-## <a name="purchased-nodes"></a>Köpta noder
+## <a name="provisioned-nodes"></a>Etablerade noder
 
-De köpta noderna ger en kapacitet för betala per användning. Med inköps noderna kan du snabbt skala ditt VMware-kluster på begäran. Du kan lägga till noder vid behov eller ta bort en köpt nod för att skala upp VMware-klustret. Köpta noder debiteras per månad och debiteras för prenumerationen där de köps.
+Etablerade noder ger kapacitet för att betala per användning. Med etablerings noderna kan du snabbt skala ditt VMware-kluster på begäran. Du kan lägga till noder vid behov eller ta bort en etablerad nod för att skala ned VMware-klustret. Etablerade noder debiteras per månad och debiteras för prenumerationen där de är etablerade.
 
 * Om du betalar för Azure-prenumerationen via kredit kort faktureras kortet direkt.
 * Om du faktureras per faktura visas avgifterna på nästa faktura.
 
 ## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>VMware-lösning av CloudSimple Nodes SKU
 
-Följande typer av noder är tillgängliga för köp eller reservation.
+Följande typer av noder är tillgängliga för etablering eller reservation.
 
 | SKU           | CS28-nod                 | CS36-nod                 | CS36m-nod                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| Region        | Östra USA, västra USA            | Östra USA, västra USA            | Västra Europa                 |
+| Region        | Östra USA, västra USA            | Östra USA, västra USA            | Europa, västra                 |
 | Processor           | 2x 2,2 GHz, 28 kärnor (56 HT) | 2x 2,3 GHz, 36 kärnor (72 HT) | 2x 2,3 GHz, 36 kärnor (72 HT) |
 | RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
 | Cachedisk    | 1,6 – TB NVMe                 | 3,2 – TB NVMe                 | 3,2 – TB NVMe                 |
 | Kapacitets disk | 5,625 TB RAW                | 11,25 TB RAW                | 15,36 TB RAW                |
-| Lagringstyp  | Alla Flash                   | Alla Flash                   | Alla Flash                   |
+| Lagrings typ  | Alla Flash                   | Alla Flash                   | Alla Flash                   |
 
 ## <a name="limits"></a>Begränsningar
 
 Följande Node-gränser gäller för privata moln.
 
-| Resource | Gräns |
+| Resurs | Gräns |
 |----------|-------|
 | Minsta antal noder för att skapa ett privat moln | 3 |
 | Maximalt antal noder i ett kluster i ett privat moln | 16 |
@@ -58,5 +58,5 @@ Följande Node-gränser gäller för privata moln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [köper noder](create-nodes.md)
+* Lär dig hur du [etablerar noder](create-nodes.md)
 * Lär dig mer om [privata moln](cloudsimple-private-cloud.md)

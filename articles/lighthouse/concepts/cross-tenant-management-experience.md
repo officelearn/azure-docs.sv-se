@@ -4,19 +4,19 @@ description: Azure-delegerad resurs hantering möjliggör hantering av flera inn
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/18/2019
+ms.date: 10/24/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8d7b1f24d5dcf3d66ffd04704c79a284c4810365
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: eb4ec10755b7ca2227623ba0842d2b1175635594
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598438"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901816"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
-I den här artikeln beskrivs de scenarier som du, som en tjänst leverantör, kan använda med [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md) för att hantera Azure-resurser för flera kunder från din egen klient i [Azure Portal](https://portal.azure.com).
+Som tjänst leverantör kan du använda Azure- [delegerad resurs hantering](../concepts/azure-delegated-resource-management.md) för att hantera Azure-resurser för flera kunder från din egen klient i [Azure Portal](https://portal.azure.com). De flesta uppgifter och tjänster kan utföras på delegerade Azure-resurser över hanterade klienter. I den här artikeln beskrivs några av de förbättrade scenarier där Azure-delegerad resurs hantering kan vara effektiv.
 
 > [!NOTE]
 > Azure-delegerad resurs hantering kan också användas i ett företag som har flera klient organisationer för att förenkla administrationen av flera innehavare.
@@ -37,9 +37,15 @@ Med Azure-delegerad resurs hantering kan behöriga användare logga in på tjän
 
 ![Kund resurser som hanteras via en tjänst leverantörs klient](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
-## <a name="supported-services-and-scenarios"></a>Tjänster och scenarier som stöds
+## <a name="apis-and-management-tool-support"></a>Stöd för API: er och hanterings verktyg
 
-För närvarande stöder hanterings upplevelsen för flera innehavare följande scenarier med delegerade kund resurser:
+Du kan utföra hanterings uppgifter för delegerade resurser antingen direkt i portalen eller med hjälp av API: er och hanterings verktyg (till exempel Azure CLI och Azure PowerShell). Alla befintliga API: er kan användas när du arbetar med delegerade resurser, så länge som funktionerna stöds för hantering av flera innehavare och användaren har rätt behörigheter.
+
+Vi tillhandahåller också API: er för att utföra Azure delegerade resurs hanterings uppgifter. Mer information finns i avsnittet **referens** .
+
+## <a name="enhanced-services-and-scenarios"></a>Förbättrade tjänster och scenarier
+
+De flesta uppgifter och tjänster kan utföras på delegerade resurser över hanterade klienter. Nedan visas några viktiga scenarier där hantering av flera innehavare kan vara effektiv.
 
 [Azure Automation](https://docs.microsoft.com/azure/automation/):
 
@@ -55,7 +61,7 @@ För närvarande stöder hanterings upplevelsen för flera innehavare följande 
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/):
 
-- Visa aviseringar för delegerade prenumerationer i Azure Portal eller program mässigt via REST API-anrop, med möjlighet att visa aviseringar i alla prenumerationer
+- Visa aviseringar för delegerade prenumerationer, med möjlighet att visa aviseringar över alla prenumerationer
 - Visa aktivitets logg information för delegerade prenumerationer
 - Log Analytics: fråga efter data från fjärranslutna kund arbets ytor i flera klienter
 - Skapa aviseringar i kund klienter som utlöser automatisering, till exempel Azure Automation runbooks eller Azure Functions, i tjänst leverantörens klient organisation via Webhooks
@@ -121,16 +127,9 @@ Support förfrågningar:
 Tänk på följande nuvarande begränsningar i alla scenarier:
 
 - Begär Anden som hanteras av Azure Resource Manager kan utföras med Azure-delegerad resurs hantering. Åtgärds-URI: erna för dessa begär Anden börjar med `https://management.azure.com`. Förfrågningar som hanteras av en instans av en resurs typ (till exempel åtkomst till nyckel valv hemligheter eller åtkomst till lagrings data) stöds dock inte med Azure-delegerad resurs hantering. Åtgärds-URI: erna för dessa begär Anden börjar vanligt vis med en adress som är unik för din instans, till exempel `https://myaccount.blob.core.windows.net` eller `https://mykeyvault.vault.azure.net/`. De sistnämnda är också vanliga data åtgärder i stället för hanterings åtgärder. 
-- Roll tilldelningar måste använda [Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)(rollbaserad åtkomst kontroll). Alla inbyggda roller stöds för närvarande med Azure-delegerad resurs hantering förutom för ägare, användar åtkomst administratör eller inbyggda roller med [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) -behörighet. Rollerna anpassade roller och [klassisk prenumerations administratör](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) stöds inte heller.
+- Roll tilldelningar måste använda [Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)(rollbaserad åtkomst kontroll). Alla inbyggda roller stöds för närvarande med Azure-delegerad resurs hantering förutom för ägare eller inbyggda roller med [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) -behörighet. Rollen administratör för användar åtkomst stöds endast för begränsad användning i [tilldela roller till hanterade identiteter](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Administratörs roller för anpassade roller och [klassiska prenumerationer](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) stöds inte.
 - För närvarande kan du inte publicera en prenumeration (eller resurs grupp i en prenumeration) för Azure-delegerad resurs hantering om prenumerationen använder Azure Databricks. Om en prenumeration har registrerats för onboarding med **Microsoft. ManagedServices** Resource Provider kan du inte heller skapa en Databricks-arbetsyta för den prenumerationen just nu.
 - Även om du kan publicera prenumerationer och resurs grupper för Azure delegerad resurs hantering som har resurs lås, kommer dessa lås inte att förhindra att åtgärder utförs av användare i hanterings klienten. [Neka tilldelningar](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) som skyddar systemhanterade resurser, t. ex. de som skapats av Azure-hanterade program eller Azure-skisser (systemtilldelade neka-tilldelningar), förhindrar användare i hanterings klienten från att fungera på dessa resurser. men vid den här tidpunkten kan användare i kund klienten inte skapa sina egna neka-tilldelningar (användar tilldelning neka tilldelningar).
-
-## <a name="using-apis-and-management-tools-with-cross-tenant-management"></a>Använda API: er och hanterings verktyg med hantering av flera innehavare
-
-För tjänster som stöds och scenarier som anges ovan kan du utföra hanterings uppgifter direkt i portalen eller med hjälp av API: er och hanterings verktyg (till exempel Azure CLI och Azure PowerShell). Alla befintliga API: er kan användas när du arbetar med delegerade resurser (för tjänster som stöds).
-
-Det finns också API: er för att utföra Azure-delegerade resurs hanterings uppgifter. Mer information finns i avsnittet **referens** .
-
 
 ## <a name="next-steps"></a>Nästa steg
 

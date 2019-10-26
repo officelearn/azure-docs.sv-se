@@ -1,18 +1,18 @@
 ---
 title: Förstå tids hantering i Azure Stream Analytics
-description: Lär dig mer om hur tids hantering fungerar och hur du löser tids hanterings problem i Azure Stream Analytics.
+description: Lär dig hur tids hanteringen fungerar i Azure Stream Analytics, till exempel hur du väljer den bästa start tiden, hur du hanterar sena och tidiga händelser samt tids hanterings mått.
 author: jasonwhowell
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 10d300638f95fe275a23dfbc239f8f961f46b127
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: ae53663f78b684d41c36607760e30db9e48a6434
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598020"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901429"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Förstå tids hantering i Azure Stream Analytics
 

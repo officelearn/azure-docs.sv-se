@@ -3,22 +3,23 @@ title: Azure Service Fabric CLI – sfctl kaos | Microsoft Docs
 description: Beskriver kommandot Service Fabric CLI-sfctl kaos.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 27178b2f26086bf693dc9cda342c66f7d47a34d7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: f48ef260ab05f98da99c3ae317d0c350d018119f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035098"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901767"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Starta, stoppa och rapportera om kaos test service.
@@ -31,9 +32,9 @@ Starta, stoppa och rapportera om kaos test service.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| händelser | Hämtar nästa segment av kaos-händelserna baserat på fortsättnings-token eller tidsintervallet. |
-| Hämta | Hämta status för kaos. |
-| Starta | Startar kaos i klustret. |
+| evenemang | Hämtar nästa segment av kaos-händelserna baserat på fortsättnings-token eller tidsintervallet. |
+| ta | Hämta status för kaos. |
+| start | Startar kaos i klustret. |
 | Stanna | Stoppar kaos om den körs i klustret och sätter kaos-schemat i stoppat läge. |
 
 ## <a name="sfctl-chaos-events"></a>sfctl kaos-händelser
@@ -46,10 +47,10 @@ Om du vill hämta nästa segment av kaos-händelserna kan du ange ContinuationTo
 |Argument|Beskrivning|
 | --- | --- |
 | --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
-| --slut tid-UTC | Windows-filtiden som representerar slut tiden för tidsintervallet som en kaos-rapport ska genereras för. Mer information finns i [DateTime. ToFileTimeUtc-metoden](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) . |
-| --max-results | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre kanten på antalet returnerade resultat. Resultaten som returneras kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de Max begränsningar för meddelande storlek som definierats i konfigurationen. Om den här parametern är noll eller inte anges, innehåller den växlade frågan så många resultat som möjligt som passar i retur meddelandet. |
-| --Start-Time-UTC | Windows-filtiden som representerar start tiden för tidsintervallet som en kaos-rapport ska genereras för. Mer information finns i [DateTime. ToFileTimeUtc-metoden](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) . |
-| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+| --slut tid-UTC | Windows-filtiden som representerar slut tiden för tidsintervallet som en kaos-rapport ska genereras för. Mer information finns i [DateTime. ToFileTimeUtc-metoden](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) . |
+| --Max-resultat | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre kanten på antalet returnerade resultat. Resultaten som returneras kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de Max begränsningar för meddelande storlek som definierats i konfigurationen. Om den här parametern är noll eller inte anges, innehåller den växlade frågan så många resultat som möjligt som passar i retur meddelandet. |
+| --Start-Time-UTC | Windows-filtiden som representerar start tiden för tidsintervallet som en kaos-rapport ska genereras för. Mer information finns i [DateTime. ToFileTimeUtc-metoden](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) . |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -57,8 +58,8 @@ Om du vill hämta nästa segment av kaos-händelserna kan du ange ContinuationTo
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-chaos-get"></a>sfctl kaos get
@@ -70,7 +71,7 @@ Hämta status för kaos som anger om kaos körs, kaos-parametrarna som används 
 
 |Argument|Beskrivning|
 | --- | --- |
-| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -78,32 +79,32 @@ Hämta status för kaos som anger om kaos körs, kaos-parametrarna som används 
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-chaos-start"></a>sfctl kaos-start
 Startar kaos i klustret.
 
-Om kaos inte redan körs i klustret börjar den kaos med de överförda kaos-parametrarna. Om kaos redan körs när anropet görs, Miss lyckas anropet med felkoden FABRIC_E_CHAOS_ALREADY_RUNNING.
+Om kaos inte redan körs i klustret börjar den kaos med de överförda kaos-parametrarna. Om kaos redan körs när anropet görs, Miss lyckas anropet med felkoden FABRIC_E_CHAOS_ALREADY_RUNNING. Mer information finns i artikeln [inducera kontrollerade kaos i Service Fabric-kluster](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) .
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
 | --app-Type-Health-Policy-Map | JSON-kodad lista med max procent felaktiga program för specifika program typer. Varje post anger som en nyckel namnet på program typen och som ett heltal som representerar den MaxPercentUnhealthyApplications procent som används för att utvärdera programmen för den angivna program typen. <br><br> Definierar en karta med max procent andel felaktiga program för specifika program typer. Varje post anger som nyckel namnet på program typen och som ett heltal som representerar den MaxPercentUnhealthyApplications procent som används för att utvärdera programmen för den angivna program typen. Princip mappningen för program typens hälso princip kan användas vid utvärdering av kluster hälsa för att beskriva särskilda program typer. De program typer som ingår i kartan utvärderas mot procent andelen som anges i kartan och inte med den globala MaxPercentUnhealthyApplications som definierats i kluster hälso principen. Programmen av program typer som anges i kartan räknas inte mot den globala programpoolen. Om exempelvis vissa program av en typ är kritiska kan kluster administratören lägga till en post till kartan för den program typen och tilldela den värdet 0% (det vill säga inte tolerera några fel). Alla andra program kan utvärderas med MaxPercentUnhealthyApplications inställt på 20% för att tolerera vissa problem från tusentals program instanser. Mappningen av hälso princip för program typ används endast om kluster manifestet aktiverar utvärdering av program typens hälso tillstånd med hjälp av konfigurations posten för HealthManager/EnableApplicationTypeHealthEvaluation. |
-| --chaos-target-filter | JSON-kodad ord lista med två sträng typs nycklar. De två nycklarna är NodeTypeInclusionList och ApplicationInclusionList. Värdena för båda dessa nycklar är sträng lista. chaos_target_filter definierar alla filter för riktade kaos-fel, t. ex. fel som bara är specifika nodtyper eller som endast gör vissa program fel. <br><br> Om chaos_target_filter inte används, orsakar kaos fel alla kluster enheter. Om chaos_target_filter används, orsakar kaos bara de entiteter som uppfyller chaos_target_filter-specifikationen. NodeTypeInclusionList och ApplicationInclusionList tillåter endast en semantik. Det går inte att ange en skärning av NodeTypeInclusionList och ApplicationInclusionList. Det går till exempel inte att ange "fel det här programmet endast när det finns på den nodtypen". När en entitet ingår i antingen NodeTypeInclusionList eller ApplicationInclusionList kan den entiteten inte uteslutas med hjälp av ChaosTargetFilter. Även om applicationX inte visas i ApplicationInclusionList, kan en del kaos iteration applicationX vara fel eftersom det sker på en nod i nodeTypeY som ingår i NodeTypeInclusionList. Om både NodeTypeInclusionList och ApplicationInclusionList är tomma genereras en ArgumentException. Alla typer av fel (starta om nod, starta om kod paket, ta bort replik, starta om replik, flytta primär och flytta sekundär) är aktiverade för noderna i dessa nodtyper. Om en nodtyp (t. ex. NodeTypeX) inte visas i NodeTypeInclusionList, aktive ras inte noder på radnivå (t. ex. NodeRestart) för noderna i NodeTypeX, men kod paketet och replik felen kan fortfarande aktive ras för NodeTypeX om ett program i ApplicationInclusionList sker för att finnas på en nod i NodeTypeX. Högst 100 kan inkluderas i den här listan för att öka det här antalet, en konfigurations uppgradering krävs för MaxNumberOfNodeTypesInChaosEntityFilter-konfiguration. Alla repliker som hör till tjänster av dessa program är lämpar till replik fel (starta om replikering, ta bort replik, flytta primär och flytta sekundär) med kaos. Kaos kan bara starta om ett kod paket om kod paketet bara är värd för repliker av dessa program. Om ett program inte visas i listan kan det fortfarande uppstå fel i vissa kaos-iterationer om programmet avslutas på en nod i en nodtyp som ingår i NodeTypeInclusionList. Men om applicationX är knutet till nodeTypeY genom placerings begränsningar och applicationX saknas från ApplicationInclusionList och nodeTypeY inte finns i NodeTypeInclusionList, kommer applicationX aldrig att bli fel. Högst 1000-program namn kan inkluderas i den här listan för att öka det här antalet, så krävs en konfigurations uppgradering för MaxNumberOfApplicationsInChaosEntityFilter-konfigurationen. |
+| --kaos-Target-filter | JSON-kodad ord lista med två sträng typs nycklar. De två nycklarna är NodeTypeInclusionList och ApplicationInclusionList. Värdena för båda dessa nycklar är sträng lista. chaos_target_filter definierar alla filter för riktade kaos-fel, t. ex. fel som bara är specifika nodtyper eller som endast gör vissa program fel. <br><br> Om chaos_target_filter inte används, orsakar kaos fel alla kluster enheter. Om chaos_target_filter används, orsakar kaos bara de entiteter som uppfyller chaos_target_filter-specifikationen. NodeTypeInclusionList och ApplicationInclusionList tillåter endast en semantik. Det går inte att ange en skärning av NodeTypeInclusionList och ApplicationInclusionList. Det går till exempel inte att ange "fel det här programmet endast när det finns på den nodtypen". När en entitet ingår i antingen NodeTypeInclusionList eller ApplicationInclusionList kan den entiteten inte uteslutas med hjälp av ChaosTargetFilter. Även om applicationX inte visas i ApplicationInclusionList, kan en del kaos iteration applicationX vara fel eftersom det sker på en nod i nodeTypeY som ingår i NodeTypeInclusionList. Om både NodeTypeInclusionList och ApplicationInclusionList är tomma genereras en ArgumentException. Alla typer av fel (starta om nod, starta om kod paket, ta bort replik, starta om replik, flytta primär och flytta sekundär) är aktiverade för noderna i dessa nodtyper. Om en nodtyp (t. ex. NodeTypeX) inte visas i NodeTypeInclusionList, aktive ras inte noder på radnivå (t. ex. NodeRestart) för noderna i NodeTypeX, men kod paketet och replik felen kan fortfarande aktive ras för NodeTypeX om ett program i ApplicationInclusionList sker för att finnas på en nod i NodeTypeX. Högst 100 kan inkluderas i den här listan för att öka det här antalet, en konfigurations uppgradering krävs för MaxNumberOfNodeTypesInChaosEntityFilter-konfiguration. Alla repliker som hör till tjänster av dessa program är lämpar till replik fel (starta om replikering, ta bort replik, flytta primär och flytta sekundär) med kaos. Kaos kan bara starta om ett kod paket om kod paketet bara är värd för repliker av dessa program. Om ett program inte visas i listan kan det fortfarande uppstå fel i vissa kaos-iterationer om programmet avslutas på en nod i en nodtyp som ingår i NodeTypeInclusionList. Men om applicationX är knutet till nodeTypeY genom placerings begränsningar och applicationX saknas från ApplicationInclusionList och nodeTypeY inte finns i NodeTypeInclusionList, kommer applicationX aldrig att bli fel. Högst 1000-program namn kan inkluderas i den här listan för att öka det här antalet, så krävs en konfigurations uppgradering för MaxNumberOfApplicationsInChaosEntityFilter-konfigurationen. |
 | --kontext | JSON-kodad karta av (sträng, sträng) typ nyckel/värde-par. Kartan kan användas för att registrera information om kaos-körningen. Det får inte finnas fler än 100 sådana par och varje sträng (nyckel eller värde) får innehålla högst 4095 tecken. Den här kartan anges av Start programmet för kaos-körningen för att eventuellt lagra kontexten för den aktuella körningen. |
 | --Inaktivera-flytta-replik-fel | Inaktiverar flytt av primära och flytt av sekundära fel. |
-| --max-cluster-stabilization | Maximal vänte tid i väntan på att alla kluster enheter ska bli stabila och felfria.  Standard\: 60. <br><br> Kaos körs i iterationer och i början av varje iteration verifierar det hälsan hos kluster enheter. Vid verifieringen om en klusterdelad enhet inte är stabil och felfri i MaxClusterStabilizationTimeoutInSeconds genererar kaos en misslyckad validerings händelse. |
-| --max-concurrent-faults | Det maximala antalet samtidiga fel som induceras per iteration. Kaos körs i iterationer och två på varandra följande iterationer åtskiljs av en validerings fas. Ju högre samtidighet, desto aggressivt injektion av fel – inducing mer komplexa serie tillstånd för att få fram buggar. Rekommendationen är att börja med ett värde på 2 eller 3 och att du ska vara försiktig när du går vidare.  Standard\: 1. |
+| --Max-kluster-stabilisering | Maximal vänte tid i väntan på att alla kluster enheter ska bli stabila och felfria.  Standard\: 60. <br><br> Kaos körs i iterationer och i början av varje iteration verifierar det hälsan hos kluster enheter. Vid verifieringen om en klusterdelad enhet inte är stabil och felfri i MaxClusterStabilizationTimeoutInSeconds genererar kaos en misslyckad validerings händelse. |
+| --Max-antal samtidiga fel | Det maximala antalet samtidiga fel som induceras per iteration. Kaos körs i iterationer och två på varandra följande iterationer åtskiljs av en validerings fas. Ju högre samtidighet, desto aggressivt injektion av fel – inducing mer komplexa serie tillstånd för att få fram buggar. Rekommendationen är att börja med ett värde på 2 eller 3 och att du ska vara försiktig när du går vidare.  Standard\: 1. |
 | --Max-procent-ej felfri-appar | När du utvärderar kluster hälsa under kaos får du maximalt antal tillåtna program i procent för felaktiga program innan ett fel rapporteras. <br><br> Högsta tillåtna procent andel felaktiga program innan ett fel rapporteras. Om du till exempel vill att 10% av programmen ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst ett ohälsosamt program, utvärderas hälsan som varning. Detta beräknas genom att antalet felaktiga program divideras över det totala antalet program instanser i klustret, exklusive program av program typer som ingår i ApplicationTypeHealthPolicyMap. Beräkningen avrundar upp till att tolerera ett problem med ett litet antal program. Standardvärdet är noll. |
 | --Max-procent-ej felfri-noder | När du utvärderar kluster hälsa under kaos får den högsta tillåtna procent andelen Felaktiga noder innan ett fel rapporteras. <br><br> Högsta tillåtna procent andel felaktiga noder innan ett fel rapporteras. Om du till exempel vill att 10% av noderna ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen av noder som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst en ohälsosam nod, utvärderas hälsan som varning. Procent andelen beräknas genom att antalet felaktiga noder divideras med det totala antalet noder i klustret. Beräkningen avrundar upp till att tolerera ett problem på ett litet antal noder. Standardvärdet är noll. I stora kluster är vissa noder alltid otillgängliga för reparationer, så den här procent andelen bör konfigureras för att tolerera. |
 | --tid till körning | Total tid (i sekunder) som kaos ska köras innan den stoppas automatiskt. Det högsta tillåtna värdet är 4 294 967 295 (system. UInt32. MaxValue).  Standard\: 4294967295. |
-| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+| --timeout-t | Standard\: 60. |
 | --vänte tid-mellan-fel | Vänte tid (i sekunder) mellan efterföljande fel i en enskild iteration.  Standard\: 20. <br><br> Ju större värdet är, desto lägre blir överlappande mellan fel och den enklare följd av tillstånds över gångar som klustret går igenom. Rekommendationen är att börja med ett värde mellan 1 och 5 och att vara försiktig när du går vidare. |
-| --wait-time-between-iterations | Tids separation (i sekunder) mellan två på varandra följande iterationer av kaos. Ju större värde, desto lägre frekvens för fel inmatning.  Standard\: 30. |
-| --warning-as-error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
+| --vänte tid – mellan iterationer | Tids separation (i sekunder) mellan två på varandra följande iterationer av kaos. Ju större värde, desto lägre frekvens för fel inmatning.  Standard\: 30. |
+| --Varning-as-Error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -111,8 +112,8 @@ Om kaos inte redan körs i klustret börjar den kaos med de överförda kaos-par
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-chaos-stop"></a>sfctl kaos-stopp
@@ -124,7 +125,7 @@ Stoppar kaos från att köra nya fel. Flyg felen fortsätter att köras tills de
 
 |Argument|Beskrivning|
 | --- | --- |
-| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -132,8 +133,8 @@ Stoppar kaos från att köra nya fel. Flyg felen fortsätter att köras tills de
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 

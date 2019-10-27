@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/25/2019
 ms.locfileid: "71261312"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestanda tips för Azure Cosmos DB och .NET
@@ -46,8 +46,8 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
      |Anslutnings läge  |Protokoll som stöds  |SDK: er som stöds  |API/tjänst-port  |
      |---------|---------|---------|---------|
-     |Gateway  |   HTTPS    |  All SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
-     |Direkt    |     TCP    |  .NET SDK    | Portar inom 10 000 – 20000-intervall |
+     |Gateway  |   HTTPS    |  Alla SDK: er    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
+     |Direct    |     TCP    |  .NET SDK    | Portar inom 10 000 – 20000-intervall |
 
      Azure Cosmos DB erbjuder en enkel och öppen RESTful programmerings modell över HTTPS. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och är tillgängligt via .NET-klient-SDK: n. Både direkt TCP och HTTPS använder SSL för inledande autentisering och kryptering av trafik. Använd TCP-protokollet när det är möjligt för bästa prestanda.
 
@@ -94,7 +94,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     När det är möjligt kan du placera alla program som anropar Azure Cosmos DB i samma region som Azure Cosmos-databasen. För en ungefärlig jämförelse kan anrop till Azure Cosmos DB inom samma region slutföras inom 1-2 MS, men svars tiden mellan västra USA och östra kust är > 50 ms. Den här fördröjningen kan troligt vis variera från begäran till begäran beroende på den väg som tas av begäran när den skickas från klienten till Azure Data Center-gränser. Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
-    ![Bild av Azure Cosmos DB anslutnings princip](./media/performance-tips/same-region.png)
+    ![illustration av Azure Cosmos DB anslutnings princip](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
 4. **Öka antalet trådar/aktiviteter**
 
@@ -123,16 +123,16 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
    <a id="max-connection"></a>
 4. **Öka System.Net MaxConnections per värd när du använder Gateway-läge**
 
-    Azure Cosmos DB begär Anden görs via HTTPS/REST vid användning av Gateway-läge och omfattas av standard anslutnings gränsen per värdnamn eller IP-adress. Du kan behöva ange MaxConnections till ett högre värde (100-1000) så att klient biblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I .NET SDK-1.8.0 och senare är standardvärdet för [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50 och du kan ändra värdet genom att ange filen Documents [. client. ConnectionPolicy. MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) till ett högre värde.   
+    Azure Cosmos DB begär Anden görs via HTTPS/REST vid användning av Gateway-läge och omfattas av standard anslutnings gränsen per värdnamn eller IP-adress. Du kan behöva ange MaxConnections till ett högre värde (100-1000) så att klient biblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I .NET SDK-1.8.0 och senare är standardvärdet för [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50 och du kan ändra värdet genom att ange filen [Documents. client. ConnectionPolicy. MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) till ett högre värde.   
 5. **Justera parallella frågor för partitionerade samlingar**
 
      SQL .NET SDK-version 1.9.0 och senare stöder parallella frågor, som gör att du kan fråga en partitionerad samling parallellt. Mer information finns i [kod exempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för att arbeta med SDK: er. Parallella frågor är utformade för att förbättra svars tid och data flöde för deras serie motsvarighet. Parallella frågor ger två parametrar som användarna kan justera för att anpassa sig efter deras krav, (a) MaxDegreeOfParallelism: för att kontrol lera det högsta antalet partitioner kan frågas parallellt och (b) MaxBufferedItemCount: för att kontrol lera antalet resultat som redan hämtats.
 
-    (a) ***justerings grad för\:***  parallell parallell fråga fungerar genom att fråga flera partitioner parallellt. Men data från en enskild partition hämtas seriellt i förhållande till frågan. Att ställa in [](sql-api-sdk-dotnet.md) `MaxConcurrency` [](sql-api-sdk-dotnet-standard.md) i SDK v2 eller i SDK v3 till antalet partitioner har maximal chans att nå den mest utförda frågan, förutsatt att alla andra system villkor är oförändrade `MaxDegreeOfParallelism` . Om du inte känner till antalet partitioner kan du ange graden av parallellitet till ett högt tal, och systemet väljer det lägsta (antal partitioner, indata från användaren) som graden av parallellitet.
+    (a) ***Justera graden av parallellitet\:*** parallell fråga fungerar genom att fråga flera partitioner parallellt. Men data från en enskild partition hämtas seriellt i förhållande till frågan. Att ange `MaxDegreeOfParallelism` i [SDK v2](sql-api-sdk-dotnet.md) eller `MaxConcurrency` i [SDK v3](sql-api-sdk-dotnet-standard.md) till antalet partitioner har maximal chans att uppnå den mest utförda frågan, förutsatt att alla andra system villkor är oförändrade. Om du inte känner till antalet partitioner kan du ange graden av parallellitet till ett högt tal, och systemet väljer det lägsta (antal partitioner, indata från användaren) som graden av parallellitet.
 
     Det är viktigt att Observera att parallella frågor ger de bästa fördelarna om data är jämnt fördelade över alla partitioner med avseende på frågan. Om den partitionerade samlingen är partitionerad, så att alla eller en majoritet av de data som returneras av en fråga är koncentrerade i några partitioner (en partition i värsta fall), skulle prestandan för frågan bli Flask hals av dessa partitioner.
 
-    (b) ***justering av\: MaxBufferedItemCount*** parallell fråga är utformad för att hämta resultat när den aktuella gruppen med resultat bearbetas av klienten. För hämtning bidrar till den totala tids fördröjnings förbättringen av en fråga. MaxBufferedItemCount är parametern för att begränsa antalet förhämtade resultat. Om du anger MaxBufferedItemCount till det förväntade antalet returnerade resultat (eller ett högre tal) kan frågan ta emot maximal nytta av för hämtning.
+    (b) ***justering av MaxBufferedItemCount\:*** parallell fråga är utformad för att hämta resultat när den aktuella gruppen med resultat bearbetas av klienten. För hämtning bidrar till den totala tids fördröjnings förbättringen av en fråga. MaxBufferedItemCount är parametern för att begränsa antalet förhämtade resultat. Om du anger MaxBufferedItemCount till det förväntade antalet returnerade resultat (eller ett högre tal) kan frågan ta emot maximal nytta av för hämtning.
 
     För hämtning fungerar på samma sätt oavsett graden av parallellitet och det finns en enda buffert för data från alla partitioner.  
 6. **Aktivera server sidans GC**
@@ -171,7 +171,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   När en fråga körs skickas resulterande data i ett TCP-paket. Om du anger för lågt värde `maxItemCount`är antalet resor som krävs för att skicka data i TCP-paketet höga, vilket påverkar prestandan. Så om du inte är säker på vilket värde som ska `maxItemCount` anges för egenskapen, är det bäst att ange det till-1 och låta SDK: n välja standardvärdet. 
+   När en fråga körs skickas resulterande data i ett TCP-paket. Om du anger för lågt värde för `maxItemCount`, är antalet resor som krävs för att skicka data i TCP-paketet höga, vilket påverkar prestandan. Om du inte är säker på vilket värde som ska anges för `maxItemCount` egenskap är det bäst att ange det till-1 och låta SDK: n välja standardvärdet. 
 
 11. **Öka antalet trådar/aktiviteter**
 
@@ -183,13 +183,13 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     - För körbara program kan du göra detta genom att avmarkera alternativet **hellre 32-bit** i fönstret **projekt egenskaper** på fliken **bygge** .
 
-    - För VSTest-baserade test projekt kan du göra detta **genom att välja**->->**standard processor arkitektur som x64**från meny alternativet test på **Visual Studio** .
+    - För VSTest-baserade test projekt kan du göra detta genom att välja test **Inställningar** för **test**->->**standard processor arkitektur som x64**, från meny alternativet **test på Visual Studio** .
 
-    - För lokalt distribuerade ASP.net-webbappar kan du göra detta genom att kontrol lera att **använda 64-bitars versionen av IIS Express för webbplatser och projekt**, under **verktyg**->**alternativ**->**projekt och lösningar** **Webb projekt**. ->
+    - För lokalt distribuerade ASP.NET-webbappar kan du göra detta genom att kontrol lera att **använda 64-bitars versionen av IIS Express för webbplatser och projekt**, under **verktyg**->**alternativ**->**projekt och lösningar**-> **Webb projekt**.
 
     - För ASP.NET webb program som distribueras i Azure kan du göra detta genom att välja **plattformen som 64-bit** i **program inställningarna** på Azure Portal.
 
-## <a name="indexing-policy"></a>Indexeringspolicy
+## <a name="indexing-policy"></a>Indexeringsprincip
  
 1. **Utesluta sökvägar som inte används från indexering för att få snabbare skrivning**
 
@@ -215,7 +215,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     Komplexiteten i en fråga påverkar hur många enheter för programbegäran som används för en åtgärd. Antalet predikat, typen av predikat, antalet UDF: er och storleken på käll data uppsättningen påverkar kostnaden för frågor.
 
-    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (eller motsvarande RequestCharge\<-egenskap i ResourceResponse\<T > eller FeedResponse T > i .NET SDK) till Mät antalet enheter för programbegäran som används av dessa åtgärder.
+    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (eller motsvarande RequestCharge-egenskap i ResourceResponse\<t > eller FeedResponse\<t > i .NET SDK) för att mäta antal enheter för programbegäran som använts av dessa åtgärder.
 
     ```csharp
     // Measure the performance (request units) of writes
@@ -230,7 +230,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
          }
     ```             
 
-    Begär ande avgiften som returnerades i den här rubriken är en bråkdel av ditt etablerade data flöde (t. ex. 2000 ru: er/sekund). Om till exempel föregående fråga returnerar 1000 1 KB-dokument, är kostnaden för åtgärden 1000. I och med den här servern bevarar servern bara två sådana begär Anden innan hastigheten begränsar efterföljande begär Anden. Mer information finns i [enheter](request-units.md) för programbegäran och [Kalkylatorn för begär ande](https://www.documentdb.com/capacityplanner)enheter.
+    Begär ande avgiften som returnerades i den här rubriken är en bråkdel av ditt etablerade data flöde (t. ex. 2000 ru: er/sekund). Om till exempel föregående fråga returnerar 1000 1 KB-dokument, är kostnaden för åtgärden 1000. I och med den här servern bevarar servern bara två sådana begär Anden innan hastigheten begränsar efterföljande begär Anden. Mer information finns i [enheter för programbegäran](request-units.md) och [Kalkylatorn för begär ande](https://www.documentdb.com/capacityplanner)enheter.
 <a id="429"></a>
 2. **Hastighets begränsning/begär ande frekvens för stor**
 
@@ -244,7 +244,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen är standard antalet nya försök som för närvarande är 9 internt av klienten inte tillräckligt. i det här fallet genererar klienten en DocumentClientException med status kod 429 i programmet. Standard antalet återförsök kan ändras genom att ange RetryOptions på ConnectionPolicy-instansen. Som standard returneras DocumentClientException med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde.
 
-    Även om det automatiserade återförsöket hjälper till att förbättra återhämtning och användbarhet för de flesta program, kan det komma på strider när du gör prestanda mått, särskilt när du mäter svars tid.  Den klientbaserade svars tiden kommer att inaktive ras om experimentet träffar Server begränsningen och gör att klient-SDK: n kan försöka tyst igen. För att undvika fördröjningar vid prestanda experiment kan du mäta den avgift som returneras av varje åtgärd och se till att förfrågningarna fungerar under den reserverade begär ande frekvensen. Mer information finns i [enheter](request-units.md)för programbegäran.
+    Även om det automatiserade återförsöket hjälper till att förbättra återhämtning och användbarhet för de flesta program, kan det komma på strider när du gör prestanda mått, särskilt när du mäter svars tid.  Den klientbaserade svars tiden kommer att inaktive ras om experimentet träffar Server begränsningen och gör att klient-SDK: n kan försöka tyst igen. För att undvika fördröjningar vid prestanda experiment kan du mäta den avgift som returneras av varje åtgärd och se till att förfrågningarna fungerar under den reserverade begär ande frekvensen. Mer information finns i [enheter för programbegäran](request-units.md).
 3. **Design för mindre dokument för högre data flöde**
 
     Begär ande avgiften (dvs. bearbetnings kostnad för begäran) för en specifik åtgärd är direkt korrelerad med dokumentets storlek. Åtgärder i stora dokument kostar mer än åtgärder för små dokument.

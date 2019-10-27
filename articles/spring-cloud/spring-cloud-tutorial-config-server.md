@@ -8,27 +8,26 @@ ms.reviewer: jeconnoc
 ms.author: v-vasuke
 author: v-vasuke
 ms.date: 08/08/2019
-ms.openlocfilehash: f959d216859ded54de52de474ee3150f91bcfff1
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 31ef82976a1c6938ae0bf591b2f8c8b1a0040466
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038925"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928945"
 ---
-# <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>Självstudier: Konfigurera en fjäder moln konfigurations Server för din tjänst
+# <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>Självstudie: Konfigurera en fjäder moln konfigurations Server för din tjänst
 
 I den här självstudien får du se hur du ansluter en fjäder moln konfigurations server till din Azure våren Cloud-tjänst.
 
 Våren Cloud config tillhandahåller stöd för Server-och klient sidan för den externa konfigurationen i ett distribuerat system. Med konfigurations servern har du en central plats för att hantera externa egenskaper för program i alla miljöer. Mer information finns i [vår referens för vår moln konfigurations Server](https://spring.io/projects/spring-cloud-config).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 * En Azure våren Cloud-tjänst som redan har tillhandahållits och körs.  Slutför [den här snabb](spring-cloud-quickstart-launch-app-cli.md) starten för att etablera och starta en Azure våren Cloud-tjänst.
 
-
 ## <a name="restriction"></a>Begränsning
 
-Det finns vissa begränsningar när du använder __konfigurations servern__ med en git-Server del. Vissa egenskaper kommer automatiskt att matas in i program miljön för att få åtkomst till __konfigurations Server__ och __tjänst identifiering__. Om du även konfigurerar dessa egenskaper från **config server** -filerna kan det uppstå konflikter och oväntade beteenden.  Egenskaperna är: 
+Det finns vissa begränsningar när du använder __konfigurations servern__ med en git-Server del. Vissa egenskaper kommer automatiskt att matas in i din program miljö för att få åtkomst till __konfigurations Server__ och __tjänst identifiering__. Om du även konfigurerar dessa egenskaper från **config server** -filerna kan det uppstå konflikter och oväntade beteenden. Egenskaperna är: 
 
 ```yaml
 eureka.client.service-url.defaultZone
@@ -42,10 +41,9 @@ spring.application.name
 
 ## <a name="create-your-config-server-files"></a>Skapa dina config server-filer
 
-Azure våren Cloud stöder Azure DevOps, GitHub, GitLab och Bitbucket för att lagra dina config server-filer.  När du är klar med din lagrings plats kan du göra konfigurationsfilerna enligt anvisningarna nedan och lagra dem där.
+Azure våren Cloud stöder Azure DevOps, GitHub, GitLab och Bitbucket för att lagra dina config server-filer. När du är klar med din lagrings plats kan du göra konfigurationsfilerna enligt anvisningarna nedan och lagra dem där.
 
 Dessutom är vissa konfigurerbara egenskaper bara tillgängliga för vissa typer. I följande underavsnitt visas egenskaperna för varje typ av lagrings plats.
-
 
 ### <a name="public-repository"></a>Offentligt lager
 
@@ -54,32 +52,32 @@ När du använder ett offentligt lager kommer dina konfigurerbara egenskaper att
 Alla konfigurerbara egenskaper som används för att konfigurera den offentliga `Git`-lagringsplatsen visas nedan.
 
 > [!NOTE]
-> Endast bindestreck ("-") namngivnings konventionen för avgränsade ord stöds för tillfället. Du kan till exempel använda `default-label` men inte `defaultLabel`.
+> Att använda bindestreck ("-") för att avgränsa ord är den enda namngivnings konventionen som stöds för närvarande. Använd till exempel `default-label` inte `defaultLabel`.
 
 | Egenskap        | Krävs | Funktion                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | `yes`    | @No__t-0 av `Git`-lagringsplatsen som används som konfigurations Server Server del bör startas med `http://`, `https://`, `git@` eller `ssh://`. |
-| `default-label` | `no`     | Standard etiketten för `Git`-lagringsplatsen bör vara `branch name`, `tag name` eller `commit-id` av lagrings platsen. |
+| `uri`           | `yes`    | `uri` av `Git`s databasen som används som konfigurations Server Server del bör startas med `http://`, `https://`, `git@`eller `ssh://`. |
+| `default-label` | `no`     | Standard etiketten för `Git`-lagringsplatsen bör vara `branch name`, `tag name`eller `commit-id` av lagrings platsen. |
 | `search-paths`  | `no`     | En sträng mat ris som används för att söka i under kataloger i `Git`-lagringsplatsen. |
 
 ------
 
 ### <a name="private-repository-with-ssh-authentication"></a>Privat lagring med SSH-autentisering
 
-Alla konfigurerbara egenskaper som används för att konfigurera privat `Git`-lagringsplatsen med `Ssh` visas nedan.
+Alla konfigurerbara egenskaper som används för att konfigurera en privat `Git`-lagringsplats med `Ssh` visas nedan.
 
 > [!NOTE]
-> Endast bindestreck ("-") namngivnings konventionen för avgränsade ord stöds för tillfället. Du kan till exempel använda `default-label` men inte `defaultLabel`.
+> Att använda bindestreck ("-") för att avgränsa ord är den enda namngivnings konventionen som stöds för närvarande. Använd till exempel `default-label` inte `defaultLabel`.
 
 | Egenskap                   | Krävs | Funktion                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
-| `uri`                      | `yes`    | @No__t-0 av `Git`-lagringsplatsen som används som konfigurations Server Server del bör startas med `http://`, `https://`, `git@` eller `ssh://`. |
-| `default-label`            | `no`     | Standard etiketten för `Git`-lagringsplatsen bör vara `branch name`, `tag name` eller `commit-id` av lagrings platsen. |
+| `uri`                      | `yes`    | `uri` av `Git`s databasen som används som konfigurations Server Server del bör startas med `http://`, `https://`, `git@`eller `ssh://`. |
+| `default-label`            | `no`     | Standard etiketten för `Git`-lagringsplatsen bör vara `branch name`, `tag name`eller `commit-id` av lagrings platsen. |
 | `search-paths`             | `no`     | En sträng mat ris som används för att söka i under kataloger i `Git`-lagringsplatsen. |
-| `private-key`              | `no`     | Den `Ssh` privata nyckeln för att komma åt `Git`-lagringsplats, __krävs__ när `uri` startade med `git@` eller `ssh://`. |
+| `private-key`              | `no`     | Den `Ssh` privata nyckeln för att komma åt `Git`-lagringsplatsen, som __krävs__ när `uri` börjar med `git@` eller `ssh://`. |
 | `host-key`                 | `no`     | Värd nyckeln för git-lagringsplatsen bör inte innehålla prefixet algoritm som omfattas av `host-key-algorithm`. |
-| `host-key-algorithm`       | `no`     | Värd nyckelalgoritm måste vara en av `ssh-dss`. `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384` och `ecdsa-sha2-nistp521`. Krävs endast om `host-key` finns. |
-| `strict-host-key-checking` | `no`     | Indikerar om konfigurations servern inte kan starta när du använder ange `host-key`, ska vara `true` (standardvärde) eller `false`. |
+| `host-key-algorithm`       | `no`     | Algoritmen för värd nycklar ska vara `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`eller `ecdsa-sha2-nistp521`. Krävs endast om `host-key` finns. |
+| `strict-host-key-checking` | `no`     | Anger om konfigurations servern inte kan starta när den privata `host-key`används. Ska vara `true` (standardvärde) eller `false`. |
 
 -----
 
@@ -88,42 +86,42 @@ Alla konfigurerbara egenskaper som används för att konfigurera privat `Git`-la
 Alla konfigurerbara egenskaper som används för att konfigurera en privat git-lagringsplats med grundläggande autentisering visas nedan.
 
 > [!NOTE]
-> Endast bindestreck ("-") namngivnings konventionen för avgränsade ord stöds för tillfället. Du kan till exempel använda `default-label` men inte `defaultLabel`.
+> Att använda bindestreck ("-") för att avgränsa ord är den enda namngivnings konventionen som stöds för närvarande. Använd till exempel `default-label` inte `defaultLabel`.
 
 | Egenskap        | Krävs | Funktion                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | `yes`    | @No__t-0 av `Git`-lagringsplatsen som används som konfigurations Server Server del bör startas med `http://`, `https://`, `git@` eller `ssh://`. |
-| `default-label` | `no`     | Standard etiketten för `Git`-lagringsplatsen bör vara `branch name`, `tag name` eller `commit-id` av lagrings platsen. |
+| `uri`           | `yes`    | `uri` av `Git`s databasen som används som konfigurations Server Server del bör startas med `http://`, `https://`, `git@`eller `ssh://`. |
+| `default-label` | `no`     | Standard etiketten för `Git`-lagringsplatsen bör vara `branch name`, `tag name`eller `commit-id` av lagrings platsen. |
 | `search-paths`  | `no`     | En sträng mat ris som används för att söka i under kataloger i `Git`-lagringsplatsen. |
-| `username`      | `no`     | @No__t-0 som används för att få åtkomst till `Git`-lagringsplatsen, __krävs__ för `Git`-lagringsplats `Http Basic Authentication`. |
-| `password`      | `no`     | Lösen ordet som används för att komma åt `Git`-lagringsplatsen, som __krävs__ för `Git`-lagringsplatsen server stöd `Http Basic Authentication`. |
+| `username`      | `no`     | `username` som används för att komma åt `Git`-lagringsplatsen, vilket __krävs__ när `Git`-lagringsplatsen har stöd för `Http Basic Authentication`. |
+| `password`      | `no`     | Lösen ordet som används för att komma åt `Git` databas servern, vilket __krävs__ när `Git`-lagringsplatsen har stöd för `Http Basic Authentication`. |
 
 > [!NOTE]
-> Vissa `Git` databas servrar, t. ex. GitHub, stöder en "personlig token" eller "Access-token" som ett lösen ord för `HTTP Basic Authentication`. Du kan använda denna typ av token som lösen ord här, och "personlig token" eller "Access-token" upphör att gälla. Men för git-lagringsplatser som BitBucket och Azure DevOps går token ut i en eller två timmar, vilket gör att alternativet inte är giltigt för användning med Azure våren Cloud.
+> Vissa `Git` lagrings servrar, t. ex. GitHub, stöder en "personlig token" eller "Access-token" som ett lösen ord för `HTTP Basic Authentication`. Du kan använda denna typ av token som lösen ord här, och "personlig token" eller "Access-token" upphör att gälla. Men för git-lagringsplatser som BitBucket och Azure DevOps går token ut i en eller två timmar, vilket gör att alternativet inte är giltigt för användning med Azure våren Cloud.
 
 ### <a name="git-repositories-with-pattern"></a>Git-databaser med mönster
 
 Alla konfigurerbara egenskaper som används för att konfigurera git-databaser med mönster visas nedan.
 
 > [!NOTE]
-> Endast bindestreck ("-") namngivnings konventionen för avgränsade ord stöds för tillfället. Du kan till exempel använda `default-label` men inte `defaultLabel`.
+> Att använda bindestreck ("-") för att avgränsa ord är den enda namngivnings konventionen som stöds för närvarande. Använd till exempel `default-label` inte `defaultLabel`.
 
 | Egenskap                           | Krävs         | Funktion                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
-| `repos`                            | `no`             | En karta består av `Git`-Arkiv inställningar med det namnet. |
-| `repos."uri"`                      | `yes` på `repos` | @No__t-0 av `Git`-lagringsplatsen som används som konfigurations Server Server del bör startas med `http://`, `https://`, `git@` eller `ssh://`. |
-| `repos."name"`                     | `yes` på `repos` | Ett namn för att identifiera en `Git`-lagringsplats, __krävs__ endast om `repos` finns. Till exempel ovan, `team-A`, `team-B`. |
-| `repos."pattern"`                  | `no`             | En sträng mat ris som används för att matcha program namnet, för varje mönster tar `{application}/{profile}`-format med jokertecken. |
-| `repos."default-label"`            | `no`             | Standard etiketten för `Git`-lagringsplatsen bör vara `branch name`, `tag name` eller `commit-id` av lagrings platsen. |
+| `repos`                            | `no`             | En karta som består av inställningarna för en `Git`-lagringsplats med ett angivet namn. |
+| `repos."uri"`                      | `yes` på `repos` | `uri` av `Git`s databasen som används som konfigurations Server Server del bör startas med `http://`, `https://`, `git@`eller `ssh://`. |
+| `repos."name"`                     | `yes` på `repos` | Ett namn för att identifiera en `Git`-lagringsplats, __krävs__ endast om `repos` finns. Till exempel ovan `team-A``team-B`. |
+| `repos."pattern"`                  | `no`             | En sträng mat ris som används för att matcha ett program namn. Använd `{application}/{profile}` format med jokertecken för varje mönster. |
+| `repos."default-label"`            | `no`             | Standard etiketten för `Git`-lagringsplatsen bör vara `branch name`, `tag name`eller `commit-id` av lagrings platsen. |
 | `repos."search-paths`"             | `no`             | En sträng mat ris som används för att söka i under kataloger i `Git`-lagringsplatsen. |
-| `repos."username"`                 | `no`             | @No__t-0 som används för att få åtkomst till `Git`-lagringsplatsen, __krävs__ för `Git`-lagringsplats `Http Basic Authentication`. |
-| `repos."password"`                 | `no`             | Lösen ordet som används för att komma åt `Git`-lagringsplatsen, som __krävs__ för `Git`-lagringsplatsen server stöd `Http Basic Authentication`. |
-| `repos."private-key"`              | `no`             | Den `Ssh` privata nyckeln för att komma åt `Git`-lagringsplats, __krävs__ när `uri` startade med `git@` eller `ssh://`. |
+| `repos."username"`                 | `no`             | `username` som används för att komma åt `Git`-lagringsplatsen, vilket __krävs__ när `Git`-lagringsplatsen har stöd för `Http Basic Authentication`. |
+| `repos."password"`                 | `no`             | Lösen ordet som används för att komma åt `Git` databas servern, vilket __krävs__ när `Git`-lagringsplatsen har stöd för `Http Basic Authentication`. |
+| `repos."private-key"`              | `no`             | Den `Ssh` privata nyckeln för att komma åt `Git`-lagringsplatsen, som __krävs__ när `uri` börjar med `git@` eller `ssh://`. |
 | `repos."host-key"`                 | `no`             | Värd nyckeln för git-lagringsplatsen bör inte innehålla prefixet algoritm som omfattas av `host-key-algorithm`. |
-| `repos."host-key-algorithm"`       | `no`             | Värd nyckelalgoritm måste vara en av `ssh-dss`. `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384` och `ecdsa-sha2-nistp521`. __Krävs__ endast om `host-key` finns. |
-| `repos."strict-host-key-checking"` | `no`             | Indikerar om konfigurations servern inte kan starta när du använder ange `host-key`, ska vara `true` (standardvärde) eller `false`. |
+| `repos."host-key-algorithm"`       | `no`             | Algoritmen för värd nycklar ska vara `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`eller `ecdsa-sha2-nistp521`. __Krävs__ endast om `host-key` finns. |
+| `repos."strict-host-key-checking"` | `no`             | Anger om konfigurations servern inte kan starta när den privata `host-key`används. Ska vara `true` (standardvärde) eller `false`. |
 
-### <a name="import-applicationyml-file-from-spring-cloud-config"></a>Importera `application.yml`-fil från vår moln konfiguration
+### <a name="import-applicationyml-file-from-spring-cloud-config"></a>Importera `application.yml`-filen från vår moln konfiguration
 
 Du kan importera vissa standardinställningar för konfigurations servern direkt från [konfigurations webbplatsen för vår moln konfiguration](https://spring.io/projects/spring-cloud-config) . Du kan göra detta direkt från Azure Portal, så du behöver inte vidta några steg nu för att förbereda dina config server-filer eller-lagrings platser.
 
@@ -146,7 +144,6 @@ Om lagrings platsen är offentlig klickar du bara på knappen **offentlig** och 
 Azure våren Cloud stöder SSH-autentisering. Följ anvisningarna på Azure Portal för att lägga till den offentliga nyckeln till din lagrings plats. Var noga med att ta med din privata nyckel i konfigurations filen.
 
 Klicka på **tillämpa** för att slutföra konfigurationen av konfigurations servern.
-
 
 ## <a name="delete-your-app-configuration"></a>Ta bort din app-konfiguration
 

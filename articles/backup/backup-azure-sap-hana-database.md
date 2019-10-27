@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273944"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931806"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Säkerhetskopiera en SAP HANA-databas till Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "72273944"
 
 **Support** | **Detaljer**
 --- | ---
-**Geografiska områden som stöds** | Sydöstra Australien, östra Australien <br> Södra Brasilien <br> Kanada, centrala, Östra Kanada <br> Asien, sydöstra Asien, östra <br> Östra USA, östra USA 2, västra centrala USA, västra USA, västra USA 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala, södra Indien <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Nordeuropa, Västeuropa <br> Storbritannien, södra Storbritannien, västra
+**Geografiska områden som stöds** | Sydöstra Australien, östra Australien <br> Brasilien, södra <br> Kanada, centrala, Östra Kanada <br> Asien, sydöstra Asien, östra <br> Östra USA, östra USA 2, västra centrala USA, västra USA, västra USA 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala, södra Indien <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Nordeuropa, Västeuropa <br> Storbritannien, södra Storbritannien, västra
 **Virtuella dator operativ system som stöds** | SLES 12 med SP2, SP3 eller SP4.
 **HANA-versioner som stöds** | SDC på HANA 1. x, MDC på HANA 2. x < = SPS04 rev 43
 
@@ -53,6 +53,9 @@ Kontrol lera att du gör följande innan du konfigurerar säkerhets kopior:
     sudo zypper update
     sudo zypper install unixODBC
     ```
+
+    > [!NOTE]
+    > Om du inte uppdaterar databaserna kontrollerar du att versionen av unixODBC är min. Om du vill veta vilken version av uniXODBC kör du ```odbcinst -j``` som rot
 
 2. Tillåt anslutning från den virtuella datorn till Internet, så att den kan komma åt Azure, enligt beskrivningen i proceduren [nedan](#set-up-network-connectivity).
 

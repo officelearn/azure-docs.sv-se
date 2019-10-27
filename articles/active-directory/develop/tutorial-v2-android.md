@@ -16,14 +16,17 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a26a7fc27fa13d86eb3b82fd4be70e5b371581f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b29e5815ec39e850bee0707a9c92c12201c7f21e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677969"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934535"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Logga in användare och anropa Microsoft Graph från en Android-app
+
+> [!NOTE]
+> Den här självstudien har ännu inte uppdaterats för att fungera med MSAL för Android version 1,0-biblioteket. Det fungerar med en tidigare version, enligt konfigurationen i den här självstudien.
 
 I den här självstudien får du lära dig hur du integrerar en Android-app med Microsoft Identity Platform. Din app kommer att logga in en användare, hämta en åtkomsttoken för att anropa Microsoft Graph-API: et och göra en begäran till Microsoft Graph API.  
 
@@ -47,7 +50,7 @@ I det här exemplet används Microsoft Authentication Library för Android (MSAL
 
  MSAL förnyar automatiskt token, leverera enkel inloggning (SSO) mellan andra appar på enheten och hanterar kontona.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den här självstudien kräver Android Studio version 3,5.
 
@@ -61,22 +64,22 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
 4. Spara paket namnet. Du kommer att ange den senare i Azure Portal.
 5. Ändra språket från **Kotlin** till **Java**.
 6. Ange **lägsta API-nivå** till **API 19** eller högre och klicka på **Slutför**.
-7. I projektvyn väljer du **projekt** i list rutan för att Visa käll-och icke-källfiler, öppna **app/build. gradle** och Ställ in `targetSdkVersion` på `28`.
+7. I projektvyn väljer du **projekt** i list rutan om du vill visa käll-och icke-källfiler, öppna **app/build. gradle** och ange `targetSdkVersion` för `28`.
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
 1. Gå till [Azure-portalen](https://aka.ms/MobileAppReg).
 2. Öppna [bladet Appregistreringar](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) och klicka på **+ ny registrering**.
 3. Ange ett **namn** för din app och klicka sedan på **Registrera**utan att ange en omdirigerings-URI.
-4. I avsnittet **Hantera** i fönstret som visas väljer du **autentisering** >  **+ Lägg till en plattforms** > -**Android**. (Du kanske måste välja "växla till den nya upplevelsen" nära överst på bladet för att se det här avsnittet)
-5. Ange ditt projekts paket namn. Om du har hämtat koden är `com.azuresamples.msalandroidapp`det här värdet.
+4. I avsnittet **Hantera** i fönstret som visas väljer du **autentisering** >  **+ Lägg till en plattform** > **Android**. (Du kanske måste välja "växla till den nya upplevelsen" nära överst på bladet för att se det här avsnittet)
+5. Ange ditt projekts paket namn. Om du har hämtat koden är det här värdet `com.azuresamples.msalandroidapp`.
 6. I avsnittet **Signature hash** på sidan **Konfigurera din Android-app** klickar du på **skapa en hash för utvecklings signaturen.** och kopiera det kommando kommando som ska användas för din plattform.
 
    > [!Note]
    > Verktyget för att installera. exe installeras som en del av Java Development Kit (JDK). Du måste också installera OpenSSL-verktyget för att köra kommandot.
 
-7. Ange **signatur** -hashen som genereras av ett-verktyg.
-8. Klicka `Configure` på och spara **MSAL-konfigurationen** som visas på sidan med **Android-konfiguration** så att du kan ange den när du konfigurerar appen senare.  Klicka på **Klar**.
+7. Ange **signatur-hashen** som genereras av ett-verktyg.
+8. Klicka på `Configure` och spara **MSAL-konfigurationen** som visas på sidan med **Android-konfiguration** så att du kan ange den när du konfigurerar appen senare.  Klicka på **Klar**.
 
 ## <a name="build-your-app"></a>Bygg din app
 
@@ -84,8 +87,8 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
 
 1. I Android Studio projekt fönstret navigerar du till **app\src\main\res**.
 2. Högerklicka på **res** och välj **ny** > **katalog**. Ange `raw` som det nya katalog namnet och klicka på **OK**.
-3. I **app** > **src** > **main** > **res** > **RAW**, skapar du en ny JSON-fil med namnet `auth_config.json` och klistrar in MSAL-konfigurationen som du sparade tidigare. [Mer information](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)finns i MSAL-konfigurationen.
-4. I **app** > **src** > **main** > **AndroidManifest. XML**lägger du till aktiviteten `BrowserTabActivity` nedan i program texten. Med den här posten kan Microsoft anropa programmet igen när autentiseringen är klar:
+3. I **appen** > **src** > **main** > **res** > **RAW**skapar du en ny JSON-fil med namnet `auth_config.json` och klistrar in den MSAL-konfiguration som du sparade tidigare. [Mer information](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)finns i MSAL-konfigurationen.
+4. I **appen** > **src** > **main** > **AndroidManifest. XML**lägger du till `BrowserTabActivity`-aktiviteten nedan i program texten. Med den här posten kan Microsoft anropa programmet igen när autentiseringen är klar:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -102,10 +105,10 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
     </activity>
     ```
 
-    Ersätt det paket namn som du registrerade i Azure Portal för `android:host=` värdet.
-    Ersätt den nyckel-hash som du registrerade i Azure Portal för `android:path=` värdet. Signaturens hash ska inte vara URL-kodad.
+    Ersätt det paket namn som du registrerade i Azure Portal för `android:host=` svärdet.
+    Ersätt den nyckel-hash som du registrerade i Azure Portal för `android:path=` svärdet. Signaturens hash ska inte vara URL-kodad.
 
-5. I **AndroidManifest. XML**, strax ovanför `<application>` taggen, lägger du till följande behörigheter:
+5. I **AndroidManifest. XML**, strax ovanför `<application>`-taggen, lägger du till följande behörigheter:
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -115,9 +118,9 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
 ### <a name="create-the-apps-ui"></a>Skapa appens användar gränssnitt
 
 1. I fönstret Android Studio projekt navigerar du till **app** > **src** > **main** > **res** > **layout** och öppnar **activity_main. XML** och **öppnar datavyn.**
-2. Ändra aktivitets layouten, till exempel: `<androidx.coordinatorlayout.widget.CoordinatorLayout` till `<androidx.coordinatorlayout.widget.DrawerLayout`. 
-3. Lägg till `LinearLayout` egenskapen till noden. `android:orientation="vertical"`
-4. Klistra in följande kod i `LinearLayout` noden och Ersätt aktuellt innehåll:
+2. Ändra aktivitets layouten, till exempel: `<androidx.coordinatorlayout.widget.CoordinatorLayout` att `<androidx.coordinatorlayout.widget.DrawerLayout`. 
+3. Lägg till egenskapen `android:orientation="vertical"` till noden `LinearLayout`.
+4. Klistra in följande kod i `LinearLayout`-noden och Ersätt aktuellt innehåll:
 
     ```xml
     <TextView
@@ -177,17 +180,17 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:1.0.+'
+    implementation 'com.microsoft.identity.client:msal:0.3+'
     ```
 
 ### <a name="use-msal"></a>Använd MSAL
 
-Gör nu ändringar `MainActivity.java` i för att lägga till och använda MSAL i din app.
+Nu ska du göra ändringar i `MainActivity.java` för att lägga till och använda MSAL i din app.
 I fönstret Android Studio projekt navigerar du till **app** > **src** > **main** > **Java** > **com. exempel. ( din app)** och öppna `MainActivity.java`.
 
 #### <a name="required-imports"></a>Obligatoriska importer
 
-Lägg till följande importer nära överkanten av `MainActivity.java`:
+Lägg till följande importer längst upp i `MainActivity.java`:
 
 ```java
 import android.app.Activity;
@@ -210,9 +213,9 @@ import com.microsoft.identity.client.exception.*;
 
 #### <a name="instantiate-msal"></a>Instansiera MSAL
 
-I- `MainActivity` klassen måste vi instansiera MSAL tillsammans med några konfigurationer om vad appen ska göra, inklusive de omfång och webb-API som vi vill ha åtkomst till.
+I `MainActivity`-klassen måste vi instansiera MSAL tillsammans med några konfigurationer om vad appen ska göra, inklusive de omfång och webb-API som vi vill ha åtkomst till.
 
-Kopiera följande variabler inuti `MainActivity` klassen:
+Kopiera följande variabler inuti `MainActivity`-klassen:
 
 ```java
 final static String SCOPES [] = {"https://graph.microsoft.com/User.Read"};
@@ -268,7 +271,7 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 });
 ```
 
-Koden ovan försöker logga in användare tyst när de öppnar ditt program via `getAccounts()` och, om det lyckas,. `acquireTokenSilentAsync()`  I kommande avsnitt implementerar vi callback-hanteraren för ärendet det inte finns några inloggade konton.
+Koden ovan försöker logga in användare tyst när de öppnar ditt program via `getAccounts()` och, om det är klart, `acquireTokenSilentAsync()`.  I kommande avsnitt implementerar vi callback-hanteraren för ärendet det inte finns några inloggade konton.
 
 #### <a name="use-msal-to-get-tokens"></a>Hämta token med hjälp av MSAL
 
@@ -276,11 +279,11 @@ Nu kan vi implementera appens användar gränssnitts bearbetnings logik och häm
 
 MSAL exponerar två primära metoder för att hämta tokens: `acquireTokenSilentAsync()` och `acquireToken()`.  
 
-`acquireTokenSilentAsync()`loggar in en användare och hämtar token utan användar interaktion om ett konto finns. Om det lyckas kommer MSAL att skicka in token till din app, om den Miss lyckas genereras en `MsalUiRequiredException`.  Om detta undantag genereras, eller om du vill att användaren ska ha en interaktiv inloggnings upplevelse (autentiseringsuppgifter, MFA eller andra principer för villkorlig åtkomst kan eller behöver inte anges). Använd `acquireToken()`sedan.  
+`acquireTokenSilentAsync()` loggar in en användare och får tokens utan någon användar interaktion om ett konto finns. Om det lyckas skickar MSAL token till din app, om den Miss lyckas skapas en `MsalUiRequiredException`.  Om detta undantag genereras, eller om du vill att användaren ska ha en interaktiv inloggnings upplevelse (autentiseringsuppgifter, MFA eller andra principer för villkorlig åtkomst kan eller inte krävas), använder du `acquireToken()`.  
 
-`acquireToken()`visar gränssnitt när du försöker logga in användaren och hämta tokens. Den kan dock använda sessionscookies i webbläsaren eller ett konto i Microsoft Authenticator för att tillhandahålla den interaktiva-SSO-upplevelsen.
+`acquireToken()` visar användar gränssnittet när du försöker logga in användaren och hämta tokens. Den kan dock använda sessionscookies i webbläsaren eller ett konto i Microsoft Authenticator för att tillhandahålla den interaktiva-SSO-upplevelsen.
 
-Skapa följande tre UI-metoder i `MainActivity` -klassen:
+Skapa följande tre UI-metoder i `MainActivity`-klassen:
 
 ```java
 /* Set the UI for successful token acquisition data */
@@ -414,7 +417,7 @@ Lägg sedan till stöd för utloggning.
 > [!Important]
 > Om du loggar ut med MSAL tas all känd information om en användare bort från programmet, men användaren kan fortfarande ha en aktiv session på sin enhet. Om användaren försöker logga in igen kan de se inloggnings gränssnittet, men kanske inte behöver ange sina autentiseringsuppgifter på nytt eftersom sessionen fortfarande är aktiv.
 
-Lägg till en utloggnings funktion genom att lägga till följande metod `MainActivity` i-klassen. Den här metoden går igenom alla konton och tar bort dem:
+Lägg till en utloggnings funktion genom att lägga till följande metod i klassen `MainActivity`. Den här metoden går igenom alla konton och tar bort dem:
 
 ```java
 /* Clears an account's tokens from the cache.
@@ -457,13 +460,13 @@ private void onSignOutClicked() {
 
 #### <a name="call-the-microsoft-graph-api"></a>Anropa API: et för Microsoft Graph
 
-När vi har tagit emot en token kan vi göra en begäran till [Microsoft Graph-API: t](https://graph.microsoft.com) för att få åtkomst `AuthenticationResult` till token inuti återkallnings `onSuccess()` metoden för autentisering. För att skapa en auktoriserad begäran måste appen lägga till åtkomsttoken i HTTP-huvudet:
+När vi har tagit emot en token kan vi göra en begäran till [Microsoft Graph-API: t](https://graph.microsoft.com) för att få åtkomst-token i `AuthenticationResult` i `onSuccess()`s metoden för autentiserings motringning. För att skapa en auktoriserad begäran måste appen lägga till åtkomsttoken i HTTP-huvudet:
 
-| rubrik nyckel    | value                 |
+| rubrik nyckel    | värde                 |
 | ------------- | --------------------- |
-| Authorization | > För Bearer- åtkomst-token\< |
+| Autentisering | \<åtkomst-token för innehavare > |
 
-Lägg till följande två metoder i `MainActivity` klassen för att anropa grafen och uppdatera användar gränssnittet:
+Lägg till följande två metoder i `MainActivity`-klassen för att anropa grafen och uppdatera användar gränssnittet:
 
 ```java
 /* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
@@ -522,7 +525,7 @@ private void updateGraphUI(JSONObject graphResponse) {
 
 #### <a name="multi-account-applications"></a>Program med flera konton
 
-Den här appen har skapats för ett scenario med ett enda konto. MSAL har också stöd för flera konto scenarier, men det krävs ytterligare arbete från appar. Du måste skapa ett användar gränssnitt för att hjälpa användarna att välja vilket konto de vill använda för varje åtgärd som kräver tokens. Alternativt kan din app implementera en heuristik för att välja vilket konto som ska användas via `getAccounts()` metoden.
+Den här appen har skapats för ett scenario med ett enda konto. MSAL har också stöd för flera konto scenarier, men det krävs ytterligare arbete från appar. Du måste skapa ett användar gränssnitt för att hjälpa användarna att välja vilket konto de vill använda för varje åtgärd som kräver tokens. Alternativt kan din app implementera en heuristik för att välja vilket konto som ska användas via metoden `getAccounts()`.
 
 ## <a name="test-your-app"></a>Testa din app
 
@@ -530,9 +533,9 @@ Den här appen har skapats för ett scenario med ett enda konto. MSAL har också
 
 Bygg och distribuera appen till en test enhet eller emulator. Du bör kunna logga in och hämta token för Azure AD eller personliga Microsoft-konton.
 
-När du har loggat in visar appen de data som returneras från Microsoft Graph `/me` slut punkten.
+När du har loggat in visar appen de data som returneras från Microsoft Graph `/me`-slutpunkten.
 
-### <a name="consent"></a>Samtycke
+### <a name="consent"></a>Givit
 
 Första gången användaren loggar in i din app uppmanas de av Microsoft-identiteten att godkänna de behörigheter som begärs.  Även om de flesta användare kan samtycka har vissa Azure AD-klienter inaktiverat användar medgivande som kräver att administratörer samtycker till alla användares räkning. För att stödja det här scenariot registrerar du appens scope i Azure Portal.
 

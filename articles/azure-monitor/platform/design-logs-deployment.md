@@ -1,24 +1,18 @@
 ---
 title: Designa distributionen av Azure Monitors loggar | Microsoft Docs
 description: I den här artikeln beskrivs överväganden och rekommendationer för kunder som förbereder distributionen av en arbets yta i Azure Monitor.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/20/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 24eb8440ed4746b51b92ce371b5d58b8d55de9a3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 09/20/2019
+ms.openlocfilehash: ae737b908aad95f61cef922b493b41752da68f14
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177596"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932357"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Designa distributioner av Azure Monitor loggar
 
@@ -63,7 +57,7 @@ Om du använder System Center Operations Manager 2012 R2 eller senare:
 * Linux-datorer som rapporterar till en hanterings grupp måste konfigureras att rapportera direkt till en Log Analytics-arbetsyta. Om Linux-datorerna redan rapporterar direkt till en arbets yta och du vill övervaka dem med Operations Manager följer du dessa steg för att [rapportera till en Operations Manager hanterings grupp](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * Du kan installera Log Analytics Windows-agenten på Windows-datorn och låta den rapportera till båda Operations Manager integrerade med en arbets yta och en annan arbets yta.
 
-## <a name="access-control-overview"></a>Översikt över åtkomst kontroll
+## <a name="access-control-overview"></a>Översikt över åtkomstkontroll
 
 Med rollbaserad åtkomst kontroll (RBAC) kan du endast bevilja användare och grupper den mängd åtkomst som de behöver för att arbeta med övervaknings data i en arbets yta. På så sätt kan du justera med din IT-organisations drifts modell med en enda arbets yta för att lagra insamlade data aktiverade på alla dina resurser. Till exempel ger du till gång till ditt team som ansvarar för infrastruktur tjänster som finns på Azure Virtual Machines (VM) och därför har de enbart åtkomst till de loggar som genereras av de virtuella datorerna. Det här följer vår nya resurs kontexts logg modell. Basen för den här modellen är för varje logg post som skickas av en Azure-resurs, den kopplas automatiskt till den här resursen. Loggar vidarebefordras till en central arbets yta som uppfyller omfattning och RBAC baserat på resurserna.
 

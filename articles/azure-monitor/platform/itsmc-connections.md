@@ -1,194 +1,189 @@
 ---
-title: Stöd för anslutningar med IT Service Management Connector i Azure Log Analytics | Microsoft Docs
-description: Den här artikeln innehåller information om hur du ansluter din ITSM-produkter/tjänster med IT Service Management Connector (ITSMC) i Azure Monitor för att centralt övervaka och hantera ITSM-arbetsuppgifter.
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Anslutningar som stöds med Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure Log Analytics | Microsoft Docs
+description: Den här artikeln innehåller information om hur du ansluter dina ITSM-produkter/-tjänster med Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Azure Monitor för att centralt övervaka och hantera ITSM arbets objekt.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/24/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
-ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/24/2018
+ms.openlocfilehash: c7e102b6b8976f8caf7676fd456e6c23488c935a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399784"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932282"
 ---
-# <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Träffa IT Service Management Connector ITSM-produkter/tjänster
-Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](../../azure-monitor/platform/itsmc-overview.md).
+# <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter/tjänster med Anslutningsprogram för hantering av IT-tjänster (ITSM)
+Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](../../azure-monitor/platform/itsmc-overview.md).
 
-Följande ITSM-produkter/tjänster stöds. Välj produkten som ska visa detaljerad information om hur du ansluter produkten till ITSMC.
+Följande ITSM-produkter/-tjänster stöds. Välj produkten om du vill visa detaljerad information om hur du ansluter produkten till ITSMC.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](#connect-provance-to-it-service-management-connector-in-azure)
+- [Styrka](#connect-provance-to-it-service-management-connector-in-azure)
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
 > 
-> ITSM-anslutningsprogrammet kan bara ansluta till molnbaserade ServiceNow-instanser. Lokala ServiceNow instanser stöds inte för närvarande.
+> ITSM-anslutningsprogram kan bara ansluta till molnbaserade ServiceNow-instanser. Lokala ServiceNow-instanser stöds inte för närvarande.
 
-## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Ansluta System Center Service Manager till IT Service Management Connector i Azure
+## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Ansluta System Center Service Manager till Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure
 
-Följande avsnitt innehåller information om hur du ansluter din produkt i System Center Service Manager till ITSMC i Azure.
+I följande avsnitt finns information om hur du ansluter System Center Service Manager-produkten till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
-Kontrollera att följande krav är uppfyllda:
+Se till att följande krav är uppfyllda:
 
-- ITSMC installerad. Mer information: [Att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Service Manager-webbprogram (webbapp) distribuerat och konfigurerat. Information om webbapp är [här](#create-and-deploy-service-manager-web-app-service).
-- Hybridanslutning skapas och konfigureras. Mer information: [Konfigurera hybrid anslutning](#configure-the-hybrid-connection).
-- Versioner som stöds av Service Manager:  2012 R2 eller 2016.
-- Användarroll:  [Avancerad operatör](https://technet.microsoft.com/library/ff461054.aspx).
+- ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Service Manager webb program (webbapp) distribueras och konfigureras. Information om Web App finns [här](#create-and-deploy-service-manager-web-app-service).
+- Hybrid anslutning har skapats och kon figurer ATS. Mer information: [Konfigurera hybrid anslutningen](#configure-the-hybrid-connection).
+- Versioner av Service Manager som stöds: 2012 R2 eller 2016.
+- Användar roll: [Avancerad operatör](https://technet.microsoft.com/library/ff461054.aspx).
 
-### <a name="connection-procedure"></a>Proceduren för anslutning
+### <a name="connection-procedure"></a>Anslutnings procedur
 
 Använd följande procedur för att ansluta din System Center Service Manager-instans till ITSMC:
 
-1. I Azure-portalen går du till **alla resurser** och leta efter **ServiceDesk(YourWorkspaceName)**
+1. I Azure Portal går du till **alla resurser** och letar efter **Servicedesk (YourWorkspaceName)**
 
-2.  Under **DATAKÄLLOR för ARBETSYTA** klickar du på **ITSM-anslutningar**.
+2.  Under **arbets ytans data källor** klickar du på **ITSM-anslutningar**.
 
     ![Ny anslutning](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. Längst upp i den högra rutan, klickar du på **Lägg till**.
+3. Klicka på **Lägg till**längst upp i den högra rutan.
 
-4. Ange informationen som beskrivs i följande tabell och klicka på **OK** att skapa anslutningen.
+4. Ange informationen enligt beskrivningen i följande tabell och klicka på **OK** för att skapa anslutningen.
 
 > [!NOTE]
 > 
-> Dessa parametrar är obligatoriska.
+> Alla dessa parametrar är obligatoriska.
 
 | **Fält** | **Beskrivning** |
 | --- | --- |
-| **Anslutningsnamn**   | Skriv ett namn för den System Center Service Manager-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här instansen / visa detaljerad logganalys. |
-| **Partnertyp**   | Välj **System Center Service Manager**. |
-| **Serveradress**   | Ange Webbadressen till Service Manager-webbapp. Mer information om Service Manager Web app är [här](#create-and-deploy-service-manager-web-app-service).
-| **Klient-ID**   | Ange klient-ID som du skapade (med hjälp av automatisk skriptet) för att autentisera webbappen. Mer information om automatiserat skript är [här.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
-| **Klienthemlighet**   | Ange klienthemlighet genereras för detta ID.   |
-| **Synkronisera Data**   | Välj Service Manager-arbetsuppgifter som du vill synkronisera via ITSMC.  Dessa fungerar objekt har importerats till Log Analytics. **Alternativ:**  Incidenter, ändringsbegäranden.|
-| **Datasynkroniseringsomfång** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
-| **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar Log Analytics berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad. |
+| **Anslutningsnamn**   | Ange ett namn för den System Center Service Manager-instans som du vill ansluta till ITSMC.  Du använder det här namnet senare när du konfigurerar arbets objekt i den här instansen/Visa detaljerad Log Analytics. |
+| **Partner typ**   | Välj **System Center Service Manager**. |
+| **Server-URL**   | Ange webb adressen till Service Manager webbappen. Mer information om Service Manager Web App finns [här](#create-and-deploy-service-manager-web-app-service).
+| **Klient-ID**   | Ange det klient-ID som du genererade (med hjälp av det automatiska skriptet) för autentisering av webbappen. Mer information om det automatiserade skriptet finns [här.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
+| **Klienthemlighet**   | Ange klient hemligheten som genererats för detta ID.   |
+| **Synkronisera data**   | Välj de Service Manager arbets objekt som du vill synkronisera genom ITSMC.  Dessa arbets uppgifter importeras till Log Analytics. **Alternativ:**  Incidenter, ändrings begär Anden.|
+| **Omfång för data synkronisering** | Ange antalet senaste dagar som du vill att data ska visas. **Maxgräns**: 120 dagar. |
+| **Skapa nytt konfigurations objekt i ITSM-lösningen** | Välj det här alternativet om du vill skapa konfigurations objekt i ITSM-produkten. När det här alternativet är markerat skapar Log Analytics det påverkade CIs-objektet som konfigurations objekt (om det inte finns något befintligt CIs) i det ITSM system som stöds. **Standard**: inaktiverat. |
 
-![Service manager-anslutningen](media/itsmc-connections/service-manager-connection.png)
+![Service Manager-anslutning](media/itsmc-connections/service-manager-connection.png)
 
-**När du har anslutits och synkroniserats**:
+**När du har anslutit och synkroniserat**:
 
-- Valda arbetsobjekt från Service Manager importeras till Azure **Log Analytics.** Du kan visa en sammanfattning av dessa arbetsuppgifter på panelen IT Service Management Connector.
+- De valda arbets objekten från Service Manager importeras till Azure **Log Analytics.** Du kan visa sammanfattningen av dessa arbets uppgifter på Anslutningsprogram för hantering av IT-tjänster (ITSM)s panelen.
 
-- Du kan skapa incidenter från Log Analytics-aviseringar eller från loggposter eller från Azure-aviseringar i den här instansen för Service Manager.
+- Du kan skapa incidenter från Log Analytics aviseringar eller från logg poster eller från Azure-aviseringar i den här Service Manager-instansen.
 
 
-Läs mer: [Skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM arbets objekt från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
-### <a name="create-and-deploy-service-manager-web-app-service"></a>Skapa och distribuera Service Manager web app service
+### <a name="create-and-deploy-service-manager-web-app-service"></a>Skapa och distribuera Service Manager Web App Service
 
-Om du vill ansluta den lokala Service Manager ITSMC i Azure, har Microsoft skapat en Service Manager Web app på GitHub.
+För att ansluta den lokala Service Manager med ITSMC i Azure har Microsoft skapat en Service Manager webbapp på GitHub.
 
-Om du vill konfigurera ITSM-webbapp för Service Manager, gör du följande:
+Gör så här för att konfigurera ITSM-webbappen för din Service Manager:
 
-- **Distribuera webbappen** – distribuera webbappen, ställer du in egenskaperna och autentisera med Azure AD. Du kan distribuera webbappen med hjälp av den [automatiserade skript](../../azure-monitor/platform/itsmc-service-manager-script.md) att Microsoft tillhandahåller.
-- **Konfigurera hybridanslutningen** - [konfigurera den här anslutningen](#configure-the-hybrid-connection), manuellt.
+- **Distribuera webbappen** – distribuera webbappen, ange egenskaperna och autentisera med Azure AD. Du kan distribuera webbappen med hjälp av det [automatiserade skriptet](../../azure-monitor/platform/itsmc-service-manager-script.md) som Microsoft tillhandahåller.
+- **Konfigurera hybrid anslutningen** - [Konfigurera den här anslutningen](#configure-the-hybrid-connection)manuellt.
 
 #### <a name="deploy-the-web-app"></a>Distribuera webbappen
-Använd den automatiserade [skriptet](../../azure-monitor/platform/itsmc-service-manager-script.md) ställer du in egenskaperna för att distribuera webbappen, och autentisera med Azure AD.
+Använd det automatiserade [skriptet](../../azure-monitor/platform/itsmc-service-manager-script.md) för att distribuera webbappen, ange egenskaperna och autentisera med Azure AD.
 
-Kör skriptet genom att tillhandahålla följande nödvändiga data:
+Kör skriptet genom att ange följande obligatoriska information:
 
-- Prenumerationsinformation för Azure
+- Information om Azure-prenumeration
 - Namn på resursgrupp
-- Location
-- Service Manager server-information (namn, domän, användarnamn och lösenord)
-- Plats-namnprefixet för din webbapp
-- ServiceBus Namespace.
+- Plats
+- Service Manager Server information (Server namn, domän, användar namn och lösen ord)
+- Prefix för webbplats namn för din webbapp
+- Service Bus-namnrymd.
 
-Skriptet skapar webbappen med namnet som du har angett (tillsammans med några ytterligare strängar som gör det unikt). Den genererar den **Webbappens URL**, **klient-ID** och **klienthemlighet**.
+Skriptet skapar webbappen med det namn som du har angett (tillsammans med några ytterligare strängar för att göra den unik). Den genererar **webbappens webb adress**, **klient-ID** och **klient hemlighet**.
 
-Spara värden använda du dem när du skapar en anslutning med ITSMC.
+Spara värdena, du använder dem när du skapar en anslutning med ITSMC.
 
-**Kontrollera installationen av Web-appen**
+**Kontrol lera installationen av webbapp**
 
-1. Gå till **Azure-portalen** > **resurser**.
-2. Välj webbappen, klicka på **inställningar** > **programinställningar**.
-3. Bekräfta informationen om Service Manager-instans som du angav vid tidpunkten för distribution av appen via skriptet.
+1. Gå till **Azure Portal** > **resurser**.
+2. Välj webbapp, klicka på **inställningar** > **program inställningar**.
+3. Bekräfta informationen om Service Manager-instansen som du angav när du distribuerade appen via skriptet.
 
-### <a name="configure-the-hybrid-connection"></a>Konfigurera hybridanslutningen
+### <a name="configure-the-hybrid-connection"></a>Konfigurera hybrid anslutningen
 
-Du kan använda följande procedur för att konfigurera hybridanslutningen som sammanför Service Manager-instans med ITSMC i Azure.
+Använd följande procedur för att konfigurera hybrid anslutningen som ansluter Service Manager-instansen med ITSMC i Azure.
 
-1. Hitta Service Manager Web-app under **Azure-resurser**.
+1. Hitta Service Manager-webbappen under **Azure-resurser**.
 2. Klicka på **inställningar** > **nätverk**.
-3. Under **Hybridanslutningar**, klickar du på **konfigurera slutpunkter för din hybridanslutning**.
+3. Under **hybridanslutningar**klickar **du på Konfigurera hybrid anslutnings slut punkter**.
 
-    ![Hybrid anslutning nätverk](media/itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
-4. I den **Hybridanslutningar** bladet klickar du på **Lägg till hybridanslutning**.
+    ![Anslutning till hybrid anslutning](media/itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
+4. Klicka på **Lägg till hybrid anslutning**på bladet **hybridanslutningar** .
 
-    ![Lägg till hybridanslutning](media/itsmc-connections/itsmc-new-hybrid-connection-add.png)
+    ![Hybrid anslutning, Lägg till](media/itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
-5. I den **Lägg till Hybrid Connections** bladet klickar du på **skapa nya hybrid anslutning**.
+5. Klicka på **Skapa ny hybrid anslutning**i bladet **Lägg till hybridanslutningar** .
 
-    ![Ny hybridanslutning](media/itsmc-connections/itsmc-create-new-hybrid-connection.png)
+    ![Ny hybrid anslutning](media/itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. Ange följande värden:
 
-   - **Namnet på slutpunkten**: Ange ett namn för den nya Hybrid-anslutningen.
-   - **Slutpunktsvärd**: Det fullständiga Domännamnet för hanteringsservern för Service Manager.
-   - **Slutpunktsport**: Typ 5724
-   - **Servicebus-namnområdet**: Använd en befintlig servicebus namespace eller skapa en ny.
+   - **Slut punkts namn**: Ange ett namn för den nya hybrid anslutningen.
+   - **Slut punkts värd**: FQDN för service Managers hanterings servern.
+   - **Slut punkts port**: typ 5724
+   - **Service Bus-namnrymd**: Använd ett befintligt Service Bus-namnområde eller skapa ett nytt.
    - **Plats**: Välj platsen.
-   - **Namn på**: Ange ett namn som servicebus om du skapar den.
+   - **Namn**: Ange ett namn på Service Bus om du skapar det.
 
-     ![Hybrid anslutningsvärden](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
-6. Klicka på **OK** att Stäng den **skapa hybridanslutning** bladet och börja skapa hybridanslutningen.
+     ![Hybrid anslutnings värden](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+6. Klicka på **OK** för att stänga bladet **skapa hybrid anslutning** och börja skapa hybrid anslutningen.
 
-    När hybridanslutningen har skapats visas den under bladet.
+    När hybrid anslutningen har skapats visas den under bladet.
 
-7. När du har skapat hybridanslutningen väljer anslutningen och klickar på **Lägg till markerade hybridanslutning**.
+7. När hybrid anslutningen har skapats väljer du anslutningen och klickar på **Lägg till vald hybrid anslutning**.
 
-    ![Ny hybridanslutning](media/itsmc-connections/itsmc-new-hybrid-connection-added.png)
+    ![Ny hybrid anslutning](media/itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
-#### <a name="configure-the-listener-setup"></a>Konfigurera listener-konfiguration
+#### <a name="configure-the-listener-setup"></a>Konfigurera Listener-installationen
 
-Använd följande procedur för att konfigurera listener-konfiguration för hybridanslutningen.
+Använd följande procedur för att konfigurera Listener-installationen för Hybrid anslutningen.
 
-1. I den **Hybridanslutningar** bladet klickar du på **ladda ned Anslutningshanteraren** och installera den på den dator där System Center Service Manager-instansen körs.
+1. I bladet **hybridanslutningar** klickar **du på Hämta anslutnings hanteraren** och installerar den på den dator där System Center Service Manager instansen körs.
 
-    När installationen är klar, **Hybridanslutningshanteraren UI** alternativet är tillgängligt under **starta** menyn.
+    När installationen är klar finns **HYBRIDANSLUTNINGSHANTERAREN UI** -alternativet på **Start** menyn.
 
-2. Klicka på **Hybridanslutningshanteraren UI** , uppmanas du att dina Azure autentiseringsuppgifter.
+2. Klicka på **Hybridanslutningshanteraren användar gränssnitt** , så uppmanas du att ange dina autentiseringsuppgifter för Azure.
 
-3. Logga in med dina autentiseringsuppgifter för Azure och välj din prenumeration där hybridanslutningen har skapats.
+3. Logga in med dina Azure-autentiseringsuppgifter och välj din prenumeration där hybrid anslutningen skapades.
 
-4. Klicka på **Spara**.
+4. Klicka på **Save** (Spara).
 
-Din hybridanslutning har anslutits.
+Din hybrid anslutning har upprättats.
 
-![lyckad anslutning](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
+![lyckad hybrid anslutning](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 > 
-> Efter hybriden anslutningen har skapats, kontrollera och testa anslutningen genom att gå till den distribuerade webbappen för Service Manager. Se till att anslutningen är klar innan du försöker ansluta till ITSMC i Azure.
+> När hybrid anslutningen har skapats kontrollerar du och testar anslutningen genom att gå till den distribuerade Service Manager-webbappen. Se till att anslutningen lyckas innan du försöker ansluta till ITSMC i Azure.
 
-Följande exempelbild visar information om en lyckad anslutning:
+Följande exempel bild visar information om en lyckad anslutning:
 
-![Anslutningstestet hybridmoln](media/itsmc-connections/itsmc-hybrid-connection-test.png)
+![Test av hybrid anslutning](media/itsmc-connections/itsmc-hybrid-connection-test.png)
 
-## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>Anslut ServiceNow till IT Service Management Connector i Azure
+## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>Ansluta ServiceNow till Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure
 
 Följande avsnitt innehåller information om hur du ansluter din ServiceNow-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
-Kontrollera att följande krav är uppfyllda:
-- ITSMC installerad. Mer information: [Att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow-versioner som stöds: Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+### <a name="prerequisites"></a>Krav
+Se till att följande krav är uppfyllda:
+- ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ServiceNow-versioner som stöds: Madrid, London, Kingston, Jakarta, Istanbul, Helsingfors, Genève.
 
-**ServiceNow Admins måste göra följande i sina ServiceNow-instans**:
-- Generera klient-ID och klienthemlighet för ServiceNow-produkten. Information om hur du skapar klient-ID och hemlighet finns i följande information som krävs:
+**ServiceNow-administratörer måste göra följande i sin ServiceNow-instans**:
+- Generera klient-ID och klient hemlighet för ServiceNow-produkten. Information om hur du genererar klient-ID och hemlighet finns i följande information som krävs:
 
     - [Konfigurera OAuth för Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -196,208 +191,208 @@ Kontrollera att följande krav är uppfyllda:
     - [Konfigurera OAuth för Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Helsingfors](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-    - [Konfigurera OAuth för Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Konfigurera OAuth för Genève](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- Installera appen användare för Microsoft Log Analytics-integrering (ServiceNow-app). [Läs mer](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
-- Skapa integration användarroll för användaren appen är installerad. Information om hur du skapar rollen integration är [här](#create-integration-user-role-in-servicenow-app).
+- Installera User-appen för Microsoft Log Analytics integration (ServiceNow-app). [Läs mer](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Skapa en integrerings användar roll för användar programmet som är installerat. Information om hur du skapar integrations användar rollen finns [här](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>**Proceduren för anslutning**
+### <a name="connection-procedure"></a>**Anslutnings procedur**
 Använd följande procedur för att skapa en ServiceNow-anslutning:
 
 
-1. I Azure-portalen går du till **alla resurser** och leta efter **ServiceDesk(YourWorkspaceName)**
+1. I Azure Portal går du till **alla resurser** och letar efter **Servicedesk (YourWorkspaceName)**
 
-2.  Under **DATAKÄLLOR för ARBETSYTA** klickar du på **ITSM-anslutningar**.
-    ![Ny anslutning](media/itsmc-connections/add-new-itsm-connection.png)
+2.  Under **arbets ytans data källor** klickar du på **ITSM-anslutningar**.
+    ![ny anslutning](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. Längst upp i den högra rutan, klickar du på **Lägg till**.
+3. Klicka på **Lägg till**längst upp i den högra rutan.
 
-4. Ange informationen som beskrivs i följande tabell och klicka på **OK** att skapa anslutningen.
+4. Ange informationen enligt beskrivningen i följande tabell och klicka på **OK** för att skapa anslutningen.
 
 
 > [!NOTE]
-> Dessa parametrar är obligatoriska.
+> Alla dessa parametrar är obligatoriska.
 
 | **Fält** | **Beskrivning** |
 | --- | --- |
-| **Anslutningsnamn**   | Skriv ett namn för den ServiceNow-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare i Log Analytics när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
-| **Partnertyp**   | Välj **ServiceNow**. |
-| **Användarnamn**   | Typ integration användarnamnet som du skapade i ServiceNow-app för anslutningen till ITSMC. Mer information: [Skapa användarroll för ServiceNow app](#create-integration-user-role-in-servicenow-app).|
-| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs!** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i ITSMC-tjänsten.  |
-| **Serveradress**   | Ange Webbadressen till den ServiceNow-instans som du vill ansluta till ITSMC. |
-| **Klient-ID**   | Ange klient-ID som du vill använda för OAuth2-autentisering, som du skapade tidigare.  Mer information om att generera klient-ID och hemlighet:   [OAuth-installationen](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
-| **Klienthemlighet**   | Ange klienthemlighet genereras för detta ID.   |
-| **Datasynkroniseringsomfång**   | Välj ServiceNow-arbetsobjekten som du vill synkronisera till Azure Log Analytics, via ITSMC.  De valda värdena importeras till log analytics.   **Alternativ:**  Incidenter och ändringsförfrågningar.|
-| **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
-| **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad. |
+| **Anslutningsnamn**   | Ange ett namn för den ServiceNow-instans som du vill ansluta till ITSMC.  Du använder det här namnet senare i Log Analytics när du konfigurerar arbets objekt i den här ITSM/Visa detaljerad logg analys. |
+| **Partner typ**   | Välj **ServiceNow**. |
+| **Användarnamn**   | Skriv det integrations användar namn som du skapade i ServiceNow-appen för att stödja anslutningen till ITSMC. Mer information: [skapa ServiceNow app User Role](#create-integration-user-role-in-servicenow-app).|
+| **Lösenord**   | Ange lösen ordet som är kopplat till det här användar namnet. **Obs!** användar namn och lösen ord används enbart för att skapa autentiseringstoken och lagras inte var som helst i ITSMC-tjänsten.  |
+| **Server-URL**   | Ange URL: en för den ServiceNow-instans som du vill ansluta till ITSMC. |
+| **Klient-ID**   | Ange det klient-ID som du vill använda för OAuth2-autentisering, som du skapade tidigare.  Mer information om hur du genererar klient-ID och hemlighet: [OAuth-installation](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **Klienthemlighet**   | Ange klient hemligheten som genererats för detta ID.   |
+| **Omfång för data synkronisering**   | Välj de ServiceNow arbets objekt som du vill synkronisera till Azure Log Analytics via ITSMC.  De valda värdena importeras till Log Analytics.   **Alternativ:**  Incidenter och ändrings begär Anden.|
+| **Synkronisera data** | Ange antalet senaste dagar som du vill att data ska visas. **Maxgräns**: 120 dagar. |
+| **Skapa nytt konfigurations objekt i ITSM-lösningen** | Välj det här alternativet om du vill skapa konfigurations objekt i ITSM-produkten. När det här alternativet är markerat skapar ITSMC det påverkade CIs-objektet som konfigurations objekt (om det inte finns något befintligt CIs) i det ITSM system som stöds. **Standard**: inaktiverat. |
 
 ![ServiceNow-anslutning](media/itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
-**När du har anslutits och synkroniserats**:
+**När du har anslutit och synkroniserat**:
 
-- Valda objekt från ServiceNow-instans har importerats till Azure **Log Analytics.** Du kan visa en sammanfattning av dessa arbetsuppgifter på panelen IT Service Management Connector.
+- De valda arbets objekten från ServiceNow-instansen importeras till Azure **Log Analytics.** Du kan visa sammanfattningen av dessa arbets uppgifter på Anslutningsprogram för hantering av IT-tjänster (ITSM)s panelen.
 
-- Du kan skapa incidenter från Log Analytics-aviseringar eller från loggposter eller från Azure-aviseringar i den här instansen av ServiceNow.
+- Du kan skapa incidenter från Log Analytics aviseringar eller från logg poster eller från Azure-aviseringar i den här ServiceNow-instansen.
 
-Läs mer: [Skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM arbets objekt från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
-### <a name="create-integration-user-role-in-servicenow-app"></a>Skapa integration i ServiceNow-app
+### <a name="create-integration-user-role-in-servicenow-app"></a>Skapa en användar roll för integrering i ServiceNow-appen
 
-Användare nedan:
+Användaren följer följande procedur:
 
-1. Gå till den [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) och installera den **användaren appen för ServiceNow och Microsoft OMS-integrering** i din ServiceNow-instans.
+1. Besök [ServiceNow Store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) och installera User- **appen för SERVICENOW och Microsoft OMS-integration** till ServiceNow-instansen.
    
    >[!NOTE]
-   >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor kallas OMS nu till Log Analytics.     
-2. Gå till det vänstra navigeringsfältet ServiceNow-instans, Sök och välj Microsoft OMS integrator efter installationen.  
-3. Klicka på **checklista för installationen**.
+   >Som en del av den pågående över gången från Microsoft Operations Management Suite (OMS) till Azure Monitor, kallas OMS nu för Log Analytics.     
+2. Efter installationen går du till det vänstra navigerings fältet för ServiceNow-instansen, söker och väljer Microsoft OMS Integrator.  
+3. Klicka på **installations check lista**.
 
-   Status visas som **inte att slutföra** om rollen ännu som ska skapas.
+   Statusen visas som **inte slutförd** om användar rollen ännu inte har skapats.
 
-4. I textrutorna bredvid **skapa integreringsanvändaren**, ange användarnamn för den användare som kan ansluta till ITSMC i Azure.
-5. Ange lösenordet för den här användaren klicka sedan på **OK**.  
+4. I text rutorna bredvid **skapa integrations användare**anger du användar namnet för den användare som kan ansluta till ITSMC i Azure.
+5. Ange lösen ordet för den här användaren och klicka på **OK**.  
 
 > [!NOTE]
 > 
-> Du kan använda dessa autentiseringsuppgifter för att göra ServiceNow-anslutning i Azure.
+> Du använder dessa autentiseringsuppgifter för att skapa ServiceNow-anslutningen i Azure.
 
-Den nyligen skapade användaren visas med standardroller tilldelad.
+Den nyskapade användaren visas med de standard roller som tilldelats.
 
 **Standard roller**:
 - personalize_choices
 - import_transformer
--   x_mioms_microsoft.user
--   itil
+-   x_mioms_microsoft. user
+-   ITIL
 -   template_editor
 -   view_changer
 
-När användaren har skapats, status för **Kontrollera installationschecklista** flyttar slutförd, visa en lista över information om rollen skapats för appen.
+När användaren har skapats flyttas statusen för **kontrol lera installations check listan** till slutförd, som visar information om den användar roll som har skapats för appen.
 
 > [!NOTE]
 > 
-> ITSM-anslutningsprogrammet kan skicka incidenter till ServiceNow utan andra moduler som installerats på din ServiceNow-instans. Om du använder EventManagement modul i din ServiceNow-instans och vill skapa händelser eller aviseringar i ServiceNow med kopplingen kan du lägga till följande roller för integrering av användaren:
+> ITSM-anslutningsprogram kan skicka incidenter till ServiceNow utan att några andra moduler är installerade på din ServiceNow-instans. Om du använder EventManagement-modulen i din ServiceNow-instans och vill skapa händelser eller varningar i ServiceNow med hjälp av anslutnings tjänsten lägger du till följande roller i integrations användaren:
 > 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
 
-## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Ansluta Provance till IT Service Management Connector i Azure
+## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Ansluta bevisa till Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure
 
-Följande avsnitt innehåller information om hur du ansluter din Provance produkt till ITSMC i Azure.
-
-
-### <a name="prerequisites"></a>Nödvändiga komponenter
-
-Kontrollera att följande krav är uppfyllda:
+Följande avsnitt innehåller information om hur du ansluter din bestyrkande produkt till ITSMC i Azure.
 
 
-- ITSMC installerad. Mer information: [Att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Provance App ska registreras med Azure AD - och klient-ID är tillgänglig. Detaljerad information finns i [hur du konfigurerar active directory-autentisering](../../app-service/configure-authentication-provider-aad.md).
+### <a name="prerequisites"></a>Krav
 
-- Användarroll:  Administratör.
+Se till att följande krav är uppfyllda:
 
-### <a name="connection-procedure"></a>Proceduren för anslutning
 
-Använd följande procedur för att skapa en Provance-anslutning:
+- ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Upphandlings appen bör registreras med Azure AD-och klient-ID är tillgängligt. Detaljerad information finns i [så här konfigurerar du Active Directory-autentisering](../../app-service/configure-authentication-provider-aad.md).
 
-1. I Azure-portalen går du till **alla resurser** och leta efter **ServiceDesk(YourWorkspaceName)**
+- Användar roll: administratör.
 
-2.  Under **DATAKÄLLOR för ARBETSYTA** klickar du på **ITSM-anslutningar**.
-    ![Ny anslutning](media/itsmc-connections/add-new-itsm-connection.png)
+### <a name="connection-procedure"></a>Anslutnings procedur
 
-3. Längst upp i den högra rutan, klickar du på **Lägg till**.
+Använd följande procedur för att skapa en upphandlings anslutning:
 
-4. Ange informationen som beskrivs i följande tabell och klicka på **OK** att skapa anslutningen.
+1. I Azure Portal går du till **alla resurser** och letar efter **Servicedesk (YourWorkspaceName)**
 
-> [!NOTE]
-> 
-> Dessa parametrar är obligatoriska.
+2.  Under **arbets ytans data källor** klickar du på **ITSM-anslutningar**.
+    ![ny anslutning](media/itsmc-connections/add-new-itsm-connection.png)
 
-| **Fält** | **Beskrivning** |
-| --- | --- |
-| **Anslutningsnamn**   | Skriv ett namn för den Provance-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
-| **Partnertyp**   | Välj **Provance**. |
-| **Användarnamn**   | Ange det användarnamn som kan ansluta till ITSMC.    |
-| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs:** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i tjänsten ITSMC. _|
-| **Serveradress**   | Ange Webbadressen till din Provance-instans som du vill ansluta till ITSMC. |
-| **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i din Provance-instans.  Mer information om klient-ID finns i [hur du konfigurerar active directory-autentisering](../../app-service/configure-authentication-provider-aad.md). |
-| **Datasynkroniseringsomfång**   | Välj Provance arbetsobjekten som du vill synkronisera till Azure Log Analytics, via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:**   Incidenter, ändringsbegäranden.|
-| **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
-| **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad.|
+3. Klicka på **Lägg till**längst upp i den högra rutan.
 
-![Provance anslutning](media/itsmc-connections/itsm-connections-provance-latest.png)
-
-**När du har anslutits och synkroniserats**:
-
-- Valda objekt från den här instansen Provance importeras till Azure **Log Analytics.** Du kan visa en sammanfattning av dessa arbetsuppgifter på panelen IT Service Management Connector.
-
-- Du kan skapa incidenter från Log Analytics-aviseringar eller från loggposter eller från Azure-aviseringar i den här Provance-instansen.
-
-Läs mer: [Skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
-
-## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Ansluta Cherwell till IT Service Management Connector i Azure
-
-Följande avsnitt innehåller information om hur du ansluter din Cherwell produkt till ITSMC i Azure.
-
-### <a name="prerequisites"></a>Nödvändiga komponenter
-
-Kontrollera att följande krav är uppfyllda:
-
-- ITSMC installerad. Mer information: [Att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Klient-ID som genereras. Mer information: [Generera klient-ID för Cherwell](#generate-client-id-for-cherwell).
-- Användarroll:  Administratör.
-
-### <a name="connection-procedure"></a>Proceduren för anslutning
-
-Använd följande procedur för att skapa en Provance-anslutning:
-
-1. I Azure-portalen går du till **alla resurser** och leta efter **ServiceDesk(YourWorkspaceName)**
-
-2.  Under **DATAKÄLLOR för ARBETSYTA** klickar du på **ITSM-anslutningar**.
-    ![Ny anslutning](media/itsmc-connections/add-new-itsm-connection.png)
-
-3. Längst upp i den högra rutan, klickar du på **Lägg till**.
-
-4. Ange informationen som beskrivs i följande tabell och klicka på **OK** att skapa anslutningen.
+4. Ange informationen enligt beskrivningen i följande tabell och klicka på **OK** för att skapa anslutningen.
 
 > [!NOTE]
 > 
-> Dessa parametrar är obligatoriska.
+> Alla dessa parametrar är obligatoriska.
 
 | **Fält** | **Beskrivning** |
 | --- | --- |
-| **Anslutningsnamn**   | Skriv ett namn för den Cherwell-instans som du vill ansluta till ITSMC.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
-| **Partnertyp**   | Välj **Cherwell.** |
-| **Användarnamn**   | Skriv användarnamnet Cherwell som kan ansluta till ITSMC. |
-| **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs:** Användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i ITSMC-tjänsten.|
-| **Serveradress**   | Ange Webbadressen till din Cherwell-instans som du vill ansluta till ITSMC. |
-| **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i din instans av Cherwell.   |
-| **Datasynkroniseringsomfång**   | Välj Cherwell arbetsobjekten som du vill synkronisera via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:**  Incidenter, ändringsbegäranden. |
-| **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
-| **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad. |
+| **Anslutningsnamn**   | Ange ett namn på den instans av upphandlingen som du vill ansluta till ITSMC.  Du använder det här namnet senare när du konfigurerar arbets objekt i den här ITSM/Visa detaljerad Log Analytics. |
+| **Partner typ**   | Välj **styrka**. |
+| **Användarnamn**   | Ange användar namnet som kan ansluta till ITSMC.    |
+| **Lösenord**   | Ange lösen ordet som är kopplat till det här användar namnet. **Obs:** Användar namn och lösen ord används endast för att skapa autentiseringstoken och lagras inte var som helst i ITSMC-tjänsten. _|
+| **Server-URL**   | Ange URL: en för din instans av instansen som du vill ansluta till ITSMC. |
+| **Klient-ID**   | Ange klient-ID för att autentisera anslutningen, som du skapade i din upphandlings instans.  Mer information om klient-ID finns i [Konfigurera Active Directory-autentisering](../../app-service/configure-authentication-provider-aad.md). |
+| **Omfång för data synkronisering**   | Välj de arbets objekt för styrka som du vill synkronisera till Azure Log Analytics via ITSMC.  Dessa arbets uppgifter importeras till Log Analytics.   **Alternativ:**   Incidenter, ändrings begär Anden.|
+| **Synkronisera data** | Ange antalet senaste dagar som du vill att data ska visas. **Maxgräns**: 120 dagar. |
+| **Skapa nytt konfigurations objekt i ITSM-lösningen** | Välj det här alternativet om du vill skapa konfigurations objekt i ITSM-produkten. När det här alternativet är markerat skapar ITSMC det påverkade CIs-objektet som konfigurations objekt (om det inte finns något befintligt CIs) i det ITSM system som stöds. **Standard**: inaktiverat.|
+
+![Upphandlings anslutning](media/itsmc-connections/itsm-connections-provance-latest.png)
+
+**När du har anslutit och synkroniserat**:
+
+- De valda arbets objekten från denna instans av bevisning importeras till Azure **Log Analytics.** Du kan visa sammanfattningen av dessa arbets uppgifter på Anslutningsprogram för hantering av IT-tjänster (ITSM)s panelen.
+
+- Du kan skapa incidenter från Log Analytics aviseringar eller från logg poster eller från Azure-aviseringar i den här upphandlings instansen.
+
+Läs mer: [skapa ITSM arbets objekt från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+
+## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Ansluta Cherwell till Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure
+
+Följande avsnitt innehåller information om hur du ansluter din Cherwell-produkt till ITSMC i Azure.
+
+### <a name="prerequisites"></a>Krav
+
+Se till att följande krav är uppfyllda:
+
+- ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Ett klient-ID genererades. Mer information: [generera klient-ID för Cherwell](#generate-client-id-for-cherwell).
+- Användar roll: administratör.
+
+### <a name="connection-procedure"></a>Anslutnings procedur
+
+Använd följande procedur för att skapa en upphandlings anslutning:
+
+1. I Azure Portal går du till **alla resurser** och letar efter **Servicedesk (YourWorkspaceName)**
+
+2.  Under **arbets ytans data källor** klickar du på **ITSM-anslutningar**.
+    ![ny anslutning](media/itsmc-connections/add-new-itsm-connection.png)
+
+3. Klicka på **Lägg till**längst upp i den högra rutan.
+
+4. Ange informationen enligt beskrivningen i följande tabell och klicka på **OK** för att skapa anslutningen.
+
+> [!NOTE]
+> 
+> Alla dessa parametrar är obligatoriska.
+
+| **Fält** | **Beskrivning** |
+| --- | --- |
+| **Anslutningsnamn**   | Ange ett namn för den Cherwell-instans som du vill ansluta till ITSMC.  Du använder det här namnet senare när du konfigurerar arbets objekt i den här ITSM/Visa detaljerad Log Analytics. |
+| **Partner typ**   | Välj **Cherwell.** |
+| **Användarnamn**   | Ange det användar namn för Cherwell som kan ansluta till ITSMC. |
+| **Lösenord**   | Ange lösen ordet som är kopplat till det här användar namnet. **Obs:** Användar namn och lösen ord används endast för att skapa autentiseringstoken och lagras inte var som helst i ITSMC-tjänsten.|
+| **Server-URL**   | Ange URL: en för den Cherwell-instans som du vill ansluta till ITSMC. |
+| **Klient-ID**   | Ange klient-ID för att autentisera anslutningen, som du skapade i din Cherwell-instans.   |
+| **Omfång för data synkronisering**   | Välj de Cherwell arbets objekt som du vill synkronisera via ITSMC.  Dessa arbets uppgifter importeras till Log Analytics.   **Alternativ:**  Incidenter, ändrings begär Anden. |
+| **Synkronisera data** | Ange antalet senaste dagar som du vill att data ska visas. **Maxgräns**: 120 dagar. |
+| **Skapa nytt konfigurations objekt i ITSM-lösningen** | Välj det här alternativet om du vill skapa konfigurations objekt i ITSM-produkten. När det här alternativet är markerat skapar ITSMC det påverkade CIs-objektet som konfigurations objekt (om det inte finns något befintligt CIs) i det ITSM system som stöds. **Standard**: inaktiverat. |
 
 
-![Provance anslutning](media/itsmc-connections/itsm-connections-cherwell-latest.png)
+![Upphandlings anslutning](media/itsmc-connections/itsm-connections-cherwell-latest.png)
 
-**När du har anslutits och synkroniserats**:
+**När du har anslutit och synkroniserat**:
 
-- Valda objekt från den här instansen Cherwell importeras till Azure **Log Analytics.** Du kan visa en sammanfattning av dessa arbetsuppgifter på panelen IT Service Management Connector.
+- De valda arbets objekten från den här Cherwell-instansen importeras till Azure **Log Analytics.** Du kan visa sammanfattningen av dessa arbets uppgifter på Anslutningsprogram för hantering av IT-tjänster (ITSM)s panelen.
 
-- Du kan skapa incidenter från Log Analytics-aviseringar eller från loggposter eller från Azure-aviseringar i den här Cherwell-instansen.
+- Du kan skapa incidenter från Log Analytics aviseringar eller från logg poster eller från Azure-aviseringar i den här Cherwell-instansen.
 
-Läs mer: [Skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Läs mer: [skapa ITSM arbets objekt från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Generera klient-ID för Cherwell
 
-Använd följande procedur för att generera klientens ID-nyckel för Cherwell:
+Använd följande procedur för att generera klient-ID/nyckel för Cherwell:
 
 1. Logga in på din Cherwell-instans som administratör.
-2. Klicka på **Security** > **redigera REST API-klientinställningar**.
-3. Välj **Skapa ny klient** > **klienthemlighet**.
+2. Klicka på **säkerhets** > **Redigera REST API klient inställningar**.
+3. Välj **Skapa ny klient** > **klient hemlighet**.
 
-    ![Cherwell användar-id](media/itsmc-connections/itsmc-cherwell-client-id.png)
+    ![Användar-ID för Cherwell](media/itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
- - [Skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Skapa ITSM arbets objekt från Azure-aviseringar](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Xero med Azure Data Factory (förhandsversion) | Microsoft Docs
-description: Lär dig hur du kopierar data från Xero till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+title: Kopiera data från Xero med Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från Xero till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ac8b4577b50ad9daa8d8da3cdb79120b961f55b
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 59b9ecb7af53468dc18cf47d2e0510a48d07f925
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089044"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72930959"
 ---
-# <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Kopiera data från Xero med Azure Data Factory (förhandsversion)
+# <a name="copy-data-from-xero-using-azure-data-factory"></a>Kopiera data från Xero med hjälp av Azure Data Factory
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Xero. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
-
-> [!IMPORTANT]
-> Den här anslutningsappen är för närvarande i förhandsversion. Du kan testa och ge feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från Xero. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -33,34 +30,34 @@ Den här Xero-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Xero till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Xero till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Mer specifikt stöder den här Xero-anslutningen:
+Mer specifikt stöder denna Xero-anslutning:
 
-- Xero [privata program](https://developer.xero.com/documentation/getting-started/api-application-types) men inte offentliga program.
-- Alla Xero tabeller (API-slutpunkter) förutom ”rapporter”. 
+- Xero [privat program](https://developer.xero.com/documentation/getting-started/api-application-types) , men inte offentligt program.
+- Alla Xero-tabeller (API-slutpunkter) utom "rapporter". 
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Xero-anslutningen.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Xero-anslutaren.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper har stöd för Xero länkade tjänsten:
+Följande egenskaper stöds för den länkade tjänsten Xero:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen Type måste anges till: **Xero** | Ja |
-| host | Slutpunkten för Xero-server (`api.xero.com`).  | Ja |
-| consumerKey | Konsumenten nyckeln som associeras med Xero-programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| privateKey | Den privata nyckeln från filen .pem som genererades för ditt privata Xero-program finns i [skapa ett offentligt/privat nyckelpar](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Observera att **generera privatekey.pem med numbits 512** med `openssl genrsa -out privatekey.pem 512`; 1024 stöds inte. Inkluderar all text från .pem-filen, inklusive Unix rad endings(\n), finns i exemplet nedan.<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
-| useHostVerification | Anger om värdnamnet krävs i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
-| usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
+| typ | Egenskapen Type måste anges till: **Xero** | Ja |
+| värd | Slut punkten för Xero-servern (`api.xero.com`).  | Ja |
+| consumerKey | Den konsument nyckel som är associerad med Xero-programmet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| privateKey | Den privata nyckeln från. pem-filen som skapades för ditt Xero privata program, se [skapa ett offentligt/privat nyckel par](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Observera att **generera PrivateKey. pem med numbits 512** med hjälp av `openssl genrsa -out privatekey.pem 512`. 1024 stöds inte. Ta med all text från. pem-filen, inklusive UNIX-slutpunkter (\n), se exemplet nedan.<br/><br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är true.  | Nej |
+| useHostVerification | Anger om värd namnet krävs i serverns certifikat för att matcha värd namnet för servern vid anslutning via SSL. Standardvärdet är true.  | Nej |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via SSL. Standardvärdet är true.  | Nej |
 
 **Exempel:**
 
@@ -84,24 +81,24 @@ Följande egenskaper har stöd för Xero länkade tjänsten:
 }
 ```
 
-**Privat nyckel exempelvärde:**
+**Värde för exempel på privat nyckel:**
 
-Inkludera all text från .pem-filen, inklusive endings(\n) för Unix-rad.
+Inkludera all text från. pem-filen, inklusive UNIX-slutpunkter (\n).
 
 ```
 "-----BEGIN RSA PRIVATE KEY-----\nMII***************************************************P\nbu****************************************************s\nU/****************************************************B\nA*****************************************************W\njH****************************************************e\nsx*****************************************************l\nq******************************************************X\nh*****************************************************i\nd*****************************************************s\nA*****************************************************dsfb\nN*****************************************************M\np*****************************************************Ly\nK*****************************************************Y=\n-----END RSA PRIVATE KEY-----"
 ```
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Xero-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Xero DataSet.
 
-Kopiera data från Xero genom att ange typegenskapen på datauppsättningen till **XeroObject**. Följande egenskaper stöds:
+Om du vill kopiera data från Xero anger du egenskapen type för data uppsättningen till **XeroObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Data uppsättningens typ-egenskap måste anges till: **XeroObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Data uppsättningens typ-egenskap måste anges till: **XeroObject** | Ja |
+| tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -122,16 +119,16 @@ Kopiera data från Xero genom att ange typegenskapen på datauppsättningen till
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Xero-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Xero-källan.
 
 ### <a name="xero-as-source"></a>Xero som källa
 
-För att kopiera data från Xero, ange typ av datakälla i kopieringsaktiviteten till **XeroSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från Xero anger du käll typen i kopierings aktiviteten till **XeroSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **XeroSource** | Ja |
-| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Contacts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **XeroSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Contacts"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -165,13 +162,13 @@ För att kopiera data från Xero, ange typ av datakälla i kopieringsaktiviteten
 ]
 ```
 
-Observera följande när du anger Xero-frågan:
+Tänk på följande när du anger Xero-frågan:
 
-- Tabeller med komplexa objekt ska delas i flera tabeller. Till exempel banktransaktioner har en komplex datastruktur ”radobjekt”, så data bank transaktion är mappad till tabellen `Bank_Transaction` och `Bank_Transaction_Line_Items`, med `Bank_Transaction_ID` som sekundärnyckeln att länka dem tillsammans.
+- Tabeller med komplexa objekt kommer att delas upp i flera tabeller. Bank transaktioner har till exempel en komplex data struktur "rad objekt", så data för bank transaktioner mappas till tabell `Bank_Transaction` och `Bank_Transaction_Line_Items`, med `Bank_Transaction_ID` som sekundär nyckel för att länka ihop dem.
 
-- Xero-data är tillgänglig via två scheman: `Minimal` (standard) och `Complete`. Fullständigt schema innehåller nödvändiga anrop tabeller som kräver ytterligare data (t.ex. ID-kolumn) innan du gör önskade frågan.
+- Xero-data är tillgängliga via två scheman: `Minimal` (standard) och `Complete`. Det fullständiga schemat innehåller nödvändiga anrops tabeller som kräver ytterligare data (t. ex. ID-kolumn) innan du gör den önskade frågan.
 
-Följande tabeller innehåller samma information i schemat Minimal och fullständig. För att minska antalet API-anrop, använder du Minimal schema (standard).
+Följande tabeller har samma information i schemat minimal och fullständig. Om du vill minska antalet API-anrop använder du minimalt schema (standard).
 
 - Bank_Transactions
 - Contact_Groups 
@@ -186,12 +183,12 @@ Följande tabeller innehåller samma information i schemat Minimal och fullstän
 - Expense_Claim_Validation_Errors
 - Fakturor 
 - Invoices_Credit_Notes
-- Invoices_ förskottsbetalningar 
+- Invoices_ förskotts betalningar 
 - Invoices_Overpayments 
 - Manual_Journals 
-- Över 
+- Överbetalningar 
 - Overpayments_Allocations 
-- Förskottsbetalningar 
+- Förskotts betalningar 
 - Prepayments_Allocations 
 - Kvitton 
 - Receipt_Validation_Errors 
@@ -199,25 +196,25 @@ Följande tabeller innehåller samma information i schemat Minimal och fullstän
 
 Följande tabeller kan bara frågas med fullständigt schema:
 
-- Complete.Bank_Transaction_Line_Items 
-- Complete.Bank_Transaction_Line_Item_Tracking 
-- Complete.Contact_Group_Contacts 
-- Complete.Contacts_Contact_ personer 
-- Complete.Credit_Note_Line_Items 
-- Complete.Credit_Notes_Line_Items_Tracking 
-- Complete.Expense_Claim_ betalningar 
-- Complete.Expense_Claim_Receipts 
-- Complete.Invoice_Line_Items 
-- Complete.Invoices_Line_Items_Tracking
-- Complete.Manual_Journal_Lines 
-- Complete.Manual_Journal_Line_Tracking 
-- Complete.Overpayment_Line_Items 
-- Complete.Overpayment_Line_Items_Tracking 
-- Complete.Prepayment_Line_Items 
-- Complete.Prepayment_Line_Item_Tracking 
-- Complete.Receipt_Line_Items 
-- Complete.Receipt_Line_Item_Tracking 
-- Complete.Tracking_Category_Options
+- Slutför. Bank_Transaction_Line_Items 
+- Slutför. Bank_Transaction_Line_Item_Tracking 
+- Slutför. Contact_Group_Contacts 
+- Slutför. Contacts_Contact_ personer 
+- Slutför. Credit_Note_Line_Items 
+- Slutför. Credit_Notes_Line_Items_Tracking 
+- Slutför. Expense_Claim_-betalningar 
+- Slutför. Expense_Claim_Receipts 
+- Slutför. Invoice_Line_Items 
+- Slutför. Invoices_Line_Items_Tracking
+- Slutför. Manual_Journal_Lines 
+- Slutför. Manual_Journal_Line_Tracking 
+- Slutför. Overpayment_Line_Items 
+- Slutför. Overpayment_Line_Items_Tracking 
+- Slutför. Prepayment_Line_Items 
+- Slutför. Prepayment_Line_Item_Tracking 
+- Slutför. Receipt_Line_Items 
+- Slutför. Receipt_Line_Item_Tracking 
+- Slutför. Tracking_Category_Options
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
@@ -225,4 +222,4 @@ Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](cont
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds av Kopieringsaktivitet finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds av kopierings aktiviteten finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

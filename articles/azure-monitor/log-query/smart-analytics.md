@@ -1,35 +1,29 @@
 ---
-title: Log Analytics smart analytics-exempel | Microsoft Docs
-description: Exempel som använder smart analytics funktioner i Log Analytics för analys av användaraktivitet.
-services: log-analytics
-documentationcenter: ''
+title: Log Analytics Smart Analytics-exempel | Microsoft Docs
+description: Exempel som använder smarta analys funktioner i Log Analytics för att utföra analyser av användar aktivitet.
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/15/2019
 ms.author: bwren
-ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/15/2019
+ms.openlocfilehash: 08a93c10a4214696d67f95cb862654d095899630
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61425852"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932967"
 ---
-# <a name="log-analytics-smart-analytics-examples"></a>Log Analytics smart analytics-exempel
-Den här artikeln innehåller exempel som använder smart analytics funktioner i Log Analytics för analys av användaraktivitet. Du kan använda de här exemplen för att analysera dina egna program som övervakas av Application Insights, eller så kan du använda koncepten i de här frågorna för liknande analys på andra data. 
+# <a name="log-analytics-smart-analytics-examples"></a>Log Analytics Smart Analytics-exempel
+Den här artikeln innehåller exempel som använder smarta analys funktioner i Log Analytics för att utföra analyser av användar aktivitet. Du kan antingen använda dessa exempel för att analysera dina egna program som övervakas av Application Insights eller använda koncepten i dessa frågor för liknande analys av andra data. 
 
-Se den [Kusto-Språkreferens](https://docs.microsoft.com/azure/kusto/query/) mer information om andra nyckelord som används i exemplen. Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du är nybörjare till Log Analytics.
+Mer information om de olika nyckelord som används i de här exemplen finns i [språk referens för Kusto](https://docs.microsoft.com/azure/kusto/query/) . Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du är nybörjare på Log Analytics.
 
-## <a name="cohorts-analytics"></a>Kohorter analytics
+## <a name="cohorts-analytics"></a>Kohorter-analys
 
-Kohortanalys spårar aktiviteten hos specifika grupper av användare, kallas kohorter. Den försöker att mäta hur tilltalande är en tjänst genom att mäta antalet returnerar användare. Användarna grupperas efter den tid som de för första gången tjänsten. När du analyserar kohorter vi förväntar oss att hitta en minskning i aktiviteten under de första spårade perioderna. Varje kohort heter efter vecka medlemmarna observerades för första gången.
+Kohort-analysen spårar aktiviteten för vissa grupper av användare, som kallas kohorter. Det försöker mäta hur man kan överklaga en tjänst genom att mäta antalet returnerade användare. Användarna grupperas efter den tid de först använde tjänsten. När du analyserar kohorter förväntar vi dig att hitta en minskning av aktiviteten under de första spårade perioderna. Varje kohort har en rubrik på den vecka som medlemmarna observerades för första gången.
 
-I följande exempel analyserar antalet aktiviteter som användare utför under loppet av 5 veckor efter sin första användning av tjänsten.
+I följande exempel analyseras antalet aktiviteter som användarna utför under loppet av 5 veckor, efter deras första användning av tjänsten.
 
 ```Kusto
 let startDate = startofweek(bin(datetime(2017-01-20T00:00:00Z), 1d));
@@ -92,10 +86,10 @@ week
 ```
 Det här exemplet resulterar i följande utdata.
 
-![Kohort för analys av utdata](media/smart-analytics/cohorts.png)
+![Kohort analys-utdata](media/smart-analytics/cohorts.png)
 
-## <a name="rolling-monthly-active-users-and-user-stickiness"></a>Löpande aktiva användare per månad och användare varaktighet
-I följande exempel använder time series-analys med den [series_fir](/azure/kusto/query/series-firfunction) -funktion som du kan utföra glidande fönstret beräkningar. Exempelprogrammet som övervakas är en onlinebutik som spårar användarnas aktivitet via anpassade händelser. Frågan spårar två typer av användaraktiviteter, _AddToCart_ och _checka ut_, och definierar _aktiva användare_ som de som utförde en utcheckning minst en gång under en viss dag.
+## <a name="rolling-monthly-active-users-and-user-stickiness"></a>Löpande månatlig Active Users och User varaktighet
+I följande exempel används Time-Series-analys med funktionen [series_fir](/azure/kusto/query/series-firfunction) som gör att du kan utföra glidande fönster beräkningar. Exempel programmet som övervakas är en onlinebutik som spårar användarnas aktiviteter via anpassade händelser. Frågan spårar två typer av användar aktiviteter, _AddToCart_ och _utcheckning_och definierar _aktiva användare_ som de som utför en incheckning minst en gång under en specifik dag.
 
 
 
@@ -140,9 +134,9 @@ customEvents
 
 Det här exemplet resulterar i följande utdata.
 
-![Löpande månatliga användare-utdata](media/smart-analytics/rolling-mau.png)
+![Rullande månatlig användares utdata](media/smart-analytics/rolling-mau.png)
 
-I följande exempel blir en återanvändbara funktion frågan ovan och används för att beräkna den löpande användaren varaktighet. Aktiva användare i den här frågan är definierade som endast de användare som utförde ta reda på minst en gång i en viss dag.
+I följande exempel omvandlas frågan ovan till en återanvändbar funktion och använder den för att beräkna varaktighet för rullande användare. Aktiva användare i den här frågan definieras enbart som de användare som utförde utcheckning minst en gång under en viss dag.
 
 ``` Kusto
 let rollingDcount = (sliding_window_size: int, event_name:string)
@@ -182,15 +176,15 @@ on Timestamp
 
 Det här exemplet resulterar i följande utdata.
 
-![Användaren Varaktighet utdata](media/smart-analytics/user-stickiness.png)
+![Användarens varaktighet-utdata](media/smart-analytics/user-stickiness.png)
 
-## <a name="regression-analysis"></a>Regressionsanalys
-Det här exemplet visar hur du skapar en automatisk detektor för avbrott exklusivt utifrån spårningsloggar för ett program. Detektorn syftar onormalt plötsliga ökningar i den relativa mängden fel och varningar spårningar i programmet.
+## <a name="regression-analysis"></a>Regressions analys
+Det här exemplet visar hur du skapar en automatisk detektor för tjänst avbrott som baseras uteslutande på programmets spårnings loggar. Detektorn söker onormal plötslig ökning i den relativa mängden fel och varnings spår i programmet.
 
-Två tekniker används för att utvärdera status för tjänsten baserat på spårningsdata för loggar:
+Två metoder används för att utvärdera tjänstens status baserat på spårnings loggar data:
 
-- Använd [Kontrollera-serien](/azure/kusto/query/make-seriesoperator) att konvertera halvstrukturerade textbaserade spårningsloggar till ett mått som representerar förhållandet mellan positiva och negativa trace rader.
-- Använd [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) och [series_fit_line](/azure/kusto/query/series-fit-linefunction) att utföra avancerade steg – gå identifiering med hjälp av time series-analys med en linjär regression 2-rad.
+- Använd [skapa-serien](/azure/kusto/query/make-seriesoperator) för att konvertera halv strukturerade text spårnings loggar till ett mått som representerar förhållandet mellan positiva och negativa spårnings linjer.
+- Använd [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) och [series_fit_line](/azure/kusto/query/series-fit-linefunction) för att utföra avancerad steg-hopp identifiering med tids serie analys med en linjär regression på 2 rader.
 
 ``` Kusto
 let startDate = startofday(datetime("2017-02-01"));
@@ -221,5 +215,5 @@ traces
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Referera till den [Datautforskaren Språkreferens](/azure/kusto/query) information om vilka språk.
-- Gå igenom en [lektion skriver frågor i Log Analytics](get-started-queries.md).
+- Mer information om språket finns i [datautforskaren språk referens](/azure/kusto/query) .
+- Gå igenom en [lektion med att skriva frågor i Log Analytics](get-started-queries.md).

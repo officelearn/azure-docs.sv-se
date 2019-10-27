@@ -1,24 +1,18 @@
 ---
 title: Samla in data från insamlade Azure Monitor | Microsoft Docs
 description: Insamlad är en Linux-daemon med öppen källkod som regelbundet samlar in data från program och system nivå information.  Den här artikeln innehåller information om att samla in data från insamlade Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/27/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: b1f02e01fef95bdd06930aa30479dd16d40675ce
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 11/27/2018
+ms.openlocfilehash: 4bf58a7e446cb13366a230a35c83e6bf0acaa09a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812558"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932526"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från insamlade på Linux-agenter i Azure Monitor
 [Insamlad](https://collectd.org/) är en Linux-daemon med öppen källkod som regelbundet samlar in prestanda mått från program och information på system nivå. Exempel på program är Java Virtual Machine (JVM), MySQL server och Nginx. Den här artikeln innehåller information om hur du samlar in prestanda data från insamlade Azure Monitor.
@@ -52,7 +46,7 @@ Om du använder en version som samlats in före 5,5 använder du dessutom följa
        </URL>
     </Plugin>
 
-Den insamlade konfigurationen använder default @ no__t-0-plugin-programmet för att skicka prestanda måtts data via port 26000 till Log Analytics-agenten för Linux. 
+Den insamlade konfigurationen använder standard`write_http`-plugin-programmet för att skicka prestanda måtts data via port 26000 till Log Analytics-agenten för Linux. 
 
 > [!NOTE]
 > Den här porten kan konfigureras till en anpassad port vid behov.
@@ -114,15 +108,15 @@ För att upprätthålla en välbekant modell mellan infrastruktur mått som reda
 
 | Fältet insamlat mått | Azure Monitor fält |
 |:--|:--|
-| `host` | Computer |
-| `plugin` | Inga |
-| `plugin_instance` | Instansnamn<br>Om **plugin_instance** är *Null* then instancename = " *_ total*" |
+| `host` | Dator |
+| `plugin` | Inget |
+| `plugin_instance` | Instans namn<br>Om **plugin_instance** är *Null* then instancename = " *_ total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Om **type_instance** är *Null* är CounterName =**tomt** |
 | `dsnames[]` | CounterName |
-| `dstypes` | Inga |
+| `dstypes` | Inget |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
-* Använd [anpassade fält](custom-fields.md) att parsa data från syslog-poster i enskilda fält.
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 
+* Använd [anpassade fält](custom-fields.md) för att parsa data från syslog-poster i enskilda fält.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 6b1e1dfec69d73b7fe2648a1eb9ead2ae4622bc5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 39e1099f1700e9ade412bb4cb81bc38e814ecfae
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897750"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935644"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopiera data till eller från ett fil system med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -100,21 +100,15 @@ Följande egenskaper stöds för den länkade fil system tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . 
 
-- För **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet, delimited text-, JSON-, Avro-och binära format-datauppsättning](#format-based-dataset) .
-- Information om andra format som **Orc-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, JSON, Avro och binärt format
-
-Om du vill kopiera data till och från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel i format-baserad data uppsättning och inställningar som stöds . Följande egenskaper stöds för fil systemet under `location`-inställningar i format-baserad data mängd:
+Följande egenskaper stöds för fil systemet under `location`-inställningar i format-baserad data mängd:
 
 | Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
 | typ       | Egenskapen Type under `location` i dataset måste anges till **FileServerLocation**. | Ja      |
 | folderPath | Sökvägen till mappen. Om du vill använda jokertecken för att filtrera mappar hoppar du över den här inställningen och anger i aktivitets källans inställningar. | Nej       |
 | fileName   | Fil namnet under den aktuella folderPath. Om du vill använda jokertecken för att filtrera filer, hoppar du över den här inställningen och anger i aktivitets källans inställningar. | Nej       |
-
-> [!NOTE]
-> Data uppsättning för **fileshare** -typ med Parquet/text format som nämns i nästa avsnitt stöds fortfarande som-är för aktivitet för kopiering/sökning/getMetaData för bakåtkompatibilitet, men fungerar inte med data flödet för mappning. Du rekommenderas att använda den här nya modellen för att vidarebefordra och användar gränssnittet för ADF-redigering har växlat till att generera dessa nya typer.
 
 **Exempel:**
 
@@ -142,9 +136,10 @@ Om du vill kopiera data till och från **Parquet, avgränsade text-, JSON-, Avro
 }
 ```
 
-### <a name="other-format-dataset"></a>Data uppsättning för andra format
+### <a name="legacy-dataset-model"></a>Äldre data uppsättnings modell
 
-Följande egenskaper stöds för att kopiera data till och från fil systemet i **Orc-format**:
+>[!NOTE]
+>Följande data uppsättnings modell stöds fortfarande för bakåtkompatibilitet. Du rekommenderar att du använder den nya modellen som nämns ovan och fortsätter och att redigerings gränssnittet för ADF har växlat till att generera den nya modellen.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -198,12 +193,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="file-system-as-source"></a>Fil system som källa
 
-- Om du vill kopiera från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-source) .
-- Om du vill kopiera från andra format som **Orc-format**, se avsnittet [annan format källa](#other-format-source) .
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a>Parquet, avgränsad text, JSON, Avro och binär format källa
-
-Om du vill kopiera data från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) artikel för den formatbaserade kopierings aktivitets källan och stöds autentiseringsinställningar. Följande egenskaper stöds för fil systemet under `storeSettings`-inställningar i format-baserad kopierings Källa:
+Följande egenskaper stöds för fil systemet under `storeSettings`-inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -214,9 +206,6 @@ Om du vill kopiera data från **Parquet, avgränsade text-, JSON-, Avro-och bin�
 | modifiedDatetimeStart    | Filter för filer baserat på attributet: senast ändrad. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br> Egenskaperna kan vara NULL vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har datetime-värdet men `modifiedDatetimeEnd` är NULL, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime väljs.  När `modifiedDatetimeEnd` har datetime-värdet men `modifiedDatetimeStart` är NULL, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime väljs. | Nej                                            |
 | modifiedDatetimeEnd      | Samma som ovan.                                               | Nej                                            |
 | maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej                                            |
-
-> [!NOTE]
-> För Parquet/avgränsat text format stöds **FileSystemSource** typ kopierings aktivitet som anges i nästa avsnitt fortfarande som-är för bakåtkompatibilitet. Du rekommenderas att använda den här nya modellen för att vidarebefordra och användar gränssnittet för ADF-redigering har växlat till att generera dessa nya typer.
 
 **Exempel:**
 
@@ -259,9 +248,10 @@ Om du vill kopiera data från **Parquet, avgränsade text-, JSON-, Avro-och bin�
 ]
 ```
 
-#### <a name="other-format-source"></a>Annan format källa
+#### <a name="legacy-source-model"></a>Äldre käll modell
 
-Om du vill kopiera data från fil systemet i **Orc-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
+>[!NOTE]
+>Följande kopierings käll modell stöds fortfarande för bakåtkompatibilitet. Du rekommenderar att du använder den nya modellen ovan och fortsätter med att skapa den nya modellen.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -303,21 +293,15 @@ Om du vill kopiera data från fil systemet i **Orc-format**, stöds följande eg
 
 ### <a name="file-system-as-sink"></a>Fil system som mottagare
 
-- Om du vill kopiera till **Parquet, avgränsad text, JSON, Avro och binärt format**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-sink) .
-- Om du vill kopiera till andra format som **Orc-format**, se avsnittet [annat format mottagare](#other-format-sink) .
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a>Parquet, avgränsad text, JSON, Avro och binärt format mottagare
-
-Om du vill kopiera data i **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel med format-baserad kopierings aktivitet, Sink och stöd autentiseringsinställningar. Följande egenskaper stöds för fil systemet under `storeSettings`-inställningar i format-baserad kopierings mottagare:
+Följande egenskaper stöds för fil systemet under `storeSettings`-inställningar i format-baserad kopierings mottagare:
 
 | Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | typ                     | Egenskapen Type under `storeSettings` måste anges till **FileServerWriteSetting**. | Ja      |
 | copyBehavior             | Definierar kopierings beteendet när källan är filer från ett filbaserat data lager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: bevarar filens hierarki i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><b>-FlattenHierarchy</b>: alla filer från källmappen är på den första nivån i målmappen. Filerna har automatiskt genererade namn. <br/><b>-MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om fil namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars är det ett automatiskt genererat fil namn. | Nej       |
 | maxConcurrentConnections | Antalet anslutningar som ska anslutas till data lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej       |
-
-> [!NOTE]
-> För Parquet/avgränsat text format stöds **FileSystemSink** typ kopierings aktivitet som anges i nästa avsnitt fortfarande som-är för bakåtkompatibilitet. Du rekommenderas att använda den här nya modellen för att vidarebefordra och användar gränssnittet för ADF-redigering har växlat till att generera dessa nya typer.
 
 **Exempel:**
 
@@ -354,9 +338,10 @@ Om du vill kopiera data i **Parquet, avgränsade text-, JSON-, Avro-och binärfo
 ]
 ```
 
-#### <a name="other-format-sink"></a>Övrigt format mottagare
+#### <a name="legacy-sink-model"></a>Legacy-mottagar modell
 
-För att kopiera data till fil systemet i **Orc-format**stöds följande egenskaper i avsnittet **mottagare** :
+>[!NOTE]
+>Följande kopierings mottagares modell stöds fortfarande för bakåtkompatibilitet. Du rekommenderar att du använder den nya modellen ovan och fortsätter med att skapa den nya modellen.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

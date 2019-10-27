@@ -1,6 +1,6 @@
 ---
-title: Importera/exportera för Azure IoT Hub-enhetsidentiteter | Microsoft Docs
-description: Hur du använder tjänsten Azure IoT SDK för att utföra massåtgärder mot identitetsregistret för att importera och exportera enhetsidentiteter. Importåtgärder kan du skapa, uppdatera och ta bort enhetsidentiteter gruppvis.
+title: Importera exporten av Azure IoT Hub enhets identiteter | Microsoft Docs
+description: Använda Azure IoT service SDK för att utföra Mass åtgärder mot identitets registret för att importera och exportera enhets identiteter. Med import åtgärder kan du skapa, uppdatera och ta bort enhets identiteter i bulk.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,37 +8,37 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796365"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927408"
 ---
-# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importera och exportera IoT Hub-enhetsidentiteter i grupp
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importera och exportera IoT Hub enhets identiteter i bulk
 
-Varje IoT-hubb har ett identitetsregister som du kan använda för att skapa resurser för varje enhet i tjänsten. ID-registret kan du styra åtkomsten till enheten-slutpunkter. Den här artikeln beskriver hur du importera och exportera enhetsidentiteter gruppvis till och från ett identitetsregister.
+Varje IoT-hubb har ett identitets register som du kan använda för att skapa resurser per enhet i tjänsten. I identitets registret kan du också kontrol lera åtkomsten till de enhets riktade slut punkterna. I den här artikeln beskrivs hur du importerar och exporterar enhets identiteter i bulk till och från ett identitets register.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Import och export-åtgärder sker i samband med *jobb* som gör att du kan köra massåtgärder mot en IoT-hubb med tjänsten.
+Import-och export åtgärder sker i samband med *jobb* som gör att du kan köra Mass åtgärder mot en IoT-hubb.
 
-Den **RegistryManager** klassen innehåller den **ExportDevicesAsync** och **ImportDevicesAsync** metoder som använder den **jobbet** framework. Dessa metoder kan du exportera, importera och synkronisera i sin helhet en IoT hub-identitetsregistret.
+Klassen **RegistryManager** innehåller metoderna **ExportDevicesAsync** och **ImportDevicesAsync** som använder **jobb** ramverket. Med dessa metoder kan du exportera, importera och synkronisera hela identitet registret för IoT Hub.
 
-Det här avsnittet beskrivs med hjälp av den **RegistryManager** klass och **jobbet** system att genomföra bulk import och export av enheter till och från en IoT-hubbens identitetsregister. Du kan också använda Azure IoT Hub Device Provisioning-tjänsten för att aktivera zero-touch, just-in-time-etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i den [provisioning service-dokumentationen](/azure/iot-dps).
+I det här avsnittet beskrivs hur du använder **RegistryManager** -klassen och- **jobb** systemet för att utföra Mass import och export av enheter till och från en IoT Hubs identitets register. Du kan också använda Azure-IoT Hub Device Provisioning Service för att möjliggöra Zero Touch-etablering, just-in-Time-etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i dokumentationen för [etablerings tjänsten](/azure/iot-dps).
 
 
 ## <a name="what-are-jobs"></a>Vad är jobb?
 
-Identitetsregisteråtgärder använder den **jobbet** system när åtgärden:
+Identitets register åtgärder använder **jobb** systemet när åtgärden:
 
-* Har en lång körningstid jämfört med standard körning-åtgärder.
+* Har en potentiellt lång körnings tid jämfört med standard körnings åtgärder.
 
-* Returnerar en stor mängd data för användaren.
+* Returnerar en stor mängd data till användaren.
 
-I stället för ett enda API-anrop väntar eller spärr på resultatet av åtgärden åtgärden asynkront skapar en **jobbet** för den IoT-hubben. Den åtgärd och sedan omedelbart returnerar en **JobProperties** objekt.
+I stället för ett enda API-anrop som väntar eller blockerar resultatet av åtgärden, skapar åtgärden asynkront ett **jobb** för IoT Hub. Åtgärden returnerar omedelbart ett **JobProperties** -objekt.
 
-I följande C#-kodavsnitt visar hur du skapar ett exportjobb:
+Följande C# kodfragment visar hur du skapar ett export jobb:
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
@@ -47,26 +47,26 @@ JobProperties exportJob = await
 ```
 
 > [!NOTE]
-> Du använder den **RegistryManager** klassen i C#-kod, lägga till den **Microsoft.Azure.Devices** NuGet-paketet i projektet. Den **RegistryManager** undervisningen har börjat den **Microsoft.Azure.Devices** namnområde.
+> Om du vill använda klassen **RegistryManager** i C# koden lägger du till paketet **Microsoft. Azure. Devices** NuGet i projektet. **RegistryManager** -klassen finns i namn rymden **Microsoft. Azure. Devices** .
 
-Du kan använda den **RegistryManager** klassen för att fråga efter tillståndet för den **jobbet** med hjälp av den returnerade **JobProperties** metadata. Skapa en instans av den **RegistryManager** klass, använda den **CreateFromConnectionString** metod.
+Du kan använda klassen **RegistryManager** för att fråga efter **jobbets** tillstånd med hjälp av returnerade metadata för **JobProperties** . Om du vill skapa en instans av klassen **RegistryManager** använder du **CreateFromConnectionString** -metoden.
 
 ```csharp
 RegistryManager registryManager =
   RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
 ```
 
-Att hitta anslutningssträngen för din IoT-hubb i Azure portal:
+Om du vill hitta anslutnings strängen för din IoT-hubb går du till Azure Portal:
 
 - Gå till IoT-hubben.
 
 - Välj **principer för delad åtkomst**.
 
-- Välj en princip, med hänsyn till de behörigheter som du behöver.
+- Välj en princip med hänsyn till de behörigheter som du behöver.
 
-- Kopiera connectionstring från panelen till höger på skärmen.
+- Kopiera ConnectionString från panelen till höger på skärmen.
 
-I följande C#-kodavsnitt visar hur du avsöker var femte sekund om du vill se om jobbet har slutförts kör:
+Följande C# kodfragment visar hur du avsöker var femte sekund för att se om jobbet har körts klart:
 
 ```csharp
 // Wait until job is finished
@@ -85,28 +85,28 @@ while(true)
 }
 ```
 
-## <a name="device-importexport-job-limits"></a>Enhetsgränser import/export-jobb
+## <a name="device-importexport-job-limits"></a>Utskrifts gränser för enhets import/export
 
-Importera endast 1 aktiv enhet eller export-jobbet tillåts vid en tidpunkt för alla nivåer för IoT Hub. IoT Hub har även gränser för jobbåtgärder. Mer information finns i [referens – IoT Hub-kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md).
+Endast 1 aktiv import-eller export jobb för enhet är tillåtet i taget för alla IoT Hub-nivåer. IoT Hub har också gränser för antalet jobb åtgärder. Mer information finns i [referens-IoT Hub kvoter och begränsning](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Exportera enheter
 
-Använd den **ExportDevicesAsync** metod för att exportera hela en IoT hub-identitetsregistret till en [Azure Storage](../storage/index.yml) blob behållaren med hjälp av en [signatur för delad åtkomst](../storage/common/storage-security-guide.md#data-plane-security).
+Använd **ExportDevicesAsync** -metoden för att exportera hela identitet registret i IoT Hub till en [Azure Storage](../storage/index.yml) BLOB-behållare med hjälp av [signaturen för delad åtkomst](../storage/common/storage-security-guide.md#authorization).
 
-Den här metoden kan du skapa pålitliga säkerhetskopieringar av din enhetsinformation i en blob-behållare som du bestämmer.
+Med den här metoden kan du skapa pålitliga säkerhets kopior av enhets informationen i en BLOB-behållare som du styr.
 
-Den **ExportDevicesAsync** kräver två parametrar:
+Metoden **ExportDevicesAsync** kräver två parametrar:
 
-* En *sträng* som innehåller en URI för en blob-behållare. URI: N måste innehålla en SAS-token som ger skrivåtkomst till behållaren. Jobbet skapar en blockblob i den här behållaren att lagra enhetsdata serialiserade export. SAS-token måste innehålla följande behörigheter:
+* En *sträng* som innehåller en URI för en BLOB-behållare. Denna URI måste innehålla en SAS-token som ger skriv åtkomst till behållaren. Jobbet skapar en block-BLOB i den här behållaren för att lagra serialiserade export enhets data. SAS-token måste innehålla följande behörigheter:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
      | SharedAccessBlobPermissions.Delete
    ```
 
-* En *booleskt* -värde som anger om du vill undanta autentiseringsnycklar från dina data för export. Om **FALSKT**, autentiseringsnycklar ingår i exportutdata. I annat fall nycklar exporteras som **null**.
+* Ett *booleskt värde* som anger om du vill utesluta autentiseringsinställningar från dina export data. Om **värdet är false**inkluderas autentiseringsinställningar i Exportera utdata. Annars exporteras nycklar som **Null**.
 
-I följande C#-kodavsnitt visar hur du startar ett exportjobb som innehåller enheten autentiseringsnycklar i exporterade data och sedan söka efter slutförande:
+Följande C# kodfragment visar hur du startar ett export jobb som innehåller nycklar för enhetsautentisering i exportera data och sedan söker efter slut för ande:
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
@@ -129,9 +129,9 @@ while(true)
 }
 ```
 
-Jobbet lagrar sina utdata i angivna blob-behållaren som en blockblob med namnet **devices.txt**. Utdata består av JSON-serialiserat enhetsdata, med en enhet per rad.
+I jobbet lagras utdata i den tillhandahållna BLOB-behållaren som en Block-Blob med namnet **revices. txt**. Utdatan består av JSON-serialiserade enhets data, med en enhet per rad.
 
-I följande exempel visar utdata:
+I följande exempel visas utdata-data:
 
 ```json
 {"id":"Device1","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
@@ -141,7 +141,7 @@ I följande exempel visar utdata:
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
-Om en enhet har twin data, exporteras twin data också tillsammans med enhetsdata. I följande exempel visas det här formatet. Alla data från raden ”twinETag” tills slutet är twin data.
+Om en enhet har dubbla data, exporteras även de dubbla data tillsammans med enhets data. I följande exempel visas det här formatet. Alla data från raden "twinETag" tills slutet är dubbla data.
 
 ```json
 {
@@ -188,7 +188,7 @@ Om en enhet har twin data, exporteras twin data också tillsammans med enhetsdat
 }
 ```
 
-Om du behöver åtkomst till dessa data i koden kan du enkelt kan deserialiseras data med den **ExportImportDevice** klass. I följande C#-kodavsnitt visar hur du kan läsa enhetsinformation som tidigare har exporterats till en blockblob:
+Om du behöver åtkomst till dessa data i kod kan du enkelt deserialisera dessa data med klassen **ExportImportDevice** . Följande C# kodfragment visar hur du läser enhets information som tidigare har exporter ATS till en Block-Blob:
 
 ```csharp
 var exportedDevices = new List<ExportImportDevice>();
@@ -206,22 +206,22 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 ## <a name="import-devices"></a>Importera enheter
 
-Den **ImportDevicesAsync** -metod i den **RegistryManager** klassen kan du utföra massåtgärder för import och synkronisering i en IoT hub-identitetsregistret. Som den **ExportDevicesAsync** metoden den **ImportDevicesAsync** metoden används den **jobbet** framework.
+**ImportDevicesAsync** -metoden i **RegistryManager** -klassen gör det möjligt att utföra Mass import-och synkroniserings åtgärder i identitets registret för IoT Hub. Precis som metoden **ExportDevicesAsync** använder **ImportDevicesAsync** -metoden **jobb** ramverket.
 
-Var noga med hjälp av den **ImportDevicesAsync** metoden eftersom förutom att etablera nya enheter i din identitetsregister, kan den också uppdatera och ta bort befintliga enheter.
+Ta del av metoden **ImportDevicesAsync** eftersom du förutom att tillhandahålla nya enheter i identitets registret, kan även uppdatera och ta bort befintliga enheter.
 
 > [!WARNING]
-> En importåtgärden kan inte ångras. Säkerhetskopiera alltid dina befintliga data med hjälp av den **ExportDevicesAsync** metod till en annan blob-behållare innan du gör bulk ändras till din identitetsregistret.
+> Det går inte att återställa en import åtgärd. Säkerhetskopiera alltid befintliga data med **ExportDevicesAsync** -metoden till en annan BLOB-behållare innan du gör Mass ändringar i identitets registret.
 
-Den **ImportDevicesAsync** metoden har två parametrar:
+Metoden **ImportDevicesAsync** tar två parametrar:
 
-* En *sträng* som innehåller en URI för en [Azure Storage](../storage/index.yml) blobbehållare som ska användas som *inkommande* för jobbet. URI: N måste innehålla en SAS-token som ger läsbehörighet till behållaren. Den här behållaren måste innehålla en blob med namnet **devices.txt** som innehåller serialiserade enhetsdata för att importera till din identitetsregistret. Importera data måste innehålla enhetsinformation i samma JSON-format som den **ExportImportDevice** jobbet använder när den skapar en **devices.txt** blob. SAS-token måste innehålla följande behörigheter:
+* En *sträng* som innehåller en URI för en [Azure Storage](../storage/index.yml) BLOB-behållare som ska användas som *indatamängd* för jobbet. Denna URI måste innehålla en SAS-token som beviljar Läs behörighet till behållaren. Den här behållaren måste innehålla en blob med namnet Devices **. txt** som innehåller de serialiserade enhets data som ska importeras till identitets registret. Import data måste innehålla enhets information i samma JSON-format som **ExportImportDevice** -jobbet använder när det skapar en **enhets. txt** -blob. SAS-token måste innehålla följande behörigheter:
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-* En *sträng* som innehåller en URI för en [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blobbehållare som ska användas som *utdata* från jobbet. Jobbet skapar en blockblob i den här behållaren lagrar några fel från den slutförda importen **jobbet**. SAS-token måste innehålla följande behörigheter:
+* En *sträng* som innehåller en URI för en [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) BLOB-behållare som ska användas som *utdata* från jobbet. Jobbet skapar en block-BLOB i den här behållaren för att lagra fel information från det slutförda import **jobbet**. SAS-token måste innehålla följande behörigheter:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -229,54 +229,54 @@ Den **ImportDevicesAsync** metoden har två parametrar:
    ```
 
 > [!NOTE]
-> De två parametrarna kan peka på samma blob-behållaren. Parametrarna separat kan du bara aktivera mer kontroll över dina data eftersom utdatabehållaren kräver ytterligare behörighet.
+> De två parametrarna kan peka på samma BLOB-behållare. De separata parametrarna ger bara bättre kontroll över dina data eftersom behållaren för utdata kräver ytterligare behörigheter.
 
-I följande C#-kodavsnitt visar hur du startar ett importjobb:
+Följande C# kodfragment visar hur du startar ett import jobb:
 
 ```csharp
 JobProperties importJob = 
    await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-Den här metoden kan också användas för import av data för enhetstvillingen. Formatet för indata är detsamma som visas i den **ExportDevicesAsync** avsnittet. På så sätt kan importera du den exporterade data. Den **$metadata** är valfritt.
+Den här metoden kan också användas för att importera data för enheten till dubbla. Formatet för data inmatningen är detsamma som det format som visas i avsnittet **ExportDevicesAsync** . På så sätt kan du importera exporterade data på annat sätt. **$Metadata** är valfritt.
 
-## <a name="import-behavior"></a>Importera beteende
+## <a name="import-behavior"></a>Import beteende
 
-Du kan använda den **ImportDevicesAsync** metod för att utföra följande massåtgärder i identity-registry:
+Du kan använda metoden **ImportDevicesAsync** för att utföra följande Mass åtgärder i identitets registret:
 
-* Massinläsning registrering av nya enheter
-* Massinläsning borttagningar av befintliga enheter
-* Massregistrera statusändringar (aktivera eller inaktivera enheter)
-* Massinläsning tilldelning av nya nycklar för autentisering av enheten
-* Massinläsning automatisk-omgenerering av enheten autentiseringsnycklar
-* Massuppdatering av twin data
+* Mass registrering av nya enheter
+* Mass borttagning av befintliga enheter
+* Mass status ändringar (aktivera eller inaktivera enheter)
+* Mass tilldelning av nya enhets verifierings nycklar
+* Automatisk generering av enhets verifierings nycklar
+* Mass uppdatering av dubbla data
 
-Du kan utföra olika kombinationer av föregående åtgärder i en enda **ImportDevicesAsync** anropa. Du kan till exempel registrera nya enheter och ta bort eller uppdatera befintliga enheter på samma gång. När de används tillsammans med den **ExportDevicesAsync** metod, du kan migrera alla dina enheter från en IoT hub helt till en annan.
+Du kan utföra valfri kombination av föregående åtgärder inom ett enda **ImportDevicesAsync** -anrop. Du kan till exempel registrera nya enheter och ta bort eller uppdatera befintliga enheter på samma tidpunkt. När det används tillsammans med **ExportDevicesAsync** -metoden kan du fullständigt migrera alla enheter från en IoT-hubb till en annan.
 
-Om importfilen innehåller twin metadata, sedan dessa metadata skriver över befintliga twin metadata. Om importfilen inte innehåller twin metadata, sedan endast de `lastUpdateTime` metadata har uppdaterats med den aktuella tiden.
+Om import filen innehåller dubbla metadata skriver denna metadata över de befintliga dubbla metadata. Om import filen inte innehåller dubbla metadata uppdateras bara `lastUpdateTime` metadata med den aktuella tiden.
 
-Använd det valfria **ImportMode %** -egenskapen i serialiseringsdata importera för varje enhet att styra import processen per enhet. Den **ImportMode %** egenskapen har följande alternativ:
+Använd den valfria egenskapen **importMode** i importens serialiserings data för varje enhet för att styra import processen per enhet. Egenskapen **importMode** har följande alternativ:
 
-| ImportMode % | Beskrivning |
+| importMode | Beskrivning |
 | --- | --- |
-| **createOrUpdate** |Om en enhet inte finns med det angivna **ID**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
-| **skapa** |Om en enhet inte finns med det angivna **ID**, den nyligen har registrerats. <br/>Om enheten redan finns skrivs ett fel till loggfilen. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
-| **update** |Om det finns redan en enhet med det angivna **ID**, befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
-| **updateIfMatchETag** |Om det finns redan en enhet med det angivna **ID**, befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. |
-| **createOrUpdateIfMatchETag** |Om en enhet inte finns med det angivna **ID**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
-| **ta bort** |Om det finns redan en enhet med det angivna **ID**, tas den bort utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
-| **deleteIfMatchETag** |Om det finns redan en enhet med det angivna **ID**, raderas bara om det finns en **ETag** matchar. Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns ett ETag-Typfel, skrivs ett fel till loggfilen. |
+| **createOrUpdate** |Om det inte finns någon enhet med det angivna **ID: t**är den nyligen registrerad. <br/>Om enheten redan finns skrivs befintlig information över med angivna indata utan hänsyn till **etag** -värdet. <br> Användaren kan välja att ange dubbla data tillsammans med enhets data. Dubbla etag, om det anges, bearbetas oberoende av enhetens etag. Om det finns ett matchnings fel med de befintliga dubbla etag-filerna skrivs ett fel till logg filen. |
+| **skapa** |Om det inte finns någon enhet med det angivna **ID: t**är den nyligen registrerad. <br/>Om enheten redan finns skrivs ett fel till logg filen. <br> Användaren kan välja att ange dubbla data tillsammans med enhets data. Dubbla etag, om det anges, bearbetas oberoende av enhetens etag. Om det finns ett matchnings fel med de befintliga dubbla etag-filerna skrivs ett fel till logg filen. |
+| **uppdatera** |Om det redan finns en enhet med det angivna **ID: t**skrivs befintlig information över med de angivna indata utan hänsyn till **etag** -värdet. <br/>Om enheten inte finns skrivs ett fel till logg filen. |
+| **updateIfMatchETag** |Om det redan finns en enhet med det angivna **ID: t**skrivs befintlig information över med de angivna indata endast om det finns en **etag** -matchning. <br/>Om enheten inte finns skrivs ett fel till logg filen. <br/>Om det finns en **etag** -matchning, skrivs ett fel till logg filen. |
+| **createOrUpdateIfMatchETag** |Om det inte finns någon enhet med det angivna **ID: t**är den nyligen registrerad. <br/>Om enheten redan finns skrivs befintlig information över med angivna indata endast om det finns en **etag** -matchning. <br/>Om det finns en **etag** -matchning, skrivs ett fel till logg filen. <br> Användaren kan välja att ange dubbla data tillsammans med enhets data. Dubbla etag, om det anges, bearbetas oberoende av enhetens etag. Om det finns ett matchnings fel med de befintliga dubbla etag-filerna skrivs ett fel till logg filen. |
+| **ta bort** |Om det redan finns en enhet med det angivna **ID: t**tas den bort utan hänsyn till **etag** -värdet. <br/>Om enheten inte finns skrivs ett fel till logg filen. |
+| **deleteIfMatchETag** |Om det redan finns en enhet med det angivna **ID: t**tas den bara bort om det finns en **etag** -matchning. Om enheten inte finns skrivs ett fel till logg filen. <br/>Om det finns en ETag-matchning, skrivs ett fel till logg filen. |
 
 > [!NOTE]
-> Om serialiseringsdata inte explicit definiera en **ImportMode %** flaggan för en enhet, den standard **createOrUpdate** under importen.
+> Om serialiserings data inte uttryckligen definierar en **importMode** -flagga för en enhet, används standardvärdet **createOrUpdate** under import åtgärden.
 
-## <a name="import-devices-example--bulk-device-provisioning"></a>Importera enheter-exempel – bulk enhetsetablering
+## <a name="import-devices-example--bulk-device-provisioning"></a>Exempel på import enheter – Mass enhets etablering
 
-I följande C#-kodexempel illustrerar hur du skapar flera enhetsidentiteter som:
+Följande C# kod exempel visar hur du genererar flera enhets identiteter som:
 
-* Inkludera autentiseringsnycklar.
-* Skriva den enhetsinformationen till en blockblob.
-* Importera enheterna till identitetsregistret.
+* Inkludera nycklar för autentisering.
+* Skriv enhets informationen till en Block-Blob.
+* Importera enheterna till identitets registret.
 
 ```csharp
 // Provision 1,000 more devices
@@ -342,9 +342,9 @@ while(true)
 }
 ```
 
-## <a name="import-devices-example--bulk-deletion"></a>Importera enheter exempel – massborttagning
+## <a name="import-devices-example--bulk-deletion"></a>Exempel på import enheter – Mass borttagning
 
-Följande kodexempel visar hur du tar bort de enheter som du lade till med ovanstående kodexempel:
+I följande kod exempel visas hur du tar bort de enheter som du har lagt till med föregående kod exempel:
 
 ```csharp
 // Step 1: Update each device's ImportMode to be Delete
@@ -392,9 +392,9 @@ while(true)
 }
 ```
 
-## <a name="get-the-container-sas-uri"></a>Hämta SAS-URI
+## <a name="get-the-container-sas-uri"></a>Hämta SAS-URI för behållare
 
-Följande kodexempel visar hur du skapar en [SAS-URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) med läsa, skriva och ta bort behörigheter för en blob-behållare:
+I följande kod exempel visas hur du skapar en [SAS-URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) med Läs-, skriv-och borttagnings behörighet för en BLOB-behållare:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -421,16 +421,16 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln lärde du dig att utföra massåtgärder mot identitetsregistret i IoT-hubb. Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT Hub:
+I den här artikeln har du lärt dig hur du utför Mass åtgärder mot identitets registret i en IoT-hubb. Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 
-* [IoT Hub-mått](iot-hub-metrics.md)
-* [IoT Hub-loggarna](iot-hub-monitor-resource-health.md)
+* [IoT Hub mått](iot-hub-metrics.md)
+* [IoT Hub loggar](iot-hub-monitor-resource-health.md)
 
-Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Utvecklarhandboken för IoT Hub](iot-hub-devguide.md)
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
+* [Distribuera AI till gräns enheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
-Utforska använder IoT Hub Device Provisioning-tjänsten för att aktivera zero-touch och just-in-time-etablering, se: 
+Om du vill utforska med hjälp av IoT Hub Device Provisioning Service för att aktivera Zero-Touch, just-in-Time-etablering, se: 
 
 * [Azure IoT Hub Device Provisioning-tjänst](/azure/iot-dps)

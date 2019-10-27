@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0363f2d8da1ca1371fd55107c6487c3d96f6d00e
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1b270663a83461ecd777599fead9d717e93482c0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091458"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72930889"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3,6 Hive-arbetsbelastningar till HDInsight 4,0
 
@@ -30,14 +30,14 @@ Den här artikeln beskriver följande ämnen:
 En fördel med Hive är möjligheten att exportera metadata till en extern databas (kallas Hive-Metaarkiv). **Hive-metaarkiv** ansvarar för att lagra tabell statistik, inklusive tabell lagrings plats, kolumn namn och tabell index information. Metaarkiv-databasschemat skiljer sig mellan Hive-versioner. Gör följande för att uppgradera en HDInsight 3,6 Hive-Metaarkiv så att den är kompatibel med HDInsight 4,0.
 
 1. Skapa en ny kopia av din externa metaarkiv. HDInsight 3,6 och HDInsight 4,0 kräver olika metaarkiv-scheman och kan inte dela en enda metaarkiv. Mer information om hur du kopplar en extern metaarkiv till ett HDInsight-kluster finns i [använda externa metadata butiker i Azure HDInsight](../hdinsight-use-external-metadata-stores.md) . 
-2. Starta en skript åtgärd mot ditt HDI 3,6-kluster med "Head Nodes" som nodtypen för körning. Klistra in följande URI i text rutan som är markerad som "bash script https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh URI":. I text rutan som marker ATS som "argument" anger du Server namn, databas, användar namn och lösen ord för den kopierade Hive-metaarkiv, avgränsade med blank steg. Ta inte med ". database.windows.net" när du anger servername.
+2. Starta en skript åtgärd mot ditt HDI 3,6-kluster med "Head Nodes" som nodtypen för körning. Klistra in följande URI i text rutan som är markerad som "bash script URI": https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh. I text rutan som marker ATS som "argument" anger du Server namn, databas, användar namn och lösen ord för den **kopierade** Hive-metaarkiv, avgränsade med blank steg. Ta inte med ". database.windows.net" när du anger servername.
 
 > [!Warning]
 > Uppgraderingen som konverterar HDInsight 3,6-metadata-schemat till HDInsight 4,0-schemat kan inte ångras.
 
 ## <a name="migrate-hive-tables-to-hdinsight-40"></a>Migrera Hive-tabeller till HDInsight 4,0
 
-När du har slutfört den föregående uppsättningen steg för att migrera Hive-metaarkiv till HDInsight 4,0 kommer de tabeller och databaser som registrerats i metaarkiv att visas inifrån HDInsight 4,0-klustret genom `show tables` att `show databases` köra eller från i klustret . Information om hur du kör frågor i HDInsight 4,0-kluster finns i [köra frågor i HDInsight-versioner](#query-execution-across-hdinsight-versions) .
+När du har slutfört den föregående uppsättningen steg för att migrera Hive-Metaarkiv till HDInsight 4,0 kommer de tabeller och databaser som registrerats i metaarkiv att visas inifrån HDInsight 4,0-klustret genom att köra `show tables` eller `show databases` inifrån klustret. Information om hur du kör frågor i HDInsight 4,0-kluster finns i [köra frågor i HDInsight-versioner](#query-execution-across-hdinsight-versions) .
 
 De faktiska data från tabellerna är dock inte tillgängliga förrän klustret har åtkomst till de nödvändiga lagrings kontona. För att se till att ditt HDInsight 4,0-kluster har åtkomst till samma data som ditt gamla HDInsight 3,6-kluster utför du följande steg:
 
@@ -66,8 +66,8 @@ Du kan behöva justera egenskaperna för ditt lager innan du utför migreringen.
 När tabell egenskaperna har angetts korrekt kör du verktyget Hive-migrering från ett av klustrets huvudnoderna med SSH-gränssnittet:
 
 1. Anslut till klustrets huvudnoden med SSH. Instruktioner finns i [ansluta till HDInsight med SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-1. Öppna ett inloggnings gränssnitt som Hive-användare genom att köra`sudo su - hive`
-1. Fastställ stack-versionen för Hortonworks Data Platform genom att `ls /usr/hdp`köra. Då visas en versions sträng som du bör använda i nästa kommando.
+1. Öppna ett inloggnings gränssnitt som Hive-användare genom att köra `sudo su - hive`
+1. Ta reda på data plattforms stack versionen genom att köra `ls /usr/hdp`. Då visas en versions sträng som du bör använda i nästa kommando.
 1. Kör följande kommando från gränssnittet. Ersätt `${{STACK_VERSION}}` med versions strängen från föregående steg:
 
 ```bash
@@ -99,7 +99,7 @@ I HDInsight 3,6 är GUI-klienten för att interagera med Hive-Server den Ambari 
 
 Starta en skript åtgärd mot klustret med "Head Nodes" som nodtyp för körning. Klistra in följande URI i text rutan som är markerad som "bash script URI": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-Vänta 5 till 10 minuter och starta sedan data Analytics Studio med följande URL: https://\<kluster namn >. azurehdinsight. net/Das/
+Vänta 5 till 10 minuter och starta sedan data Analytics Studio genom att använda URL: en: https://\<kluster namn >. azurehdinsight. net/Das/
 
 När DAS har installerats, om du inte ser frågorna som du har kört i visnings programmet för frågor, så gör du följande:
 

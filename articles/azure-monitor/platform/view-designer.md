@@ -1,24 +1,18 @@
 ---
 title: Skapa vyer för att analysera loggdata i Azure Monitor | Microsoft Docs
 description: Med hjälp av View Designer i Azure Monitor kan du skapa anpassade vyer som visas i Azure Portal och som innehåller en mängd olika visualiseringar på data i arbets ytan Log Analytics. Den här artikeln innehåller en översikt över hur du skapar och redigerar anpassade vyer i designern.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/22/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 33930823fbeb42011d8e2a368d17c9a21070a243
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 06/22/2018
+ms.openlocfilehash: a1a4dbffed37480178d1b94a77587ca251396db6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035605"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931938"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Skapa anpassade vyer med hjälp av View Designer i Azure Monitor
 Med hjälp av View Designer i Azure Monitor kan du skapa en mängd olika anpassade vyer i Azure Portal som kan hjälpa dig att visualisera data i din Log Analytics-arbetsyta. Den här artikeln innehåller en översikt över Visa designer och procedurer för att skapa och redigera anpassade vyer.
@@ -27,12 +21,12 @@ Med hjälp av View Designer i Azure Monitor kan du skapa en mängd olika anpassa
 
 Mer information om View Designer finns i:
 
-* [Panel referens](view-designer-tiles.md): Innehåller en referens guide för inställningarna för var och en av de tillgängliga panelerna i dina anpassade vyer.
-* [Referens för visualiserings del](view-designer-parts.md): Innehåller en referens guide för inställningarna för de visualiserings delar som är tillgängliga i dina anpassade vyer.
+* [Panel referens](view-designer-tiles.md): innehåller en referens guide för inställningarna för var och en av de tillgängliga panelerna i dina anpassade vyer.
+* [Referens för visualiserings del](view-designer-parts.md): innehåller en referens guide för inställningarna för de visualiserings delar som är tillgängliga i dina anpassade vyer.
 
 
-## <a name="concepts"></a>Begrepp
-Vyer visas på sidan Azure Monitor **Översikt** i Azure Portal. Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om insikter. Panelerna i varje anpassad vy visas i alfabetisk ordning och panelerna för övervaknings lösningarna installeras på samma arbets yta.
+## <a name="concepts"></a>Koncept
+Vyer visas på sidan Azure Monitor **Översikt** i Azure Portal. Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om **insikter** . Panelerna i varje anpassad vy visas i alfabetisk ordning och panelerna för övervaknings lösningarna installeras på samma arbets yta.
 
 ![Översikts sida](media/view-designer/overview-page.png)
 
@@ -40,7 +34,7 @@ Vyerna som du skapar med View Designer innehåller de element som beskrivs i fö
 
 | Tillhör | Beskrivning |
 |:--- |:--- |
-| Sida vid sida | Visas på din Azure Monitor **översikts** sida. Varje panel visar en visuell Sammanfattning av den anpassade vyn som den representerar. Varje panel typ innehåller en annan visualisering av dina poster. Du väljer en panel för att visa en anpassad vy. |
+| Ordnar | Visas på din Azure Monitor **översikts** sida. Varje panel visar en visuell Sammanfattning av den anpassade vyn som den representerar. Varje panel typ innehåller en annan visualisering av dina poster. Du väljer en panel för att visa en anpassad vy. |
 | Anpassad vy | Visas när du väljer en panel. Varje vy innehåller en eller flera visualiserings delar. |
 | Visualiserings delar | Presentera en visualisering av data i Log Analytics arbets ytan baserat på en eller flera [logg frågor](../log-query/log-query-overview.md). De flesta delar innehåller ett sidhuvud, som innehåller en visualisering på hög nivå, och en lista som visar de främsta resultaten. Varje Deltyp innehåller en annan visualisering av posterna i arbets ytan Log Analytics. Du väljer element i delen för att utföra en logg fråga som innehåller detaljerade poster. |
 
@@ -57,8 +51,8 @@ Alternativen beskrivs i följande tabell:
 
 | Alternativ | Beskrivning |
 |:--|:--|
-| uppdatera   | Uppdaterar vyn med den senaste informationen. | 
-| Logs      | Öppnar [Log Analytics](../log-query/portals.md) för att analysera data med logg frågor. |
+| Uppdatera   | Uppdaterar vyn med den senaste informationen. | 
+| Loggar      | Öppnar [Log Analytics](../log-query/portals.md) för att analysera data med logg frågor. |
 | Redigera       | Öppnar vyn i View Designer för att redigera innehållet och konfigurationen.  |
 | Klona      | Skapar en ny vy och öppnar den i Visa designer. Namnet på den nya vyn är detsamma som det ursprungliga namnet, men med *kopia* bifogat. |
 | Datumintervall | Ange datum-och tidsintervall filter för de data som ingår i vyn. Det här datum intervallet används före eventuella datum intervall som anges i frågor i vyn.  |
@@ -75,9 +69,9 @@ Du kan skapa en ny vy i View Designer genom att välja **Visa designer** på men
 Du kan använda Visa designer för att skapa nya vyer eller redigera befintliga. 
 
 View Designer har tre fönster: 
-* **Design**: Innehåller den anpassade vy som du skapar eller redigerar. 
-* **Kontroller**: Innehåller de paneler och delar som du lägger till i **design** fönstret. 
-* **Egenskaper**: Visar egenskaperna för panelerna eller de valda delarna.
+* **Design**: innehåller den anpassade vy som du skapar eller redigerar. 
+* **Kontroller**: innehåller de paneler och delar som du lägger till i **design** fönstret. 
+* **Egenskaper**: visar egenskaperna för panelerna eller de valda delarna.
 
 ![Vydesigner](media/view-designer/view-designer-screenshot.png)
 

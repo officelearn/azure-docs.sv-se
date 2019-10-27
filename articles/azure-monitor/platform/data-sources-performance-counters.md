@@ -1,73 +1,67 @@
 ---
-title: Samla in och analysera prestandaräknare i Azure Monitor | Microsoft Docs
-description: Prestandaräknare samlas in av Azure Monitor för att analysera prestanda på Windows och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestandaräknare för både Windows och Linux-agenter, information om de lagras i arbetsytan och hur du analyserar dem i Azure-portalen.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
-ms.service: log-analytics
+title: Samla in och analysera prestanda räknare i Azure Monitor | Microsoft Docs
+description: Prestanda räknare samlas in av Azure Monitor för att analysera prestanda för Windows-och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestanda räknare för både Windows-och Linux-agenter, information om de lagras i arbets ytan och hur du analyserar dem i Azure Portal.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2018
+ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205759"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932443"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows- och Linux prestanda datakällor i Azure Monitor
-Prestandaräknare i Windows och Linux ger information om prestanda för maskinvarukomponenter, operativsystem och program.  Azure Monitor kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Prestanda data källor för Windows och Linux i Azure Monitor
+Prestanda räknare i Windows och Linux ger inblick i prestanda för maskin varu komponenter, operativ system och program.  Azure Monitor kan samla in prestanda räknare med frekventa intervall för analys i nära real tid (NRT), förutom att samla in prestanda data för analys och rapportering på längre sikt.
 
 ![Prestandaräknare](media/data-sources-performance-counters/overview.png)
 
-## <a name="configuring-performance-counters"></a>Konfigurera prestandaräknare
-Konfigurerar prestandaräknare från den [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources).
+## <a name="configuring-performance-counters"></a>Konfigurera prestanda räknare
+Konfigurera prestanda räknare från [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources).
 
-När du först konfigurerar Windows eller Linux-prestanda räknare för en ny arbetsyta har möjlighet att snabbt skapa flera vanliga räknare.  De listas med en kryssruta bredvid varje.  Se till att alla räknare som du vill skapa från början är markerade och klickar sedan på **Lägg till valda prestandaräknare**.
+När du först konfigurerar Windows-eller Linux-prestandaräknare för en ny arbets yta får du möjlighet att snabbt skapa flera vanliga räknare.  De listas med en kryssruta bredvid varje.  Se till att alla räknare som du vill skapa först är markerade och klicka sedan på **Lägg till de valda prestanda räknarna**.
 
-Du kan välja en specifik instans för varje prestandaräknare för Windows-prestandaräknare. Instansen av varje räknare som du väljer gäller för alla underordnade räknare för den överordnade räknaren för prestandaräknare för Linux. I följande tabell visar de vanliga instanserna som är tillgängliga för både Linux och Windows prestandaräknare.
+För prestanda räknare i Windows kan du välja en angiven instans för varje prestanda räknare. För prestanda räknare för Linux används instansen för varje räknare som du väljer för alla underordnade räknare för den överordnade räknaren. I följande tabell visas de vanliga instanser som är tillgängliga för prestanda räknare för både Linux och Windows.
 
 | Instansnamn | Beskrivning |
 | --- | --- |
-| \_Totalt |Summan av alla instanser |
+| \_total |Totalt antal instanser |
 | \* |Alla instanser |
-| (/&#124;/var) |Matchar instanser med namnet: / eller /var |
+| (/&#124;/var) |Matchar instanser med namnet:/eller/var |
 
 ### <a name="windows-performance-counters"></a>Windows-prestandaräknare
 
 ![Konfigurera Windows-prestandaräknare](media/data-sources-performance-counters/configure-windows.png)
 
-Följ den här proceduren för att lägga till en ny Windows-prestandaräknare för att samla in.
+Följ den här proceduren om du vill lägga till en ny Windows-prestandaräknare som ska samlas in.
 
-1. Skriv namnet på räknaren i textrutan i formatet *objekt (förekomst) \counter*.  När du börjar skriva, visas med en matchande lista över vanliga räknare.  Du kan välja en räknare från listan eller skriver in en egen.  Du kan också returnera alla instanser för en särskild räknare genom att ange *objekt räknare*.  
+1. Skriv namnet på räknaren i text rutan i *\counter (format objekt) (instans)* .  När du börjar skriva visas en matchande lista med vanliga räknare.  Du kan antingen välja en räknare från listan eller ange en egen.  Du kan också returnera alla instanser för en viss räknare genom att ange *object\counter*.  
 
-    När SQL Server-prestandaräknare har samlats in från namngivna instanser, alla namnet instans räknare börjar med *MSSQL$* och följt av namnet på instansen.  Ange till exempel för att samla in räknaren Log Cache träffar förhållande för alla databaser från databasobjekt för prestanda för namngivna SQL-instansen INST2, `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
+    När du samlar in SQL Server prestanda räknare från namngivna instanser börjar alla namngivna instans räknare starta med *MSSQL $* och följt av namnet på instansen.  Om du till exempel vill samla in förhållandet för träff kvoten för loggen för alla databaser från databasen prestanda objekt för namngiven SQL-instans INST2, anger du `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Klicka på **+** eller tryck på **RETUR** att lägga till räknaren i listan.
-3. När du lägger till en räknare, används standardvärdet 10 sekunder tills dess **provintervall**.  Du kan ändra detta till ett högre värde för upp till 1 800 sekunder (30 minuter) om du vill minska utrymmeskraven av insamlade prestandadata.
-4. När du är klar att lägga till räknare klickar du på den **spara** längst upp på skärmen för att spara konfigurationen.
+2. Klicka på **+** eller tryck på **RETUR** för att lägga till räknaren i listan.
+3. När du lägger till en räknare används standardvärdet 10 sekunder för **samplings intervallet**.  Du kan ändra det till ett högre värde på upp till 1800 sekunder (30 minuter) om du vill minska lagrings kraven för insamlade prestanda data.
+4. När du är klar med att lägga till räknare klickar du på knappen **Spara** längst upp på skärmen för att spara konfigurationen.
 
-### <a name="linux-performance-counters"></a>Prestandaräknare för Linux
+### <a name="linux-performance-counters"></a>Linux-prestandaräknare
 
 ![Konfigurera Linux-prestandaräknare](media/data-sources-performance-counters/configure-linux.png)
 
-Följ den här proceduren för att lägga till en ny Linux-prestandaräknare för att samla in.
+Följ den här proceduren om du vill lägga till en ny Linux-prestandaräknare som ska samlas in.
 
-1. Som standard skickas automatiskt alla konfigurationsändringar till alla agenter.  För Linux-agenter skickas en konfigurationsfil till Fluentd datainsamlaren.  Om du vill ändra den här filen manuellt på varje Linux-agenten och avmarkerar sedan kryssrutan *Använd konfigurationen nedan för Mina Linux-datorer* och följ anvisningarna nedan.
-2. Skriv namnet på räknaren i textrutan i formatet *objekt (förekomst) \counter*.  När du börjar skriva, visas med en matchande lista över vanliga räknare.  Du kan välja en räknare från listan eller skriver in en egen.  
-3. Klicka på **+** eller tryck på **RETUR** att lägga till räknaren i listan över andra räknare för objektet.
-4. Alla räknare för ett objekt som använder samma **provintervall**.  Standardvärdet är 10 sekunder.  Du ändra det till ett högre värde för upp till 1 800 sekunder (30 minuter) om du vill minska utrymmeskraven av insamlade prestandadata.
-5. När du är klar att lägga till räknare klickar du på den **spara** längst upp på skärmen för att spara konfigurationen.
+1. Som standard flyttas alla konfigurations ändringar automatiskt till alla agenter.  För Linux-agenter skickas en konfigurations fil till den insamlade data insamlaren.  Om du vill ändra den här filen manuellt på varje Linux-Agent avmarkerar du kryss rutan *Använd konfigurationen nedan för mina Linux-datorer* och följer anvisningarna nedan.
+2. Skriv namnet på räknaren i text rutan i *\counter (format objekt) (instans)* .  När du börjar skriva visas en matchande lista med vanliga räknare.  Du kan antingen välja en räknare från listan eller ange en egen.  
+3. Klicka på **+** eller tryck på **RETUR** för att lägga till räknaren i listan över andra räknare för objektet.
+4. Alla räknare för ett objekt använder samma **samplings intervall**.  Standardvärdet är 10 sekunder.  Du ändrar detta till ett högre värde på upp till 1800 sekunder (30 minuter) om du vill minska lagrings kraven för insamlade prestanda data.
+5. När du är klar med att lägga till räknare klickar du på knappen **Spara** längst upp på skärmen för att spara konfigurationen.
 
-#### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurera Linux-prestandaräknare i konfigurationsfilen
-I stället för att konfigurera prestandaräknare för Linux med Azure portal, har du möjlighet att redigera konfigurationsfiler på Linux-agenten.  Prestandamått att samla in styrs av konfigurationen i **/etc/opt/microsoft/omsagent/\<arbetsyte-id\>/conf/omsagent.conf**.
+#### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurera Linux-prestandaräknare i konfigurations filen
+I stället för att konfigurera Linux-prestandaräknare med hjälp av Azure Portal har du möjlighet att redigera konfigurationsfiler på Linux-agenten.  Prestanda mått som samlas in styrs av konfigurationen i **/etc/opt/microsoft/omsagent/\<arbetsyte-id\>/conf/omsagent.conf**.
 
-Varje objekt eller en kategori, prestandamått att samla in för ska definieras i konfigurationsfilen som en enda `<source>` element. Syntaxen följer mönstret nedan.
+Varje objekt eller kategori av prestanda mått som ska samlas in bör definieras i konfigurations filen som ett enda `<source>`-element. Syntaxen följer mönstret nedan.
 
     <source>
       type oms_omi  
@@ -82,72 +76,72 @@ Parametrarna i det här elementet beskrivs i följande tabell.
 
 | Parametrar | Beskrivning |
 |:--|:--|
-| objektet\_namn | Objektnamn för samlingen. |
-| instance\_regex |  En *reguljärt uttryck* definierar vilka instanser för att samla in. Värdet: `.*` anger alla instanser. Samla in mått för processor för endast den \_totala instans kan du ange `_Total`. Om du vill samla in processen mått för endast crond eller sshd-instanser, kan du ange: `(crond\|sshd)`. |
-| räknaren\_namn\_regex | En *reguljärt uttryck* definierar vilka prestandaräknare (för objektet) att samla in. Om du vill samla in alla räknare för objektet, ange: `.*`. Om du vill samla in endast växling utrymme räknare för i minnet, t.ex, kan du ange: `.+Swap.+` |
-| interval | Frekvens vid vilken objektets prestandaräknare som samlas in. |
+| objekt\_namn | Objekt namn för samlingen. |
+| instans\_regex |  Ett *reguljärt uttryck* som definierar vilka instanser som ska samlas in. Värdet: `.*` anger alla instanser. Om du bara vill samla in processor mått för \_total instans kan du ange `_Total`. Om du bara vill samla in process mått för crond-eller sshd-instanser kan du ange: `(crond\|sshd)`. |
+| räknar\_namn\_regex | Ett *reguljärt uttryck* som definierar vilka räknare (för objektet) som ska samlas in. Om du vill samla in alla räknare för objektet anger du: `.*`. Om du till exempel bara vill samla in växlings utrymmes räknare för minnesobjektet kan du ange: `.+Swap.+` |
+| interval | Den frekvens med vilken objektets räknare samlas in. |
 
 
-I följande tabell visas de objekt och räknare som du kan ange i konfigurationsfilen.  Det finns ytterligare räknare för vissa program enligt beskrivningen i [samla in prestandaräknare för Linux-program i Azure Monitor](data-sources-linux-applications.md).
+I följande tabell visas de objekt och räknare som du kan ange i konfigurations filen.  Det finns ytterligare räknare som är tillgängliga för vissa program enligt beskrivningen i [samla in prestanda räknare för Linux-program i Azure Monitor](data-sources-linux-applications.md).
 
-| Objektnamn | Namn på räknare |
+| Objekt namn | Räknar namn |
 |:--|:--|
-| Logisk Disk | % Ledigai-noder |
-| Logisk Disk | Ledigt utrymme i procent |
-| Logisk Disk | % Användai-noder |
-| Logisk Disk | Använt utrymme i procent |
-| Logisk Disk | Disk – lästa byte/sek |
-| Logisk Disk | Diskläsningar/sek |
-| Logisk Disk | Disköverföringar/sek |
-| Logisk Disk | Disk – skrivna byte/sek |
-| Logisk Disk | Diskskrivningar/sek |
-| Logisk Disk | Ledigt utrymme i MB |
-| Logisk Disk | Logisk Disk byte/sek |
+| Logisk disk | Kostnads fri noder i procent |
+| Logisk disk | Ledigt utrymme i procent |
+| Logisk disk | % Använda noder i procent |
+| Logisk disk | Använt utrymme i procent |
+| Logisk disk | Disk-lästa byte/s |
+| Logisk disk | Disk läsningar/SEK |
+| Logisk disk | Disk överföringar/SEK |
+| Logisk disk | Disk-skrivna byte/s |
+| Logisk disk | Disk skrivningar/SEK |
+| Logisk disk | Lediga megabyte |
+| Logisk disk | Logisk disk byte/SEK |
 | Minne | Tillgängligt minne i procent |
-| Minne | Tillgängligt växlingsutrymme i procent |
+| Minne | Tillgängligt växlings utrymme i procent |
 | Minne | Använt minne i procent |
-| Minne | Använt växlingsutrymme i procent |
+| Minne | Använt växlings utrymme i procent |
 | Minne | Tillgängligt minne i megabyte |
-| Minne | Tillgängliga megabyte växlingsutrymme |
-| Minne | Sidläsningar/sek |
-| Minne | Sidskrivningar/sek |
-| Minne | Sidor/sek |
-| Minne | Använt växlingsutrymme i megabyte |
-| Minne | Använt minne Mbyte |
+| Minne | Tillgängliga megabyte växlings utrymme |
+| Minne | Sid läsningar/s |
+| Minne | Sid skrivningar/SEK |
+| Minne | Sidor/s |
+| Minne | Använt megabyte växlings utrymme |
+| Minne | Använt minne i MB |
 | Nätverk | Totalt antal överförda byte |
-| Nätverk | Totalt antal byte mottaget |
+| Nätverk | Totalt antal mottagna byte |
 | Nätverk | Totalt antal byte |
-| Nätverk | Totalt antal skickade paket |
+| Nätverk | Totalt antal överförda paket |
 | Nätverk | Totalt antal mottagna paket |
-| Nätverk | Totalt antal Rx-fel |
-| Nätverk | Totalt antal Tx-fel |
+| Nätverk | Totalt antal mottagna mottagnings fel |
+| Nätverk | Totalt antal TX-fel |
 | Nätverk | Totalt antal kollisioner |
-| Fysisk Disk | Genomsn. S/diskläsning |
-| Fysisk Disk | Genomsn. S/disköverföring |
-| Fysisk Disk | Genomsn. S/diskskrivning |
-| Fysisk Disk | Fysisk Disk byte/sek |
-| Process | PCT privilegierad tid |
-| Process | PCT användartid |
-| Process | Använt minne kB |
-| Process | Virtuella delat minne |
-| Processor | % DPC-tid |
-| Processor | Inaktivitetstid i procent |
-| Processor | Avbrottstid i procent |
-| Processor | Väntetid i procent i/o |
-| Processor | Nice Time |
-| Processor | Privilegierad tid i procent |
-| Processor | Tid i procent för processor |
-| Processor | Användartid i procent |
+| Fysisk disk | Medel s/disk läsning |
+| Fysisk disk | Medel s/disk överföring |
+| Fysisk disk | Medel s/disk skrivning |
+| Fysisk disk | Fysisk disk-byte/SEK |
+| Process | PCT privilegie rad tid |
+| Process | PCT-användar tid |
+| Process | Använt minne i KB |
+| Process | Virtuellt delat minne |
+| Processor | DPC-tid i procent |
+| Processor | Ledig tid i procent |
+| Processor | % Avbrotts tid |
+| Processor | % I/o-vänte tid |
+| Processor | % Trevligt tid |
+| Processor | Privilegie rad tid i procent |
+| Processor | % Processor tid |
+| Processor | Användar tid i procent |
 | System | Ledigt fysiskt minne |
 | System | Ledigt utrymme i växlingsfiler |
 | System | Ledigt virtuellt minne |
 | System | Processer |
 | System | Storlek lagrad i växlingsfiler |
-| System | Drifttid |
+| System | Drift tid |
 | System | Användare |
 
 
-Följande är standardkonfigurationen för prestandamått.
+Följande är standard konfigurationen för prestanda mått.
 
     <source>
       type oms_omi
@@ -182,48 +176,48 @@ Följande är standardkonfigurationen för prestandamått.
     </source>
 
 ## <a name="data-collection"></a>Datainsamling
-Azure Monitor samlar in alla angivna prestandaräknare på sina angivna provintervall på alla agenter som har som antalet installerade.  Informationen sammanställs inte och rådata är tillgänglig i alla log frågevyer för den tid som anges av din prenumeration.
+Azure Monitor samlar in alla angivna prestanda räknare med angivet exempel intervall på alla agenter som har den räknaren installerad.  Data sammanställs inte och rå data är tillgängliga i alla logg frågor för den varaktighet som anges av din prenumeration.
 
-## <a name="performance-record-properties"></a>Egenskaper för prestanda-post
-Prestandaposter har en typ av **Perf** och har egenskaperna i följande tabell.
+## <a name="performance-record-properties"></a>Egenskaper för prestanda post
+Prestanda poster har en typ av **prestanda** och har egenskaperna i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| Dator |Datorn där händelsen har samlats in från. |
-| CounterName |Namnet på prestandaräknaren |
-| CounterPath |Fullständig sökväg för räknaren i formuläret \\ \\ \<dator >\\objekt(instans)\\räknaren. |
-| CounterValue |Numeriskt värde för räknaren. |
-| Instansnamn |Namnet på den händelse-instansen.  Tomt om ingen instans. |
-| ObjectName |Namnet på ett objekt |
-| SourceSystem |Typ av data har samlats in från agenten. <br><br>Ansluta OpsManager – Windows-agenten, antingen direkt eller SCOM <br> Linux – alla Linux-agenter  <br> AzureStorage – Azure Diagnostics |
-| TimeGenerated |Datum och tid för data har provtagning. |
+| Dator |Datorn som händelsen samlades in från. |
+| CounterName |Namn på prestanda räknaren |
+| CounterPath |Fullständig sökväg till räknaren i form \\\\\<dator >\\objekt (instans)\\räknare. |
+| CounterValue |Räknarens numeriska värde. |
+| InstanceName |Namn på händelse instansen.  Tom om ingen instans. |
+| ObjectName |Namn på prestandaobjektet |
+| SourceSystem |Typ av agent som data samlades in från. <br><br>OpsManager – Windows-agent, antingen direkt anslutning eller SCOM <br> Linux – alla Linux-agenter  <br> AzureStorage – Azure-diagnostik |
+| TimeGenerated |Datum och tid då data samplades. |
 
-## <a name="sizing-estimates"></a>Beräknar storlek
- En grov uppskattning för insamling av en särskild räknare med 10 sekunder intervall är ungefär 1 MB per dag per instans.  Du kan beräkna en särskild räknare med följande formel lagringskrav.
+## <a name="sizing-estimates"></a>Storleks uppskattningar
+ En grov uppskattning för insamling av en viss räknare vid 10 sekunders intervall är ungefär 1 MB per dag per instans.  Du kan beräkna lagrings kraven för en viss räknare med följande formel.
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## <a name="log-queries-with-performance-records"></a>Loggfrågor med prestandaposter
-I följande tabell innehåller olika exempel på loggfrågor som hämtar prestandaposter.
+## <a name="log-queries-with-performance-records"></a>Logga frågor med prestanda poster
+Följande tabell innehåller olika exempel på logg frågor som hämtar prestanda poster.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |:--- |:--- |
-| Perf |Alla prestandadata |
-| Perf &#124; där dator == ”den här datorn” |Alla prestandadata från en viss dator |
-| Perf &#124; där CounterName == ”den Aktuell diskkölängd” |Alla prestandadata för en särskild räknare |
-| Perf &#124; där ObjectName == ”Processor” och CounterName == ”% processortid” och InstanceName == ”_Total” &#124; sammanfatta AVGCPU = avg(CounterValue) per dator |Genomsnittlig CPU-användningen över alla datorer |
-| Perf &#124; där CounterName == ”% processortid” &#124; sammanfatta AggregatedValue = max(CounterValue) per dator |Högsta CPU-användningen över alla datorer |
-| Perf &#124; där ObjectName == ”logisk disk” och CounterName == ”den Aktuell diskkölängd” och dator == ”MyComputerName” &#124; sammanfatta AggregatedValue = avg(CounterValue) av instansnamn |Genomsnittlig Kölängd för aktuella Disk i alla instanser av en viss dator |
-| Perf &#124; där CounterName == ”disköverföringar/sek” &#124; sammanfatta AggregatedValue =: e percentilen (CounterValue 95) per dator |95: e percentilen för disköverföringar/sek på alla datorer |
-| Perf &#124; där CounterName == ”% processortid” och InstanceName == ”_Total” &#124; sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 1 timme), dator |Per timme, genomsnitt CPU-användning på alla datorer |
-| Perf &#124; där dator == ”den här datorn” och CounterName startswith_cs ”%” och InstanceName == ”_Total” &#124; sammanfatta AggregatedValue =: e percentilen (CounterValue 70) efter bin (TimeGenerated, 1 timme), CounterName | Per timme 70: e percentilen för varje procent räknaren % för en viss dator |
-| Perf &#124; där CounterName == ”% processortid” och InstanceName == ”_Total” och dator == ”den här datorn” &#124; sammanfatta [”min(CounterValue)”] = min(CounterValue), [”avg(CounterValue)”] = avg(CounterValue), [”percentile75(CounterValue)”] =: e percentilen (CounterValue, 75), [”max(CounterValue)”] = max(CounterValue) efter bin (TimeGenerated, 1 timme), dator |Per timme average, lägsta, högsta och 75: e percentilen CPU-användning för en specifik dator |
-| Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | Alla prestandadata från databasobjekt för prestanda för master-databasen från den namngivna SQL Server-instansen INST2.  
+| Perf |Alla prestanda data |
+| Perf &#124; där dator = = "Min Dator" |Alla prestanda data från en viss dator |
+| Perf &#124; där CounterName = = "Aktuell diskkölängd" |Alla prestanda data för en viss räknare |
+| Perf &#124; WHERE ObjectName = = "processor" och CounterName = = "% processor tid" och instancename = = "_ total &#124; " sammanfatta AVGCPU = AVG (CounterValue) efter dator |Genomsnittlig CPU-belastning på alla datorer |
+| Perf &#124; där CounterName = = "% processor tid" &#124; sammanfatta AggregatedValue = Max (CounterValue) efter dator |Maximal processor användning på alla datorer |
+| Perf &#124; WHERE ObjectName = = "logisk disk" och CounterName = = "Aktuell diskkölängd" och dator = = "" &#124; sammanfatta AggregatedValue = AVG (CounterValue) efter instancename |Genomsnittlig Kölängd för aktuell disk i alla instanser av en viss dator |
+| Perf &#124; där CounterName = = "disk överföringar/SEK" &#124; sammanfatta AggregatedValue = percentil (CounterValue, 95) efter dator |95 percentil av disk överföringar/SEK över alla datorer |
+| Perf &#124; där CounterName = = "% processor tid" och instancename = = "_ total &#124; " sammanfatta AggregatedValue = AVG (CounterValue) per bin (TimeGenerated, 1H), dator |Genomsnittlig CPU-användning per timme på alla datorer |
+| Perf &#124; där dator = = "Min Dator" och CounterName startswith_cs "%" och instancename = = "_ total &#124; " sammanfatta AggregatedValue = percentil (CounterValue, 70) per bin (TimeGenerated, 1H), CounterName | Varje timme 70 percentil med varje% procentuell räknare för en viss dator |
+| Perf &#124; där CounterName = = "% processor tid" och instancename = = "_ total" och dator = = "min dator &#124; " sammanfatta ["min (CounterValue)"] = min (CounterValue), ["AVG (CounterValue)"] = AVG (CounterValue), ["percentile75 (CounterValue)"] = percentil (CounterValue, 75), ["Max (CounterValue)"] = Max (CounterValue) per bin (TimeGenerated, 1H), dator |Genomsnittligt per timme, lägsta, högsta och 75 CPU-användning för en speciell dator |
+| Perf &#124; där ObjectName = = "MSSQL $ INST2: databaser" och instancename = = "Master" | Alla prestanda data från databasens prestanda objekt för Master-databasen från den namngivna SQL Server-instansen INST2.  
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Samla in prestandaräknare från Linux-program](data-sources-linux-applications.md) inklusive MySQL och Apache HTTP Server.
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
-* Exportera insamlade data [Power BI](powerbi.md) för fler visualiseringar och analys.
+* [Samla in prestanda räknare från Linux-program](data-sources-linux-applications.md) , inklusive MySQL och Apache HTTP server.
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.  
+* Exportera insamlade data till [Power BI](powerbi.md) för ytterligare visualiseringar och analyser.

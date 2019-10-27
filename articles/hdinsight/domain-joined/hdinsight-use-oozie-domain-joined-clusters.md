@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 99f8c2b40445fe282800d096353bee1c7a934ebe
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b644d293afd429bdc68fba66c119eb7146d0daf0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918130"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935468"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package
 
@@ -41,7 +41,7 @@ Mer information om SSH (Secure Shell) finns i [ansluta till HDInsight (Hadoop) m
    ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
    ```
 
-2. Verifiera lyckad Kerberos-autentisering med hjälp av `klist` kommandot. Om inte, använder `kinit` du för att starta Kerberos-autentisering.
+2. Verifiera lyckad Kerberos-autentisering med kommandot `klist`. Om inte, använder du `kinit` för att starta Kerberos-autentisering.
 
 3. Logga in på HDInsight-gatewayen för att registrera OAuth-token som krävs för att få åtkomst till Azure Data Lake Storage:   
      ```bash
@@ -61,9 +61,9 @@ Oozie för arbets flödes definitioner skrivs i Apache Hadoop process Definition
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
-   Ersätt `DomainUser` med domänens användar namn. 
-   Ersätt `DomainUserPath` med sökvägen till arbets katalogen för domän användaren. 
-   Ersätt `ClusterVersion` med din HDP-version (Cluster Hortonworks Data Platform).
+   Ersätt `DomainUser` med domän användar namnet.
+   Ersätt `DomainUserPath` med sökvägen till arbets katalogen för domän användaren.
+   Ersätt `ClusterVersion` med din kluster data plattforms version.
 
 2. Använd följande instruktion för att skapa och redigera en ny fil:
    ```bash
@@ -184,9 +184,9 @@ Oozie för arbets flödes definitioner skrivs i Apache Hadoop process Definition
 
      - Hive Server 2-och Hive Server 1-åtgärder kör en fråga i en Hive-tabell med HDInsight.
 
-     Hive-åtgärderna använder de autentiseringsuppgifter som definierats i avsnittet autentiseringsuppgifter för autentisering med hjälp av `cred` nyckelordet i åtgärds elementet.
+     Hive-åtgärderna använder de autentiseringsuppgifter som definierats i avsnittet autentiseringsuppgifter för autentisering med hjälp av nyckelordet `cred` i åtgärds elementet.
 
-6. Använd följande kommando för att kopiera `workflow.xml` filen till: `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`
+6. Använd följande kommando för att kopiera `workflow.xml`-filen till `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
      ```bash
     hdfs dfs -put workflow.xml /user/<domainuser>/examples/apps/map-reduce/workflow.xml
      ```
@@ -219,11 +219,11 @@ Oozie för arbets flödes definitioner skrivs i Apache Hadoop process Definition
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
 
-   * `adl://home` Använd URI`nameNode` för egenskapen om du har Azure Data Lake Storage gen1 som primär kluster lagring. Om du använder Azure Blob Storage ändrar du detta till `wasb://home`. Om du använder Azure Data Lake Storage Gen2 ändrar du detta till `abfs://home`.
+   * Använd `adl://home`-URI: n för egenskapen `nameNode` om du har Azure Data Lake Storage Gen1 som primär kluster lagring. Om du använder Azure Blob Storage ändrar du detta till `wasb://home`. Om du använder Azure Data Lake Storage Gen2 ändrar du detta till `abfs://home`.
    * Ersätt `domainuser` med ditt användar namn för domänen.  
-   * Ersätt `ClusterShortName` med det korta namnet för klustret. Om kluster namnet till exempel är https:// *[exempel länk]* sechadoopcontoso.azurehdisnight.net, `clustershortname` är de första sex tecknen i klustret: **sechad**.  
+   * Ersätt `ClusterShortName` med kort namnet för klustret. Om kluster namnet till exempel är https:// *[exempel länk]* sechadoopcontoso.azurehdisnight.net, är `clustershortname` de första sex tecknen i klustret: **sechad**.  
    * Ersätt `jdbcurlvalue` med JDBC-URL: en från Hive-konfigurationen. Ett exempel är JDBC: hive2://headnodehost: 10001/; transportMode = http.      
-   * Om du vill spara filen väljer du Ctrl + X, `Y`anger och väljer sedan **RETUR**.
+   * Om du vill spara filen väljer du Ctrl + X, anger `Y`och väljer sedan **RETUR**.
 
    Den här egenskaps filen måste finnas lokalt när du kör Oozie-jobb.
 
@@ -315,7 +315,7 @@ Ranger-gransknings loggarna för Hive Server 2-åtgärder visar Oozie som kör �
 
 ## <a name="configure-user-authorization-in-oozie"></a>Konfigurera användarauktorisering i Oozie
 
-Oozie har en konfiguration för användarautentisering som kan blockera användare från att stoppa eller ta bort andra användares jobb. Om du vill aktivera den här konfigurationen `oozie.service.AuthorizationService.security.enabled` ställer `true`du in på. 
+Oozie har en konfiguration för användarautentisering som kan blockera användare från att stoppa eller ta bort andra användares jobb. Om du vill aktivera den här konfigurationen ställer du in `oozie.service.AuthorizationService.security.enabled` till `true`. 
 
 Mer information finns i avsnittet om [installation och konfiguration av Apache-Oozie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 

@@ -1,24 +1,18 @@
 ---
 title: Samla in och analysera Windows-händelseloggar i Azure Monitor | Microsoft Docs
 description: Beskriver hur du konfigurerar Windows-händelseloggen med Azure Monitor och information om de poster som de skapar.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cc81a8d8023d0724f4ecb71c157e8f575aa9edc8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 11/28/2018
+ms.openlocfilehash: dd8f1e0e79f85c5d91966bcba13052f297422e67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997479"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932412"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows händelse logg data källor i Azure Monitor
 Windows-händelseloggar är en av de vanligaste [data källorna](agent-data-sources.md) för att samla in data med Windows-agenter sedan många program skriver till händelse loggen i Windows.  Du kan samla in händelser från standard loggar som system och program, förutom att ange anpassade loggar som skapats av program som du behöver övervaka.
@@ -28,7 +22,7 @@ Windows-händelseloggar är en av de vanligaste [data källorna](agent-data-sour
 ## <a name="configuring-windows-event-logs"></a>Konfigurera händelse loggar i Windows
 Konfigurera Windows-händelseloggar från [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources).
 
-Azure Monitor samlar endast in händelser från Windows-händelseloggen som anges i inställningarna.  Du kan lägga till en händelse logg genom att skriva namnet på loggen och klicka **+** på.  Endast händelser med de valda allvarlighets graderna samlas in för varje logg.  Kontrol lera allvarlighets graderna för den specifika logg som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
+Azure Monitor samlar endast in händelser från Windows-händelseloggen som anges i inställningarna.  Du kan lägga till en händelse logg genom att skriva namnet på loggen och klicka på **+** .  Endast händelser med de valda allvarlighets graderna samlas in för varje logg.  Kontrol lera allvarlighets graderna för den specifika logg som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
 
 När du skriver namnet på en händelse logg ger Azure Monitor förslag på vanliga händelse logg namn. Om loggen som du vill lägga till inte visas i listan kan du fortfarande lägga till den genom att skriva i det fullständiga namnet på loggen. Du kan hitta det fullständiga namnet på loggen med hjälp av logg boken. I logg boken öppnar du sidan *Egenskaper* för loggen och kopierar strängen från fältet *fullständigt namn* .
 
@@ -49,7 +43,7 @@ Händelse poster i Windows har en typ av **händelse** och har egenskaperna i f�
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| Computer |Namnet på datorn som händelsen samlades in från. |
+| Dator |Namnet på datorn som händelsen samlades in från. |
 | EventCategory |Händelsens kategori. |
 | EventData |Alla händelse data i RAW-format. |
 | EventID |Händelsens nummer. |
@@ -57,12 +51,12 @@ Händelse poster i Windows har en typ av **händelse** och har egenskaperna i f�
 | EventLevelName |Allvarlighets grad för händelsen i text form. |
 | EventLog |Namnet på händelse loggen som händelsen samlades in från. |
 | ParameterXml |Händelse parameter värden i XML-format. |
-| ManagementGroupName |Namnet på hanterings gruppen för System Center Operations Managers agenter.  För andra agenter är det här värdet`AOI-<workspace ID>` |
+| ManagementGroupName |Namnet på hanterings gruppen för System Center Operations Managers agenter.  För andra agenter är det här värdet `AOI-<workspace ID>` |
 | RenderedDescription |Händelse Beskrivning med parameter värden |
-| Source |Händelsens källa. |
+| Källa |Händelsens källa. |
 | SourceSystem |Typ av agent som händelsen samlades in från. <br> OpsManager – Windows-agent, antingen direkt anslutning eller Operations Manager hanterat <br> Linux – alla Linux-agenter  <br> AzureStorage – Azure-diagnostik |
 | TimeGenerated |Datum och tid då händelsen skapades i Windows. |
-| UserName |Användar namnet för det konto som loggade händelsen. |
+| Användar |Användar namnet för det konto som loggade händelsen. |
 
 ## <a name="log-queries-with-windows-events"></a>Logga frågor med Windows-händelser
 Följande tabell innehåller olika exempel på logg frågor som hämtar Windows-händelseloggar.
@@ -77,5 +71,5 @@ Följande tabell innehåller olika exempel på logg frågor som hämtar Windows-
 
 ## <a name="next-steps"></a>Nästa steg
 * Konfigurera Log Analytics för att samla in andra [data källor](agent-data-sources.md) för analys.
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.  
 * Konfigurera [insamling av prestanda räknare](data-sources-performance-counters.md) från dina Windows-agenter.

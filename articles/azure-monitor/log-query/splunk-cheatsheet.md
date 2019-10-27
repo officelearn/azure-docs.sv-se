@@ -1,24 +1,18 @@
 ---
 title: Splunk för att Azure Monitor logg fråga | Microsoft Docs
 description: Hjälp för användare som är bekanta med Splunk i Learning Azure Monitor logg frågor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 03a0d755cf6d099f07a7c6d853e1d747908eec05
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 08/21/2018
+ms.openlocfilehash: e16bf152e739a6145bfabaf8546fa71199f8d732
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177642"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932953"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk för att Azure Monitor logg fråga
 
@@ -60,7 +54,7 @@ I följande tabell anges funktioner i Azure Monitor som motsvarar Splunk-funktio
 | searchmatch | == | I Splunk kan `searchmatch` söka efter den exakta strängen.
 | slumpmässiga | rand ()<br>rand (n) | Splunk-funktionen returnerar ett tal från noll till 2<sup>31</sup>-1. Azure Monitor returnerar ett tal mellan 0,0 och 1,0, eller om en parameter har angetts, mellan 0 och n-1.
 | nu | now() | 81.1
-| relative_time | totimespan() | 81.1<br>I Azure Monitor är Splunk motsvarigheten till relative_time (datetimeVal, offsetVal) datetimeVal + ToTimeSpan (offsetVal).<br>Till exempel blir <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
+| relative_time | totimespan() | 81.1<br>I Azure Monitor är Splunk motsvarigheten till relative_time (datetimeVal, offsetVal) datetimeVal + ToTimeSpan (offsetVal).<br><code>search &#124; eval n=relative_time(now(), "-1d@d")</code> blir till exempel <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
 (1) i Splunk anropas funktionen med operatorn `eval`. I Azure Monitor används det som en del av `extend` eller `project`.<br>(2) i Splunk anropas funktionen med operatorn `eval`. I Azure Monitor kan den användas med operatorn `where`.
 

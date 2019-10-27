@@ -1,24 +1,18 @@
 ---
 title: Enkla loggar i Azure Monitor (för hands version) | Microsoft Docs
 description: Med enkel inloggnings upplevelsen kan du skapa grundläggande frågor i Azure Monitor utan att direkt interagera med KQL.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/12/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 323267dd47735ca54b84e47e6a55d1f2d14a0b06
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 09/12/2019
+ms.openlocfilehash: 0b8b23d5d355614bf74b1b22c6a8443b9a2f9391
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262178"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932976"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Enkla loggar i Azure Monitor (för hands version)
 Azure Monitor ger en [rikare upplevelse](get-started-portal.md) för att skapa [logg frågor](log-query-overview.md) med KQL-språket. Du behöver inte ha full effekt på KQL, men du föredrar en förenklad upplevelse för grundläggande krav på frågor. Med enkel inloggnings upplevelsen kan du skapa grundläggande frågor utan att direkt interagera med KQL. Du kan också använda enkla loggar som ett utbildnings verktyg för KQL eftersom du behöver mer avancerade frågor.
@@ -35,16 +29,16 @@ Navigera till en Cosmos DB eller Key Vault i din Azure-prenumeration med [diagno
 
 ![Meny](media/simple-logs/menu.png)
 
-Välj ett **fält** och en **operator** och ange ett **värde** för jämförelse. Klicka **+** och ange **och/eller** om du vill lägga till ytterligare kriterier.
+Välj ett **fält** och en **operator** och ange ett **värde** för jämförelse. Klicka på **+** och ange **och/eller** för att lägga till ytterligare kriterier.
 
-![Villkor](media/simple-logs/criteria.png)
+![Kriterie](media/simple-logs/criteria.png)
 
 Klicka på **Kör** för att visa resultatet av frågan.
 
 ## <a name="view-and-edit-kql"></a>Visa och redigera KQL
 Välj **Frågeredigeraren** för att öppna KQL som genererats av frågan enkla loggar i den fullständiga log Analyticss upplevelsen. 
 
-![Frågeredigerare](media/simple-logs/query-editor.png)
+![Frågeredigeraren](media/simple-logs/query-editor.png)
 
 Du kan redigera KQL direkt och använda andra funktioner i Log Analytics, till exempel filter för att ytterligare förfina resultaten.
 

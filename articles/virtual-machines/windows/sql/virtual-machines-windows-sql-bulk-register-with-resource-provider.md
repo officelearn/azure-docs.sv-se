@@ -13,18 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8498346c5623913cb68c63e95a787f31c7d90cc0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 90c9d9be6f5a255a4ddd4f7fae7cf410e5b1f80d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901955"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934954"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Mass registrering av virtuella SQL-datorer i Azure med providern för SQL VM-resurs
 
-Den här artikeln beskriver hur du kan registrera din SQL Server virtuella dator (VM) i Azure med den virtuella SQL-SqlVMs med PowerShell-cmdleten "register-".
+Den här artikeln beskriver hur du avregistrerar din SQL Server virtuella dator (VM) i Azure med providern för SQL-VM med hjälp av `Register-SqlVMs` PowerShell-cmdleten.
 
-Cmdleten "register-SqlVMs" kan användas för att registrera alla virtuella datorer i en specifik lista med prenumerationer, resurs grupper eller en lista med virtuella datorer. Cmdleten registrerar de virtuella datorerna i läget för _förenklad_ hantering och genererar sedan både en [rapport och en loggfil](#output-description). 
+`Register-SqlVMs` cmdleten kan användas för att registrera alla virtuella datorer i en lista med prenumerationer, resurs grupper eller en lista med enskilda virtuella datorer. Cmdleten registrerar de virtuella datorerna i läget för _förenklad_ hantering och genererar sedan både en [rapport och en loggfil](#output-description). 
 
 Registrerings processen har ingen risk, har ingen stillestånds tid och kommer inte att starta om SQL Server eller den virtuella datorn. 
 

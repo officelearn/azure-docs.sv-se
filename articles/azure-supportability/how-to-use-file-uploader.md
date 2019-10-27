@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure nya rikt linjer för fil överförings verktyget för support begär Anden | Microsoft Docs
-description: Beskriver rikt linjerna när du använder Microsoft Azure nya fil överförings verktyget för support begär Ande
+title: Azure Support Request – rikt linjer för fil uppladdning
+description: Beskriver rikt linjerna när du använder fil överförings alternativet Microsoft Azure Support Request
 author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -8,22 +8,22 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f01c70a2a077e28e8de5118332b780f27dc9ec93
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8c22ce859aa58aeb8339b16265f6614bd7e723f8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248693"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936084"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Rikt linjer för fil överförings verktyget Microsoft Azure nya support begär Anden
-När du [skapar en supportbegäran](https://portal.azure.com/#create/Microsoft.Support), kan fil överförings verktyget hjälpa dig att enkelt ladda upp diagnostikfiler eller andra filer som du tror är relevanta för incidenten.  
+När du [skapar en support förfrågan](https://portal.azure.com/#create/Microsoft.Support)kan fil överförings alternativet hjälpa dig att enkelt ladda upp diagnostikfiler eller andra filer som du tror är relevanta för incidenten.  
 
 > [!NOTE]
 > För att skydda din integritet ska du inte inkludera någon personlig information i överföringen.
 >
 >
 
-Följ dessa rikt linjer när du använder fil överförings verktyget:
+Följ dessa rikt linjer när du använder fil överförings alternativet:
 
 * Alla filer måste ha ett fil namns tillägg, till exempel. docx eller. xlsx. I tabellen visas en lista över tillåtna fil namns tillägg.
 * Fil namnet får inte vara längre än 110 tecken.

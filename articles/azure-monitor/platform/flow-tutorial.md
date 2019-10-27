@@ -1,53 +1,49 @@
 ---
-title: Automatisera Azure Monitor log-processer med Microsoft Flow
-description: Lär dig hur du kan använda Microsoft Flow för att automatisera snabbt upprepade processer med hjälp av Azure Log Analytics-anslutningen.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-ms.service: log-analytics
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
+title: Automatisera Azure Monitor logg processer med Microsoft Flow
+description: Lär dig hur du kan använda Microsoft Flow för att snabbt automatisera upprepade processer med hjälp av Azure Log Analytics-anslutningen.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/29/2017
+author: MGoedtel
 ms.author: bwren
-ms.openlocfilehash: 46a4544b86648ee99a751d4793013f6104d1d9df
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.date: 09/29/2017
+ms.openlocfilehash: c74ff0f4d23df8f906870c3810a699db254d70b4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807040"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932321"
 ---
-# <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Monitor log-processer med anslutningsappen för Microsoft Flow
-[Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbetsflöden med hundratals åtgärder för en mängd olika tjänster. Utdata från en åtgärd kan användas som indata till en annan så att du kan skapa integrering mellan olika tjänster.  Azure Log Analytics-anslutningsappen för Microsoft Flow kan du skapa arbetsflöden som innehåller data som hämtats av loggfrågor från en Log Analytics-arbetsyta i Azure Monitor.
+# <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Monitor logg processer med anslutnings programmet för Microsoft Flow
+Med [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Utdata från en åtgärd kan användas som indata till en annan som gör det möjligt att skapa integration mellan olika tjänster.  Med Azure Log Analytics-anslutaren för Microsoft Flow kan du bygga arbets flöden som innehåller data som hämtats av logg frågor från en Log Analytics arbets yta i Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Du kan till exempel använda Microsoft Flow för att använda Azure Monitor log-data i ett e-postmeddelande från Office 365, skapa en bugg i Azure DevOps eller skicka ett Slack-meddelande.  Du kan utlösa ett arbetsflöde med ett enkelt schema eller från en åtgärd i en ansluten tjänst, till exempel när ett e-postmeddelande eller en tweet tas emot.  
+Du kan till exempel använda Microsoft Flow för att använda Azure Monitor loggdata i ett e-postmeddelande från Office 365, skapa en bugg i Azure DevOps eller publicera ett slack-meddelande.  Du kan utlösa ett arbets flöde med ett enkelt schema eller från en åtgärd i en ansluten tjänst, till exempel när ett e-postmeddelande eller en tweet tas emot.  
 
-Självstudie i den här artikeln visar hur du skapar ett flöde som skickar automatiskt resultaten av en Azure Monitor log-fråga via e-post, bara ett exempel på hur du kan använda Log Analytics-anslutning i Microsoft Flow. 
+Självstudien i den här artikeln visar hur du skapar ett flöde som automatiskt skickar resultatet av en Azure Monitor logg fråga per e-post, bara ett exempel på hur du kan använda Log Analytics-anslutningen i Microsoft Flow. 
 
 
-## <a name="step-1-create-a-flow"></a>Steg 1: Skapa ett flöde
-1. Logga in på [Microsoft Flow](https://flow.microsoft.com), och välj **Mina flöden**.
-2. Klicka på **+ skapa från tom**.
+## <a name="step-1-create-a-flow"></a>Steg 1: skapa ett flöde
+1. Logga in på [Microsoft Flow](https://flow.microsoft.com)och välj **mina flöden**.
+2. Klicka på **+ skapa från Tom**.
 
-## <a name="step-2-create-a-trigger-for-your-flow"></a>Steg 2: Skapa en utlösare för flödet
-1. Klicka på **Sök bland hundratals kopplingar och utlösare**.
-2. Typ **schema** i sökrutan.
-3. Välj **schema**, och välj sedan **schema – återkommande**.
-4. I den **frekvens** , markerar du kryssrutan **dag** och i den **intervall** anger **1**.<br><br>![Dialogrutan för Microsoft Flow-utlösare](media/flow-tutorial/flow01.png)
+## <a name="step-2-create-a-trigger-for-your-flow"></a>Steg 2: skapa en utlösare för ditt flöde
+1. Klicka på **Sök hundratals kopplingar och utlösare**.
+2. Skriv **schema** i sökrutan.
+3. Välj **schema**och välj sedan **schema-upprepning**.
+4. I rutan **frekvens** väljer du **dag** och i rutan **intervall** anger du **1**.<br><br>dialog rutan ![Microsoft Flow utlösare](media/flow-tutorial/flow01.png)
 
 
 ## <a name="step-3-add-a-log-analytics-action"></a>Steg 3: Lägg till en Log Analytics-åtgärd
-1. Klicka på **+ nytt steg**, och klicka sedan på **Lägg till en åtgärd**.
+1. Klicka på **+ nytt steg**och klicka sedan på **Lägg till en åtgärd**.
 2. Sök efter **Log Analytics**.
-3. Klicka på **Azure Log Analytics – Kör fråga och visualisera resultat**.<br><br>![Log Analytics kör frågefönster](media/flow-tutorial/flow02.png)
+3. Klicka på **Azure Log Analytics – kör fråga och visualisera resultat**.<br><br>![Log Analytics köra Query-fönstret](media/flow-tutorial/flow02.png)
 
-## <a name="step-4-configure-the-log-analytics-action"></a>Steg 4: Konfigurera Log Analytics-åtgärd
+## <a name="step-4-configure-the-log-analytics-action"></a>Steg 4: Konfigurera åtgärden Log Analytics
 
-1. Ange information för din arbetsyta inklusive prenumerations-ID, resursgrupp, och namnet på arbetsytan.
-2. Lägg till följande loggfråga för att den **fråga** fönster.  Detta är endast en exempelfråga och du kan ersätta med alla andra som returnerar data.
+1. Ange information om arbets ytan, inklusive prenumerations-ID, resurs grupp och arbets ytans namn.
+2. Lägg till följande logg fråga i **frågefönstret** .  Detta är endast en exempel fråga och du kan ersätta med andra som returnerar data.
    ```
     Event
     | where EventLevelName == "Error" 
@@ -56,30 +52,30 @@ Självstudie i den här artikeln visar hur du skapar ett flöde som skickar auto
     | sort by Computer
    ```
 
-2. Välj **HTML-tabell** för den **diagramtyp**.<br><br>![Log Analytics-åtgärden](media/flow-tutorial/flow03.png)
+2. Välj **HTML-tabell** för **diagram typen**.<br><br>![Log Analytics åtgärd](media/flow-tutorial/flow03.png)
 
-## <a name="step-5-configure-the-flow-to-send-email"></a>Steg 5: Konfigurera flödet för att skicka e-post
+## <a name="step-5-configure-the-flow-to-send-email"></a>Steg 5: konfigurera flödet för att skicka e-post
 
-1. Klicka på **nytt steg**, och klicka sedan på **+ Lägg till en åtgärd**.
+1. Klicka på **nytt steg**och klicka sedan på **+ Lägg till en åtgärd**.
 2. Sök efter **Office 365 Outlook**.
-3. Klicka på **Office 365 Outlook – skicka ett e-postmeddelande**.<br><br>![Office 365 Outlook-urvalsfönstret](media/flow-tutorial/flow04.png)
+3. Klicka på **Office 365 Outlook – skicka ett e-postmeddelande**.<br><br>![Office 365 Outlook Selection-fönster](media/flow-tutorial/flow04.png)
 
-4. Ange e-postadressen till en mottagare i den **till** och på ett ämne för e-post i **ämne**.
-5. Klicka på den **brödtext** box.  En **dynamiskt innehåll** öppnas med värden från tidigare åtgärder.  
-6. Välj **brödtext**.  Det här är resultatet av frågan i Log Analytics-åtgärden.
-6. Klicka på **visa avancerade alternativ**.
-7. I den **är HTML** väljer **Ja**.<br><br>![Konfigurationsfönstret i Office 365 e-post](media/flow-tutorial/flow05.png)
+4. Ange e-postadressen för en mottagare i fönstret **till** och ett ämne för e-postmeddelandet i **ämne**.
+5. Klicka var som helst i rutan **brödtext** .  Ett **dynamiskt innehålls** fönster öppnas med värden från föregående åtgärder.  
+6. Välj **brödtext**.  Detta är resultatet av frågan i Log Analytics åtgärden.
+6. Klicka på **Visa avancerade alternativ**.
+7. I rutan **är HTML** väljer du **Ja**.<br><br>![Office 365-fönstret för e-postkonfiguration](media/flow-tutorial/flow05.png)
 
 ## <a name="step-6-save-and-test-your-flow"></a>Steg 6: Spara och testa ditt flöde
-1. I den **flödesnamn** , lägga till ett namn för flödet och sedan på **Skapa flöde**.<br><br>![Spara flödet](media/flow-tutorial/flow06.png)
-2. Flödet har nu skapats och körs efter en dag som är det schema som du har angett. 
-3. Omedelbart testa flödet genom att klicka på **kör nu** och sedan **köra flödet**.<br><br>![Kör flödet](media/flow-tutorial/flow07.png)
-3. När flödet har slutförts bör du kontrollera e-post för den mottagare som du angett.  Du bör ha fått ett e-postmeddelande med en brödtext som liknar följande:<br><br>![E-postexempel](media/flow-tutorial/flow08.png)
+1. Lägg till ett namn för ditt flöde i rutan **flödes namn** och klicka sedan på **skapa flöde**.<br><br>![Spara flöde](media/flow-tutorial/flow06.png)
+2. Flödet skapas nu och körs efter en dag som är det schema du angav. 
+3. Om du vill testa flödet omedelbart klickar du på **Kör nu** och **kör sedan flöde**.<br><br>![kör flöde](media/flow-tutorial/flow07.png)
+3. När flödet har slutförts, kontrol lera e-postmeddelandets mottagare som du har angett.  Du bör ha fått ett e-postmeddelande med en brödtext som liknar följande:<br><br>![Exempel på e-post](media/flow-tutorial/flow08.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [logga frågor i Azure Monitor](../log-query/log-query-overview.md).
+- Lär dig mer om [logg frågor i Azure Monitor](../log-query/log-query-overview.md).
 - Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

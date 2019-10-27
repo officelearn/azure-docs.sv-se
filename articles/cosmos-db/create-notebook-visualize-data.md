@@ -5,20 +5,20 @@ author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
 ms.date: 09/25/2019
-ms.author: de
+ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 05c9558479e0ad0bf9e05c8f5cae25d7fce6be42
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 679887ca6e9ad7713480899d1b40fddf9923c4c0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023856"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931506"
 ---
 # <a name="create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
 
 Den här artikeln beskriver hur du använder inbyggda Jupyter-anteckningsböcker för att importera exempel på detalj handels data till Azure Cosmos DB. Du kommer att se hur du använder SQL-och Azure Cosmos DB Magic-kommandon för att köra frågor, analysera data och visualisera resultaten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Aktivera stöd för bärbara datorer när du skapar ett Azure Cosmos-konto](enable-notebooks.md)
 
@@ -47,7 +47,7 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
    print('Container WebsiteData created')
    ```
 
-   Om du vill köra en cell väljer du `Shift + Enter` eller markerar cellen och väljer alternativet **Kör aktiv cell** i navigerings fältet i data Explorer.
+   Om du vill köra en cell markerar du `Shift + Enter` eller markerar cellen och väljer alternativet **Kör aktiv cell** i navigerings fältet i data Explorer.
 
    ![Kör den aktiva cellen](./media/create-notebook-visualize-data/run-active-cell.png)
 
@@ -121,7 +121,7 @@ Innan du kör frågor för att analysera data kan du läsa data från container 
 {Query text}
 ```
 
-Mer information finns i de [inbyggda antecknings kommandon och funktioner i Azure Cosmos DB](use-notebook-features-and-commands.md) artikel. Du kommer att köra frågan-`SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Resultaten kommer att sparas i en Pandas-DataFrame med namnet df_cosmos. Klistra in följande kommando i en ny Notebook-cell och kör den:
+Mer information finns i de [inbyggda antecknings kommandon och funktioner i Azure Cosmos DB](use-notebook-features-and-commands.md) artikel. Du kommer att köra fråge `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Resultaten kommer att sparas i en Pandas-DataFrame med namnet df_cosmos. Klistra in följande kommando i en ny Notebook-cell och kör den:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -141,7 +141,7 @@ df_cosmos.head(10)
 
 I det här avsnittet ska du köra några frågor om hämtade data.
 
-* **Fråga1** Kör en grupp efter fråga på DataFrame för att få summan av total försäljnings intäkter för varje land och Visa 5 objekt från resultatet. Kör följande kod i en ny Notebook-cell:
+* **Fråga1:** Kör en grupp efter fråga på DataFrame för att få summan av total försäljnings intäkter för varje land och Visa 5 objekt från resultatet. Kör följande kod i en ny Notebook-cell:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
@@ -150,7 +150,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
 
    ![Total försäljnings intäkt, utdata](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
 
-* **Fråga2:** Öppna en ny Notebook-cell och kör följande kod för att få en lista över de fem främsta inköpta objekten:
+* **Query2:** Öppna en ny Notebook-cell och kör följande kod för att få en lista över de fem främsta inköpta objekten:
 
    ```python
    import pandas as pd

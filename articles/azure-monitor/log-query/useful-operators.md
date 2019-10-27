@@ -1,49 +1,43 @@
 ---
-title: Användbara operatörer i Azure Monitor logga frågor | Microsoft Docs
-description: Vanliga funktioner ska användas för olika scenarier i Azure Monitor log-frågor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Användbara operatorer i Azure Monitor logg frågor | Microsoft Docs
+description: Vanliga funktioner som ska användas för olika scenarier i Azure Monitor logg frågor.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2018
+ms.openlocfilehash: 022a9f638b3a7d8ae4ebeff8062f258ada7a14f8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424146"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932886"
 ---
-# <a name="useful-operators-in-azure-monitor-log-queries"></a>Användbara operatörer i Azure Monitor log-frågor
+# <a name="useful-operators-in-azure-monitor-log-queries"></a>Användbara operatorer i Azure Monitor logg frågor
 
-Tabellen nedan innehåller några vanliga funktioner ska användas för olika scenarier i Azure Monitor log-frågor.
+Tabellen nedan innehåller några vanliga funktioner som kan användas i olika scenarier i Azure Monitor logg frågor.
 
 ## <a name="useful-operators"></a>Användbara operatorer
 
-Category                                |Relevanta Analytics-funktion
+Kategori                                |Relevant analys funktion
 ----------------------------------------|----------------------------------------
-Val av och kolumnen alias            |`project`, `project-away`, `extend`
+Markerings-och kolumnalias            |`project`, `project-away`, `extend`
 Temporära tabeller och konstanter          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 
-Jämförelse och Strängoperatorerna         |`startswith`, `!startswith`, `has`, `!has` <br> `contains`, `!contains`, `containscs` <br> `hasprefix`, `!hasprefix`, `hassuffix`, `!hassuffix`, `in`, `!in` <br> `matches regex` <br> `==`, `=~`, `!=`, `!~`
-Vanliga strängfunktioner                 |`strcat()`, `replace()`, `tolower()`, `toupper()`, `substring()`, `strlen()`
+Jämförelse-och sträng operatorer         |`startswith`, `!startswith`, `has`, `!has` <br> `contains`, `!contains`, `containscs` <br> `hasprefix`, `!hasprefix`, `hassuffix`, `!hassuffix`, `in`, `!in` <br> `matches regex` <br> `==`, `=~`, `!=`, `!~`
+Vanliga sträng funktioner                 |`strcat()`, `replace()`, `tolower()`, `toupper()`, `substring()`, `strlen()`
 Vanliga matematiska funktioner                   |`sqrt()`, `abs()` <br> `exp()`, `exp2()`, `exp10()`, `log()`, `log2()`, `log10()`, `pow()` <br> `gamma()`, `gammaln()`
-Parsning av text                            |`extract()`, `extractjson()`, `parse`, `split()`
+Tolka text                            |`extract()`, `extractjson()`, `parse`, `split()`
 Begränsa utdata                         |`take`, `limit`, `top`, `sample`
-Datumfunktioner                          |`now()`, `ago()` <br> `datetime()`, `datepart()`, `timespan` <br> `startofday()`, `startofweek()`, `startofmonth()`, `startofyear()` <br> `endofday()`, `endofweek()`, `endofmonth()`, `endofyear()` <br> `dayofweek()`, `dayofmonth()`, `dayofyear()` <br> `getmonth()`, `getyear()`, `weekofyear()`, `monthofyear()`
-Gruppering och sammanställning                |`summarize by` <br> `max()`, `min()`, `count()`, `dcount()`, `avg()`, `sum()` <br> `stddev()`, `countif()`, `dcountif()`, `argmax()`, `argmin()` <br> `percentiles()`, `percentile_array()`
+Datum funktioner                          |`now()`, `ago()` <br> `datetime()`, `datepart()`, `timespan` <br> `startofday()`, `startofweek()`, `startofmonth()`, `startofyear()` <br> `endofday()`, `endofweek()`, `endofmonth()`, `endofyear()` <br> `dayofweek()`, `dayofmonth()`, `dayofyear()` <br> `getmonth()`, `getyear()`, `weekofyear()`, `monthofyear()`
+Gruppering och agg regering                |`summarize by` <br> `max()`, `min()`, `count()`, `dcount()`, `avg()`, `sum()` <br> `stddev()`, `countif()`, `dcountif()`, `argmax()`, `argmin()` <br> `percentiles()`, `percentile_array()`
 Kopplingar och unioner                        |`join kind=leftouter`, `inner`, `rightouter`, `fullouter`, `leftanti` <br> `union`
-Sortera, ordning                             |`sort`, `order` 
-Dynamisk objekt (JSON och matris)         |`parsejson()` <br> `makeset()`, `makelist()` <br> `split()`, `arraylength()` <br> `zip()`, `pack()`
+Sortera, sortera                             |`sort`, `order` 
+Dynamiskt objekt (JSON och matris)         |`parsejson()` <br> `makeset()`, `makelist()` <br> `split()`, `arraylength()` <br> `zip()`, `pack()`
 Logiska operatorer                       |`and`, `or`, `iff(condition, value_t, value_f)` <br> `binary_and()`, `binary_or()`, `binary_not()`, `binary_xor()`
-Maskininlärning                        |`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
+Machine Learning                        |`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Gå igenom en lektion den [skriva loggfrågor i Azure Monitor](get-started-queries.md).
+- Gå igenom en lektion om att [skriva logg frågor i Azure Monitor](get-started-queries.md).

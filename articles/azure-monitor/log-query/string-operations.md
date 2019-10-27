@@ -1,24 +1,18 @@
 ---
 title: Arbeta med strängar i Azure Monitor logg frågor | Microsoft Docs
 description: Beskriver hur du redigerar, jämför, söker i och utför en rad andra åtgärder på strängar i Azure Monitor logg frågor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.date: 08/16/2018
+ms.openlocfilehash: 0d7bf025b414df819887192bb59f7fd8da64b5d9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741467"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932937"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor logg frågor
 
@@ -34,7 +28,7 @@ Varje tecken i en sträng har ett index nummer, baserat på dess plats. Det för
 
 
 ## <a name="strings-and-escaping-them"></a>Strängar och undantags tecken
-Sträng värden radbryts med antingen enkla eller dubbla citat tecken. Omvänt\\snedstreck () används för att undanta tecken till tecknet som följer, till exempel \t för tab, \n för ny rad \" och citat tecken.
+Sträng värden radbryts med antingen enkla eller dubbla citat tecken. Omvänt snedstreck (\\) används för att undanta tecken till tecknet som följer, till exempel \t för tab, \n för ny rad och \" själva citat tecknet.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -44,7 +38,7 @@ print "this is a 'string' literal in double \" quotes"
 print 'this is a "string" literal in single \' quotes'
 ```
 
-Om du vill\\förhindra att "" fungerar som ett escape-tecken\@lägger du till "" som ett prefix till strängen:
+Om du vill förhindra att "\\" fungerar som ett escape-tecken lägger du till "\@" som ett prefix till strängen:
 
 ```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
@@ -53,7 +47,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Sträng jämförelser
 
-Operator       |Beskrivning                         |Skift läges känslig|Exempel (avkastning `true`)
+Operator       |Beskrivning                         |Skift läges känslig|Exempel (ger `true`)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Lika med                              |Ja           |`"aBc" == "aBc"`
 `!=`           |Inte lika med                          |Ja           |`"abc" != "ABC"`
@@ -97,12 +91,12 @@ Räknar förekomster av en del sträng i en sträng. Kan matcha vanliga stränga
 countof(text, search [, kind])
 ```
 
-### <a name="arguments"></a>Argument:
-- `text`– Indatasträngen 
-- `search`– En vanlig sträng eller ett reguljärt uttryck som matchar text i text.
-- `kind` - normalt | _regex_ (standard: normal).
+### <a name="arguments"></a>Ogiltiga
+- `text`-Indatasträngen 
+- `search`-enkel sträng eller reguljärt uttryck för att matcha text i text.
+- `kind` - _normal_ | _regex_ (standard: normal).
 
-### <a name="returns"></a>Returnerar
+### <a name="returns"></a>Avkastning
 
 Antalet gånger som Sök strängen kan matchas i behållaren. Matchningar med oformaterade strängar kan överlappa även om regex matchar inte.
 
@@ -139,12 +133,12 @@ extract(regex, captureGroup, text [, typeLiteral])
 
 ### <a name="arguments"></a>Argument
 
-- `regex`– Ett reguljärt uttryck.
-- `captureGroup`– En positiv heltals konstant som anger vilken infångnings grupp som ska extraheras. 0 för hela matchningen 1 för det värde som matchas av den första ("parentesen") "i det reguljära uttrycket, 2 eller mer för efterföljande parenteser.
-- `text`– En sträng att söka i.
-- `typeLiteral`– En valfri typ literal (till exempel typeof (Long)). Om den extraherade del strängen har angetts konverteras den till den här typen.
+- `regex` – ett reguljärt uttryck.
+- `captureGroup` – en positiv heltals konstant som anger den infångnings grupp som ska extraheras. 0 för hela matchningen 1 för det värde som matchas av den första ("parentesen") "i det reguljära uttrycket, 2 eller mer för efterföljande parenteser.
+- `text`-en sträng att söka i.
+- `typeLiteral` – en valfri typ literal (till exempel typeof (Long)). Om den extraherade del strängen har angetts konverteras den till den här typen.
 
-### <a name="returns"></a>Returnerar
+### <a name="returns"></a>Avkastning
 Del strängen matchad mot den angivna insamlings gruppen captureGroup, eventuellt konverteras till typeLiteral.
 Om det inte finns någon matchning, eller om typ konverteringen Miss lyckas, returnerar du null.
 
@@ -179,7 +173,7 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 ## <a name="isempty-isnotempty-notempty"></a>IsEmpty, isnotempty, nofrestar
 
 - *IsEmpty* returnerar true om argumentet är en tom sträng eller null (se även *IsNull*).
-- *isnotempty* returnerar true om argumentet inte är en tom sträng eller ett null-värde (se även *isnotnull*). alias:nofrestar.
+- *isnotempty* returnerar true om argumentet inte är en tom sträng eller ett null-värde (se även *isnotnull*). alias: *nofrestar*.
 
 ### <a name="syntax"></a>Syntax
 
@@ -246,11 +240,11 @@ replace(regex, rewrite, input_text)
 
 ### <a name="arguments"></a>Argument
 
-- `regex`– Det reguljära uttrycket som ska matchas av. Den kan innehålla infångnings grupper i ' (' parenteser ') '.
-- `rewrite`– Ersättnings regex för all matchning som görs genom matchande regex. Använd \ 0 om du vill referera till hela matchningen, \ 1 för den första infångnings gruppen, \ 2, och så vidare för efterföljande infångnings grupper.
-- `input_text`– Den inmatade sträng som ska genomsökas.
+- `regex` – det reguljära uttrycket som ska matchas av. Den kan innehålla infångnings grupper i ' (' parenteser ') '.
+- `rewrite` – ersättnings regex för all matchning som görs genom matchande regex. Använd \ 0 om du vill referera till hela matchningen, \ 1 för den första infångnings gruppen, \ 2, och så vidare för efterföljande infångnings grupper.
+- `input_text`-Indatasträngen att söka i.
 
-### <a name="returns"></a>Returnerar
+### <a name="returns"></a>Avkastning
 Texten efter att alla matchningar av regex har ersatts med utvärdering av omskrivning. Matchningar överlappar inte.
 
 ### <a name="examples"></a>Exempel
@@ -266,7 +260,7 @@ Kan ha följande resultat:
 
 Aktivitet                                        |ersätter
 ------------------------------------------------|----------------------------------------------------------
-4663 – ett försök gjordes att komma åt ett objekt  |Aktivitets-ID 4663: Ett försök gjordes att komma åt ett objekt.
+4663 – ett försök gjordes att komma åt ett objekt  |Aktivitets-ID 4663: ett försök gjordes att komma åt ett objekt.
 
 
 ## <a name="split"></a>split
@@ -278,11 +272,11 @@ Delar upp en given sträng enligt en angiven avgränsare och returnerar en matri
 split(source, delimiter [, requestedIndex])
 ```
 
-### <a name="arguments"></a>Argument:
+### <a name="arguments"></a>Ogiltiga
 
-- `source`– Strängen som ska delas upp enligt angiven avgränsare.
-- `delimiter`– Avgränsaren som ska användas för att dela käll strängen.
-- `requestedIndex`– Ett valfritt noll-baserat index. Om den returnerade sträng mat ris filen bara innehåller objektet (om det finns).
+- `source` – strängen som ska delas upp enligt angiven avgränsare.
+- `delimiter`-avgränsaren som ska användas för att dela käll strängen.
+- `requestedIndex` – ett valfritt noll-baserat index. Om den returnerade sträng mat ris filen bara innehåller objektet (om det finns).
 
 
 ### <a name="examples"></a>Exempel
@@ -326,7 +320,7 @@ print strlen("hello")   // result: 5
 ```
 
 
-## <a name="substring"></a>substring
+## <a name="substring"></a>under sträng
 
 Extraherar en under sträng från en given käll sträng med början vid det angivna indexet. Du kan också ange längden på den begärda del strängen.
 
@@ -335,11 +329,11 @@ Extraherar en under sträng från en given käll sträng med början vid det ang
 substring(source, startingIndex [, length])
 ```
 
-### <a name="arguments"></a>Argument:
+### <a name="arguments"></a>Ogiltiga
 
-- `source`– Käll strängen som under strängen kommer att hämtas från.
-- `startingIndex`– Den nollbaserade start tecken positionen för den begärda del strängen.
-- `length`– En valfri parameter som kan användas för att ange den begärda längden för den returnerade del strängen.
+- `source` – käll strängen som under strängen kommer att hämtas från.
+- `startingIndex` – den nollbaserade start tecken positionen för den begärda del strängen.
+- `length` – en valfri parameter som kan användas för att ange den begärda längden för den returnerade del strängen.
 
 ### <a name="examples"></a>Exempel
 ```Kusto

@@ -1,50 +1,44 @@
 ---
-title: Workspace() uttryck i Azure Monitor log-fråga | Microsoft Docs
-description: Arbetsytan uttryck används i en Azure Monitor log-fråga för att hämta data från en viss arbetsyta i samma resursgrupp, en annan resursgrupp eller en annan prenumeration.
-services: log-analytics
-documentationcenter: ''
+title: uttryck för arbets yta () i Azure Monitor logg fråga | Microsoft Docs
+description: Uttrycket för arbets ytan används i en Azure Monitor logg fråga för att hämta data från en speciell arbets yta i samma resurs grupp, en annan resurs grupp eller en annan prenumeration.
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/10/2018
+ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60785684"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932838"
 ---
-# <a name="workspace-expression-in-azure-monitor-log-query"></a>Workspace() uttryck i Azure Monitor log-fråga
+# <a name="workspace-expression-in-azure-monitor-log-query"></a>uttryck för arbets yta () i Azure Monitor logg fråga
 
-Den `workspace` uttryck används i en Azure Monitor-fråga för att hämta data från en viss arbetsyta i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Detta är användbart att inkludera loggdata i en Application Insights-fråga och för att köra frågor mot data över flera arbetsytor i en loggfråga.
+`workspace`-uttrycket används i en Azure Monitor-fråga för att hämta data från en speciell arbets yta i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta är användbart om du vill inkludera loggdata i en Application Insights fråga och fråga efter data över flera arbets ytor i en logg fråga.
 
 
 ## <a name="syntax"></a>Syntax
 
-`workspace(`*Identifier*`)`
+`workspace(`*identifierare*`)`
 
 ## <a name="arguments"></a>Argument
 
-- *Identifieraren*: Identifierar arbetsytan med något av format i tabellen nedan.
+- *Identifierare*: identifierar arbets ytan med något av formaten i tabellen nedan.
 
-| identifierare | Beskrivning | Exempel
+| Beteckning | Beskrivning | Exempel
 |:---|:---|:---|
-| Resursnamn | Mänskliga läsbart namn på arbetsyta (AKA ”komponentnamn”) | Workspace("contosoretail") |
-| Kvalificerat namn | Fullständigt namn på arbetsytan i formatet: ”subscriptionName/resourceGroup/componentName” | workspace('Contoso/ContosoResource/ContosoWorkspace') |
-| ID | GUID för arbetsytan | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
-| Azure Resource ID | Identifierare för Azure-resursen | Workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/Workspaces/contosoretail") |
+| Resursnamn | Människots läsbara namn på arbets ytan (AKA "komponent namn") | arbets yta ("ContosoRetail") |
+| Kvalificerat namn | Fullständigt namn på arbets ytan i formatet: "subscriptionName/resourceGroup/componentName" | arbets yta (contoso/ContosoResource/ContosoWorkspace) |
+| ID | GUID för arbets ytan | arbets yta ("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| Resurs-ID för Azure | Identifierare för Azure-resursen | arbets yta ("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 
 ## <a name="notes"></a>Anteckningar
 
-* Du måste ha läsbehörighet till arbetsytan.
-* Ett relaterade uttryck är `app` som gör det möjligt att söka i Application Insights-program.
+* Du måste ha Läs behörighet till arbets ytan.
+* Ett relaterat uttryck är `app` som gör det möjligt att fråga i Application Insights program.
 
 ## <a name="examples"></a>Exempel
 
@@ -71,6 +65,6 @@ union
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se den [app uttryck](app-expression.md) att referera till en Application Insights-app.
+- Se [app-uttrycket](app-expression.md) för att referera till en Application Insights-app.
 - Läs om hur [Azure Monitor data](log-query-overview.md) lagras.
-- Få åtkomst till fullständig dokumentation för den [Kusto-frågespråket](/azure/kusto/query/).
+- Få fullständig dokumentation för [Kusto-frågespråket](/azure/kusto/query/).

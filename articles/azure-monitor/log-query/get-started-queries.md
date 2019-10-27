@@ -3,26 +3,21 @@ title: Kom igång med logg frågor i Azure Monitor | Microsoft Docs
 description: Den här artikeln innehåller en självstudie för att komma igång med att skriva logg frågor i Azure Monitor.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
-ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.date: 10/24/2019
+ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894309"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933030"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med logg frågor i Azure Monitor
 
-
-> [!NOTE]
-> [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) innan du går igenom den här kursen.
-
 > [!NOTE]
 > Du kan arbeta med den här övningen i din egen miljö om du samlar in data från minst en virtuell dator. Om du inte gör det använder du vår [demo miljö](https://portal.loganalytics.io/demo), som innehåller massor av exempel data.
-
 
 I den här självstudien får du lära dig att skriva logg frågor i Azure Monitor. Du får lära dig att:
 
@@ -36,6 +31,10 @@ I den här självstudien får du lära dig att skriva logg frågor i Azure Monit
 
 En själv studie kurs om hur du använder Log Analytics i Azure Portal finns i [Kom igång med Azure Monitor Log Analytics](get-started-portal.md).<br>
 Mer information om logg frågor i Azure Monitor finns i [Översikt över logg frågor i Azure Monitor](log-query-overview.md).
+
+Följ tillsammans med en video version av den här kursen nedan:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Skriver en ny fråga
 Frågor kan inledas med antingen ett tabell namn eller kommandot *search* . Du måste börja med ett tabell namn, eftersom det definierar en tydlig omfattning för frågan och förbättrar både frågans prestanda och relevansen för resultatet.

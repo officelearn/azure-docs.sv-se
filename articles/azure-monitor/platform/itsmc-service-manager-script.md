@@ -1,48 +1,42 @@
 ---
-title: Automatiserade skript för att skapa Service Manager Web app för att ansluta med IT Service Management Connector i Azure | Microsoft Docs
-description: Skapa en webbapp för Service Manager med hjälp av ett automatiserat skript för att ansluta med IT Service Management Connector i Azure, och centralt övervaka och hantera ITSM-arbetsuppgifter.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 879e819f-d880-41c8-9775-a30907e42059
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Automatiserat skript för att skapa Service Manager webbapp för att ansluta till Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure | Microsoft Docs
+description: Skapa en Service Manager webbapp med ett automatiserat skript som du kan använda för att ansluta till Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure, och centralt övervaka och hantera arbets objekt i ITSM.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/23/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
-ms.openlocfilehash: 42adbf7a6f0e7bb462e6bc9b690c61d4ade0cae2
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.date: 01/23/2018
+ms.openlocfilehash: 443fe6aa7e97e666075a2fbb985a9b8b00baf81a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479707"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932255"
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med hjälp av automatiserade skript
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med det automatiserade skriptet
 
-Använd följande skript för att skapa webbappen för Service Manager-instans. Mer information om Service Manager-anslutningen finns här: [Service Manager-webbapp](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Använd följande skript för att skapa webbappen för din Service Manager-instans. Mer information om Service Manager-anslutning finns här: [Service Manager webbappen](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Kör skriptet genom att tillhandahålla följande nödvändiga data:
+Kör skriptet genom att ange följande obligatoriska information:
 
-- Prenumerationsinformation för Azure
+- Information om Azure-prenumeration
 - Namn på resursgrupp
-- Location
-- Service Manager server-information (namn, domän, användarnamn och lösenord)
-- Plats-namnprefixet för din webbapp
-- ServiceBus Namespace.
+- Plats
+- Service Manager Server information (Server namn, domän, användar namn och lösen ord)
+- Prefix för webbplats namn för din webbapp
+- Service Bus-namnrymd.
 
-Skriptet skapar webbappen med namnet som du har angett (tillsammans med några ytterligare strängar som gör det unikt). Den genererar den **Webbappens URL**, **klient-ID**, och **klienthemlighet**.
+Skriptet skapar webbappen med det namn som du har angett (tillsammans med några ytterligare strängar för att göra den unik). Den genererar **webbappens webb adress**, **klient-ID**och **klient hemlighet**.
 
-Spara värdena behöver du dessa värden när du skapar en anslutning med IT Service Management Connector.
+Spara dessa värden. du behöver dessa värden när du skapar en anslutning med Anslutningsprogram för hantering av IT-tjänster (ITSM).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
- Windows Management Framework 5.0 eller senare.
-Windows 10 har 5.1 som standard. Du kan hämta framework från [här](https://www.microsoft.com/download/details.aspx?id=50395):
+ Windows Management Framework 5,0 eller senare.
+Windows 10 har 5,1 som standard. Du kan ladda ned ramverket [här](https://www.microsoft.com/download/details.aspx?id=50395):
 
 Använd följande skript:
 

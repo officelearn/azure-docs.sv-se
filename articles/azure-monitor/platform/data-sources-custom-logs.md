@@ -1,24 +1,18 @@
 ---
 title: Samla in anpassade loggar i Azure Monitor | Microsoft Docs
 description: Azure Monitor kan samla in händelser från textfiler på både Windows-och Linux-datorer.  Den här artikeln beskriver hur du definierar en ny anpassad logg och information om de poster som de skapar i Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 09/26/2019
+ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177623"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932500"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
 
@@ -83,7 +77,7 @@ Följande tabell innehåller exempel på giltiga mönster för att ange olika lo
 
 | Beskrivning | Sökväg |
 |:--- |:--- |
-| Alla filer i *: c:\Logs* med tillägget. txt i Windows-agenten |: C:\Logs @ no__t-0\*.txt |
+| Alla filer i *: c:\Logs* med tillägget. txt i Windows-agenten |: C:\Logs\\\*. txt |
 | Alla filer i *: c:\Logs* med ett namn som börjar med log och tillägget. txt i Windows-agenten |C:\Logs\ log\*.txt |
 | Alla filer i */var/log/audit* med tillägget. txt i Linux-agenten |/var/log/Audit/*. txt |
 | Alla filer i */var/log/audit* med ett namn som börjar med log och tillägget. txt i Linux-agenten |/var/log/audit/log\*.txt |
@@ -95,7 +89,7 @@ Följande tabell innehåller exempel på giltiga mönster för att ange olika lo
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Steg 4. Ange ett namn och en beskrivning av loggen
 Det namn som du anger kommer att användas för logg typen enligt beskrivningen ovan.  Den avslutas alltid med _CL för att skilja den som en anpassad logg.
 
-1. Ange ett namn för loggen.  Suffixet **\_CL** anges automatiskt.
+1. Ange ett namn för loggen.  **\_r** -suffixet anges automatiskt.
 2. Lägg till en valfri **Beskrivning**.
 3. Klicka på **Nästa** för att spara den anpassade logg definitionen.
 
@@ -129,7 +123,7 @@ Anpassade logg poster har en typ med logg namnet som du anger och egenskaperna i
 | TimeGenerated |Datum och tid då posten samlades in av Azure Monitor.  Om loggen använder en tidsbaserad avgränsare är detta den tid som samlas in från posten. |
 | SourceSystem |Typ av agent som posten samlades in från. <br> OpsManager – Windows-agent, antingen direkt anslutning eller System Center Operations Manager <br> Linux – alla Linux-agenter |
 | RawData |Fullständig text för den insamlade posten. Du kommer förmodligen att vilja [parsa dessa data till enskilda egenskaper](../log-query/parse-text.md). |
-| ManagementGroupName |Namnet på hanterings gruppen för System Center-åtgärder hantera agenter.  För andra agenter är detta AOI-\<workspace-ID @ no__t-1 |
+| ManagementGroupName |Namnet på hanterings gruppen för System Center-åtgärder hantera agenter.  För andra agenter är detta AOI-\<arbetsyte-ID\> |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exempel på genom gång av hur du lägger till en anpassad logg
@@ -147,7 +141,7 @@ Vi tillhandahåller en av loggfilerna och kan se de händelser som den kommer at
 ![Ladda upp och parsa en exempel logg](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>Lägg till logg samlings Sök vägar
-Loggfilerna finns i *C:\MyApp\Logs*.  En ny fil skapas varje dag med ett namn som innehåller datumet i mönstret *appYYYYMMDD. log*.  Ett tillräckligt mönster för den här loggen skulle bli *C:\MyApp\Logs @ no__t-1\*.log*.
+Loggfilerna finns i *C:\MyApp\Logs*.  En ny fil skapas varje dag med ett namn som innehåller datumet i mönstret *appYYYYMMDD. log*.  Ett tillräckligt mönster för den här loggen skulle bli *C:\MyApp\Logs\\\*. log*.
 
 ![Logg samlings Sök väg](media/data-sources-custom-logs/collection-path.png)
 

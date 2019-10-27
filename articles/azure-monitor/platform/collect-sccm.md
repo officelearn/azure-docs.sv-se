@@ -1,42 +1,36 @@
 ---
 title: Ansluta Configuration Manager till Azure Monitor | Microsoft Docs
 description: Den här artikeln visar stegen för att ansluta Configuration Manager till arbets ytan i Azure Monitor och börja analysera data.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/28/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: b4e6cc32b1d4392c63b7b236ab0df297849224c8
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 08/28/2019
+ms.openlocfilehash: fee6f09ba8e290ae6599f07d4ed831fb89427f76
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141114"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932645"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Anslut Configuration Manager till Azure Monitor
 Du kan ansluta din System Center Configuration Managers miljö till Azure Monitor för att synkronisera enhets samlings data och referera till samlingarna i Azure Monitor och Azure Automation.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Azure Monitor stöder System Center Configuration Manager aktuella grenen, version 1606 och senare.
 
 >[!NOTE]
 >Funktionen för att ansluta Configuration Manager med en Log Analytics arbets yta är valfri och är inte aktive rad som standard. Du måste aktivera den här funktionen innan du använder den. Mer information finns i [Aktivera valfria funktioner från uppdateringar](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options).
 
-## <a name="configuration-overview"></a>Konfigurationsöversikt
+## <a name="configuration-overview"></a>Översikt över konfiguration
 
 Följande steg sammanfattar stegen för att konfigurera Configuration Manager-integrering med Azure Monitor.  
 
-1. I Azure Active Directory registrerar du Configuration Manager som en webbapp och/eller webb-API-app och kontrollerar att du har klient-ID och klientens hemliga nyckel från registreringen från Azure Active Directory. Se [Använd portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md) detaljerad information om hur du utför det här steget.
+1. I Azure Active Directory registrerar du Configuration Manager som en webbapp och/eller webb-API-app och kontrollerar att du har klient-ID och klientens hemliga nyckel från registreringen från Azure Active Directory. Se [använda Portal för att skapa Active Directory program och tjänstens huvud namn som har åtkomst till resurser](../../active-directory/develop/howto-create-service-principal-portal.md) för detaljerad information om hur du utför det här steget.
 
-2. I Azure Active Directory beviljar du [Configuration Manager (den registrerade webbappen) med behörighet att komma åt Azure Monitor](#grant-configuration-manager-with-permissions-to-log-analytics).
+2. I Azure Active Directory [beviljar du Configuration Manager (den registrerade webbappen) med behörighet att komma åt Azure Monitor](#grant-configuration-manager-with-permissions-to-log-analytics).
 
 3. I Configuration Manager lägger du till en anslutning med hjälp av guiden **Azure-tjänster** .
 
@@ -46,27 +40,27 @@ Följande steg sammanfattar stegen för att konfigurera Configuration Manager-in
 
 6. I Azure Monitor kan du visa data från Configuration Manager som [dator grupper](computer-groups.md).
 
-## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Bevilja Configuration Manager med behörigheter till Log Analytics
+## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Bevilja Configuration Manager behörighet att Log Analytics
 
-I följande procedur du bevilja den *deltagare* roll i Log Analytics-arbetsytan till AD-program och tjänstens huvudnamn som du skapade tidigare för Configuration Manager. Om du inte redan har en arbets yta, se [skapa en arbets yta i Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md) innan du fortsätter. På så sätt kan Configuration Manager för att autentisera och ansluta till Log Analytics-arbetsytan.  
+I följande procedur beviljar du rollen *deltagare* i din Log Analytics-arbetsyta till AD-programmet och tjänstens huvud namn som du skapade tidigare för Configuration Manager. Om du inte redan har en arbets yta, se [skapa en arbets yta i Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md) innan du fortsätter. Detta gör att Configuration Manager kan autentisera och ansluta till din Log Analytics-arbetsyta.  
 
 > [!NOTE]
-> Du måste ange behörigheter i Log Analytics arbets ytan för Configuration Manager. I annat fall får du ett felmeddelande när du använder guiden för konfiguration av i Configuration Manager.
+> Du måste ange behörigheter i Log Analytics arbets ytan för Configuration Manager. Annars visas ett fel meddelande när du använder konfigurations guiden i Configuration Manager.
 >
 
 1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 
-2. I listan med Log Analytics-arbetsytor, väljer du arbetsytan för att ändra.
+2. I listan med Log Analytics arbets ytor väljer du den arbets yta som du vill ändra.
 
-3. I den vänstra rutan, Välj **åtkomstkontroll (IAM)** .
+3. Välj **åtkomst kontroll (IAM)** i den vänstra rutan.
 
-4. På sidan åtkomst åtkomstkontroll (IAM) klickar du på **Lägg till rolltilldelning** och **Lägg till rolltilldelning** visas fönstret.
+4. På sidan åtkomst kontroll (IAM) klickar du på **Lägg till roll tilldelning** och fönstret **Lägg till roll tilldelning** visas.
 
-5. I den **Lägg till rolltilldelning** fönstret under den **rollen** listrutan Välj den **deltagare** roll.  
+5. I list rutan **roll** i rutan **Lägg till roll tilldelning** väljer du rollen **deltagare** .  
 
-6. Under den **tilldela åtkomst till** listrutan, Välj den Configuration Manager-program som skapats i AD tidigare och klicka sedan på **OK**.  
+6. Under List rutan **tilldela åtkomst till** väljer du det Configuration Manager-program som SKAPADES i AD tidigare och klickar sedan på **OK**.  
 
-## <a name="download-and-install-the-agent"></a>Ladda ned och installera agenten
+## <a name="download-and-install-the-agent"></a>Hämta och installera agenten
 
 Läs artikeln [Anslut Windows-datorer till Azure Monitor i Azure](agent-windows.md) för att förstå de metoder som är tillgängliga för att installera Log Analytics-agenten för Windows på den dator som är värd för plats system rollen Configuration Manager tjänst anslutnings punkt.  
 
@@ -82,7 +76,7 @@ Läs artikeln [Anslut Windows-datorer till Azure Monitor i Azure](agent-windows.
 
 2. Högerklicka på **Azure-tjänster** och välj sedan **Konfigurera Azure-tjänster**. Sidan **Konfigurera Azure-tjänster** visas. 
    
-3. På den **Allmänt** skärmen, bekräfta att du har gjort följande åtgärder och att du har informationen om varje objekt och välj sedan **nästa**.
+3. På skärmen **Allmänt** bekräftar du att du har utfört följande åtgärder och att du har information om varje objekt och väljer sedan **Nästa**.
 
 4. På sidan Azure-tjänster i guiden Azure-tjänster:
 
@@ -128,7 +122,7 @@ När du har länkat Configuration Manager till Azure Monitor kan du lägga till 
 Om ett lösen ord eller en klient hemlig nyckel går ut eller förloras måste du uppdatera Log Analytics anslutnings egenskaperna manuellt.
 
 1. I arbets ytan **Administration** i Configuration Manager väljer du **Cloud Services** och väljer sedan **OMS Connector** för att öppna sidan **Egenskaper för OMS-anslutning** .
-2. Den här sidan, klicka på den **Azure Active Directory** fliken för att visa dina **klient**, **klient-ID**, **utgångsdatum för klientens hemliga nyckel**. **Kontrollera** din **klientens hemliga nyckel** om det har gått ut.
+2. På den här sidan klickar du på fliken **Azure Active Directory** för att **Visa din klient**, **klient-ID**, **förfallo datum för klientens hemliga nyckel**. **Verifiera** din **klient hemliga nyckel** om den har upphört att gälla.
 
 ## <a name="import-collections"></a>Importera samlingar
 
@@ -137,23 +131,23 @@ När du har lagt till en Log Analytics anslutning till Configuration Manager och
 När du har slutfört den inledande konfigurationen för att importera enhets samlingar från din-hierarki hämtas samlings informationen var 3: e timme så att medlemskapet hålls aktuellt. Du kan välja att inaktivera det när som helst.
 
 1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
-2. Välj den arbetsyta som Configuration Manager har registrerats med i listan med Log Analytics-arbetsytor.  
+2. I listan med Log Analytics arbets ytor väljer du den arbets yta Configuration Manager har registrerats med.  
 3. Välj **Avancerade inställningar**.
-4. Välj **datorgrupper** och välj sedan **SCCM**.  
-5. Välj **Import Configuration Manager-samlingsmedlemskap** och klicka sedan på **spara**.  
+4. Välj **dator grupper** och välj sedan **SCCM**.  
+5. Välj **importera Configuration Manager samlings medlemskap** och klicka sedan på **Spara**.  
    
-    ![Datorgrupper - SCCM-fliken](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Dator grupper – SCCM-fliken](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Visa data från Configuration Manager
 
-När du har lagt till en Log Analytics-anslutning till Configuration Manager och installerat agenten på den dator som kör plats system rollen för tjänst anslutnings punkten i Configuration Manager, skickas data från agenten till Log Analytics arbets ytan i Azure Monitor. I Azure Monitor visas Configuration Manager samlingarna som [dator grupper](../../azure-monitor/platform/computer-groups.md). Du kan visa grupper från den **Configuration Manager** sidan **Settings\Computer grupper**.
+När du har lagt till en Log Analytics-anslutning till Configuration Manager och installerat agenten på den dator som kör plats system rollen för tjänst anslutnings punkten i Configuration Manager, skickas data från agenten till Log Analytics arbets ytan i Azure Monitor. I Azure Monitor visas Configuration Manager samlingarna som [dator grupper](../../azure-monitor/platform/computer-groups.md). Du kan visa grupperna från sidan **Configuration Manager** under **Settings\Computer grupper**.
 
-När samlingarna har importerats kan du se hur många datorer med samlingsmedlemskap har identifierats. Du kan också se antalet samlingar som har importerats.
+När samlingarna har importer ATS kan du se hur många datorer med samlings medlemskap som har identifierats. Du kan också se hur många samlingar som har importer ATS.
 
-![Datorgrupper - SCCM-fliken](./media/collect-sccm/sccm-computer-groups02.png)
+![Dator grupper – SCCM-fliken](./media/collect-sccm/sccm-computer-groups02.png)
 
 När du klickar på någon av dessa öppnas logg Frågeredigeraren som visar antingen alla importerade grupper eller alla datorer som tillhör varje grupp. Med [loggs ökning](../../azure-monitor/log-query/log-query-overview.md)kan du utföra ytterligare djupgående analys av medlemskaps data för samlingen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd [Loggsökning](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad information om dina data för Configuration Manager.
+Använd [loggs ökningen](../../azure-monitor/log-query/log-query-overview.md) för att visa detaljerad information om dina Configuration Manager data.

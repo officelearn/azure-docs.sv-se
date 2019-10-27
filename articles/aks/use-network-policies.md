@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169745"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928501"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Skydda trafik mellan poddar med hjälp av nätverks principer i Azure Kubernetes service (AKS)
 
@@ -69,7 +69,11 @@ För att se nätverks principer i praktiken ska vi skapa och sedan expandera i e
 * Tillåt trafik baserat på pod-etiketter.
 * Tillåt trafik baserat på namn område.
 
-Först ska vi skapa ett AKS-kluster som har stöd för nätverks principer. Funktionen nätverks princip kan bara aktive ras när klustret skapas. Du kan inte aktivera nätverks princip i ett befintligt AKS-kluster.
+Först ska vi skapa ett AKS-kluster som har stöd för nätverks principer. 
+
+> [!IMPORTANT]
+>
+> Funktionen nätverks princip kan bara aktive ras när klustret skapas. Du kan inte aktivera nätverks princip i ett befintligt AKS-kluster.
 
 Om du vill använda Azure Network Policy måste du använda [Azure cni-plugin-programmet][azure-cni] och definiera ett eget virtuellt nätverk och undernät. Mer detaljerad information om hur du planerar ut de nödvändiga under näts intervallen finns i [Konfigurera avancerade nätverk][use-advanced-networking]. Calico nätverks princip kan användas med antingen samma Azure CNI-plugin-program eller med plugin-programmet Kubernetes CNI.
 

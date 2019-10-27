@@ -1,24 +1,18 @@
 ---
 title: API för Azure Monitor HTTP-datainsamling | Microsoft Docs
 description: 'Du kan använda API: et Azure Monitor HTTP-datainsamling för att lägga till POST-JSON-data till en Log Analytics arbets yta från vilken klient som helst som kan anropa REST API. Den här artikeln beskriver hur du använder API: et och innehåller exempel på hur du publicerar data med hjälp av olika programmeringsspråk.'
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: ''
-ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/01/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 50f973de8d1ca983725bc9e9e64eefc9de5237fa
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 10/01/2019
+ms.openlocfilehash: 136644dbcfe9e2835f799b284d21263913bc67b4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802131"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932598"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
 Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att skicka logg data till Azure Monitor från en REST API-klient.  Här beskrivs hur du formaterar data som samlats in av ditt skript eller program, inkluderar dem i en begäran och har den begäran som auktoriserats av Azure Monitor.  Exempel finns för PowerShell, C#och python.
@@ -28,7 +22,7 @@ Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att
 > [!NOTE]
 > API: et för Azure Monitor HTTP-datacollector finns i offentlig för hands version.
 
-## <a name="concepts"></a>Begrepp
+## <a name="concepts"></a>Koncept
 Du kan använda API: t för HTTP-datainsamling för att skicka loggdata till en Log Analytics arbets yta i Azure Monitor från alla klienter som kan anropa en REST API.  Detta kan vara en Runbook i Azure Automation som samlar in hanterings data från Azure eller ett annat moln, eller så kan det vara ett annat hanterings system som använder Azure Monitor för att konsolidera och analysera loggdata.
 
 Alla data i arbets ytan Log Analytics lagras som en post med en viss post typ.  Du formaterar dina data så att de skickas till API: et för HTTP-datainsamling som flera poster i JSON.  När du skickar data skapas en enskild post i lagrings platsen för varje post i nytto lasten för begäran.
@@ -38,33 +32,33 @@ Alla data i arbets ytan Log Analytics lagras som en post med en viss post typ.  
 
 
 
-## <a name="create-a-request"></a>Skapa en förfrågan
+## <a name="create-a-request"></a>Skapa en begäran
 Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran som innehåller de data som ska skickas i JavaScript Object Notation (JSON).  I följande tre tabeller visas de attribut som krävs för varje begäran. Vi beskriver varje attribut mer detaljerat längre fram i artikeln.
 
 ### <a name="request-uri"></a>Begärd URI
 | Attribut | Egenskap |
 |:--- |:--- |
-| Metod |POST |
-| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
-| Innehållstyp |application/json |
+| Metod |EFTER |
+| URI |https://\<CustomerId\>. ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| Innehålls typ |application/json |
 
 ### <a name="request-uri-parameters"></a>Begär URI-parametrar
 | Parameter | Beskrivning |
 |:--- |:--- |
 | Kund |Den unika identifieraren för Log Analytics arbets ytan. |
-| Resource |API-resursens namn:/API/logs. |
+| Resurs |API-resursens namn:/API/logs. |
 | API-version |Den version av API: et som ska användas med den här begäran. För närvarande är det 2016-04-01. |
 
-### <a name="request-headers"></a>Begärandehuvud
+### <a name="request-headers"></a>Begärandehuvuden
 | Huvud | Beskrivning |
 |:--- |:--- |
-| Authorization |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
+| Autentisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
 | Logg typ |Ange post typen för de data som skickas. Får bara innehålla bokstäver, siffror och under streck (_) och får inte överstiga 100 tecken. |
-| x-ms-date |Datumet då begäran bearbetades i RFC 1123-format. |
-| x-ms-AzureResourceId | Resurs-ID för den Azure-resurs som data ska associeras med. Detta fyller i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) och gör att data kan tas med i [resurs kontext](design-logs-deployment.md#access-mode) frågor. Om det här fältet inte anges tas data inte med i resurs kontext frågor. |
-| time-generated-field | Namnet på ett fält i data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält används dess innehåll för **TimeGenerated**. Om det här fältet inte anges är standardvärdet för **TimeGenerated** den tidpunkt då meddelandet matas in. Innehållet i meddelande fältet ska följa ISO 8601-formatet ÅÅÅÅ-MM-DDThh: mm: ssZ. |
+| x-MS-date |Datumet då begäran bearbetades i RFC 1123-format. |
+| x-MS-AzureResourceId | Resurs-ID för den Azure-resurs som data ska associeras med. Detta fyller i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) och gör att data kan tas med i [resurs kontext](design-logs-deployment.md#access-mode) frågor. Om det här fältet inte anges tas data inte med i resurs kontext frågor. |
+| tidsgenererat-fält | Namnet på ett fält i data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält används dess innehåll för **TimeGenerated**. Om det här fältet inte anges är standardvärdet för **TimeGenerated** den tidpunkt då meddelandet matas in. Innehållet i meddelande fältet ska följa ISO 8601-formatet ÅÅÅÅ-MM-DDThh: mm: ssZ. |
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autentisering
 Alla förfrågningar till API: et för Azure Monitor HTTP-datainsamling måste innehålla ett Authorization-huvud. Om du vill autentisera en begäran måste du signera begäran med antingen den primära eller sekundära nyckeln för arbets ytan som gör begäran. Sedan skickar du signaturen som en del av begäran.   
 
 Här är formatet för Authorization-huvudet:
@@ -139,11 +133,11 @@ Varje begäran till data insamlings-API: n måste innehålla ett **logg typs** h
 
 Azure Monitor lägger till ett suffix till egenskaps namnet för att identifiera en egenskaps datatyp. Om en egenskap innehåller ett null-värde ingår inte egenskapen i posten. Den här tabellen visar data typen för egenskapen och motsvarande suffix:
 
-| Egenskaps data typ | Suffix |
+| Egenskaps data typ | Huvudnamnssuffix |
 |:--- |:--- |
 | Sträng |_s |
 | Boolesk |_b |
-| Double |_d |
+| Dubbelklicka |_d |
 | Datum/tid |_t |
 | GUID (lagras som en sträng) |_g |
 
@@ -171,7 +165,7 @@ Om du sedan skickade följande post innan post typen skapades, skulle Azure Moni
 ## <a name="reserved-properties"></a>Reserverade egenskaper
 Följande egenskaper är reserverade och ska inte användas i en anpassad posttyp. Du får ett fel meddelande om nytto lasten innehåller något av dessa egenskaps namn.
 
-- tenant
+- innehav
 
 ## <a name="data-limits"></a>Databegränsningar
 Det finns vissa begränsningar kring de data som skickas till API: et för Azure Monitor data insamling.
@@ -187,22 +181,22 @@ HTTP-statuskod 200 innebär att begäran har tagits emot för bearbetning. Detta
 
 Den här tabellen innehåller en fullständig uppsättning status koder som tjänsten kan returnera:
 
-| Kod | State | Felkod | Beskrivning |
+| Programmera | Status | Felkod | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| 200 |Ok | |Begäran har godkänts. |
-| 400 |Felaktig förfrågan |InactiveCustomer |Arbets ytan har stängts. |
-| 400 |Felaktig förfrågan |InvalidApiVersion |Den angivna API-versionen kändes inte igen av tjänsten. |
-| 400 |Felaktig förfrågan |InvalidCustomerId |Det angivna arbetsyte-ID: t är ogiltigt. |
-| 400 |Felaktig förfrågan |InvalidDataFormat |Ogiltig JSON skickades. Svars texten kan innehålla mer information om hur du löser problemet. |
-| 400 |Felaktig förfrågan |InvalidLogType |Logg typen som anges innehåller specialtecken eller siffror. |
-| 400 |Felaktig förfrågan |MissingApiVersion |Ingen API-version har angetts. |
-| 400 |Felaktig förfrågan |MissingContentType |Innehålls typen har inte angetts. |
-| 400 |Felaktig förfrågan |MissingLogType |Den obligatoriska värde logg typen har inte angetts. |
-| 400 |Felaktig förfrågan |UnsupportedContentType |Innehålls typen har inte ställts in på **Application/JSON**. |
-| 403 |Förbjudna |InvalidAuthorization |Tjänsten kunde inte autentisera begäran. Kontrol lera att arbetsyte-ID och anslutnings nyckel är giltiga. |
-| 404 |Kunde inte hittas | | Antingen är den angivna URL: en felaktig eller så är begäran för stor. |
-| 429 |För många begäranden | | Tjänsten har en stor mängd data från ditt konto. Försök att utföra begäran senare. |
-| 500 |Internt serverfel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök att utföra begäran igen. |
+| 200 |OK | |Begäran har godkänts. |
+| 400 |Felaktig begäran |InactiveCustomer |Arbets ytan har stängts. |
+| 400 |Felaktig begäran |InvalidApiVersion |Den angivna API-versionen kändes inte igen av tjänsten. |
+| 400 |Felaktig begäran |InvalidCustomerId |Det angivna arbetsyte-ID: t är ogiltigt. |
+| 400 |Felaktig begäran |InvalidDataFormat |Ogiltig JSON skickades. Svars texten kan innehålla mer information om hur du löser problemet. |
+| 400 |Felaktig begäran |InvalidLogType |Logg typen som anges innehåller specialtecken eller siffror. |
+| 400 |Felaktig begäran |MissingApiVersion |Ingen API-version har angetts. |
+| 400 |Felaktig begäran |MissingContentType |Innehålls typen har inte angetts. |
+| 400 |Felaktig begäran |MissingLogType |Den obligatoriska värde logg typen har inte angetts. |
+| 400 |Felaktig begäran |UnsupportedContentType |Innehålls typen har inte ställts in på **Application/JSON**. |
+| 403 |Förbjudet |InvalidAuthorization |Tjänsten kunde inte autentisera begäran. Kontrol lera att arbetsyte-ID och anslutnings nyckel är giltiga. |
+| 404 |Hittades inte | | Antingen är den angivna URL: en felaktig eller så är begäran för stor. |
+| 429 |För många begär Anden | | Tjänsten har en stor mängd data från ditt konto. Försök att utföra begäran senare. |
+| 500 |Internt Server fel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök att utföra begäran igen. |
 | 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte tillgänglig för att ta emot begär Anden. Försök att utföra begäran igen. |
 
 ## <a name="query-data"></a>Söka i data
@@ -476,7 +470,7 @@ post_data(customer_id, shared_key, body, log_type)
 
 | Andra | Beskrivning | Passar bäst för |
 |---|---|---|
-| [Anpassade händelser](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Inbyggd SDK-baserad inmatning i Application Insights | Application Insights, vanligt vis genom ett SDK i ditt program, ger dig möjlighet att skicka anpassade data via anpassade händelser. | <ul><li> Data som genereras i programmet, men som inte hämtats av SDK via någon av standard data typerna (begär Anden, beroenden, undantag och så vidare).</li><li> Data som ofta korreleras med andra program data i Application Insights </li></ul> |
+| [Anpassade händelser](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): inbyggd SDK-baserad inmatning i Application Insights | Application Insights, vanligt vis genom ett SDK i ditt program, ger dig möjlighet att skicka anpassade data via anpassade händelser. | <ul><li> Data som genereras i programmet, men som inte hämtats av SDK via någon av standard data typerna (begär Anden, beroenden, undantag och så vidare).</li><li> Data som ofta korreleras med andra program data i Application Insights </li></ul> |
 | API för data insamling i Azure Monitor loggar | API för data insamling i Azure Monitor loggar är ett helt öppet sätt att mata in data. Alla data som är formaterade i ett JSON-objekt kan skickas hit. När den har skickats bearbetas den och är tillgänglig i loggarna för att korreleras med andra data i loggarna eller mot andra Application Insights data. <br/><br/> Det är ganska enkelt att överföra data som filer till en Azure blob-blob, från var de här filerna ska bearbetas och överföras till Log Analytics. I [den här](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artikeln hittar du en exempel implementering av en sådan pipeline. | <ul><li> Data som inte nödvändigt vis genereras inom ett program som är instrumenterade i Application Insights.</li><li> Exempel är lookup-och fakta tabeller, referens data, församlad statistik och så vidare. </li><li> Avsedd för data som ska refereras till i andra Azure Monitor data (Application Insights, andra loggar data typer, Security Center, Azure Monitor för behållare/VM: ar). </li></ul> |
 | [Azure-Datautforskaren](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Datautforskaren (ADX) är den data plattform som ger Application Insights analys-och Azure Monitors loggar. Nu är det allmänt tillgängligt ("GA"), med hjälp av data plattformen i sin RAW-form, och ger dig fullständig flexibilitet (men kräver hanterings kostnader) över klustret (RBAC, bevarande frekvens, schema och så vidare). ADX tillhandahåller många [](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) inmatnings alternativ [, till exempel CSV-, TSV-och JSON-](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) filer. | <ul><li> Data som inte kommer att korreleras till andra data under Application Insights eller loggar. </li><li> Data som kräver avancerade inmatnings-eller bearbetnings funktioner som inte redan finns i Azure Monitor loggar. </li></ul> |
 

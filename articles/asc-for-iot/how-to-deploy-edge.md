@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 009ae89327272ae4b9acd82eb415aad724d14988
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176665"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934351"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en säkerhetsmodul på din IoT Edge-enhet
 
@@ -107,7 +107,7 @@ Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security C
 1. Klicka på **Save** (Spara).
 1. Rulla till slutet av fliken och välj **Konfigurera avancerade Edge runtime-inställningar**. 
    
-1. Ändra **bilden** under **Edge Hub** till **MCR.Microsoft.com/azureiotedge-Hub:1.0.9-rc2**.
+1. Ändra **bilden** under **Edge Hub** till **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
 
 1. Kontrol lera att **alternativet Skapa** är inställt på: 
          
@@ -169,7 +169,7 @@ Om du stöter på problem är behållar loggarna det bästa sättet att lära si
    | Namn | AVBILDNING |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
-   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    Om minsta antalet obligatoriska behållare inte finns kontrollerar du om ditt IoT Edge distributions manifest är justerat med de rekommenderade inställningarna. Mer information finns i [distribuera IoT Edge-modulen](#deployment-using-azure-portal).

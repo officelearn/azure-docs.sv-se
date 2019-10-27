@@ -1,23 +1,18 @@
 ---
 title: Tid för att mata in logg data i Azure Monitor | Microsoft Docs
 description: Förklarar de olika faktorer som påverkar svars tiderna vid insamling av loggdata i Azure Monitor.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: log-analytics
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 5947c4c28736f8488ea0e48941214df42c6af72a
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 07/18/2019
+ms.openlocfilehash: 8b40d89920208eaf15e01b3519b667a77baf8671
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639489"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932571"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tid för att mata in logg data i Azure Monitor
 Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om hur lång tid det tar för loggdata att bli tillgängliga när de har samlats in. I den här artikeln beskrivs de olika faktorer som påverkar den här svars tiden.
@@ -66,7 +61,7 @@ Se dokumentationen för varje lösning för att fastställa dess samlings frekve
 När logg poster matas in i Azure Monitor pipelinen (som identifieras i egenskapen [_TimeReceived](log-standard-properties.md#_timereceived) ), skrivs de till tillfällig lagring för att säkerställa klient isoleringen och se till att data inte förloras. Den här processen lägger normalt till 5-15 sekunder. Vissa hanterings lösningar implementerar tyngre algoritmer för att samla in data och härleda insikter när data strömmas i. Exempel: övervakning av nätverks prestanda sammanställer inkommande data över 3 minuters intervall, vilket effektivt lägger till en fördröjning på 3 minuter. En annan process som lägger till latens är den process som hanterar anpassade loggar. I vissa fall kan den här processen lägga till några minuters svars tid på loggar som samlas in från filer av agenten.
 
 ### <a name="new-custom-data-types-provisioning"></a>Ny anpassad data typs etablering
-När en ny typ av anpassade data skapas från en [anpassad logg](data-sources-custom-logs.md) eller data insamlings- [API: et](data-collector-api.md)skapar systemet en dedikerad lagrings behållare. Detta är ett engångs arbete som bara inträffar när den här data typen är första.
+När en ny typ av anpassade data skapas från en [anpassad logg](data-sources-custom-logs.md) eller [data insamlings-API: et](data-collector-api.md)skapar systemet en dedikerad lagrings behållare. Detta är ett engångs arbete som bara inträffar när den här data typen är första.
 
 ### <a name="surge-protection"></a>Överspännings skydd
 Den högsta prioriteten hos Azure Monitor är att se till att ingen kund information förloras, så systemet har ett inbyggt skydd för data toppar. Detta inkluderar buffertar för att säkerställa att även under stor-belastningen fortsätter att fungera. Under normal belastning lägger de här kontrollerna till mindre än en minut, men i extrema förhållanden och fel kan de lägga till avsevärd tid samtidigt som de säkerställer att data är säkra.
@@ -81,7 +76,7 @@ Den här processen tar för närvarande cirka 5 minuter när det finns låg data
 ## <a name="checking-ingestion-time"></a>Kontrollerar Inhämtnings tid
 Hämtnings tiden kan variera beroende på olika resurser under olika omständigheter. Du kan använda logg frågor för att identifiera en miljös speciella beteende. I följande tabell anges hur du kan bestämma olika tider för en post när den skapas och skickas till Azure Monitor.
 
-| Steg | Egenskap eller funktion | Kommentar |
+| Steg | Egenskap eller funktion | Kommentarer |
 |:---|:---|:---|
 | Post skapad vid data Källa | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Om data källan inte anger detta värde, ställs den in på samma tid som _TimeReceived. |
 | Posten togs emot av Azure Monitor-inmatnings slut punkt | [_TimeReceived](log-standard-properties.md#_timereceived) | |
@@ -101,7 +96,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-Föregående percentils kontroller är lämpliga för att hitta allmänna trender i svars tid. För att kunna identifiera kortvarig insamling i svars tid kan det vara mer`max()`effektivt att använda maximalt ().
+Föregående percentils kontroller är lämpliga för att hitta allmänna trender i svars tid. För att identifiera en kortsiktig insamling i svars tid kan det vara mer effektivt att använda det maximala (`max()`).
 
 Om du vill öka detalj nivån för inmatnings tiden för en viss dator under en viss tids period, använder du följande fråga, som också visualiserar data från föregående dag i ett diagram: 
 

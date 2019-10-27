@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694c8866a69d8488511be1670ba3d3013a4a3423
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a20ff526ba00f5b6521198122972071360bb58d6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392519"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934462"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Visa, lägga till och ta bort tilldelningar för ett Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -70,11 +70,9 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 
     ![Tilldelningar – Lägg till användare till Access-paket](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Klicka på **Lägg till användare** för att välja de användare som du vill tilldela åtkomst paketet till.
+1. Klicka på **Lägg till användare** för att välja de användare som du vill tilldela det här åtkomst paketet till.
 
-1. I listan **Välj princip** väljer du en princip som har inställningen [Ingen (endast administratörers direkta tilldelningar)](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only) .
-
-    Om det här åtkomst paketet inte har den här typen av princip kan du klicka på **Skapa ny princip** för att lägga till ett.
+1. I listan **Välj princip** väljer du en princip som användarnas framtida begär Anden och livs cykel ska styras av och spåras av. Om du vill att de valda användarna ska ha olika princip inställningar kan du klicka på **Skapa ny princip** för att lägga till en ny princip.
 
 1. Ange datum och tid då du vill att de valda användarnas tilldelning ska starta och sluta. Om inget slutdatum anges används principens livs cykel inställningar.
 

@@ -1,44 +1,38 @@
 ---
-title: Samla in programprestanda på Linux i Azure Monitor | Microsoft Docs
-description: Den här artikeln innehåller information för att konfigurera Log Analytics-agenten för Linux för att samla in prestandaräknare för MySQL och Apache HTTP Server.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+title: Samla in Linux-programmets prestanda i Azure Monitor | Microsoft Docs
+description: Den här artikeln innehåller information om hur du konfigurerar Log Analytics agent för Linux för att samla in prestanda räknare för MySQL och Apache HTTP server.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/04/2017
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 05/04/2017
+ms.openlocfilehash: 60f09035f4aabcbd6348fb5608b812ca4b001b45
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628922"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932455"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Samla in prestandaräknare för Linux-program i Azure Monitor 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Samla in prestanda räknare för Linux-program i Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Den här artikeln innehåller information för att konfigurera den [Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program i Azure Monitor.  De program som ingår i den här artikeln är:  
+Den här artikeln innehåller information om hur du konfigurerar [Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestanda räknare för vissa program i Azure Monitor.  Programmen som ingår i den här artikeln är:  
 
 - [MySQL](#mysql)
-- [Apache HTTP Server](#apache-http-server)
+- [Apache HTTP-Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Om MySQL-Server eller MariaDB-Server har upptäckts på datorn när Log Analytics-agenten är installerad, installeras en provider för MySQL-Server för prestandaövervakning automatiskt. Den här providern ska ansluta till den lokala MySQL-/ MariaDB-servern att exponera prestandastatistik. Autentiseringsuppgifterna för MySQL-användare måste konfigureras så att providern har åtkomst till MySQL-servern.
+Om MySQL-servern eller MariaDB-servern identifieras på datorn när Log Analytics-agenten har installerats, installeras en provider för prestanda övervakning för MySQL-servern automatiskt. Den här providern ansluter till den lokala MySQL/MariaDB-servern för att visa prestanda statistik. MySQL-användarautentiseringsuppgifter måste konfigureras så att providern kan komma åt MySQL-servern.
 
-### <a name="configure-mysql-credentials"></a>Konfigurera autentiseringsuppgifterna för MySQL
-MySQL OMI-providern kräver en förkonfigurerad MySQL-användare och installerat MySQL-klientbibliotek för att fråga efter prestanda- och hälsoinformation från MySQL-instans.  Dessa autentiseringsuppgifter lagras i en authentication-fil som lagras på Linux-agenten.  Autentiseringsfilen anger vilka bind-adressen och porten MySQL-instans lyssnar på och vilka autentiseringsuppgifter som ska använda för att samla in mått.  
+### <a name="configure-mysql-credentials"></a>Konfigurera MySQL-autentiseringsuppgifter
+MySQL OMI-providern kräver en förkonfigurerad MySQL-användare och installerade MySQL-klientcertifikat för att fråga om prestanda-och hälso information från MySQL-instansen.  Autentiseringsuppgifterna lagras i en autentiseringsnyckel som är lagrad på Linux-agenten.  Verifierings filen anger vilken bindnings adress och vilken port som MySQL-instansen lyssnar på och vilka autentiseringsuppgifter som ska användas för att samla in mått.  
 
-Under installationen av Log Analytics-agenten för Linux MySQL OMI ska provider skanna MySQL my.cnf-konfigurationsfilerna (standardplatserna) för bind-adressen och porten och delvis ange MySQL OMI autentiseringsfilen.
+Under installationen av Log Analytics agent för Linux kommer MySQL OMI-providern att söka igenom MySQL My. cnf konfigurationsfiler (standard platser) för bind-address och port och delvis ange den MySQL OMI-autentiseringsprocessen.
 
-MySQL-autentiseringsfilen lagras på `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
+MySQL-autentiseringsprocessen lagras på `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
 
-### <a name="authentication-file-format"></a>Filformat för autentisering
+### <a name="authentication-file-format"></a>Fil format för autentisering
 Följande är formatet för filen MySQL OMI-autentisering
 
     [Port]=[Bind-Address], [username], [Base64 encoded Password]
@@ -46,126 +40,126 @@ Följande är formatet för filen MySQL OMI-autentisering
     (Port)=(Bind-Address), (username), (Base64 encoded Password)
     AutoUpdate=[true|false]
 
-Poster i autentiseringsfilen beskrivs i följande tabell.
+Posterna i filen i autentiseringen beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--|:--|
-| Port | Representerar den aktuella porten MySQL-instans lyssnar på. Port 0 anger att egenskaperna efter används för standardinstansen. |
-| Bind-Address| Aktuella MySQL bind-adress. |
-| username| MySQL-användaren används för att använda för att övervaka MySQL-serverinstansen. |
-| Base64-kodade lösenord| Lösenordet för MySQL övervakning användaren i Base64-kodad. |
-| AutoUpdate| Anger om att skanna efter ändringar i filen my.cnf och skriva över filen MySQL OMI autentisering när MySQL OMI providern uppgraderas. |
+| Port | Representerar den aktuella porten som MySQL-instansen lyssnar på. Port 0 anger att egenskaperna som följer används för standard instansen. |
+| Bindnings adress| Aktuell MySQL-bindning-adress. |
+| användarnamn| MySQL-användare som används för att övervaka MySQL-serverinstansen. |
+| Base64-kodat lösen ord| Lösen ordet för MySQL Monitoring-användaren kodad i base64. |
+| Autoupdater| Anger om du vill söka efter ändringar i filen My. cnf och skriva över MySQL-OMI när MySQL OMI-providern har uppgraderats. |
 
-### <a name="default-instance"></a>Standardinstans
-MySQL OMI autentiseringsfilen kan definiera en standard-instans och port kod för att göra hantering av flera MySQL-instanser på en Linux-värd enklare.  Standardinstansen markeras med en instans med port 0. Alla ytterligare instanser ärver egenskaperna från standardinstansen såvida inte de anger olika värden. Till exempel MySQL-instans som lyssnar på port '3308' läggs används standardinstansen bind-adress, användarnamn och lösenord för Base64-kodad att testa och övervaka den instans som lyssnar på 3308. Om instansen på 3308 är bunden till en annan adress och använder samma MySQL användarnamn och lösenord par endast bind-adress krävs och de andra egenskaperna ärvs.
+### <a name="default-instance"></a>Standard instans
+Filen MySQL OMI-autentisering kan definiera en standard instans och port nummer som gör det enklare att hantera flera MySQL-instanser på en Linux-värd.  Standard instansen betecknas av en instans med Port 0. Alla ytterligare instanser ärver egenskaper från standard instansen om de inte anger olika värden. Om t. ex. MySQL-instansen som lyssnar på porten "3308" läggs till, används standard instansens bind-Address, username och base64-kodat lösen ord för att testa och övervaka instansen som lyssnar på 3308. Om instansen på 3308 är bunden till en annan adress och använder samma MySQL-användarnamn och lösen ord, så behövs bara bindnings adressen och de andra egenskaperna kommer att ärvas.
 
-Följande tabell innehåller exempel på instans-inställningar 
+Följande tabell innehåller exempel på instans inställningar 
 
 | Beskrivning | Fil |
 |:--|:--|
-| Standardinstansen och instansen med port 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
-| Standardinstansen och instansen med port 3308 och olika användarnamn och lösenord. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
+| Standard instans och instans med port 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
+| Standard instans och instans med port 3308 och annat användar namn och lösen ord. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
 
 
-### <a name="mysql-omi-authentication-file-program"></a>Programmet för MySQL OMI autentisering fil
-Ingår i installationen av MySQL OMI-providern är ett program av MySQL OMI autentisering-fil som kan användas för att redigera filen MySQL OMI-autentisering. Programmet för autentisering-filen finns på följande plats.
+### <a name="mysql-omi-authentication-file-program"></a>Fil program för MySQL OMI-autentisering
+Ingår i installationen av MySQL OMI-providern är ett fil program för MySQL-OMI som kan användas för att redigera MySQL OMI-autentiseringsprocessen. Du hittar fil programmet för autentisering på följande plats.
 
     /opt/microsoft/mysql-cimprov/bin/mycimprovauth
 
 > [!NOTE]
-> Filen med autentiseringsuppgifter måste läsas av omsagent-kontot. Du bör köra kommandot mycimprovauth som omsgent.
+> Filen med autentiseringsuppgifter måste vara läsbar av omsagent-kontot. Att köra mycimprovauth-kommandot som omsgent rekommenderas.
 
-I följande tabell finns information om syntaxen för att använda mycimprovauth.
+Följande tabell innehåller information om syntaxen för att använda mycimprovauth.
 
 | Åtgärd | Exempel | Beskrivning
 |:--|:--|:--|
-| automatisk uppdatering *false eller true* | mycimprovauth autoupdate FALSKT | Anger huruvida autentiseringsfilen uppdateras automatiskt på Starta om eller uppdatera. |
-| standard *bind-address användarnamn lösenord* | mycimprovauth standard 127.0.0.1 rot pwd | Anger den standardinstansen i MySQL OMI autentiseringsfilen.<br>Lösenordsfältet ska anges i oformaterad text - lösenordet i filen MySQL OMI autentisering blir Base64-kodad. |
-| ta bort *standard eller portnummer* | mycimprovauth 3308 | Tar bort den angivna instansen som antingen standard eller genom att portnumret. |
-| Hjälp | mycimprov hjälp | Visar en lista med kommandon för att använda. |
-| Skriv ut | mycimprov Skriv ut | Visar ett lättläst MySQL OMI autentiseringsfilen. |
-| Uppdatera portnummer *bind-address användarnamn lösenord* | mycimprov update 3307 127.0.0.1 rot pwd | Uppdaterar den angivna instansen eller lägger till instansen om det inte finns. |
+| uppdatera *Falskt eller sant* | mycimprovauth AutoUpdate false | Anger om autentiseringsprocessen ska uppdateras automatiskt vid omstart eller uppdatering. |
+| standard *lösen ord för bind-Address username* | mycimprovauth standard 127.0.0.1 rot-PWD | Ställer in standard instansen i OMI-autentiseringsprocessen för MySQL.<br>Fältet lösen ord ska anges i oformaterad text – lösen ordet i MySQL-OMI är 64 Base64-kodat. |
+| ta bort *standard-eller port_num* | mycimprovauth 3308 | Tar bort den angivna instansen antingen via standard eller port nummer. |
+| Hjälp | mycimprov-hjälp | Visar en lista med kommandon som ska användas. |
+| Utskriftsvy | mycimprov utskrift | Skriver ut en enkel att läsa MySQL OMI-autentiseringsprocessen. |
+| uppdatera port_num *BIND-Address username Password* | mycimprov uppdatering 3307 127.0.0.1 rot PWD | Uppdaterar den angivna instansen eller lägger till instansen om den inte finns. |
 
-Kommandona i följande exempel definierar en standardanvändarkontot för MySQL-server på localhost.  Lösenordsfältet ska anges i oformaterad text – lösenordet i filen MySQL OMI autentisering blir Base 64-kodat
+Följande exempel kommandon definierar ett standard användar konto för MySQL-servern på localhost.  Fältet lösen ord ska anges i klartext – lösen ordet i MySQL-OMI-autentiseringsprocessen kommer att vara bas 64-kodat
 
     sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
     sudo /opt/omi/bin/service_control restart
 
-### <a name="database-permissions-required-for-mysql-performance-counters"></a>Databasbehörigheter som krävs för MySQL-prestandaräknare
-MySQL-användaren kräver åtkomst till följande frågor för att samla in prestandadata för MySQL-Server. 
+### <a name="database-permissions-required-for-mysql-performance-counters"></a>Databas behörigheter som krävs för resurs prestanda räknare för MySQL
+MySQL-användaren måste ha åtkomst till följande frågor för att samla in prestanda data för MySQL-servern. 
 
     SHOW GLOBAL STATUS;
     SHOW GLOBAL VARIABLES:
 
 
-MySQL-användaren kräver också SELECT-åtkomst till standard i tabellerna nedan.
+MySQL-användaren måste också välja åtkomst till följande standard tabeller.
 
 - information_schema
-- mysql. 
+- MySQL. 
 
-Dessa behörigheter kan beviljas genom att köra följande kommandon för beviljande.
+De här behörigheterna kan beviljas genom att köra följande Grant-kommandon.
 
     GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
     GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
 
 
 > [!NOTE]
-> För att tilldela behörigheter till en MySQL måste övervakning användare beviljande användaren ha behörigheten ”BEVILJA alternativet” samt den behörighet som beviljas.
+> För att bevilja behörighet till en MySQL-övervakning måste användaren ha behörigheten "beviljande alternativ" och behörigheten beviljad.
 
-### <a name="define-performance-counters"></a>Definiera prestandaräknare
+### <a name="define-performance-counters"></a>Definiera prestanda räknare
 
-När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
+När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor måste du konfigurera de prestanda räknare som ska samlas in.  Använd proceduren i [prestanda data källor i Windows och Linux i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
-| Objektnamn | Namn på räknare |
+| Objekt namn | Räknar namn |
 |:--|:--|
-| MySQL-databas | Ledigt diskutrymme i byte |
+| MySQL-databas | Disk utrymme i byte |
 | MySQL-databas | Tabeller |
-| MySQL Server | Avbrutna anslutning Pct |
-| MySQL Server | Anslutningen används Pct |
-| MySQL Server | Användning av diskutrymme i byte |
-| MySQL Server | Fullständiga genomsökning Pct |
-| MySQL Server | InnoDB Buffertpoolen når Pct |
-| MySQL Server | InnoDB Pool Använd Buffertprocent |
-| MySQL Server | InnoDB Pool Använd Buffertprocent |
-| MySQL Server | Viktiga Cacheträff Pct |
-| MySQL Server | Viktiga Cache används Pct |
-| MySQL Server | Viktiga Cache skrivning Pct |
-| MySQL Server | Fråga Cache träffar Pct |
-| MySQL Server | Fråga Cache Prunes Pct |
-| MySQL Server | Fråga Cache används Pct |
-| MySQL Server | Tabellen Cacheträff Pct |
-| MySQL Server | Tabellen Cache används Pct |
-| MySQL Server | Tabellen Lås konkurrens Pct |
+| MySQL-Server | Avbruten anslutning PCT |
+| MySQL-Server | Anslutnings användning PCT |
+| MySQL-Server | Användning av disk utrymme i byte |
+| MySQL-Server | Fullständig tabells ökning PCT |
+| MySQL-Server | InnoDB buffer-pool, träff |
+| MySQL-Server | InnoDB buffer-pool Använd PCT |
+| MySQL-Server | InnoDB buffer-pool Använd PCT |
+| MySQL-Server | Key cache träff PCT |
+| MySQL-Server | Nyckel-cache Använd PCT |
+| MySQL-Server | Skriv PCT för nyckel-cache |
+| MySQL-Server | Fråga cache träff PCT |
+| MySQL-Server | Rensning av frågekörning i cacheminnet |
+| MySQL-Server | Fråga cache Använd PCT |
+| MySQL-Server | Table cache träff PCT |
+| MySQL-Server | Table cache Använd PCT |
+| MySQL-Server | Tabell lås konkurrens proc |
 
-## <a name="apache-http-server"></a>Apache HTTP Server 
-Om Apache HTTP Server har upptäckts på datorn när omsagent paketet installeras, installeras en prestandaövervakning provider för Apache HTTP Server automatiskt. Den här providern är beroende av en Apache-modul som måste läsas in i Apache HTTP-Server för att komma åt prestandadata. Modulen kan läsas in med följande kommando:
+## <a name="apache-http-server"></a>Apache HTTP-Server 
+Om Apache HTTP server identifieras på datorn när omsagent-paketet installeras, installeras en provider för prestanda övervakning för Apache HTTP Server automatiskt. Den här providern förlitar sig på en Apache-modul som måste läsas in i Apache HTTP-server för att få åtkomst till prestanda data. Modulen kan läsas in med följande kommando:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
-Om du vill ta bort övervakningsmodulen Apache, kör du följande kommando:
+Om du vill inaktivera Apache Monitoring-modulen kör du följande kommando:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 
-### <a name="define-performance-counters"></a>Definiera prestandaräknare
+### <a name="define-performance-counters"></a>Definiera prestanda räknare
 
-När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
+När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor måste du konfigurera de prestanda räknare som ska samlas in.  Använd proceduren i [prestanda data källor i Windows och Linux i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
-| Objektnamn | Namn på räknare |
+| Objekt namn | Räknar namn |
 |:--|:--|
-| Apache HTTP Server | Upptagen arbetare |
-| Apache HTTP Server | Inaktiva arbetare |
-| Apache HTTP Server | PCT upptagen arbetare |
-| Apache HTTP Server | Totalt antal Pct CPU |
-| Apache virtuell värd | Fel per minut - klienten |
-| Apache virtuell värd | Fel per minut - Server |
+| Apache HTTP-Server | Upptagna arbetare |
+| Apache HTTP-Server | Inaktiva arbetare |
+| Apache HTTP-Server | PCT-upptagna arbetare |
+| Apache HTTP-Server | Totalt PCT-CPU |
+| Apache virtuell värd | Fel per minut-klient |
+| Apache virtuell värd | Fel per minut-Server |
 | Apache virtuell värd | KB per begäran |
-| Apache virtuell värd | Begäranden KB per sekund |
-| Apache virtuell värd | Begäranden per sekund |
+| Apache virtuell värd | Begär anden i KB per sekund |
+| Apache virtuell värd | Begär Anden per sekund |
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Samla in prestandaräknare](data-sources-performance-counters.md) från Linux-agenter.
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
+* [Samla in prestanda räknare](data-sources-performance-counters.md) från Linux-agenter.
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 

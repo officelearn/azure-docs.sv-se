@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: aba3dd34383edbfb555adcc2063e4a2b76af1959
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 78a0dafeedc9aac4db69903b9f1193574cbd39c7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389386"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934612"
 ---
 ## <a name="for-users-in-your-directory"></a>För användare i din katalog
 
 Följ dessa steg om du vill tillåta att användare i katalogen kan begära det här åtkomst paketet. När du definierar en princip för begäran kan du ange enskilda användare eller flera vanliga grupper av användare. Din organisation kanske redan har en grupp, till exempel **alla anställda**.  Om gruppen läggs till i principen för användare som kan begära åtkomst, kan alla medlemmar i gruppen sedan begära åtkomst.
 
-1. I listan **användare som kan begära åtkomst** väljer du **för användare i din katalog**.
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare i din katalog**.
 
     När du väljer det här alternativet visas nya alternativ för att ytterligare finjustera vem i din katalog som kan begära det här åtkomst paketet.
 
@@ -52,7 +52,7 @@ Följ dessa steg om du vill tillåta att användare som inte är i din katalog k
 > [!NOTE]
 > Ett gäst användar konto skapas för en användare som ännu inte finns i katalogen vars förfrågan godkänns eller godkänns automatiskt. Gästen kommer att bjudas in, men får ingen inbjudan via e-post. I stället får de ett e-postmeddelande när deras tilldelning av åtkomst paket levereras. Senare när gäst användaren inte längre har några åtkomst paket tilldelningar, eftersom deras senaste tilldelning har gått ut eller avbrutits, kommer gäst användar kontot att blockeras från att logga in och sedan tas bort. Om du vill att gäst användare ska finnas kvar i din katalog på obestämd tid, även om de inte har några åtkomst paket, kan du ändra inställningarna för konfiguration av rättighets hantering. Mer information om gäst användar objekt finns i [Egenskaper för en Azure Active Directory B2B-samarbets användare](../articles/active-directory/b2b/user-properties.md).
 
-1. I listan **användare som kan begära åtkomst** väljer du **för användare som inte finns i din katalog**.
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare som inte finns i din katalog**.
 
     När du väljer det här alternativet visas nya alternativ.
 
@@ -65,20 +65,20 @@ Följ dessa steg om du vill tillåta att användare som inte är i din katalog k
     | **Vissa anslutna organisationer** | Välj det här alternativet om du vill välja från en lista över organisationer som administratören har lagt till tidigare. Alla användare från de valda organisationerna kommer att kunna begära det här åtkomst paketet. |
     | **Alla anslutna organisationer** | Välj det här alternativet om du vill att alla användare från alla anslutna organisationer ska kunna begära det här åtkomst paketet. |
 
-    En ansluten organisation är en extern Azure AD-katalog eller domän som du ofta samarbetar med.
+    En ansluten organisation är en extern Azure AD-katalog eller domän som du har en relation med.
 
 1. Om du har valt **vissa anslutna organisationer**klickar du på **Lägg till kataloger** för att välja från en lista över anslutna organisationer som administratören har lagt till tidigare.
 
-1. Ange ett domän namn om du vill söka efter en ansluten organisation med det domän namnet.
+1. Skriv namnet eller domän namnet för att söka efter en tidigare ansluten organisation.
 
     ![Åtkomst till paket-begär Anden – Välj kataloger](./media/active-directory-entitlement-management-request-policy/select-directories.png)
 
-    Om den organisation som du vill samar beta med inte finns med i listan kan du be administratören att lägga till den som en ansluten organisation. 
+    Om den organisation som du vill samar beta med inte finns med i listan kan du be administratören att lägga till den som en ansluten organisation. Mer information finns i [lägga till en ansluten organisation](../articles/active-directory/governance/entitlement-management-organization.md).
 
 1. När du har valt alla anslutna organisationer klickar du på **Välj**.
 
     > [!NOTE]
-    > Alla användare från de valda anslutna organisationerna kommer att kunna begära det här åtkomst paketet. Detta inkluderar användare från alla under domäner som är associerade med de anslutna organisationerna.
+    > Alla användare från de valda anslutna organisationerna kommer att kunna begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är kopplade till organisationen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](../articles/active-directory/b2b/allow-deny-list.md).
 
 1. Hoppa ned till [godkännande](#approval) avsnittet.
 
@@ -86,11 +86,11 @@ Följ dessa steg om du vill tillåta att användare som inte är i din katalog k
 
 Följ de här stegen om du vill kringgå åtkomst begär Anden och låta administratörer direkt tilldela vissa användare till det här Access-paketet. Användarna behöver inte begära åtkomst paketet. Du kan fortfarande ange livs cykel inställningar, men det finns inga inställningar för begäran.
 
-1. I listan **användare som kan begära åtkomst** väljer du **Ingen (endast administratörers direkta tilldelningar**.
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **Ingen (endast administratörs direkta tilldelningar**).
 
     ![Åtkomst till paket-begär Anden-inga enbart administratörs direkta tilldelningar](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
-    När du har skapat åtkomst paketet kan du direkt tilldela vissa interna och externa användare till Access-paketet. Om du anger en extern användare så skapas ett gäst användar konto i din katalog. Information om hur du tilldelar en användare direkt finns i [Visa och ändra tilldelningar för ett Access-paket](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    När du har skapat åtkomst paketet kan du direkt tilldela vissa interna och externa användare till Access-paketet. Om du anger en extern användare så skapas ett gäst användar konto i din katalog. Information om hur du tilldelar en användare direkt, se [Visa, lägga till och ta bort tilldelningar för ett Access-paket](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
 
 1. Hoppa nedåt till avsnittet [Aktivera begär Anden](#enable-requests) .
 
@@ -100,6 +100,8 @@ I avsnittet godkännande anger du om ett godkännande krävs när användare beg
 
 - Endast en av de valda god kännarna eller reserv god kännaren måste godkänna en begäran. Godkännande från alla god kännare krävs inte.
 - Godkännande beslutet baseras på vilken god kännare som granskar begäran först.
+
+Följ de här stegen för att ange godkännande inställningarna för de användare som du tidigare har valt.
 
 1. Om du vill kräva godkännande för förfrågningar från de valda användarna anger du alternativet **Kräv godkännande** för att växla till **Ja**. Om du vill att begär Anden ska godkännas automatiskt anger du växla till **Nej**.
 

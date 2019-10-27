@@ -1,20 +1,18 @@
 ---
 title: Host. JSON-referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions Host. JSON-fil med v2-körningsmiljön.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 2a61a2ba74ccdaa69b26cae65dd4f74a7b837ccf
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596864"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927453"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host. JSON-referens för Azure Functions 2. x  
 
@@ -150,9 +148,7 @@ En lista med funktioner som jobb värden kör. En tom matris innebär att köra 
 ## <a name="functiontimeout"></a>functionTimeout
 
 Anger varaktigheten för alla funktioner. Det följer sträng formatet TimeSpan. I en server lös förbruknings plan är det giltiga intervallet från 1 sekund till 10 minuter och standardvärdet är 5 minuter.  
-I en dedikerad (App Service) plan finns det ingen övergripande gräns och Standardvärdet beror på körnings versionen: 
-+ Version 1. x: standardvärdet är *Null*, vilket indikerar ingen tids gräns.   
-+ Version 2. x: standardvärdet är 30 minuter. Värdet `-1` indikerar obegränsad körning.
+I en dedikerad (App Service) plan finns det ingen övergripande gräns och standardvärdet är 30 minuter. Värdet `-1` indikerar obegränsad körning.
 
 ```json
 {

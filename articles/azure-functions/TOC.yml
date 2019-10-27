@@ -245,8 +245,12 @@
         - name: Inaktivera en funktion
           href: disable-function.md
     - name: Övervaka
-      href: functions-monitoring.md
-      displayName: 'App Insights, Application Insights, logs, logging'
+      items:
+        - name: Övervaka funktioner
+          href: functions-monitoring.md
+          displayName: 'App Insights, Application Insights, logs, logging'
+        - name: Analysloggar
+          href: functions-monitor-log-analytics.md
     - name: Skydda
       items:
         - name: Köpa SSL-cert

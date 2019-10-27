@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: cc796733c9b0b1effd8043c49540f9b489610067
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 10/25/2019
+ms.openlocfilehash: 9e8b1d08e950849773c9d8413c3ba4188d257d5b
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331305"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965937"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Loggar i Azure Database for PostgreSQL-enskild server
 Med Azure Database for PostgreSQL kan du konfigurera och få åtkomst till postgres standard loggar. Loggarna kan användas för att identifiera, felsöka och reparera konfigurations fel och underoptimala prestanda. Loggnings information som du kan konfigurera och komma åt innehåller fel, fråga efter information, autovakuum-poster, anslutningar och kontroll punkter. (Åtkomst till transaktions loggar är inte tillgänglig).
@@ -20,7 +20,7 @@ Gransknings loggning görs tillgängligt via ett postgres-tillägg, pgaudit. Mer
 
 
 ## <a name="configure-logging"></a>Konfigurera loggning 
-Du kan konfigurera postgres standard inloggning på servern med hjälp av loggnings server parametrarna. På varje Azure Database for PostgreSQL-Server är `log_checkpoints` och `log_connections` aktiverat som standard. Det finns ytterligare parametrar som du kan justera så att de passar dina loggnings behov: 
+Du kan konfigurera postgres standard inloggning på servern med hjälp av loggnings server parametrarna. På varje Azure Database for PostgreSQL-Server är `log_checkpoints` och `log_connections` på som standard. Det finns ytterligare parametrar som du kan justera så att de passar dina loggnings behov: 
 
 ![Parametrar för Azure Database for PostgreSQL-loggning](./media/concepts-server-logs/log-parameters.png)
 
@@ -40,7 +40,7 @@ Standard logg formatet i Azure Database for PostgreSQL är. log. En exempel rad 
 
 Azure Database for PostgreSQL tillhandahåller en kortsiktig lagrings plats för. log-filerna. En ny fil börjar var 1 timme eller 100 MB, beroende på vilket som kommer först. Loggar läggs till den aktuella filen när de genereras från postgres.  
 
-Du kan ställa in kvarhållningsperioden för den här kortsiktiga logg lagringen med hjälp av parametern `log_retention_period`. Standardvärdet är 3 dagar; det maximala värdet är 7 dagar. Lagrings platsen på kort sikt kan innehålla upp till 1 GB loggfiler. Efter 1 GB tas de äldsta filerna, oavsett kvarhållningsperioden, bort för att göra plats för nya loggar. 
+Du kan ställa in kvarhållningsperioden för den här kortsiktiga logg lagringen med hjälp av `log_retention_period`-parametern. Standardvärdet är 3 dagar; det maximala värdet är 7 dagar. Lagrings platsen på kort sikt kan innehålla upp till 1 GB loggfiler. Efter 1 GB tas de äldsta filerna, oavsett kvarhållningsperioden, bort för att göra plats för nya loggar. 
 
 För längre kvarhållning av loggar och logg analys kan du hämta. log-filerna och flytta dem till en tjänst från tredje part. Du kan hämta filerna med hjälp av [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md). Du kan också konfigurera Azure Monitor diagnostikinställningar som automatiskt gör dina loggar (i JSON-format) till platser på längre sikt. Läs mer om det här alternativet i avsnittet nedan. 
 
@@ -82,12 +82,13 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 ```
 
-Sök efter alla fel för alla postgres-servrar i den här arbets ytan under de senaste 6 timmarna
+Sök efter alla anslutnings försök för icke-localhost
 ```
 AzureDiagnostics
-| where errorLevel_s == "error" and category == "PostgreSQLogs"
-| where TimeGenerated > ago(6h)
+| where Message contains "connection received" and Message !contains "host=127.0.0.1"
+| where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)
 ```
+Frågan ovan visar resultaten under de senaste 6 timmarna för alla postgres Server-loggningar i den här arbets ytan.
 
 ### <a name="log-format"></a>Logg format
 

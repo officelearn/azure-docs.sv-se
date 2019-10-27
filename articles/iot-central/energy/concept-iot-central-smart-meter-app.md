@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: af84f55e61e8f7a9148ba68be97e23873be434f3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f87e1a7893fa8c2ea22711f90696a5d2836eb3ac
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72957645"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965616"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central – arkitektur för smart avläsning av program vara
 
@@ -26,12 +26,12 @@ Den här arkitekturen består av följande komponenter. Vissa lösningar kanske 
 
 ## <a name="smart-meters-and-connectivity"></a>Smarta mätare och anslutningar 
 
-En smart mätare är en av de viktigaste enheterna bland alla energi till gångar. Den registrerar och kommunicerar energi förbruknings data till verktyg för övervakning och andra användnings fall, till exempel fakturerings-och svars tid för begäran. Baserat på mätar typen kan den ansluta till IoT Central antingen via gatewayer eller via andra mellanliggande enheter eller system, t. ex. enheter och huvud system. Skapa IoT Central enhets brygga för att ansluta enheter, som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](https://docs.microsoft.com/azure/iot-central/howto-build-iotc-device-bridge). 
+En smart mätare är en av de viktigaste enheterna bland alla energi till gångar. Den registrerar och kommunicerar energi förbruknings data till verktyg för övervakning och andra användnings fall, till exempel fakturerings-och svars tid för begäran. Baserat på mätar typen kan den ansluta till IoT Central antingen via gatewayer eller via andra mellanliggande enheter eller system, t. ex. enheter och huvud system. Skapa IoT Central enhets brygga för att ansluta enheter, som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
 
 
 ## <a name="iot-central-platform"></a>IoT Central plattform
 
-Azure IoT Central är en plattform som fören klar skapandet av IoT-lösningen och hjälper till att minska belastningen och kostnaderna för IoT-hantering, åtgärder och utveckling. Med IoT Central kan du enkelt ansluta, övervaka och hantera dina Sakernas Internet (IoT)-till gångar i stor skala. När du har anslutit dina smart-mätare till IoT Central använder app-mallen inbyggda funktioner, till exempel enhets modeller, kommandon och instrument paneler. App-mallen använder också IoT Central lagring för varma sökvägar, till exempel data övervakning, analys, regler och visualisering i nära real tid.
+Azure IoT Central är en plattform som fören klar skapandet av IoT-lösningen och hjälper till att minska belastningen och kostnaderna för IoT-hantering, åtgärder och utveckling. Med IoT Central kan du enkelt ansluta, övervaka och hantera dina Sakernas Internet (IoT)-till gångar i stor skala. När du har anslutit dina smart-mätare till IoT Central använder app-mallen inbyggda funktioner, till exempel enhets modeller, kommandon och instrument paneler. App-mallen använder också IoT Central lagring för varma sökvägar, till exempel data övervakning, analys, regler och visualisering i nära real tid. 
 
 
 ## <a name="extensibility-options-to-build-with-iot-central"></a>Utöknings alternativ för att bygga med IoT Central
@@ -40,5 +40,4 @@ IoT Centrals plattformen innehåller två alternativ för utöknings barhet: kon
 ## <a name="next-steps"></a>Nästa steg
 
 * Nu när du har lärt dig om arkitekturen skapar du en [app för smart avläsning utan kostnad](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Mer information om IoT Central finns i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
-
+* Mer information om IoT Central finns i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/)

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2019
-ms.openlocfilehash: a48e9e2583afbde584987e5a1ac61da9734058d1
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.date: 10/25/2019
+ms.openlocfilehash: 6b4896d78bcc6e9fc1f5d9cd47e60e3df7eba325
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200126"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965270"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Brand Väggs regler i Azure Database for PostgreSQL-enskild server
 Azure Database for PostgreSQL Server Firewall förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
@@ -29,7 +29,7 @@ Anslutnings försök från Internet och Azure måste först passera brand vägge
 Brand Väggs regler på server nivå gäller för alla databaser på samma Azure Database for PostgreSQL-Server. Om IP-adressen för begäran ligger inom ett intervall som anges i brandväggsreglerna på servernivå godkänns anslutningen.
 Om IP-adressen för begäran inte ligger inom de intervall som anges i brand Väggs reglerna på server nivå, så Miss lyckas anslutningsbegäran.
 Om ditt program till exempel ansluter med JDBC-drivrutinen för PostgreSQL kan du stöta på det här felet som försöker ansluta när brand väggen blockerar anslutningen.
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: Oåterkalleligt: ingen\_PG HBA. conf-post för värden "123.45.67.890", användare "adminuser", databas "postgresql", SSL
+> Java. util. samtidig. ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: allvarligt: ingen PG\_HBA. conf-posten för värden "123.45.67.890", användare "adminuser", databas "postgresql", SSL
 
 ## <a name="connecting-from-azure"></a>Ansluta från Azure
 Om du vill tillåta att program från Azure ansluter till din Azure Database for PostgreSQL-Server måste Azure-anslutningar vara aktiverade. Till exempel, för att vara värd för ett Azure Web Apps-program eller ett program som körs på en virtuell Azure-dator eller för att ansluta från en Azure Data Factory Data Management Gateway. Resurserna behöver inte finnas i samma Virtual Network (VNet) eller resurs gruppen för brand Väggs regeln för att aktivera dessa anslutningar. När ett program från Azure försöker ansluta till databasservern kontrollerar brandväggen att Azure-anslutningar tillåts. Det finns ett par metoder för att aktivera dessa typer av anslutningar. En brandväggsinställning med start- och slutadresser som är 0.0.0.0 anger att dessa anslutningar tillåts. Alternativt kan du ställa in alternativet **Tillåt åtkomst till Azure-tjänster** på **i portalen** från fönstret **anslutnings säkerhet** och trycka på **Spara**. Om anslutnings försöket inte är tillåtet når begäran inte Azure Database for PostgreSQL servern.
@@ -40,6 +40,9 @@ Om du vill tillåta att program från Azure ansluter till din Azure Database for
 
 ![Konfigurera Tillåt åtkomst till Azure-tjänster i portalen](media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>Ansluta från ett virtuellt nätverk
+Överväg att använda [VNet-tjänstens slut punkter](./concepts-data-access-and-security-vnet.md)för att ansluta säkert till din Azure Database for postgresql-server från ett VNet. 
+
 ## <a name="programmatically-managing-firewall-rules"></a>Hantera brandväggsregler via programmering
 Förutom Azure Portal kan brand Väggs regler hanteras via programmering med hjälp av Azure CLI.
 Se även [skapa och hantera Azure Database for PostgreSQL brand Väggs regler med hjälp av Azure CLI](howto-manage-firewall-using-cli.md)
@@ -47,22 +50,23 @@ Se även [skapa och hantera Azure Database for PostgreSQL brand Väggs regler me
 ## <a name="troubleshooting-firewall-issues"></a>Felsöka brand Väggs problem
 Tänk på följande när du förväntar dig åtkomst till Microsoft Azure databasen för PostgreSQL Server-tjänsten:
 
-* **Ändringar i listan över tillåtna har inte börjat att fungera än:** Det kan uppstå en fördröjning på upp till fem minuter innan ändringar i brandväggskonfigurationen för Azure Database for PostgreSQL-server börjar gälla.
+* **Ändringar i listan över tillåtna har inte börjat att fungera än:** Det kan finnas en fördröjning på fem minuter för ändringar i Azure Database for PostgreSQL serverns brand Väggs konfiguration som börjar gälla.
 
 * **Inloggningen är inte auktoriserad eller så användes ett felaktigt lösen ord:** Om en inloggning inte har behörighet på Azure Database for PostgreSQL-servern eller om det lösen ord som används är felaktigt nekas anslutningen till Azure Database for PostgreSQL-servern. Att skapa en brand Väggs inställning ger bara klienter möjlighet att försöka ansluta till servern. varje klient måste ändå ange nödvändiga säkerhets uppgifter.
 
    Om du till exempel använder en JDBC-klient kan följande fel uppstå.
-   > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: OÅTERKALLELIGt fel: lösenordsautentisering misslyckades för användaren "YOURUSERNAME"
+   > Java. util. samtidig. ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: OÅTERKALLELIG: lösenordsautentisering misslyckades för användaren "YOURUSERNAME"
 
-* **Dynamisk IP-adress:** Om du har en Internet anslutning med dynamisk IP-adressering och du har problem med att komma åt brand väggen kan du prova någon av följande lösningar:
+* **Dynamisk IP-adress:** Om du har en Internetanslutning med dynamisk IP-adressering och du har problem med att passera brandväggen kan du prova någon av följande lösningar:
 
    * Be Internet leverantören (ISP) om IP-adressintervallet som har tilldelats till de klient datorer som har åtkomst till Azure Database for PostgreSQL-servern och Lägg sedan till IP-adressintervallet som en brand Väggs regel.
 
    * Hämta statiska IP-adresser i stället för dina klient datorer och Lägg sedan till den statiska IP-adressen som en brand Väggs regel.
 
-* **Serverns IP-adress verkar vara offentlig:** Anslutningar till Azure Database for PostgreSQL-servern dirigeras via en offentligt tillgänglig Azure-Gateway. Den faktiska Server-IP-adressen skyddas dock av brand väggen. Mer information finns i artikeln om [anslutnings arkitektur](concepts-connectivity-architecture.md). 
+* **Serverns IP-adress verkar vara offentlig:** Anslutningar till Azure Database for PostgreSQL-servern dirigeras via en offentligt tillgänglig Azure-Gateway. Den faktiska server-IP-adressen skyddas dock av brandväggen. Mer information finns i [artikeln om anslutningsarkitektur](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 Artiklar om hur du skapar brand Väggs regler på server nivå och databas nivå finns i:
-* [Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure portal](howto-manage-firewall-using-portal.md)
-* [Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure CLI](howto-manage-firewall-using-cli.md)
+* [Skapa och hantera Azure Database for PostgreSQL brand Väggs regler med hjälp av Azure Portal](howto-manage-firewall-using-portal.md)
+* [Skapa och hantera Azure Database for PostgreSQL brand Väggs regler med hjälp av Azure CLI](howto-manage-firewall-using-cli.md)
+- [VNet-tjänstens slut punkter i Azure Database for PostgreSQL](./concepts-data-access-and-security-vnet.md)

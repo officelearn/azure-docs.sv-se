@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 455058b8831f6cfaaa0bbc0dd4258633e2b98562
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a8f8b91e2990b85f5bcbd5aef5d70d3b6fb800e1
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72957624"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965543"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Bygg energi lösningar med IoT Central 
 Smarta mätare och sol paneler spelar en viktig roll i energi branschens omvandling. De smarta mätarna ger fler kontroller och insikter i real tid om energi förbrukning och energi förbrukning, och tillväxt av sol panelerna är kraftiga i förnybar energi. Övervaknings appar för smart mätare och solpanel är exempel på mallar för att visa de olika funktionerna. Partner kan utnyttja dessa mallar för att bygga energi lösningar med IoT Central för sina specifika behov. Ingen ny kod och ingen ytterligare kostnad krävs för att distribuera och använda dessa program. Lär dig mer om Energy Application-mallar och deras funktioner.
@@ -62,6 +62,7 @@ När du har distribuerat appen ser du de simulerade solpanels data inom 1-2 minu
 
 ## <a name="next-steps"></a>Nästa steg
 För att komma igång med att skapa en energi lösning:
-* Distribuera Programmallarna kostnads fritt: [appen för smart avläsning](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), [app för solfönster](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Läs mer om IoT Central: [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
-
+* Skapa programmallar kostnads fritt: [appen för smart avläsning](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), program i [solfönster](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* Lär dig mer om [appar för smart avläsning av övervakning](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+* Lär dig mer om [begrepp för övervakning av solpanels program](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+* Lär dig mer om [IoT Central Platform](https://docs.microsoft.com/azure/iot-central/)

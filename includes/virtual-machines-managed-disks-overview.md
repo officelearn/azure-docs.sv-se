@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fc5a974273cbc0398e9fee7b60b424a46ef5dd30
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 979fa8bed99a8244e9ebae9de4b615bfac4bd773
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949720"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72966472"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -33,7 +33,7 @@ Hanterade diskar är integrerade med tillgänglighets uppsättningar för att s�
 
 ### <a name="integration-with-availability-zones"></a>Integrering med Tillgänglighetszoner
 
-Hanterade diskar har stöd för [Tillgänglighetszoner](../articles/availability-zones/az-overview.md), vilket är ett erbjudande med hög tillgänglighet som skyddar dina program från data Center problem. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer.
+Hanterade diskar har stöd för [Tillgänglighetszoner](../articles/availability-zones/az-overview.md), vilket är ett erbjudande med hög tillgänglighet som skyddar dina program från data Center problem. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer.
 
 ### <a name="azure-backup-support"></a>Azure Backup support
 
@@ -51,11 +51,11 @@ Du kan använda [rollbaserad åtkomst kontroll (RBAC) i Azure](../articles/role-
 
 ## <a name="encryption"></a>Kryptering
 
-Hanterade diskar erbjuder två olika typer av kryptering. Det första är Kryptering för lagringstjänst (SSE) som utförs av lagrings tjänsten. Den andra är Azure Disk Encryption (ADE) som du kan aktivera på operativ systemets och data diskarna för dina virtuella datorer.
+Hanterade diskar erbjuder två olika typer av kryptering. Det första är Server Side Encryption (SSE) som utförs av lagrings tjänsten. Den andra är Azure Disk Encryption (ADE) som du kan aktivera på operativ systemets och data diskarna för dina virtuella datorer.
 
-### <a name="storage-service-encryption-sse"></a>Kryptering för lagringstjänst (SSE)
+### <a name="server-side-encryption"></a>Kryptering på serversidan
 
-[Azure Storage tjänst kryptering](../articles/storage/common/storage-service-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. SSE är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. Mer information finns på [sidan med vanliga frågor och svar om Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
+[Kryptering på Server sidan](../articles/storage/common/storage-service-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Kryptering på Server sidan är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. Mer information finns på [sidan med vanliga frågor och svar om Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 

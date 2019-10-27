@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: e1120abb06ec2c777114703cfe3fc7334477aecc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 10/26/2019
+ms.openlocfilehash: 327e4d46ba2bb6cfbf8b7e4a151cc246df2e03c2
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592944"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965312"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL Database Hanterad instans online med DMS
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Skapa en instans av Azure Database Migration Service.
 > * Skapa ett migreringsjobb och starta migrering online genom att använda Azure Database Migration Service.
 > * Övervaka migreringen.
-> * Flytta över migreringen när du är klar.
+> * Utför migreringen start punkt när du är klar.
 
 > [!IMPORTANT]
 > Om du vill migrera online från SQL Server till en SQL Database Hanterad instans med hjälp av Azure Database Migration Service måste du ange den fullständiga säkerhets kopieringen och de efterföljande logg säkerhets kopiorna i SMB-nätverks resursen som tjänsten kan använda för att migrera dina databaser. Azure Database Migration Service initierar inga säkerhets kopior, utan använder sig av befintliga säkerhets kopior, som du kanske redan har som en del av katastrof återställnings planen för migreringen.
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-I den här artikeln beskrivs en online-migrering från SQL Server till en SQL Database Hanterad instans. En offline-migrering finns i [migrera SQL Server till en Azure SQL Database Hanterad instans offline med DMS](tutorial-sql-server-to-managed-instance.md).
+I den här artikeln beskrivs en online-migrering från SQL Server till en SQL Database Hanterad instans. En offline-migrering finns i [migrera SQL Server till en SQL Database Hanterad instans offline med DMS](tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -79,7 +79,7 @@ För att slutföra den här kursen behöver du:
 * Skapa ett Azure Active Directory program-ID som genererar den program-ID-nyckel som Azure Database Migration Service kan använda för att ansluta till målets hanterade instans i Azure Database och Azure Storage behållare. Mer information finns i artikeln [Använda portalen för att skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten som får åtkomst till resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
   > [!NOTE]
-  > Azure Database Migration Service kräver behörigheten deltagare för prenumerationen för angivet program-ID. Vi arbetar aktivt för att minska de här behörighets kraven.
+  > Azure Database Migration Service kräver behörigheten deltagare för prenumerationen för angivet program-ID. Du kan också skapa anpassade roller som ger de angivna behörigheterna som Azure Database Migration Service kräver. Steg för steg-anvisningar om hur du använder anpassade roller finns i artikeln [anpassade roller för SQL Server till SQL Database hanterade instanser online-migreringar](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Skapa eller anteckna **Standard Performance-nivå** och Azure Storage-konto, som DMS-tjänsten kan överföra de säkerhetskopierade databasfilerna till och använda för att migrera databaser.  Se till att skapa Azure Storage kontot i samma region som Azure Database Migration Services instansen skapas.
 

@@ -3,16 +3,17 @@ title: Bygg en Azure Container Registry-avbildning från en app
 description: Använd kommandot AZ ACR Pack build för att bygga en behållar avbildning från en app och skicka till Azure Container Registry, utan att använda en Dockerfile.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/24/2019
 ms.author: danlep
-ms.openlocfilehash: b544820a0c496e0814de44790ea9c28878031a7d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 34ef0fe4be00cfa7ce3e73c23eec636784071e56
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293898"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965902"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Bygga och skicka en avbildning från en app med hjälp av en inbyggd Cloud-Buildpack
 
@@ -32,25 +33,23 @@ Ange minst följande när du kör `az acr pack build`:
 * Ett Azure Container Registry där du kör kommandot
 * Ett avbildnings namn och en tagg för den resulterande bilden
 * En av de [kontext platser som stöds](container-registry-tasks-overview.md#context-locations) för ACR-aktiviteter, till exempel en lokal katalog, en GitHub-lagrings platsen eller en fjärran sluten tarball
-* Namnet på en Buildpack Builder-avbildning, till exempel `cloudfoundry/cnb:0.0.12-bionic`.  
+* Namnet på en Buildpack Builder-avbildning som passar ditt program. Azure Container Registry Caches Builder-bilder som `cloudfoundry/cnb:0.0.34-cflinuxfs3` för snabbare versioner.  
 
 `az acr pack build` stöder andra funktioner i ACR tasks-kommandon, inklusive [körning av variabler](container-registry-tasks-reference-yaml.md#run-variables) och [körnings loggar för uppgifter](container-registry-tasks-overview.md#view-task-logs) som strömmas och som också sparas för senare hämtning.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exempel: Bygg Node. js-avbildning med Cloud Foundry Builder
 
-I följande exempel skapas en behållar avbildning från Node. js-appen i avsnittet [Azure-samples/NodeJS-dokument-Hello-World](https://github.com/Azure-Samples/nodejs-docs-hello-world) lagrings platsen med hjälp av `cloudfoundry/cnb:0.0.12-bionic`-verktyget:
+I följande exempel skapas en behållar avbildning från en Node. js-app i avsnittet [Azure-samples/NodeJS-dokument-Hello-World](https://github.com/Azure-Samples/nodejs-docs-hello-world) lagrings platsen med hjälp av `cloudfoundry/cnb:0.0.34-cflinuxfs3` Builder. Det här verktyget cachelagras av Azure Container Registry, så en `--pull`-parameter krävs inte:
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --pull --builder cloudfoundry/cnb:0.0.12-bionic \
+    --builder cloudfoundry/cnb:0.0.34-cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-I det här exemplet skapas `node-app`-avbildningen med taggen `1.0` och push-överför den *till registret för behållar* behållaren. Här är mål register namnet uttryckligen anpassningsprefix till avbildnings namnet. Om detta inte anges, anpassningsprefix-registrerings-URL: en automatiskt till avbildnings namnet.
-
-Parametern `--pull` anger att kommandot hämtar den senaste Builder-avbildningen.
+I det här exemplet skapas `node-app`-avbildningen med taggen `1.0` och push-överför den *till registret för behållar* behållaren. I det här exemplet är mål register namnet explicit anpassningsprefix till avbildningens namn. Om inget anges anpassningsprefix namnet på inloggnings servern för registret automatiskt till avbildningens namn.
 
 Kommandoutdata visar förloppet för att skapa och skicka avbildningen. 
 
@@ -66,11 +65,11 @@ Kör avbildningen:
 docker run --rm -p 1337:1337 myregistry.azurecr.io/node-app:1.0
 ```
 
-Bläddra till `localhost:1337` i din favorit webbläsare för att se exempel webb programmet. Tryck på `[Ctrl]+[C]` om du vill stoppa behållaren.
+Bläddra till `localhost:1337` i din favorit webbläsare för att se exempel webb programmet. Stoppa behållaren genom att trycka på `[Ctrl]+[C]`.
 
 ## <a name="example-build-java-image-with-heroku-builder"></a>Exempel: bygga Java-avbildning med Heroku Builder
 
-I följande exempel skapas en behållar avbildning från Java-appen i [buildpack/Sample-java-app](https://github.com/buildpack/sample-java-app) lagrings platsen med hjälp av `heroku/buildpacks:18`-verktyget:
+I följande exempel skapas en behållar avbildning från Java-appen i [buildpack/Sample-java-app](https://github.com/buildpack/sample-java-app) lagrings platsen med hjälp av `heroku/buildpacks:18` Builder. Parametern `--pull` anger att kommandot ska hämta den senaste Builder-avbildningen. 
 
 ```azurecli
 az acr pack build \
@@ -81,8 +80,6 @@ az acr pack build \
 ```
 
 I det här exemplet skapas avbildningen `java-app` som taggats med kommandots körnings-ID och skickas till registret för *behållar registret.*
-
-Parametern `--pull` anger att kommandot hämtar den senaste Builder-avbildningen.
 
 Kommandoutdata visar förloppet för att skapa och skicka avbildningen. 
 
@@ -98,7 +95,7 @@ Kör avbildningen och ersätt din avbildnings tag för *RunId*:
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid
 ```
 
-Bläddra till `localhost:8080` i din favorit webbläsare för att se exempel webb programmet. Tryck på `[Ctrl]+[C]` om du vill stoppa behållaren.
+Bläddra till `localhost:8080` i din favorit webbläsare för att se exempel webb programmet. Stoppa behållaren genom att trycka på `[Ctrl]+[C]`.
 
 
 ## <a name="next-steps"></a>Nästa steg

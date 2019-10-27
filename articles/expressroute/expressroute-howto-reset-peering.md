@@ -1,27 +1,27 @@
 ---
-title: 'Återställ krets-peering - ExpressRoute:  Azure | Microsoft Docs'
-description: Så här inaktiverar och aktiverar du ExpressRoute-krets peerings.
+title: 'Återställa krets-peering – ExpressRoute: Azure | Microsoft Docs'
+description: Så här inaktiverar och aktiverar du ExpressRoute-krets-peering.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 10/25/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 841c68b43e7f31693863268c3a7b2bd544c5e7ae
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366308"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965337"
 ---
-# <a name="reset-expressroute-circuit-peerings"></a>Återställa ExpressRoute-krets peerkopplingar
+# <a name="reset-expressroute-circuit-peerings"></a>Återställ ExpressRoute krets-peering
 
-Den här artikeln beskriver hur du inaktiverar och aktiverar peerings för en ExpressRoute-krets med hjälp av PowerShell. När du inaktiverar en peering stängs BGP-sessionen på både den primära anslutningen och den sekundära anslutningen av ExpressRoute-kretsen av. Du kommer att förlora anslutningen via denna peering till Microsoft. När du aktiverar en peer-koppling, kommer BGP-sessionen på både den primära anslutningen och den sekundära anslutningen av ExpressRoute-kretsen göras tillgänglig. Du ska återställa anslutningen via denna peering till Microsoft. Du kan aktivera och inaktivera Microsoft-Peering och privat Peering i Azure på en ExpressRoute-krets oberoende av varandra. När du först konfigurera peerings på ExpressRoute-kretsen är peerings aktiverade som standard.
+Den här artikeln beskriver hur du inaktiverar och aktiverar peering för en ExpressRoute-krets med hjälp av PowerShell. När du inaktiverar en peering stängs BGP-sessionen på både den primära anslutningen och den sekundära anslutningen av ExpressRoute-kretsen. Du förlorar anslutningen genom denna peering till Microsoft. När du aktiverar en peering skapas BGP-sessionen både på den primära anslutningen och den sekundära anslutningen av ExpressRoute-kretsen. Du kommer att återfå anslutningen genom denna peering till Microsoft. Du kan aktivera och inaktivera Microsoft-peering och Azures privata peering på en ExpressRoute-krets oberoende av varandra. När du först konfigurerar peer-kopplingarna på ExpressRoute-kretsen är peer-kopplingarna aktiverade som standard.
 
-Det finns ett par scenarier där du kan det vara bra när du återställer din ExpressRoute-peerkopplingar.
-* Testa dina disaster recovery design och implementering. Exempel: du har två ExpressRoute-kretsar. Du kan inaktivera peerings för en krets och tvinga trafik på nätverket för att växla över till andra kretsen.
-* Aktivera dubbelriktad vidarebefordran identifiering (BFD) på Azure privat Peering i ExpressRoute-kretsen. BFD är aktiverad som standard om ExpressRoute-kretsen har skapats efter den 1 augusti 2018. Om din krets skapades före som, har inte BFD aktiverats. Du kan aktivera BFD genom att inaktivera peer-kopplingen och återaktivering av den. Det bör noteras att BFD endast stöds på Azure privat Peering.
+Det finns ett par scenarier där du kan få hjälp att återställa dina ExpressRoute-peer-datorer.
+* Testa din design och implementering av haveri beredskap. Du kan till exempel ha två ExpressRoute-kretsar. Du kan inaktivera peering-kopplingar för en krets och tvinga nätverks trafiken att växla över till den andra kretsen.
+* Aktivera identifiering av dubbelriktad vidarebefordran (BFD) på Azures privata peering eller Microsoft-peering av din ExpressRoute-krets. BFD är aktiverat som standard på Azures privata peering om din ExpressRoute-krets skapas efter 1 2018 och på Microsoft-peering om din ExpressRoute-krets skapas efter 1 2019 oktober. Om din krets skapades tidigare var BFD inte aktiverat. Du kan aktivera BFD genom att inaktivera peering och återaktivera den. 
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
 
@@ -29,9 +29,9 @@ Det finns ett par scenarier där du kan det vara bra när du återställer din E
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="reset-a-peering"></a>Återställa en peer-koppling
+## <a name="reset-a-peering"></a>Återställa en peer koppling
 
-1. Om du kör PowerShell lokalt, öppna PowerShell-konsolen med förhöjd behörighet och Anslut till ditt konto. Använd följande exempel för att ansluta:
+1. Om du kör PowerShell lokalt öppnar du PowerShell-konsolen med utökade privilegier och ansluter till ditt konto. Använd följande exempel för att ansluta:
 
    ```azurepowershell
    Connect-AzAccount
@@ -46,12 +46,12 @@ Det finns ett par scenarier där du kan det vara bra när du återställer din E
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
-4. Kör följande kommandon för att hämta ExpressRoute-kretsen.
+4. Kör följande kommandon för att hämta din ExpressRoute-krets.
 
    ```azurepowershell-interactive
    $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
    ```
-5. Identifiera den peering som du vill inaktivera eller aktivera. *Peer-kopplingar* är en matris. I följande exempel är peer-kopplingar [0] Azure privat Peering och Microsoft-Peering peer-kopplingar [1].
+5. Identifiera peering som du vill inaktivera eller aktivera. *Peering* är en matris. I följande exempel är peering [0] Azures privata peering och peering [1] Microsoft-peering.
 
    ```azurepowershell-interactive
    Name                             : ExpressRouteARMCircuit
@@ -134,7 +134,7 @@ Det finns ett par scenarier där du kan det vara bra när du återställer din E
    AllowClassicOperations           : False
    GatewayManagerEtag               :
    ```
-6. Kör följande kommandon för att ändra tillståndet för peer-kopplingen.
+6. Kör följande kommandon för att ändra peering-status.
 
    ```azurepowershell-interactive
    $ckt.Peerings[0].State = "Disabled"
@@ -143,6 +143,6 @@ Det finns ett par scenarier där du kan det vara bra när du återställer din E
    Peer-kopplingen ska vara i ett tillstånd som du anger. 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du behöver hjälp att felsöka ett problem med ExpressRoute kan du kolla i följande artiklar:
+Om du behöver hjälp med att felsöka ett ExpressRoute-problem kan du läsa följande artiklar:
 * [Verifiera ExpressRoute-anslutning](expressroute-troubleshooting-expressroute-overview.md)
-* [Felsökning av nätverksprestanda](expressroute-troubleshooting-network-performance.md)
+* [Felsöka nätverksprestanda](expressroute-troubleshooting-network-performance.md)

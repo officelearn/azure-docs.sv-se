@@ -3,23 +3,23 @@ title: Beskrivningar och behörigheter för administratörs roll – Azure Activ
 description: En administratörs roll kan lägga till användare, tilldela administrativa roller, återställa användar lösen ord, hantera användar licenser eller hantera domäner.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 10/25/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56e5fb986431ec47a34b81491bc61b4c38a24e31
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f769aafa3e2976d63e99cf58a6b67e1b4cf81b64
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592893"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72963932"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -149,7 +149,7 @@ För | Kan göra
 ----- | ----------
 [Microsoft 365 Compliance Center](https://protection.office.com) | Övervaka efterlevnadsprinciper relaterade principer i Microsoft 365 Services<br>Hantera aviseringar om efterlevnad
 [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Spåra, tilldela och verifiera organisationens uppgifter för regelefterlevnad
-[Office 365 Säkerhets-och efterlevnadscenter](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera data styrning<br>Utföra juridisk information och data undersökning<br>Hantera begäran om data subjekt
+[Office 365 Säkerhets-och efterlevnadscenter](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera data styrning<br>Utföra juridisk information och data undersökning<br>Hantera begäran om data subjekt<br><br>Den här rollen har samma behörigheter som [Administratörs mängdsredigeraren för](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) i säkerhets-och Compliance Center-rollbaserade åtkomst kontroll i Office 365.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visa alla gransknings data i Intune
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br> Kan visa alla inbyggda rapporter under Datahantering
 

@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar – Azure ExpressRoute | Microsoft Docs
-description: ExpressRoute vanliga frågor och svar innehåller information om stöd för Azure-tjänster, kostnad, Data och anslutningar, serviceavtal, leverantörer och platser, bandbredd och ytterligare teknisk information.
+title: Vanliga frågor och svar om Azure ExpressRoute | Microsoft Docs
+description: Vanliga frågor och svar om ExpressRoute innehåller information om Azure-tjänster, kostnader, data och anslutningar som stöds, SLA, providers och platser, bandbredd och ytterligare teknisk information.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,50 +8,50 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: df8b1c8fd31eed0a09b878f09faadb23f6b72aaa
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686993"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965424"
 ---
-# <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
+# <a name="expressroute-faq"></a>Vanliga frågor och svar om ExpressRoute
 
 ## <a name="what-is-expressroute"></a>Vad är ExpressRoute?
 
-ExpressRoute är en Azure-tjänst som låter dig skapa privata anslutningar mellan Microsofts datacenter och infrastruktur som finns lokalt eller i en delade miljö. ExpressRoute-anslutningar inte går via det offentliga Internet och är högre säkerhet, tillförlitlighet och hastighet med kortare svarstider än vanliga anslutningar via Internet.
+ExpressRoute är en Azure-tjänst som gör det möjligt att skapa privata anslutningar mellan Microsoft-datacenter och infrastruktur som finns lokalt eller i en samplacerings anläggning. ExpressRoute-anslutningar går inte via det offentliga Internet och ger högre säkerhet, tillförlitlighet och hastighet med lägre fördröjning än vanliga anslutningar via Internet.
 
-### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>Vilka är fördelarna med att använda ExpressRoute och privata nätverksanslutningar?
+### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>Vilka är fördelarna med att använda ExpressRoute och privata nätverks anslutningar?
 
-ExpressRoute-anslutningar går inte via offentligt Internet. De ger högre säkerhet, tillförlitlighet och hastighet, med lägre och konsekvent svarstider än vanliga anslutningar via Internet. I vissa fall kan använda ExpressRoute-anslutningar för att överföra data mellan lokala enheter och Azure kan ge betydande kostnadsfördelar.
+ExpressRoute-anslutningar går inte via offentligt Internet. De ger högre säkerhet, tillförlitlighet och hastigheter, med lägre och konsekvent fördröjning än vanliga anslutningar via Internet. I vissa fall kan användning av ExpressRoute-anslutningar för att överföra data mellan lokala enheter och Azure ge avsevärda kostnads besparingar.
 
-### <a name="where-is-the-service-available"></a>Där är tjänsten?
+### <a name="where-is-the-service-available"></a>Var finns tjänsten?
 
-Se den här sidan för tjänst lokalisering och tillgänglighet: [ExpressRoute-partner och-platser](expressroute-locations.md).
+Se den här sidan för tjänst lokalisering och tillgänglighet: [ExpressRoute partners och platser](expressroute-locations.md).
 
-### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>Hur kan jag använda ExpressRoute för att ansluta till Microsoft om jag inte har partnerskap med en ExpressRoute-operatör-partner?
+### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>Hur kan jag använda ExpressRoute för att ansluta till Microsoft om jag inte har några samarbeten med någon av ExpressRoute-frakt partnerna?
 
-Du kan välja ett regionalt flygbolag och hamnar Ethernet-anslutningar till en av stöds exchange providerplatser. Du kan sedan peerkopplas med Microsoft på providerplatsen. Kontrollera det sista avsnittet i [ExpressRoute-partner och platser](expressroute-locations.md) att se om din tjänstleverantör finns på någon av exchange-platser. Du kan sedan beställa en ExpressRoute-krets via tjänstleverantör för att ansluta till Azure.
+Du kan välja en regional operatör och land-Ethernet-anslutning till en av de Exchange Provider-platser som stöds. Du kan sedan peer-koppla med Microsoft på leverantörs platsen. Kontrol lera det sista avsnittet av [ExpressRoute-partners och platser](expressroute-locations.md) för att se om din tjänst leverantör finns på någon av Exchange-platserna. Du kan sedan beställa en ExpressRoute-krets via tjänst leverantören för att ansluta till Azure.
 
 ### <a name="how-much-does-expressroute-cost"></a>Hur mycket kostar ExpressRoute?
 
-Kontrollera [prisinformation](https://azure.microsoft.com/pricing/details/expressroute/) information om priser.
+Se [pris](https://azure.microsoft.com/pricing/details/expressroute/) information för pris information.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Om jag betalar för en ExpressRoute-krets för en viss bandbredd kan jag köpa från min nätverkstjänstleverantör VPN-anslutningen måste vara samma hastighet?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Om jag betalar för en ExpressRoute-krets för en specifik bandbredd, måste VPN-anslutningen jag köper från min nätverks leverantör ha samma hastighet?
 
-Nej. Du kan köpa en VPN-anslutning av alla från din tjänstprovider. Anslutningen till Azure är dock begränsad till ExpressRoute-kretsens bandbredd som du köper.
+Nej. Du kan köpa en VPN-anslutning för valfri hastighet från din tjänst leverantör. Anslutningen till Azure är dock begränsad till den ExpressRoute krets bandbredd som du köper.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Om jag betala för en ExpressRoute-krets för en viss bandbredd finns möjlighet att utöka upp till högre hastigheter vid behov?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Har jag möjlighet att överföra upp till högre hastigheter om jag betalar för en ExpressRoute-krets för en specifik bandbredd om det behövs?
 
-Ja. ExpressRoute-kretsar har konfigurerats så att du kan tillhandahålla upp till två gånger den Bandbreddsgräns du skaffat utan ytterligare kostnad. Kontrollera med din tjänstleverantör för att se om de stöder denna funktion. Detta är inte en längre tids period och är inte garanterad. 
+Ja. ExpressRoute-kretsar har kon figurer ATS så att du kan överföra upp till två gånger till en bandbredds gräns som du har tilldelat utan extra kostnad. Kontakta tjänst leverantören för att se om de stöder den här funktionen. Detta är inte en längre tids period och är inte garanterad. 
 
-### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Kan jag använda samma privat nätverksanslutning med virtuellt nätverk och andra Azure-tjänster samtidigt?
+### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Kan jag använda samma privata nätverks anslutning med virtuella nätverk och andra Azure-tjänster samtidigt?
 
-Ja. En ExpressRoute-krets när har konfigurerat, kan du komma åt tjänster inom ett virtuellt nätverk och andra Azure-tjänster samtidigt. Du kan ansluta till virtuella nätverk över den privata peering-sökvägen och till andra tjänster över med Microsofts peeringsökväg.
+Ja. En ExpressRoute-krets, som har kon figurer ATS, gör att du kan komma åt tjänster i ett virtuellt nätverk och andra Azure-tjänster samtidigt. Du ansluter till virtuella nätverk via den privata peering-sökvägen och till andra tjänster via Microsoft peering-sökvägen.
 
-### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>Erbjuder ett serviceavtal (SLA) i ExpressRoute?
+### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>Erbjuder ExpressRoute ett Serviceavtal (SLA)?
 
-Mer information finns i den [ExpressRoute SLA](https://azure.microsoft.com/support/legal/sla/) sidan.
+Mer information finns på sidan om [service avtal för ExpressRoute](https://azure.microsoft.com/support/legal/sla/) .
 
 ## <a name="supported-services"></a>Tjänster som stöds
 
@@ -59,15 +59,15 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 
 ### <a name="private-peering"></a>Privat peering
 
-* Virtuella nätverk, inklusive alla virtuella datorer och molntjänster
+* Virtuella nätverk, inklusive alla virtuella datorer och moln tjänster
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI – tillgängligt via en regional Azure-community, finns [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) för hur du kan ta reda på den region där din Power BI-klient finns.
 * Azure Active Directory
-* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (globala tjänster för Azure-community)
-* De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>**Följande tjänster stöds inte**:
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azures globala tjänster community)
+* De flesta Azure-tjänster stöds. Kontrol lera direkt med den tjänst som du vill använda för att verifiera stödet.<br><br>**Följande tjänster stöds inte**:
     * CDN
     * Azure Front Door
     * Multi-Factor Authentication-Server (bakåtkompatibelt)
@@ -80,12 +80,20 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 >
 
 * Power BI
-* De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>
+* De flesta Azure-tjänster stöds. Kontrol lera direkt med den tjänst som du vill använda för att verifiera stödet.<br><br>
   **Följande tjänster stöds inte**:
     * CDN
     * Azure Front Door
     * Multi-Factor Authentication-Server (bakåtkompatibelt)
     * Traffic Manager
+
+### <a name="why-i-see-advertised-public-prefixes-status-as-validation-needed-while-configuring-microsoft-peering"></a>Varför ser jag status "annonserade offentliga prefix" som "verifiering krävs" när jag konfigurerar Microsoft-peering?
+
+Microsoft kontrollerar om de angivna annonserade offentliga prefixen och peer-ASN (eller kund-ASN) är tilldelade till dig i Internet-routningstabellen. Om du hämtar de offentliga prefixen från en annan entitet och om tilldelningen inte är registrerad i routningstabellen, slutförs inte den automatiska verifieringen och kräver manuell verifiering. Om den automatiska valideringen Miss lyckas visas meddelandet "validering krävs".
+
+Om du ser meddelandet "validering krävs" samlar du in dokumenten som visar att de offentliga prefixen har tilldelats till din organisation av den entitet som anges som ägare till prefixen i routningstabellen och skickar dessa dokument för manuell verifiering med öppna ett support ärende som visas nedan.
+
+![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>Stöds Dynamics 365 på ExpressRoute?
 
@@ -96,49 +104,49 @@ Dynamics 365-och Common Data Service-miljöer (CD) är värdbaserade på Azure o
 
 ## <a name="data-and-connections"></a>Data och anslutningar
 
-### <a name="are-there-limits-on-the-amount-of-data-that-i-can-transfer-using-expressroute"></a>Finns det någon gräns för mängden data som kan överföra med ExpressRoute?
+### <a name="are-there-limits-on-the-amount-of-data-that-i-can-transfer-using-expressroute"></a>Finns det några begränsningar för mängden data som jag kan överföra med ExpressRoute?
 
-Vi anger inte en gräns för mängden data som överförs. Referera till [prisinformation](https://azure.microsoft.com/pricing/details/expressroute/) information om bandbreddsavgifter.
+Vi har inte angett någon gräns för mängden data som ska överföras. Se [pris information](https://azure.microsoft.com/pricing/details/expressroute/) för information om bandbredds taxa.
 
-### <a name="what-connection-speeds-are-supported-by-expressroute"></a>Vilka anslutningshastigheter stöds av ExpressRoute?
+### <a name="what-connection-speeds-are-supported-by-expressroute"></a>Vilka anslutnings hastigheter stöds av ExpressRoute?
 
-Bandbredd erbjudanden som stöds:
+Bandbredds erbjudanden som stöds:
 
 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps
 
-### <a name="which-service-providers-are-available"></a>Vilka leverantörer som är tillgängliga?
+### <a name="which-service-providers-are-available"></a>Vilka tjänst leverantörer är tillgängliga?
 
-Se [ExpressRoute-partner och platser](expressroute-locations.md) för listan över leverantörer och platser.
+Se [ExpressRoute-partner och platser](expressroute-locations.md) för att få en lista över tjänst leverantörer och platser.
 
 ## <a name="technical-details"></a>Teknisk information
 
 ### <a name="what-are-the-technical-requirements-for-connecting-my-on-premises-location-to-azure"></a>Vilka är de tekniska kraven för att ansluta min lokala plats till Azure?
 
-Se [ExpressRoute förutsättningssidan](expressroute-prerequisites.md) krav.
+Mer information finns på [sidan för ExpressRoute](expressroute-prerequisites.md) -krav.
 
-### <a name="are-connections-to-expressroute-redundant"></a>Är anslutningar till ExpressRoute redundant?
+### <a name="are-connections-to-expressroute-redundant"></a>Är anslutningar till ExpressRoute redundanta?
 
-Ja. Varje ExpressRoute-krets har ett redundant par med mellan anslutningar som konfigurerats för att tillhandahålla hög tillgänglighet.
+Ja. Varje ExpressRoute-krets har ett redundant par med kors anslutningar konfigurerade för att ge hög tillgänglighet.
 
-### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Kommer jag att förlora anslutningen om någon av länkarna ExpressRoute misslyckas?
+### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Kommer jag att förlora anslutning om en av mina ExpressRoute-länkar Miss känner?
 
-Du kommer inte att förlora anslutningen om en av flera anslutningar misslyckas. En redundant anslutning är tillgänglig för att stödja belastningen på nätverket och ge hög tillgänglighet för ExpressRoute-kretsen. Du kan också skapa en krets i en annan peering plats att uppnå återhämtning krets på servernivå.
+Du kommer inte att förlora anslutningen om någon av kors anslutningarna Miss lyckas. Det finns en redundant anslutning som stöder belastningen på nätverket och ger hög tillgänglighet för din ExpressRoute-krets. Du kan också skapa en krets på en annan peering-plats för att uppnå återhämtning på krets nivå.
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Hur gör jag för att implementera redundans på privat peering?
 
 Flera ExpressRoute-kretsar från olika peering-platser kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) till den lokala anslutningen för att kunna prioritera en speciell krets. Vi rekommenderar starkt att kunderna installerar minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
 
-Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för att utforma för hög tillgänglighet [och för](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) att utforma för haveri beredskap.  
+Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för att utforma för hög tillgänglighet [och för att utforma](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) för haveri beredskap.  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Hur implementerar jag redundans på Microsoft-peering?
 
-Vi rekommenderar starkt att du använder Microsoft-peering för att få åtkomst till Azures offentliga tjänster som Azure Storage eller Azure SQL, samt kunder som använder Microsoft-peering för Office 365 som de implementerar flera kretsar i olika peering platser för att undvika enskilda felpunkter. Kunder kan antingen annonsera samma prefix på båda kretsarna och använda [som sökväg](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) förväntat eller annonsera olika prefix för att fastställa sökväg lokalt.
+Vi rekommenderar starkt att du använder Microsoft-peering för att få åtkomst till Azures offentliga tjänster som Azure Storage eller Azure SQL, samt kunder som använder Microsoft-peering för Office 365 som de implementerar flera kretsar i olika peering platser för att undvika enskilda felpunkter. Kunder kan antingen annonsera samma prefix på båda kretsarna och använda [som sökväg förväntat](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) eller annonsera olika prefix för att fastställa sökväg lokalt.
 
 Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för att utforma för hög tillgänglighet.
 
-### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hur jag för att säkerställa hög tillgänglighet i ett virtuellt nätverk som är anslutet till ExpressRoute?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hur gör jag för att garantera hög tillgänglighet på ett virtuellt nätverk som är anslutet till ExpressRoute?
 
-Du kan uppnå hög tillgänglighet genom att ansluta ExpressRoute-kretsar i olika peering-platser (till exempel Singapore, Singapore2) till ditt virtuella nätverk. Om en ExpressRoute-krets kraschar, misslyckas anslutningen över till en annan ExpressRoute-krets. Som standard dirigeras trafik som lämnar det virtuella nätverket baserat på lika med kostnaden Multipath routning (ECMP). Du kan använda Anslutningsvikten för att föredra en kanal till en annan. Mer information finns i [optimera ExpressRoute-routning](expressroute-optimize-routing.md).
+Du kan få hög tillgänglighet genom att ansluta ExpressRoute-kretsar på olika peering-platser (till exempel Singapore, Singapore2) till ditt virtuella nätverk. Om en ExpressRoute-krets kraschar går anslutningen över till en annan ExpressRoute-krets. Trafik som lämnar ditt virtuella nätverk dirigeras som standard baserat på likvärdig kostnad routning med flera sökvägar (ECMP). Du kan använda anslutnings vikt för att föredra en krets till en annan. Mer information finns i [optimera ExpressRoute-routning](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>Hur gör jag för att se till att min trafik som är avsedd för Azures offentliga tjänster som Azure Storage och Azure SQL på Microsoft eller offentlig peering är prioriterade på ExpressRoute-sökvägen?
 
@@ -146,160 +154,160 @@ Du måste implementera attributet *lokal inställning* på din router (er) för 
 
 Se ytterligare information [här](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) om val av BGP-sökvägar och vanliga konfigurationer av routrar. 
 
-### <a name="onep2plink"></a>Om jag inte är samordnad i ett molnutbyte och Min-leverantör erbjuder Point-to-point-anslutning, måste jag beställa två fysiska anslutningar mellan min lokala nätverk och Microsoft?
+### <a name="onep2plink"></a>Måste jag beställa två fysiska anslutningar mellan mitt lokala nätverk och Microsoft om jag inte är samordnad i ett moln utbyte och min tjänst leverantör har en punkt-till-punkt-anslutning?
 
-Om din tjänstleverantör kan upprätta två virtuella Ethernet-kretsar över den fysiska anslutningen, behöver du bara en fysisk anslutning. Den fysiska anslutningen (till exempel en optisk fiber) avslutas på en nivå 1 (L1)-enhet (se bilden). De två virtuella Ethernet-kretsarna märks med olika VLAN-ID, en för den primära kretsen och en för sekundärt. Dessa VLAN-ID som finns i den yttre 802.1Q Ethernet-huvudet. Den inre 802.1Q Ethernet-huvudet (visas inte) mappas till ett specifikt [ExpressRoute routningsdomän](expressroute-circuit-peerings.md).
+Om din tjänst leverantör kan upprätta två virtuella Ethernet-kretsar över den fysiska anslutningen behöver du bara en fysisk anslutning. Den fysiska anslutningen (t. ex. en optisk fiber) avslutas på en Layer 1-enhet (se bilden). De två virtuella Ethernet-kretsarna är taggade med olika VLAN-ID: n, ett för den primära kretsen och en för den sekundära. Dessa VLAN-ID: n finns i det yttre 802.1 Q Ethernet-huvudet. Det inre 802.1 Q Ethernet-huvudet (visas inte) mappas till en speciell [ExpressRoute-routningsdomän](expressroute-circuit-peerings.md).
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
-### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Kan jag förlänga en av Mina virtuella lokala nätverk till Azure med ExpressRoute?
+### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Kan jag utöka ett av mina VLAN till Azure med ExpressRoute?
 
-Nej. Vi stöder inte tillägg av layer 2-anslutning till Azure.
+Nej. Vi stöder inte Layer 2 anslutnings tillägg till Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>Kan jag ha fler än en ExpressRoute-krets i min prenumeration?
 
-Ja. Du kan ha fler än en ExpressRoute-krets i din prenumeration. Standardgränsen är inställd på 10. Om det behövs kan du kontakta Microsoft Support om du vill utöka gränsen.
+Ja. Du kan ha mer än en ExpressRoute-krets i din prenumeration. Standardvärdet är inställt på 10. Du kan kontakta Microsoft Support för att öka gränsen, om det behövs.
 
-### <a name="can-i-have-expressroute-circuits-from-different-service-providers"></a>Kan jag ha ExpressRoute-kretsar från olika leverantörer?
+### <a name="can-i-have-expressroute-circuits-from-different-service-providers"></a>Kan jag ha ExpressRoute-kretsar från olika tjänst leverantörer?
 
-Ja. Du kan ha ExpressRoute-kretsar med många leverantörer av tjänster. Varje ExpressRoute-krets är associerad med endast en tjänstleverantör. 
+Ja. Du kan ha ExpressRoute-kretsar med många tjänst leverantörer. Varje ExpressRoute-krets är bara kopplad till en tjänst leverantör. 
 
-### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Jag ser två ExpressRoute-peeringplatser i samma metro, till exempel Singapore och Singapore2. Vilka peeringplats ska jag välja att skapa min ExpressRoute-krets?
-Om din tjänstleverantör erbjuder ExpressRoute på båda platserna, du samarbeta med leverantören och välj någon av platsernas att ställa in ExpressRoute. 
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Jag ser två ExpressRoute-peering-platser i samma tunnelbane linje, till exempel Singapore och Singapore2. Vilken peering-plats ska jag välja för att skapa min ExpressRoute-krets?
+Om din tjänst leverantör erbjuder ExpressRoute på båda platserna kan du arbeta med din Provider och välja antingen plats för att ställa in ExpressRoute. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan jag har flera ExpressRoute-kretsar i samma metro? Kan jag koppla dem till samma virtuella nätverk?
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan jag ha flera ExpressRoute-kretsar i samma tunnelbane linje? Kan jag länka dem till samma virtuella nätverk?
 
-Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika leverantörer. Om metro har flera ExpressRoute-peeringplatser och kretsarna som skapas på olika peering-platser, kan du länka dem till samma virtuella nätverk. Om kretsarna skapas på samma peering-plats kan du länka upp till 4 kretsar till samma virtuella nätverk.
+Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika tjänst leverantörer. Om tunnelbane linjen har flera ExpressRoute-peering-platser och kretsarna skapas på olika peering-platser, kan du länka dem till samma virtuella nätverk. Om kretsarna skapas på samma peering-plats kan du länka upp till 4 kretsar till samma virtuella nätverk.
 
-### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hur ansluter jag mitt virtuella nätverk till en ExpressRoute-krets
+### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hur gör jag för att ansluta mina virtuella nätverk till en ExpressRoute-krets
 
 De grundläggande stegen är:
 
-* Upprätta en ExpressRoute-krets och ha tjänstleverantören aktivera den.
-* Du eller providern, måste konfigurera BGP peering (s).
+* Upprätta en ExpressRoute-krets och låt tjänst leverantören aktivera den.
+* Du eller providern måste konfigurera BGP-peering (s).
 * Länka det virtuella nätverket till ExpressRoute-kretsen.
 
-Mer information finns i [ExpressRoute-arbetsflöden för kretsetablering och kretstillstånd](expressroute-workflows.md).
+Mer information finns i [ExpressRoute-arbetsflöden för krets etablering och krets tillstånd](expressroute-workflows.md).
 
-### <a name="are-there-connectivity-boundaries-for-my-expressroute-circuit"></a>Finns det anslutning gränser för min ExpressRoute-krets?
+### <a name="are-there-connectivity-boundaries-for-my-expressroute-circuit"></a>Finns det anslutnings gränser för min ExpressRoute-krets?
 
-Ja. Den [ExpressRoute-partner och platser](expressroute-locations.md) artikeln innehåller en översikt över anslutning gränserna för en ExpressRoute-krets. Anslutningen för en ExpressRoute-krets är begränsad till en enda geopolitisk region. Anslutningen kan utökas mellan geopolitiska regioner genom att aktivera ExpressRoute premium-funktion.
+Ja. Artikeln [ExpressRoute partners och platser](expressroute-locations.md) ger en översikt över anslutnings gränserna för en ExpressRoute-krets. Anslutningen för en ExpressRoute-krets är begränsad till en enda politisk region. Anslutningen kan utökas för att korsa politiska regioner genom att aktivera funktionen ExpressRoute Premium.
 
-### <a name="can-i-link-to-more-than-one-virtual-network-to-an-expressroute-circuit"></a>Kan jag länkar till mer än ett virtuellt nätverk till en ExpressRoute-krets?
+### <a name="can-i-link-to-more-than-one-virtual-network-to-an-expressroute-circuit"></a>Kan jag länka till fler än ett virtuellt nätverk till en ExpressRoute-krets?
 
-Ja. Du kan ha upp till 10 virtuella nätverk-anslutningar på en standard ExpressRoute-krets och upp till 100 på en [premium ExpressRoute-krets](#expressroute-premium). 
+Ja. Du kan ha upp till 10 virtuella nätverks anslutningar på en standard ExpressRoute-krets och upp till 100 på en [Premium ExpressRoute-krets](#expressroute-premium). 
 
-### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Jag har flera Azure-prenumerationer som innehåller virtuella nätverk. Kan jag ansluta virtuella nätverk som finns i olika prenumerationer till en enda ExpressRoute-krets?
+### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Jag har flera Azure-prenumerationer som innehåller virtuella nätverk. Kan jag ansluta virtuella nätverk som finns i separata prenumerationer till en enda ExpressRoute-krets?
 
-Ja. Du kan länka upp till 10 virtuella nätverk i samma prenumeration som kretsen eller olika prenumerationer med en enda ExpressRoute-krets. Den här gränsen kan ökas genom att aktivera ExpressRoute premium-funktion.
+Ja. Du kan länka upp till 10 virtuella nätverk i samma prenumeration som kretsen eller olika prenumerationer med en enda ExpressRoute-krets. Den här gränsen kan ökas genom att aktivera ExpressRoute Premium-funktionen.
 
-Mer information finns i [delar en ExpressRoute-krets över flera prenumerationer](expressroute-howto-linkvnet-arm.md).
+Mer information finns i [dela en ExpressRoute-krets över flera prenumerationer](expressroute-howto-linkvnet-arm.md).
 
-### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Jag har flera Azure-prenumerationer som är kopplad till olika klienter i Azure Active Directory eller Enterprise-avtal registreringar. Kan jag ansluta virtuella nätverk som finns i separata klienter och registreringar till en enda ExpressRoute-krets inte i samma klient eller registrering?
+### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Jag har flera Azure-prenumerationer som är kopplade till olika Azure Active Directory klienter eller Enterprise-avtal registreringar. Kan jag ansluta virtuella nätverk som finns i separata klienter och registreringar till en enda ExpressRoute-krets som inte tillhör samma klient organisation eller registrering?
 
-Ja. ExpressRoute-auktoriseringar kan sträcka sig över gränser för prenumerationen, klienten och registrering utan någon ytterligare konfiguration krävs. 
+Ja. ExpressRoute-auktoriseringar kan omfatta prenumerations-, klient-och registrerings gränser utan ytterligare konfiguration som krävs. 
 
-Mer information finns i [delar en ExpressRoute-krets över flera prenumerationer](expressroute-howto-linkvnet-arm.md).
+Mer information finns i [dela en ExpressRoute-krets över flera prenumerationer](expressroute-howto-linkvnet-arm.md).
 
-### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>Virtuella nätverk är anslutna till samma krets isoleras från varandra?
+### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>Är virtuella nätverk anslutna till samma krets isolerade från varandra?
 
-Nej. Från en routning perspektiv alla virtuella nätverk som är länkade till samma ExpressRoute-kretsen är en del av samma routningsdomän och är inte isolerade från varandra. Om du behöver dirigera isolering, måste du skapa en separat ExpressRoute-krets.
+Nej. Från ett Dirigerings perspektiv är alla virtuella nätverk som är länkade till samma ExpressRoute-krets en del av samma routningsdomän och är inte isolerade från varandra. Om du behöver routnings isolering måste du skapa en separat ExpressRoute-krets.
 
-### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Kan jag ha ett virtuellt nätverk som är anslutna till flera ExpressRoute-krets?
+### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Kan jag ha ett virtuellt nätverk som är anslutet till fler än en ExpressRoute-krets?
 
 Ja. Du kan länka ett enda virtuellt nätverk med upp till fyra ExpressRoute-kretsar i antingen samma eller olika peering-platser. 
 
-### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Kan jag ansluta till Internet från mitt virtuella nätverk som är anslutna till ExpressRoute-kretsar?
+### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Kan jag komma åt Internet från mina virtuella nätverk som är anslutna till ExpressRoute-kretsar?
 
-Ja. Om du inte har annonserat standardvägar (0.0.0.0/0) eller Internet route prefix via BGP-sessionen, kan du ansluta till Internet från ett virtuellt nätverk som är länkad till en ExpressRoute-krets.
+Ja. Om du inte har annonserat standard vägar (0.0.0.0/0) eller prefix för Internet väg via BGP-sessionen kan du ansluta till Internet från ett virtuellt nätverk som är länkat till en ExpressRoute-krets.
 
-### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>Kan jag blockera Internet-anslutning till virtuella nätverk som är anslutna till ExpressRoute-kretsar?
+### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>Kan jag blockera Internet anslutning till virtuella nätverk som är anslutna till ExpressRoute-kretsar?
 
-Ja. Du annonserar ut standardrutter (0.0.0.0/0) för att blockera alla Internet-anslutning till virtuella datorer som distribueras inom ett virtuellt nätverk och dirigera all trafik ut via ExpressRoute-kretsen.
+Ja. Du kan annonsera standard vägar (0.0.0.0/0) för att blockera all Internet anslutning till virtuella datorer som distribueras i ett virtuellt nätverk och dirigera all trafik via ExpressRoute-kretsen.
 
-Om du annonserar ut standardrutter tvinga vi trafik till tjänster som erbjuds via Microsoft-peering (till exempel Azure storage och SQL DB) tillbaka till ditt lokala nätverk. Du måste konfigurera dina routrar för att returnera trafik till Azure via Microsofts peeringsökväg eller via Internet. Om du har aktiverat en tjänstslutpunkt för tjänsten kan tvingas trafik till tjänsten inte till ditt lokala nätverk. Trafiken kvar i Azure-stamnätverket. Läs mer om tjänstslutpunkter i [tjänstslutpunkter i virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+Om du annonserar standard vägar tvingar vi trafik till tjänster som erbjuds via Microsoft-peering (t. ex. Azure Storage och SQL DB) tillbaka till dina lokaler. Du måste konfigurera dina routrar för att returnera trafik till Azure via Microsoft peering-sökvägen eller via Internet. Om du har aktiverat en tjänst slut punkt för tjänsten tvingas trafiken till tjänsten inte till dina lokaler. Trafiken förblir i Azures stamnät nätverk. Mer information om tjänst slut punkter finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
-### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Virtuella nätverk som är länkade till samma ExpressRoute-kretsen kan kommunicera med varandra?
+### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Kan virtuella nätverk som är länkade till samma ExpressRoute-krets prata med varandra?
 
 Ja. Virtuella datorer som distribueras i virtuella nätverk som är anslutna till samma ExpressRoute-krets kan kommunicera med varandra.
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>Kan jag använda plats-till-plats-anslutning för virtuella nätverk tillsammans med ExpressRoute?
 
-Ja. ExpressRoute kan samexistera med plats-till-plats-VPN. Se [konfigurera ExpressRoute och samexisterande anslutningar för plats-till-plats](expressroute-howto-coexist-resource-manager.md).
+Ja. ExpressRoute kan samverka med plats-till-plats-VPN. Se [Konfigurera ExpressRoute-och plats-till-plats-sambefintliga anslutningar](expressroute-howto-coexist-resource-manager.md).
 
-### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Varför finns det en offentlig IP-adress som är associerade med ExpressRoute-gateway i ett virtuellt nätverk?
+### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Varför finns det en offentlig IP-adress som är associerad med ExpressRoute-gatewayen på ett virtuellt nätverk?
 
-Offentliga IP-adress används endast för interna och utgör inte en säkerhetsrisk för det virtuella nätverket.
+Den offentliga IP-adressen används endast för intern hantering och utgör ingen säkerhets exponering för det virtuella nätverket.
 
-### <a name="are-there-limits-on-the-number-of-routes-i-can-advertise"></a>Finns det någon gräns för hur många vägar som jag kan annonsera?
+### <a name="are-there-limits-on-the-number-of-routes-i-can-advertise"></a>Finns det några begränsningar för hur många vägar jag kan annonsera?
 
-Ja. Vi kan acceptera upp till 4 000 prefix som vägen för privat peering och 200 för Microsoft-peering. Du kan öka detta till 10 000 vägar för privat peering om du aktiverar ExpressRoute premium-funktion.
+Ja. Vi accepterar upp till 4000 väg prefix för privat peering och 200 för Microsoft-peering. Du kan öka detta till 10 000 vägar för privat peering om du aktiverar ExpressRoute Premium-funktionen.
 
-### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Finns det några begränsningar för IP-adressintervall som jag kan annonsera i BGP-sessionen?
+### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Finns det begränsningar för IP-intervall som jag kan annonsera över BGP-sessionen?
 
-Vi accepterar inte privata-prefix (RFC1918) för Microsoft-peering BGP-sessionen. Vi accepterar alla prefixlängd (upp till/32) på både Microsoft och den privata peeringen.
+Vi accepterar inte privata prefix (RFC1918) för Microsoft-peering BGP-sessionen. Vi accepterar alla prefixlängd (upp till/32) på både Microsoft och den privata peeringen.
 
-### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Vad händer om jag överskrider BGP begränsar?
+### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Vad händer om jag överskrider BGP-gränserna?
 
-BGP-sessioner kommer att tas bort. De kommer att återställas när antalet prefix sjunker till under gränsen.
+BGP-sessioner kommer att tas bort. De kommer att återställas när prefixet räknas under gränsen.
 
-### <a name="what-is-the-expressroute-bgp-hold-time-can-it-be-adjusted"></a>Vad är ExpressRoute BGP driftstid? Kan den justeras?
+### <a name="what-is-the-expressroute-bgp-hold-time-can-it-be-adjusted"></a>Vad är ExpressRoute BGP Hold Time? Kan den justeras?
 
-Hold-tid är 180. Keep-alive-meddelanden skickas var 60: e sekund. Dessa är fasta inställningar på Microsoft-sida som inte kan ändras. Det är möjligt för dig att konfigurera olika timers och parametrar för BGP-sessionen förhandlas därefter.
+Spärr tiden är 180. Keep-Alive-meddelanden skickas var 60: e sekund. Detta är fasta inställningar på Microsoft-sidan som inte kan ändras. Det är möjligt att du konfigurerar olika timers och att parametrarna för BGP-sessionen kommer att förhandlas enligt detta.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Kan jag ändra bandbredden för en ExpressRoute-krets?
 
-Ja, du kan försöka att öka bandbredden för ExpressRoute-kretsen i Azure portal eller med hjälp av PowerShell. Om det finns kapacitet på den fysiska porten där din krets skapades, lyckas din ändring. 
+Ja, du kan försöka öka bandbredden för ExpressRoute-kretsen i Azure Portal eller genom att använda PowerShell. Om det finns tillgänglig kapacitet på den fysiska porten som din krets skapades på, lyckades ändringen. 
 
-Om din ändring misslyckas, betyder det antingen det finns inte tillräckligt med kapacitet kvar på den aktuella porten och du måste skapa en ny ExpressRoute-krets med högre bandbredd, eller att det finns inga ytterligare kapacitet på den platsen, i vilket fall du kommer inte att kunna öka den bandbredd. 
+Om ändringen Miss lyckas innebär det att det inte finns tillräckligt med kapacitet kvar på den aktuella porten och du måste skapa en ny ExpressRoute-krets med större bandbredd, eller att det inte finns någon ytterligare kapacitet på den platsen, i vilket fall du inte kan öka bredd. 
 
-Du måste också följa upp din anslutningsleverantör för att säkerställa att de uppdaterar begränsningar i sina nätverk för ökade bandbredden. Du kan dock minska bandbredden för ExpressRoute-kretsen. Du måste skapa en ny ExpressRoute-krets med låg bandbredd och ta bort den gamla kretsen.
+Du måste också följa upp med din anslutnings leverantör för att säkerställa att de uppdaterar begränsningarna i sina nätverk för att stödja bandbredds ökningen. Du kan dock inte minska bandbredden för din ExpressRoute-krets. Du måste skapa en ny ExpressRoute-krets med lägre bandbredd och ta bort den gamla kretsen.
 
-### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Hur ändrar jag bandbredden för en ExpressRoute-krets?
+### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Hur gör jag för att ändra bandbredden för en ExpressRoute-krets?
 
-Du kan uppdatera bandbredden för ExpressRoute-krets med hjälp av REST API eller PowerShell-cmdlet.
+Du kan uppdatera bandbredden för ExpressRoute-kretsen med hjälp av REST API eller PowerShell-cmdleten.
 
-## <a name="expressroute-premium"></a>ExpressRoute premium
+## <a name="expressroute-premium"></a>ExpressRoute Premium
 
-### <a name="what-is-expressroute-premium"></a>Vad är ExpressRoute premium?
+### <a name="what-is-expressroute-premium"></a>Vad är ExpressRoute Premium?
 
-ExpressRoute premium är en samling med följande funktioner:
+ExpressRoute Premium är en samling av följande funktioner:
 
-* Ökad routning tabell gräns från 4000 vägar till 10 000 vägar för privat peering.
-* Ökat antal virtuella nätverk och Global räckvidd i ExpressRoute-anslutningar som kan aktiveras för en ExpressRoute-krets (standardvärdet är 10). Mer information finns i den [ExpressRoute gränser](#limits) tabell.
+* Den ökade gränsen för vägvals tabellen från 4000 vägar till 10 000 vägar för privat peering.
+* Ökat antal virtuella nätverk-och ExpressRoute-Global Reach-anslutningar som kan aktive ras på en ExpressRoute-krets (Standardvärdet är 10). Mer information finns i [ExpressRoute Limits](#limits) -tabellen.
 * Anslutning till Office 365
-* Global anslutbarhet via Microsoft core nätverket. Du kan nu länka ett virtuellt nätverk i en geopolitisk region med en ExpressRoute-krets i en annan region.<br>
-    **Exempel:**
+* Global anslutning över Microsoft Core-nätverket. Nu kan du länka ett VNet i en politisk region med en ExpressRoute-krets i en annan region.<br>
+    **Fler**
 
-    *  Du kan länka ett virtuellt nätverk som skapats i västra Europa till en ExpressRoute-krets som skapats i Silicon Valley. 
-    *  På Microsoft-peering, annonseras prefix från andra geopolitiska regioner, så att du kan ansluta till, till exempel SQL Azure i västra Europa från en krets i Silicon Valley.
+    *  Du kan länka ett VNet som skapats i Europa, västra till en ExpressRoute-krets som skapats i Silicon dal. 
+    *  På Microsofts peering annonseras prefix från andra politiska regioner, så att du kan ansluta till, till exempel SQL Azure i Europa, väst från en krets i kisel dal.
 
 
-### <a name="limits"></a>Hur många virtuella nätverk och Global räckvidd i ExpressRoute-anslutningar kan jag aktivera på en ExpressRoute-krets om jag har aktiverat ExpressRoute premium?
+### <a name="limits"></a>Hur många virtuella nätverk-och ExpressRoute Global Reach-anslutningar kan jag aktivera på en ExpressRoute-krets om jag har aktiverat ExpressRoute Premium?
 
-Följande tabeller visar ExpressRoute-gränser och antalet virtuella nätverk och Global räckvidd i ExpressRoute-anslutningar per ExpressRoute-krets:
+Följande tabeller visar ExpressRoute-gränser och antalet virtuella nätverk-och ExpressRoute-Global Reach anslutningar per ExpressRoute-krets:
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 
-### <a name="how-do-i-enable-expressroute-premium"></a>Hur aktiverar jag ExpressRoute premium?
+### <a name="how-do-i-enable-expressroute-premium"></a>Hur gör jag för att aktivera ExpressRoute Premium?
 
-ExpressRoute premium-funktioner kan aktiveras när funktionen är aktiverad och kan stängas av genom att uppdatera tillståndet för kretsen. Du kan aktivera ExpressRoute premium vid tidpunkten för skapandet av kretsen eller kan anropa REST API / PowerShell-cmdlet.
+ExpressRoute Premium-funktioner kan aktive ras när funktionen är aktive rad och kan stängas av genom att uppdatera kretsens tillstånd. Du kan aktivera ExpressRoute Premium när kretsen skapas, eller så kan du anropa REST API/PowerShell-cmdleten.
 
-### <a name="how-do-i-disable-expressroute-premium"></a>Hur inaktiverar jag ExpressRoute premium?
+### <a name="how-do-i-disable-expressroute-premium"></a>Hur gör jag för att inaktivera ExpressRoute Premium?
 
-Du kan inaktivera ExpressRoute premium genom att anropa REST API eller PowerShell-cmdlet. Du måste se till att du har skalat anslutning behöver uppfylla standardgränserna innan du inaktiverar ExpressRoute premium. Om din användning skalas bortom standardgränserna, misslyckas denna begäran att inaktivera ExpressRoute premium.
+Du kan inaktivera ExpressRoute Premium genom att anropa REST API-eller PowerShell-cmdleten. Du måste se till att du har skalat din anslutning måste uppfylla standard gränserna innan du inaktiverar ExpressRoute Premium. Om din användning skalas bortom standard gränserna, Miss lyckas begäran om att inaktivera ExpressRoute Premium.
 
-### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>Kan jag välja de funktioner som jag vill från funktionsuppsättningen premium?
+### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>Kan jag välja vilka funktioner jag vill ha från Premium-funktionen?
 
-Nej. Du kan inte välja funktionerna. Vi möjliggör alla funktioner när du aktiverar ExpressRoute premium.
+Nej. Du kan inte välja funktionerna. Vi aktiverar alla funktioner när du aktiverar ExpressRoute Premium.
 
-### <a name="how-much-does-expressroute-premium-cost"></a>Hur mycket kostar ExpressRoute premium?
+### <a name="how-much-does-expressroute-premium-cost"></a>Hur mycket kostar ExpressRoute Premium?
 
-Referera till [prisinformation](https://azure.microsoft.com/pricing/details/expressroute/) kostnad.
+Se [pris information](https://azure.microsoft.com/pricing/details/expressroute/) för kostnad.
 
-### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>Måste jag betala för ExpressRoute premium utöver avgifterna för standard ExpressRoute?
+### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>Betalar jag för ExpressRoute Premium förutom standard avgifterna för ExpressRoute?
 
-Ja. ExpressRoute premium-avgifter gäller utöver avgifterna för ExpressRoute-krets och avgifter som krävs av anslutningsprovidern.
+Ja. ExpressRoute Premium-avgifterna gäller för de ExpressRoute-krets avgifter och avgifter som krävs av anslutnings leverantören.
 
 ## <a name="expressroute-local"></a>ExpressRoute-lokal
 ### <a name="what-is-expressroute-local"></a>Vad är ExpressRoute Local?
@@ -325,64 +333,64 @@ ExpressRoute Local är tillgängligt på peering-platserna där en eller två Az
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>Hur skapar jag en ExpressRoute-krets för att ansluta till Office 365-tjänster?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>Hur gör jag för att skapa en ExpressRoute-krets för att ansluta till Office 365-tjänster?
 
-1. Granska den [ExpressRoute förutsättningssidan](expressroute-prerequisites.md) att kontrollera att du uppfyller kraven.
-2. För att säkerställa att dina anslutningar behov uppfylls, granska listan över leverantörer och platser i den [ExpressRoute-partner och platser](expressroute-locations.md) artikeln.
-3. Planera dina kapacitetsbehov genom att granska [nätverksplanering och prestandajustering för Office 365](https://aka.ms/tune/).
-4. Följ stegen i arbetsflöden för att konfigurera anslutningen [ExpressRoute-arbetsflöden för kretsetablering och kretstillstånd](expressroute-workflows.md).
+1. Granska [sidan ExpressRoute-krav](expressroute-prerequisites.md) för att se till att du uppfyller kraven.
+2. För att säkerställa att dina anslutnings behov är uppfyllda granskar du listan över tjänst leverantörer och platser i artikeln [ExpressRoute partners och platser](expressroute-locations.md) .
+3. Planera dina kapacitets krav genom att granska [nätverks planering och prestanda justering för Office 365](https://aka.ms/tune/).
+4. Följ stegen som listas i arbets flödena för att konfigurera anslutnings [ExpressRoute arbets flöden för krets etablering och krets tillstånd](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Kontrollera att du har aktiverat ExpressRoute premium-tillägget när du konfigurerar anslutningen till Office 365-tjänster.
+> Kontrol lera att du har aktiverat ExpressRoute Premium-tillägget när du konfigurerar anslutningen till Office 365-tjänster.
 > 
 > 
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>Kan mina befintliga ExpressRoute-kretsar stödja anslutning till Office 365-tjänster?
 
-Ja. Befintliga ExpressRoute-kretsen kan konfigureras för att stödja anslutningen till Office 365-tjänster. Se till att du har tillräcklig kapacitet för att ansluta till Office 365-tjänster och att du har aktiverat premium-tillägget. [Nätverksplanering och prestandajustering för Office 365](https://aka.ms/tune/) hjälper dig att planera din anslutning behöver. Se även [skapa och ändra en ExpressRoute-krets](expressroute-howto-circuit-classic.md).
+Ja. Din befintliga ExpressRoute-krets kan konfigureras för att stödja anslutning till Office 365-tjänster. Kontrol lera att du har tillräcklig kapacitet för att ansluta till Office 365-tjänster och att du har aktiverat Premium-tillägget. [Nätverks planering och prestanda justering för Office 365](https://aka.ms/tune/) hjälper dig att planera dina anslutnings behov. Se även [skapa och ändra en ExpressRoute-krets](expressroute-howto-circuit-classic.md).
 
-### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Vilka Office 365 tjänster kan nås via en ExpressRoute-anslutning?
+### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Vilka Office 365-tjänster kan nås via en ExpressRoute-anslutning?
 
-Referera till [Office 365-URL: er och IP-adressintervall](https://aka.ms/o365endpoints) för en uppdaterad förteckning över tjänster som stöds via ExpressRoute.
+Se sidan [Office 365-URL: er och IP-adressintervall](https://aka.ms/o365endpoints) för en uppdaterad lista över tjänster som stöds över ExpressRoute.
 
-### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Hur mycket kostar ExpressRoute för Office 365-tjänster kostnad?
+### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Hur mycket kostar ExpressRoute för Office 365 Services?
 
-Office 365-tjänster kräver premium-tillägget är aktiverat. Se den [sidan med prisinformation](https://azure.microsoft.com/pricing/details/expressroute/) för kostnader.
+Office 365-tjänster kräver Premium-tillägg för att vara aktiverade. Se [pris informations sidan](https://azure.microsoft.com/pricing/details/expressroute/) för kostnader.
 
-### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Vilka regioner stöds ExpressRoute för Office 365 i?
+### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Vilka regioner är ExpressRoute för Office 365 som stöds i?
 
-Se [ExpressRoute-partner och platser](expressroute-locations.md) information.
+Mer information finns i [ExpressRoute-partners och-platser](expressroute-locations.md) .
 
-### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>Kan jag komma åt Office 365 via Internet, även om ExpressRoute har konfigurerats för min organisation?
+### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>Kan jag få åtkomst till Office 365 via Internet, även om ExpressRoute har kon figurer ATS för min organisation?
 
-Ja. Office 365-Tjänsteslutpunkter kan nås via Internet, även om ExpressRoute har konfigurerats för ditt nätverk. Kontakta din organisations nätverksteam om nätverket på din plats är konfigurerad för att ansluta till Office 365-tjänster via ExpressRoute.
+Ja. Office 365-tjänstens slut punkter går att komma åt via Internet, även om ExpressRoute har kon figurer ATS för nätverket. Kontakta organisationens nätverks team om nätverket på din plats är konfigurerat för att ansluta till Office 365-tjänster via ExpressRoute.
 
-### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>Hur kan jag planera för hög tillgänglighet för Office 365-nätverkstrafik på Azure ExpressRoute?
-Visa rekommendationer för [hög tillgänglighet och redundans med Azure ExpressRoute](https://aka.ms/erhighavailability)
+### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>Hur kan jag planera för hög tillgänglighet för nätverks trafik i Office 365 på Azure ExpressRoute?
+Se rekommendationer för [hög tillgänglighet och redundans med Azure ExpressRoute](https://aka.ms/erhighavailability)
 
-### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Kan jag komma åt Office 365 US Government Community (GCC) tjänster via en Azure US Government ExpressRoute-krets?
+### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Kan jag få åtkomst till Office 365 amerikanska GCC-tjänster (amerikanska myndigheter) via en ExpressRoute-krets för Azure-myndigheter?
 
-Ja. Office 365 GCC Tjänsteslutpunkter kan nås via Azure US Government ExpressRoute. Men måste du först öppna ett supportärende på Azure portal för att tillhandahålla de prefix som du planerar att annonsera till Microsoft. Anslutningen till Office 365 GCC tjänster upprättas när supportärende har åtgärdats. 
+Ja. Office 365 GCC-tjänstens slut punkter går att komma åt via Azure amerikanska myndigheters ExpressRoute. Du måste dock först öppna ett support ärende på Azure Portal för att tillhandahålla de prefix du planerar att annonsera till Microsoft. Din anslutning till Office 365 GCC-tjänster upprättas efter att support ärendet har lösts. 
 
-## <a name="route-filters-for-microsoft-peering"></a>Routningsfilter för Microsoft-peering
+## <a name="route-filters-for-microsoft-peering"></a>Flödes filter för Microsoft-peering
 
-### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>Jag är att aktivera Microsoft-peering för första gången, vilka vägar ser jag?
+### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>Jag aktiverar Microsoft-peering för första gången, vilka vägar ser jag?
 
-Du kommer inte se några vägar. Du måste koppla ett flödesfilter till kretsen att starta prefix annonser. Anvisningar finns i [konfigurera routningsfilter för Microsoft-peering](how-to-routefilter-powershell.md).
+Du kommer inte att se några vägar. Du måste koppla ett väg filter till din krets för att kunna starta prefix annonseringar. Instruktioner finns i [Konfigurera väg filter för Microsoft-peering](how-to-routefilter-powershell.md).
 
-### <a name="i-turned-on-microsoft-peering-and-now-i-am-trying-to-select-exchange-online-but-it-is-giving-me-an-error-that-i-am-not-authorized-to-do-it"></a>Jag aktiverade för Microsoft-peering och nu försöker jag väljer Exchange Online, men det ge mig ett fel att jag inte har behörighet att utföra den.
+### <a name="i-turned-on-microsoft-peering-and-now-i-am-trying-to-select-exchange-online-but-it-is-giving-me-an-error-that-i-am-not-authorized-to-do-it"></a>Jag aktiverade Microsoft-peering och nu försöker jag välja Exchange Online, men det ger mig ett fel som jag inte har behörighet att göra.
 
-När du använder flödesfilter kan kan alla kunder aktivera Microsoft-peering. För att använda Office 365-tjänster behöver du dock fortfarande att få behörighet av Office 365.
+När du använder väg filter kan alla kunder aktivera Microsoft-peering. Men för att förbruka Office 365-tjänster måste du ändå få tillåtelse av Office 365.
 
-### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>Jag har aktiverat Microsoft-peering före den 1 augusti 2017, hur kan jag dra nytta av flödesfilter?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>Jag aktiverade Microsoft-peering före den 1 augusti 2017, hur kan jag dra nytta av väg filter?
 
-Din befintliga krets fortsätter att annonsera om prefixen för Office 365. Om du vill lägga till offentliga Azure-prefix över samma Microsoft-peering kan du skapa ett flödes filter, välja de tjänster som du behöver annonseras (inklusive de Office 365-tjänster du behöver) och koppla filtret till din Microsoft-peering. Anvisningar finns i [konfigurera routningsfilter för Microsoft-peering](how-to-routefilter-powershell.md).
+Din befintliga krets fortsätter att annonsera om prefixen för Office 365. Om du vill lägga till offentliga Azure-prefix över samma Microsoft-peering kan du skapa ett flödes filter, välja de tjänster som du behöver annonseras (inklusive de Office 365-tjänster du behöver) och koppla filtret till din Microsoft-peering. Instruktioner finns i [Konfigurera väg filter för Microsoft-peering](how-to-routefilter-powershell.md).
 
-### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Jag har Microsoft-peering på en plats, nu jag försöker aktivera den på en annan plats och jag ser inte alla prefix.
+### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Jag har Microsoft-peering på en plats, nu försöker jag aktivera den på en annan plats och jag ser inga prefix.
 
-* Microsoft-peering av ExpressRoute-kretsar som konfigurerades före den 1 augusti 2017 kommer att ha alla service-prefix som annonseras via Microsoft-peering, även om flödesfilter inte har definierats.
+* Microsoft-peering av ExpressRoute-kretsar som har kon figurer ATS före den 1 augusti 2017 kommer att ha alla tjänste prefix som annonseras via Microsoft-peering, även om det inte finns några väg filter definierade.
 
-* Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inte alla prefix annonseras förrän ett flödesfilter är kopplad till kretsen. Inga prefix visas som standard.
+* Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inga prefix som annonseras förrän ett flödes filter är kopplat till kretsen. Inga prefix visas som standard.
 
 ## <a name="expressRouteDirect"></a>ExpressRoute Direct
 

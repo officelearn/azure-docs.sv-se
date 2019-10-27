@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: f58ac4448f50e8e02f2838fef02c9f884f69266b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 3b552d37ce176e76bc0a4230a24a910543e5ea0d
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177441"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965126"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -41,8 +41,8 @@ Standard_v2-och WAF_v2-SKU: n är tillgänglig i följande regioner: Norra centr
 
 Med v2-SKU: n drivs pris sättnings modellen av förbrukning och är inte längre kopplad till instans antal eller storlekar. Priserna för v2-SKU har två komponenter:
 
-- **Fast pris** – det här är ett Tim pris (eller delvis tim) för att etablera en Standard_v2-eller WAF_v2-Gateway.
-- **Pris för kapacitets enhet** – det här är en förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Debiteringen av kapacitetsenheter beräknas per timme eller delvis utnyttjade timmar. Kapacitetsenheter har tre aspekter: beräkningsenheter, beständiga anslutningar och dataflöde. Beräkningsenheter mäter förbrukad processorkapacitet. Faktorer som påverkar beräknings enheten är TLS-anslutningar/s, URL-omskrivning och bearbetning av WAF-regler. Beständig anslutning är ett mått på upprättade TCP-anslutningar till Application Gateway under ett visst fakturerings intervall. Data flödet är Genomsnittligt antal megabitar/s som bearbetats av systemet under ett angivet fakturerings intervall.
+- **Fast pris** – det här är ett Tim pris (eller delvis tim) för att etablera en Standard_v2-eller WAF_v2-Gateway. Observera att 0 ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris.
+- **Pris för kapacitets enhet** – det här är en förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Debiteringen av kapacitetsenheter beräknas per timme eller delvis utnyttjade timmar. Kapacitetsenheter har tre aspekter: beräkningsenheter, beständiga anslutningar och dataflöde. Beräkningsenheter mäter förbrukad processorkapacitet. Faktorer som påverkar beräknings enheten är TLS-anslutningar/s, URL-omskrivning och bearbetning av WAF-regler. Beständig anslutning är ett mått på upprättade TCP-anslutningar till Application Gateway under ett visst fakturerings intervall. Data flödet är Genomsnittligt antal megabitar/s som bearbetats av systemet under ett angivet fakturerings intervall.  Faktureringen görs på en kapacitets enhets nivå för allt ovanför antalet reserverade instanser.
 
 Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-dataflöde.
 
@@ -77,7 +77,7 @@ Total pris = $148,8 + $297,6 = $446,4
 
 **Exempel 2**
 
-En Application Gateway-standard_v2 har tillhandahållits för en månad och under den tiden får den 25 nya SSL-anslutningar/SEK, genomsnitt 8,88-Mbit/s-data överföring. Förutsatt att anslutningar är korta, är ditt pris:
+En Application Gateway standard_v2 har tillhandahållits för en månad, med minst 0 instanser, och under den tiden får den 25 nya SSL-anslutningar/SEK, vilket är genomsnittet på 8,88-Mbit/s-data överföring. Förutsatt att anslutningar är korta, är ditt pris:
 
 Fast pris = 744 (timmar) * $0,20 = $148,8
 
@@ -85,10 +85,37 @@ Kapacitets enhets pris = 744 (timmar) * max (25/50 beräknings enhet för anslut
 
 Total pris = $148.8 + 23.81 = $172,61
 
+Som du kan se debiteras du bara för 4 kapacitets enheter, inte för hela instansen. 
+
 > [!NOTE]
 > Funktionen Max returnerar det största värdet i ett värde par.
 
+
 **Exempel 3**
+
+En Application Gateway standard_v2 har tillhandahållits för en månad, med minst 5 instanser. Förutsatt att det inte finns någon trafik och anslutningar är korta, är ditt pris:
+
+Fast pris = 744 (timmar) * $0,20 = $148,8
+
+Kapacitets enhets pris = 744 (timmar) * max (0/50 beräknings enhet för anslutningar/SEK, 0/2.22 kapacitets enhet för data flöde) * $0,008 = 744 * 50 * 0,008 = $297,60
+
+Total pris = $148.80 + 297.60 = $446,4
+
+I det här fallet debiteras du för alla de 5 instanserna, även om det inte finns någon trafik.
+
+**Exempel 4**
+
+En Application Gateway-standard_v2 tillhandahålls för en månad, med minst 5 instanser, men den här tiden är ett genomsnitt på 125-Mbit/s-data överföring och 25 SSL-anslutningar per sekund. Förutsatt att det inte finns någon trafik och anslutningar är korta, är ditt pris:
+
+Fast pris = 744 (timmar) * $0,20 = $148,8
+
+Kapacitets enhets pris = 744 (timmar) * max (25/50 beräknings enhet för anslutningar/SEK, 125/2.22 kapacitets enhet för data flöde) * $0,008 = 744 * 57 * 0,008 = $339,26
+
+Total pris = $148.80 + 339.26 = $488,06
+
+I det här fallet debiteras du för de fullständiga 5 instanserna, plus 7 kapacitets enheter (som är 7/10 av en instans).  
+
+**Exempel 5**
 
 En Application Gateway WAF_v2 har tillhandahållits för en månad. Under den här tiden får den 25 nya SSL-anslutningar/SEK, vilket är medelvärdet av data överföring på 8,88 Mbit/s och gör 80-begäran per sekund. Förutsatt att anslutningarna är korta livs längd och beräkningen av beräknings enheter för programmet stöder 10 RPS per beräknings enhet blir priset:
 
@@ -105,7 +132,7 @@ Total pris = $267,84 + $85,71 = $353,55
 
 Application Gateway-och WAF kan konfigureras för skalning i två lägen:
 
-- Automatisk **skalning** – när automatisk skalning är aktiverat skalar Application Gateway-och WAF v2-SKU: erna upp eller ned baserat på program trafik krav. Det här läget ger bättre elastiskhet för ditt program och eliminerar behovet av att gissa storleken på programgatewayen eller antalet instanser. I det här läget kan du också spara kostnader genom att inte kräva att gatewayen körs vid den högsta etablerade kapaciteten för förväntad högsta trafik belastning. Du måste ange ett minsta och alternativt maximalt antal instanser. Lägsta kapacitet garanterar att Application Gateway och WAF v2 inte hamnar under det minsta antal instanser som anges, även om trafik saknas. Varje instans räknas som 10 ytterligare reserverade kapacitets enheter. 0 betyder ingen reserverad kapacitet och är helt automatisk skalning av natur. Observera att 0 ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris. Du kan också ange ett maximalt antal instanser, vilket säkerställer att Application Gateway inte skalas bortom det angivna antalet instanser. Du kommer att fortsätta debiteras för den mängd trafik som hanteras av gatewayen. Antalet instanser kan vara mellan 0 och 125. Standardvärdet för maximalt antal instanser är 20 om inget värde anges. 
+- Automatisk **skalning** – när automatisk skalning är aktiverat skalar Application Gateway-och WAF v2-SKU: erna upp eller ned baserat på program trafik krav. Det här läget ger bättre elastiskhet för ditt program och eliminerar behovet av att gissa storleken på programgatewayen eller antalet instanser. I det här läget kan du också spara kostnader genom att inte kräva att gatewayen körs vid den högsta etablerade kapaciteten för förväntad högsta trafik belastning. Du måste ange ett minsta och alternativt maximalt antal instanser. Lägsta kapacitet garanterar att Application Gateway och WAF v2 inte hamnar under det minsta antal instanser som anges, även om trafik saknas. Varje instans räknas som 10 ytterligare reserverade kapacitets enheter. 0 betyder ingen reserverad kapacitet och är helt automatisk skalning av natur. Observera att 0 ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris. Du kan också ange ett maximalt antal instanser, vilket säkerställer att Application Gateway inte skalas bortom det angivna antalet instanser. Du kommer att fortsätta debiteras för den mängd trafik som hanteras av gatewayen. Antalet instanser kan vara mellan 0 och 125. Standardvärdet för maximalt antal instanser är 20 om inget värde anges.
 - **Manuellt** – du kan alternativt välja manuellt läge där gatewayen inte kan skalas om. I det här läget, om det finns mer trafik än vad Application Gateway eller WAF kan hantera, kan det leda till förlust av trafik. Med manuellt läge är det obligatoriskt att ange instans antal. Antalet instanser kan variera mellan 1 och 125 instanser.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Funktions jämförelse mellan v1 SKU och v2 SKU

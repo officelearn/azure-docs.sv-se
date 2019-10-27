@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/22/2019
-ms.openlocfilehash: 1d75b9e7d997b0c62c7e235187907f0556318efe
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/25/2019
+ms.openlocfilehash: 434ecbcf5158009b8e74ae392aeea95b5ea8b281
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970409"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72963443"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure Database for MySQL server brand Väggs regler
 Brand väggar förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
@@ -43,13 +43,16 @@ Om du vill tillåta att program från Azure ansluter till din Azure Database for
 
 ![Konfigurera Tillåt åtkomst till Azure-tjänster i portalen](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>Ansluta från ett virtuellt nätverk
+Överväg att använda [VNet-tjänstens slut punkter](./concepts-data-access-and-security-vnet.md)för att ansluta säkert till din Azure Database for MySQL-server från ett VNet. 
+
 ## <a name="programmatically-managing-firewall-rules"></a>Hantera brandväggsregler via programmering
 Förutom Azure Portal kan brand Väggs regler hanteras program mässigt med hjälp av Azure CLI. Se även [skapa och hantera Azure Database for MySQL brand Väggs regler med hjälp av Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## <a name="troubleshooting-firewall-issues"></a>Felsöka brand Väggs problem
 Tänk på följande när åtkomst till Microsoft Azure databasen för MySQL Server-tjänsten inte fungerar som förväntat:
 
-* **Ändringar i listan över tillåtna har inte börjat att fungera än:** Det kan uppstå en fördröjning på upp till fem minuter innan ändringar i brandväggskonfigurationen för Azure Database for MySQL Server börjar gälla.
+* **Ändringar i listan över tillåtna har inte börjat att fungera än:** Det kan finnas en fördröjning på fem minuter för ändringar i Azure Database for MySQL serverns brand Väggs konfiguration som börjar gälla.
 
 * **Inloggningen är inte auktoriserad eller så användes ett felaktigt lösen ord:** Om en inloggning inte har behörighet på Azure Database for MySQL-servern eller om det lösen ord som används är felaktigt nekas anslutningen till Azure Database for MySQL-servern. En brandväggsinställning ger endast klienter möjlighet att försöka ansluta till din server. Varje klient måste fortfarande ange nödvändiga säkerhetsreferenser.
 
@@ -59,9 +62,10 @@ Tänk på följande när åtkomst till Microsoft Azure databasen för MySQL Serv
 
    * Använd statisk IP-adressering i stället för dina klientdatorer och lägg sedan till IP-adresserna som brandväggsregler.
 
-* **Serverns IP-adress verkar vara offentlig:** Anslutningar till Azure Database for MySQL-servern dirigeras via en offentligt tillgänglig Azure-gateway. Den faktiska server-IP-adressen skyddas dock av brandväggen. Mer information finns i [artikeln om anslutningsarkitektur](concepts-connectivity-architecture.md). 
+* **Serverns IP-adress verkar vara offentlig:** Anslutningar till Azure Database for MySQL-servern dirigeras via en offentligt tillgänglig Azure-Gateway. Den faktiska server-IP-adressen skyddas dock av brandväggen. Mer information finns i [artikeln om anslutningsarkitektur](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa och hantera Azure Database for MySQL brand Väggs regler med hjälp av Azure Portal](./howto-manage-firewall-using-portal.md)
 * [Skapa och hantera Azure Database for MySQL brand Väggs regler med hjälp av Azure CLI](./howto-manage-firewall-using-cli.md)
+- [VNet-tjänstens slut punkter i Azure Database for MySQL](./concepts-data-access-and-security-vnet.md)

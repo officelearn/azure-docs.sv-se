@@ -9,18 +9,18 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: f4bab6ab837b746c6a569cc6de95a95023bf83f4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0e5bec7d3e1ecd63541a319cd5a9151560ef4139
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986993"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964652"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på Ubuntu Virtual Machines
 
-Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet.
+Azure IoT Edge runtime är vad som förvandlar en enhet till en IoT Edge enhet. Körningen kan distribueras på enheter så små som Raspberry Pi eller lika stora som en industriell Server. När en enhet har kon figurer ATS med IoT Edge runtime kan du börja distribuera affärs logiken till den från molnet.
 
-Läs mer om hur IoT Edge-körningen fungerar och vilka komponenter som ingår i [förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
+Mer information om hur IoT Edge runtime fungerar och vilka komponenter som ingår finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
 
 Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime på en virtuell Ubuntu 16,04-dator med hjälp av den förkonfigurerade [Azure IoT Edge på Azure Marketplace-erbjudandet](https://aka.ms/azure-iot-edge-ubuntuvm). 
 
@@ -33,10 +33,10 @@ Vid den första starten förinstallerar Azure IoT Edge Ubuntu VM den senaste ver
     *   Om det är första gången du försöker ta bort en virtuell dator är det enklast att använda ett lösen ord och att aktivera SSH på den offentliga menyn för inkommande port. 
     *   Om du har en resurs intensiv arbets belastning bör du uppgradera storleken på den virtuella datorn genom att lägga till fler processorer och/eller minne.
 4.  När den virtuella datorn har distribuerats konfigurerar du den så att den ansluter till din IoT Hub:
-    1.  Kopiera enhets anslutnings strängen från din IoT Edge enhet som skapats i din IoT Hub (du kan följa den [Registrera en ny Azure IoT Edge-enhet från Azure Portal](how-to-register-device-portal.md) instruktions guide om du inte är bekant med den här processen)
+    1.  Kopiera enhets anslutnings strängen från din IoT Edge enhet som skapats i din IoT Hub (du kan följa anvisningarna för att [Hämta anslutnings strängen i Azure Portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) om du inte är bekant med den här processen)
     1.  Välj den virtuella dator resurs som du skapade nyligen från Azure Portal och öppna **kommando alternativet Kör**
     1.  Välj alternativet **RunShellScript**
-    1.  Kör skriptet nedan via kommando fönstret med enhets anslutnings strängen:`/etc/iotedge/configedge.sh “{device_connection_string}”`
+    1.  Kör skriptet nedan via kommando fönstret med enhets anslutnings strängen: `/etc/iotedge/configedge.sh “{device_connection_string}”`
     1.  Välj **Kör**
     1.  Vänta en stund och skärmen bör sedan ange ett meddelande som anger att anslutnings strängen har angetts.
 
@@ -85,18 +85,18 @@ Från Azure Portal söker du efter "Azure IoT Edge" och väljer **Ubuntu Server 
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
-1. Ange anslutnings strängen för enheten (du kan följa anvisningarna för att [Registrera en ny Azure IoT Edge enhet med Azure CLI](how-to-register-device-cli.md) -guide om du inte är bekant med den här processen):
+1. Ange anslutnings strängen för enheten (du kan följa anvisningarna för att [Hämta anslutnings strängen med Azure CLI](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) om du inte är bekant med den här processen):
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
-Om du vill använda SSH i den här virtuella datorn efter installationen använder du publicIpAddress med kommandot:`ssh azureuser@{publicIpAddress}`
+Om du vill använda SSH i den här virtuella datorn efter installationen använder du publicIpAddress med kommandot: `ssh azureuser@{publicIpAddress}`
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge-enhet med den som är installerad kan du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
+Nu när du har en IoT Edge enhet som har installerats med körnings miljön kan du [distribuera IoT Edge moduler](how-to-deploy-modules-portal.md).
 
 Om du har problem med IoT Edge runtime-installationen kan du kolla in [fel söknings](troubleshoot.md) sidan.
 

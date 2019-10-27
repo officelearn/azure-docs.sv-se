@@ -6,18 +6,16 @@ ms.author: nandab
 ms.service: iot-central
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 20ed04efc1d10e419148cb4f6c75c3eab4ab40a6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d5b132be2a3719f746af253439f1d1bdff1c3c40
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72957918"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965064"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Självstudie: Distribuera och gå igenom en app-mall för digital distributions Center
 
 Den här självstudien visar hur du kommer igång genom att distribuera en IoT Central **digital distributions Center** -Programmall. Du får lära dig hur du distribuerar mallen, vad som ingår i rutan och vad du kanske vill göra härnäst.
-
-## <a name="details"></a>Information
 
 I den här självstudien får du lära dig att 
 * Skapa ett program för digital distributions Center 
@@ -47,16 +45,14 @@ Du kan skapa program med följande steg
 > [!div class="mx-imgBorder"]
 > ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-create.png)
 
-## <a name="walk-through-the-application"></a>gå igenom programmet 
-
-## <a name="dashboard"></a>Instrumentpanel 
+## <a name="walk-through-the-application-dashboard"></a>Gå igenom program instrument panelen 
 
 När du har distribuerat app-mallen är standard instrument panelen en distributions Center operatör med fokus på portalen. Northwind-näringsidkare är en fiktiv distributions Center lösnings leverantör som hanterar transport band system. 
 
-På den här instrument panelen visas en Edge-gateway och en kamera som fungerar som en IoT-enhet. Gateway tillhandahåller telemetri om paket som giltig, ogiltig, oidentifierad och storlek tillsammans med tillhör ande enhets dubbla egenskaper. Alla underordnade kommandon körs på IoT-enheter, till exempel en kamera. Den här instrument panelen är förkonfigurerad för att demonstrera den kritiska distributions Center-aktiviteten för enhets åtgärder.
+På den här instrument panelen visas en gateway och en kamera som fungerar som en IoT-enhet. Gateway tillhandahåller telemetri om paket som giltig, ogiltig, oidentifierad och storlek tillsammans med tillhör ande enhets dubbla egenskaper. Alla underordnade kommandon körs på IoT-enheter, till exempel en kamera. Den här instrument panelen är förkonfigurerad för att demonstrera den kritiska distributions Center-aktiviteten för enhets åtgärder.
 
-Instrument panelen är logiskt strukturerad för att Visa enhets hanterings funktionerna i Azure IoT Edge gateway och IoT-enheten.  
-   * Du kan utföra kommandot Edge Gateway & kontroll uppgifter
+Instrument panelen är logiskt strukturerad för att Visa enhets hanterings funktionerna i Azure IoT gateway och IoT-enheten.  
+   * Du kan utföra Gateway-kommandot & kontroll uppgifter
    * Hantera alla kameror som ingår i lösningen. 
 
 > [!div class="mx-imgBorder"]
@@ -64,36 +60,21 @@ Instrument panelen är logiskt strukturerad för att Visa enhets hanterings funk
 
 ## <a name="device-template"></a>Enhets mall
 
-Klicka på fliken **mallar på enheten** så visas de distinkta enhets mallarna för Azure IoT Edge & kamera. 
-
-Enhets mal len Azure IoT Edge Gateway representerar en skiss som definierar egenskaperna och beteendet för en Edge gateway-enhet. Några av komponenterna i en gräns enhet är,
-   * Distributionsmanifest
-   * Relation med underordnade enheter
-   * Program varu moduler
-   * Moduler egenskaper & kommandon 
-
-Distributions manifestet innehåller en lista över de programmoduler som ska köras i modulen Azure IoT Edge Device & som har kon figurer ATS med önskade egenskaper. Använd distributions manifestet som är en del av enhets mal len, Azure IoT Edge kör tid vet vilka moduler som ska installeras och hur de ska konfigureras så att de fungerar tillsammans.
+Klicka på fliken Mallar på enheten så visas kapacitets modellen för gateway. En kapacitets modell är strukturerad runt två olika gränssnitts **kamera** och **Gateway för digital distribution**
 
 > [!div class="mx-imgBorder"]
 > ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
-I den här enhets mal len kan du se modulens enhets kapacitets modeller genereras från distributions manifestet. 
+**Kamera** – det här gränssnittet ordnar alla Camera-/regionsspecifika kommando funktioner 
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-devicetemplate2.png)
+> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
-Här kan du lägga till underordnade enhets relationer, moln egenskap, skapa vyer längs anpassa modul och enhets funktioner.
-
-> [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-moduletemplate.png)
-
-Klicka på fliken **enhet** och välj den **ddcgateway** -enhet som är kopplad till Digital distributions Center Azure IoT Edge. Här visas anpassade Edge-moduler & underordnad kamera som är del av enhets relationen. IoT Edge moduler är den minsta beräknings enheten, och den kan innehålla Azure-tjänster (till exempel Azure Stream Analytics, AI-moduler) eller din lösnings bara kod.
+**Gateway för digital distribution** – det här gränssnittet representerar all telemetri från kamera, Cloud Defined Device, med dubbla egenskaper och gateway-information.
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-modules.png)
+> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
-> [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-downstream.png)
 
 ## <a name="gateway-commands"></a>Gateway-kommandon
 Det här gränssnittet ordnar alla funktioner i Gateway-kommandot
@@ -103,6 +84,7 @@ Det här gränssnittet ordnar alla funktioner i Gateway-kommandot
 
 ## <a name="rules"></a>Regler
 Välj fliken regler för att se två olika regler som finns i den här program mal len. Dessa regler är konfigurerade för e-postaviseringar till operatörerna för ytterligare undersökningar.
+
  **Avisering om för många ogiltiga paket** – den här regeln utlöses när kameran identifierar ett stort antal ogiltiga paket som flödar genom transport systemet.
  
 **Stort paket** – den här regeln utlöses om kameran identifierar enorma paket som inte kan kontrol leras för kvaliteten. 

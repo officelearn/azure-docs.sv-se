@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 0dd0b8cf39da8039b3a59bf243284e0d5062bd78
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675636"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965603"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -43,7 +43,7 @@ Du kanske vill köra ett experiment endast innehåller data uppsättning för at
  
 Före korrigeringen kan du ansluta data uppsättningen till en datatransformerings-modul (Välj kolumner i data uppsättning, redigera metadata, dela data osv.) och köra experimentet. Sedan kan du visualisera data uppsättningen. 
 
-Bilden nedan visar hur: ![visulize-data ](./media/resource-known-issues/aml-visualize-data.png)
+Bilden nedan visar hur: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Installations problem för SDK
 
@@ -73,7 +73,7 @@ Det gick inte att skapa bild när du distribuerar webb tjänsten. Lösning är a
 
 ## <a name="deployment-failure"></a>Distributions problem
 
-Om du ser `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>` ändrar du SKU: n för virtuella datorer som används i distributionen till en som har mer minne.
+Om du ser `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`ändrar du SKU: n för virtuella datorer som används i distributionen till en som har mer minne.
 
 ## <a name="fpgas"></a>FPGA:er
 
@@ -86,6 +86,16 @@ Den automatiska maskin inlärningen i styrkorts flöde stöder för närvarande 
 ### <a name="experiment-charts"></a>Experiment diagram
 
 Binära klassificerings diagram (precisions återkallning, ROC, kurva osv.) som visas i automatiserade ML experiment-iterationer återges inte korrekt i användar gränssnittet sedan 4/12. Diagram observationer visar för närvarande inversa resultat, där modeller med bättre prestanda visas med lägre resultat. En lösning är under undersökning.
+
+## <a name="datasets-and-data-preparation"></a>Data uppsättningar och förberedelse av data
+
+### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Det gick inte att läsa Parquet-filen från HTTP eller ADLS gen 2
+
+Det finns ett känt problem i AzureML nu SDK version 1.1.25 som orsakar ett fel när du skapar en data uppsättning genom att läsa Parquet-filer från HTTP eller ADLS gen 2. Åtgärda problemet genom att uppgradera till en högre version än 1.1.26 eller nedgradera till en lägre version än 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
 
 ## <a name="databricks"></a>Databricks
 
@@ -232,7 +242,7 @@ Här följer Azure ML-rekommendationer för att åtgärda några av de vanliga f
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (ingen modul med namnet)
 Om du kör i ModuleErrors när du skickar experiment i Azure ML, innebär det att utbildnings skriptet förväntar sig att ett paket ska installeras men inte läggs till. När du har angett paket namnet kommer Azure ML att installera paketet i den miljö som används för din utbildning. 
 
-Om du använder [uppskattningar](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file`or lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parameter.
+Om du använder [uppskattningar](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file`eller lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parameter.
 
 Azure ML tillhandahåller också Ramverks uppskattningar för Tensorflow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att Ramverks beroenden är installerade på din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
  

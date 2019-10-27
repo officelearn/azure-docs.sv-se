@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ab3971b4fb6065701d693debf55242be7b15295e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390704"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965964"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL Database
 
-Målet med hög tillgänglighets arkitekturen i Azure SQL Database är att garantera att databasen är igång och är igång 99,99% av tiden, utan att oroa dig över påverkan av underhålls åtgärder och avbrott. Azure hanterar automatiskt kritiska underhålls uppgifter, till exempel korrigeringar, säkerhets kopieringar, Windows-och SQL-uppgraderingar, samt oplanerade händelser som underliggande maskin vara, program vara eller nätverks fel.  När den underliggande SQL-instansen har korrigerats eller växlar över, märks inte stillestånds tiden om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Azure SQL Database kan snabbt återställas även under de mest kritiska omständigheterna för att se till att dina data alltid är tillgängliga.
+Målet med hög tillgänglighets arkitekturen i Azure SQL Database är att garantera att databasen är igång och är igång 99,99% av tiden, utan att oroa dig över påverkan av underhålls åtgärder och avbrott. Azure hanterar automatiskt kritiska underhålls uppgifter, till exempel korrigeringar, säkerhets kopieringar, Windows-och SQL-uppgraderingar, samt oplanerade händelser som underliggande maskin vara, program eller nätverks fel.  När den underliggande SQL-instansen har korrigerats eller växlar över, märks inte stillestånds tiden om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Azure SQL Database kan snabbt återställas även under de mest kritiska omständigheterna för att se till att dina data alltid är tillgängliga.
 
 Lösningen för hög tillgänglighet är utformad för att säkerställa att allokerade data aldrig går förlorade på grund av problem, att underhålls åtgärder inte påverkar din arbets belastning och att databasen inte är en enskild felpunkt i din program varu arkitektur. Det finns inga underhålls perioder som kräver att du stoppar arbets belastningen medan databasen uppgraderas eller underhålls. 
 
@@ -89,12 +89,14 @@ Zonens redundanta version av hög tillgänglighets arkitektur illustreras med f�
 
 [Accelererad databas återställning (ADR)](sql-database-accelerated-database-recovery.md) är en ny funktion i SQL Database Engine som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner. ADR är för närvarande tillgängligt för enskilda databaser, elastiska pooler och Azure SQL Data Warehouse.
 
-## <a name="testing-database-fault-resiliency"></a>Testar återhämtning av databas fel
+## <a name="testing-application-fault-resiliency"></a>Testa program Fels återhämtning
 
-Hög tillgänglighet är en fundamenental del av Azure SQL Database-plattformen och fungerar transparent för ditt databas program. Vi känner dock igen att du kanske vill testa hur de automatiska redundansväxlingen som initieras under planerade eller oplanerade händelser skulle påverka programmet innan du distribuerar det för produktion. Du kan anropa ett särskilt API för att starta om databasen eller den elastiska poolen, vilket i sin tur utlöser redundansväxlingen. I händelse av redundanta zoner eller elastiska pooler skulle API-anropet leda till omdirigering av klient anslutningarna till den nya primära i en annan AZ. Förutom att testa hur redundansväxlingen påverkar befintliga Databassessioner, kan du också kontrol lera om den påverkar prestanda från slut punkt till slut punkt. Eftersom omstarten är påträngande och ett stort antal av dem kan belasta plattformen, tillåts bara ett failover-anrop var 30: e minut för varje databas eller elastisk pool. Mer information finns i redundansväxling av [databasen](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) och [redundansväxlingen av elastisk pool](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
+Hög tillgänglighet är en grundläggande del av Azure SQL Database plattform som fungerar transparent för ditt databas program. Vi känner dock igen att du kanske vill testa hur de automatiska redundansväxlingen som initieras under planerade eller oplanerade händelser skulle påverka programmet innan du distribuerar det till produktion. Du kan anropa ett särskilt API för att starta om en databas eller en elastisk pool, vilket i sin tur utlöser en redundansväxling. I händelse av en redundant databas eller elastisk pool skulle API-anrop leda till omdirigering av klient anslutningar till den nya primära i en tillgänglighets zon som skiljer sig från tillgänglighets zonen för den gamla primära. Förutom att testa hur redundansväxlingen påverkar befintliga Databassessioner, kan du också kontrol lera om den ändrar prestandan från slut punkt till slut punkt på grund av ändringar i nätverks fördröjningen. Eftersom omstarten är påträngande och ett stort antal av dem kan stressa plattformen, är det bara ett failover-anrop som är tillåtet var 30: e minut för varje databas eller elastisk pool. 
+
+En redundansväxling kan initieras med hjälp av REST API eller PowerShell. För REST API, se redundansväxling av [databasen](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) och [redundans för elastisk pool](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover). För PowerShell, se [Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) och [Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover). REST API-anrop kan också göras från Azure CLI med kommandot [AZ rest](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest) .
 
 > [!IMPORTANT]
-> Redundans kommandot är för närvarande inte tillgängligt för Hypescale-databaser och hanterade instancses.  
+> Redundans kommandot är för närvarande inte tillgängligt i den storskaliga tjänst nivån och för en hanterad instans.
 
 ## <a name="conclusion"></a>Sammanfattning
 

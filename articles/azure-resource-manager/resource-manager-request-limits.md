@@ -4,15 +4,15 @@ description: Beskriver hur du använder begränsning med Azure Resource Manager 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/26/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 29d319541e92abfc52cb3f351aeaf50fc5d5687b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7d53e5749385499113d0dc5261398561d82347a0
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931849"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965555"
 ---
 # <a name="throttling-resource-manager-requests"></a>Begränsa Resource Manager-begäranden
 

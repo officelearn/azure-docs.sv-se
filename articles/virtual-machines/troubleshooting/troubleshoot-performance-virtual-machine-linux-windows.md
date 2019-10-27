@@ -1,5 +1,5 @@
 ---
-title: Allmän prestanda fel sökning för virtuella Azure-datorer som kör Linux eller Windows
+title: Felsöka prestanda för virtuella Azure-datorer i Linux eller Windows
 description: I den här artikeln beskrivs den virtuella datorn (VM) allmän prestanda fel sökning genom övervakning och övervakning av flask halsar och ger möjlighet till reparation av problem som kan uppstå.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790825"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965473"
 ---
-# <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Allmän prestandafelsökning för Azure-virtuella datorer som kör Linux eller Windows
+# <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Felsöka prestanda för virtuella Azure-datorer i Linux eller Windows
 
 I den här artikeln beskrivs den virtuella datorn (VM) allmän prestanda fel sökning genom övervakning och övervakning av flask halsar och ger möjlighet till reparation av problem som kan uppstå. Förutom övervakning kan du också använda Perfinsights som kan ge en rapport med bästa praxis rekommendationer och nyckel Flask halsar runt i/o/CPU/minne. Perfinsights är tillgängligt för virtuella [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) -datorer i Azure.
 

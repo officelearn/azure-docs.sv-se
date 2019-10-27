@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c1b507398a2edd839b610a7c52892e23a88481a0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3f866ff5e4266983117e93f2aab5982065947e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516606"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964391"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge runtime i Windows
 
@@ -76,9 +76,9 @@ Det här exemplet visar en manuell installation med Windows-behållare:
 
 1. Registrera en ny IoT Edge enhet och hämta **anslutnings strängen för enheten**om du inte redan gjort det. Kopiera anslutnings strängen och Använd den senare i det här avsnittet. Du kan utföra det här steget med följande verktyg:
 
-   * [Azure-portalen](how-to-register-device-portal.md)
-   * [Azure CLI](how-to-register-device-cli.md)
-   * [Visual Studio Code](how-to-register-device-vscode.md)
+   * [Azure-portalen](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Kör PowerShell som administratör.
 
@@ -123,7 +123,7 @@ Om du vill ha mer information om dessa installations alternativ kan du gå vidar
 
 I det här andra alternativet etablerar du enheten med hjälp av IoT Hub Device Provisioning Service. Ange **omfattnings-ID: t** från en enhets etablerings tjänst instans tillsammans med annan information som är speciell för den önskade [mekanismen för attestering](../iot-dps/concepts-security.md#attestation-mechanism):
 
-* [Skapa och etablera en simulerad TPM Edge-enhet i Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Skapa och etablera en simulerad IoT Edge enhet med en virtuell TPM i Windows](how-to-auto-provision-simulated-device-windows.md)
 * [Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering](how-to-auto-provision-symmetric-keys.md)
 
 När du installerar och etablerar en enhet automatiskt kan du använda ytterligare parametrar för att ändra installationen, inklusive:

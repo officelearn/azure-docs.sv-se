@@ -1,130 +1,128 @@
 ---
-title: Säkerhetskopiera och återställa en server i Azure Database för PostgreSQL – enskild Server
-description: Lär dig hur du säkerhetskopierar och återställer en server i Azure Database för PostgreSQL – enskild Server med hjälp av Azure CLI.
+title: Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL-enskild server
+description: Lär dig hur du säkerhetskopierar och återställer en server i Azure Database for PostgreSQL-enskild server med hjälp av Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 85fb00ad221ae982e4d3ddc9d2d5d20dd4f2793d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/25/2019
+ms.openlocfilehash: c1706f72f894baa7d07c49880a82dc96ef03d7cf
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069103"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965803"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database för PostgreSQL – enskild Server med Azure CLI
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL-enskild server med hjälp av Azure CLI
 
-## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
-Azure Database for PostgreSQL-servrar som säkerhetskopieras regelbundet för att aktivera funktioner för återställning. Med den här funktionen kan du återställa servern och dess databaser till en tidigare point-in-time, på en ny server.
+Azure Database for PostgreSQL servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Förutsättningar
-Du behöver följande för att slutföra den här guiden:
-- En [Azure Database for PostgreSQL-server och databas](quickstart-create-server-database-azure-cli.md)
+## <a name="prerequisites"></a>Krav
+För att slutföra den här instruktions guiden behöver du:
+- En [Azure Database for postgresql-server och-databas](quickstart-create-server-database-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
  
 
 > [!IMPORTANT]
-> Den här guiden kräver att du använder Azure CLI version 2.0 eller senare. För att bekräfta versionen på Azure CLI-kommandotolk och ange `az --version`. Om du vill installera eller uppgradera, se [installera Azure CLI]( /cli/azure/install-azure-cli).
+> Den här instruktions guiden kräver att du använder Azure CLI version 2,0 eller senare. Bekräfta versionen genom att ange `az --version`i kommando tolken för Azure CLI. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="set-backup-configuration"></a>Konfiguration av säkerhetskopiering
+## <a name="set-backup-configuration"></a>Ange konfiguration för säkerhets kopiering
 
-Du gör valet mellan att konfigurera servern för lokalt redundant säkerhetskopieringar eller geografiskt redundanta säkerhetskopieringar på servern har skapats. 
+Du väljer mellan att konfigurera servern för antingen lokalt redundanta säkerhets kopieringar eller geografiskt redundanta säkerhets kopieringar när servern skapas. 
 
 > [!NOTE]
-> När en server har skapats kan typ av redundans som den har kan geografiskt redundant eller lokalt redundant inte växlas.
+> När en server har skapats har den typ av redundans som den har, geografiskt redundant vs lokalt redundant, inte växlats.
 >
 
-När du skapar en server via den `az postgres server create` kommandot, den `--geo-redundant-backup` parametern avgör din redundansalternativ för säkerhetskopiering. Om `Enabled`, geo-redundanta säkerhetskopieringar tas. Eller om `Disabled` lokalt redundant säkerhetskopior tas. 
+När du skapar en server via `az postgres server create` kommandot, bestämmer `--geo-redundant-backup`-parametern ditt alternativ för redundans av säkerhets kopia. Om `Enabled`tas geo-redundanta säkerhets kopieringar. Eller om `Disabled` lokalt redundanta säkerhets kopieringar görs. 
 
-Kvarhållningsperioden för säkerhetskopior anges av parametern `--backup-retention-days`. 
+Kvarhållningsperioden för säkerhets kopior anges av parametern `--backup-retention-days`. 
 
-Mer information om hur du anger dessa värden under skapa finns i den [Azure Database for PostgreSQL-server CLI Snabbstart](quickstart-create-server-database-azure-cli.md).
+Mer information om hur du anger dessa värden under skapa finns i [snabb starten för Azure Database for postgresql server CLI](quickstart-create-server-database-azure-cli.md).
 
-Kvarhållningsperiod för en server kan ändras enligt följande:
+Du kan ändra kvarhållningsperioden för säkerhets kopior för en server på följande sätt:
 
 ```azurecli-interactive
 az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
-I föregående exempel ändras kvarhållningsperioden för säkerhetskopior av mydemoserver till 10 dagar.
+I föregående exempel ändras kvarhållningsperioden för säkerhets kopior på mydemoserver till 10 dagar.
 
-Kvarhållningsperioden för säkerhetskopior styr hur långt tillbaka i tiden som en point-in-time-återställning kan hämtas, eftersom den är baserad på säkerhetskopior som är tillgängliga. Point-in-time-återställning är beskrivs mer i nästa avsnitt.
+Kvarhållningsperioden för säkerhets kopior styr hur långt tillbaka i tiden en tidpunkts återställning kan hämtas, eftersom den baseras på tillgängliga säkerhets kopior. Återställning av tidpunkt för tidpunkt beskrivs ytterligare i nästa avsnitt.
 
-## <a name="server-point-in-time-restore"></a>Server point-in-time-återställning
-Du kan återställa servern till en tidigare tidpunkt. Återställda data har kopierats till en ny server och den befintliga servern lämnas skick. Till exempel kan en tabell ignoreras av misstag kl. tolv idag, du återställa tiden innan middagstid. Du kan sedan hämta saknas tabellen och data från den återställda kopian av servern. 
+## <a name="server-point-in-time-restore"></a>Återställning av Server-in-Time-återställning
+Du kan återställa servern till en tidigare tidpunkt. Återställda data kopieras till en ny server och den befintliga servern är kvar som den är. Om en tabell till exempel råkat släppas efter middag idag, kan du återställa till tiden strax före 12.00. Sedan kan du hämta den saknade tabellen och data från den återställda kopian av servern. 
 
-Använd Azure CLI för att återställa servern [az postgres server restore](/cli/azure/postgres/server) kommando.
+Om du vill återställa servern använder du kommandot Azure CLI [AZ postgres Server Restore](/cli/azure/postgres/server) .
 
-### <a name="run-the-restore-command"></a>Kör kommandot restore
+### <a name="run-the-restore-command"></a>Kör kommandot Restore
 
-Ange följande kommando om du vill återställa servern, Kommandotolken Azure CLI:
+Återställ servern genom att ange följande kommando i kommando tolken för Azure CLI:
 
 ```azurecli-interactive
 az postgres server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
 ```
 
-Den `az postgres server restore` kommandot kräver följande parametrar:
+Kommandot `az postgres server restore` kräver följande parametrar:
 
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
-| name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
-| restore-point-in-time | 2018-03-13T13:59:00Z | Markera en punkt i tiden att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601-format för datum och tid. Exempelvis kan du använda din egen lokala tidszon som `2018-03-13T05:59:00-08:00`. Du kan också använda UTC Zulu-formatet, till exempel `2018-03-13T13:59:00Z`. |
+| resource-group |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
+| namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| restore-point-in-time | 2018-03-13T13:59:00Z | Välj en tidpunkt då du vill återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601 datum-och tids format. Du kan till exempel använda din egen lokala tidszon som `2018-03-13T05:59:00-08:00`. Du kan också använda formatet UTC-Zulu, till exempel `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
 
-När du återställer en server till en tidigare tidpunkt, skapas en ny server. Den ursprungliga servern och dess databaser från den angivna tidpunkt kopieras till den nya servern.
+När du återställer en server till en tidigare tidpunkt skapas en ny server. Den ursprungliga servern och dess databaser från den angivna tidpunkten kopieras till den nya servern.
 
-Plats och prisnivåvärden för den återställda servern behåller den ursprungliga servern. 
+Plats-och pris nivå värden för den återställda servern förblir samma som den ursprungliga servern. 
 
-När återställningen är klar, leta upp den nya servern och kontrollera att data har återställts som förväntat.
+När återställnings processen har slutförts letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt då återställningen initierades. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
 
-Den nya servern som skapades under en återställning har inte de brandväggsregler som fanns på den ursprungliga servern. Brandväggsregler måste konfigureras separat för den här nya servern.
+Den nya servern som skapades under en återställning saknar de brand Väggs regler eller virtuella nätverks slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den här nya servern.
 
-## <a name="geo-restore"></a>GEO-återställning
-Om du har konfigurerat din server som geografiskt redundanta säkerhetskopieringar, kan en ny server skapas från en säkerhetskopia av den befintliga servern. Den här nya servern kan skapas i valfri region som Azure Database for PostgreSQL är tillgänglig.  
+## <a name="geo-restore"></a>Geo-återställning
+Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringar kan en ny server skapas från säkerhets kopian av den befintliga servern. Den nya servern kan skapas i vilken region som helst som Azure Database for PostgreSQL tillgänglig.  
 
-Använda Azure CLI för att skapa en server med en geo-redundant säkerhetskopia, `az postgres server georestore` kommando.
+Om du vill skapa en server med hjälp av en Geo-redundant säkerhets kopia använder du kommandot Azure CLI `az postgres server georestore`.
 
 > [!NOTE]
-> När en server skapas kanske det inte omedelbart tillgängliga för geo-återställning. Det kan ta några timmar innan den nödvändiga metadata fyllas i.
+> När en server först skapas kanske den inte är omedelbart tillgänglig för geo Restore. Det kan ta några timmar för nödvändiga metadata att fyllas i.
 >
 
-Ange följande kommando för att geo-återställa servern, Kommandotolken Azure CLI:
+För geo-återställning av servern, i kommando tolken för Azure CLI, anger du följande kommando:
 
 ```azurecli-interactive
 az postgres server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
 ```
-Det här kommandot skapar en ny server som kallas *mydemoserver georestored* i USA, östra som hör till *myresourcegroup*. Det är en generell användning, generation 4-server med 8 vCores. Servern skapas från geo-redundant säkerhetskopia av *mydemoserver*, som också är resursgruppen *myresourcegroup*
+Det här kommandot skapar en ny server med namnet *mydemoserver-långsiktig återställning* i östra USA som ska tillhöra *myresourcegroup*. Det är en Generell användning, gen 4-Server med 8 virtuella kärnor. Servern skapas från den geo-redundanta säkerhets kopieringen av *mydemoserver*, som också finns i resurs gruppen *myresourcegroup*
 
-Om du vill skapa den nya servern i en annan resursgrupp än den befintliga servern sedan i den `--source-server` parametern du kvalificerar servernamnet som i följande exempel:
+Om du vill skapa den nya servern i en annan resurs grupp än den befintliga servern, kvalificerar du Server namnet som i följande exempel i parametern `--source-server`:
 
 ```azurecli-interactive
 az postgres server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
 
 ```
 
-Den `az postgres server georestore` kommandot kräver följande parametrar:
+Kommandot `az postgres server georestore` kräver följande parametrar:
 
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-|resource-group| myresourcegroup | Namnet på resursgruppen som den nya servern ska tillhöra.|
-|name | mydemoserver georestored | Namnet på den nya servern. |
-|source-server | mydemoserver | Namnet på den befintliga servern vars geo-redundanta säkerhetskopieringar används. |
-|location | usaöstra | Platsen för den nya servern. |
-|sku-name| GP_Gen4_8 | Den här parametern anger prisnivå nivå, compute-generering och antal virtuella kärnor för den nya servern. GP_Gen4_8 mappas till en generell användning, generation 4-server med 8 vCores.|
+|resource-group| myresourcegroup | Namnet på den resurs grupp som den nya servern ska tillhöra.|
+|namn | mydemoserver – omåterställd | Namnet på den nya servern. |
+|source-server | mydemoserver | Namnet på den befintliga server vars geo-redundanta säkerhets kopieringar används. |
+|location | eastus | Platsen för den nya servern. |
+|sku-name| GP_Gen4_8 | Den här parametern anger pris nivån, beräknings genereringen och antalet virtuella kärnor för den nya servern. GP_Gen4_8 mappar till en Generell användning, gen 4-Server med 8 virtuella kärnor.|
 
+När du skapar en ny server med en geo-återställning ärver den samma lagrings storlek och pris nivå som käll servern. Dessa värden kan inte ändras när de skapas. När den nya servern har skapats kan dess lagrings storlek skalas upp.
 
->[!Important]
->När du skapar en ny server med en geo-återställning, ärver samma lagringsstorlek och prisnivå som källservern. Dessa värden kan inte ändras när du skapar. När den nya servern har skapats kan kan lagringsstorleken skalas upp.
+När återställnings processen har slutförts letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt då återställningen initierades. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
 
-När återställningen är klar, leta upp den nya servern och kontrollera att data har återställts som förväntat.
-
-Den nya servern som skapades under en återställning har inte de brandväggsregler som fanns på den ursprungliga servern. Brandväggsregler måste konfigureras separat för den här nya servern.
+Den nya servern som skapades under en återställning saknar de brand Väggs regler eller virtuella nätverks slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den här nya servern.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om tjänstens [säkerhetskopior](concepts-backup.md).
-- Läs mer om [affärskontinuitet](concepts-business-continuity.md) alternativ.
+- Läs mer om tjänstens [säkerhets kopior](concepts-backup.md)
+- Lär dig mer om [repliker](concepts-read-replicas.md)
+- Läs mer om alternativ för [affärs kontinuitet](concepts-business-continuity.md)

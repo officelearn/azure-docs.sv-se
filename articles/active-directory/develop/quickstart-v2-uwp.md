@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46b2ec4a790b5425d837d6a5530b8562ce85ca38
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: efe6946a3de2a95f15e017dbd65e2ec84cc2f2f3
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852777"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964075"
 ---
-# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
+# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
 
 Den här snabb starten innehåller ett kod exempel som visar hur ett Universell Windows-plattform-program (UWP) kan logga in användare med personliga konton eller arbets-och skol konton, hämta en åtkomsttoken och anropa Microsoft Graph API.
 
@@ -35,7 +35,7 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > [!div renderon="docs" class="sxs-lookup"]
 > Det finns två alternativ för att starta snabbstartsprogrammet:
 > * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
@@ -43,9 +43,9 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > 1. Ange ett namn för programmet och klicka på **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen med hjälp av följande steg:
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
@@ -56,18 +56,18 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 >      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)** .
 >      - Välj **Registrera** för att skapa programmet.
 > 1. I listan över sidor för appen väljer du **Autentisering**.
-> 1. Expandera avsnittet **Desktop +** Devices.  (Om **Station ära + enheter** inte visas klickar du först på översta banderollen för att Visa förhands gransknings upplevelsen)
-> 1. Under avsnittet omdirigerings- **URI** väljer du **Lägg till URI**.  Typ **urn: IETF: WG: OAuth: 2.0: OOB**.
+> 1. Expandera avsnittet **Desktop + Devices** .  (Om **Station ära + enheter** inte visas klickar du först på översta banderollen för att Visa förhands gransknings upplevelsen)
+> 1. Under avsnittet **omdirigerings-URI** väljer du **Lägg till URI**.  Typ **urn: IETF: WG: OAuth: 2.0: OOB**.
 > 1. Välj **Spara**.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
+> #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera programmet
 > För kodexemplet för den här snabbstarten måste du lägga till en omdirigerings-URI som **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-uwp/green-check.png) Programmet konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-uwp/green-check.png) Appen konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
@@ -77,7 +77,7 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 
 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
 1. Öppna projektet i Visual Studio. Du kan uppmanas att installera en UWP SDK. I så fall accepterar du.
-1. Redigera **mainpage.XAML.cs** och ersätt värdena för `ClientId` fältet:
+1. Redigera **mainpage.XAML.cs** och ersätt värdena i fältet `ClientId`:
 
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
@@ -87,13 +87,13 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.    
 
 > [!div renderon="docs"]
-> Där:
+> Var:
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 >
 > > [!TIP]
 > > Du hittar värdet för *program-ID*genom att gå till **översikts** avsnittet i portalen
 
-#### <a name="step-4-run-your-application"></a>Steg 4: Kör programmet
+#### <a name="step-4-run-your-application"></a>Steg 4: kör programmet
 
 Om du vill prova snabb starten på din Windows-dator:
 
@@ -129,7 +129,7 @@ PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Där: ||
+> |Var: ||
 > |---------|---------|
 > | `ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
 
@@ -151,13 +151,13 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Där:||
+> |Var:||
 > |---------|---------|
 > | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-Använd metoden för att hämta token för att få åtkomst till skyddade resurser `AcquireTokenInteractive` efter den första metoden. `AcquireTokenSilent` Du vill inte kräva att användaren validerar sina autentiseringsuppgifter varje gång de behöver åtkomst till en resurs. Det mesta av den tid som du vill ha token-förvärv och förnyelse utan användar interaktion
+Använd metoden `AcquireTokenSilent` om du vill hämta token för att få åtkomst till skyddade resurser efter den inledande `AcquireTokenInteractive`-metoden. Du vill inte kräva att användaren validerar sina autentiseringsuppgifter varje gång de behöver åtkomst till en resurs. Det mesta av den tid som du vill ha token-förvärv och förnyelse utan användar interaktion
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -166,7 +166,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Där: ||
+> |Var: ||
 > |---------|---------|
 > | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er |
 > | `firstAccount` | Anger det första användar kontot i cachen (MSAL stöder flera användare i en enda app) |

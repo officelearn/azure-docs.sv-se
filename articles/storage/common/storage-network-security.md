@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 908e44ef17dcfcf7042eab32cfd6d1fc3a565ac7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: af5b2a8c6894846ec529763f80c78bc50debabe6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927120"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965513"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage brand väggar och virtuella nätverk
 
@@ -358,11 +358,11 @@ Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerS
 
 ## <a name="exceptions"></a>Undantag
 
-Nätverks regler hjälper till att skapa en säker miljö för åtkomst mellan dina program och dina data för de flesta scenarier. Vissa program använder dock tjänster som inte kan isoleras unikt genom virtuella nätverks-eller IP-adress regler. Men sådana tjänster måste beviljas till lagrings kontot för att möjliggöra fullständig programfunktion. Du kan använda undantaget ***betrodda Microsoft-tjänster...*** undantag för att aktivera vissa åtkomst scenarier för dina data, loggar eller analyser.
+Nätverks regler hjälper till att skapa en säker miljö för anslutningar mellan dina program och dina data för de flesta scenarier. Vissa program använder dock tjänster som inte kan isoleras unikt genom virtuella nätverks-eller IP-adress regler. Men sådana tjänster måste beviljas till lagring för att möjliggöra fullständig program funktion. I sådana fall kan du använda inställningen ***Tillåt betrodda Microsoft-tjänster...*** för att ge åtkomst till dina data, loggar eller analyser.
 
 ### <a name="trusted-microsoft-services"></a>Betrodda Microsoft-tjänster
 
-Vissa Microsoft-tjänster som körs från nätverk kan inte beviljas åtkomst via befintliga nätverks regler. Du kan tillåta att en delmängd av dessa betrodda Microsoft-tjänster har åtkomst till lagrings kontot, samtidigt som du behåller nätverks regler för andra appar. Dessa tjänster kan sedan använda stark autentisering för att ansluta till ett lagrings konto. Vi aktiverar två typer av betrodd åtkomst för Microsoft-tjänster.
+Vissa Microsoft-tjänster körs från nätverk som inte kan ingå i dina nätverks regler. Du kan tillåta att en delmängd av dessa betrodda Microsoft-tjänster har åtkomst till lagrings kontot, samtidigt som du behåller nätverks regler för andra appar. Dessa tjänster kan sedan använda stark autentisering för att ansluta till ditt lagrings konto på ett säkert sätt. Vi aktiverar två typer av betrodd åtkomst för Microsoft-tjänster.
 
 - Resurser för vissa tjänster kan beviljas åtkomst för urvals åtgärder, till exempel skriva loggar eller för säkerhets kopiering.
 - En viss instans av vissa tjänster kan beviljas åtkomst genom att [tilldela en RBAC-roll](storage-auth-aad.md#assign-rbac-roles-for-access-rights) till resurs instansen.
@@ -384,7 +384,7 @@ När du aktiverar undantaget **betrodda Microsoft-tjänster...** undantag bevilj
 | Azure-nätverk         | Microsoft.Network          | Lagra och analysera nätverks trafik loggar. [Läs mer](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft. SiteRecovery     | Aktivera replikering för haveri beredskap för virtuella Azure IaaS-datorer när du använder brand Väggs-aktiverade cache-, käll-eller mål lagrings konton.  [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-Undantaget **betrodda Microsoft-tjänster...** ger vissa instanser av dessa tjänster åtkomst till lagrings kontot, om den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för instansen har tilldelats en RBAC-roll.
+Med undantaget **betrodda Microsoft-tjänster...** kan vissa instanser av dessa tjänster komma åt lagrings kontot, om den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för instansen har tilldelats en RBAC-roll.
 
 | Tjänst                  | Namn på resurs leverantör          | Syfte                            |
 | :----------------------- | :------------------------------ | :--------------------------------- |
@@ -396,7 +396,7 @@ Undantaget **betrodda Microsoft-tjänster...** ger vissa instanser av dessa tjä
 
 ### <a name="storage-analytics-data-access"></a>Åtkomst till Storage Analytics-data
 
-I vissa fall krävs åtkomst för att läsa diagnostikloggar och mät värden utanför nätverks gränserna. När du konfigurerar betrodda tjänster till lagrings kontot kan du tillåta Läs åtkomst för loggfiler, mått tabeller eller både och. [Lär dig mer om hur du arbetar med lagrings analys.](/azure/storage/storage-analytics)
+I vissa fall krävs åtkomst till läsa diagnostikloggar och mått utanför nätverks gränserna. När du konfigurerar betrodda tjänster till lagrings kontot kan du tillåta Läs åtkomst för loggfiler, mått tabeller eller både och. [Lär dig mer om hur du arbetar med lagrings analys.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>Hantera undantag
 

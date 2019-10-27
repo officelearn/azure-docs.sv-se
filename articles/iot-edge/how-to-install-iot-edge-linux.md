@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 9bc4d60eab0dac80d1b2b524f32bc506a66dee18
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: aca417ebbc6f9af80058ddece32842f38918ce60
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516676"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964765"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installera Azure IoT Edge runtime på Debian-baserade Linux-system
 
@@ -167,7 +167,7 @@ En enskild IoT Edge enhet kan tillhandahållas manuellt med hjälp av en enhets 
 
 ### <a name="option-1-manual-provisioning"></a>Alternativ 1: manuell etablering
 
-Om du vill etablera en enhet manuellt måste du tillhandahålla en [enhets anslutnings sträng](how-to-register-device-portal.md) som du kan skapa genom att registrera en ny enhet i IoT-hubben.
+Om du vill etablera en enhet manuellt måste du tillhandahålla en [enhets anslutnings sträng](how-to-register-device.md#register-in-the-azure-portal) som du kan skapa genom att registrera en ny enhet i IoT-hubben.
 
 Öppna konfigurations filen.
 

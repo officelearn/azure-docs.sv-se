@@ -1,6 +1,6 @@
 ---
-title: Konfigurera IoT Edge-enhet – Machine Learning på Azure IoT Edge | Microsoft Docs
-description: Konfigurera en Azure virtuell dator som kör Linux som en Azure IoT Edge-enhet som fungerar som en transparent gateway.
+title: Konfigurera IoT Edge enhet – Machine Learning på Azure IoT Edge | Microsoft Docs
+description: Konfigurera en virtuell Azure-dator som kör Linux som en Azure IoT Edge enhet som fungerar som en transparent Gateway.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,138 +8,138 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a2096004a7b389f627c528a8dfb4768ac001f390
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: b9f9fe78db2d8bcf50a076fdfc3eba7b1f347201
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155626"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965399"
 ---
-# <a name="tutorial-configure-an-iot-edge-device"></a>Självstudier: Konfigurera en IoT Edge-enhet
+# <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
 > [!NOTE]
-> Den här artikeln ingår i en serie med en självstudiekurs om hur du använder Azure Machine Learning på IoT Edge. Om du har hamnat på den här artikeln direkt, rekommenderar vi att du börja med den [först artikel](tutorial-machine-learning-edge-01-intro.md) i serien för bästa resultat.
+> Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
-I den här artikeln konfigurerar vi en Azure virtuell dator som kör Linux ska vara en Azure IoT Edge-enhet som fungerar som en transparent gateway. Transparent gateway-konfigurationen tillåter enheter att ansluta till Azure IoT Hub via gatewayen utan att känna till att gatewayen finns. En användare som interagerar med enheter i IoT Hub är ovetande om mellanliggande gateway-enheten på samma gång. Slutligen kan vi använda en transparent gateway att lägga till gränsanalyser i vårt system genom att lägga till IoT Edge-moduler till gatewayen.
+I den här artikeln konfigurerar vi en virtuell Azure-dator som kör Linux som en Azure IoT Edge-enhet som fungerar som en transparent Gateway. Med den transparenta Gateway-konfigurationen kan enheter ansluta till Azure IoT Hub via gatewayen utan att veta att gatewayen finns. På samma gång är en användare som interagerar med enheterna i IoT Hub inte medveten om den mellanliggande gateway-enheten. Slutligen använder vi den transparenta gatewayen för att lägga till Edge Analytics i vårt system genom att lägga till IoT Edge moduler till gatewayen.
 
-Stegen i den här artikeln är vanligtvis utförs av en utvecklare i molnet.
+Stegen i den här artikeln utförs vanligt vis av en molnbaserad utvecklare.
 
 ## <a name="generate-certificates"></a>Generera certifikat
 
-För en enhet ska fungera som en gateway krävs för att kunna ansluta säkert till efterföljande enheter. Azure IoT Edge kan du använda en public key infrastructure (PKI) för att konfigurera säkra anslutningar mellan enheter. I det här fallet vi så att en underordnad enhet att ansluta till en IoT Edge-enhet som fungerar som en transparent gateway. Om du vill skydda rimliga, bör underordnade enheten bekräfta identiteten på IoT Edge-enhet. Mer information om hur IoT Edge-enheter använder certifikat finns i [användningsinformation för Azure IoT Edge certifikat](iot-edge-certs.md).
+För att en enhet ska fungera som en gateway måste den kunna ansluta till underordnade enheter på ett säkert sätt. Med Azure IoT Edge kan du använda en PKI (Public Key Infrastructure) för att konfigurera säkra anslutningar mellan enheter. I det här fallet låter vi en underordnad enhet ansluta till en IoT Edge-enhet som fungerar som en transparent Gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta identiteten för den IoT Edge enheten. Mer information om hur IoT Edge enheter använder certifikat finns i avsnittet [information om Azure IoT Edge certifikat användning](iot-edge-certs.md).
 
-I det här avsnittet ska skapa vi självsignerade certifikat med hjälp av en Docker-avbildning som vi sedan skapar och kör. Vi har valt att använda en Docker-avbildning för att slutföra det här steget eftersom det avsevärt minskar antalet steg som behövs för att skapa certifikaten på Windows-utvecklingsdator. Se [generera certifikat med Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) för information om hur du genererar certifikat utan att använda en behållare. [Generera certifikat med Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) har uppsättning instruktioner som vi automatiserade med Docker-avbildningen.
+I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en Docker-avbildning som vi sedan skapar och kör. Vi valde att använda en Docker-avbildning för att slutföra det här steget, eftersom det betydligt minskade antalet steg som krävs för att skapa certifikaten på Windows Development-datorn. Se [generera certifikat med Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) för information om hur du skapar certifikaten utan att använda en behållare. [Skapa certifikat med Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) har den uppsättning instruktioner som vi har automatiserat med Docker-avbildningen.
 
-1. Logga in på en virtuell utvecklingsdator.
+1. Logga in på din virtuella utvecklings dator.
 
-2. Öppna Kommandotolken och kör följande kommando för att skapa en katalog på den virtuella datorn.
+2. Öppna en kommando tolk och kör följande kommando för att skapa en katalog på den virtuella datorn.
 
     ```cmd
     mkdir c:\edgeCertificates
     ```
 
-3. Starta **Docker för Windows** från Windows Start-menyn.
+3. Starta **Docker för Windows** från Start-menyn i Windows.
 
 4. Öppna Visual Studio Code.
 
-5. Välj **filen** > **Öppna mapp...**  och välj **C:\\källa\\IoTEdgeAndMlSample\\CreateCertificates**.
+5. Välj **fil** > **Öppna mapp...** och välj **C:\\källa\\IoTEdgeAndMlSample\\CreateCertificates**.
 
-6. Högerklicka på dockerfile och välj **Skapa avbildning**.
+6. Högerklicka på Dockerfile och välj **Bygg avbildning**.
 
-7. I dialogrutan godkänner du standardvärdet för avbildningsnamn och tagg: **createcertificates:latest**.
+7. I dialog rutan godkänner du standardvärdet för avbildningens namn och tagg: **createcertificates: senaste**.
 
-8. Vänta tills versionen att slutföra.
+8. Vänta tills skapandet har slutförts.
 
     > [!NOTE]
-    > Du kan se en varning för om en offentlig nyckel som saknas. Det är säkert att ignorera den här varningen. På samma sätt, visas en säkerhetsvarning som rekommenderar att du kontrollera/reset behörigheterna för din avbildning, där man kan ignorera för den här avbildningen.
+    > Du kan se en varning om en offentlig nyckel som saknas. Det är säkert att ignorera den här varningen. På samma sätt visas en säkerhets varning som rekommenderar att du kontrollerar/återställer behörigheter för din avbildning, vilket är säkert att ignorera för avbildningen.
 
-9. Kör behållaren createcertificates i terminalfönstret för Visual Studio Code.
+9. I terminalfönstret i Visual Studio Code kör du behållaren createcertificates.
 
     ```cmd
     docker run --name createcertificates --rm -v c:\edgeCertificates:/edgeCertificates createcertificates /edgeCertificates
     ```
 
-10. Docker efterfrågar åtkomst till den **c:\\**  enhet. Välj **dela den**.
+10. Docker kommer att uppmanas att få åtkomst till enheten **c:\\** . Välj **dela den**.
 
-11. Ange dina autentiseringsuppgifter när du tillfrågas.
+11. Ange dina autentiseringsuppgifter när du uppmanas till det.
 
-12. En gång i behållaren har slutförts kör, Sök efter följande filer i **c:\\edgeCertificates**:
+12. När behållaren har körts klart kontrollerar du att följande filer finns i **c:\\edgeCertificates**:
 
-    * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
-    * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
-    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pem
-    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
-    * c:\\edgeCertificates\\private\\new-edge-device.key.pem
+    * c:\\edgeCertificates\\certifikat\\Azure-IoT-test-Only. root. ca. cert. pem
+    * c:\\edgeCertificates\\certifikat\\New-Edge-Device-full-Chain. cert. pem
+    * c:\\edgeCertificates\\certifikat\\New-Edge-Device. cert. pem
+    * c:\\edgeCertificates\\certifikat\\New-Edge-Device. cert. pfx
+    * c:\\edgeCertificates\\privat\\New-Edge-Device. Key. pem
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Ladda upp certifikat till Azure Key Vault
 
-Att lagra vårt certifikat på ett säkert sätt och för att göra dem åtkomliga från flera enheter, kommer vi att överföra certifikat i Azure Key Vault. Du kan se i listan ovan, har vi två typer av certifikatfiler: PFX-filen och PEM. Vi behandlar den PFX-filen som Key Vault-certifikat som ska överföras till Key Vault. PEM-filer är oformaterad text och vi ska behandla dem som Key Vault-hemligheter. Vi kommer att använda det Nyckelvalv som är kopplade till arbetsytan för Azure Machine Learning-tjänsten som vi skapade genom att köra den [Azure anteckningsböcker](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+För att lagra våra certifikat säkert och för att göra dem tillgängliga från flera enheter laddar vi upp certifikaten till Azure Key Vault. Som du kan se i listan ovan har vi två typer av certifikatfiler: PFX och PEM. Vi kommer att behandla PFX-filen som Key Vault certifikat som ska överföras till Key Vault. PEM-filerna är oformaterad text och vi kommer att behandla dem som Key Vault hemligheter. Vi kommer att använda den Key Vault som är kopplad till arbets ytan Azure Machine Learning som vi skapade genom att köra [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
 
-1. Från den [Azure-portalen](https://portal.azure.com), navigera till din arbetsyta för Azure Machine Learning-tjänsten.
+1. Från [Azure Portal](https://portal.azure.com)navigerar du till Azure Machine Learning service-arbetsytan.
 
-2. På översiktssidan för arbetsytan Azure Machine Learning-tjänsten, hitta namnet på den **Key Vault**.
+2. På sidan Översikt i arbets ytan Azure Machine Learning tjänst hittar du namnet på **Key Vault**.
 
-    ![Kopiera key vault-namn](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
+    ![Kopiera nyckel valvs namn](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 
-3. Ladda upp certifikat till Key Vault på din utvecklingsdator. Ersätt **\<subscriptionId\>** och **\<keyvaultname\>** med information om dina resurser.
+3. Överför certifikaten till Key Vault på din utvecklings dator. Ersätt **\<subscriptionId\>** och **\<keyvaultname\>** med din resursinformation.
 
     ```powershell
     c:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1 -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
     ```
 
-4. Om du uppmanas logga in på Azure.
+4. Logga in på Azure om du uppmanas till det.
 
-5. Skriptet ska köras till några minuter med utdata som visar de nya Key Vault-posterna.
+5. Skriptet körs i några minuter med utdata som visar de nya Key Vault posterna.
 
-    ![Key Vault skriptutdata](media/tutorial-machine-learning-edge-05-configure-edge-device/key-vault-entries-output.png)
+    ![Key Vault skriptets utdata](media/tutorial-machine-learning-edge-05-configure-edge-device/key-vault-entries-output.png)
 
 ## <a name="create-iot-edge-device"></a>Skapa IoT Edge-enhet
 
-För att ansluta en Azure IoT Edge-enhet till IoT hub måste skapa vi först en identitet för enheten i hubben. Vi kan anslutningssträngen från enhetens identitet i molnet och använda den för att konfigurera körningen på vår IoT Edge-enhet. När enheten har konfigurerats och ansluter till hubben, kommer du att distribuera moduler och skicka meddelanden. Vi kan också ändra konfigurationen av den fysiska IoT Edge-enheten genom att ändra konfigurationen av motsvarande enhetsidentitet i IoT hub.
+För att ansluta en Azure IoT Edge-enhet till en IoT-hubb skapar vi först en identitet för enheten i hubben. Vi tar anslutnings strängen från enhetens identitet i molnet och använder den för att konfigurera körningen på vår IoT Edge-enhet. När enheten har kon figurer ATS och anslutits till hubben kan vi distribuera moduler och skicka meddelanden. Vi kan också ändra konfigurationen för den fysiska IoT Edge enheten genom att ändra konfigurationen för motsvarande enhets identitet i IoT Hub.
 
-I den här självstudiekursen skapar vi nya enhetens identitet med hjälp av Visual Studio Code. Du kan också utföra dessa steg med hjälp av den [Azure-portalen](how-to-register-device-portal.md), eller [Azure CLI](how-to-register-device-cli.md).
+I den här självstudien skapar vi den nya enhets identiteten med hjälp av Visual Studio Code. Du kan också utföra dessa steg med hjälp av [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)eller [Azure CLI](how-to-register-device.md#register-with-the-azure-cli).
 
-1. Öppna Visual Studio Code på din utvecklingsdator.
+1. Öppna Visual Studio Code på utvecklings datorn.
 
-2. Öppna den **Azure IoT Hub-enheter** bildruta från Utforskarvy för Visual Studio Code.
+2. Öppna ramen för **Azure IoT Hub-enheter** från Visual Studio Code Explorer-vyn.
 
-3. Klicka på knappen med tre punkter och välj **skapa IoT Edge-enhet**.
+3. Klicka på ellipsknappen och välj **skapa IoT Edge enhet**.
 
-4. Ge enheten ett namn. För enkelhetens skull använder vi **aaTurbofanEdgeDevice** så sorteras före alla klientenheter som vi skapade tidigare via en stomme för enheten att skicka testdata.
+4. Ge enheten ett namn. För enkelhetens skull använder vi **aaTurbofanEdgeDevice** så att de sorteras före alla klient enheter som vi skapade tidigare genom enhets nätet för att skicka test data.
 
-5. Den nya enheten visas i listan över enheter.
+5. Den nya enheten kommer att visas i listan över enheter.
 
     ![Visa nya aaTurbofanEdgeDevice i VS Code-Utforskaren](media/tutorial-machine-learning-edge-05-configure-edge-device/iot-hub-devices-list.png)
 
-## <a name="deploy-azure-virtual-machine"></a>Distribuera Azure-dator
+## <a name="deploy-azure-virtual-machine"></a>Distribuera virtuell Azure-dator
 
-Vi använder den [Azure IoT Edge på Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview) avbildning från Azure Marketplace för att skapa vår IoT Edge-enhet för den här självstudiekursen. Azure IoT Edge på Ubuntu-avbildning installerar den senaste Azure IoT Edge-körningen och dess beroenden vid start. Vi distribuera den virtuella datorn med hjälp av ett PowerShell-skript `Create-EdgeVM.ps1`; en Resource Manager-mall `IoTEdgeVMTemplate.json`; och ett kommandoskript `install packages.sh`.
+Vi använder [Azure IoT Edge på Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview) -avbildningen från Azure Marketplace för att skapa vår IoT Edge-enhet för den här självstudien. Azure IoT Edge avbildningen på Ubuntu installerar den senaste Azure IoT Edge-körningen och dess beroenden vid start. Vi distribuerar den virtuella datorn med ett PowerShell-skript `Create-EdgeVM.ps1`; en Resource Manager-mall, `IoTEdgeVMTemplate.json`; och ett gränssnitts skript `install packages.sh`.
 
-### <a name="enable-programmatic-deployment"></a>Aktivera programdistribution
+### <a name="enable-programmatic-deployment"></a>Aktivera program distribution
 
-Om du vill använda avbildningen från marketplace i en skriptdistribution, måste vi du aktivera programdistribution för avbildningen.
+Om du vill använda avbildningen från Marketplace i en skriptad distribution måste du aktivera program distribution för avbildningen.
 
 1. Logga in på Azure Portal.
 
 1. Välj **Alla tjänster**.
 
-1. Ange i sökfältet och välj **Marketplace**.
+1. Skriv och välj **Marketplace**i Sök fältet.
 
-1. Ange i sökfältet och välj **Azure IoT Edge på Ubuntu**.
+1. I Sök fältet skriver du och väljer **Azure IoT Edge på Ubuntu**.
 
-1. Välj den **vill distribuera via programmering? Kom igång** hyperlänk.
+1. Välj den **vill distribuera program mässigt? Kom igång** -hyperlänk.
 
-1. Välj den **aktivera** knappen sedan **spara**.
+1. Välj knappen **Aktivera** och sedan **Spara**.
 
-    ![Aktivera programdistribution för den virtuella datorn](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
+    ![Aktivera program distribution för virtuell dator](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
 
-1. Du ser ett meddelande om lyckad.
+1. Du ser ett meddelande som visar att det är klart.
 
 ### <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Kör skriptet för att skapa den virtuella datorn för din IoT Edge-enhet.
+Kör sedan skriptet för att skapa den virtuella datorn för din IoT Edge-enhet.
 
-1. Öppna ett PowerShell-fönster och navigera till den **EdgeVM** directory.
+1. Öppna ett PowerShell-fönster och gå till **EdgeVM** -katalogen.
 
     ```powershell
     cd c:\source\IoTEdgeAndMlSample\EdgeVM
@@ -151,60 +151,60 @@ Kör skriptet för att skapa den virtuella datorn för din IoT Edge-enhet.
     .\Create-EdgeVm.ps1
     ```
 
-3. När du uppmanas, anger du värden för varje parameter. För prenumeration använder resursgrupp och plats som vi rekommenderar att du samma som du har för alla resurser i den här självstudien.
+3. Ange värden för varje parameter när du uppmanas till det. För prenumeration, resurs grupp och plats rekommenderar vi att du använder samma som för alla resurser i den här självstudien.
 
-    * **Azure prenumerations-ID**: finns i Azure-portalen
-    * **Namn på resursgrupp**: lätt att komma ihåg namn för att gruppera resurserna för den här självstudiekursen
-    * **Plats**: Azure-plats där den virtuella datorn kommer att skapas. Till exempel usavästra2 eller europanorra. Mer information finns alla [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).
-    * **AdminUsername**: namnet på administratörskontot som du använder för att logga in på den virtuella datorn
-    * **AdminPassword**: lösenordet som angetts för AdminUsername på den virtuella datorn
+    * **ID för Azure-prenumeration**: hittades i Azure Portal
+    * **Resurs grupp namn**: minnes minnes namn för att gruppera resurserna i den här kursen
+    * **Plats**: Azure-plats där den virtuella datorn kommer att skapas. Till exempel westus2 eller europanorra. Mer information finns på alla [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).
+    * **AdminUsername**: namnet på det administratörs konto som du ska använda för att logga in på den virtuella datorn
+    * **AdminPassword**: lösen ordet som ska anges för AdminUsername på den virtuella datorn
 
-4. Du måste logga in på Azure med de autentiseringsuppgifter som är associerade med Azure-prenumeration som du använder för ett skript för att kunna konfigurera den virtuella datorn.
+4. För att skriptet ska kunna konfigurera den virtuella datorn måste du logga in på Azure med de autentiseringsuppgifter som är associerade med den Azure-prenumeration som du använder.
 
-5. Skriptet bekräftar information för att skapa den virtuella datorn. Välj **y** eller **RETUR** att fortsätta.
+5. Skriptet bekräftar informationen för att skapa den virtuella datorn. Välj **y** eller **RETUR** för att fortsätta.
 
-6. Skriptet körs i flera minuter som den utför följande steg:
+6. Skriptet körs i flera minuter eftersom det utför följande steg:
 
-    * Skapa resursgruppen om den inte redan finns
+    * Skapa resurs gruppen om den inte redan finns
     * Skapa den virtuella datorn
-    * Lägga till NSG-undantag för den virtuella datorn för portarna 22 (SSH), 5671 (AMQP), 5672 (AMPQ) och 443 (SSL)
-    * Installera den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest))
+    * Lägg till undantag för NSG för den virtuella datorn för port 22 (SSH), 5671 (AMQP), 5672 (AMPQ) och 443 (SSL)
+    * Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest))
 
-7. Skriptet matar ut SSH-anslutningssträng för att ansluta till den virtuella datorn. Kopiera anslutningssträngen för nästa steg.
+7. Skriptet matar ut SSH-anslutningssträngen för att ansluta till den virtuella datorn. Kopiera anslutnings strängen för nästa steg.
 
     ![Kopiera SSH-anslutningssträng för virtuell dator](media/tutorial-machine-learning-edge-05-configure-edge-device/vm-ssh-connection-string.png)
 
 ## <a name="connect-to-your-iot-edge-device"></a>Ansluta till din IoT Edge-enhet
 
-I nästa avsnitt för flera konfigurera Azure-dator som vi skapade. Det första steget är att ansluta till den virtuella datorn.
+De följande flera avsnitten konfigurerar den virtuella Azure-dator vi skapade. Det första steget är att ansluta till den virtuella datorn.
 
-1. Öppna en kommandotolk och klistra in SSH-anslutningssträng som du kopierade från utdata från skriptet. Ange din egen information användarnamn, suffix och region enligt de värden som du angav i PowerShell-skriptet i föregående avsnitt.
+1. Öppna en kommando tolk och klistra in SSH-anslutningssträngen som du kopierade från skriptets utdata. Ange din egen information för användar namn, suffix och region enligt de värden som du angav i PowerShell-skriptet i föregående avsnitt.
 
     ```cmd
     ssh -l <username> iotedge-<suffix>.<region>.cloudapp.azure.com
     ```
 
-2. När du uppmanas att verifiera värdens äkthet, skriver **Ja** och välj **RETUR**.
+2. När du uppmanas att validera värdens äkthet skriver du **Ja** och väljer **RETUR**.
 
-3. När du uppmanas, anger du ditt lösenord.
+3. Ange ditt lösen ord när du uppmanas till det.
 
-4. Ubuntu visar ett välkomstmeddelande och då bör du se ett meddelande liknande `<username>@<machinename>:~$`.
+4. Ubuntu visar ett välkomst meddelande och du bör se en prompt som `<username>@<machinename>:~$`.
 
-## <a name="download-key-vault-certificates"></a>Ladda ned Key Vault-certifikat
+## <a name="download-key-vault-certificates"></a>Ladda ned Key Vault certifikat
 
-Tidigare i den här artikeln ska överföra vi certifikat till Key Vault för att göra dem tillgängliga för våra IoT Edge-enhet och våra löv-enheten, vilket är en underordnad enhet som använder IoT Edge-enhet som en gateway för att kommunicera med IoT Hub. Vi kommer omfattar löv enheten senare under kursen. Hämta certifikaten till IoT Edge-enheten i det här avsnittet.
+Tidigare i den här artikeln laddade vi upp certifikat till Key Vault för att göra dem tillgängliga för vår IoT Edge-enhet och vår löv enhet, som är en underordnad enhet som använder den IoT Edge enheten som en gateway för att kommunicera med IoT Hub. Vi kommer att hantera löv enheten senare i självstudien. I det här avsnittet laddar du ned certifikaten till den IoT Edge enheten.
 
-1. Från SSH-session på Linux-dator att logga in på Azure med Azure CLI.
+1. Från SSH-sessionen på den virtuella Linux-datorn loggar du in på Azure med Azure CLI.
 
     ```bash
     az login
     ```
 
-1. Du uppmanas att öppna en webbläsare till <https://microsoft.com/devicelogin> och ange en unik kod. Du kan utföra dessa steg på den lokala datorn. Stäng webbläsarfönstret när du är klar autentiseras.
+1. Du uppmanas att öppna en webbläsare för att <https://microsoft.com/devicelogin> och ange en unik kod. Du kan utföra de här stegen på den lokala datorn. Stäng webbläsarfönstret när du är klar med autentiseringen.
 
-1. När du har autentiserar Linux VM logga in och visa dina Azure-prenumerationer.
+1. När du har autentiserat loggas den virtuella Linux-datorn in och du får en lista över dina Azure-prenumerationer.
 
-1. ASet Azure-prenumerationen som du vill använda för Azure CLI-kommandon.
+1. ASet den Azure-prenumeration som du vill använda för Azure CLI-kommandon.
 
     ```bash
     az account set --subscription <subscriptionId>
@@ -216,7 +216,7 @@ Tidigare i den här artikeln ska överföra vi certifikat till Key Vault för at
     sudo mkdir /edgeMlCertificates
     ```
 
-1. Ladda ned de certifikat som du har lagrat i nyckelvalvet: nya-edge-enhet-full-chain.cert.pem, nya edge device.key.pem och azure-iot-test-only.root.ca.cert.pem
+1. Hämta de certifikat som du har lagrat i nyckel valvet: New-Edge-Device-full-Chain. cert. PEM, New-Edge-Device. Key. pem och Azure-IoT-test-Only. root. ca. cert. pem
 
     ```bash
     key_vault_name="<key vault name>"
@@ -225,35 +225,35 @@ Tidigare i den här artikeln ska överföra vi certifikat till Key Vault för at
     sudo az keyvault secret download --vault-name $key_vault_name --name azure-iot-test-only-root-ca-cert-pem -f /edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem
     ```
 
-## <a name="update-the-iot-edge-device-configuration"></a>Uppdatera konfigurationen av IoT Edge-enhet
+## <a name="update-the-iot-edge-device-configuration"></a>Uppdatera IoT Edge enhets konfiguration
 
-IoT Edge-körningen använder filen /etc/iotedge/config.yaml för att spara konfigurationen. Vi behöver uppdatera tre typer av information i den här filen:
+Den IoT Edge körningen använder filen/etc/iotedge/config.yaml för att spara konfigurationen. Vi måste uppdatera tre delar av informationen i den här filen:
 
-* **Enhetens anslutningssträng**: anslutningssträngen från den här enhetens identitet i IoT Hub
-* **Certifikat:** de certifikat som kan användas för anslutningar med efterföljande enheter
-* **Värdnamn:** VM IoT Edge-enheten fullständigt kvalificerade domännamnet (FQDN).
+* **Enhets anslutnings sträng**: anslutnings strängen från den här enhetens identitet i IoT Hub
+* **Certifikat:** certifikat som ska användas för anslutningar som görs med underordnade enheter
+* **Värdnamn:** det fullständigt kvalificerade domän namnet (FQDN) för den virtuella datorns IoT Edge enhet.
 
-Den *Azure IoT Edge på Ubuntu* avbildning som vi använde för att skapa den virtuella datorn IoT-Edge levereras med ett kommandoskript som uppdaterar config.yaml med anslutningssträngen.
+Den *Azure IoT Edge på Ubuntu* -avbildningen som vi använde för att skapa IoT Edge virtuella datorn levereras med ett gränssnitts skript som uppdaterar config. yaml med anslutnings strängen.
 
-1. I Visual Studio Code högerklickar du på IoT Edge-enheten och välj sedan **kopia enhetens anslutningssträng**.
+1. Högerklicka på den IoT Edge enheten i Visual Studio Code och välj sedan **Kopiera enhets anslutnings sträng**.
 
-    ![Kopiera anslutningssträngen från Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/copy-device-connection-string-command.png)
+    ![Kopiera anslutnings sträng från Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/copy-device-connection-string-command.png)
 
-2. Kör kommandot för att uppdatera filen config.yaml med enhetens anslutningssträng i SSH-sessionen.
+2. Kör kommandot i SSH-sessionen för att uppdatera filen config. yaml med enhets anslutnings strängen.
 
     ```bash
     sudo /etc/iotedge/configedge.sh "<your_iothub_edge_device_connection_string>"
     ```
 
-Vi kan sedan uppdatera certifikat och värdnamnet genom att redigera config.yaml.
+Nu ska vi uppdatera certifikaten och värd namnet genom att redigera filen config. yaml direkt.
 
-1. Öppna filen config.yaml.
+1. Öppna filen config. yaml.
 
     ```bash
     sudo nano /etc/iotedge/config.yaml
     ```
 
-2. Uppdatera certifikat-avsnittet i config.yaml genom att ta bort ledande `#` och ange sökvägen så att fil som ser ut som i följande exempel:
+2. Uppdatera avsnittet certifikat i config. yaml genom att ta bort det inledande `#` och ange sökvägen så att filen ser ut som i följande exempel:
 
     ```yaml
     certificates:
@@ -262,33 +262,33 @@ Vi kan sedan uppdatera certifikat och värdnamnet genom att redigera config.yaml
       trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-    Kontrollera att den ”certifikat”: inte har någon föregående blanksteg och att var och en av certifikat som föregås av två blanksteg.
+    Se till att "certifikat:" inte har något föregående blank steg och att vart och ett av certifikaten föregås av två blank steg.
 
-    Att högerklicka i nano, klistra in innehållet i Urklipp till den aktuella pekarpositionen. Använd ditt tangentbord pilarna för att navigera till strängen som du vill ersätta, ta bort strängen för att ersätta strängen och högerklicka för att klistra in från bufferten.
+    Om du högerklickar på nano klistras innehållet i Urklipp till den aktuella markör positionen. Om du vill ersätta strängen använder du piltangenterna för att navigera till den sträng som du vill ersätta, tar bort strängen och högerklickar sedan för att klistra in från bufferten.
 
-3. Navigera till den virtuella datorn i Azure-portalen. Kopiera DNS-namn (FQDN för datorn) från den **översikt** avsnittet.
+3. I Azure Portal navigerar du till den virtuella datorn. Kopiera DNS-namnet (FQDN för datorn) från **översikts** avsnittet.
 
-4. Klistra in det fullständiga Domännamnet i avsnittet värdnamnet i config.yml. Kontrollera att namnet är små bokstäver.
+4. Klistra in FQDN i hostname-avsnittet i filen config. yml. Kontrol lera att namnet är gemener.
 
     ```yaml
     hostname: '<machinename>.<region>.cloudapp.azure.com'
     ```
 
-5. Spara och stäng filen (`Ctrl + X`, `Y`, `Enter`).
+5. Spara och Stäng filen (`Ctrl + X`, `Y`, `Enter`).
 
-6. Starta om daemon iotedge.
+6. Starta om iotedge daemon.
 
     ```bash
     sudo systemctl restart iotedge
     ```
 
-7. Kontrollera status för IoT Edge-Daemon (efter kommandot, skriver du ”: frågor och” avsluta).
+7. Kontrol lera status för IoT Edge daemon (efter kommandot skriver du ": q" för att avsluta).
 
     ```bash
     systemctl status iotedge
     ```
 
-8. Om du får felmeddelanden (färgas text med prefixet ”\[fel\]”) i status granska daemon loggarna för Detaljerad felinformation.
+8. Om du ser fel (färgad text som föregås av "\[fel\]") i status granska daemon-loggar för detaljerad fel information.
 
     ```bash
     journalctl -u iotedge --no-pager --no-full
@@ -296,9 +296,9 @@ Vi kan sedan uppdatera certifikat och värdnamnet genom att redigera config.yaml
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi klar är att konfigurera en Azure virtuell dator som Transparent Gateway för Azure IoT Edge. Vi igång genom att generera testcertifikat som vi laddade upp till Azure Key Vault. Nu ska vi använde ett skript och Resource Manager-mall för att distribuera den virtuella datorn med ”Ubuntu Server 16.04 LTS + Azure IoT Edge-körningen” avbildning från Azure marketplace. Skriptet tog extra steg för att installera Azure CLI ([installera Azure CLI med apt](https://docs.microsoft.com/cli/azure/install-azure-cli-apt)). Med den virtuella datorn upp och körs vi är anslutna via SSH, loggat in på Azure, ned certifikat från Key Vault och gjort flera uppdateringar genom att uppdatera filen config.yaml konfigurationen av IoT Edge-körningen. Mer information om hur du använder IoT Edge som en gateway finns i [hur en IoT Edge-enhet kan användas som en gateway](iot-edge-as-gateway.md). Mer information om hur du konfigurerar en IoT Edge-enhet som en transparent gateway finns i [konfigurera en IoT Edge-enhet kan fungera som en transparent gateway](how-to-create-transparent-gateway.md).
+Vi har precis slutfört konfigurationen av en virtuell Azure-dator som Azure IoT Edge transparent Gateway. Vi startade genom att generera test certifikat, som vi laddade upp till Azure Key Vault. Därefter använde vi en skript-och Resource Manager-mall för att distribuera den virtuella datorn med avbildningen "Ubuntu Server 16,04 LTS + Azure IoT Edge runtime" från Azure Marketplace. Skriptet tog det extra steget för att installera Azure CLI ([Installera Azure CLI med apt](https://docs.microsoft.com/cli/azure/install-azure-cli-apt)). Med den virtuella datorn igång via SSH är du inloggad på Azure, hämtat certifikat från Key Vault och gjort flera uppdateringar i konfigurationen av IoT Edge runtime genom att uppdatera filen config. yaml. Mer information om hur du använder IoT Edge som en gateway finns i [hur en IoT Edge enhet kan användas som en gateway](iot-edge-as-gateway.md). Mer information om hur du konfigurerar en IoT Edge enhet som en transparent Gateway finns i [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
 
-Fortsätt till nästa artikel för att skapa IoT Edge-moduler.
+Fortsätt till nästa artikel för att bygga IoT Edge moduler.
 
 > [!div class="nextstepaction"]
 > [Skapa och distribuera anpassade IoT Edge-moduler](tutorial-machine-learning-edge-06-custom-modules.md)

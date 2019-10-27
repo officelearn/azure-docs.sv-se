@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2019
 ms.author: kumud
-ms.openlocfilehash: 47f73ca8ece8db5fad3f8a7709d8787db42626f4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 907a6de2ff89ddd3c2cb5bdab67e1deb984141dc
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791187"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965237"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Uppgradera ett IPv4-program till IPv6 i Azure Virtual Network – PowerShell (för hands version)
 
-Den här artikeln visar hur du lägger till IPv6-adresser i ett program som använder IPv4 offentlig IP-adress i ett virtuellt Azure-nätverk för en Standard Load Balancer. Uppgradering på plats innehåller ett virtuellt nätverk och undernät, en Standard Load Balancer med konfigurationer för IPv4 + IPV6-klient, virtuella datorer med nätverkskort som har en IPv4 + IPv6-konfiguration, nätverks säkerhets grupp och offentliga IP-adresser.
+Den här artikeln visar hur du lägger till IPv6-anslutning till ett befintligt IPv4-program i ett virtuellt Azure-nätverk med en Standard Load Balancer och en offentlig IP-adress. Uppgradering på plats innehåller:
+- IPv6-adressutrymme för det virtuella nätverket och under nätet
+- en Standard Load Balancer med konfigurationer för både IPv4-och IPV6-frontend
+- Virtuella datorer med nätverkskort som har både en IPv4 + IPv6-konfiguration
+- IPv offentliga IP-adress så att belastningsutjämnaren har Internet-riktad IPv6-anslutning
 
 > [!Important]
 > IPv6-stöd för Azure Virtual Network är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -31,7 +35,7 @@ Den här artikeln visar hur du lägger till IPv6-adresser i ett program som anv�
 
 Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell module version 6.9.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="register-the-service"></a>Registrera tjänsten
 
@@ -81,7 +85,7 @@ Skapa en offentlig IPv6-adress med [New-AzPublicIpAddress](/powershell/module/az
 
 ## <a name="configure-load-balancer-frontend"></a>Konfigurera frontend-frontend för belastnings utjämning
 
-Hämta den befintliga belastnings Utjämnings konfigurationen och konfigurera den sedan med den nya IPv6-IP-adressen med hjälp av [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/Add-AzLoadBalancerFrontendIpConfig) enligt följande:
+Hämta den befintliga belastnings Utjämnings konfigurationen och Lägg sedan till den nya IPv6-IP-adressen med hjälp av [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/Add-AzLoadBalancerFrontendIpConfig) enligt följande:
 
 ```azurepowershell
 # Retrieve the load balancer configuration
@@ -124,7 +128,7 @@ $lb | Set-AzLoadBalancer
 ```
 ## <a name="add-ipv6-address-ranges"></a>Lägg till IPv6-adressintervall
 
-Lägg till IPv6-adressintervall till det virtuella nätverket och under nätet som är värd för belastningsutjämnaren enligt följande:
+Lägg till IPv6-adressintervall till det virtuella nätverket och under nätet som är värd för de virtuella datorerna enligt följande:
 
 ```azurepowershell
 #Add IPv6 ranges to the VNET and subnet
@@ -145,7 +149,7 @@ $vnet |  Set-AzVirtualNetwork
 ```
 ## <a name="add-ipv6-configuration-to-nic"></a>Lägg till IPv6-konfiguration till NIC
 
-Konfigurera båda nätverkskorten för virtuella datorer med en IPv6-adress med hjälp av [Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/Add-AzNetworkInterfaceIpConfig) enligt följande:
+Konfigurera alla nätverkskort för virtuella datorer med en IPv6-adress med hjälp av [Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/Add-AzNetworkInterfaceIpConfig) enligt följande:
 
 ```azurepowershell
 
@@ -185,4 +189,4 @@ Remove-AzResourceGroup -Name MyAzureResourceGroupSLB
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du uppdaterat en befintlig Standard Load Balancer med en IP-konfiguration för IPv4-frontend till en konfiguration med dubbla stackar (IPv4 och IPv6). Du har också lagt till IPv6-konfigurationer till nätverkskorten för de virtuella datorerna i backend-poolen. Mer information om IPv6-stöd i Azure Virtual Networks finns i [Vad är IPv6 för Azure Virtual Network?](ipv6-overview.md)
+I den här artikeln har du uppdaterat en befintlig Standard Load Balancer med en IP-konfiguration för IPv4-frontend till en konfiguration med dubbla stackar (IPv4 och IPv6). Du har också lagt till IPv6-konfigurationer till nätverkskorten för de virtuella datorerna i backend-poolen och till de Virtual Network som är värdar för dem. Mer information om IPv6-stöd i Azure Virtual Networks finns i [Vad är IPv6 för Azure Virtual Network?](ipv6-overview.md)

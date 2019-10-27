@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
-ms.openlocfilehash: 2d00ccdeb89ba5d983e4a3e089e78a8d748e4092
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8254a7d86d5cadc2ddc03940f4ab2d08de74bd86
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597958"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965180"
 ---
 # <a name="reserved-public-ipv6-address-prefix-preview"></a>Reserverat offentligt IPv6-adressprefix (för hands version)
 
@@ -46,7 +46,7 @@ Prefixlängden anges som en CIDR-mask storlek (Classless Inter-Domain routing). 
 För kostnader som är kopplade till användning av offentliga Azure-IP-adresser, både enskilda IP-adresser och IP-intervall, se [priser för offentliga IP](https://azure.microsoft.com/pricing/details/ip-addresses/)-adresser
 
 ## <a name="limitations"></a>Begränsningar
-IPv6 stöds endast på offentliga offentliga IP-adresser med "dynamisk" tilldelning, vilket innebär att IPv6-adressen ändras om du tar bort och distribuerar om ditt program (VM eller belastningsutjämnare) i Azure. Endast standard-offentliga IP-adresser stöder både dynamisk och statisk (reserverad) allokering.
+IPv6 stöds endast på offentliga offentliga IP-adresser med "dynamisk" tilldelning, vilket innebär att IPv6-adressen ändras om du tar bort och distribuerar om ditt program (VM eller belastningsutjämnare) i Azure. Standardvärdet för offentliga IPv6-IP-adresser är endast statisk (reserverad) allokering, och interna standardbelastningsutjämnare kan också stödja dynamisk allokering från det undernät som de är tilldelade till.  
 
 Som bästa praxis rekommenderar vi att du använder standard offentliga IP-adresser och standardbelastningsutjämnare för dina IPv6-program.
 

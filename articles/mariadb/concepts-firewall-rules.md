@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/22/2019
-ms.openlocfilehash: 89c4bce33b80e988a9da363a89854e921bee30b0
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/25/2019
+ms.openlocfilehash: 82e07edc615fd8c1ef0ebc84cf57035727bbcdf6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973662"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965249"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database for MariaDB Server brand Väggs regler
 Brand väggar förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
@@ -43,15 +43,18 @@ Om du vill tillåta att program från Azure ansluter till din Azure Database for
 
 ![Konfigurera Tillåt åtkomst till Azure-tjänster i portalen](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>Ansluta från ett virtuellt nätverk
+Överväg att använda [VNet-tjänstens slut punkter](./concepts-data-access-security-vnet.md)för att ansluta säkert till din Azure Database for MariaDB-Server från ett VNet. 
+
 ## <a name="programmatically-managing-firewall-rules"></a>Hantera brandväggsregler via programmering
 Förutom Azure Portal kan brand Väggs regler hanteras program mässigt med hjälp av Azure CLI. 
 
-<!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
+Se även [skapa och hantera Azure Database for MariaDB brand Väggs regler med hjälp av Azure CLI](./howto-manage-firewall-cli.md).
 
 ## <a name="troubleshooting-firewall-issues"></a>Felsöka brand Väggs problem
 Tänk på följande när åtkomst till Microsoft Azure databasen för MariaDB-Server tjänsten inte fungerar som förväntat:
 
-* **Ändringar i listan över tillåtna har inte börjat att fungera än:** Det kan uppstå en fördröjning på upp till fem minuter innan ändringar i brandväggskonfigurationen för Azure Database for MariaDB Server börjar gälla.
+* **Ändringar i listan över tillåtna har inte börjat att fungera än:** Det kan finnas en fördröjning på fem minuter för ändringar i Azure Database for MariaDB serverns brand Väggs konfiguration som börjar gälla.
 
 * **Inloggningen är inte auktoriserad eller så användes ett felaktigt lösen ord:** Om en inloggning inte har behörighet på Azure Database for MariaDB-servern eller om det lösen ord som används är felaktigt nekas anslutningen till Azure Database for MariaDB-servern. En brandväggsinställning ger endast klienter möjlighet att försöka ansluta till din server. Varje klient måste fortfarande ange nödvändiga säkerhetsreferenser.
 
@@ -61,10 +64,9 @@ Tänk på följande när åtkomst till Microsoft Azure databasen för MariaDB-Se
 
    * Använd statisk IP-adressering i stället för dina klientdatorer och lägg sedan till IP-adresserna som brandväggsregler.
 
-* **Serverns IP-adress verkar vara offentlig:** Anslutningar till Azure Database for MariaDB-servern dirigeras via en offentligt tillgänglig Azure-gateway. Den faktiska server-IP-adressen skyddas dock av brandväggen. Mer information finns i [artikeln om anslutningsarkitektur](concepts-connectivity-architecture.md). 
+* **Serverns IP-adress verkar vara offentlig:** Anslutningar till Azure Database for MariaDB-servern dirigeras via en offentligt tillgänglig Azure-Gateway. Den faktiska server-IP-adressen skyddas dock av brandväggen. Mer information finns i [artikeln om anslutningsarkitektur](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa och hantera Azure Database for MariaDB brand Väggs regler med hjälp av Azure Portal](./howto-manage-firewall-portal.md)
-
-<!--
-- [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md) -->
+- [Skapa och hantera Azure Database for MariaDB brand Väggs regler med hjälp av Azure CLI](./howto-manage-firewall-cli.md)
+- [VNet-tjänstens slut punkter i Azure Database for MariaDB](./concepts-data-access-security-vnet.md)

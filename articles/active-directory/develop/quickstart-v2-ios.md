@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dce3fea1427632f37d826b79016e3aa3e22dad5f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: a96aab3fc5dfa62039732f7860f1e96e3f60e445
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264167"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964041"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabb start: Logga in användare och anropa Microsoft Graph API från en iOS-eller macOS-app
 
@@ -62,7 +62,7 @@ Den här snabb starten gäller både iOS-och macOS-appar. Vissa steg behövs bar
 >      - I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användarna av appen när de loggar in eller medgivande till din app.
 >      - Hoppa över andra konfigurationer på den här sidan.
 >      - Välj `Register`.
-> 1. I avsnittet **Hantera** väljer du `Authentication` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5.
+> 1. I avsnittet **Hantera** väljer du `Authentication` > `Add Platform` > `iOS`.
 >      - Ange ***paket-ID*** : t för ditt program. Paket-ID: t är bara en unik sträng som unikt identifierar ditt program, till exempel `com.<yourname>.identitysample.MSALMacOS`. Anteckna värdet du använder.
 >      - Observera att iOS-konfigurationen även gäller för macOS-program.
 > 1. Välj `Configure` och spara ***konfigurations*** informationen för MSAL för senare i den här snabb starten.
@@ -250,7 +250,7 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 
 > |Var:||
 > |---------|---------|
-> | `scopes` | Innehåller de omfattningar som begärs (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (`api://<Application ID>/access_as_user`) |
+> | `scopes` | Innehåller de omfattningar som begärs (`[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (`api://<Application ID>/access_as_user`) |
 
 #### <a name="acquiretokensilent-get-an-access-token-silently"></a>acquireTokenSilent: Hämta en åtkomsttoken tyst
 
@@ -265,7 +265,7 @@ self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error
 
 > |Var: ||
 > |---------|---------|
-> | `scopes` | Innehåller de omfattningar som begärs (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (`api://<Application ID>/access_as_user`) |
+> | `scopes` | Innehåller de omfattningar som begärs (`[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (`api://<Application ID>/access_as_user`) |
 > | `account` | Det konto som en token begärs för. Den här snabb starten är ungefär samma konto program. Om du vill skapa en app med flera konton måste du definiera logik för att identifiera vilket konto som ska användas för Tokenbegäran med `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## <a name="next-steps"></a>Nästa steg

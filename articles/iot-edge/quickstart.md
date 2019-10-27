@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0c397ca630dffb7671f84919c1e86cbcef645572
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8264030593a1e44b2a50d9f95dce925136eb4d26
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873619"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965991"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en virtuell Windows-enhet
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
 Testa Azure IoT Edge i den här snabb starten genom att distribuera container kod till en virtuell IoT Edge-enhet. Med IoT Edge kan du fjärrhantera kod på dina enheter så att du kan skicka fler arbets belastningar till gränsen. I den här snabb starten rekommenderar vi att du använder en virtuell Azure-dator för din IoT Edge-enhet, vilket gör att du snabbt kan skapa en test dator, installera nödvändiga komponenter och sedan ta bort den när du är klar. 
 
@@ -43,7 +43,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Molnresurser:
 
@@ -67,7 +67,7 @@ IoT Edge-enhet:
   1. Välj **Anslut**.
   1. På fliken **RDP** väljer du **Ladda ned RDP-fil**.
 
-  Öppna den här filen med anslutning till fjärrskrivbord för att ansluta till din virtuella Windows-dator med hjälp av det administratörs namn `az vm create` och lösen ord som du angav med kommandot.
+  Öppna den här filen med Anslutning till fjärrskrivbord för att ansluta till din virtuella Windows-dator med hjälp av det administratörs namn och lösen ord som du angav med kommandot `az vm create`.
 
 
 > [!NOTE]
@@ -137,7 +137,7 @@ Stegen i det här avsnittet utförs på din IoT Edge-enhet, så du vill ansluta 
 
 Använd PowerShell för att ladda ned och installera IoT Edge-körningen. Använd den enhetsanslutningssträng som du hämtade från IoT Hub för att konfigurera din enhet.
 
-1. Om du inte redan har gjort det följer du stegen i [Registrera en ny Azure IoT Edge enhet](how-to-register-device-portal.md) för att registrera enheten och hämta anslutnings strängen för enheten. 
+1. Om du inte redan har gjort det följer du stegen i [Registrera en ny Azure IoT Edge enhet](how-to-register-device.md) för att registrera enheten och hämta anslutnings strängen för enheten.
 
 2. Kör PowerShell som administratör.
 

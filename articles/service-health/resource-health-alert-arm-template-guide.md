@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0948edec05b97dd604393218e3eeb3302548af82
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099015"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933559"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resurs hälso aviseringar med Resource Manager-mallar
 
@@ -24,14 +24,14 @@ Azure Resource Health håller dig informerad om aktuella och historiska hälso s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa instruktionerna på den här sidan måste du konfigurera några saker i förväg:
 
 1. Du måste installera Azure PowerShell- [modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Du måste [skapa eller återanvända en åtgärds grupp](../azure-monitor/platform/action-groups.md) som kon figurer ATS för att meddela dig
 
-## <a name="instructions"></a>Anvisningar
+## <a name="instructions"></a>Instruktioner
 1. Använd PowerShell för att logga in på Azure med ditt konto och välj den prenumeration som du vill interagera med
 
         Login-AzAccount
@@ -147,7 +147,7 @@ Resource Health aviseringar kan konfigureras för övervakning av händelser i t
  * Resurs grupps nivå
  * Resurs nivå
 
-Varnings mal len konfigureras på prenumerations nivån, men om du vill konfigurera aviseringen så att den bara meddelar dig om vissa resurser eller resurser inom en viss resurs grupp behöver du bara ändra `scopes` avsnittet i ovanstående webbplatsmall.
+Varnings mal len konfigureras på prenumerations nivån, men om du vill konfigurera aviseringen så att den bara meddelar dig om vissa resurser eller resurser inom en viss resurs grupp, behöver du bara ändra `scopes` avsnittet i ovanstående mall.
 
 För en resurs grupp nivå omfattning bör avsnittet omfattningar se ut så här:
 ```json
@@ -170,7 +170,7 @@ Exempel: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/my
 
 ### <a name="adjusting-the-resource-types-which-alert-you"></a>Justera resurs typerna som varnar dig
 
-Aviseringar på prenumerations-eller resurs grupps nivå kan ha olika typer av resurser. Om du vill begränsa aviseringarna till att endast komma från en viss del av resurs typerna kan du definiera det i `condition` avsnittet i mallen:
+Aviseringar på prenumerations-eller resurs grupps nivå kan ha olika typer av resurser. Om du vill begränsa aviseringarna till att endast komma från en viss del av resurs typerna kan du definiera det i avsnittet `condition` i mallen:
 
 ```json
 "condition": {
@@ -195,12 +195,12 @@ Aviseringar på prenumerations-eller resurs grupps nivå kan ha olika typer av r
 },
 ```
 
-Här använder `anyOf` vi omslutningen för att tillåta resurs hälso aviseringen att matcha de villkor som vi anger, vilket ger aviseringar som riktar sig mot specifika resurs typer.
+Här använder vi `anyOf` omslutning för att tillåta resurs hälso aviseringen att matcha de villkor som vi anger, vilket tillåter aviseringar som riktar sig mot specifika resurs typer.
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Justera Resource Health händelser som varnar dig
-När resurser genomgår en hälso händelse kan de gå igenom en serie steg som `Active`representerar hälso tillståndet: `Updated`, `InProgress`, och `Resolved`.
+När resurser genomgår en hälso händelse kan de gå igenom en serie steg som representerar hälso tillståndet: `Active`, `In Progress`, `Updated`och `Resolved`.
 
-Du kanske bara vill bli meddelad när en resurs blir skadad, i vilket fall du vill konfigurera aviseringen så att den endast meddelar när `status` är. `Active` Men om du vill att du även vill bli meddelad i de andra stegen kan du lägga till dessa uppgifter så här:
+Du kanske bara vill bli meddelad när en resurs blir skadad, i vilket fall du vill konfigurera aviseringen så att den endast meddelar när `status` `Active`. Men om du vill att du även vill bli meddelad i de andra stegen kan du lägga till dessa uppgifter så här:
 
 ```json
 "condition": {
@@ -214,7 +214,7 @@ Du kanske bara vill bli meddelad när en resurs blir skadad, i vilket fall du vi
                 },
                 {
                     "field": "status",
-                    "equals": "InProgress"
+                    "equals": "In Progress"
                 },
                 {
                     "field": "status",
@@ -230,11 +230,11 @@ Du kanske bara vill bli meddelad när en resurs blir skadad, i vilket fall du vi
 }
 ```
 
-Om du vill bli meddelad om alla fyra stadier av hälso tillstånds händelser kan du ta bort det här villkoret tillsammans och aviseringen meddelar dig `status` oberoende av egenskapen.
+Om du vill bli meddelad om alla fyra stadier av hälso tillstånds händelser kan du ta bort det här villkoret tillsammans och aviseringen meddelar dig oavsett `status`-egenskapen.
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Justera Resource Health aviseringar för att undvika "okända" händelser
 
-Azure Resource Health kan rapportera till dig med de senaste hälso tillståndet för dina resurser genom att kontinuerligt övervaka dem med hjälp av test-löpare. De relevanta rapporterade hälso statusarna är: "Tillgängligt", "ej tillgängligt" och "degraderat". Men i situationer där löpare och Azure-resursen inte kan kommunicera, rapporteras en "okänd" hälso status för resursen och det anses vara en "aktiv"-hälso händelse.
+Azure Resource Health kan rapportera till dig med de senaste hälso tillståndet för dina resurser genom att kontinuerligt övervaka dem med hjälp av test-löpare. De relevanta rapporterade hälso statusarna är: "tillgängliga", "otillgänglig" och "degraderad". Men i situationer där löpare och Azure-resursen inte kan kommunicera, rapporteras en "okänd" hälso status för resursen och det anses vara en "aktiv"-hälso händelse.
 
 Men när en resurs rapporterar "okänd", är det troligt att dess hälso status inte har ändrats sedan den senaste korrekta rapporten. Om du vill eliminera varningar om "okända" händelser kan du ange den logiken i mallen:
 
@@ -409,7 +409,7 @@ Med hjälp av de olika justeringarna som beskrivs i föregående avsnitt är hä
                                 },
                                 {
                                     "field": "status",
-                                    "equals": "InProgress",
+                                    "equals": "In Progress",
                                     "containsAny": null
                                 },
                                 {

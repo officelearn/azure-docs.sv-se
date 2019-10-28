@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: d84525e869d47fc609ee8aac7feb7feda36a5f23
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 9c14afb22d95493deaf3552cb8c7392c3fc5a679
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599948"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934027"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för ett Service Fabric kluster i Azure
 Vi rekommenderar att du bekantar dig med hur Service Fabric använder X. 509-certifikat och känner till [kluster säkerhets scenarier](service-fabric-cluster-security.md). Du måste förstå vad ett kluster certifikat är och vad som används för, innan du fortsätter.
@@ -53,13 +53,13 @@ Om avsikten är att ta bort det certifikat som är markerat som primärt, måste
 De här stegen förutsätter att du är bekant med hur Resource Manager fungerar och har distribuerat minst ett Service Fabric kluster med hjälp av en Resource Manager-mall och att du har den mall som du använde för att konfigurera klustret är praktiskt. Det förutsätts också att du är van att använda JSON.
 
 > [!NOTE]
-> Om du letar efter en exempel-mall och parametrar som du kan använda för att följa eller som en start punkt, laddar du ned den från den här [git-lagrings platsen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> Om du letar efter en exempel-mall och parametrar som du kan använda för att följa eller som en start punkt, laddar du ned den från den här [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample). 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Redigera din Resource Manager-mall
 
-För att under lätta för följande och, exempel 5-VM-1-NodeTypes-Secure_Step2. JSON, innehåller alla ändringar vi gör. exemplet finns tillgängligt på [git-lagrings platsen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+För att under lätta för följande och, exempel 5-VM-1-NodeTypes-Secure_Step2. JSON, innehåller alla ändringar vi gör. exemplet finns tillgängligt på [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
 
 **Se till att följa alla steg**
 
@@ -117,7 +117,7 @@ För att under lätta för följande och, exempel 5-VM-1-NodeTypes-Secure_Step2.
          }
     ``` 
 
-4. Gör ändringar i **alla** resurs definitioner för **Microsoft. Compute/VirtualMachineScaleSets** – leta upp resurs definitionen Microsoft. Compute/virtualMachineScaleSets. Bläddra till "utgivare": "Microsoft. Azure. ServiceFabric", under "virtualMachineProfile".
+4. Gör ändringar i **alla** resurs definitioner för **Microsoft. Compute/VirtualMachineScaleSets** – leta upp resurs definitionen Microsoft. Compute/virtualMachineScaleSets. Bläddra till "utgivare": "Microsoft. Azure. ServiceFabric" under "virtualMachineProfile".
 
     I inställningarna för Service Fabric Publisher bör du se något som liknar detta.
     
@@ -178,7 +178,7 @@ För att under lätta för följande och, exempel 5-VM-1-NodeTypes-Secure_Step2.
 > 
 
 ### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Redigera mallfilen så att de visar de nya parametrarna som du lade till ovan
-Om du använder exemplet från [git-lagrings platsen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) för att följa med, kan du börja göra ändringar i exemplet 5-VM-1-NodeTypes-Secure. PARAMETERS_STEP2. JSON 
+Om du använder exemplet från [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample) för att följa med, kan du börja göra ändringar i exemplet 5-VM-1-NodeTypes-Secure. PARAMETERS_STEP2. JSON 
 
 Redigera din parameter fil för Resource Manager-mallen, Lägg till de två nya parametrarna för secCertificateThumbprint och secCertificateUrlValue. 
 
@@ -210,7 +210,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your clus
 
 ```
 
-Distribuera mallen till resurs gruppen. Använd samma resurs grupp som ditt kluster för närvarande är distribuerat till. Kör kommandot New-AzResourceGroupDeployment. Du behöver inte ange läget eftersom standardvärdet är ett stegvist värde.
+Distribuera mallen till resurs gruppen. Använd samma resurs grupp som ditt kluster för närvarande är distribuerat till. Kör kommandot New-AzResourceGroupDeployment. Du behöver inte ange läget eftersom standardvärdet är ett **stegvist**värde.
 
 > [!NOTE]
 > Om du anger att läget ska slutföras, kan du oavsiktligt ta bort resurser som inte finns i mallen. Använd den inte i det här scenariot.

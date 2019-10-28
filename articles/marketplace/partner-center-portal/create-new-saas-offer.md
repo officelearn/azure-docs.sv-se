@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: a757ee03b8d8c7c93b191054182d077408c162db
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: da6fee7158344d331c6c2a68f0fab1b13cc3a291
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819818"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934104"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -196,7 +196,7 @@ Du hittar standard kontraktet här: https://go.microsoft.com/fwlink/?linkid=2041
 
 #### <a name="terms-of-use"></a>Användningsvillkor
 
-Om licens villkoren skiljer sig från standard kontraktet kan du välja att ange egna juridiska användnings villkor här. Du kan också ange upp till 10 000 tecken text i det här fältet. Om dina användnings villkor kräver en längre Beskrivning anger du en enda URL-länk till det här fältet där du kan hitta ytterligare licens villkor. Den kommer att visas för kunder som en aktiv länk.
+Om licens villkoren skiljer sig från standard kontraktet kan du välja att ange egna juridiska användnings villkor här. Dessa kan anges som oformaterad text eller som en enskild URL-länk till dina licens villkor.
 
 Kunder måste acceptera dessa villkor innan de kan testa din app. 
 

@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 10/08/2019
+ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286692"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933704"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
 
@@ -105,7 +105,7 @@ Du kan hämta och ange värden för de här tjänstedefinierade variablerna för
 | Läs-och skriv tjänst – definierade variabler | Beskrivning |
 | --- | --- |
 | $TargetDedicatedNodes |Mål antalet dedikerade datornoder för poolen. Antalet dedikerade noder har angetts som ett mål eftersom en pool kanske inte alltid uppnår önskat antal noder. Om till exempel mål antalet dedikerade noder ändras med en utvärdering av autoskalning innan poolen har nått det inledande målet, kanske poolen inte når målet. <br /><br /> En pool i ett konto som skapas med batch-tjänstekonfiguration kanske inte når målet om målet överskrider en nod för batch-konto eller kärn kvot. En pool i ett konto som skapats med konfigurationen av användar prenumerationen kanske inte når målet om målet överskrider den delade kärn kvoten för prenumerationen.|
-| $TargetLowPriorityNodes |Mål antalet Compute-noder med låg prioritet för poolen. Antalet noder med låg prioritet har angetts som ett mål eftersom en pool kanske inte alltid uppnår önskat antal noder. Om till exempel mål antalet noder med låg prioritet ändras genom en utvärdering av autoskalning innan poolen har nått det första målet, kanske poolen inte når målet. En pool kan inte heller uppnå målet om målet överskrider en nod för batch-konto eller kärn kvot. <br /><br /> Mer information om låg prioritets datornoder finns i [använda virtuella datorer med låg prioritet med batch (för hands version)](batch-low-pri-vms.md). |
+| $TargetLowPriorityNodes |Mål antalet Compute-noder med låg prioritet för poolen. Antalet noder med låg prioritet har angetts som ett mål eftersom en pool kanske inte alltid uppnår önskat antal noder. Om till exempel mål antalet noder med låg prioritet ändras genom en utvärdering av autoskalning innan poolen har nått det första målet, kanske poolen inte når målet. En pool kan inte heller uppnå målet om målet överskrider en nod för batch-konto eller kärn kvot. <br /><br /> Mer information om Compute-noder med låg prioritet finns i [använda virtuella datorer med låg prioritet med batch](batch-low-pri-vms.md). |
 | $NodeDeallocationOption |Den åtgärd som inträffar när Compute-noder tas bort från en pool. Möjliga värden:<ul><li>**köa**om--standardvärdet. Avslutar uppgifter direkt och placerar dem i jobbkön igen så att de omplaneras. Den här åtgärden säkerställer att mål antalet noder når så snabbt som möjligt, men kan vara mindre effektivt, eftersom alla pågående aktiviteter avbryts och måste startas om, vilket slösar bort allt arbete som de redan har gjort. <li>**Avsluta**--avslutar uppgifter direkt och tar bort dem från jobbkön.<li>**taskcompletion**– väntar på att pågående aktiviteter ska slutföras och tar sedan bort noden från poolen. Använd det här alternativet för att undvika att aktiviteter avbryts och köas, vilket gör att det arbete som uppgiften har gjort avbryts. <li>**retaineddata**– väntar på att alla lokala uppgifter som kvarhålls på noden ska rensas innan noden tas bort från poolen.</ul> |
 
 > [!NOTE]
@@ -226,7 +226,7 @@ Några av funktionerna som beskrivs i föregående tabell kan godkänna en lista
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*DoubleVecList* -värdet konverteras till en enda *doubleVec* före utvärdering. Till exempel, om `v = [1,2,3]`, motsvarar anrop `avg(v)` att anropa `avg(1,2,3)`. Anrop `avg(v, 7)` motsvarar att anropa `avg(1,2,3,7)`.
+*DoubleVecList* -värdet konverteras till en enda *doubleVec* före utvärdering. Om `v = [1,2,3]`till exempel motsvarar att anropa `avg(v)` motsvarar att anropa `avg(1,2,3)`. Anrop `avg(v, 7)` motsvarar att anropa `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Hämta exempel data
 
@@ -238,7 +238,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Metod | Beskrivning |
 | --- | --- |
-| GetSample() |Metoden `GetSample()` returnerar en Vector med data exempel.<br/><br/>Ett exempel är 30 sekunders värd för Mät data. Med andra ord hämtas exempel var 30: e sekund. Men enligt vad som anges nedan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Därför kan inte alla prover under en viss tids period vara tillgängliga för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`<br/>Anger antalet prover som ska hämtas från de senaste insamlade exemplen som samlats in.<br/><br/>`GetSample(1)` returnerar det senaste tillgängliga exemplet. För mått som `$CPUPercent` bör det dock inte användas eftersom det är omöjligt att veta *när* exemplet samlades in. Det kan vara nyligen, eller på grund av system problem kan det vara mycket äldre. I sådana fall är det bättre att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Anger en tidsram för insamling av exempel data. Om du vill kan du också ange procent andelen exempel som måste vara tillgängliga i den begärda tids ramen.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` returnerar 20 exempel om alla exempel under de senaste 10 minuterna finns i CPUPercent-historiken. Om den sista minuten i historiken inte var tillgänglig returneras dock bara 18 exempel. I det här fallet:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` fungerar inte eftersom endast 90 procent av exemplen är tillgängliga.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` skulle lyckas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Anger en tidsram för insamling av data, med både en start tid och en slut tid.<br/><br/>Som nämnts ovan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Ta hänsyn till den här fördröjningen när du använder metoden `GetSample`. Se `GetSamplePercent` nedan. |
+| GetSample() |Metoden `GetSample()` returnerar en Vector med data exempel.<br/><br/>Ett exempel är 30 sekunders värd för Mät data. Med andra ord hämtas exempel var 30: e sekund. Men enligt vad som anges nedan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Därför kan inte alla prover under en viss tids period vara tillgängliga för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`<br/>Anger antalet prover som ska hämtas från de senaste insamlade exemplen som samlats in.<br/><br/>`GetSample(1)` returnerar det senaste tillgängliga exemplet. För mått som `$CPUPercent` bör det dock inte användas eftersom det är omöjligt att veta *när* exemplet samlades in. Det kan vara nyligen, eller på grund av system problem kan det vara mycket äldre. I sådana fall är det bättre att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Anger en tidsram för insamling av exempel data. Om du vill kan du också ange procent andelen exempel som måste vara tillgängliga i den begärda tids ramen.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` skulle returnera 20 exempel om alla exempel under de senaste 10 minuterna finns i CPUPercent-historiken. Om den sista minuten i historiken inte var tillgänglig returneras dock bara 18 exempel. I det här fallet:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` kan inte utföras eftersom endast 90 procent av exemplen är tillgängliga.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` skulle lyckas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Anger en tidsram för insamling av data, med både en start tid och en slut tid.<br/><br/>Som nämnts ovan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Ta hänsyn till den här fördröjningen när du använder metoden `GetSample`. Se `GetSamplePercent` nedan. |
 | GetSamplePeriod() |Returnerar den period med exempel som togs i en historisk exempel data uppsättning. |
 | Count () |Returnerar det totala antalet exempel i mått historiken. |
 | HistoryBeginTime() |Returnerar tidstämpeln för det äldsta tillgängliga data exemplet för måttet. |
@@ -281,7 +281,7 @@ För ytterligare säkerhet kan du tvinga en formel utvärdering att fungera om m
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-Eftersom det kan uppstå en fördröjning i exempel tillgänglighet är det viktigt att alltid ange ett tidsintervall med en start tid som är äldre än en minut. Det tar ungefär en minut innan exempel kan spridas genom systemet, så exempel i intervallet `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` kanske inte är tillgängliga. Igen kan du använda parametern procent för `GetSample()` för att framtvinga ett visst exempel på procent krav.
+Eftersom det kan uppstå en fördröjning i exempel tillgänglighet är det viktigt att alltid ange ett tidsintervall med en start tid som är äldre än en minut. Det tar ungefär en minut för exempel att spridas genom systemet, så exempel i intervallet `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` kanske inte är tillgängliga. Igen kan du använda parametern procent för `GetSample()` för att framtvinga ett visst exempel på procent krav.
 
 > [!IMPORTANT]
 > Vi **rekommenderar starkt** att du **inte *bara* förlitar dig på `GetSample(1)` i formlerna för autoskalning**. Detta beror på att `GetSample(1)` i stort sett är batch-tjänsten, "ge mig det senaste exemplet du har, oavsett hur länge sedan du hämtade det." Eftersom det bara är ett enda exempel och det kan vara ett äldre exempel, kanske det inte är representativt för den större bilden av den senaste aktiviteten eller resursens tillstånd. Om du använder `GetSample(1)` måste du kontrol lera att den är en del av en större instruktion och inte den enda data punkt som formeln använder.

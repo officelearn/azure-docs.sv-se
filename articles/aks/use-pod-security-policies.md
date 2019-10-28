@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 3c9e5185bfcaf99765ec29874cea407fe55bfb17
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 131a71e27bba1c37b6d50b718b8eac788109a59f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058333"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933769"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>För hands version – skydda klustret med Pod säkerhets principer i Azure Kubernetes service (AKS)
 
@@ -106,10 +106,10 @@ NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP  
 privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-Säkerhets principen för *privilegie rad* Pod tillämpas på alla autentiserade användare i AKS-klustret. Den här tilldelningen styrs av ClusterRoles och ClusterRoleBindings. Använd kommandot [kubectl get clusterrolebindings][kubectl-get] och Sök efter *standardvärdet* : mappad: bindning:
+Säkerhets principen för *privilegie rad* Pod tillämpas på alla autentiserade användare i AKS-klustret. Den här tilldelningen styrs av ClusterRoles och ClusterRoleBindings. Använd kommandot [kubectl get clusterrolebindings][kubectl-get] och Sök efter *standardvärdet: Privileged:* Binding:
 
 ```console
-kubectl get clusterrolebindings default:priviledged -o yaml
+kubectl get clusterrolebindings default:privileged -o yaml
 ```
 
 Som det visas i följande komprimerade utdata tilldelas *PSP: s begränsade* ClusterRole till alla *system: autentiserade* användare. Den här funktionen ger en grundläggande nivå av begränsningar utan att dina egna principer definieras.
@@ -119,12 +119,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   [...]
-  name: default:priviledged
+  name: default:privileged
   [...]
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: psp:priviledged
+  name: psp:privileged
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
@@ -135,7 +135,7 @@ Det är viktigt att förstå hur dessa standard principer interagerar med använ
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>Skapa en test användare i ett AKS-kluster
 
-Som standard när du använder kommandot [AZ AKS get-credentials][az-aks-get-credentials] , `kubectl` *läggs administratörsautentiseringsuppgifter för* AKS-klustret till i konfigurationen. Administratörs användaren kringgår verk ställandet av Pod säkerhets principer. Om du använder Azure Active Directory-integrering för dina AKS-kluster kan du logga in med autentiseringsuppgifterna för en användare som inte är administratör för att se verk ställandet av principer i praktiken. I den här artikeln ska vi skapa ett test användar konto i AKS-klustret som du kan använda.
+Som standard när du använder kommandot [AZ AKS get-credentials][az-aks-get-credentials] , *läggs administratörsautentiseringsuppgifter för* AKS-klustret till i `kubectl` config. Administratörs användaren kringgår verk ställandet av Pod säkerhets principer. Om du använder Azure Active Directory-integrering för dina AKS-kluster kan du logga in med autentiseringsuppgifterna för en användare som inte är administratör för att se verk ställandet av principer i praktiken. I den här artikeln ska vi skapa ett test användar konto i AKS-klustret som du kan använda.
 
 Skapa ett exempel namn område med namnet *PSP-AKS* för test resurser med hjälp av kommandot [kubectl Create namespace][kubectl-create] . Skapa sedan ett tjänst konto med namnet *ej administratör – användare* med kommandot [kubectl Create ServiceAccount][kubectl-create] :
 
@@ -156,7 +156,7 @@ kubectl create rolebinding \
 
 ### <a name="create-alias-commands-for-admin-and-non-admin-user"></a>Skapa alias kommandon för administratörer och användare som inte är administratörer
 
-Om du vill markera skillnaden mellan den vanliga administratörs användaren `kubectl` när du använder och den icke-administratör som skapades i föregående steg, skapar du två kommando rads Ali Aset:
+Om du vill markera skillnaden mellan den vanliga administratörs användaren när du använder `kubectl` och användare som inte är administratör som du skapade i föregående steg, skapar du två kommando rads Ali Aset:
 
 * **Kubectl-admin-** aliaset är för den vanliga administratörs användaren och är begränsad till *PSP-AKS-* namnområdet.
 * **Kubectl-nonadminuser** alias är för den *ej administratörer-användare* som skapades i föregående steg och som är begränsad till namn området *PSP-AKS* .
@@ -170,9 +170,9 @@ alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-
 
 ## <a name="test-the-creation-of-a-privileged-pod"></a>Testa skapandet av en privilegie rad Pod
 
-Vi börjar med att testa vad som händer när du schemalägger en POD med säkerhets `privileged: true`kontexten för. Den här säkerhets kontexten eskalerar Pod privilegier. I föregående avsnitt som visade standard principerna för AKS-Pod bör den *begränsade* principen neka denna begäran.
+Vi börjar med att testa vad som händer när du schemalägger en POD med säkerhets kontexten för `privileged: true`. Den här säkerhets kontexten eskalerar Pod privilegier. I föregående avsnitt som visade standard principerna för AKS-Pod bör den *begränsade* principen neka denna begäran.
 
-Skapa en fil med `nginx-privileged.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `nginx-privileged.yaml` och klistra in följande YAML-manifest:
 
 ```yaml
 apiVersion: v1
@@ -207,7 +207,7 @@ Pod når inte schemaläggnings fasen, så det finns inga resurser att ta bort in
 
 I det föregående exemplet begärde Pod-specifikationen privilegie rad eskalering. Den här begäran nekas av standard säkerhets principen för *begränsade* pod, så Pod kan inte schemaläggas. Nu ska vi prova att köra samma NGINX-Pod utan begäran om behörighets eskalering.
 
-Skapa en fil med `nginx-unprivileged.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `nginx-unprivileged.yaml` och klistra in följande YAML-manifest:
 
 ```yaml
 apiVersion: v1
@@ -226,7 +226,7 @@ Skapa Pod med kommandot [kubectl Apply][kubectl-apply] och ange namnet på ditt 
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-Kubernetes Scheduler accepterar Pod-begäran. Men om du tittar på status för Pod med `kubectl get pods`, finns det ett fel:
+Kubernetes Scheduler accepterar Pod-begäran. Men om du tittar på status för Pod med hjälp av `kubectl get pods`, finns det ett fel:
 
 ```console
 $ kubectl-nonadminuser get pods
@@ -267,9 +267,9 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Testa att skapa en POD med en speciell användar kontext
 
-I föregående exempel försökte behållar avbildningen automatiskt använda roten för att binda NGINX till port 80. Den här begäran nekades av standard säkerhets principen för *begränsade* pod, så Pod kan inte starta. Nu ska vi prova att köra samma NGINX-Pod med en speciell användar kontext, till `runAsUser: 2000`exempel.
+I föregående exempel försökte behållar avbildningen automatiskt använda roten för att binda NGINX till port 80. Den här begäran nekades av standard säkerhets principen för *begränsade* pod, så Pod kan inte starta. Nu ska vi prova att köra samma NGINX-Pod med en speciell användar kontext, t. ex. `runAsUser: 2000`.
 
-Skapa en fil med `nginx-unprivileged-nonroot.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `nginx-unprivileged-nonroot.yaml` och klistra in följande YAML-manifest:
 
 ```yaml
 apiVersion: v1
@@ -290,7 +290,7 @@ Skapa Pod med kommandot [kubectl Apply][kubectl-apply] och ange namnet på ditt 
 kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
 ```
 
-Kubernetes Scheduler accepterar Pod-begäran. Men om du tittar på status för Pod med `kubectl get pods`, finns det ett annat fel än det tidigare exemplet:
+Kubernetes Scheduler accepterar Pod-begäran. Men om du tittar på status för Pod som använder `kubectl get pods`, finns det ett annat fel än det tidigare exemplet:
 
 ```console
 $ kubectl-nonadminuser get pods
@@ -352,7 +352,7 @@ Nu när du har sett hur du kan använda standard säkerhets principerna för Pod
 
 Nu ska vi skapa en princip för att avvisa poddar som begär privilegie rad åtkomst. Andra alternativ, till exempel *runAsUser* eller tillåtna *volymer*, är inte uttryckligen begränsade. Den här typen av princip nekar en begäran om privilegie rad åtkomst, men tillåter annars att klustret kör den begärda poddar.
 
-Skapa en fil med `psp-deny-privileged.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `psp-deny-privileged.yaml` och klistra in följande YAML-manifest:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -393,7 +393,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 I föregående steg skapade du en POD säkerhets princip för att avvisa poddar som begär privilegie rad åtkomst. Om du vill tillåta att principen används skapar du en *roll* eller en *ClusterRole*. Sedan associerar du en av dessa roller med hjälp av en *RoleBinding* eller *ClusterRoleBinding*.
 
-I det här exemplet skapar du en ClusterRole som gör att du kan *använda* principen *PSP-Deny-Privileged* som skapades i föregående steg. Skapa en fil med `psp-deny-privileged-clusterrole.yaml` namnet och klistra in följande yaml-manifest:
+I det här exemplet skapar du en ClusterRole som gör att du kan *använda* principen *PSP-Deny-Privileged* som skapades i föregående steg. Skapa en fil med namnet `psp-deny-privileged-clusterrole.yaml` och klistra in följande YAML-manifest:
 
 ```yaml
 kind: ClusterRole
@@ -417,7 +417,7 @@ Skapa ClusterRole med kommandot [kubectl Apply][kubectl-apply] och ange namnet p
 kubectl apply -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Skapa nu en ClusterRoleBinding för att använda ClusterRole som skapades i föregående steg. Skapa en fil med `psp-deny-privileged-clusterrolebinding.yaml` namnet och klistra in följande yaml-manifest:
+Skapa nu en ClusterRoleBinding för att använda ClusterRole som skapades i föregående steg. Skapa en fil med namnet `psp-deny-privileged-clusterrolebinding.yaml` och klistra in följande YAML-manifest:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 4035746772b44d7267d6a9cd90c7bdc02c804a8a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 20f325ff64581396f5f7ab2ce05a2479cdb45118
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147081"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933544"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Katastrof återställnings arkitektur för Hyper-V till Azure
 
@@ -39,6 +39,8 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
 ![Arkitektur](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
+> [!WARNING]
+> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](scvmm-site-recovery-deprecation.md) informationen innan du fortsätter.
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Arkitektur komponenter – Hyper-V med VMM
 
@@ -70,7 +72,7 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
 1. När du har aktiverat skydd för en virtuell Hyper-V-dator i Azure Portal eller lokalt startar **Aktivera skydd**.
 2. Jobbet kontrollerar att datorn uppfyller kraven och anropar sedan metoden [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) som konfigurerar replikering med de inställningar som du har konfigurerat.
 3. Jobbet startar den initiala replikeringen genom att aktivera metoden [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) för att initiera en fullständig VM-replikering och skicka de virtuella datorernas diskar till Azure.
-4. Du kan övervaka jobbet på fliken **Jobs** (Jobb).      ![Lista över jobb](media/hyper-v-azure-architecture/image1.png) ![Detaljnivå för Aktivera skydd](media/hyper-v-azure-architecture/image2.png)
+4. Du kan övervaka jobbet på fliken **jobb** .      ![jobb lista](media/hyper-v-azure-architecture/image1.png) ![aktivera skydds granskning](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Inledande datareplikering
@@ -105,7 +107,7 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
     - Den använder en algoritm för fast block-block där käll-och målattribut är indelade i fasta segment.
     - Kontroll summor för varje segment genereras. Dessa jämförs för att avgöra vilka block från källan som måste tillämpas på målet.
 2. När omsynkroniseringen är klar ska den normala deltareplikeringen återupptas.
-3. Om du inte vill vänta på omsynkroniseringen av standardvärdet utanför timmar kan du synkronisera om en virtuell dator manuellt. Till exempel om ett avbrott inträffar. Det gör du genom att välja den virtuella datorn > omsynkroniseringi Azure Portal.
+3. Om du inte vill vänta på omsynkroniseringen av standardvärdet utanför timmar kan du synkronisera om en virtuell dator manuellt. Till exempel om ett avbrott inträffar. Det gör du genom att välja den virtuella datorn > **omsynkronisering**i Azure Portal.
 
     ![Manuell omsynkronisering](./media/hyper-v-azure-architecture/image4-site.png)
 
@@ -131,9 +133,9 @@ Om det uppstår ett replikeringsfel finns det en inbyggd funktion som gör ett n
 När din lokala infrastruktur är igång igen kan du växla tillbaka. Återställning efter fel sker i tre steg:
 
 1. Starta en planerad redundansväxling från Azure till den lokala platsen:
-    - **Minimera nedtid**: Om du använder det här alternativet Site Recovery synkroniserar data före redundansväxlingen. Den söker efter ändrade data block och laddar ned dem till den lokala platsen, medan den virtuella Azure-datorn fortsätter att köras, vilket minimerar stillestånds tiden. När du anger att redundansväxlingen ska slutföras manuellt stängs den virtuella Azure-datorn, eventuella ändringar i ändringarna kopieras och redundansväxlingen startar.
-    - **Fullständig nedladdning**: Med det här alternativet synkroniseras data under redundansväxlingen. Med det här alternativet hämtas hela disken. Det är snabbare eftersom inga kontroll summor beräknas, men det finns mer stillestånds tid. Använd det här alternativet om du har kört replikeringen av virtuella Azure-datorer under en tid, eller om den lokala virtuella datorn har tagits bort.
-    - **Skapa virtuell dator**: Du kan välja att växla tillbaka till samma virtuella dator eller till en annan virtuell dator. Du kan ange att Site Recovery ska skapa den virtuella datorn om den inte redan finns.
+    - **Minimera nedtid**: om du använder det här alternativet Site Recovery synkroniserar data före redundans. Den söker efter ändrade data block och laddar ned dem till den lokala platsen, medan den virtuella Azure-datorn fortsätter att köras, vilket minimerar stillestånds tiden. När du anger att redundansväxlingen ska slutföras manuellt stängs den virtuella Azure-datorn, eventuella ändringar i ändringarna kopieras och redundansväxlingen startar.
+    - **Fullständig nedladdning**: med dessa alternativ data synkroniseras under redundansväxlingen. Med det här alternativet hämtas hela disken. Det är snabbare eftersom inga kontroll summor beräknas, men det finns mer stillestånds tid. Använd det här alternativet om du har kört replikeringen av virtuella Azure-datorer under en tid, eller om den lokala virtuella datorn har tagits bort.
+    - **Skapa virtuell dator**: du kan välja att växla tillbaka till samma virtuella dator eller till en annan virtuell dator. Du kan ange att Site Recovery ska skapa den virtuella datorn om den inte redan finns.
 
 2. När den första synkroniseringen är klar väljer du att slutföra redundansväxlingen. När den är klar kan du logga in på den lokala virtuella datorn för att kontrol lera att allt fungerar som förväntat. I Azure Portal kan du se att de virtuella Azure-datorerna har stoppats.
 3.  Sedan genomför du redundansväxlingen för att slutföra och startar åtkomst till arbets belastningen från den lokala virtuella datorn igen.
@@ -144,6 +146,6 @@ När din lokala infrastruktur är igång igen kan du växla tillbaka. Återstäl
 ## <a name="next-steps"></a>Nästa steg
 
 
-Följ [den här](tutorial-prepare-azure.md) självstudien för att komma igång med Hyper-V till Azure-replikering.
+Följ [den här självstudien](tutorial-prepare-azure.md) för att komma igång med Hyper-V till Azure-replikering.
 
 

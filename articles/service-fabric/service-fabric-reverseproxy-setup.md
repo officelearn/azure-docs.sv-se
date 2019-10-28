@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 3fd1716fa7b9c32bb5b5e49598139b6a5e728692
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166585"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933903"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurera och konfigurera omvänd proxy i Azure Service Fabric
 Omvänd proxy är en valfri Azure Service Fabric-tjänst som hjälper mikrotjänster som körs i ett Service Fabric kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter. Mer information finns i [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md). Den här artikeln visar hur du konfigurerar och konfigurerar omvänd proxy i klustret. 
@@ -44,7 +44,7 @@ För kluster i Azure kan du använda Azure Resource Manager-mallen för att akti
 
 För ett nytt kluster kan du [skapa en anpassad Resource Manager-mall](service-fabric-cluster-creation-via-arm.md) eller så kan du använda en exempel mall. 
 
-Du hittar exempel på Resource Manager-mallar som kan hjälpa dig att konfigurera säker omvänd proxy för ett Azure-kluster i [Sample-mallarna för säker omvänd proxy](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) på GitHub. Se [Konfigurera https omvänd proxy i ett säkert kluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) i Readme-filen för instruktioner och mallar som ska användas för att konfigurera säker omvänd proxy med ett certifikat och för att hantera certifikat förnyelse.
+Du hittar exempel på Resource Manager-mallar som kan hjälpa dig att konfigurera säker omvänd proxy för ett Azure-kluster i [Sample-mallarna för säker omvänd proxy](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) på GitHub. Se [Konfigurera https omvänd proxy i ett säkert kluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) i Readme-filen för instruktioner och mallar som ska användas för att konfigurera säker omvänd proxy med ett certifikat och för att hantera certifikat förnyelse.
 
 För ett befintligt kluster kan du exportera Resource Manager-mallen för klustrets resurs grupp med hjälp av [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [POWERSHELL](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)eller [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 

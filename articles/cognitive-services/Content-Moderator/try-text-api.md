@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7a7085eccf05fb65bf7b9036c738a1d17e91a433
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754193"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935898"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Måttlig text från API-konsolen
 
@@ -61,9 +61,6 @@ För **innehålls typ**väljer du den typ av innehåll som du vill skärma. I de
 ### <a name="sample-text-to-scan"></a>Exempel text att skanna
 
 Skriv lite text i rutan **begär** text. I följande exempel visas ett avsiktligt skrivfel i texten.
-
-> [!NOTE]
-> Den ogiltiga social security number i följande exempel text är avsiktlig. Syftet med detta är att förmedla indata och utdataformat för exemplet.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric diagnostik för omvänd proxy | Microsoft Docs
-description: Lär dig mer om att övervaka och diagnostisera bearbetning av begäran på den omvända proxyn.
+title: Diagnostik för Azure Service Fabric omvänd proxy | Microsoft Docs
+description: Lär dig hur du övervakar och diagnostiserar bearbetning av begär Anden på den omvända proxyn.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
@@ -13,36 +13,36 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6074b799e992371d41de050f68690e450f008789
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726850"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933972"
 ---
-# <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Övervaka och diagnostisera behandling av begäranden i omvänd proxy
+# <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Övervaka och diagnostisera bearbetning av begär anden i den omvända proxyn
 
-Från och med 5.7 av Service Fabric, är omvänd proxyhändelser tillgängliga för samlingen. Händelser är tillgängliga i två kanaler, en med endast felhändelser relaterade till behandling av begäranden fel i omvänd proxy och andra kanalen som innehåller utförlig händelser med poster för både lyckade och misslyckade begäranden.
+Från och med 5,7-versionen av Service Fabric är omvänd proxy-händelser tillgängliga för insamling. Händelserna är tillgängliga i två kanaler, en med endast fel händelser relaterade till begär ande bearbetnings fel på den omvända proxyn och andra kanalen som innehåller utförliga händelser med poster för både lyckade och misslyckade förfrågningar.
 
-Referera till [samla in händelser för omvänd proxy](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) att aktivera insamling av händelser från dessa kanaler i lokala och Azure Service Fabric-kluster.
+Se [samla in omvänd proxy-händelser](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) för att aktivera insamling av händelser från dessa kanaler i lokala och Azure Service Fabric-kluster.
 
-## <a name="troubleshoot-using-diagnostics-logs"></a>Felsök med hjälp av diagnostikloggar
-Här följer några exempel på hur du tolkar vanliga felloggarna som en kan uppstå:
+## <a name="troubleshoot-using-diagnostics-logs"></a>Felsöka med hjälp av diagnostikloggar
+Här följer några exempel på hur du tolkar de vanliga fel loggar som en kan stöta på:
 
-1. Omvänd proxy returnerar svarsstatuskod 504 (Timeout).
+1. Omvänd proxy returnerar svars status kod 504 (tids gräns).
 
-    En orsak kan bero på tjänsten som inte svarar inom tidsgränsen för begäran.
-   Den första händelsen nedan loggar information om begäran tas emot på den omvända proxyn. 
-   Den andra händelsen anger att begäran misslyckades vid vidarebefordran till tjänsten på grund av ”internt fel = ERROR_WINHTTP_TIMEOUT” 
+    En orsak kan bero på att tjänsten inte kan svara inom tids gränsen för begäran.
+   I den första händelsen nedan loggas information om begäran som tagits emot på den omvända proxyn. 
+   Den andra händelsen indikerar att begäran misslyckades vid vidarebefordran till tjänsten, på grund av "internt fel = ERROR_WINHTTP_TIMEOUT" 
 
-    Nyttolasten innehåller:
+    Nytto lasten innehåller:
 
-   * **traceId**: Detta GUID kan användas för att korrelera alla händelser som motsvarar en enskild begäran. I den nedan två händelser, traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, innebär att de hör till samma begäran.
-   * **requestUrl**: URL: en (omvänd proxy-URL) som begäran har skickats.
-   * **verb**: HTTP-verbet.
-   * **remoteAddress**: Adressen för klienten skickar en begäran.
-   * **resolvedServiceUrl**: Slutpunkts-URL som den inkommande begäranden har åtgärdats. 
-   * **errorDetails**: Ytterligare information om felet.
+   * **traceId**: detta GUID kan användas för att korrelera alla händelser som motsvarar en enskild begäran. I de två följande händelserna är traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, vilket innebär att de tillhör samma begäran.
+   * **requestUrl**: URL: en (omvänd proxy-URL) som förfrågan skickades till.
+   * **verb**: http-verb.
+   * **remoteAddress**: adressen till klienten som skickar begäran.
+   * **resolvedServiceUrl**: tjänstens slut punkts-URL dit den inkommande begäran löstes. 
+   * **errorDetails**: Mer information om det här problemet.
 
      ```
      {
@@ -81,12 +81,12 @@ Här följer några exempel på hur du tolkar vanliga felloggarna som en kan upp
      }
      ```
 
-2. Omvänd proxy returnerar Svarets statuskod 404 (hittades inte). 
+2. Omvänd proxy returnerar svars status kod 404 (hittades inte). 
     
-    Här är en exempel-händelse där omvänd proxy returnerar 404 eftersom den inte gick att hitta den matchande tjänstslutpunkten.
-    Intressant här nyttolast-poster är:
-   * **processRequestPhase**: Anger fasen när begäran bearbetades när felet inträffade, ***TryGetEndpoint*** dvs vid försök att hämta tjänstslutpunkten att vidarebefordra till. 
-   * **errorDetails**: Visar en lista över sökvillkoren slutpunkt. Här kan du se att listenerName angetts = **FrontEndListener** medan repliken endpoint listan innehåller endast en lyssnare med namnet **OldListener**.
+    Här är en exempel händelse där omvänd proxy returnerar 404 sedan det inte gick att hitta matchande tjänst slut punkt.
+    Följande nytto Last poster är:
+   * **processRequestPhase**: anger fasen vid bearbetning av begäran när felet inträffade, ***TryGetEndpoint*** , dvs. vid försök att hämta slut punkten för tjänsten att vidarebefordra till. 
+   * **errorDetails**: visar slut punkts Sök kriterierna. Här kan du se att listenerName anges = **FrontEndListener** , medan replik slut punkts listan endast innehåller en lyssnare med namnet **OldListener**.
     
      ```
      {
@@ -104,16 +104,16 @@ Här följer några exempel på hur du tolkar vanliga felloggarna som en kan upp
      }
      }
      ```
-     Ett annat exempel där omvänd proxy kan returnera 404 hittades inte är: ApplicationGateway\Http konfigurationsparameter **SecureOnlyMode** är inställd på Sant med omvänd proxy som lyssnar på **HTTPS**, men alla repliken slutpunkter är oskyddade (lyssnar på HTTP).
-     Omvänd proxy returnerar 404 eftersom det går inte att hitta en slutpunkt som lyssnade på HTTPS för att vidarebefordra begäran. Analysera parametrarna i den händelse att nyttolasten som hjälper dig för att begränsa problemet:
+     Ett annat exempel där omvänd proxy kan returnera 404 hittades inte: ApplicationGateway\Http Configuration parameter **SecureOnlyMode** har angetts till true med omvänd proxy som lyssnar på **https**, men alla replik slut punkter är osäkra ( lyssnar på HTTP).
+     Omvänd proxy returnerar 404 eftersom det inte går att hitta en slut punkt som lyssnar på HTTPS för att vidarebefordra begäran. Att analysera parametrarna i händelse nytto lasten hjälper till att begränsa problemet:
     
      ```
       "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
      ```
 
-3. Begäran om att den omvända proxyn misslyckas med ett timeout-fel. 
-    Händelseloggarna innehåller en händelse med fick begäran information (visas inte här).
-    Nästa händelse visar att tjänsten svarade med statuskod 404 och omvänd proxy initierar ett nytt lösa. 
+3. Begäran till omvänd proxy Miss lyckas med ett tids gräns fel. 
+    Händelse loggarna innehåller en händelse med information om mottagna begär Anden (visas inte här).
+    Nästa händelse visar att tjänsten svarade med status kod 404 och omvänd proxy initierar en ny lösning. 
 
     ```
     {
@@ -134,11 +134,11 @@ Här följer några exempel på hur du tolkar vanliga felloggarna som en kan upp
       }
     }
     ```
-    Vid insamling av alla händelser, kan du se ett flygplan av händelser som visar varje lösning och vidarebefordra försök.
-    Den sista händelsen i serien visar bearbetning av begäran misslyckades med en tidsgräns, tillsammans med antalet lyckade Lös försök.
+    När du samlar in alla händelser visas ett tåg av händelser som visar varje lösning och ett vidarebefordrings försök.
+    Den sista händelsen i serien visar att bearbetningen av begäran misslyckades med en tids gräns, tillsammans med antalet lyckade matchnings försök.
     
     > [!NOTE]
-    > Vi rekommenderar att hålla utförlig kanal händelseinsamling inaktiverad som standard och aktivera den för att felsöka på basis av behov.
+    > Vi rekommenderar att du håller insamlingen för utförlig kanal inaktive rad som standard och aktiverar den för fel sökning på grund av behov.
 
     ```
     {
@@ -157,13 +157,13 @@ Här följer några exempel på hur du tolkar vanliga felloggarna som en kan upp
     }
     ```
     
-    Om samlingen är aktiverat för endast kritiska fel /-händelser, ser du en händelse med information om tidsgränsen och antal Lös försök. 
+    Om samling är aktive rad för kritiska/fel-händelser visas en händelse med information om tids gränsen och antalet matchnings försök. 
     
-    Tjänster som planerar att skicka en 404-statuskod tillbaka till användaren, bör lägga till ett ”X-ServiceFabric”-huvud i svaret. När rubriken har lagts till i svaret, vidarebefordrar omvänd proxy statuskoden tillbaka till klienten.  
+    Tjänster som ska skicka en status kod för 404 tillbaka till användaren, ska lägga till ett "X-ServiceFabric"-huvud i svaret. När du har lagt till rubriken i svaret vidarebefordrar omvänd proxy status koden tillbaka till klienten.  
 
 4. Fall när klienten har kopplat från begäran.
 
-    Följande händelse registreras när omvänd proxy vidarebefordrar svaret till klienten, men klienten kopplas:
+    Följande händelse registreras när omvänd proxy vidarebefordrar svaret till klienten, men klienten kopplar från:
 
     ```
     {
@@ -181,9 +181,9 @@ Här följer några exempel på hur du tolkar vanliga felloggarna som en kan upp
       }
     }
     ```
-5. Omvänd Proxy returnerar 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
+5. Omvänd proxy returnerar 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
 
-    FABRIC_E_SERVICE_DOES_NOT_EXIST fel returneras om URI-schemat inte har angetts för tjänsteslutpunkt i tjänstmanifestet.
+    FABRIC_E_SERVICE_DOES_NOT_EXIST-fel returneras om URI-schemat inte har angetts för tjänst slut punkten i tjänst manifestet.
 
     ```
     <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
@@ -195,10 +195,10 @@ Här följer några exempel på hur du tolkar vanliga felloggarna som en kan upp
     ```
 
 > [!NOTE]
-> Händelser relaterade till behandling av begäranden websocket är inte inloggad. Detta kommer att läggas till i nästa version.
+> Händelser relaterade till bearbetning av WebSocket-begäran loggas inte för tillfället. Detta kommer att läggas till i nästa version.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Händelsen aggregering och samling med Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) för att aktivera Logginsamling i Azure-kluster.
-* Service Fabric-händelser i Visual Studio finns [övervaka och diagnostisera lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-* Referera till [konfigurera omvänd proxy för att ansluta till säker tjänster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) för Azure Resource Manager-mallexempel konfigurera secure omvänd proxy med olika Tjänstcertifikatet verifieringsalternativ.
-* Läs [Service Fabric omvänd proxy](service-fabric-reverseproxy.md) vill veta mer.
+* [Händelse agg regering och insamling med hjälp av Windows Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md) för att aktivera logg insamling i Azure-kluster.
+* Om du vill visa Service Fabric händelser i Visual Studio, se [övervaka och diagnostisera lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+* Se [Konfigurera omvänd proxy för att ansluta till säkra tjänster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) för Azure Resource Manager mall exempel för att konfigurera säker omvänd proxy med olika validerings alternativ för tjänst certifikat.
+* Läs [Service Fabric omvänd proxy](service-fabric-reverseproxy.md) för mer information.

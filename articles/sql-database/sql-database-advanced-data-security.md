@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: a8b380355d7eee6b79bff01d29160fdd3b42800d
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 40e556b5d0fe22629eeca9a088d10ea5fc9b95ac
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285811"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965488"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Avancerad data säkerhet för Azure SQL Database
 
@@ -26,7 +26,7 @@ Avancerad data säkerhet är ett enhetligt paket för avancerade SQL-säkerhetsf
 
 Avancerad data säkerhet (ADS) innehåller en uppsättning avancerade SQL-säkerhetsfunktioner, inklusive data identifiering & klassificering, sårbarhets bedömning och Avancerat skydd.
 
-- [Data identifierings & klassificering](sql-database-data-discovery-and-classification.md) (för närvarande i för hands version) innehåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera och märka & skydda känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
+- [Data identifiering & klassificering](sql-database-data-discovery-and-classification.md) innehåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera och märka & skydda känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
 - [Sårbarhets bedömning](sql-vulnerability-assessment.md) är ett enkelt sätt att konfigurera en tjänst som kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
 - [Avancerat skydd](sql-database-threat-detection-overview.md) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Aviseringar för avancerat skydd ger information om den misstänkta aktiviteten och rekommenderar åtgärder för att undersöka och minimera hotet.
 

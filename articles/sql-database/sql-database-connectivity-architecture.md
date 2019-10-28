@@ -69,13 +69,13 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Sydöstra Australien | 191.239.192.109, 13.73.109.251 |
 | Södra Brasilien         | 104.41.11.5, 191.233.200.14 |
 | Kanada, centrala       | 40.85.224.249      |
-| Kanada, östra          | 40.86.226.166      |
+| Östra Kanada          | 40.86.226.166      |
 | Centrala USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Kina, östra           | 139.219.130.35     |
 | Kina, östra 2         | 40.73.82.1         |
 | Kina, norra          | 139.219.15.17      |
 | Kina, norra 2        | 40.73.50.0         |
-| Asien, östra            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| Östasien            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
 | USA, östra              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |

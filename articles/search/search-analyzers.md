@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 67ee2790cbf0f9e147222c5cf3ea4448362d9f87
 ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2019
 ms.locfileid: "72791205"
@@ -344,7 +344,7 @@ Skapa ett [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure
 
 + [Konfigurera anpassade analys](index-add-custom-analyzers.md) verktyg för minimal bearbetning eller specialiserad bearbetning på enskilda fält.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
  [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

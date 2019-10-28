@@ -75,7 +75,7 @@ Kunder som använder [indexerare](search-indexer-overview.md) för att fylla i o
 
 Om du inte använder indexerare använder du program koden för att skicka objekt och data till olika Sök tjänster parallellt. Mer information finns i [prestanda och optimering i Azure kognitiv sökning](search-performance-optimization.md).
 
-## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
+## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
 Eftersom Azure Kognitiv sökning inte är en primär data lagrings lösning ger vi inte en formell mekanism för säkerhets kopiering och återställning av självbetjäning. Du kan dock använda exempel koden **index-Backup-Restore** i den här [Azure kognitiv sökning .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples) för att säkerhetskopiera index definitionen och ögonblicks bilden till en serie JSON-filer och sedan använda filerna för att återställa indexet, om det behövs. Det här verktyget kan också flytta index mellan tjänst nivåer.
 

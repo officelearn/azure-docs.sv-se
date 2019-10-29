@@ -1,36 +1,132 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Azure IoT Central
+### YamlMime:Hub
+title: Dokumentation om IoT Central-lösningar
+summary: Utforska dokumentationen för Azure IoT Central-tjänsten och -lösningar.
+brand: azure
 metadata:
-  title: 'Dokumentation om Azure IoT Central – självstudier, API-referens | Microsoft Docs'
-  description: 'Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst) som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.'
-  author: dominicbetts
-  ms.topic: landing-page
-  ms.date: 11/08/2017
-  ms.author: dobett
+  title: Dokumentationshubb för Azure IoT Central
+  description: Utforska dokumentationen för Azure IoT Central-tjänsten och -lösningar.
   ms.service: iot-central
-  services: iot-central
-  manager: timlt
-abstract:
-  description: 'Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst) som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.'
-sections:
-  - title: Funktionsavisering
-    items:
-      - type: paragraph
-        text: 'Azure IoT Central har övergått till att använda IoT Hub Device Provisioning Service (DPS) för alla enhetsanslutningar. Du måste använda DPS SDK för att registrera och ansluta enheter till ditt Azure IoT Central-program. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Läs mer om enhetsanslutning i Azure IoT Central.</a> Alla program som använder den kontinuerliga funktionen för dataexport och/eller lösningsmallen för Power BI måste ändra mållagringscontainer och skapa en ny lösningsmall.'
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du <a href="quick-deploy-iot-central">skapar ett nytt Azure IoT Central-program</a>.
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du anpassar och använder det nya Azure IoT Central-programmet.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-define-device-type">Definiera en ny enhetstyp</a>
-          - html: <a href="tutorial-configure-rules">Konfigurera regler</a>
-          - html: <a href="tutorial-customize-operator">Anpassa operator-vyn</a>
-          - html: <a href="tutorial-monitor-devices">Övervaka dina enheter</a>
-          - html: <a href="tutorial-add-device">Lägga till en riktig enhet</a>
+  ms.topic: hub-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 10/25/2019
+  ms.openlocfilehash: e60c4da08d92cce1cd5964f78e8198f6c04069ef
+  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72965892"
+highlightedContent:
+  items:
+  - title: Vad är IoT Central?
+    itemType: overview
+    url: ./core/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Vad är programmallar?
+    itemType: concept
+    url: ./core/howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Azure IoT Central-arkitektur
+    itemType: architecture
+    url: ./core/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Skapa ett nytt program
+    itemType: quickstart
+    url: ./core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Definiera en enhetstyp och lägg till en enhet
+    itemType: tutorial
+    url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Övervaka dina enheter
+    itemType: tutorial
+    url: ./core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+conceptualContent:
+  items:
+  - title: Anslut (förhandsgranskningsfunktioner)
+    links:
+    - url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Konfigurera en enhetsmall
+    - url: ./core/tutorial-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: tutorial
+      text: Ansluta en IoT Plug and Play-enhet
+    footerLink:
+      url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      text: Mer information
+  - title: Håll dig ansluten (förhandsgranskningsfunktioner)
+    links:
+    - url: ./core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Använda enhetsgrupper
+    - url: ./core/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Hantera dina enheter
+    - url: ./core/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: concept
+      text: Så här kör du ett jobb
+    - url: ./core/howto-create-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Analysera dina enhetsdata
+    footerLink:
+      url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      text: Mer information
+  - title: Transformera (förhandsgranskningsfunktioner)
+    links:
+    - url: ./core/howto-create-telemetry-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Skapa en regel för telemetri
+    - url: ./core/howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      itemType: how-to-guide
+      text: Konfigurera kontinuerlig dataexport
+    footerLink:
+      url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      text: Mer information
+productDirectory:
+  title: Kom igång med att skapa mallar för branschprogram
+  summary: Är du redo att börja skapa? Titta på våra branschrelevanta programmallar som skapats för dig som jobbar med att ta fram lösningar.
+  items:
+  - title: Skapa för detaljhandeln
+    imageSrc: ./retail/media/index/iot-central-retail.svg
+    links:
+    - text: Skapa lösningar för detaljhandeln med Azure IoT Central
+      url: ./retail/overview-iot-central-retail-pnp.md
+    - text: Skapa ett program för detaljhandeln
+      url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
+    - text: Skapa ett program för smart lagerhantering
+      url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md
+    - text: Skapa ett anslutet logistikprogram
+      url: ./retail/tutorial-iot-central-connected-logistics-pnp.md
+    - text: Skapa ett program för digitala distributionscenter
+      url: ./retail/tutorial-iot-central-digital-distribution-center-pnp.md
+  - title: Skapa för hälso- och sjukvård
+    imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
+    links:
+    - url: ./healthcare/overview-iot-central-healthcare.md
+      text: Skapa lösningar för hälso- och sjukvården med Azure IoT Central
+    - url: ./healthcare/tutorial-continuous-patient-monitoring.md
+      text: Skapa en app för kontinuerlig övervakning av patienter
+  - title: Skapa för energi
+    imageSrc: ./energy/media/index/iot-central-energy.svg
+    links:
+    - url: ./energy/overview-iot-central-energy.md
+      text: Skapa energilösningar med IoT Central
+    - url: ./energy/tutorial-smart-meter-app.md
+      text: Skapa en app för smart mätarövervakning
+    - url: ./energy/tutorial-solar-panel-app.md
+      text: Skapa en app för solpanelsövervakning
+  - title: Skapa för myndigheter
+    imageSrc: ./government/media/index/iot-central-government.svg
+    links:
+    - url: ./government/overview-iot-central-government.md
+      text: Skapa lösningar för myndigheter med IoT Central
+    - url: ./government/tutorial-water-quality-monitoring.md
+      text: Skapa en app för övervakning av vattenkvalitet
+    - url: ./government/tutorial-water-consumption-monitoring.md
+      text: Skapa en app för övervakning av vattenförbrukning
+    - url: ./government/tutorial-connected-waste-management.md
+      text: Skapa en ansluten app för avfallshantering
+additionalContent:
+  sections:
+  - items:
+    - title: IoT Central API:er
+      summary: Utforska IoT Central API:er.
+      url: https://docs.microsoft.com/rest/api/azure/
+    - title: IoT Central på Microsoft Learn
+      summary: Utforska IoT Central i en kostnadsfri sandbox-miljö.
+      url: https://aka.ms/iotcentralapimslearnjourney

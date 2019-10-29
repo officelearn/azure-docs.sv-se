@@ -32,9 +32,13 @@
                   href: hpc-cache-ingest-manual.md
     - name: Ansluta till cachen
       href: hpc-cache-mount.md
+    - name: Hantera cachen
+      href: hpc-cache-manage.md
 - name: Resurser
   items:
     - name: Öppna en supportbegäran
       href: hpc-cache-support-ticket.md
     - name: Återställa från ett regionalt avbrott
       href: hpc-region-recovery.md
+    - name: Använda Azure NetApp Files med Azure HPC Cache
+      href: hpc-cache-netapp.md

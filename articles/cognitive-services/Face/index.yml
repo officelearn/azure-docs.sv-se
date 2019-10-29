@@ -1,96 +1,114 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Ansikts-API
+### YamlMime:Landing
+title: Dokumentation om ansiktsigenkänning
+summary: Det molnbaserade ansikts-API:et ger utvecklare åtkomst till avancerade ansiktsalgoritmer. Microsofts ansiktsalgoritmer möjliggör identifiering av ansiktsattribut och ansiktsigenkänning. Lär dig hur du analyserar innehåll på olika sätt med snabbstarter, självstudier och exempel.
 metadata:
-  title: 'Dokumentation om Ansikts-API – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs'
-  description: 'Lär dig hur du använder ansikts-API:et för att upptäcka och identifiera ansikten i bilder och returnera information om dem. Självstudier visar hur du skapar appar som använder API:et.'
+  title: Dokumentation om API för ansiktsigenkänning – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  description: Det molnbaserade ansikts-API:et ger utvecklare åtkomst till avancerade ansiktsalgoritmer. Microsofts ansiktsalgoritmer möjliggör identifiering av ansiktsattribut och ansiktsigenkänning. Lär dig hur du analyserar innehåll på olika sätt med snabbstarter, självstudier och exempel.
   services: cognitive-services
-  author: PatrickFarley
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.topic: landing-page
-  ms.date: 12/20/2018
-  ms.author: nitinme
-abstract:
-  description: 'Det molnbaserade ansikts-API:et ger utvecklare åtkomst till avancerade ansiktsalgoritmer. Microsofts ansiktsalgoritmer möjliggör identifiering av ansiktsattribut och ansiktsigenkänning. Lär dig hur du analyserar innehåll på olika sätt med snabbstarter, självstudier och exempel.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/face/overview
-            html: '<p>Lär dig mer om ansikts-API:et.</p>'
-            image:
-              src: ../media/index/i_overview.svg
-            title: Vad är Ansikts-API?
-          - href: /azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage
-            html: <p>Lär dig hur du identifierar ansikten i en bild.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-            title: Identifiera ansikten i en bild
-          - href: /azure/cognitive-services/face/face-how-to-install-containers
-            html: <p>Lär dig hur du använder Ansikts-API i containrar.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-            title: Använda Ansikts-API i containrar
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Analysera bilder, generera miniatyrbilder och extrahera text från en bild med hjälp av:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_Csharp.svg
-            text: 'C&#35;'
-            href: QuickStarts/CSharp
-          - image:
-              src: media/index/logo_java.svg
-            text: Java
-            href: QuickStarts/Java
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            href: QuickStarts/node
-          - image:
-              src: media/index/logo_python.svg
-            text: Python
-            href: QuickStarts/Python
-          - image:
-              src: media/index/logo_go.svg
-            text: Go
-            href: QuickStarts/Go
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du utvecklar program med hjälp av ansikts-API:et:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Identifiera och rama in ansikten i en bild på Windows</a></li>
-          - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Identifiera och rama in ansikten i en bild på Android</a></li>
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: 'Hitta exempel för Ansikts-API:'
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=Relevance">Kodexempel</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 'API:er'
-            html: <p><a href="APIReference">Ansikts-API</a></p>
-          - title: 'SDK:er'
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet">NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest">Node</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 10/24/2019
+  ms.openlocfilehash: e7dabc3104f925f602fe5806e04f9da7f438c310
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72935735"
+landingContent:
+- title: Om ansiktsigenkännings-API:et
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Ansikts-API?
+      url: Overview.md
+- title: Identifiera ansikten
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Ansiktsspårning
+      url: concepts/face-detection.md
+  - linkListType: quickstart
+    links:
+    - text: Använda .NET SDK
+      url: quickstarts/csharp-sdk.md
+    - text: Använda Python SDK
+      url: quickstarts/python-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ange en ansiktsavkänningsmodell
+      url: Face-API-How-to-Topics/specify-detection-model.md
+- title: Identifiera ansikten
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Ansiktsigenkänning
+      url: concepts/face-recognition.md
+  - linkListType: quickstart
+    links:
+    - text: Använda .NET SDK
+      url: quickstarts/csharp-sdk.md
+    - text: Använda Python SDK
+      url: quickstarts/python-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ange en ansiktsigenkänningsmodell
+      url: Face-API-How-to-Topics/specify-recognition-model.md
+- title: Använda ansiktsrektanglar
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Visa ansiktsdata i en WPF-app
+      url: Tutorials/FaceAPIinCSharpTutorial.md
+    - text: Visa ansiktsdata i en Android-app
+      url: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använda attributet HeadPose
+      url: Face-API-How-to-Topics/how-to-use-headpose.md
+- title: Använda containrar
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Installera och köra containrar
+      url: face-how-to-install-containers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera containrar
+      url: face-resource-container-config.md
+  - linkListType: deploy
+    links:
+    - text: Använda containerinstanser
+      url: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Ansiktsigenkännings-API v1.0
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+    - text: .NET SDK
+      url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+    - text: Python SDK
+      url: https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-face/?view=azure-python
+    - text: Java SDK
+      url: https://docs.microsoft.com/en-us/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+    - text: Node.js SDK
+      url: https://docs.microsoft.com/en-us/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
+    - text: Go SDK
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
+    - text: iOS SDK
+      url: https://github.com/Microsoft/Cognitive-Face-iOS
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Kommandoradsgränssnitt för Azure (CLI)
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+- title: Hjälp och feedback
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://cognitive.uservoice.com/forums/430315-face-api
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

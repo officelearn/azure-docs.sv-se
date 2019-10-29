@@ -89,8 +89,8 @@
           href: 'cache-administration.md#schedule-updates'
         - name: Konfigurera åtkomst till redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
-        - name: Föråldrad användning av TLS 1.0 och 1.1
-          href: cache-deprecate-tls-10-11.md
+        - name: Ta bort TLS 1.0 och 1.1
+          href: cache-remove-tls-10-11.md
     - name: Övervaka
       items:
         - name: Övervaka i Azure Portal

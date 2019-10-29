@@ -56,28 +56,37 @@
               href: virtual-machines-windows-ps-sql-keyvault.md
 - name: Instruktionsguider
   items:
-    - name: Skapa en virtuell SQL-dator
+    - name: Skapa SQL VM
       items:
         - name: Använda portalen
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Använda Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
-    - name: Registrera med resursprovidern
-      href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: Ändra licensieringsmodell
-      href: virtual-machines-windows-sql-ahb.md
-    - name: Ändra utgåva
-      href: virtual-machines-windows-sql-change-edition.md
+    - name: Registrera med SQL VM RP
+      displayName: 'resource provider, registration'
+      items:
+        - name: Enstaka virtuell dator
+          href: virtual-machines-windows-sql-register-with-resource-provider.md
+        - name: Massregistrering av flera virtuella datorer
+          href: virtual-machines-windows-sql-bulk-register-with-resource-provider.md
+    - name: Hantera
+      items:
+        - name: Licensieringsmodell
+          displayName: 'ahb, ahub, payg, change, modify, update'
+          href: virtual-machines-windows-sql-ahb.md
+        - name: Utgåva
+          displayName: 'change, modify, update'
+          href: virtual-machines-windows-sql-change-edition.md
+        - name: Azure Storage för säkerhetskopiering och återställning
+          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
     - name: Migrera
       items:
-        - name: Migrera en SQL Server-databas
+        - name: SQL Server-databas till virtuell dator
           href: virtual-machines-windows-migrate-sql.md
         - name: Virtuell dator till en ny region
           href: virtual-machines-windows-sql-move-different-region.md
     - name: Konfigurera hög tillgänglighet
       items:
-        - name: Använda Azure Storage för säkerhetskopiering och återställning
-          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
         - name: Always On-tillgänglighetsgrupp
           items:
             - name: Azure SQL VM CLI

@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: Dokumentation om Azure IoT Central
+summary: Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst), som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
+metadata:
+  title: Dokumentation om Azure IoT Central
+  description: Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst), som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
+  services: iot-central
+  ms.service: iot-central
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 10/25/2019
+  ms.openlocfilehash: 8b4b32e17929396c3edc8bbac5566763556ca3dc
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72937788"
+landingContent:
+- title: Om Azure IoT Central
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure IoT Central?
+      url: overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: IoT-lösningsalternativ
+      url: overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Guidad visning av användargränssnittet
+      url: overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - linkListType: architecture
+    links:
+    - text: Azure IoT Central-arkitektur
+      url: concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - linkListType: quickstart
+    links:
+    - text: Skapa ett nytt program
+      url: quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- title: Kom igång med anslutningen
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera en enhetsmall
+      url: howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Ansluta en IoT Plug and Play-enhet
+      url: tutorial-add-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Förbereda och ansluta MX Chip IoT DevKit
+      url: howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Ansluta andra IoT-moln
+      url: howto-build-iotc-device-bridge.md
+- title: Fortsätt vara uppkopplad
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Använda enhetsgrupper
+      url: howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera dina enheter
+      url: howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Köra ett jobb
+      url: howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Analysera dina enhetsdata
+      url: howto-create-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- title: Transformering
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa en regel
+      url: quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Skapa regler för telemetri
+      url: tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Exportera till Blob Storage
+      url: howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa anpassade roller
+      url: howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Skapa anpassad analys
+      url: howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- title: Administration
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera ditt program
+      url: howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Hantera användare och roller
+      url: howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Visa din faktura
+      url: howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Anpassa användargränssnitt i program
+      url: howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Konfigurera personliga instrumentpaneler
+      url: howto-create-personal-dashboards.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Använda paneler på instrumentpanelen
+      url: howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Använda programmallar
+      url: howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json

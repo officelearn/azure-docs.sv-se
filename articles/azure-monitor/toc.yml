@@ -36,7 +36,7 @@
           href: log-query/get-started-portal.md
         - name: Loggfrågor
           href: log-query/get-started-queries.md
-        - name: Visualisera loggdata
+        - name: Instrumentpanel med loggdata
           href: learn/tutorial-logs-dashboards.md
         - name: Avisera om loggdata
           href: learn/tutorial-response.md
@@ -50,7 +50,7 @@
           href: learn/tutorial-alert.md
         - name: Förstå programanvändare
           href: learn/tutorial-users.md
-        - name: Skapa anpassade instrumentpaneler
+        - name: Instrumentpanel med programdata
           href: learn/tutorial-app-dashboards.md
     - name: Arkivera plattformsmått och loggdata
       href: learn/tutorial-archive-data.md
@@ -889,7 +889,11 @@
         - name: Arbetsböcker
           href: app/usage-workbooks.md
         - name: Instrumentpaneler
-          href: app/app-insights-dashboards.md
+          items:
+            - name: Instrumentpanel som använder loggdata
+              href: learn/tutorial-logs-dashboards.md
+            - name: Instrumentpanel som använder programdata
+              href: learn/tutorial-app-dashboards.md
         - name: Skicka data till Grafana
           href: platform/grafana-plugin.md
     - name: Aviseringar
@@ -1098,10 +1102,8 @@
           href: platform/metrics-supported.md
         - name: Mått som stöds för nyare aviseringar
           href: platform/alerts-metric-near-real-time.md
-    - name: Diagnostikloggar
-      items:
-        - name: 'Tjänster, kategorier och scheman för diagnostikloggar'
-          href: platform/diagnostic-logs-schema.md
+    - name: 'Tjänster, kategorier och scheman för resursloggar'
+      href: platform/diagnostic-logs-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI – Application Insights (förhandsversion)
@@ -1110,9 +1112,11 @@
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
+        - name: 'Aviseringar, mått, aktivitetslogg, autoskalning'
+          href: /powershell/module/az.monitor
         - name: Application Insights
           href: /powershell/module/az.applicationinsights
-        - name: Loggar
+        - name: Log Analytics
           href: /powershell/module/az.operationalinsights
     - name: REST-API
       items:

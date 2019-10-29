@@ -103,8 +103,12 @@
                   href: virtual-network-ipv4-ipv6-dual-stack-cli.md
                 - name: Resource Manager-mall
                   href: ipv6-configure-template-json.md
-            - name: Uppgradering på plats
-              href: ipv6-add-to-existing-vnet-powershell.md
+            - name: Lägg till IPv6 i IPv4-program
+              items:
+                - name: Azure PowerShell
+                  href: ipv6-add-to-existing-vnet-powershell.md
+                - name: Azure CLI
+                  href: ipv6-add-to-existing-vnet-cli.md
             - name: Standard offentlig lastbalanserare
               items:
                 - name: Azure PowerShell

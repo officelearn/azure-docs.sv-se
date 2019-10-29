@@ -53,8 +53,10 @@
       href: resource-scenario-status.md
     - name: Översikt över krav
       href: pre-reqs.md
-    - name: Nätverkstopologier för migrering av hanterade Azure SQL DB-instanser
+    - name: Nätverkstopologier för migrering av Azure SQL DB MI
       href: resource-network-topologies.md
+    - name: Anpassade roller för online-migreringar från SQL Server till Azure SQL DB MI
+      href: resource-custom-roles-sql-db-managed-instance.md
     - name: Felsökning och kända problem
       items:
         - name: Felsöka problem som gäller anslutning till källdatabaser

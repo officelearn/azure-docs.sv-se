@@ -65,10 +65,12 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: Vanliga felmeddelanden
   href: error-messages.md
-- name: Prestandaproblem med virtuella datorer
-  href: performance-diagnostics.md
-- name: Allmän prestandafelsökning för Azure-virtuella datorer som kör Linux eller Windows
-  href: troubleshoot-performance-virtual-machine-linux-windows.md
+- name: Felsöka prestandaproblem för virtuella Azure-datorer
+  items:
+    - name: Prestandaproblem i Linux eller Windows
+      href: troubleshoot-performance-virtual-machine-linux-windows.md
+    - name: Prestandadiagnostik
+      href: performance-diagnostics.md
 - name: Stöd för 32-bitars operativsystem
   href: support-32-bit-operating-systems-virtual-machines.md
 - name: PerfInsights

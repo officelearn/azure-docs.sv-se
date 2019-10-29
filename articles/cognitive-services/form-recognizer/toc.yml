@@ -23,6 +23,10 @@
               href: quickstarts/python-receipts.md
     - name: Använda .NET SDK
       href: quickstarts/dotnet-sdk.md
+- name: Självstudier
+  items:
+    - name: Använda formigenkänning med Logic Apps
+      href: tutorial-form-recognizer-with-logic-apps.md
 - name: Instruktionsguider
   items:
     - name: Skapa en träningsdatauppsättning

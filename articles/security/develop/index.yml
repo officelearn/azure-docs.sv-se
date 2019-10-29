@@ -1,60 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om säker utveckling
+summary: Läs mer om hur du utvecklar och distribuerar säkra program i Azure med våra exempelappar, metodtips och riktlinjer.
 metadata:
-  document_id: null
   title: Dokumentation om säker utveckling på Microsoft Azure
-  meta.description: Learn how to develop secure apps on Azure.
+  description: Lär dig utveckla säkra program på Azure.
   services: security
-  author: TerryLanfear
-  manager: rkarlin
   ms.service: security
   ms.subservice: develop
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/30/2019
+  author: TerryLanfear
   ms.author: terrylan
-abstract:
-  description: 'Läs mer om hur du utvecklar och distribuerar säkra program i Azure med våra exempelappar, metodtips och riktlinjer.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: /azure/security/develop/secure-dev-overview
-            html: <p>Utveckla ett säkert webbprogram i Azure</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
-            title: Komma igång
-          - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
-            html: <p>De fem främsta säkerhetsobjekten för webbappar</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_learn-about.svg'
-            title: Utveckla dina färdigheter med Microsoft Learn
-  - title: Säkra exempelappar
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/security/develop/secure-web-app">Webbapp i en Linux-container</a>
-          - html: <a href="/azure/security/develop/secure-aad-app">Webbapp med Azure Active Directory</a>
-          - html: <a href="/azure/security/develop/secure-pci-web-app">Betalkortsbranschen</a>
-  - title: Begrepp
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/security/develop/secure-dev-overview">Metodtips för säker utveckling</a>
-  - title: Resurser
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/security/develop/security-code-analysis-overview">Analys av Microsoft-säkerhetskod</a>
-          - html: <a href="/azure/security/develop/threat-modeling-tool">Hotmodelleringsverktyg</a>
+  manager: rkarlin
+  ms.date: 10/24/2019
+  ms.openlocfilehash: 53e59e7d5ef28d8cb09015b7de296b298af9c3f7
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72934072"
+landingContent:
+- title: Utveckla säkra exempelprogram
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Webbapp i en Linux-container
+      url: secure-web-app.md
+    - text: Webbapp med Azure Active Directory
+      url: secure-aad-app.md
+    - text: Betalkortsbranschen
+      url: secure-pci-web-app.md
+- title: Komma igång
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Bästa praxis för säker utveckling
+      url: secure-dev-overview.md
+    - text: Designfas
+      url: secure-design.md
+    - text: Utvecklingsfas
+      url: secure-develop.md
+    - text: Distribueringsfas
+      url: secure-deploy.md
+- title: Lägg till analysverktyg i din säkra utveckling
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Analys av säkerhetskod
+      url: security-code-analysis-overview.md
+    - text: Hotmodellering
+      url: threat-modeling-tool.md
+- title: Träna upp dina färdigheter
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: De 5 främsta säkerhetsobjekten
+      url: https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider
+    - text: Skydda dina molnprogram i Azure
+      url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps

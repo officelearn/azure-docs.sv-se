@@ -42,6 +42,8 @@
           items:
             - name: Delegera till katalogskapare
               href: entitlement-management-delegate-catalog.md
+            - name: Lägga till en ansluten organisation
+              href: entitlement-management-organization.md
             - name: Styra åtkomst för externa användare
               href: entitlement-management-external-users.md
             - name: Visa rapporter och loggar

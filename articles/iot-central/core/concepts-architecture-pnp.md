@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a9d74d94e139427027f68b2c26675447ae6da18c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3dacea5c1d77bfead85e42ae312bfafbe70d8ca1
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954882"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990385"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central Architecture (för hands versions funktioner)
 
@@ -32,7 +32,7 @@ Enheter utbyter data med ditt Azure IoT Central-program. En enhet kan:
 
 I Azure IoT Central anges de data som en enhet kan utbyta med ditt program i en enhets mall. Mer information om enhetsspecifika finns i hantering av [metadata](#metadata-management).
 
-Mer information om hur enheter ansluter till ditt Azure IoT Central-program finns i [enhets anslutning](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Mer information om hur enheter ansluter till ditt Azure IoT Central-program finns i [enhets anslutning](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## <a name="cloud-gateway"></a>Cloud Gateway
 
@@ -44,7 +44,7 @@ Azure IoT Central använder Azure IoT Hub som en molnbaserad gateway som aktiver
 
 Mer information om IoT Hub finns i [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
-Mer information om enhets anslutning i Azure IoT Central finns i [enhets anslutning](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Mer information om enhets anslutning i Azure IoT Central finns i [enhets anslutning](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## <a name="data-stores"></a>Data lager
 
@@ -110,4 +110,4 @@ En operatör kan skapa anpassade instrument paneler för program. Du kan ha fler
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om arkitekturen i Azure IoT Central, är det föreslagna nästa steg att lära dig om [enhets anslutning](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) i Azure IoT Central.
+Nu när du har lärt dig om arkitekturen i Azure IoT Central, är det föreslagna nästa steg att lära dig om [enhets anslutning](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) i Azure IoT Central.

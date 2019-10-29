@@ -1,24 +1,21 @@
 ---
 title: Använda Terraform med Azure
 description: Introduktion för att använda Terraform för att versionshantera och distribuera Azure-infrastruktur.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, översikt, planera, tillämpa, automatisera
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 4e51b8b5aa1cd00fcdd2481d73c40458d01d38c4
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.topic: overview
+ms.date: 10/26/2019
+ms.openlocfilehash: 1c6ac9b67f556b039b9ffd5ed725ea1f24aeeb3a
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173079"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969251"
 ---
 # <a name="terraform-with-azure"></a>Terraform med Azure
 
-[Hashicorp Terraform](https://www.terraform.io/) är ett verktyg med öppen källkod för etablering och hantering av molninfrastruktur. Den kodifierar infrastruktur i konfigurationsfiler som beskriver topologin för molnresurser, till exempel virtuella datorer, lagringskonton och nätverksgränssnitt. Terraforms kommandoradsgränssnitt (CLI) innehåller en enkel mekanism för att distribuera och versionshantera konfigurationsfilerna till Azure eller andra molntjänster som stöds.
+[Hashicorp Terraform](https://www.terraform.io/) är ett verktyg med öppen källkod för etablering och hantering av molninfrastruktur. IT-codifies infrastruktur i konfigurationsfiler som beskriver moln resursernas topologi. De här resurserna är virtuella datorer, lagrings konton och nätverks gränssnitt. Terraform CLI innehåller en enkel mekanism för att distribuera och version av konfigurationsfilerna till Azure.
 
 Den här artikeln beskriver fördelarna med att använda Terraform för att hantera Azure-infrastruktur.
 
@@ -30,23 +27,22 @@ Med Terraforms mallbaserade konfigurationsfiler kan du definiera, etablera och k
 - Distribution av samma mall flera gånger för att skapa identiska miljöer för utveckling, testning och produktion.
 - Minskad kostnad för utvecklings- och testmiljöer genom att skapa dem på begäran.
 
-## <a name="understand-infrastructure-changes-before-they-are-applied"></a>Förståelse av ändringar i infrastruktur innan de tillämpas 
+## <a name="understand-infrastructure-changes-before-being-applied"></a>Förstå infrastruktur ändringar innan de tillämpas
 
 Som en resurs blir topologin komplex och det kan vara svårt att förstå innebörden och effekten av infrastrukturändringar.
 
-Terraform tillhandahåller ett kommandoradsgränssnitt (CLI) som gör att användare kan validera och förhandsgranska ändringar i infrastrukturen innan de distribueras. Att förhandsgranska infrastrukturändringar på ett säkert och produktivt sätt har flera fördelar:
+Terraform CLI gör det möjligt för användare att verifiera och förhandsgranska infrastruktur ändringar innan programmet. Att för hands Visa infrastruktur ändringar på ett säkert sätt har flera fördelar:
 - Gruppmedlemmar kan samarbeta effektivare genom att snabbt förstå föreslagna ändringar och deras påverkan.
 - Oönskade ändringar kan fångas upp tidigt i utvecklingsprocessen
 
-
 ## <a name="deploy-infrastructure-to-multiple-clouds"></a>Distribuera infrastruktur till flera molntjänster
 
-Terraform är ett populärt verktyg för scenarier med flera molntjänster, där liknande infrastruktur distribueras till Azure och ytterligare molnleverantörer eller lokala datacenter. Det gör att utvecklare kan använda samma verktyg och konfigurationsfiler för att hantera infrastruktur hos flera molnleverantörer.
+Terraform är skickliga vid distribution av en infrastruktur över flera moln leverantörer. Det gör det möjligt för utvecklare att använda konsekventa verktyg för att hantera varje infrastruktur definition.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har en översikt över Terraform och dess fördelar föreslår vi nästa steg:
 
-- Kom igång genom att [installera Terraform och konfigurera det för att använda Azure](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure).
-- [Skapa en virtuell Azure-dator med Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
+- Kom igång genom att [installera Terraform och konfigurera det för att använda Azure](/azure/virtual-machines/linux/terraform-install-configure).
+- [Skapa en virtuell Azure-dator med Terraform](/azure/virtual-machines/linux/terraform-create-complete-vm)
 - Utforska [modulen Azure Resource Manager för Terraform](https://www.terraform.io/docs/providers/azurerm/) 

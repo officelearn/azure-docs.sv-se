@@ -1,6 +1,6 @@
 ---
-title: Få åtkomst till data källor lokalt från Azure Logic Apps
-description: Ansluta till lokala data källor från Logic Apps genom att skapa en lokal datagateway
+title: Åtkomst till data källor lokalt – Azure Logic Apps
+description: Anslut till lokala data källor från Azure Logic Apps genom att skapa en lokal Azure-datagateway-resurs
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 4b333df740fbd4c2243ea3f166593ca0a6f4bbad
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675679"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988720"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala data källor från Azure Logic Apps
 
@@ -77,7 +77,7 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
 
 1. Under **lokala Datagatewayer**väljer du **Lägg till**.
 
-   ![Lägg till datagateway](./media/logic-apps-gateway-connection/add-gateway.png)
+   ![Lägg till ny Azure-resurs för datagateway](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
 1. Under **skapa Gateway för anslutning**anger du den här informationen för din gateway-resurs. När du är klar väljer du **Skapa**.
 
@@ -92,7 +92,7 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
 
    Här är ett exempel som visar en gateway-installation som är i samma region som din gateway-resurs och som är länkad till samma Azure-konto:
 
-   ![Ange information för att skapa en data gateway-resurs](./media/logic-apps-gateway-connection/gateway-details.png)
+   ![Ange information för att skapa en data gateway-resurs](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -155,7 +155,7 @@ Om du vill skapa en annan gateway-resurs länkar du Gateway-installationen till 
 
    Exempel:
 
-   ![Ta bort Gateway](./media/logic-apps-gateway-connection/gateway-delete.png)
+   ![Ta bort gateway-resurs i Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 
 <a name="faq"></a>
 

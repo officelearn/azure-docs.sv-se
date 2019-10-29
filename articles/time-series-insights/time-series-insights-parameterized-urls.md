@@ -3,20 +3,19 @@ title: Dela anpassade Azure Time Series Insights-vyer med parametriserade URL:er
 description: Den här artikeln beskriver hur du utvecklar parametriserade URL:er i Azure Time Series Insights så att du enkelt kan dela en anpassad vy.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e862cd604263c5125259344baf2e990ad56a3291
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675829"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991117"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
@@ -76,8 +75,8 @@ Parametern `timeSeriesDefinitions=<collection of term objects>` anger villkoren 
 | **predikatet** | `\<string>` | *Where*-sats för filtrering på serversidan. |
 | **useSum** | `true` | En valfri parameter som anger att summan ska används för måttet. </br>  Observera att om `Events` är det valda måttet, väljs antal som standard.  </br>  Om `Events` inte är markerat väljs Average som standard. |
 
-* @No__t_0 nyckel-värdeparet aktiverar stackning i diagrammet.
-* @No__t_0 nyckel-värdeparet aktiverar samma skala för Y-axeln mellan termer inom en valfri parameter.  
+* `multiChartStack=<true/false>` nyckel-värdeparet aktiverar stackning i diagrammet.
+* `multiChartSameScale=<true/false>` nyckel-värdeparet aktiverar samma skala för Y-axeln mellan termer inom en valfri parameter.  
 * Med `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kan du justera skjutreglaget intervall så att det ger en mer detaljerad eller smidigare, mer sammanslagen vy av diagrammet.  
 * Med parametern `timezoneOffset=<integer>` kan du ange tids zonen för diagrammet som ska visas som en förskjutning till UTC.
 
@@ -114,11 +113,11 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 URL: en ovan beskriver och bygger vyn Time Series Insights Explorer:
 
-[Villkor för ![Time Series Insights-Utforskaren](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[Villkor för![Time Series Insights Explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
 Fullständig vy (inklusive diagrammet):
 
-[![Chart vy](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[![diagramvy](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

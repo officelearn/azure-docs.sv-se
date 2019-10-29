@@ -10,22 +10,21 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: e2af5cb193653736a0d75b4194e09d42282d2fa6
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8a0b0dde50de1806762076025e4f74f19388f81b
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203796"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989601"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
-Personanpassning i Azure är en molnbaserad API-tjänst som gör det möjligt att välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.
+Azure personanpassar är en molnbaserad API-tjänst som gör att du kan välja den bästa upplevelsen som ska visas för användarna, lära sig från deras kollektiva real tids beteende.
 
 * Ange information om dina användare och innehåll och ta emot den främsta åtgärden för att visa dina användare. 
 * Du behöver inte rensa och märka data innan du använder Personanpassaren.
 * Ge dig feedback till Personanpassaren när det passar dig. 
 * Visa analys i real tid. 
-* Använd Personanpassare som en del av en större data vetenskaps ansträngning för att verifiera befintliga experiment.
 
 ## <a name="how-does-personalizer-work"></a>Hur fungerar Personanpassare?
 
@@ -37,9 +36,9 @@ I personanpassaren används maskin inlärnings modeller för att identifiera vil
 
 1. Välj en upplevelse i din app för att anpassa.
 1. Skapa och konfigurera en instans av anpassnings tjänsten i Azure Portal. Varje instans är en personanpassa slinga.
-1. Använd SDK för att anropa Personanpassaren med information (_funktioner_) om dina användare och innehållet (_åtgärder_). Du behöver inte tillhandahålla rena, märkta data innan du använder Personanpassaren. 
+1. Använd [rang-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) för att anropa personanpassaren med information (_funktioner_) om dina användare och innehållet (_åtgärder_). Du behöver inte tillhandahålla rena, märkta data innan du använder Personanpassaren. API: er kan anropas direkt eller använda SDK: er som är tillgängliga för olika programmeringsspråk.
 1. I klient programmet visar du användaren den åtgärd som valts av Personanpassaren.
-1. Använd SDK: n för att ge feedback till en person som anger om användaren har valt att utföra åtgärden. Detta är en _[belönings Poäng](concept-rewards.md)_ .
+1. Använd [belönings-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) för att ge feedback till en person som anger om användaren har valt att utföra åtgärden. Detta är en _[belönings Poäng](concept-rewards.md)_ .
 1. Visa analyser i Azure Portal för att utvärdera hur systemet fungerar och hur dina data bidrar till anpassning.
 
 ## <a name="where-can-i-use-personalizer"></a>Var kan jag använda Personanpassare?

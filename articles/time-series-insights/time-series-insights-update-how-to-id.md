@@ -1,62 +1,78 @@
 ---
-title: Bästa praxis för att välja en Time-ID i förhandsversionen av Azure Time Series Insights | Microsoft Docs
+title: Metod tips för att välja ett Time Series ID i Azure Time Series Insights Preview | Microsoft Docs
 description: Förstå metod tips när du väljer ett Time Series-ID i Azure Time Series Insights för hands versionen.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 48f1fb542f5e28c7b8130d03cd86442390a8ad56
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947206"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989945"
 ---
-# <a name="best-practices-for-choosing-a-time-series-id"></a>Metodtips för att välja en Time-ID
+# <a name="best-practices-for-choosing-a-time-series-id"></a>Metod tips för att välja ett Time Series-ID
 
-Den här artikeln beskriver Azure Time Series Insights Preview partitionsnyckel, Time Series-ID och bästa praxis för att välja en.
+Den här artikeln sammanfattar vikten av tids serie-ID: t för din Azure Time Series Insights Preview-miljö och bästa praxis för att välja en.
 
 ## <a name="choose-a-time-series-id"></a>Välj ett Time Series-ID
 
-Välja en Time-ID är som en partitionsnyckel för en databas. Det är ett viktigt beslut som ska göras vid designtillfället. Du kan inte uppdatera en befintlig förhandsversionen av Time Series Insights-miljö för att använda en annan Time Series-ID. När en miljö skapas med en Time-ID, är med andra ord en oåterkallelig egenskap som inte kan ändras i principen.
+Att välja ett Time Series-ID är som att välja en partitionsnyckel för en databas. Det måste väljas när du skapar en Time Series Insights för hands versions miljö. Det är en *oföränderlig* egenskap. När du har skapat en Time Series Insights Preview-miljö med ett Time Series-ID kan du inte ändra den för den miljön. 
 
 > [!IMPORTANT]
-> Time Series-ID är skiftlägeskänsliga och kan ändras (det kan inte ändras efter att det angetts).
+> Time Series-ID: t är Skift läges känsligt.
 
-Med det i åtanke är det viktigt att välja tillämpligt Time Series-ID. Tänk efter dessa bästa metoder när du väljer en tid-ID:
+Att välja ett lämpligt tids serie-ID är kritiskt. Här följer några av de metod tips som du kan följa:
 
-* Välj ett egenskapsnamn som har ett stort antal värden och har även mönster i databasåtkomst. Det är en bra idé att ha en partitionsnyckel med många distinkta värden (till exempel hundratals eller tusentals). För många kunder, det här är något som DeviceID eller SensorID i din JSON.
-* Time Series-ID: T måste vara unika den lägsta nivån för din [Tidsseriemodell](./time-series-insights-update-tsm.md).
-* En teckensträng för Time Series-ID-egenskapen namn kan ha upp till 128 tecken och egenskapsvärden för Time Series-ID kan ha högst 1024 tecken.
-* Om vissa unika värden för Time Series-ID-egenskapen saknas hanteras de som null-värden som ingå i unikhetsbegränsningen.
-
-Du kan också välja upp till *tre* (3) nyckelegenskaper som din Time Series-identifieraren.
+* Välj en partitionsnyckel med många distinkta värden (till exempel hundratals eller tusentals). I många fall kan detta vara enhets-ID, sensor-ID eller tagg-ID i din JSON.
+* Time Series-ID: t ska vara unikt på lövnivå för din [tids serie modell](./time-series-insights-update-tsm.md).
+* Om din händelse källa är en IoT-hubb, kommer ditt Time Series ID sannolikt att vara *iothub-Connection-Device-ID*.
+* Tecken gränsen för tids serie-ID: t för egenskaps namn strängen är 128. Tecken gränsen är 1 024 för Time Series ID: s egenskaps värde.
+* Om ett unikt egenskaps värde för Time Series ID saknas, behandlas det som ett null-värde och följer samma regel för unikhetsvillkor.
+* Du kan också välja upp till *tre* nyckel egenskaper som tids serie-ID. Deras kombination är en sammansatt nyckel som representerar Time Series-ID: t.  
 
   > [!NOTE]
-  > Din *tre* (3) nyckelegenskaperna måste vara strängar.
+  > De tre nyckel egenskaperna måste vara strängar.
+  > Du skulle behöva fråga mot den sammansatta nyckeln i stället för en egenskap i taget.
 
-Följande scenarier beskriver välja fler än en nyckelegenskap som din Time Series-ID:  
+I följande scenarier beskrivs hur du väljer mer än en nyckel egenskap som ditt Time Series-ID.  
 
-### <a name="scenario-one"></a>Scenario ett
+### <a name="example-1-time-series-id-with-a-unique-key"></a>Exempel 1: Time Series-ID med en unik nyckel
 
-* Du har äldre fjärranläggning tillgångar, var och en med en unik nyckel.
-* Till exempel en flotta identifieras unikt med egenskapen *deviceId* och en annan där egenskapen unika är *objectId*. Varken flotta innehåller andra vagnparkens unik egenskap. I det här exemplet markerar du två nycklar, deviceId och objekt-ID som unika nycklar.
-* Vi accepterar null-värden och bristen på en egenskap närvaro i händelsenyttolasten som räknas som en `null` värde. Det är också det korrekta sättet att hantera Skicka data till två olika händelsekällor där data i varje händelsekälla har ett unikt Time Series-ID.
+* Du har äldre flotta av till gångar. Var och en har en unik nyckel.
+* En flotta identifieras unikt av egenskap **deviceId**. För en annan flotta är den unika egenskapen **ObjectID**. Varken flottan innehåller den andra flottans unika egendom. I det här exemplet väljer du två nycklar, **deviceId** och **ObjectID**, som unika nycklar.
+* Vi accepterar NULL-värden och avsaknad av en egenskaps förekomst i händelse nytto lasten räknas som ett null-värde. Detta är också det bästa sättet att hantera sändning av data till två händelse källor där data i varje händelse källa har ett unikt tids serie-ID.
 
-### <a name="scenario-two"></a>Scenario två
+### <a name="example-2-time-series-id-with-a-composite-key"></a>Exempel 2: Time Series-ID med en sammansatt nyckel
 
-* Du behöver flera egenskaper som ska vara unikt inom samma flottan av tillgångar. 
-* Exempel: Anta att du är en smart byggnad tillverkare och distribuera sensorer i varje rum. I varje rum du vanligtvis har samma värden för *sensorId*, till exempel *sensor1*, *sensor2*, och *sensor3*.
-* Dessutom byggnaden har överlappande våning och utrymme mellan platser i egenskapen *flrRm*, som har värden som *1a*, *2b*, *3a* och så vidare.
-* Slutligen kan du ha en egenskap *plats*, som innehåller värden som *Redmond*, *Barcelona*, och *Tokyo*. För att skapa unika, skulle du ange följande egenskaper som dina Time Series-ID-nycklar: *sensorId*, *flrRm*, och *plats*.
+* Du behöver flera egenskaper för att vara unika inom samma flotta av till gångar. 
+* Du är tillverkare av smarta byggnader och distribuerar sensorer i varje rum. I varje rum har du normalt samma värden för **sensorId**. Exempel är **sensor1**, **sensor2**och **sensor3**.
+* Din byggnad har överlappande golv-och rums nummer mellan platser i egenskapen **flrRm**. De här talen har värden som **1a**, **2b**och **3a**.
+* Du har en egenskap, **plats**, som innehåller värden som **Redmond**, **Barcelona**och **Tokyo**. För att skapa unikhet anger du följande tre egenskaper som tids serie-ID-nycklar: **sensorId**, **flrRm**och **location**.
+
+Exempel på rå händelse:
+
+```JSON
+{
+  "sensorId": "sensor1",
+  "flrRm": "1a",
+  "location": "Redmond",
+  "temperature": 78
+}
+```
+
+I Azure Portal kan du ange den sammansatta nyckeln som: 
+
+`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [datamodellering](./time-series-insights-update-tsm.md).
+* Läs mer om [data modellering](./time-series-insights-update-tsm.md).
 
-* Planera din [Azure Time Series Insights (förhandsversion) miljö](./time-series-insights-update-plan.md).
+* Planera [Azure Time Series Insights för hands versions miljön](./time-series-insights-update-plan.md).

@@ -1,22 +1,21 @@
 ---
-title: 'Snabbstart: Azure Time Series Insights-utforskaren | Microsoft Docs'
+title: 'Snabb start: Azure Time Series Insights Explorer | Microsoft Docs'
 description: Den här snabb starten visar hur du kommer igång med Azure Time Series Insights Explorer i webbläsaren för att visualisera stora mängder IoT-data. Titta på huvudfunktionerna i en demomiljö.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/23/2019
-ms.openlocfilehash: 83446facc734c0bfa24b7e78916d652467d01415
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 156e95c88bc3c66890ba9c8baf9b281330b60186
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978685"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990912"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Snabbstart: Utforska Azure Time Series Insights
 
@@ -39,45 +38,45 @@ Den här snabb starten i Time Series Insights Explorer innehåller en guidad gen
 
 1. Sidan Time Series Insights guidad visning visas. Välj **Nästa** för att starta den guidade visningen.
 
-   [![Select nästa](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![Välj nästa](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>Utforska demo miljön
 
 1. **Panelen för val av tid** visas. Använd den här panelen för att välja en tidsram som ska visualiseras.
 
-   [![Time markerings panel](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [panel för![val av tid](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
 1. Välj en tidsram och dra den i regionen. Välj sedan **Sök**.
 
-   [![Select en tidsram](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
+   [![Välj en tidsram](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
    Time Series Insights visar en diagramvisualisering för den tidsram du angav. Du kan utföra olika åtgärder i linje diagrammet. Du kan till exempel filtrera, fästa, sortera och stapla.
 
    Gå tillbaka till **panelen för val av tid**genom att välja nedåtpilen som visas:
 
-   [![Chart](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
+   [![diagram](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
 1. Välj **Lägg till** på **panelen villkor** för att lägga till ett nytt sökord.
 
-   [![Add-objekt](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
+   [![Lägg till objekt](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
 1. I diagrammet kan du välja en region, högerklicka på regionen och välja **Utforska händelser**.
 
-   [![Explore händelser](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
+   [![utforska händelser](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
 
    Ett rutnät med dina rå data visas från den region som du utforskar.
 
-   [![Grid vy](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+   [![rutnätsvy](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>Markera och filtrera data
 
 1. Redigera dina villkor för att ändra värdena i diagrammet. Lägg till en annan term för att korsa olika typer av värden.
 
-   [![Add en term](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
+   [![lägga till en term](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
 
 1. Ange ett filter villkor i rutan **filter serie** för filtrering av Improvised-serie. För snabbstarten anger du **Station5** om du vill korskorrelera temperatur och tryck för den stationen.
 
-   [![Filter-serien](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
+   [![filter serie](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 När du har slutfört snabbstarten kan du experimentera med exempeldata för att skapa olika visualiseringar.
 

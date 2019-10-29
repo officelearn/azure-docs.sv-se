@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/15/2019
+ms.date: 10/26/2019
 ms.author: raynew
-ms.openlocfilehash: f0b66806138311508725d377b59b83c1b1365674
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d689d25b9c9c7704047ccd3cfc98aa2ea583d20b
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553541"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968809"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för replikering av virtuella Azure-datorer från en region till en annan
 
@@ -47,7 +47,7 @@ Du kan replikera och återställa virtuella datorer mellan två regioner i samma
 **Geografiskt kluster** | **Azure-regioner**
 -- | --
 Vägnar | Östra Kanada, centrala Kanada, södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2, centrala USA, norra centrala USA
-Europa | Storbritannien, västra, Storbritannien, södra, Nord Europa, Västeuropa, västra Frankrike, södra Frankrike, västra Sydafrika, norra Sydafrika
+Europa | Storbritannien, västra, Storbritannien, södra, Nord Europa, Västeuropa, västra Frankrike, södra Frankrike, västra Sydafrika, sydöstra Afrika, östra Norge, västra Norge
 Asien | Södra Indien, centrala Indien, västra Indien, Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, södra Korea, centrala Förenade Arabemiraten Central, Förenade Arabemiraten Nord
 Australien   | Australien, östra, Australien, sydöstra, Australien, centrala, Australien, centrala 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, USA DOD öst, USA DOD Central 
@@ -162,7 +162,7 @@ Storlek | Valfri storlek på virtuella Azure-datorer med minst 2 processor kärn
 Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standard alternativen skapas en tillgänglighets uppsättning automatiskt, baserat på käll regions inställningarna. Du kan ändra de här inställningarna.
 Tillgänglighetszoner | Stöds |
 Hybrid användnings förmånen (hubb) | Stöds | Om den virtuella käll datorn har en nav-licens aktive rad, används även HUB-licensen i en redundanstest eller redundansväxling av den virtuella datorn.
-Skalningsuppsättning för virtuella datorer | Stöds inte |
+VM-skalningsuppsättningar | Stöds inte |
 Azure Gallery-bilder – Microsoft publicerat | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Azure Gallery-avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Anpassade avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.

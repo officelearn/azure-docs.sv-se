@@ -1,49 +1,49 @@
 ---
-title: Konfigurera en processerver i Azure för VMware VM och fysisk återställning efter fel med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du ställer in en processerver i Azure för återställning efter fel virtuella datorer i Azure till VMware.
+title: Konfigurera en processerver i Azure för virtuell VMware-dator och återställning av fysiskt server med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar en processerver i Azure för att återställa virtuella Azure-datorer till VMware.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 080edfc86848bb6c6579c177c72d3fbd3214a06a
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110038"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968841"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Konfigurera en processerver i Azure för återställning efter fel
 
-När du redundansväxlar virtuella VMware-datorer eller fysiska servrar till Azure med [Site Recovery](site-recovery-overview.md), du kan återställa dem till den lokala platsen när den är igång igen. För att kunna återställas, måste du konfigurera en tillfällig processerver i Azure, för att hantera replikering från Azure till lokalt. Du kan ta bort den här virtuella datorn när återställningen är klar.
+När du har växlat över virtuella VMware-datorer eller fysiska servrar till Azure med [Site Recovery](site-recovery-overview.md)kan du återställa dem till den lokala platsen när den är igång igen. För att återställa igen måste du konfigurera en tillfällig processerver i Azure för att hantera replikering från Azure till lokala enheter. Du kan ta bort den här virtuella datorn efter att återställning efter fel har slutförts.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Läs mer om den [återaktiveringen av skyddet](vmware-azure-reprotect.md) och [återställning efter fel](vmware-azure-failback.md) processen.
+Läs mer om [återställnings](vmware-azure-failback.md) [-och](vmware-azure-reprotect.md) återställnings processen.
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
 
 ## <a name="deploy-a-process-server-in-azure"></a>Distribuera en processerver i Azure
 
-1. I valvet > **Site Recovery-infrastruktur**> **hantera** > **Konfigurationsservrar**, Välj configuration server.
-2. I server-sida klickar du på **+ processervern**
-3. I **Lägg till processervern** sidan och väljer att distribuera en processerver i Azure.
-4. Ange inställningarna för Azure, inklusive den prenumeration som används för växling vid fel, en resursgrupp, Azure-regionen används för växling vid fel och det virtuella nätverket som virtuella Azure-datorer finns. Om du använder flera Azure-nätverk, måste en processerver i var och en.
+1. I valvet > **Site Recovery infrastruktur**> **Hantera** > **konfigurations servrar**väljer du konfigurations servern.
+2. På sidan Server klickar du på **+ processerver**
+3. På sidan **Lägg till processerver** och välj att distribuera processervern i Azure.
+4. Ange Azure-inställningar, inklusive den prenumeration som används för redundans, en resurs grupp, Azure-regionen som används för redundans och det virtuella nätverk där de virtuella Azure-datorerna finns. Om du har använt flera Azure-nätverk behöver du en processerver i var och en.
 
-   ![Lägg till galleriobjektet för processervern](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Lägg till Server Galleri objekt för processervern](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
-4. I **servernamn**, **användarnamn**, och **lösenord**, ange ett namn för processervern och autentiseringsuppgifter som ska tilldelas administratörsbehörigheter på servern.
-5. Ange ett lagringskonto som ska användas för server VM-diskar och det undernät som processervern VM kommer att finnas serverns IP-adress som ska tilldelas när den virtuella datorn startar.
-6. Klicka på **OK** för att starta distribuerar processerver VM.
+4. I **Server namn**, **användar namn**och **lösen ord**anger du ett namn för processervern och autentiseringsuppgifter som ska tilldelas administratörs behörighet på servern.
+5. Ange ett lagrings konto som ska användas för de virtuella server diskarna, under nätet där den virtuella datorns virtuella process Server ska placeras och serverns IP-adress som ska tilldelas när den virtuella datorn startas.
+6. Klicka på **OK** för att börja distribuera den virtuella process servern. Processervern kommer att distribueras på Standard_A8_v2 SKU. Se till att den här VM-SKU: n är tillgänglig för din prenumeration.
 
 >
 
-## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>Registrera processerver (körs i Azure) till en konfigurationsserver (som körs lokalt)
+## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>Registrera processervern (körs i Azure) till en konfigurations Server (körs lokalt)
 
-När processervern VM är igång, måste du registrera den med konfigurationsservern lokalt på följande sätt:
+När den virtuella process Server-datorn är igång måste du registrera den med den lokala konfigurations servern på följande sätt:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 

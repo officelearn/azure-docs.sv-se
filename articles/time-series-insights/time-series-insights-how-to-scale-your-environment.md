@@ -3,21 +3,20 @@ title: Så här skalar du Azure Time Series Insightss miljön | Microsoft Docs
 description: 'I den här artikeln beskrivs hur du skalar din Azure Time Series Insightss miljö. Använd Azure Portal för att lägga till eller ta bort kapacitet inom pris-SKU: n.'
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a899de22137decc1eb1578369a2751710c17abda
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3f03f5ed75c720c9b0daf30d721ef4d2aee9749c
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332852"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991172"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Så här skalar du Time Series Insightss miljön
 
@@ -27,21 +26,9 @@ Du kan använda Azure Portal för att öka eller minska kapaciteten inom en spec
 
 Det är dock inte tillåtet att ändra pris nivåns SKU. Till exempel kan en miljö med en pris-SKU för S1-prissättning inte konverteras till en S2 eller vice versa.
 
-## <a name="s1-sku-ingress-rates-and-capacities"></a>Priser och kapaciteter för S1-SKU
+## <a name="ga-limits"></a>GA-gränser
 
-| S1 SKU-kapacitet | Ingress-pris | Maximal lagrings kapacitet
-| --- | --- | --- |
-| 1 | 1 GB (1 000 000 händelser) | 30 GB (30 000 000 händelser) per månad |
-| 10 | 10 GB (10 000 000 händelser) | 300 GB (300 000 000 händelser) per månad |
-
-## <a name="s2-sku-ingress-rates-and-capacities"></a>S2 SKU-ingångs frekvens och kapacitet
-
-| S2 SKU-kapacitet | Ingress-pris | Maximal lagrings kapacitet
-| --- | --- | --- |
-| 1 | 10 GB (10 000 000 händelser) | 300 GB (300 000 000 händelser) per månad |
-| 10 | 100 GB (100 000 000 händelser) | 3 TB (3 000 000 000 händelser) per månad |
-
-Kapaciteter skalas linjärt, så en S1-SKU med kapacitet 2 stöder 2 2 000 000 GB händelser per dag och 60 GB (60 000 000-händelser) per månad.
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
 
 ## <a name="change-the-capacity-of-your-environment"></a>Ändra kapaciteten för din miljö
 
@@ -49,11 +36,11 @@ Kapaciteter skalas linjärt, så en S1-SKU med kapacitet 2 stöder 2 2 000 000 G
 
 1. Välj **Konfigurera**i menyn för din Time Series Insights miljö.
 
-   [@no__t -1configure. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![konfigurera. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
 1. Justera skjutreglaget **kapacitet** för att välja den kapacitet som uppfyller kraven för ingångs frekvens och lagrings kapacitet. Observera ingångs **frekvens**, **lagrings kapacitet**och **Beräknad kostnads** uppdatering dynamiskt för att visa effekten av ändringen.
 
-   [![Slider](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [![skjutreglage](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
    Alternativt kan du ange antalet kapacitets multiplikatorer i text rutan till höger om skjutreglaget.
 

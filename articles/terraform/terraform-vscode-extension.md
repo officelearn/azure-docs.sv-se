@@ -1,33 +1,30 @@
 ---
-title: Installera och använda tillägget Azure Terraform i Visual Studio Code
+title: Självstudie – konfigurera kod tillägget för Azure terraform Visual Studio
 description: Lär dig hur du installerar och använder tillägget Azure Terraform i Visual Studio Code.
-services: terraform
-ms.service: azure
-keywords: terraform, azure, devops, visual studio code, extension
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 7dd87f38ca5dfb1c2fdd38b56b314e0cbbe3ce12
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 93ec85a2e37350ef56ff8c2e1a0ea16bb3be355e
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169932"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969316"
 ---
-# <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installera och använda tillägget Azure Terraform i Visual Studio Code
+# <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>Självstudie: Konfigurera Azure-terraform Visual Studio Code extension
 
-Tillägget Microsoft Azure Terraform i Visual Studio Code hjälper utvecklare att skapa, testa och använda Terraform med Azure. Tillägget tillhandahåller stöd för Terraform-kommandon, visualisering av resursdiagram och CloudShell-integrering med Visual Studio Code.
+Med tillägget Azure terraform Visual Studio Code kan du arbeta med terraform från redigeraren. Med det här tillägget kan du redigera, testa och köra terraform-konfigurationer. Tillägget stöder även resurs diagram visualisering.
 
 I den här artikeln kan du se hur du:
 > [!div class="checklist"]
-> * använder Terraform för att automatisera och förenkla etableringen av Azure-tjänster
-> * installerar och använder tillägget Microsoft Terraform i Visual Studio Code för Azure-tjänster
-> * använder Visual Studio Code för att skriva, planera och köra Terraform-planer.
+> * Automatisera etableringen av Azure-tjänster med terraform
+> * Installera och Använd terraform Visual Studio Code-tillägget för Azure-tjänster.
+> * Använd Visual Studio Code för att skriva, planera och köra terraform-planer.
 
-## <a name="prerequisites"></a>Förutsättningar
-- **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+## <a name="prerequisites"></a>Krav
+- **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 - **Terraform**: [Installera och konfigurera Terraform](/azure/virtual-machines/linux/terraform-install-configure).
 
@@ -138,13 +135,13 @@ I den här övningen ska du skapa och köra en grundläggande Terraform-konfigur
 
     ![Filen main.tf](media/terraform-vscode-extension/tf-main-tf.png)
 
-1. Från menyraden väljer du **Visa > Kommandopalett... > Azure Terraform: Init**.
+1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Init**.
 
 1. När bekräftelsen visas väljer du **OK**.
 
     ![Vill du öppna Cloud Shell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-1. Första gången du startar Cloud Shell från en ny mapp blir du ombedd att konfigurera webbprogrammet. Välj **Öppna**.
+1. Första gången du startar Cloud Shell från en ny mapp uppmanas du att skapa ett webb program. Välj **Öppna**.
 
     ![Första starten av Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
@@ -173,7 +170,7 @@ I den här övningen ska du skapa och köra en grundläggande Terraform-konfigur
 
 Tidigare i den här självstudien installerade du GraphViz. Terraform kan använda GraphViz för att generera en visuell representation av en konfiguration eller körning. Azure Terraform-tillägget i Visual Studio Code implementerar den här funktionen via kommandot *visualize*.
 
-- Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Visualisera**.
+- Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: visualize**.
 
     ![Visualisera planen](media/terraform-vscode-extension/tf-graph.png)
 
@@ -270,7 +267,7 @@ Innan du kan börja använda Terraform-kommandona inifrån Visual Studio Code m�
 
 ### <a name="module-test-lint"></a>Modultest: *lint*
 
-1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Kör test**.
+1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Execute Test** (Kör test).
 
 1. Från listan med alternativ för testtyp väljer du **lint**.
 
@@ -287,9 +284,9 @@ Efter en liten stund visas en lista i terminalfönstret liknande den i det här 
 
 ![Lint-testresultat](media/terraform-vscode-extension/tf-lint-test-results.png)
 
-### <a name="module-test-end-to-end"></a>Modultest: *end-to-end*
+### <a name="test-the-module"></a>Testa modulen
 
-1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Kör test**.
+1. Från menyraden väljer du **Visa > Kommandopalett > Azure Terraform: Execute Test** (Kör test).
 
 1. Från listan med alternativ för testtyp väljer du **end to end**.
 
@@ -304,7 +301,7 @@ Efter en liten stund visas en lista i terminalfönstret liknande den i det här 
 
 Efter en liten stund visas en lista i terminalfönstret liknande den i det här exemplet:
 
-![End to end-testresultat](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+![Testresultat](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

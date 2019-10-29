@@ -1,5 +1,5 @@
 ---
-title: Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna med tjänsten Azure Backup
+title: Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna med Azure Backup
 description: Lär dig hur du säkerhetskopierar en virtuell Azure-dator med tjänsten Azure Backup
 author: dcurwin
 manager: carmonm
@@ -7,21 +7,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 042fa44b8f24bb729b94c7631db9469de8493ba4
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cfbec94a2922995eed546d526c1f469e2ea54118
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639764"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969054"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 
 Den här artikeln beskriver hur du säkerhetskopierar virtuella Azure-datorer med tjänsten [Azure Backup](backup-overview.md) . Du kan säkerhetskopiera virtuella Azure-datorer på ett par olika sätt:
 
-- Enskild virtuell Azure-dator: Anvisningarna i den här artikeln beskriver hur du säkerhetskopierar en virtuell Azure-dator direkt från VM-inställningarna.
-- Flera virtuella Azure-datorer: Du kan konfigurera ett Recovery Services valv och konfigurera säkerhets kopiering för flera virtuella Azure-datorer. Följ anvisningarna i [den här artikeln](backup-azure-arm-vms-prepare.md) för det här scenariot.
-
-
+- Enskild virtuell Azure-dator: anvisningarna i den här artikeln beskriver hur du säkerhetskopierar en virtuell Azure-dator direkt från VM-inställningarna.
+- Flera virtuella Azure-datorer: du kan konfigurera ett Recovery Services valv och konfigurera säkerhets kopiering för flera virtuella Azure-datorer. Följ anvisningarna i [den här artikeln](backup-azure-arm-vms-prepare.md) för det här scenariot.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -37,8 +35,7 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 
 ## <a name="back-up-from-azure-vm-settings"></a>Säkerhetskopiera från inställningar för virtuella Azure-datorer
 
-
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **alla tjänster** och skriv **virtuella datorer**i filtret och klicka sedan på **virtuella datorer**.
 3. I listan över virtuella datorer väljer du den virtuella dator som du vill säkerhetskopiera.
 4. På menyn VM klickar du på **säkerhets kopiering**.
@@ -69,15 +66,13 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
     - Tills den första säkerhets kopieringen är klar visas den **senaste säkerhets kopierings statusen** som **Varning (första säkerhets kopiering väntar)** .
     - Klicka på namnet på säkerhets kopierings principen för att se när nästa schemalagda säkerhets kopiering kommer att köras.
 
-
 > [!NOTE]
-> Azure Backup tjänst skapar en separat resurs grupp (förutom VM-gruppgruppen) för att lagra ögonblicks bilder med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen bevaras under den tid i dagar som anges i avsnittet "Behåll ögonblicks bild för snabb återställning" i säkerhets kopierings principen för den virtuella Azure-datorn. Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel.<br>
+> Azure Backup-tjänsten skapar en separat resurs grupp (förutom resurs gruppen VM) för att lagra ögonblicks bilder, med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen bevaras under den tid i dagar som anges i avsnittet "Behåll ögonblicks bild för snabb återställning" i säkerhets kopierings principen för den virtuella Azure-datorn. Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel.<br>
 Den här resurs gruppen ska också undantas från eventuella namn-och märkes begränsningar som en begränsnings princip skulle blockera skapandet av resurs plats samlingar i den igen och orsaka säkerhets kopierings problem.
-
 
 ## <a name="run-a-backup-immediately"></a>Kör en säkerhets kopiering direkt
 
-1. Om du vill köra en säkerhets kopiering direkt går du till menyn VM och klickar på **säkerhetskopiera** > **nu**.
+1. Om du vill köra en säkerhets kopiering direkt går du till menyn VM och klickar på **säkerhetskopiera** > **säkerhets kopiering nu**.
 
     ![Kör säkerhets kopiering](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
@@ -86,9 +81,6 @@ Den här resurs gruppen ska också undantas från eventuella namn-och märkes be
     ![Bevarande dag för säkerhets kopior](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
 3. Med Portal meddelanden kan du se att säkerhets kopierings jobbet har utlösts. Klicka på **Visa alla jobb**för att övervaka säkerhets kopierings förloppet.
-
-
-
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Säkerhetskopiera från Recovery Services-valvet
 

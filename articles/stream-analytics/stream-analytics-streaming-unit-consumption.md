@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: a4811da398fde869d8eb5457db11a592006c59a9
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/28/2019
+ms.openlocfilehash: d9c4169176707f98181f2a479e470cf89ff2e04f
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934278"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988237"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera strömnings enheter
 
@@ -34,6 +34,7 @@ Måttet SU%, som sträcker sig från 0% till 100%, beskriver minnes förbrukning
     ![Azure Portal Stream Analytics jobb konfiguration][img.stream.analytics.preview.portal.settings.scale]
     
 4. Använd skjutreglaget för att ställa in SUs för jobbet. Observera att du är begränsad till särskilda SU-inställningar. 
+5. Du kan ändra antalet SUs som är tilldelat ditt jobb även när det körs. Detta är inte möjligt om ditt jobb använder en [icke-partitionerad utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) eller har [en fråga med flera steg med olika partitioner med värden](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Jobbet bör också ha minst 6 SUs för att ändra den här inställningen när jobbet körs. Du kanske är begränsad till att välja från en uppsättning SU-värden när jobbet körs. 
 
 ## <a name="monitor-job-performance"></a>Övervaka jobb prestanda
 Med hjälp av Azure Portal kan du spåra data flödet för ett jobb:

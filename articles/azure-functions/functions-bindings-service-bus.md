@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: c39a2e8daf9ca46902cf1a1fac89c59918a6854d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b261594076857b841ba288dfaba8b5b8e9250065
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934337"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987938"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus bindningar för Azure Functions
 
@@ -61,7 +61,7 @@ I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) s
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
     string myQueueItem,
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
@@ -74,12 +74,6 @@ public static void Run(
     log.LogInformation($"MessageId={messageId}");
 }
 ```
-
-Det här exemplet är för Azure Functions version 1. x. För att den här koden ska fungera för 2. x:
-
-- [utelämna parametern åtkomst rättigheter](#trigger---configuration)
-- ändra typen för logg parametern från `TraceWriter` till `ILogger`
-- ändra `log.Info` till `log.LogInformation`
 
 ### <a name="trigger---c-script-example"></a>Utlösare – C# skript exempel
 

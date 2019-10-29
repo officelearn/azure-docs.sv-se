@@ -3,21 +3,20 @@ title: Skicka händelser till en Azure Time Series Insights-miljö | Microsoft D
 description: Lär dig hur du konfigurerar en Event Hub och kör ett exempel program för att skicka händelser som du kan visa i Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: accf3adea08e713a7a2f06bb175c759ae66a72c0
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 2878a77918fdd1c1cd298ae536bcdd3bec065e91
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274514"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991132"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av en Event Hub
 
@@ -30,14 +29,14 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 1. Välj händelsehubben.
 1. När du skapar en Event Hub skapar du ett namn område för Event Hub. Om du ännu inte har skapat en händelsehubben i namn området går du till menyn och skapar en händelsehubben under **entiteter**.  
 
-    [![List av Event Hub](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
+    [![lista över Event Hub](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
 
 1. När du har skapat en Event Hub väljer du den i listan över händelse nav.
 1. På menyn under **entiteter**väljer du **Event Hubs**.
 1. Välj namnet på händelsehubben för att konfigurera det.
 1. Under **Översikt**väljer du **konsument grupper**och sedan **konsument grupp**.
 
-    [![Create en konsument grupp](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
+    [![skapa en konsument grupp](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
 
 1. Se till att du skapar en konsument grupp som uteslutande används av din Time Series Insights händelse källa.
 
@@ -46,11 +45,11 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 
 1. Välj **principer för delad åtkomst**på menyn under **Inställningar**och välj sedan **Lägg till**.
 
-    [@no__t 1Select principer för delad åtkomst och välj sedan knappen Lägg till](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
+    [![välja principer för delad åtkomst och välj sedan knappen Lägg till](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
 
 1. I fönstret **Lägg till ny princip för delad åtkomst** skapar du en delad åtkomst med namnet **MySendPolicy**. Du använder den här delade åtkomst principen för att skicka händelser C# i exemplen senare i den här artikeln.
 
-    [@no__t 1In rutan princip namn, ange MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
+    [![i rutan princip namn, ange MySendPolicy](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
 
 1. Under **anspråk**markerar du kryss rutan **Skicka** .
 
@@ -72,18 +71,18 @@ Time Series Insights-uppdateringen använder instanser för att lägga till samm
 
 1. Gå till **principer för delad åtkomst** > **MySendPolicy**. Kopiera värdet för **anslutnings strängen – primär nyckel**.
 
-    [![Copy värdet för primär nyckelns anslutnings sträng](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
+    [![kopiera värdet för primär nyckelns anslutnings sträng](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
 
 1. Gå till https://tsiclientsample.azurewebsites.net/windFarmGen.html. URL: en kör simulerade Windmill-enheter.
 1. I rutan **anslutnings sträng för händelsehubben** på webb sidan klistrar du in anslutnings strängen som du kopierade i fältet [Windmill](#push-events-to-windmills-sample).
   
-    [![Paste i den primära nyckelns anslutnings sträng i rutan anslutnings sträng för händelse hubb](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
+    [![klistra in anslutnings strängen för primär nyckel i rutan anslutnings sträng för händelse hubb](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
 
 1. Välj **Klicka för att starta**. Simulatorn genererar instans-JSON som du kan använda direkt.
 
 1. Gå tillbaka till händelsehubben i Azure Portal. På sidan **Översikt** ser du de nya händelser som tas emot av händelsehubben.
 
-    [Översikts sida för @no__t 1An Event Hub som visar mått för händelsehubben](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
+    [![en översikts sida för Event Hub som visar mått för händelsehubben](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
 
 ## <a name="supported-json-shapes"></a>JSON-former som stöds
 

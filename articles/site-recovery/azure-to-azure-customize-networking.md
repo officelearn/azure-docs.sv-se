@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8038f7c909cfeaf15039afa7335dd6b0460a2622
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 191161c8185f45712052000285013a6e61c9fa6a
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293459"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968868"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Anpassa nätverkskonfigurationer för den virtuella Azure-måldatorn
 
@@ -31,15 +31,12 @@ Du kan ange följande nyckel resurs konfiguration för den virtuella datorn som 
 - [Offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) både för under nätet och för nätverkskortet
 
- > [!IMPORTANT]
-  > De här inställningarna stöds bara i redundansväxlingen för tillfället och inte för redundanstest.
-
 ## <a name="prerequisites"></a>Krav
 
 - Se till att du planerar konfigurationen för återställnings sidan i förväg.
 - Skapa nätverks resurserna i förväg. Ange den som inmatad så att Azure Site Recovery tjänst kan följa dessa inställningar och se till att den virtuella redundansväxlingen följer de här inställningarna.
 
-## <a name="customize-failover-networking-configurations"></a>Anpassa nätverks konfigurationerna för redundans
+## <a name="customize-failover-and-test-failover-networking-configurations"></a>Anpassa nätverks konfigurationerna för redundans och testning av redundans
 
 1. Gå till **replikerade objekt**. 
 2. Välj önskad virtuell Azure-dator.
@@ -47,13 +44,16 @@ Du kan ange följande nyckel resurs konfiguration för den virtuella datorn som 
 
      ![Anpassa nätverks konfigurationerna för redundans](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Välj **Redigera** nära det nätverkskort som du vill konfigurera. I nästa blad som öppnas väljer du motsvarande tidigare skapade resurser i målet.
+4. Välj ett virtuellt nätverk för redundanstest. Du kan välja att lämna det tomt och välja en vid tidpunkten för redundanstest.
+5. Redundansklustret väljer du **Redigera** nära det nätverkskort som du vill konfigurera. I nästa blad som öppnas väljer du motsvarande förskapade resurser på platsen redundanstest och redundansväxlingen.
 
     ![Redigera NIC-konfigurationen](media/azure-to-azure-customize-networking/nic-drilldown.png) 
 
-5. Välj **OK**.
+6. Välj **OK**.
 
 Site Recovery kommer nu att respektera dessa inställningar och se till att den virtuella datorn vid redundansväxling är ansluten till den valda resursen via motsvarande nätverkskort.
+
+När du utlöser redundanstest via återställnings planen kommer den alltid att fråga det virtuella Azure-nätverket. Det här virtuella nätverket kommer att användas för redundanstest för datorer som inte har några konfigurerade inställningar för redundanstest.
 
 ## <a name="troubleshooting"></a>Felsöka
 
@@ -72,9 +72,8 @@ Verifieringar av interna belastningsutjämnare:
 - Om den virtuella mål datorn har kon figurer ATS för att placeras i en tillgänglighets zon kontrollerar du om belastningsutjämnaren är zon redundant eller ingår i en tillgänglighets zon. (Basic SKU load BALANCERS stöder inte zoner och visas inte i list rutan i det här fallet.)
 - Se till att den interna belastningsutjämnaren har en förskapad backend-pool och konfiguration på klient sidan.
 
-
 Offentlig IP-adress:
-    
+
 - Prenumerationen och regionen för den offentliga IP-adressen och den virtuella mål datorn måste vara samma.
 - Den virtuella mål datorns offentliga IP-adress (SKU) och den interna belastningsutjämnarens SKU: n måste vara samma.
 

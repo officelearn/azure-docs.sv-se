@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: d976826fe90946697a32c5b1edb9dd323b01cc1c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 10/28/2019
+ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105458"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991359"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Använd SSH-tunnlar för att komma åt Apache Ambari Web UI, JobHistory, NameNode, Apache Oozie och andra UIs
 
@@ -40,7 +40,7 @@ Om du använder skript åtgärder för att anpassa klustret, krävs en SSH-tunne
 
 [SSH-tunnlar (Secure Shell)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) ansluter en port på den lokala datorn till en head-nod i HDInsight. Trafik som skickas till den lokala porten dirigeras via en SSH-anslutning till Head-noden. Begäran löses som om den kommer från Head-noden. Svaret dirigeras sedan tillbaka via tunneln till din arbets Station.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -56,10 +56,10 @@ Om du använder skript åtgärder för att anpassa klustret, krävs en SSH-tunne
 
 ## <a name="usessh"></a>Skapa en tunnel med SSH-kommandot
 
-Använd följande kommando för att skapa en SSH-tunnel med `ssh` hjälp av kommandot. Ersätt `sshuser` med en SSH-användare för ditt HDInsight-kluster och `clustername` Ersätt med namnet på ditt HDInsight-kluster:
+Använd följande kommando för att skapa en SSH-tunnel med kommandot `ssh`. Ersätt `sshuser` med en SSH-användare för ditt HDInsight-kluster och ersätt `CLUSTERNAME` med namnet på ditt HDInsight-kluster:
 
 ```cmd
-ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
 Det här kommandot skapar en anslutning som dirigerar trafik till den lokala porten 9876 till klustret via SSH. Alternativen är:
@@ -68,9 +68,9 @@ Det här kommandot skapar en anslutning som dirigerar trafik till den lokala por
 * **C** – komprimera alla data eftersom webb trafik huvudsakligen är text.
 * **2** – framtvinga SSH för att testa protokoll version 2.
 * **q** -tyst läge.
-* **T** -inaktivera pseudo-tty-allokering eftersom du bara vidarebefordrar en port.
-* **n** -förhindra läsning av STDIN, eftersom du bara vidarebefordrar en port.
-* **N** -kör inte ett fjärrkommando eftersom du bara vidarebefordrar en port.
+* **T** -inaktivera pseudo-tty-allokering eftersom du precis har vidarebefordrat en port.
+* **n** -förhindra läsning av STDIN, eftersom du precis har vidarebefordrat en port.
+* **N** -kör inte ett fjärrkommando eftersom du precis har vidarebefordrat en port.
 * **f** – kör i bakgrunden.
 
 När kommandot har slutförts dirigeras trafik som skickas till port 9876 på den lokala datorn till klustrets huvud nod.
@@ -84,11 +84,14 @@ När kommandot har slutförts dirigeras trafik som skickas till port 9876 på de
 1. Öppna SparaTillFil och se till att **sessionen** är markerad på den vänstra menyn. Om du redan har sparat en session väljer du namnet på sessionen från listan **sparade sessioner** och väljer **Läs in**.
 
 1. Om du inte redan har en sparad session anger du anslutnings informationen:
-    * **Värdnamn (eller IP-adress)** – SSH-adressen för HDInsight-klustret. Till exempel **MyCluster-SSH.azurehdinsight.net**
-    * **Port** – 22
-    * **Anslutnings typ** – SSH
 
-1. Välj **spara**
+    |Egenskap |Värde |
+    |---|---|
+    |Värdnamn (eller IP-adress)|SSH-adressen för HDInsight-klustret. Till exempel **mycluster-ssh.azurehdinsight.net**.|
+    |Port|22|
+    |Anslutnings typ|SSH|
+
+1. Välj **Spara**
 
     ![HDInsight skapa SparaTillFil-session](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
@@ -96,15 +99,15 @@ När kommandot har slutförts dirigeras trafik som skickas till port 9876 på de
 
 1. Ange följande information om alternativen för att **kontrol lera vidarebefordring av SSH-portar** :
 
-   * **Källport** – Porten på den klient som du vill vidarebefordra. Till exempel **9876**.
+    |Egenskap |Värde |
+    |---|---|
+    |Källport|Porten på klienten som du vill vidarebefordra. Till exempel **9876**.|
+    |Mål|SSH-adressen för HDInsight-klustret. Till exempel **mycluster-ssh.azurehdinsight.net**.|
+    |Dynamisk|Aktiverar dynamisk SOCKS-proxy-routning.|
 
-   * **Mål** – SSH-adressen för HDInsight-klustret. Till exempel **mycluster-ssh.azurehdinsight.net**.
+    ![Tunnel alternativ för SparaTillFil-konfiguration](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
-   * **Dynamisk** – Aktiverar dynamisk SOCKS-proxyroutning.
-
-     ![Tunnel alternativ för SparaTillFil-konfiguration](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
-
-1. Välj **Lägg** till för att lägga till inställningarna och klicka sedan på **Öppna** för att öppna en SSH-anslutning.
+1. Välj **Lägg** till för att lägga till inställningarna och välj sedan **Öppna** för att öppna en SSH-anslutning.
 
 1. När du uppmanas till det loggar du in på servern.
 
@@ -120,16 +123,16 @@ När kommandot har slutförts dirigeras trafik som skickas till port 9876 på de
    > [!NOTE]  
    > Om du väljer **fjärranslutna DNS** matchas Domain Name System DNS-begäranden (DNS) med hjälp av HDInsight-klustret. Den här inställningen löser DNS med hjälp av Head-noden i klustret.
 
-2. Kontrol lera att tunneln fungerar genom att besöka en plats [https://www.whatismyip.com/](https://www.whatismyip.com/), till exempel. Den IP-adress som returneras ska vara en som används av Microsoft Azure Data centret.
+2. Kontrol lera att tunneln fungerar genom att besöka en plats som [https://www.whatismyip.com/](https://www.whatismyip.com/). Den IP-adress som returneras ska vara en som används av Microsoft Azure Data centret.
 
 ## <a name="verify-with-ambari-web-ui"></a>Verifiera med Ambari webb gränssnitt
 
 När klustret har upprättats kan du använda följande steg för att kontrol lera att du har åtkomst till service Web UIs från Ambari-webbplatsen:
 
-1. Gå till `http://headnodehost:8080`i webbläsaren. `headnodehost` Adressen skickas via tunneln till klustret och matchas mot Head-noden som Ambari körs på. När du uppmanas till det anger du administratörens användar namn (admin) och lösen ord för klustret. Du kan uppmanas att ange en andra gång av Ambari-webbgränssnittet. I så fall, anger du informationen igen.
+1. I webbläsaren går du till `http://headnodehost:8080`. `headnodehost`-adressen skickas via tunneln till klustret och matchas mot Head-noden som Ambari körs på. När du uppmanas till det anger du administratörens användar namn (admin) och lösen ord för klustret. Du kan uppmanas att ange en andra gång av Ambari-webbgränssnittet. I så fall, anger du informationen igen.
 
    > [!NOTE]  
-   > När du använder `http://headnodehost:8080` adressen för att ansluta till klustret ansluter du via tunneln. Kommunikationen skyddas med SSH-tunneln i stället för HTTPS. Om du vill ansluta via Internet med https använder `https://clustername.azurehdinsight.net`du, `clustername` där är namnet på klustret.
+   > När du använder `http://headnodehost:8080`-adressen för att ansluta till klustret ansluter du via tunneln. Kommunikationen skyddas med SSH-tunneln i stället för HTTPS. Om du vill ansluta via Internet med HTTPS använder du `https://clustername.azurehdinsight.net`, där `clustername` är namnet på klustret.
 
 2. Från Ambari-webbgränssnittet väljer du HDFS i listan till vänster på sidan.
 
@@ -149,7 +152,7 @@ När klustret har upprättats kan du använda följande steg för att kontrol le
     ![Bild av Hadoop NameNode-ANVÄNDARGRÄNSSNITTET](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
     > [!NOTE]  
-    > Lägg märke till URL: en för den här sidan. Det bör likna `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. Denna URI använder det interna fullständigt kvalificerade domän namnet (FQDN) för noden och är bara tillgänglig när du använder en SSH-tunnel.
+    > Lägg märke till URL: en för den här sidan. den bör likna `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. Denna URI använder det interna fullständigt kvalificerade domän namnet (FQDN) för noden och är bara tillgänglig när du använder en SSH-tunnel.
 
 ## <a name="next-steps"></a>Nästa steg
 

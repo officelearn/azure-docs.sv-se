@@ -1,22 +1,19 @@
 ---
-title: Testa Terraform-moduler i Azure med hjälp av Terratest
+title: Självstudie – testa terraform-moduler i Azure med Terratest
 description: Lär dig hur du använder Terratest för att testa Terraform-modulerna.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, storage account, azure, terratest, unit test, integration test
+ms.service: terraform
 author: tomarchermsft
-manager: gwallace
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/23/2019
-ms.openlocfilehash: e4965ba47a99e3cd189763d994bef6381badd9ba
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.date: 10/26/2019
+ms.openlocfilehash: bdb76fe2f87806c02a861ea84361b61a3e94b554
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881777"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969222"
 ---
-# <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testa Terraform-moduler i Azure med hjälp av Terratest
+# <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>Självstudie: testa terraform-moduler i Azure med Terratest
 
 > [!NOTE]
 > Exempel koden i den här artikeln fungerar inte med version 0,12 (och senare).
@@ -40,7 +37,7 @@ Innan du börjar installerar du följande programvara:
 
 - **Programmeringsspråket Go**: Terraform-testfallen är skrivna i [Go](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) är ett beroendehanteringsverktyg för Go.
-- **Azure CLI**: [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) är ett kommandoradsverktyg som du kan använda för att hantera Azure-resurser. (Terraform stöder autentisering till Azure via ett tjänsthuvudnamn eller [via Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
+- **Azure CLI**: [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) är ett kommandoradsverktyg som du kan använda för att hantera Azure-resurser. (Terraform stöder autentisering till Azure via ett tjänsthuvudnamn eller [via Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
 - **mage**: Vi använder [den körbara mage-filen](https://github.com/magefile/mage/releases) för att visa hur du förenklar körningen av Terratest-fall. 
 
 ## <a name="create-a-static-webpage-module"></a>Skapa en statisk webbplatsmodul
@@ -91,7 +88,7 @@ Som vi nämnde tidigare i artikeln matar den här modulen även ut en URL som de
 
 ```hcl
 output "homepage_url" {
-  value = "${azurerm_storage_blob.homepage.url}"
+  value = azurerm_storage_blob.homepage.url
 }
 ```
 
@@ -106,30 +103,30 @@ Logiken för den statiska webbplatsens modul implementeras i `./main.tf`:
 ```hcl
 resource "azurerm_resource_group" "main" {
   name     = "${var.website_name}-staging-rg"
-  location = "${var.location}"
+  location = var.location
 }
 
 resource "azurerm_storage_account" "main" {
   name                     = "${lower(replace(var.website_name, "/[[:^alnum:]]/", ""))}data001"
-  resource_group_name      = "${azurerm_resource_group.main.name}"
-  location                 = "${azurerm_resource_group.main.location}"
+  resource_group_name      = azurerm_resource_group.main.name
+  location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
 resource "azurerm_storage_container" "main" {
   name                  = "wwwroot"
-  resource_group_name   = "${azurerm_resource_group.main.name}"
-  storage_account_name  = "${azurerm_storage_account.main.name}"
+  resource_group_name   = azurerm_resource_group.main.name
+  storage_account_name  = azurerm_storage_account.main.name
   container_access_type = "blob"
 }
 
 resource "azurerm_storage_blob" "homepage" {
   name                   = "index.html"
-  resource_group_name    = "${azurerm_resource_group.main.name}"
-  storage_account_name   = "${azurerm_storage_account.main.name}"
-  storage_container_name = "${azurerm_storage_container.main.name}"
-  source                 = "${var.html_path}"
+  resource_group_name    = azurerm_resource_group.main.name
+  storage_account_name   = azurerm_storage_account.main.name
+  storage_container_name = azurerm_storage_container.main.name
+  source                 = var.html_path
   type                   = "block"
   content_type           = "text/html"
 }
@@ -173,7 +170,7 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
   html_path    = "empty.html"
 }
 ```
@@ -317,11 +314,11 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
 }
 
 output "homepage" {
-  value = "${module.staticwebpage.homepage_url}"
+  value = module.staticwebpage.homepage_url
 }
 ```
 
@@ -521,5 +518,5 @@ I stället för att köra `az login` före tester kan du slutföra Azure-autenti
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Terratest finns på [GitHub-sidan för Terratest](https://github.com/gruntwork-io/terratest).
-* Information om mage finns på [GitHub-sidan för mage](https://github.com/magefile/mage) och [mage-webbplatsen](https://magefile.org/).
+> [!div class="nextstepaction"] 
+> [Terratest GitHub-sida](https://github.com/gruntwork-io/terratest).

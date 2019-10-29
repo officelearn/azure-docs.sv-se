@@ -1,26 +1,23 @@
 ---
-title: Distributionsfack för Terraform med Azure-provider
+title: Självstudie – etablera infrastruktur med Azures distributions fack med terraform
 description: Självstudier för hur du använder distributionsfack för Terraform med Azure-provider
-services: terraform
-ms.service: azure
-keywords: terraform, devops, virtuell dator, Azure, distributionsfack
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: fbc6d30f8bc161ecf1a4e4093d0b69e99eec527b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/26/2019
+ms.openlocfilehash: 209bc23c6f8e96734506e3017ed2b16e51c77a00
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924996"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969278"
 ---
-# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Använd Terraform för att etablera infrastruktur med distributionsfack för Terraform
+# <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Självstudie: etablera infrastruktur med Azure-distributions platser med terraform
 
 Du kan använda [distributionsfack för Terraform](/azure/app-service/deploy-staging-slots) för att växla mellan olika versioner av din app. Den möjligheten hjälper dig minimera effekten av brutna distributioner. 
 
-I den här artikeln visas ett exempel på hur du kan använda distributionsfack genom att guida dig genom distributionen av två appar via GitHub och Azure. En app lagras på produktionsplatsen. Den andra appen lagras på en mellanlagringsplats. (Namnen "produktion" och "mellanlagring" är godtyckliga och kan vara allt du vill ha som representerar ditt scenario.) När du har konfigurerat dina distributions platser kan du använda terraform för att växla mellan de två platserna vid behov.
+I den här artikeln visas ett exempel på hur du kan använda distributionsfack genom att guida dig genom distributionen av två appar via GitHub och Azure. En app lagras på produktionsplatsen. Den andra appen lagras på en mellanlagringsplats. (Namnen "produktion" och "mellanlagring" är godtyckliga. De kan vara vad som passar bäst för ditt scenario.) När du har konfigurerat dina distributions platser använder du terraform för att växla mellan de två platserna vid behov.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -64,13 +61,11 @@ I den här artikeln visas ett exempel på hur du kan använda distributionsfack 
     cd deploy
     ```
 
-1. Skapa en fil som heter `deploy.tf` med [VI-redigeringsprogrammet](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html). Den här filen innehåller [Terraform-konfigurationen](https://www.terraform.io/docs/configuration/index.html).
+1. I Cloud Shell skapar du en fil som heter `deploy.tf`.
 
     ```bash
-    vi deploy.tf
+    code deploy.tf
     ```
-
-1. Starta infogningsläget genom att trycka på tangenten I.
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
@@ -109,13 +104,7 @@ I den här artikeln visas ett exempel på hur du kan använda distributionsfack 
     }
     ```
 
-1. Avsluta infogningsläget genom att trycka på tangenten Esc.
-
-1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
-
-    ```bash
-    :wq
-    ```
+1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
 
 1. Nu när du har skapat filen kan du kontrollera dess innehåll.
 
@@ -207,7 +196,7 @@ När du har förgrenat testprojektets lagringsplats konfigurerar du distribution
 
 1. På fliken **Distributionsalternativet** väljer du **OK**.
 
-Nu har du distribuerat produktionsplatsen. Om du vill distribuera mellanlagringsplatsen utför du alla föregående steg i det här avsnittet med följande ändringar:
+Nu har du distribuerat produktions platsen. Om du vill distribuera mellanlagringsplatsen utför du föregående steg med följande ändringar:
 
 - I steg 3 väljer du resursen **slotAppServiceSlotOne**.
 
@@ -219,8 +208,6 @@ Nu har du distribuerat produktionsplatsen. Om du vill distribuera mellanlagrings
 
 I föregående avsnitt konfigurerade du två platser – **slotAppService** och **slotAppServiceSlotOne** – som ska distribueras från olika grenar i GitHub. Nu ska vi förhandsgranska webbapparna för att verifiera att de har distribuerats.
 
-Utför följande steg två gånger. I steg 3 väljer du **slotAppService** den första gången och **slotAppServiceSlotOne** den andra gången.
-
 1. Välj **Resursgrupper** i huvudmenyn på Azure Portal.
 
 1. Välj **slotDemoResourceGroup**.
@@ -231,18 +218,15 @@ Utför följande steg två gånger. I steg 3 väljer du **slotAppService** den f
 
     ![Välj webbadressen på översiktsfliken för att återge appen](./media/terraform-slot-walkthru/resource-url.png)
 
-> [!NOTE]
-> Det kan ta flera minuter för Azure för att skapa och distribuera webbplatsen från GitHub.
->
->
+1. Beroende på vald app visas följande resultat:
+    - **slotAppService** -webbapp – blå sida med en sid rubrik för **plats demonstrations app 1**. 
+    - **slotAppServiceSlotOne** -webbapp – grön sida med en sid rubrik för **plats demonstrations program 2**.
 
-För webbappen **slotAppService** ser du en blå sida med sidrubriken **Slot Demo App 1**. För webbappen **slotAppServiceSlotOne** ser du en grön sida med sidrubriken **Slot Demo App 2**.
-
-![Förhandsgranska apparna för att testa att de har distribuerats korrekt](./media/terraform-slot-walkthru/app-preview.png)
+    ![Förhandsgranska apparna för att testa att de har distribuerats korrekt](./media/terraform-slot-walkthru/app-preview.png)
 
 ## <a name="swap-the-two-deployment-slots"></a>Växla mellan de två distributionsfacken
 
-Testa att växla mellan de två distributionsfacken med följande steg:
+Gör så här för att testa växling av de två distributions platserna:
  
 1. Växla till fliken i webbläsaren med **slotAppService** (appen med den blå sidan). 
 
@@ -256,13 +240,11 @@ Testa att växla mellan de två distributionsfacken med följande steg:
     cd clouddrive/swap
     ```
 
-1. Skapa en fil som heter `swap.tf` med VI-redigeringsprogrammet.
+1. I Cloud Shell skapar du en fil som heter `swap.tf`.
 
     ```bash
-    vi swap.tf
+    code swap.tf
     ```
-
-1. Starta infogningsläget genom att trycka på tangenten I.
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
@@ -278,13 +260,7 @@ Testa att växla mellan de två distributionsfacken med följande steg:
     }
     ```
 
-1. Avsluta infogningsläget genom att trycka på tangenten Esc.
-
-1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
-
-    ```bash
-    :wq
-    ```
+1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
 
 1. Initiera Terraform.
 
@@ -304,7 +280,7 @@ Testa att växla mellan de två distributionsfacken med följande steg:
     terraform apply
     ```
 
-1. När Terraform har växlat fack går du tillbaka till webbläsaren som återger webbappen **slotAppService** och uppdaterar sidan. 
+1. Återgå till webbläsaren när terraform har växlat platser. Uppdatera sidan. 
 
 Webbappen på mellanlagringsplatsen **slotAppServiceSlotOne** har växlat med produktionsplatsen och återges nu i grönt. 
 
@@ -317,3 +293,8 @@ terraform apply
 ```
 
 När appen har växlats visas den ursprungliga konfigurationen.
+
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"] 
+> [Terraform på Azure](/azure/ansible/)

@@ -1,41 +1,39 @@
 ---
-title: Skapa en grundläggande Terraform-mall i Azure med hjälp av Yeoman
+title: Självstudie – Skapa en terraform Base-mall i Azure med Yeoman
 description: Lär dig hur du skapar en grundläggande Terraform-mall i Azure med hjälp av Yeoman.
-services: terraform
-ms.service: azure
-keywords: terraform, utvecklar, virtuell dator, azure, yeoman
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 7a628eb02170346a826cab19498d6fdf40cebddd
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 2f8cbc495a4b46255e7eb31bc1ff8b04fffcad15
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173385"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969272"
 ---
-# <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Skapa en grundläggande Terraform-mall i Azure med hjälp av Yeoman
+# <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>Självstudie: skapa en terraform Base-mall i Azure med Yeoman
 
-[Terraform](https://docs.microsoft.com/azure/terraform/
-) gör det möjligt att enkelt skapa infrastruktur på Azure. [Yeoman](https://yeoman.io/) förenklar modulutvecklarens jobb avsevärt vid skapandet av Terraform-moduler samtidigt som det utgör ett utmärkt ramverk för *bästa praxis*.
+I den här självstudien får du lära dig hur du använder kombinationen av [terraform](/azure/terraform/) och [Yeoman](https://yeoman.io/). Terraform är ett verktyg för att skapa en infrastruktur i Azure. Yeoman gör det enkelt att skapa terraform-moduler.
 
-I den här artikeln får du lära dig hur du använder Yeoman-modulgeneratorn för att skapa en grundläggande Terraform-mall. Sedan lär du dig hur du testar din nya Terraform-mall med hjälp av två olika metoder:
+I den här artikeln får du lära dig hur du utför följande uppgifter:
+> [!div class="checklist"]
+> * Skapa en bas terraform-mall med hjälp av Yeoman-modulens Generator.
+> * Testa terraform-mallen med två olika metoder.
+> * Kör terraform-modulen med hjälp av en Docker-fil.
+> * Kör terraform-modulen internt i Azure Cloud Shell.
 
-- Kör Terraform-modulen med hjälp av en Docker-fil som du skapar i den här artikeln.
-- Kör Terraform-modulen internt i Azure Cloud Shell.
+## <a name="prerequisites"></a>Krav
 
-## <a name="prerequisites"></a>Förutsättningar
-
-- **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- **Visual Studio Code**: Vi kommer att använda [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) för att undersöka filer som skapats av Yeoman-generatorn. Du kan dock använda valfri kodredigerare.
-- **Terraform**: Du behöver en [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure )-installation för att köra den modul som skapas av Yeoman.
-- **Docker**: Vi kommer att använda [Docker](https://www.docker.com/get-started) för att köra den modul som skapas av Yeoman-generatorn. (Om du vill kan du kan använda Ruby i stället för Docker för att köra exempelmodulen.)
-- **Programmeringsspråket Go**: Du behöver en [Go](https://golang.org/)-installation eftersom de testfall som genereras av Yeoman är skrivna i Go.
+- **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- **Visual Studio Code**: [Ladda ned Visual Studio Code](https://code.visualstudio.com/download) för din plattform.
+- **Terraform**: [Installera terraform](/azure/virtual-machines/linux/terraform-install-configure ) för att köra modulen som skapats av Yeoman.
+- **Docker**: [Installera Docker](https://www.docker.com/get-started) för att köra modulen som skapats av Yeoman Generator.
+- **Go-programmeringsspråk**: [Installera go](https://golang.org/) som Yeoman-genererade test väskor är kod med hjälp av Go-språket.
 
 >[!NOTE]
->De flesta av procedurerna i den här självstudien omfattar kommandoradsposter. Stegen som beskrivs här gäller för alla operativsystem och kommandoradsverktyg. I våra exempel har vi valt att använda PowerShell för lokal miljö och Git Bash för Cloud Shell-miljö.
+>De flesta av procedurerna i den här självstudien omfattar kommando rads gränssnittet. De steg som beskrivs gäller för alla operativ system och kommando rads verktyg. I exemplen valdes PowerShell för den lokala miljön och git-bash för Cloud Shell-miljön.
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -48,66 +46,78 @@ För att använda Terraform i Cloud Shell måste du [installera Node.js](https:/
 
 ### <a name="install-yeoman"></a>Installera Yeoman
 
-Från en kommandotolk anger du `npm install -g yo`.
+Kör följande kommando:
+
+```bash
+npm install -g yo
+```
 
 ![Installera Yeoman](media/terraform-vscode-module-generator/ymg-npm-install-yo.png)
 
 ### <a name="install-the-yeoman-template-for-terraform-module"></a>Installera Yeoman-mallen för Terraform-modulen
 
-Från en kommandotolk anger du `npm install -g generator-az-terra-module`.
+Kör följande kommando:
+
+```bash
+npm install -g generator-az-terra-module
+```
 
 ![Installera generator-az-terra-modulen](media/terraform-vscode-module-generator/ymg-pm-install-generator-module.png)
 
->[!NOTE]
->Om du vill kontrollera att Yeoman har installerats, anger du `yo --version` från ett terminalfönster.
+Kontrol lera att Yeoman har installerats genom att köra följande kommando:
 
-### <a name="create-an-empty-folder-to-hold-the-yeoman-generated-module"></a>Skapa en tom mapp för att lagra den Yeoman-genererade modulen
+```bash
+yo --version
+```
 
-Yeoman-mallen genererar filer i den **aktuella katalogen**. Därför måste du skapa en katalog.
+### <a name="create-a-directory-for-the-yeoman-generated-module"></a>Skapa en katalog för den Yeoman modulen
 
->[!Note]
->Den tomma katalogen måste placeras under $GOPATH/src. Du hittar anvisningar [här](https://github.com/golang/go/wiki/SettingGOPATH) för att åstadkomma detta.
+Yeoman-mallen genererar filer i den aktuella katalogen. Därför måste du skapa en katalog.
 
-Från en kommandotolk:
+Den tomma katalogen måste placeras under $GOPATH/src. Mer information om den här sökvägen finns i artikel [inställningen GOPATH](https://github.com/golang/go/wiki/SettingGOPATH).
 
-1. Navigera till den överordnade katalogen där du vill spara den nya tomma katalog som vi håller på att skapa.
-1. Ange `mkdir <new-directory-name>`.
+1. Navigera till den överordnade katalogen som du vill skapa en ny katalog från.
 
-    > [!NOTE]
-    > Ersätt `<new-directory-name>` med namnet på den nya katalogen. I det här exemplet döpte vi den nya katalogen till `GeneratorDocSample`.
+1. Kör följande kommando för att ersätta plats hållaren. I det här exemplet används ett katalog namn för `GeneratorDocSample`.
+
+    ```bash
+    mkdir <new-directory-name>
+    ```
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
-1. Navigera till den nya katalogen genom att skriva `cd <new directory's name>` och sedan trycka på **Enter**.
+1. Navigera till den nya katalogen:
+
+    ```bash
+    cd <new-directory-name>
+    ```
 
     ![Navigera till den nya katalogen](media/terraform-vscode-module-generator/ymg-cd-GeneratorDocSample.png)
 
-    >[!NOTE]
-    >Om du vill kontrollera att den här katalogen är tom, anger du `ls`. Det bör inte finnas några filer i den lista som blir resultatet av det här kommandot.
-
 ## <a name="create-a-base-module-template"></a>Skapa en basmodulsmall
 
-Från en kommandotolk:
+1. Kör följande kommando:
 
-1. Ange `yo az-terra-module`.
+    ```bash
+    yo az-terra-module
+    ```
 
 1. Följ instruktionerna på skärmen för att tillhandahålla följande information:
 
-    - *Terraform-modulens projektnamn*
+    - **Terraform module projekt namn** – ett värde för `doc-sample-module` används för exemplet.
 
         ![Projektnamn](media/terraform-vscode-module-generator/ymg-project-name.png)       
 
-        >[!NOTE]
-        >I det här exemplet har vi angett `doc-sample-module`.
 
-    - *Vill du inkludera Docker-bildfilen?*
+    - **Vill du inkludera Docker-bildfilen?** -Ange `y`. Om du väljer `n`stöder den genererade modulens kod endast körning i enhetligt läge.
 
         ![Inkludera Docker-bildfil?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
-        >[!NOTE]
-        >Ange `y`. Om du väljer **n** så stöder den genererade modulkoden bara körning i enhetligt läge.
+1. Lista katalog innehållet för att visa de resulterande filerna som skapas:
 
-3. Ange `ls` för att visa de resulterande filer som skapas.
+    ```bash
+    ls
+    ```
 
     ![Lista över skapade filer](media/terraform-vscode-module-generator/ymg-ls-GeneratorDocSample-files.png)
 
@@ -117,50 +127,35 @@ Från en kommandotolk:
 
 1. Från menyraden väljer du **Fil > Öppna mapp** och väljer mappen som du skapade.
 
-    ![Visual Studio-koden](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
+    ![Visual Studio-kod](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
-Låt oss ta en titt på några av de filer som har skapats av Yeoman-modulgeneratorn.
+Följande filer skapades av generatorn för Yeoman-modulen. Mer information om dessa filer och deras användning finns i [Terratest i terraform-moduler.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster).
 
->[!Note]
->I den här artikeln kommer vi att använda filerna main.tf, variables.tf och outputs.tf som de har skapats av Yeoman-modulgeneratorn. Men när du skapar dina egna moduler redigerar du dessa filer för att passa din Terraform-moduls funktioner. En mer detaljerad beskrivning av de här filerna och deras användning finns i [Terratest i Terraform-moduler.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster)
-
-### <a name="maintf"></a>main.tf
-
-Definierar en modul som heter *random-shuffle*. Dessa indata utgörs av en *string_list*. Utdata är antalet permutationer.
-
-### <a name="variablestf"></a>variables.tf
-
-Definierar de indata- och utdatavariabler som används av modulen.
-
-### <a name="outputstf"></a>outputs.tf
-
-Definierar vad modulen matar ut. Här är det värdet som returneras av **random_shuffle** som är en inbyggd Terraform-modul.
-
-### <a name="rakefile"></a>Rakefile
-
-Definierar stegen för att skapa versionen. Dessa steg omfattar:
-
-- **build**: Verifierar formateringen av main.tf-filen.
-- **enhet**: Den genererade modulstommen innehåller inte kod för ett enhetstest. Om du vill ange ett enhetstestscenario, lägger du till den koden här.
-- **e2e**: Kör ett heltäckande test av modulen.
-
-### <a name="test"></a>test
-
-- Testfall skrivs i Go.
-- Alla koder i test är heltäckande tester.
-- Heltäckande tester försöker använda Terraform för att tillhandahålla alla objekt som definierats under **fixture** och jämför sedan resultatet i **template_output.go**-koden med de fördefinierade förväntade värdena.
-- **Gopkg.lock** och **Gopkg.toml**: Definiera beroendena. 
+- `main.tf`-definierar en modul som kallas `random-shuffle`. Indatamängden är en `string_list`. Utdata är antalet permutationer.
+- `variables.tf` – definierar de in-och utdata som används av modulen.
+- `outputs.tf` – definierar modulens utdata. Här är det värdet som returneras av `random_shuffle`, som är en inbyggd, terraform-modul.
+- `Rakefile` – definierar Bygg stegen. Dessa steg omfattar:
+    - `build` – validerar formateringen för main.tf-filen.
+    - `unit`-den genererade modulen Skeleton innehåller inte kod för ett enhets test. Om du vill ange ett enhetstestscenario, lägger du till den koden här.
+    - `e2e` – kör en test från slut punkt till slut punkt för modulen.
+- `test`
+    - Testfall skrivs i Go.
+    - Alla koder i test är heltäckande tester.
+    - Från slut punkt till slut punkt görs ett försök att etablera alla objekt som definierats under `fixture`. Resultaten i `template_output.go`-filen jämförs med fördefinierade förväntade värden.
+    - `Gopkg.lock` och `Gopkg.toml`: definierar beroenden. 
 
 ## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Testa din nya Terraform-modul med hjälp av en Docker-fil
 
+Det här avsnittet visar hur du testar en terraform-modul med en Docker-fil.
+
 >[!NOTE]
->I vårt exempel kör vi modulen som en lokal modul utan faktisk beröring med Azure.
+>I det här exemplet körs modulen lokalt. inte på Azure.
 
 ### <a name="confirm-docker-is-installed-and-running"></a>Bekräfta att Docker har installerats och körs
 
 Från en kommandotolk anger du `docker version`.
 
-![Docker-version](media/terraform-vscode-module-generator/ymg-docker-version.png)
+![Dockerversion](media/terraform-vscode-module-generator/ymg-docker-version.png)
 
 Resultatet bekräftar att Docker är installerat.
 
@@ -176,65 +171,61 @@ Tryck på `docker info` för att bekräfta att Docker faktiskt körs.
 
     Meddelandet **Successfully built (har skapats)** visas.
 
-    ![Successfully built](media/terraform-vscode-module-generator/ymg-successfully-built.png)
+    ![Meddelande som anger en lyckad version](media/terraform-vscode-module-generator/ymg-successfully-built.png)
 
-1. Skriv `docker image ls` vid kommandotolken.
+1. I kommando tolken anger du `docker image ls` för att se din skapade modul `terra-mod-example` listan.
 
-    Du kommer att se din nyligen skapade modul *terra-mod-example* i listan.
+    ![Lista som innehåller den nya modulen](media/terraform-vscode-module-generator/ymg-repository-results.png)
 
-    ![Lagringsplatsresultat](media/terraform-vscode-module-generator/ymg-repository-results.png)
+1. Ange `docker run -it terra-mod-example /bin/sh`. När du har kört kommandot `docker run` är du i Docker-miljön. Nu kan du identifiera filen med hjälp av kommandot `ls`.
 
-    >[!NOTE]
-    >Modulnamnet, *terra-mod-example*, specificerades i kommandot som du angav i steg 1 ovan.
-
-1. Ange `docker run -it terra-mod-example /bin/sh`.
-
-    Du kör nu i Docker och kan placera filen i listan genom att ange `ls`.
-
-    ![Ange Docker-fil i lista](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
+    ![Fil lista i Docker](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
 ### <a name="build-the-module"></a>Skapa modulen
 
-1. Ange `bundle install`.
+1. Kör följande kommando:
 
-    Vänta på meddelandet **Bundle complete (paket slutfört)** och fortsätt sedan med nästa steg.
+    ```bash
+    bundle install
+    ```
 
-1. Ange `rake build`.
+1. Kör följande kommando:
+
+    ```bash
+    rake build
+    ```
 
     ![Rake build](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
 ### <a name="run-the-end-to-end-test"></a>Kör slutpunkt till slutpunkt-testet
 
-1. Ange `rake e2e`.
+1. Kör följande kommando:
+
+    ```bash
+    rake e2e
+    ```
 
 1. Efter en liten stund visas meddelandet **PASS**.
 
-    ![Godkänd](media/terraform-vscode-module-generator/ymg-pass.png)
+    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. Ange `exit` för att slutföra slutpunkt till slutpunkt-testet och avsluta Docker-miljön.
+1. Slutför testet genom att ange `exit` och avsluta Docker-miljön.
 
 ## <a name="use-yeoman-generator-to-create-and-test-a-module-in-cloud-shell"></a>Använda Yeoman-generatorn till att skapa och testa en modul i Cloud Shell
 
-I det föregående avsnittet har du lärt dig hur du testar en Terraform-modul med hjälp av en Docker-fil. I det här avsnittet använder du Yeoman-generatorn till att skapa och testa en modul i Cloud Shell.
+I det här avsnittet används Yeoman-generatorn för att skapa och testa en modul i Cloud Shell. Processen blir betydligt enklare om du använder Cloud Shell istället för att använda en Docker-fil. Med hjälp av Cloud Shell är följande produkter förinstallerade:
 
-Processen blir betydligt enklare om du använder Cloud Shell istället för att använda en Docker-fil. Om du använder Cloud Shell:
-
-- behöver du inte installera Node.js
-- behöver du inte installera Yeoman
-- behöver du inte installera Terraform
-
-är alla dessa objekt förinstallerade i Cloud Shell.
+- Node.js
+- Yeoman
+- Terraform
 
 ### <a name="start-a-cloud-shell-session"></a>Starta en Cloud Shell-session
 
 1. Starta en Azure Cloud Shell-session via [Azure-portalen](https://portal.azure.com/), [shell.azure.com](https://shell.azure.com) eller [Azure-mobilappen](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
-1. Sidan **Välkommen till Azure Cloud Shell** öppnas. Välj **Bash (Linux)** . (Power Shell stöds inte.)
+1. Sidan **Välkommen till Azure Cloud Shell** öppnas. Välj **Bash (Linux)** .
 
     ![Välkommen till Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
-
-    >[!NOTE]
-    >I det här exemplet valdes Bash (Linux).
 
 1. Om du inte redan har konfigurerat ett Azure Storage-konto visas följande skärm. Välj **Skapa lagring**.
 
@@ -244,43 +235,61 @@ Processen blir betydligt enklare om du använder Cloud Shell istället för att 
 
     ![Din molnenhet har skapats](media/terraform-vscode-module-generator/ymg-your-cloud-drive-has-been-created-in.png)
 
-### <a name="prepare-a-folder-to-hold-your-terraform-module"></a>Förbereda en mapp som ska innehålla Terraform-modulen
+### <a name="prepare-a-directory-to-hold-your-terraform-module"></a>Förbereda en katalog för att lagra din terraform-modul
 
 1. Nu har Cloud Shell redan konfigurerat GOPATH i miljövariablerna åt dig. Ange `go env` om du vill se sökvägen.
 
-1. Skapa $GOPATH-mappen om det inte redan finns en sådan: Ange `mkdir ~/go`.
+1. Skapa $GOPATH katalog om den inte redan finns: Ange `mkdir ~/go`.
 
-1. Skapa en mapp i $GOPATH-mappen: Ange `mkdir ~/go/src`. Den här mappen används för att lagra och organisera olika projektfiler som du kan skapa, till exempel `<your-module-name>` mappen som skapas i nästa steg.
+1. Skapa en katalog i $GOPATHs katalogen. Den här katalogen används för att lagra olika projekt kataloger som skapats i det här exemplet. 
 
-1. Skapa en mapp som ska innehålla Terraform-modulen: Ange `mkdir ~/go/src/<your-module-name>`.
+    ```bash
+    mkdir ~/go/src
+    ```
 
-    >[!NOTE]
-    >I det här exemplet väljer vi `my-module-name` som mappnamn.
+1. Skapa en katalog som ska innehålla din terraform-modul som ersätter plats hållaren. I det här exemplet används ett katalog namn för `my-module-name`.
 
-1. Navigera till modulmappen: Ange `cd ~/go/src/<your-module-name>`
+    ```bash
+    mkdir ~/go/src/<your-module-name>
+    ```
+
+1. Navigera till din modul katalog: 
+
+    ```bash
+    cd ~/go/src/<your-module-name>
+    ```
 
 ### <a name="create-and-test-your-terraform-module"></a>Skapa och testa Terraform-modulen
 
-1. Ange `yo az-terra-module` och följ anvisningarna i guiden.
+1. Kör följande kommando och följ anvisningarna. När du tillfrågas om du vill skapa Docker-filerna anger du `N`.
 
-    >[!NOTE]
-    >När du tillfrågas om du vill skapa Docker-filerna kan du ange `N`.
+    ```bash
+    yo az-terra-module
+    ```
 
-1. Ange `bundle install` för att installera beroenden.
+1. Kör följande kommando för att installera beroendena:
 
-    Vänta på meddelandet **Bundle complete (paket slutfört)** och fortsätt sedan med nästa steg.
+    ```bash
+    bundle install
+    ```
 
-1. Ange `rake build` för att skapa modulen.
+1. Kör följande kommando för att skapa modulen:
+
+    ```bash
+    rake build
+    ```
 
     ![Rake build](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-1. Ange `rake e2e` för att köra slutpunkt till slutpunkt-testet.
+1. Kör följande kommando för att köra texten:
 
-1. Efter en liten stund visas meddelandet **PASS**.
+    ```bash
+    rake e2e
+    ```
 
-    ![Godkänd](media/terraform-vscode-module-generator/ymg-pass.png)
+    ![Test-pass-resultat](media/terraform-vscode-module-generator/ymg-pass.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Installera och använda Azure Terraform-tillägget för Visual Studio Code.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)
+> [Installera och Använd kod tillägget för Azure-terraform Visual Studio](/azure/terraform/terraform-vscode-extension).

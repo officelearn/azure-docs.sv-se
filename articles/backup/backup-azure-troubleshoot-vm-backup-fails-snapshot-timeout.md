@@ -1,5 +1,5 @@
 ---
-title: 'Felsöka Azure Backup fel: statusen för gäst agenten är inte tillgänglig'
+title: 'Felsöka Azure Backup fel: problem med agent och tillägg'
 description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent, tillägg och diskar.
 ms.reviewer: saurse
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9d76dfa338a697825868c31cfe6fc11e5235730b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b344af71eac04cc355ba157e18d9de9d84a9cc63
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533721"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969086"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -58,7 +58,7 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 Rekommenderad åtgärd:<br>
 Lös problemet genom att ta bort låset på den virtuella datorns resurs grupp och försök igen för att utlösa rensning.
 > [!NOTE]
-> Backup-tjänsten skapar en separat resurs grupp än resurs gruppen för den virtuella datorn som ska lagra återställnings punkts samlingen. Kunderna uppmanas inte att låsa resurs gruppen som skapas för användning av säkerhets kopierings tjänsten. Namngivnings formatet för resurs gruppen som skapats av säkerhets kopierings tjänsten är: AzureBackupRG_ `<Geo>`_ `<number>` tex: AzureBackupRG_northeurope_1
+> Backup-tjänsten skapar en separat resurs grupp än resurs gruppen för den virtuella datorn som ska lagra återställnings punkts samlingen. Kunderna uppmanas inte att låsa resurs gruppen som skapas för användning av säkerhets kopierings tjänsten. Namngivnings formatet för resurs gruppen som skapats av säkerhets kopierings tjänsten är: AzureBackupRG_`<Geo>`_`<number>` tex: AzureBackupRG_northeurope_1
 
 **Steg 1: [ta bort låset från resurs gruppen för återställnings punkter](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Steg 2: [Rensa återställnings punkts samling](#clean_up_restore_point_collection)**<br>
@@ -225,7 +225,7 @@ När du slutför de här stegen installeras tillägget om under nästa säkerhet
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Ta bort låset från återställnings punkt resurs gruppen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Gå till **alternativet alla resurser**, Välj resurs gruppen för återställnings punkt samling i följande format AzureBackupRG_ `<Geo>`_ `<number>`.
+2. Gå till **alternativet alla resurser**, Välj resurs gruppen för återställnings punkt samling i följande format AzureBackupRG_`<Geo>`_`<number>`.
 3. I avsnittet **Inställningar** väljer du **Lås** för att Visa låsen.
 4. Om du vill ta bort låset väljer du ellipsen och klickar på **ta bort**.
 
@@ -254,12 +254,12 @@ När du har tagit bort låset utlöser du en ad hoc/manuell säkerhets kopiering
 Gör så här om du vill rensa samlingen återställnings punkter manuellt, som inte rensas på grund av låset på resurs gruppen:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **alla resurser**på menyn **hubb** , Välj resurs gruppen med följande format AzureBackupRG_ `<Geo>`_ `<number>` där den virtuella datorn finns.
+2. Klicka på **alla resurser**på menyn **hubb** , Välj resurs gruppen med följande format AzureBackupRG_`<Geo>`_`<number>` där den virtuella datorn finns.
 
     ![Ta bort lås](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Klicka på resurs grupp, bladet **Översikt** visas.
-4. Välj alternativet **Visa dolda typer** om du vill visa alla dolda resurser. Välj återställnings punkt samlingarna med följande format AzureBackupRG_ `<VMName>`_ `<number>`.
+4. Välj alternativet **Visa dolda typer** om du vill visa alla dolda resurser. Välj återställnings punkt samlingarna med följande format AzureBackupRG_`<VMName>`_`<number>`.
 
     ![Ta bort lås](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 

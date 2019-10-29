@@ -1,5 +1,5 @@
 ---
-title: Support mat ris för Microsoft Azure Backup Server och System Center DPM
+title: Microsoft Azure Backup Server & System Center DPM support Matrix
 description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: d14cd996fe0e5a67cc3b554fe1e12146cd6b8e1c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: cb3561030cfd86137d7d668ca14db605cc365e86
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981088"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969011"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 
@@ -54,7 +54,7 @@ Mer information:
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-**Scenario** | **Agent** | **Location**
+**Scenario** | **Agent** | **Plats**
 --- | --- | ---
 **Säkerhetskopiera lokala datorer/arbets belastningar** | DPM/MABS Protection Agent körs på de datorer som du vill säkerhetskopiera.<br/><br/> MARS-agenten på DPM/MABS-servern.<br/> Den lägsta versionen av Microsoft Azure Recovery Services agenten eller Azure Backup Agent som krävs för att aktivera den här funktionen är 2.0.8719.0.  | DPM/MABS måste köras lokalt.
 
@@ -74,17 +74,17 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 
 **Scenario** | **DPM/MABS**
 --- | ---
-**MABS på en virtuell Azure-dator** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minst a2-standard med två kärnor och 3,5 GB RAM-minne.
+**MABS på en virtuell Azure-dator** | Windows Server 2012 R2.<br/><br/> Windows 2016 Data Center.<br/><br/> Windows 2019 Data Center.<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minst a2-standard med två kärnor och 3,5 GB RAM-minne.
 **DPM på en virtuell Azure-dator** | System Center 2012 R2 med uppdatering 3 eller senare.<br/><br/> Windows operativ system som [krävs av System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minst a2-standard med två kärnor och 3,5 GB RAM-minne.
-**MABS lokalt** | 64-bitars operativ system som stöds:<br/><br/> MABS v3 och senare: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 och senare: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Alla MABS-versioner: Windows Server 2012 R2.<br/><br/>Alla MABS-versioner: Windows Storage Server 2012 R2.
-**Lokalt DPM** | Fysisk server/virtuell Hyper-V-dator: System Center 2012 SP1 eller senare.<br/><br/> Virtuell VMware-dator: System Center 2012 R2 med uppdatering 5 eller senare.
+**MABS lokalt** | 64-bitars operativ system som stöds:<br/><br/> MABS v3 och senare: Windows Server 2019 (standard, data Center, Essentials). <br/><br/> MABS v2 och senare: Windows Server 2016 (standard, data Center, Essentials).<br/><br/> Alla MABS-versioner: Windows Server 2012 R2.<br/><br/>Alla MABS-versioner: Windows Storage Server 2012 R2.
+**Lokalt DPM** | Fysisk server/Hyper-V VM: System Center 2012 SP1 eller senare.<br/><br/> VMware VM: System Center 2012 R2 med uppdatering 5 eller senare.
 
 ## <a name="management-support"></a>Hanterings support
 
 **Ge** | **Detaljer**
 --- | ---
 **Installation** | Installera DPM/MABS på en dator med ett enda syfte.<br/><br/> Installera inte DPM/MABS på en domänkontrollant på en dator med rollen som program server roll på en dator som kör Microsoft Exchange Server eller System Center Operations Manager eller på en klusternod.<br/><br/> [Granska alla system krav för DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
-**Domän** | DPM/MABS ska vara ansluten till en domän. Installera först och Anslut sedan till DPM/MABS till en domän. Det finns inte stöd för att flytta DPM/MABS till en ny domän efter distribution.
+**Domänsuffix** | DPM/MABS ska vara ansluten till en domän. Installera först och Anslut sedan till DPM/MABS till en domän. Det finns inte stöd för att flytta DPM/MABS till en ny domän efter distribution.
 **Storage** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-uppgradering** | Du kan installera MABS v3 direkt eller uppgradera till MABS v3 från MABS v2. [Läs mer](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Flyttar MABS** | Det finns stöd för att flytta MABS till en ny server samtidigt som lagringen behålls om du använder MB.<br/><br/> Servern måste ha samma namn som originalet. Du kan inte ändra namnet om du vill behålla samma lagringspool och använda samma MABS-databas för att lagra data återställnings punkter.<br/><br/> Du behöver en säkerhets kopia av MABS-databasen eftersom du behöver återställa den.
@@ -126,9 +126,9 @@ Anslutning till Azure Backups tjänsten krävs för att säkerhets kopieringarna
 
 **MABS till Azure** | **Prenumeration** | **Säkerhets kopiering/återställning**
 --- | --- | ---
-Ansluten | Aktiv | Säkerhetskopiera till DPM/MABS disk.<br/><br/> Säkerhetskopiera till Azure.<br/><br/> Återställ från disk.<br/><br/> Återställ från Azure.
+Ansluten | Active | Säkerhetskopiera till DPM/MABS disk.<br/><br/> Säkerhetskopiera till Azure.<br/><br/> Återställ från disk.<br/><br/> Återställ från Azure.
 Ansluten | Upphört/avetablerats | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Om prenumerationen har upphört att gälla kan du återställa från disk eller Azure.<br/><br/> Om prenumerationen är inaktive rad kan du inte återställa från disk eller Azure. Azures återställnings punkter tas bort.
-Ingen anslutning under mer än 15 dagar | Aktiv | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Du kan återställa från disk eller Azure.
+Ingen anslutning under mer än 15 dagar | Active | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Du kan återställa från disk eller Azure.
 Ingen anslutning under mer än 15 dagar | Upphört/avetablerats | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Om prenumerationen har upphört att gälla kan du återställa från disk eller Azure.<br/><br/> Om prenumerationen är inaktive rad kan du inte återställa från disk eller Azure. Azures återställnings punkter tas bort.
 
 ## <a name="dpmmabs-storage-support"></a>Stöd för DPM/MABS-lagring
@@ -137,7 +137,7 @@ Data som säkerhets kopie ras till DPM/MABS lagras på den lokala disk lagringen
 
 **Storage** | **Detaljer**
 --- | ---
-**MBS** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
+**MB** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-lagring på virtuell Azure-dator** | Data lagras på Azure-diskar som är anslutna till den virtuella DPM-MABS och som hanteras i DPM/MABS. Antalet diskar som kan användas för DPM/MABS-lagringspoolen begränsas av storleken på den virtuella datorn.<br/><br/> A2 VM: 4 diskar; A3 VM: 8 diskar; A4 VM: 16 diskar, med en maximal storlek på 1 TB för varje disk. Detta avgör den totala tillgängliga lagringspoolen för säkerhets kopiering.<br/><br/> Mängden data som du kan säkerhetskopiera beror på antalet och storleken på de anslutna diskarna.
 **MABS datakvarhållning på virtuell Azure-dator** | Vi rekommenderar att du behåller data för en dag på DPM/MABS Azure-disken och säkerhetskopierar från DPM/MABS till valvet för längre kvarhållning. Du kan därmed skydda en större mängd data genom att avlasta den till Azure Backup.
 
@@ -154,14 +154,14 @@ Från DPM 2016/MABS v2 (som körs på Windows Server 2016) och senare kan du dra
 
 I följande tabell sammanfattas vad som kan säkerhets kopie ras till MABS från lokala datorer och virtuella Azure-datorer.
 
-**Säkerhetskopiering** | **Versioner** | **MABS** | **Detaljer** |
+**Säkerhetskopiering** | **5** | **MABS** | **Detaljer** |
 --- | --- | --- | --- |
-**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bitars) | MABS v3, v2 | Lokalt. | Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds.<br/><br/> Volymerna måste vara minst 1 GB och NTFS. |
+**Windows 10<br/>Windows 8,1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bitars) | MABS v3, v2 | Lokalt. | Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds.<br/><br/> Volymerna måste vara minst 1 GB och NTFS. |
 **Windows Server 2016 (Data Center, standard, ej nano)**<br/><br/> 64/32-bitars | MABS v3, v2 | Lokalt/virtuell Azure-dator.| Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> Deduplicerade volymer stöds. |
-**Windows Server 2012 R2 (Data Center och standard)**<br/><br/> 64/32-bitars | MABS v3, v2 | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure-VMprotection**: Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds. |
-**Windows Server 2012 med SP1 (Data Center och standard)**<br/><br/> 64/32-bitars | MABS v3, v2 <br/><br/> [Windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855) måste vara installerat. | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds. |
-**Windows 2008 R2 med SP1 (standard och Enterprise)**<br/><br/> 64/32-bitars | Stöds av MABS v3, v2.<br/><br/> [Windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855) måste vara installerat. | Lokalt/virtuell Azure-dator. |   **Lokalt skydd**: Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds. |
-**Windows 2008 R2 (standard och Enterprise)**<br/><br/> 64/32-bitars | För MABS v3 måste operativ systemet köra SP1. | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds. |
+**Windows Server 2012 R2 (Data Center och standard)**<br/><br/> 64/32-bitars | MABS v3, v2 | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure-VMprotection**: volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds. |
+**Windows Server 2012 med SP1 (Data Center och standard)**<br/><br/> 64/32-bitars | MABS v3, v2 <br/><br/> [Windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855) måste vara installerat. | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds. |
+**Windows 2008 R2 med SP1 (standard och Enterprise)**<br/><br/> 64/32-bitars | Stöds av MABS v3, v2.<br/><br/> [Windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855) måste vara installerat. | Lokalt/virtuell Azure-dator. |   **Lokalt skydd**: volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds. |
+**Windows 2008 R2 (standard och Enterprise)**<br/><br/> 64/32-bitars | För MABS v3 måste operativ systemet köra SP1. | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds. |
 **Windows Server 2008 med SP2**<br/><br/> 64/32-bitars | MABS v3, v2 | MABS v2, v3 stöds när MABS distribueras som en virtuell VMware-dator.<br/><br/> Stöds inte för MABS som körs på virtuell Azure-dator. | Volym/resurs/mapp/fil; system tillstånd/Bare Metal. |
 **Windows Storage Server 2008** | MABS v3, v2 | MABS som lokal fysisk server/virtuell Hyper-V-dator. <br/><br/> Stöds inte för MABS som körs på virtuell Azure-dator. | Volym/resurs/mapp/fil; system tillstånd/Bare Metal.
 **SQL Server 2017** | MABS v3 | Lokalt/virtuell Azure-dator.| Säkerhetskopiera SQL Server Database.<br/><br/> SQL Server kluster säkerhets kopiering stöds.<br/><br/>Databaser som lagras på CSV: er stöds inte. |
@@ -169,31 +169,31 @@ I följande tabell sammanfattas vad som kan säkerhets kopie ras till MABS från
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2 | Lokalt/virtuell Azure-dator.| Säkerhetskopiera SQL Server Database.<br/><br/> SQL Server kluster säkerhets kopiering stöds.<br/><br/>Databaser som lagras på CSV: er stöds inte. |
 **Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | MABS v3, v2 | Lokalt. | Säkerhetskopiera fristående Exchange-Server, databas under en DAG.<br/><br/> Återställ post lådan, Mailbox-databasen under en DAG.<br/><br/> ReFS stöds inte.<br/><br/> Säkerhetskopiera icke-delade disk kluster.<br/><br/> Säkerhetskopiera Exchange Server som kon figurer ATS för kontinuerlig replikering. |
 **SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | MABS v3, v2 | Lokalt/virtuell Azure-dator. | Säkerhetskopiera Server grupp, front webb server.<br/><br/> Återställ Server grupp, databas, webbapp, fil-eller List objekt, SharePoint-sökning, klient webb server.<br/><br/> Du kan inte säkerhetskopiera en Server grupp som använder SQL Server AlwaysOn för innehålls databaserna. |
-**Hyper-V på Windows Server 2016**<br/><br/> **Windows Server 2008 R2 (med SP1)** | MABS v3, v2 | Lokalt. | **Mabs-agent på Hyper-V-värden**: Säkerhetskopiera alla virtuella datorer och värd-datafiler. Säkerhetskopiera virtuella datorer med lokal lagring, virtuella datorer i kluster med CSV-lagring, virtuella datorer med SMB File Server Storage.<br/><br/> **Mabs-agent på den virtuella gäst datorn**: Säkerhetskopiera arbets belastningar som körs på den virtuella datorn. CSV: er.<br/><br/> **Återställning**: VM, återställning på objekt nivå av VHD/volym/mappar/filer.<br/><br/> **Virtuella Linux-datorer**: Säkerhetskopiera när Hyper-V körs på Windows Server 2012 R2 och senare. Återställning av virtuella Linux-datorer är för hela datorn. |
-**VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 | Lokalt. | Säkerhetskopiera virtuella VMware-datorer på CSV: er, NFS och SAN-lagring.<br/><br/> Återställ hela den virtuella datorn.<br/><br/> Windows/Linux-säkerhetskopiering.<br/><br/> Återställning på objekt nivå av mapp/filer för virtuella Windows-datorer.<br/><br/> VMware-vApps stöds inte.<br/><br/> Återställning av virtuella Linux-datorer är för hela datorn. |
+**Hyper-V på Windows Server 2016**<br/><br/> **Windows Server 2008 R2 (med SP1)** | MABS v3, v2 | Lokalt. | **Mabs-agent på Hyper-V-värd**: säkerhetskopiera hela virtuella datorer och värddatorns datafiler. Säkerhetskopiera virtuella datorer med lokal lagring, virtuella datorer i kluster med CSV-lagring, virtuella datorer med SMB File Server Storage.<br/><br/> **Mabs-agenten på den virtuella gäst datorn**: säkerhetskopiera arbets belastningar som körs på den virtuella datorn. CSV: er.<br/><br/> **Återställning**: virtuell dator, återställning på objekt nivå av VHD/volym/mappar/filer.<br/><br/> **Virtuella Linux-datorer**: säkerhetskopiera när Hyper-V körs på Windows Server 2012 R2 och senare. Återställning av virtuella Linux-datorer är för hela datorn. |
+**Virtuella VMware-datorer: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 | Lokalt. | Säkerhetskopiera virtuella VMware-datorer på CSV: er, NFS och SAN-lagring.<br/><br/> Återställ hela den virtuella datorn.<br/><br/> Windows/Linux-säkerhetskopiering.<br/><br/> Återställning på objekt nivå av mapp/filer för virtuella Windows-datorer.<br/><br/> VMware-vApps stöds inte.<br/><br/> Återställning av virtuella Linux-datorer är för hela datorn. |
 
 ## <a name="supported-backups-to-dpm"></a>Säkerhets kopior som stöds för DPM
 
 I följande tabell sammanfattas vad som kan säkerhets kopie ras till DPM från lokala datorer och virtuella Azure-datorer.
 
-**Säkerhetskopiering** | **DPM** | **Detaljer**
+**Säkerhetskopiering** | **IDENTIFIERA** | **Detaljer**
 --- | --- | ---
-**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bitars) | Endast lokalt.<br/><br/> För att säkerhetskopiera Windows 10 med DPM 2012 R2 rekommenderar vi att du installerar [uppdatering 11](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager). | Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds.<br/><br/> Volymerna måste vara minst 1 GB och NTFS.
+**Windows 10<br/>Windows 8,1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bitars) | Endast lokalt.<br/><br/> För att säkerhetskopiera Windows 10 med DPM 2012 R2 rekommenderar vi att du installerar [uppdatering 11](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager). | Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds.<br/><br/> Volymerna måste vara minst 1 GB och NTFS.
 **Windows Server 2016 (Data Center, standard, ej nano)**<br/><br/> 64/32-bitars | Lokalt/virtuell Azure-dator.<br/><br/> Endast DPM 2016.| Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> Deduplicerade volymer stöds.
-**Windows Server 2012 R2 (Data Center och standard)**<br/><br/> 64/32-bitars | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer som stöds med DPM 2012 R2 och senare.
-**Windows Server 2012 med SP1 (Data Center och standard)**<br/><br/> 64/32-bitars | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer som stöds med DPM 2012 R2 och senare.
-**Windows 2008 R2 med SP1 (standard och Enterprise)**<br/><br/> 64/32-bitars | Lokalt/virtuell Azure-dator.<br/><br/> [Windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855) måste vara installerat. |   **Lokalt skydd**: Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: Volym/resurs/mapp/fil.
-**Windows 2008 R2 (standard och Enterprise)**<br/><br/> 64/32-bitars | Lokalt.<br/><br/> Det går inte att installera DPM som en virtuell VMware-dator.<br/><br/> DPM som körs på en virtuell Azure-dator stöds inte. | **Lokalt skydd**: Volym/resurs/mapp/fil; system tillstånd/Bare Metal.
+**Windows Server 2012 R2 (Data Center och standard)**<br/><br/> 64/32-bitars | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer som stöds med DPM 2012 R2 och senare.
+**Windows Server 2012 med SP1 (Data Center och standard)**<br/><br/> 64/32-bitars | Lokalt/virtuell Azure-dator. | **Lokalt skydd**: volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer som stöds med DPM 2012 R2 och senare.
+**Windows 2008 R2 med SP1 (standard och Enterprise)**<br/><br/> 64/32-bitars | Lokalt/virtuell Azure-dator.<br/><br/> [Windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855) måste vara installerat. |   **Lokalt skydd**: volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> **Azure VM-skydd**: volym/resurs/mapp/fil.
+**Windows 2008 R2 (standard och Enterprise)**<br/><br/> 64/32-bitars | Lokalt.<br/><br/> Det går inte att installera DPM som en virtuell VMware-dator.<br/><br/> DPM som körs på en virtuell Azure-dator stöds inte. | **Lokalt skydd**: volym/resurs/mapp/fil; system tillstånd/Bare Metal.
 **Windows Server 2008 med SP2**<br/><br/> 64/32-bitars | Endast lokalt.<br/><br/> DPM stöds när den körs som en virtuell VMware-dator. Det finns inte stöd för att köra som en fysisk server eller virtuell Hyper-V-dator. | Volym/resurs/mapp/fil; system tillstånd/Bare Metal.
 **Windows Storage Server 2008** | DPM körs lokalt på en fysisk server eller virtuell Hyper-V-dator. | Volym/resurs/mapp/fil; system tillstånd/Bare Metal.
 **SQL Server 2017** | DPM-SAC; DPM 2016 med Samlad uppdatering 5 eller senare.<br/><br/> Lokalt/virtuell Azure-dator.| Säkerhetskopiera SQL Server Database.<br/><br/> SQL Server kluster säkerhets kopiering stöds.<br/><br/>Databaser som lagras på CSV: er stöds inte.
 **SQL Server 2016 med SP1** | Stöds inte för DPM 2012 R2; Stöds för DPM SAC, DPM 2016 med Samlad uppdatering 4 eller senare.<br/><br/> Lokalt/virtuell Azure-dator.| Säkerhetskopiera SQL Server Database.<br/><br/> SQL Server kluster säkerhets kopiering stöds.<br/><br/>Databaser som lagras på CSV: er stöds inte.
 **SQL Server 2016** | Stöds inte för DPM 2012 R2. Stöds för DPM SAC, DPM 2016 från Samlad uppdatering 2 och senare.<br/><br/> Lokalt/virtuell Azure-dator.| Säkerhetskopiera SQL Server Database.<br/><br/> SQL Server kluster säkerhets kopiering stöds.<br/><br/>Databaser som lagras på CSV: er stöds inte.
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 med DPM 2012 R2 som kör Samlad uppdatering 4 och senare.<br/><br/> Lokalt/virtuell Azure-dator.| Säkerhetskopiera SQL Server Database.<br/><br/> SQL Server kluster säkerhets kopiering stöds.<br/><br/>Databaser som lagras på CSV: er stöds inte.
-**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | För Exchange 2016 behöver DPM 2012 R2 Samlad uppdatering 9 eller senare.<br/><br/> Lokal | Säkerhetskopiera fristående Exchange-Server, databas under en DAG.<br/><br/> Återställ post lådan, Mailbox-databasen under en DAG.<br/><br/> ReFS stöds inte.<br/><br/> Säkerhetskopiera icke-delade disk kluster.<br/><br/> Säkerhetskopiera Exchange Server som kon figurer ATS för kontinuerlig replikering.
+**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | För Exchange 2016 behöver DPM 2012 R2 Samlad uppdatering 9 eller senare.<br/><br/> Lokalt | Säkerhetskopiera fristående Exchange-Server, databas under en DAG.<br/><br/> Återställ post lådan, Mailbox-databasen under en DAG.<br/><br/> ReFS stöds inte.<br/><br/> Säkerhetskopiera icke-delade disk kluster.<br/><br/> Säkerhetskopiera Exchange Server som kon figurer ATS för kontinuerlig replikering.
 **SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | SharePoint 2016 på DPM 2016 och senare.<br/><br/>Lokalt/virtuell Azure-dator. | Säkerhetskopiera Server grupp, front webb server.<br/><br/> Återställ Server grupp, databas, webbapp, fil-eller List objekt, SharePoint-sökning, klient webb server.<br/><br/> Du kan inte säkerhetskopiera en Server grupp som använder SQL Server AlwaysOn för innehålls databaserna.
-**Hyper-V på Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Data Center/standard)<br/><br/> **Windows Server 2008 R2 (med SP1)** | Hyper-V på 2016 som stöds för DPM 2016 och senare.<br/><br/> Lokalt. | **Mabs-agent på Hyper-V-värden**: Säkerhetskopiera alla virtuella datorer och värd-datafiler. Säkerhetskopiera virtuella datorer med lokal lagring, virtuella datorer i kluster med CSV-lagring, virtuella datorer med SMB File Server Storage.<br/><br/> **Mabs-agent på den virtuella gäst datorn**: Säkerhetskopiera arbets belastningar som körs på den virtuella datorn. CSV: er.<br/><br/> **Återställning**: VM, återställning på objekt nivå av VHD/volym/mappar/filer.<br/><br/> **Virtuella Linux-datorer**: Säkerhetskopiera när Hyper-V körs på Windows Server 2012 R2 och senare. Återställning av virtuella Linux-datorer är för hela datorn.
-**VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 behöver System Center Samlad uppdatering 1) <br/><br/>Lokalt. | Säkerhetskopiera virtuella VMware-datorer på CSV: er, NFS och SAN-lagring.<br/><br/> Återställ hela den virtuella datorn.<br/><br/> Windows/Linux-säkerhetskopiering.<br/><br/> Återställning på objekt nivå av mapp/filer för virtuella Windows-datorer.<br/><br/> VMware-vApps stöds inte.<br/><br/> Återställning av virtuella Linux-datorer är för hela datorn.
+**Hyper-V på Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Data Center/standard)<br/><br/> **Windows Server 2008 R2 (med SP1)** | Hyper-V på 2016 som stöds för DPM 2016 och senare.<br/><br/> Lokalt. | **Mabs-agent på Hyper-V-värd**: säkerhetskopiera hela virtuella datorer och värddatorns datafiler. Säkerhetskopiera virtuella datorer med lokal lagring, virtuella datorer i kluster med CSV-lagring, virtuella datorer med SMB File Server Storage.<br/><br/> **Mabs-agenten på den virtuella gäst datorn**: säkerhetskopiera arbets belastningar som körs på den virtuella datorn. CSV: er.<br/><br/> **Återställning**: virtuell dator, återställning på objekt nivå av VHD/volym/mappar/filer.<br/><br/> **Virtuella Linux-datorer**: säkerhetskopiera när Hyper-V körs på Windows Server 2012 R2 och senare. Återställning av virtuella Linux-datorer är för hela datorn.
+**Virtuella VMware-datorer: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 behöver System Center Samlad uppdatering 1) <br/><br/>Lokalt. | Säkerhetskopiera virtuella VMware-datorer på CSV: er, NFS och SAN-lagring.<br/><br/> Återställ hela den virtuella datorn.<br/><br/> Windows/Linux-säkerhetskopiering.<br/><br/> Återställning på objekt nivå av mapp/filer för virtuella Windows-datorer.<br/><br/> VMware-vApps stöds inte.<br/><br/> Återställning av virtuella Linux-datorer är för hela datorn.
 
 - Klustrade arbets belastningar som säkerhets kopie ras av DPM/MABS bör vara i samma domän som DPM/MABS eller i en underordnad/betrodd domän.
 - Du kan använda NTLM/certifikatautentisering för att säkerhetskopiera data i ej betrodda domäner eller arbets grupper.

@@ -3,7 +3,7 @@ title: Hantera din Azure Time Series Insights-miljö med Azure Resource Manager-
 description: Den här artikeln beskriver hur du hanterar din Azure Time Series Insights-miljö program mässigt med hjälp av Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: f7a88dafb9662e404cedf10334b22af149a3cd16
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274794"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991222"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights resurser med Azure Resource Manager-mallar
 
@@ -64,8 +64,8 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
      | eventHubNamespaceName | Namn området för käll händelse navet. |
      | eventHubName | Namnet på käll händelse navet. |
      | consumerGroupName | Namnet på den konsument grupp som Time Series Insights tjänsten använder för att läsa data från händelsehubben. **Obs:** För att undvika resurs konkurrens måste den här konsument gruppen vara dedikerad till Time Series Insights tjänsten och inte delas med andra läsare. |
-     | environmentName | Namnet på miljön. Namnet får inte innehålla: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` och eventuella kontroll tecken. Alla andra tecken tillåts.|
-     | eventSourceName | Namnet på den underordnade resursen för händelse källan. Namnet får inte innehålla: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` och eventuella kontroll tecken. Alla andra tecken tillåts. |
+     | environmentName | Namnet på miljön. Namnet får inte innehålla: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`och eventuella kontroll tecken. Alla andra tecken tillåts.|
+     | eventSourceName | Namnet på den underordnade resursen för händelse källan. Namnet får inte innehålla: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`och eventuella kontroll tecken. Alla andra tecken tillåts. |
 
     <div id="optional-parameters"></div>
 

@@ -4,14 +4,14 @@ description: Visar hur resurs typer hanterar fullständig borttagning av läge i
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: de1b5080e72f79626ca0c749efe4122721f14922
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 03e91e4be967e822d17144af848f51e73851b1e6
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528582"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969188"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för komplett läges distributioner
 
@@ -61,7 +61,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft. container service](#microsoftcontainerservice)
-> - [Microsoft. ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft. CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
@@ -277,6 +276,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | dataAliases | Nej |
 > | denyAssignments | Nej |
 > | elevateAccess | Nej |
+> | findOrphanRoleAssignments | Nej |
 > | hålls | Nej |
 > | Åtkomst | Nej |
 > | policyAssignments | Nej |
@@ -394,6 +394,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/createBillingRoleAssignment | Nej |
 > | billingAccounts/createInvoiceSectionOperations | Nej |
 > | billingAccounts/kunder | Nej |
+> | billingAccounts/kunder/billingPermissions | Nej |
 > | billingAccounts/kunder/billingSubscriptions | Nej |
 > | billingAccounts/kunder/initiateTransfer | Nej |
 > | billingAccounts/kunder/principer | Nej |
@@ -451,6 +452,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | blockchainMembers | Ja |
+> | cordaMembers | Ja |
 > | tittare | Ja |
 
 ## <a name="microsoftblueprint"></a>Microsoft. skiss
@@ -641,6 +643,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | proximityPlacementGroups | Ja |
 > | restorePointCollections | Ja |
 > | restorePointCollections/restorePoints | Nej |
+> | sharedVMExtensions | Ja |
+> | sharedVMExtensions/versioner | Nej |
 > | sharedVMImages | Ja |
 > | sharedVMImages/versioner | Nej |
 > | snapshots | Ja |
@@ -700,6 +704,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | register/buildTasks | Ja |
 > | register/buildTasks/steg | Nej |
 > | register/eventGridFilters | Nej |
+> | register/generateCredentials | Nej |
 > | register/getBuildSourceUploadUrl | Nej |
 > | register/GetCredentials | Nej |
 > | register/importImage | Nej |
@@ -710,7 +715,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | register/körningar | Nej |
 > | register/körningar/Avbryt | Nej |
 > | register/scheduleRun | Nej |
+> | register/scopeMaps | Nej |
 > | register/uppgifter | Ja |
+> | register/token | Nej |
 > | register/updatePolicies | Nej |
 > | register/Webhooks | Ja |
 > | register/Webhooks/getCallbackConfig | Nej |
@@ -724,14 +731,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | containerServices | Ja |
 > | managedClusters | Ja |
 > | openShiftManagedClusters | Ja |
-
-## <a name="microsoftcontentmoderator"></a>Microsoft. ContentModerator
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | program | Ja |
-> | updateCommunicationPreference | Nej |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft. CortanaAnalytics
 
@@ -753,7 +752,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | enheten | Nej |
 > | Dimensioner | Nej |
 > | enrollmentAccounts | Nej |
-> | Exporteras | Nej |
+> | Exporter | Nej |
 > | ExternalBillingAccounts | Nej |
 > | ExternalBillingAccounts/aviseringar | Nej |
 > | ExternalBillingAccounts/dimensioner | Nej |
@@ -821,8 +820,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | datacatalogs/data källor/-genomsökningar | Nej |
 > | datacatalogs/data källor/genomsökningar/data uppsättningar | Nej |
 > | datacatalogs/data källor/genomsökningar/utlösare | Nej |
-> | datacatalogs/scantargets | Nej |
-> | datacatalogs/scantargets/data uppsättningar | Nej |
 
 ## <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
@@ -887,6 +884,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | servrar | Ja |
 > | servrar/rådgivare | Nej |
+> | servrar/privateEndpointConnectionProxies | Nej |
+> | servrar/privateEndpointConnections | Nej |
+> | servrar/privateLinkResources | Nej |
 > | servrar/queryTexts | Nej |
 > | servrar/recoverableServers | Nej |
 > | servrar/topQueryStatistics | Nej |
@@ -900,6 +900,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | servrar | Ja |
 > | servrar/rådgivare | Nej |
+> | servrar/privateEndpointConnectionProxies | Nej |
+> | servrar/privateEndpointConnections | Nej |
+> | servrar/privateLinkResources | Nej |
 > | servrar/queryTexts | Nej |
 > | servrar/recoverableServers | Nej |
 > | servrar/topQueryStatistics | Nej |
@@ -914,6 +917,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | serverGroups | Ja |
 > | servrar | Ja |
 > | servrar/rådgivare | Nej |
+> | servrar/nycklar | Nej |
 > | servrar/privateEndpointConnectionProxies | Nej |
 > | servrar/privateEndpointConnections | Nej |
 > | servrar/privateLinkResources | Nej |
@@ -943,6 +947,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | applicationgroups | Ja |
 > | applicationgroups/program | Nej |
+> | applicationgroups/Station ära datorer | Nej |
 > | applicationgroups/startmenuitems | Nej |
 > | hostpools | Ja |
 > | hostpools/sessionhosts | Nej |
@@ -1088,6 +1093,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | autoManagedVmConfigurationProfiles | Ja |
+> | configurationProfileAssignments | Nej |
 > | guestConfigurationAssignments | Nej |
 > | IntelliPoint | Nej |
 > | softwareUpdateProfile | Nej |
@@ -1129,6 +1135,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | faxar | Ja |
+> | datorer/tillägg | Ja |
 
 ## <a name="microsofthybriddata"></a>Microsoft. HybridData
 
@@ -1235,6 +1242,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | arbets ytor | Ja |
 > | arbets ytor/beräkningar | Nej |
+> | arbets ytor/eventGridFilters | Nej |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
 
@@ -1322,6 +1330,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Media Services/liveEvents | Ja |
 > | Media Services/liveEvents/liveOutputs | Nej |
 > | Media Services/liveOutputOperations | Nej |
+> | Media Services/mediaGraphs | Nej |
 > | Media Services/streamingEndpointOperations | Nej |
 > | Media Services/strömnings slut punkter | Ja |
 > | Media Services/streamingLocators | Nej |
@@ -1520,6 +1529,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | policyEvents | Nej |
+> | policyMetadata | Nej |
 > | policyStates | Nej |
 > | policyTrackedResources | Nej |
 > | reparationer | Nej |
@@ -1610,6 +1620,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | Distributioner | Nej |
 > | distributioner/åtgärder | Nej |
+> | deploymentScripts | Ja |
+> | deploymentScripts/loggar | Nej |
 > | Länkar | Nej |
 > | notifyResourceJobs | Nej |
 > | finansiär | Nej |
@@ -1659,6 +1671,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | applicationWhitelistings | Nej |
 > | assessmentMetadata | Nej |
 > | utvärderingar | Nej |
+> | automatiseringar | Ja |
 > | AutoProvisioningSettings | Nej |
 > | Godkännanden | Nej |
 > | dataCollectionAgents | Nej |

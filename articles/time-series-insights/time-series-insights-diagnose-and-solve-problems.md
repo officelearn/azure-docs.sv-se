@@ -3,7 +3,7 @@ title: Diagnostisera, Felsök och lös problem i Azure Time Series Insights | Mi
 description: Den här artikeln beskriver hur du diagnostiserar, felsöker och löser vanliga problem som kan uppstå i din Azure Time Series Insightss miljö.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7c9dcdf43e819e20126f948fa08f4f8f476036ac
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330854"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991259"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insightss miljö
 
@@ -40,11 +40,11 @@ Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns i [JSON-
 
 * För en IoT-hubb i Azure IoT Hub måste du ange den nyckel som har behörighet för **tjänst anslutning** . Någon av **iothubowner** -eller **-tjänst** principerna fungerar eftersom de båda har behörigheter för **tjänst anslutning** .
 
-   [anslutnings behörigheter för @no__t 1IoT Hub service](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [![IoT Hub service Connect-behörigheter](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * För en Event Hub i Azure Event Hubs måste du ange den nyckel som har **avlyssnings** behörigheter. Någon av metoderna för att **läsa** eller **Hantera** fungerar eftersom båda har **avlyssnings** behörighet.
 
-   [![Event Hub-lyssnings behörigheter](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [lyssnande behörigheter för![Event Hub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Orsak C: den angivna konsument gruppen är inte exklusiv för Time Series Insights
 
@@ -69,7 +69,7 @@ Begränsnings gränsen tillämpas baserat på miljöns SKU-typ och kapacitet. Al
 
 Följande bild visar en Time Series Insights miljö som har en SKU av S1 och en kapacitet på 3. Det kan intränga 3 000 000 händelser per dag.
 
-[![Environment SKU aktuell kapacitet](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![miljö-SKU aktuell kapacitet](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Anta till exempel att en miljö matar in meddelanden från en händelsehubben. Den dagliga ingångs frekvensen är ~ 67 000 meddelanden. Den här hastigheten översätter cirka 46 meddelanden varje minut. 
 

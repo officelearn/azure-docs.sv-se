@@ -1,22 +1,19 @@
 ---
-title: Skapa en topologi och eker hybrid nätverk sto pol Ogin med terraform i Azure
+title: Självstudie – Skapa en nav och eker hybrid nätverkstopologi i Azure med terraform
 description: Självstudie som illustrerar hur du skapar en hel referens arkitektur för Hybrid nätverk i Azure med terraform
-services: terraform
-ms.service: azure
-keywords: terraform, hubb och eker, nätverk, hybrid nätverk, DevOps, virtuell dator, Azure, VNet-peering, virtuell nätverks installation
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 5c2a61dd9da6d233a4b1410042f2125a1c300758
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 8d85163e746f1d2d0713a9a4f247a2061e0029b8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173449"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969399"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Självstudier: Skapa en topologi och eker hybrid nätverk sto pol Ogin med terraform i Azure
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Självstudie: skapa en nav och eker hybrid nätverkstopologi i Azure med terraform
 
 Den här själv studie serien visar hur du använder terraform för att implementera i Azure a [hubb och ekrar i ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
 
@@ -32,15 +29,15 @@ Den här självstudien omfattar följande uppgifter:
 > * Använd terraform för att upprätta gatewayer och anslutningar mellan lokala nätverk och Azure-nätverk
 > * Använd terraform för att skapa VNet-peering till ekrarade nätverk
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- **Azure-prenumeration**: Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- **Azure-prenumeration**: om du inte redan har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **Installera och konfigurera terraform**: [Installera och konfigurera terraform](/azure/virtual-machines/linux/terraform-install-configure) för att etablera virtuella datorer och annan infrastruktur i Azure
+- **Installera och konfigurera terraform**: för att etablera virtuella datorer och annan infrastruktur i Azure, [Installera och konfigurera terraform](/azure/virtual-machines/linux/terraform-install-configure)
 
 ## <a name="hub-and-spoke-topology-architecture"></a>Arkitektur för nav och eker-topologi
 
-I nav-och eker-topologin är hubben ett VNet. VNet fungerar som en central punkt för anslutningen till ditt lokala nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben och som kan användas till att isolera arbetsbelastningar. Trafiken flödar mellan det lokala datacentret och hubben via en ExpressRoute- eller VPN-gatewayanslutning. Följande bild visar komponenterna i en nav-och eker-topologi:
+I nav-och eker-topologin är hubben ett VNet. VNet fungerar som en central punkt för anslutningen till ditt lokala nätverk. Ekrarna är virtuella nätverk som peer-kopplas med navet och som kan användas till att isolera arbetsbelastningar. Trafiken flödar mellan det lokala datacentret och navet via en ExpressRoute- eller VPN-gatewayanslutning. Följande bild visar komponenterna i en nav-och eker-topologi:
 
 ![Arkitektur för hubb och eker-topologi i Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
@@ -109,7 +106,7 @@ Skapa den katalog som innehåller dina terraform-konfigurationsfiler för demons
 
 Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
 
-1. I Cloud Shell öppnar du en ny fil med `main.tf`namnet.
+1. Öppna en ny fil med namnet `main.tf`i Cloud Shell.
 
     ```bash
     code main.tf
@@ -129,7 +126,7 @@ Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
 
 Skapa konfigurations filen terraform för vanliga variabler som används i olika skript.
 
-1. I Cloud Shell öppnar du en ny fil med `variables.tf`namnet.
+1. Öppna en ny fil med namnet `variables.tf`i Cloud Shell.
 
     ```bash
     code variables.tf

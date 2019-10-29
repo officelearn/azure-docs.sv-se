@@ -1,25 +1,25 @@
 ---
 title: Azure Time Series Insights för hands versions användning | Microsoft Docs
 description: Förstå Azure Time Series Insights förhands gransknings fall.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 437f93e35040a93fb0c3098d6ec53883c3f856a7
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ed302b9c98cf5931afa745f5aab4611a54fedb60
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553272"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989994"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights för hands versions användning
 
-I den här artikeln sammanfattas flera vanliga användnings fall för Azure Time Series Insights för hands versionen. Rekommendationerna i den här artikeln fungerar som en utgångs punkt för att utveckla dina program och lösningar med Time Series Insights.
+I den här artikeln sammanfattas flera vanliga användnings fall för Azure Time Series Insights för hands version. Rekommendationerna i den här artikeln fungerar som en utgångs punkt för att utveckla dina program och lösningar med Time Series Insights.
 
 Mer specifikt besvarar den här artikeln följande frågor:
 
@@ -32,43 +32,43 @@ En översikt över dessa användnings scenarier beskrivs i följande avsnitt.
 
 ## <a name="introduction"></a>Introduktion
 
-Azure Time Series Insights är ett erbjudande från slut punkt till slut punkt, plattform-som-tjänst. Den används för att samla in, bearbeta, lagra, analysera och fråga mycket sammanhangsbaserade, tidsbaserad, tidsbaserad och optimerad IoT-Scale-data. Time Series Insights är idealiskt för ad hoc-dataundersökning och drift analys. Time Series Insights är ett unikt utöknings Bart, anpassat tjänst erbjudande som uppfyller de breda behoven i industriella IoT-distributioner.
+Azure Time Series Insights är ett erbjudande från slut punkt till slut punkt, plattform-som-tjänst. Den används för att samla in, bearbeta, lagra, analysera och fråga mycket sammanhangsbaserade, tidsbaserad, tidsbaserad och optimerad IoT-Scale-data. Time Series Insights passar perfekt för ad hoc-datagranskning och operativ analys. Time Series Insights är ett unikt utöknings Bart, anpassat tjänst erbjudande som uppfyller de breda behoven i industriella IoT-distributioner.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Datautforskning och visuell avvikelseidentifiering
 
 Utforska och analysera direkt flera miljarder händelser för att upptäcka avvikelser och dolda trender i dina data. Time Series Insights ger nära realtid-prestanda till IoT- och DevOps-analysarbetsbelastningar.
 
-[![Data Explorer](media/v2-update-use-cases/data-explorer.png)](media/v2-update-use-cases/data-explorer.png#lightbox)
+[![data Utforskaren](media/v2-update-use-cases/data-explorer.png)](media/v2-update-use-cases/data-explorer.png#lightbox)
 
 De flesta kunder samtycker till att den minsta tiden som krävs för att få insikter är en av främsta-funktionerna i Time Series Insights:
 
 * Time Series Insights kräver ingen förberedelse av första data. 
-* Det fungerar snabbt för att ansluta dig till miljarder händelser i Azure IoT Hub eller Azure Event Hubs på några minuter. 
+* Det fungerar snabbt för att ansluta dig till miljarder händelser i Azure IoT Hub eller Azure Event Hubs-instanser på några minuter. 
 * När du är ansluten kan du visualisera och analysera miljarder händelser för att upptäcka avvikelser och identifiera dolda trender i dina data.
 
-Time Series Insights är intuitivt och enkelt att använda. Du kan interagera med dina data utan att behöva skriva en enda rad kod. Det finns inget nytt språk som du måste lära dig, även om Time Series Insights ger avancerade användare som är bekanta med SQL. Du kan också välja att välja och klicka på utforskning för nybörjare.
+Time Series Insights är intuitivt och enkelt att använda. Du kan interagera med dina data utan att behöva skriva en enda rad kod. Det finns inte heller något nytt språk som du behöver lära dig, men Time Series Insights tillhandahåller ett detaljerat textbaserade frågespråk för avancerade användare som är bekanta med SQL. Du kan också välja att välja och klicka på utforskning för nybörjare.
 
-Kunder kan dra nytta av hastigheten för att snabbt diagnostisera problem med till gångs problem. De kan utföra DevOps analys för att komma till rotor saken till en bugg i en IoT-lösning. De kan också identifiera områden för att flagga för ytterligare undersökning som en del av deras initiativ för data vetenskap.  
+Kunder kan dra nytta av hastigheten för att snabbt diagnostisera problem med till gångs problem. De kan utföra DevOps analys för att komma till rotor saken till en bugg i en IoT-lösning. De kan också identifiera områden för att flagga för ytterligare undersökning som en del av deras initiativ för data vetenskap. 
 
 Det finns tre huvudsakliga sätt att interagera med data som lagras i Time Series Insights:
 
-- Det första och enklaste sättet att komma igång med Time Series Insights Preview Explorer. Du kan använda den för att snabbt visualisera alla dina IoT-data på ett och samma ställe. Den innehåller verktyg som termisk karta för att hjälpa dig att upptäcka avvikelser i dina data. Den innehåller också en perspektivvy. Använd den för att jämföra upp till fyra vyer från en eller flera Time Series Insights miljöer på en enda instrument panel. På instrument panelen får du en översikt över dina tids serie data över alla dina platser. Läs mer om [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md). Läs [Time Series Insights planera](./time-series-insights-update-plan.md)om du vill planera Time Series Insights miljön.
+- Det första och enklaste sättet att komma igång med Time Series Insights Preview Explorer. Du kan använda den för att snabbt visualisera alla dina IoT-data på ett och samma ställe. Den innehåller verktyg som värme kartan för att hjälpa dig att upptäcka avvikelser i dina data. Den innehåller också en perspektivvy. Använd den för att jämföra upp till fyra vyer från en eller flera Time Series Insights miljöer på en enda instrument panel. På instrument panelen får du en översikt över dina tids serie data över alla dina platser. Läs mer om [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md). Läs [Time Series Insights planera](./time-series-insights-update-plan.md)om du vill planera Time Series Insights miljön.
 
-- Det andra sättet att starta är att använda JavaScript SDK för att snabbt bädda in kraftfulla diagram och grafer i ditt webb program. Med bara några rader med kod kan du skapa kraftfulla frågor. Använd dem för att fylla i linje diagram, cirkel diagram, liggande diagram, termiska kartor, data rutnät och mycket annat. Alla dessa element finns kvar i rutan med hjälp av SDK. SDK sammanfattar också Time Series Insights fråge-API: er. Du kan använda dem för att skapa SQL-liknande predikat för att fråga de data som du vill visa på en instrument panel. För Hybrid lösningar för presentations lager erbjuder Time Series Insights parametriserade URL: er. De ger sömlösa anslutnings punkter med Time Series Insights för hands versions Utforskaren för djup dykningar i data.
+- Det andra sättet att starta är att använda JavaScript SDK för att snabbt bädda in kraftfulla diagram och grafer i ditt webb program. Med bara några rader med kod kan du skapa kraftfulla frågor. Använd dem för att fylla i linje diagram, cirkel diagram, liggande diagram, värme kartor, data rutnät med mera. Alla dessa element finns kvar i rutan med hjälp av SDK. SDK sammanfattar också Time Series Insights fråge-API: er. Du kan använda dem för att skapa SQL-liknande predikat för att fråga de data som du vill visa på en instrument panel. För Hybrid lösningar för presentations lager erbjuder Time Series Insights parametriserade URL: er. De ger sömlösa anslutnings punkter med Time Series Insights för hands versions Utforskaren för djup dykningar i data.
 
     * Läs om [klient biblioteket för Time Series Insights JS](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) och [Time Series Insights klient](https://github.com/Microsoft/tsiclient) dokumentationen om du vill veta mer om Java Script SDK.
 
     * Lär dig mer om delnings-URL: er och det nya användar gränssnittet genom att granska [visualisera data i Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md).
 
-- Det tredje sättet att starta är att använda de kraftfulla API: erna för att fråga data som lagras i Time Series Insights. Time Series Insights har temporala operatörer som `from`, `to`, `first` och `last`. Det innehåller agg regeringar och transformeringar som `average`, `min`, `max`, `split by`, `order by` och `DateHistogram`. Den har också filter operatörer som `has`, `in`, `and`, `or`, `greater than` och `REGEX`. Alla dessa operatörer gör det möjligt för underordnade program att snabbt hitta intressanta trender och mönster i dina data. Använd dem för att fylla i visuella visualiseringar för att upptäcka avvikelser.
+- Det tredje sättet att starta är att använda de kraftfulla API: erna för att fråga data som lagras i Time Series Insights. Time Series Insights har temporala operatörer som `from`, `to`, `first` och `last`. Det innehåller agg regeringar och transformeringar som `average`, `min`, `max`, `split by`, `order by` och `DateHistogram`. Den har också filter operatörer som `has`, `in`, `and`, `or`, `greater than` och `REGEX`. Alla dessa operatörer gör det möjligt för underordnade program att snabbt hitta intressanta trender och mönster i dina data. Använd dem för att fylla i Homegrown-visualiseringar för att upptäcka avvikelser.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Operativ analys och processeffektivitet
 
 Använd Time Series Insights för att övervaka hälsa, användning och prestanda för utrustning i stor skala. Time Series Insights är ett enkelt sätt att mäta drifts effektiviteten. Time Series Insights hjälper till att hantera mångskiftande och oberäkneliga IoT-arbetsbelastningar utan att offra datainmatnings- eller frågeprestanda.
 
-[![Overview](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[Översikt över![](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
-Strömning och kontinuerlig bearbetning av data som kommer från operativa processer kan omvandlas till alla företag om den kombineras med rätt teknik eller lösning. Dessa lösningar är ofta en kombination av flera system. De möjliggör utforskning och analys av data som ändras konstant, särskilt i IoT-sfären, och delar ett gemensamt mönster.
+Strömning och kontinuerlig bearbetning av data som kommer från operativa processer kan omvandlas till alla företag om den kombineras med rätt teknik eller lösning. Dessa lösningar är ofta en kombination av flera system. De möjliggör utforskning och analys av data som ändras konstant, särskilt i IoT-sfären, och som delar ett gemensamt mönster.
 
 Dessa mönster börjar ofta med IoT-aktiverade plattformar som matar in miljarder händelser från enheter och sensorer som sträcker sig över olika språk. Dessa system bearbetar och analyserar strömmande data för att få insikter och åtgärder i real tid. Data arkiveras vanligt vis i varmt och kall lagring för nära real tids-och batch-analys.
 
@@ -86,7 +86,7 @@ Time Series Insights erbjuder data utforskning i nära real tid och till gångs 
 
 Integrera med avancerade analys tjänster som Machine Learning och Azure Databricks. Time Series Insights ingress av rå data från miljon tals enheter. Den lägger till sammanhangsbaserade data som kan förbrukas sömlöst av en serie Azure Analytics-tjänster.
 
-[![Analytics](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
+[![analys](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
 
 Avancerad analys och maskin inlärning förbrukar och bearbetar stora mängder data. Dessa data används för att fatta data drivna beslut och utföra förutsägelse analyser. I IoT-användningsfall lär sig avancerade analys algoritmer från data som samlas in från miljon tals enheter. Dessa enheter överför data flera gånger varje sekund. Data som samlas in från IoT-enheter är RAW. Den saknar sammanhangsbaserad information, till exempel enhetens plats och enhetens enhets läsning. Det innebär att rå data är svåra att förbruka direkt för avancerad analys.
 
@@ -96,7 +96,7 @@ Time Series Insights sammanfogar mellanrummet mellan IoT-data och avancerad anal
 
     Time Series Insights kan fungera som källa för sanningen för alla data i en organisation. Den skapar en central lagrings plats för efterföljande analys arbets belastningar att använda. Eftersom Time Series Insights är en nära lagrings tjänst i real tid kan avancerade analys modeller lära sig kontinuerligt från inkommande IoT-telemetridata. Därför kan modeller göra mer exakta förutsägelser.
 
-- För det andra kan utdata från modeller för maskin inlärning och förutsägelse matas in i Time Series Insights för att visualisera och lagra sina resultat. Den här proceduren hjälper organisationer att optimera och justera sina modeller. Time Series Insights gör det enkelt att visualisera data från strömmande telemetri på samma plan som de tränade modell utmatningarna. På så sätt hjälper det data vetenskaps team att upptäcka avvikelser och identifiera mönster.  
+- Sedan kan du mata in utdata från modeller för maskin inlärning och förutsägelse i Time Series Insights för att visualisera och lagra resultatet. Den här proceduren hjälper organisationer att optimera och justera sina modeller. Time Series Insights gör det enkelt att visualisera data från strömmande telemetri på samma plan som de tränade modell utmatningarna. På så sätt hjälper det data vetenskaps team att upptäcka avvikelser och identifiera mönster. 
 
 ## <a name="next-steps"></a>Nästa steg
 

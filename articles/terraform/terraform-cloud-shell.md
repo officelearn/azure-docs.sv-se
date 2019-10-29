@@ -1,37 +1,35 @@
 ---
-title: Konfigurera Azure Cloud Shell för terraform
+title: Självstudie – konfigurera Azure Cloud Shell för terraform
 description: Använd Terraform med Azure Cloud Shell för att förenkla autentisering och mallkonfiguration.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, skalningsuppsättning, virtuell dator, nätverk, lagring, moduler
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e0a59697a3e4da97cf082c4c771fe93ad33b6035
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 693ed462fb1ba3dfed079e8ae97152732c771253
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173554"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969582"
 ---
-# <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell-utveckling 
+# <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>Självstudie: Konfigurera Azure Cloud Shell för terraform
 
-Terraform fungerar bra från en kommandorad för Bash, till exempel Terminal på macOS eller Bash på Windows eller Linux. Om du kör dina Terraform-konfigurationer i Bash på [Azure Cloud Shell](/azure/cloud-shell/overview) så får du vissa unika fördelar för att påskynda utvecklingen.
-
-Den här begreppsartikeln handlar om Cloud Shell-funktioner som hjälper dig skriva Terraform-skript som distribueras till Azure.
+Terraform fungerar bra från en bash-kommando rad i macOS, Windows eller Linux. Att köra dina terraform-konfigurationer i bash-upplevelsen av [Azure Cloud Shell](/azure/cloud-shell/overview) har några unika fördelar. Den här självstudien visar hur du skriver terraform-skript som distribueras till Azure med hjälp av Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>Automatisk konfiguration av autentiseringsuppgifter
 
-Terraform är installerat och direkt tillgängligt i Cloud Shell. Terraform-skript autentiseras med Azure när du har loggat in på Cloud Shell för att hantera infrastruktur utan ytterligare konfiguration. Med automatisk autentisering kringgås behovet av att manuellt skapa ett huvudnamn för Active Directory-tjänsten och konfigurera Azure Terraform-providervariablerna.
+Terraform är installerat och direkt tillgängligt i Cloud Shell. Terraform-skript autentiseras med Azure när du har loggat in på Cloud Shell för att hantera infrastruktur utan ytterligare konfiguration. Automatisk autentisering kringgår två manuella processer:
+- Skapar ett huvud namn för Active Directory tjänsten.
+- Konfigurera Azure terraform-providerns variabler.
 
 
 ## <a name="using-modules-and-providers"></a>Använda moduler och providrar
 
-Azure Terraform-moduler kräver autentiseringsuppgifter för att komma åt och ändra resurserna i din Azure-prenumeration. När du arbetar i Cloud Shell lägger du till följande kod i dina skript för att använda Azure Terraform-moduler i Cloud Shell:
+Azure terraform-moduler kräver autentiseringsuppgifter för att komma åt och ändra Azure-resurser. Om du vill använda terraform-moduler i Cloud Shell lägger du till följande kod:
+
 
 ```hcl
 # Configure the Microsoft Azure Provider
@@ -50,5 +48,5 @@ Azure CLI är tillgängligt i Cloud Shell och är ett bra verktyg för att testa
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa ett litet VM-kluster med modulregistret](terraform-create-vm-cluster-module.md)
-[Skapa ett litet VM-kluster med anpassat HCL](terraform-create-vm-cluster-with-infrastructure.md)
+> [!div class="nextstepaction"]
+> [Skapa ett litet virtuellt dator kluster med modul registret](terraform-create-vm-cluster-module.md)

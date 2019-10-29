@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 24812b8d97080d59fd50f4dc528117b3020fd8dc
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: fd385e820ea205c3acfc0ee3ccec4e07c62bb50e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753272"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989589"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera etablerade data flödes kostnader i Azure Cosmos DB
 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 De ursprungliga SDK: erna (.NET/.NET Core, Java, Node. js och python) fångar implicit detta svar, och den server-specificerade återförsöket-efter-rubriken och gör om begäran. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
 
-Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök för närvarande är 9 inte tillräckligt. I sådana fall genererar klienten ett `DocumentClientException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ange `RetryOptions` på ConnectionPolicy-instansen. Som standard returneras `DocumentClientException` med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
+Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök, som för närvarande är 9, inte räcker. I sådana fall genererar klienten ett `DocumentClientException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ange `RetryOptions` på ConnectionPolicy-instansen. Som standard returneras `DocumentClientException` med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) är inställt på 3, så i det här fallet, om en begär ande åtgärd är begränsad genom att överskrida det reserverade data flödet för behållaren, försöker åtgärden tre gånger innan undantaget utlöses till programmet. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) är inställt på 60, så i det här fallet om den ackumulerade återförsöks tiden i sekunder sedan den första begäran överskrider 60 sekunder, genereras undantaget.
 

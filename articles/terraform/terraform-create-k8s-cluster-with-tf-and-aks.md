@@ -1,25 +1,23 @@
 ---
-title: Skapa ett Kubernetes-kluster med Azure Kubernetes Service (AKS) och Terraform
+title: Självstudie – Skapa ett Kubernetes-kluster med Azure Kubernetes service (AKS) med hjälp av terraform
 description: Självstudie som visar hur du skapar ett Kubernetes-kluster med Azure Kubernetes Service och Terraform
-services: terraform
-ms.service: azure
-keywords: terraform, devops, virtuell dator, azure, kubernetes
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/23/2019
-ms.openlocfilehash: 9661bfe9c3b10a31a962767debbe3d7e58bf4fa3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.date: 10/26/2019
+ms.openlocfilehash: 1c87c34e6024916052b03e4868139fba30c23190
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882532"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969556"
 ---
-# <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Skapa ett Kubernetes-kluster med Azure Kubernetes Service och Terraform
-[Azure Kubernetes Service (AKS)](/azure/aks/) hanterar din värdmiljö för Kubernetes, vilket gör det enkelt att snabbt distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också problem med pågående åtgärder och underhåll genom etablering, uppgradering och skalning av resurser på begäran, utan att koppla från dina program.
+# <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Självstudie: skapa ett Kubernetes-kluster med Azure Kubernetes service med terraform
 
-I den här självstudien lär du dig hur du utför följande uppgifter för att skapa ett [Kubernetes-kluster](https://www.redhat.com/en/topics/containers/what-is-kubernetes) med [Terraform](https://terraform.io) och AKS:
+[Azure Kubernetes Service (AKS)](/azure/aks/) hanterar din värdbaserade Kubernetes-miljö. Med AKS kan du distribuera och hantera program i behållare utan expertis för behållar dirigering. Med AKS kan du också utföra många vanliga underhålls åtgärder utan att ta din app offline. Dessa åtgärder omfattar etablering, uppgradering och skalning av resurser på begäran.
+
+I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 > [!div class="checklist"]
 > * Använda HCL (HashiCorp Language) för att definiera ett Kubernetes-kluster
@@ -35,6 +33,7 @@ I den här självstudien lär du dig hur du utför följande uppgifter för att 
 - **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet **Skapa huvudnamn för tjänsten** i artikeln [Skapa Azure-tjänstens huvudnamn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Observera värdena för appId, displayName, password (lösenord) och tenant (klientorganisation).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
+
 Det första steget är att skapa katalogen som innehåller Terraform-konfigurationsfilerna för övningen.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com).
@@ -62,15 +61,14 @@ Det första steget är att skapa katalogen som innehåller Terraform-konfigurati
     ```
 
 ## <a name="declare-the-azure-provider"></a>Deklarera Azure-providern
+
 Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
 
 1. I Cloud Shell skapar du en fil som heter `main.tf`.
 
     ```bash
-    vi main.tf
+    code main.tf
     ```
-
-1. Starta infogningsläget genom att trycka på tangenten I.
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
@@ -84,31 +82,24 @@ Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
     }
     ```
 
-1. Avsluta infogningsläget genom att trycka på tangenten **Esc**.
-
-1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
-
-    ```bash
-    :wq
-    ```
+1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
 
 ## <a name="define-a-kubernetes-cluster"></a>Definiera ett Kubernetes-kluster
+
 Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-klustret.
 
 1. I Cloud Shell skapar du en fil som heter `k8s.tf`.
 
     ```bash
-    vi k8s.tf
+    code k8s.tf
     ```
-
-1. Starta infogningsläget genom att trycka på tangenten I.
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
     ```hcl
     resource "azurerm_resource_group" "k8s" {
-        name     = "${var.resource_group_name}"
-        location = "${var.location}"
+        name     = var.resource_group_name
+        location = var.location
     }
     
     resource "random_id" "log_analytics_workspace_name_suffix" {
@@ -118,17 +109,17 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
     resource "azurerm_log_analytics_workspace" "test" {
         # The WorkSpace name has to be unique across the whole of azure, not just the current subscription/tenant.
         name                = "${var.log_analytics_workspace_name}-${random_id.log_analytics_workspace_name_suffix.dec}"
-        location            = "${var.log_analytics_workspace_location}"
-        resource_group_name = "${azurerm_resource_group.k8s.name}"
-        sku                 = "${var.log_analytics_workspace_sku}"
+        location            = var.log_analytics_workspace_location
+        resource_group_name = azurerm_resource_group.k8s.name
+        sku                 = var.log_analytics_workspace_sku
     }
 
     resource "azurerm_log_analytics_solution" "test" {
         solution_name         = "ContainerInsights"
-        location              = "${azurerm_log_analytics_workspace.test.location}"
-        resource_group_name   = "${azurerm_resource_group.k8s.name}"
-        workspace_resource_id = "${azurerm_log_analytics_workspace.test.id}"
-        workspace_name        = "${azurerm_log_analytics_workspace.test.name}"
+        location              = azurerm_log_analytics_workspace.test.location
+        resource_group_name   = azurerm_resource_group.k8s.name
+        workspace_resource_id = azurerm_log_analytics_workspace.test.id
+        workspace_name        = azurerm_log_analytics_workspace.test.name
 
         plan {
             publisher = "Microsoft"
@@ -137,36 +128,36 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
     }
 
     resource "azurerm_kubernetes_cluster" "k8s" {
-        name                = "${var.cluster_name}"
-        location            = "${azurerm_resource_group.k8s.location}"
-        resource_group_name = "${azurerm_resource_group.k8s.name}"
-        dns_prefix          = "${var.dns_prefix}"
+        name                = var.cluster_name
+        location            = azurerm_resource_group.k8s.location
+        resource_group_name = azurerm_resource_group.k8s.name
+        dns_prefix          = var.dns_prefix
 
         linux_profile {
             admin_username = "ubuntu"
 
             ssh_key {
-                key_data = "${file("${var.ssh_public_key}")}"
+                key_data = file(var.ssh_public_key)
             }
         }
 
         agent_pool_profile {
             name            = "agentpool"
-            count           = "${var.agent_count}"
+            count           = var.agent_count
             vm_size         = "Standard_DS1_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
 
         service_principal {
-            client_id     = "${var.client_id}"
-            client_secret = "${var.client_secret}"
+            client_id     = var.client_id
+            client_secret = var.client_secret
         }
 
         addon_profile {
             oms_agent {
             enabled                    = true
-            log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+            log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
             }
         }
 
@@ -176,29 +167,21 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
     }
     ```
 
-    Föregående kod anger namn för klustret, platsen och resource_group_name. Dessutom anges värdet dns_prefix som utgör en del av det fullständigt kvalificerade domännamnet (FQDN) som används för att få åtkomst till klustret.
+    I föregående kod anges namnet på klustret, platsen och resurs gruppens namn. Prefixet för det fullständigt kvalificerade domän namnet (FQDN) har också angetts. FQDN används för att komma åt klustret.
 
-    Med posten **linux_profile** kan du konfigurera inställningarna som aktiverar inloggning med SSH på arbetarnoderna.
+    Med `linux_profile`-posten kan du konfigurera de inställningar som gör det möjligt att logga in på arbetsnoder med SSH.
 
-    Med AKS betalar du bara för arbetarnoderna. I posten **agent_pool_profile** konfigureras information för de här arbetarnoderna. Posten **agent_pool_profile** innehåller antalet arbetarnoder som ska skapas och typen av arbetarnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du värdet **count** i den här posten.
+    Med AKS betalar du bara för arbetarnoderna. `agent_pool_profile` posten konfigurerar information för dessa arbetsnoder. `agent_pool_profile record` innehåller antalet arbetsnoder som ska skapas och typen av arbetsnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du värdet `count` i den här posten.
 
-1. Avsluta infogningsläget genom att trycka på tangenten **Esc**.
-
-1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
-
-    ```bash
-    :wq
-    ```
+1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
 
 ## <a name="declare-the-variables"></a>Deklarera variablerna
 
 1. I Cloud Shell skapar du en fil som heter `variables.tf`.
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
-
-1. Starta infogningsläget genom att trycka på tangenten I.
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
@@ -245,73 +228,65 @@ Skapa Terraform-konfigurationsfilen som deklarerar resurserna för Kubernetes-kl
    }
     ```
 
-1. Avsluta infogningsläget genom att trycka på tangenten **Esc**.
-
-1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
-
-    ```bash
-    :wq
-    ```
+1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
 
 ## <a name="create-a-terraform-output-file"></a>Skapa en Terraform-utdatafil
+
 Med [Terraform-utdata](https://www.terraform.io/docs/configuration/outputs.html) kan du definiera värden som markeras för användaren när en plan används i Terraform och kan hämtas med kommandot `terraform output`. I det här avsnittet skapar du en utdatafil som tillåter åtkomst till klustret med [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. I Cloud Shell skapar du en fil som heter `output.tf`.
 
     ```bash
-    vi output.tf
+    code output.tf
     ```
-
-1. Starta infogningsläget genom att trycka på tangenten I.
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
     ```hcl
     output "client_key" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_key
     }
 
     output "client_certificate" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_certificate
     }
 
     output "cluster_ca_certificate" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate
     }
 
     output "cluster_username" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.username}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.username
     }
 
     output "cluster_password" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.password}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.password
     }
 
     output "kube_config" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config_raw}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config_raw
     }
 
     output "host" {
-        value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.host}"
+        value = azurerm_kubernetes_cluster.k8s.kube_config.0.host
     }
     ```
 
-1. Avsluta infogningsläget genom att trycka på tangenten **Esc**.
-
-1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
-
-    ```bash
-    :wq
-    ```
+1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
 
 ## <a name="set-up-azure-storage-to-store-terraform-state"></a>Konfigurera Azure Storage för att lagra Terraform-tillstånd
-Terraform spårar tillstånd lokalt via filen `terraform.tfstate`. Det här mönstret fungerar bra i en miljö med en enda person. I en miljö med flera personer behöver du dock spåra tillstånd på servern med [Azure Storage](/azure/storage/). I det här avsnittet hämtar du den nödvändiga lagringskontoinformationen (kontonamn och kontonyckel) och skapar en lagringsbehållare som Terraform-tillståndsinformationen kommer att lagras i.
+
+Terraform spårar tillstånd lokalt via filen `terraform.tfstate`. Det här mönstret fungerar bra i en miljö med en enda person. I en miljö med flera personer används [Azure Storage](/azure/storage/) för att spåra status.
+
+I det här avsnittet får du se hur du utför följande uppgifter:
+- Hämta information om lagrings konto (konto namn och konto nyckel)
+- Skapa en lagrings behållare där information om terraform ska lagras.
 
 1. I Azure-portalen väljer du **Alla tjänster** i vänstermenyn.
 
 1. Välj **Lagringskonton**.
 
-1. På fliken **Lagringskonton** väljer du namnet på det lagringskonto där Terraform ska lagra tillstånd. Du kan till exempel använda lagringskontot som skapades när du öppnade Cloud Shell första gången.  Lagringskontonamnet som skapades av Cloud Shell börjar vanligtvis med `cs` följt av en slumpmässig sträng med siffror och bokstäver. **Kom ihåg namnet på lagringskontot som du väljer – du behöver det senare.**
+1. På fliken **Lagringskonton** väljer du namnet på det lagringskonto där Terraform ska lagra tillstånd. Du kan till exempel använda lagringskontot som skapades när du öppnade Cloud Shell första gången.  Lagringskontonamnet som skapades av Cloud Shell börjar vanligtvis med `cs` följt av en slumpmässig sträng med siffror och bokstäver. Anteckna det lagrings konto som du väljer. Detta värde behövs senare.
 
 1. Välj **Åtkomstnycklar** på fliken för lagringskonto.
 
@@ -321,16 +296,17 @@ Terraform spårar tillstånd lokalt via filen `terraform.tfstate`. Det här mön
 
     ![Lagringskontots åtkomstnycklar](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 
-1. I Cloud Shell skapar du en behållare på ditt Azure Storage-konto (ersätt platshållarna &lt;YourAzureStorageAccountName> och &lt;YourAzureStorageAccountAccessKey> med lämpliga värden för ditt Azure Storage-konto).
+1. I Cloud Shell skapar du en behållare i ditt Azure Storage-konto. Ersätt plats hållarna med lämpliga värden för din miljö.
 
     ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
 ## <a name="create-the-kubernetes-cluster"></a>Skapa Kubernetes-klustret
+
 I det här avsnittet ser du hur du använder kommandot `terraform init` för att skapa resurserna som definieras i konfigurationsfilerna som du skapade i föregående avsnitt.
 
-1. I Cloud Shell initierar du Terraform (ersätt platshållarna &lt;YourAzureStorageAccountName> och &lt;YourAzureStorageAccountAccessKey> med lämpliga värden för ditt Azure Storage-konto).
+1. I Cloud Shell initierar du terraform. Ersätt plats hållarna med lämpliga värden för din miljö.
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
@@ -340,11 +316,11 @@ I det här avsnittet ser du hur du använder kommandot `terraform init` för att
 
     ![Exempel på resultat för "terraform init"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Exportera autentiseringsuppgifterna för tjänstens huvudnamn. Ersätt platshållarna &lt;your-client-id> och &lt;your-client-secret> med de värden för **appId** och **lösenord** som är associerade med ditt tjänsthuvudnamn.
+1. Exportera autentiseringsuppgifterna för tjänstens huvudnamn. Ersätt plats hållarna med lämpliga värden från tjänstens huvud namn.
 
     ```bash
-    export TF_VAR_client_id=<your-client-id>
-    export TF_VAR_client_secret=<your-client-secret>
+    export TF_VAR_client_id=<service-principal-appid>
+    export TF_VAR_client_secret=<service-principal-password>
     ```
 
 1. Kör kommandot `terraform plan` för att skapa Terraform-planen som definierar infrastrukturelementen. 
@@ -372,7 +348,8 @@ I det här avsnittet ser du hur du använder kommandot `terraform init` för att
     ![Cloud Shell-kommandotolk](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
 ## <a name="recover-from-a-cloud-shell-timeout"></a>Återhämtning från en Cloud Shell-timeout
-Om tidsgränsen för Cloud Shell-sessionen nås kan du utföra följande steg för att återhämta:
+
+Om tids gränsen för Cloud Shell-sessionen är slut kan du utföra följande steg för att återställa:
 
 1. Starta en Cloud Shell-session.
 
@@ -389,6 +366,7 @@ Om tidsgränsen för Cloud Shell-sessionen nås kan du utföra följande steg f�
     ```
     
 ## <a name="test-the-kubernetes-cluster"></a>Testa Kubernetes-klustret
+
 Kubernetes-verktygen kan användas för att verifiera det nyligen skapade klustret.
 
 1. Hämta Kubernetes-konfigurationen från Terraform-tillståndet och lagra den i en fil som kubectl kan läsa.
@@ -414,12 +392,10 @@ Kubernetes-verktygen kan användas för att verifiera det nyligen skapade klustr
     ![Med verktyget kubectl kan du kontrollera ditt Kubernetes-klusters hälsotillstånd](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
 ## <a name="monitor-health-and-logs"></a>Övervaka hälsotillstånd och loggar
-När AKS-klustret skapades aktiverades övervakning för att registrera hälsomått för både klusternoderna och poddarna. De här hälsomåtten är tillgängliga i Azure-portalen. Mer information om övervakning av hälsotillstånd för containrar finns i [Övervaka hälsotillstånd för Azure Kubernets Service](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+
+När AKS-klustret skapades aktiverades övervakning för att registrera hälsomått för både klusternoderna och poddarna. De här hälsomåtten är tillgängliga i Azure-portalen. Mer information om övervakning av hälsotillstånd för containrar finns i [Övervaka hälsotillstånd för Azure Kubernets Service](/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln lärde du dig hur du använder Terraform och AKS för att skapa ett Kubernetes-kluster. Här är några ytterligare resurser som du kan använda om du vill lära dig mer om Terraform på Azure: 
 
- [Terraform Hub på Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform-dokumentation för Azure-providrar](https://aka.ms/terraform)  
- [Terraform-källa för Azure-providrar](https://aka.ms/tfgit)  
- [Terraform-moduler för Azure](https://aka.ms/tfmodules)
+> [!div class="nextstepaction"] 
+> [Terraform på Azure](/azure/ansible/)

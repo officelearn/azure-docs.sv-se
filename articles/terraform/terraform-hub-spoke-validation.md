@@ -1,22 +1,19 @@
 ---
-title: Verifiera ett nav-och eker-nätverk med terraform i Azure
+title: Självstudie – validera ett nav-och eker-nätverk i Azure med terraform
 description: Självstudie för att verifiera nätverk sto pol Ogin för nav och ekrar med alla virtuella nätverk som är anslutna till varandra.
-services: terraform
-ms.service: azure
-keywords: terraform, hubb och eker, nätverk, hybrid nätverk, DevOps, virtuell dator, Azure, VNet-peering,
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e35af0fcf4a8f1f8f0446be44fe5b0bb6eeec693
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: b0b761fcd79f7129befefa37ce11d9c70cf7cb96
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169700"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969342"
 ---
-# <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Självstudier: Verifiera ett nav-och eker-nätverk med terraform i Azure
+# <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>Självstudie: validera ett nav-och eker-nätverk i Azure med terraform
 
 I den här artikeln kör du terraform-filerna som skapades i föregående artikel i den här serien. Resultatet är en validering av anslutningen mellan virtuella demo nätverk.
 
@@ -29,7 +26,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Kontrol lera anslutningen mellan olika nätverk
 > * Använd terraform för att förstöra alla resurser
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. [Skapa en nav-och eker hybrid nätverkstopologi med terraform i Azure](./terraform-hub-spoke-introduction.md).
 1. [Skapa lokalt virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-on-prem.md).
@@ -59,7 +56,7 @@ När du har slutfört [kraven](#prerequisites)kontrollerar du att rätt konfigur
     cd hub-spoke
     ```
 
-1. Kör kommandot för att kontrol lera `.tf` att config-filerna som skapats i de föregående självstudierna visas: `ls`
+1. Kör kommandot `ls` för att kontrol lera att de `.tf` config-filerna som skapades i de föregående självstudierna visas:
 
     ![Konfigurationsfiler för terraform-demonstration](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
 
@@ -73,7 +70,7 @@ När du har slutfört [kraven](#prerequisites)kontrollerar du att rätt konfigur
     
     ![Exempel på resultat av kommandot "terraform init"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.png)
     
-1. `terraform plan` Kör kommandot för att se resultatet av distributionen före körningen:
+1. Kör kommandot `terraform plan` för att se resultatet av distributionen före körningen:
 
     ```bash
     terraform plan
@@ -103,22 +100,22 @@ Det här avsnittet visar hur du testar anslutningen från den simulerade lokala 
 
 1. Kopiera **SSH** -kommandot till Urklipp bredvid text **inloggningen med hjälp av lokalt konto för virtuell dator**.
 
-1. Från Kommandotolken i Linux, kör `ssh` att ansluta till den simulerade lokala miljön. Använd lösen ordet som anges i `on-prem.tf` parameter filen.
+1. Kör `ssh` för att ansluta till den simulerade lokala miljön från en Linux-prompt. Använd lösen ordet som anges i `on-prem.tf` parameter filen.
 
-1. `ping` Kör kommandot för att testa anslutningen till den virtuella hopp datorn i hubbens VNet:
+1. Kör kommandot `ping` för att testa anslutningen till den virtuella hopp datorn i hubbens VNet:
 
    ```bash
    ping 10.0.0.68
    ```
 
-1. `ping` Kör kommandot för att testa anslutningen till de virtuella datorerna i byglarna i varje eker:
+1. Kör kommandot `ping` för att testa anslutningen till de virtuella datorerna i det virtuella nätverket i varje ekrar:
 
    ```bash
    ping 10.1.0.68
    ping 10.2.0.68
    ```
 
-1. Om du vill avsluta SSH-sessionen på den virtuella datorn **OnPrem** anger `exit` du och trycker &lt;på RETUR >.
+1. Om du vill avsluta SSH-sessionen på den virtuella datorn **OnPrem** anger du `exit` och trycker på &lt;RETUR >.
 
 ## <a name="troubleshoot-vpn-issues"></a>Felsöka VPN-problem
 
@@ -142,7 +139,7 @@ Ta bort de resurser som skapats i själv studie serien när de inte längre beh�
     cd ..
     ```
 
-1. Ta bort `hub-scope` katalogen (inklusive alla filer):
+1. Ta bort `hub-scope`-katalogen (inklusive alla filer):
 
     ```bash
     rm -r hub-spoke

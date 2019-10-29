@@ -1,22 +1,19 @@
 ---
-title: Skapa ett kluster med virtuella datorer i Azure med Terraform-moduler
+title: Självstudie – Skapa ett Azure VM-kluster med terraform med hjälp av modulen register
 description: Lär dig hur du använder Terraform-moduler för att skapa ett kluster med virtuella Windows-datorer i Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, virtuell dator, nätverk, moduler
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 325a029a9ea1c0102dad0e970f177e7ba7db6d52
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/26/2019
+ms.openlocfilehash: ba99f9cdc20448398b339041aeab41fb75495e5d
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934192"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969484"
 ---
-# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Skapa ett kluster med virtuella datorer med modulregistret
+# <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Självstudie: skapa ett Azure VM-kluster med terraform med hjälp av modulen register
 
 Den här artikeln ger dig instruktioner för att skapa ett litet kluster med virtuella datorer med Terraform-modulen [Azure Compute](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). I den här guiden får du lära du dig hur man: 
 
@@ -104,5 +101,5 @@ Kör `terraform apply` för etablera de virtuella datorerna på Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Bläddra i listan över [Azure Terraform-moduler](https://registry.terraform.io/modules/Azure)
-- Skapa en [VM-skalningsuppsättning för med Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+> [!div class="nextstepaction"] 
+> [Bläddra i listan över Azure terraform-moduler](https://registry.terraform.io/modules/Azure)

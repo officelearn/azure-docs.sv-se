@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/23/2019
-ms.openlocfilehash: d16df46ada2254f5bfc671db55e82fc89ef450b6
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 1c6051508a067e17afbc25702c26608da4cd4ca2
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679047"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968926"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-microsoft-flow"></a>Referens guide för att använda funktioner i uttryck för Azure Logic Apps och Microsoft Flow
 
@@ -252,7 +252,7 @@ Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-ap
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Returnera bröd texten för en viss del i en åtgärds utdata som har flera delar. |
 | [utdata](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Returnera en åtgärds utdata vid körning. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Returnera värdet för en parameter som beskrivs i arbets flödes definitionen. |
-| [medför](../logic-apps/workflow-definition-language-functions-reference.md#result) | Returnera indata och utdata från alla åtgärder i den angivna åtgärds omfattningen, till exempel `For_each`, `Until` och `Scope`. |
+| [medför](../logic-apps/workflow-definition-language-functions-reference.md#result) | Returnera indata och utdata från alla åtgärder i den angivna åtgärds omfattningen, till exempel `For_each`, `Until`och `Scope`. |
 | [utlösare](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Returnera en utlösare utdata vid körning eller från andra JSON-namn-och-värde-par. Se även [triggerOutputs](#triggerOutputs) och [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Returnera en utlösare `body` utdata vid körning. Se [utlösare](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Returnera ett enskilt värde som matchar ett nyckel namn i utlösare för *formulär data* eller *formulär-kodade* utlösare. |
@@ -350,7 +350,7 @@ actionBody('<actionName>')
 
 | Retur värde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
-| <*åtgärd – utdata* > | Sträng | @No__t_0 utdata från den angivna åtgärden |
+| <*åtgärd – utdata* > | Sträng | `body` utdata från den angivna åtgärden |
 ||||
 
 *Exempel*
@@ -491,7 +491,7 @@ add(<summand_1>, <summand_2>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*> <*summand_2* > | Ja | Heltal, float eller Mixed | De siffror som ska läggas till |
+| <*summand_1*> <*summand_2*> | Ja | Heltal, float eller Mixed | De siffror som ska läggas till |
 |||||
 
 | Retur värde | Typ | Beskrivning |
@@ -1049,7 +1049,7 @@ body('<actionName>')
 
 | Retur värde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
-| <*åtgärd – utdata* > | Sträng | @No__t_0 utdata från den angivna åtgärden |
+| <*åtgärd – utdata* > | Sträng | `body` utdata från den angivna åtgärden |
 ||||
 
 *Exempel*
@@ -1237,7 +1237,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel* > | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*destinationTimeZone* > | Ja | Sträng | Namnet på mål tids zonen. Mer information om tids zons namn finns i [Microsoft Time Zone index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*destinationTimeZone* > | Ja | Sträng | Namnet på mål tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
 | <*format* > | Nej | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
@@ -1279,8 +1279,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel* > | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*sourceTimeZone* > | Ja | Sträng | Namnet på käll tids zonen. Mer information om tids zons namn finns i [Microsoft Time Zone index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
-| <*destinationTimeZone* > | Ja | Sträng | Namnet på mål tids zonen. Mer information om tids zons namn finns i [Microsoft Time Zone index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*sourceTimeZone* > | Ja | Sträng | Namnet på käll tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
+| <*destinationTimeZone* > | Ja | Sträng | Namnet på mål tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
 | <*format* > | Nej | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
@@ -1322,7 +1322,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel* > | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*sourceTimeZone* > | Ja | Sträng | Namnet på käll tids zonen. Mer information om tids zons namn finns i [Microsoft Time Zone index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*sourceTimeZone* > | Ja | Sträng | Namnet på käll tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
 | <*format* > | Nej | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
@@ -3318,7 +3318,7 @@ Här är det uppdaterade JSON-objektet:
 
 ### <a name="result"></a>Medför
 
-Returnera indata och utdata från alla åtgärder som ligger inom den angivna åtgärds omfattningen, till exempel en `For_each`, `Until` eller `Scope` åtgärd. Den här funktionen kan användas för att returnera resultaten från en misslyckad åtgärd så att du kan diagnostisera och hantera undantag. Mer information finns i [Hämta kontext och resultat för problem](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Returnera indata och utdata från alla åtgärder som ligger inom den angivna åtgärds omfattningen, till exempel en `For_each`, `Until`eller `Scope` åtgärd. Den här funktionen kan användas för att returnera resultaten från en misslyckad åtgärd så att du kan diagnostisera och hantera undantag. Mer information finns i [Hämta kontext och resultat för problem](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -4026,7 +4026,7 @@ triggerBody()
 
 | Retur värde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*utlösare – utdata* > | Sträng | @No__t_0 utdata från utlösaren |
+| <*utlösare – utdata* > | Sträng | `body` utdata från utlösaren |
 ||||
 
 <a name="triggerFormDataMultiValues"></a>
@@ -4303,7 +4303,7 @@ uriHost('<uri>')
 
 | Retur värde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*värd värde* > | Sträng | @No__t_0-värdet för angiven URI |
+| <*värd värde* > | Sträng | `host`-värdet för angiven URI |
 ||||
 
 *Exempel*
@@ -4333,7 +4333,7 @@ uriPath('<uri>')
 
 | Retur värde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*sökväg-värde* > | Sträng | @No__t_0 värde för angiven URI. Returnera "/"-tecken om `path` inte har något värde. |
+| <*sökväg-värde* > | Sträng | `path` värde för angiven URI. Returnera "/"-tecken om `path` inte har något värde. |
 ||||
 
 *Exempel*
@@ -4363,7 +4363,7 @@ uriPathAndQuery('<uri>')
 
 | Retur värde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*Sök väg-fråga-värde* > | Sträng | @No__t_0-och `query`s värden för den angivna URI: n. Om `path` inte anger något värde returneras "/"-tecken. |
+| <*Sök väg-fråga-värde* > | Sträng | `path`-och `query`s värden för den angivna URI: n. Om `path` inte anger något värde returneras "/"-tecken. |
 ||||
 
 *Exempel*
@@ -4393,7 +4393,7 @@ uriPort('<uri>')
 
 | Retur värde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*port-värde* > | Integer | @No__t_0 värde för angiven URI. Om `port` inte anger något värde returnerar du standard porten för protokollet. |
+| <*port-värde* > | Integer | `port` värde för angiven URI. Om `port` inte anger något värde returnerar du standard porten för protokollet. |
 ||||
 
 *Exempel*
@@ -4423,7 +4423,7 @@ uriQuery('<uri>')
 
 | Retur värde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*fråga-värde* > | Sträng | @No__t_0-värdet för angiven URI |
+| <*fråga-värde* > | Sträng | `query`-värdet för angiven URI |
 ||||
 
 *Exempel*
@@ -4453,7 +4453,7 @@ uriScheme('<uri>')
 
 | Retur värde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*schema-värde* > | Sträng | @No__t_0-värdet för angiven URI |
+| <*schema-värde* > | Sträng | `scheme`-värdet för angiven URI |
 ||||
 
 *Exempel*

@@ -7,12 +7,12 @@ ms.topic: reference
 author: rboucher
 ms.author: robb
 ms.date: 10/22/2019
-ms.openlocfilehash: e1bf6a55568671ddb8f6999356cc9be43ce6a728
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b953f9b5e5fd8c853746caad3047986786bd1317
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804023"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989611"
 ---
 # <a name="azure-resource-logs-overview"></a>Översikt över Azure resurs loggar
 Azures resurs loggar är [plattforms loggar](platform-logs-overview.md) som genereras av Azure-resurser som beskriver deras interna åtgärd. Alla resurs loggar delar ett gemensamt schema på högsta nivå med flexibiliteten för varje tjänst för att generera unika egenskaper för sina egna händelser.
@@ -25,8 +25,8 @@ Resurs loggar genereras automatiskt av Azure-resurser som stöds, men de samlas 
 
 | Mål | Scenario |
 |:---|:---|:---|
-| [Log Analytics-arbetsyta](resource-logs-collect-storage.md) | Analysera loggarna med andra övervaknings data och utnyttja Azure Monitor funktioner som logg frågor och logg aviseringar. |
-| [Azure Storage](archive-diagnostic-logs.md) | Arkivera loggarna för granskning eller säkerhets kopiering. |
+| [Log Analytics-arbetsyta](resource-logs-collect-workspace.md) | Analysera loggarna med andra övervaknings data och utnyttja Azure Monitor funktioner som logg frågor och logg aviseringar. |
+| [Azure Storage](resource-logs-collect-storage.md) | Arkivera loggarna för granskning eller säkerhets kopiering. |
 | [Händelsehubb](resource-logs-stream-event-hubs.md) | Strömma loggarna till loggnings-och telemetri system från tredje part.  |
 
 ## <a name="compute-resources"></a>Beräknings resurser

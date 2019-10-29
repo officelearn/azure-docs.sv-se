@@ -27,8 +27,10 @@
       href: stream-analytics-javascript-user-defined-functions.md
     - name: 4 – Distribuera med CI/CD i Azure Pipelines
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: '5 – Köra C# UDF på IoT Edge'
+    - name: '5 – Kör en C# UDF'
       href: stream-analytics-edge-csharp-udf.md
+    - name: 6 – Skapa en anpassad .NET-deserialiserare
+      href: custom-deserializer.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -47,6 +49,8 @@
           href: stream-analytics-define-inputs.md
         - name: Inmatningar av referensdata
           href: stream-analytics-use-reference-data.md
+        - name: Ange anpassade .NET-deserialiserare
+          href: custom-deserializer-examples.md
     - name: Utdatatyper för ett jobb
       items:
         - name: Översikt över utdata
@@ -173,7 +177,7 @@
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Konfigurera CI/CD-pipeliner
           href: stream-analytics-tools-for-visual-studio-cicd.md
-        - name: Skriva .NET UDF för Edge
+        - name: Ange .NET UDF
           href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio-koden
       items:

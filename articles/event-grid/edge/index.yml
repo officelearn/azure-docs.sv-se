@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Dokumentationen om Event Grid på IoT Edge
+summary: Läs om hur du använder Event Grid på IoT Edge för att agera på relevanta händelser som sker på Edge-enheter i nära realtid.
+metadata:
+  title: Dokumentationen om Event Grid på IoT Edge
+  description: Läs om hur du använder Event Grid på IoT Edge för att agera på relevanta händelser som sker på Edge-enheter i nära realtid.
+  services: event-grid
+  ms.service: event-grid
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 10/12/2019
+  ms.openlocfilehash: 4b79d64240b96ed41b535f8dbcd1155d67e76282
+  ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/28/2019
+  ms.locfileid: "72991621"
+landingContent:
+- title: Om Event Grid på IoT Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Event Grid på IoT Edge?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Event Grid-begrepp
+      url: concepts.md
+    - text: Händelsescheman
+      url: event-schemas.md
+    - text: Batchbearbetning av utdata
+      url: delivery-output-batching.md
+    - text: Avancerad filtrering
+      url: advanced-filtering.md
+    - text: Leverans och nytt försök
+      url: delivery-retry.md
+- title: Scenarier
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Publicera och prenumerera på händelser lokalt
+      url: pub-sub-events-webhook-local.md
+    - text: Publicera och prenumerera på händelser i molnet
+      url: pub-sub-events-webhook-cloud.md
+    - text: Vidarekoppla händelser till Azure Event Grid
+      url: forward-events-event-grid-cloud.md
+    - text: Vidarekoppla händelser till Azure IoT Hub
+      url: forward-events-event-grid-cloud.md
+    - text: Agera på Azure Blob Storage-händelser lokalt
+      url: react-blob-storage-events-locally.md
+- title: Säkerhet
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Säkerhet och autentisering
+      url: security-authentication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera klientautentisering
+      url: configure-client-auth.md
+    - text: Konfigurera autentisering för webhook-prenumerant
+      url: configure-webhook-subscriber-auth.md
+    - text: Konfigurera identitetsautentisering
+      url: configure-identity-auth.md

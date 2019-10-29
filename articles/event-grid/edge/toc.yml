@@ -1,0 +1,62 @@
+- name: Event Grid IoT Edge-dokumentation
+  href: index.yml
+- name: Byt till Azure Event Grid-dokumentationen
+  href: ../overview.md
+- name: Översikt
+  items:
+    - name: Vad är Event Grid på IoT Edge?
+      href: overview.md
+- name: Självstudier
+  items:
+    - name: Publicera och prenumerera på händelser lokalt
+      href: pub-sub-events-webhook-local.md
+    - name: Publicera och prenumerera på händelser i molnet
+      href: pub-sub-events-webhook-cloud.md
+    - name: Vidarekoppla händelser till Azure Event Grid
+      href: forward-events-event-grid-cloud.md
+    - name: Vidarekoppla händelser till Azure IoT Hub
+      href: forward-events-iothub.md
+    - name: Agera på Blob Storage-händelser lokalt
+      href: react-blob-storage-events-locally.md
+- name: Exempel
+  href: 'https://github.com/Azure/event-grid-iot-edge'
+- name: Begrepp
+  items:
+    - name: Event Grid-begrepp
+      href: concepts.md
+    - name: Säkerhet och autentisering
+      href: security-authentication.md
+    - name: Händelsescheman
+      href: event-schemas.md
+    - name: Leverans och nytt försök
+      href: delivery-retry.md
+    - name: Batchbearbetning av utdata
+      href: delivery-output-batching.md
+    - name: Avancerad filtrering
+      href: advanced-filtering.md
+- name: Instruktionsguider
+  items:
+    - name: Spara tillstånd
+      items:
+        - name: Linux
+          href: persist-state-linux.md
+        - name: Windows
+          href: persist-state-windows.md
+    - name: Konfigurera protokoll för API
+      href: configure-api-protocol.md
+    - name: Konfigurera klientautentisering
+      href: configure-client-auth.md
+    - name: Konfigurera autentisering för webhook-prenumerant
+      href: configure-webhook-subscriber-auth.md
+    - name: Konfigurera identitetsautentisering
+      href: configure-identity-auth.md
+    - name: Felsöka
+      href: troubleshoot.md
+- name: Referens
+  items:
+    - name: REST-API
+      href: api.md
+    - name: Konfigurera Event Grid
+      href: configure-event-grid.md
+    - name: Konfigurationsschema för modultvilling
+      href: twin-json.md

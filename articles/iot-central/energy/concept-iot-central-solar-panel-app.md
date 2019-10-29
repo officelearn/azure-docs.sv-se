@@ -8,19 +8,22 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 61a2b00bee7b16e3cc62a010ca454466cb0292a0
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: bf109d91582bc08a3922d8c84e9ffab904dbb94c
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965585"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026780"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>App-arkitektur för Azure IoT Central-solpanel
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
+
 Den här artikeln innehåller en översikt över mallen för att övervaka appar i sol panelen. Diagrammet nedan visar en arkitektur för solpanel-appen på Azure som använder IoT Central plattform.
 
-> [!div class="mx-imgBorder"]
-> ![Smart meters arkitektur](media/concept-iot-central-solar-panel/solar-panel-app-architecture.png)
+[!div class="mx-imgBorder"]
+![Smart meters arkitektur](media/concept-iot-central-solar-panel/solar-panel-app-architecture.png)
 
 Den här arkitekturen består av följande komponenter. Vissa program kanske inte kräver alla komponenter som anges här.
 

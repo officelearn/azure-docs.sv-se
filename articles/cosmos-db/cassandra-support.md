@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 66a972e66c35cdd5b8dedceefbe3dbd008380da9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b48384b8333a5affc76d8af8e057bd911f14068b
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327145"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043492"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -140,7 +140,7 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 * BATCH – endast ej loggade kommandon stöds 
 * DELETE
 
-Alla CRUD-åtgärder när de körs via CQLV4-kompatibla SDK returnerar extra information om felet, förbrukade enheter. Ta bort och uppdatera kommandon måste hanteras med resurs styrning för att undvika att det etablerade data flödet får rätt användning. 
+Alla CRUD-åtgärder när de körs via CQLV4-kompatibla SDK returnerar extra information om felet, förbrukade enheter. Ta bort och uppdatera kommandon måste hanteras med resurs styrning för att säkerställa att det etablerade data flödet får rätt användning. 
 * Observera att gc_grace_seconds-värdet måste vara noll om det anges.
 
 ```csharp

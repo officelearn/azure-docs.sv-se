@@ -8,14 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 7051a4257bc45f0c9266be14678a1409be66fe9e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a5a8c8e52c4bebda4e22e592fefa3801449504e3
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958030"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027461"
 ---
 # <a name="building-healthcare-solutions-with-azure-iot-central"></a>Skapa sjukvårds lösningar med Azure IoT Central 
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Lär dig att bygga sjukvårds lösningar med Azure IoT Central att använda programmallar.
 

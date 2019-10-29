@@ -8,14 +8,18 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a8f8b91e2990b85f5bcbd5aef5d70d3b6fb800e1
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: aaf591bcc75521cb83d8c74f5220d37f77f1f349
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965543"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027662"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Bygg energi lösningar med IoT Central 
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
+
 Smarta mätare och sol paneler spelar en viktig roll i energi branschens omvandling. De smarta mätarna ger fler kontroller och insikter i real tid om energi förbrukning och energi förbrukning, och tillväxt av sol panelerna är kraftiga i förnybar energi. Övervaknings appar för smart mätare och solpanel är exempel på mallar för att visa de olika funktionerna. Partner kan utnyttja dessa mallar för att bygga energi lösningar med IoT Central för sina specifika behov. Ingen ny kod och ingen ytterligare kostnad krävs för att distribuera och använda dessa program. Lär dig mer om Energy Application-mallar och deras funktioner.
 
 
@@ -36,8 +40,8 @@ Du kan prova [appen för smart avläsning av övervakning utan kostnad](https://
 
 När du har distribuerat appen visas de simulerade mätar data på instrument panelen, som du ser i bilden nedan. Den här mallen är en exempel-app som du enkelt kan utöka och anpassa efter dina egna användnings fall.
 
-> [!div class="mx-imgBorder"]
-> ![Smart mätar app-instrumentpanel](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
+[!div class="mx-imgBorder"]
+![Smart mätar app-instrumentpanel](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
 
 
 ## <a name="what-is-the-solar-panel-monitoring-application"></a>Vad är en övervaknings applikation i sol-panelen?

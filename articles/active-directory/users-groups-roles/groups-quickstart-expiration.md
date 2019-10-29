@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aabfe803a6ee40491dd95fe7def9a31838c80e65
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7d98dd0f4f9cdc506b8807932a255d14d3022d49
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928980"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024617"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Snabbstart: Ställ in Office 365-grupper att upphöra att gälla i Azure Active Directory
 
@@ -27,13 +27,13 @@ I den här snabbstarten anger du en förfalloprincip för dina Office 365-gruppe
 
 Förfalloprinciper är enkla:
 
-- Grupper med användar aktiviteter förnyas automatiskt under tiden närmast (för hands version)
+- Grupper med användar aktiviteter förnyas automatiskt när de upphör snart
 - Gruppägare meddelas om att förnya en grupp som håller på att upphöra
 - Grupper som inte förnyas tas bort
 - En borttagen Office 365-grupp kan återställas inom 30 dagar av en gruppägare eller en Azure AD-administratör
 
 > [!NOTE]
-> Grupper använder nu Azure AD Intelligence för att automatiskt förnya baserat på om de har använts nyligen (för närvarande i offentlig för hands version, så ingen registrering krävs). Den här funktionen baseras på användar aktivitet i grupper mellan Office 365-tjänster som Outlook, SharePoint, teams, Yammer och andra.
+> Nu använder grupper Azure AD Intelligence för att automatiskt förnya baserat på om de har använts nyligen. Detta förnyelse beslut baseras på användar aktivitet i grupper mellan Office 365-tjänster som Outlook, SharePoint, teams, Yammer och andra.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 

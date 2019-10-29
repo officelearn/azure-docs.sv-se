@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: e3a8a537ae8c971119cfd08fbf80dc169df1d384
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f1759bd2cc82073378c5668682f4cecf8482c2d3
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619308"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042260"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Jämför självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services
 
@@ -39,7 +39,7 @@ Om du har program och tjänster som behöver åtkomst till traditionella autenti
 * En *hanterad* domän som du skapar med hjälp av Azure Active Directory Domain Services. Microsoft skapar och hanterar de resurser som krävs.
 * En *egen hanterad* domän som du skapar och konfigurerar med hjälp av traditionella resurser, till exempel virtuella datorer, Windows Server gäst operativ system och Active Directory Domain Services. Sedan fortsätter du att administrera resurserna.
 
-Med Azure AD DS distribueras och underhålls kärn tjänst komponenterna av Microsoft som en hanterad domän upplevelse . Du distribuerar, hanterar, korrigerar och skyddar AD DS-infrastrukturen för komponenter som de virtuella datorerna, Windows Server-OPERATIVSYSTEMen eller domän kontrol Lanterna (DCs). Azure AD DS innehåller en mindre delmängd av funktioner för traditionell självhanterad AD DS-miljö, vilket minskar risken för design och hantering. Det finns till exempel inga AD-skogar, domäner, platser och länkar för att utforma och underhålla. För program och tjänster som körs i molnet och som behöver åtkomst till traditionella autentiseringsmekanismer som Kerberos eller NTLM ger Azure AD DS en hanterad domän upplevelse med minsta möjliga administrativa kostnader.
+Med Azure AD DS distribueras och underhålls kärn tjänst komponenterna av Microsoft som en *hanterad* domän upplevelse. Du distribuerar, hanterar, korrigerar och skyddar AD DS-infrastrukturen för komponenter som de virtuella datorerna, Windows Server-OPERATIVSYSTEMen eller domän kontrol Lanterna (DCs). Azure AD DS innehåller en mindre delmängd av funktioner för traditionell självhanterad AD DS-miljö, vilket minskar risken för design och hantering. Det finns till exempel inga AD-skogar, domäner, platser och länkar för att utforma och underhålla. För program och tjänster som körs i molnet och som behöver åtkomst till traditionella autentiseringsmekanismer som Kerberos eller NTLM ger Azure AD DS en hanterad domän upplevelse med minsta möjliga administrativa kostnader.
 
 När du distribuerar och kör en självhanterad AD DS-miljö måste du upprätthålla alla associerade infrastruktur-och katalog komponenter. Det finns ytterligare underhålls kostnader med en självhanterad AD DS-miljö, men du kan sedan utföra ytterligare åtgärder, till exempel utöka schemat eller skapa skogs förtroenden. Vanliga distributions modeller för en självhanterad AD DS-miljö som tillhandahåller identitet för program och tjänster i molnet omfattar följande:
 
@@ -94,9 +94,9 @@ På en Azure AD-ansluten eller registrerad enhet sker användarautentisering med
 |:--------------------------------| --------------------------------------------------- | ------------------------------------------------------------------------- |
 | Enheten styrs av            | Azure AD                                            | Azure AD DS-hanterad domän                                                |
 | Representation i katalogen | Enhets objekt i Azure AD-katalogen            | Dator objekt i den hanterade Azure AD DS-domänen                        |
-| Authentication                  | OAuth/OpenID Connect-baserade protokoll              | Kerberos-och NTLM-protokoll                                               |
-| Hantering                      | Hanterings program för mobil enheter (MDM) som Intune | Grupprincip                                                              |
-| Nätverk                      | Fungerar via Internet                             | Kräver att datorer är i samma virtuella nätverk som den hanterade domänen |
+| Autentisering                  | OAuth/OpenID Connect-baserade protokoll              | Kerberos-och NTLM-protokoll                                               |
+| Förvaltning                      | Hanterings program för mobil enheter (MDM) som Intune | grupprincip                                                              |
+| Nätverk                      | Fungerar via Internet                             | Måste vara ansluten till, eller peer-with, det virtuella nätverk där den hanterade domänen är distribuerad |
 | Perfekt för...                    | Mobila eller Station ära enheter för slutanvändare                  | Virtuella server-datorer som distribuerats i Azure                                              |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,57 +8,69 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 875c2002d477a95b44ad1491cb716e2ef70697e7
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 830dc313ea321f74c495f46c7c2d4ea5f9d4e5b5
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954852"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968546"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Säkerhetskopiera en SharePoint-grupp till Azure med DPM
+
 Du säkerhetskopierar en SharePoint-grupp till Microsoft Azure med hjälp av System Center Data Protection Manager (DPM) på samma sätt som du säkerhetskopierar andra data källor. Azure Backup ger flexibilitet i schemat för säkerhets kopiering för att skapa dagliga, vecko Visa eller årliga säkerhets kopierings punkter och ger dig bevarande princip alternativ för olika säkerhets kopierings punkter. DPM ger möjlighet att lagra lokala disk kopior för snabba återställnings mål (RTO) och för att lagra kopior till Azure för ekonomisk, långsiktig kvarhållning.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint-versioner som stöds och relaterade skydds scenarier
+
 Azure Backup för DPM stöder följande scenarier:
 
 | Arbetsbelastning | Version | SharePoint-distribution | Distributions typ för DPM | DPM – System Center 2012 R2 | Skydd och återställning |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3,0 |SharePoint distribueras som en fysisk server eller Hyper-V/VMware virtuell dator <br> -------------- <br> SQL AlwaysOn |Fysisk server eller lokal virtuell Hyper-V-dator |Stöder säkerhets kopiering till Azure från Samlad uppdatering 5 |Skydda SharePoint-gruppens återställnings alternativ: Återställnings grupp, databas och fil-eller List objekt från disk återställnings punkter.  Server grupp och databas återställning från Azure-återställnings punkter. |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3,0 |SharePoint distribueras som en fysisk server eller Hyper-V/VMware virtuell dator <br> -------------- <br> SQL AlwaysOn |Fysisk server eller lokal virtuell Hyper-V-dator |Stöder säkerhets kopiering till Azure från Samlad uppdatering 5 |Skydda SharePoint-gruppens återställnings alternativ: återställnings grupp, databas och fil-eller List objekt från disk återställnings punkter.  Server grupp och databas återställning från Azure-återställnings punkter. |
 
 ## <a name="before-you-start"></a>Innan du börjar
+
 Det finns några saker du behöver bekräfta innan du säkerhetskopierar en SharePoint-servergrupp till Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
+
 Innan du fortsätter kontrollerar du att du har uppfyllt alla [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att skydda arbets belastningar. Vissa uppgifter för krav är: skapa ett säkerhets kopierings valv, Hämta autentiseringsuppgifter för valvet, installera Azure Backup Agent och registrera DPM/Azure Backup Server med valvet.
 
 ### <a name="dpm-agent"></a>DPM-agent
+
 DPM-agenten måste vara installerad på den server som kör SharePoint, de servrar som kör SQL Server och alla andra servrar som ingår i SharePoint-servergruppen. Mer information om hur du konfigurerar skydds agenten finns i [installations skydds agenten](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  Ett undantag är att du bara installerar agenten på en enda front webb server (WFE). DPM behöver agenten på en WFE-server som endast fungerar som start punkt för skydd.
 
 ### <a name="sharepoint-farm"></a>SharePoint-grupp
-För varje 10 000 000-objekt i Server gruppen måste det finnas minst 2 GB utrymme på den volym där DPM-mappen finns. Det här utrymmet krävs för att skapa kataloger. För att DPM ska kunna återställa specifika objekt (webbplats samlingar, webbplatser, listor, dokument bibliotek, mappar, enskilda dokument och list objekt) skapar katalog skapande en lista över de URL: er som finns i varje innehålls databas. Du kan visa listan över URL: er i fönstret återställnings Bart objekt i återställnings aktivitets avsnittet i DPM-administratörskonsol.
+
+För varje 10 000 000-objekt i Server gruppen måste det finnas minst 2 GB utrymme på den volym där DPM-mappen finns. Det här utrymmet krävs för att skapa kataloger. För att DPM ska kunna återställa specifika objekt (webbplats samlingar, webbplatser, listor, dokument bibliotek, mappar, enskilda dokument och list objekt) skapar katalog skapande en lista över de URL: er som finns i varje innehålls databas. Du kan visa listan över URL: er i fönstret återställnings Bart objekt i **återställnings** aktivitets avsnittet i DPM-administratörskonsol.
 
 ### <a name="sql-server"></a>SQL Server
+
 DPM körs som ett LocalSystem-konto. Om du vill säkerhetskopiera SQL Server-databaser behöver DPM sysadmin-behörighet för kontot för den server som kör SQL Server. Ange NT instans\system till *sysadmin* på den server som kör SQL Server innan du säkerhetskopierar den.
 
 Om SharePoint-servergruppen har SQL Server databaser som har kon figurer ATS med SQL Server-alias, installerar du SQL Server-klient komponenterna på den klient webb server som DPM ska skydda.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
+
 Även om prestanda beror på många faktorer, till exempel storleken på SharePoint-servergruppen, kan en DPM-server skydda en 25 TB SharePoint-grupp.
 
 ### <a name="dpm-update-rollup-5"></a>DPM-Samlad uppdatering 5
+
 Om du vill börja skydda en SharePoint-grupp till Azure måste du installera DPM-Samlad uppdatering 5 eller senare. Med Samlad uppdatering 5 kan du skydda en SharePoint-grupp i Azure om Server gruppen har kon figurer ATS med hjälp av SQL AlwaysOn.
 Mer information finns i blogg inlägget som introducerar DPM samlad [uppdatering 5](https://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
 
 ### <a name="whats-not-supported"></a>Vad som inte stöds
+
 * DPM som skyddar en SharePoint-servergrupp skyddar inte Sök index eller program tjänst databaser. Du måste konfigurera skyddet av dessa databaser separat.
 * DPM tillhandahåller inte säkerhets kopior av SharePoint SQL Server-databaser som finns på en skalbar fil server (SOFS) resurser.
 
 ## <a name="configure-sharepoint-protection"></a>Konfigurera SharePoint-skydd
+
 Innan du kan använda DPM för att skydda SharePoint måste du konfigurera tjänsten VSS Writer för SharePoint (tjänsten VSS Writer) genom att använda **ConfigureSharePoint. exe**.
 
 Du kan hitta **ConfigureSharePoint. exe** i mappen [DPM-installations Sök väg] \Bin på klient webb servern. Det här verktyget tillhandahåller skydds agenten med autentiseringsuppgifterna för SharePoint-servergruppen. Du kör den på en enskild WFE-Server. Om du har flera WFE-servrar väljer du bara en när du konfigurerar en skydds grupp.
 
 ### <a name="to-configure-the-sharepoint-vss-writer-service"></a>Konfigurera SharePoint VSS Writer-tjänsten
+
 1. Öppna en kommando tolk på WFE-servern och gå till [DPM-installations plats] \bin\
 2. Ange ConfigureSharePoint-EnableSharePointProtection.
 3. Ange administratörs behörighet för Server gruppen. Det här kontot ska vara medlem i den lokala administratörs gruppen på WFE-servern. Om Server grupps administratören inte är en lokal administratör ger du följande behörigheter på WFE-servern:
@@ -71,12 +83,14 @@ Du kan hitta **ConfigureSharePoint. exe** i mappen [DPM-installations Sök väg]
 >
 
 ## <a name="back-up-a-sharepoint-farm-by-using-dpm"></a>Säkerhetskopiera en SharePoint-servergrupp med hjälp av DPM
+
 När du har konfigurerat DPM och SharePoint-gruppen enligt förklarat tidigare, kan SharePoint skyddas av DPM.
 
 ### <a name="to-protect-a-sharepoint-farm"></a>Skydda en SharePoint-grupp
+
 1. Klicka på **nytt**på fliken **skydd** i DPM-administratörskonsol.
-    ![Fliken ny skydd](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
-2. På sidan **Välj typ av skydds grupp** i **guiden Skapa ny skydds grupp** väljer du **servrar**och klickar sedan på **Nästa**.
+    Fliken ![nytt skydd](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
+2. På sidan **Välj typ av skydds grupp** i guiden **Skapa ny skydds grupp** väljer du **servrar**och klickar sedan på **Nästa**.
 
     ![Välj typ av skydds grupp](./media/backup-azure-backup-sharepoint/select-protection-group-type.png)
 3. På sidan **Välj grupp medlemmar** markerar du kryss rutan för den SharePoint-Server som du vill skydda och klickar på **Nästa**.
@@ -87,7 +101,7 @@ När du har konfigurerat DPM och SharePoint-gruppen enligt förklarat tidigare, 
    > När DPM-agenten är installerad kan du se servern i guiden. DPM visar också dess struktur. Eftersom du körde ConfigureSharePoint. exe kommunicerar DPM med SharePoint VSS Writer-tjänsten och dess motsvarande SQL Server-databaser och känner igen SharePoint-servergruppen, de associerade innehålls databaserna och alla motsvarande objekt.
    >
    >
-4. På sidan **Välj data skydds metod** anger du namnet på skydds **gruppen**och väljer önskade *skydds metoder*. Klicka på **Nästa**.
+4. På sidan **Välj data skydds metod** anger du namnet på **skydds gruppen**och väljer önskade *skydds metoder*. Klicka på **Next**.
 
     ![Välj data skydds metod](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
@@ -126,7 +140,7 @@ När du har konfigurerat DPM och SharePoint-gruppen enligt förklarat tidigare, 
     > DPM tillhandahåller högst två dagliga säkerhets kopieringar till Azure vid olika tidpunkter. Azure Backup kan också styra mängden WAN-bandbredd som kan användas för säkerhets kopieringar vid hög belastning och låg belastnings tid genom att använda [Azure Backup nätverks begränsning](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
     >
     >
-11. Beroende på vilket schema för säkerhets kopiering som du har valt väljer du bevarande principen för säkerhets kopierings punkter per dag, vecka, månad och år på sidan **Ange princip** för kvarhållning av online.
+11. Beroende på vilket schema för säkerhets kopiering som du har valt väljer du bevarande principen för säkerhets kopierings punkter per dag, vecka, månad och år på sidan **Ange princip för kvarhållning av online** .
 
     ![Online_retention_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
 
@@ -142,6 +156,7 @@ När du har konfigurerat DPM och SharePoint-gruppen enligt förklarat tidigare, 
     ![Sammanfattning](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-dpm"></a>Återställa ett SharePoint-objekt från en disk med hjälp av DPM
+
 I följande exempel har den återställda *SharePoint-objektet* tagits bort av misstag och måste återställas av misstag.
 ![DPM SharePoint-Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
@@ -158,7 +173,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
 5. Du kan också bläddra igenom olika återställnings punkter och välja en databas eller ett objekt som ska återställas. Välj **datum > återställnings tid**och välj sedan rätt **databas > SharePoint-servergrupp > återställnings punkt > objekt**.
 
     ![DPM SharePoint-Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Högerklicka på objektet och välj sedan **Återställ** för att öppna återställnings **guiden**. Klicka på **Nästa**.
+6. Högerklicka på objektet och välj sedan **Återställ** för att öppna **återställnings guiden**. Klicka på **Next**.
 
     ![Granska val av återställning](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Välj den typ av återställning du vill utföra och klicka sedan på **Nästa**.
@@ -182,7 +197,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
     DPM kopplar innehålls databasen som är värd för SharePoint-objektet till den tillfälliga SQL Server-instansen. Från innehålls databasen återställer DPM-servern objektet och placerar det på den tillfälliga sökvägen på DPM-servern. Det återställda objektet som finns på mellanlagringsplatsen på DPM-servern måste nu exporteras till mellanlagringsplatsen i SharePoint-servergruppen.
 
     ![Location2 för mellanlagring](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Välj **Ange återställnings alternativ**och tillämpa säkerhets inställningar på SharePoint-servergruppen eller tillämpa säkerhets inställningarna för återställnings punkten. Klicka på **Nästa**.
+10. Välj **Ange återställnings alternativ**och tillämpa säkerhets inställningar på SharePoint-servergruppen eller tillämpa säkerhets inställningarna för återställnings punkten. Klicka på **Next**.
 
     ![Återställnings alternativ](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -203,6 +218,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
     >
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Återställa en SharePoint-databas från Azure med hjälp av DPM
+
 1. Du återställer en SharePoint-innehållstyp genom att bläddra igenom olika återställnings punkter (se tidigare) och välja den återställnings punkt som du vill återställa.
 
     ![DPM SharePoint-Protection8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
@@ -229,6 +245,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
 5. Följ återställnings stegen tidigare i den här artikeln för att återställa en SharePoint-innehålls databas från disken.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Lär dig mer om DPM-skydd av SharePoint – se [video serie – DPM-skydd för SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 * Läs [viktig information för System Center 2012 – Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 * Läs [viktig information om Data Protection Manager i System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)

@@ -1,5 +1,5 @@
 ---
-title: Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
+title: Säkerhetskopiera en Exchange-Server till Azure Backup via System Center DPM
 description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Backup med System Center 2012 R2 DPM
 ms.reviewer: kasinh
 author: dcurwin
@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c8975aed79e78b4bb66ce1516b85ceeb78628e8
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 21f38105913e03adfbf400e82d3572e6e5084538
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689430"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968495"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
+
 Den här artikeln beskriver hur du konfigurerar en DPM-server (System Center 2012 R2 Data Protection Manager) att säkerhetskopiera en Microsoft Exchange-Server till Azure Backup.  
 
 ## <a name="updates"></a>Uppdateringar
+
 För att kunna registrera DPM-servern med Azure Backup måste du installera den senaste samlade uppdateringen för System Center 2012 R2 DPM och den senaste versionen av Azure Backup agenten. Hämta den senaste samlade uppdateringen från [Microsoft-katalogen](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
 > [!NOTE]
@@ -26,7 +28,8 @@ För att kunna registrera DPM-servern med Azure Backup måste du installera den 
 >
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
+
 Innan du fortsätter bör du kontrol lera att alla [krav](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att använda Microsoft Azure Backup för att skydda arbets belastningar har uppfyllts. Följande krav är uppfyllda:
 
 * Ett säkerhets kopierings valv på Azure-webbplatsen har skapats.
@@ -36,14 +39,16 @@ Innan du fortsätter bör du kontrol lera att alla [krav](backup-azure-dpm-intro
 * Om du skyddar Exchange 2016 ska du uppgradera till DPM 2012 R2 UR9 eller senare
 
 ## <a name="dpm-protection-agent"></a>DPM-skyddsagenten
+
 Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 
 1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](https://technet.microsoft.com/library/Hh758204.aspx).
 2. Installera agenten på Exchange-servern genom att klicka på **hantering > agenter > installera** i DPM-administratörskonsol. Se [Installera DPM-skyddsagenten](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) för detaljerade anvisningar.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Skapa en skydds grupp för Exchange-servern
+
 1. Klicka på **skydd**i DPM-administratörskonsol och klicka sedan på **nytt** i menyfliksområdet verktyg för att öppna guiden **Skapa ny skydds grupp** .
-2. Klicka på **Nästa**på Välkomst skärmen i guiden.
+2. På **välkomst** skärmen i guiden klickar du på **Nästa**.
 3. På skärmen **Välj typ av skydds grupp** väljer du **servrar** och klickar på **Nästa**.
 4. Välj den Exchange Server-databas som du vill skydda och klicka på **Nästa**.
 
@@ -61,17 +66,17 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 
    * Jag vill ha kortvarigt skydd med disk.
    * Jag vill ha onlineskydd.
-6. Klicka på **Nästa**.
+6. Klicka på **Next**.
 7. Markera alternativet **Kör Eseutil för att kontrol lera data integriteten** om du vill kontrol lera integriteten för Exchange Server-databaserna.
 
     När du har valt det här alternativet körs konsekvens kontroll av säkerhets kopiering på DPM-servern för att undvika den I/O-trafik som genereras genom att köra **eseutil** -kommandot på Exchange-servern.
 
    > [!NOTE]
    > Om du vill använda det här alternativet måste du kopiera filerna Ese. dll och eseutil. exe till katalogen C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin på DPM-servern. Annars utlöses följande fel:  
-   > ![Eseutil-fel](./media/backup-azure-backup-exchange-server/eseutil-error.png)
+   > ![eseutil-fel](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Klicka på **Nästa**.
+8. Klicka på **Next**.
 9. Välj databasen för kopiering av **säkerhets kopia**och klicka sedan på **Nästa**.
 
    > [!NOTE]
@@ -103,10 +108,11 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 19. Klicka på **Stäng**.
 
 ## <a name="recover-the-exchange-database"></a>Återställa Exchange-databasen
+
 1. Om du vill återställa en Exchange-databas klickar du på **återställning** i DPM-administratörskonsol.
 2. Leta upp Exchange-databasen som du vill återställa.
-3. Välj en online återställnings punkt i list rutan återställnings *tid* .
-4. Klicka på **Återställ** för att starta återställnings **guiden**.
+3. Välj en online återställnings punkt i list rutan *återställnings tid* .
+4. Klicka på **Återställ** för att starta **återställnings guiden**.
 
 För online-återställnings punkter finns fem återställnings typer:
 
@@ -119,4 +125,5 @@ För online-återställnings punkter finns fem återställnings typer:
     ![Välj online-replikering](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Azure Backup vanliga frågor och svar](backup-azure-backup-faq.md)

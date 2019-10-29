@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 10/23/2019
-ms.openlocfilehash: 38be15cf5771f7eb09bce1154baa3bc6e559d49b
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 6d520518e7180f69ee7293523dd40c8158dcfb99
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881506"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990678"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Självstudie: Konfigurera dynamiska lager för dina Azure-resurser med Ansible
 
@@ -155,7 +155,7 @@ Från och med Ansible 2,8 tillhandahåller Ansible ett [plugin-program för Azur
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
-    Om du får fel meddelandet "verifiering av värd nyckel" lägger du till följande rad i konfigurations filen för Ansible. Konfigurations filen för Ansible finns på `/etc/ansible/ansible.cfg`.
+    Om du får fel meddelandet "verifiering av värd nyckel" lägger du till följande rad i konfigurations filen för Ansible. Konfigurations filen för Ansible finns på `/etc/ansible/ansible.cfg` eller `~/.ansible.cfg`.
 
     ```bash
     host_key_checking = False

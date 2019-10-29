@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: 983b66be6b51c9af5987e539ea1175a65c9269b3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862049"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968746"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identifiera och automatisk identifiering av innehåll på flera språk (för hands version)
 
@@ -39,7 +39,7 @@ Du kan välja att **upptäcka flera språk** när du laddar upp och indexerar vi
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-api"></a>Välja flerspråkig identifiering vid indexering med API
 
-När du ska indexera eller [Indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) om en video med hjälp av API: et `multi-language detection` väljer du alternativet `sourceLanguage` i parametern.
+När du ska indexera eller [Indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) om en video med hjälp av API: et väljer du alternativet `multi-language detection` i `sourceLanguage` parameter.
 
 ### <a name="model-output"></a>Modellens utdata
 
@@ -75,7 +75,7 @@ Dessutom innehåller varje instans i avskrifts avsnittet det språk som den har 
 
 ## <a name="guidelines-and-limitations"></a>Riktlinjer och begränsningar
 
-* Uppsättning språk som stöds: Engelska, franska, tyska, spanska.
+* Uppsättning språk som stöds: engelska, franska, tyska, spanska.
 * Stöd för innehåll med flera språk med upp till tre språk som stöds.
 * Om ljudet innehåller andra språk än de som stöds ovan, är resultatet oväntat.
 * Minsta segment längd att identifiera för varje språk – 15 sekunder.
@@ -86,9 +86,8 @@ Dessutom innehåller varje instans i avskrifts avsnittet det språk som den har 
 * Det går inte att skapa och redigera projekt för närvarande för videor med flera språk.
 * Anpassade språk modeller är inte tillgängliga när du använder identifiering på flera språk.
 * Det finns inte stöd för att lägga till nyckelord.
-* API: t "uppdaterings avskrift" stöds inte.
 * När du exporterar filer med dold textning visas inte språk indikeringen.
-
+* Uppdaterings avskrifts-API: t stöder inte filer med flera språk.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ffad0656169c49268eac6aa4a107f3445cba614
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fd218c61114c1e15009ace5a9a9bd7a536996e86
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600359"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968649"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med innehåll
 
@@ -48,7 +48,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * Contentable stöder **just-in-Time** User-etablering
 
 > [!NOTE]
-> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+> Identifieraren för det här programmet är ett fast sträng värde. Endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-contentful-from-the-gallery"></a>Lägga till innehåll från galleriet
 
@@ -59,7 +59,7 @@ Om du vill konfigurera en integrering av innehåll i Azure AD måste du lägga t
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** skriver du **innehåll** i sökrutan.
-1. Välj **contentable** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. Välj **innehåll** som finns i resultaten och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-contentful"></a>Konfigurera och testa enkel inloggning med Azure AD för innehåll
 
@@ -86,22 +86,22 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://be.contentful.com/sso/<organization_id>/consume`
+    - I text rutan **svars-URL** kopierar du URL: en för ACS (intygad konsument tjänst) från sidan för SSO-installation i contentable. Det kommer att se ut så här: `https://be.contentful.com/sso/<organization_id>/consume`
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. Klicka på **Ange ytterligare URL: er** och utför följande steg om du vill konfigurera programmet i läget **SP** -initierat:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://be.contentful.com/sso/<organization_id>/login`
+    - I text rutan **inloggnings-URL** kopierar du samma URL för ACS (intygad konsument tjänst). Det kommer att se ut så här: `https://be.contentful.com/sso/<organization_id>/login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [support teamet för innehålls lös klient](mailto:support@contentful.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska svars-URL: en och inloggnings-URL: en genom att kopiera ACS-URL: en (intygad konsument tjänst) från sidan för SSO-installation i contentable.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (RAW)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. I avsnittet **Konfigurera innehåll** , kopierar du lämpliga URL: er baserat på ditt krav.
+1. I avsnittet **Konfigurera innehåll** , kopierar du inloggnings-URL: en för att konfigurera contentable SSO.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    ![Kopiera konfigurations-URL:er](media/contentful-tutorial/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -129,13 +129,22 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på sidan.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på sidan.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ## <a name="configure-contentful-sso"></a>Konfigurera contentable SSO
 
-Om du vill konfigurera enkel inloggning på **innehålls** sidan måste du skicka det hämtade **certifikatet (RAW)** och lämpliga kopierade url: er från Azure Portal till [innehålls löst support team](mailto:support@contentful.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Följ de här stegen för att konfigurera enkel inloggning på **innehålls** sidan.
+
+1. Vid [innehålls](https://app.contentful.com)växling navigerar du till sidan SSO-konfiguration i **organisations inställningar**.
+1. Klicka på **Konfigurera SSO**.
+1. Kopiera och klistra in inloggnings-URL: en från avsnittet **Konfigurera innehåll** i Azure AD.
+1. Kopiera och klistra in certifikatet från den base64-certifikat fil som du laddade ned från Azure AD.
+1. Konfigurera ett SSO-namn för en SP-initierad inloggning.
+1. Klicka på **Aktivera SSO**.
+
+Om detta inte fungerar kan du kontakta det [innehålls lösa support teamet](mailto:support@contentful.com).
 
 ### <a name="create-contentful-test-user"></a>Skapa användare med innehålls kontroll
 
@@ -149,9 +158,9 @@ När du klickar på panelen innehålls lös på åtkomst panelen, bör du loggas
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

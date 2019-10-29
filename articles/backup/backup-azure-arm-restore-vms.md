@@ -9,18 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 759be3691ba44c92033ec71fd031f9c6e47d6cb4
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: ac6354c96035689dd12b7e86f9b9b0e44ad9c1ae
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311894"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968564"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
 Den här artikeln beskriver hur du återställer virtuella Azure-Datadata från återställnings punkterna som lagras i [Azure Backup](backup-overview.md) Recovery Services valv.
-
-
 
 ## <a name="restore-options"></a>Återställnings alternativ
 
@@ -31,7 +29,6 @@ Azure Backup erbjuder ett antal olika sätt att återställa en virtuell dator.
 **Skapa en ny virtuell dator** | Skapar och hämtar snabbt en grundläggande virtuell dator som körs från en återställnings punkt.<br/><br/> Du kan ange ett namn på den virtuella datorn, välja resurs gruppen och det virtuella nätverk (VNet) där det ska placeras och ange ett lagrings konto för den återställda virtuella datorn. Den nya virtuella datorn måste skapas i samma region som den virtuella käll datorn.
 **Återställ disk** | Återställer en virtuell dator disk, som sedan kan användas för att skapa en ny virtuell dator.<br/><br/> Azure Backup innehåller en mall som hjälper dig att anpassa och skapa en virtuell dator. <br/><br> Återställnings jobbet genererar en mall som du kan hämta och använda för att ange anpassade VM-inställningar och skapa en virtuell dator.<br/><br/> Diskarna kopieras till det lagrings konto som du anger.<br/><br/> Alternativt kan du koppla disken till en befintlig virtuell dator eller skapa en ny virtuell dator med hjälp av PowerShell.<br/><br/> Det här alternativet är användbart om du vill anpassa den virtuella datorn, lägga till konfigurations inställningar som inte fanns vid tidpunkten för säkerhets kopieringen eller lägga till inställningar som måste konfigureras med mallen eller PowerShell.
 **Ersätt befintlig** | Du kan återställa en disk och använda den för att ersätta en disk på den befintliga virtuella datorn.<br/><br/> Den aktuella virtuella datorn måste finnas. Det här alternativet kan inte användas om det har tagits bort.<br/><br/> Azure Backup tar en ögonblicks bild av den befintliga virtuella datorn innan disken ersätts och lagrar den på den mellanlagringsplats som du anger. Befintliga diskar som är anslutna till den virtuella datorn ersätts med den valda återställnings punkten.<br/><br/> Ögonblicks bilden kopieras till valvet och bevaras i enlighet med bevarande principen. <br/><br/> Ersätt befintlig stöds för okrypterade hanterade virtuella datorer. Den stöds inte för ohanterade diskar, [generaliserade virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)eller för virtuella datorer som [skapats med anpassade avbildningar](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Om återställnings punkten har fler eller färre diskar än den aktuella virtuella datorn kommer antalet diskar i återställnings punkten bara att avspegla konfigurationen för den virtuella datorn.<br/><br/>
-
 
 > [!NOTE]
 > Du kan också återställa vissa filer och mappar på en virtuell Azure-dator. [Läs mer](backup-azure-restore-files-from-vm.md).
@@ -47,19 +44,16 @@ Information om lagrings konton:
 - **Ersätt disk**: när du ersätter en disk på en befintlig virtuell dator tar Azure Backup en ögonblicks bild av den befintliga virtuella datorn innan disken ersätts. Ögonblicks bilden lagras på den mellanlagringsplats (lagrings konto) som du anger. Det här lagrings kontot används för att tillfälligt lagra ögonblicks bilden under återställnings processen och vi rekommenderar att du skapar ett nytt konto för att göra detta, vilket enkelt kan tas bort efteråt.
 - **Lagrings konto plats**: lagrings kontot måste finnas i samma region som valvet. Endast dessa konton visas. Om det inte finns några lagrings konton på platsen måste du skapa ett.
 - **Lagrings typ**: blob-lagring stöds inte.
-- **Lagrings redundans**: zon redundant lagring (ZRS) stöds inte. Information om replikering och redundans för kontot visas inom parentes efter konto namnet. 
+- **Lagrings redundans**: zon redundant lagring (ZRS) stöds inte. Information om replikering och redundans för kontot visas inom parentes efter konto namnet.
 - **Premium-lagring**:
-    - När du återställer icke-Premium-datorer stöds inte Premium Storage-konton.
-    - När du återställer hanterade virtuella datorer stöds inte Premium Storage-konton som kon figurer ATS med nätverks regler.
-
+  - När du återställer icke-Premium-datorer stöds inte Premium Storage-konton.
+  - När du återställer hanterade virtuella datorer stöds inte Premium Storage-konton som kon figurer ATS med nätverks regler.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 Om du vill återställa en virtuell dator (skapa en ny virtuell dator) kontrollerar du att du har rätt [behörighet](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) för rollbaserad åtkomst kontroll (RBAC) för åtgärden Återställ virtuell dator.
 
 Om du inte har behörighet kan du [återställa en disk](#restore-disks)och sedan kan du [använda mallen](#use-templates-to-customize-a-restored-vm) som har genererats som en del av återställnings åtgärden för att skapa en ny virtuell dator när disken har återställts.
-
-
 
 ## <a name="select-a-restore-point"></a>Välj en återställnings punkt
 
@@ -94,7 +88,6 @@ Som en av [återställnings alternativen](#restore-options)kan du snabbt skapa e
     ![Guiden Återställ konfiguration](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 6. I **Återställ konfiguration**väljer du **OK**. I **återställning**klickar du på **Återställ** för att utlösa återställnings åtgärden.
-
 
 ## <a name="restore-disks"></a>Återställa diskar
 
@@ -135,7 +128,6 @@ När disken har återställts använder du den mall som har genererats som en de
 
    ![Skicka mall distribution](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
-
 ## <a name="replace-existing-disks"></a>Ersätt befintliga diskar
 
 Som en av [återställnings alternativen](#restore-options)kan du ersätta en befintlig virtuell dator disk med den valda återställnings punkten. [Granska](#restore-options) alla återställnings alternativ.
@@ -145,7 +137,6 @@ Som en av [återställnings alternativen](#restore-options)kan du ersätta en be
 3. På **mellanlagringsplatsen**anger du var ögonblicks bilder av de aktuella hanterade diskarna ska sparas under återställnings processen. [Läs mer](#storage-accounts).
 
    ![Återställ konfigurations guiden Ersätt befintlig](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
-
 
 ## <a name="restore-vms-with-special-configurations"></a>Återställa virtuella datorer med särskilda konfigurationer
 
@@ -164,6 +155,7 @@ Det finns ett antal vanliga scenarier där du kan behöva återställa virtuella
 **Zon fästa virtuella datorer** | Azure Backup stöder säkerhets kopiering och återställning av zonbaserade fästa virtuella datorer. [Läs mer](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Spåra återställnings åtgärden
+
 När du har utlöst återställnings åtgärden skapar säkerhets kopierings tjänsten ett jobb för spårning. Azure Backup visar meddelanden om jobbet i portalen. Om de inte visas väljer du symbolen **meddelanden** och väljer sedan **Visa alla jobb** för att se status för återställnings processen.
 
 ![Återställning har Aktiver ATS](./media/backup-azure-arm-restore-vms/restore-notification1.png)
@@ -189,11 +181,11 @@ Det finns ett antal saker att notera när du återställer en virtuell dator:
 - Det finns ingen tillgänglighets uppsättning för en återställd virtuell dator. Om du använder alternativet för att återställa diskar kan du [Ange en tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md) när du skapar en virtuell dator från disken med hjälp av den angivna mallen eller PowerShell.
 - Om du använder en Cloud-Init-baserad Linux-distribution, till exempel Ubuntu, av säkerhets skäl, blockeras lösen ordet efter återställningen. Använd tillägget VMAccess på den återställda virtuella datorn för att [återställa lösen ordet](../virtual-machines/linux/reset-password.md). Vi rekommenderar att du använder SSH-nycklar på dessa distributioner, så du behöver inte återställa lösen ordet efter återställningen.
 - Om du inte kan komma åt den virtuella datorn när den har återställts på grund av att den virtuella datorn har brutit relationer med domänkontrollanten följer du stegen nedan för att öppna den virtuella datorn:
-    - Koppla OS-disk som en data disk till en återställd virtuell dator.
-    - Installera VM-agenten manuellt om Azure-agenten inte svarar genom att följa den här [länken](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
-    - Aktivera åtkomst till seriell konsol på den virtuella datorn för att tillåta kommando rad åtkomst till den virtuella datorn
-    
-  ```
+  - Koppla OS-disk som en data disk till en återställd virtuell dator.
+  - Installera VM-agenten manuellt om Azure-agenten inte svarar genom att följa den här [länken](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+  - Aktivera åtkomst till seriell konsol på den virtuella datorn för att tillåta kommando rads åtkomst till den virtuella datorn
+
+  ```cmd
     bcdedit /store <drive letter>:\boot\bcd /enum
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5
@@ -201,11 +193,12 @@ Det finns ett antal saker att notera när du återställer en virtuell dator:
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<<BOOT LOADER IDENTIFIER>>} ON
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
     ```
-    - När den virtuella datorn återskapas använder Azure Portal för att återställa det lokala administratörs kontot och lösen ordet
-    - Använda Seriell konsol Access och CMD för att koppla från den virtuella datorn från domänen
 
-    ```
-    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force" 
+  - När den virtuella datorn återskapas använder Azure Portal för att återställa det lokala administratörs kontot och lösen ordet
+  - Använda Seriell konsol Access och CMD för att koppla från den virtuella datorn från domänen
+
+    ```cmd
+    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force"
     ```
 
 - När den virtuella datorn har kopplats från och startats om, kommer du att kunna distribuera RDP till den virtuella datorn med autentiseringsuppgifter för lokal administratör och återansluta den till domänen.

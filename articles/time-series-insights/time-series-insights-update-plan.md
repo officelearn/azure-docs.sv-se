@@ -1,21 +1,21 @@
 ---
 title: Planera din Azure Time Series Insights Preview-miljö | Microsoft Docs
 description: Planera Azure Time Series Insights för hands versions miljön.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: b97db5fcebeea67cc593a4d2c1fd677a55ad8559
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dc4336629a4c3b9da906daefca160c5a305603dc
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550171"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990850"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera Azure Time Series Insights för hands versions miljön
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver metod tips för att planera och komma igång snabbt 
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Metod tips för planering och förberedelser
 
-För att komma igång med Time Series Insights är det bäst om du förstår:
+Metod tips som omger planeringen av och förbereda din miljö beskrivs ytterligare i följande artiklar:
 
 * Vad du får när du [etablerar en Time Series Insights för hands versions miljö](#the-preview-environment).
 * Vad dina [Time Series-ID och tidsstämpel-egenskaper är](#configure-time-series-ids-and-timestamp-properties).
@@ -43,11 +43,22 @@ När du etablerar en Time Series Insights för hands versions miljö skapar du t
 * En Azure Time Series Insights för hands versions miljö
 * Ett Azure Storage allmänt v1-konto
 
+Som en del av etablerings processen anger du om du vill aktivera ett varmt arkiv. Med den varmt butiken får du en nivå av frågans upplevelse. När aktive rad måste du ange en kvarhållningsperiod mellan 7 och 30 dagar. Frågor som utförs inom lagrings perioden för varm lagring ger normalt kortare svars tider. När en fråga sträcker sig över lagrings perioden för varma lager kommer den att hanteras från kall lagring.
+
+Frågor i varmt lager är kostnads fria, medan frågor om kall lagring ådrar sig kostnader. Det är viktigt att förstå dina fråge mönster och planera din varmt Store-konfiguration. Vi rekommenderar att interaktiva analyser på den senaste informationen finns i din varma lagrings-och mönster analys och långsiktiga trender finns i kall.
+
+> [!NOTE]
+> Vi stöder för närvarande högst 1 000 egenskaper med varmt lager.
+
 För att starta måste du ha tre ytterligare objekt:
 
 * En [tids serie modell](./time-series-insights-update-tsm.md)
 * En [händelse källa som är ansluten till Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
 * [Händelser som flödar till händelse källan](./time-series-insights-send-events.md) som båda mappas till modellen och är i giltigt JSON-format
+
+## <a name="review-preview-limits"></a>Granska gränser för för hands version
+
+[!INCLUDE [Review Time Series Insights Preview limits](../../includes/time-series-insights-preview-limits.md)]
 
 ## <a name="configure-time-series-ids-and-timestamp-properties"></a>Konfigurera Time Series-ID: n och egenskaper för tidsstämpel
 
@@ -58,7 +69,7 @@ Om du vill skapa en ny Time Series Insights miljö väljer du ett Time Series-ID
 
 Du kan välja upp till tre nycklar för att unikt särskilja dina resurser. Mer information finns [i metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md) och [lagrings utrymme](./time-series-insights-update-storage-ingress.md).
 
-Egenskapen timestamp är också viktig. Du kan ange den här egenskapen när du lägger till händelse källor. Varje händelse källa har en valfri tidstämpel egenskap som används för att spåra händelse källor över tid. Tidsstämplar-värden är Skift läges känsliga och måste formateras till den enskilda specifikationen för varje händelse källa.
+Egenskapen **timestamp** är också viktig. Du kan ange den här egenskapen när du lägger till händelse källor. Varje händelse källa har en valfri tidstämpel egenskap som används för att spåra händelse källor över tid. Tidsstämplar-värden är Skift läges känsliga och måste formateras till den enskilda specifikationen för varje händelse källa.
 
 > [!TIP]
 > Kontrol lera formaterings-och tolknings kraven för dina händelse källor.
@@ -80,7 +91,7 @@ Du kan kontrol lera hur du skickar händelser till Time Series Insights. Vi reko
 En lämplig tumregel:
 
 * Lagra metadata i din tids serie modell.
-* Time Series-läge, instans fält och händelser inkluderar endast nödvändig information, till exempel ett Time Series-ID eller tidsstämpel.
+* Se till att tids serie läge, instans fält och händelser bara innehåller nödvändig information, till exempel ett Time Series-ID eller en tidstämpel egenskap.
 
 Mer information finns i [form händelser](./time-series-insights-send-events.md#supported-json-shapes).
 
@@ -89,7 +100,5 @@ Mer information finns i [form händelser](./time-series-insights-send-events.md#
 ## <a name="next-steps"></a>Nästa steg
 
 - Granska [Azure Advisor](../advisor/advisor-overview.md) för att planera dina konfigurations alternativ för företags återställning.
-
 - Läs mer om [lagring och ingress](./time-series-insights-update-storage-ingress.md) i Time Series Insights för hands versionen.
-
 - Lär dig mer om [data modellering](./time-series-insights-update-tsm.md) i Time Series Insights för hands versionen.

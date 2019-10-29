@@ -5,15 +5,16 @@ ms.topic: include
 ms.custom: include file
 services: time-series-insights
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 09/24/2019
-ms.openlocfilehash: ccfbd16f4db770558f1bc0284860a5f8d9fb8b68
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266950"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990176"
 ---
 > [!IMPORTANT]
 > * Bladet ny **Azure Active Directory** > **Appregistreringar** ersätter bladet äldre **Azure Active Directory** > **Appregistreringar (bakåtkompatibelt)** 2019.
@@ -22,7 +23,7 @@ ms.locfileid: "71266950"
 
 1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
 
-   [![Ny program registrering i Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
+   [![ny program registrering i Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
 
    > [!TIP]
    > På den nya registrerings panelen för Azure Active Directory appen kan du filtrera de visade apparna genom att välja **ägda program**.
@@ -31,11 +32,11 @@ ms.locfileid: "71266950"
 
 1. Ge programmet ett namn och välj **konton i den här organisations katalogen endast** för att ange de **konto typer som stöds** och som kan komma åt API: et. Välj en giltig URI för att omdirigera användare till efter att de autentiserats och **Registrera dig**sedan.
 
-   [![Skapa programmet i Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
+   [![skapa programmet i Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
 1. Viktig information om Azure Active Directory-appen visas i bladet **Översikt** för appen. Välj din app under **ägda program**och sedan på **Översikt**.
 
-   [![Kopiera program-ID](media/time-series-insights-aad-registration/active-directory-copy-application-id.png)](media/time-series-insights-aad-registration/active-directory-copy-application-id.png#lightbox)
+   [![kopiera program-ID](media/time-series-insights-aad-registration/active-directory-copy-application-id.png)](media/time-series-insights-aad-registration/active-directory-copy-application-id.png#lightbox)
 
    Kopiera ditt **program (klient)-ID** som ska användas i klient programmet.
 
@@ -48,25 +49,25 @@ ms.locfileid: "71266950"
 
     1. Aktivera det implicita tilldelnings flödet genom att kontrol lera **ID-token**.
 
-   [![Skapa en ny klient hemlighet](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+   [![skapa en ny klient hemlighet](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-   Klicka på **Spara**.
+   Klicka på **Save** (Spara).
 
 1. Välj **certifikat & hemligheter** och sedan **ny klient hemlighet** för att skapa ett program lösen ord som klienten kan använda för att bevisa sin identitet.
 
-   [![Skapa en ny klient hemlighet](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
+   [![skapa en ny klient hemlighet](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
 
    Ditt klient hemliga lösen ord visas sedan. Kopiera nyckeln till din favorit text redigerare.
 
    > [!NOTE]
    > Du kan importera ett certifikat i stället. Ett certifikat rekommenderas för förbättrad säkerhet. Om du vill använda ett certifikat väljer du **Ladda upp certifikat**.
 
-1. Associera din Azure Active Directory app Azure TIme Series Insights. Välj **API-behörigheter** > **Lägg till en behörighets** > -**API min organisation använder**. 
+1. Associera din Azure Active Directory app Azure TIme Series Insights. Välj **API-behörigheter** > **Lägg till en behörighet** > - **API: er som används i organisationen**. 
 
-    [![Associera ett API med din Azure Active Directory-app](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
+    [![associera ett API med din Azure Active Directory-app](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 
-   Skriv `Azure Time Series Insights` i Sök fältet och välj `Azure Time Series Insights`sedan.
+   Skriv `Azure Time Series Insights` i Sök fältet och välj sedan `Azure Time Series Insights`.
 
 1. Ange sedan den typ-API-behörighet som din app kräver. Som standard är **delegerade behörigheter** markerade. Välj en behörighets typ och välj sedan **Lägg till behörigheter**.
 
-    [![Ange vilken typ av API-behörighet som appen kräver](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
+    [![ange vilken typ av API-behörighet din app kräver](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)

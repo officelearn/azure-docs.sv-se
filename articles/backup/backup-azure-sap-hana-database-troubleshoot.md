@@ -1,5 +1,5 @@
 ---
-title: Felsök fel vid säkerhets kopiering av SAP HANA databaser med Azure Backup | Microsoft Docs
+title: Felsöka säkerhets kopierings fel i SAP HANA databaser – Azure Backup
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 00e37030417da97d2c57b0fb5872422e7048a2bc
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 004d10b794c6eca2e078e437880f44d91ca30acb
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954458"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968457"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
 Den här artikeln innehåller felsöknings information för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer. I följande avsnitt beskrivs viktiga konceptuella data som krävs för att diagnostisera vanliga fel i SAP HANA säkerhets kopiering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Som en del av [förutsättningarna](backup-azure-sap-hana-database.md#prerequisites)kontrollerar du att för registrerings skriptet har körts på den virtuella datorn där Hana är installerat.
 
@@ -32,13 +32,13 @@ Vad för registrerings skriptet gör:
     - Katalog läsning: för att läsa säkerhets kopierings katalogen.
     - SAP_INTERNAL_HANA_SUPPORT: för att få åtkomst till några privata tabeller.
 2. Lägger till en nyckel till Hdbuserstore för HANA-plugin-programmet för att hantera alla åtgärder (databas frågor, återställnings åtgärder, konfigurera och köra säkerhets kopiering).
-   
+
    Bekräfta att nyckeln skapas genom att köra kommandot HDBSQL på datorn HANA med SIDADM-autentiseringsuppgifter:
 
     ``` hdbsql
     hdbuserstore list
     ```
-    
+
     Kommandots utdata ska Visa nyckeln {SID} {DBNAME}, där användaren visas som AZUREWLBACKUPHANAUSER.
 
 > [!NOTE]
@@ -51,8 +51,8 @@ När en databas har valts för säkerhets kopiering konfigurerar Azure Backups t
 - [catalog_backup_using_backint: true]
 - [enable_accumulated_catalog_backup: false]
 - [parallel_data_backup_backint_channels: 1]
-- [log_backup_timeout_s:900)]
-- [backint_response_timeout:7200]
+- [log_backup_timeout_s: 900)]
+- [backint_response_timeout: 7200]
 
 > [!NOTE]
 > Se till att dessa parametrar *inte* finns på värdnivå. Parametrar på värdnivå åsidosätter dessa parametrar och kan orsaka oväntade beteenden.
@@ -67,11 +67,12 @@ Anta att en SDC HANA-instans "H21" säkerhets kopie ras. På sidan säkerhets ko
 
 ![SDC Återställ indata](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
-Observera följande
+Observera följande punkter:
+
 - Som standard fylls det återställda DB-namnet på med namnet för säkerhets kopian, t. ex. H21 (SDC)
 - Om du väljer målet som H11 ändras inte det återställda databas namnet automatiskt. **Den bör redige ras till H11 (SDC)** . I händelse av SDC kommer det återställda DB-namnet att vara mål instans-ID: t med gemena bokstäver och "SDC" i hakparenteser.
 - Eftersom SDC bara kan ha en enda databas, måste du också klicka på kryss rutan för att tillåta åsidosättning av befintliga databas data med återställnings punkt data.
-- Linux är Skift läges känsligt och säkerställer därför att du bevarar ärendet.
+- Linux är Skift läges känsligt och säkerställer därför att ärendet bevaras.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Återställning av MDC (Multiple container Database)
 

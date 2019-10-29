@@ -10,23 +10,29 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 10/27/2019
 ms.author: juliako
-ms.openlocfilehash: 4953160a30e45b9be1ff249b6cd1f74e01bb14f3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672663"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968715"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
-Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
+För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
-* Den senaste versionen
+* De senaste versionerna
 * Kända problem
 * Felkorrigeringar
-* Inaktuell funktion
+* Föråldrade funktioner
+
+## <a name="october-2019"></a>Oktober 2019
+ 
+* Sök efter animerade tecken i galleriet
+
+    När du indexerar animerade tecken kan du nu söka efter dem i kontots video text. Mer information finns i [igenkänning av animerade tecken](animated-characters-recognition.md).
 
 ## <a name="september-2019"></a>September 2019
  
@@ -37,7 +43,7 @@ Flera framsteg lanseras i IBC 2019:
     Möjlighet att identifiera grup AD identifiera tecken i animerat innehåll via integrering med anpassad vision. Mer information finns i [animerat teckensnitts identifiering](animated-characters-recognition.md).
 * Identifiering på flera språk (offentlig för hands version)
 
-    Identifiera segment i flera språk i ljud spåret och skapa en flerspråkig avskrifts enhet baserat på dem. Första support: Engelska, spanska, tyska och franska. Mer information finns i [identifiera och automatisk identifiering av innehåll på flera språk](multi-language-identification-transcription.md).
+    Identifiera segment i flera språk i ljud spåret och skapa en flerspråkig avskrifts enhet baserat på dem. Första support: engelska, spanska, tyska och franska. Mer information finns i [identifiera och automatisk identifiering av innehåll på flera språk](multi-language-identification-transcription.md).
 * Extraktion av namngiven enhet för personer och plats
 
     Extraherar varumärken, platser och personer från tal och visuell text via naturlig språk bearbetning (NLP).
@@ -48,7 +54,7 @@ Flera framsteg lanseras i IBC 2019:
     
     Avsnittet inferencing-modellen har nu stöd för djupare granularitet i IPTC-taxonomin. Läs fullständig information på [Azure Media Services nya AI-baserade innovationer](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## <a name="august-2019"></a>2019 augusti
+## <a name="august-2019"></a>Augusti 2019
  
 ### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer distribuerat i Storbritannien, södra
 
@@ -95,7 +101,7 @@ Video Indexer AI-redigeraren är nu tillgänglig som en widget som är inbäddad
 
 Kunder kan tillhandahålla VTT-, SRT-och TTML-filformat som indata för språk modeller på sidan anpassning i portalen.
 
-## <a name="june-2019"></a>2019 juni
+## <a name="june-2019"></a>Juni 2019
 
 ### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer distribuerad till Japan, öst
 

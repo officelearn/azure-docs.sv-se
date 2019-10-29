@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: 8a26e369783da8b59837e669dcd45a338ce82722
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935004"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990229"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript
  
@@ -71,6 +71,9 @@ Följ dessa steg om du vill skapa en enkel användardefinierad JavaScript-funkti
 6.  Välj **Spara**. Din funktion visas i listan över funktioner.
 7.  Välj den nya **hex2Int**-funktionen och kontrollera definitionen. Alla funktioner har ett **UDF**-prefix som läggs till funktionens alias. Du behöver *ta med prefixet* när du anropar funktionen i Stream Analytics-frågan. I det här fallet måste du anropa **UDF.hex2Int**.
 
+## <a name="testing-javascript-udfs"></a>Testa Java Script UDF: er 
+Du kan testa och felsöka din JavaScript UDF-logik i valfri webbläsare. Det finns för närvarande inte stöd för att felsöka och testa logiken för dessa användardefinierade funktioner i Stream Analytics Portal. När funktionen fungerar som förväntat kan du lägga till den i Stream Analytics-jobbet som nämnts ovan och sedan anropa den direkt från din fråga.
+
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Anropa en användardefinierad JavaScript-funktion i en fråga
 
 1. I Frågeredigeraren under rubriken **jobb Topology** väljer du **fråga**.
@@ -125,7 +128,6 @@ JavaScript-språket är Skift läges känsligt och Skift läge för objekt fält
 
 ## <a name="troubleshooting"></a>Felsöka
 JavaScript-körningsfel betraktas som allvarliga och exponeras via aktivitetsloggen. För att hämta loggen i Azure Portal går du till jobbet och väljer **aktivitetsloggen**.
-
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Andra mönster för användardefinierade JavaScript-funktioner
 

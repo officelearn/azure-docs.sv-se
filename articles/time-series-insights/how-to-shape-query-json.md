@@ -2,19 +2,19 @@
 title: Metod tips för att forma JSON i Azure Time Series Insights frågor | Microsoft Docs
 description: Lär dig hur du kan förbättra din Azure Time Series Insights frågas effektivitet.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
-ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 09090354012d2cd3ba050ff9c94593947f27b006
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274412"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990286"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Form-JSON för att maximera prestanda för frågor 
 
@@ -35,6 +35,9 @@ Tänk på hur du skickar händelser till Time Series Insights. Det vill säga at
 1. Se till att du inte når Time Series Insights maximala egenskaps gränserna för:
    - 600 egenskaper (kolumner) för S1-miljöer.
    - 800 egenskaper (kolumner) för S2-miljöer.
+
+> [!TIP]
+> Granska [gränser och planering](time-series-insights-update-plan.md) i Azure Time Series Insights för hands versionen.
 
 Följande rikt linjer hjälper dig att säkerställa bästa möjliga prestanda för frågor:
 
@@ -58,7 +61,7 @@ Exemplen bygger på ett scenario där flera enheter skickar mätningar eller sig
 
 I följande exempel finns ett enda Azure IoT Hub-meddelande där den yttre matrisen innehåller ett delat avsnitt av vanliga dimensions värden. Den yttre matrisen använder referens data för att öka effektiviteten för meddelandet. Referens data innehåller metadata för enheten som inte ändras med varje händelse, men den innehåller användbara egenskaper för data analys. Att gruppera vanliga dimensions värden och använda referens data sparas på byte som skickas via kabeln, vilket gör meddelandet mer effektivt.
 
-Tänk på följande JSON-nyttolast som skickas till din Time Series Insights GA-miljö med hjälp av ett [meddelande objekt i IoT-enheten](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) som är serialiserat i JSON när det skickas till Azure-molnet:
+Tänk på följande JSON-nyttolast som skickas till din Time Series Insights GA-miljö med ett [meddelande objekt i IoT-enheten](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) som är serialiserat i JSON när det skickas till Azure-molnet:
 
 
 ```JSON
@@ -94,16 +97,16 @@ Tänk på följande JSON-nyttolast som skickas till din Time Series Insights GA-
 
    | deviceId | Meddelande | deviceLocation |
    | --- | --- | --- |
-   | FXXX | RAD @ no__t-0DATA | EU |
-   | FYYY | RAD @ no__t-0DATA | USA |
+   | FXXX | LINJE\_DATA | EU |
+   | FYYY | LINJE\_DATA | USA |
 
 * Time Series Insights händelse tabell efter förenkling:
 
    | deviceId | Meddelande | deviceLocation | tidsstämpel | serien. Flödes frekvens ft3/s | serien. Motor Oil-tryck psi |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | RAD @ no__t-0DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
-   | FXXX | RAD @ no__t-0DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
-   | FYYY | RAD @ no__t-0DATA | USA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
+   | FXXX | LINJE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
+   | FXXX | LINJE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
+   | FYYY | LINJE\_DATA | USA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
 
 > [!NOTE]
 > - Kolumnen **deviceId** fungerar som kolumn rubrik för de olika enheterna i en flotta. Att göra **deviceId** -värdet till ett eget egenskaps namn begränsar det totala antalet enheter till 595 (för S1-miljöer) eller 795 (för S2-miljöer) med de andra fem kolumnerna.
@@ -164,21 +167,21 @@ Exempel på JSON-nytto last:
 
    | deviceId | serie. tagId | Meddelande | deviceLocation | typ | processor |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | RAD @ no__t-0DATA | EU | Flödes hastighet | ft3/s |
-   | FXXX | oilPressure | RAD @ no__t-0DATA | EU | Motor Oil-tryck | psi |
-   | FYYY | pumpRate | RAD @ no__t-0DATA | USA | Flödes hastighet | ft3/s |
-   | FYYY | oilPressure | RAD @ no__t-0DATA | USA | Motor Oil-tryck | psi |
+   | FXXX | pumpRate | LINJE\_DATA | EU | Flödes hastighet | ft3/s |
+   | FXXX | oilPressure | LINJE\_DATA | EU | Motor Oil-tryck | psi |
+   | FYYY | pumpRate | LINJE\_DATA | USA | Flödes hastighet | ft3/s |
+   | FYYY | oilPressure | LINJE\_DATA | USA | Motor Oil-tryck | psi |
 
 * Time Series Insights händelse tabell efter förenkling:
 
    | deviceId | serie. tagId | Meddelande | deviceLocation | typ | processor | tidsstämpel | serie. Value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | RAD @ no__t-0DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | RAD @ no__t-0DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34,7 |
-   | FXXX | pumpRate | RAD @ no__t-0DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | RAD @ no__t-0DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 49,2 |
-   | FYYY | pumpRate | RAD @ no__t-0DATA | USA | Flödes hastighet | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | RAD @ no__t-0DATA | USA | Motor Oil-tryck | psi | 2018-01-17T01:18:00Z | 22,2 |
+   | FXXX | pumpRate | LINJE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | LINJE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34,7 |
+   | FXXX | pumpRate | LINJE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | LINJE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 49,2 |
+   | FYYY | pumpRate | LINJE\_DATA | USA | Flödes hastighet | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINJE\_DATA | USA | Motor Oil-tryck | psi | 2018-01-17T01:18:00Z | 22,2 |
 
 > [!NOTE]
 > - Kolumnerna **deviceId** och **serien. tagId** fungerar som kolumn rubriker för de olika enheterna och taggarna i en flotta. Om du använder varje as-attribut begränsas frågan till 594 (för S1-miljöer) eller 794 (för S2-miljöer) totalt enheter med de andra sex kolumnerna.
@@ -195,7 +198,7 @@ För en egenskap med ett stort antal möjliga värden är det bäst att skicka s
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [att skicka IoT Hub enhets meddelanden till molnet](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+- Läs mer om [att skicka IoT Hub enhets meddelanden till molnet](../iot-hub/iot-hub-devguide-messages-construct.md).
 
 - Läs [Azure Time Series Insights frågesyntaxen](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) för att lära dig mer om frågesyntaxen för Time Series Insights data åtkomst REST API.
 

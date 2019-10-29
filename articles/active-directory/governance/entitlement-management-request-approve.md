@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78243f02cbbe3d06b94ee52d6193865dbfa27121
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: da3e1b6439b033742af62d548775cfb628e955b7
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488990"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990687"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Godkänn eller neka åtkomst begär anden i Azure AD-hantering av rättigheter (för hands version)
 
@@ -36,7 +36,7 @@ Med hantering av Azure AD-rättighet kan du konfigurera principer för att kräv
 
 Det första steget för att godkänna eller neka åtkomst begär Anden är att hitta och öppna åtkomstbegäran som väntar på godkännande. Det finns två sätt att öppna åtkomstbegäran.
 
-**Nödvändig roll:** Godkännare
+**Nödvändig roll:** God kännare
 
 1. Sök efter ett e-postmeddelande från Microsoft Azure som ber dig godkänna eller neka en begäran. Här är ett exempel på ett e-postmeddelande:
 
@@ -48,9 +48,9 @@ Det första steget för att godkänna eller neka åtkomst begär Anden är att h
 
 Om du inte har e-postmeddelandet kan du hitta åtkomst förfrågningar som väntar på ditt godkännande genom att följa dessa steg.
 
-1. Logga in på min åtkomst-Portal på [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
+1. Logga in på min åtkomst Portal på [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
 
-1. På den vänstra menyn klickar du  på godkännanden för att se en lista över åtkomst förfrågningar som väntar på godkännande.
+1. På den vänstra menyn klickar du på **godkännanden** för att se en lista över åtkomst förfrågningar som väntar på godkännande.
 
 1. På fliken **väntande** söker du efter begäran.
 
@@ -58,7 +58,7 @@ Om du inte har e-postmeddelandet kan du hitta åtkomst förfrågningar som vänt
 
 När du har öppnat en åtkomstbegäran som väntar på godkännande kan du se information som gör det lättare att godkänna eller avvisa beslutet.
 
-**Nödvändig roll:** Godkännare
+**Nödvändig roll:** God kännare
 
 1. Klicka på länken **Visa** för att öppna fönstret åtkomstbegäran.
 
@@ -70,7 +70,7 @@ När du har öppnat en åtkomstbegäran som väntar på godkännande kan du se i
 
 1. Ange en orsak vid behov.
 
-    ![Min åtkomst Portal – åtkomstbegäran](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![Min åtkomst Portal – åtkomstbegäran](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Klicka på **Skicka** för att skicka in ditt beslut.
 

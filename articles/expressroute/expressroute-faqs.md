@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: df8b1c8fd31eed0a09b878f09faadb23f6b72aaa
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 50617eda56c2eaec9fac315013114f173e85edbc
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965424"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990796"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar om ExpressRoute
 
@@ -66,6 +66,7 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI – tillgängligt via en regional Azure-community, finns [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) för hur du kan ta reda på den region där din Power BI-klient finns.
 * Azure Active Directory
+* [Virtuellt Windows-skrivbord](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azures globala tjänster community)
 * De flesta Azure-tjänster stöds. Kontrol lera direkt med den tjänst som du vill använda för att verifiera stödet.<br><br>**Följande tjänster stöds inte**:
     * CDN

@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 3/29/2019
+ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: fc97f9d78e84882675c3dd011a64e1e50c4cc907
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736402"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968333"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure-replikering
 
@@ -48,7 +48,7 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
 
 **URL** | **Detaljer**  
 --- | ---
-*.blob.core.windows.net | Krävs så att data kan skrivas till cache-lagrings kontot i käll regionen från den virtuella datorn. Om du känner till alla cache-lagrings konton för dina virtuella datorer kan du vitlista de angivna URL: erna för lagrings kontot (t. ex. cache1.blob.core.windows.net och cache2.blob.core.windows.net) i stället för *. blob.core.windows.net
+*.blob.core.windows.net | Krävs så att data kan skrivas till cache-lagrings kontot i käll regionen från den virtuella datorn. Om du känner till alla cache-lagrings konton för dina virtuella datorer kan du tillåta åtkomst till de angivna URL: erna för lagrings konton (t. ex.: cache1.blob.core.windows.net och cache2.blob.core.windows.net) i stället för *. blob.core.windows.net
 login.microsoftonline.com | Krävs för auktorisering och autentisering till Site Recovery tjänst-URL: er.
 *.hypervrecoverymanager.windowsazure.com | Krävs så att kommunikationen mellan Site Recoverys tjänsten kan ske från den virtuella datorn. Du kan använda motsvarande "Site Recovery IP" om brand Väggs-proxyn stöder IP-adresser.
 *.servicebus.windows.net | Krävs så att Site Recovery övervakning och diagnostikdata kan skrivas från den virtuella datorn. Du kan använda motsvarande "Site Recovery övervaknings-IP" om brand Väggs-proxyn har stöd för IP-adresser.
@@ -60,9 +60,9 @@ Om du använder en IP-baserad brand Väggs-proxy eller NSG-regler för att kontr
 - Alla IP-adressintervall som motsvarar lagrings kontona i käll regionen
     - Skapa en NSG-regel för [lagrings tjänst](../virtual-network/security-overview.md#service-tags) som är baserad på käll regionen.
     - Tillåt dessa adresser så att data kan skrivas till cache-lagrings kontot från den virtuella datorn.
-- Skapa en [Azure Active Directory (AAD) tjänsttagg](../virtual-network/security-overview.md#service-tags) baserat NSG-regel för att tillåta åtkomst till alla IP-adresser för AAD
-    - Om nya adresser läggs till Azure Active Directory (AAD) i framtiden, måste du skapa nya NSG-regler.
-- Site Recovery tjänst slut punktens IP-adresser – tillgängligt i en [XML-fil](https://aka.ms/site-recovery-public-ips) och är beroende av mål platsen.
+- Skapa Azure Active Directory en NSG-baserad [(AAD) service tag](../virtual-network/security-overview.md#service-tags) -regel för att tillåta åtkomst till alla IP-adresser som motsvarar AAD
+    - Om nya adresser läggs till i Azure Active Directory (AAD) i framtiden måste du skapa nya NSG-regler.
+- Site Recovery tjänst slut punktens IP-adresser – tillgängligt i en [XML-fil](https://aka.ms/site-recovery-public-ips) och är beroende av mål platsen. Vi rekommenderar att du tillåter åtkomst till taggen **"AzureSiteRecovery"** för Site Recovery tjänst åtkomst.
 - Vi rekommenderar att du skapar de nödvändiga NSG-reglerna på en test-NSG och kontrollerar att det inte finns några problem innan du skapar reglerna på en produktions NSG.
 
 
@@ -70,31 +70,31 @@ Site Recovery IP-adressintervall är följande:
 
    **Mål** | **Site Recovery IP** |  **Site Recovery övervakning av IP**
    --- | --- | ---
-   Östasien | 52.175.17.132 | 13.94.47.61
-   Sydostasien | 52.187.58.193 | 13.76.179.223
+   Asien, östra | 52.175.17.132 | 13.94.47.61
+   Asien, sydöstra | 52.187.58.193 | 13.76.179.223
    Indien, centrala | 52.172.187.37 | 104.211.98.185
    Indien, södra | 52.172.46.220 | 104.211.224.190
-   Norra centrala USA | 23.96.195.247 | 168.62.249.226
-   Norra Europa | 40.69.212.238 | 52.169.18.8
-   Västra Europa | 52.166.13.64 | 40.68.93.145
-   East US | 13.82.88.226 | 104.45.147.24
-   Västra USA | 40.83.179.48 | 104.40.26.199
-   Södra centrala USA | 13.84.148.14 | 104.210.146.250
-   Centrala USA | 40.69.144.231 | 52.165.34.144
+   USA, norra centrala | 23.96.195.247 | 168.62.249.226
+   Europa, norra | 40.69.212.238 | 52.169.18.8
+   Europa, västra | 52.166.13.64 | 40.68.93.145
+   USA, östra | 13.82.88.226 | 104.45.147.24
+   USA, västra | 40.83.179.48 | 104.40.26.199
+   USA, södra centrala | 13.84.148.14 | 104.210.146.250
+   USA, centrala | 40.69.144.231 | 52.165.34.144
    USA, östra 2 | 52.184.158.163 | 40.79.44.59
-   Östra Japan | 52.185.150.140 | 138.91.1.105
-   Västra Japan | 52.175.146.69 | 138.91.17.38
-   Södra Brasilien | 191.234.185.172 | 23.97.97.36
-   Östra Australien | 104.210.113.114 | 191.239.64.144
-   Sydöstra Australien | 13.70.159.158 | 191.239.160.45
-   Centrala Kanada | 52.228.36.192 | 40.85.226.62
-   Östra Kanada | 52.229.125.98 | 40.86.225.142
-   Västra centrala USA | 52.161.20.168 | 13.78.149.209
-   Västra USA 2 | 52.183.45.166 | 13.66.228.204
+   Japan, östra | 52.185.150.140 | 138.91.1.105
+   Japan, västra | 52.175.146.69 | 138.91.17.38
+   Brasilien, södra | 191.234.185.172 | 23.97.97.36
+   Australien, östra | 104.210.113.114 | 191.239.64.144
+   Australien, sydöstra | 13.70.159.158 | 191.239.160.45
+   Kanada, centrala | 52.228.36.192 | 40.85.226.62
+   Kanada, östra | 52.229.125.98 | 40.86.225.142
+   USA, västra centrala | 52.161.20.168 | 13.78.149.209
+   USA, västra 2 | 52.183.45.166 | 13.66.228.204
    Storbritannien, västra | 51.141.3.203 | 51.141.14.113
    Storbritannien, södra | 51.140.43.158 | 51.140.189.52
-   Södra Storbritannien 2 | 13.87.37.4| 13.87.34.139
-   Norra Storbritannien | 51.142.209.167 | 13.87.102.68
+   Storbritannien, södra 2 | 13.87.37.4| 13.87.34.139
+   Storbritannien, norra | 51.142.209.167 | 13.87.102.68
    Sydkorea, centrala | 52.231.28.253 | 52.231.32.85
    Sydkorea, södra | 52.231.198.185 | 52.231.200.144
    Frankrike, centrala | 52.143.138.106 | 52.143.136.55
@@ -103,11 +103,11 @@ Site Recovery IP-adressintervall är följande:
    Australien, centrala 2| 20.36.69.62 | 20.36.74.130
    Sydafrika, västra | 102.133.72.51 | 102.133.26.128
    Sydafrika, norra | 102.133.160.44 | 102.133.154.128
-   Virginia (USA-förvaltad region) | 52.227.178.114 | 23.97.0.197
+   USA Gov Virginia | 52.227.178.114 | 23.97.0.197
    US Gov, Iowa | 13.72.184.23 | 23.97.16.186
    Arizona (USA-förvaltad region) | 52.244.205.45 | 52.244.48.85
    Texas (USA-förvaltad region) | 52.238.119.218 | 52.238.116.60
-   US DoD, östra | 52.181.164.103 | 52.181.162.129
+   USA DoD, östra | 52.181.164.103 | 52.181.162.129
    US DoD, centrala | 52.182.95.237 | 52.182.90.133
    Kina, norra | 40.125.202.254 | 42.159.4.151
    Kina, norra 2 | 40.73.35.193 | 40.73.33.230
@@ -117,6 +117,8 @@ Site Recovery IP-adressintervall är följande:
    Tyskland, västra centrala | 51.116.156.176 | 51.116.154.192
    Schweiz, västra | 51.107.231.223| 51.107.154.128
    Schweiz, norra | 51.107.68.31| 51.107.58.128
+   Norge, östra | 51.120.100.64| 51.120.98.128
+   Norge, västra | 51.120.220.65| 51.120.218.160
 
 ## <a name="example-nsg-configuration"></a>Exempel på NSG-konfiguration
 
@@ -124,6 +126,9 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
 - Om du använder NSG-regler för att kontrol lera utgående anslutningar använder du reglerna "Tillåt HTTPS utgående" till port: 443 för alla nödvändiga IP-adressintervall.
 - Exemplet förutsätter att käll platsen för den virtuella datorn är "USA, östra" och att mål platsen är "Central US".
+
+> [!NOTE]
+> Vi rekommenderar att du använder **AzureSiteRecovery-tagg** i stället för IP-adresser för att tillåta åtkomst till **Site Recovery-tjänsten**.
 
 ### <a name="nsg-rules---east-us"></a>NSG-regler – USA, östra
 
@@ -137,9 +142,9 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
 3. Skapa regler för utgående HTTPS (443) för de Site Recovery IP-adresser som motsvarar mål platsen:
 
-   **Location** | **Site Recovery IP-adress** |  **Site Recovery övervakning av IP-adress**
+   **Plats** | **Site Recovery IP-adress** |  **Site Recovery övervakning av IP-adress**
     --- | --- | ---
-   Centrala USA | 40.69.144.231 | 52.165.34.144
+   USA, centrala | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules---central-us"></a>NSG-regler – centrala USA
 
@@ -151,9 +156,10 @@ De här reglerna krävs för att replikeringen ska kunna aktive ras från mål r
 
 3. Skapa regler för utgående HTTPS (443) för de Site Recovery IP-adresser som motsvarar käll platsen:
 
-   **Location** | **Site Recovery IP-adress** |  **Site Recovery övervakning av IP-adress**
+   **Plats** | **Site Recovery IP-adress** |  **Site Recovery övervakning av IP-adress**
     --- | --- | ---
-   East US | 13.82.88.226 | 104.45.147.24
+   USA, östra | 13.82.88.226 | 104.45.147.24
+
 
 ## <a name="network-virtual-appliance-configuration"></a>Konfiguration av virtuell nätverks installation
 
@@ -172,7 +178,7 @@ Du kan skapa en nätverks tjänst slut punkt i ditt virtuella nätverk för "lag
 >[!NOTE]
 >Begränsa inte åtkomst till virtuella nätverk till dina lagrings konton som används för ASR. Du bör tillåta åtkomst från alla nätverk
 
-### <a name="forced-tunneling"></a>Tvingad tunneltrafik
+### <a name="forced-tunneling"></a>Forcerade tunnlar
 
 Du kan åsidosätta Azures standard system väg för adressprefixet 0.0.0.0/0 med en [anpassad väg och dirigera](../virtual-network/virtual-networks-udr-overview.md#custom-routes) VM-trafik till en lokal virtuell nätverks installation (NVA), men den här konfigurationen rekommenderas inte för Site Recovery replikering. Om du använder anpassade vägar bör du [skapa en tjänst slut punkt för virtuellt nätverk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för "lagring", så att replikeringstrafiken inte lämnar Azure-gränser.
 

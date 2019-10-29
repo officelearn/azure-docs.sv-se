@@ -3,7 +3,7 @@ title: Så här övervakar och minskar du begränsningen i Azure Time Series Ins
 description: Den här artikeln beskriver hur du övervakar, diagnostiserar och minimerar prestanda problem som orsakar latens och begränsning i Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 389e1472e1e1fcbed6dd3b6c1d155199246d877f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4e82cdf43f568b6415cb7cb00ce0244654559b7d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332987"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990138"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningen för att minska svars tiden i Azure Time Series Insights
 
@@ -44,15 +44,15 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som or
 
 1. I Azure Portal väljer du **aviseringar**.
 
-   [![Alerts](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![aviseringar](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
 1. Panelen **Skapa regel** visas sedan. Välj **Lägg till** under **villkor**.
 
-   [![Add avisering](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [![Lägg till avisering](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
 1. Konfigurera sedan de exakta villkoren för signal logiken.
 
-   [![Configure signal logik](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
+   [![konfigurera signal logik](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
    Därifrån kan du konfigurera aviseringar med några av följande villkor:
 
@@ -70,7 +70,7 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som or
 
 1. När du har konfigurerat den önskade signal logiken granskar du den valda aviserings regeln visuellt.
 
-   [![Ingress](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![ingress](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>Hantering av begränsning och drifts hantering
 

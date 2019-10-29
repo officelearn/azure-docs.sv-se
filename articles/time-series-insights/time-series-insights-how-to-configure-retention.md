@@ -3,20 +3,19 @@ title: Så här konfigurerar du kvarhållning i Azure Time Series Insightss milj
 description: Den här artikeln beskriver hur du konfigurerar kvarhållning i Azure Time Series Insightss miljön.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: bf6788bac7003bec0ccfc171d622cd9b28bf43e0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ff4d326af691ae27894dc94d7581ba68951f090e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330891"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990064"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Konfigurera kvarhållning i Time Series Insights
 
@@ -41,7 +40,7 @@ Detaljerad information för att bättre förstå de här inställningarna finns 
 
 1. Under rubriken **Inställningar** väljer du **Konfigurera**.
 
-    [![Select inställningar och konfigurera sedan](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+    [![väljer Inställningar och sedan konfigurera](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 1. Välj tids perioden för **data lagring (i dagar)** för att konfigurera kvarhållning med skjutreglaget eller Skriv ett tal i text rutan.
 
@@ -49,7 +48,7 @@ Detaljerad information för att bättre förstå de här inställningarna finns 
 
 1. Växla inställningen för **lagrings gränsen överskreds** . Välj **Rensa gamla data** eller **pausa inträngande** beteende.
 
-    [![Data kvarhållning – Godkänn och spara.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [![data kvarhållning – Godkänn och spara.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. Acceptera kryss rutan som anger att du har granskat dokumentationen och förstår de potentiella riskerna med data förlust. Konfigurera ändringarna genom att välja **Spara** .
 

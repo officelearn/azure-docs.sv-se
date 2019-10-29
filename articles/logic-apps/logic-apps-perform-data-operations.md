@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 9271a659e18ab969e801fd8974b05984e11e783c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: a21b7f510b6da40d3ab2c72fcfbcb2a746b75db1
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309397"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990430"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Utföra data åtgärder i Azure Logic Apps
 
@@ -33,7 +33,7 @@ Dessa tabeller sammanfattar de data åtgärder som du kan använda och organiser
 
 Med de här åtgärderna kan du arbeta med data i matriser.
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 |--------|-------------|
 | [**Skapa CSV-tabell**](#create-csv-table-action) | Skapa en kommaavgränsad tabell (CSV) från en matris. |
 | [**Skapa HTML-tabell**](#create-html-table-action) | Skapa en HTML-tabell från en matris. |
@@ -46,7 +46,7 @@ Med de här åtgärderna kan du arbeta med data i matriser.
 
 De här åtgärderna hjälper dig att arbeta med data i JavaScript Object Notation-format (JSON).
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 |--------|-------------|
 | [**Utgör**](#compose-action) | Skapa ett meddelande eller en sträng från flera indata som kan ha olika data typer. Du kan sedan använda den här strängen som ett enda indata, i stället för att upprepade gånger ange samma indata. Du kan till exempel skapa ett enda JSON-meddelande från olika indata. |
 | [**Parsa JSON**](#parse-json-action) | Skapa användarvänliga datatoken för egenskaper i JSON-innehåll så att du enkelt kan använda egenskaperna i dina Logic Apps. |
@@ -54,13 +54,13 @@ De här åtgärderna hjälper dig att arbeta med data i JavaScript Object Notati
 
 Information om hur du skapar mer komplexa JSON-transformeringar finns i [utföra avancerade JSON-omvandlingar med flytande mallar](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Den Logic-app där du behöver åtgärden för att arbeta med data
 
-  Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) och [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
+  Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * En [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) som det första steget i din Logic app 
 
@@ -80,21 +80,21 @@ och skapar följande utdata:
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-Följ dessa steg med hjälp av Logic Apps designer för att prova ett exempel. Eller, om du föredrar att arbeta i kodvyn, kan du Kopiera exemplet **skapa** och **initiera variabel** åtgärds definitioner från den här artikeln till din egen logiska Apps underliggande arbets flödes definition: [Kod exempel för data åtgärd – Skriv](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+Följ dessa steg med hjälp av Logic Apps designer för att prova ett exempel. Eller, om du föredrar att arbeta i kodvyn, kan du Kopiera exemplet **skapa** och **initiera variabel** åtgärds definitioner från den här artikeln till din egen logiska Apps underliggande arbets flödes definition: [exempel på data åtgärds kod – Skriv](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller Visual Studio.
 
    I det här exemplet används Azure Portal och en Logic-app med en **upprepnings** utlösare och flera **initiera variabel** åtgärder. Dessa åtgärder ställs in för att skapa två String-variabler och en heltals variabel. När du senare testar din Logic-app kan du köra appen manuellt utan att vänta på att utlösaren ska starta.
 
-   ![Startar exempel Logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
+   ![Startar exempel Logic app för "Skriv"-åtgärd](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
 
 1. Gör något av följande i din Logic-app där du vill skapa utdata: 
 
    * Välj **nytt steg**för att lägga till en åtgärd under det sista steget.
 
-     ![Lägg till åtgärd](./media/logic-apps-perform-data-operations/add-compose-action.png)
+     ![Välj "nytt steg" för åtgärden "Skriv"](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att **+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**går du till rutan Sök och anger `compose` som ditt filter. I listan åtgärder väljer du åtgärden **Skriv** .
 
@@ -104,11 +104,11 @@ Följ dessa steg med hjälp av Logic Apps designer för att prova ett exempel. E
 
    I det här exemplet visas listan med dynamiskt innehåll när du klickar i rutan **indata** , så att du kan välja de tidigare skapade variablerna:
 
-   ![Välj indata att skriva](./media/logic-apps-perform-data-operations/configure-compose-action.png)
+   ![Välj indata som ska användas för åtgärden "Skriv"](./media/logic-apps-perform-data-operations/configure-compose-action.png)
 
    Här är den **färdiga exempel åtgärden** : 
 
-   ![Avslutad "skapa"-åtgärd](./media/logic-apps-perform-data-operations/finished-compose-action.png)
+   ![Färdiga exempel för "skapa"-åtgärd](./media/logic-apps-perform-data-operations/finished-compose-action.png)
 
 1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
 
@@ -124,7 +124,7 @@ För att bekräfta om **Skriv** åtgärden skapar förväntade resultat, skicka 
 
    I det här exemplet används åtgärden **skicka e-post** och innehåller fälten **utdata** i e-postmeddelandets brödtext och ämne:
 
-   !["Utdata"-fält i åtgärden "Skicka ett e-postmeddelande"](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
+   !["Output"-fält för åtgärden "Skriv"](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
 
 1. Kör nu din Logic-app manuellt. I verktygsfältet designer väljer du **Kör**.
 
@@ -138,21 +138,21 @@ För att bekräfta om **Skriv** åtgärden skapar förväntade resultat, skicka 
 
 Använd åtgärden **Skapa CSV-tabell** för att skapa en kommaavgränsad tabell (CSV) som innehåller egenskaper och värden från JavaScript Object Notation (JSON)-objekt i en matris. Du kan sedan använda den resulterande tabellen i åtgärder som följer åtgärden **Skapa CSV-tabell** .
 
-Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Skapa CSV-tabell** och **initiera variabel** åtgärds definitioner från den här artikeln i din egen Logic Apps underliggande arbets flödes definition: [Kod exempel för data åtgärd – skapa CSV-tabell](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
+Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Skapa CSV-tabell** och **initiera variabel** åtgärds definitioner från den här artikeln i din egen Logic Apps underliggande arbets flödes definition: [exempel på data åtgärds kod – Skapa CSV-tabell](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller Visual Studio.
 
    I det här exemplet används Azure Portal och en Logi Kap par med en **upprepnings** utlösare och en **initiera variabel** åtgärd. Åtgärden ställs in för att skapa en variabel vars ursprungliga värde är en matris som har vissa egenskaper och värden i JSON-format. När du senare testar din Logic-app kan du köra appen manuellt utan att vänta på att utlösaren ska starta.
 
-   ![Startar exempel Logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   ![Startar exempel på Logic app för åtgärden "Skapa CSV-tabell"](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
 1. Gör något av följande i din Logic-app där du vill skapa en CSV-tabell: 
 
    * Välj **nytt steg**för att lägga till en åtgärd under det sista steget.
 
-     ![Lägg till åtgärd](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![Välj "nytt steg" för åtgärden "Skapa CSV-tabell"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att **+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**går du till rutan Sök och anger `create csv table` som ditt filter. I listan åtgärder väljer du åtgärden **Skapa CSV-tabell** .
 
@@ -169,7 +169,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Skapa CSV-tabell**
 
    Här är det färdiga exemplet **Skapa CSV-tabell** åtgärd: 
 
-   ![Åtgärden "Skapa CSV-tabell" har skapats](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
+   ![Det färdiga exemplet för åtgärden "Skapa CSV-tabell"](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
 
 1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
 
@@ -183,7 +183,7 @@ Som standard är egenskapen **columns** inställd på att automatiskt skapa tabe
 
 1. I egenskapen **Value** anger du det anpassade värde som ska användas i stället.
 
-Om du vill returnera värden från matrisen kan du använda [ `item()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **Skapa CSV-tabell** . Du kan `For_each` [ användafunktionenienslinga.`items()` ](../logic-apps/workflow-definition-language-functions-reference.md#items)
+Om du vill returnera värden från matrisen kan du använda [funktionen`item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **Skapa CSV-tabell** . I en `For_each` slinga kan du använda [funktionen`items()`](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
 Anta till exempel att du vill att tabell kolumner som bara har egenskaps värden och inte egenskaps namnen från en matris. Om du bara vill returnera dessa värden följer du de här stegen för att arbeta i design läge eller i kodvyn. Här är resultatet som det här exemplet returnerar:
 
@@ -209,25 +209,25 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![Uttryck för att referera till egenskap](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+   ![Referens "Beskrivning" för "Skapa CSV-tabell"](./media/logic-apps-perform-data-operations/csv-table-expression.png)
 
 1. Upprepa föregående steg för varje mat ris egenskap som du vill ha. När du är klar ser din åtgärd ut som i det här exemplet:
 
-   ![Färdiga uttryck](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+   ![funktionen "Item ()" i "Skapa CSV-tabell"](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
 
 1. Du löser uttryck i fler beskrivande versioner genom att växla till kodvyn och tillbaka till design läge och sedan öppna den minimerade åtgärden igen:
 
    Åtgärden **Skapa CSV-tabell** visas nu som i det här exemplet:
 
-   ![Åtgärden "Skapa CSV-tabell" med matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   !["Skapa CSV-tabell"-matchade uttryck, inga rubriker](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 #### <a name="work-in-code-view"></a>Arbeta i kodvyn
 
-I åtgärdens JSON-definition, i `columns` matrisen, `header` anger du egenskapen till en tom sträng. Referera till `value` varje mat ris egenskap som du vill använda för varje egenskap.
+I åtgärdens JSON-definition, i `columns` matris, anger du egenskapen `header` till en tom sträng. För varje `value`-egenskap ska du referera till varje mat ris egenskap som du vill ha.
 
 1. I verktygsfältet designer väljer du **kodvyn**.
 
-1. I kod redigeraren i åtgärdens `columns` matris lägger du till egenskapen tom `header` och det här `value` uttrycket för varje kolumn med mat ris värden som du vill ha:
+1. I kod redigeraren i åtgärdens `columns` matris lägger du till egenskapen tom `header` och detta `value` uttryck för varje kolumn med mat ris värden som du vill ha:
 
    ```json
    {
@@ -261,7 +261,7 @@ I åtgärdens JSON-definition, i `columns` matrisen, `header` anger du egenskape
 
    Åtgärden **Skapa CSV-tabell** visas nu som i det här exemplet, och uttrycken har matchats till fler beskrivande versioner:
 
-   ![Åtgärden "Skapa CSV-tabell" med matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   !["Skapa CSV-tabell"-matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 Mer information om den här åtgärden i den underliggande arbets flödes definitionen finns i [tabell åtgärden](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -275,7 +275,7 @@ Du kan kontrol lera om åtgärden **Skapa CSV-tabell** skapar förväntade resul
 
    I det här exemplet används Office 365 Outlook för att **skicka en e-** poståtgärd och innehåller fältet **utdata** i e-postmeddelandets brödtext:
 
-   !["Utdata"-fält i åtgärden "Skicka ett e-postmeddelande"](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
+   !["Output"-fält för åtgärden "Skapa CSV-tabell"](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
 1. Kör nu din Logic-app manuellt. I verktygsfältet designer väljer du **Kör**.
 
@@ -289,21 +289,21 @@ Du kan kontrol lera om åtgärden **Skapa CSV-tabell** skapar förväntade resul
 
 Använd åtgärden **skapa HTML-tabell** om du vill skapa en HTML-tabell som innehåller egenskaper och värden från JavaScript Object Notation (JSON)-objekt i en matris. Du kan sedan använda den resulterande tabellen i åtgärder som följer åtgärden **skapa HTML-tabell** .
 
-Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **skapa HTML-tabell** och **initiera variabel** åtgärds definitioner från den här artikeln i din egen Logic Apps underliggande arbets flödes definition: [Kod exempel för data åtgärd – skapa HTML-tabell](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **skapa HTML-tabell** och **initiera variabel** åtgärds definitioner från den här artikeln i din egen Logic Apps underliggande arbets flödes definition: [exempel på data åtgärds kod – Skapa HTML-tabell](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller Visual Studio.
 
    I det här exemplet används Azure Portal och en Logi Kap par med en **upprepnings** utlösare och en **initiera variabel** åtgärd. Åtgärden ställs in för att skapa en variabel vars ursprungliga värde är en matris som har vissa egenskaper och värden i JSON-format. När du senare testar din Logic-app kan du köra appen manuellt utan att vänta på att utlösaren ska starta.
 
-   ![Startar exempel Logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   ![Startar exempel Logic app för "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
 1. Gör något av följande i din Logic-app där du vill skapa en HTML-tabell:
 
    * Välj **nytt steg**för att lägga till en åtgärd under det sista steget.
 
-     ![Lägg till åtgärd](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     ![Välj "nytt steg" för åtgärden "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att **+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**går du till rutan Sök och anger `create html table` som ditt filter. I listan åtgärder väljer du åtgärden **skapa HTML-tabell** .
 
@@ -320,7 +320,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **skapa HTML-tabell*
 
    Här är det färdiga exemplet **skapa HTML-tabell** åtgärd:
 
-   ![Åtgärden "skapa HTML-tabell" har åtgärd ATS](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
+   ![Färdiga exempel för "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
 
 1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
 
@@ -334,7 +334,7 @@ Som standard är egenskapen **columns** inställd på att automatiskt skapa tabe
 
 1. I egenskapen **Value** anger du det anpassade värde som ska användas i stället.
 
-Om du vill returnera värden från matrisen kan du använda [ `item()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **skapa HTML-tabell** . Du kan `For_each` [ användafunktionenienslinga.`items()` ](../logic-apps/workflow-definition-language-functions-reference.md#items)
+Om du vill returnera värden från matrisen kan du använda [funktionen`item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **skapa HTML-tabell** . I en `For_each` slinga kan du använda [funktionen`items()`](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
 Anta till exempel att du vill att tabell kolumner som bara har egenskaps värden och inte egenskaps namnen från en matris. Om du bara vill returnera dessa värden följer du de här stegen för att arbeta i design läge eller i kodvyn. Här är resultatet som det här exemplet returnerar:
 
@@ -360,25 +360,25 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![Uttryck för att referera till egenskap](./media/logic-apps-perform-data-operations/html-table-expression.png)
+   ![Referens egenskap i åtgärden "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/html-table-expression.png)
 
 1. Upprepa föregående steg för varje mat ris egenskap som du vill ha. När du är klar ser din åtgärd ut som i det här exemplet:
 
-   ![Färdiga uttryck](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+   ![funktionen "Item ()" i "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/finished-html-expression.png)
 
 1. Du löser uttryck i fler beskrivande versioner genom att växla till kodvyn och tillbaka till design läge och sedan öppna den minimerade åtgärden igen:
 
    Åtgärden **skapa HTML-tabell** visas nu som i det här exemplet:
 
-   ![Åtgärden "skapa HTML-tabell" med matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+   !["Skapa HTML-tabell"-matchade uttryck, inga rubriker](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 #### <a name="work-in-code-view"></a>Arbeta i kodvyn
 
-I åtgärdens JSON-definition, i `columns` matrisen, `header` anger du egenskapen till en tom sträng. Referera till `value` varje mat ris egenskap som du vill använda för varje egenskap.
+I åtgärdens JSON-definition, i `columns` matris, anger du egenskapen `header` till en tom sträng. För varje `value`-egenskap ska du referera till varje mat ris egenskap som du vill ha.
 
 1. I verktygsfältet designer väljer du **kodvyn**.
 
-1. I kod redigeraren i åtgärdens `columns` matris lägger du till egenskapen tom `header` och det här `value` uttrycket för varje kolumn med mat ris värden som du vill ha:
+1. I kod redigeraren i åtgärdens `columns` matris lägger du till egenskapen tom `header` och detta `value` uttryck för varje kolumn med mat ris värden som du vill ha:
 
    ```json
    {
@@ -412,7 +412,7 @@ I åtgärdens JSON-definition, i `columns` matrisen, `header` anger du egenskape
 
    Åtgärden **skapa HTML-tabell** visas nu som i det här exemplet, och uttrycken har matchats till fler beskrivande versioner:
 
-   ![Åtgärden "skapa HTML-tabell" med matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+   !["Skapa HTML-tabell"-matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 Mer information om den här åtgärden i den underliggande arbets flödes definitionen finns i [tabell åtgärden](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -426,8 +426,8 @@ För att bekräfta om åtgärden **skapa HTML-tabell** skapar förväntade resul
 
    I det här exemplet används Office 365 Outlook för att **skicka en e-** poståtgärd och innehåller fältet **utdata** i e-postmeddelandets brödtext:
 
-   !["Utdata"-fält i åtgärden "Skicka ett e-postmeddelande"](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
-   
+   !["Utdata"-fält för "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
+
    > [!NOTE]
    > När du inkluderar utdata i HTML-tabellen i en e-poståtgärd, se till att du ställer in egenskapen **är HTML** till **Ja** i alternativ för e-poståtgärdens avancerade alternativ. På så sätt formaterar e-poståtgärden HTML-tabellen korrekt.
 
@@ -435,7 +435,7 @@ För att bekräfta om åtgärden **skapa HTML-tabell** skapar förväntade resul
 
    Utifrån e-postkopplingen som du använde är följande resultat som du får:
 
-   ![E-post med åtgärds resultat för "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
+   ![E-post med resultaten "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
 
 <a name="filter-array-action"></a>
 
@@ -448,7 +448,7 @@ Om du vill skapa en mindre matris som har objekt som uppfyller vissa villkor fr�
 > 
 > För att åtgärder ska kunna använda mat ris utdata från åtgärden **filtrera matris** , måste dessa åtgärder acceptera matriser som indata, eller så kanske du måste transformera utdata-matrisen till ett annat kompatibelt format.
 
-Om du föredrar att arbeta i kodvyn kan du kopiera exempel **filter mat ris** och **initiera variabel** åtgärds definitioner från den här artikeln till din egen logiska Apps underliggande arbets flödes definition: [Kod exempel för data åtgärd – filter mat ris](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
+Om du föredrar att arbeta i kodvyn kan du kopiera exempel **filter mat ris** och **initiera variabel** åtgärds definitioner från den här artikeln till din egen logiska Apps underliggande arbets flödes definition: [exempel på data åtgärds kod – Filtrera matris](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller Visual Studio.
 
@@ -457,17 +457,17 @@ Om du föredrar att arbeta i kodvyn kan du kopiera exempel **filter mat ris** oc
    > [!NOTE]
    > Även om det här exemplet använder en enkel heltals mat ris, är den här åtgärden särskilt användbar för JSON-objekts matriser där du kan filtrera efter objekt egenskaper och värden.
 
-   ![Startar exempel Logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
+   ![Startar exempel Logic app för åtgärden "Filtrera matris"](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
 
 1. Gör något av följande i din Logic-app där du vill skapa den filtrerade matrisen: 
 
    * Välj **nytt steg**för att lägga till en åtgärd under det sista steget.
 
-     ![Lägg till åtgärd](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
+     ![Välj "nytt steg" för "Filtrera matris"-åtgärd](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att **+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
-1. I rutan Sök anger `filter array` du som filter. I listan åtgärder väljer du åtgärden **filtrera matris** .
+1. I sökrutan anger du `filter array` som ditt filter. I listan åtgärder väljer du åtgärden **filtrera matris** .
 
    ![Välj åtgärden "Filtrera matris"](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -479,9 +479,9 @@ Om du föredrar att arbeta i kodvyn kan du kopiera exempel **filter mat ris** oc
 
 1. För villkoret anger du de mat ris objekt som ska jämföras, väljer jämförelse operator och anger jämförelse värdet.
 
-   I det här exemplet `item()` används funktionen för att komma åt varje objekt i matrisen medan **filter mat ris** åtgärden söker efter mat ris objekt vars värde är större än ett:
-   
-   ![Åtgärden "Filtrera matris" har körts](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
+   I det här exemplet används funktionen `item()` för att komma åt varje objekt i matrisen medan **filter mat ris** åtgärden söker efter mat ris objekt vars värde är större än ett:
+
+   ![Det färdiga exemplet för åtgärden "Filtrera matris"](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
 1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
 
@@ -499,7 +499,7 @@ Om du vill bekräfta att **filter mat ris** åtgärd skapar förväntade resulta
 
    I det här exemplet används Office 365 Outlook för att **skicka en e-post** och innehåller utdata från actionBody-uttrycket **(' Filter_array ')** i e-postmeddelandets brödtext:
 
-   ![Åtgärds utdata i åtgärden "Skicka ett e-postmeddelande"](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
+   ![Åtgärds utdata från åtgärden "Filtrera matris"](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
 
 1. Kör nu din Logic-app manuellt. I verktygsfältet designer väljer du **Kör**.
 
@@ -513,25 +513,25 @@ Om du vill bekräfta att **filter mat ris** åtgärd skapar förväntade resulta
 
 Om du vill skapa en sträng som innehåller alla objekt från en matris och åtskiljer dessa objekt med ett särskilt avgränsnings tecken, använder du **kopplings** åtgärden. Du kan sedan använda strängen i åtgärder som följer efter **kopplings** åtgärden.
 
-Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Anslut** till och **initiera variabel** åtgärds definitioner från den här artikeln till din egen logiska Apps underliggande arbets flödes definition: [Kod exempel för data åtgärd – Anslut](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
+Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Anslut** till och **initiera variabel** definitioner för variabler från den här artikeln till din egen Logic Apps underliggande arbets flödes definition: [exempel på data åtgärds kod – Anslut](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller Visual Studio.
 
    I det här exemplet används Azure Portal och en Logi Kap par med en **upprepnings** utlösare och en **initiera variabel** åtgärd. Den här åtgärden ställs in för att skapa en variabel vars ursprungliga värde är en matris som har några exempel-heltal. När du testar din Logic-app senare kan du köra appen manuellt utan att vänta på att utlösaren ska starta.
 
-   ![Startar exempel Logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
+   ![Startar exempel Logic app för "koppla"-åtgärd](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
 
 1. Gör något av följande i din Logic-app där du vill skapa strängen från en matris:
 
    * Välj **nytt steg**för att lägga till en åtgärd under det sista steget.
 
-     ![Lägg till åtgärd](./media/logic-apps-perform-data-operations/add-join-action.png)
+     ![SSelect "nytt steg" för "koppla"-åtgärd](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att **+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
-1. I rutan Sök anger `join` du som filter. I listan åtgärder väljer du den här åtgärden: **Anslut dig**
+1. I sökrutan anger du `join` som ditt filter. I listan åtgärder väljer du den här åtgärden: **Anslut**
 
-   ![Välj kopplings åtgärd](./media/logic-apps-perform-data-operations/select-join-action.png)
+   ![Välj kopplings åtgärd](./media/logic-apps-perform-data-operations/select-join-operation-action.png)
 
 1. I rutan **från** anger du den matris som innehåller de objekt som du vill ansluta till som en sträng.
 
@@ -559,13 +559,13 @@ Du kan kontrol lera om **kopplings** åtgärden skapar förväntade resultat gen
 
    I det här exemplet används Office 365 Outlook för att **skicka en e-** poståtgärd och innehåller fältet **utdata** i e-postmeddelandets brödtext:
 
-   !["Utdata"-fält i åtgärden "Skicka ett e-postmeddelande"](./media/logic-apps-perform-data-operations/send-email-join-action.png)
+   !["Output"-fält för åtgärden "koppla"](./media/logic-apps-perform-data-operations/send-email-join-action.png)
 
 1. Kör nu din Logic-app manuellt. I verktygsfältet designer väljer du **Kör**.
 
    Utifrån e-postkopplingen som du använde är följande resultat som du får:
 
-   ![E-post med åtgärds resultat för "koppling"](./media/logic-apps-perform-data-operations/join-email-results.png)
+   ![E-post med åtgärds resultat för "koppling"](./media/logic-apps-perform-data-operations/join-send-email-results.png)
 
 <a name="parse-json-action"></a>
 
@@ -573,23 +573,23 @@ Du kan kontrol lera om **kopplings** åtgärden skapar förväntade resultat gen
 
 Om du vill referera till eller komma åt egenskaper i JavaScript Object Notation-innehåll (JSON) kan du skapa användarvänliga fält eller tokens för dessa egenskaper med hjälp av åtgärden **parsa JSON** . På så sätt kan du välja dessa egenskaper från listan med dynamiskt innehåll när du anger indata för din Logic app. För den här åtgärden kan du antingen ange ett JSON-schema eller generera ett JSON-schema från exempel-JSON-innehållet eller nytto lasten.
 
-Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **parsa JSON** och **initiera variabel** åtgärds definitioner från den här artikeln till din egen logiska Apps underliggande arbets flödes definition: [Kod exempel för data åtgärd – parsa JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
+Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **parsa JSON** och **initiera variabel** åtgärds definitioner från den här artikeln till din egen Logic Apps underliggande arbets flödes definition: [exempel på data åtgärds kod – parsa JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller Visual Studio.
 
    I det här exemplet används Azure Portal och en Logi Kap par med en **upprepnings** utlösare och en **initiera variabel** åtgärd. Åtgärden ställs in för att skapa en variabel vars ursprungliga värde är ett JSON-objekt som har egenskaper och värden. När du senare testar din Logic-app kan du köra appen manuellt utan att vänta på att utlösaren ska starta.
 
-   ![Startar exempel Logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
+   ![Startar exempel Logic app för åtgärden "parsa JSON"](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
 
 1. Gör något av följande i din Logic-app där du vill parsa JSON-innehållet:
 
    * Välj **nytt steg**för att lägga till en åtgärd under det sista steget.
 
-     ![Lägg till åtgärd](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
+     ![Välj "nytt steg" för "parsa JSON"-åtgärd](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att **+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
-1. I rutan Sök anger `parse json` du som filter. I listan åtgärder väljer du åtgärden **parsa JSON** .
+1. I sökrutan anger du `parse json` som ditt filter. I listan åtgärder väljer du åtgärden **parsa JSON** .
 
    ![Välj åtgärden parsa JSON](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -631,13 +631,13 @@ Du kan kontrol lera om åtgärden **parsa JSON** skapar förväntade resultat ge
 
    Här är den färdiga e-poståtgärden:
 
-   ![Avslutad e-poståtgärd](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
+   ![Färdiga exempel för e-poståtgärd](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
 
 1. Kör nu din Logic-app manuellt. I verktygsfältet designer väljer du **Kör**. 
 
    Utifrån e-postkopplingen som du använde är följande resultat som du får:
 
-   ![E-post med åtgärds resultat för "koppling"](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
+   ![E-post med åtgärds resultat för "parsa JSON"](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
 
 <a name="select-action"></a>
 
@@ -648,23 +648,23 @@ Om du vill skapa en matris som har JSON-objekt som skapats från värden i en be
 > [!NOTE]
 > Åtgärder för att använda mat ris utdata från **Select** -åtgärden måste acceptera matriser som indata, eller så kanske du måste transformera den utgående matrisen till ett annat kompatibelt format. 
 
-Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Välj** och initiera definitioner av **variabel** åtgärder från den här artikeln i din egen Logic Apps underliggande arbets flödes definition: [Kod exempel för data åtgärd – Välj](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Välj** och initiera definitioner av **variabel** åtgärder från den här artikeln i din egen Logic Apps underliggande arbets flödes definition: [exempel på data åtgärds kod – Välj ](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller Visual Studio.
 
    I det här exemplet används Azure Portal och en Logi Kap par med en **upprepnings** utlösare och en **initiera variabel** åtgärd. Åtgärden ställs in för att skapa en variabel vars ursprungliga värde är en matris som har några exempel-heltal. När du senare testar din Logic-app kan du köra appen manuellt utan att vänta på att utlösaren ska starta.
 
-   ![Startar exempel Logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
+   ![Startar exempel Logic app för åtgärden "Välj"](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
 
 1. Gör något av följande i din Logic-app där du vill skapa matrisen: 
 
    * Välj **nytt steg**för att lägga till en åtgärd under det sista steget.
 
-     ![Lägg till åtgärd](./media/logic-apps-perform-data-operations/add-select-action.png)
+     ![Välj "nytt steg" för "Välj"-åtgärd](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
-   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att **+** plus tecknet () visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
-1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger `select` du som filter. I listan åtgärder väljer du åtgärden **Välj** .
+1. Under **Välj en åtgärd**väljer du **inbyggt**. I sökrutan anger du `select` som ditt filter. I listan åtgärder väljer du åtgärden **Välj** .
 
    ![Välj åtgärden "Välj"](./media/logic-apps-perform-data-operations/select-select-action.png)
 
@@ -676,13 +676,13 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Välj** och initie
 
 1. Ange det egenskaps namn som du vill tilldela varje värde i käll mat ris i rutan till vänster i **Map** -kolumnen. I kolumnen till höger anger du ett uttryck som representerar värdet som du vill tilldela egenskapen.
 
-   I det här exemplet anges "Product_ID" som egenskaps namn för att tilldela varje värde i heltals mat `item()` ris med hjälp av funktionen i ett uttryck som har åtkomst till varje mat ris objekt. 
+   I det här exemplet anges "Product_ID" som egenskaps namn för att tilldela varje värde i heltals mat ris med hjälp av funktionen `item()` i ett uttryck som har åtkomst till varje mat ris objekt. 
 
-   ![Ange JSON-objektets egenskap och värden för den matris som du vill skapa](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
+   ![Ange JSON-objektets egenskap och värden för att skapa matris](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
    Här är den färdiga åtgärden:
 
-   ![Åtgärden har avslut ATS](./media/logic-apps-perform-data-operations/finished-select-action.png)
+   ![Färdiga exempel för åtgärden "Välj"](./media/logic-apps-perform-data-operations/finished-select-action.png)
 
 1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
 
@@ -698,9 +698,9 @@ För att bekräfta om **Select** -åtgärden skapar förväntade resultat kan du
 
    `@actionBody('Select')`
 
-   I det här exemplet används Office 365 Outlook för att **skicka en e-** poståtgärd och inkludera `@actionBody('Select')` utdata från uttrycket i e-postmeddelandets brödtext:
+   I det här exemplet används Office 365 Outlook för att **skicka en e-post** och innehåller utdata från `@actionBody('Select')`-uttrycket i e-postmeddelandets brödtext:
 
-   ![Åtgärds utdata i åtgärden "Skicka ett e-postmeddelande"](./media/logic-apps-perform-data-operations/send-email-select-action.png)
+   ![Åtgärds utdata från "Välj"-åtgärd](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 
 1. Kör nu din Logic-app manuellt. I verktygsfältet designer väljer du **Kör**.
 

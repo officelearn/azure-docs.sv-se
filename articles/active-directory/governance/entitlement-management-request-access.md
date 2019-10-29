@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e57a216efee39df0ad22712b281073a68600e0df
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389092"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990755"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -58,12 +58,13 @@ När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran
 
 1. Hitta Access-paketet i listan.  Om det behövs kan du söka genom att skriva en Sök sträng och sedan välja filtret **namn**, **katalog**eller **resurser** .
 
-    ![Min åtkomst Portal – resurs sökning](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
+    ![Min åtkomst Portal – resurs sökning](./media/entitlement-management-request-access/my-access-resource-search.png)
+
 1. Klicka på bock markeringen för att välja Access-paketet.
 
-    ![Åtkomst till Portal – åtkomst paket](./media/entitlement-management-shared/my-access-access-packages.png)
-
 1. Klicka på **begär åtkomst** för att öppna fönstret begär åtkomst.
+
+    ![Åtkomst till Portal – åtkomst paket](./media/entitlement-management-request-access/my-access-request-access-button.png)
 
 1. Om rutan **affärs justering** visas anger du en motivering för att ha åtkomst.
 
@@ -78,6 +79,12 @@ När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran
 1. Klicka på **begär ande historik** om du vill se en lista över dina begär Anden och status.
 
     Om åtkomst paketet kräver godkännande är begäran nu i ett tillstånd som väntar på godkännande.
+
+### <a name="select-a-policy"></a>Välj en princip
+
+Om du begär åtkomst till ett Access-paket som har flera principer som gäller kan du bli ombedd att välja en princip. Till exempel kan en Access Package Manager Konfigurera ett Access-paket med två principer för två grupper av interna anställda. Den första principen kan ge åtkomst i 60 dagar och kräver godkännande. Den andra principen kan tillåta åtkomst i 2 dagar och kräver inte godkännande. Om du stöter på det här scenariot måste du välja den princip som du vill använda.
+
+![Min åtkomst Portal – begär åtkomst – flera principer](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
 ## <a name="cancel-a-request"></a>Avbryt en begäran
 
@@ -94,12 +101,6 @@ Om du skickar en åtkomstbegäran och begäran fortfarande har statusen **vänta
     ![Min åtkomst Portal-Avbryt förfrågan](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
 1. Klicka på **begär ande historik** för att bekräfta att begäran avbröts.
-
-## <a name="select-a-policy"></a>Välj en princip
-
-Om du begär åtkomst till ett Access-paket som har flera principer som gäller kan du bli ombedd att välja en princip. Till exempel kan en Access Package Manager Konfigurera ett Access-paket med två principer för två grupper av interna anställda. Den första principen kan ge åtkomst i 60 dagar och kräver godkännande. Den andra principen kan tillåta åtkomst i 2 dagar och kräver inte godkännande. Om du stöter på det här scenariot måste du välja den princip som du vill använda.
-
-**Nödvändig roll:** Begär Ande
 
 ## <a name="next-steps"></a>Nästa steg
 

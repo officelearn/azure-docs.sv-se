@@ -1,15 +1,16 @@
 ---
 ms.topic: include
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 10/09/2019
-ms.openlocfilehash: 61842a8f410d972c21614f625f7d4f36476cb239
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 038d25a01c02799f48b8430fb6ac3facc1cd3bd6
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72259106"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990834"
 ---
 ## <a name="business-disaster-recovery"></a>Katastrof återställning för företag
 
@@ -23,8 +24,8 @@ Ytterligare funktioner med hög tillgänglighet tillhandahålls via Azure (och �
 
 - **Redundans**: Azure tillhandahåller [geo-replikering och belastnings utjämning](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Data återställning** och **lagrings återställning**: Azure tillhandahåller [flera alternativ för att bevara och återställa data](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Site Recovery**: Azure tillhandahåller Site Recovery-funktioner via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-- **Azure Backup**: [Azure Backup](https://docs.microsoft.com/azure/backup/backup-architecture) stöder både lokala och molnbaserade säkerhets kopior av virtuella Azure-datorer.
+- **Azure Site Recovery**: Azure tillhandahåller Site Recovery-funktioner via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+- **Azure Backup**: [Azure Backup](https://docs.microsoft.com/azure/backup/backup-architecture) stöder både lokal och molnad säkerhets kopiering av virtuella Azure-datorer.
 
 Se till att du aktiverar de relevanta Azure-funktionerna för att tillhandahålla global tillgänglighet över flera regioner för dina enheter och användare.
 
@@ -35,8 +36,8 @@ Se till att du aktiverar de relevanta Azure-funktionerna för att tillhandahåll
 
 Vissa Azure IoT-tjänster omfattar även inbyggda funktioner för verksamhets haveri beredskap:
 
-- [IoT Hub haveri beredskap med hög tillgänglighet](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), inklusive redundans inom regioner
-- [Event Hubs principer](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
+- [Azure IoT Hub haveri beredskap med hög tillgänglighet](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), vilket omfattar redundans inom regioner
+- [Azure Event Hubs-principer](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
 - [Azure Storage redundans](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 Att integrera Time Series Insights med de andra tjänsterna ger ytterligare möjligheter till haveri beredskap. Till exempel kan telemetri som skickas till händelsehubben vara bestående av en säkerhets kopia av Azure Blob Storage-databasen.
@@ -56,7 +57,7 @@ Så här skapar du en duplicerad miljö:
 
 1. Skapa en miljö i en andra region. Mer information finns i [skapa en ny Time Series Insights-miljö i Azure Portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 1. Skapa en andra dedikerad konsument grupp för din händelse källa.
-1. Anslut händelse källan till den nya miljön. Se till att du anger den andra, dedikerade konsument gruppen.
+1. Anslut händelse källan till den nya miljön. Se till att du anger den andra dedikerade konsument gruppen.
 1. Läs dokumentationen om Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) och [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) .
 
 Om en händelse inträffar:

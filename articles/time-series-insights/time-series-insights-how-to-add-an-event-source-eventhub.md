@@ -3,7 +3,7 @@ title: Lägg till en Event Hubs händelse källa i Azure Time Series Insights | 
 description: I den här artikeln beskrivs hur du lägger till en händelse källa som är ansluten till Azure Event Hubs till din Time Series Insights-miljö.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: aaddfb19889e31bb8e0d52d1df2d6b034b6e7f6b
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 3adf8b71d264b01f13f5aac7002b7ec455a31d60
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274331"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990070"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till händelse källan för Event Hub i Time Series Insightss miljön
 
@@ -40,7 +40,7 @@ Så här lägger du till en ny konsument grupp i händelsehubben:
 
 1. Leta upp och öppna din händelsehubben från Event Hub-namnområdet i [Azure Portal](https://portal.azure.com).
 
-    [@no__t – 1Open namn området för händelsehubben](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png#lightbox)
+    [![öppna ditt Event Hub-namnområde](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png#lightbox)
 
 1. Under **entiteter**väljer du **konsument grupper**och väljer sedan **konsument grupp**.
 
@@ -58,7 +58,7 @@ Så här lägger du till en ny konsument grupp i händelsehubben:
 
 1. Under **miljö sto pol Ogin**väljer du **händelse källor**och väljer sedan **Lägg till**.
 
-   [![Under händelse källor, Välj knappen Lägg till](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+   [Välj knappen Lägg till![under händelse källor](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
 1. Ange ett värde för **händelse källans namn** som är unikt för den här Time Series Insightss miljön, till exempel **händelse data ström**.
 
@@ -68,11 +68,11 @@ Så här lägger du till en ny konsument grupp i händelsehubben:
 
    * Om du har en befintlig händelsehubben i en av dina prenumerationer väljer du **Använd händelsehubben från tillgängliga prenumerationer**. Det här alternativet är den enklaste metoden.
 
-     [![Select ett import alternativ för händelse källa](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png#lightbox)
+     [![Välj ett import alternativ för händelse källa](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png#lightbox)
 
     *  I följande tabell beskrivs de nödvändiga egenskaperna för alternativet **Använd händelsehubben från tillgängliga prenumerationer** :
 
-       [information om ![Subscription och händelsehubben](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png#lightbox)
+       [![information om prenumeration och händelsehubben](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png#lightbox)
 
        | Egenskap | Beskrivning |
        | --- | --- |

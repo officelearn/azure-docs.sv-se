@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9178b8007d707af2df150102b2d344a44106a9ca
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755191"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990624"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda 
 
@@ -62,6 +62,10 @@ I tabellen nedan definieras relationen mellan konsekvens modell och data hållba
 *K* = antalet *"K"* versioner (d.v.s. uppdateringar) för ett objekt.
 
 *T* = tidsintervallet *"T"* sedan den senaste uppdateringen.
+
+## <a name="strong-consistency-and-multi-master"></a>Stark konsekvens och flera huvud servrar
+
+Cosmos-konton som kon figurer ATS för multi-master kan inte konfigureras för stark konsekvens eftersom det inte är möjligt för ett distribuerat system att leverera noll och en RTO på noll. Det finns dessutom inga fördelar med Skriv fördröjning för att använda stark konsekvens med multi-master som all skrivning till en region måste replikeras och allokeras till alla konfigurerade regioner i kontot. Detta resulterar i samma Skriv fördröjning som ett enda huvud konto.
 
 ## <a name="next-steps"></a>Nästa steg
 

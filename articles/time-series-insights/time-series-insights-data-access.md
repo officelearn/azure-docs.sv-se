@@ -3,7 +3,7 @@ title: Konfigurera säkerhet för att komma åt och hantera Azure Time Series In
 description: Den här artikeln beskriver hur du konfigurerar säkerhet och behörigheter som principer för hanterings åtkomst och principer för data åtkomst för att skydda Azure Time Series Insights för hands versionen.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 670615980b7fd78441a08ba987073dc139b3792a
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 3d835916ab1a9d99149800a50690876080a8c5fd
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274433"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990157"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bevilja data åtkomst till en miljö
 
@@ -34,11 +34,11 @@ Följ dessa steg om du vill bevilja data åtkomst för ett huvud konto för anv�
 
 1. Välj **data åtkomst principer**och välj sedan **+ Lägg till**.
 
-    [![Data-Access-One](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
+    [![data åtkomst – ett](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
 1. Välj **Välj användare**. Sök efter användar namnet eller e-postadressen för att hitta den användare som du vill lägga till. Välj **Välj** för att bekräfta valet.
 
-    [![Data-Access-två](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
+    [![data åtkomst – två](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. Välj **Välj roll**. Välj lämplig åtkomst roll för användaren:
 
@@ -48,15 +48,15 @@ Följ dessa steg om du vill bevilja data åtkomst för ett huvud konto för anv�
 
    Bekräfta valet av roll genom att klicka på **OK** .
 
-    [![Data-Access-tre](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
+    [![data åtkomst – tre](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. Välj **OK** på sidan **Välj användar roll** .
 
-    [![Data – åtkomst – fyra](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
+    [![data åtkomst – fyra](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. Bekräfta att sidan för **data åtkomst principer** visar användarna och rollerna för varje användare.
 
-    [![Data-Access-fem](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
+    [![data åtkomst – fem](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-aad-tenant"></a>Ge gäst åtkomst från en annan AAD-klient
 
@@ -66,19 +66,19 @@ Följ dessa steg om du vill ge gäst åtkomst till en Time Series Insights milj�
 
 1. Välj **data åtkomst principer**och välj sedan **+ Bjud in**.
 
-    [![Data-Access-sex](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
+    [![data åtkomst – sex](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. Ange e-postadressen för den användare som du vill bjuda in. Den här e-postadressen måste vara kopplad till Azure AD. Du kan också inkludera ett personligt meddelande med inbjudan.
 
-    [![Data-Access-sju](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
+    [![data åtkomst-sju](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. Leta efter den bekräftelse bubbla som visas på skärmen.
 
-    [![Data-Access-åtta](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
+    [![data åtkomst – åtta](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
 1. Välj **Välj användare**. Sök efter e-postadressen för gäst användaren som du har bjudit in för att hitta den användare som du vill lägga till. **Välj** sedan för att bekräfta valet.
 
-    [![Data-Access-nio](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
+    [![data åtkomst-nio](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. Välj **Välj roll**. Välj lämplig åtkomst roll för gäst användaren:
 
@@ -88,29 +88,29 @@ Följ dessa steg om du vill ge gäst åtkomst till en Time Series Insights milj�
 
    Bekräfta valet av roll genom att klicka på **OK** .
 
-    [![Data-Access-10](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
+    [![data åtkomst – tio](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. Välj **OK** på sidan **Välj användar roll** .
 
 1. Bekräfta att sidan för **data åtkomst principer** visar gäst användaren och rollerna för varje gäst användare.
 
-    [![Data-Access-elva](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
+    [![data åtkomst – elva](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. Gäst användaren måste nu följa stegen för att få åtkomst till miljön som finns i den Azure-klient som du har bjudit in dem till. Först accepterar de inbjudan som du skickade. Den här inbjudan skickas via e-post till den e-postadress som du använde i steg 5. De väljer **Kom igång** för att acceptera.
 
-    [![Data-Access-12](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
+    [![data åtkomst – 12](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. Sedan godkänner gäst användaren de behörigheter som är associerade med administratörens organisation.
 
-    [![Data-Access-tretton](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
+    [![data åtkomst – tretton](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. När gäst användaren är inloggad på e-postadressen som du använde för att bjuda in dem, och de accepterar inbjudan, går de till insights.azure.com. När så är fallet väljer de den avataren bredvid e-postadressen i det övre högra hörnet på skärmen.
 
-    [![Data-Access-fjorton](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
+    [![data åtkomst – fjorton](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. Sedan väljer gäst användaren din Azure-klient i list rutan Katalog. Den här klienten är den som du har bjudit in dem till.
 
-    [![Data-Access – 15](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
+    [![data åtkomst – 15](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
 När gäst användaren har valt klienten, ser de Time Series Insightss miljön som du har fått åtkomst till. De har nu alla funktioner som är kopplade till den roll som du angav i **steg 5**.
 

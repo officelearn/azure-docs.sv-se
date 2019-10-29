@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: återställa filer och mappar från en virtuell Azure-säkerhetskopiering'
+title: 'Azure Backup: återställa filer och mappar från virtuell Azure-säkerhetskopiering'
 description: Återställa filer från en återställnings punkt för en virtuell Azure-dator
 ms.reviewer: pullabhk
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1c0d470f12cf54c900fec3c453b7e5f07d0b2325
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900324"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968492"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -74,10 +74,9 @@ Om du vill återställa filer eller mappar från återställnings punkten går d
     - utgående port 3260
 
 > [!Note]
-> 
-> * Det nedladdade skript fil namnet kommer att ha **geo-namnet** ifyllt i URL: en. Till exempel: det nedladdade skript namnet börjar med \'VMname\'\_\'namn\'_\'GUID\', t. ex. ContosoVM_wcus_12345678....<br><br>
-> * URL: en är "https:\//pod01-rec2.wcus.backup.windowsazure.com"
-
+>
+> - Det nedladdade skript fil namnet kommer att ha **geo-namnet** ifyllt i URL: en. Till exempel: det nedladdade skript namnet börjar med \'VMname\'\_\'namn\'_\'GUID\', t. ex. ContosoVM_wcus_12345678....<br><br>
+> - URL: en är "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
    För Linux kräver skriptet "Open-iSCSI"-och ' lshw '-komponenter för att ansluta till återställnings punkten. Om komponenterna inte finns på den dator där skriptet körs, ställer skriptet efter behörighet att installera komponenterna. Ange medgivande för att installera de nödvändiga komponenterna.
 
@@ -223,7 +222,7 @@ Skriptet kräver också python-och bash-komponenter för att kunna köra och ans
 
 I det här avsnittet beskrivs hur du utför fil återställning från säkerhets kopior av virtuella Azure-datorer vars antal diskar är > 16 och varje disk storlek är > 4 TB.
 
-Eftersom fil återställnings processen kopplar alla diskar från säkerhets kopian, i händelse av ett stort antal diskar (> 16) eller stora diskar (> 4 TB var och en), rekommenderas följande åtgärds punkter.
+Eftersom fil återställnings processen kopplar alla diskar från säkerhets kopian, om ett stort antal diskar (> 16) eller stora diskar (> 4 TB var och en), rekommenderas följande åtgärds punkter.
 
 - Behåll en separat Restore Server (virtuella Azure VM D2v3-datorer) för fil återställning. Du kan använda det bara fil återställningen och sedan stänga av vid behov. Det rekommenderas inte att återställas på den ursprungliga datorn eftersom den har betydande påverkan på den virtuella datorn.
 - Kör skriptet en gång för att kontrol lera om fil återställningen lyckas.

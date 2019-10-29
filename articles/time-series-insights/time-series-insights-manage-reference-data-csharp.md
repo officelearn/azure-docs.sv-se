@@ -3,44 +3,43 @@ title: Hantera referens data i Azure Time Series Insights miljö med C# | Micros
 description: Den här artikeln beskriver hur du hanterar referens data för en Azure Time Series Insightss miljö genom att skapa ett anpassat program C# som skrivits på (c-sharp) .net-språket.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4f206b63be38c902f93a084889e60184ce03e07
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 4eb8a22ee56203fe84df6ee1cff779e3f3bdf491
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958047"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990049"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera GA-referens data för en Azure Time Series Insights miljö med hjälp avC#
 
 I den här artikeln beskrivs C# ett exempel projekt som du kan kompilera för att hantera referens data för en Azure Time Series Insightss miljö.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför följande steg innan du kompilerar och kör exempel koden:
 
 1. [Skapa en referens data uppsättning](time-series-insights-add-reference-data-set.md).
 
-1. Konfigurera åtkomsttoken för programmet. Se till att token har hämtats via Azure Active Directory-API: et. Du bör skicka denna token i `Authorization`-huvudet för varje fråge-API-begäran.
+1. Konfigurera åtkomsttoken för programmet. Se till att token har hämtats via Azure Active Directory-API: et. Du bör skicka denna token i `Authorization` rubriken för varje fråge-API-begäran.
 
    Information om hur du konfigurerar icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
 
 1. Redigera exempel koden för att ersätta exempel konstanterna som anges i **#DUMMY #** , nära början av koden.
 
 > [!NOTE]
-> Visa exempel koden för GA i [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Visa exempel koden för GA på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Projekt beroenden
 
-Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` för det här exemplet.
+Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` i det här exemplet.
 
 ## <a name="c-sample-code"></a>C#exempel kod
 

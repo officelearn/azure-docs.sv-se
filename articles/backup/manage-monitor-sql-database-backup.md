@@ -1,5 +1,5 @@
 ---
-title: Hantera och övervaka SQL Server databaser på en virtuell Azure-dator med Azure Backup
+title: Hantera och övervaka SQL Server databaser på en virtuell Azure-dator – Azure Backup
 description: Den här artikeln beskriver hur du hanterar och övervakar SQL Server databaser som körs på en virtuell Azure-dator.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 7440859748a613f7d6af751974e07289175ed7ac
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934768"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968359"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -32,7 +32,6 @@ Azure Backup visar alla manuellt utlösta jobb i portalen med **säkerhets kopie
 
 Information om övervaknings scenarier finns [i övervakning i Azure Portal](backup-azure-monitoring-built-in-monitor.md) och [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
-
 ## <a name="view-backup-alerts"></a>Visa säkerhetskopieringsaviseringar
 
 Eftersom säkerhets kopiering av loggar sker var 15: e minut, kan det vara omständligt att övervaka säkerhets kopierings jobb. Azure Backup underlättar övervakningen genom att skicka e-postaviseringar. E-postaviseringar är:
@@ -43,7 +42,7 @@ Eftersom säkerhets kopiering av loggar sker var 15: e minut, kan det vara omst�
 
 Övervaka aviseringar om säkerhets kopiering av databas:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. På instrument panelen för valv väljer du **aviseringar och händelser**.
 
@@ -57,14 +56,14 @@ Eftersom säkerhets kopiering av loggar sker var 15: e minut, kan det vara omst�
 
 Du kan sluta säkerhetskopiera en SQL Server databas på ett par olika sätt:
 
-* Stoppa alla framtida säkerhets kopierings jobb och ta bort alla återställnings punkter.
-* Stoppa alla framtida säkerhets kopierings jobb och lämna återställnings punkterna intakta.
+- Stoppa alla framtida säkerhets kopierings jobb och ta bort alla återställnings punkter.
+- Stoppa alla framtida säkerhets kopierings jobb och lämna återställnings punkterna intakta.
 
 Om du väljer att lämna återställnings punkter bör du tänka på följande:
 
-* Alla återställnings punkter förblir intakta för alltid och all rensning stoppas vid stopp av skyddet med data kvar.
-* Du kommer att debiteras för den skyddade instansen och den förbrukade lagringen. Mer information finns i [Azure Backup prissättning](https://azure.microsoft.com/pricing/details/backup/).
-* Om du tar bort en data källa utan att stoppa säkerhets kopieringen kommer nya säkerhets kopieringar att Miss lyckas.
+- Alla återställnings punkter förblir intakta för alltid och all rensning stoppas vid stopp av skyddet med data kvar.
+- Du kommer att debiteras för den skyddade instansen och den förbrukade lagringen. Mer information finns i [Azure Backup prissättning](https://azure.microsoft.com/pricing/details/backup/).
+- Om du tar bort en data källa utan att stoppa säkerhets kopieringen kommer nya säkerhets kopieringar att Miss lyckas.
 
 Så här stoppar du skydd för en databas:
 
@@ -82,22 +81,20 @@ Så här stoppar du skydd för en databas:
 
     ![Välja Avbryt säkerhetskopiering](./media/backup-azure-sql-database/stop-db-button.png)
 
-
 5. På menyn **stoppa säkerhets kopiering** väljer du om du vill behålla eller ta bort data. Ange en orsak och kommentar om du vill.
 
     ![Behåll eller ta bort data på menyn stoppa säkerhets kopiering](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. Välj **stoppa säkerhets kopiering**.
 
-
 > [!NOTE]
 >
 >Mer information om alternativet ta bort data finns i vanliga frågor och svar nedan:
->* [Vad händer med säkerhets kopior om jag tar bort en databas från en skyddad instans?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->* [Vad händer om jag avbryter säkerhets kopieringen av en automatiskt skyddad databas?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>- [Vad händer med säkerhets kopior om jag tar bort en databas från en skyddad instans?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Vad händer om jag avbryter säkerhets kopieringen av en automatiskt skyddad databas?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
-
 
 ## <a name="resume-protection-for-a-sql-database"></a>Återuppta skyddet för en SQL-databas
 
@@ -115,12 +112,13 @@ Om du slutar skydda SQL-databasen kan du senare återuppta skyddet om du väljer
 
 Du kan köra olika typer av säkerhets kopieringar på begäran:
 
-* Fullständig säkerhetskopia
-* Fullständig säkerhetskopia med endast kopiering
-* Differentiell säkerhetskopia
-* Loggsäkerhetskopia
+- Fullständig säkerhetskopia
+- Fullständig säkerhetskopia med endast kopiering
+- Differentiell säkerhetskopia
+- Loggsäkerhetskopia
 
-Du måste ange kvarhållningsperioden för fullständig säkerhets kopiering, men kvarhållningsintervallet för den fullständiga och fullständiga säkerhets kopieringen anges automatiskt till 45 dagar från aktuell tid. <br/>
+Du måste ange kvarhållningsperioden för fullständig säkerhets kopiering, men kvarhållningsintervallet för den fullständiga och fullständiga säkerhets kopieringen anges automatiskt till 45 dagar från aktuell tid.
+
 Mer information finns i [SQL Server säkerhets kopierings typer](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Avregistrera en SQL-serverinstans
@@ -141,35 +139,34 @@ Avregistrera en SQL Server instans när du har inaktiverat skyddet, men innan du
 
    ![Välja Ta bort](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
-
 ## <a name="modify-policy"></a>Ändra princip
+
 Ändra princip för att ändra säkerhets kopierings frekvens eller kvarhållningsintervall.
 
 > [!NOTE]
 > Eventuella ändringar i kvarhållningsperioden tillämpas retroaktivt för alla äldre återställnings punkter förutom de nya.
 
-I valv instrument panelen, gå till **Hantera** > **säkerhets kopierings principer** och välj den princip som du vill redigera.
+I instrument panelen för valv går du till **Hantera** principer för > **säkerhets kopiering** och väljer den princip som du vill redigera.
 
   ![Hantera säkerhets kopierings princip](./media/backup-azure-sql-database/modify-backup-policy.png)
 
   ![Ändra säkerhets kopierings princip](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-Princip ändringen påverkar alla tillhör ande säkerhets kopierings objekt och utlöser motsvarande **Konfigurera skydds** jobb. 
+Princip ändringen påverkar alla tillhör ande säkerhets kopierings objekt och utlöser motsvarande **Konfigurera skydds** jobb.
 
-#### <a name="inconsistent-policy"></a>Inkonsekvent princip 
+### <a name="inconsistent-policy"></a>Inkonsekvent princip
 
 Ibland kan en åtgärd för att ändra en princip leda till en **inkonsekvent** princip version för vissa säkerhets kopierings objekt. Detta inträffar när motsvarande **konfigurations skydds** jobb Miss lyckas för säkerhets kopierings objektet när en åtgärd för att ändra princip har utlösts. Den visas på följande sätt i vyn säkerhets kopierings objekt:
- 
+
   ![Inkonsekvent princip](./media/backup-azure-sql-database/inconsistent-policy.png)
 
 Du kan åtgärda princip versionen för alla påverkade objekt i ett klick:
 
   ![Åtgärda inkonsekvent princip](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
- 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrera tillägget på nytt på SQL Server VM
 
-Ibland kan arbets belastnings tillägget på den virtuella datorn påverkas av en eller flera orsaker. I sådana fall påbörjas alla åtgärder som utlöses på den virtuella datorn. Du kan sedan behöva registrera tillägget på den virtuella datorn på nytt. **Omregistrering** av åtgärden installerar om tillägget för säkerhets kopiering av arbets belastning på den virtuella datorn för att fortsätta.  <br>
+Ibland kan arbets belastnings tillägget på den virtuella datorn påverkas av en eller flera orsaker. I sådana fall påbörjas alla åtgärder som utlöses på den virtuella datorn. Du kan sedan behöva registrera tillägget på den virtuella datorn på nytt. **Omregistrering** av åtgärden installerar om tillägget för säkerhets kopiering av arbets belastning på den virtuella datorn för att fortsätta.
 
 Använd det här alternativet med försiktighet. När den utlöses på en virtuell dator med ett redan felfritt tillägg kommer den här åtgärden att leda till att tillägget startas om. Detta kan leda till att alla pågående jobb Miss lyckas. Sök efter ett eller flera av [problemen](backup-sql-server-azure-troubleshoot.md#re-registration-failures) innan du utlöser omregistrerings åtgärden.
 

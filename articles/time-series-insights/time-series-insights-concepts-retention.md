@@ -3,7 +3,7 @@ title: Förstå datakvarhållning i Azure Time Series Insightss miljön | Micros
 description: I den här artikeln beskrivs två inställningar som styr datakvarhållning i Azure Time Series Insightss miljön.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2939e37c891a6ecc0421062493cab2e5d79223b5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 9dd771d44452ddc36913caf04f3c3a2d15ff1f08
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330917"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990132"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Förstå data kvarhållning i Azure Time Series Insights
 
@@ -88,7 +88,7 @@ När ingress återupptas:
 
 I den påverkade Event Hubs bör du överväga att justera egenskapen för **kvarhållning av meddelanden** för att minimera data förlust när paus inträffar i Time Series Insights.
 
-[kvarhållning av ![Event.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![kvarhållning av Event Hub-meddelande.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
 Om inga egenskaper har kon figurer ATS på händelse källan (`timeStampPropertyName`) Time Series Insights standardvärdet för att ange tidsstämpeln för ankomst till händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat, söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelser parsas.
 

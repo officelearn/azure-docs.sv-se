@@ -1,6 +1,6 @@
 ---
 title: Gränser och konfiguration – Azure Logic Apps
-description: Tjänst begränsningar och konfigurations värden för Azure Logic Apps
+description: Tjänst begränsningar, till exempel varaktighet, data flöde och kapacitet, plus konfigurations värden, till exempel IP-adresser som ska tillåtas, för Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 5399ebaa9526bd2c92a8d12eaa5cd8e5f53b1037
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 52e1594f40917519d80f042a4ace77532186758b
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799357"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968603"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -146,8 +146,8 @@ Vissa kopplings åtgärder gör asynkrona anrop eller lyssnar efter webhook-beg�
 | Namn | Gräns för flera innehavare | Miljö gräns för integrerings tjänst | Anteckningar |
 |------|--------------------|---------------------------------------|-------|
 | Meddelandestorlek | 100 MB | 200 MB | För att undvika den här gränsen, se [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). Vissa anslutningar och API: er kanske inte stöder segment koppling eller till och med standard gränsen. |
-| Meddelande storlek med segment | 1 GB | 5 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för segmentering eller som låter dig aktivera segment i körnings konfigurationen. <p>För integrerings tjänst miljön stöder Logic Apps motor den här gränsen, men kopplingarna har sina egna segment gränser upp till motor gränsen, till exempel se [Azure Blob Storage Connector](/connectors/azureblob/). Mer information om segment finns i [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). |
-| Utvärderings gräns för uttryck | 131 072 tecken | 131 072 tecken | @No__t_0, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. |
+| Meddelande storlek med segment | 1 GB | 5 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för segmentering eller som låter dig aktivera segment i körnings konfigurationen. <p>För integrerings tjänst miljön stöder Logic Apps motor den här gränsen, men kopplingarna har sina egna segment gränser upp till motor gränsen, till exempel, se [Azure-Blob Storage Connectors API-referens](https://docs.microsoft.com/connectors/azureblob/). Mer information om segment finns i [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). |
+| Utvärderings gräns för uttryck | 131 072 tecken | 131 072 tecken | `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. |
 |||||
 
 #### <a name="retry-policy"></a>Återförsöksprincip

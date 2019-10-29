@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: 2c9ca71816d6688881de465a575a8a0eef3cde1f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: bfaecc5fe9fbbd68ba0f138b7b40b2507d729635
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650446"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968640"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Säkerhetskopiera och återställa Azure Files med PowerShell
 
-Den här artikeln beskriver hur du använder Azure PowerShell för att säkerhetskopiera och återställa en Azure Files fil resurs med hjälp av ett [Azure Backup](backup-overview.md) Recovery Services-valv. 
+Den här artikeln beskriver hur du använder Azure PowerShell för att säkerhetskopiera och återställa en Azure Files fil resurs med hjälp av ett [Azure Backup](backup-overview.md) Recovery Services-valv.
 
 I den här självstudien beskrivs hur du:
 
@@ -29,13 +29,11 @@ I den här självstudien beskrivs hur du:
 > * Återställa en säkerhets kopie rad Azure-filresurs eller en enskild fil från en resurs.
 > * Övervaka säkerhets kopierings-och återställnings jobb.
 
-
 ## <a name="before-you-start"></a>Innan du börjar
 
-- [Läs mer](backup-azure-recovery-services-vault-overview.md) om Recovery Services-valv.
-- Läs om förhands gransknings funktionerna för att [säkerhetskopiera Azure](backup-azure-files.md)-filresurser.
-- Granska PowerShell-objektcachen för Recovery Services.
-
+* [Läs mer](backup-azure-recovery-services-vault-overview.md) om Recovery Services-valv.
+* Läs om förhands gransknings funktionerna för att [säkerhetskopiera Azure-filresurser](backup-azure-files.md).
+* Granska PowerShell-objektcachen för Recovery Services.
 
 ## <a name="recovery-services-object-hierarchy"></a>Recovery Services objektets hierarki
 
@@ -43,8 +41,7 @@ Objektets hierarki sammanfattas i följande diagram.
 
 ![Recovery Services objektets hierarki](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Granska [referens](/powershell/module/az.recoveryservices) referensen för cmdleten **AZ. RecoveryServices** i Azure-biblioteket.
-
+Granska referens referensen för [cmdleten](/powershell/module/az.recoveryservices) **AZ. RecoveryServices** i Azure-biblioteket.
 
 ## <a name="set-up-and-install"></a>Konfigurera och installera
 
@@ -59,57 +56,59 @@ Konfigurera PowerShell på följande sätt:
     ```powershell
     Get-Command *azrecoveryservices*
     ```
+
 3. Granska alias och cmdlets för Azure Backup, Azure Site Recovery och Recovery Services valvet visas. Här är ett exempel på vad du kan se. Det är inte en fullständig lista över cmdletar.
 
     ![Lista över Recovery Services-cmdletar](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-3. Logga in på ditt Azure-konto med **Connect-AzAccount**.
-4. På webb sidan som visas uppmanas du att ange dina autentiseringsuppgifter för kontot.
+4. Logga in på ditt Azure-konto med **Connect-AzAccount**.
+5. På webb sidan som visas uppmanas du att ange dina autentiseringsuppgifter för kontot.
 
-    - Alternativt kan du inkludera dina konto uppgifter som en parameter i cmdleten **Connect-AzAccount** med **-Credential**.
-    - Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras tenantID eller primära domän namn. Ett exempel är **Connect-AzAccount-Tenant** fabrikam.com.
+    * Alternativt kan du inkludera dina konto uppgifter som en parameter i cmdleten **Connect-AzAccount** med **-Credential**.
+    * Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras tenantID eller primära domän namn. Ett exempel är **Connect-AzAccount-Tenant** fabrikam.com.
 
-4. Associera den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer.
+6. Associera den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer.
 
     ```powershell
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. Om du använder Azure Backup för första gången ska du använda cmdleten **register-AzResourceProvider** för att registrera Azure Recovery Services-providern med din prenumeration.
+7. Om du använder Azure Backup för första gången ska du använda cmdleten **register-AzResourceProvider** för att registrera Azure Recovery Services-providern med din prenumeration.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-6. Verifiera att providern har registrerats:
+8. Verifiera att providern har registrerats:
 
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-7. I kommandot utdata kontrollerar du att **RegistrationState** ändras till **registrerad**. Om den inte gör det kör du cmdleten **register-AzResourceProvider** igen.
 
-
+9. I kommandot utdata kontrollerar du att **RegistrationState** ändras till **registrerad**. Om den inte gör det kör du cmdleten **register-AzResourceProvider** igen.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-Följ dessa steg om du vill skapa ett Recovery Services-valv.
+Recovery Services valvet är en Resource Manager-resurs, så du måste placera den i en resurs grupp. Du kan använda en befintlig resurs grupp, eller så kan du skapa en resurs grupp med cmdleten **New-AzResourceGroup** . När du skapar en resurs grupp anger du namn och plats för resurs gruppen.
 
-- Recovery Services valvet är en Resource Manager-resurs, så du måste placera den i en resurs grupp. Du kan använda en befintlig resurs grupp, eller så kan du skapa en resurs grupp med cmdleten **New-AzResourceGroup** . När du skapar en resurs grupp anger du namn och plats för resurs gruppen. 
+Följ dessa steg om du vill skapa ett Recovery Services-valv.
 
 1. Ett valv placeras i en resurs grupp. Om du inte har en befintlig resurs grupp skapar du en ny med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). I det här exemplet skapar vi en ny resurs grupp i regionen USA, västra.
 
    ```powershell
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
+
 2. Använd cmdleten [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) för att skapa valvet. Ange samma plats för valvet som användes för resurs gruppen.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
+
 3. Ange vilken typ av redundans som ska användas för valv lagringen.
 
-   - Du kan använda [Lokalt Redundant lagring](../storage/common/storage-redundancy-lrs.md) eller [Geo-redundant lagring](../storage/common/storage-redundancy-grs.md).
-   - I följande exempel anges alternativet **-BackupStorageRedundancy** för[set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd för **testvault** som är inställt på interredundant.
+   * Du kan använda [Lokalt Redundant lagring](../storage/common/storage-redundancy-lrs.md) eller [Geo-redundant lagring](../storage/common/storage-redundancy-grs.md).
+   * I följande exempel anges alternativet **-BackupStorageRedundancy** för[set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd för **testvault** som är inställt på **interredundant**.
 
      ```powershell
      $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -140,9 +139,8 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 Lagra Valve-objektet i en variabel och ange valv kontexten.
 
-- Många Azure Backup-cmdletar kräver att Recovery Services Vault-objektet är inmatat, så det är praktiskt att lagra valvet i en variabel.
-- Valvets sammanhang är typen av data som skyddas i valvet. Ange den med [set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). När kontexten har angetts gäller den för alla efterföljande cmdletar.
-
+* Många Azure Backup-cmdletar kräver att Recovery Services Vault-objektet är inmatat, så det är praktiskt att lagra valvet i en variabel.
+* Valvets sammanhang är typen av data som skyddas i valvet. Ange den med [set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). När kontexten har angetts gäller den för alla efterföljande cmdletar.
 
 I följande exempel anges valv kontexten för **testvault**.
 
@@ -163,10 +161,10 @@ New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType 
 
 En säkerhets kopierings princip anger schemat för säkerhets kopior och hur länge återställnings punkter för säkerhets kopiering ska behållas:
 
-- En säkerhets kopierings princip är associerad med minst en bevarande princip. En bevarande princip definierar hur länge en återställnings punkt ska sparas innan den tas bort.
-- Visa standard kvarhållning av säkerhets kopierings princip med [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-- Visa standard schema för säkerhets kopiering med [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
--  Du använder cmdleten [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) för att skapa en ny säkerhets kopierings princip. Du har angett schema-och bevarande princip objekt.
+* En säkerhets kopierings princip är associerad med minst en bevarande princip. En bevarande princip definierar hur länge en återställnings punkt ska sparas innan den tas bort.
+* Visa standard kvarhållning av säkerhets kopierings princip med [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
+* Visa standard schema för säkerhets kopiering med [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
+* Du använder cmdleten [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) för att skapa en ny säkerhets kopierings princip. Du har angett schema-och bevarande princip objekt.
 
 Som standard definieras en start tid i objektet Schemalägg princip. Använd följande exempel för att ändra start tiden till önskad start tid. Den önskade start tiden ska också vara i UTC-tid. I exemplet nedan förutsätter du att den önskade start tiden är 01:00 AM UTC för dagliga säkerhets kopieringar.
 
@@ -258,7 +256,7 @@ Använd [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powersh
 3. Kör en säkerhets kopiering på begäran med[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Kör säkerhets kopiering på begäran på följande sätt:
-    
+
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
 $afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -Name "testAzureFS"
@@ -279,7 +277,7 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 Säkerhets kopiering på begäran kan användas för att spara dina ögonblicks bilder i 10 år. Scheduler kan användas för att köra PowerShell-skript på begäran med vald kvarhållning och därmed ta ögonblicks bilder med jämna mellanrum varje vecka, månad eller år. När du använder vanliga ögonblicks bilder kan du se [begränsningarna för säkerhets kopiering på begäran](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) med Azure Backup.
 
-Om du letar efter exempel skript kan du referera till exempel skriptet på GitHub (https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) med Azure Automation Runbook som gör att du kan schemalägga säkerhets kopieringar regelbundet och behålla dem jämnt upp till 10 år.
+Om du letar efter exempel skript kan du referera till exempel skriptet på GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)> att använda Azure Automation Runbook som gör att du kan schemalägga säkerhets kopieringar regelbundet och behålla dem till och med 10 år.
 
 ### <a name="modify-the-protection-policy"></a>Ändra skydds principen
 
@@ -296,7 +294,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsP
 
 ## <a name="restore-azure-file-shares-and-files"></a>Återställa Azure-filresurser och filer
 
-Du kan återställa en hel fil resurs eller vissa filer på resursen. Du kan återställa till den ursprungliga platsen eller till en annan plats. 
+Du kan återställa en hel fil resurs eller vissa filer på resursen. Du kan återställa till den ursprungliga platsen eller till en annan plats.
 
 ### <a name="fetch-recovery-points"></a>Hämta återställnings punkter
 
@@ -304,10 +302,10 @@ Använd [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/p
 
 I följande skript:
 
-- Variabeln **$RP** är en matris av återställnings punkter för det valda säkerhets kopierings objektet från de senaste sju dagarna.
-- Matrisen sorteras i omvänd ordning med den senaste återställnings punkten vid index **0**.
-- Använd standard PowerShell-matrisering för att välja återställnings punkt.
-- I exemplet väljer **$RP [0]** den senaste återställnings punkten.
+* Variabeln **$RP** är en matris av återställnings punkter för det valda säkerhets kopierings objektet från de senaste sju dagarna.
+* Matrisen sorteras i omvänd ordning med den senaste återställnings punkten vid index **0**.
+* Använd standard PowerShell-matrisering för att välja återställnings punkt.
+* I exemplet väljer **$RP [0]** den senaste återställnings punkten.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
@@ -332,16 +330,17 @@ ContainerName        : storage;teststorageRG;testStorageAcct
 ContainerType        : AzureStorage
 BackupManagementType : AzureStorage
 ```
+
 När du har valt den relevanta återställnings punkten återställer du fil resursen eller filen till den ursprungliga platsen eller till en annan plats.
 
 ### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Återställa en Azure-filresurs till en annan plats
 
-Använd Restore [-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) för att återställa till den valda återställnings punkten. Ange följande parametrar för att identifiera den alternativa platsen: 
+Använd [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) för att återställa till den valda återställnings punkten. Ange följande parametrar för att identifiera den alternativa platsen:
 
-- **TargetStorageAccountName**: Det lagrings konto som det säkerhetskopierade innehållet återställs till. Mål lagrings kontot måste finnas på samma plats som valvet.
-- **TargetFileShareName**: De fil resurser i mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
-- **TargetFolder**: Mappen under den fil resurs som data återställs till. Om det säkerhetskopierade innehållet ska återställas till en rotmapp, ger du målmappens värden som en tom sträng.
-- **ResolveConflict**: Instruktion om det finns en konflikt med återställda data. Accepterar överskrivning eller **Skip**.
+* **TargetStorageAccountName**: det lagrings konto som det säkerhetskopierade innehållet återställs till. Mål lagrings kontot måste finnas på samma plats som valvet.
+* **TargetFileShareName**: de fil resurser i mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
+* **TargetFolder**: mappen under den fil resurs som data återställs till. Om det säkerhetskopierade innehållet ska återställas till en rotmapp, ger du målmappens värden som en tom sträng.
+* **ResolveConflict**: instruktion om det finns en konflikt med återställda data. Accepterar **överskrivning** eller **Skip**.
 
 Kör cmdleten med parametrarna på följande sätt:
 
@@ -359,14 +358,14 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### <a name="restore-an-azure-file-to-an-alternate-location"></a>Återställa en Azure-fil till en annan plats
 
-Använd Restore [-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) för att återställa till den valda återställnings punkten. Ange de här parametrarna för att identifiera den alternativa platsen och för att unikt identifiera den fil som du vill återställa.
+Använd [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) för att återställa till den valda återställnings punkten. Ange de här parametrarna för att identifiera den alternativa platsen och för att unikt identifiera den fil som du vill återställa.
 
-* **TargetStorageAccountName**: Det lagrings konto som det säkerhetskopierade innehållet återställs till. Mål lagrings kontot måste finnas på samma plats som valvet.
-* **TargetFileShareName**: De fil resurser i mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
-* **TargetFolder**: Mappen under den fil resurs som data återställs till. Om det säkerhetskopierade innehållet ska återställas till en rotmapp, ger du målmappens värden som en tom sträng.
-* **SourceFilePath**: Den absoluta sökvägen till filen som ska återställas inom fil resursen, som en sträng. Den här sökvägen är samma sökväg som används i PowerShell-cmdleten **Get-AzStorageFile** .
-* **SourceFileType**: Om en katalog eller en fil har valts. Accepterar **katalog** eller **fil**.
-* **ResolveConflict**: Instruktion om det finns en konflikt med återställda data. Accepterar överskrivning eller **Skip**.
+* **TargetStorageAccountName**: det lagrings konto som det säkerhetskopierade innehållet återställs till. Mål lagrings kontot måste finnas på samma plats som valvet.
+* **TargetFileShareName**: de fil resurser i mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
+* **TargetFolder**: mappen under den fil resurs som data återställs till. Om det säkerhetskopierade innehållet ska återställas till en rotmapp, ger du målmappens värden som en tom sträng.
+* **SourceFilePath**: den absoluta sökvägen till filen som ska återställas inom fil resursen, som en sträng. Den här sökvägen är samma sökväg som används i PowerShell-cmdleten **Get-AzStorageFile** .
+* **SourceFileType**: om en katalog eller en fil är markerad. Accepterar **katalog** eller **fil**.
+* **ResolveConflict**: instruktion om det finns en konflikt med återställda data. Accepterar **överskrivning** eller **Skip**.
 
 De ytterligare parametrarna (SourceFilePath och SourceFileType) är bara relaterade till den enskilda filen som du vill återställa.
 
@@ -421,5 +420,7 @@ $job.ErrorDetails
  --------- ------------                                          ---------------
 1073871825 Microsoft Azure Backup encountered an internal error. Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support.
 ```
+
 ## <a name="next-steps"></a>Nästa steg
+
 [Lär dig mer om](backup-azure-files.md) att säkerhetskopiera Azure Files i Azure Portal.

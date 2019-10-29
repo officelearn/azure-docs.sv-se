@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 2174e359f739cfdf3791c8ec64d1a95be2873555
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 698ca6736af86358de13f6deae8f1e2dba92f46e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930914"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990654"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -556,7 +556,7 @@ I det här steget skapar du data uppsättningar som representerar indata och utd
    | 4 |2016-11-16T03:00:00 |2016-11-16 -03. txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16 -04. txt |
 
-    Kom ihåg att alla filer i en mapp är en del av en sektor med de start tider som anges ovan. När den här sektorn bearbetas genomsöker den anpassade aktiviteten igenom varje fil och skapar en rad i utdatafilen med antalet förekomster av Sök termen ("Microsoft"). Om det finns tre filer i inputfolder finns det tre rader i utdatafilen för varje timme-sektor: 2016-11-16 -00. txt, 2016-11-16:01:00:00. txt osv.
+    Kom ihåg att alla filer i en mapp är en del av en sektor med de start tider som anges ovan. När den här sektorn bearbetas genomsöker den anpassade aktiviteten igenom varje fil och skapar en rad i utdatafilen med antalet förekomster av Sök termen ("Microsoft"). Om det finns tre filer i indata-mappen finns det tre rader i utdatafilen för varje timme-sektor: 2016-11-16 -00. txt, 2016-11-16:01:00:00. txt osv.
 3. Klicka på **distribuera** i kommando fältet för att distribuera **OutputDataset**.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Skapa och kör en pipeline som använder den anpassade aktiviteten

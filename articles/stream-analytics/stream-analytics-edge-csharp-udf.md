@@ -1,6 +1,6 @@
 ---
-title: Skriv C# användardefinierade funktioner för Azure Stream Analytics Edge-jobb
-description: Lär dig hur du skriver användardefinierade funktioner med c# för Stream Analytics Edge-jobb i Visual Studio.
+title: Skriv C# användardefinierade funktioner för Azure Stream Analytics jobb i Visual Studio (för hands version)
+description: Lär dig hur du skriver c#-användardefinierade funktioner för Stream Analytics jobb i Visual Studio.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -9,23 +9,23 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ddb5f6c57c49b33c992b13f38c969cbc5e91225
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d6cf420c8baceb243e8c4d70c8bcbc95ec626c3a
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925627"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990244"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Självstudie: skriva en C# användardefinierad funktion för Azure Stream Analytics Edge-jobb (förhands granskning)
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Självstudie: skriva en C# användardefinierad funktion för Azure Stream Analytics jobb (förhands granskning)
 
-Med användardefinierade funktioner med C# (UDF skapas i Visual Studio) kan du utöka Azure Stream Analytics-frågespråket med dina egna funktioner. Du kan återanvända befintlig kod (inklusive DLL-filer) och använda matematiska eller komplex logik med C#. Det finns tre sätt att implementera UDF:er: CodeBehind-filer i ett Stream Analytics-projekt, UDF:er från ett lokalt C#-projekt eller UDF:er från ett befintligt paket från ett lagringskonto. Den här självstudien använder metoden CodeBehind för att implementera en grundläggande C#-funktion. UDF-funktionen för Stream Analytics Edge-jobb är en förhandsversion och bör inte användas i produktionsarbetsbelastningar.
+Med användardefinierade funktioner med C# (UDF skapas i Visual Studio) kan du utöka Azure Stream Analytics-frågespråket med dina egna funktioner. Du kan återanvända befintlig kod (inklusive DLL-filer) och använda matematiska eller komplex logik med C#. Det finns tre sätt att implementera UDF:er: CodeBehind-filer i ett Stream Analytics-projekt, UDF:er från ett lokalt C#-projekt eller UDF:er från ett befintligt paket från ett lagringskonto. Den här självstudien använder metoden CodeBehind för att implementera en grundläggande C#-funktion. UDF-funktionen för Stream Analytics jobb är för närvarande en för hands version och bör inte användas i produktions arbets belastningar.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en användardefinierad funktion i C# med CodeBehind.
-> * Testa ditt Stream Analytics Edge-jobb lokalt.
-> * Publicera ditt Edge-jobb på Azure.
+> * Testa ditt Stream Analytics jobb lokalt.
+> * Publicera jobbet till Azure.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,19 +33,19 @@ Innan du börjar bör du kontrollera att du har slutfört följande krav:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installera [Stream Analytics-verktygen för Visual Studio](stream-analytics-tools-for-visual-studio-install.md) och arbetsbelastningen **Azure development** (Azure-utveckling) eller **Data Storage and Processing** (Datalagring och bearbetning).
-* Ta en titt på den befintliga [utvecklingsguiden för Stream Analytics Edge](stream-analytics-tools-for-visual-studio-edge-jobs.md).
+* Ta en titt på den befintliga [Stream Analytics Edge Development Guide] om du skapar ett IoT Edge jobb (Stream-Analytics-tools-for-Visual-Studio-Edge-jobs.md).
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Skapa en behållare i ditt Azure Storage-konto
 
-Containern du skapar används för att lagra kompilerade C#-paketet och distribuera dem till din IoT Edge-enhet. Använd en särskild container för varje Stream Analytics-jobb. Det går inte att använda samma container för flera Stream Analytics Edge-jobb. Om du redan har ett lagringskonto med befintliga containrar kan du använda dem. Annars måste du [skapa en ny container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
+Den behållare som du skapar kommer att användas för att lagra C# det kompilerade paketet. Om du skapar ett Edge-jobb kommer det här lagrings kontot också att användas för att distribuera paketet till din IoT Edge-enhet. Använd en särskild container för varje Stream Analytics-jobb. Det går inte att använda samma container för flera Stream Analytics Edge-jobb. Om du redan har ett lagringskonto med befintliga containrar kan du använda dem. Annars måste du [skapa en ny container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
-## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Skapa ett Stream Analytics Edge-projekt i Visual Studio
+## <a name="create-a-stream-analytics-project-in-visual-studio"></a>Skapa ett Stream Analytics-projekt i Visual Studio
 
 1. Starta Visual Studio.
 
 2. Välj **Arkiv > Nytt > Projekt**.
 
-3. I listan över mallar till vänster väljer du **Stream Analytics** och sedan **Azure Stream Analytics Edge-programmet**.
+3. Välj **Stream Analytics**i listan mallar till vänster och välj sedan **Azure Stream Analytics Edge-program** eller **Azure Stream Analytics program**.
 
 4.  Ange projektets **namn**, **plats** och **lösningsnamn**. Välj sedan **OK**.
 
@@ -59,19 +59,18 @@ Containern du skapar används för att lagra kompilerade C#-paketet och distribu
 
 3. Expandera avsnittet **användardefinierade kod Configuration** avsnittet och fyll i konfigurationen med följande föreslagna värden:
 
-    |**Inställning**  |**Föreslaget värde**  |
-    |---------|---------|
-    |Sammansättningskälla  |  Referens för det lokala projektet eller CodeBehind   |
-    |Resurs  |  Välj data från det aktuella kontot   |
-    |Prenumeration  |  Välj din prenumeration.   |
-    |Lagringskonto  |  Välj ditt lagringskonto.   |
-    |Container  |  Välj den container som du skapade i ditt storage-konto.   |
-
-    ![Azure Stream Analytics Edge-jobbkonfiguration i Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-edge-job-config.png)
+   |**Inställning**|**Föreslaget värde**|
+   |-------|---------------|
+   |Resurs för globala lagrings inställningar|Välj datakälla från det aktuella kontot|
+   |Prenumeration på globala lagrings inställningar| < prenumerationen >|
+   |Lagrings konto för globala lagrings inställningar| < ditt lagrings konto >|
+   |Resurs för anpassade kod lagrings inställningar|Välj datakälla från det aktuella kontot|
+   |Lagrings konto för anpassade kod lagrings inställningar|< ditt lagrings konto >|
+   |Behållare för lagrings inställningar för anpassade koder|< lagrings container >|
 
 
 ## <a name="write-a-c-udf-with-codebehind"></a>Skriv en C#-UDF med CodeBehind
-En CodeBehind-fil är en C#-fil som är associerad med ett enda ASA Edge-frågeskript. Visual Studio-verktyg kommer automatiskt komprimera CodeBehind-filen och överföra den till Azure storage-kontot när den skickas. Alla klasser måste definieras som *offentliga* och alla objekt måste definieras som *statiska offentliga*.
+En CodeBehind-fil är C# en fil som associeras med ett enda ASA-frågeuttryck. Visual Studio-verktyg kommer automatiskt komprimera CodeBehind-filen och överföra den till Azure storage-kontot när den skickas. Alla klasser måste definieras som *offentliga* och alla objekt måste definieras som *statiska offentliga*.
 
 1. I **Solution Explorer**, expandera **Script.asql** för att hitta CodeBehind-filen **Script.asaql.cs**.
 
@@ -111,7 +110,7 @@ En CodeBehind-fil är en C#-fil som är associerad med ett enda ASA Edge-fråges
 
 ## <a name="local-testing"></a>Lokal testning
 
-1. Ladda ned [exempeldatafilen temperatursimulator](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Sample%20Data/TemperatureSampleData.json) för Edge.
+1. Hämta [exempel data filen för temperatur simulatorn](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Sample%20Data/TemperatureSampleData.json).
 
 2. I **Solution Explorer**, expandera **Indata**, högerklicka på **Input.json** och välj **Lägg till lokala indata**.
 
@@ -146,13 +145,13 @@ När du har testat din fråga lokalt väljer du **skicka till Azure** i skriptre
 ![Skicka in ditt Stream Analytics Edge-jobb till Azure från Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>Distribuera till IoT Edge-enheter
-Ditt Stream Analytics-jobb är nu redo att distribueras som en IoT Edge-modul. Följ snabbstarten om [IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) för att skapa en IoT-hubb, registrera en IoT Edge-enhet och installera och starta IoT Edge-körningen på din enhet. Följ sedan självstudien om att [distribuera jobbet](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) om du vill distribuera ditt Stream Analytics-jobb som en IoT Edge-modul. 
+Om du väljer att bygga ett Stream Analytics Edge-jobb kan det nu distribueras som en IoT Edge modul. Följ snabbstarten om [IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) för att skapa en IoT-hubb, registrera en IoT Edge-enhet och installera och starta IoT Edge-körningen på din enhet. Följ sedan självstudien om att [distribuera jobbet](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) om du vill distribuera ditt Stream Analytics-jobb som en IoT Edge-modul. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapade du en enkel användardefinierad funktion i C# med CodeBehind, publicerade jobbet på Azure och distribuerade jobbet till IoT Edge-enheter med IoT Hub-portalen. 
+I den här självstudien har du C# skapat en enkel användardefinierad funktion med CodeBehind, publicerat ditt jobb till Azure och distribuerade jobbet till azure eller IoT Edge enhet. 
 
-Om du vill veta mer om de olika sätten att använda användardefinierade funktioner i C# för Stream Analytics Edge-jobb kan du fortsätta till den här artikeln:
+Om du vill veta mer om de olika sätten att använda C# användardefinierade funktioner för Stream Analytics jobb kan du fortsätta till den här artikeln:
 
 > [!div class="nextstepaction"]
 > [Skriva funktioner i C# för Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)

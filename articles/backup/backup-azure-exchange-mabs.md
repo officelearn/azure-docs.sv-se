@@ -1,5 +1,5 @@
 ---
-title: Säkerhetskopiera en Exchange-Server till Azure Backup med Azure Backup Server
+title: Säkerhetskopiera Exchange Server till Azure Backup med Azure Backup Server
 description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Backup med Azure Backup Server
 ms.reviewer: kasinh
 author: dcurwin
@@ -8,28 +8,32 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: dacurwin
-ms.openlocfilehash: 89ad5cac462384e8c688ae9ca68c5ae309249a71
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: ed88f069c110795c2c5561196c41d3d75640bd53
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689290"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968471"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera en Exchange-Server till Azure med Azure Backup Server
+
 Den här artikeln beskriver hur du konfigurerar Microsoft Azure Backup Server (MABS) för att säkerhetskopiera en Microsoft Exchange-Server till Azure.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
+
 Innan du fortsätter kontrollerar du att Azure Backup Server är [installerat och förberett](backup-azure-microsoft-azure-backup.md).
 
 ## <a name="mabs-protection-agent"></a>MABS skydds agent
+
 Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 
 1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](https://technet.microsoft.com/library/Hh758204.aspx).
 2. Installera agenten på Exchange-servern genom att klicka på **hantering > agenter > installera** i Mabs administratörskonsol. Se [Installera Mabs Protection Agent](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) för detaljerade anvisningar.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Skapa en skydds grupp för Exchange-servern
+
 1. I MABS Administratörskonsol klickar du på **skydd**och sedan på **nytt** i menyfliksområdet för att öppna guiden **Skapa ny skydds grupp** .
-2. Klicka på **Nästa**på Välkomst skärmen i guiden.
+2. På **välkomst** skärmen i guiden klickar du på **Nästa**.
 3. På skärmen **Välj typ av skydds grupp** väljer du **servrar** och klickar på **Nästa**.
 4. Välj den Exchange Server-databas som du vill skydda och klicka på **Nästa**.
 
@@ -47,17 +51,17 @@ Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 
    * Jag vill ha kortvarigt skydd med disk.
    * Jag vill ha onlineskydd.
-6. Klicka på **Nästa**.
+6. Klicka på **Next**.
 7. Markera alternativet **Kör Eseutil för att kontrol lera data integriteten** om du vill kontrol lera integriteten för Exchange Server-databaserna.
 
     När du har valt det här alternativet körs konsekvens kontroll av säkerhets kopiering på MABS för att undvika den I/O-trafik som genereras genom att köra **eseutil** -kommandot på Exchange-servern.
 
    > [!NOTE]
    > Om du vill använda det här alternativet måste du kopiera filerna Ese. dll och eseutil. exe till katalogen C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin på en monoklonal-Server. Annars utlöses följande fel:  
-   > ![Eseutil-fel](./media/backup-azure-backup-exchange-server/eseutil-error.png)
+   > ![eseutil-fel](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Klicka på **Nästa**.
+8. Klicka på **Next**.
 9. Välj databasen för kopiering av **säkerhets kopia**och klicka sedan på **Nästa**.
 
    > [!NOTE]
@@ -89,10 +93,11 @@ Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 19. Klicka på **Stäng**.
 
 ## <a name="recover-the-exchange-database"></a>Återställa Exchange-databasen
+
 1. Om du vill återställa en Exchange-databas klickar du på **återställning** i MABS-administratörskonsol.
 2. Leta upp Exchange-databasen som du vill återställa.
-3. Välj en online återställnings punkt i list rutan återställnings *tid* .
-4. Klicka på **Återställ** för att starta återställnings **guiden**.
+3. Välj en online återställnings punkt i list rutan *återställnings tid* .
+4. Klicka på **Återställ** för att starta **återställnings guiden**.
 
 För online-återställnings punkter finns fem återställnings typer:
 
@@ -105,4 +110,5 @@ För online-återställnings punkter finns fem återställnings typer:
     ![Välj online-replikering](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Azure Backup vanliga frågor och svar](backup-azure-backup-faq.md)

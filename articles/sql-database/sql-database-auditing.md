@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: cc12579a4932894b730b04cdc77acc0151168bdb
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d5214b6a6ffcb7c78fc00fe0305a1d1846b328f8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010205"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990267"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -74,41 +74,42 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 1. Gå till [Azure-portalen](https://portal.azure.com).
 2. Navigera till **granskning** under säkerhets rubriken i fönstret SQL Database/Server.
 
-    <a id="auditing-screenshot"></a>![Navigeringsfönstret][1]
+    <a id="auditing-screenshot"></a>![navigerings fönstret][1]
 
 3. Om du vill konfigurera en server gransknings princip kan du välja länken **Visa Server inställningar** på sidan databas granskning. Du kan sedan Visa eller ändra server gransknings inställningarna. Server gransknings principer gäller för alla befintliga och nyligen skapade databaser på den här servern.
 
-    ![Navigeringsfönstret][2]
+    ![Navigeringsfönster][2]
 
 4. Om du föredrar att aktivera granskning på databas nivån växlar du **granskning** till **på**.
 
     Om Server granskning är aktive rad, finns den databas-konfigurerade granskningen sida vid sida med Server granskningen.
 
-    ![Navigeringsfönstret][3]
+    ![Navigeringsfönster][3]
 
 5. **Ny** – nu har du flera alternativ för att konfigurera var gransknings loggar ska skrivas. Du kan skriva loggar till ett Azure Storage-konto till en Log Analytics arbets yta för användning genom att Azure Monitor loggar eller till Event Hub för användning med Event Hub. Du kan konfigurera valfri kombination av dessa alternativ och gransknings loggarna skrivs till var och en.
 
    > [!WARNING]
    > Om du aktiverar granskning till Log Analytics debiteras kostnaden baserat på inmatnings taxan. Var medveten om den associerade kostnaden med hjälp av det här [alternativet](https://azure.microsoft.com/pricing/details/monitor/)eller Överväg att lagra gransknings loggarna i ett Azure Storage-konto.
 
-    ![Lagrings alternativ](./media/sql-database-auditing-get-started/auditing-select-destination.png)
+    ![lagrings alternativ](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
-6. Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto väljer du **lagring** och öppna **lagrings information**. Välj det Azure Storage-konto där loggar ska sparas och välj sedan kvarhållningsperioden. De gamla loggarna tas bort. Klicka sedan på **OK**.
+6. Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto väljer du **lagring** och öppna **lagrings information**. Välj det Azure Storage-konto där loggar ska sparas och välj sedan kvarhållningsperioden. De gamla loggarna tas bort. Klicka på **OK**.
 
    > [!IMPORTANT]
-   > Standardvärdet för kvarhållningsperiod är 0 (obegränsad kvarhållning). Du kan ändra det här värdet genom att flytta skjutreglaget för **kvarhållning (dagar)** i **lagrings inställningarna** när du konfigurerar lagrings kontot för granskning.
+   > - Standardvärdet för kvarhållningsperiod är 0 (obegränsad kvarhållning). Du kan ändra det här värdet genom att flytta skjutreglaget för **kvarhållning (dagar)** i **lagrings inställningarna** när du konfigurerar lagrings kontot för granskning.
+   > - Om du ändrar kvarhållningsperioden från 0 (obegränsad kvarhållning) till ett annat värde, Observera att kvarhållning endast kommer att gälla för loggar som skrivs efter att kvarhållning har ändrats (loggar som skrivits under perioden när kvarhållning hade värdet obegränsat bevaras, även efter kvarhållning är aktiverat)
 
-    ![lagringskonto](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Om du vill konfigurera att skriva gransknings loggar till en Log Analytics arbets yta väljer du **Log Analytics (förhands granskning)** och öppnar **Log Analytics information**. Välj eller skapa arbets ytan Log Analytics där loggarna ska skrivas och klicka sedan på **OK**.
 
-    ![Log Analytics-arbetsyta](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics arbets yta](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Om du vill konfigurera att skriva gransknings loggar till en Event Hub väljer du **Event Hub (för hands version)** och **information om**att öppna händelsehubben. Välj den händelsehubben där loggar ska skrivas och klicka sedan på **OK**. Se till att händelsehubben är i samma region som din databas och server.
 
-    ![Händelsehub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+    ![Händelsehubb](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 10. Om du vill anpassa de granskade händelserna kan du göra detta via PowerShell- [cmdletar](#subheading-7) eller [REST API](#subheading-9).
 11. När du har konfigurerat dina gransknings inställningar kan du aktivera den nya funktionen för hot identifiering och konfigurera e-postmeddelanden för att få säkerhets aviseringar. När du använder hot identifiering får du proaktiva aviseringar om avvikande databas aktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hot identifiering](sql-database-threat-detection-get-started.md).
 
@@ -155,7 +156,7 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 
 - Använd [Azure Portal](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens **gransknings** sida.
 
-    ![Navigeringsfönstret][7]
+    ![Navigeringsfönster][7]
 
     **Gransknings poster** öppnas där du kan visa loggarna.
 
@@ -163,14 +164,14 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
   - Du kan växla mellan gransknings poster som har skapats av *Server gransknings principen* och *databas gransknings principen* genom att växla **gransknings källa**.
   - Du kan bara visa SQL-injektering relaterade gransknings poster genom att markera kryss rutan **Visa endast gransknings poster för SQL-injektering** .
 
-       ![Navigeringsfönstret][8]
+       ![Navigeringsfönster][8]
 
 - Använd system funktionen **sys. fn_get_audit_file** (T-SQL) för att returnera Gransknings logg data i tabell format. Mer information om hur du använder den här funktionen finns i [sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Använda **sammanslagna gransknings filer** i SQL Server Management Studio (från och med SSMS 17):
-    1. Från menyn SSMS väljer du **fil** > **Öppna** > **filer för sammanslagen granskning**.
+    1. Från menyn SSMS väljer du **fil** > **öppnar** > **slå samman gransknings filer**.
 
-        ![Navigeringsfönstret][9]
+        ![Navigeringsfönster][9]
     2. Dialog rutan **Lägg till gransknings filer** öppnas. Välj ett av alternativen **Lägg** till för att välja om du vill slå samman gransknings filer från en lokal disk eller importera dem från Azure Storage. Du måste ange Azure Storage information och konto nyckeln.
 
     3. När du har lagt till alla filer som ska sammanfogas klickar du på **OK** för att slutföra sammanslagnings åtgärden.
@@ -197,8 +198,8 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 
 När du aktiverar granskning på den primära databasen med geo-replikerade databaser, kommer den sekundära databasen ha en identisk gransknings princip. Du kan också konfigurera granskning på den sekundära databasen genom att aktivera granskning på den **sekundära servern**, oberoende av den primära databasen.
 
-- Server nivå (**rekommenderas**): Aktivera granskning på både den **primära servern** och den **sekundära servern** – de primära och sekundära databaserna kommer att granskas oberoende av varandra baserat på deras respektive princip på server nivå.
-- Databas nivå: Granskning på databas nivå för sekundära databaser kan bara konfigureras från primära databas gransknings inställningar.
+- Server nivå (**rekommenderas**): aktivera granskning på både den **primära servern** och den **sekundära servern** – de primära och sekundära databaserna kommer att granskas oberoende av varandra baserat på deras respektive princip på server nivå.
+- Databas nivå: granskning på databas nivå för sekundära databaser kan bara konfigureras från primära databas gransknings inställningar.
   - Granskning måste vara aktiverat på själva den *primära databasen*, inte på servern.
   - När granskning har Aktiver ATS på den primära databasen aktive ras den också på den sekundära databasen.
 
@@ -211,10 +212,10 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 
 1. Öppna **lagrings information**. I rutan **lagrings åtkomst nyckel** väljer du **sekundär**och klickar på **OK**. Klicka sedan på **Spara** högst upp på sidan gransknings konfiguration.
 
-    ![Navigeringsfönstret][5]
+    ![Navigeringsfönster][5]
 2. Gå till sidan lagrings konfiguration och återskapa den primära åtkomst nyckeln.
 
-    ![Navigeringsfönstret][6]
+    ![Navigeringsfönster][6]
 3. Gå tillbaka till sidan gransknings konfiguration, växla lagrings åtkomst nyckeln från sekundär till primär och klicka sedan på **OK**. Klicka sedan på **Spara** högst upp på sidan gransknings konfiguration.
 4. Gå tillbaka till sidan lagrings konfiguration och återskapa den sekundära åtkomst nyckeln (som förberedelse för nästa nyckels uppdaterings cykel).
 

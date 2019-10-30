@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/04/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 0f463291a0405178c5bdfbb890a6f954e13b204d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
-ms.translationtype: MT
+ms.openlocfilehash: e6a1dba603cbeea276dc6153f82ae599e3d29b3d
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023948"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101342"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal
 
@@ -44,7 +44,7 @@ För att slutföra den här snabbstarten behöver du:
 1. [Installera Git](https://git-scm.com/)
 2. [Installera JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Installera maven 3,0 eller senare](https://maven.apache.org/download.cgi)
-4. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
 
 ## <a name="install-the-azure-cli-extension"></a>Installera Azure CLI-tillägget

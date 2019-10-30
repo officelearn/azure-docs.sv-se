@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596da9cfe0e914183bd3b2603ffa1047f1d9352b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: f5a9f83a8f6e8d5e83f30d30da2b1c4c0f722dc3
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310014"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063045"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
 
@@ -75,7 +75,7 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 4. När den virtuella datorn har fått en identitet använder du informationen om tjänstens huvudnamn för att ge den virtuella datorn åtkomst till Azure-resurser. Använd rollbaserad åtkomstkontroll (RBAC) i Azure AD när du anropar Azure Resource Manager för att tilldela lämplig roll till tjänstens huvudnamn för den virtuella datorn. Ge din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault när du anropar Key Vault.
 
-5. Din kod som körs på den virtuella datorn kan begära en token från Azure instance metadata service-slutpunkt, som endast kan nås från den virtuella datorn:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Din kod som körs på den virtuella datorn kan begära en token från Azure instance metadata service-slutpunkt, som endast kan nås från den virtuella datorn: `http://169.254.169.254/metadata/identity/oauth2/token`
     - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
     - API-versionsparametern anger IMDS-versionen, använd api-version=2018-02-01 eller högre.
 
@@ -96,7 +96,7 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
    > [!Note]
    > Du kan även utföra det här steget före steg 3.
 
-5. Din kod som körs på den virtuella datorn kan begära en token från Azure-Instance Metadata Service identitetens slut punkt, endast tillgänglig från den virtuella datorn:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Din kod som körs på den virtuella datorn kan begära en token från Azure-Instance Metadata Service identitetens slut punkt, endast tillgänglig från den virtuella datorn: `http://169.254.169.254/metadata/identity/oauth2/token`
     - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
     - Parametern för klient-ID anger den identitet som token har begärts för. Det här värdet krävs för att lösa tvetydigheter om mer än en användartilldelad identitet finns på samma virtuella dator.
     - Parametern för API-version anger Azure Instance Metadata Service-versionen. Använd `api-version=2018-02-01` eller senare.
@@ -122,23 +122,25 @@ Lär dig hur du använder en hanterad identitet med en virtuell Windows-dator:
 
 Lär dig hur du använder en hanterad identitet med en virtuell Linux-dator:
 
+* [Åtkomst Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md)
 * [Få åtkomst till Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
 * [Få åtkomst till Azure Resource Manager](tutorial-linux-vm-access-arm.md)
 * [Få åtkomst till Azure Storage med en åtkomstnyckel](tutorial-linux-vm-access-storage.md)
 * [Få åtkomst till Azure Storage med signaturer för delad åtkomst](tutorial-linux-vm-access-storage-sas.md)
 * [Få åtkomst till en resurs utanför Azure AD med Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
-* [Åtkomst Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md)
 
 Lär dig hur du använder en hanterad identitet med andra Azure-tjänster:
 
-* [Azure App Service](/azure/app-service/overview-managed-identity)
-* [Azure Functions](/azure/app-service/overview-managed-identity)
-* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
-* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Azure Apptjänst](/azure/app-service/overview-managed-identity)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Azure Container Registry uppgifter](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
+* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Azure Functions](/azure/app-service/overview-managed-identity)
+* [Azure Kubernetes Service](/azure/aks/use-managed-identity)
+* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
+* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
+
 
 ## Vilka Azure-tjänster stöder funktionen?<a name="which-azure-services-support-managed-identity"></a>
 

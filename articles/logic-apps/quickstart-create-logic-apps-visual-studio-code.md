@@ -1,6 +1,6 @@
 ---
-title: Automatisera arbets flöden med Visual Studio Code-Azure Logic Apps
-description: Skapa eller redigera logiska appar underliggande JSON-definitioner med Visual Studio Code (VS Code)
+title: Automatisera aktiviteter med Visual Studio Code-Azure Logic Apps
+description: Skapa eller redigera logiska appar underliggande JSON-definitioner med hjälp av Visual Studio Code (VS Code)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,15 +11,15 @@ ms.manager: carmonm
 ms.reviewer: klam, deli, LADocs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/05/2018
-ms.openlocfilehash: a1387ca4d94410bafb1b1024345b5e307e215e6f
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 10/25/2019
+ms.openlocfilehash: 96551d3c7f0d37bc7ed8696666b130fa83dae41b
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679152"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063655"
 ---
-# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-visual-studio-code"></a>Snabb start: skapa och hantera arbets flödes definitioner för Logic app med Visual Studio Code
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Snabb start: skapa och hantera arbets flödes definitioner för Logic app med hjälp av Visual Studio Code
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och Visual Studio Code, kan du skapa och hantera Logi Kap par som hjälper dig att automatisera uppgifter, arbets flöden och processer för att integrera appar, data, system och tjänster mellan organisationer och företag. Den här snabb starten visar hur du kan skapa och redigera de underliggande arbets flödes definitionerna, som använder JavaScript Object Notation (JSON) för Logic Apps genom en kod baserad upplevelse. Du kan också arbeta med befintliga Logic Apps som redan har distribuerats till Azure.
 
@@ -27,11 +27,11 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och Visual Studio C
 
 I den här artikeln kan du skapa samma Logic-app från den här [snabb](../logic-apps/quickstart-create-first-logic-app-workflow.md)starten, vilket fokuserar på de grundläggande begreppen. I Visual Studio Code ser den logiska appen ut som det här exemplet:
 
-![Exempel på logik app Workflow-definition](./media/create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
+![Exempel på logik app Workflow-definition](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
-Innan du börjar ska du kontrol lera att du har följande objekt:
+Innan du börjar bör du kontrollera att du har följande:
 
-* Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+* Om du inte har ett Azure-konto och en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Grundläggande kunskaper om [Logic app Workflow-definitioner](../logic-apps/logic-apps-workflow-definition-language.md) och deras struktur enligt beskrivningen med JSON
 
@@ -47,11 +47,11 @@ Innan du börjar ska du kontrol lera att du har följande objekt:
 
     Du kan hämta och installera det här tillägget från [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) eller direkt inifrån Visual Studio Code. Se till att du läser in Visual Studio Code igen efter installationen.
 
-    ![Hitta Azure Logic Apps "Visual Studio Code Extension för"](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
+    ![Hitta Azure Logic Apps "Visual Studio Code Extension för"](./media/quickstart-create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
 
     Kontrol lera att tillägget är korrekt installerat genom att välja den Azure-ikon som visas i ditt Visual Studio Code-verktygsfält.
 
-    ![Tillägget bekräfta är korrekt installerat](./media/create-logic-apps-visual-studio-code/confirm-installed-visual-studio-code-extension.png)
+    ![Tillägget bekräfta är korrekt installerat](./media/quickstart-create-logic-apps-visual-studio-code/confirm-installed-visual-studio-code-extension.png)
 
     Mer information finns i [tillägg Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). Om du vill bidra till den här tilläggets version av öppen källkod går du till [Azure Logic Apps tillägget för Visual Studio Code på GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
@@ -61,76 +61,81 @@ Innan du börjar ska du kontrol lera att du har följande objekt:
 
 1. Öppna Visual Studio Code. Välj Azure-ikonen i verktygsfältet Visual Studio Code.
 
-   ![Välj Azure-ikon i Visual Studio Code-verktygsfältet](./media/create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
+   ![Välj Azure-ikon i Visual Studio Code-verktygsfältet](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. I Azure-fönstret, under **Logic Apps**, väljer **du logga in på Azure**.
+1. I Azure-fönstret, under **Logic Apps**, väljer **du logga in på Azure**. När du uppmanas att logga in med ditt Azure-konto när du uppmanas att logga in på Microsoft.
 
-   ![Välj "logga in på Azure"](./media/create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
+   ![Välj "logga in på Azure"](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
-   Nu uppmanas du att logga in med den angivna autentiseringsmetoden.
+   1. Om det tar längre tid än vanligt att logga in i Visual Studio Code, uppmanas du att logga in via en Microsoft-webbplats för autentisering genom att tillhandahålla en enhets kod. Om du vill logga in med koden i stället väljer du **Använd enhets kod**.
 
-1. Kopiera koden för autentisering och välj sedan **kopiera & öppna**, vilket öppnar ett nytt webbläsarfönster.
+      ![Fortsätt med enhets kod i stället](./media/quickstart-create-logic-apps-visual-studio-code/use-device-code-prompt.png)
 
-   ![Kopiera autentiserings kod som ska användas för Azure-inloggning](./media/create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
+   1. Om du vill kopiera koden väljer du **kopiera & öppna**.
 
-1. Ange din autentiseringsnyckel. När du uppmanas väljer du **Fortsätt**.
+      ![Kopiera kod för Azure-inloggning](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
-   ![Ange autentiseringsmetod för Azure-inloggning](./media/create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
+   1. Öppna ett nytt webbläsarfönster och fortsätt till webbplatsen för autentisering genom att välja **Öppna länk**.
+
+      ![Bekräfta att öppna en webbläsare och gå till webbplatsen för autentisering](./media/quickstart-create-logic-apps-visual-studio-code/confirm-open-link.png)
+
+   1. På sidan **Logga in på ditt konto** anger du din autentiseringsnyckel och väljer **Nästa**.
+
+      ![Ange autentiseringsnyckel för Azure-inloggning](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
 1. Välj ditt Azure-konto. När du har loggat in kan du stänga webbläsaren och återgå till Visual Studio Code.
 
-   I Azure-fönstret visar fönstret Logic Apps och fönstret integrations konton nu Azure-prenumerationerna i ditt konto.
+   I Azure-fönstret visar avsnitten **Logic Apps** och **integrations konton** nu de Azure-prenumerationer som är associerade med ditt konto. Men om du inte ser de prenumerationer som du förväntar dig, eller om avsnitten visar för många prenumerationer, följer du dessa steg:
 
-   ![Välj din Azure-prenumeration](./media/create-logic-apps-visual-studio-code/select-azure-subscription.png)
+   1. Flytta pekaren över **Logic Apps** etiketten. När verktygsfältet visas väljer du **Välj prenumerationer** (filter ikon).
 
-   Om du inte ser de prenumerationer som du förväntar dig väljer du alternativet **Välj prenumerationer** (filter ikon) bredvid **Logic Apps** etikett. Sök efter och välj de prenumerationer som du vill använda.
+      ![Hitta eller filtrera Azure-prenumerationer](./media/quickstart-create-logic-apps-visual-studio-code/find-or-filter-subscriptions.png)
 
-1. Om du vill visa befintliga Logic Apps eller integrations konton i din Azure-prenumeration expanderar du din prenumeration.
+   1. I listan som visas väljer du de prenumerationer som du vill ska visas.
 
-   ![Visa Logic Apps och integrations konton](./media/create-logic-apps-visual-studio-code/view-existing-logic-apps-azure.png)
+1. Under **Logic Apps**väljer du den prenumeration som du vill använda. Noden prenumeration expanderar och visar alla Logic Apps som finns i den prenumerationen.
+
+   ![Välj din Azure-prenumeration](./media/quickstart-create-logic-apps-visual-studio-code/select-azure-subscription.png)
+
+   > [!TIP]
+   > Under **integrations konton**visar val av prenumeration alla integrerings konton som finns i den prenumerationen.
 
 <a name="create-logic-app"></a>
 
-## <a name="create-logic-app"></a>Skapa en logikapp
+## <a name="create-new-logic-app"></a>Skapa ny Logic-app
 
-1. Om du inte har loggat in på Azure-prenumerationen från Visual Studio Code följer du stegen i den här artikeln för att [Logga in nu](#sign-in-azure).
+1. Om du inte har loggat in på ditt Azure-konto och din prenumeration än i Visual Studio Code, följer du [stegen ovan för att logga in nu](#sign-in-azure).
 
-1. Från din prenumerations snabb meny väljer du **skapa**.
+1. I Visual Studio Code, under **Logic Apps**, öppnar du din prenumerations snabb meny och väljer **skapa Logic app**.
 
-   ![Välj Skapa från menyn prenumeration](./media/create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
+   ![Från menyn prenumeration väljer du "skapa Logic app"](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
-1. I listan som visar Azures resurs grupper i din prenumeration väljer du en befintlig resurs grupp eller **skapar en ny resurs grupp**.
+   En lista visas och visar alla Azure-resurs grupper i din prenumeration.
 
-   I det här exemplet skapas en ny resurs grupp:
+1. I listan resurs grupp väljer du antingen **skapa en ny resurs grupp** eller en befintlig resurs grupp. I det här exemplet skapar du en ny resurs grupp.
 
-   ![Skapa din nya Azure-resurs grupp](./media/create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
+   ![Skapa en ny Azure-resursgrupp](./media/quickstart-create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
 
-1. Ange ett namn för Azure-resurs gruppen och tryck sedan på RETUR.
+1. Ange ett namn för Azure-resurs gruppen och tryck på RETUR.
 
-   ![Ange ett namn för din Azure-resurs grupp](./media/create-logic-apps-visual-studio-code/enter-name-resource-group.png)
+   ![Ange ett namn för din Azure-resurs grupp](./media/quickstart-create-logic-apps-visual-studio-code/enter-name-resource-group.png)
 
-1. Välj plats för data Center där du vill spara din Logic Apps metadata.
+1. Välj den Azure-region där du vill spara din Logic app-metadata.
 
-   ![Välj Azure-plats för att spara metadata för Logic app](./media/create-logic-apps-visual-studio-code/select-azure-location-new-resources.png)
+   ![Välj Azure-plats för att spara metadata för Logic app](./media/quickstart-create-logic-apps-visual-studio-code/select-azure-location-new-resources.png)
 
-1. Ange ett namn för din Logic app och tryck sedan på RETUR.
+1. Ange ett namn för din Logic app och tryck på RETUR.
 
-   ![Ange namn på din Logic app](./media/create-logic-apps-visual-studio-code/enter-name-logic-app.png)
+   ![Ange namn på din Logic app](./media/quickstart-create-logic-apps-visual-studio-code/enter-name-logic-app.png)
 
-   Din nya Logic app visas nu i Azure-fönstret under din Azure-prenumeration. Nu kan du börja skapa din Logic Apps arbets flödes definition.
+   I Azure-fönstret, under din Azure-prenumeration, visas din nya och tomma Logic-app. Visual Studio Code öppnar också en JSON-fil (. logicapp. JSON) som innehåller en Skeleton-arbetsflöde definition för din Logic app. Nu kan du börja redigera din Logic Apps arbets flödes definition i den här JSON-filen. Teknisk referens om struktur och syntax för en arbets flödes definition finns i [språk schema för arbets flödes definition för Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
 
-1. Från din Logic Apps snabb meny väljer du **Öppna i redigeraren**.
+   ![Töm JSON-filen definition för Logic app-arbetsflöde](./media/quickstart-create-logic-apps-visual-studio-code/empty-logic-app-workflow-definition.png)
 
-   ![Öppna Logic app i kodvyn](./media/create-logic-apps-visual-studio-code/open-new-logic-app-visual-studio-code.png)
+   Här är till exempel en exempel arbets flödes definition för en exempel logik som börjar med en RSS-utlösare och en Outlook 365 Outlook-åtgärd. Normalt visas JSON-element i alfabetisk ordning i varje avsnitt. Det här exemplet visar dock dessa element ungefär i den ordning som Logic Apps-stegen visas i designern.
 
-   Visual Studio Code öppnar en Logic app-mall för arbets flödes definitioner (. logicapp. JSON-fil) så att du kan börja skapa din Logic app-arbetsflöde.
-
-   ![Ny logik app Workflow-definition](./media/create-logic-apps-visual-studio-code/blank-logic-app-workflow-definition.png)
-
-1. Börja skapa din Logic Apps arbets flödes definition i mallen Logic app Workflow definition.
-Teknisk referens finns i [språk schema för arbets flödes definition för Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
-
-   Här är en exempel på en logik definition. Normalt visas JSON-element i alfabetisk ordning i varje avsnitt. Det här exemplet visar dock dessa element ungefär i den ordning som Logic Apps-stegen visas i designern.
+   > [!IMPORTANT]
+   > Om du vill återanvända den här exempel definitionen av Logic-appen behöver du ett Office 365-organisations konto, till exempel @fabrikam.com. Se till att du ersätter den fiktiva e-postadressen med din egen e-postadress. Om du vill använda en annan e-postkoppling, till exempel Outlook.com eller Gmail, ersätter du åtgärden `Send_an_email_action` med en liknande åtgärd som är tillgänglig från en [e-postanslutning som stöds av Azure Logic Apps](../connectors/apis-list.md).
 
    ```json
    {
@@ -165,22 +170,22 @@ Teknisk referens finns i [språk schema för arbets flödes definition för Azur
          }
       },
       "actions": {
-         "Send_an_email": {
+         "Send_an_email_(V2)": {
             "runAfter": {},
             "type": "ApiConnection",
             "inputs": {
                "body": {
-                  "Body": "Title: @{triggerBody()?['title']}\n\nDate published: @{triggerBody()?['publishDate']}\n\nLink: @{triggerBody()?['primaryLink']}",
-                  "Subject": "New RSS item: @{triggerBody()?['title']}",
-                  "To": "Sophie.Owen@contoso.com"
+                  "Body": "<p>Title: @{triggerBody()?['title']}<br>\n<br>\nDate published: @{triggerBody()?['updatedOn']}<br>\n<br>\nLink: @{triggerBody()?['primaryLink']}</p>",
+                  "Subject": "RSS item: @{triggerBody()?['title']}",
+                  "To": "sophia-owen@fabrikam.com"
                },
                "host": {
                   "connection": {
-                     "name": "@parameters('$connections')['outlook']['connectionId']"
+                     "name": "@parameters('$connections')['office365']['connectionId']"
                   }
                },
                "method": "post",
-               "path": "/Mail"
+               "path": "/v2/Mail"
             }
          }
       },
@@ -188,41 +193,119 @@ Teknisk referens finns i [språk schema för arbets flödes definition för Azur
    }
    ```
 
-1. När du är klar sparar du din definitions fil för Logic app. När Visual Studio Code efterfrågar dig att bekräfta att din Logic app-definition överförs till din Azure-prenumeration väljer du **Ladda upp**.
+1. När du är klar sparar du din Logic Apps arbets flödes definition. (Arkiv-menyn > Spara eller tryck på CTRL + S)
 
-   ![Ladda upp ny Logic app till din Azure-prenumeration](./media/create-logic-apps-visual-studio-code/upload-new-logic-app.png)
+1. När du uppmanas att ladda upp din Logic app till din Azure-prenumeration väljer du **överför**.
 
-   När Visual Studio Code publicerar din Logic app till Azure kan du hitta din app nu Live och köra i Azure Portal.
+   Det här steget publicerar din Logic app till [Azure Portal](https://portal.azure.com), som och gör din logik Live och körs i Azure.
 
-   ![Logisk app Publicerad i Azure Portal](./media/create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
+   ![Ladda upp ny Logic app till din Azure-prenumeration](./media/quickstart-create-logic-apps-visual-studio-code/upload-new-logic-app.png)
+
+## <a name="view-logic-app-in-designer"></a>Visa Logic app i designern
+
+I Visual Studio Code kan du öppna din Logic app i skrivskyddad designvy. Även om du inte kan redigera din Logic app i designern kan du visuellt kontrol lera din Logic Apps-arbetsflöde med hjälp av designvyn.
+
+I Azure-fönstret, under **Logic Apps**, öppnar du din Logic Apps snabb meny och väljer **Öppna i designer**.
+
+Den skrivskyddade designern öppnas i ett separat fönster och visar ditt Logic Apps-arbetsflöde, till exempel:
+
+![Visa Logic app i skrivskyddad designer](./media/quickstart-create-logic-apps-visual-studio-code/logic-app-designer-view.png)
+
+## <a name="view-in-azure-portal"></a>Visa i Azure Portal
+
+Följ dessa steg om du vill granska din Logic app i Azure Portal:
+
+1. Logga in på [Azure Portal](https://portal.azure.com) med samma Azure-konto och prenumeration som är associerad med din Logic app.
+
+1. Ange namnet på din Logi Kap par i sökrutan Azure Portal. I listan resultat väljer du din Logic app.
+
+   ![Din nya Logic-app i Azure Portal](./media/quickstart-create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
+
+<a name="disable-enable-logic-app"></a>
+
+## <a name="disable-or-enable-logic-app"></a>Inaktivera eller aktivera Logic app
+
+Om du redigerar en publicerad Logic-app och sparar dina ändringar i Visual Studio Code, *skriver du över* din redan distribuerade app. För att undvika att du bryter din Logic app i produktion och minimerar avbrott kan du inaktivera din Logic app först. Du kan sedan återaktivera din Logic-app när du har bekräftat att din Logic app fortfarande fungerar.
+
+1. Om du inte har loggat in på ditt Azure-konto och din prenumeration än i Visual Studio Code, följer du [stegen ovan för att logga in nu](#sign-in-azure).
+
+1. I Azure-fönstret, under **Logic Apps**, expanderar du din Azure-prenumeration så att du kan visa alla Logic Apps i den prenumerationen.
+
+   1. Om du vill inaktivera den logiska appen som du vill ha öppnar du menyn Logic Apps och väljer **inaktivera**.
+
+      ![Inaktivera din Logic app](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
+
+   1. När du är redo att återaktivera din Logic-App öppnar du menyn för Logic-appen och väljer **Aktivera**.
+
+      ![Aktivera din Logic app](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
 
 <a name="edit-logic-app"></a>
 
-## <a name="edit-logic-app"></a>Redigera Logic app
+## <a name="edit-deployed-logic-app"></a>Redigera distribuerad Logic-app
 
-Om du vill arbeta med en Logic-app som har publicerats i Azure kan du öppna logik appens definition med hjälp av Visual Studio Code.
+I Visual Studio Code kan du öppna och redigera arbets flödes definitionen för en redan distribuerad Logic-app i Azure.
 
-1. Om du inte har loggat in på Azure-prenumerationen från Visual Studio Code följer du stegen i den här artikeln för att [Logga in nu](#sign-in-azure).
+> [!IMPORTANT] 
+> Innan du redigerar en aktivt logisk app i produktion bör du undvika risken för att kunna dela upp den Logic appen och minimera störningar genom [att först inaktivera din Logic app](#disable-enable-logic-app).
+
+1. Om du inte har loggat in på ditt Azure-konto och din prenumeration än i Visual Studio Code, följer du [stegen ovan för att logga in nu](#sign-in-azure).
 
 1. I Azure-fönstret, under **Logic Apps**, expanderar du din Azure-prenumeration och väljer den logiska app som du vill använda.
 
-1. Från din Logic Apps-meny väljer du **Öppna i redigerings**programmet. Eller Välj redigerings ikonen bredvid namnet på din Logic Apps.
+1. Öppna din Logic Apps-meny och välj **Öppna i redigeraren**. Eller Välj redigerings ikonen bredvid namnet på din Logic Apps.
 
-   ![Öppna redigerings programmet för befintlig Logic app](./media/create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
+   ![Öppna redigerings programmet för befintlig Logic app](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
-   Visual Studio Code öppnar. logicapp. JSON-filen för din Logic Apps arbets flödes definition.
+   Visual Studio Code öppnar. logicapp. JSON-filen i din lokala tillfälliga mapp så att du kan visa din Logic Apps arbets flödes definition.
 
-   ![Öppen Logic app Workflow-definition](./media/create-logic-apps-visual-studio-code/edit-logic-app-workflow-definition-file.png)
+   ![Visa arbets flödes definition för den publicerade Logic-appen](./media/quickstart-create-logic-apps-visual-studio-code/edit-published-logic-app-workflow-definition.png)
 
-1. Gör dina ändringar i din Logic Apps-definition.
+1. Gör dina ändringar i Logic Apps arbets flödes definition.
 
-1. När du är klar kan du spara ändringarna.
+1. När du är klar kan du spara ändringarna. (Arkiv-menyn > Spara eller tryck på CTRL + S)
 
-1. När Visual Studio Code meddelar dig att du uppdaterar din Logic app-definition i din Azure-prenumeration väljer du **överför**.
+1. När du uppmanas att ladda upp dina ändringar och *skriva över* din befintliga Logic-app i Azure Portal väljer du **överför**.
 
-   ![Ladda upp dina ändringar till Logic app-definition](./media/create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
+   Det här steget publicerar dina uppdateringar till din Logic app i [Azure Portal](https://portal.azure.com).
+
+   ![Ladda upp redigeringar till Logic app-definition i Azure](./media/quickstart-create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
+
+## <a name="view-or-promote-other-versions"></a>Visa eller flytta upp andra versioner
+
+I Visual Studio Code kan du öppna och granska tidigare versioner för din Logic app. Du kan också befordra en tidigare version till den aktuella versionen.
+
+> [!IMPORTANT] 
+> Innan du ändrar en aktivt igång Logic app i produktion bör du undvika risken för att kunna dela upp den logiska appen och minimera störningar genom [att först inaktivera din Logic app](#disable-enable-logic-app).
+
+1. I Azure-fönstret, under **Logic Apps**, expanderar du din Azure-prenumeration så att du kan visa alla Logic Apps i den prenumerationen.
+
+1. Under prenumerationen expanderar du din Logic app och expanderar **versioner**.
+
+   I listan **versioner** visas din Logic Apps tidigare versioner, om sådana finns.
+
+   ![Din Logic Apps tidigare versioner](./media/quickstart-create-logic-apps-visual-studio-code/view-previous-versions.png)
+
+1. Om du vill visa en tidigare version väljer du något av stegen:
+
+   * Om du vill visa JSON-definitionen under **versioner**väljer du versions numret för den definitionen. Eller så öppnar du den här versionens snabb meny och väljer **Öppna i redigeraren**.
+
+     En ny fil öppnas på den lokala datorn och visar den versionens JSON-definition.
+
+   * Om du vill visa versionen i vyn skrivskyddad designer öppnar du den här versionens snabb meny och väljer **Öppna i designer**.
+
+1. Följ dessa steg om du vill uppgradera en tidigare version till den aktuella versionen:
+
+   1. Under **versioner**öppnar du snabb menyn för den tidigare versionen och väljer **befordra**.
+
+      ![Höj upp tidigare version](./media/quickstart-create-logic-apps-visual-studio-code/promote-earlier-version.png)
+
+   1. Välj **Ja**om du vill fortsätta efter att du uppmanas att bekräfta i Visual Studio-kod.
+
+      ![Bekräfta befordran av tidigare version](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
+
+      Visual Studio Code befordrar den valda versionen till den aktuella versionen och tilldelar en ny siffra till den uppgraderade versionen. Den tidigare aktuella versionen visas nu under den uppgraderade versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> * [Skapa Logic Apps med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+> [Skapa Logic Apps med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)

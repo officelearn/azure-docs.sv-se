@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e5ee40f6fcd77465b67a7c409493027fefa48ca9
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477311"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062970"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Snabbstart: Lägga till ett program i din Azure Active Directory-klientorganisation
 
@@ -34,7 +34,7 @@ Om du vill lägga till ett program till din klientorganisation behöver du:
 - En Azure AD-prenumeration
 - En prenumeration som är aktiverad för enkel inloggning för ditt program
 
-Logga in på [Azure-portalen](https://portal.azure.com) som global administratör för din Azure AD-klientorganisation, som administratör för molnprogram eller som programadministratör.
+Logga in på [Azure Portal](https://portal.azure.com) som global administratör för din Azure AD-klientorganisation, som administratör för molnprogram eller som programadministratör.
 
 För testning av stegen i den här självstudien rekommenderar vi att du använder en icke-produktionsmiljö. Om du inte har en icke-produktionsmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -43,24 +43,26 @@ För testning av stegen i den här självstudien rekommenderar vi att du använd
 Så här lägger du till ett galleriprogram i din Azure AD-klientorganisation:
 
 1. Välj **Azure Active Directory**på den vänstra navigerings panelen i [Azure Portal](https://portal.azure.com).
-1. I fönstret **Azure Active Directory** väljer du **företags program**.
-1. Fönstret **alla program** öppnas och visar ett slumpmässigt exempel på programmen i din Azure AD-klient. Välj **nytt program** överst i fönstret **alla program** för att lägga till en Galleri-app till din klient organisation.
+
+2. I fönstret **Azure Active Directory** väljer du **företags program**. Fönstret **alla program** öppnas och visar ett slumpmässigt exempel på programmen i din Azure AD-klient.
+
+3. Om du vill lägga till en Galleri-app till klienten väljer du **nytt program**. 
 
     ![Välj nytt program för att lägga till en Galleri-app till din klient organisation](media/add-application-portal/new-application.png)
 
-1. I fönstret **Kategorier** ser du ikoner under avsnittet **aktuella program** som är ett slumpmässigt exempel på Galleri program. Om du vill se fler program kan du välja **Visa mer** men vi rekommenderar inte att du söker på det här sättet eftersom det finns tusentals program i galleriet.
+ 4. Växla till den nya Galleri förhands granskningen: i banderollen högst upp på **sidan Lägg till ett program**väljer du den länk som visas **Klicka här för att prova det nya och förbättrade app-galleriet**.
 
-    ![Sök efter en app efter namn eller kategori](media/add-application-portal/categories.png)
+5. Fönstret **Bläddra i Azure AD-galleriet (förhands granskning)** öppnas och visar paneler för moln plattformar, lokala program och aktuella program. Observera att programmen som listas i avsnittet **aktuella program** innehåller ikoner som visar om de stöder federerad enkel inloggning (SSO) och etablering.
 
-1. Om du vill söka efter ett program går du till **Lägg till från galleriet**och anger namnet på det program som du vill lägga till. Välj programmet från resultaten och välj **Lägg till**. I följande exempel visas formuläret **Lägg till app**, som visas när du har sökt efter github.com.
+    ![Sök efter en app efter namn eller kategori](media/add-application-portal/browse-gallery.png)
 
-    ![Visar hur du lägger till ett program från galleriet](media/add-application-portal/add-an-application.png)
+6. Du kan bläddra i galleriet för det program som du vill lägga till eller söka efter programmet genom att ange dess namn i sökrutan. Välj sedan programmet från resultaten. I formuläret kan du redigera namnet på programmet så att det matchar organisationens behov. I det här exemplet har vi ändrat namnet till **GitHub-test**.
 
-1. I det programspecifika formuläret kan du ändra egenskapsinformation. Till exempel kan du redigera namnet på programmet så att det matchar behoven i din organisation. I det här exemplet används namnet **GitHub-test**.
-1. När du är klar med att ändra egenskaperna väljer du **Lägg till**.
-1. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation.
+    ![Visar hur du lägger till ett program från galleriet](media/add-application-portal/create-application.png)
 
-Du har lagt till ditt program. Passa på att ta en paus. Nästa avsnitt visar hur du ändrar logotypen och redigerar andra egenskaper för programmet.
+7. Välj **Skapa**. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation.
+
+Du har lagt till ditt program. Nästa avsnitt visar hur du ändrar logotypen och redigerar andra egenskaper för programmet.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Hitta ditt Azure AD-klientorganisationsprogram
 
@@ -81,17 +83,17 @@ Nu när du har hittat programmet kan du öppna det och konfigurera program egens
 Redigera program egenskaperna:
 
 1. Välj programmet för att öppna det.
-1. Välj **Egenskaper** för att öppna rutan Egenskaper för redigering.
+2. Välj **Egenskaper** för att öppna rutan Egenskaper för redigering.
 
     ![Visar egenskaper för skärm och redigerbara appar](media/add-application-portal/edit-properties.png)
 
-1. Läs igenom alternativen för inloggning. Alternativen avgör hur användare som är tilldelade eller otilldelade till programmet kan logga in på programmet. Dessutom avgör alternativen om en användare kan se programmet i åtkomst panelen.
+3. Läs igenom alternativen för inloggning. Alternativen avgör hur användare som är tilldelade eller otilldelade till programmet kan logga in på programmet. Dessutom avgör alternativen om en användare kan se programmet i åtkomst panelen.
 
-    - **Aktiverad för användare att logga in** bestämmer huruvida användare som är tilldelade till programmet kan logga in.
-    - **Användar tilldelning krävs** avgör om användare som inte är tilldelade till programmet kan logga in.
-    - **Synlig för användaren** bestämmer huruvida användare som är tilldelade till en app kan se den i åtkomstpanelen och O365-appfönstret.
+    - **Aktiverat för användare att logga in?** Anger om användare som är tilldelade till programmet kan logga in.
+    - **Krävs användar tilldelning?** Anger om användare som inte är tilldelade till programmet kan logga in.
+    - **Synlig för användarna?** Anger om användare som är tilldelade till en app kan se den i åtkomst panelen och O365 Launcher.
 
-1. Använd följande tabeller för att hjälpa dig att välja de bästa alternativen för dina behov.
+4. Använd följande tabeller för att hjälpa dig att välja de bästa alternativen för dina behov.
 
    - Beteende för **tilldelade** användare:
 
@@ -131,9 +133,12 @@ Så här använder du en anpassad logotyp:
 1. Eftersom du redan har hittat ditt program väljer du programmet.
 1. I det vänstra fönstret väljer du **Egenskaper**.
 1. Ladda upp logotypen.
-1. När du är klar väljer du **Spara**.
+1. När du är klar väljer du **Spara**. 
 
     ![Visar hur du ändrar logo typen från appens egenskaps sida](media/add-application-portal/change-logo.png)
+
+   > [!NOTE]
+   > Miniatyr bilden som visas i det här **egenskaps** fönstret uppdateras inte omedelbart. Du kan stänga och öppna egenskaperna igen för att se den uppdaterade ikonen.
 
 ## <a name="next-steps"></a>Nästa steg
 

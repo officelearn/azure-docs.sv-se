@@ -10,12 +10,12 @@ ms.topic: overview
 description: Introduktion till Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: c96115f2eba6f8c8a028251d146ca3f766eba044
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: e166cb9368a14590cbeaabda05d05696032dd94f
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305459"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73061315"
 ---
 # <a name="azure-dev-spaces"></a>Azure Dev Spaces
 
@@ -43,7 +43,7 @@ Mer information om hur Azure dev Spaces fungerar finns i [så här fungerar Azur
 
 ## <a name="supported-regions-and-configurations"></a>Regioner och konfigurationer som stöds
 
-Azure dev Spaces stöds endast av AKS-kluster i **USA**, östra USA, **östra USA 2**, **centrala USA**, **södra centrala USA**, **västra USA 2**, **norra Europa**, **Västeuropa,** **Storbritannien, södra**, **Sydostasien**,  **Östra Australien**, **centrala Kanada**och **Östra Kanada** -regioner. Azure Dev Spaces stöder användning av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Visual Studio Code](https://code.visualstudio.com/download) med [Azure Dev Spaces-tillägget](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) som är installerat på Linux, MacOS och Windows 8 eller senare för att skapa och köra program på AKS. Det stöder också användning av [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) som är installerat på Windows 8 eller senare. För Visual Studio 2019 behöver du arbets belastningen Azure Development. För Visual Studio 2017 behöver du arbets belastningen webb utveckling och [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools).
+Azure dev Spaces stöds endast av AKS-kluster i **USA**, östra USA, **östra USA 2**, **centrala USA**, **södra centrala USA**, **västra USA 2**, **norra Europa** **, Västeuropa**, **Storbritannien, södra**, **Asien, östra**,  **Sydostasien**, östra **Australien**, **centrala Kanada**och **Östra Kanada** . Azure Dev Spaces stöder användning av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Visual Studio Code](https://code.visualstudio.com/download) med [Azure Dev Spaces-tillägget](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) som är installerat på Linux, MacOS och Windows 8 eller senare för att skapa och köra program på AKS. Det stöder också användning av [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) som är installerat på Windows 8 eller senare. För Visual Studio 2019 behöver du arbets belastningen Azure Development. För Visual Studio 2017 behöver du arbets belastningen webb utveckling och [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools).
 
 ## <a name="next-steps"></a>Nästa steg
 

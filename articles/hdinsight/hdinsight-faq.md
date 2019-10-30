@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 5b9011e2a95dc1bdb86311111123db3c994f3aee
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: HT
+ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044945"
+ms.locfileid: "73052517"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: vanliga frågor och svar
 
@@ -387,3 +387,7 @@ Information om integrations funktionerna i Stream-bearbetning i Azure HDInsight 
 ### <a name="is-there-a-way-to-dynamically-terminate-the-head-node-of-the-cluster-when-the-cluster-is-idle-for-a-specific-period"></a>Finns det något sätt att dynamiskt avsluta klustrets huvud nod när klustret är inaktivt under en viss period?
 
 Du kan inte göra detta med HDInsight-kluster. Du kan använda Azure Data Factory för dessa scenarier.
+
+### <a name="what-compliance-offerings-does-hdinsight-offer"></a>Vilka efterlevnadsprinciper erbjuder HDInsight?
+
+Information om kompatibilitet finns i [Microsoft Trust Center](https://www.microsoft.com/trust-center) och [Översikt över Microsoft Azure efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).

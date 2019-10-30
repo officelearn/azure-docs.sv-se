@@ -6,14 +6,12 @@
       href: overview-iot-central-government.md
 - name: Självstudier
   items:
-    - name: Analys i butik för kassan
-      items:
-        - name: Skapa en ansluten app för avfallshantering
-          href: tutorial-connected-waste-management.md
-        - name: Skapa en app för övervakning av vattenförbrukning
-          href: tutorial-water-consumption-monitoring.md
-        - name: Skapa en app för övervakning av vattenkvalitet
-          href: tutorial-water-quality-monitoring.md
+    - name: Skapa en ansluten app för avfallshantering
+      href: tutorial-connected-waste-management.md
+    - name: Skapa en app för övervakning av vattenförbrukning
+      href: tutorial-water-consumption-monitoring.md
+    - name: Skapa en app för övervakning av vattenkvalitet
+      href: tutorial-water-quality-monitoring.md
 - name: Begrepp
   items:
     - name: Referensarkitektur för ansluten avfallsövervakning
@@ -22,10 +20,10 @@
       href: concepts-waterconsumptionmonitoring-architecture.md
     - name: Referensarkitektur för övervakning av vattenkvalitet
       href: concepts-waterqualitymonitoring-architecture.md
-    - name: Anslutning
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
 - name: Instruktionsguider
   items:
+    - name: Ansluta din app med Dynamics 365 Field Services
+      href: how-to-configure-connected-field-services.md
     - name: Ansluta enheter
       items:
         - name: Förbereda och ansluta MXChip IoT DevKit
@@ -56,8 +54,6 @@
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Skapa anpassade roller
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-        - name: Skapa anpassad analys med Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Skapa anpassad analys med Databricks
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Administration

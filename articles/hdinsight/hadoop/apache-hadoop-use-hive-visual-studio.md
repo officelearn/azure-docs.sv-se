@@ -1,5 +1,5 @@
 ---
-title: Apache Hive med Data Lake verktyg för Visual Studio – Azure HDInsight
+title: Apache Hive & Data Lake verktyg för Visual Studio – Azure HDInsight
 description: Lär dig hur du använder Data Lake verktyg för Visual Studio för att köra Apache Hive frågor med Apache Hadoop på Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1e5e3854f0b132ede38e182f99435a569c04d49e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 37652a8ca9750e6b33bd2744bda386eaba92b025
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076272"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044536"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Kör Apache Hive frågor med hjälp av Data Lake verktyg för Visual Studio
 
@@ -43,7 +43,7 @@ Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
 1. Öppna **Visual Studio**.
 
-2. Från **Server Explorer**navigerar du till **Azure** > **HDInsight**.
+2. Gå till **Azure** > **HDInsight**från **Server Explorer**.
 
 3. Expandera **HDInsight**och högerklicka på det kluster där du vill köra frågan och välj sedan **Skriv en Hive-fråga**.
 
@@ -61,25 +61,25 @@ Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
     ![Skärmbild av att skicka en hive-fråga](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
-    Hive-redigeraren stöder IntelliSense. Data Lake Tools för Visual Studio stöder inläsning av fjärrmetadata när du redigerar Hive-skript. Om du till exempel skriver `SELECT * FROM`visas alla föreslagna tabell namn i IntelliSense. När du anger ett tabellnamn visar IntelliSense en lista över kolumnnamnen. Verktygen stöder de flesta Hive DML-instruktioner, underfrågor och inbyggda UDF. IntelliSense föreslår endast metadata för kluster som valts i verktygsfältet för HDInsight.
+    Hive-redigeraren stöder IntelliSense. Data Lake Tools för Visual Studio stöder inläsning av fjärrmetadata när du redigerar Hive-skript. Om du till exempel skriver `SELECT * FROM`visar IntelliSense alla föreslagna tabell namn. När du anger ett tabellnamn visar IntelliSense en lista över kolumnnamnen. Verktygen stöder de flesta Hive DML-instruktioner, underfrågor och inbyggda UDF. IntelliSense föreslår endast metadata för kluster som valts i verktygsfältet för HDInsight.
 
-    ![Skärmbild av HDInsight Visual Studio Tools, IntelliSense exempel 1](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "U-SQL IntelliSense")
+    ![Skärm bild av ett HDInsight Visual Studio Tools IntelliSense-exempel 1](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "U-SQL IntelliSense")
    
-    ![Skärmbild av HDInsight Visual Studio Tools, IntelliSense exempel 2](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "U-SQL IntelliSense")
+    ![Skärm bild av ett HDInsight Visual Studio Tools IntelliSense-exempel 2](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "U-SQL IntelliSense")
 
 7. Välj **Skicka** eller **Skicka (avancerat)** .
 
    Om du väljer det avancerade alternativet för att skicka konfigurerar du **Jobbnamn**, **Argument**, **Ytterligare konfigurationer** och **Statuskatalog** för skriptet:
 
-    ![Skärmbild av HDInsight Hadoop Hive-fråga](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Skicka frågor")
+    ![Skärm bild av en HDInsight Hadoop Hive-fråga](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Skicka frågor")
 
 ### <a name="hive-application"></a>Hive-program
 
 1. Öppna **Visual Studio**.
 
-2. I meny raden navigerar du till **filen** > **nytt** > **projekt**.
+2. I meny raden navigerar du till **fil** > **nytt** > **projekt**.
 
-3. I fönstret **nytt projekt** navigerar du till **mallar** > **Azure Data Lake** > Hive**Hive-program** **(HDInsight)**  > . 
+3. I fönstret **nytt projekt** navigerar du till **mallar** > **Azure Data Lake** > **Hive (HDInsight)**  > **Hive-program**. 
 
 4. Ange ett namn för projektet och välj sedan **OK**.
 
@@ -96,22 +96,22 @@ Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
     Dessa instruktioner utför följande åtgärder:
 
-   * `DROP TABLE`: Om tabellen finns, tar den här instruktionen bort den.
+   * `DROP TABLE`: om tabellen finns, tar den här instruktionen bort den.
 
-   * `CREATE EXTERNAL TABLE`: Skapar en ny extern tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive (data finns kvar på den ursprungliga platsen).
+   * `CREATE EXTERNAL TABLE`: skapar en ny extern tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive (data finns kvar på den ursprungliga platsen).
 
      > [!NOTE]  
      > Externa tabeller bör användas när du förväntar dig att underliggande data ska uppdateras av en extern källa. Till exempel ett MapReduce-jobb eller en Azure-tjänst.
      >
      > Att släppa en extern tabell tar **inte** bort data, endast tabell definitionen.
 
-   * `ROW FORMAT`: Anger Hive hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.
+   * `ROW FORMAT`: anger Hive hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.
 
-   * `STORED AS TEXTFILE LOCATION`: Anger Hive att data lagras i exemplet/data katalogen och att de lagras som text.
+   * `STORED AS TEXTFILE LOCATION`: anger Hive att data lagras i exemplet/data katalogen och att de lagras som text.
 
-   * `SELECT`: Välj ett antal rader där kolumnen `t4` innehåller värdet. `[ERROR]` Den här instruktionen returnerar värdet `3` eftersom det finns tre rader som innehåller det här värdet.
+   * `SELECT`: Välj ett antal rader där kolumnen `t4` innehåller värdet `[ERROR]`. Den här instruktionen returnerar värdet `3` eftersom det finns tre rader som innehåller det här värdet.
 
-   * `INPUT__FILE__NAME LIKE '%.log'`-Anger Hive att vi bara ska returnera data från filer som slutar med. log. Den här satsen begränsar sökningen till exempel. log-filen som innehåller data.
+   * `INPUT__FILE__NAME LIKE '%.log'` – anger Hive att vi bara ska returnera data från filer som slutar med. log. Den här satsen begränsar sökningen till exempel. log-filen som innehåller data.
 
 6. I verktygsfältet väljer du det **HDInsight-kluster** som du vill använda för den här frågan. Välj **Skicka** för att köra uttrycken som ett Hive-jobb.
 
@@ -121,11 +121,11 @@ Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
    ![jobb sammanfattning som visar ett slutfört jobb](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
 
-8. Använd länken **jobbets utdata** om du vill visa utdata för jobbet. Den visas `[ERROR] 3`, vilket är det värde som returneras av den här frågan.
+8. Använd länken **jobbets utdata** om du vill visa utdata för jobbet. Den visar `[ERROR] 3`, vilket är det värde som returneras av den här frågan.
 
 ### <a name="additional-example"></a>Ytterligare exempel
 
-Det här exemplet använder den `log4jLogs` tabell som skapades i föregående steg.
+Det här exemplet använder `log4jLogs` tabellen som skapades i föregående steg.
 
 1. Från **Server Explorer**högerklickar du på klustret och väljer **Skriv en Hive-fråga**.
 
@@ -139,18 +139,18 @@ Det här exemplet använder den `log4jLogs` tabell som skapades i föregående s
 
     Dessa instruktioner utför följande åtgärder:
 
-    * `CREATE TABLE IF NOT EXISTS`: Skapar en tabell om den inte redan finns. `EXTERNAL` Eftersom nyckelordet inte används skapar den här instruktionen en intern tabell. Interna tabeller lagras i Hive-datalagret och hanteras av Hive.
+    * `CREATE TABLE IF NOT EXISTS`: skapar en tabell om den inte redan finns. Eftersom nyckelordet `EXTERNAL` inte används, skapar den här instruktionen en intern tabell. Interna tabeller lagras i Hive-datalagret och hanteras av Hive.
     
     > [!NOTE]  
-    > Till skillnad `EXTERNAL` från tabeller, raderas även underliggande data när en intern tabell släpps.
+    > Till skillnad från `EXTERNAL` tabeller, tas även underliggande data bort när en intern tabell släpps.
 
-    * `STORED AS ORC`: Lagrar data i optimerade rad kolumners (ORC)-format. ORC är ett mycket optimerat och effektivt format för att lagra Hive-data.
+    * `STORED AS ORC`: lagrar data i optimerade rad kolumners (ORC) format. ORC är ett mycket optimerat och effektivt format för att lagra Hive-data.
     
-    * `INSERT OVERWRITE ... SELECT`: Markerar rader i `log4jLogs` tabellen som innehåller `[ERROR]`och `errorLogs` infogar sedan data i tabellen.
+    * `INSERT OVERWRITE ... SELECT`: väljer rader från tabellen `log4jLogs` som innehåller `[ERROR]`och infogar sedan data i `errorLogs` tabellen.
 
 3. Kör frågan i **batch** -läge.
 
-4. Verifiera att jobbet har skapats genom att använda **Server Explorer** och expandera **Azure** > **HDInsight** > ditt HDInsight-kluster > **Hive-databaser** > som**standard**. Tabellen **errorLogs** och tabellen **log4jLogs** visas.
+4. Verifiera att jobbet har skapats genom att använda **Server Explorer** och expandera **Azure** > **HDInsight** > ditt HDInsight-kluster > **Hive-databaser** > **standardvärdet**. Tabellen **errorLogs** och tabellen **log4jLogs** visas.
 
 ## <a id="nextsteps"></a>Nästa steg
 

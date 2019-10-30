@@ -81,6 +81,10 @@
           items:
             - name: Skapa en zonredundant virtuell nätverksgateway
               href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: Identitet
+          items:
+            - name: Skapa en Azure Active Directory Domain Services-instans
+              href: ../active-directory-domain-services/tutorial-create-instance.md
 - name: Haveriberedskap
   items:
     - name: Använda Azure Site Recovery

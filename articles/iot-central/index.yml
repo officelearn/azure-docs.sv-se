@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: e60c4da08d92cce1cd5964f78e8198f6c04069ef
-  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.openlocfilehash: a27fa47333739e688e879b936a6e3b25a4d3c749
+  ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
   ms.translationtype: HT
   ms.contentlocale: sv-SE
   ms.lasthandoff: 10/27/2019
-  ms.locfileid: "72965892"
+  ms.locfileid: "72968966"
 highlightedContent:
   items:
   - title: Vad är IoT Central?
@@ -23,7 +23,7 @@ highlightedContent:
     url: ./core/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - title: Vad är programmallar?
     itemType: concept
-    url: ./core/howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    url: ./core/concepts-app-templates.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - title: Azure IoT Central-arkitektur
     itemType: architecture
     url: ./core/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
@@ -86,7 +86,7 @@ productDirectory:
     links:
     - text: Skapa lösningar för detaljhandeln med Azure IoT Central
       url: ./retail/overview-iot-central-retail-pnp.md
-    - text: Skapa ett program för detaljhandeln
+    - text: Skapa ett program för analys i butik
       url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
     - text: Skapa ett program för smart lagerhantering
       url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md

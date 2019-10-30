@@ -54,6 +54,8 @@
       href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
     - name: Konfigurera nyckelrotation och granskning
       href: key-vault-key-rotation-log-monitoring.md
+    - name: Övervaka Key Vault-händelser med Event Grid
+      href: event-grid-overview.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -74,6 +76,8 @@
           href: key-vault-security-controls.md
     - name: Mjuk borttagning
       href: key-vault-ovw-soft-delete.md
+    - name: Övervaka Key Vault-händelser
+      href: event-grid-overview.md
     - name: Begränsning
       href: key-vault-ovw-throttling.md
     - name: Tjänstslutpunkter för virtuellt nätverk
@@ -104,6 +108,8 @@
           href: managed-identity.md
         - name: Använda en princip för åtkomstkontroll
           href: key-vault-group-permissions-for-apps.md
+    - name: Vidarekoppla Key Vault-meddelanden med Event Grid
+      href: event-grid-tutorial.md
     - name: Azure Key Vault-loggning
       href: key-vault-logging.md
     - name: Åtkomst bakom brandväggar

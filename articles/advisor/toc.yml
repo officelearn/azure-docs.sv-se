@@ -18,6 +18,8 @@
       href: advisor-performance-recommendations.md
     - name: Minska tjänstkostnader
       href: advisor-cost-recommendations.md
+    - name: Tillgodose era behov
+      href: advisor-operational-excellence-recommendations.md
     - name: Konfigurera rekommendationer
       href: view-recommendations.md
     - name: Behörigheter och blockerade åtgärder

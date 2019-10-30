@@ -37,6 +37,9 @@
         - name: Komma igång med Azure Databricks
           href: /azure/databricks/getting-started/quick-start
           maintainContext: true
+        - name: Dataöversikt
+          href: /azure/databricks/getting-started/data
+          maintainContext: true
         - name: Azure Databricks-begrepp
           href: /azure/databricks/getting-started/concepts
           maintainContext: true
@@ -60,7 +63,7 @@
             - name: Maskininlärning
               href: /azure/databricks/getting-started/spark/machine-learning
               maintainContext: true
-            - name: Strukturerad direktuppspelning
+            - name: Översikt över strukturerad direktuppspelning
               href: /azure/databricks/getting-started/spark/streaming
               maintainContext: true
             - name: Nästa steg
@@ -71,207 +74,6 @@
           maintainContext: true
         - name: Webbläsare som stöds
           href: /azure/databricks/getting-started/supported-browsers
-          maintainContext: true
-    - name: SQL
-      items:
-        - name: SQL-översikt
-          href: /azure/databricks/spark/latest/spark-sql/index
-          maintainContext: true
-        - name: Språkhandbok för SQL
-          items:
-            - name: Ändra databas
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-database
-              maintainContext: true
-            - name: Ändra tabell eller vy
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-table-or-view
-              maintainContext: true
-            - name: Ändra tabellpartitioner
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-table-partitions
-              maintainContext: true
-            - name: Analysera tabell
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/analyze-table
-              maintainContext: true
-            - name: Cache
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/cache-dbio
-              maintainContext: true
-            - name: Cache-tabell
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/cache-table
-              maintainContext: true
-            - name: Rensa cacheminne
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/clear-cache
-              maintainContext: true
-            - name: Konvertera till delta (Delta Lake på Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/convert-to-delta
-              maintainContext: true
-            - name: Skapa databas
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-database
-              maintainContext: true
-            - name: Skapa funktion
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-function
-              maintainContext: true
-            - name: Skapa tabell
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-table
-              maintainContext: true
-            - name: Skapa vy
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-view
-              maintainContext: true
-            - name: Ta bort från (Delta Lake på Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/delete-from
-              maintainContext: true
-            - name: Beskriva databas
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-database
-              maintainContext: true
-            - name: Beskriva funktion
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-function
-              maintainContext: true
-            - name: Beskriva tabell
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-table
-              maintainContext: true
-            - name: Släppa databas
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-database
-              maintainContext: true
-            - name: Släppa funktion
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-function
-              maintainContext: true
-            - name: Släppa tabell
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-table
-              maintainContext: true
-            - name: Förklara
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/explain
-              maintainContext: true
-            - name: Reparationstabell för fsck (Delta Lake på Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/fsck
-              maintainContext: true
-            - name: Functions
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/functions
-              maintainContext: true
-            - name: Infoga
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/insert
-              maintainContext: true
-            - name: Läsa in data
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
-              maintainContext: true
-            - name: Sammanfoga (Delta Lake på Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
-              maintainContext: true
-            - name: Optimera (Delta Lake på Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
-              maintainContext: true
-            - name: Uppdatera tabell
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/refresh-table
-              maintainContext: true
-            - name: Återställ
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/reset
-              maintainContext: true
-            - name: Välj
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/select
-              maintainContext: true
-            - name: Ange
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/set
-              maintainContext: true
-            - name: Visa kolumner
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-columns
-              maintainContext: true
-            - name: Visa Skapa tabell
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-create-table
-              maintainContext: true
-            - name: Visa databaser
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-databases
-              maintainContext: true
-            - name: Visa funktioner
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-functions
-              maintainContext: true
-            - name: Visa partitioner
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-partitions
-              maintainContext: true
-            - name: Visa tabellegenskaper
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-table-properties
-              maintainContext: true
-            - name: Visa tabeller
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-tables
-              maintainContext: true
-            - name: Trunkera tabell
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/truncate-table
-              maintainContext: true
-            - name: Ta bort tabell från cache
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/uncache-table
-              maintainContext: true
-            - name: Uppdatera (Delta Lake på Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/update
-              maintainContext: true
-            - name: Använda databas
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/use-database
-              maintainContext: true
-            - name: Vakuum
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/vacuum
-              maintainContext: true
-        - name: Spark SQL-exempel
-          items:
-            - name: Kostnadsbaserad optimering
-              href: /azure/databricks/spark/latest/spark-sql/cbo
-              maintainContext: true
-            - name: Data hoppar över index
-              href: /azure/databricks/spark/latest/spark-sql/dataskipping-index
-              maintainContext: true
-            - name: Transaktionsskrivningar till molnlagring med DBIO
-              href: /azure/databricks/spark/latest/spark-sql/dbio-commit
-              maintainContext: true
-            - name: Hantera felaktiga poster och filer
-              href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
-              maintainContext: true
-            - name: Aktivitetsavstängning för hög samtidighet
-              href: /azure/databricks/spark/latest/spark-sql/preemption
-              maintainContext: true
-            - name: Hantera stora frågor i interaktiva arbetsflöden
-              href: /azure/databricks/spark/latest/spark-sql/query-watchdog
-              maintainContext: true
-            - name: Optimera konverteringen mellan Spark och Pandas DataFrames
-              href: /azure/databricks/spark/latest/spark-sql/spark-pandas
-              maintainContext: true
-            - name: Användardefinierade mängdfunktioner – Scala
-              href: /azure/databricks/spark/latest/spark-sql/udf-scala
-              maintainContext: true
-            - name: Användardefinierade funktioner – Python
-              href: /azure/databricks/spark/latest/spark-sql/udf-python
-              maintainContext: true
-            - name: Användardefinierade funktioner i Pandas
-              href: /azure/databricks/spark/latest/spark-sql/udf-python-pandas
-              maintainContext: true
-            - name: Apache Hive-kompatibilitet
-              href: /azure/databricks/spark/latest/spark-sql/compatibility/hive
-              maintainContext: true
-    - name: R
-      items:
-        - name: R-guide
-          href: /azure/databricks/spark/latest/sparkr/index
-          maintainContext: true
-        - name: Översikt över SparkR
-          href: /azure/databricks/spark/latest/sparkr/overview
-          maintainContext: true
-        - name: Självstudier om SparkR ML
-          items:
-            - name: Översikt över SparkR ML-självstudier
-              href: /azure/databricks/spark/latest/sparkr/tutorials/index
-              maintainContext: true
-            - name: Använda GLM
-              href: /azure/databricks/spark/latest/sparkr/tutorials/using-glm
-              maintainContext: true
-        - name: Funktionsreferens för SparkR
-          href: /azure/databricks/spark/latest/sparkr/sparkr
-          maintainContext: true
-        - name: SparkR 1.6
-          items:
-            - name: Översikt över SparkR 1.6
-              href: /azure/databricks/spark/1.6/sparkr/overview
-              maintainContext: true
-            - name: Funktionsreferens för SparkR 1.6
-              href: /azure/databricks/spark/1.6/sparkr/functions/index
-              maintainContext: true
-        - name: sparklyr
-          href: /azure/databricks/spark/latest/sparkr/sparklyr
-          maintainContext: true
-        - name: RStudio på Azure Databricks
-          href: /azure/databricks/spark/latest/sparkr/rstudio
           maintainContext: true
     - name: Databricks-körningar
       items:
@@ -287,8 +89,8 @@
         - name: Databricks Runtime för maskininlärning
           href: /azure/databricks/runtime/mlruntime
           maintainContext: true
-        - name: Databricks Runtime för hälsa och naturvetenskap
-          href: /azure/databricks/runtime/hlsruntime
+        - name: Databricks Runtime för Genomics
+          href: /azure/databricks/runtime/genomicsruntime
           maintainContext: true
         - name: Databricks Light
           href: /azure/databricks/runtime/light
@@ -298,22 +100,25 @@
         - name: Utforska arbetsytan i Databricks
           href: /azure/databricks/workspace/index
           maintainContext: true
-        - name: 'Hämta arbetsyta, kluster, anteckningsbok och jobbidentifierare'
-          href: /azure/databricks/workspace/workspace-details
+        - name: Arbetsytetillgångar
+          href: /azure/databricks/workspace/workspace-assets
           maintainContext: true
         - name: Arbeta med arbetsytans objekt
           href: /azure/databricks/workspace/workspace-objects
+          maintainContext: true
+        - name: 'Hämta arbetsyta, kluster, anteckningsbok och jobbidentifierare'
+          href: /azure/databricks/workspace/workspace-details
           maintainContext: true
     - name: Kluster
       items:
         - name: Översikt över kluster
           href: /azure/databricks/clusters/index
           maintainContext: true
-        - name: Hantera kluster
-          href: /azure/databricks/clusters/clusters-manage
-          maintainContext: true
         - name: Skapa ett kluster
           href: /azure/databricks/clusters/create
+          maintainContext: true
+        - name: Hantera kluster
+          href: /azure/databricks/clusters/clusters-manage
           maintainContext: true
         - name: Konfigurera kluster
           href: /azure/databricks/clusters/configure
@@ -355,11 +160,11 @@
         - name: Översikt över Notebooks
           href: /azure/databricks/notebooks/index
           maintainContext: true
-        - name: Använda anteckningsböcker
-          href: /azure/databricks/notebooks/notebooks-use
-          maintainContext: true
         - name: Hantera anteckningsböcker
           href: /azure/databricks/notebooks/notebooks-manage
+          maintainContext: true
+        - name: Använda anteckningsböcker
+          href: /azure/databricks/notebooks/notebooks-use
           maintainContext: true
         - name: Versionskontroll
           items:
@@ -404,19 +209,19 @@
         - name: Instrumentpaneler
           href: /azure/databricks/notebooks/dashboards
           maintainContext: true
-        - name: Widgetar för indata
+        - name: Widgets
           href: /azure/databricks/notebooks/widgets
           maintainContext: true
-        - name: Implementera anteckningsboksarbetsflöden
+        - name: Arbetsflöden för notebook-filer
           href: /azure/databricks/notebooks/notebook-workflows
           maintainContext: true
         - name: Paketceller
           href: /azure/databricks/notebooks/package-cells
           maintainContext: true
-    - name: Använda Azure Databricks-jobb
+    - name: Jobb
       href: /azure/databricks/jobs
       maintainContext: true
-    - name: Använda Azure Databricks-bibliotek
+    - name: Bibliotek
       href: /azure/databricks/libraries
       maintainContext: true
     - name: Data
@@ -424,17 +229,40 @@
         - name: Databricks-filsystem
           href: /azure/databricks/data/databricks-file-system
           maintainContext: true
-        - name: Åtkomst till data
-          href: /azure/databricks/data/access-data
-          maintainContext: true
-        - name: Använda databaser och tabeller
+        - name: Databaser och tabeller
           href: /azure/databricks/data/tables
           maintainContext: true
-        - name: FileStore
-          href: /azure/databricks/data/filestore
-          maintainContext: true
+        - name: Metaarkiv
+          items:
+            - name: Externt Hive-metaarkiv
+              href: /azure/databricks/data/metastores/external-hive-metastore
+              maintainContext: true
         - name: Datakällor
           items:
+            - name: SQL-databaser med JDBC
+              href: /azure/databricks/data/data-sources/sql-databases
+              maintainContext: true
+            - name: Azure SQL Database med Apache Spark-anslutningsprogrammet
+              href: /azure/databricks/data/data-sources/sql-databases-azure
+              maintainContext: true
+            - name: Azure Blob Storage
+              href: /azure/databricks/data/data-sources/azure/azure-storage
+              maintainContext: true
+            - name: Azure Data Lake Storage Gen2
+              href: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
+              maintainContext: true
+            - name: Azure Data Lake Storage
+              href: /azure/databricks/data/data-sources/azure/azure-datalake
+              maintainContext: true
+            - name: Azure Data Lake Storage-genomströmning
+              href: /azure/databricks/data/data-sources/azure/adls-passthrough
+              maintainContext: true
+            - name: Cosmos DB
+              href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
+              maintainContext: true
+            - name: SQL Data Warehouse
+              href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
+              maintainContext: true
             - name: Binära filer
               href: /azure/databricks/data/data-sources/binary-file
               maintainContext: true
@@ -450,8 +278,8 @@
             - name: Avbildningar
               href: /azure/databricks/data/data-sources/image
               maintainContext: true
-            - name: Importera Hive-tabeller
-              href: /azure/databricks/data/data-sources/importing-hive-tables
+            - name: Hive-tabeller
+              href: /azure/databricks/data/data-sources/hive-tables
               maintainContext: true
             - name: MLflow-experiment
               href: /azure/databricks/data/data-sources/mlflow-experiment
@@ -486,38 +314,12 @@
             - name: Snowflake
               href: /azure/databricks/data/data-sources/snowflake
               maintainContext: true
-            - name: Azure SQL Database
-              href: /azure/databricks/data/data-sources/sql-databases-azure
-              maintainContext: true
-            - name: SQL-databaser
-              href: /azure/databricks/data/data-sources/sql-databases
-              maintainContext: true
             - name: ZIP-filer
               href: /azure/databricks/data/data-sources/zip-files
               maintainContext: true
-            - name: Azure Data Lake Storage-genomströmning
-              href: /azure/databricks/data/data-sources/azure/adls-passthrough
-              maintainContext: true
-            - name: Azure Data Lake Storage Gen2
-              href: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
-              maintainContext: true
-            - name: Azure Data Lake Storage
-              href: /azure/databricks/data/data-sources/azure/azure-datalake
-              maintainContext: true
-            - name: Azure-lagring
-              href: /azure/databricks/data/data-sources/azure/azure-storage
-              maintainContext: true
-            - name: Cosmos DB-anslutningsprogram
-              href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
-              maintainContext: true
-            - name: SQL Data Warehouse
-              href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
-              maintainContext: true
-        - name: Metaarkiv
-          items:
-            - name: Externt Hive-metaarkiv
-              href: /azure/databricks/data/metastores/external-hive-metastore
-              maintainContext: true
+        - name: FileStore
+          href: /azure/databricks/data/filestore
+          maintainContext: true
     - name: Business Intelligence-verktyg
       items:
         - name: Ansluta BI-verktyg
@@ -609,6 +411,9 @@
                 - name: Omvandla komplexa datatyper
                   href: /azure/databricks/delta/data-transformation/complex-types
                   maintainContext: true
+            - name: Bästa praxis
+              href: /azure/databricks/delta/best-practices
+              maintainContext: true
             - name: Versionshantering för tabell
               href: /azure/databricks/delta/optimizations/versioning
               maintainContext: true
@@ -689,6 +494,207 @@
             - name: Metodtips för utveckling av program för direktuppspelning
               href: /azure/databricks/spark/latest/rdd-streaming/developing-streaming-applications
               maintainContext: true
+    - name: SQL
+      items:
+        - name: SQL-översikt
+          href: /azure/databricks/spark/latest/spark-sql/index
+          maintainContext: true
+        - name: Språkhandbok för SQL
+          items:
+            - name: Ändra databas
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-database
+              maintainContext: true
+            - name: Ändra tabell eller vy
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-table-or-view
+              maintainContext: true
+            - name: Ändra tabellpartitioner
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-table-partitions
+              maintainContext: true
+            - name: Analysera tabell
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/analyze-table
+              maintainContext: true
+            - name: Cache
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/cache-dbio
+              maintainContext: true
+            - name: Cache-tabell
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/cache-table
+              maintainContext: true
+            - name: Rensa cacheminne
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/clear-cache
+              maintainContext: true
+            - name: Konvertera till delta (Delta Lake på Azure Databricks)
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/convert-to-delta
+              maintainContext: true
+            - name: Skapa databas
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-database
+              maintainContext: true
+            - name: Skapa funktion
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-function
+              maintainContext: true
+            - name: Skapa tabell
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-table
+              maintainContext: true
+            - name: Skapa vy
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-view
+              maintainContext: true
+            - name: Ta bort från (Delta Lake på Azure Databricks)
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/delete-from
+              maintainContext: true
+            - name: Beskriva databas
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-database
+              maintainContext: true
+            - name: Beskriva funktion
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-function
+              maintainContext: true
+            - name: Beskriva tabell
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-table
+              maintainContext: true
+            - name: Släppa databas
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-database
+              maintainContext: true
+            - name: Släppa funktion
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-function
+              maintainContext: true
+            - name: Släppa tabell
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-table
+              maintainContext: true
+            - name: Förklara
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/explain
+              maintainContext: true
+            - name: Reparationstabell för fsck (Delta Lake på Azure Databricks
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/fsck
+              maintainContext: true
+            - name: Functions
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/functions
+              maintainContext: true
+            - name: Infoga
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/insert
+              maintainContext: true
+            - name: Läsa in data
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
+              maintainContext: true
+            - name: Sammanfoga (Delta Lake på Azure Databricks
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
+              maintainContext: true
+            - name: Optimera (Delta Lake på Azure Databricks
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
+              maintainContext: true
+            - name: Uppdatera tabell
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/refresh-table
+              maintainContext: true
+            - name: Återställ
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/reset
+              maintainContext: true
+            - name: Välj
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/select
+              maintainContext: true
+            - name: Ange
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/set
+              maintainContext: true
+            - name: Visa kolumner
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-columns
+              maintainContext: true
+            - name: Visa Skapa tabell
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-create-table
+              maintainContext: true
+            - name: Visa databaser
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-databases
+              maintainContext: true
+            - name: Visa funktioner
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-functions
+              maintainContext: true
+            - name: Visa partitioner
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-partitions
+              maintainContext: true
+            - name: Visa tabellegenskaper
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-table-properties
+              maintainContext: true
+            - name: Visa tabeller
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-tables
+              maintainContext: true
+            - name: Trunkera tabell
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/truncate-table
+              maintainContext: true
+            - name: Ta bort tabell från cache
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/uncache-table
+              maintainContext: true
+            - name: Uppdatera (Delta Lake på Azure Databricks
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/update
+              maintainContext: true
+            - name: Använda databas
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/use-database
+              maintainContext: true
+            - name: Vakuum
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/vacuum
+              maintainContext: true
+        - name: Spark SQL-exempel
+          items:
+            - name: Kostnadsbaserad optimering
+              href: /azure/databricks/spark/latest/spark-sql/cbo
+              maintainContext: true
+            - name: Data hoppar över index
+              href: /azure/databricks/spark/latest/spark-sql/dataskipping-index
+              maintainContext: true
+            - name: Transaktionsskrivningar till molnlagring med DBIO
+              href: /azure/databricks/spark/latest/spark-sql/dbio-commit
+              maintainContext: true
+            - name: Hantera felaktiga poster och filer
+              href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
+              maintainContext: true
+            - name: Aktivitetsavstängning för hög samtidighet
+              href: /azure/databricks/spark/latest/spark-sql/preemption
+              maintainContext: true
+            - name: Hantera stora frågor i interaktiva arbetsflöden
+              href: /azure/databricks/spark/latest/spark-sql/query-watchdog
+              maintainContext: true
+            - name: Optimera konverteringen mellan Spark och Pandas DataFrames
+              href: /azure/databricks/spark/latest/spark-sql/spark-pandas
+              maintainContext: true
+            - name: Användardefinierade mängdfunktioner – Scala
+              href: /azure/databricks/spark/latest/spark-sql/udf-scala
+              maintainContext: true
+            - name: Användardefinierade funktioner – Python
+              href: /azure/databricks/spark/latest/spark-sql/udf-python
+              maintainContext: true
+            - name: Användardefinierade funktioner i Pandas
+              href: /azure/databricks/spark/latest/spark-sql/udf-python-pandas
+              maintainContext: true
+            - name: Apache Hive-kompatibilitet
+              href: /azure/databricks/spark/latest/spark-sql/compatibility/hive
+              maintainContext: true
+    - name: R
+      items:
+        - name: R-guide
+          href: /azure/databricks/spark/latest/sparkr/index
+          maintainContext: true
+        - name: Översikt över SparkR
+          href: /azure/databricks/spark/latest/sparkr/overview
+          maintainContext: true
+        - name: Självstudier om SparkR ML
+          items:
+            - name: Översikt över SparkR ML-självstudier
+              href: /azure/databricks/spark/latest/sparkr/tutorials/index
+              maintainContext: true
+            - name: Använda GLM
+              href: /azure/databricks/spark/latest/sparkr/tutorials/using-glm
+              maintainContext: true
+        - name: Funktionsreferens för SparkR
+          href: /azure/databricks/spark/latest/sparkr/sparkr
+          maintainContext: true
+        - name: SparkR 1.6
+          items:
+            - name: Översikt över SparkR 1.6
+              href: /azure/databricks/spark/1.6/sparkr/overview
+              maintainContext: true
+            - name: Funktionsreferens för SparkR 1.6
+              href: /azure/databricks/spark/1.6/sparkr/functions/index
+              maintainContext: true
+        - name: sparklyr
+          href: /azure/databricks/spark/latest/sparkr/sparklyr
+          maintainContext: true
+        - name: RStudio på Azure Databricks
+          href: /azure/databricks/spark/latest/sparkr/rstudio
+          maintainContext: true
     - name: Maskininlärning
       items:
         - name: Översikt över maskininlärning
@@ -708,7 +714,7 @@
             - name: Avancerat MLib-exempel
               href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
               maintainContext: true
-        - name: AutoML
+        - name: Automatisk ML
           items:
             - name: Hyperopt
               items:
@@ -823,21 +829,6 @@
         - name: Komma igång med MLflow
           href: /azure/databricks/applications/mlflow/quick-start
           maintainContext: true
-        - name: Spåra träningskörningar för maskininlärning
-          href: /azure/databricks/applications/mlflow/tracking
-          maintainContext: true
-        - name: Få tillgång till spårning externt
-          href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
-          maintainContext: true
-        - name: 'Spara, läsa in och distribuera modeller'
-          href: /azure/databricks/applications/mlflow/models
-          maintainContext: true
-        - name: Reproducera körningar med MLflow-projekt
-          href: /azure/databricks/applications/mlflow/projects
-          maintainContext: true
-        - name: MLflow-modellexempel
-          href: /azure/databricks/applications/mlflow/model-examples
-          maintainContext: true
         - name: Komma igång med MLflow Java och Scala
           href: /azure/databricks/applications/mlflow/quick-start-java-scala
           maintainContext: true
@@ -847,8 +838,23 @@
         - name: Komma igång med MLflow R
           href: /azure/databricks/applications/mlflow/quick-start-r
           maintainContext: true
+        - name: Spåra träningskörningar för maskininlärning
+          href: /azure/databricks/applications/mlflow/tracking
+          maintainContext: true
         - name: Exempel på MLflow-spårning
           href: /azure/databricks/applications/mlflow/tracking-examples
+          maintainContext: true
+        - name: Få tillgång till spårning externt
+          href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
+          maintainContext: true
+        - name: 'Spara, läsa in och distribuera modeller'
+          href: /azure/databricks/applications/mlflow/models
+          maintainContext: true
+        - name: MLflow-modellexempel
+          href: /azure/databricks/applications/mlflow/model-examples
+          maintainContext: true
+        - name: Reproducera körningar med MLflow-projekt
+          href: /azure/databricks/applications/mlflow/projects
           maintainContext: true
     - name: Diagramanalys
       items:
@@ -937,10 +943,13 @@
             - name: Bibliotek för Python-statistik
               href: /azure/databricks/applications/genomics/tertiary/pandas-udf
               maintainContext: true
+            - name: SAIGE
+              href: /azure/databricks/applications/genomics/tertiary/saige
+              maintainContext: true
             - name: Hail 0.2
               href: /azure/databricks/applications/genomics/tertiary/hail
               maintainContext: true
-    - name: Migreringsguider
+    - name: Migrering
       items:
         - name: Migrera produktionsarbetsbelastningar
           href: /azure/databricks/migration/production
@@ -951,7 +960,7 @@
         - name: Migrera arbetsbelastningar till Delta Lake
           href: /azure/databricks/delta/porting
           maintainContext: true
-    - name: Säkerhet
+    - name: Säkerhet och sekretess
       items:
         - name: Säkerhetsöversikt
           href: /azure/databricks/security/index
@@ -976,9 +985,6 @@
             - name: Exempel på hemligt arbetsflöde
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
-    - name: Delegera autentisering till tjänster från tredje part
-      href: /azure/databricks/delegated-auth
-      maintainContext: true
     - name: Administration
       items:
         - name: Administrationsöversikt
@@ -1136,6 +1142,9 @@
             - name: Oväntad klusteravslutning
               href: /azure/databricks/kb/clusters/termination-reasons
               maintainContext: true
+            - name: Användargränssnittet för Apache Spark visar mindre än totalt nodminne
+              href: /azure/databricks/kb/clusters/spark-shows-less-memory
+              maintainContext: true
         - name: Datahantering
           items:
             - name: Lägga till i en DataFrame
@@ -1227,6 +1236,9 @@
               maintainContext: true
             - name: Släppa en hanterad Delta Lake-tabell
               href: /azure/databricks/kb/delta/drop-delta-table
+              maintainContext: true
+            - name: UPPDATERINGSFRÅGAN misslyckas med IllegalStateException
+              href: /azure/databricks/kb/delta/update-query-fails
               maintainContext: true
         - name: Utvecklarverktyg
           items:
@@ -1355,8 +1367,16 @@
             - name: Automatiskt sparande av notebook-fil misslyckas på grund av filstorleksbegränsningar
               href: /azure/databricks/kb/notebooks/notebook-autosave
               maintainContext: true
-            - name: Det går inte att köra notebook efter att direktuppspelningscell har avbrutits
+            - name: Det går inte att köra notebook-filen efter att direktuppspelningscellen har avbrutits
               href: /azure/databricks/kb/notebooks/streaming-notebook-stuck
+              maintainContext: true
+            - name: Felsök kommandot för att avbryta
+              href: /azure/databricks/kb/notebooks/troubleshoot-cancel-command
+              maintainContext: true
+        - name: Säkerhet och behörigheter
+          items:
+            - name: Ett fel inträffade när tabellen skapades med ett säkerhetsundantag
+              href: /azure/databricks/kb/security/table-create-security-exception
               maintainContext: true
         - name: Python
           items:
@@ -1420,12 +1440,12 @@
             - name: Tabellen eller vyn hittades inte
               href: /azure/databricks/kb/sql/global-temp-view-not-found
               maintainContext: true
-            - name: Strömning
-              items: null
+        - name: Strömning
+          items:
             - name: Återställning efter ändring av kontrollpunkt eller utdatakatalog
               href: /azure/databricks/kb/streaming/file-sink-streaming
               maintainContext: true
-            - name: Starta om en fråga om Strukturerad direktuppspelning från den senast skrivna förskjutningen
+            - name: Starta om en fråga om strukturerad direktuppspelning från den senast skrivna förskjutningen
               href: /azure/databricks/kb/streaming/ss-read-from-last-offset
               maintainContext: true
         - name: Visualiseringar
@@ -1436,7 +1456,7 @@
     - name: Utvecklarverktyg
       items:
         - name: Databricks Connect
-          href: /azure/databricks/dev-tools/db-connect
+          href: /azure/databricks/dev-tools/databricks-connect
           maintainContext: true
         - name: Hantera beroenden i datapipelines
           href: /azure/databricks/dev-tools/data-pipelines
@@ -1486,14 +1506,14 @@
             - name: Arbetsyta
               href: /azure/databricks/dev-tools/api/latest/workspace
               maintainContext: true
-        - name: Sträng för körningsversion för REST API-anrop
-          href: /azure/databricks/dev-tools/api/latest/runtime-version-string
-          maintainContext: true
+            - name: Sträng för körningsversion för REST API-anrop
+              href: /azure/databricks/dev-tools/api/latest/runtime-version-string
+              maintainContext: true
         - name: REST-API 1.2
           href: /azure/databricks/dev-tools/api/1.2/index
           maintainContext: true
     - name: Databricks-verktyg
-      href: /azure/databricks/dev-tools/dbutils
+      href: /azure/databricks/dev-tools/databricks-utils
       maintainContext: true
     - name: Databricks CLI
       href: /azure/databricks/dev-tools/databricks-cli
@@ -1503,10 +1523,8 @@
       maintainContext: true
     - name: Azure Databricks REST-API
       href: /azure/databricks//rest/api/databricks
-      maintainContext: true
     - name: Resource Manager-mall
       href: /azure/databricks//azure/templates/microsoft.databricks/workspaces
-      maintainContext: true
 - name: Resurser
   items:
     - name: Viktig information
@@ -1515,6 +1533,9 @@
           items:
             - name: Versionsinformation för plattformen
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: Oktober 2019
+              href: /azure/databricks/release-notes/product/2019/october
               maintainContext: true
             - name: September 2019
               href: /azure/databricks/release-notes/product/2019/september
@@ -1683,7 +1704,6 @@
           maintainContext: true
     - name: Utvecklarguide för R
       href: /azure/machine-learning/r-developers-guide
-      maintainContext: true
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Prissättning

@@ -14,31 +14,31 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: d7a9f365c9e2b6039451375f4ad50a7ce04cdd5b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c4faa29e092c7cbb550bca1daa87ce369bf03a14
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029729"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099530"
 ---
-# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabbstart: Lägga till funktions flaggor i en ASP.NET Core app
+# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabb start: Lägg till funktions flaggor i en ASP.NET Core app
 
 I den här snabb starten inkluderar du Azure App konfiguration i en ASP.NET Core webbapp för att skapa en slut punkt till slutpunkt-implementering av funktions hantering. Du kan använda app Configuration service för att centralt lagra alla funktions flaggor och kontrol lera deras tillstånd. 
 
 Biblioteken för .NET Core Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå konfigurations systemet för .NET Core. De integreras sömlöst med app-konfigurationen via sin .NET Core-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-- [.NET Core SDK](https://dotnet.microsoft.com/download).
+- [.Net Core SDK](https://dotnet.microsoft.com/download).
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
+## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
 6. Välj **funktions hanteraren** >  **+ Lägg** till för att lägga till följande funktions flaggor:
 
-    | Nyckel | State |
+    | Nyckel | Status |
     |---|---|
     | Beta | Av |
 
@@ -81,7 +81,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore`-och `Microsoft.FeatureManagement.AspNetCore`-NuGet-paketen genom att köra följande kommandon:
+1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore` och `Microsoft.FeatureManagement.AspNetCore` NuGet-paket genom att köra följande kommandon:
 
     ```
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
@@ -96,7 +96,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 1. Lägg till en hemlighet med namnet **ConnectionStrings:AppConfig** i Secret Manager.
 
-    Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. Ersätt värdet `<your_connection_string>` i följande kommando med anslutnings strängen för appens konfigurations arkiv.
+    Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. Ersätt `<your_connection_string>`-värdet i följande kommando med anslutnings strängen för appens konfigurations lager.
 
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
@@ -115,6 +115,11 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     ```
 
 1. Uppdatera metoden `CreateWebHostBuilder` för att använda app-konfiguration genom att anropa metoden `config.AddAzureAppConfiguration()`.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` ersätter `CreateWebHostBuilder` i .NET Core 3,0.  Välj rätt syntax baserat på din miljö.
+
+    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>Uppdatera `CreateWebHostBuilder` för .NET Core 2. x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -122,13 +127,25 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .UseFeatureFlags();
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
+
+    ### <a name="update-createhostbuilder-for-net-core-3x"></a>Uppdatera `CreateHostBuilder` för .NET Core 3. x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+        })
+        .UseStartup<Startup>());
+    ```
+
 
 1. Öppna *startup.cs*och Lägg till referenser till .net Core Feature Manager:
 
@@ -136,7 +153,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     using Microsoft.FeatureManagement;
     ```
 
-1. Uppdatera metoden `ConfigureServices` om du vill lägga till stöd för funktions flaggor genom att anropa metoden `services.AddFeatureManagement()`. Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:
+1. Uppdatera `ConfigureServices`-metoden för att lägga till stöd för funktions flaggor genom att anropa metoden `services.AddFeatureManagement()`. Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -145,7 +162,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     }
     ```
 
-1. Uppdatera metoden `Configure` om du vill lägga till ett mellanprogram så att funktions flagg värden kan uppdateras vid ett återkommande intervall medan ASP.NET Core webbappen fortsätter att ta emot begär Anden.
+1. Uppdatera `Configure`-metoden för att lägga till ett mellanprogram så att funktions flagg värden kan uppdateras vid ett återkommande intervall medan ASP.NET Core webbappen fortsätter att ta emot begär Anden.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -200,7 +217,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Öppna *_Layout. cshtml* i *vyerna*\\*delade* katalogen och ersätt `<nav>`-streckkoden under `<body>` @ no__t-6 @ no__t-7 med följande kod:
+1. Öppna *_Layout. cshtml* i *vyerna*\\*delade* katalogen och ersätt koden `<nav>` streckkoden under `<body>` > `<header>` med följande kod:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -259,15 +276,15 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
 1. Välj **funktions hanteraren**och ändra status för **beta** nyckeln till **på**:
 
-    | Nyckel | State |
+    | Nyckel | Status |
     |---|---|
     | Beta | På |
 
-1. Starta om programmet genom att växla tillbaka till kommando tolken och trycka på `Ctrl-C` om du vill avbryta körningen `dotnet` och sedan köra `dotnet run` igen.
+1. Starta om programmet genom att växla tillbaka till kommando tolken och trycka på `Ctrl-C` för att avbryta körningen `dotnet` processen och sedan köra `dotnet run`igen.
 
 1. Uppdatera webbläsarsidan för att visa de nya konfigurationsinställningarna.
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 3bc5bc99984367b44b38a65266d2915c47ca6fd0
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757344"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044108"
 ---
 # <a name="learn-image-moderation-concepts"></a>Lär dig om bild moderator koncept
 
@@ -147,4 +147,4 @@ Om du vill ha fler nyanserade-fall använder du [gransknings verktyget](Review-T
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa API- [konsolen för bild moderator](try-image-api.md) och Använd REST API kod exempel. Ta också en titt på [bild redigerings processen .net snabb start](image-moderation-quickstart-dotnet.md) om du är bekant med Visual C#Studio och.
+Testa API- [konsolen för bild moderator](try-image-api.md) och Använd REST API kod exempel. Se även avsnittet avbildnings moderator i [.NET SDK-snabb](dotnet-sdk-quickstart.md) starten om du är bekant med Visual Studio och C#.

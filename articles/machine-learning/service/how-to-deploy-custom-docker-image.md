@@ -1,7 +1,7 @@
 ---
 title: Distribuera modeller med en anpassad Docker-bas avbildning
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar Azure Machine Learning-modeller. När du distribuerar en utbildad modell distribueras en bas behållar avbildning för att köra din modell för härledning. Medan Azure Machine Learning tillhandahåller en standard bas avbildning åt dig, kan du också använda en egen bas avbildning.
+description: Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar Azure Machine Learning-modeller. Medan Azure Machine Learning tillhandahåller en standard bas avbildning åt dig, kan du också använda en egen bas avbildning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 84567b68c85a48d0fc02f6f6a4986d8092215a92
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 47387108de09c9b24471c4afc06a25fa0cbeca00
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326501"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053387"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 
@@ -37,14 +37,14 @@ Normalt skapar du en anpassad bas avbildning när du vill använda Docker för a
 
 Det här dokumentet är uppdelat i två delar:
 
-* Skapa en anpassad bas avbildning: Innehåller information till administratörer och DevOps om hur du skapar en anpassad avbildning och konfigurerar autentisering till en Azure Container Registry med hjälp av Azure CLI och Machine Learning CLI.
-* Distribuera en modell med en anpassad bas avbildning: Innehåller information till data vetenskaps-och DevOps/ML-tekniker som använder anpassade avbildningar när du distribuerar en utbildad modell från python SDK eller ML CLI.
+* Skapa en anpassad bas avbildning: ger information till administratörer och DevOps för att skapa en anpassad avbildning och konfigurera autentisering till en Azure Container Registry med hjälp av Azure CLI och Machine Learning CLI.
+* Distribuera en modell med hjälp av en anpassad bas avbildning: ger information till data vetenskaps-och DevOps/ML-tekniker med anpassade avbildningar när du distribuerar en utbildad modell från python SDK eller ML CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning arbets grupp. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
-* Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * En [Azure Container Registry](/azure/container-registry) eller ett annat Docker-register som är tillgängligt på Internet.
 * Stegen i det här dokumentet förutsätter att du är van vid att skapa och använda ett __konfigurations objekt för konfigurations__ objekt som en del av modell distributionen. Mer information finns i avsnittet "förbereda distribution" i [var du ska distribuera och hur](how-to-deploy-and-where.md#prepare-to-deploy).
@@ -68,9 +68,9 @@ Informationen i det här avsnittet förutsätter att du använder en Azure Conta
 
     Information om hur du använder tjänstens huvud namn med Azure Container Registry finns [Azure Container Registry autentisering med tjänstens huvud namn](/azure/container-registry/container-registry-auth-service-principal).
 
-* Azure Container Registry-och avbildnings information: Ange avbildnings namnet för alla som behöver använda det. En bild som heter `myimage`, lagrad i ett register med namnet `myregistry`, refereras till som `myregistry.azurecr.io/myimage` när du använder avbildningen för modell distribution
+* Azure Container Registry-och avbildnings information: Ange avbildnings namnet för alla som behöver använda det. Till exempel refereras en bild med namnet `myimage`, som lagras i ett register med namnet `myregistry`, som `myregistry.azurecr.io/myimage` när avbildningen används för modell distribution
 
-* Avbildnings krav: Azure Machine Learning stöder endast Docker-avbildningar som tillhandahåller följande program vara:
+* Avbildnings krav: Azure Machine Learning endast stöder Docker-avbildningar som tillhandahåller följande program vara:
 
     * Ubuntu 16,04 eller senare.
     * Conda 4.5. # eller senare.
@@ -95,7 +95,7 @@ Om du redan har tränat eller distribuerat modeller med hjälp av Azure Machine 
 
     Följ anvisningarna för att autentisera till prenumerationen.
 
-2. Använd följande kommando för att Visa behållar registret för arbets ytan. Ersätt `<myworkspace>` med namnet på din Azure Machine Learning-arbetsyta. Ersätt `<resourcegroup>` med Azure-resurs gruppen som innehåller din arbets yta:
+2. Använd följande kommando för att Visa behållar registret för arbets ytan. Ersätt `<myworkspace>` med namnet på din Azure Machine Learning arbets yta. Ersätt `<resourcegroup>` med Azure-resurs gruppen som innehåller din arbets yta:
 
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
@@ -109,7 +109,7 @@ Om du redan har tränat eller distribuerat modeller med hjälp av Azure Machine 
     /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ContainerRegistry/registries/<registry_name>
     ```
 
-    `<registry_name>` Värdet är namnet på Azure Container Registry för din arbets yta.
+    `<registry_name>`-värdet är namnet på Azure Container Registry för din arbets yta.
 
 ### <a name="build-a-custom-base-image"></a>Bygg en anpassad bas avbildning
 
@@ -142,7 +142,7 @@ Stegen i det här avsnittet beskriver hur du skapar en anpassad Docker-avbildnin
         find / -type d -name __pycache__ -prune -exec rm -rf {} \;
     ```
 
-2. Använd följande för att autentisera till Azure Container Registry från ett gränssnitt eller kommando tolken. `<registry_name>` Ersätt med namnet på det behållar register som du vill lagra avbildningen i:
+2. Använd följande för att autentisera till Azure Container Registry från ett gränssnitt eller kommando tolken. Ersätt `<registry_name>` med namnet på det behållar register som du vill lagra avbildningen i:
 
     ```azurecli-interactive
     az acr login --name <registry_name>
@@ -180,7 +180,7 @@ Om du vill använda en anpassad avbildning behöver du följande information:
 
 Microsoft tillhandahåller flera Docker-avbildningar på en offentligt tillgänglig lagrings plats som kan användas med stegen i det här avsnittet:
 
-| Image | Beskrivning |
+| Bild | Beskrivning |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Grundläggande avbildning för Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Innehåller ONNX runtime för CPU inferecning |
@@ -197,7 +197,7 @@ Mer information om ONNX för körnings bas avbildningar finns i [avsnittet ONNX 
 Mer information finns i [Azure Machine Learning behållare](https://github.com/Azure/AzureML-Containers).
 
 > [!TIP]
->__Om din modell tränas på Azure Machine Learning Compute__, med __version 1.0.22 eller senare__ av Azure Machine Learning SDK, skapas en avbildning under utbildningen. Använd `run.properties["AzureML.DerivedImageName"]`om du vill identifiera namnet på den här avbildningen. Följande exempel visar hur du använder den här avbildningen:
+>__Om din modell tränas på Azure Machine Learning Compute__, med __version 1.0.22 eller senare__ av Azure Machine Learning SDK, skapas en avbildning under utbildningen. Använd `run.properties["AzureML.DerivedImageName"]`för att identifiera namnet på den här avbildningen. Följande exempel visar hur du använder den här avbildningen:
 >
 > ```python
 > # Use an image built during training with SDK 1.0.22 or greater
@@ -220,7 +220,7 @@ myenv.docker.enabled = True
 myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
 ```
 
-Om du vill använda en avbildning från ett __privat behållar register__ som inte finns i din arbets `docker.base_image_registry` yta, måste du använda för att ange adressen till lagrings platsen och ett användar namn och lösen ord:
+Om du vill använda en avbildning från ett __privat behållar register__ som inte finns i din arbets yta, måste du använda `docker.base_image_registry` för att ange adressen till lagrings platsen och ett användar namn och lösen ord:
 
 ```python
 # Set the container registry information
@@ -271,7 +271,7 @@ När du distribuerar en modell med hjälp av Machine Learning CLI, anger du en k
 }
 ```
 
-Den här filen används med `az ml model deploy` kommandot. `--ic` Parametern används för att ange konfigurations filen för konfigurations filen.
+Den här filen används med kommandot `az ml model deploy`. Parametern `--ic` används för att ange konfigurations filen för konfigurations filen.
 
 ```azurecli
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget

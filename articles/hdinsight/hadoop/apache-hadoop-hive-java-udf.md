@@ -1,5 +1,5 @@
 ---
-title: Java-användardefinierad funktion (UDF) med Apache Hive i HDInsight – Azure
+title: Java-användardefinierad funktion (UDF) med Apache Hive Azure HDInsight
 description: Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fungerar med Apache Hive. I det här exemplet kan UDF konvertera en tabell med text strängar till gemener.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,23 +8,23 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43208636fb275c38573f820ef8245d7652b4aa86
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5690f2cc5bc85d7bcdbf1d05930a05bcc2e764c0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181178"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044784"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Använda en Java UDF med Apache Hive i HDInsight
 
 Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fungerar med Apache Hive. Java UDF i det här exemplet konverterar en tabell med text strängar till gemener.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
 * [Apache maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt versions system för Java-projekt.
-* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta skulle vara wasb://för Azure Storage, abfs://för Azure Data Lake Storage Gen2 eller adl://för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: `wasbs://`n.  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
+* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta skulle vara wasb://för Azure Storage, abfs://för Azure Data Lake Storage Gen2 eller adl://för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Azure Storage blir URI: n `wasbs://`.  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
 
 * En text redigerare eller Java IDE
 
@@ -49,9 +49,9 @@ cd C:\HDI
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    Det här kommandot skapar en katalog `exampleudf`med namnet, som innehåller maven-projektet.
+    Det här kommandot skapar en katalog med namnet `exampleudf`, som innehåller maven-projektet.
 
-2. När projektet har skapats tar du bort den `exampleudf/src/test` katalog som skapades som en del av projektet genom att ange följande kommando:
+2. När projektet har skapats tar du bort `exampleudf/src/test` katalog som skapades som en del av projektet genom att ange följande kommando:
 
     ```cmd
     cd ExampleUDF
@@ -85,7 +85,7 @@ cd C:\HDI
 
     Dessa poster anger vilken version av Hadoop och Hive som ingår i HDInsight 3,6. Du kan hitta information om de versioner av Hadoop och Hive som medföljer HDInsight från [versions](../hdinsight-component-versioning.md) dokumentet för HDInsight-komponenten.
 
-    Lägg till `<build>` ett avsnitt `</project>` före raden i slutet av filen. Det här avsnittet ska innehålla följande XML:
+    Lägg till en `<build>`-sektion innan `</project>` raden i slutet av filen. Det här avsnittet ska innehålla följande XML:
 
     ```xml
     <build>
@@ -180,7 +180,7 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>Bygg och installera UDF
 
-I kommandona nedan ersätter `sshuser` du med det faktiska användar namnet om det skiljer sig. Ersätt `mycluster` med det faktiska kluster namnet.
+I kommandona nedan ersätter du `sshuser` med det faktiska användar namnet om det är annat. Ersätt `mycluster` med det faktiska kluster namnet.
 
 1. Kompilera och paketera UDF genom att ange följande kommando:
 
@@ -188,9 +188,9 @@ I kommandona nedan ersätter `sshuser` du med det faktiska användar namnet om d
     mvn compile package
     ```
 
-    Det här kommandot skapar och paketerar UDF- `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` filen i-filen.
+    Det här kommandot skapar och paketerar UDF-filen i `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar`-filen.
 
-2. `scp` Använd kommandot för att kopiera filen till HDInsight-klustret genom att ange följande kommando:
+2. Använd `scp`-kommandot för att kopiera filen till HDInsight-klustret genom att ange följande kommando:
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
@@ -218,7 +218,7 @@ I kommandona nedan ersätter `sshuser` du med det faktiska användar namnet om d
 
     Det här kommandot förutsätter att du har använt standard **administratören** för inloggnings kontot för klustret.
 
-2. När du kommer `jdbc:hive2://localhost:10001/>` till prompten anger du följande för att lägga till UDF-filen i Hive och exponera den som en funktion.
+2. När du kommer till `jdbc:hive2://localhost:10001/>`-prompten anger du följande för att lägga till UDF-filen i Hive och exponera den som en funktion.
 
     ```hiveql
     ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
@@ -248,7 +248,7 @@ I kommandona nedan ersätter `sshuser` du med det faktiska användar namnet om d
         | colorado      | Colorado      |
         +---------------+---------------+--+
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 När du kör Hive-jobbet kan du stöta på ett fel som liknar följande text:
 

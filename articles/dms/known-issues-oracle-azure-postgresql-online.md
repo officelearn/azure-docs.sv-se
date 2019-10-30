@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/03/2019
-ms.openlocfilehash: bc37c7cb11b973f89695b5631ec9569ff6b94608
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: cc7e510d9a6db93edc211799eda8df79116236a7
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71801793"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053658"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Kända problem/migrerings begränsningar med online-migreringar från Oracle till Azure DB för PostgreSQL – en server
 
@@ -63,7 +63,7 @@ Tomma BLOB/CLOB-kolumner mappas också till NULL på målet.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
-- Kunder måste använda SYSDB för att ansluta till Oracle.
+- Kunder måste använda SYSDBA för att ansluta till Oracle.
 - Data ändringar som orsakas av åtgärder för partition/under partition (Lägg till, släpp, EXCHANGE och TRUNKERA) kommer inte att migreras och kan orsaka följande fel:
   - För att lägga till åtgärder kan uppdateringar och borttagningar av tillagda data returnera varningen "0 rader som påverkas".
   - För DROP-och TRUNKe-åtgärder kan nya infogningar resultera i "dubbletter"-fel.

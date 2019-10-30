@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 6c7d94761e4c5d5087dc8ac4e10854989a18f0fc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992111"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024939"
 ---
 # <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>Använda .NET-deserialiserare för Azure Stream Analytics jobb
 
@@ -40,7 +40,7 @@ Följande kodfragment är deserialiseringen för strömmande data.
 
 1. T är en klass eller en struktur.
 1. Alla offentliga fält i T är antingen
-    1. En av [Long, DateTime, String, Double] eller deras null-motsvarigheter.
+    1. En av [SByte-, byte-, Short-, ushort-, int-, uint-, Long-, DateTime-, String-, Float-, Double]-eller deras null-motsvarigheter.
     1. En annan struct eller klass som följer samma regler.
     1. Matris av typen `T2` som följer samma regler.
     1. IList`T2` där T2 följer samma regler.
@@ -226,12 +226,12 @@ Följande JavaScript-kod är ett exempel på formatet .NET deserialiserare när 
 
 Den här funktionen är tillgänglig i följande regioner:
 
-* Europa, västra
-* USA, östra
-* Europa, norra
-* USA, västra
-* USA, östra 2
-* USA, västra centrala
+* USA, västra centrala (tillgängligt)
+* Nord Europa (tillgängligt)
+* USA, östra (tillgängligt)
+* USA, västra (som snart lanseras)
+* USA, östra 2 (avrullar snart)
+* Europa, västra (inrullat snart)
 
 Du kan [begära stöd](https://aka.ms/ccodereqregion) för ytterligare regioner.
 
@@ -244,10 +244,6 @@ Den här funktionen är tillgänglig i 6 regioner (#region-support). Om du är i
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>Kan jag få åtkomst till MetadataPropertyValue från mina indata som liknar funktionen GetMetadataPropertyValue?
 
 Den här funktionen stöds inte. Om du behöver den här funktionen kan du rösta på den här begäran på [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
-
-### <a name="streamdeserializer-deserializes-a-stream-into-object-of-type-t-can-the-public-fields-in-t-be-any-supported-type-in-net"></a>StreamDeserializer deserialiserar en data ström till objekt av typen T. Kan de offentliga fälten i T vara vilken typ som helst som stöds i .NET?
-
-Stöd för alla typer som stöds i .NET finns i översikten.
 
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>Kan jag dela min avserialiserings implementering med-gruppen så att andra kan dra nytta av dem?
 

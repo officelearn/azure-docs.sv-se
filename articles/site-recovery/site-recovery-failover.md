@@ -1,25 +1,25 @@
 ---
-title: Redundans vid haveri beredskap med Azure Site Recovery | Microsoft Docs
+title: Redundans vid haveri beredskap med Azure Site Recovery
 description: Läs mer om att redundansväxla virtuella datorer och fysiska servrar under haveri beredskap med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 10/29/2019
 ms.author: raynew
-ms.openlocfilehash: da55d83665792f6ea2f4c78aa2a6c3ca26c39233
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1585c5dbdecf11bbc6ef3dad63bf4f982c70f73e
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383191"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053777"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Redundansväxla virtuella datorer och fysiska servrar 
 
 Den här artikeln beskriver hur du kan redundansväxla virtuella datorer och fysiska servrar som skyddas av Site Recovery.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 1. Innan du gör en redundansväxling gör du ett [redundanstest för att se till att](site-recovery-test-failover-to-azure.md) allt fungerar som förväntat.
 1. [Förbered nätverket](site-recovery-network-design.md) på mål platsen innan du gör en redundansväxling.  
 
@@ -27,24 +27,24 @@ Använd följande tabell för att veta om de alternativ för redundans som tillh
 
 | Scenario | Program återställnings krav | Arbets flöde för Hyper-V | Arbets flöde för VMware
 |---|--|--|--|
-|Planerad redundansväxling på grund av ett kommande Data Center avbrott| Ingen data förlust för programmet när en planerad aktivitet utförs| För Hyper-V replikerar ASR data med en kopierings frekvens som anges av användaren. Planerad redundans används för att åsidosätta frekvensen och replikera de slutliga ändringarna innan en redundansväxling initieras. <br/> <br/> 1. Planera en underhålls period enligt företagets ändrings hanterings process. <br/><br/> 2. Meddela användare om kommande stillestånds tid. <br/><br/> 3. Ta det användarspecifika programmet offline.<br/><br/>4. Initiera Planerad redundans med hjälp av ASR-portalen. Den lokala virtuella datorn stängs av automatiskt.<br/><br/>Effektiv program data förlust = 0 <br/><br/>En journal över återställnings punkter tillhandahålls också i ett kvarhållningsperiod för en användare som vill använda en äldre återställnings punkt. (24 timmar kvarhållning för Hyper-V). Om replikeringen har stoppats utanför tids perioden för kvarhållning fönstret kan kunder fortfarande redundansväxla med de senaste tillgängliga återställnings punkterna. | För VMware replikerar ASR data kontinuerligt med CDP. Redundansväxlingen ger användaren möjlighet att redundansväxla till senaste data (inklusive avstängnings programmet för inlägg)<br/><br/> 1. Planera en underhålls period enligt processen för ändrings hantering <br/><br/>2. meddela användare om kommande stillestånds tid <br/><br/>3. Ta det användarspecifika programmet offline.<br/><br/>4. Starta en planerad redundansväxling med hjälp av ASR-portalen till den senaste punkten när programmet är offline. Använd alternativet "Planerad redundans" på portalen och välj den senaste punkten för redundans. Den lokala virtuella datorn stängs av automatiskt.<br/><br/>Effektiv program data förlust = 0 <br/><br/>En journal över återställnings punkter i ett kvarhållningsperiod tillhandahålls för en kund som vill använda en äldre återställnings punkt. (72 timmar kvarhållning för VMware). Om replikeringen har stoppats utanför tids perioden för kvarhållning fönstret kan kunder fortfarande redundansväxla med de senaste tillgängliga återställnings punkterna.
-|Redundansväxling på grund av ett oplanerat Data Center avbrott (naturlig eller IT-olycka) | Minimal data förlust för programmet | 1. Initiera organisationens BCP-plan <br/><br/>2. Initiera oplanerad redundansväxling med hjälp av ASR-portalen till den senaste eller en punkt från fönstret kvarhållning (journal).| 1. Initiera organisationens BCP-plan. <br/><br/>2. Initiera oplanerad redundansväxling med hjälp av ASR-portalen till den senaste eller en punkt från fönstret kvarhållning (journal).
+|Planerad redundansväxling på grund av ett kommande Data Center avbrott| Ingen data förlust för programmet när en planerad aktivitet utförs| För Hyper-V replikerar ASR data med en kopierings frekvens som anges av användaren. Planerad redundans används för att åsidosätta frekvensen och replikera de slutliga ändringarna innan en redundansväxling initieras. <br/> <br/> 1. planera en underhålls period enligt företagets ändrings hanterings process. <br/><br/> 2. meddela användare om kommande stillestånds tid. <br/><br/> 3. ta det användarbaserade programmet offline.<br/><br/>4. Starta Planerad redundans med hjälp av ASR-portalen. Den lokala virtuella datorn stängs av automatiskt.<br/><br/>Effektiv program data förlust = 0 <br/><br/>En journal över återställnings punkter tillhandahålls också i ett kvarhållningsperiod för en användare som vill använda en äldre återställnings punkt. (24 timmar kvarhållning för Hyper-V). Om replikeringen har stoppats utanför tids perioden för kvarhållning fönstret kan kunder fortfarande redundansväxla med de senaste tillgängliga återställnings punkterna. | För VMware replikerar ASR data kontinuerligt med CDP. Redundansväxlingen ger användaren möjlighet att redundansväxla till senaste data (inklusive avstängnings programmet för inlägg)<br/><br/> 1. planera en underhålls period enligt processen för ändrings hantering <br/><br/>2. meddela användare om kommande stillestånds tid <br/><br/>3. ta det användarbaserade programmet offline.<br/><br/>4. Starta en planerad redundansväxling med hjälp av ASR-portalen till den senaste punkten när programmet är offline. Använd alternativet "Planerad redundans" på portalen och välj den senaste punkten för redundans. Den lokala virtuella datorn stängs av automatiskt.<br/><br/>Effektiv program data förlust = 0 <br/><br/>En journal över återställnings punkter i ett kvarhållningsperiod tillhandahålls för en kund som vill använda en äldre återställnings punkt. (72 timmar kvarhållning för VMware). Om replikeringen har stoppats utanför tids perioden för kvarhållning fönstret kan kunder fortfarande redundansväxla med de senaste tillgängliga återställnings punkterna.
+|Redundansväxling på grund av ett oplanerat Data Center avbrott (naturlig eller IT-olycka) | Minimal data förlust för programmet | 1. initiera organisationens BCP-plan <br/><br/>2. initiera oplanerad redundansväxling med hjälp av ASR-portalen till den senaste eller en punkt från fönstret kvarhållning (journal).| 1. initiera organisationens BCP-plan. <br/><br/>2. initiera oplanerad redundansväxling med hjälp av ASR-portalen till den senaste eller en punkt från fönstret kvarhållning (journal).
 
 
 ## <a name="run-a-failover"></a>Köra en redundansväxling
 Den här proceduren beskriver hur du kör en redundansväxling för en [återställnings plan](site-recovery-create-recovery-plans.md). Du kan också köra redundansväxlingen för en enskild virtuell dator eller fysisk server från sidan **replikerade objekt** enligt beskrivningen [här](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure).
 
 
-![Redundans](./media/site-recovery-failover/Failover.png)
+![växling vid fel](./media/site-recovery-failover/Failover.png)
 
 1. Välj **återställnings planer** > *recoveryplan_name*. Klicka på **redundans**
 2. På sidan **redundans** väljer du en **återställnings punkt** att redundansväxla till. Du kan välja något av följande alternativ:
-   1. **Senaste**: Det här alternativet startar jobbet genom att först bearbeta alla data som har skickats till Site Recovery-tjänsten. Bearbetning av data skapar en återställnings punkt för varje virtuell dator. Den här återställnings punkten används av den virtuella datorn under redundansväxlingen. Det här alternativet ger det lägsta återställnings punkt målet (återställnings punkt målet) som den virtuella datorn som skapades efter redundansväxlingen har alla data som har repliker ATS till Site Recovery tjänsten när redundansväxlingen utlöstes.
-   1. **Senaste bearbetade**: Det här alternativet växlar över alla virtuella datorer i återställnings planen till den senaste återställnings punkten som redan har bearbetats av Site Recoverys tjänsten. När du gör en redundanstest för en virtuell dator visas också tidsstämpeln för den senaste bearbetade återställnings punkten. Om du gör en återställning av en återställnings plan kan du gå till en enskild virtuell dator och titta på den **senaste återställnings punkt** panelen för att få den här informationen. Eftersom ingen tid har för att bearbeta obearbetade data ger det här alternativet ett failover-alternativ för låg RTO (återställnings tid).
-   1. **Senaste appkonsekventa**: Det här alternativet växlar över alla virtuella datorer i återställnings planen till den senaste tillämpnings programmets konsekventa återställnings punkt som redan har bearbetats av Site Recoverys tjänsten. När du gör en redundanstest för en virtuell dator visas även tidsstämpeln för den senaste programkonsekventa återställnings punkten. Om du gör en återställning av en återställnings plan kan du gå till en enskild virtuell dator och titta på den **senaste återställnings punkt** panelen för att få den här informationen.
-   1. **Senaste bearbetade multi-VM**: Det här alternativet är bara tillgängligt för återställnings planer som har minst en virtuell dator med konsekvens för flera virtuella datorer. Virtuella datorer som är en del av en redundansväxling av en replikeringsgrupp till den senaste vanliga återställnings punkten med flera virtuella datorer. Andra virtuella datorer redundansväxlas till den senaste bearbetade återställnings punkten.  
-   1. **Senaste app med flera virtuella datorer – konsekvent**: Det här alternativet är bara tillgängligt för återställnings planer som har minst en virtuell dator med konsekvens för flera virtuella datorer. Virtuella datorer som är en del av en redundansväxling av en replikeringsgrupp till den senaste vanliga programkonsekventa multi-VM-programkonsekventa återställnings punkten. Andra virtuella datorer redundansväxlas till den senaste programkonsekventa återställnings punkten.
-   1. **Anpassat**: Om du utför redundanstest för en virtuell dator kan du använda det här alternativet för att redundansväxla till en viss återställnings punkt.
+   1. **Senaste**: det här alternativet startar jobbet genom att först bearbeta alla data som har skickats till Site Recovery-tjänsten. Bearbetning av data skapar en återställnings punkt för varje virtuell dator. Den här återställnings punkten används av den virtuella datorn under redundansväxlingen. Det här alternativet ger det lägsta återställnings punkt målet (återställnings punkt målet) som den virtuella datorn som skapades efter redundansväxlingen har alla data som har repliker ATS till Site Recovery tjänsten när redundansväxlingen utlöstes.
+   1. **Senast bearbetad**: det här alternativet växlar över alla virtuella datorer i återställnings planen till den senaste återställnings punkten som redan har bearbetats av site Recoverys tjänsten. När du gör en redundanstest för en virtuell dator visas också tidsstämpeln för den senaste bearbetade återställnings punkten. Om du gör en återställning av en återställnings plan kan du gå till en enskild virtuell dator och titta på den **senaste återställnings punkt** panelen för att få den här informationen. Eftersom ingen tid har för att bearbeta obearbetade data ger det här alternativet ett failover-alternativ för låg RTO (återställnings tid).
+   1. **Senaste program – konsekvent**: det här alternativet växlar över alla virtuella datorer i återställnings planen till den senaste programkonsekventa återställnings punkten som redan har bearbetats av site Recoverys tjänsten. När du gör en redundanstest för en virtuell dator visas även tidsstämpeln för den senaste programkonsekventa återställnings punkten. Om du gör en återställning av en återställnings plan kan du gå till en enskild virtuell dator och titta på den **senaste återställnings punkt** panelen för att få den här informationen.
+   1. **Senaste bearbetade multi-VM**: det här alternativet är bara tillgängligt för återställnings planer som har minst en virtuell dator med konsekvens för flera virtuella datorer. Virtuella datorer som är en del av en redundansväxling av en replikeringsgrupp till den senaste vanliga återställnings punkten med flera virtuella datorer. Andra virtuella datorer redundansväxlas till den senaste bearbetade återställnings punkten.  
+   1. **Senaste app med flera virtuella datorer – konsekvent**: det här alternativet är bara tillgängligt för återställnings planer som har minst en virtuell dator med konsekvens för flera virtuella datorer. Virtuella datorer som är en del av en redundansväxling av en replikeringsgrupp till den senaste vanliga programkonsekventa multi-VM-programkonsekventa återställnings punkten. Andra virtuella datorer redundansväxlas till den senaste programkonsekventa återställnings punkten.
+   1. **Anpassad**: om du utför redundanstest för en virtuell dator kan du använda det här alternativet för att redundansväxla till en viss återställnings punkt.
 
       > [!NOTE]
       > Alternativet att välja en återställnings punkt är bara tillgängligt när du växlar över till Azure.
@@ -74,16 +74,16 @@ Virtuella datorer/fysiska servrar som skyddas med Site Recovery också stöd fö
  
 ## <a name="failover-job"></a>Redundansväxla jobb
 
-![Redundans](./media/site-recovery-failover/FailoverJob.png)
+![växling vid fel](./media/site-recovery-failover/FailoverJob.png)
 
 När en redundansväxling utlöses innebär det följande steg:
 
-1. Krav kontroll: Det här steget säkerställer att alla villkor som krävs för redundans är uppfyllda
-1. ( Det här steget bearbetar data och gör det klart så att en virtuell Azure-dator kan skapas. Om du har valt den **senaste** återställnings punkten skapar det här steget en återställnings punkt från de data som har skickats till tjänsten.
-1. Start: Det här steget skapar en virtuell Azure-dator med hjälp av de data som bearbetades i föregående steg.
+1. Krav kontroll: det här steget säkerställer att alla villkor som krävs för redundans är uppfyllda
+1. Redundans: det här steget bearbetar data och gör det klart så att en virtuell Azure-dator kan skapas utanför den. Om du har valt den **senaste** återställnings punkten skapar det här steget en återställnings punkt från de data som har skickats till tjänsten.
+1. Starta: det här steget skapar en virtuell Azure-dator med hjälp av de data som bearbetades i föregående steg.
 
 > [!WARNING]
-> **Avbryt inte en pågående redundansväxling**: Replikeringen av den virtuella datorn stoppas innan redundansväxlingen har startats. Om du **avbryter** ett pågående jobb stoppas redundansväxlingen, men den virtuella datorn kommer inte att börja replikera. Det går inte att starta replikeringen igen.
+> **Avbryt inte en pågående redundansväxling**: innan redundansväxlingen startas stoppas replikeringen för den virtuella datorn. Om du **avbryter** ett pågående jobb stoppas redundansväxlingen, men den virtuella datorn kommer inte att börja replikera. Det går inte att starta replikeringen igen.
 >
 >
 
@@ -97,7 +97,7 @@ I vissa fall kräver redundansväxlingen av virtuella datorer ett extra mellanli
 * Virtuella Hyper-V-datorer som skyddas som fysiska servrar
 * Virtuella VMware-datorer där följande driv rutiner inte finns som start driv rutiner
     * storvsc
-    * vmbus
+    * VMBus
     * storflt
     * intelide
     * ATAPI

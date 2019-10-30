@@ -1,19 +1,19 @@
 ---
-title: Vanliga frågor om haveri beredskap i VMware till Azure med Azure Site Recovery | Microsoft Docs
+title: Vanliga frågor om haveri beredskap i VMware till Azure med Azure Site Recovery
 description: Få svar på vanliga frågor om haveri beredskap för lokala virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 06/27/2019
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f09acb0110f436e7af936d79da9db1bab4ea23a9
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002279"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053683"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om VMware till Azure-replikering
 
@@ -104,7 +104,7 @@ På varje virtuell dator som du vill replikera installerar du tjänsten på någ
 - [Manuell installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) från användar gränssnittet eller PowerShell
 - Distribution med hjälp av ett distributions verktyg som [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
-## <a name="managed-disks"></a>Hanterade diskar
+## <a name="managed-disks"></a>Managed Disks
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Var replikerar Site Recovery data till?
 
@@ -189,7 +189,7 @@ Nej, Site Recovery stöder inte replikering till Azure Storage i virtuella nätv
 
 ## <a name="component-upgrade"></a>Komponent uppgradering
 
-### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Min version av mobilitets tjänst agenten eller konfigurations servern är gammal och uppgraderingen misslyckades. Vad gör jag nu?
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Min version av mobilitets tjänst agenten eller konfigurations servern är gammal och uppgraderingen misslyckades. Vad gör jag?
 
 Site Recovery följer support modellen för N-4. [Läs mer](https://aka.ms/asr_support_statement) om hur du uppgraderar från mycket gamla versioner.
 
@@ -287,7 +287,7 @@ Ja, men Observera att den fysiska datorn inte kan återställas till en virtuell
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Var kan jag hämta valv registrerings nycklar?
 
-I Recovery Services-valvet väljer du **konfigurations servrar** i **Site Recovery infrastruktur** > **hantering**. I **servrar**väljer du sedan **Hämta registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
+I Recovery Services-valvet väljer du **konfigurations servrar** i **Site Recovery infrastruktur** > **Hantera**. I **servrar**väljer du sedan **Hämta registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Kan en enda konfigurations Server användas för att skydda flera vCenter-instanser?
 

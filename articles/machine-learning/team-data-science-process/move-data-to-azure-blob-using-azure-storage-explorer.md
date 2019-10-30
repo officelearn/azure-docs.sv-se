@@ -1,6 +1,6 @@
 ---
-title: Flytta Blob storage-data med Azure Storage Explorer – Team Data Science Process
-description: Flytta data till och från Azure Blob Storage med Azure Storage Explorer
+title: Flytta Blob Storage-data med Azure Storage Explorer-Team data science process
+description: Lär dig hur du använder Azure Storage Explorer för att ladda upp och hämta data från Azure Blob Storage.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,45 +11,45 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 880b81c07aeed7359dfe35e1361a20ecb11e27dd
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61430819"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053962"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Flytta data till och från Azure Blob Storage med Azure Storage Explorer
-Azure Storage Explorer är ett kostnadsfritt verktyg från Microsoft som gör det möjligt att arbeta med Azure Storage-data i Windows, macOS och Linux. Det här avsnittet beskriver hur du använder den för att ladda upp och hämta data från Azure blob storage. Verktyget kan laddas ned från [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com/).
+Azure Storage Explorer är ett kostnads fritt verktyg från Microsoft som gör att du kan arbeta med Azure Storage data på Windows, macOS och Linux. I det här avsnittet beskrivs hur du använder det för att ladda upp och hämta data från Azure Blob Storage. Verktyget kan laddas ned från [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 > [!NOTE]
-> Om du använder VM som konfigurerats med skript som tillhandahålls av [Data Science virtuella datorer i Azure](virtual-machines.md), och sedan Azure Storage Explorer är redan installerad på den virtuella datorn.
+> Om du använder en virtuell dator som har kon figurer ATS med skripten som tillhandahålls av [data science Virtual Machines i Azure](virtual-machines.md), är Azure Storage Explorer redan installerad på den virtuella datorn.
 > 
 > [!NOTE]
-> En fullständig introduktion till Azure blob storage finns [grunderna i Azure Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) och [Azure Blob-tjänsten](https://msdn.microsoft.com/library/azure/dd179376.aspx).   
+> En fullständig introduktion till Azure Blob Storage finns i grunderna för [Azure Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) och [Azure Blob service](https://msdn.microsoft.com/library/azure/dd179376.aspx).   
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
-Det här dokumentet förutsätter att du har en Azure-prenumeration, ett lagringskonto och motsvarande lagringskontots åtkomstnyckel för kontot. Innan du laddar upp/ned data, vet du ditt Azure storage-konto och kontonyckeln. 
+## <a name="prerequisites"></a>Krav
+Det här dokumentet förutsätter att du har en Azure-prenumeration, ett lagrings konto och motsvarande lagrings nyckel för det kontot. Innan du laddar upp/laddar ned data måste du känna till ditt Azure Storage-konto namn och konto nyckel. 
 
-* Om du vill konfigurera en Azure-prenumeration, se [kostnadsfri utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/).
-* Mer information om hur du skapar ett lagringskonto och för att hämta konto och viktig information, se [om Azure storage-konton](../../storage/common/storage-create-storage-account.md). Skriv ner åtkomstnyckeln för ditt lagringskonto som du behöver den här nyckeln för att ansluta till kontot med Azure Storage Explorer-verktyget.
-* Azure Storage Explorer-verktyget kan laddas ned från [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com/). Acceptera standardinställningarna under installationen.
+* Information om hur du konfigurerar en Azure-prenumeration finns i [den kostnads fria utvärderings perioden på en månad](https://azure.microsoft.com/pricing/free-trial/).
+* Anvisningar om hur du skapar ett lagrings konto och hämtar information om konton och nycklar finns i [om Azure Storage-konton](../../storage/common/storage-create-storage-account.md). Anteckna åtkomst nyckeln för ditt lagrings konto eftersom du behöver den här nyckeln för att ansluta till kontot med Azure Storage Explorer-verktyget.
+* Verktyget Azure Storage Explorer kan laddas ned från [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Acceptera standardinställningarna under installationen.
 
 <a id="explorer"></a>
 
-## <a name="use-azure-storage-explorer"></a>Använda Azure Storage Explorer
-Följande steg beskrivs hur du uppladdning/nedladdning data med hjälp av Azure Storage Explorer. 
+## <a name="use-azure-storage-explorer"></a>Använd Azure Storage Explorer
+Följande steg beskriver hur du laddar upp/laddar ned data med Azure Storage Explorer. 
 
 1. Starta Microsoft Azure Storage Explorer.
-2. Att ta fram den **logga in på ditt konto...**  väljer **Azure kontoinställningar** ikonen och sedan **Lägg till ett konto** och anger du autentiseringsuppgifter. ![Lägg till ett Azure storage-konto](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. Att ta fram den **Anslut till Azure Storage** guiden väljer du den **Anslut till Azure storage** ikon. ![Klicka på ”Anslut till Azure storage”](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. Ange åtkomstnyckel från Azure storage-kontot den **Anslut till Azure Storage** guiden och sedan **nästa**. ![Ange åtkomstnyckel från Azure storage-konto](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
-5. Ange lagringskontonamn i den **kontonamn** rutan och välj sedan **nästa**. ![Anslut extern lagring](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
-6. Storage-konto som har lagts till bör nu visas. Skapa en blob-behållare i ett lagringskonto, högerklicka på den **Blob-behållare** nod i kontot, Välj **skapa Blobbehållare**, och ange ett namn.
-7. Välj en målbehållare för att ladda upp data till en behållare, och klicka på den **överför** knappen.![ Storage-konton](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
-8. Klicka på den **...**  till höger om den **filer** väljer du en eller flera filer att ladda upp från filsystemet och klicka på **överför** att påbörja uppladdningen av filerna.![ Ladda upp filer](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
-9. Att hämta data, att välja blob i behållaren motsvarande för att ladda ned och klicka på **hämta**. ![Ladda ned filer](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
+2. För att öppna **inloggningen till ditt konto...** -guide, Välj ikonen för **Azure konto inställningar** och **Lägg sedan till ett konto** och ange autentiseringsuppgifter. ![lägga till ett Azure Storage-konto](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
+3. Om du vill öppna guiden **Anslut till Azure Storage** väljer du ikonen **Anslut till Azure Storage** . ![Klicka på Anslut till Azure Storage](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. Ange åtkomst nyckeln från ditt Azure Storage-konto i guiden **Anslut till Azure Storage** och klicka sedan på **Nästa**. ![ange åtkomst nyckel från Azure Storage-konto](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+5. Ange lagrings kontots namn i rutan **konto namn** och välj sedan **Nästa**. ![bifoga extern lagring](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
+6. Lagrings kontot läggs nu till i listan. Om du vill skapa en BLOB-behållare i ett lagrings konto högerklickar du på noden **BLOB-behållare** i kontot, väljer **skapa BLOB-behållare**och anger ett namn.
+7. Om du vill överföra data till en behållare väljer du mål behållaren och klickar på knappen **överför** .![lagrings konton](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
+8. Klicka på **..** . till höger om rutan **filer** , Välj en eller flera filer som ska laddas upp från fil systemet och klicka på **överför** för att påbörja överföring av filerna.![Ladda upp filer](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
+9. Hämta data genom att välja bloben i motsvarande behållare för att ladda ned och klicka på **Hämta**. ![hämta filer](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
 

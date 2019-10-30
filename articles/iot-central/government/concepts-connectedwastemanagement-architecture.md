@@ -7,15 +7,16 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 4eb21ca8bc3f2c96cfdaceb5c8bfc3343f138b23
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 806b853b7d3a6291b576c0dde6cdc0b88beec4eb
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72956819"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027612"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Referens arkitektur för ansluten avfalls övervakning 
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 En ansluten lösning för avfalls hantering kan skapas med hjälp av **Azure IoT Central app-mallen** som ett program starts-IoT-program. Den här artikeln innehåller en översikt över referens arkitektur på hög nivå om hur du skapar en lösning från slut punkt till slut punkt. 
 

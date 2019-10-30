@@ -10,24 +10,24 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: aa6f53901f21dcb0726454d641a4a2a66007f9e0
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 321f12fef44cae43caf53d78b2908e68f9edd0a8
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429050"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043894"
 ---
 # <a name="active-and-inactive-events"></a>Aktiva och inaktiva händelser
 
 När programmet anropar rang-API: et får du vilken åtgärd programmet ska visa i fältet rewardActionId.  Från och med den tidpunkten förväntar sig personanpassa ett belönings samtal med samma eventId. Belönings poängen kommer att användas för att träna modellen som ska användas för framtida Rangbaserade samtal. Om inget belönings anrop tas emot för eventId kommer en defaul-belöning att tillämpas. Standard förmåner upprättas i Azure-portalen.
 
-I vissa fall kan programmet behöva anropa rang diametern även om resultatet ska användas eller visas för användaren. Detta kan inträffa i situationer där exempelvis sid åter givningen av framhävda innehåll skrivs över med en marknadsförings kampanj. Om resultatet av rang anropet aldrig har använts och användaren aldrig kunde se det, skulle det vara fel på att träna det med all belöning, noll eller på annat sätt.
+I vissa fall kan programmet behöva anropa rang innan det vet om resultatet ska användas eller visas för användaren. Detta kan inträffa i situationer där exempelvis sid åter givningen av framhävda innehåll skrivs över med en marknadsförings kampanj. Om resultatet av rang anropet aldrig har använts och användaren aldrig kunde se det, skulle det vara fel på att träna det med all belöning, noll eller på annat sätt.
 Detta inträffar vanligt vis när:
 
 * Du kanske för hands återger ett användar gränssnitt som användaren kanske inte kan se. 
 * Ditt program kan göra en förutsägelse anpassning i vilka Rangbaserade anrop görs med mindre real tids sammanhang och deras utdata kan eventuellt inte användas av programmet. 
 
-I dessa fall är det rätt sätt att använda Personanpassaren genom att anropa rangen som begär händelsen som _inaktiv_. Personanpassaren förväntar sig inte en belöning för den här händelsen och kommer inte att tillämpa någon standard belöning. Letr i din affärs logik, om programmet använder informationen från rang anropet, behöver du bara _Aktivera_ händelsen. Från den tidpunkt då händelsen är aktiv förväntar sig Personanpassan en belöning för evenemanget eller använder en standard belöning om inget uttryckligt anrop görs till belönings-API: et.
+I dessa fall är det rätt sätt att använda Personanpassaren genom att anropa rangen som begär händelsen som _inaktiv_. Personanpassaren förväntar sig inte en belöning för den här händelsen och kommer inte att tillämpa någon standard belöning. Om programmet använder informationen från rang anropet senare i din affärs logik måste du _Aktivera_ händelsen. Från den tidpunkt då händelsen är aktiv förväntar sig Personanpassan en belöning för evenemanget eller använder en standard belöning om inget uttryckligt anrop görs till belönings-API: et.
 
 ## <a name="get-inactive-events"></a>Hämta inaktiva händelser
 

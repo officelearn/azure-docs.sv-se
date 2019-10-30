@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: rajanaki
-ms.openlocfilehash: 79a11a58f11486f3eda0205e62e7a4a92ff070b2
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0a8f47e0eea8908fcf6aa11c694e09efef14bbf1
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933940"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053535"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitets tjänsten i Azure till Azure-replikering
 
@@ -31,7 +31,7 @@ När du använder Site Recovery för att hantera uppdateringar distribuerar den 
 Standard-Runbook-schemat återkommer dagligen vid 12:00 i tids zonen för den replikerade virtuella datorns geografiska plats. Du kan också ändra Runbook-schemat via Automation-kontot.
 
 > [!NOTE]
-> Från och med Samlad uppdatering 35 kan du välja ett befintligt Automation-konto som ska användas för uppdateringar. Före den här uppdateringen skapade Site Recovery det här kontot som standard. Det här alternativet är tillgängligt när du aktiverar replikering för en virtuell dator. Om du ändrar inställningen gäller den för alla virtuella Azure-datorer som skyddas i samma valv.
+> Från och med Samlad uppdatering 35 kan du välja ett befintligt Automation-konto som ska användas för uppdateringar. Före den här uppdateringen skapade Site Recovery det här kontot som standard. Observera att du bara kan välja det här alternativet när du aktiverar replikering för en virtuell dator. Den är inte tillgänglig för en replikerad virtuell dator. Inställningen du väljer gäller för alla virtuella Azure-datorer som skyddas i samma valv.
  
 > Att aktivera automatiska uppdateringar kräver ingen omstart av dina virtuella Azure-datorer eller påverkar pågående replikering.
 

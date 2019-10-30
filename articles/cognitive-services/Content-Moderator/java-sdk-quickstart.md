@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 61149392368fc34fe388709dd5867250f3542fbc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9f31d54314c6d6bd7a7f9ae2d134c1281bfe9294
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935993"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044079"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>Snabb start: Content Moderator klient bibliotek för Java
 
@@ -125,14 +125,14 @@ I programmets `main` metod skapar du ett [ContentModeratorClient](https://docs.m
 
 ### <a name="get-images"></a>Hämta bilder
 
-I ditt projekts **src/main/-** mapp skapar du en mapp för **resurser** och navigerar till den. Skapa sedan en ny textfil, *ImageFiles. txt*. I den här filen lägger du till URL: er för avbildningar för att analysera&mdash;en URL på varje rad. Du kan använda följande exempel innehåll:
+I ditt projekts **src/main/-** mapp skapar du en mapp för **resurser** och navigerar till den. Skapa sedan en ny textfil, *ImageFiles. txt*. I den här filen lägger du till URL: er för avbildningar för att analysera&mdash;en URL på varje rad. Du kan använda följande exempel bilder:
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
-### <a name="use-helper-class"></a>Använd hjälp klass
+### <a name="define-helper-class"></a>Definiera hjälp klass
 
 Lägg sedan till följande klass definition i **ContentModeratorQuickstart** -klassen i *ContentModeratorQuickstart. java* -filen. Den här inre klassen kommer att användas senare i avbildnings redigerings processen.
 

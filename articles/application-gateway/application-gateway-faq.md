@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: cbb4668ae87404771513ca5825482efe9206308d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858540"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025010"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -186,7 +187,7 @@ Se [ordning för bearbetnings regler](https://docs.microsoft.com/azure/applicati
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Vad indikerar värd fältet för anpassade avsökningar?
 
-Fältet värd anger namnet som avsökningen ska skickas till när du har konfigurerat multisite på Application Gateway. Använd annars 127.0.0.1. Det här värdet skiljer sig från värd namnet för den virtuella datorn. Formatet \<är Protocol\<://\>Host:port\<Sökväg\>.\>\>\<
+Fältet värd anger namnet som avsökningen ska skickas till när du har konfigurerat multisite på Application Gateway. Använd annars 127.0.0.1. Det här värdet skiljer sig från värd namnet för den virtuella datorn. Formatet är \<protokoll\>://\<Host\>:\<port\>\<sökväg\>.
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Kan jag bara tillåta Application Gateway åtkomst till några få käll-IP-adresser?
 
@@ -269,7 +270,7 @@ Application Gateway stöder upp till 100 SSL-certifikat.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>Hur många autentiserings certifikat för Omkryptering av backend-Application Gateway stöd för?
 
-Application Gateway stöder upp till 10 certifikat för autentisering. Standardvärdet är 5.
+Application Gateway stöder upp till 100 autentiserings-certifikat.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Integrerar Application Gateway internt med Azure Key Vault?
 
@@ -333,15 +334,15 @@ Ja. Mer information finns i [migrera Azure Application Gateway och brand vägg f
 
 Application Gateway innehåller tre loggar: 
 
-* **ApplicationGatewayAccessLog**: Åtkomst loggen innehåller varje begäran som skickas till Application Gateway-frontend. Data innehåller anroparens IP, URL begärd, svars fördröjning, retur kod och byte in och ut. Åtkomst loggen samlas in var 300: e sekund. Den innehåller en post per Application Gateway.
-* **ApplicationGatewayPerformanceLog**: Prestanda loggen samlar in prestanda information för varje Application Gateway. Informationen omfattar data flödet i byte, totalt antal hanterade begär Anden, misslyckade begär Anden och antalet felfria och felaktiga Server dels instanser.
-* **ApplicationGatewayFirewallLog**: För programgatewayer som du konfigurerar med WAF innehåller brand Väggs loggen begär Anden som loggas via antingen identifierings läge eller skydds läge.
+* **ApplicationGatewayAccessLog**: åtkomst loggen innehåller varje begäran som skickats till Application Gateway-frontend. Data innehåller anroparens IP, URL begärd, svars fördröjning, retur kod och byte in och ut. Åtkomst loggen samlas in var 300: e sekund. Den innehåller en post per Application Gateway.
+* **ApplicationGatewayPerformanceLog**: prestanda loggen samlar in prestanda information för varje Application Gateway. Informationen omfattar data flödet i byte, totalt antal hanterade begär Anden, misslyckade begär Anden och antalet felfria och felaktiga Server dels instanser.
+* **ApplicationGatewayFirewallLog**: för programgatewayer som du konfigurerar med WAF innehåller brand Väggs loggen begär Anden som loggas via antingen identifierings läge eller skydds läge.
 
 Mer information finns i [backend-hälsohälsa, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Hur gör jag för att veta om mina medlemmar i Server delens medlemmar är felfria?
 
-Verifiera hälsan med hjälp av PowerShell- `Get-AzApplicationGatewayBackendHealth` cmdleten eller portalen. Mer information finns i [Application Gateway Diagnostics](application-gateway-diagnostics.md).
+Verifiera hälsan genom att använda PowerShell-cmdleten `Get-AzApplicationGatewayBackendHealth` eller portalen. Mer information finns i [Application Gateway Diagnostics](application-gateway-diagnostics.md).
 
 ### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>Vad är bevarande principen för diagnostikloggar?
 

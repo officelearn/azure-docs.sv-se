@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8eb329ae019f125b98c475b4a77d19e9cafe23fa
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814516"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053826"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Återställa en virtuell Azure-dator mellan Azure-regioner
 
@@ -46,9 +46,9 @@ När de virtuella datorerna har återskyddats kan du växla tillbaka till den pr
 
 2. I **replikerade objekt**väljer du den virtuella datorn och väljer sedan **redundans**.
 3. I **redundans**väljer du en återställnings punkt att redundansväxla till:
-    - **Senaste (standard)** : Bearbetar alla data i Site Recoverys tjänsten och ger lägsta återställnings punkt mål (återställnings punkt mål).
-    - **Senaste bearbetade**: Återställer den virtuella datorn till den senaste återställnings punkten som har bearbetats av Site Recovery.
-    - **Anpassat**: Växlar över till en viss återställnings punkt. Det här alternativet är användbart för att utföra test av redundansväxling.
+    - **Senaste (standard)** : bearbetar alla data i site Recoverys tjänsten och ger lägsta återställnings punkt mål (återställnings punkt mål).
+    - **Senaste bearbetade**: återställer den virtuella datorn till den senaste återställnings punkten som har bearbetats av Site Recovery.
+    - **Anpassad**: växlar över till en viss återställnings punkt. Det här alternativet är användbart för att utföra test av redundansväxling.
 4. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery ska försöka stänga av virtuella datorer i Dr-regionen innan redundansväxlingen utlöses. Redundansväxlingen fortsätter även om avstängningen Miss lyckas. 
 5. Följ redundansförloppet på sidan **Jobb**.
 6. När redundansväxlingen är klar verifierar du den virtuella datorn genom att logga in på den. Du kan ändra återställnings punkten efter behov.
@@ -56,6 +56,9 @@ När de virtuella datorerna har återskyddats kan du växla tillbaka till den pr
 8. Den virtuella datorn ska visa som misslyckad över och kunde inte återställas.
 
     ![VM i primär och sekundär region](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+
+> [!NOTE]
+> För datorer som kör Site Recovery Extension-versionen 9.28. x. x och senare samlad [uppdatering 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery rensar datorer i den sekundära återställnings regionen, nafter återställning efter fel har slutförts och virtuella datorer skyddas igen. Det finns inget behov av att manuellt ta bort virtuella datorer och nätverkskort.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2f9d2cea7adaf2e46feb0417ea9631ce02478f80
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2e5eaed40c954df5e7c731bb3fbd5d9424ea9b97
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934144"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053287"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
 
@@ -103,6 +103,9 @@ Om du anger [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-
 Det här felet uppstår om ditt Azure Functions-projekt (eller ett refererat projekt) innehåller en manuell NuGet-referens till Azure Cosmos DB SDK med en annan version än den som anges av [Azure Functions Cosmos DB-tillägget](./troubleshoot-changefeed-functions.md#dependencies).
 
 Lös problemet genom att ta bort den manuella NuGet-referensen som lades till och låt Azure Cosmos DB SDK-referensen matcha genom Azure Functions Cosmos DB tilläggs paketet.
+
+### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Ändra avsöknings intervall för Azure Function för att identifiera ändringar
+Som förklarat tidigare för [mina ändringar tar](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)det för lång tid att ta emot, Azure-funktionen försätts i vilo läge under en konfigurerbar tids period (5 sekunder som standard) innan du söker efter nya ändringar (för att undvika hög ru-förbrukning). Du kan ändra vilotiden med inställningen `FeedPollDelay/feedPollDelay` i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) för utlösaren (värdet förväntas anges i millisekunder).
 
 ## <a name="next-steps"></a>Nästa steg
 

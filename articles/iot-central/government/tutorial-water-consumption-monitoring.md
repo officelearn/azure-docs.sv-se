@@ -8,14 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 543d019628e0f3c8423a71a4aa8d5b24a60e82e3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 59dae65d32f1b816e59ee883cb4529c6f1fd212c
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72956721"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026553"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten förbrukning i IoT Central
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 I den här självstudien får du hjälp med att skapa ett program för övervakning av Azure IoT Central vatten förbrukning från program mal len för övervakning av IoT Central. 
 
@@ -47,7 +49,7 @@ Så här skapar du ett nytt program för övervakning av Azure IoT Central vatte
 
     ![Ange ditt organisationskonto](media/tutorial-waterconsumptionmonitoring/sign-in.png)
 
-2. Klicka på **build** i den vänstra navigerings menyn och välj fliken **myndigheter** . Sidan myndigheter visar flera myndighets programmallar.
+2. Klicka på **build (Bygg** in) i den vänstra rutan och välj fliken **myndigheter** . Sidan myndigheter visar flera myndighets programmallar.
 
    ![Bygg app-mallar för myndigheter](./media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png)
 
@@ -241,7 +243,7 @@ Som verktyg kan du ändra flera inställningar för att anpassa användar upplev
 
 Om du inte kommer att fortsätta att använda det här programmet tar du bort programmet med följande steg:
 
-1. Öppna fliken Administration från den vänstra navigerings menyn i IoT Central programmet. 
+1. Öppna fliken Administration i det vänstra fönstret i ditt IoT Central-program. 
 2. Välj program inställningar och klicka på knappen Ta bort längst ned på sidan. 
 
 

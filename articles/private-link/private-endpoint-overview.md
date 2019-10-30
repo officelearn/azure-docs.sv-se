@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592383"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023838"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -66,7 +66,7 @@ Du kan helt låsa dina arbets belastningar från att komma åt offentliga slut p
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Åtkomst till en privat länk resurs med hjälp av godkännande arbets flöde 
 Du kan ansluta till en privat länk resurs med hjälp av följande metoder för godkännande av anslutning:
-- **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Microsoft. \<Provider >/< resource_type >/privateEndpointConnectionApproval/action
+- **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Microsoft.\<Provider >/< resource_type >/privateEndpointConnectionApproval/action
 - **Manuell** begäran när du inte har behörighet som krävs och vill begära åtkomst. Ett arbets flöde för godkännande kommer att initieras. Den privata slut punkten och efterföljande privata slut punkts anslutningar skapas i ett väntande tillstånd. Ägaren till den privata länk resursen ansvarar för att godkänna anslutningen. När den har godkänts är den privata slut punkten aktive rad för att skicka trafik normalt, som du ser i följande arbets flödes diagram för godkännande.  
 
 ![arbets flödes godkännande](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -91,7 +91,7 @@ Nätverks gränssnittet som är kopplat till den privata slut punkten innehålle
 Du kan använda följande alternativ för att konfigurera dina DNS-inställningar för privata slut punkter: 
 - **Använd värd filen (rekommenderas endast för testning)** . Du kan använda värd filen på en virtuell dator för att åsidosätta DNS.  
 - **Använd en privat DNS-zon**. Du kan använda privata DNS-zoner för att åsidosätta DNS-matchningen för en specifik privat slut punkt. En privat DNS-zon kan länkas till det virtuella nätverket för att lösa vissa domäner.
-- **Använd din anpassade DNS-Server**. Du kan använda din egen DNS-server för att åsidosätta DNS-matchningen för en specifik privat länk resurs. Om din DNS-Server finns i ett virtuellt nätverk kan du skapa en regel för vidarebefordran av DNS för att använda en privat DNS-zon för att förenkla konfigurationen för alla privata länk resurser.
+- **Använd din anpassade DNS-Server**. Du kan använda din egen DNS-server för att åsidosätta DNS-matchningen för en specifik privat länk resurs. Om din [DNS-Server](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) finns i ett virtuellt nätverk kan du skapa en regel för vidarebefordran av DNS för att använda en privat DNS-zon för att förenkla konfigurationen för alla privata länk resurser.
  
 > [!IMPORTANT]
 > Vi rekommenderar inte att du åsidosätter en zon som används aktivt för att lösa offentliga slut punkter. Anslutningar till resurser kan inte lösas korrekt utan DNS-vidarebefordran till den offentliga DNS-tjänsten. Du kan undvika problem genom att skapa ett annat domän namn eller följa det föreslagna namnet för varje tjänst nedan. 

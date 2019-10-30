@@ -1,18 +1,18 @@
 ---
-title: Felsök återställning efter fel till lokal plats under haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery | Microsoft Docs
+title: Felsök återställning efter fel till lokal plats under haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery
 description: I den här artikeln beskrivs olika sätt att felsöka problem med återställning efter fel och skydd under haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.author: raynew
-ms.openlocfilehash: c27e72333618f73b67eec9b5c0c3a70239a1c0b3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/29/2019
+ms.author: mayg
+ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970843"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053856"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>Felsöka vCenter-identifieringsfel
 
@@ -20,7 +20,7 @@ Den här artikeln hjälper dig att felsöka problem som inträffar på grund av 
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Icke-numeriska värden i egenskapen maxSnapShots
 
-I tidigare versioner än 9,20 kopplas vCenter ned när det hämtar ett icke-numeriskt värde för egenskapen `snapshot.maxSnapShots`-egenskapen på en virtuell dator.
+I tidigare versioner än 9,20 kopplas vCenter ned när det hämtar ett icke-numeriskt värde för egenskapen `snapshot.maxSnapShots` på en virtuell dator.
 
 Det här problemet identifieras av fel-ID 95126.
 
@@ -46,8 +46,8 @@ I allmänhet används proxyn för att kommunicera med offentliga nätverk. till 
 
 Följande situationer inträffar när det här problemet uppstår:
 
-- Det går inte att hitta vCenter-servern \<vCenter > på grund av felet: Fjärrservern returnerade ett fel: (503) servern är inte tillgänglig
-- Det går inte att hitta vCenter-servern \<vCenter > på grund av felet: Fjärrservern returnerade ett fel: Det går inte att ansluta till fjärrservern.
+- VCenter-servern \<vCenter-> kan inte nås på grund av felet: fjärrservern returnerade ett fel: (503) servern är inte tillgänglig
+- VCenter-servern \<vCenter-> kan inte uppnås på grund av felet: fjärrservern returnerade ett fel: det går inte att ansluta till fjärrservern.
 - Det går inte att ansluta till vCenter/ESXi-servern.
 
 Så här löser du problemet:

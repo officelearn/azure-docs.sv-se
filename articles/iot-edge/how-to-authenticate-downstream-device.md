@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d73c0f4dbfcc2c67a222f91693ebe8ed9ea83d98
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1e184691ebbd34de0f69e93419d9c34ab18edbe6
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266133"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025938"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autentisera en underordnad enhet på Azure IoT Hub
 
@@ -24,13 +24,13 @@ Det finns tre allmänna steg för att konfigurera en lyckad transparent Gateway-
 
 1. Gateway-enheten måste kunna ansluta till underordnade enheter på ett säkert sätt, ta emot kommunikation från underordnade enheter och dirigera meddelanden till rätt mål. Mer information finns i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
 2. **Den underordnade enheten måste ha en enhets identitet för att kunna autentisera med IoT Hub och kunna kommunicera via dess gateway-enhet.**
-3. Den underordnade enheten måste kunna ansluta till sin gateway-enhet på ett säkert sätt. Mer information finns i [en underordnad ansluts till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md).
+3. Den underordnade enheten måste kunna ansluta till sin gateway-enhet på ett säkert sätt. Mer information finns i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
 
 Underordnade enheter kan autentiseras med IoT Hub med hjälp av någon av tre metoder: symmetriska nycklar (kallas ibland för delade åtkomst nycklar), X. 509 självsignerade certifikat eller certifikat från X. 509 certifikat utfärdare (CA) signerade certifikat. Stegen för autentisering liknar de steg som används för att konfigurera en icke-IoT-Edge-enhet med IoT Hub, med små skillnader för att deklarera Gateway-relationen.
 
 Stegen i den här artikeln visar manuell enhets etablering, inte automatisk etablering med Azure-IoT Hub Device Provisioning Service. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway](how-to-create-transparent-gateway.md). Om du använder X. 509-autentisering för en underordnad enhet måste du använda samma skript för certifikat skapande som du har skapat i artikeln transparent Gateway. 
 
@@ -72,10 +72,10 @@ När du har skapat en IoT-enhets identitet i portalen kan du hämta dess primär
 
 De symmetriska nyckel anslutnings strängarna för underordnade enheter behöver följande komponenter: 
 
-* IoT-hubben som enheten ansluter till:`Hostname={iothub name}.azure-devices.net`
-* Enhets-ID som är registrerat i hubben:`DeviceID={device ID}`
-* Antingen primär eller sekundär nyckel:`SharedAccessKey={key}`
-* Den gateway-enhet som enheten ansluter via. Ange **hostname** -värdet från filen config. yaml för IoT Edge gateway-enheten:`GatewayHostName={gateway hostname}`
+* IoT-hubben som enheten ansluter till: `Hostname={iothub name}.azure-devices.net`
+* Enhets-ID som är registrerat i hubben: `DeviceID={device ID}`
+* Antingen den primära eller sekundära nyckeln: `SharedAccessKey={key}`
+* Den gateway-enhet som enheten ansluter via. Ange **hostname** -värdet från filen config. yaml för IoT Edge gateway-enheten: `GatewayHostName={gateway hostname}`
 
 Tillsammans ser en fullständig anslutnings sträng ut så här:
 
@@ -101,7 +101,7 @@ Mer information om hur IoT Hub använder X. 509-autentisering finns i följande 
 
 För X. 509-självsignerad autentisering, som ibland kallas tumavtryck-autentisering, måste du skapa nya certifikat som ska placeras på din IoT-enhet. Dessa certifikat har ett tumavtryck i dem som du delar med IoT Hub för autentisering. 
 
-Det enklaste sättet att testa det här scenariot är att använda samma dator som du använde för att skapa certifikat i [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md). Datorn bör redan ha kon figurer ATS med rätt verktyg, rotcertifikatutfärdarcertifikat och mellanliggande CA-certifikat för att skapa IoT-enhetens certifikat. Du kan kopiera de slutgiltiga certifikaten och deras privata nycklar till din efterföljande enhet efteråt. Följ stegen i artikeln Gateway, konfigurera openssl på datorn och klona sedan IoT Edge-lagrings platsen för att få åtkomst till certifikat skapande skript. Sedan gjorde du en arbets katalog som vi kallar  **\<WRKDIR >** för att lagra certifikaten. Standard certifikaten är avsedda för utveckling och testning, så de senaste 30 dagarna. Du bör ha skapat ett certifikat från en rot certifikat utfärdare och ett mellanliggande certifikat. 
+Det enklaste sättet att testa det här scenariot är att använda samma dator som du använde för att skapa certifikat i [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md). Datorn bör redan ha kon figurer ATS med rätt verktyg, rotcertifikatutfärdarcertifikat och mellanliggande CA-certifikat för att skapa IoT-enhetens certifikat. Du kan kopiera de slutgiltiga certifikaten och deras privata nycklar till din efterföljande enhet efteråt. Följ stegen i artikeln Gateway, konfigurera openssl på datorn och klona sedan IoT Edge-lagrings platsen för att få åtkomst till certifikat skapande skript. Sedan gjorde du en arbets katalog som vi anropar **\<WRKDIR >** för att lagra certifikaten. Standard certifikaten är avsedda för utveckling och testning, så de senaste 30 dagarna. Du bör ha skapat ett certifikat från en rot certifikat utfärdare och ett mellanliggande certifikat. 
 
 1. Navigera till arbets katalogen i antingen ett bash-eller PowerShell-fönster. 
 
@@ -155,12 +155,12 @@ För X. 509-signerad autentisering (CA) behöver du ett rot certifikat för cert
 
 Det här avsnittet baseras på instruktionerna som beskrivs i IoT Hub artikel konfigurera [säkerhet för X. 509 i Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md). Följ stegen i det här avsnittet för att veta vilka värden som ska användas för att konfigurera en underordnad enhet som ansluter via en gateway. 
 
-Det enklaste sättet att testa det här scenariot är att använda samma dator som du använde för att skapa certifikat i [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md). Datorn bör redan ha kon figurer ATS med rätt verktyg, rotcertifikatutfärdarcertifikat och mellanliggande CA-certifikat för att skapa IoT-enhetens certifikat. Du kan kopiera de slutgiltiga certifikaten och deras privata nycklar till din efterföljande enhet efteråt. Följ stegen i artikeln Gateway, konfigurera openssl på datorn och klona sedan IoT Edge-lagrings platsen för att få åtkomst till certifikat skapande skript. Sedan gjorde du en arbets katalog som vi kallar  **\<WRKDIR >** för att lagra certifikaten. Standard certifikaten är avsedda för utveckling och testning, så de senaste 30 dagarna. Du bör ha skapat ett certifikat från en rot certifikat utfärdare och ett mellanliggande certifikat. 
+Det enklaste sättet att testa det här scenariot är att använda samma dator som du använde för att skapa certifikat i [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md). Datorn bör redan ha kon figurer ATS med rätt verktyg, rotcertifikatutfärdarcertifikat och mellanliggande CA-certifikat för att skapa IoT-enhetens certifikat. Du kan kopiera de slutgiltiga certifikaten och deras privata nycklar till din efterföljande enhet efteråt. Följ stegen i artikeln Gateway, konfigurera openssl på datorn och klona sedan IoT Edge-lagrings platsen för att få åtkomst till certifikat skapande skript. Sedan gjorde du en arbets katalog som vi anropar **\<WRKDIR >** för att lagra certifikaten. Standard certifikaten är avsedda för utveckling och testning, så de senaste 30 dagarna. Du bör ha skapat ett certifikat från en rot certifikat utfärdare och ett mellanliggande certifikat. 
 
 1. Följ anvisningarna i avsnittet [Registrera x. 509 CA-certifikat i IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) i *Konfigurera X. 509-säkerhet i Azure IoT Hub*. I det avsnittet utför du följande steg: 
 
-   1. Ladda upp ett rot certifikat för certifikat utfärdare. Om du använder de certifikat som du skapade i den transparenta Gateway-artikeln laddar du upp  **\<WRKDIR >/certs/Azure-IoT-test-Only.root.ca.cert.pem** som rot certifikat fil. 
-   2. Kontrol lera att du äger det rot certifikat utfärdarens certifikat. Du kan kontrol lera att du har till gång \<till cert-verktygen i WRKDIR >. 
+   1. Ladda upp ett rot certifikat för certifikat utfärdare. Om du använder de certifikat som du skapade i den transparenta Gateway-artikeln laddar du upp **\<WRKDIR >/certs/Azure-IoT-test-Only.root.ca.cert.pem** som rot certifikat fil. 
+   2. Kontrol lera att du äger det rot certifikat utfärdarens certifikat. Du kan kontrol lera att du har till gång till cert-verktygen i \<WRKDIR >. 
 
       ```powershell
       New-CACertsVerificationCert "<verification code from Azure portal>"
@@ -388,4 +388,4 @@ DeviceClient client = new DeviceClient(connectionString, protocol, publicKeyCert
 
 ## <a name="next-steps"></a>Nästa steg
 
-Genom att slutföra den här artikeln bör du ha en IoT Edge-enhet som fungerar som en transparent gateway och en underordnad enhet som är registrerad i IoT Hub. Därefter måste du konfigurera de underordnade enheterna så att de litar på gateway-enheten och skicka meddelanden till den. Mer information finns i [en underordnad ansluts till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md).
+Genom att slutföra den här artikeln bör du ha en IoT Edge-enhet som fungerar som en transparent gateway och en underordnad enhet som är registrerad i IoT Hub. Därefter måste du konfigurera de underordnade enheterna så att de litar på gateway-enheten och skicka meddelanden till den. Mer information finns i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).

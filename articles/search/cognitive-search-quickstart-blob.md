@@ -8,18 +8,18 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: e542d4685829886084bbc8adf6831647b9a1256a
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 28d813e2f137ecf721165e9ea5af2e36efee872a
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809671"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053487"
 ---
 # <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Snabb start: skapa en AI-pipeline med kognitiva kunskaper i Azure Search
 
-Azure Search integreras med [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), lägga till extrahering av innehåll, NLP (Natural Language Processing) och bild bearbetnings kunskaper till en Azure Search indexerings pipeline, vilket gör att det inte går att söka efter eller ostrukturerat innehåll mer sökbar. 
+Azure Search integreras med [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), lägga till extrahering av innehåll, NLP (Natural Language Processing) och bild bearbetning (bild taggning, objekt identifiering, OCR) för en Azure Search indexerings pipeline, vilket gör att det inte går att söka eller ostrukturerat innehåll mer sökbart. 
 
-Många Cognitive Services resurser – till exempel [OCR](cognitive-search-skill-ocr.md), [språk identifiering](cognitive-search-skill-language-detection.md), [enhets igenkänning](cognitive-search-skill-entity-recognition.md) för att namnge ett fåtal – kan kopplas till en indexerings process. AI-algoritmer för Cognitive Services används för att hitta mönster, funktioner och egenskaper i källdata, returnera strukturer och textinnehåll som kan användas för textsökningslösningar som bygger på Azure Search.
+Många Cognitive Services resurser – t. ex. [Bildtaggning](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-tagging-images), [objekt identifiering](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-object-detection), [OCR](cognitive-search-skill-ocr.md), [språk identifiering](cognitive-search-skill-language-detection.md), [enhets igenkänning](cognitive-search-skill-entity-recognition.md) för att namnge ett fåtal-kan bifogas till en indexerings process. AI-algoritmer för Cognitive Services används för att hitta mönster, funktioner och egenskaper i källdata, returnera strukturer och textinnehåll som kan användas för textsökningslösningar som bygger på Azure Search.
 
 I den här snabbstarten skapar du din första berikningspipeline i [Azure Portal](https://portal.azure.com) utan att skriva en enda rad med kod:
 

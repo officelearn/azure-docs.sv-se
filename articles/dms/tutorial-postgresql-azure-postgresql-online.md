@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Använd Azure Database Migration Service för att utföra migrering av PostgreSQL till Azure Database for PostgreSQL | Microsoft Docs'
+title: 'Självstudie: Använd Azure Database Migration Service för att utföra en migrering av PostgreSQL till Azure Database for PostgreSQL | Microsoft Docs'
 description: Lär dig att utföra en online-migrering från PostgreSQL lokalt till Azure Database for PostgreSQL genom att använda Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/06/2019
-ms.openlocfilehash: 5888555e93c28c96445bed1936deda022b0a4b94
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/28/2019
+ms.openlocfilehash: 1b4eebafadcdbebfc89ce7265f4d4f77f4f5ac8c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734593"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043235"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudier: Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS
+# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudie: Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS
 
 Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal PostgreSQL-instans till [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal stillestånds tid. Med andra ord kan migreringen uppnås med minimal stillestånds tid för programmet. I den här självstudien migrerar du exempel databasen för **DVD-hyra** från en lokal instans av postgresql 9,6 till Azure Database for PostgreSQL med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 > [!IMPORTANT]
 > För en optimal migrering rekommenderar Microsoft att du skapar en instans av Azure Database Migration Service i samma Azure-region som mål databasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -63,7 +63,7 @@ För att slutföra den här kursen behöver du:
 * Skapa en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure Database for PostgreSQL för att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det VNet som används för Azure Database Migration Service.
 * Det finns två metoder för att anropa CLI:
 
-  * Välj knappen Cloud Shell längst upp till höger i Azure Portal:
+  * I det övre högra hörnet av Azure Portal väljer du knappen Cloud Shell:
 
        ![Cloud Shell-knappen i Azure Portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
@@ -208,10 +208,10 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
    Till exempel skapar följande kommando en tjänst i:
 
-   * Plats: USA, östra 2
+   * Plats: Östra USA2
    * Prenumeration: 97181df2-909d-420b-ab93-1bff15acb6b7
-   * Namn på resursgrupp: PostgresDemo
-   * DNS-tjänstnamn: PostgresCLI
+   * Resursgruppsnamn: PostgresDemo
+   * DMS-tjänstnamn: PostgresCLI
 
    ```
    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
@@ -257,8 +257,8 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
     Till exempel skapar följande kommando ett projekt med dessa parametrar:
 
-   * Plats: Västra centrala USA
-   * Namn på resursgrupp: PostgresDemo
+   * Plats: USA, västra centrala
+   * Resursgruppsnamn: PostgresDemo
    * Tjänstnamn: PostgresCLI
    * Projektnamn: PGMigration
    * Källplattform: PostgreSQL

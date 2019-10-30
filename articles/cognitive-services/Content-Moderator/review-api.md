@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 0050e2b687b6001514d1ae80c269b1a0499efbea
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 917636c8ae339e06321c169979611f74276ca523
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757300"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044009"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Granskningar av innehålls moderatorer, arbets flöden och jobb
 
@@ -75,5 +75,5 @@ Se [rest Apis guide](./try-review-api-job.md) för att komma igång med jobb.
 ## <a name="next-steps"></a>Nästa steg
 
 * Testkör jobb- [API-konsolen](try-review-api-job.md)och Använd REST API kod exempel. Om du är bekant med Visual Studio och C#kontrollerar du även [jobben .net snabb start](moderation-jobs-quickstart-dotnet.md). 
-* För recensioner kan du komma igång med [Granska API-konsolen](try-review-api-review.md)och använda REST API kod exempel. Gå sedan till [granskningen av .net-snabb](moderation-reviews-quickstart-dotnet.md)starten.
+* För recensioner kan du komma igång med [Granska API-konsolen](try-review-api-review.md)och använda REST API kod exempel. Se avsnittet recensioner i [.net-snabb](dotnet-sdk-quickstart.md)starten.
 * För video granskningar använder du [snabb starten för video granskning](video-reviews-quickstart-dotnet.md)och lär dig hur du [lägger till avskrifter i video granskningen](video-transcript-reviews-quickstart-dotnet.md).

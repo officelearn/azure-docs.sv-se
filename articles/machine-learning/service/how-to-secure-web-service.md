@@ -1,7 +1,7 @@
 ---
 title: Skydda webb tjänster med hjälp av SSL
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du skyddar en webb tjänst som distribueras via Azure Machine Learning genom att aktivera HTTPS. HTTPS säkrar data från av klienter genom att använda TLS (Transport Layer Security), en ersättning för SSL (Secure Sockets Layer). Klienter använder också HTTPS för att verifiera webb tjänstens identitet.
+description: Lär dig hur du aktiverar HTTPS för att för säkra en webb tjänst som distribueras via Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 39b79e5729945a346e9cf022fb93e23da9fa7824
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034366"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053549"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Använd SSL för att skydda en webb tjänst via Azure Machine Learning
 
@@ -36,37 +36,37 @@ TLS och SSL är beroende av *digitala certifikat*, som hjälper till med krypter
 
 Detta är den allmänna processen för att skydda en webb tjänst:
 
-1. Få ett domännamn.
+1. Hämta ett domän namn.
 
 2. Skaffa ett digitalt certifikat.
 
 3. Distribuera eller uppdatera webb tjänsten med SSL aktiverat.
 
-4. Uppdatera din DNS så att den pekar till webbtjänsten.
+4. Uppdatera din DNS så att den pekar på webb tjänsten.
 
 > [!IMPORTANT]
 > Om du distribuerar till Azure Kubernetes service (AKS) kan du köpa ditt eget certifikat eller använda ett certifikat från Microsoft. Om du använder ett certifikat från Microsoft behöver du inte skaffa ett domän namn eller SSL-certifikat. Mer information finns i avsnittet [Aktivera SSL och distribution](#enable) i den här artikeln.
 
 Det finns små skillnader när du skyddar webb tjänster mellan [distributions mål](how-to-deploy-and-where.md).
 
-## <a name="get-a-domain-name"></a>Få ett domännamn
+## <a name="get-a-domain-name"></a>Hämta ett domän namn
 
-Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till\.exempel www-contoso.com) till den IP-adress som är värd för webb tjänsten.
+Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till exempel www\.contoso.com) till den IP-adress som är värd för webb tjänsten.
 
 ## <a name="get-an-ssl-certificate"></a>Hämta ett SSL-certifikat
 
 Det finns många sätt att hämta ett SSL-certifikat (digitalt certifikat). Det vanligaste är att köpa en från en *certifikat utfärdare* (ca). Oavsett var du får certifikatet behöver du följande filer:
 
-* En **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
-* En **nyckeln**. Nyckeln måste också vara PEM-kodad.
+* Ett **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
+* En **nyckel**. Nyckeln måste också vara PEM-kodad.
 
-När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för webb tjänsten (till exempel www\.-contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera webb tjänstens identitet. Om dessa adresser inte matchar får klienten ett fel meddelande.
+När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för webb tjänsten (till exempel www\.contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera webb tjänstens identitet. Om dessa adresser inte matchar får klienten ett fel meddelande.
 
 > [!TIP]
 > Om certifikat utfärdaren inte kan ange certifikatet och nyckeln som PEM-kodade filer kan du använda ett verktyg som [openssl](https://www.openssl.org/) för att ändra formatet.
 
 > [!WARNING]
-> Använd endast *självsignerade* certifikat för utveckling. Använd dem inte i produktions miljöer. Självsignerade certifikat kan orsaka problem i din klient program. Mer information finns i dokumentationen för de nätverks bibliotek som används av klient programmet.
+> Använd endast *självsignerade* certifikat för utveckling. Använd dem inte i produktions miljöer. Självsignerade certifikat kan orsaka problem i dina klient program. Mer information finns i dokumentationen för de nätverks bibliotek som används av klient programmet.
 
 ## <a id="enable"></a>Aktivera SSL och distribuera
 
@@ -84,7 +84,7 @@ När du distribuerar till AKS kan du skapa ett nytt AKS-kluster eller koppla ett
 
 Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett certifikat som du köper.
 
-  * När du använder ett certifikat från Microsoft måste du använda parametern *leaf_domain_label* . Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "unservice" ett domän namn för "Mina tjänster\<med sex-slumpmässiga tecken >.\< azureregion >. cloudapp. Azure. com ", där \<azureregion > är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
+  * När du använder ett certifikat från Microsoft måste du använda parametern *leaf_domain_label* . Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "unservice" ett domän namn med\<sex slumpmässiga tecken >.\<azureregion >. cloudapp. Azure. com ", där \<azureregion > är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
 
     Om du vill distribuera (eller distribuera om) tjänsten med SSL aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange *ssl_certificate* -parametern till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
 
@@ -134,9 +134,9 @@ aci_config = AciWebservice.deploy_configuration(
 
 Mer information finns i [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-).
 
-## <a name="update-your-dns"></a>Uppdatera din DNS-Server
+## <a name="update-your-dns"></a>Uppdatera din DNS
 
-Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
+Sedan måste du uppdatera din DNS så att den pekar på webb tjänsten.
 
 + **För Container Instances:**
 
@@ -151,7 +151,7 @@ Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
 
   Uppdatera DNS för den offentliga IP-adressen för AKS-klustret på fliken **konfiguration** under **Inställningar** i det vänstra fönstret. (Se följande bild.) Den offentliga IP-adressen är en resurs typ som skapas under resurs gruppen som innehåller AKS-agentens noder och andra nätverks resurser.
 
-  [![Azure Machine Learning: Skydda webb tjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: skydda webb tjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Uppdatera SSL-certifikatet
 
@@ -230,7 +230,7 @@ Mer information finns i följande referens dokument:
 
 ## <a name="disable-ssl"></a>Inaktivera SSL
 
-Om du vill inaktivera SSL för en modell som distribueras till Azure Kubernetes- `SslConfiguration` tjänsten `status="Disabled"`skapar du en med och utför sedan en uppdatering:
+Om du vill inaktivera SSL för en modell som distribueras till Azure Kubernetes-tjänsten skapar du en `SslConfiguration` med `status="Disabled"`och utför sedan en uppdatering:
 
 ```python
 from azureml.core.compute import AksCompute

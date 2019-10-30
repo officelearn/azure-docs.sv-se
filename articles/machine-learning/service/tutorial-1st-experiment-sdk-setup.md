@@ -1,7 +1,7 @@
 ---
-title: 'Självstudier: Skapa ditt första ML-experiment: Konfiguration'
+title: 'Självstudie: skapa ditt första ML experiment: installation'
 titleSuffix: Azure Machine Learning
-description: I den här själv studie serien slutför du stegen från slut punkt till slut punkt för att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks.  Del ett omfattar att skapa en bärbar Server miljö för molnet och att skapa en arbets yta för att hantera experiment-och maskin inlärnings modeller.
+description: I den här självstudien kommer du att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks.  I del 1 skapar du en arbets yta där du kan hantera experiment och ML-modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 3bbda22689bb330acc836173162a64b840f1bbd8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: fc26b224a2af6ab4f1f6bf5551381d4739831351
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828035"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053872"
 ---
-# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Självstudier: Kom igång med att skapa ditt första ML-experiment med python SDK
+# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Självstudie: kom igång med att skapa ditt första ML-experiment med python SDK
 
 I den här självstudien slutför du stegen från slut punkt till slut punkt för att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks. Den här självstudien är **del ett i en själv studie kurs i två delar**, och täcker konfiguration och konfiguration av python-miljön, samt skapa en arbets yta för att hantera experiment och maskin inlärnings modeller. [**Del två**](tutorial-1st-experiment-sdk-train.md) bygger på detta för att träna flera Machine Learning-modeller och introducera modell hanterings processen med hjälp av både Azure Portal och SDK.
 
-I den här kursen för du göra följande:
+I den här kursen får du:
 
 > [!div class="checklist"]
 > * Skapa en [Azure Machine Learning-arbetsyta](concept-workspace.md) som ska användas i nästa självstudie.
@@ -62,7 +62,7 @@ Du har slutfört följande experiment konfiguration och kör steg i landnings si
 
 1. Det finns en mapp som visas för varje användare som har åtkomst till arbets ytan.  Välj din mapp för att klona **själv studie kursen** där.
 
-## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">Select en virtuell dator för att köra antecknings boken
+## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">Välj en virtuell dator för att köra antecknings boken
 
 1. Under **användarfiler** öppnar du mappen och öppnar sedan mappen klonade **självstudier** .
 
@@ -96,7 +96,7 @@ I den här självstudien har du slutfört följande uppgifter:
 I **del två** av självstudien kör du koden i `tutorial-1st-experiment-sdk-train.ipynb` för att träna en maskin inlärnings modell. 
 
 > [!div class="nextstepaction"]
-> [Självstudier: Träna din första modell](tutorial-1st-experiment-sdk-train.md)
+> [Självstudie: träna din första modell](tutorial-1st-experiment-sdk-train.md)
 
 > [!IMPORTANT]
 > Om du inte planerar följande del 2 av den här själv studie kursen eller någon annan själv studie kurs bör du [stoppa den virtuella datorn i molnet Notebook-servern](tutorial-1st-experiment-sdk-train.md#clean-up-resources) när du inte använder den för att minska kostnaderna.

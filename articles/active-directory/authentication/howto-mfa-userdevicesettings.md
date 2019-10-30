@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 808faaed76ff63d69feb8170eaac72021c7bd49d
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70162401"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042110"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användar inställningar med Azure Multi-Factor Authentication i molnet
 
@@ -39,33 +39,9 @@ Som administratör har tilldelats rollen som administratör för autentisering k
    - **Kräv omregistrering av MFA** gör det så att när användaren loggar in nästa gång uppmanas de att konfigurera en ny MFA-autentiseringsmetod.
    - **Återkalla MFA-sessioner** rensar användarens sparade MFA-sessioner och måste utföra MFA nästa gång det krävs av principen på enheten.
 
-## <a name="require-users-to-provide-contact-methods-again"></a>Kräv att användarna anger kontakt metoder igen
-
-Den här inställningen tvingar användaren att slutföra registrerings processen igen. Icke-webbläsarbaserade appar fortsätter att fungera om användaren har applösenord för dem.  Du kan ta bort användarnas applösenord genom att även välja **ta bort alla befintliga applösenord som har genererats av de valda användarna**.
-
-### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Så här kräver du att användarna anger kontakt metoder igen
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory**  > **användare**  > **alla användare**till vänster.
-3. Till höger väljer du **Multi-Factor Authentication** i verktygsfältet. Sidan Multi-Factor Authentication öppnas.
-4. Markera kryss rutan bredvid den eller de användare som du vill hantera. En lista med snabb stegs alternativ visas till höger.
-5. Välj **hantera användar inställningar**.
-6. Markera kryss rutan för **Kräv att valda användare ska tillhandahålla kontakt metoder igen**.
-   ![Require användare att tillhandahålla kontakt metoder igen ](./media/howto-mfa-userdevicesettings/reproofup.png)
-7. Klicka på **Spara**.
-8. Klicka på **Stäng**.
-
-Organisationer kan utföra de här stegen med PowerShell med hjälp av följande som en guide för att rensa `StrongAuthenticationMethods`-attributet:
-
-```PowerShell
-$Upn = "theuser@domain.com"
-$noMfaConfig = @()
-Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
-```
-
 ## <a name="delete-users-existing-app-passwords"></a>Ta bort användare befintliga applösenord
 
-Den här inställningen tar bort alla applösenord som en användare har skapat. Icke-webbläsarbaserade appar som kopplats till dessa applösenord slutar fungera tills ett nytt applösenord har skapats.
+Den här inställningen tar bort alla applösenord som en användare har skapat. Icke-webbläsarbaserade appar som kopplats till dessa applösenord slutar fungera tills ett nytt applösenord har skapats. Det krävs globala administratörs behörigheter för att utföra den här åtgärden.
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Så här tar du bort användare befintliga applösenord
 
@@ -75,27 +51,7 @@ Den här inställningen tar bort alla applösenord som en användare har skapat.
 4. Markera kryss rutan bredvid den eller de användare som du vill hantera. En lista med snabb stegs alternativ visas till höger.
 5. Välj **hantera användar inställningar**.
 6. Markera kryss rutan för **ta bort alla befintliga applösenord som har genererats av de valda användarna**.
-   ![Delete alla befintliga applösenord ](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-7. Klicka på **Spara**.
-8. Klicka på **Stäng**.
-
-## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Återställ MFA på alla sparade enheter för en användare
-
-En av de konfigurerbara funktionerna i Azure Multi-Factor Authentication ger användarna möjlighet att markera enheter som betrodda. Mer information finns i [Konfigurera inställningar för Azure-Multi-Factor Authentication](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
-
-Användare kan välja mellan tvåstegsverifiering för ett konfigurerbart antal dagar på sina vanliga enheter. Om ett konto har komprometterats eller en betrodd enhet förloras måste du kunna ta bort den betrodda statusen och kräva tvåstegsverifiering igen.
-
-När det här alternativet är markerat måste du **återställa Multi-Factor Authentication på alla sparade enheter** -användare för att utföra tvåstegsverifiering nästa gång de loggar in, även om de har markerat att enheten är betrodd.
-
-### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Så här återställer du MFA på alla inaktiverade enheter för en användare
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory**  > **användare**  > **alla användare**till vänster.
-3. Till höger väljer du **Multi-Factor Authentication** i verktygsfältet. Sidan Multi-Factor Authentication öppnas.
-4. Markera kryss rutan bredvid den eller de användare som du vill hantera. En lista med snabb stegs alternativ visas till höger.
-5. Välj **hantera användar inställningar**.
-6. Markera kryss rutan för att **återställa Multi-Factor Authentication på alla sparade enheter** 
-    ![Restore Multi-Factor Authentication på alla sparade enheter ](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+   ![ta bort alla befintliga applösenord](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. Klicka på **Spara**.
 8. Klicka på **Stäng**.
 

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 50617eda56c2eaec9fac315013114f173e85edbc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 920419bf10634e8be15e05a89d547a5a9d1430b7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990796"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027789"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar om ExpressRoute
 
@@ -312,7 +312,7 @@ Ja. ExpressRoute Premium-avgifterna gäller för de ExpressRoute-krets avgifter 
 
 ## <a name="expressroute-local"></a>ExpressRoute-lokal
 ### <a name="what-is-expressroute-local"></a>Vad är ExpressRoute Local?
-ExpressRoute Local är en SKU av ExpressRoute-kretsen som är tillgänglig på [ExpressRoute Direct](expressroute-erdirect-about.md). En viktig funktion i lokal är att en lokal krets på en ExpressRoute-peering-plats ger dig åtkomst endast till en eller två Azure-regioner i eller nära samma tunnelbane linje. En standard-krets ger däremot till gång till alla Azure-regioner i ett politiskt område och en Premium-krets till alla Azure-regioner globalt. 
+ExpressRoute Local är en SKU av ExpressRoute-kretsen, förutom standard-SKU: n och Premium-SKU: n. En viktig funktion i lokal är att en lokal krets på en ExpressRoute-peering-plats ger dig åtkomst endast till en eller två Azure-regioner i eller nära samma tunnelbane linje. En standard-krets ger däremot till gång till alla Azure-regioner i ett politiskt område och en Premium-krets till alla Azure-regioner globalt. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Vilka är fördelarna med ExpressRoute Local?
 Du måste betala utgående data överföring för din standard-eller Premium ExpressRoute-krets, men du betalar inte utgående data överföring separat för din ExpressRoute-lokala krets. Priset för ExpressRoute Local inkluderar med andra ord avgifter för data överföring. ExpressRoute Local är en mer ekonomisk lösning om du har en enorm mängd data som ska överföras och du kan ta med dina data över en privat anslutning till en ExpressRoute-peering-plats nära önskade Azure-regioner. 
@@ -323,9 +323,6 @@ Jämfört med en vanlig ExpressRoute-krets har en lokal krets samma uppsättning
 * ExpressRoute-Global Reach finns inte på den lokala datorn
 
 ExpressRoute Local har också samma begränsningar för resurser (t. ex. antalet virtuella nätverk per krets) som standard. 
-
-### <a name="how-to-configure-expressroute-local"></a>Hur konfigurerar jag ExpressRoute lokalt? 
-ExpressRoute Local är bara tillgängligt på ExpressRoute Direct. Först måste du konfigurera din ExpressRoute Direct-port. När din direkt Port har skapats kan du skapa en lokal krets genom att följa anvisningarna [här](expressroute-howto-erdirect.md).
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Var finns ExpressRoute lokalt och vilka Azure-regioner är varje peering-plats mappad till?
 ExpressRoute Local är tillgängligt på peering-platserna där en eller två Azure-regioner stängs av. Den är inte tillgänglig på en peering-plats där det inte finns någon Azure-region i detta tillstånd eller region eller land. Se exakta mappningar på [sidan platser](expressroute-locations-providers.md).  

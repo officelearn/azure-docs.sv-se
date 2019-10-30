@@ -11,14 +11,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: fb92e882607575e99ae800bd9c6d7c36b5d89d8e
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f720e22542533d17fc7ab581f8ba8d9c03a89570
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034526"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025601"
 ---
-# <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Självstudier: Skapa automatiska godkännande-baserade arbets flöden med hjälp av Azure Logic Apps
+# <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiska godkännande-baserade arbets flöden med hjälp av Azure Logic Apps
 
 Den här självstudien visar hur du skapar en Logi Kap [par som automatiserar ett godkännande](../logic-apps/logic-apps-overview.md) baserat arbets flöde. Mer specifikt bearbetar den här Logic-appen prenumerations begär Anden för en e-postlista som hanteras av [MailChimp](https://mailchimp.com/) -tjänsten. Den här logikappen övervakar ett e-postkonto och söker efter begäranden, skickar begäranden om godkännande och lägger till godkända medlemmar på distributionslistan.
 
@@ -37,11 +37,11 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ![Översikt över färdiga Logic-appar på hög nivå](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* Ett MailChimp-konto som innehåller och en lista med namnet "test-members-ML" där din Logic app kan lägga till e-postadresser för godkända medlemmar. Om du inte har ett konto kan du [Registrera dig för ett kostnads fritt konto](https://login.mailchimp.com/signup/)och sedan lära dig [hur du skapar en MailChimp-lista](https://us17.admin.mailchimp.com/lists/#).
+* Ett MailChimp-konto som innehåller en lista med namnet "test-members-ML" där din Logic app kan lägga till e-postadresser för godkända medlemmar. Om du inte har ett konto kan du [Registrera dig för ett kostnads fritt konto](https://login.mailchimp.com/signup/)och sedan lära dig [hur du skapar en MailChimp-lista](https://us17.admin.mailchimp.com/lists/#).
 
 * Ett e-postkonto i Office 365 Outlook eller Outlook.com, som stöder arbets flöden för godkännande. Den här artikeln använder Office 365 Outlook. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
 
@@ -59,16 +59,16 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
    ![Ange information om din Logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
-   | Egenskap | Value | Beskrivning |
+   | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
    | **Namn** | LA-MailingList | Din Logic Apps namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "LA-MailingList". |
    | **Prenumeration** | <*your-Azure-subscription-name*> | Ditt Azure-prenumerations namn |
    | **Resursgrupp** | LA-MailingList-RG | Namnet på Azure- [resurs gruppen](../azure-resource-manager/resource-group-overview.md)som används för att organisera relaterade resurser. I det här exemplet används "LA-MailingList-RG". |
-   | **Location** | Västra USA | Tdet region där du kan lagra information om din Logic Apps. I det här exemplet används "västra USA". |
+   | **Plats** | USA, västra | Tdet region där du kan lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
-1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **meddelanden** > **gå till resurs** för din distribuerade Logic-app.
+1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar**  > **gå till resurs** för din distribuerade Logic-app.
 
    ![Gå till din nya Logic app-resurs](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
 
@@ -99,7 +99,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
       ![Ange mapp, intervall och frekvens för att kontrollera e-postmeddelanden](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
-      | Egenskap | Value | Beskrivning |
+      | Egenskap | Värde | Beskrivning |
       |----------|-------|-------------|
       | **Mapp** | `Inbox` | E-postmappen som ska övervakas |
       | **Intervall** | `1` | Antalet intervaller som ska förflyta mellan kontrollerna |
@@ -130,7 +130,7 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
 
 1. Under utlösaren väljer du **nytt steg**. 
 
-1. Under **Välj en åtgärd**i sökrutan anger du `approval` som filter. I listan åtgärder väljer du e-poståtgärden **Skicka godkännande** för e-postleverantören. 
+1. Under **Välj en åtgärd**går du till rutan Sök och anger `approval` som ditt filter. I listan åtgärder väljer du e-poståtgärden **Skicka godkännande** för e-postleverantören. 
 
    I det här exemplet används Office 365 Outlook-åtgärd:
 
@@ -140,10 +140,10 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
 
    ![Skicka e-postegenskaper för godkännande](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
 
-   | Egenskap | Value | Beskrivning |
+   | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **To** | <*your-email-address*> | Godkännarens e-postadress. I testsyfte kan du använda din egen adress. I det här exemplet används den fiktiva "sophia.owen@fabrikam.com"-e-postadressen. |
-   | **Subject** | `Approve member request for test-members-ML` | En beskrivande e-postrubrik |
+   | **Till** | <*your-email-address*> | Godkännarens e-postadress. I testsyfte kan du använda din egen adress. I det här exemplet används den fiktivasophia.owen@fabrikam.come-postadressen. |
+   | **Ämne** | `Approve member request for test-members-ML` | En beskrivande e-postrubrik |
    | **Användaralternativ** | `Approve, Reject` | Svars alternativen som god kännaren kan välja. Som standard kan god kännaren välja antingen "Godkänn" eller "avvisa" som svar. |
    ||||
 
@@ -159,7 +159,7 @@ Lägg sedan till ett villkor för att kontrol lera god kännaren för det valda 
 
 1. Under åtgärden **skicka e-post för godkännande** väljer du **nytt steg**".
 
-1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger du `condition` som filter. I listan åtgärder väljer du **villkors** åtgärden.
+1. Under **Välj en åtgärd**väljer du **inbyggt**. I sökrutan anger du `condition` som ditt filter. I listan åtgärder väljer du **villkors** åtgärden.
 
    ![Sök efter och Välj åtgärden "villkor"](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
 
@@ -207,7 +207,7 @@ Lägg nu till en åtgärd som lägger till den godkända medlemmen i din distrib
 
    ![Ange information för Add member to list (Lägg till medlem på listan)](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | Egenskap | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | **List Id** | Ja | `test-members-ML` | Namnet på MailChimp-e-postlistan. I det här exemplet används "test-members-ML". |
    | **Status** | Ja | `subscribed` | Välj prenumerations status för den nya medlemmen. I det här exemplet används "prenumererar". <p>Mer information finns i dokumentationen om att [hantera prenumeranter med MailChimp-API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). |
@@ -224,7 +224,7 @@ Sedan lägger till ett villkor så att du kan kontrollera om den nya medlemmen h
 
 1. Välj **Lägg till en åtgärd**i listan **om sant** under åtgärden **Lägg till medlem till lista** .
 
-1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger du `condition` som filter. I listan åtgärder väljer du **villkor**.
+1. Under **Välj en åtgärd**väljer du **inbyggt**. I sökrutan anger du `condition` som ditt filter. I listan åtgärder väljer du **villkor**.
 
 1. Byt namn på villkoret med den här beskrivningen: `If add member succeeded`
 
@@ -252,7 +252,7 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    ![I grenen "om sant" väljer du Lägg till en åtgärd](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
-1. Under **Välj en åtgärd**i sökrutan anger du `outlook send email` som filter och väljer åtgärden **skicka e-post** .
+1. Under **Välj en åtgärd**i sökrutan anger du `outlook send email` som ditt filter och väljer åtgärden **skicka e-post** .
 
    ![Lägg till åtgärden "Skicka ett e-postmeddelande"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
 
@@ -262,10 +262,10 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    ![Ange information om e-post vid lyckad anslutning](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
-   | Egenskap | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **To** | Ja | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
-   | **Subject** | Ja | <*subject-for-success-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Success! Member added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
+   | **Till** | Ja | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
+   | **Ämne** | Ja | <*subject-for-success-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Success! Member added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
    | **Brödtext** | Ja | <*body-for-success-email*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`New member has joined "test-members-ML":` <p>Välj egenskapen **e-postadress** i listan med dynamiskt innehåll. <p>Ange följande text på nästa rad: `Member opt-in status: ` <p> Välj egenskapen **status** under **Lägg till medlem i listan**i listan med dynamiskt innehåll. |
    |||||
 
@@ -277,7 +277,7 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    ![I grenen "om falskt" väljer du "Lägg till en åtgärd"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
-1. Under **Välj en åtgärd**i sökrutan anger du `outlook send email` som filter och väljer åtgärden **skicka e-post** .
+1. Under **Välj en åtgärd**i sökrutan anger du `outlook send email` som ditt filter och väljer åtgärden **skicka e-post** .
 
    ![Lägg till åtgärd för Send an email (Skicka ett e-postmeddelande)](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-2.png)
 
@@ -287,10 +287,10 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    ![Ange information om e-post vid misslyckad anslutning](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | Egenskap | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **To** | Ja | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
-   | **Subject** | Ja | <*subject-for-failure-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Failed, member not added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
+   | **Till** | Ja | <*your-email-address*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
+   | **Ämne** | Ja | <*subject-for-failure-email*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Failed, member not added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
    | **Brödtext** | Ja | <*body-for-failure-email*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Member might already exist. Check your MailChimp account.` |
    |||||
 

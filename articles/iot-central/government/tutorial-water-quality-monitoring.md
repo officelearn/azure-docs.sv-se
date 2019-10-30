@@ -8,14 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c2e68e83999ace4094d060a21e91b87347b03e9c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 94e8695e01ca5e5c456ce230c4cc84b41685fd9c
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72955111"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026529"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten kvalitet i IoT Central
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 I den här självstudien får du hjälp med att skapa ett program för övervakning av Azure-IoT Central vatten kvalitet från program mal len övervakning av IoT Central vatten kvalitet 
 
@@ -50,7 +52,7 @@ Skapa ett nytt program för övervakning av Azure IoT Central vatten kvalitet:
 
     ![Ange ditt organisationskonto](./media/tutorial-waterqualitymonitoring/sign-in.png)
 
-2. Klicka på **build** i den vänstra navigerings menyn och välj fliken **myndigheter** . Sidan myndigheter visar flera myndighets programmallar.
+2. Klicka på **build (Bygg** in) i den vänstra rutan och välj fliken **myndigheter** . Sidan myndigheter visar flera myndighets programmallar.
 
     ![Bygg app-mallar för myndigheter](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
 
@@ -254,8 +256,8 @@ Som verktyg kan du ändra flera inställningar för att anpassa användar upplev
 
 Om du inte kommer att fortsätta att använda det här programmet tar du bort programmet med följande steg:
 
-1. Öppna fliken Administration från den vänstra navigerings menyn i IoT Central programmet. 
-2. Välj program inställningar och klicka på knappen Ta bort längst ned på sidan. 
+1. Öppna fliken Administration i det vänstra fönstret i ditt IoT Central-program.
+2. Välj program inställningar och klicka på knappen Ta bort längst ned på sidan.
 
     ![Ta bort program](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)        
 

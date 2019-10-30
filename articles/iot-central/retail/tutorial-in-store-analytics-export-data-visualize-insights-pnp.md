@@ -10,12 +10,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 10/22/2019
-ms.openlocfilehash: b982956af276eaba31be52ba426562f9fc5137dd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 057602e9a595f1cb76927810801bd87e4f124d31
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72956497"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026382"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Självstudie: exportera data från Azure IoT Central och visualisera insikter i Power BI
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 För att slutföra den här kursen behöver du:
 
-* För att slutföra de två föregående självstudierna [skapar du ett in-Store Analytics-program i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) och [anpassar instrument panelen för operatören och hanterar enheter i Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+* För att slutföra de två föregående självstudierna [skapar du ett in-Store Analytics-program i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) och [anpassar instrument panelen för operatören och hanterar enheter i Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard-pnp.md).
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Ett Power BI-konto. Om du inte har ett Power BI konto kan du registrera dig för en [kostnads fri Power BI Pro utvärdering](https://app.powerbi.com/signupredirect?pbi_source=web) innan du börjar.
 
@@ -149,7 +149,7 @@ Nu har du en tredje strömmande data uppsättning som lagrar värden från den s
 
 I den här lösningen läser Logic-appen telemetri från händelsehubben, tolkar data och skickar dem sedan till de Power BI strömmande data uppsättningar som du har skapat.
 
-Innan du skapar Logic-appen behöver du enhets-ID: n för de två RuuviTag-sensorer som du har anslutit till ditt IoT Central-program i självstudien [skapa ett internt analys program i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) :
+Innan du skapar Logic-appen behöver du enhets-ID: n för de två RuuviTag-sensorer som du har anslutit till ditt IoT Central-program i självstudien [skapa ett internt analys program i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) :
 
 1. Logga in på ditt IoT Central program **för analys i butiken** .
 1. Välj **enheter** i den vänstra rutan. Välj sedan **RuuviTag**.

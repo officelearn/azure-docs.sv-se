@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 62d8de4f36ab110f7bd871c9de0e5d843516970c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f248fe125873b4ed1e930e56865e4e403bcceea6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529010"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053830"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Skapa och publicera en definition för det hanterade programmet
 
@@ -87,7 +87,7 @@ Spara filen mainTemplate.json.
 
 ## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Definiera din skapa upplevelse med CreateUiDefinition. JSON
 
-Som utgivare definierar du din skapa-upplevelse med hjälp av filen **createUiDefinition. JSON** som genererar gränssnittet för användare som skapar hanterade program. Du definierar hur användare anger indatatyper för varje parameter med [Control Elements] (create-uidefinition-elements.md), inklusive List rutor, text rutor och lösen ord.
+Som utgivare definierar du din skapa-upplevelse med hjälp av filen **createUiDefinition. JSON** som genererar gränssnittet för användare som skapar hanterade program. Du definierar hur användare anger indatatyper för varje parameter med [kontroll element](create-uidefinition-elements.md) , inklusive List rutor, text rutor och lösen ord.
 
 Skapa en fil med namnet **createUiDefinition. JSON** (detta namn är Skift läges känsligt)
 

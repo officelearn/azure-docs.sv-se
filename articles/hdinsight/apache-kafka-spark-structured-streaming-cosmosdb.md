@@ -1,5 +1,5 @@
 ---
-title: Apache Spark data från Apache Kafka till Azure Cosmos DB – Azure HDInsight
+title: Apache Spark & Apache Kafka med Cosmos DB – Azure HDInsight
 description: Lär dig hur du använder Apache Spark strukturerad strömning för att läsa data från Apache Kafka och sedan lagra dem i Azure Cosmos DB. I det här exemplet strömmas data med hjälp av en Jupyter Notebook från Apache Spark på HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0d8c6929705ab29ced25a847bf7c5a72d57aa49b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: faae65c6664123bd673711674a36edc928c74278
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037294"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044895"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Använd Apache Spark strukturerad strömning med Apache Kafka och Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i K
     <img src="./media/apache-kafka-spark-structured-streaming-cosmosdb/resource-manager-deploy.png" alt="Deploy to Azure"/>
     </a>
 
-    Azure Resource Manager-mallen finns i GitHub-lagringsplatsen för det här projektet[https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)().
+    Azure Resource Manager-mallen finns i GitHub-lagringsplatsen för det här projektet ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
 
     Den här mallen skapar följande resurser:
 
@@ -71,26 +71,26 @@ Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i K
 
     * **Prenumeration**: Välj din Azure-prenumeration.
 
-    * **Resursgrupp**: Skapa en grupp eller Välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
+    * **Resurs grupp**: skapa en grupp eller Välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
 
     * **Plats**: Välj en plats geografiskt nära dig.
 
-    * **Cosmos DB konto namn**: Det här värdet används som namn på det Cosmos DB kontot.
+    * **Cosmos DB konto namn**: det här värdet används som namn på det Cosmos DB kontot.
 
-    * **Namn på bas kluster**: Det här värdet används som grund namn för Spark-och Kafka-klustren. Om du till exempel anger **myhdi** skapas ett Spark-kluster med namnet __Spark-Myhdi__ och ett Kafka-kluster med namnet **Kafka-myhdi**.
+    * **Bas kluster namn**: det här värdet används som grund namn för Spark-och Kafka-kluster. Om du till exempel anger **myhdi** skapas ett Spark-kluster med namnet __Spark-Myhdi__ och ett Kafka-kluster med namnet **Kafka-myhdi**.
 
     * **Kluster version**: HDInsight-klustrets version.
 
         > [!IMPORTANT]  
         > Det här exemplet testas med HDInsight 3,6 och fungerar kanske inte med andra kluster typer.
 
-    * **Användar namn för kluster inloggning**: Administratörs användar namnet för Spark-och Kafka-klustren.
+    * **Användar namn för kluster inloggning**: administratörs användar namnet för Spark-och Kafka-klustren.
 
-    * **Lösen ord för kluster inloggning**: Administratörs användarens lösen ord för Spark-och Kafka-kluster.
+    * **Kluster inloggnings lösen ord**: administratörs användarens lösen ord för Spark-och Kafka-kluster.
 
     * **SSH-användar namn**: SSH-användaren som ska skapas för Spark-och Kafka-kluster.
 
-    * **SSH-lösenord**: Lösen ordet för SSH-användaren för Spark-och Kafka-klustren.
+    * **SSH-lösenord**: lösen ordet för SSH-användaren för Spark-och Kafka-klustren.
 
 3. Granska **villkoren** och välj sedan **Jag godkänner villkoren ovan**.
 
@@ -103,7 +103,7 @@ Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i K
 
 Projektet som används i det här dokumentet lagrar data i Cosmos DB. Innan du kör koden måste du först skapa en _databas_ och _samling_ i Cosmos DB-instansen. Du måste också hämta dokument slut punkten och _nyckeln_ som används för att autentisera begär anden till Cosmos dB. 
 
-Ett sätt att göra detta är att använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Följande skript kommer att skapa en databas med `kafkadata` namnet och en samling `kafkacollection`med namnet. Den returnerar sedan den primära nyckeln.
+Ett sätt att göra detta är att använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Följande skript kommer att skapa en databas med namnet `kafkadata` och en samling med namnet `kafkacollection`. Den returnerar sedan den primära nyckeln.
 
 ```azurecli
 #!/bin/bash

@@ -1,7 +1,7 @@
 ---
 title: Köra python Machine Learning-skript
 titleSuffix: Azure Machine Learning Studio
-description: Lär dig hur du använder python i Azure Machine Learning Studio.
+description: Lär dig hur du använder modulen kör Python-skript för att använda python-kod i Machine Learning Studio (klassiska) experiment och webb tjänster.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 64030cac73b6fbd750b2ed681d85642cc6ad1146
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: bfc2efca0786838d528b3019a3aff405f46ef645
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308869"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053793"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Kör skript för Python-maskininlärning i Azure Machine Learning Studio
 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs hur du kan använda den köra Python-skript-modulen
 
 ## <a name="using-the-execute-python-script-module"></a>Använda modulen kör Python-skript
 
-Det primära gränssnittet till python i Studio är genom att [köra Python-skript][execute-python-script] -modulen. Den accepterar upp till tre indata och genererar upp till två utdata, på samma sätt som [Kör R-skript][execute-r-script] -modulen. Python-koden anges i parameter rutan via en särskilt namngiven ingångs punkt funktion som `azureml_main`kallas.
+Det primära gränssnittet till python i Studio är genom att [köra Python-skript][execute-python-script] -modulen. Den accepterar upp till tre indata och genererar upp till två utdata, på samma sätt som [Kör R-skript][execute-r-script] -modulen. Python-koden anges i parameter rutan via en särskilt namngiven post punkts funktion som kallas `azureml_main`.
 
 ![Köra Python-skript modul](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -33,7 +33,7 @@ Det primära gränssnittet till python i Studio är genom att [köra Python-skri
 
 ### <a name="input-parameters"></a>Indataparametrar
 
-Indata till python-modulen visas som Pandas DataFrames. `azureml_main` Funktionen accepterar upp till två valfria Pandas-DataFrames som parametrar.
+Indata till python-modulen visas som Pandas DataFrames. Funktionen `azureml_main` accepterar upp till två valfria Pandas-DataFrames som parametrar.
 
 Mappningen mellan indataporter och funktions parametrar är positions:
 
@@ -41,13 +41,13 @@ Mappningen mellan indataporter och funktions parametrar är positions:
 - Den andra indatamängden (om ansluten) mappas till funktionens andra parameter.
 - Den tredje indatamängden används för att [Importera ytterligare python-moduler](#import-modules).
 
-Mer detaljerad semantik för hur indataportarna mappas till parametrarna i `azureml_main` funktionen visas nedan.
+Mer detaljerad semantik för hur indataportarna mappas till parametrarna i `azureml_main`-funktionen visas nedan.
 
 ![Tabell med indataports-konfigurationer och resulterande python-signatur](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 ### <a name="output-return-values"></a>Retur värden
 
-Funktionen måste returnera en enskild Pandas DataFrame-paketerad i en python-sekvens, till exempel en tupel, en lista eller en numpy-matris. [](https://docs.python.org/2/c-api/sequence.html) `azureml_main` Det första elementet i den här sekvensen returneras till den första utdataporten för modulen. Den andra utdataporten för modulen används för [visualiseringar](#visualizations) och kräver inte ett retur värde. Det här schemat visas nedan.
+Funktionen `azureml_main` måste returnera en enskild Pandas DataFrame-paketerad i en python- [sekvens](https://docs.python.org/2/c-api/sequence.html) , till exempel en tupel, en lista eller en numpy-matris. Det första elementet i den här sekvensen returneras till den första utdataporten för modulen. Den andra utdataporten för modulen används för [visualiseringar](#visualizations) och kräver inte ett retur värde. Det här schemat visas nedan.
 
 ![Mappa indataportar till parametrar och retur värde till utgående port](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
@@ -60,16 +60,16 @@ Studio-datauppsättningar är inte samma som Panda DataFrames. Det innebär att 
 | Strängar och siffror| Översatt som är |
 | Pandas ' NA ' | Översatt till saknat värde |
 | Index vektorer | Som inte stöds |
-| Kolumn namn som inte är sträng | Anrop `str` för kolumn namn |
+| Kolumn namn som inte är sträng | Anropa `str` för kolumn namn |
 | Duplicera kolumn namn | Lägg till numeriskt suffix: (1), (2), (3) och så vidare.
 
-**Alla indata-ramar i python-funktionen har alltid ett 64-bitars numeriskt index från 0 till antalet rader minus 1*
+**alla indata-ramar i python-funktionen alltid har ett 64-bitars numeriskt index från 0 till antalet rader minus 1*
 
 ## <a id="import-modules"></a>Befintliga Python-skript moduler importeras
 
 Server delen som används för att köra python baseras på [Anaconda](https://www.anaconda.com/distribution/), en mycket använda vetenskaplig python-distribution. Den levereras med nära 200 av de vanligaste python-paketen som används i datainriktade arbets belastningar. Studio stöder för närvarande inte användning av paket hanterings system som pip eller Conda för att installera och hantera externa bibliotek.  Om du tycker att du behöver inkludera ytterligare bibliotek använder du följande scenario som vägledning.
 
-Ett vanligt användnings fall är att införliva befintliga Python-skript i Studio experiment. [Execute Python-skript][execute-python-script] module accepterar en zip-fil som innehåller python-moduler på den tredje Indataporten. Filen zippas inte av körnings ramverket vid körning och innehållet läggs till i biblioteks Sök vägen för python-tolken. `azureml_main` Start punkts funktionen kan sedan importera dessa moduler direkt. 
+Ett vanligt användnings fall är att införliva befintliga Python-skript i Studio experiment. [Execute Python-skript][execute-python-script] module accepterar en zip-fil som innehåller python-moduler på den tredje Indataporten. Filen zippas inte av körnings ramverket vid körning och innehållet läggs till i biblioteks Sök vägen för python-tolken. Den `azureml_main` start punkt funktionen kan sedan importera de här modulerna direkt. 
 
 Anta till exempel att filen Hello.py innehåller en enkel "Hello, World"-funktion.
 
@@ -95,7 +95,7 @@ Du kan komma åt data som lagras i ett Azure Blob Storage-konto med följande st
 
 1. Ladda ned [Azure Blob Storage-paketet för python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) lokalt.
 1. Överför zip-filen till din Studio-arbetsyta som en data uppsättning.
-1. Skapa ditt BlobService-objekt med`protocol='http'`
+1. Skapa ett BlobService-objekt med `protocol='http'`
 
 ```
 from azure.storage.blob import BlockBlobService

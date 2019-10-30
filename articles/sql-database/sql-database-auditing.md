@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: d5214b6a6ffcb7c78fc00fe0305a1d1846b328f8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990267"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045190"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -48,7 +48,8 @@ Du kan använda granskning av SQL Database för att:
 > - Alla konfigurationer av lagringsprovider stöds.
 > - **Premium Storage** **stöds inte**för närvarande.
 > - **Lagring i VNet** **stöds inte**för närvarande.
-> - Det finns för närvarande **inte stöd** för **lagring bakom en brand vägg**
+> - Det finns för närvarande **inte stöd**för **lagring bakom en brand vägg** .
+> - Det finns för närvarande **inte stöd**för **hierarkiskt namn område** för **Azure Data Lake Storage Gen2 lagrings konto** .
 
 ## <a id="subheading-8"></a>Definiera server nivå kontra gransknings princip på databas nivå
 

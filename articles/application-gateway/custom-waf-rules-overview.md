@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8ae5c9b6b52ea13e3d0981664e8c920cc5b47a01
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2e96a2a2dd5504c906b5fb84b643467a83518f21
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263555"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027569"
 ---
 # <a name="overview-custom-rules-for-web-application-firewall-v2"></a>Översikt: anpassade regler för webb programs brand vägg v2
 
@@ -32,6 +32,9 @@ Om du vill använda *eller* för två olika villkor måste de två villkoren var
 > Det maximala antalet anpassade WAF-regler är 100. Mer information om Application Gateway gränser finns i [Azure-prenumerationer och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md#application-gateway-limits).
 
 Reguljära uttryck stöds också i anpassade regler, precis som de finns i kärn regel uppsättningarna. Exempel på dessa regler finns i "exempel 3" och "exempel 5" i [skapa och använda anpassade brand Väggs regler för webb program](create-custom-waf-rules.md).
+
+> [!NOTE]
+> Anpassade regler är inte tillgängliga i v1 SKU-WAF.
 
 ## <a name="allowing-or-blocking-traffic"></a>Tillåta eller blockera trafik
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd8858786d59563542c95d43d4e480ab1c11383
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933786"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024789"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera princip för förfallo datum för Office 365-grupper
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du hanterar livs cykeln för Office 365-grupper 
 
 När du har angett att en grupp upphör att gälla:
 
-- Grupper med användar aktiviteter förnyas automatiskt under tiden närmast (för hands version)
+- Grupper med användar aktiviteter förnyas automatiskt när de upphör snart
 - Ägare av gruppen meddelas om att förnya gruppen om gruppen inte förnyas automatiskt
 - Alla grupper som inte förnyas tas bort
 - Alla Office 365-grupper som tas bort kan återställas inom 30 dagar av gruppen ägare eller administratören
@@ -40,7 +40,7 @@ För närvarande kan endast en princip för förfallo datum konfigureras för al
 
 Information om hur du hämtar och installerar Azure AD PowerShell-cmdlets finns i [Azure Active Directory PowerShell för Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
-## <a name="activity-based-automatic-renewal-preview"></a>Aktivitet baserad på automatisk förnyelse (för hands version)
+## <a name="activity-based-automatic-renewal"></a>Aktivitet baserad på automatisk förnyelse
 
 Med Azure AD Intelligence förnyas nu grupper automatiskt utifrån om de har använts nyligen. Den här funktionen eliminerar behovet av manuell åtgärd av grupp ägare, eftersom den baseras på användar aktivitet i grupper i Office 365-tjänster som Outlook, SharePoint, teams eller Yammer. Om till exempel en ägare eller en grupp medlem gör något som t. ex. att ladda upp ett dokument i SharePoint kan du gå till en Team kanal eller skicka ett e-postmeddelande till gruppen i Outlook. gruppen förnyas automatiskt och ägaren får inga förnyelse meddelanden.
 

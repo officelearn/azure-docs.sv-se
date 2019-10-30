@@ -8,18 +8,28 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 835eeaa0036d824a65918102ab7a00c3cf236931
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.openlocfilehash: 0bc59ac3e55466f8ac06a3a8fa9cf08fecbb5ce3
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988393"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024956"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Utveckla .NET standard-användardefinierade funktioner för Azure Stream Analytics jobb (för hands version)
 
 Azure Stream Analytics erbjuder ett SQL-liknande frågespråk för att utföra omvandlingar och beräkningar över data strömmar av händelse data. Det finns många inbyggda funktioner, men vissa komplexa scenarier kräver ytterligare flexibilitet. Med .net standard User Defined functions (UDF) kan du anropa egna funktioner som skrivits på ett .net standard språk (C#, F#osv.) för att utöka Stream Analytics frågespråk. Med UDF: er kan du utföra komplexa matematiska beräkningar, importera anpassade ML-modeller med ML.NET och använda anpassad Imputation-logik för data som saknas. UDF-funktionen för Stream Analytics jobb är för närvarande en för hands version och bör inte användas i produktions arbets belastningar.
+
+.NET-användardefinierad – funktion för moln jobb finns i:
+* USA, västra centrala (tillgängligt)
+* Nord Europa (tillgängligt)
+* USA, östra (tillgängligt)
+* USA, västra (som snart lanseras)
+* USA, östra 2 (avrullar snart)
+* Europa, västra (inrullat snart)
+
+Om du är intresse rad av att använda den här funktionen i en annan region kan du [begära åtkomst](https://aka.ms/ccodereqregion).
 
 ## <a name="overview"></a>Översikt
 Visual Studio-verktyg för Azure Stream Analytics gör det enkelt för dig att skriva UDF: er, testa dina jobb lokalt (även offline) och publicera ditt Stream Analytics-jobb till Azure. När du har publicerat till Azure kan du distribuera jobbet till IoT-enheter med hjälp av IoT Hub.

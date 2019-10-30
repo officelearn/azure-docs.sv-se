@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597235"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052212"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines
 
@@ -223,7 +223,7 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Öppna resurs gruppen. Namnet är det du angav i YAML-filen för pipelinen.  Du ska se ett lagrings konto som skapats.  Lagrings kontots namn börjar med **Store**.
 1. Välj lagrings kontots namn för att öppna det.
-1. Välj **Egenskaper**. Observera att **SKU: n** är **Standard_LRS**.
+1. Välj **Egenskaper**. Observera att **replikeringen** är **lokalt REDUNDANT lagring (LRS)** .
 
     ![Azure Resource Manager Azure-pipeline för Azure-DevOps Azure](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
@@ -250,7 +250,7 @@ När du uppdaterar mallen och push-överför ändringarna till fjärrlagringspla
 
     När huvud delen av fjärrlagringsplatsen har uppdaterats, utlöses pipelinen igen.
 
-För att verifiera ändringarna kan du kontrol lera SKU för lagrings kontot.  Se [Verifiera distributionen](#verify-the-deployment).
+Du kan kontrol lera ändringarna genom att kontrol lera egenskapen replikering för lagrings kontot.  Se [Verifiera distributionen](#verify-the-deployment).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

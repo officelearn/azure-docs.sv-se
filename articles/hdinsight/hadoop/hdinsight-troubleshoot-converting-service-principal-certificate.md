@@ -1,5 +1,5 @@
 ---
-title: Konverterar innehåll för tjänstens huvud namn till bas-64 – Azure HDInsight
+title: Konvertera certifikat innehåll till bas-64 – Azure HDInsight
 description: Konvertera innehållet i tjänstens huvud namn till det Base64 64-kodade sträng formatet i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: 0f9158164ec598682841b217b9954145f8540c6c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ad41ef464f592fd09b070ab6f715e9a07fb3cf21
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087437"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044498"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Konverterar innehåll för tjänstens huvud namn till formatet Base-64-kodat sträng format i HDInsight
 
@@ -26,7 +26,7 @@ Du får ett fel meddelande om att indata inte är en giltig bas-64-sträng efter
 
 När du använder en PowerShell-eller Azure-mall för att skapa kluster med Data Lake som primär eller ytterligare lagrings utrymme, är tjänstens huvud certifikat innehåll som har åtkomst till Data Lake lagrings kontot i formatet Base-64. Felaktig konvertering av PFX-certifikatets innehåll till den Base-64-kodade strängen kan leda till det här felet.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 När du har ett tjänst huvud certifikat i PFX-format (se [här](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage) för exempel åtgärder för att skapa tjänstens huvud namn), använder C# du följande PowerShell-kommando eller-kodfragment för att konvertera certifikat innehållet till formatet Base-64.
 

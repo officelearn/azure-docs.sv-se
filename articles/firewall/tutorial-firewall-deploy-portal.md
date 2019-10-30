@@ -1,21 +1,21 @@
 ---
-title: 'Självstudier: Distribuera och konfigurera Azure Firewall via Azure Portal'
+title: 'Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal'
 description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall via Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0892bde09891d2edbd7f8cc8715ccc0d2f047ed4
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 9eda37f80b6ba537b4b8f9ef87cb8b03bb4129e0
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113477"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024825"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudier: Distribuera och konfigurera Azure Firewall via Azure Portal
+# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
 En viktig del av en övergripande säkerhetsplan för nätverket är att kontrollera utgående nätverksåtkomst. Du kanske till exempel vill begränsa åtkomsten till webbplatser. Eller så kanske du vill begränsa de utgående IP-adresserna och portarna som kan nås.
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 > * Skapa en standardväg
 > * Konfigurera en program regel för att tillåta åtkomst till www.google.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
-> * Testa brandväggen
+> * testa brandväggen.
 
 Om du vill kan du utföra den här självstudien med [Azure PowerShell](deploy-ps.md).
 
@@ -87,7 +87,7 @@ Skapa sedan undernät för hoppservern och ett undernät för arbetsbelastningss
 
 1. På Azure Portal start sida väljer du **resurs grupper** > **test-VB-RG**.
 2. Välj det virtuella nätverket **test-VB-VN** .
-3. Välj **undernät** > och undernät.
+3. Välj **undernät** >  **+ undernät**.
 4. I fältet **Namn** skriver du **Workload-SN**.
 5. I fältet **Adressintervall** skriver du **10.0.2.0/24**.
 6. Välj **OK**.
@@ -102,22 +102,22 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
 2. Välj **Compute** och sedan **Windows Server 2016 Datacenter** i listan Aktuella.
 3. Ange följande värden för den virtuella datorn:
 
-   |Inställning  |Value  |
+   |Inställning  |Värde  |
    |---------|---------|
-   |Resource group     |**Test-FW-RG**|
+   |Resursgrupp     |**Test-VB-RG**|
    |Namn på virtuell dator     |**SRV-hoppa**|
    |Region     |Samma som föregående|
    |Administratörens användar namn     |**azureuser**|
-   |lösenordsinställning     |**Azure123456!**|
+   |Lösenord     |**Azure123456!**|
 
 4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **Tillåt valda portar**.
 5. I fältet **Välj inkommande portar** väljer du **RDP (3389)** .
 
-6. Godkänn de andra standardinställningarna och välj **nästa: Diskar**.
-7. Acceptera standardvärdena för disken **och välj Nästa: Nätverk**.
+6. Godkänn de andra standardinställningarna och välj **Nästa: diskar**.
+7. Acceptera standardvärdena för disken och välj **Nästa: nätverk**.
 8. Kontrollera att **Test-FW-VN** har valts som virtuellt nätverk och att undernätet är **Jump-SN**.
 9. För **offentlig IP-** adress accepterar du standard namnet för ny offentlig IP-adress (SRV-hopp-IP).
-11. Godkänn de andra standardinställningarna och välj **nästa: Hantering**.
+11. Godkänn övriga standardvärden och välj **Nästa: hantering**.
 12. Välj **av** om du vill inaktivera startdiagnostik. Godkänn de andra standardinställningarna och välj **Granska + skapa**.
 13. Granska inställningarna på sidan Sammanfattning och välj sedan **skapa**.
 
@@ -125,8 +125,8 @@ Använd informationen i följande tabell för att konfigurera en annan virtuell 
 
 |Inställning  |Värde  |
 |---------|---------|
-|Subnet|**Workload-SN**|
-|Offentlig IP|**Alternativet**|
+|Undernät|**Arbets belastning – SN**|
+|Offentlig IP-adress|**Alternativet**|
 |Offentliga inkommande portar|**Alternativet**|
 
 ## <a name="deploy-the-firewall"></a>Distribuera brandväggen
@@ -138,13 +138,13 @@ Distribuera brandväggen till det virtuella nätverket.
 3. Välj **brand vägg** och välj sedan **skapa**.
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
 
-   |Inställning  |Value  |
+   |Inställning  |Värde  |
    |---------|---------|
-   |Subscription     |\<din prenumeration\>|
-   |Resource group     |**Test-FW-RG** |
-   |Name     |**Test-FW01**|
-   |Location     |Välj samma plats som tidigare|
-   |Välj ett virtuellt nätverk     |**Använd befintlig**: **Test-VB-VN**|
+   |Prenumeration     |\<din prenumeration\>|
+   |Resursgrupp     |**Test-VB-RG** |
+   |Namn     |**Test-FW01**|
+   |Plats     |Välj samma plats som tidigare|
+   |Välj ett virtuellt nätverk     |**Använd befintlig**: **test-VB-VN**|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
 5. Välj **Granska + skapa**.
@@ -168,7 +168,7 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 8. Välj **Skapa**.
 9. Välj **Uppdatera**och välj sedan tabellen **brand Väggs** väg väg.
 10. Välj **undernät** och välj sedan **associera**.
-11. Välj **Virtual Network** > **test-VB-VN**.
+11. Välj **Virtual network** > **test-VB-VN**.
 12. För **undernät**väljer du **arbets belastning-SN**. Se till att du bara väljer **arbets belastningen – SN** under nätet för den här vägen, annars fungerar inte brand väggen korrekt.
 
 13. Välj **OK**.
@@ -214,8 +214,10 @@ Det här är nätverksregel som tillåter utgående åtkomst till två IP-adress
 7. I fältet **Protokoll** väljer du **UDP**.
 8. I fältet **Källadresser** skriver du **10.0.2.0/24**.
 9. I fältet Måladress skriver du **209.244.0.3,209.244.0.4**
-10. I fältet **Målportar** skriver du **53**.
-11. Välj **Lägg till**.
+
+   Detta är offentliga DNS-servrar som hanteras av CenturyLink.
+1. I fältet **Målportar** skriver du **53**.
+2. Välj **Lägg till**.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Ändra den primära och sekundära DNS-adressen för nätverksgränssnittet **Srv-Work**
 
@@ -229,7 +231,7 @@ I test syfte i den här självstudien konfigurerar du serverns primära och seku
 6. Välj **Spara**.
 7. Starta om den virtuella datorn **Srv-Work**.
 
-## <a name="test-the-firewall"></a>Testa brandväggen
+## <a name="test-the-firewall"></a>testa brandväggen.
 
 Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 
@@ -257,4 +259,4 @@ Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de i
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)

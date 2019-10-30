@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6467937e2aca08e234cb136c5f610503627921fb
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675688"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042227"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -89,15 +89,15 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 1. När installations programmet har öppnats väljer du **Nästa**.
 
-   ![Installations introduktion](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![Introduktions skärm för gateway Installer](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
 1. Välj **lokal datagateway (rekommenderas)** , vilket är standard läge och välj sedan **Nästa**.
 
-   ![Välj Gateway-läge](./media/logic-apps-gateway-install/select-gateway-mode.png)
+   ![Välj körnings läge för datagateway](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. Granska minimi kraven, behåll standard installations Sök vägen, Godkänn användnings villkoren och välj sedan **Installera**.
 
-   ![Granska krav och godkänn användnings villkoren](./media/logic-apps-gateway-install/accept-terms.png)
+   ![Granska krav och godkänn användnings villkoren](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
 1. När gatewayen har installerats, ange e-postadressen för ditt Azure-konto och välj sedan **Logga**in, till exempel:
 
@@ -107,7 +107,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 1. Välj **Registrera en ny gateway på den här datorn** > **härnäst**. Det här steget registrerar din gateway-installation med [moln tjänsten Gateway](#gateway-cloud-service).
 
-   ![Registrera Gateway](./media/logic-apps-gateway-install/register-gateway.png)
+   ![Registrera gateway på den lokala datorn](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
 1. Ange den här informationen för din gateway-installation:
 
@@ -115,7 +115,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
    * Återställnings nyckeln, som måste innehålla minst åtta tecken, som du vill använda
    * Bekräftelse för återställnings nyckeln
 
-   ![Konfigurera Gateway](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![Ange information för gateway-installation](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
    > Spara och behåll återställnings nyckeln på en säker plats. Du behöver den här nyckeln om du vill ändra plats, flytta, återställa eller ta över en gateway-installation.
@@ -124,7 +124,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 1. Kontrol lera regionen för gateway-moln tjänsten och [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) som används av din gateway-installation. Som standard är den här regionen samma plats som Azure AD-klienten för ditt Azure-konto.
 
-   ![Kontrol lera region](./media/logic-apps-gateway-install/check-region.png)
+   ![Bekräfta region för Gateway-tjänsten och Service Bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
 1. Om du vill acceptera standard regionen väljer du **Konfigurera**. Men om standard regionen inte är den som är närmast dig kan du ändra regionen.
 
@@ -134,15 +134,15 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
    1. Bredvid den aktuella regionen väljer du **ändra region**.
 
-      ![Ändra region](./media/logic-apps-gateway-install/change-region.png)
+      ![Ändra aktuell gateway-region](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
    1. Öppna listan **Välj region** på nästa sida, Välj den region som du vill använda och välj sedan **Slutför**.
 
-      ![Välj en annan region](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![Välj en annan region för Gateway-tjänsten](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
 1. Granska informationen i det slutliga bekräftelse fönstret. I det här exemplet används samma konto för Logic Apps, Power BI, PowerApps och Microsoft Flow, så gatewayen är tillgänglig för alla dessa tjänster. När du är klar väljer du **Stäng**.
 
-   ![Färdig Gateway](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![Bekräfta data Gateway-information](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 1. [Skapa nu Azure-resursen för din gateway-installation](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -185,7 +185,7 @@ Om du måste ändra gatewayens plats, flytta Gateway-installationen till en ny d
 
 1. Välj bland tillgängliga kluster och gatewayer och ange återställnings nyckeln för den valda gatewayen, till exempel:
 
-   ![Välj Gateway](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![Välj Gateway och ange återställnings nyckel](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
 1. Om du vill ändra region väljer du **ändra region**och sedan den nya regionen.
 
@@ -270,9 +270,9 @@ Här är några sätt som du kan matcha dina lokala Active Directory-konton med 
 
 Mer information finns i följande avsnitt:
 
-* [Vanliga frågor och svar om lokal datagateway](/data-integration/gateway/service-gateway-onprem-faq)
-* [Felsöka den lokala datagatewayen](/data-integration/gateway/service-gateway-tshoot)
-* [Övervaka och optimera Gateway-prestanda](/data-integration/gateway/service-gateway-performance)
+* [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [Felsöka den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Övervaka och optimera Gateway-prestanda](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Nästa steg
 

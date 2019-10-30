@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f85dd3abae8f6e4b3ccc10654e6da8363e80b3d3
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: cb234f9fa2fc5df68fb2bf4dde3a377ea15532eb
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968280"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053382"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Kör ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region
 
@@ -27,7 +27,7 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 > * Köra ett redundanstest för en enstaka virtuell dator
 
 > [!NOTE]
-> Den här självstudiekursen är avsedd att guida användaren genom stegen att utföra ett programåterställningstest med minimalt antal steg. Mer information om de olika aspekterna som förknippas med att utföra ett programåterställningstest, till exempel nätverksöverväganden, automatisering eller felsökning, finns i dokumenten under instruktionerna för virtuella Azure-datorer.
+> Den här självstudien hjälper dig att utföra en DR-granskning med minimala steg. Om du vill lära dig mer om de olika aspekter som är kopplade till att utföra en katastrof granskning, inklusive nätverks överväganden, automatisering eller fel sökning, kan du läsa dokumenten under "How to" för virtuella Azure-datorer.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -42,9 +42,10 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 
 2. I **Testa redundans** väljer du en återställningspunkt som ska användas för redundansen:
 
-   - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery-tjänsten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstid (RTO)
+    - **Senaste**: bearbetar alla data i Site Recovery och ger det lägsta RTO (återställnings tid).
+    - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetats av Site Recovery. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstid (RTO)
    - **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer till den senaste appkonsekventa återställningspunkten. Tidsstämpeln visas.
-   - **Anpassad**: Välj en annan återställningspunkt.
+   - **Anpassad**: redundansväxla till viss återställnings punkt. Anpassad är endast tillgängligt när du växlar över en enskild virtuell dator och inte för redundans med en återställnings plan.
 
 3. Välj det virtuella Azure-nätverkets mål som virtuella Azure-datorer i den sekundära regionen ska anslutas till efter att redundansen utförts.
 

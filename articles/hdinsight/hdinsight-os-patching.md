@@ -1,5 +1,5 @@
 ---
-title: Konfigurera operativ systemets uppdaterings schema för Linux-baserade HDInsight-kluster – Azure
+title: Konfigurera operativ systemets uppdaterings schema för Azure HDInsight-kluster
 description: Lär dig hur du konfigurerar operativ systemets uppdaterings schema för Linux-baserade HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 06111ec35a127cf17fdcc77ff717de7a4bc7299f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: d0a490fd3b23c96923af10db3c1f9ee9ea0dfad5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076864"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044887"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurera operativ systemets uppdaterings schema för Linux-baserade HDInsight-kluster 
 
@@ -39,7 +39,7 @@ Följande information krävs för att använda ett skript:
     
    HDInsight använder denna URI för att hitta och köra skriptet på alla virtuella datorer i klustret. Det här skriptet innehåller alternativ för att installera uppdateringar och starta om den virtuella datorn.
   
-- Skriptet för att starta om skript platsen: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh.
+- Skript platsen för schemalagda omstarter: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh.
     
    HDInsight använder denna URI för att hitta och köra skriptet på alla virtuella datorer i klustret. Det här skriptet startar om den virtuella datorn.
   

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f1a679deca8ee33bb4801eb1d1023684a37d0f59
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c0c7e8b6066626966e2a72d474306bae4ead14c2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793169"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027229"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Använda Java Message Service (JMS) med Azure Service Bus och AMQP 1,0
 Den här artikeln förklarar hur du använder Azure Service Bus meddelande funktioner (köer och publicera/prenumerera ämnen) från Java-program med hjälp av den populära API-standarden Java Message Service (JMS). Det finns en [medföljande artikel](service-bus-amqp-dotnet.md) som förklarar hur du gör detta med hjälp av Azure Service Bus .NET API. Du kan använda dessa två guider tillsammans för att lära dig mer om plattforms oberoende meddelanden med AMQP 1,0.
@@ -344,7 +344,7 @@ MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ## <a name="jms-topics-vs-service-bus-topics"></a>JMS ämnen jämfört med Service Bus ämnen
 Med hjälp av Azure Service Bus ämnen och prenumerationer via API: t Java Message Service (JMS) får du grundläggande funktioner för att skicka och ta emot. Det är ett bekvämt val när du ska Porta program från andra meddelande hanterare med JMS-kompatibla API: er, även om Service Bus ämnen skiljer sig från JMS ämnen och kräver några justeringar. 
 
-Azure Service Bus ämnen dirigerar meddelanden till namngivna, delade, varaktiga prenumerationer som hanteras via Azure Resource Management-gränssnittet, Azures kommando rads verktyg eller via Azure Portal. Varje prenumeration tillåter upp till 2000 urvals regler, som var och en kan ha ett filter villkor och, för SQL-filter, även en åtgärd för metadata-omvandling. Varje filter villkors matchning väljer det indatameddelande som ska kopieras till tehj-prenumerationen.  
+Azure Service Bus ämnen dirigerar meddelanden till namngivna, delade, varaktiga prenumerationer som hanteras via Azure Resource Management-gränssnittet, Azures kommando rads verktyg eller via Azure Portal. Varje prenumeration tillåter upp till 2000 urvals regler, som var och en kan ha ett filter villkor och, för SQL-filter, även en åtgärd för metadata-omvandling. Varje filter villkors matchning väljer det indatameddelande som ska kopieras till prenumerationen.  
 
 Att ta emot meddelanden från prenumerationer är identiskt med att ta emot meddelanden från köer. Varje prenumeration har en associerad kö för obeställbara meddelanden samt möjligheten att automatiskt vidarebefordra meddelanden till en annan kö eller ämnen. 
 

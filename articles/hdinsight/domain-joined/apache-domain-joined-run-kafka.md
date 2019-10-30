@@ -1,20 +1,20 @@
 ---
-title: Självstudie – Apache Kafka med Enterprise Security Package i Azure HDInsight
+title: Självstudie – Apache Kafka & Enterprise Security – Azure HDInsight
 description: Självstudie – lär dig hur du konfigurerar Apache Ranger-principer för Kafka i Azure HDInsight med Enterprise Security Package.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 6d92ebc743bae97ecfa1591add27f470792dcafc
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: cb99b747cb5de01c616c4cab0ac6c14823f7d4db
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037174"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044638"
 ---
-# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudier: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Kafka-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till `sales`- och `marketingspend`-ämnen.
 
@@ -48,14 +48,14 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
 1. Öppna **Ranger-administratörsanvändargränssnittet**.
 
-2. **Välj\<kluster namn > _kafka** under **Kafka**. En förkonfigurerad princip kan visas.
+2. Välj **\<kluster namn > _kafka** under **Kafka**. En förkonfigurerad princip kan visas.
 
 3. Välj **Lägg till ny princip** och ange följande värden:
 
    |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi sales* policy   |
-   |Avsnitt   |  sales* |
+   |Ämne   |  sales* |
    |Välj användare  |  sales_user1 |
    |Behörigheter  | publish, consume, create |
 
@@ -75,7 +75,7 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
    |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi marketing policy   |
-   |Avsnitt   |  marketingspend |
+   |Ämne   |  marketingspend |
    |Välj användare  |  marketing_user1 |
    |Behörigheter  | publish, consume, create |
 
@@ -145,7 +145,7 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
    Exempel: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Följ steg 3 under **Skapa och distribuera exemplet** i [Självstudie: Använd producent- och konsument-API:er för Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) så att `kafka-producer-consumer.jar` också är tillgänglig för **sales_user**.
+4. Följ steg 3 under **utveckla och distribuera exemplet** i [Självstudier: Använd Apache Kafka tillverkare och konsument-API: er](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) för att säkerställa att `kafka-producer-consumer.jar` också är tillgängligt för **sales_user**.
 
 5. Kontrollera att **sales_user1** kan producera till ämnet `salesevents` genom att köra följande kommando:
 
@@ -189,7 +189,7 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
 Om du inte kommer att fortsätta att använda det här programmet, tar du bort det Kafka-kluster som du skapade med följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. I rutan **Sök** längst upp skriver du **HDInsight**.
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 

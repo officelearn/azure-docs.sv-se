@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 53d06f84172da0c4717cabe79f4f5152e73e9555
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b02324923e3f004395105b8e04165390cb950fe7
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754273"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044121"
 ---
 # <a name="create-human-reviews"></a>Skapa mänsklig granskning
 
@@ -56,4 +56,4 @@ Text granskningar fungerar på samma sätt som granskning av bilder. I stället 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden har du lärt dig hur du konfigurerar och använder granskningar från [verktyget](https://contentmoderator.cognitive.microsoft.com)för Content moderator granskning. Sedan läser du [rest Apis guide](../try-review-api-review.md) eller [.NET SDK-guiden](../moderation-reviews-quickstart-dotnet.md) för att lära dig hur du skapar recensioner program mässigt.
+I den här guiden har du lärt dig hur du konfigurerar och använder granskningar från [verktyget](https://contentmoderator.cognitive.microsoft.com)för Content moderator granskning. Läs sedan REST API- [guiden](../try-review-api-review.md) eller [.NET SDK-snabb](../dotnet-sdk-quickstart.md) starten för att lära dig hur du skapar recensioner program mässigt.

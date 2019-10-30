@@ -10,12 +10,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019
-ms.openlocfilehash: 03a10fa74b87ca6ab28b11c5c4fb0cfb7ca6ddb1
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
-ms.translationtype: HT
+ms.openlocfilehash: 571c172054e52960c3dba8d41469ba304f3493eb
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969606"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026420"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central
 
@@ -284,4 +284,4 @@ I den här självstudiekursen lärde du dig att:
 Nu när du har skapat ett övervaknings program för Azure IoT Central villkor, här är det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
-> [Anpassa instrument panelen för operatören](./tutorial-in-store-analytics-customize-dashboard-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)
+> [Anpassa instrument panelen för operatören](./tutorial-in-store-analytics-customize-dashboard-pnp.md)

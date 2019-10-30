@@ -6,15 +6,15 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/22/2019
-ms.openlocfilehash: 62758ef82b074e093e837b2095dd9f27ab31657b
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.date: 09/29/2019
+ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678103"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052493"
 ---
-# <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
+# <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
 
 När du installerar [Azure Application Insights][start] SDK i appen skickas telemetri om din app till molnet. Välbekanta utvecklare vill veta exakt vilka data som skickas, vad som händer med data och hur de kan behålla kontrollen över dem. I synnerhet kan känsliga data skickas, där lagras det och hur säkert är det? 
 
@@ -24,13 +24,14 @@ Först, det korta svaret:
 * Du kan skriva kod som skickar ytterligare anpassad telemetri som hjälper dig med diagnostik-och övervaknings användningen. (Den här utökningen är en fantastisk funktion i Application Insights.) Det skulle vara möjligt att av misstag skriva den här koden så att den innehåller personliga och andra känsliga data. Om programmet fungerar med sådana data bör du använda en grundlig gransknings process för all kod du skriver.
 * När du utvecklar och testar din app är det enkelt att kontrol lera vad som skickas av SDK: n. Data visas i fönstret för fel sökning av utdata i IDE-och webbläsare. 
 * Data lagras i [Microsoft Azure](https://azure.com) -servrar i USA eller Europa. (Men din app kan köras var som helst.) Azure har [starka säkerhets processer och uppfyller en rad olika krav för efterlevnad](https://azure.microsoft.com/support/trust-center/). Endast du och ditt utsedda team har åtkomst till dina data. Microsoft-personal kan ha begränsad åtkomst till den endast under särskilda begränsade omständigheter med din vetskap. Den är krypterad under överföring och i vila.
+*   Granska insamlade data, eftersom detta kan innehålla data som tillåts i vissa fall, men inte andra.  Ett lämpligt exempel på detta är enhets namnet. Enhets namnet från en server har ingen sekretess påverkan och är användbart, men ett enhets namn från en telefon eller bärbar dator kan ha en sekretess påverkan och vara mindre användbar. Ett SDK som främst utvecklats för mål servrar, skulle samla in enhets namn som standard och det kan behöva skrivas över i både normala händelser och undantag.
 
 Resten av den här artikeln är mer utförligare på svaren. Den är utformad för att vara fristående, så att du kan visa den för kollegor som inte ingår i ditt omedelbara team.
 
 ## <a name="what-is-application-insights"></a>Vad är Application Insights?
 [Azure Application Insights][start] är en tjänst som tillhandahålls av Microsoft och som hjälper dig att förbättra prestanda och användbarhet för ditt Live-program. Den övervakar ditt program hela tiden den körs, både under testningen och när du har publicerat eller distribuerat det. Application Insights skapar diagram och tabeller som visar dig, till exempel vilka tider på dagen du får de flesta användare, hur appen är och hur väl den betjänas av externa tjänster som den är beroende av. Om det uppstår krascher, fel eller prestanda problem kan du söka igenom telemetridata i detalj för att diagnosticera orsaken. Tjänsten kommer att skicka e-postmeddelanden till dig om det finns några ändringar i appens tillgänglighet och prestanda.
 
-För att få den här funktionen installerar du en Application Insights SDK i ditt program, som blir en del av koden. När din app körs övervakar SDK: n sin åtgärd och skickar telemetri till Application Insightss tjänsten. Det här är en moln tjänst som körs av [Microsoft Azure](https://azure.com). (Men Application Insights fungerar för alla program, inte bara de som finns i Azure.)
+För att få den här funktionen installerar du en Application Insights SDK i ditt program, som blir en del av koden. När din app körs övervakar SDK: n sin åtgärd och skickar telemetri till Application Insightss tjänsten. Det här är en moln tjänst som körs av [Microsoft Azure](https://azure.com). (Men Application Insights fungerar för alla program, inte bara program som finns i Azure.)
 
 Tjänsten Application Insights lagrar och analyserar Telemetrin. Om du vill se analysen eller söka igenom den lagrade Telemetrin loggar du in på ditt Azure-konto och öppnar Application Insights resursen för ditt program. Du kan också dela åtkomst till data med andra medlemmar i din grupp eller med angivna Azure-prenumeranter.
 
@@ -39,7 +40,6 @@ Du kan ha exporterade data från tjänsten Application Insights, till exempel ti
 Application Insights SDK: er är tillgängliga för en mängd olika program typer: webb tjänster som finns i dina egna Java-eller ASP.NET-servrar eller i Azure. webb klienter – det vill säga koden som körs på en webb sida. skrivbordsappar och tjänster, enhets program som Windows Phone, iOS och Android. Alla skickar telemetri till samma tjänst.
 
 ## <a name="what-data-does-it-collect"></a>Vilka data samlas in?
-### <a name="how-is-the-data-is-collected"></a>Hur samlas data in?
 Det finns tre data Källor:
 
 * SDK, som du integrerar med din app, antingen [i utvecklings](../../azure-monitor/app/asp-net.md) -eller [körnings tid](../../azure-monitor/app/monitor-performance-live-website-now.md). Det finns olika SDK: er för olika program typer. Det finns också en [SDK för webb sidor](../../azure-monitor/app/javascript.md)som läses in i slutanvändarens webbläsare tillsammans med sidan.
@@ -52,11 +52,11 @@ Det finns tre data Källor:
 ### <a name="what-kinds-of-data-are-collected"></a>Vilka typer av data samlas in?
 Huvud kategorierna är:
 
-* [Telemetri för webb server](../../azure-monitor/app/asp-net.md) – HTTP-begäranden.  URI, tids åtgång för att bearbeta begäran, svarskod, klientens IP-adress. Sessions-ID.
+* [Telemetri för webb server](../../azure-monitor/app/asp-net.md) – HTTP-begäranden.  URI, tids åtgång för att bearbeta begäran, svarskod, klientens IP-adress. `Session id`.
 * [Webb sidor](../../azure-monitor/app/javascript.md) – antal sidor, användare och sessioner. Sid inläsnings tider. Undantag. AJAX-anrop.
 * Prestanda räknare – minne, CPU, i/o, nätverks användning.
 * Klient-och Server kontext – operativ system, språk, enhets typ, webbläsare, skärmupplösning.
-* [Undantag](../../azure-monitor/app/asp-net-exceptions.md) och krascher – **stack dum par**, build ID, CPU-typ. 
+* [Undantag](../../azure-monitor/app/asp-net-exceptions.md) och krascher – **stack dum par**, `build id`, CPU-typ. 
 * [Beroenden](../../azure-monitor/app/asp-net-dependencies.md) – anrop till externa tjänster som rest, SQL, Ajax. URI eller anslutnings sträng, varaktighet, lyckades, kommando.
 * [Tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) – varaktighet för test och steg, svar.
 * [Spårnings loggar](../../azure-monitor/app/asp-net-trace-logs.md) och [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md)  - **allt du kodar till dina loggar eller telemetri**.
@@ -84,7 +84,7 @@ Data som hålls längre än 90 dagar debiteras tilläggs avgifterna. Läs mer om
 
 Sammanställda data (det vill säga antal, medelvärden och andra statistiska data som visas i Metric Explorer) behålls till en kornigt 1 minut i 90 dagar.
 
-[Fel söknings ögonblicks bilder](../../azure-monitor/app/snapshot-debugger.md) lagras i femton dagar. Den här bevarande principen anges per tillämpning. Om du behöver öka det här värdet kan du begära en ökning genom att öppna ett support ärende i Azure Portal.
+[Fel söknings ögonblicks bilder](../../azure-monitor/app/snapshot-debugger.md) lagras i 15 dagar. Den här bevarande principen anges per tillämpning. Om du behöver öka det här värdet kan du begära en ökning genom att öppna ett support ärende i Azure Portal.
 
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 Informationen är synlig för dig och, om du har ett organisations konto, ditt team medlemmar. 
@@ -103,7 +103,7 @@ Microsoft använder endast data för att tillhandahålla tjänsten till dig.
 ## <a name="how-secure-is-my-data"></a>Hur säkert är mina data?
 Application Insights är en Azure-tjänst. Säkerhets principer beskrivs i [Azure-säkerhet, sekretess och efterlevnad White Paper](https://go.microsoft.com/fwlink/?linkid=392408).
 
-Data lagras i Microsoft Azure-servrar. För konton i Azure-portalen beskrivs konto begränsningar i [dokumentet Azure-säkerhet, sekretess och regelefterlevnad](https://go.microsoft.com/fwlink/?linkid=392408).
+Data lagras i Microsoft Azure-servrar. För konton i Azure Portal beskrivs konto begränsningar i [dokumentet Azure säkerhet, sekretess och regelefterlevnad](https://go.microsoft.com/fwlink/?linkid=392408).
 
 Åtkomst till dina data från Microsoft-personal är begränsad. Vi kommer endast åt dina data med din tillåtelse och om det är nödvändigt för att stödja din användning av Application Insights. 
 
@@ -124,15 +124,15 @@ Ja, vi använder HTTPS för att skicka data till portalen från nästan alla SDK
 
 Ja, vissa telemetri-kanaler behåller data lokalt om det inte går att nå en slut punkt. Granska nedan för att se vilka ramverk och telemetri-kanaler som påverkas.
 
-Telemetri kanaler som använder lokala lagrings platser för att skapa temporära filer i TEMP-eller APPDATA-katalogerna som är begränsade till det specifika konto som kör programmet. Detta kan inträffa när en slut punkt tillfälligt var otillgänglig eller om du träffar begränsnings gränsen. När problemet har lösts fortsätter telemetri-kanalen att skicka alla nya och sparade data.
+Telemetri kanaler som använder lokala lagrings platser för att skapa temporära filer i katalogen TEMP eller APPDATA, som är begränsade till det specifika konto som kör programmet. Detta kan inträffa när en slut punkt tillfälligt var otillgänglig eller om du träffar begränsnings gränsen. När problemet har lösts fortsätter telemetri-kanalen att skicka alla nya och sparade data.
 
-Den här sparade informationen är inte krypterad lokalt. Om detta är ett problem, granskar du data och begränsar insamlingen av privata data. (Mer information finns i [Exportera och ta bort privata data](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) .)
+Den här sparade informationen är inte krypterad lokalt. Om detta är ett problem, granskar du data och begränsar insamlingen av privata data. (Mer information finns i [Exportera och ta bort privata data](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
 
-Om en kund behöver konfigurera den här katalogen med specifika säkerhets krav kan den konfigureras per ramverk. Kontrol lera att processen som kör ditt program har Skriv behörighet till den här katalogen, men kontrol lera också att den här katalogen är skyddad för att undvika att telemetri läses av oönskade användare.
+Om en kund behöver konfigurera den här katalogen med specifika säkerhets krav, kan den konfigureras per ramverk. Kontrol lera att processen som kör ditt program har Skriv behörighet till den här katalogen, men kontrol lera också att den här katalogen är skyddad för att undvika att telemetri läses av oönskade användare.
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp` används för att spara data. Den här platsen kan inte konfigureras från konfigurations katalogen och behörigheterna för åtkomst till den här mappen är begränsade till den aktuella användaren med nödvändiga autentiseringsuppgifter. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72) här.)
+`C:\Users\username\AppData\Local\Temp` används för att spara data. Den här platsen kan inte konfigureras från konfigurations katalogen och behörigheterna för åtkomst till den här mappen är begränsade till den aktuella användaren med nödvändiga autentiseringsuppgifter. (Mer information finns i [implementering](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
 
 ###  <a name="net"></a>.Net
 
@@ -167,7 +167,7 @@ Följande kodfragment visar hur du ställer in `ServerTelemetryChannel.StorageFo
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
-(Mer information finns i [AspNetCore-anpassade konfiguration](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) . )
+(Mer information finns i [AspNetCore anpassad konfiguration](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).)
 
 ### <a name="nodejs"></a>Node.js
 
@@ -181,9 +181,9 @@ Prefixet `appInsights-node` kan åsidosättas genom att ändra körnings värdet
 
 För att säkerställa säkerheten för data som överförs till Application Insights slut punkter rekommenderar vi att kunderna konfigurerar sina program att använda minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**och branschen flyttas snabbt till överge support för dessa äldre protokoll. 
 
-[PCI Security Standards-rådet](https://www.pcisecuritystandards.org/) har ställt in en [tids gräns på den 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) för att inaktivera äldre versioner av TLS/SSL och uppgradera till säkrare protokoll. När Azure har tagit över äldre support, om ditt program/klienter inte kan kommunicera via minst TLS 1,2 skulle du inte kunna skicka data till Application Insights. Den metod du behöver för att testa och verifiera att ditt programs TLS-stöd varierar beroende på operativ system/plattform och språk/ramverk som används i programmet.
+[PCI Security Standards-rådet](https://www.pcisecuritystandards.org/) har angett en [tids gräns på 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) för att inaktivera äldre versioner av TLS/SSL och uppgradera till säkrare protokoll. När Azure har tagit över äldre support, om ditt program/klienter inte kan kommunicera via minst TLS 1,2 skulle du inte kunna skicka data till Application Insights. Den metod du behöver för att testa och verifiera att ditt programs TLS-stöd varierar beroende på operativ system/plattform och språk/ramverk som används i programmet.
 
-Vi rekommenderar inte att du uttryckligen ställer in ditt program så att det bara använder TLS 1,2 om det inte är absolut nödvändigt eftersom det kan bryta säkerhets funktioner på plattforms nivå som gör att du automatiskt kan identifiera och dra nytta av nyare säkra protokoll när de blir tillgängligt som TLS 1,3. Vi rekommenderar att du utför en grundlig granskning av programmets kod för att söka efter hårdkoda av specifika TLS/SSL-versioner.
+Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TLS 1,2 om det inte är nödvändigt eftersom det kan bryta säkerhets funktioner på plattforms nivå som gör att du automatiskt kan identifiera och dra nytta av nyare säkra protokoll när de blir tillgängliga, till exempel TLS 1,3. Vi rekommenderar att du utför en grundlig granskning av programmets kod för att söka efter hårdkoda av specifika TLS/SSL-versioner.
 
 ### <a name="platformlanguage-specific-guidance"></a>Vägledning för plattform/språk specifik
 
@@ -191,7 +191,7 @@ Vi rekommenderar inte att du uttryckligen ställer in ditt program så att det b
 | --- | --- | --- |
 | Azure App Services  | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Azure Function-appar | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
-|.NET | Konfigurationen varierar beroende på version. | Detaljerad konfigurations information för .NET 4,7 och tidigare versioner hittar du i [de här anvisningarna](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|.NET | Konfigurationen varierar beroende på version. | Detaljerad konfigurations information för .NET 4,7 och tidigare versioner finns i [de här anvisningarna](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Statusövervakare | Stöds, konfiguration krävs | Statusövervakare är beroende av [OS-konfigurationen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  + [.net-konfigurationen](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) för att stödja TLS 1,2.
 |Node.js |  Konfigurationen kan krävas i v-10.5.0. | Använd den [officiella Node. js TLS/SSL-dokumentationen](https://nodejs.org/api/tls.html) för valfri programspecifik konfiguration. |
 |Java | Stöd för JDK-stöd för TLS 1,2 har lagts till i [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) och [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 använder [TLS 1,2 som standard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
@@ -212,7 +212,7 @@ openssl version -a
 
 ### <a name="run-a-test-tls-12-transaction-on-linux"></a>Kör en test-TLS 1,2-transaktion på Linux
 
-Om du vill köra ett grundläggande preliminärt test för att se om ditt Linux-system kan kommunicera via TLS 1,2. Öppna terminalen och kör:
+Om du vill köra ett preliminärt test för att se om ditt Linux-system kan kommunicera via TLS 1,2. öppnar du terminalen och kör:
 
 ```terminal
 openssl s_client -connect bing.com:443 -tls1_2
@@ -251,9 +251,9 @@ För [SDK: er för andra plattformar][platforms], se deras dokument.
 | Insamlad data klass | Inkluderar (inte en fullständig lista) |
 | --- | --- |
 | **Egenskaperna** |**Alla data som bestäms av din kod** |
-| DeviceContext |ID, IP, språk, enhets modell, nätverk, nätverks typ, OEM-namn, skärmupplösning, roll instans, roll namn, enhets typ |
+| DeviceContext |`Id`, IP, locale, enhets modell, nätverk, nätverks typ, OEM-namn, skärmupplösning, roll instans, rollnamn, enhets typ |
 | ClientContext |OS, språk, språk, nätverk, fönster upplösning |
-| Session |Sessions-ID |
+| Session |`session id` |
 | ServerContext |Dator namn, språk, operativ system, enhet, användarsession, användar kontext, åtgärd |
 | Härleda |Geo-plats från IP-adress, tidsstämpel, OS, webbläsare |
 | Mått |Metric-namn och-värde |
@@ -263,8 +263,8 @@ För [SDK: er för andra plattformar][platforms], se deras dokument.
 | Ajax |HTTP-anrop från webb sida till Server |
 | Begäranden |URL, varaktighet, svarskod |
 | Beroenden |Typ (SQL, HTTP,...), anslutnings sträng eller URI, Sync/async, varaktighet, lyckades, SQL-uttryck (med Statusövervakare) |
-| **Undantag** |Typ, **meddelande**, anrops stackar, käll fil och rad nummer, tråd-ID |
-| Krascher |Process-ID, överordnat process-ID, krasch tråd-ID; program korrigering, ID, build;  undantags typ, adress, orsak; fördunklade symboler och register, start-och slut adresser, namn och sökväg för binärfiler, CPU-typ |
+| **Undantag** |Typ, **meddelande**, anrops stackar, käll fil, rad nummer, `thread id` |
+| Krascher |`Process id``parent process id``crash thread id`; program uppdatering, `id`, build;  undantags typ, adress, orsak; fördunklade symboler och register, start-och slut adresser, namn och sökväg för binärfiler, CPU-typ |
 | Spårning |**Meddelande** -och allvarlighets nivå |
 | Prestandaräknare |Processor tid, tillgängligt minne, begär ande frekvens, undantags frekvens, processens privata byte, i/o-hastighet, varaktighet för begäran, Kölängd för begäran |
 | Tillgänglighet |Svars kod för webbtest, varaktighet för varje test steg, testnamn, tidsstämpel, framgång, svars tid, test plats |

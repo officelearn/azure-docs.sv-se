@@ -1,5 +1,5 @@
 ---
-title: InvalidNetworkConfigurationErrorCode från att skapa kluster i Azure HDInsight
+title: InvalidNetworkConfigurationErrorCode-fel – Azure HDInsight
 description: Olika orsaker till att kluster skapas med InvalidNetworkConfigurationErrorCode i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: a6b207086325018deb63383a0775af8dfe195ac4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5b8d031af9dbe6019d71e2a1caa3d3f25d4024ea
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091709"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044455"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Det går inte att skapa kluster med InvalidNetworkConfigurationErrorCode i Azure HDInsight
 
@@ -30,13 +30,13 @@ Fel beskrivningen innehåller "matchning av värdnamn" misslyckades ".
 
 Felet pekar på ett problem med den anpassade DNS-konfigurationen. DNS-servrar i ett virtuellt nätverk kan vidarebefordra DNS-frågor till Azures rekursiva matchare för att matcha värdnamn i det virtuella nätverket (se [namn matchning i virtuella nätverk](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) för mer information). Åtkomst till Azures rekursiva matchare tillhandahålls via den virtuella IP-168.63.129.16. Den här IP-adressen är bara tillgänglig från virtuella Azure-datorer. Det fungerar därför inte om du använder en OnPrem DNS-server, eller om DNS-servern är en virtuell Azure-dator, som inte ingår i klustrets vNet.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
-1. Använd SSH i den virtuella datorn som är en del av klustret och kör kommandot `hostname -f`. Detta returnerar värdens fullständigt kvalificerade domän namn (enligt `<host_fqdn>` anvisningarna nedan).
+1. Använd SSH i den virtuella datorn som ingår i klustret och kör kommandot `hostname -f`. Detta returnerar värdens fullständigt kvalificerade domän namn (kallas `<host_fqdn>` i nedanstående instruktioner).
 
-1. Kör sedan kommandot `nslookup <host_fqdn>` (till `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`exempel). Om det här kommandot matchar namnet på en IP-adress innebär det att din DNS-server fungerar som den ska. I det här fallet kan du generera ett support ärende med HDInsight och vi kommer att undersöka problemet. I support ärendet inkluderar du de fel söknings steg som du utförde. Detta hjälper oss att lösa problemet snabbare.
+1. Kör sedan kommandot `nslookup <host_fqdn>` (till exempel `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). Om det här kommandot matchar namnet på en IP-adress innebär det att din DNS-server fungerar som den ska. I det här fallet kan du generera ett support ärende med HDInsight och vi kommer att undersöka problemet. I support ärendet inkluderar du de fel söknings steg som du utförde. Detta hjälper oss att lösa problemet snabbare.
 
-1. Om kommandot ovan inte returnerar en IP-adress ska du köra `nslookup <host_fqdn> 168.63.129.16` (till `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`exempel). Om det här kommandot kan matcha IP-adressen innebär det att antingen DNS-servern inte vidarebefordrar frågan till Azures DNS, eller om den inte är en virtuell dator som är en del av samma vNet som klustret.
+1. Om kommandot ovan inte returnerar en IP-adress kör du `nslookup <host_fqdn> 168.63.129.16` (till exempel `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). Om det här kommandot kan matcha IP-adressen innebär det att antingen DNS-servern inte vidarebefordrar frågan till Azures DNS, eller om den inte är en virtuell dator som är en del av samma vNet som klustret.
 
 1. Om du inte har en virtuell Azure-dator som kan fungera som en anpassad DNS-server i klustrets vNet måste du först lägga till den. Skapa en virtuell dator i det virtuella nätverket, som kommer att konfigureras som DNS-vidarebefordrare.
 
@@ -56,7 +56,7 @@ Fel beskrivningen innehåller "Det gick inte att ansluta till Azure Storage kont
 
 Azure Storage och SQL har inte fasta IP-adresser, så vi måste tillåta utgående anslutningar till alla IP-adresser för att tillåta åtkomst till dessa tjänster. De exakta lösnings stegen beror på om du har konfigurerat en nätverks säkerhets grupp (NSG) eller användardefinierade regler (UDR). Mer information om dessa konfigurationer finns i avsnittet om att [kontrol lera nätverks trafik med HDInsight med nätverks säkerhets grupper och användardefinierade vägar](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) .
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 * Om klustret använder en [nätverks säkerhets grupp (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
 

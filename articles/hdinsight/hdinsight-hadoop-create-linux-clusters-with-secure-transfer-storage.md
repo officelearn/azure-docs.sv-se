@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Hadoop-kluster med lagringskonton som använder säker överföring i Azure HDInsight
+title: Apache Hadoop & säker transaktions lagring – Azure HDInsight
 description: Lär dig hur du skapar HDInsight-kluster med Azure-lagringskonton som använder säker överföring.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: d182ca9f74f86922a4d8c94c9b3557f6111b7d53
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b8a5d48e977009cf592f271760232a3b0138c8c5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098748"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044949"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Skapa Apache Hadoop kluster med lagrings konton för säker överföring i Azure HDInsight
 
 Funktionen [Säker överföring krävs](../storage/common/storage-require-secure-transfer.md) förbättrar säkerheten för ditt Azure Storage-konto genom att kräva att alla förfrågningar till ditt konto görs via en säker anslutning. Den här funktionen och wasbs-schemat stöds endast av HDInsight-kluster med version 3.6 eller senare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här artikeln måste du ha:
 
-* **Azure-prenumeration**: Om du vill skapa ett kostnads fritt utvärderings konto för en månad bläddrar du till [Azure.Microsoft.com/free](https://azure.microsoft.com/free).
+* **Azure-prenumeration**: Gå till [azure.microsoft.com/free](https://azure.microsoft.com/free) för att skapa ett kostnadsfritt provkonto för en månad.
 * **Ett Azure Storage-konto med säker överföring aktiverat**. Anvisningar finns i [Create a storage account](../storage/common/storage-quickstart-create-account.md) (Skapa ett lagringskonto) och [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Kräva säker överföring).
 * **En blobcontainer för lagringskontot**.
 

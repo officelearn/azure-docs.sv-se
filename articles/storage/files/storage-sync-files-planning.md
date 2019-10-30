@@ -4,15 +4,15 @@ description: Lär dig vad du ska tänka på när du planerar för en Azure Files
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9c46181d5ab449d28c2e2e93cc583a3551f114bc
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 7dfd7e29b119b5fe98b649b2e5f5f45b422c4634
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061739"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053430"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -24,25 +24,25 @@ I den här artikeln beskrivs viktiga överväganden för en Azure File Sync dist
 ## <a name="azure-file-sync-terminology"></a>Azure File Sync terminologi
 Innan du får information om hur du planerar för en Azure File Sync distribution är det viktigt att förstå terminologin.
 
-### <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
+### <a name="storage-sync-service"></a>Tjänsten för synkronisering av lagring
 Tjänsten Storage Sync är Azure-resursen på den översta nivån för Azure File Sync. Tjänsten Storage Sync service är en peer med lagrings konto resursen och kan distribueras på samma sätt till Azure-resurs grupper. En distinkt toppnivå resurs från lagrings konto resursen krävs eftersom tjänsten för synkronisering av lagrings utrymme kan skapa synkroniseringsrelation med flera lagrings konton via flera Sync-grupper. En prenumeration kan ha flera distribuerade resurser för lagrings-synkroniseringstjänsten.
 
-### <a name="sync-group"></a>Synkroniseringsgrupp
+### <a name="sync-group"></a>Synkronisera grupp
 En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning filer. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. Om du till exempel har två distinkta uppsättningar med filer som du vill hantera med Azure File Sync, skapar du två Sync-grupper och lägger till olika slut punkter i varje synkroniseringsresurs. En tjänst för synkronisering av lagring kan vara värd för så många Sync-grupper som du behöver.  
 
-### <a name="registered-server"></a>Registrerad server
+### <a name="registered-server"></a>Registrerad Server
 Det registrerade serverobjektet representerar en förtroende relation mellan servern (eller klustret) och tjänsten för synkronisering av lagring. Du kan registrera så många servrar som en tjänst instans för lagrings synkronisering som du vill. En server (eller ett kluster) kan dock bara registreras med en lagrings tjänst för synkronisering i taget.
 
 ### <a name="azure-file-sync-agent"></a>Azure File Sync agent
 Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windows Server kan synkroniseras med en Azure-filresurs. Azure File Sync agenten har tre huvud komponenter: 
-- **FileSyncSvc.exe**: Den bakgrunds fönster tjänst som ansvarar för att övervaka ändringar på Server slut punkter och för att initiera svarssessioner till Azure.
-- **StorageSync.sys**: Filtret för Azure File Sync-filsystemet, som ansvarar för att skikta filer som ska Azure Filess (när moln skiktning är aktive rad).
-- **PowerShell-hantering-cmdlet: ar**: PowerShell-cmdletar som du använder för att interagera med Microsoft. StorageSync Azure Resource Provider. Du kan hitta dessa på följande (standard) platser:
+- **FileSyncSvc. exe**: den bakgrunds fönster tjänst som ansvarar för att övervaka ändringar på Server slut punkter och för att initiera Sync-sessioner till Azure.
+- **StorageSync. sys**: det Azure File Sync fil system filter, som ansvarar för att skikta filer till Azure Files (när moln nivåer är aktiverat).
+- **PowerShell-hanterings-cmdlet**: PowerShell-cmdletar som du använder för att interagera med Microsoft. StorageSync Azure Resource Provider. Du kan hitta dessa på följande (standard) platser:
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Server slut punkt
-En serverslutpunkt representerar en viss plats på en registrerad server, till exempel en mapp på en servervolym. Flera Server slut punkter kan finnas på samma volym om deras namn rymder inte överlappar varandra (till `F:\sync1` exempel `F:\sync2`och). Du kan konfigurera principer för moln nivåer individuellt för varje server slut punkt. 
+En serverslutpunkt representerar en viss plats på en registrerad server, till exempel en mapp på en servervolym. Flera Server slut punkter kan finnas på samma volym om deras namn rymder inte överlappar varandra (till exempel `F:\sync1` och `F:\sync2`). Du kan konfigurera principer för moln nivåer individuellt för varje server slut punkt. 
 
 Du kan skapa en server slut punkt via en monterings punkt. Observera att mountpoints i Server slut punkten hoppas över.  
 
@@ -97,13 +97,16 @@ Så här visar du resultatet i CSV:
 ```
 
 ### <a name="system-requirements"></a>Systemkrav
-- En server som kör Windows Server 2012 R2, Windows Server 2016 eller Windows Server 2019:
+- En server som kör någon av följande operativ system versioner:
 
     | Version | SKU: er som stöds | Distributions alternativ som stöds |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Data Center och standard | Full och Core |
     | Windows Server 2016 | Data Center och standard | Full och Core |
     | Windows Server 2012 R2 | Data Center och standard | Full och Core |
+    | Windows Server IoT 2019 för lagring| Data Center och standard | Full och Core |
+    | Windows Storage Server 2016| Data Center och standard | Full och Core |
+    | Windows Storage Server 2012 R2| Data Center och standard | Full och Core |
 
     Framtida versioner av Windows Server kommer att läggas till när de släpps.
 
@@ -122,11 +125,11 @@ Så här visar du resultatet i CSV:
 | Funktion | Support status | Anteckningar |
 |---------|----------------|-------|
 | Åtkomst kontrol listor (ACL: er) | Fullt stöd | Windows ACL: er bevaras av Azure File Sync och framtvingas av Windows Server på Server slut punkter. Windows ACL: er stöds inte (ännu) av Azure Files om filer nås direkt i molnet. |
-| Hårda länkar | Hoppades över | |
-| Symboliska länkar | Hoppades över | |
+| Hårda länkar | Hoppades | |
+| Symboliska länkar | Hoppades | |
 | Monterings punkter | Stöds delvis | Monterings punkter kan vara roten i en server slut punkt, men de hoppas över om de finns i en server slut punkts namnrymd. |
-| Knut punkter | Hoppades över | Till exempel Distributed File System DfrsrPrivate-och DFSRoots-mappar. |
-| Referenspunkter | Hoppades över | |
+| Knut punkter | Hoppades | Till exempel Distributed File System DfrsrPrivate-och DFSRoots-mappar. |
+| Referenspunkter | Hoppades | |
 | NTFS-komprimering | Fullt stöd | |
 | Sparse-filer | Fullt stöd | Synkronisering av sparse-filer (blockeras inte), men synkroniserar till molnet som en fullständig fil. Om fil innehållet ändras i molnet (eller på en annan server) är filen inte längre sparse när ändringen laddas ned. |
 | Alternativa data strömmar (ADS) | Konserverat, men inte synkroniserat | Till exempel synkroniseras inte klassificerings etiketter som skapats av fil klassificerings infrastrukturen. Befintliga klassificerings etiketter på filer på alla Server slut punkter lämnas orörda. |
@@ -140,11 +143,11 @@ Så här visar du resultatet i CSV:
 |-|-|
 | Desktop. ini | Filinformation till system |
 | ethumbs. db $ | Temporär fil för miniatyrer |
-| ~$\*.\* | Tillfällig Office-fil |
+| ~$ \*. \* | Tillfällig Office-fil |
 | \*. tmp | Temporär fil |
-| \*.laccdb | Lås fil för åtkomst databasen|
+| \*. LACCDB | Lås fil för åtkomst databasen|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Intern Sync-fil|
-| \\System volym information | Mapp som är speciell för volym |
+| \\system volym information | Mapp som är speciell för volym |
 | $RECYCLE. PLATS| Mapp |
 | \\SyncShareState | Mapp för synkronisering |
 
@@ -155,7 +158,7 @@ Windows Server-redundanskluster stöds av Azure File Sync för distributions alt
 > Azure File Sync agenten måste installeras på varje nod i ett redundanskluster för att synkroniseringen ska fungera korrekt.
 
 ### <a name="data-deduplication"></a>Datadeduplicering
-**Agent version 5.0.2.0 eller senare**   
+**Agent version 5.0.2.0 eller nyare**   
 Datadeduplicering stöds på volymer med moln nivåer som är aktiverade på Windows Server 2016 och Windows Server 2019. Genom att aktivera datadeduplicering på en volym med aktive rad moln nivå kan du cachelagra fler filer lokalt utan att tillhandahålla mer lagrings utrymme. 
 
 När datadeduplicering har Aktiver ATS på en volym med aktive rad moln nivå, kommer deduplicering av optimerade filer på serverns slut punkt att på samma sätt som en normal fil baserat på princip inställningarna för moln skiktet. När de deduplicerade filerna har flyttats, körs skräp insamlings jobbet för datadeduplicering automatiskt för att frigöra disk utrymme genom att ta bort onödiga segment som inte längre refereras till av andra filer på volymen.
@@ -171,21 +174,21 @@ För volymer som inte har aktiverat moln nivåer är Azure File Sync stöd för 
     - Principen för ledigt utrymme kommer att fortsätta att göra filer på nivå av filer efter det lediga utrymmet på volymen med hjälp av termisk karta.
     - Datum policyn hoppar över nivåer av filer som annars kan ha kvalificerats för lagrings nivåer på grund av att optimerings jobbet för deduplicering har åtkomst till filerna.
 - För pågående optimerings jobb för deduplicering kommer moln nivåer med datum policyn att förskjutas av [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) -inställningen för datadeduplicering, om filen inte redan är i nivå. 
-    - Exempel: Om MinimumFileAgeDays-inställningen är 7 dagar och den datum policyn för molnnivå är 30 dagar, kommer datum principen att på nivå filer efter 37 dagar.
-    - Obs! När en fil har en nivå av Azure File Sync hoppar optimerings jobbet för deduplicering över filen.
+    - Exempel: om MinimumFileAgeDays-inställningen är 7 dagar och den datum policyn för molnnivå är 30 dagar, kommer datum principen att på nivå av filer efter 37 dagar.
+    - Obs! när en fil har en nivå av Azure File Sync hoppar optimerings jobbet för deduplicering över filen.
 - Om en server som kör Windows Server 2012 R2 med Azure File Sync-agenten installerad uppgraderas till Windows Server 2016 eller Windows Server 2019, måste följande steg utföras för att stödja datadeduplicering och moln nivåer på samma volym:  
     - Avinstallera Azure File Sync-agenten för Windows Server 2012 R2 och starta om servern.
-    - Hämta Azure File Sync agent för den nya serverns OS-version (Windows Server 2016 eller Windows Server 2019).
+    - Hämta Azure File Sync agent för den nya versionen av serveroperativ systemet (Windows Server 2016 eller Windows Server 2019).
     - Installera Azure File Sync agent och starta om servern.  
     
-    Obs! Konfigurations inställningarna för Azure File Sync på servern bevaras när agenten avinstalleras och installeras om.
+    Obs! Azure File Sync konfigurations inställningar på servern bevaras när agenten avinstalleras och installeras om.
 
 ### <a name="distributed-file-system-dfs"></a>Distributed File System (DFS)
 Azure File Sync stöder interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R).
 
-**DFS-namnrymder (DFS-N)** : Azure File Sync stöds fullt ut på DFS-N-servrar. Du kan installera Azure File Sync agenten på en eller flera DFS-N-medlemmar för att synkronisera data mellan server slut punkterna och moln slut punkten. Mer information finns i [Översikt över DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)-namnrymder.
+**DFS-namnrymder (DFS-n)** : Azure File Sync stöds fullt ut på DFS-n-servrar. Du kan installera Azure File Sync agenten på en eller flera DFS-N-medlemmar för att synkronisera data mellan server slut punkterna och moln slut punkten. Mer information finns i [Översikt över DFS-namnrymder](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS Replication (DFS-R)** : Eftersom DFS-R och Azure File Sync båda är lösningar för replikering rekommenderar vi i de flesta fall att du ersätter DFS-R med Azure File Sync. Det finns dock flera scenarier där du vill använda DFS-R och Azure File Sync tillsammans:
+**DFS Replication (DFS-r)** : eftersom DFS-r och Azure File Sync båda är lösningar för replikering rekommenderar vi i de flesta fall att du ersätter DFS-R med Azure File Sync. Det finns dock flera scenarier där du vill använda DFS-R och Azure File Sync tillsammans:
 
 - Du migrerar från en DFS-R-distribution till en Azure File Sync-distribution. Mer information finns i [Migrera en DFS Replication (DFS-R) distribution till Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Alla lokala servrar som behöver en kopia av dina fildata kan vara anslutna direkt till Internet.
@@ -210,7 +213,7 @@ Eftersom antivirus programmet fungerar genom att söka igenom filer efter känd 
 Microsofts interna antivirus lösningar, Windows Defender och System Center Endpoint Protection (SCEP), hoppar båda automatiskt över att läsa filer som har det här attributet angivet. Vi har testat dem och identifierat ett mindre problem: när du lägger till en server i en befintlig Sync-grupp, anropas filer som är mindre än 800 byte (nedladdade) på den nya servern. De här filerna kommer att finnas kvar på den nya servern och kommer inte att skiktas eftersom de inte uppfyller storleks kravet för skikt (> 64 KB).
 
 > [!Note]  
-> Antivirus leverantörer kan kontrol lera kompatibiliteten mellan sina produkter och Azure File Sync med hjälp av testsviten [Azure File Sync Antivirus kompatibilitet](https://www.microsoft.com/download/details.aspx?id=58322)som är tillgänglig för hämtning på Microsoft Download Center.
+> Antivirus leverantörer kan kontrol lera kompatibiliteten mellan sina produkter och Azure File Sync med hjälp av [Testsviten Azure File Sync Antivirus kompatibilitet](https://www.microsoft.com/download/details.aspx?id=58322)som är tillgänglig för hämtning på Microsoft Download Center.
 
 ### <a name="backup-solutions"></a>Säkerhets kopierings lösningar
 Liksom antivirus lösningar kan säkerhets kopierings lösningar orsaka åter kallelse av filer på nivå. Vi rekommenderar att du använder en lösning för säkerhets kopiering i molnet för att säkerhetskopiera Azure-filresursen i stället för en lokal säkerhets kopierings produkt.
@@ -238,43 +241,43 @@ I allmänhet bör Azure File Sync stödja samverkan med krypterings lösningar s
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andra HSM-lösningar (hierarkisk lagrings hantering)
 Inga andra HSM-lösningar ska användas med Azure File Sync.
 
-## <a name="region-availability"></a>Regional tillgänglighet
+## <a name="region-availability"></a>Tillgänglighet för regioner
 Azure File Sync är endast tillgängligt i följande regioner:
 
 | Region | Data Center plats |
 |--------|---------------------|
-| Östra Australien | New South Wales |
-| Sydöstra Australien | Victoria |
-| Södra Brasilien | Sao Paulo (delstat) |
-| Centrala Kanada | Toronto |
-| Östra Kanada | Quebec City |
+| Australien, östra | New South Wales |
+| Australien, sydöstra | Victoria |
+| Brasilien, södra | Sao Paulo (delstat) |
+| Kanada, centrala | Toronto |
+| Kanada, östra | Quebec City |
 | Indien, centrala | Pune |
-| Centrala USA | Iowa |
-| Östasien | Hongkong SAR |
-| East US | Virginia |
+| USA, centrala | Iowa |
+| Asien, östra | Hong Kong SAR |
+| USA, östra | Virginia |
 | USA, östra 2 | Virginia |
 | Frankrike, centrala | Paris |
 | Frankrike, södra * | Marseille |
-| Sydkorea, centrala | Söul |
-| Sydkorea, södra | Pusan |
-| Östra Japan | Tokyo, Saitama |
-| Västra Japan | Osaka |
-| Norra centrala USA | Illinois |
-| Norra Europa | Irland |
+| Sydkorea, centrala | Seoul |
+| Sydkorea, södra | Busan |
+| Japan, östra | Tokyo, Saitama |
+| Japan, västra | Osaka |
+| USA, norra centrala | Illinois |
+| Europa, norra | Irland |
 | Sydafrika, norra | Johannesburg |
 | Södra Afrika, västra * | Kapstaden |
-| Södra centrala USA | Texas |
+| USA, södra centrala | Texas |
 | Indien, södra | Chennai |
-| Sydostasien | Singapore |
+| Asien, sydöstra | Singapore |
 | Storbritannien, södra | London |
 | Storbritannien, västra | Cardiff |
 | Arizona (USA-förvaltad region) | Arizona |
 | Texas (USA-förvaltad region) | Texas |
-| Virginia (USA-förvaltad region) | Virginia |
-| Västra Europa | Nederländerna |
-| Västra centrala USA | Wyoming |
-| Västra USA | Kalifornien |
-| Västra USA 2 | Washington |
+| USA Gov Virginia | Virginia |
+| Europa, västra | Nederländerna |
+| USA, västra centrala | Wyoming |
+| USA, västra | Kalifornien |
+| USA, västra 2 | Washington |
 
 Azure File Sync stöder endast synkronisering med en Azure-filresurs som är i samma region som tjänsten för synkronisering av lagring.
 
@@ -290,38 +293,38 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 
 | Primär region      | Länkad region      |
 |---------------------|--------------------|
-| Östra Australien      | Sydöstra Australien|
-| Sydöstra Australien | Östra Australien     |
-| Södra Brasilien        | Södra centrala USA   |
-| Centrala Kanada      | Östra Kanada        |
-| Östra Kanada         | Centrala Kanada     |
+| Australien, östra      | Australien, sydöstra|
+| Australien, sydöstra | Australien, östra     |
+| Brasilien, södra        | USA, södra centrala   |
+| Kanada, centrala      | Kanada, östra        |
+| Kanada, östra         | Kanada, centrala     |
 | Indien, centrala       | Indien, södra        |
-| Centrala USA          | USA, östra 2          |
-| Östasien           | Sydostasien     |
-| East US             | Västra USA            |
-| USA, östra 2           | Centrala USA         |
+| USA, centrala          | USA, östra 2          |
+| Asien, östra           | Asien, sydöstra     |
+| USA, östra             | USA, västra            |
+| USA, östra 2           | USA, centrala         |
 | Frankrike, centrala      | Frankrike, södra       |
 | Frankrike, södra        | Frankrike, centrala     |
-| Östra Japan          | Västra Japan         |
-| Västra Japan          | Östra Japan         |
+| Japan, östra          | Japan, västra         |
+| Japan, västra          | Japan, östra         |
 | Sydkorea, centrala       | Sydkorea, södra        |
 | Sydkorea, södra         | Sydkorea, centrala      |
-| Norra Europa        | Västra Europa        |
-| Norra centrala USA    | Södra centrala USA   |
+| Europa, norra        | Europa, västra        |
+| USA, norra centrala    | USA, södra centrala   |
 | Sydafrika, norra  | Sydafrika, västra  |
 | Sydafrika, västra   | Sydafrika, norra |
-| Södra centrala USA    | Norra centrala USA   |
+| USA, södra centrala    | USA, norra centrala   |
 | Indien, södra         | Indien, centrala      |
-| Sydostasien      | Östasien          |
+| Asien, sydöstra      | Asien, östra          |
 | Storbritannien, södra            | Storbritannien, västra            |
 | Storbritannien, västra             | Storbritannien, södra           |
 | Arizona (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
-| US Gov, Iowa         | Virginia (USA-förvaltad region)    |
-| Virginia (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
-| Västra Europa         | Norra Europa       |
-| Västra centrala USA     | Västra USA 2          |
-| Västra USA             | East US            |
-| Västra USA 2           | Västra centrala USA    |
+| US Gov, Iowa         | USA Gov Virginia    |
+| USA Gov Virginia      | Texas (USA-förvaltad region)       |
+| Europa, västra         | Europa, norra       |
+| USA, västra centrala     | USA, västra 2          |
+| USA, västra             | USA, östra            |
+| USA, västra 2           | USA, västra centrala    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

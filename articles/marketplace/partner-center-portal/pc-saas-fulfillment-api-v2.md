@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: 9cded164b63bbb72e4a353e9a542c9e054c14d93
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b1ec40485e775b7e50b5f7d82014aef77f14fb3e
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821154"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025275"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API: er för SaaS-uppfyllelse, version 2 
 
@@ -87,7 +87,7 @@ I följande tabell visas definitionerna för vanliga parametrar och entiteter so
 | `offerId`                | En unik sträng identifierare för varje erbjudande (till exempel: "offer1").  |
 | `planId`                 | En unik sträng identifierare för varje plan/SKU (till exempel: "Silver"). |
 | `operationId`            | GUID-identifieraren för en viss åtgärd.  |
-|  `action`                | Åtgärden som utförs på en resurs, antingen `unsubscribe`, `suspend`, `reinstate` eller `changePlan`, `changeQuantity` `transfer`.  |
+|  `action`                | Åtgärden som utförs på en resurs, antingen `Unsubscribe`, `Suspend`, `Reinstate`eller `ChangePlan`, `ChangeQuantity``Transfer`. |
 |   |   |
 
 Globalt unika identifierare ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) är 128-bitars (32-hexadecimala) siffror som vanligt vis genereras automatiskt. 
@@ -707,7 +707,7 @@ Internt Server fel.
 
 #### <a name="get-operation-status"></a>Hämta åtgärds status
 
-Gör att utgivaren kan spåra statusen för den angivna utlösta asynkrona åtgärden (till exempel `subscribe`, `unsubscribe`, `changePlan` eller `changeQuantity`).
+Gör att utgivaren kan spåra statusen för den angivna utlösta asynkrona åtgärden (till exempel `Subscribe`, `Unsubscribe`, `ChangePlan`eller `ChangeQuantity`).
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Hämta<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,11 +850,11 @@ Utgivaren måste implementera en webhook i den här SaaS-tjänsten för att proa
 }
 ```
 Där åtgärden kan vara något av följande: 
-- `unsubscribe` (när resursen har tagits bort)
-- `changePlan` (när åtgärden ändra plan har slutförts)
-- `changeQuantity` (när åtgärden ändra kvantitet har slutförts)
-- `suspend` (när resursen har pausats)
-- `reinstate` (när resursen har återställts efter SUS Pension)
+- `Unsubscribe` (när resursen har tagits bort)
+- `ChangePlan` (när åtgärden ändra plan har slutförts)
+- `ChangeQuantity` (när åtgärden ändra kvantitet har slutförts)
+- `Suspend` (när resursen har pausats)
+- `Reinstate` (när resursen har återställts efter SUS Pension)
 
 Om statusen kan vara något av följande: 
 - **NotStarted** <br>

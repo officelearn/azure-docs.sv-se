@@ -8,16 +8,16 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/18/2018
+ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 02a1c12957570f0e798c5abfd88562128ea1cf76
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129306"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053070"
 ---
-# <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att säkra din identitetsinfrastruktur
+# <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
 Om du läser det här dokumentet är du medveten om betydelsen av säkerhet. Du bär förmodligen redan ansvaret för att skydda din organisation. Om du behöver övertyga andra om vikten av säkerhet kan du skicka dem för att läsa den senaste [Microsoft Security Intelligence-rapporten](https://go.microsoft.com/fwlink/p/?linkid=2073747).
 
@@ -31,18 +31,23 @@ Den här check listan hjälper dig att snabbt distribuera kritiska rekommenderad
 * Öka din medvetenhet om granskning och övervakning.
 * Aktivera mer förutsägbar och fullständig slut användar säkerhet med hjälp av självhjälp.
 
+Se till att du håller reda på vilka funktioner och steg som är slutförda när du läser den här check listan.
+
 > [!NOTE]
 > Många av rekommendationerna i det här dokumentet gäller endast för program som har kon figurer ATS för att använda Azure Active Directory som identitets leverantör. Genom att konfigurera appar för enkel inloggning ser du fördelarna med principer för autentiseringsuppgifter, Hot identifiering, granskning, loggning och andra funktioner som läggs till i dessa program. [Enkel inloggning via Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-portal.md) är grunden som alla dessa rekommendationer baseras på.
 
-Rekommendationerna i det här dokumentet är justerade med [identitetens säkra Poäng](../../active-directory/fundamentals/identity-secure-score.md), en automatisk utvärdering av din Azure AD-klients identitets säkerhets konfiguration. Organisationer kan använda sidan för säker användning av identiteter på Azure AD-portalen för att hitta luckor i den aktuella säkerhets konfigurationen för att se till att de följer aktuella Microsofts bästa praxis för säkerhet. Genom att implementera varje rekommendation på sidan säker Poäng ökar du dina poäng och du kan spåra dina framsteg, samt hjälpa dig att jämföra din implementering mot andra liknande storleks organisationer eller din bransch.
+Rekommendationerna i det här dokumentet är justerade med [identitetens säkra Poäng](../../active-directory/fundamentals/identity-secure-score.md), en automatisk utvärdering av din Azure AD-klients identitets säkerhets konfiguration. Organisationer kan använda sidan för säker användning av identiteter på Azure AD-portalen för att hitta luckor i den aktuella säkerhets konfigurationen för att se till att de följer aktuella Microsofts [bästa praxis](identity-management-best-practices.md) för säkerhet. Genom att implementera varje rekommendation på sidan säker Poäng ökar du dina poäng och du kan spåra dina framsteg, samt hjälpa dig att jämföra din implementering mot andra liknande storleks organisationer eller din bransch.
 
-![Identitetsäkerhetspoäng](./media/steps-secure-identity/azure-ad-sec-steps0.png)
+![Identifiera säkra Poäng för identitet](./media/steps-secure-identity/azure-ad-sec-steps0.png)
 
-## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Innan du börjar: Skydda privilegierade konton med MFA
+> [!NOTE]
+> Många av de funktioner som beskrivs här kräver en Azure AD Premium prenumeration, medan vissa är kostnads fria. Läs igenom vår [Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/) och [Check lista för Azure AD-distribution](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2) om du vill ha mer information.
+
+## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Innan du börjar: skydda privilegierade konton med MFA
 
 Innan du börjar check listan, se till att du inte blir komprometterad när du läser den här check listan. Du måste först skydda dina privilegierade konton.
 
-Angripare som får kontroll över privilegierade konton kan orsaka mycket allvarliga skador, så det är viktigt att skydda kontona först. Aktivera och Kräv [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) för alla administratörer i din organisation med hjälp av [bas linje skydd](../../active-directory/conditional-access/baseline-protection.md). Om du inte har implementerat MFA kan du göra det nu! Det är viktigt.
+Angripare som får kontroll över privilegierade konton kan orsaka mycket allvarliga skador, så det är viktigt att skydda kontona först. Aktivera och Kräv [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) för alla administratörer i din organisation med hjälp av [säkerhets inställningar i Azure AD](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) eller [villkorlig åtkomst](../../active-directory/conditional-access/plan-conditional-access.md). Om du inte har implementerat MFA kan du göra det nu! Det är viktigt.
 
 Har du angett? Vi börjar med check listan.
 
@@ -51,9 +56,11 @@ Har du angett? Vi börjar med check listan.
 De flesta säkerhets överträdelser i företaget kommer att ha ett konto som har komprometterats med en fåtal av metoder, till exempel lösen ords spray, intrång, omuppspelning eller nätfiske. Läs mer om dessa angrepp i den här videon (45 min):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
-### <a name="make-sure-your-organization-use-strong-authentication"></a>Kontrol lera att din organisation använder stark autentisering
+### <a name="make-sure-your-organization-uses-strong-authentication"></a>Kontrol lera att din organisation använder stark autentisering
 
 Med hänsyn till frekvensen av lösen ord som gissas, phished, blir stulen med skadlig kod eller återanvänds, är det viktigt att du säkerhetskopierar lösen ordet med någon form av stark autentiseringsuppgift – Läs mer om [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
+
+Om du vill aktivera den grundläggande säkerhets nivån för identiteter kan du använda det här alternativet för att aktivera med [Azure AD-säkerhetsinställningarna](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md). Säkerhets standarder upprätthåller Azure MFA för alla användare i en klient organisation och blockerar inloggningar från äldre protokoll för hela klienten.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Starta förbjuda ofta angrepp av lösen ord och inaktivera traditionell komplexitet och utgångs regler.
 
@@ -99,7 +106,7 @@ Appar som använder sina egna äldre metoder för att autentisera med Azure AD o
 
 1. Blockera [äldre autentisering om du använder AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Konfigurera [SharePoint Online och Exchange Online för att använda modern autentisering](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Använd [principer för villkorlig åtkomst för att blockera äldre autentisering](../../active-directory/conditional-access/conditions.md).
+3. Om du har Azure AD Premium använder du [villkorliga åtkomst principer](../../active-directory/conditional-access/conditions.md) för att blockera äldre autentisering, annars använder du [standardinställningar för Azure AD-säkerhet](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blockera ogiltiga start punkter för autentisering
 
@@ -166,7 +173,7 @@ Azure AD Identity Protection ger två viktiga rapporter som du bör övervaka da
 
 ### <a name="audit-apps-and-consented-permissions"></a>Granska appar och samskickade behörigheter
 
-Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, till exempel e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna.
+Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, t. ex. e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Steg 5 – aktivera själv hjälp för slutanvändare
 
@@ -178,7 +185,7 @@ Azures självbetjäning för [återställning av lösen ord (SSPR)](../../active
 
 ### <a name="implement-self-service-group-management"></a>Implementera hantering av självbetjänings grupper
 
-Azure AD ger möjlighet att hantera åtkomst till resurser med hjälp av säkerhets grupper och Office 365-grupper. Dessa grupper kan hanteras av grupp ägare i stället för IT-administratörer. Den här funktionen är känd som självbetjänings [grupp hantering](../../active-directory/users-groups-roles/groups-self-service-management.md)och gör det möjligt för grupp ägare som inte har tilldelats en administrativ roll att skapa och hantera grupper utan att behöva använda administratörer för att hantera sina begär Anden.
+Azure AD ger möjlighet att hantera åtkomst till resurser med hjälp av säkerhets grupper och Office 365-grupper. Dessa grupper kan hanteras av grupp ägare i stället för IT-administratörer. Den här funktionen är känd som självbetjänings [grupp hantering](../../active-directory/users-groups-roles/groups-self-service-management.md)och gör det möjligt för grupp ägare som inte har tilldelats en administrativ roll att skapa och hantera grupper utan att förlita dig på att administratörer hanterar sina begär Anden.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementera åtkomst granskningar för Azure AD
 
@@ -197,4 +204,7 @@ Det finns många aspekter av en säker identitets infrastruktur, men den här ch
 Vi uppskattar hur allvarligt du tar identitets säkerheten och hoppas att det här dokumentet är en bra översikt över en säkrare position för din organisation.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du behöver hjälp med att planera och distribuera rekommendationerna läser du distributions planerna för [Azure AD-projekt](https://aka.ms/deploymentplans) för att få hjälp.
+
+Om du behöver hjälp med att planera och distribuera rekommendationerna läser du [distributions planerna för Azure AD-projekt](https://aka.ms/deploymentplans) för att få hjälp.
+
+Om du är säker på att alla dessa steg är fullständiga använder du Microsofts [identitet](../../active-directory/fundamentals/identity-secure-score.md)för att hålla dig uppdaterad, som håller dig uppdaterad med de [senaste bästa metoderna](identity-management-best-practices.md) och säkerhetshot.

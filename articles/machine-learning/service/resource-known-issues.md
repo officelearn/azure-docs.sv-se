@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0dd0b8cf39da8039b3a59bf243284e0d5062bd78
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 5edf4a4f53e6b4255970f86dd942795ad2e4cbe2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965603"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025400"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -150,6 +150,12 @@ Om du ser ett `FailToSendFeather`-fel vid läsning av data på Azure Databricks-
 * Lägg till `azure-dataprep` version 1.1.8 eller senare.
 * Lägg till `pyarrow` version 0,11 eller senare.
 
+## <a name="datasets"></a>Datauppsättningar
+
+Detta är kända problem för Azure Machine Learning data uppsättningar.
+
++ **Det gick inte att läsa Parquet-filer på Azure Data Lake Storage Gen2** Läsning av Parquet-filer från Azure Data Lake Storage Gen2-datalager fungerar inte om du har `azureml-dataprep==1.1.25` installerat. Det går inte att `Cannot seek once reading started.`. Om du ser det här felet kan du antingen installera `azureml-dataprep<=1.1.24` eller installera `azureml-dataprep>=1.1.26`.
+
 ## <a name="azure-portal"></a>Azure portal
 
 Om du går direkt till att visa din arbets yta från en resurs länk från SDK eller portalen, kan du inte visa sidan för normal översikt med prenumerations information i tillägget. Du kommer inte heller att kunna byta till en annan arbets yta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Portal](https://portal.azure.com) och söka efter namnet på arbets ytan.
@@ -242,12 +248,12 @@ Här följer Azure ML-rekommendationer för att åtgärda några av de vanliga f
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (ingen modul med namnet)
 Om du kör i ModuleErrors när du skickar experiment i Azure ML, innebär det att utbildnings skriptet förväntar sig att ett paket ska installeras men inte läggs till. När du har angett paket namnet kommer Azure ML att installera paketet i den miljö som används för din utbildning. 
 
-Om du använder [uppskattningar](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file`eller lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parameter.
+Om du använder [uppskattningar](concept-azure-machine-learning-architecture.md#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file`eller lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parameter.
 
 Azure ML tillhandahåller också Ramverks uppskattningar för Tensorflow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att Ramverks beroenden är installerade på din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
  
  Azure ML-underhållna Docker-avbildningar och deras innehåll kan visas i [azureml-behållare](https://github.com/Azure/AzureML-Containers).
-Ramverks beroenden visas i respektive ramverk dokumentation – [kedjor](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Ramverks beroenden visas i respektive ramverk dokumentation – [kedjor](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
 >[OBS!] Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna bilder och miljöer kan du generera ett GitHub-problem i [azureml-behållare](https://github.com/Azure/AzureML-Containers). 
  

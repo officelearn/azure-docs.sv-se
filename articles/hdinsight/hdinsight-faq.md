@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bff2210e77f7af98c1289b08159a89f42f2a3bd
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: MT
+ms.openlocfilehash: 5b9011e2a95dc1bdb86311111123db3c994f3aee
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827609"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044945"
 ---
-# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Vanliga frågor och svar
+# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: vanliga frågor och svar
 
 Den här artikeln innehåller svar på några av de vanligaste frågorna om hur du kör [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -44,7 +44,7 @@ Mer information finns i [kapacitets planering för HDInsight-kluster](https://do
 
 Vanliga fel och lösningar för kapacitets problem finns i det här avsnittet.
 
-#### <a name="error-the-deployment-would-exceed-the-quota-of-800"></a>Fel: Distributionen skulle överskrida kvoten på 800
+#### <a name="error-the-deployment-would-exceed-the-quota-of-800"></a>Fel: distributionen skulle överskrida kvoten på 800
 
 Azure har en kvot på 800 distributioner per resursgrupp. Olika kvoter tillämpas per resurs grupp, prenumeration, konto eller andra omfång. Din prenumeration kan till exempel konfigureras så att antalet kärnor för en region begränsas. Om du försöker distribuera en virtuell dator som har fler kärnor än vad som tillåts visas ett fel meddelande som anger att kvoten överskreds.
 
@@ -52,7 +52,7 @@ Lös problemet genom att ta bort de distributioner som inte längre behövs med 
 
 Mer information finns i [Åtgärda fel med resurskvoter](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
-#### <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>Fel: Den maximala noden överskred de tillgängliga kärnorna i den här regionen
+#### <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>Fel: den maximala noden överskred de tillgängliga kärnorna i den här regionen
 
 Din prenumeration kanske har konfigurerats så att antalet kärnor för en region begränsas. Om du försöker distribuera en resurs som har fler kärnor än vad som tillåts visas ett fel meddelande som anger att kvoten överskreds.
 
@@ -84,7 +84,7 @@ Ja. Om du vill installera ytterligare komponenter eller anpassa kluster konfigur
 
 - Skript under eller efter skapandet. Skript anropas via [skript åtgärd](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), vilket är ett konfigurations alternativ som du kan använda från Azure Portal, HDInsight Windows PowerShell-cmdletar eller HDInsight .NET SDK. Det här konfigurations alternativet kan användas från Azure Portal, HDInsight Windows PowerShell-cmdletar eller HDInsight .NET SDK.
 
-- `sudo`eller andra metoder när du har etablerat klustret.
+- `sudo` eller andra metoder efter att du har etablerat klustret.
   
 - [HDInsight-program plattform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) för att installera eko system program.
 
@@ -114,7 +114,7 @@ Nej, det går inte att köra Apache Kafka och Apache Spark i samma HDInsight-klu
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Hur gör jag för att ändra tidszon i Ambari?
 
-1. Öppna Ambari-webbgränssnittet https://CLUSTERNAME.azurehdinsight.net på, där kluster namn är namnet på klustret.
+1. Öppna Ambari-webbgränssnittet på https://CLUSTERNAME.azurehdinsight.net, där kluster namn är namnet på klustret.
 2. I det övre högra hörnet väljer du admin | Autentiseringsinställningar. 
 
    ![Ambari-inställningar](media/hdinsight-faq/ambari-settings.png)
@@ -127,15 +127,15 @@ Nej, det går inte att köra Apache Kafka och Apache Spark i samma HDInsight-klu
 
 ### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-server"></a>Hur kan jag migrera från det befintliga metaarkiv till Azure SQL Server? 
 
-Information om hur du migrerar från SQL Server till [Azure SQL Server finns i Självstudier: Migrera SQL Server till en enskild databas eller en databas i pooler i Azure SQL Database offline med](../dms/tutorial-sql-server-to-azure-sql.md)DMS.
+Information om hur du migrerar från SQL Server till Azure SQL Server finns i [Självstudier: migrera SQL Server till en databas eller en databas i poolen Azure SQL Database offline med DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 
 ### <a name="is-the-hive-metastore-deleted-when-the-cluster-is-deleted"></a>Tas Hive-metaarkiv bort när klustret tas bort?
 
 Det beror på vilken typ av metaarkiv som klustret är konfigurerat för att använda.
 
-För en standard metaarkiv: Standard-metaarkiv är en del av kluster livs cykeln. När du tar bort ett kluster raderas även motsvarande metaarkiv och metadata.
+För en standard-metaarkiv: standard-metaarkiv är en del av kluster livs cykeln. När du tar bort ett kluster raderas även motsvarande metaarkiv och metadata.
 
-För en anpassad metaarkiv: Livs cykeln för metaarkiv är inte kopplad till ett klusters livs cykel. Därför kan du skapa och ta bort kluster utan att förlora metadata. Metadata, till exempel Hive-scheman, behålls även efter att du tagit bort och återskapat HDInsight-klustret.
+För en anpassad metaarkiv: livs cykeln för metaarkiv är inte kopplad till ett klusters livs cykel. Därför kan du skapa och ta bort kluster utan att förlora metadata. Metadata, till exempel Hive-scheman, behålls även efter att du tagit bort och återskapat HDInsight-klustret.
 
 Mer information finns i [använda externa metadata butiker i Azure HDInsight](hdinsight-use-external-metadata-stores.md).
 
@@ -177,9 +177,9 @@ Mer information finns i följande dokument:
 
 Ja, du kan distribuera en ytterligare virtuell dator i samma undernät som ett HDInsight-kluster. Följande konfigurationer är möjliga:
 
-- Edge-noder: Du kan lägga till ytterligare en Edge-nod i klustret, enligt beskrivningen i [använda tomma Edge-noder i Apache Hadoop kluster i HDInsight](hdinsight-apps-use-edge-node.md).
+- Edge-noder: du kan lägga till en annan Edge-nod i klustret, enligt beskrivningen i [använda tomma Edge-noder i Apache Hadoop kluster i HDInsight](hdinsight-apps-use-edge-node.md).
 
-- Fristående noder:  Du kan lägga till en fristående virtuell dator i samma undernät och komma åt klustret från den virtuella datorn med hjälp av den privata slut `https://<CLUSTERNAME>-int.azurehdinsight.net`punkten. Mer information finns i [kontrol lera nätverks trafik](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+- Fristående noder: du kan lägga till en fristående virtuell dator i samma undernät och komma åt klustret från den virtuella datorn med hjälp av den privata slut punkten `https://<CLUSTERNAME>-int.azurehdinsight.net`. Mer information finns i [kontrol lera nätverks trafik](hdinsight-plan-virtual-network-deployment.md#networktraffic).
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>Kan jag lägga till ett befintligt HDInsight-kluster i ett annat virtuellt nätverk?
 
@@ -211,11 +211,11 @@ Om du vill ansluta virtuella datorer till en domän måste du ha en domänkontro
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>Kan jag använda ett självsignerat certifikat i en AAD-DS säker LDAP-installation och etablera ett ESP-kluster?
 
-Du rekommenderas att använda ett certifikat som utfärdats av en certifikat utfärdare, men det går också att använda ett självsignerat certifikat på ESP. Mer information finns i:
+Du rekommenderas att använda ett certifikat som utfärdats av en certifikat utfärdare, men det går också att använda ett självsignerat certifikat på ESP. Mer information finns här:
 
 - [Aktivera Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
-- [Självstudier: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän](../active-directory-domain-services/tutorial-configure-ldaps.md)
+- [Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän](../active-directory-domain-services/tutorial-configure-ldaps.md)
 
 ### <a name="how-can-i-pull-login-activity-shown-in-ranger"></a>Hur kan jag hämta inloggnings aktivitet som visas i Ranger?
 
@@ -239,7 +239,14 @@ I scenarier där du måste kontrol lera schemat kan du använda följande steg:
 
 Mer information om hur du konfigurerar och kör ett cron-jobb finns i [Hur gör jag för att konfigurera ett cron-jobb](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)?
 
-## <a name="storage"></a>Storage
+### <a name="why-is-llap-available-on-spark-esp-clusters"></a>Varför är LLAP tillgängligt i Spark ESP-kluster?
+På ESP Spark-kluster är LLAP aktiverat av säkerhets skäl (t. ex. apache Ranger), inte prestanda. Du bör använda större virtuella noder för virtuella datorer för resursanvändning för LLAP (t. ex. minsta D13V2). 
+
+### <a name="how-can-i-add-addional-aad-groups-after-creating-an-esp-cluster"></a>Hur lägger jag till ytterligare AAD-grupper efter att du har skapat ett ESP-kluster?
+Det finns två sätt att åstadkomma detta: 1 – du kan återskapa klustret och lägga till ytterligare grupper när klustret skapas. Om du använder omfångs synkronisering i AAD-DS, se till att grupp B ingår i den omfångs synkroniseringen.
+2 – Lägg till gruppen som en kapslad under grupp för den tidigare gruppen som användes för att skapa ESP-klustret. Om du till exempel har skapat ett ESP-kluster med grupp `A`kan du senare använda Lägg till grupp `B` som en kapslad under grupp av `A` och efter cirka en timme synkroniseras det automatiskt och tillgängligt i klustret. 
+
+## <a name="storage"></a>Lagring
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>Kan jag lägga till en Azure Data Lake Storage Gen2 till ett befintligt HDInsight-kluster som ett ytterligare lagrings konto?
 
@@ -281,7 +288,7 @@ done
 
 För närvarande finns det inget Ranger-plugin-program för Blob Storage och Azure Data Lake Storage Gen1 eller Gen2. För ESP-kluster bör du använda Azure Data Lake Storage, eftersom du kan minst ange detaljerade behörigheter manuellt på fil system nivå med HDFS-verktyg. När du använder Azure Data Lake Storage kommer ESP-kluster också att göra en del av åtkomst kontrollen för fil system med Azure Active Directory på kluster nivå. 
 
-Du kan tilldela data åtkomst principer till dina användares säkerhets grupper med hjälp av Azure Storage Explorer. Mer information finns i:
+Du kan tilldela data åtkomst principer till dina användares säkerhets grupper med hjälp av Azure Storage Explorer. Mer information finns här:
 
 - [Hur gör jag för att ställer du in behörigheter för Azure AD-användare att fråga efter data i Data Lake Storage Gen2 med hjälp av Hive eller andra tjänster?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [Ange behörigheter för fil-och katalog nivå med Azure Storage Explorer med Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
@@ -290,7 +297,7 @@ Du kan tilldela data åtkomst principer till dina användares säkerhets grupper
 
 Nej, du kan inte öka disk storleken på en arbetsnoden, så det enda sättet att öka disk storleken är att släppa klustret och återskapa det med större virtuella datorer i arbets gruppen. Använd inte HDFS för att lagra någon av dina HDInsight-data eftersom data tas bort om du tar bort klustret. Lagra dina data i stället i Azure. Att skala upp klustret kan också lägga till ytterligare kapacitet i ditt HDInsight-kluster.
 
-## <a name="edge-nodes"></a>Gränsnoder
+## <a name="edge-nodes"></a>Edge-noder
 
 ### <a name="can-i-add-an-edge-node-after-the-cluster-has-been-created"></a>Kan jag lägga till en Edge-nod efter att klustret har skapats?
 
@@ -310,14 +317,14 @@ Du använder sparade skript för att anpassa nya arbetsnoder som läggs till i k
 
 Du kan använda följande REST-slutpunkter för att hämta nödvändig information i JSON-format. Använd grundläggande autentiseringsscheman för att göra begär Anden.
 
-- Tez-frågevy: *https: \/ @ no__t-2 @ no__t-3cluster name >. azurehdinsight. net/WS/v1/Timeline/HIVE_QUERY_ID/*
-- Tez dag vy: *https: \/ @ no__t-2 @ no__t-3cluster namn >. azurehdinsight. net/WS/v1/Timeline/TEZ_DAG_ID/*
+- Tez-frågevy: *https:\//\<kluster namn >. azurehdinsight. net/WS/v1/Timeline/HIVE_QUERY_ID/*
+- Tez dag View: *https:\//\<kluster namn >. azurehdinsight. net/WS/v1/Timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Hur gör jag för att hämta konfigurations information från HDI-kluster med hjälp av en Azure Active Directory användare?
 
 Om du vill förhandla rätt autentiserings-token med din AAD-användare går du igenom gatewayen med hjälp av följande format:
 
-* https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* https://`<cluster dnsname>`. azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Hur gör jag för att använda Ambari RESTful API för att övervaka garn prestanda?
 

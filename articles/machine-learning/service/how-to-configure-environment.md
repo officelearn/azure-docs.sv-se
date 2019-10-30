@@ -1,7 +1,7 @@
 ---
 title: Konfigurera en python-utvecklings miljö
 titleSuffix: Azure Machine Learning
-description: 'Lär dig hur du konfigurerar en utvecklings miljö när du arbetar med Azure Machine Learning. I den här artikeln får du lära dig hur du använder Conda-miljöer, skapar konfigurationsfiler och konfigurerar din egen molnbaserade Notebook-Server, Jupyter-anteckningsböcker, Azure Databricks, IDE: er, kod redigerare och Data Science Virtual Machine.'
+description: 'Lär dig att konfigurera utvecklings miljön för Azure Machine Learning. Använd Conda-miljöer, skapa konfigurationsfiler och konfigurera din egen molnbaserade Notebook-Server, Jupyter-anteckningsböcker, Azure Databricks, IDE: er, kod redigerare och Data Science Virtual Machine.'
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66073052b290a1345dc0bb63ed6df0934fd81c64
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 7ad9d721b102ab48f2ebb9c0361153bc3974492a
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804140"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053557"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 
@@ -185,7 +185,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
 
 1. Använd följande kommandon för att installera paket:
 
-    Det här kommandot installerar bas Azure Machine Learning SDK med Notebook och `automl` extra. @No__t_0 extra är en stor installation och kan tas bort från hakparenteserna om du inte tänker köra automatiserade maskin inlärnings experiment. @No__t_0 extra innehåller även Azure Machine Learning data prep SDK som standard som ett beroende.
+    Det här kommandot installerar bas Azure Machine Learning SDK med Notebook och `automl` extra. `automl` extra är en stor installation och kan tas bort från hakparenteserna om du inte tänker köra automatiserade maskin inlärnings experiment. `automl` extra innehåller även Azure Machine Learning data prep SDK som standard som ett beroende.
 
     ```shell
     pip install azureml-sdk[notebooks,automl]

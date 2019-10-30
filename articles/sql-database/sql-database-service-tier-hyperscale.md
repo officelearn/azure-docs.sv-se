@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: df6926a8f50d7ffb2765557cdf75ed6d09b3810b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 40a2443419fab5d0a89d704312d880e344597b8b
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428033"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053901"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -38,7 +38,7 @@ Den storskaliga tjänst nivån i Azure SQL Database ger följande ytterligare fu
 
 - Stöd för upp till 100 TB databas storlek
 - Nästan momentan databas säkerhets kopieringar (baserat på ögonblicks bilder av filer lagrade i Azure Blob Storage) oavsett storlek utan i/o-påverkan på beräknings resurser  
-- Snabba databaser återställer (baserat på ögonblicks bilder av filer) på några minuter i stället för timmar eller dagar (inte en storlek på data åtgärd)
+- Snabb återställning av databas tidpunkt (baserat på ögonblicks bilder av filer) på några minuter i stället för timmar eller dagar (inte en storlek på data åtgärd)
 - Högre övergripande prestanda på grund av högre logg data flöde och snabbare transaktions överförings tider, oavsett data volymer
 - Snabbt skala ut – du kan etablera en eller flera skrivskyddade noder för att avlasta din Läs arbets belastning och för användning som frekvent vänte läge
 - Snabbt skala upp – du kan, i konstant tid, skala upp dina beräknings resurser för att hantera stora arbets belastningar som och vid behov och sedan skala beräknings resurserna tillbaka när de inte behövs.
@@ -137,7 +137,7 @@ GO
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Ansluta till en storskalig replik av en storskalig databas
 
-I storskaliga databaser anger argumentet `ApplicationIntent` i anslutnings strängen som klienten tillhandahåller om anslutningen dirigeras till Skriv repliken eller till en skrivskyddad sekundär replik. Om `ApplicationIntent` är inställt på `READONLY` och databasen inte har någon sekundär replik, dirigeras anslutningen till den primära repliken och standardvärdet för @no__t 2 fungerar.
+I storskaliga databaser anger argumentet `ApplicationIntent` i anslutnings strängen som klienten tillhandahåller om anslutningen dirigeras till Skriv repliken eller till en skrivskyddad sekundär replik. Om `ApplicationIntent` har angetts till `READONLY` och databasen inte har någon sekundär replik dirigeras anslutningen till den primära repliken och standardvärdet för `ReadWrite` beteendet.
 
 ```cmd
 -- Connection string with application intent

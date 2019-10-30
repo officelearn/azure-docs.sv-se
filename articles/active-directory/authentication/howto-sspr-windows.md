@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab46bd29aef2fab26c744e1e4c199f6c9a9fff1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0aa0480e95fa072b6fa87aea8debd3dafc8ebcab
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304202"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042067"
 ---
-# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Anvisningar: Aktivera lösen ords återställning från Windows inloggnings skärm
+# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Gör så här: Aktivera lösen ords återställning från Windows inloggnings skärm
 
 För datorer som kör Windows 7, 8, 8,1 och 10 kan du göra det möjligt för användare att återställa sina lösen ord på Windows inloggnings skärm. Användare behöver inte längre hitta en enhet med en webbläsare för att få åtkomst till [SSPR-portalen](https://aka.ms/sspr).
 
@@ -30,15 +30,14 @@ För datorer som kör Windows 7, 8, 8,1 och 10 kan du göra det möjligt för an
 - **Användarna måste registrera sig för SSPR innan de kan använda den här funktionen**
 - Krav för nätverks proxy
    - Windows 10-enheter 
-       - Port 443 till `passwordreset.microsoftonline.com` och`ajax.aspnetcdn.com`
+       - Port 443 till `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com`
        - Windows 10-enheter stöder endast konfiguration av proxykonfigurationen på dator nivå
    - Windows 7-, 8-och 8,1-enheter
-       - Port 443 till`passwordreset.microsoftonline.com`
+       - Port 443 till `passwordreset.microsoftonline.com`
 
 ## <a name="general-limitations"></a>Allmänna begränsningar
 
 - Lösen ords återställning stöds för närvarande inte från ett fjärr skrivbord eller från utökade Hyper-V-sessioner.
-- Upplåsning av konto, meddelanden från mobilapp och kod för mobilapp stöds inte.
 - Den här funktionen fungerar inte för nätverk som distribuerar nätverksautentisering 802.1x och alternativet ”Utför omedelbart innan användaren loggar in”. Nätverk med nätverksautentiseringen 802.1x distribuerad rekommenderas att använda datorautentisering för att aktivera funktionen.
 
 ## <a name="windows-10-password-reset"></a>Lösen ords återställning för Windows 10
@@ -102,7 +101,7 @@ Azure AD-granskningsloggen innehåller information om IP-adressen och klienttype
 
 ![Exempel på lösen ords återställning i Windows 7 i Azure AD-gransknings loggen](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-När användarna återställer sina lösen ord från inloggnings skärmen på en Windows 10-enhet skapas ett tillfälligt konto med låg `defaultuser1` behörighet som heter. Det här kontot används för att skydda processen för lösenordsåterställning. Själva kontot har ett slumpmässigt genererat lösenord som inte visas för att logga in enheten och tas bort automatiskt när användaren återställer sitt lösenord. Det `defaultuser` kan finnas flera profiler men de kan ignoreras på ett säkert sätt.
+När användarna återställer sina lösen ord från inloggnings skärmen på en Windows 10-enhet skapas ett tillfälligt konto med låg behörighet med namnet `defaultuser1`. Det här kontot används för att skydda processen för lösenordsåterställning. Själva kontot har ett slumpmässigt genererat lösenord som inte visas för att logga in enheten och tas bort automatiskt när användaren återställer sitt lösenord. Det kan finnas flera `defaultuser` profiler, men de kan ignoreras på ett säkert sätt.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Lösen ords återställning för Windows 7, 8 och 8,1
 
@@ -118,7 +117,7 @@ När användarna återställer sina lösen ord från inloggnings skärmen på en
 ### <a name="install"></a>Installera
 
 1. Hämta lämpligt installations program för den Windows-version som du vill aktivera.
-   - Program vara är tillgänglig på Microsoft Download Center på[https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+   - Program vara finns på Microsoft Download Center på [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
 1. Logga in på den dator där du vill installera och kör installations programmet.
 1. Efter installationen rekommenderas du starkt att starta om.
 1. Efter omstarten väljer du en användare på inloggnings skärmen och klickar på "glömt lösen ord?" för att initiera arbets flödet för lösen ords återställning.
@@ -141,8 +140,8 @@ Om ytterligare loggning krävs kan en register nyckel på datorn ändras för at
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Om du vill aktivera utförlig loggning skapar du `REG_DWORD: “EnableLogging”`en och anger den till 1.
-- Om du vill inaktivera utförlig loggning ändrar `REG_DWORD: “EnableLogging”` du till 0.
+- Om du vill aktivera utförlig loggning skapar du en `REG_DWORD: “EnableLogging”`och anger den till 1.
+- Om du vill inaktivera utförlig loggning ändrar du `REG_DWORD: “EnableLogging”` till 0.
 
 ## <a name="what-do-users-see"></a>Vad ser användarna
 

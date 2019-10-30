@@ -1,6 +1,6 @@
 ---
-title: Pris & fakturering – Azure Logic Apps | Microsoft Docs
-description: Lär dig hur priser och fakturering fungerar för Azure Logic Apps
+title: Pris & fakturerings modell – Azure Logic Apps
+description: Översikt över hur pris-och fakturerings modellen fungerar för Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: logic-apps
@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 62b96fa8722408aed81e87cb31218140fa4f5da8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f4651e40a0f4269dc5c8a2fcd4c0e25c1e9bbb3c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099412"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045115"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -35,7 +35,7 @@ För nya Logi Kap par som körs i offentliga eller globala Azure Logic Apps-tjä
 
 [Standard anslutningar](../connectors/apis-list.md#managed-connectors) debiteras enligt [standard anslutnings priset](https://azure.microsoft.com/pricing/details/logic-apps). Allmänt tillgängliga [företags anslutningar](../connectors/apis-list.md#managed-connectors) debiteras enligt [Enterprise Connector-priset](https://azure.microsoft.com/pricing/details/logic-apps), medan den offentliga för hands versionen av företags anslutningar debiteras enligt [standard anslutnings priset](https://azure.microsoft.com/pricing/details/logic-apps).
 
-Läs mer om hur faktureringen fungerar för [](#triggers) utlösare och [åtgärder](#actions).
+Läs mer om hur faktureringen fungerar för [utlösare](#triggers) och [åtgärder](#actions).
 
 <a name="fixed-pricing"></a>
 
@@ -51,15 +51,15 @@ En [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-
 
 * [Integrerings kontots](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) användning utan extra kostnad, baserat på din [ISE-SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
-  * **Premium-SKU**: Ett enda integrations konto på [Standard nivå](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * **Premium-SKU**: ett enda integrations konto på [Standard nivå](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
-  * **SKU för utvecklare**: Ett enda integrations konto på den [kostnads fria nivån](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * **SKU för utvecklare**: ett enda integrations konto på den [kostnads fria nivån](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
   Varje ISE SKU är begränsad till 5 sammanlagt integrations konton. För ytterligare kostnader kan du ha fler integrations konton baserat på din ISE-SKU:
 
-  * **Premium-SKU**: Upp till fyra standard konton. Inga kostnads fria eller grundläggande konton.
+  * **Premium-SKU**: upp till fyra fler standard konton. Inga kostnads fria eller grundläggande konton.
 
-  * **SKU för utvecklare**: Antingen upp till fyra standard konton eller upp till 5 totala standard konton. Inga grundläggande konton.
+  * **SKU för utvecklare**: antingen upp till fyra standard konton eller upp till 5 totala standard konton. Inga grundläggande konton.
 
 Mer information om gränser för integrations konton finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Du kan lära dig mer om [integrations konto nivåer och deras pris modell](#integration-accounts) senare i det här avsnittet.
 
@@ -72,9 +72,9 @@ Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pric
 
 <a name="connectors"></a>
 
-## <a name="connectors"></a>Anslutningar
+## <a name="connectors"></a>Anslutningsprogram
 
-Azure Logic Apps kopplingar hjälper dig att komma åt appar, tjänster och system i molnet i molnet eller lokalt genom [](#triggers)att tillhandahålla utlösare, [åtgärder](#actions)eller både och. Anslutningarna klassificeras som antingen standard eller Enterprise. En översikt över dessa anslutningar finns i [kopplingar för Azure Logic Apps](../connectors/apis-list.md). Om inga färdiga kopplingar är tillgängliga för de REST-API: er som du vill använda i dina Logi Kap par, kan du skapa [anpassade anslutningar](https://docs.microsoft.com/connectors/custom-connectors), som bara omsluter runt dessa REST-API: er. Anpassade anslutningar faktureras som standard anslutningar. I följande avsnitt finns mer information om hur faktureringen för utlösare och åtgärder fungerar.
+Azure Logic Apps kopplingar hjälper dig att komma åt appar, tjänster och system i molnet i molnet eller lokalt genom att tillhandahålla [utlösare](#triggers), [åtgärder](#actions)eller både och. Anslutningarna klassificeras som antingen standard eller Enterprise. En översikt över dessa anslutningar finns i [kopplingar för Azure Logic Apps](../connectors/apis-list.md). Om inga färdiga kopplingar är tillgängliga för de REST-API: er som du vill använda i dina Logi Kap par, kan du skapa [anpassade anslutningar](https://docs.microsoft.com/connectors/custom-connectors), som bara omsluter runt dessa REST-API: er. Anpassade anslutningar faktureras som standard anslutningar. I följande avsnitt finns mer information om hur faktureringen för utlösare och åtgärder fungerar.
 
 <a name="triggers"></a>
 
@@ -82,13 +82,13 @@ Azure Logic Apps kopplingar hjälper dig att komma åt appar, tjänster och syst
 
 Utlösare är särskilda åtgärder som skapar en Logic App-instans när en specifik händelse inträffar. Utlösare fungerar på olika sätt, vilket påverkar hur Logic app mäts. Här är de olika typerna av utlösare som finns i Azure Logic Apps:
 
-* Avsöknings utlösare: Den här utlösaren kontrollerar kontinuerligt en slut punkt för meddelanden som uppfyller kriterierna för att skapa en Logic App-instans och starta arbets flödet. Även om ingen Logic App-instans skapas, Logic Apps mäta varje avsöknings förfrågan som en körning. Ange avsöknings intervallet genom att ställa in utlösaren via Logic App Designer.
+* **Avsöknings utlösare**: den här utlösaren kontrollerar kontinuerligt en slut punkt för meddelanden som uppfyller kriterierna för att skapa en Logic App-instans och starta arbets flödet. Även om ingen Logic App-instans skapas, Logic Apps mäta varje avsöknings förfrågan som en körning. Ange avsöknings intervallet genom att ställa in utlösaren via Logic App Designer.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook**-utlösare: Den här utlösaren väntar på att en klient skickar en begäran till en angiven slut punkt. Varje begäran som skickas till webhook-slutpunkten räknas som en åtgärds körning. Exempelvis är utlösaren för begäran och HTTP-webhooken både webhook-utlösare.
+* **Webhook-utlösare**: den här utlösaren väntar på att en klient skickar en begäran till en angiven slut punkt. Varje begäran som skickas till webhook-slutpunkten räknas som en åtgärds körning. Exempelvis är utlösaren för begäran och HTTP-webhooken både webhook-utlösare.
 
-* **Upprepnings**utlösare: Den här utlösaren skapar en Logic App-instans baserat på upprepnings intervallet som du ställer in i utlösaren. Du kan till exempel ställa in en upprepnings utlösare som körs var tredje dag eller ett mer komplext schema.
+* **Upprepnings utlösare**: den här utlösaren skapar en Logic App-instans baserat på upprepnings intervallet som du ställer in i utlösaren. Du kan till exempel ställa in en upprepnings utlösare som körs var tredje dag eller ett mer komplext schema.
 
 <a name="actions"></a>
 
@@ -119,11 +119,11 @@ Om du har en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtua
 
 Om du vill välja mellan ett kostnads fritt, Basic-eller standard integrations konto granskar du följande användnings Falls beskrivningar:
 
-* **Kostnads fri**: För när du vill testa exempel scenarier, inte produktions scenarier
+* **Kostnads fri**: för när du vill testa exempel scenarier, inte produktions scenarier
 
-* **Basic**: För när du bara vill använda meddelande hantering eller för att agera som en liten affärs partner som har en handels partner relation med en större affär senhet
+* **Basic**: när du vill att endast meddelande hantering eller ska fungera som en liten affärs partner som har en handels partner relation med en större affär senhet
 
-* **Standard**: När du har mer komplexa B2B-relationer och ökat antal entiteter som du måste hantera
+* **Standard**: när du har mer komplexa B2B-relationer och ökat antal entiteter som du måste hantera
 
 <a name="data-retention"></a>
 
@@ -162,7 +162,7 @@ För att hjälpa dig att övervaka din Logic Apps lagrings förbrukning kan du:
 
 1. Välj den åtgärd som du vill visa i tabellen åtgärder i fönstret för att **köra information i Logic app** .
 
-1. I fönstret **åtgärd för Logic app-åtgärd** hittar du storlekarna för åtgärdens indata och utdata visas under länken indata och **länken utdata**.
+1. I fönstret **åtgärd för Logic app-åtgärd** hittar du storlekarna för åtgärdens indata och utdata visas under länken **indata** och **länken utdata**.
 
 ## <a name="next-steps"></a>Nästa steg
 

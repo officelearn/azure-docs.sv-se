@@ -7,14 +7,17 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9af8a94953d7893c71cfc413f9259ec8582a8899
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a0bf3b555334b67659975c150711eab02b957c6e
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72955153"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026601"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Självstudie: skapa ett anslutet hanterings program för skräp hantering i IoT Central
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 I den här självstudien får du hjälp med att skapa ett program för hantering av program som är kopplat till Azure IoT Central från program mal len IoT Central **anslutet** 
 
 I självstudien får du lära dig att: 
@@ -45,7 +48,7 @@ Så här skapar du ett nytt Azure IoT Central-anslutet hanterings program för s
 
     ![Ange ditt organisationskonto](./media/tutorial-connectedwastemanagement/sign-in.png)
 
-2. Klicka på **build** i den vänstra navigerings menyn och välj fliken **myndigheter** . Sidan myndigheter visar flera myndighets programmallar.
+2. Klicka på **build (Bygg** in) i den vänstra rutan och välj fliken **myndigheter** . Sidan myndigheter visar flera myndighets programmallar.
 
     ![Bygg app-mallar för myndigheter](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
@@ -255,8 +258,8 @@ Som verktyg kan du ändra flera inställningar för att anpassa användar upplev
 
 Om du inte kommer att fortsätta att använda det här programmet tar du bort programmet med följande steg:
 
-1. Öppna fliken Administration från den vänstra navigerings menyn i IoT Central programmet. 
-2. Välj program inställningar och klicka på knappen Ta bort längst ned på sidan. 
+1. Öppna fliken Administration i det vänstra fönstret i ditt IoT Central-program.
+2. Välj program inställningar och klicka på knappen Ta bort längst ned på sidan.
 
   
 

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/23/2019
 ms.author: iainfou
-ms.openlocfilehash: b99eafeae60e81fd7d902289a47190a2cbe1daa3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5d221664669e9af647cca4e242d7763ed74cd3c9
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786991"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023968"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Självstudie: skapa och konfigurera en Azure Active Directory Domain Services-instans
 
@@ -87,7 +87,11 @@ Följande DNS-namn begränsningar gäller också:
 Fyll i fälten i fönstret *Basics* i Azure Portal för att skapa en Azure AD DS-instans:
 
 1. Ange ett **DNS-domännamn** för din hanterade domän, och ta hänsyn till föregående punkter.
-1. Välj den Azure- **plats** där den hanterade domänen ska skapas.
+1. Välj den Azure- **plats** där den hanterade domänen ska skapas. Om du väljer en region som stöder Tillgänglighetszoner fördelas Azure AD DS-resurserna mellan zoner för ytterligare redundans.
+
+    Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner.
+
+    Det finns inget som du kan konfigurera för att Azure AD DS ska distribueras mellan zoner. Azure-plattformen hanterar automatiskt zon distributionen av resurser. Mer information och mer information om regions tillgänglighet finns i [Vad är Tillgänglighetszoner i Azure?][availability-zones]
 
     ![Konfigurera grundläggande inställningar för en Azure AD Domain Services instans](./media/tutorial-create-instance/basics-window.png)
 
@@ -117,7 +121,7 @@ Granska konfigurations inställningarna för den hanterade domänen på sidan **
 
     ![Status för domän tjänster när den har kon figurer ATS](./media/tutorial-create-instance/successfully-provisioned.png)
 
-Vi etablerar Azure AD Domain Services på Azure Active Directory klienten och Azure AD Domain Services resursen för tjänsten skapas i den associerade Azure-prenumerationen. Under etablerings processen skapar Azure AD DS två företags program med namnet *domänkontrollant tjänster* och *AzureActiveDirectoryDomainControllerServices* i din Azure Active Directory-instans där du har aktiverat Azure AD Domain Services. De här företags programmen behövs för att underhålla din hanterade domän.  Det är absolut nödvändigt att dessa program inte tas bort när du vill.
+Den hanterade domänen är kopplad till din Azure AD-klient. Under etablerings processen skapar Azure AD DS två företags program med namnet *domänkontrollant tjänster* och *AZUREACTIVEDIRECTORYDOMAINCONTROLLERSERVICES* i Azure AD-klienten. De här företags programmen behövs för att underhålla din hanterade domän. Ta inte bort de här programmen.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
 
@@ -188,6 +192,7 @@ Innan du ansluter till virtuella datorer och distribuerar program som använder 
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

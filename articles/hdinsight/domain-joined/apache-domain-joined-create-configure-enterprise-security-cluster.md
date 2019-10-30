@@ -1,5 +1,5 @@
 ---
-title: Skapa och konfigurera Enterprise Security Package kluster i Azure HDInsight
+title: Skapa, Konfigurera Enterprise Security Package kluster – Azure
 description: Lär dig hur du skapar och konfigurerar Enterprise Security Package kluster i Azure HDInsight
 services: hdinsight
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: aed656c65fc70946f7d91cb4354e1c081954e68c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6247a6b2eeeb421773400cc60d05696f973a1dff
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030390"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044674"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Skapa och konfigurera Enterprise Security Package kluster i Azure HDInsight
 
@@ -45,7 +45,7 @@ I det här avsnittet ska du använda en distributions mall för Azure snabb star
     1. Bredvid **resurs grupp**väljer du **Skapa ny**och anger namnet *OnPremADVRG*.
     1. Ange följande information för resten av mall fälten:
 
-        * **Plats**: Centrala USA
+        * **Plats**: Central USA
         * **Admin-användar namn**: HDIFabrikamAdmin
         * **Administratörs lösen ord**: \<YOUR_PASSWORD >
         * **Domän namn**: HDIFabrikam.com
@@ -63,7 +63,7 @@ I det här avsnittet ska du skapa de användare som ska ha åtkomst till HDInsig
 
 1. Anslut till domänkontrollanten med hjälp av fjärr skrivbord.
     1. Om du använde mallen i början är domänkontrollanten en virtuell dator som heter **adVM** i resurs gruppen **OnPremADVRG** .
-    1. I Azure Portal väljer du **resurs grupper** > **OnPremADVRG** > **adVM** > **Connect**.
+    1. I Azure Portal väljer du **resurs grupper** > **OnPremADVRG** > **adVM** > **Anslut**.
     1. Välj fliken **RDP** > **Ladda ned RDP-fil**.
     1. Spara filen på din dator och öppna den.
     1. När du uppmanas att ange autentiseringsuppgifter använder du *HDIFabrikam\HDIFabrikamAdmin* som användar namn. Ange sedan det lösen ord som du har valt för administratörs kontot.
@@ -88,7 +88,7 @@ I det här avsnittet ska du skapa de användare som ska ha åtkomst till HDInsig
 
         ![Skapa ett andra administratörs användar objekt](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png)
 
-1. På sidan **Active Directory användare och datorer** väljer du **åtgärd** > **ny** > -**grupp**. Lägg till en grupp med namnet *HDIUserGroup*.
+1. På sidan **Active Directory användare och datorer** väljer du **åtgärd** > **ny** > **grupp**. Lägg till en grupp med namnet *HDIUserGroup*.
 
     ![Skapa en ny Active Directory grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png)
 
@@ -119,7 +119,7 @@ Användarna kommer att synkroniseras med Azure AD.
 
 1. På vänster sida av Azure Portal väljer du **Azure Active Directory**.
 1. Om det behövs väljer du **Växla katalog** för att ändra till den nya **HDIFabrikamoutlook** -katalogen.
-1. Under **Hantera**väljer du **anpassade domän namn** > **Lägg till anpassad domän**.
+1. Under **Hantera**väljer du **anpassade domän namn** > **lägger till en anpassad domän**.
 1. Under **eget domän namn**, anger du *HDIFabrikam.com* och väljer **Lägg till domän**.
 
 ![Skapa en anpassad domän](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-custom-domain.png)
@@ -134,7 +134,7 @@ Nu ska du konfigurera din Azure AD-klient så att du kan synkronisera användare
     1. Ange följande information för den nya användaren:
         * **Namn**: fabrikamazureadmin
         * **Användar namn**: fabrikamazureadmin@hdifabrikam.com
-        * **Lösenord**: Ett säkert lösen ord som du väljer
+        * **Lösen ord**: ett säkert lösen ord som du väljer
 
     1. I avsnittet **grupper** söker du efter **AAD DC-administratörer** och klickar på **Välj**.
 
@@ -146,7 +146,7 @@ Nu ska du konfigurera din Azure AD-klient så att du kan synkronisera användare
 
     1. Ange ett lösen ord för användaren. Välj sedan **Skapa**.
 
-1. Om du vill ändra lösen ordet för den nyligen skapade användaren \< @ no__t-1 > använder du identiteten för att logga in på Azure Portal. Sedan uppmanas du att ändra lösen ordet.
+1. Om du vill ändra lösen ordet för den nyligen skapade användaren \<fabrikamazureadmin@hdifabrikam.com> använder du identiteten för att logga in på Azure Portal. Sedan uppmanas du att ändra lösen ordet.
 
 ## <a name="sync-on-premises-users-to-azure-ad"></a>Synkronisera lokala användare med Azure AD
 
@@ -174,14 +174,14 @@ Nu ska du konfigurera din Azure AD-klient så att du kan synkronisera användare
 
    ![Sidan "Anslut till Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. På sidan **konfiguration av Azure AD-inloggning** väljer du **Nästa**.
-   @no__t 0The "Azure AD-inloggning" sidan @ no__t-1
+   ![sidan "inloggnings konfiguration för Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
 1. Välj **Installera**på sidan **klar att konfigurera** .
 
    ![Sidan "klar att konfigurera"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
 1. På sidan **konfigurationen har slutförts** väljer du **Avsluta**.
-   ![The "konfigurationen är klar" @ no__t-1
+   ![sidan "konfigurationen är klar"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. När synkroniseringen är klar bekräftar du att de användare som du skapade i IaaS-katalogen synkroniseras med Azure AD.
    1. Logga in på Azure Portal.
@@ -192,7 +192,7 @@ Nu ska du konfigurera din Azure AD-klient så att du kan synkronisera användare
 Skapa en användardefinierad hanterad identitet som du kan använda för att konfigurera Azure AD Domain Services (Azure AD DS). Mer information finns i [skapa, lista, ta bort eller tilldela en roll till en användardefinierad hanterad identitet med hjälp av Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
 1. Logga in på Azure Portal.
-1. Välj **skapa en resurs** och skriv *hanterad identitet*. Välj **användare tilldelad hanterad identitet** > **skapa**.
+1. Välj **skapa en resurs** och skriv *hanterad identitet*. Välj **användare som tilldelats hanterad identitet** > **skapa**.
 1. Skriv *HDIFabrikamManagedIdentity*som **resurs namn**.
 1. Välj din prenumeration.
 1. Under **resurs grupp**väljer du **Skapa nytt** och anger *HDIFabrikam-Central*.
@@ -291,7 +291,7 @@ Kontrol lera att certifikatet är installerat i datorns **personliga** Arkiv:
 
 1. Starta Microsoft Management Console (MMC).
 1. Lägg till snapin-modulen **certifikat** som hanterar certifikat på den lokala datorn.
-1. Expandera **certifikat (lokal dator)**  > **personliga** > -**certifikat**. Ett nytt certifikat bör finnas i det **personliga** arkivet. Certifikatet utfärdas till det fullständigt kvalificerade värd namnet.
+1. Expandera **certifikat (lokal dator)**  > **personliga** > **certifikat**. Ett nytt certifikat bör finnas i det **personliga** arkivet. Certifikatet utfärdas till det fullständigt kvalificerade värd namnet.
 
     ![Bekräfta skapande av lokalt certifikat](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
@@ -318,16 +318,16 @@ Kontrol lera att certifikatet är installerat i datorns **personliga** Arkiv:
     1. Under **Inställningar**väljer du **inkommande säkerhets regler** > **Lägg till**.
     1. På sidan **Lägg till inkommande säkerhets regel** anger du följande egenskaper och väljer **Lägg till**:
 
-        | Egenskap | Value |
+        | Egenskap | Värde |
         |---|---|
-        | Source | Any |
-        | Source port ranges | * |
-        | Destination | Any |
-        | Destination port range | 636 |
-        | Protocol | Any |
-        | Action | Allow |
-        | Priority | \<Desired nummer > |
-        | Name | Port_LDAP_636 |
+        | Källa | Alla |
+        | Källportintervall | * |
+        | Mål | Alla |
+        | Målportintervall | 636 |
+        | Protokoll | Alla |
+        | Åtgärd | Tillåt |
+        | Prioritet | \<önskat antal > |
+        | Namn | Port_LDAP_636 |
 
     ![Dialog rutan Lägg till inkommande säkerhets regel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

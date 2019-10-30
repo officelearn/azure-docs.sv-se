@@ -1,6 +1,6 @@
 ---
-title: Integreringspartners för SQL Data Warehouse-data | Microsoft Docs
-description: Listor med tredjeparts-partner med lösningar för dataintegrering som har stöd för Azure SQL Data Warehouse.
+title: SQL Data Warehouse data integrerings partner | Microsoft Docs
+description: Visar en lista över partner från tredje part med lösningar för data integrering som stöder Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mabasile-MSFT
 manager: craigg
@@ -10,37 +10,38 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96ffeb12413f236ca0c131051245306ae16d4288
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873788"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045156"
 ---
-# <a name="sql-data-warehouse-data-integration-partners"></a>Integreringspartners för SQL Data Warehouse-data
-Välj från ett brett utbud av branschledande verktyg för att skapa din lösning för informationslager. Den här artikeln visar Microsoft partnerföretag med officiella dataintegrationslösningar som stöd för Azure SQL Data Warehouse.
+# <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse data integrerings partner
+Om du vill skapa din lösning för informations lager väljer du bland flera branschledande verktyg. I den här artikeln beskrivs Microsoft partner företag med officiella lösningar för data integrering som stöder Azure SQL Data Warehouse.
 
-## <a name="data-integration-partners"></a>Data integreringspartner
-| Partner | Beskrivning | Webbplatsen/Produktlänk |
+## <a name="data-integration-partners"></a>Data integrerings partner
+| Partner | Beskrivning | Länk till webbplats/produkt |
 | ------- | ----------- | -------------------- |
-| ![Alooma][7] |**Alooma**<br> Alooma är en ETL-lösning som gör att data grupper att integrera, utöka och strömma data från olika datasilor till SQL Data Warehouse i realtid. |[Produktsida][alooma_website] |
-| ![Alteryx][1] |**Alteryx**<br> Alteryx Designer innehåller ett arbetsflöde för självbetjäning dataanalys som leder till bättre insyn i timmar, inte veckor typiska för traditionella sätt! Alteryx Designer hjälper dataanalytiker genom att kombinera förberedelse av data, blandning av data och analys – prediktiva, statistiska och rumsliga – med hjälp av samma intuitiva användargränssnitt. |[Produktsida][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
-| ![Attunity][2] |**Attunity (CloudBeam)**<br>Attunity CloudBeam är en automatisk lösning för inläsning av data till SQL Data Warehouse. Det förenklar batch läser in och inkrementell replikering av data från många källor – SQL Server, Oracle, DB2, Sybase, MySQL och mer. |[Produktsida][attunity_cloudbeam_website]<br>[Azure Marketplace][attunity_marketplace]<br> |
-| ![Denodo][3] |**Denodo**<br>Denodo ger i realtid åtkomst till data på en organisations olika datakällor. Den använder datavirtualisering till bridge-data från många källor utan replikering. Den erbjuder bred åtkomst till strukturerade och Ostrukturerade data som finns i enterprise, stordata och molnkällor i batch- och realtid.|[Produktsida][denodo_website]<br>[Azure Marketplace][denodo_marketplace]<br> |
-| ![Fivetran][8] |**Fivetran**<br>Fivetran hjälper dig att centralisera data från olika källor. Den har en slippa Underhåll noll konfigurationsdata pipeline-produkt med en växande lista med inbyggda anslutningar till alla populära datakällor. Installationsprogrammet tar fem minuter efter autentisering till datakällor och mål-datalagret.|[Produktsida][fivetran_website]<br> |
-| ![Informatica][4] |**1. Informatica Cloud Services för Azure**<br> Informatica Cloud är en klassens bästa lösning för självbetjänad funktioner för migrering, integration och hantering. Kunder kan snabbt och importera tillförlitligt och exportera petabyte med data till Azure från olika källor. Informatica Cloud Services för Azure innehåller inbyggd, hög volym, högpresterande anslutning till Azure SQL Data Warehouse, SQL-databas, Blob-lagring, Data Lake Store och Azure Cosmos DB. <br><br> **2. Informatica PowerCenter** PowerCenter är en metadatastyrd integrering dataplattform som får igång och kan införas snabbare dataintegreringsprojekt för att leverera data till verksamheten snabbare än manuell manuell kodning. Den utgör grunden för dina investeringar för integrering av data |**Informatica Cloud services för Azure**<br>[Produktsida][informatica_Cloud_Services_website]<br>[Azure Marketplace][informatica_Cloud_Services_marketplace]<br><br> **Informatica PowerCenter**<br>[Produktsida][informatica_PowerCenter_website]<br> [Azure Marketplace][informatica_PowerCenter_byol]<br>|
-| ![Information Builders][5] |**Information Builders (Omni generations Data Management)**<br>Plattform för hantering av information Builder Omni generations data innehåller dataintegrering, datakvalitet och lösningar för hantering av master-data. Det gör det enkelt att komma åt, flytta och blanda alla data, oavsett format, plats, volym och svarstid.|[Produktsida][omnifocus_website]<br> [Azure Marketplace][omnigen_marketplace] |
-| ![Qubole][9] |**Qubole**<br>Qubole innehåller en molnplattform som gör att användarna kan utföra ETL, analyser och AI/ML-arbetsbelastningar. Det stöder en mängd olika open source-motorer - Apache Spark, TensorFlow, Presto, luftflödet, Hadoop, Hive och mycket mer. Den innehåller enkel att använda slutanvändarens verktyg för att bearbeta från Verktyg för SQL-fråga, anteckningsböcker och instrumentpaneler som utnyttjar kraftfulla motorer för öppen källkod.|[Produktsida][qubole_website]<br> [Azure Marketplace][qubole_marketplace] |
-| ![Segment][10] |**Segment**<br>Segment är en datahantering och Analyslösningar som hjälper dig att ordna kunddata som kommer från olika källor. Det kan du ansluta dina data till över 200 verktyg för att skapa bättre beslut, produkter och upplevelser. Segmentet ska transformera och läsa in flera datakällor i ditt informationslager åt dig med hjälp av dess inbyggda dataanslutningar|[Produktsida][segment_website]<br> |
-| ![Skyvia][11] |**Skyvia (dataintegrering)**<br>Integrering av Skyvia innehåller en guide som automatiserar dataimporter. Den här guiden kan du migrera data mellan olika källor - CRM, databas, CSV-filer med mera. |[Produktsida][segment_website]<br> |
-| ![SnapLogic][6] |**SnapLogic**<br>SnapLogic-plattformen gör det möjligt för kunder att snabbt överföra data till och från Microsoft Azure SQL Data Warehouse. Det ger dig möjlighet att integrera hundratals program, tjänster och IoT-scenarier i en lösning.|[Produktsida][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
-| ![Talend][12] |**Talend Cloud**<br>Talend Cloud är en plattform för integrering av interprise data att ansluta, komma åt och transformera data i molnet eller lokalt. Det är ett erbjudande för integration platform-as-a-service (iPaaS) som tillhandahåller bred anslutning, inbyggda datakvalitet och inbyggt stöd för de senaste big data och molntekniker |[Produktsida][talend_website]<br> [Azure Marketplace][talend_marketplace] |
-| ![Trifacta][13] |**Trifacta Wrangler**<br> Trifacta hjälper personer och organisationer utforska och ansluta till olika data för analys. Trifacta Wrangler är utformad för att hantera data experimenteringsfunktioner arbetsbelastningar som behöver stöd för data i skala och ett stort antal användare.|[Produktsida][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
-| ![WhereScape][14] |**Wherescape RED**<br> WhereScape RED är en IDE som ger team med verktyg för automatisering av att effektivisera ETL-arbetsflöden. IDE innehåller rekommendationer, optimerad inbyggd kod för populära mål. Använd WhereScape röd till halverat tiden för att utveckla, distribuera och hantera infrastrukturen för data.|[Produktsida][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
+| ![Alooma][7] |**Alooma**<br> Alooma är en ETL-lösning som gör det möjligt för data lag att integrera, utöka och strömma data från olika datasilor till SQL Data Warehouse allt i real tid. |[Produkt sida][alooma_website] |
+| ![Alteryx][1] |**Alteryx**<br> Alteryx designer innehåller ett upprepnings bara arbets flöde för självbetjänings data analys som leder till djupare insikter i timmar, inte de veckor som är typiska för traditionella metoder! Alteryx designer hjälper dataanalytiker genom att kombinera förberedelse av data, data blandning och analys – förutsägande, statistisk och spatial – med samma intuitiva användar gränssnitt. |[Produkt sida][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
+| ![Attunity][2] |**Attunity (CloudBeam)**<br>Attunity CloudBeam innehåller en automatiserad lösning för inläsning av data i SQL Data Warehouse. Det fören klar satsvis inläsning och stegvis replikering av data från många källor – SQL Server, Oracle, DB2, Sybase, MySQL och mycket annat. |[Produkt sida][attunity_cloudbeam_website]<br>[Azure Marketplace][attunity_marketplace]<br> |
+| ![Denodo][3] |**Denodo**<br>Denodo ger real tids åtkomst till data i en organisations olika data källor. Data virtualisering används för att överbrygga data över flera källor utan replikering. Det ger bred åtkomst till strukturerade och ostrukturerade data i företags-, Big data-och moln källor i både batch och real tid.|[Produkt sida][denodo_website]<br>[Azure Marketplace][denodo_marketplace]<br> |
+| ![Fivetran][8] |**Fivetran**<br>Fivetran hjälper dig att centralisera data från olika källor. Den har inget underhåll, noll konfigurations data pipeline produkt med en växande lista med inbyggda kopplingar till alla populära data källor. Installationen tar fem minuter efter autentisering till data källor och mål informations lagret.|[Produkt sida][fivetran_website]<br> |
+| ![Informatica][4] |**1. Informatica Cloud Services för Azure**<br> Informatica Cloud erbjuder en förstklassig lösning för migrering av datamigrering, integrering och hantering av data. Kunder kan snabbt och tillförlitligt importera och exportera petabyte data till Azure från flera olika källor. Informatica Cloud Services för Azure ger inbyggd, hög prestanda anslutning till Azure SQL Data Warehouse, SQL Database, Blob Storage, Data Lake Store och Azure Cosmos DB. <br><br> **2. Informatica PowerCenter** PowerCenter är en metadata driven data integrerings plattform som JumpStarts och påskyndar data integrerings projekt för att leverera data till företaget snabbare än manuell manuell kodning. Den fungerar som grund för dina investeringar i data integrering |**Informatica Cloud Services för Azure**<br>[Produkt sida][informatica_Cloud_Services_website]<br>[Azure Marketplace][informatica_Cloud_Services_marketplace]<br><br> **Informatica PowerCenter**<br>[Produkt sida][informatica_PowerCenter_website]<br> [Azure Marketplace][informatica_PowerCenter_byol]<br>|
+| ![Informations byggare][5] |**Informations byggare (Omni-GEN Datahantering)**<br>Informations verktygets Omni-generations plattform för data hantering ger data integrering, data kvalitet och hanterings lösningar för huvud data. Det gör det enkelt att komma åt, flytta och blanda alla data oavsett format, plats, volym eller svars tid.|[Produkt sida][omnifocus_website]<br> [Azure Marketplace][omnigen_marketplace] |
+| ![Qubole][9] |**Qubole**<br>Qubole tillhandahåller en moln intern plattform som gör det möjligt för användare att utföra ETL-, analys-och AI/ML-arbetsbelastningar. Det stöder flera olika motorer med öppen källkod – Apache Spark, TensorFlow, Presto, luft flöde, Hadoop, Hive med mera. Det tillhandahåller lättanvända verktyg för slutanvändare för data bearbetning från SQL-frågeläge, till antecknings böcker och instrument paneler som utnyttjar kraftfulla motorer med öppen källkod.|[Produkt sida][qubole_website]<br> [Azure Marketplace][qubole_marketplace] |
+| ![Sektion][10] |**Sektion**<br>Segment är ett data hanterings-och analys lösningar som hjälper dig att förstå kund information från olika källor. Det gör att du kan ansluta dina data till över 200-verktyg för att skapa bättre beslut, produkter och upplevelser. Segmentet transformerar och läser in flera data källor i ditt lager så att du kan använda de inbyggda data kopplingarna|[Produkt sida][segment_website]<br> |
+| ![Skyvia][11] |**Skyvia (data integrering)**<br>Skyvia data integration tillhandahåller en guide som automatiserar data importer. Med den här guiden kan du migrera data mellan olika källor – CRMs, program databas, CSV-filer och mycket annat. |[Produkt sida][segment_website]<br> |
+| ![SnapLogic][6] |**SnapLogic**<br>SnapLogic-plattformen gör det möjligt för kunder att snabbt överföra data till och från Microsoft Azure SQL Data Warehouse. Det ger möjlighet att integrera hundratals program, tjänster och IoT-scenarier i en lösning.|[Produkt sida][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
+| ![StreamSets][15] |**StreamSets**<br>StreamSets tillhandahåller en data integrerings plattform för DataOps. Det operationalizes den fullständiga design-Deploy-driver-livs cykeln för att integrera data i Azure SQL Data Warehouse. Du kan inte bara snabbt mata in och integrera data till och från lagret, via direkt uppspelning, satsvis eller modifierad data överförings metoder för data insamling, men även säkerställa kontinuerliga åtgärder med Smart datapipelines som tillhandahåller synlighet för data flödet från slut punkt till slut punkt och återhämtning.|[Produkt sida][streamsets_website]|
+| ![Talend][12] |**Talend-moln**<br>Talend Cloud är en plattform för data integrering i företag för att ansluta, komma åt och transformera data i molnet eller lokalt. Det är ett iPaaS-erbjudande (Platform-as-a-Service) som ger bred anslutning, inbyggd data kvalitet och inbyggt stöd för de senaste Big data-och moln teknikerna |[Produkt sida][talend_website]<br> [Azure Marketplace][talend_marketplace] |
+| ![Trifacta][13] |**Trifacta Wrangler**<br> Trifacta hjälper individer och organisationer att utforska och ansluta ihop olika data för analys. Trifacta Wrangler är utformat för att hantera data datatransformering arbets belastningar som behöver stöd för data i skala och ett stort antal slutanvändare.|[Produkt sida][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
+| ![WhereScape][14] |**Wherescape RED**<br> WhereScape RED är en IDE som ger team med automatiserings verktyg för att effektivisera ETL-arbetsflöden. IDE ger bästa praxis och optimerad inbyggd kod för populära data mål. Använd WhereScape RED för att minska tiden för att utveckla, distribuera och driva din data infrastruktur.|[Produkt sida][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om andra partners i [Business Intelligence-partner] [ bi_partners] och [datahanteringspartner][dm_partners].
+Mer information om andra partner finns i [Business Intelligence-partner][bi_partners] och [datahantering partner][dm_partners].
 
 <!--Article links-->
 
@@ -64,6 +65,8 @@ Läs mer om andra partners i [Business Intelligence-partner] [ bi_partners] och 
 [12]: ./media/sql-data-warehouse-partner-data-integration/talend_logo.png
 [13]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
 [14]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
+[15]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
+
 
 
 <!--Website Links -->
@@ -84,6 +87,7 @@ Läs mer om andra partners i [Business Intelligence-partner] [ bi_partners] och 
 [talend_website]:https://www.talend.com/
 [trifacta_website]:https://www.trifacta.com/
 [wherescape_website]:https://www.wherescape.com/
+[streamsets_website]:https://streamsets.com/partners/microsoft
 
 <!--Marketplace Links -->
 

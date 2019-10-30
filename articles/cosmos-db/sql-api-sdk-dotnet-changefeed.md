@@ -8,19 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637747"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023890"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change feed processor-SDK: Information om hämtning och version
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change feed processor SDK: Hämta och viktig information
 
 > [!div class="op_single_selector"]
 >
 > * [NET](sql-api-sdk-dotnet.md)
-> * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -34,14 +34,23 @@ ms.locfileid: "68637747"
 
 |   |   |
 |---|---|
-|**Hämta SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API-dokumentation**|[Ändra dokumentation om API-referens för feeds-bibliotek](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Kom igång**|[Kom igång med Change feeds-processorn .NET SDK](change-feed.md)|
-|**Aktuella framework som stöds**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Komma igång**|[Kom igång med Change feeds-processorn .NET SDK](change-feed.md)|
+|**Aktuellt ramverk som stöds**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2-versioner
+
+### <a name="a-name228228"></a><a name="2.2.8"/>2.2.8
+* Förbättringar av stabilitet och diagnos:
+  * Stöd har lagts till för att identifiera läsning av ändrings flöden med lång tid. När det tar längre tid än värdet som anges av egenskapen `ChangeFeedProcessorOptions.ChangeFeedTimeout` vidtas följande steg:
+    * Åtgärden för att läsa ändrings flödet på den problematiska partitionen avbryts.
+    * Change feed processor-instansen tappar ägarskap för det problematiska lånet. Det borttagna lånet hämtas under nästa steg för att erhålla lånet som utförs av samma eller olika processor instanser för förändrings flödet. På så sätt börjar läsning av ändrings flöde över.
+    * Ett problem rapporteras till hälso övervakaren. Standard övervakaren för hälso skickar alla rapporterade problem till spårnings loggen.
+  * En ny offentlig egenskap har lagts till: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. Standardvärdet för den här egenskapen är 10 minuter.
+  * Ett nytt offentligt Enum-värde har lagts till: `Monitoring.MonitoredOperation.ReadChangeFeed`. När värdet för `HealthMonitoringRecord.Operation` är inställt på `Monitoring.MonitoredOperation.ReadChangeFeed`, anger det att hälso problemet är relaterat till att läsa ändrings flöde.
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
 * Förbättrad strategi för belastnings utjämning för scenariot när du hämtar alla lån tar längre tid än lånets förfallo intervall, t. ex. på grund av nätverks problem:
@@ -80,7 +89,7 @@ ms.locfileid: "68637747"
 * Förbättringar av mindre diagnostik.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
-* Nytt API,&lt;aktivitet IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync () har lagts till. Detta kan användas för att få uppskattat arbete för varje partition.
+* Nytt API, aktivitet&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync () har lagts till. Detta kan användas för att få uppskattat arbete för varje partition.
 * Stöder Microsoft. Azure. DocumentDB SDK 2,0. Kräver Microsoft. Azure. DocumentDB 2,0 eller senare.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
@@ -90,7 +99,7 @@ ms.locfileid: "68637747"
 * Åtgärdat ett tävlings tillstånd som inträffar när partitionen delas. Tävlings tillståndet kan leda till att lånet tas emot och att det omedelbart förlorar det när partitionen delas och orsakar konkurrens. Problemet med konkurrens villkoret är löst i den här versionen.
 
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
-* GA-SDK
+* GA SDK
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-för hands version
 * Åtgärdat följande problem:
@@ -98,10 +107,10 @@ ms.locfileid: "68637747"
   * GetEstimatedRemainingWork-API: n returnerade 0 när det inte fanns några lån i låne samlingen.
 
 * Följande undantag görs offentliga. Tillägg som implementerar IPartitionProcessor kan utlösa dessa undantag.
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
-  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
+  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. LeaseLostException. 
+  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionException. 
+  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionNotFoundException.
+  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionSplitException. 
 
 ### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-för hands version
 * Mindre API-ändringar:
@@ -142,7 +151,7 @@ ms.locfileid: "68637747"
 * Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versionerna 1,21 och senare.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Lägger till stöd för .NET standard 2,0. Paketet stöder `netstandard2.0` nu och `net451` Ramverks-monikers.
+* Lägger till stöd för .NET standard 2,0. Paketet stöder nu `netstandard2.0`-och `net451` Framework-monikers.
 * Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versioner 1.17.0 och senare.
 * Kompatibel med [SQL .net Core SDK](sql-api-sdk-dotnet-core.md) -versioner 1.5.1 och senare.
 
@@ -155,28 +164,29 @@ ms.locfileid: "68637747"
 * Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versioner 1.13.2 och senare.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA-SDK
+* GA SDK
 * Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versioner 1.14.1 och nedan.
 
 ## <a name="release--retirement-dates"></a>Frisläpp & indragnings datum
 
-Microsoft meddelar meddelande minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.
+Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds.
 
 Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt. 
 
-Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjänsten.
+Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas av tjänsten.
 
 <br/>
 
-| Version | Utgivningsdatum | Slutdatum |
+| Version | Lanserings datum | Datum för indragning |
 | --- | --- | --- |
-| [2.2.7](#2.2.7) |14 maj, 2019 |--- |
+| [2.2.8](#2.2.8) |28 oktober 2019 |--- |
+| [2.2.7](#2.2.7) |14 maj 2019 |--- |
 | [2.2.6](#2.2.6) |29 januari 2019 |--- |
 | [2.2.5](#2.2.5) |13 december 2018 |--- |
 | [2.2.4](#2.2.4) |29 november 2018 |--- |
-| [2.2.3](#2.2.3) |19 november 2018 |--- |
+| [punkt](#2.2.3) |19 november 2018 |--- |
 | [2.2.2](#2.2.2) |31 oktober 2018 |--- |
-| [2.2.1](#2.2.1) |24 oktober 2018 |--- |
+| [punkterna](#2.2.1) |24 oktober 2018 |--- |
 | [1.3.3](#1.3.3) |08 maj, 2018 |--- |
 | [1.3.2](#1.3.2) |18 april 2018 |--- |
 | [1.3.1](#1.3.1) |13 mars 2018 |--- |
@@ -185,10 +195,10 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | [1.1.0](#1.1.0) |13 augusti 2017 |--- |
 | [1.0.0](#1.0.0) |Den 07 juli 2017 |--- |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se också
 
-Mer information om Cosmos DB finns [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
+Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.

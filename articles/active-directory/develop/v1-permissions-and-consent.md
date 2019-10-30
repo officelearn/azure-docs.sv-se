@@ -18,31 +18,31 @@ ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a467593d16c54e73d58f9cb2b67a4fa31eb0179e
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545198"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042318"
 ---
-# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och godkännande i Azure Active Directory v1.0 slutpunkten
+# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 Azure Active Directory (Azure AD) använder sig av behörigheter för både OAuth-flöden och OIDC-flöden (OpenID Connect). När appen tar emot en åtkomsttoken från Azure AD innehåller åtkomsttoken anspråk som beskriver de behörigheter som appen har för en viss resurs.
 
-*Behörigheter*, även kallat *scope*, gör auktorisering enkelt för resursen eftersom resursen bara behöver kontrollera att token innehåller rätt behörighet för den appen anropar API: et.
+*Behörigheter*, som även kallas *omfång*, gör auktoriseringen enkla för resursen eftersom resursen bara behöver kontrol lera att token innehåller rätt behörighet för det API som appen anropar.
 
 ## <a name="types-of-permissions"></a>Typer av behörigheter
 
 Azure AD definierar två typer av behörigheter:
 
-* **Delegerade behörigheter** – Används av appar som har en inloggad användare. För dessa appar godkänner antingen användaren eller administratören de behörigheter som appen begär, och appen delegeras behörighet att agera som den inloggade användaren när ett API anropas. Beroende på API: et, användaren kanske inte kan samtycka till API: et direkt och skulle i stället [kräver en administratör att tillhandahålla ”administratörsmedgivande”](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Programbehörigheter** – Används av appar som körs utan någon inloggad användare, t.ex, appar som körs som en bakgrundstjänst eller daemon. Programbehörigheter kan bara [godkännas av en administratör](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) eftersom de vanligtvis är kraftfulla och ger åtkomst till data över användarens gränser, eller data som annars skulle vara begränsad till administratörer.
+* **Delegerade behörigheter** – Används av appar som har en inloggad användare. För dessa appar godkänner antingen användaren eller administratören de behörigheter som appen begär, och appen delegeras behörighet att agera som den inloggade användaren när ett API anropas. Beroende på API: t kanske användaren inte kan samtycka till API: et direkt och behöver i stället [en administratör för att tillhandahålla "administrativt medgivande"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+* **Programbehörigheter** – Används av appar som körs utan någon inloggad användare, t.ex, appar som körs som en bakgrundstjänst eller daemon. Program behörigheter kan bara [skickas till av administratörer](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) eftersom de vanligt vis är kraftfulla och ger åtkomst till data över användar gränser eller data som annars skulle vara begränsade till administratörer. Användare som definieras som ägare av resurs programmet (t. ex. API: et som publicerar behörigheterna) tillåts också att ge program behörigheter för de API: er som de äger.
 
 Gällande behörigheter är de behörigheter som din app har vid begäranden till en API. 
 
-* För delegerade behörigheter blir de behörigheter som gäller för din app lägsta möjliga skärningspunkt för de delegerade behörigheter som appen har beviljats (via godkännande) och de behörigheter som den för tillfället inloggade användaren har. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* För delegerade behörigheter blir de behörigheter som gäller för din app lägsta möjliga skärningspunkt för de delegerade behörigheter som appen har beviljats (via godkännande) och de behörigheter som den för tillfället inloggade användaren har. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
     Anta exempelvis att din app har beviljats den delegerade behörigheten `User.ReadWrite.All` i Microsoft Graph. Den här behörigheten ger i princip din app behörighet att läsa och uppdatera profilen för alla användare i en organisation. Om den inloggade användaren är en global administratör, kommer din app att kunna uppdatera profilen för alla användare i organisationen. Men om den inloggade användaren inte har någon administratörsroll, kommer appen endast kunna uppdatera profilen för den inloggade användaren. Den kommer inte att kunna uppdatera profilerna för andra användare i organisationen, eftersom den användare som den har behörighet att agera på uppdrag åt inte har den behörigheten.
 * För programbehörigheter är de gällande behörigheterna för din app den fullständiga behörighetsnivå som behörigheten ger. En app som exempelvis har programbehörigheten `User.ReadWrite.All` kan uppdatera profilen för alla användare i organisationen.
 
@@ -64,7 +64,7 @@ Behörigheter i Azure AD har ett antal egenskaper som hjälper användare, admin
 | Egenskapsnamn | Beskrivning | Exempel |
 | --- | --- | --- |
 | `ID` | Ett GUID-värde som ger en unik identifiering av behörigheten. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
-| `IsEnabled` | Anger om den här behörigheten är tillgänglig för användning. | true |
+| `IsEnabled` | Anger om den här behörigheten är tillgänglig för användning. | sant |
 | `Type` | Anger om den här behörigheten kräver ett godkännande av användaren eller administratören. | Användare |
 | `AdminConsentDescription` | En beskrivning som visas för administratörer vid administratörsmedgivanden | Tillåter att appen läser e-post i användarnas postlådor. |
 | `AdminConsentDisplayName` | Ett eget namn som visas för administratörer vid administratörsmedgivanden. | Läsa användarnas e-post |
@@ -82,11 +82,11 @@ Program i Azure AD förlitar sig på godkännanden för att få åtkomst till re
 * **Dynamiskt användargodkännande** – Är en funktion i v2 Azure AD-appmodellen. I det här scenariot begär appen en uppsättning behörigheter som krävs i [OAuth 2.0-auktoriseringen av flödet för v2-appar](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Om användarna inte har godkänt detta, uppmanas de att godkänna nu. [Mer information om dynamiskt godkännande](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
-    > Ett dynamiskt godkännande kan vara praktiskt, men det är en utmaning för behörigheter som kräver administratörsmedgivande eftersom man inte känner till dessa behörigheter vid godkännandet. Om du behöver privilegierad administratörsbehörighet eller om din app använder dynamisk medgivande, måste du registrera alla behörigheter i Azure portal (inte bara deluppsättningen av behörigheter som kräver administratörens godkännande). På så sätt kan administratörer av klientorganisationer att ge samtycke åt alla sina användare.
+    > Ett dynamiskt godkännande kan vara praktiskt, men det är en utmaning för behörigheter som kräver administratörsmedgivande eftersom man inte känner till dessa behörigheter vid godkännandet. Om du behöver administratörs privilegier eller om din app använder dynamiskt medgivande måste du registrera alla behörigheter i Azure Portal (inte bara den delmängd behörigheter som kräver administratörs medgivande). Detta gör det möjligt för klient administratörer att godkänna för alla användares räkning.
   
 * **Administratörsmedgivande** – Krävs när din app behöver ha åtkomst till vissa högpriviligierade behörigheter. Administratörsmedgivande säkerställer att administratörer har vissa ytterligare kontroller innan de godkänner appar, eller att användare får åtkomst till högprivilegierade data från organisationen. [Mer information om hur du ger ett administratörsmedgivande](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
 ### <a name="client-best-practices"></a>Metodtips för klienter
 
@@ -102,9 +102,9 @@ Program i Azure AD förlitar sig på godkännanden för att få åtkomst till re
 - Resurserna ska tydligt definiera behörigheterna `Read` och `ReadWrite` separat.
 - Resurserna ska markera alla behörigheter som ger åtkomst till data över användarens gränser som `Admin`-behörigheter.
 - Resurser bör följa namngivningsmönstret `Subject.Permission[.Modifier]`, där:
-  - `Subject` motsvarar typ av data som är tillgänglig
-  - `Permission` motsvarar den åtgärd som en användare kan ta när dessa data
-  - `Modifier` Du kan också används för att beskriva specialiseringar av en annan behörighet
+  - `Subject` motsvarar den typ av data som är tillgängliga
+  - `Permission` motsvarar åtgärden som en användare kan utföra på dessa data
+  - `Modifier` används för att beskriva specialiseringar av en annan behörighet
     
     Exempel:
   - Mail.Read – Tillåter att användarna läser e-post.

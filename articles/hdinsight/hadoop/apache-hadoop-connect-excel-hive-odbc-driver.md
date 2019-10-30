@@ -1,5 +1,5 @@
 ---
-title: Ansluta Excel till Apache Hadoop med Hive ODBC-drivrutinen – Azure HDInsight
+title: Excel & Apache Hadoop med ODBC-drivrutin – Azure HDInsight
 description: Lär dig hur du konfigurerar och använder Microsoft Hive ODBC-drivrutin för Excel för att fråga efter data i HDInsight-kluster från Microsoft Excel.
 keywords: Hadoop Excel, Hive Excel, Hive ODBC
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 7451eaf56a2466bbb02fa879008b4a9787f6c2f5
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 9923817e90062bdc0e458208474c651c929f772d
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264634"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044622"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ansluta Excel till Apache Hadoop i Azure HDInsight med Microsoft Hive ODBC-drivrutin
 
@@ -41,7 +41,7 @@ Följande steg visar hur du skapar en ODBC-datakälla för Hive.
 
 1. Från Windows navigerar du till Start > administrations verktyg för Windows > ODBC-datakällor (32-bitars)/(64-bitars).  Då öppnas fönstret **ODBC-Administrera data källa** .
 
-    ![OBDC-administratör för data källa](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Konfigurera en data källa med hjälp av administratör för ODBC-datakälla")
+    ![OBDC data källans administratör](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Konfigurera en data källa med hjälp av administratör för ODBC-datakälla")
 
 1. På fliken **användar-DSN** väljer du **Lägg till** för att öppna fönstret **Skapa ny data källa** .
 
@@ -67,7 +67,7 @@ Följande steg visar hur du skapar en ODBC-datakälla för Hive.
    |  Hämtade rader per block |När du hämtar ett stort antal poster kan du behöva justera den här parametern för att säkerställa optimala prestanda. |
    |  Standard sträng kolumn längd, binär kolumn längd, decimal kolumn skala |Data typens längd och precision kan påverka hur data returneras. De gör att felaktig information returneras på grund av förlust av precision och/eller trunkering. |
 
-    ![Avancerade konfigurations alternativ för DSN](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "avancerade konfigurations alternativ för DSN")
+    ![Avancerade konfigurations alternativ för DSN](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Avancerade konfigurations alternativ för DSN")
 
 1. Testa data källan genom att välja **test** . När data källan har kon figurer ATS korrekt visar test resultatet **lyckades!** .  
 
@@ -85,7 +85,7 @@ Följande steg beskriver hur du importerar data från en Hive-tabell till en Exc
 
 2. Från fliken **data** navigerar du till **Hämta data** > **från andra källor** > **från ODBC** för att starta **från ODBC** -fönstret.
 
-    ![Öppna guiden data anslutning för Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Öppna guiden data anslutning") för Excel
+    ![Öppna guiden data anslutning för Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Öppna guiden data anslutning för Excel")
 
 3. I list rutan väljer du namnet på den data källa som du skapade i det sista avsnittet och väljer sedan **OK**.
 
@@ -93,7 +93,7 @@ Följande steg beskriver hur du importerar data från en Hive-tabell till en Exc
 
 5. Från **Navigator**navigerar du till **HIVE** > **standard** > -**hivesampletable**och väljer sedan **load**. Det tar en stund innan data importeras till Excel.
 
-    ![HDInsight Excel HIVE ODBC Navigator](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "HDInsight Excel Hive ODBC Navigator")
+    ![Excel Hive ODBC-navigatör för HDInsight](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Excel Hive ODBC-navigatör för HDInsight")
 
 ## <a name="next-steps"></a>Nästa steg
 

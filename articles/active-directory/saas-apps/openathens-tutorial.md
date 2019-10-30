@@ -1,109 +1,87 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med openaten | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med openaten | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och OpenAthens.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: dd4adfc7-e238-41d5-8b25-1811f08078b6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/4/2019
+ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81e37e78246a8c021cfdea015a9c4fe7695f5e44
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 43fc2272a81672ea613bdcbe17c5381e99cafbff
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933987"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053204"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Självstudie: Azure Active Directory integrering med openaten
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med openaten
 
-I den här självstudien lär du dig att integrera OpenAthens med Azure Active Directory (Azure AD).
-Genom att integrera OpenAthens med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar openaten med Azure Active Directory (Azure AD). När du integrerar openaten med Azure AD kan du:
 
-* Du kan styra vem som har åtkomst till OpenAthens från Azure AD.
-* Du kan göra så att dina användare automatiskt loggas in på OpenAthens (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till openaten.
+* Gör det möjligt för användarna att logga in automatiskt för att openaten med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med OpenAthens behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* OpenAthens-prenumeration med enkel inloggning aktiverat
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Openaten enkel inloggning (SSO) aktive rad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * OpenAthens stöder **IDP**-initierad enkel inloggning
-
 * OpenAthens stöder **just-in-time**-användaretablering
 
 ## <a name="adding-openathens-from-the-gallery"></a>Lägga till OpenAthens från galleriet
 
 För att konfigurera integrering av OpenAthens i Azure AD behöver du lägga till OpenAthens från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till OpenAthens från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **openaten** i sökrutan.
+1. Välj **openaten** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-openathens"></a>Konfigurera och testa enkel inloggning med Azure AD för openaten
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+Konfigurera och testa Azure AD SSO med openaten med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i openaten.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Om du vill konfigurera och testa Azure AD SSO med openaten slutför du följande Bygg stenar:
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera Openaten SSO](#configure-openathens-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * **[Skapa openaten test-användare](#create-openathens-test-user)** – för att få en motsvarighet till B. Simon i openaten som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-    ![Knappen Nytt program](common/add-new-app.png)
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-4. I sökrutan skriver du **OpenAthens**, väljer **OpenAthens** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan **openaten** program integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-     ![OpenAthens i resultatlistan](common/search-new-app.png)
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
-
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med OpenAthens baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i OpenAthens upprättas.
-
-Om du vill konfigurera och testa enkel inloggning med Azure AD med OpenAthens, behöver du utföra följande uppgifter:
-
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för OpenAthens](#configure-openathens-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa OpenAthens-testanvändare](#create-openathens-test-user)** – för att ha en motsvarighet för Britta Simon i OpenAthens som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Utför följande steg för att konfigurera enkel inloggning med Azure AD med OpenAthens:
-
-1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **OpenAthens** och väljer **Enkel inloggning**.
-
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-5. I avsnittet **Grundläggande SAML-konfiguration** laddar du upp **metadatafilen för tjänstleverantör**. Hur du gör det beskrivs senare i den här självstudien.
+1. I avsnittet **Grundläggande SAML-konfiguration** laddar du upp **metadatafilen för tjänstleverantör**. Hur du gör det beskrivs senare i den här självstudien.
 
     a. Klicka på **Ladda upp metadatafil**.
 
@@ -117,34 +95,68 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Ope
 
     ![Information om enkel inloggning med OpenAthens-domäner och URL:er](common/idp-identifier.png)
 
-6. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-### <a name="configure-openathens-single-sign-on"></a>Konfigurera enkel inloggning med OpenAthens
+1. I avsnittet **Konfigurera openaten** kopierar du lämpliga URL: er baserat på ditt krav.
 
-1. Logga in på företagswebbplatsen för OpenAthens som administratör i ett annat webbläsarfönster.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-2. Välj **Anslutningar** i listan på fliken **Hantering**. 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **Ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till openaten.
+
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **openaten**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+
+    ![Länken Lägg till användare](common/add-assign-user.png)
+
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+## <a name="configure-openathens-sso"></a>Konfigurera openaten SSO
+
+1. I ett annat webbläsarfönster loggar du in på din openaten-företags webbplats som administratör.
+
+1. Välj **Anslutningar** i listan på fliken **Hantering**.
 
     ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-3. Välj **SAML 1.1/2.0**, och klicka sedan på knappen **Konfigurera**.
+1. Välj **SAML 1.1/2.0**, och klicka sedan på knappen **Konfigurera**.
 
     ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application2.png)
-    
-4. Om du vill lägga till konfigurationen väljer du knappen **Bläddra** för att överföra .xml-metadatafilen som du laddade ned från Azure-portalen, och väljer sedan **Lägg till**.
+
+1. Om du vill lägga till konfigurationen väljer du knappen **Bläddra** för att överföra .xml-metadatafilen som du laddade ned från Azure-portalen, och väljer sedan **Lägg till**.
 
     ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-5. Utför följande steg under fliken **Information**.
+1. Utför följande steg under fliken **Information**.
 
     ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
     a. I **Mappning för visningsnamn** väljer du **Använd attribut**.
 
-    b. I textrutan **Attribut för visningsnamn** fyller du i värdet `http://schemas.microsoft.com/identity/claims/displayname`.
-    
+    b. I textrutan **Attribut för visningsnamn** fyller du i värdet `http://schema.microsoft.com/identity/claims/displayname`.
+
     c. I **Unik användarmappning** väljer du **Använd attribut**.
 
     d. I textrutan **Unikt användarattribut** fyller du i värdet `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
@@ -159,62 +171,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Ope
 
     ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
-
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
-
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
-
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till OpenAthens.
-
-1. Välj **Företagsprogram** i Azure-portalen, välj **Alla program**, och välj sedan **OpenAthens**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-2. I listan över program skriver och väljer du **OpenAthens**.
-
-    ![OpenAthens-länken i listan med program](common/all-applications.png)
-
-3. I menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
 ### <a name="create-openathens-test-user"></a>Skapa OpenAthens-testanvändare
 
 I det här avsnittet skapas en användare som heter Britta Simon i OpenAthens. OpenAthens stöder **just-in-time-etablering av användare**, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i OpenAthens skapas en ny efter autentisering.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
@@ -222,9 +183,10 @@ När du klickar på OpenAthens-panelen i åtkomstpanelen bör du automatiskt log
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Prova openaten med Azure AD](https://aad.portal.azure.com/)

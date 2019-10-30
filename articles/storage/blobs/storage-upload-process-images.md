@@ -6,18 +6,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.author: normesta
+ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: 7185d118c9f4419713ebe1291dd55c44635f0c56
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: afa4672d2a8f65b61d634b95b695d1c9814bf991
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844950"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053454"
 ---
-# <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Självstudie: Överföra avbildningsdata i molnet med Azure Storage
+# <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Självstudie: Ladda upp bilddata i molnet med Azure Storage
 
-Den här självstudien ingår i en serie. I den här självstudien lär du dig att distribuera en webbapp som använder Azure Storage-klientbiblioteket för att ladda upp bilder till ett lagringskonto. När du är klar har du en webbapp som lagrar och visar bilder från Azure Storage.
+Den här självstudien är del ett i en serie. I den här självstudien lär du dig att distribuera en webbapp som använder Azure Storage-klientbiblioteket för att ladda upp bilder till ett lagringskonto. När du är klar har du en webbapp som lagrar och visar bilder från Azure Storage.
 
 # <a name="nettabdotnet"></a>[\..NET](#tab/dotnet)
 ![Bild storleks program i .NET](media/storage-upload-process-images/figure2.png)
@@ -40,7 +40,7 @@ I del ett i den här serien lärde du dig att:
 > * Konfigurera appinställningar
 > * Interagera med webbappen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -111,11 +111,11 @@ I följande exempel skapas en App Service-plan med namnet `myAppServicePlan` på
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
-## <a name="create-a-web-app"></a>Skapa en webbapp
+## <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 Webbappen tillhandahåller ett värdutrymme för exempelappens kod som distribueras på GitHub-exempellagringsplatsen. Skapa en [webbapp](../../app-service/overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp).  
 
-I följande kommando ersätter du `<web_app>` med ett unikt namn. Giltiga tecken är `a-z`, `0-9` och `-`. Om `<web_app>` är inte unikt får du felmeddelandet: Det finns redan en _webbplats med det angivna namnet `<web_app>`._ Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`.  
+I följande kommando ersätter du `<web_app>` med ett unikt namn. Giltiga tecken är `a-z`, `0-9` och `-`. Om `<web_app>` inte är unikt får du ett felmeddelande om att _webbplatsen med det angivna namnet `<web_app>` redan finns._ Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive
 webapp=<web_app>
@@ -201,7 +201,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
 
 När du har distribuerat och konfigurerat webbappen kan du testa funktionen för bilduppladdning i appen.
 
-## <a name="upload-an-image"></a>Ladda upp en avbildning
+## <a name="upload-an-image"></a>Ladda upp en bild
 
 Om du vill testa webbappen bläddrar du till URL-adressen till din publicerade app. Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`.
 

@@ -1,5 +1,5 @@
 ---
-title: Använda Apache Ambari-vyer för att arbeta med Hive på HDInsight (Apache Hadoop) – Azure
+title: Använda Apache Ambari Hive-vy med Apache Hadoop i Azure HDInsight
 description: Lär dig hur du använder Hive-vyn från webbläsaren för att skicka Hive-frågor. Hive-vyn är en del av Ambari-webbgränssnittet som medföljer ditt Linux-baserade HDInsight-kluster.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077018"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044815"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använda Apache Ambari Hive-vy med Apache Hadoop i HDInsight
 
@@ -21,7 +21,7 @@ ms.locfileid: "71077018"
 
 Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-vyn kan du redigera, optimera och köra Hive-frågor från webbläsaren.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * En webbläsare
@@ -30,7 +30,7 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-v
 
 1. Välj ditt kluster från [Azure Portal](https://portal.azure.com/).  Instruktioner finns i [lista och Visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters) . Klustret öppnas på ett nytt Portal blad.
 
-2. Välj **Ambari vyer**från **kluster instrument paneler**. När du uppmanas att autentisera ska du använda det konto `admin`namn och lösen ord för kluster inloggning (standard) som du angav när du skapade klustret.
+2. Välj **Ambari vyer**från **kluster instrument paneler**. När du uppmanas att autentisera ska du använda det konto namn och lösen ord för kluster inloggning (standard `admin`) som du angav när du skapade klustret.
 
 3. I listan med vyer väljer du __Hive-vy__.
 
@@ -61,16 +61,16 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-v
 
     Dessa instruktioner utför följande åtgärder:
 
-   * `DROP TABLE`: Tar bort tabellen och data filen, om tabellen redan finns.
+   * `DROP TABLE`: tar bort tabellen och data filen, om tabellen redan finns.
 
-   * `CREATE EXTERNAL TABLE`: Skapar en ny "extern" tabell i Hive.
+   * `CREATE EXTERNAL TABLE`: skapar en ny "extern" tabell i Hive.
      Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.
 
-   * `ROW FORMAT`: Visar hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.
+   * `ROW FORMAT`: visar hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.
 
-   * `STORED AS TEXTFILE LOCATION`: Visar var data lagras och att de lagras som text.
+   * `STORED AS TEXTFILE LOCATION`: visar var data lagras och är lagrade som text.
 
-   * `SELECT`: Väljer ett antal rader där kolumnen T4 innehåller värdet [ERROR].
+   * `SELECT`: väljer antalet rader där kolumnen T4 innehåller värdet [ERROR].
 
    > [!IMPORTANT]  
    > Låt __databasen__ vara markerad som __standard__. I exemplen i det här dokumentet används standard databasen som ingår i HDInsight.
@@ -119,7 +119,7 @@ På fliken **fråga** kan du välja att spara frågor. När du har sparat en fr�
 ![Apache Hive Visa sparade frågor-fliken](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
-> Sparade frågor lagras i standard kluster lagringen. Du kan hitta de sparade frågorna under sökvägen `/user/<username>/hive/scripts`. Dessa lagras som oformaterade text `.hql` filer.
+> Sparade frågor lagras i standard kluster lagringen. Du kan hitta de sparade frågorna under sökvägen `/user/<username>/hive/scripts`. Dessa lagras som oformaterad text `.hql` filer.
 >
 > Om du tar bort klustret, men behåller lagringen, kan du använda ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) eller data Lake Storage Explorer (från [Azure Portal](https://portal.azure.com)) för att hämta frågorna.
 

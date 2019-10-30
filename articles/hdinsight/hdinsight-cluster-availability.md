@@ -1,20 +1,20 @@
 ---
-title: Övervaka kluster tillgänglighet med Ambari och Azure Monitor loggar
+title: 'Övervakning: Apache Ambari & Azure Monitor loggar – Azure HDInsight'
 description: Lär dig hur du använder Ambari och Azure Monitor loggar för att övervaka kluster hälsa och tillgänglighet.
 keywords: övervakning, Ambari, övervakning, logg analys, avisering, tillgänglighet, hälsa
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: tyfox
-ms.openlocfilehash: 153c28dc8a06968dc9dd3cfda021496672a094d5
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: eeaef8851035bbb8d2f39bcf9f366118545fcf0f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076554"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044484"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Övervaka kluster tillgänglighet med Ambari och Azure Monitor loggar
 
@@ -26,7 +26,7 @@ Det här dokumentet visar hur du använder dessa verktyg för att övervaka klus
 
 ### <a name="dashboard"></a>Instrumentpanel
 
-Ambari-instrumentpanelen kan nås genom att klicka på **Start länken Ambari** i avsnittet **kluster instrument paneler** i bladet HDInsight-översikt i Azure Portal som visas nedan. Du kan också komma åt den genom att ange följande URL i en webbläsare [https://\<kluster\>namn. azurehdinsight.net](https://clustername.azurehdinsight.net/)
+Ambari-instrumentpanelen kan nås genom att klicka på **Start länken Ambari** i avsnittet **kluster instrument paneler** i bladet HDInsight-översikt i Azure Portal som visas nedan. Du kan också komma åt den genom att ange följande URL i en webbläsare [https://\<kluster namn\>. azurehdinsight.net](https://clustername.azurehdinsight.net/)
 
 ![Vyn HDInsight-resurs Portal](media/hdinsight-cluster-availability/portal-oms-overview1.png)
 
@@ -58,7 +58,7 @@ Om du vill visa en lista över aviserings definitioner och deras status klickar 
 
 Ambari erbjuder många fördefinierade aviseringar relaterade till tillgänglighet, inklusive:
 
-| Aviseringsnamn                        | Beskrivning                                                                                                                                                                           |
+| Aviserings namn                        | Beskrivning                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DataNode hälso översikt           | Den här aviseringen på tjänst nivå utlöses om det finns DataNodes som inte är felfria                                                                                                                |
 | NameNode-hälsa för hög tillgänglighet | Den här aviseringen på tjänst nivå utlöses om antingen den aktiva NameNode eller vänte läges NameNode inte körs.                                                                              |
@@ -83,7 +83,7 @@ Du kan också välja att konfigurera e-postaviseringar för Ambari-aviseringar. 
 
 ![Ambari-åtgärd för att hantera meddelanden](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-En dialog ruta för att hantera aviseringar öppnas. **+** Klicka på längst ned i dialog rutan och fyll i de obligatoriska fälten för att tillhandahålla Ambari med information om e-postservern som e-postmeddelanden ska skickas från.
+En dialog ruta för att hantera aviseringar öppnas. Klicka på **+** längst ned i dialog rutan och fyll i de obligatoriska fälten för att tillhandahålla Ambari med information om e-postservern som e-postmeddelanden ska skickas från.
 
 > [!TIP]
 > Att ställa in Ambari e-postaviseringar kan vara ett bra sätt att få aviseringar på en plats när du hanterar många HDInsight-kluster.
@@ -92,7 +92,7 @@ En dialog ruta för att hantera aviseringar öppnas. **+** Klicka på längst ne
 
 Azure Monitor loggar aktiverar data som genereras av flera resurser, till exempel HDInsight-kluster, som ska samlas in och aggregeras på ett och samma ställe för att uppnå en enhetlig övervaknings upplevelse.
 
-Som en förutsättning behöver du en Log Analytics arbets yta för att lagra insamlade data. Om du inte redan har skapat en, kan du följa anvisningarna här: [Skapa en Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Som en förutsättning behöver du en Log Analytics arbets yta för att lagra insamlade data. Om du inte redan har skapat en, kan du följa anvisningarna här: [skapa en Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Aktivera integrering av HDInsight Azure Monitor-loggar
 
@@ -123,7 +123,7 @@ Du kan till exempel köra frågan **tillgänglighets frekvens** genom att klicka
 > [!NOTE] 
 > Tillgänglighets takten mäts under en 24-timmarsperiod, så klustret måste köras i minst 24 timmar innan du kan se korrekt tillgänglighets taxa.
 
-Du kan fästa den här tabellen på en delad instrument panel genom att klicka på **Fäst** i det övre högra hörnet. Om du inte har några skrivbara, delade instrument paneler kan du se hur du skapar en här: [Skapa och dela instrument paneler i Azure Portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
+Du kan fästa den här tabellen på en delad instrument panel genom att klicka på **Fäst** i det övre högra hörnet. Om du inte har några skrivbara, delade instrument paneler kan du se hur du skapar en här: [skapa och dela instrument paneler i Azure Portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Azure Monitor aviseringar
 
@@ -147,7 +147,7 @@ Då öppnas bladet **Konfigurera signal logik** .
 
 Ange **aviserings logik** avsnittet enligt följande:
 
-*Baserat på: Antal resultat, villkor: Större än, tröskel: 0,0.*
+*Baserat på: antal resultat, villkor: är större än, tröskelvärde: 0.*
 
 Eftersom den här frågan bara returnerar otillgängliga noder som resultat, bör aviseringen utlösas om antalet resultat någonsin är större än 0.
 

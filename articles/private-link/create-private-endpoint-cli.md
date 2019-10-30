@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 30394ba7b71d7dcb4233e5dca341dda47fd9ffa7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 477f7d4824d3165357228d200dca9e556a072744
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376320"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053514"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Skapa en privat slut punkt med Azure CLI
 Privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator i ett virtuellt nätverk, en SQL Database-Server med en privat slut punkt med hjälp av Azure CLI. Sedan kan du komma åt den virtuella datorn till och säkert komma åt den privata länk resursen (en privat Azure SQL Database Server i det här exemplet). 
@@ -39,7 +39,7 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 ## <a name="disable-subnet-private-endpoint-policies"></a>Inaktivera privata slut punkts principer för undernät 
-Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa eller uppdatera under nätet för att inaktivera nätverks principer för privata slut punkter. Uppdatera en under näts konfiguration med namnet mina *undernät* with [AZ Network VNet Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa eller uppdatera under nätet för att inaktivera nätverks principer för privata slut punkter. Uppdatera en under näts konfiguration med namnet *mitt undernät* med [AZ Network VNet Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -49,7 +49,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn 
-Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
+Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -81,7 +81,7 @@ az sql db create \
     --capacity 1 
 ```
 
-Observera att SQL Server-ID liknar @ no__t-0 du kommer att använda SQL Server-ID i nästa steg. 
+Observera att SQL Server-ID: t liknar ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` du kommer att använda SQL Server-ID i nästa steg. 
 
 ## <a name="create-the-private-endpoint"></a>Skapa den privata slut punkten 
 Skapa en privat slut punkt för SQL Database-servern i Virtual Network: 
@@ -148,8 +148,8 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 I det här avsnittet ska du ansluta till SQL Database servern från den virtuella datorn med hjälp av den privata slut punkten.
 
- 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
- 2. Ange nslookup-Server. Database. Windows. net @ no__t-0 du får ett meddelande som liknar detta: 
+ 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
+ 2. Ange nslookup-myserver.database.windows.net  du får ett meddelande som liknar detta: 
 
 ```
       Server:  UnKnown 
@@ -165,7 +165,7 @@ I det här avsnittet ska du ansluta till SQL Database servern från den virtuell
  Lösen ord: Ange ett lösen ord som anges när du skapar.
  Kom ihåg lösen ord: Välj Ja.
  
- 5. Välj **Anslut**.
+ 5. Välj **Anslut**.
  6. Bläddra bland **databaser** från menyn till vänster.
  7. Du kan också Skapa eller fråga efter information från en *databas*
  8. Stäng fjärr skrivbords anslutningen till *myVm*.

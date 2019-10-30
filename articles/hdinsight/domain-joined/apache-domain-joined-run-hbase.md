@@ -1,5 +1,5 @@
 ---
-title: Självstudie – konfigurera Apache HBase med Enterprise Security Package – Azure
+title: Apache HBase & Enterprise Security Package – Azure HDInsight
 description: Självstudie – lär dig hur du konfigurerar Apache Ranger-principer för HBase i Azure HDInsight med Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: da6903aa9f51fbba00ca599805ff3213e9388dd1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597939"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044652"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudie: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
 

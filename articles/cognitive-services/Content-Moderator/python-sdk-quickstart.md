@@ -1,5 +1,6 @@
 ---
 title: 'Snabb start: Content Moderator klient bibliotek för python | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
 description: Kom igång med Content Moderator klient biblioteket för python.
 services: cognitive-services
 author: PatrickFarley
@@ -7,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 62407467e3c63b1752ee6816325f097ad9a1f09e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 28c70e7d226e8f4b2458234e1f14754cdbb1825c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755255"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044034"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Snabb start: Content Moderator klient bibliotek för python
 
@@ -295,7 +296,7 @@ Använd följande kod för att ta bort en avbildnings lista.
 
 ## <a name="create-a-review"></a>Skapa en granskning
 
-Du kan använda Content Moderator python SDK för att mata in innehåll i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com) så att de mänskliga moderatorerna kan granska det. Mer information om gransknings verktyget finns i [konceptuell guide](./review-tool-user-guide/human-in-the-loop.md).
+Du kan använda Content Moderator python SDK för att mata in innehåll i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com) så att de mänskliga moderatorerna kan granska det. Mer information om gransknings verktyget finns i [konceptuell guide för gransknings verktyget](./review-tool-user-guide/human-in-the-loop.md).
 
 Följande kod använder klassen [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) för att skapa en granskning, hämta dess ID och kontrol lera informationen efter att ha tagit emot mänsklig indata via gransknings verktygets webb Portal.
 
@@ -312,7 +313,7 @@ Lägg till följande kod för att skapa och publicera en granskning för den ang
 
 ### <a name="get-review-details"></a>Visa gransknings information
 
-Använd följande kod för att kontrol lera informationen om en specifik granskning. När du har skapat granskningen kan du gå till gransknings verktyget själv och interagera med innehållet. När du är klar kan du köra den här koden igen så hämtas resultatet från gransknings processen.
+Använd följande kod för att kontrol lera informationen om en specifik granskning. När du har skapat granskningen kan du gå till gransknings verktyget själv och interagera med innehållet. Information om hur du gör detta finns i [instruktionen gransknings anvisningar](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). När du är klar kan du köra den här koden igen så hämtas resultatet från gransknings processen.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagereview_getdetails)]
 

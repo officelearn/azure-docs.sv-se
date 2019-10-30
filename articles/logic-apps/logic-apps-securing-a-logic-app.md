@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: f9b23e00c954e8babb1fe920bca1aa2ea5f9298e
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b219eb50254ecd347f731d332c3236be028834ba
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799490"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045038"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -266,11 +266,11 @@ Många utlösare och åtgärder har inställningar för att dölja indata, utdat
 
 1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-   ![Öppna exempel på Logic-appen](./media/logic-apps-securing-a-logic-app/sample-logic-app.png)
+   ![Öppna Logic-appen i Logic App Designer](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
 1. På utlösaren eller åtgärden där du vill skydda data väljer du knappen med ellipser ( **...** ) och väljer sedan **Inställningar**.
 
-   ![Öppna inställningar](./media/logic-apps-securing-a-logic-app/open-settings.png)
+   ![Öppna utlösare eller åtgärds inställningar](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
 1. Aktivera antingen **säkra indata**, **säkra utdata**eller både och. När du är klar väljer du **Klar**.
 
@@ -278,11 +278,11 @@ Många utlösare och åtgärder har inställningar för att dölja indata, utdat
 
    Åtgärden eller utlösaren visar nu en Lås ikon i namn listen.
 
-   ![Lås ikon i namn listen](./media/logic-apps-securing-a-logic-app/title-bar-lock-icon.png)
+   ![Åtgärds-eller Utlösarens namn List visar lås ikonen](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar.png)
 
    Tokens som representerar skyddade utdata från tidigare åtgärder visar också lås ikoner. Om du till exempel väljer utdata från listan med dynamiskt innehåll som ska användas i en åtgärd, visar denna token en Lås ikon.
 
-   ![Välj utdata](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
+   ![Välj token för skyddade utdata](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
 
 1. När Logic-appen har körts kan du se historiken för den här körningen.
 
@@ -292,7 +292,7 @@ Många utlösare och åtgärder har inställningar för att dölja indata, utdat
 
       Om du väljer att skydda både indata och utdata visas dessa värden nu som dolda.
 
-      ![Dolda data i körnings historik](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
+      ![Dolda indata och utdata i körnings historik](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
 <a name="secure-data-code-view"></a>
 
@@ -349,7 +349,7 @@ Här följer några [saker att tänka på](#obfuscation-considerations) när du 
 
   När du aktiverar **säkra indata** manuellt i en utlösare eller åtgärd, Logic Apps säkrar dessa indata i körnings historiken. Om en underordnad åtgärd uttryckligen använder synliga utdata från den utlösaren eller åtgärden som indata, kan Logic Apps dölja denna underordnade åtgärds indata i körnings historiken, men *aktiverar inte* **säkra inmatningar** i den här åtgärden och döljer inte den här åtgärden utdata.
 
-  ![Skyddade indata och effekt påverkan på de flesta åtgärder](./media/logic-apps-securing-a-logic-app/secure-inputs-flow.png)
+  ![Skyddade indata och effekt påverkan på de flesta åtgärder](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
   Om Skriv, parsa JSON och svars åtgärder uttryckligen använder synliga utdata från utlösaren eller åtgärden som har skyddade indata, Logic Apps döljer dessa åtgärders indata och utdata, men *aktiverar inte* den här åtgärdens **säkra indata** inställningen. Om en underordnad åtgärd uttryckligen använder dolda utdata från Skriv-, parsa-JSON-eller Response-åtgärder som indata, kan Logic Apps *inte dölja den här underordnade åtgärdens indata eller utdata*.
 

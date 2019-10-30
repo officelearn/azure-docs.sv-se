@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/03/2019
-ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 10/27/2019
+ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802578"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043211"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Kända problem/migrerings begränsningar med online-migreringar från PostgreSQL till Azure DB för PostgreSQL-enskild server
 
@@ -81,13 +81,13 @@ Kända problem och begränsningar som är kopplade till online-migrering från P
 
 ## <a name="datatype-limitations"></a>Begränsningar för data typer
 
-- **Begränsning**: Om det finns en uppräknings data typ i käll PostgreSQL-databasen, kommer migreringen att Miss under kontinuerlig synkronisering.
+- **Begränsning**: om det finns en uppräknings data typ i käll PostgreSQL-databasen, kommer migreringen att Miss under kontinuerlig synkronisering.
 
-    **Lösning**: Ändra ENUM-datatype till Character varierande i Azure Database for PostgreSQL.
+    **Lösning**: ändra Enum-datatype till Character varierande i Azure Database for PostgreSQL.
 
-- **Begränsning**: Om det inte finns någon primär nyckel för tabeller kommer den kontinuerliga synkroniseringen att Miss växlar.
+- **Begränsning**: om det inte finns någon primär nyckel för tabeller kommer den kontinuerliga synkroniseringen att Miss växlar.
 
-    **Lösning**: Ange tillfälligt en primär nyckel för tabellen för migrering för att fortsätta. Du kan ta bort den primära nyckeln när migreringen är klar.
+    **Lösning**: temporärt ange en primär nyckel för tabellen för migrering för att fortsätta. Du kan ta bort den primära nyckeln när migreringen är klar.
 
 - **Begränsning**: JSONB-datatype stöds inte för migrering.
 
@@ -95,21 +95,21 @@ Kända problem och begränsningar som är kopplade till online-migrering från P
 
 LOB-kolumner (Large Object) är kolumner som kan växa stora. För PostgreSQL är exempel på LOB-datatyper XML, JSON, IMAGE, TEXT osv.
 
-- **Begränsning**: Om LOB-datatyper används som primär nycklar kommer migreringen att Miss förflyttningen.
+- **Begränsning**: om LOB-datatyper används som primär nycklar kommer migreringen att Miss Miss förflyttningen.
 
     **Lösning**: Ersätt primär nyckel med andra data typer eller kolumner som inte är LOB.
 
-- **Begränsning**: Om längden på den stora objekt kolumnen (LOB) är större än 32 KB kan data trunkeras vid målet. Du kan kontrol lera längden på LOB-kolumnen med den här frågan:
+- **Begränsning**: om kolumnen för stora objekt (LOB) är större än 32 KB kan data trunkeras vid målet. Du kan kontrol lera längden på LOB-kolumnen med den här frågan:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Lösning**: Om du har LOB-objekt som är större än 32 KB kan du kontakta teknik teamet på [fråga Azure Database-migreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Lösning**: om du har LOB-objekt som är större än 32 KB kan du kontakta teknik teamet på [fråga Azure Database-migreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-- **Begränsning**: Om det finns LOB-kolumner i tabellen och det inte finns någon primär nyckel uppsättning för tabellen, kanske inte data migreras för den här tabellen.
+- **Begränsning**: om det finns LOB-kolumner i tabellen och det inte finns någon primär nyckel uppsättning för tabellen, kanske inte data migreras för den här tabellen.
 
-    **Lösning**: Ange tillfälligt en primär nyckel för tabellen för migrering för att gå vidare. Du kan ta bort den primära nyckeln när migreringen är klar.
+    **Lösning**: temporärt ange en primär nyckel för tabellen för migrering för att gå vidare. Du kan ta bort den primära nyckeln när migreringen är klar.
 
 ## <a name="postgresql10-workaround"></a>PostgreSQL10-lösning
 
@@ -153,29 +153,32 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 COMMIT;
 ```
 
+  > [!NOTE]
+  > I föregående skript refererar "PG_User" till det användar namn som används för att ansluta till migrerings källan.
+
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Begränsningar vid migrering online från AWS RDS PostgreSQL
 
 När du försöker utföra en online-migrering från AWS RDS PostgreSQL till Azure Database for PostgreSQL kan du stöta på följande fel.
 
-- **Fel**: Standardvärdet för kolumnen ”{column}” i tabellen ”{table}” i databasen ”{database}” är olika på käll- och målservrarna. Det har ”{value on source}” i källan och ”{value on target}” i målet.
+- **Fel**: standardvärdet för kolumnen {Column} i tabellen {Table} i databasen {Database} är inte samma på käll-och mål servrarna. Det har ”{value on source}” i källan och ”{value on target}” i målet.
 
-  **Begränsning**: Felet uppstår när standardvärdet i ett kolumn schema skiljer sig mellan käll-och mål databaserna.
-  **Lösning**: Se till att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Begränsning**: det här felet uppstår när standardvärdet i ett kolumn schema skiljer sig mellan käll-och mål databaserna.
+  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Fel**: Måldatabasen ”{database}” har ”{number of tables}” tabeller, medan källdatabasen ”{database}” har ”{number of tables}” tabeller. Antalet tabeller i käll- och måldatabaserna måste vara lika många.
+- **Fel**: mål databasen {Database} innehåller {Number of tables}-tabeller där som käll databasen {Database} har {Number of tables} tabeller. Antalet tabeller i käll- och måldatabaserna måste vara lika många.
 
-  **Begränsning**: Felet uppstår när antalet tabeller skiljer sig mellan käll-och mål databaserna.
-  **Lösning**: Se till att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Begränsning**: det här felet uppstår när antalet tabeller skiljer sig mellan käll-och mål databaserna.
+  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 - **Fel:** Käll databasen {Database} är tom.
 
-  **Begränsning**: Felet uppstår när käll databasen är tom. Det beror sannolikt på att du har valt fel databas som källa.
-  **Lösning**: Dubbelklicka på den käll databas som du har valt för migrering och försök sedan igen.
+  **Begränsning**: det här felet uppstår när käll databasen är tom. Det beror sannolikt på att du har valt fel databas som källa.
+  **Lösning**: kontrol lera den käll databas som du har valt för migrering och försök sedan igen.
 
 - **Fel:** Mål databasen {Database} är tom. Migrera schemat.
 
-  **Begränsning**: Felet uppstår när det inte finns något schema i mål databasen. Kontrol lera att schemat på målet matchar schemat på källan.
-  **Lösning**: Se till att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Begränsning**: det här felet uppstår när det inte finns något schema i mål databasen. Kontrol lera att schemat på målet matchar schemat på källan.
+  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Andra begränsningar
 

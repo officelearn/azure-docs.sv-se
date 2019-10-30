@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62ceff25b022866e47e6fdd488b01dd647cf550f
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: dfca7ef1dabb8c6021c9df2e3174d3e208a839b5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808206"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042096"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure-Multi-Factor Authentication
 
@@ -114,6 +114,8 @@ Konfigurera e-postadresser här för användare som ska få meddelanden om bedr�
 
 >[!NOTE]
 >När Multi-Factor Authentication anrop görs via det offentliga telefonnätet, kan de ibland dirigeras via en operatör som inte har stöd för uppringarens ID. Därför garanteras inte anropar-ID, trots att Multi-Factor Authentication systemet alltid skickar det.
+
+Om du inte har konfigurerat MFA Caller ID i USA, kommer röst samtal från Microsoft att komma från följande nummer: + 1 (866) 539 4191, + 1 (855) 330 8653 och + 1 (877) 668 6536. Om du använder skräp post filter ska du se till att undanta de här talen.
 
 ### <a name="custom-voice-messages"></a>Anpassade röst meddelanden
 
@@ -387,7 +389,7 @@ Ytterligare information om användningen av autentiseringsmetoder finns i artike
 Funktionen _kom ihåg Multi-Factor Authentication_ för enheter och webbläsare som är betrodda av användaren är en kostnads fri funktion för alla Multi-Factor Authentication användare. Användare kan kringgå efterföljande verifieringar under ett visst antal dagar efter att de har loggat in på en enhet med hjälp av Multi-Factor Authentication. Funktionen förbättrar användbarhet genom att minimera antalet gånger som en användare måste utföra tvåstegsverifiering på samma enhet.
 
 >[!IMPORTANT]
->Om ett konto eller en enhet komprometteras kan det påverka säkerheten genom att komma ihåg Multi-Factor Authentication för betrodda enheter. Om ett företags konto blir komprometterat eller om en betrodd enhet tappas bort eller blir stulen, bör du [återställa Multi-Factor Authentication på alla enheter](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
+>Om ett konto eller en enhet komprometteras kan det påverka säkerheten genom att komma ihåg Multi-Factor Authentication för betrodda enheter. Om ett företags konto blir komprometterat eller om en betrodd enhet tappas bort eller blir stulen, bör du [återkalla MFA-sessioner](howto-mfa-userdevicesettings.md).
 >
 >Återställnings åtgärden återkallar betrodd status från alla enheter och användaren måste utföra tvåstegsverifiering igen. Du kan också instruera användarna att återställa Multi-Factor Authentication på sina egna enheter med hjälp av anvisningarna i [Hantera dina inställningar för](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)tvåstegsverifiering.
 

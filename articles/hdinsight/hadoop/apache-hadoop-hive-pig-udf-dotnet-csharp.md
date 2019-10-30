@@ -1,5 +1,5 @@
 ---
-title: Använd C# med Apache Hive och Apache gris på Apache Hadoop i HDInsight – Azure
+title: C#, Apache Hive & Apache gris på Apache Hadoop-Azure HDInsight
 description: Lär dig hur du C# använder användardefinierade funktioner (UDF) med Apache Hive och Apache gris streaming i Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: fa40f206447f631c78052bda085b26a56e481194
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 222b91b2efefa81186d32fee7229aa0cc4f13a63
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066922"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044596"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Använd C# användardefinierade funktioner med Apache Hive och Apache gris på Apache Hadoop i HDInsight
 
@@ -22,9 +22,9 @@ Lär dig hur du C# använder användardefinierade funktioner (UDF) med Apache Hi
 > [!IMPORTANT]
 > Stegen i det här dokumentet fungerar med både Linux-baserade och Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [versions hantering av HDInsight-komponenter](../hdinsight-component-versioning.md).
 
-Både Hive och gris kan skicka data till externa program för bearbetning. Den här processen kallas för _strömning_. När du använder ett .NET-program skickas data till programmet på STDIN och programmet returnerar resultatet i STDOUT. Om du vill läsa och skriva från STDIN och STDOUT kan du `Console.ReadLine()` använda `Console.WriteLine()` och från ett konsol program.
+Både Hive och gris kan skicka data till externa program för bearbetning. Den här processen kallas för _strömning_. När du använder ett .NET-program skickas data till programmet på STDIN och programmet returnerar resultatet i STDOUT. Om du vill läsa och skriva från STDIN och STDOUT kan du använda `Console.ReadLine()` och `Console.WriteLine()` från ett konsol program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En välbekanthet med att skriva C# och skapa kod som är riktad mot .NET Framework 4,5.
 
@@ -42,7 +42,7 @@ Både Hive och gris kan skicka data till externa program för bearbetning. Den h
 
 ## <a name="net-on-hdinsight"></a>.NET på HDInsight
 
-* __Linux-baserade HDInsight-__ kluster med [mono (https://mono-project.com) ](https://mono-project.com) för att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6.
+* __Linux-baserade HDInsight-__ kluster med [mono (https://mono-project.com)](https://mono-project.com) att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6.
 
     Mer information om mono-kompatibilitet med .NET Framework-versioner finns i [mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -50,7 +50,7 @@ Både Hive och gris kan skicka data till externa program för bearbetning. Den h
 
 Mer information om den version av .NET Framework och mono som ingår i HDInsight-versioner finns i versions [versioner för HDInsight](../hdinsight-component-versioning.md).
 
-## <a name="create-the-c-projects"></a>Skapa C\# -projekt
+## <a name="create-the-c-projects"></a>Skapa C\#-projekt
 
 ### <a name="apache-hive-udf"></a>Apache Hive UDF
 
@@ -112,7 +112,7 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
 
 3. Bygga projektet.
 
-### <a name="apache-pig-udf"></a>Apache Pig UDF
+### <a name="apache-pig-udf"></a>Apache gris UDF
 
 1. Öppna Visual Studio och skapa en lösning. För projekt typen väljer du **konsol program**och namnger den nya Project- **PigUDF**.
 
@@ -147,7 +147,7 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
     }
     ```
 
-    Den här koden analyserar de rader som skickas från gris och formaterar om rader som `java.lang.Exception`börjar med.
+    Den här koden analyserar de rader som skickas från gris och formaterar om rader som börjar med `java.lang.Exception`.
 
 3. Spara **program.cs**och bygg sedan projektet.
 
@@ -203,9 +203,9 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
     ```
 
     > [!IMPORTANT]
-    > Kommentera den `add file` instruktion som matchar den typ av standard lagring som används för klustret.
+    > Ta bort kommentaren `add file`-instruktionen som matchar den typ av standard lagring som används för klustret.
 
-    Den här frågan väljer `clientid`fälten `devicemake`, och `devicemodel` från `hivesampletable`och skickar fälten till programmet HiveCSharp. exe. Frågan förväntar sig att programmet ska returnera tre fält, som lagras som `clientid`, `phoneLabel`och `phoneHash`. Frågan förväntar sig också att hitta HiveCSharp. exe i roten för standard lagrings behållaren.
+    Den här frågan väljer fälten `clientid`, `devicemake`och `devicemodel` från `hivesampletable`och skickar fälten till programmet HiveCSharp. exe. Frågan förväntar sig att programmet ska returnera tre fält, som lagras som `clientid`, `phoneLabel`och `phoneHash`. Frågan förväntar sig också att hitta HiveCSharp. exe i roten för standard lagrings behållaren.
 
 5. Klicka på **Skicka** för att skicka jobbet till HDInsight-klustret. Fönstret **Sammanfattning av Hive-jobb** öppnas.
 
@@ -226,7 +226,7 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
     > bin\pig
     > ```
 
-    En `grunt>` prompt visas.
+    En `grunt>`-prompt visas.
 
 3. Ange följande för att köra ett gris-jobb som använder .NET Framework-programmet:
 
@@ -236,10 +236,10 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
         DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
         DUMP DETAILS;
 
-    Instruktionen skapar ett alias för `streamer` pigudf. exe-programmen och `CACHE` läser in det från standard lagrings utrymmet för klustret. `DEFINE` `streamer` Senare används `STREAM` med operatorn för att bearbeta de enskilda raderna i loggen och returnera data som en serie kolumner.
+    `DEFINE`-instruktionen skapar ett alias för `streamer` för pigudf. exe-program och `CACHE` läser in det från standard lagrings utrymmet för klustret. Senare används `streamer` med operatorn `STREAM` för att bearbeta de enskilda raderna i LOGGen och returnera data som en serie kolumner.
 
     > [!NOTE]
-    > Det program namn som används för strömning måste omges av \` (baktick)-tecknet vid alias och "(enkelt citat tecken) när det används med. `SHIP`
+    > Det program namn som används för strömning måste omges av \` (baktick)-tecknet vid alias och "(enkelt citat tecken) när det används med `SHIP`.
 
 4. När du har angett den sista raden ska jobbet starta. Den returnerar utdata som liknar följande text:
 

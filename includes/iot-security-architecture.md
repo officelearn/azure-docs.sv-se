@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f01d4a3a53ac9acf1350e4eea0526cf8584140a4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789101"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034554"
 ---
 När du designar ett system är det viktigt att förstå de potentiella hoten mot systemet och lägga till lämpliga försvar i enlighet med detta, eftersom systemet är utformat och konstruerat. Det är viktigt att utforma produkten från början med säkerhet i åtanke eftersom du förstår hur en angripare kan kompromettera ett system och se till att lämpliga åtgärder är på plats från början.
 
@@ -116,7 +116,7 @@ En fält-Gateway skiljer sig från en router med enbart trafik eftersom den har 
 
 ### <a name="the-cloud-gateway-zone"></a>Cloud Gateway-zonen
 
-Cloud Gateway är ett system som möjliggör fjärr kommunikation från och till enheter eller fält-gatewayer från flera olika platser över ett offentligt nätverks utrymme, vanligt vis mot ett molnbaserad kontroll-och data analys system, en federation av sådana system. I vissa fall kan en moln-Gateway omedelbart under lätta åtkomsten till särskilda enheter från terminaler som surfplattor eller telefoner. I det sammanhang som beskrivs här är "moln" avsett att referera till ett dedikerat data behandlings system som inte är kopplat till samma plats som de anslutna enheterna eller fält-gatewayerna. I en moln zon förhindrar drift åtgärder för att nå fysisk åtkomst och kan inte nödvändigt vis exponeras för en "offentlig moln infrastruktur".  
+En moln-Gateway är ett system som möjliggör fjärr kommunikation från och till enheter eller fält-gatewayer från flera olika platser över ett offentligt nätverks utrymme, vanligt vis mot ett molnbaserad kontroll-och data analys system, en federation av sådana system. I vissa fall kan en moln-Gateway omedelbart under lätta åtkomsten till särskilda enheter från terminaler som surfplattor eller telefoner. I det sammanhang som beskrivs här är "moln" avsett att referera till ett dedikerat data behandlings system som inte är kopplat till samma plats som de anslutna enheterna eller fält-gatewayerna. I en moln zon förhindrar drift åtgärder för att nå fysisk åtkomst och kan inte nödvändigt vis exponeras för en "offentlig moln infrastruktur".  
 
 En moln-Gateway kan eventuellt mappas till ett överlägg för nätverksvirtualisering för att isolera moln-gatewayen och alla dess anslutna enheter eller fält-gatewayer från valfri annan nätverks trafik. Själva moln-gatewayen är inte ett enhets kontroll system eller en bearbetnings-eller lagrings funktion för enhets data. dessa anläggningar-gränssnitt med moln-gatewayen. Cloud Gateway-zonen inkluderar själva moln-gatewayen tillsammans med alla fält-gatewayer och enheter som är direkt eller indirekt kopplade till den. Gränsen för zonen är en distinkt yta där alla externa parter kommunicerar genom.
 

@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Hive-principer i HDInsight med Enterprise Security Package – Azure
+title: Apache Hive principer i Apache Ranger – Azure HDInsight
 description: Lär dig hur du konfigurerar Apache Ranger-principer för Hive i en Azure HDInsight-tjänst med Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0213fc1a96b38b615cbd8b7b6374a6716b9f840
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e49e2d103fd9c91824c8e8a1603cddddf16366e1
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918190"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044861"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Ett HDInsight-kluster med Enterprise Security Package. Se [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
 * En arbetsstation med Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, fristående Excel 2013 eller Office 2010 Professional Plus.
 
@@ -84,7 +84,7 @@ Du hittar anvisningarna i [Skapa Hive ODBC-datakällan](../hadoop/apache-hadoop-
  | Mekanism | Välj **Azure HDInsight-tjänst** |
  | HTTP-sökväg | Lämna tomt. |
  | Användarnamn | Ange hiveuser1@contoso158.onmicrosoft.com. Uppdatera domän namnet om det skiljer sig. |
- | lösenordsinställning | Ange lösenordet för hiveuser1. |
+ | Lösenord | Ange lösenordet för hiveuser1. |
 
 Se till att klicka på **Test** innan du sparar datakällan.
 
@@ -99,9 +99,9 @@ I det sista avsnittet konfigurerade du två principer.  hiveuser1 har select-beh
 4. Från ODBC-datakällor väljer du datakällsnamnet som du skapade i det föregående steget och sedan klickar du på **Nästa**.
 5. Ange lösen ordet för klustret i guiden igen och klicka sedan på **OK**. Vänta tills dialogrutan **Markera databas och tabell** öppnas. Det kan ta några sekunder.
 6. Välj **hivesampletable** och klicka sedan på **Nästa**.
-7. Klicka på **Slutför**.
+7. Klicka på **Finish**.
 8. I dialogrutan **Importera data** kan du ändra eller specificera frågan. Gör det genom att klicka på **Egenskaper**. Det kan ta några sekunder.
-9. Klicka på fliken **Definition**. Kommandotexten är:
+9. Klicka på fliken **definition** . Kommando texten är:
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 

@@ -10,12 +10,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019
-ms.openlocfilehash: 02d9a33018f87e6dbb9c7a797c16e5484c523b11
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 81a31c0a03ef836d95a5a4f3cd4f4cd7b7e113e2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72955104"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027354"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Självstudie: anpassa instrument panelen för operatör och hantera enheter i Azure IoT Central
 
@@ -36,14 +36,14 @@ I den här guiden får du lära dig att:
 
 Innan du påbörjar den här själv studie kursen bör du slutföra den första självstudien för att skapa Azure IoT Central in-Store Analytics-program och lägga till enheter:
 
-* [Skapa ett in-Store Analytics-program i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) (krävs)
+* [Skapa ett in-Store Analytics-program i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) (krävs)
 
 ## <a name="change-the-dashboard-name"></a>Ändra instrument panelens namn
 Om du vill anpassa instrument panelen för operatören redigerar du standard instrument panelen i ditt program. Du kan också skapa ytterligare nya instrument paneler. Det första steget för att anpassa instrument panelen i programmet är att ändra namnet.
 
 1. Gå till webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) .
 
-1. Öppna programmet för villkors övervakning som du skapade i själv studie kursen [skapa ett program för analys i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) .
+1. Öppna programmet för villkors övervakning som du skapade i själv studie kursen [skapa ett program för analys i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) .
 
 1. Välj **Redigera** i instrument panelens verktygsfält. I redigerings läge kan du anpassa utseendet, layouten och innehållet på instrument panelen.
 
@@ -142,7 +142,7 @@ Så här ordnar du om de återstående panelerna:
 ## <a name="add-telemetry-tiles-to-display-conditions"></a>Lägg till telemetri paneler i visnings villkor
 När du har anpassat instrument panelens layout är du redo att lägga till paneler för att Visa telemetri. Om du vill skapa en telemetri-panel väljer du en enhets mall och enhets instans och väljer sedan enhetsspecifika telemetri som ska visas i panelen. Program mal len **BA-utcheckning i butiken** innehåller flera telemetri paneler på instrument panelen. De fyra panelerna i de två arbets zonerna visar telemetri från den simulerade beläggnings sensorn. Panelen **person trafik** visar antalet i de två arbets zonerna. 
 
-I det här avsnittet lägger du till två fler telemetri paneler för att Visa miljötelemetri från RuuviTag-sensorer som du har lagt till i självstudien [skapa ett in-Store-analys i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json) . 
+I det här avsnittet lägger du till två fler telemetri paneler för att Visa miljötelemetri från RuuviTag-sensorer som du har lagt till i självstudien [skapa ett in-Store-analys i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) . 
 
 För att lägga till paneler för att Visa miljö data från RuuviTag-sensorer:
 
@@ -259,4 +259,4 @@ I den här självstudiekursen lärde du dig att:
 Nu när du har anpassat instrument panelen i Azure IoT Central in-Store Analytics-program, här är det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
-> [Exportera data och visualisera insikter](./tutorial-in-store-analytics-export-data-visualize-insights-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)
+> [Exportera data och visualisera insikter](./tutorial-in-store-analytics-export-data-visualize-insights-pnp.md)

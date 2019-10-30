@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240408"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053740"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -32,13 +32,13 @@ Perimeter-säkerhet i HDInsight uppnås via [virtuella nätverk](../hdinsight-pl
 
 Alla kluster som distribueras i ett VNET har också en privat slut punkt som matchar en privat IP-adress i VNET för privat HTTP-åtkomst till kluster-gatewayerna.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 [Enterprise Security Package](apache-domain-joined-architecture.md) från HDInsight tillhandahåller Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomst kontroll. Active Directory-integreringen uppnås genom användning av [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Med dessa funktioner kan du skapa ett HDInsight-kluster som är anslutet till en hanterad Active Directory-domän. Sedan kan du konfigurera en lista över anställda från företaget som kan autentisera och logga in i klustret.
 
 Med den här inställningen kan företags anställda logga in på klusternoderna genom att använda sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera med andra godkända slut punkter som Apache Ambari views, ODBC, JDBC, PowerShell och REST-API: er för att samverka med klustret. 
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>Autentisering
 
 En bästa praxis som de flesta företag följer är att se till att inte alla anställda har till gång till alla företags resurser. På samma sätt kan administratören definiera rollbaserade principer för åtkomst kontroll för kluster resurserna. Detta är endast tillgängligt i ESP-klustren.
 
@@ -60,6 +60,10 @@ Det är viktigt att skydda data för att uppfylla organisationens krav på säke
 
 Både data lager för HDInsight-kluster, Azure Blob Storage och Azure Data Lake Storage Gen1/Gen2, stöder transparent [kryptering på Server sidan av data](../../storage/common/storage-service-encryption.md) i vila. Säkra HDInsight-kluster fungerar sömlöst med den här funktionen för kryptering på Server sidan av data i vila.
 
+### <a name="compliance"></a>Efterlevnad
+
+Azure Compliance-erbjudanden baseras på olika typer av garantier, inklusive formella certifieringar, attesteringar, godkännanden och bedömningar som produceras av oberoende gransknings företag från tredje part, samt avtals ändringar. själv bedömningar och kund väglednings dokument som skapats av Microsoft. Information om efterlevnad av HDInsight finns i [Microsoft Trust Center](https://www.microsoft.com/trust-center) och [Översikt över Microsoft Azure efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+
 ## <a name="shared-responsibility-model"></a>Delad ansvars modell
 
 Följande bild sammanfattar de större säkerhets områdena för systemet och de säkerhetslösningar som är tillgängliga för dig i var och en. Den fokuserar också på vilka säkerhets områden som är ditt ansvar som en kund och vilka områden som är ansvariga för HDInsight som tjänst leverantör.
@@ -70,20 +74,20 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 
 | Säkerhets områden | Tillgängliga lösningar | Ansvarig part |
 |---|---|---|
-| Säkerhet för data åtkomst | Konfigurera [åtkomst kontrol listor med ACL: er](../../storage/blobs/data-lake-storage-access-control.md) för Azure Data Lake Storage gen1 och Gen2  | Kunden |
-|  | Aktivera egenskapen ["säker överföring krävs"](../../storage/common/storage-require-secure-transfer.md) för lagrings konton. | Kunden |
-|  | Konfigurera [Azure Storage brand väggar](../../storage/common/storage-network-security.md) och virtuella nätverk | Kunden |
-|  | Konfigurera [tjänst slut punkter för Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) för Cosmos DB och [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Kunden |
-|  | Se till att [TLS-kryptering](../../storage/common/storage-security-tls.md) har Aktiver ATS för data under överföring. | Kunden |
-|  | Konfigurera [Kundhanterade nycklar](../../storage/common/storage-encryption-keys-portal.md) för Azure Storage kryptering | Kunden |
-| Program-och mellanprogram säkerhet | Integrera med AAD-DS och [Konfigurera autentisering](apache-domain-joined-configure-using-azure-adds.md) | Kunden |
-|  | Konfigurera [Auktoriseringsprinciper för Apache Ranger](apache-domain-joined-run-hive.md) | Kunden |
-|  | Använda [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Kunden |
-| Operativ systemets säkerhet | Skapa kluster med den senaste säkra bas avbildningen | Kunden |
-|  | Se till att [OS-uppdatering](../hdinsight-os-patching.md) sker med jämna mellanrum | Kunden |
+| Säkerhet för data åtkomst | Konfigurera [åtkomst kontrol listor med ACL: er](../../storage/blobs/data-lake-storage-access-control.md) för Azure Data Lake Storage gen1 och Gen2  | Kund |
+|  | Aktivera egenskapen ["säker överföring krävs"](../../storage/common/storage-require-secure-transfer.md) för lagrings konton. | Kund |
+|  | Konfigurera [Azure Storage brand väggar](../../storage/common/storage-network-security.md) och virtuella nätverk | Kund |
+|  | Konfigurera [tjänst slut punkter för Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) för Cosmos DB och [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Kund |
+|  | Se till att [TLS-kryptering](../../storage/common/storage-security-tls.md) har Aktiver ATS för data under överföring. | Kund |
+|  | Konfigurera [Kundhanterade nycklar](../../storage/common/storage-encryption-keys-portal.md) för Azure Storage kryptering | Kund |
+| Program-och mellanprogram säkerhet | Integrera med AAD-DS och [Konfigurera autentisering](apache-domain-joined-configure-using-azure-adds.md) | Kund |
+|  | Konfigurera [Auktoriseringsprinciper för Apache Ranger](apache-domain-joined-run-hive.md) | Kund |
+|  | Använda [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Kund |
+| Operativ systemets säkerhet | Skapa kluster med den senaste säkra bas avbildningen | Kund |
+|  | Se till att [OS-uppdatering](../hdinsight-os-patching.md) sker med jämna mellanrum | Kund |
 | Nätverkssäkerhet | Konfigurera ett [virtuellt nätverk](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Kunden |
-|  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg (för hands version) | Kunden |
+|  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Kund |
+|  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg (för hands version) | Kund |
 | Virtualiserad infrastruktur | Gäller inte | HDInsight (Cloud Provider) |
 | Säkerhet för fysisk infrastruktur | Gäller inte | HDInsight (Cloud Provider) |
 

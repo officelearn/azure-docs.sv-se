@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 1053541e192668a7b572d97c141c2fe8fc16ac5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bb4fc076d01c1108278cea0cebba958b4ea94660
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757367"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044057"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Snabb start: prova Content Moderator på webben
 
@@ -68,6 +68,6 @@ Eller Fortsätt med nästa steg för att komma igång med redigerings-API: er i 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du använder redigerings-API: erna själva i din app.
-- Implementera avbildnings moderator. Använd [API-konsolen](try-image-api.md) eller [ C# snabb](image-moderation-quickstart-dotnet.md) starten för att skanna bilder och identifiera potentiellt vuxna och vågat innehåll genom att använda taggar, konfidens resultat och annan extraherad information.
-- Implementera text moderator. Använd [API-konsolen](try-text-api.md) eller Använd [ C# snabb](text-moderation-quickstart-dotnet.md) starten för att skanna text innehåll för potentiella svordomar, oönskad text klassificering (för hands version) och personliga data.
+- Implementera avbildnings moderator. Använd [API-konsolen](try-image-api.md) eller följ snabb starten för [.NET SDK](dotnet-sdk-quickstart.md) för att skanna bilder och identifiera potentiellt vuxna och vågat innehåll genom att använda taggar, konfidens resultat och annan extraherad information.
+- Implementera text moderator. Använd [API-konsolen](try-text-api.md) eller Använd snabb starten för [.NET SDK](dotnet-sdk-quickstart.md) om du vill söka efter potentiella svordomar i text innehåll, oönskad text klassificering (för hands version) och personliga data.
 - Implementera videoinspelning. Följ [guiden för videoinspelnings anvisningar för att söka C# efter](video-moderation-api.md) videor och identifiera potentiellt vuxna och vågat innehåll. 

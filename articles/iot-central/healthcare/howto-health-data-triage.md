@@ -8,14 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: c30f939aa353ae5809a8ba6e9c2b2d7f376ddc0d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cbbfc13cd818c3f29ed306beab49d101c70f562b
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72956665"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73026487"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Självstudie: Bygg en Power BI leverantörs instrument panel
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 När du skapar en kontinuerlig övervaknings lösning för patienter kanske du också vill skapa en instrument panel för ett sjukhus för att visualisera patient data. Den här självstudien vägleder dig genom stegen för att skapa en Power BI direkt uppspelnings instrument panel i real tid från din IoT Central Mall för kontinuerlig övervakning av patienter.
 

@@ -1,11 +1,11 @@
 ---
-title: Skapa en offentlig belastningsutjämnare med IPv6 - Azure CLI
+title: Skapa en offentlig belastningsutjämnare med IPv6 – Azure CLI
 titlesuffix: Azure Load Balancer
 description: Lär dig hur du skapar en offentlig belastningsutjämnare med IPv6 med Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: asudbring
-keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
+keywords: IPv6, Azure Load Balancer, dubbel stack, offentlig IP, inbyggd IPv6, mobil, IoT
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,51 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3d92f1a7067d4b3717ecdfd5b8cb16ec0234bdec
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274960"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025712"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
 
+>[! OBS! den här artikeln innehåller en introduktion till IPv6-funktionen för att tillåta grundläggande belastningsutjämnare för att ge både IPv4-och IPv6-anslutning.  Mer omfattande IPv6-anslutning är nu tillgängligt med [IPv6 för Azure-virtuella nätverk](../virtual-network/ipv6-overview.md) som integrerar IPv6-anslutningar med dina virtuella nätverk och innehåller viktiga funktioner som IPv6-regler för nätverks säkerhets grupper, IPv6-användardefinierad routning, IPv6 Basic och Standard belastnings utjämning med mera.  IPv6 för Azure virtuella nätverk är den rekommenderade bästa praxis för IPv6-program i Azure. 
+>Se [IPv6 för Azure VNet CLI-distribution](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)
 
-En Azure Load Balancer är en Layer 4-lastbalanserare (TCP, UDP). Belastningsutjämnare ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfria tjänsteinstanser i cloud services och virtuella datorer i en belastningsutjämningsuppsättning. Belastningsutjämnare kan även presentera dessa tjänster på flera portar eller flera IP-adresser eller båda.
+En Azure Load Balancer är en Layer 4-lastbalanserare (TCP, UDP). Belastnings utjämning ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfria tjänst instanser i moln tjänster eller virtuella datorer i en belastnings Utjämnings uppsättning. Belastnings utjämning kan också presentera dessa tjänster på flera portar eller flera IP-adresser eller både och.
 
-## <a name="example-deployment-scenario"></a>Exempelscenario för distribution
+## <a name="example-deployment-scenario"></a>Exempel på distributions scenario
 
-Följande diagram illustrerar belastningsutjämningslösning som distribueras med hjälp av mallen för exemplet som beskrivs i den här artikeln.
+Följande diagram illustrerar belastnings Utjämnings lösningen som distribueras med hjälp av exempel mal len som beskrivs i den här artikeln.
 
 ![Lastbalanseringsscenario](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)
 
 I det här scenariot skapar du följande Azure-resurser:
 
-* Två virtuella datorer (VM)
-* Ett virtuellt nätverksgränssnitt för varje virtuell dator med både IPv4 och IPv6-adresserna som tilldelats
-* En offentlig belastningsutjämnare med en IPv4 och en offentlig IP-adress för IPv6
-* En tillgänglighetsuppsättning som innehåller två virtuella datorer
-* Två belastningsutjämningsregler för att mappa de offentliga virtuella IP-adresserna till de privata slutpunkterna
+* två virtuella datorer (VM)
+* ett virtuellt nätverks gränssnitt för varje virtuell dator med både IPv4-och IPv6-adresser tilldelade
+* En offentlig belastningsutjämnare med en offentlig IP-adress för IPv4 och IPv6
+* En tillgänglighets uppsättning som innehåller de två virtuella datorerna
+* två belastnings Utjämnings regler för att mappa offentliga VIP-adresser till privata slut punkter
 
 ## <a name="deploy-the-solution-by-using-azure-cli"></a>Distribuera lösningen med hjälp av Azure CLI
 
-Följande steg visar hur du skapar en offentlig belastningsutjämnare med hjälp av Azure CLI. Med CLI kan du skapa och konfigurera varje objekt separat, och placera dem tillsammans för att skapa en resurs.
+Följande steg visar hur du skapar en offentlig belastningsutjämnare med hjälp av Azure CLI. Med CLI skapar du och konfigurerar varje enskilt objekt individuellt, och sätter sedan samman dem för att skapa en resurs.
 
-Distribuera en belastningsutjämnare, skapa och konfigurera följande objekt:
+Om du vill distribuera en belastningsutjämnare skapar och konfigurerar du följande objekt:
 
-* **IP-konfiguration på klient**sidan: Innehåller offentliga IP-adresser för inkommande nätverks trafik.
-* **Backend-adresspool**: Innehåller nätverks gränssnitt (NIC) för de virtuella datorerna för att ta emot nätverks trafik från belastningsutjämnaren.
-* **Belastnings Utjämnings regler**: Innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
-* **Inkommande NAT-regler**: Innehåller Network Address Translation (NAT) regler som mappar en offentlig port på belastningsutjämnaren till en port för en speciell virtuell dator i backend-adresspoolen.
-* Avsökningar: Innehåller hälso avsökningar som används för att kontrol lera tillgängligheten för virtuella dator instanser i backend-adresspoolen.
+* **IP-konfiguration på klient**sidan: innehåller offentliga IP-adresser för inkommande nätverks trafik.
+* **Backend-adresspool**: innehåller nätverks gränssnitt (NIC) för de virtuella datorerna för att ta emot nätverks trafik från belastningsutjämnaren.
+* **Belastnings Utjämnings regler**: innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
+* **Ingående NAT-regler**: innehåller Network Address TRANSLATION (NAT) regler som mappar en offentlig port på belastningsutjämnaren till en port för en speciell virtuell dator i backend-adresspoolen.
+* **Avsökningar**: innehåller hälso avsökningar som används för att kontrol lera tillgängligheten för virtuella dator instanser i backend-adresspoolen.
 
 ## <a name="set-up-azure-cli"></a>Konfigurera Azure CLI
 
-I det här exemplet kan köra du Azure CLI-verktygen i ett PowerShell-kommandofönster. För att förbättra läsbarheten och återanvändning kan använda du PowerShell-skript funktioner, inte Azure PowerShell-cmdlets.
+I det här exemplet kör du Azure CLI-verktygen i ett PowerShell-kommando fönster. För att förbättra läsbarheten och återanvändandet kan du använda PowerShell: s skript funktioner, inte Azure PowerShell-cmdlet: ar.
 
-1. [Installera och konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) genom att följa stegen i den länkade artikeln och logga in på kontot.
+1. [Installera och konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) genom att följa stegen i den länkade artikeln och logga in på ditt Azure-konto.
 
-2. Konfigurera PowerShell variabler för användning med Azure CLI-kommandon:
+2. Konfigurera PowerShell-variabler för användning med Azure CLI-kommandon:
 
     ```powershell
     $subscriptionid = "########-####-####-####-############"  # enter subscription id
@@ -74,7 +76,7 @@ I det här exemplet kan köra du Azure CLI-verktygen i ett PowerShell-kommandof�
     $lbName = "myIPv4IPv6Lb"
     ```
 
-## <a name="create-a-resource-group-a-load-balancer-a-virtual-network-and-subnets"></a>Skapa en resursgrupp, en belastningsutjämnare, ett virtuellt nätverk och undernät
+## <a name="create-a-resource-group-a-load-balancer-a-virtual-network-and-subnets"></a>Skapa en resurs grupp, en belastningsutjämnare, ett virtuellt nätverk och undernät
 
 1. Skapa en resursgrupp:
 
@@ -101,16 +103,16 @@ I det här exemplet kan köra du Azure CLI-verktygen i ett PowerShell-kommandof�
     $subnet2 = az network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
     ```
 
-## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Skapa den offentliga IP-adresser för adresspoolen på klientsidan
+## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Skapa offentliga IP-adresser för klient delens pool
 
-1. Ställ in variabler för PowerShell:
+1. Konfigurera PowerShell-variablerna:
 
     ```powershell
     $publicIpv4Name = "myIPv4Vip"
     $publicIpv6Name = "myIPv6Vip"
     ```
 
-2. Skapa en offentlig IP-adress för IP-adresspoolen på klientsidan:
+2. Skapa en offentlig IP-adress för IP-poolen på klient sidan:
 
     ```azurecli
     $publicipV4 = az network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --version IPv4 --allocation-method Dynamic --dns-name $dnsLabel
@@ -118,17 +120,17 @@ I det här exemplet kan köra du Azure CLI-verktygen i ett PowerShell-kommandof�
     ```
 
     > [!IMPORTANT]
-    > Belastningsutjämnaren använder domänetiketten för den offentliga IP-Adressen som dess fullständiga domännamn (FQDN). En ändring från den klassiska distributionen, som använder Molntjänsten namnet som belastningsutjämnarens fullständiga domännamn.
+    > Belastningsutjämnaren använder domän etiketten för den offentliga IP-adressen som fullständigt kvalificerat domän namn (FQDN). Detta är en förändring från klassisk distribution som använder moln tjänst namnet som belastningsutjämnare-FQDN.
     >
-    > I det här exemplet är det fullständiga Domännamnet *contoso09152016.southcentralus.cloudapp.azure.com*.
+    > I det här exemplet är det fullständiga domän namnet *contoso09152016.southcentralus.cloudapp.Azure.com*.
 
-## <a name="create-front-end-and-back-end-pools"></a>Skapa frontend och backend-adresspooler
+## <a name="create-front-end-and-back-end-pools"></a>Skapa klient dels-och Server dels grupper
 
-I det här avsnittet skapar du följande IP-adresspooler:
-* IP-adresspoolen på klientsidan som tar emot den inkommande nätverkstrafiken på belastningsutjämnaren.
-* Backend-IP-adresspoolen där serverdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
+I det här avsnittet skapar du följande IP-pooler:
+* Den IP-adresspool på klient sidan som tar emot inkommande nätverks trafik i belastningsutjämnaren.
+* Server delens IP-pool där frontend-poolen skickar den belastningsutjämnade nätverks trafiken.
 
-1. Ställ in variabler för PowerShell:
+1. Konfigurera PowerShell-variablerna:
 
     ```powershell
     $frontendV4Name = "FrontendVipIPv4"
@@ -137,7 +139,7 @@ I det här avsnittet skapar du följande IP-adresspooler:
     $backendAddressPoolV6Name = "BackendPoolIPv6"
     ```
 
-2. Skapa en IP-adresspool på klientsidan och koppla den till den offentliga IP-Adressen som du skapade i föregående steg och belastningsutjämnaren.
+2. Skapa en IP-adresspool på klient sidan och koppla den till den offentliga IP-adress som du skapade i föregående steg och belastningsutjämnaren.
 
     ```azurecli
     $frontendV4 = az network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-address $publicIpv4Name --lb-name $lbName
@@ -146,18 +148,18 @@ I det här avsnittet skapar du följande IP-adresspooler:
     $backendAddressPoolV6 = az network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
     ```
 
-## <a name="create-the-probe-nat-rules-and-load-balancer-rules"></a>Skapa avsökning, NAT-regler och regler för belastningsutjämnare
+## <a name="create-the-probe-nat-rules-and-load-balancer-rules"></a>Skapa regler för avsökning, NAT-regler och belastnings utjämning
 
 I det här exemplet skapas följande objekt:
 
-* En avsökningsregel som kontrollerar anslutning till TCP-port 80.
+* En avsöknings regel för att kontrol lera anslutningen till TCP-port 80.
 * En NAT-regel som översätter all inkommande trafik på port 3389 till port 3389 för RDP.\*
-* En NAT-regel som översätter all inkommande trafik på port 3391 till port 3389 för remote desktop protocol (RDP).\*
-* En belastningsutjämningsregel som balanserar all inkommande trafik på port 80 till port 80 för adresserna i backend poolen.
+* En NAT-regel som översätter all inkommande trafik på port 3391 till port 3389 för Remote Desktop Protocol (RDP).\*
+* En belastnings Utjämnings regel som balanserar all inkommande trafik på port 80 till port 80 på adresserna i backend-poolen.
 
-\* NAT-regler associeras med en specifik instans för virtuella datorer bakom belastningsutjämnaren. Den nätverkstrafik som kommer på port 3389 skickas till den specifika virtuella datorn och port som är associerat med NAT-regel. Du måste ange ett protokoll (UDP eller TCP) för en NAT-regel. Du kan inte tilldela båda protokollen på samma port.
+\* NAT-regler är associerade med en angiven instans av en virtuell dator bakom belastningsutjämnaren. Nätverks trafiken som anländer på port 3389 skickas till den angivna virtuella datorn och porten som är associerad med NAT-regeln. Du måste ange ett protokoll (UDP eller TCP) för en NAT-regel. Du kan inte tilldela båda protokollen till samma port.
 
-1. Ställ in variabler för PowerShell:
+1. Konfigurera PowerShell-variablerna:
 
     ```powershell
     $probeV4V6Name = "ProbeForIPv4AndIPv6"
@@ -169,27 +171,27 @@ I det här exemplet skapas följande objekt:
 
 2. Skapa avsökningen.
 
-    I följande exempel skapas en TCP-avsökning som kontrollerar anslutning till backend-TCP-port 80 var 15: e sekund. Efter två på varandra följande fel markeras backend-resursen som otillgängligt.
+    I följande exempel skapas en TCP-avsökning som kontrollerar om anslutningen till Server delens TCP-port 80 var 15: e sekund. Efter två efterföljande avbrott markerar den backend-resursen som otillgänglig.
 
     ```azurecli
     $probeV4V6 = az network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --threshold 2 --lb-name $lbName
     ```
 
-3. Skapa inkommande NAT-regler som tillåter RDP-anslutningar till backend-resurser:
+3. Skapa inkommande NAT-regler som tillåter RDP-anslutningar till Server dels resurserna:
 
     ```azurecli
     $inboundNatRuleRdp1 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
     $inboundNatRuleRdp2 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
-4. Skapa regler för belastningsutjämnaren som skickar trafik till andra backend-portar, beroende på klientdelen som tog emot begäran.
+4. Skapa regler för belastnings utjämning som skickar trafik till olika Server dels portar, beroende på klient delen som tog emot begäran.
 
     ```azurecli
     $lbruleIPv4 = az network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
     $lbruleIPv6 = az network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
     ```
 
-5. Kontrollera inställningarna:
+5. Kontrol lera inställningarna:
 
     ```azurecli
     az network lb show --resource-group $rgName --name $lbName
@@ -237,9 +239,9 @@ I det här exemplet skapas följande objekt:
 
 ## <a name="create-nics"></a>Skapa nätverkskort
 
-Skapa nätverkskort och koppla dem till NAT-regler, belastningsutjämningsregler och avsökningar.
+Skapa nätverkskort och koppla dem till NAT-regler, belastnings Utjämnings regler och avsökningar.
 
-1. Ställ in variabler för PowerShell:
+1. Konfigurera PowerShell-variablerna:
 
     ```powershell
     $nic1Name = "myIPv4IPv6Nic1"
@@ -252,7 +254,7 @@ Skapa nätverkskort och koppla dem till NAT-regler, belastningsutjämningsregler
     $natRule2V4Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/inboundNatRules/$natRule2V4Name"
     ```
 
-2. Skapa ett nätverkskort för varje serverdel och Lägg till en IPv6-konfiguration:
+2. Skapa ett nätverkskort för varje server del och Lägg till en IPv6-konfiguration:
 
     ```azurecli
     $nic1 = az network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet1Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule1V4Id
@@ -262,11 +264,11 @@ Skapa nätverkskort och koppla dem till NAT-regler, belastningsutjämningsregler
     $nic2IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-address-version "IPv6" --lb-address-pools $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
-## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Skapa backend-VM-resurser och bifoga varje nätverkskort
+## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Skapa de virtuella backend-resurserna och koppla varje nätverkskort
 
-Om du vill skapa virtuella datorer, måste du ha ett lagringskonto. Belastningsutjämning måste de virtuella datorerna ska vara medlemmar i en tillgänglighetsuppsättning. Mer information om hur du skapar virtuella datorer finns i [skapa en Azure-dator med hjälp av PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Om du vill skapa virtuella datorer måste du ha ett lagrings konto. De virtuella datorerna måste vara medlemmar i en tillgänglighets uppsättning för belastnings utjämning. Mer information om hur du skapar virtuella datorer finns i [skapa en virtuell Azure-dator med hjälp av PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-1. Ställ in variabler för PowerShell:
+1. Konfigurera PowerShell-variablerna:
 
     ```powershell
     $availabilitySetName = "myIPv4IPv6AvailabilitySet"
@@ -280,15 +282,15 @@ Om du vill skapa virtuella datorer, måste du ha ett lagringskonto. Belastningsu
     ```
 
     > [!WARNING]
-    > Det här exemplet använder användarnamn och lösenord för de virtuella datorerna i klartext. Vidta lämpliga försiktighetsåtgärder när du använder dessa autentiseringsuppgifter i klartext. En mer säker metod för hantering av autentiseringsuppgifter i PowerShell, finns det [ `Get-Credential` ](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+    > I det här exemplet används användar namn och lösen ord för de virtuella datorerna i klartext. Ta lämplig försiktighet när du använder dessa autentiseringsuppgifter i klartext. En säkrare metod för att hantera autentiseringsuppgifter i PowerShell finns i [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) -cmdleten.
 
-2. Skapa tillgänglighetsuppsättningen:
+2. Skapa tillgänglighets uppsättningen:
 
     ```azurecli
     $availabilitySet = az vm availability-set create --name $availabilitySetName --resource-group $rgName --location $location
     ```
 
-3. Skapa de virtuella datorerna med associerade nätverkskort:
+3. Skapa de virtuella datorerna med tillhör ande nätverkskort:
 
     ```azurecli
     az vm create --resource-group $rgname --name $vm1Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic1Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
@@ -296,8 +298,4 @@ Om du vill skapa virtuella datorer, måste du ha ett lagringskonto. Belastningsu
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
 
-## <a name="next-steps"></a>Nästa steg
 
-[Komma igång med att konfigurera en intern lastbalanserare](load-balancer-get-started-ilb-arm-cli.md)  
-[Konfigurera ett distributionsläge för lastbalanserare](load-balancer-distribution-mode.md)  
-[Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)

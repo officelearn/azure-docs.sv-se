@@ -1,19 +1,19 @@
 ---
-title: Migrera lokala datorer till Azure med Azure Site Recovery | Microsoft Docs
+title: Migrera lokala datorer till Azure med Azure Site Recovery
 description: Den här artikeln beskriver hur du migrerar lokala datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 10/29/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7534313a5862ececf4757be807e59b6df39f6430
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 5fa0f05f37164c24ba6441d0c4cb2abc59f331d7
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873355"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053053"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -25,15 +25,14 @@ Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servr
 
 > [!div class="checklist"]
 > * Konfigurera käll-och mål miljön för migrering
-> * Konfigurerar en replikeringsprincip
+> * Konfigurera en replikeringsprincip
 > * Aktivera replikering
 > * Kör en testmigrering för att kontrollera att allt fungerar som förväntat
 > * Kör en engångsredundans till Azure
 
 
 > [!TIP]
-> Tjänsten Azure Migrate erbjuder nu en för hands version för en ny, agent lös upplevelse för migrering av virtuella VMware-datorer till Azure. [Ta reda på mer](https://aka.ms/migrateVMs-signup).
-
+> Nu kan du migrera lokala servrar till Azure med hjälp av tjänsten Azure Migrate. [Läs mer](../migrate/migrate-services-overview.md)
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -76,7 +75,7 @@ Välj och kontrollera målresurserna.
     - Om du migrerar virtuella Hyper-V-datorer verifierar Site Recovery att du har ett kompatibelt Azure Storage-konto och-nätverk.
 4. Konfigurera [nätverks mappning](hyper-v-vmm-azure-tutorial.md#configure-network-mapping)om du migrerar virtuella Hyper-V-datorer som hanteras av System Center VMM.
 
-## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
+## <a name="set-up-a-replication-policy"></a>Konfigurera en replikeringsprincip
 
 **Scenario** | **Detaljer**
 --- | --- 
@@ -105,18 +104,18 @@ Kör en redundansväxling för de datorer som du vill migrera.
 1. I **Inställningar** > **Replikerade objekt** klickar du på datorn > **Redundans**.
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten.
 3. Inställningen för krypteringsnyckeln är inte relevant för det här scenariot.
-4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker att stänga av virtuella datorer innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
+4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker att stänga av virtuella datorer innan redundansen utlöses. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 5. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
 6. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Det här gör följande:
 
    - Avslutar migreringsprocessen, stoppar replikeringen för den lokala virtuella datorn och stoppar Site Recovery debitering för den virtuella datorn.
    - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna.
 
-     ![Slutför migrering](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Slutföra migrering](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]
-> **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
+> **Avbryt inte en pågående redundansväxling**: Replikeringen av den virtuella datorn stoppas innan redundansen startas. Om du avbryter en pågående redundans stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
 
 I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kan lägga märke till längre redundanstest för fysiska servrar, VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande start driv rutiner: storvsc, VMBus, storflt, intelide, ATAPI.
 
@@ -159,7 +158,7 @@ Vissa steg kan automatiseras som en del av migreringsprocessen med den inbyggda 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. Nu
+I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. vidare
 
 > [!div class="nextstepaction"]
 > [Konfigurera katastrof återställning](azure-to-azure-replicate-after-migration.md) till en sekundär Azure-region för virtuella Azure-datorer.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yegu
-ms.openlocfilehash: 523f4a302eb1f4679eb34bc959efc895fa5408ec
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 4fee7c84b394e84369b28d2a4191d0e581f3beba
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821039"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044351"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-data-loss"></a>Felsöka Azure cache för Redis data förlust
 
@@ -101,7 +101,7 @@ Om du upptäcker att de flesta av eller alla nycklar har försvunnit från cache
 |---|---|
 | [Nyckel tömning](#key-flushing) | Nycklar har rensats manuellt |
 | [Felaktigt databas val](#incorrect-database-selection) | Redis är inställd på att använda en databas som inte är standard |
-| [Redis instans-problem](#redis-instance-failure) | Nycklar tas bort av explicita borttagnings kommandon |
+| [Redis instans-problem](#redis-instance-failure) | Redis-servern är inte tillgänglig |
 
 ### <a name="key-flushing"></a>Nyckel tömning
 

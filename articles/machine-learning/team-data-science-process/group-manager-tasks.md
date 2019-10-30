@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process manager gruppaktiviteter
-description: En detaljerad genom gång av aktiviteterna för en grupp ansvarig i ett data vetenskaps team projekt.
+title: Team data science process Group Manager-uppgifter
+description: Följ den här detaljerade genom gången av de uppgifter som en grupp hanterare har slutfört på ett data vetenskaps team projekt.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f95bb30f547e863fc7a796e69fffe1e2334e489c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a3d23950f5cbfaac00b03b25e3c19078c76ad0a5
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326797"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053310"
 ---
-# <a name="team-data-science-process-group-manager-tasks"></a>Team Data Science Process manager gruppaktiviteter
+# <a name="team-data-science-process-group-manager-tasks"></a>Team data science process Group Manager-uppgifter
 
 I den här artikeln beskrivs de uppgifter som en *grupp hanterare* har slutfört för en data vetenskaps organisation. Grupp hanteraren hanterar hela data vetenskaps enheten i ett företag. En data vetenskaps enhet kan ha flera team, som var och en arbetar med många data vetenskaps projekt i olika affärs lodräta. Grupp hanterarens mål är att upprätta en samarbets grupp miljö som är standardiserad på [team data science-processen](overview.md) (TDSP). En översikt över alla personal roller och tillhör ande uppgifter som hanteras av ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md).
 
@@ -57,7 +57,7 @@ I följande självstudie går vi igenom stegen i detalj.
    
    ![Skapa projekt](./media/group-manager-tasks/create-project.png)
 
-Sidan **GroupCommon** Project **Summary** öppnas. Sidans URL är *https: \/ @ no__t-2 @ no__t-3servername >/\<organization-name >/GroupCommon*.
+Sidan **GroupCommon** Project **Summary** öppnas. Sidans URL är *https:\//\<servername >/\<organisations namn >/GroupCommon*.
 
 ![Sidan projekt Sammanfattning](./media/group-manager-tasks/project-summary.png)
 
@@ -65,9 +65,9 @@ Sidan **GroupCommon** Project **Summary** öppnas. Sidans URL är *https: \/ @ n
 
 Azure-databaser är värd för följande typer av databaser för din grupp:
 
-- **Gruppera gemensamma databaser**: Generella databaser som flera team inom en data vetenskaps enhet kan använda för många data vetenskaps projekt. 
-- **Team-databaser**:  Databaser för vissa team inom en data vetenskaps enhet. De här databaserna är speciella för ett grupp behov och kan användas för flera projekt i teamet, men de är inte allmänt nog att användas i flera team inom en data vetenskaps enhet.
-- **Projekt databaser**: Databaser för vissa projekt. Sådana databaser får inte vara generella för flera projekt i ett team, eller för andra team i en data vetenskaps enhet.
+- **Gruppera vanliga databaser**: allmänna databaser som flera team inom en data vetenskaps enhet kan använda för många data vetenskaps projekt. 
+- **Team-databaser**: databaser för vissa team inom en data vetenskaps enhet. De här databaserna är speciella för ett grupp behov och kan användas för flera projekt i teamet, men de är inte allmänt nog att användas i flera team inom en data vetenskaps enhet.
+- **Projekt databaser**: databaser för vissa projekt. Sådana databaser får inte vara generella för flera projekt i ett team, eller för andra team i en data vetenskaps enhet.
 
 Om du vill ställa in gemensamma grupper för gruppen i projektet kan du: 
 - Byt namn på standard lagrings platsen för **GroupCommon** till **GroupProjectTemplate**
@@ -121,13 +121,13 @@ Så här importerar du TDSP team-databaser:
    
    ![Välj Importera](./media/group-manager-tasks/import-repo.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger *https: \//GitHub. com/Azure/Azure-TDSP-ProjectTemplate. git* för klon- **URL: en**. Välj sedan **Importera**. Innehållet i Microsoft TDSP team ProjectTemplate-lagringsplatsen importeras till GroupProjectTemplate-lagringsplatsen. 
+1. I dialog **rutan importera en git-lagringsplats** väljer **du git** som **käll typ**och anger *https:\//GitHub.com/Azure/Azure-TDSP-ProjectTemplate.git* för klon- **URL: en**. Välj sedan **Importera**. Innehållet i Microsoft TDSP team ProjectTemplate-lagringsplatsen importeras till GroupProjectTemplate-lagringsplatsen. 
    
    ![Importera Microsoft TDSP team-lagringsplats](./media/group-manager-tasks/import-repo-2.png)
    
 1. Längst upp på sidan **databaser** , väljer du den **GroupUtilities** databasen.
    
-1. Upprepa import processen för att importera innehållet i Microsoft TDSP team **Utilities** -lagringsplatsen, *https: \//GitHub. com/Azure/Azure-TDSP-Utilities. git*till din **GroupUtilities** -lagringsplats. 
+1. Upprepa import processen för att importera innehållet i Microsoft TDSP team **utilitiess** -databasen, *https:\//GitHub.com/Azure/Azure-TDSP-Utilities.git*, till **GroupUtilities** -lagringsplatsen. 
    
 Var och en av dina två grupp databaser innehåller nu alla filer, förutom de i katalogen *. git* , från Microsoft TDSP-teamets motsvarande lagrings plats. 
 
@@ -151,7 +151,7 @@ Så här anpassar du lagrings innehållet:
      
    - Om du vill ladda upp filer väljer du **Ladda upp fil (er)** . 
      
-     ![Överföra filer](./media/group-manager-tasks/upload-files.png)
+     ![Ladda upp filer](./media/group-manager-tasks/upload-files.png)
      
    - Om du vill redigera befintliga filer navigerar du till filen och väljer sedan **Redigera**. 
      
@@ -166,7 +166,7 @@ Så här anpassar du lagrings innehållet:
 Om du vill göra ändringar med hjälp av din lokala dator eller DSVM och skicka ändringarna till grupp databaserna, kontrollerar du att du har förutsättningarna för att arbeta med git och Dsvm:
 
 - En Azure-prenumeration, om du vill skapa en DSVM.
-- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
+- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
 - Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
@@ -215,7 +215,7 @@ git push
 ```
 
 > [!NOTE]
-> Om det här är första gången du genomför till en git-lagringsplats kan du behöva konfigurera globala parametrar *User.name* och *User. email* innan `git commit` du kör kommandot. Kör följande två kommandon:
+> Om det här är första gången du genomför till en git-lagringsplats kan du behöva konfigurera globala parametrar *User.name* och *User. email* innan du kör kommandot `git commit`. Kör följande två kommandon:
 > 
 > `git config --global user.name <your name>`
 > 
@@ -258,6 +258,6 @@ Konfigurera behörigheter för medlemmar:
 
 Här följer länkar till detaljerade beskrivningar av de andra rollerna och uppgifterna i team data science-processen:
 
-- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
-- [Lead projektaktiviteter för team data science](project-lead-tasks.md)
+- [Grupp ledar uppgifter för ett data vetenskaps team](team-lead-tasks.md)
+- [Projekt ledar uppgifter för ett data vetenskaps team](project-lead-tasks.md)
 - [Projicera enskilda deltagar uppgifter för ett data vetenskaps team](project-ic-tasks.md)

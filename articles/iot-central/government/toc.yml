@@ -110,8 +110,6 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
-    - name: Referensdokumentation för API
-      href: 'https://go.microsoft.com/fwlink/?linkid=2109131'
     - name: Kunddataförfrågningar
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Webbläsare som stöds

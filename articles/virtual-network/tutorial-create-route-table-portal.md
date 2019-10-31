@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 153c692a8fb0fa538ec49c6eafa11815dd794b5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681547"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164015"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Självstudie: Dirigera nätverkstrafik med en routningstabell med hjälp av Azure-portalen
 
@@ -44,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Skapa en routningstabell
 
@@ -57,7 +57,7 @@ Logga in på [Azure Portal](https://portal.azure.com).
     | Namn | Ange *myRouteTablePublic*. |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj *OK*. |
-    | Location | Låt standardvärdet **USA, östra** vara kvar.
+    | Plats | Låt standardvärdet **USA, östra** vara kvar.
     | BGP-vägspridning | Låt standardvärdet **Aktiverad** vara kvar. |
 
 1. Välj **Skapa**.
@@ -68,7 +68,7 @@ Logga in på [Azure Portal](https://portal.azure.com).
 
 1. När **myRouteTablePublic** visas i sökresultatet väljer du det.
 
-1. I **myRouteTablePublic** går du till **Inställningar** och väljer **Vägar** > **+ Lägg till**.
+1. I **myRouteTablePublic** går du till **Inställningar** och väljer **Vägar** >  **+ Lägg till**.
 
     ![Lägga till väg](./media/tutorial-create-route-table-portal/add-route.png)
 
@@ -99,8 +99,8 @@ Innan du kan associera en routningstabell till ett undernät måste du skapa ett
     | Adressutrymme | Ange *10.0.0.0/16*. |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj ***Välj befintlig*** > **myResourceGroup**. |
-    | Location | Låt standardvärdet **USA, östra** vara kvar. |
-    | Undernät – Namn | Ange *Offentligt*. |
+    | Plats | Låt standardvärdet **USA, östra** vara kvar. |
+    | Undernät – namn | Ange *Offentligt*. |
     | Undernät – adressintervall | Ange *10.0.0.0/24*. |
 
 1. Lämna resten av standardinställningarna och välj **Skapa**.
@@ -111,7 +111,7 @@ Innan du kan associera en routningstabell till ett undernät måste du skapa ett
 
 1. När **myVirtualNetwork** visas i sökresultatet väljer du det.
 
-1. I **myVirtualNetwork** går du till **Inställningar** och väljer **Undernät** > **+ Undernät**.
+1. I **myVirtualNetwork** går du till **Inställningar** och väljer **Undernät** >  **+ Undernät**.
 
     ![Lägga till undernät](./media/tutorial-create-route-table-portal/add-subnet.png)
 
@@ -133,7 +133,7 @@ Innan du kan associera en routningstabell till ett undernät måste du skapa ett
 
 1. Likt förra gången lämnar du resten av standardinställningarna och väljer **OK**.
 
-    Azure visar tre undernät: **Offentligt**, **Privat** och **DMZ**.
+    Azure visar de tre undernäten: **Public**, **Private**och **DMZ**.
 
 ### <a name="associate-myroutetablepublic-to-your-public-subnet"></a>Associera myRouteTablePublic med ditt undernät Offentligt
 
@@ -147,7 +147,7 @@ Innan du kan associera en routningstabell till ett undernät måste du skapa ett
 
 NVA:er är virtuella datorer som hjälper till med nätverksfunktioner såsom routning och brandväggsoptimering. Du kan välja ett annat operativsystem om du vill. Den här självstudien förutsätter att du använder **Windows Server 2016 Datacenter**.
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 Datacenter**.
+1. Välj **Skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter** längst upp till vänster på skärmen.
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
@@ -160,7 +160,7 @@ NVA:er är virtuella datorer som hjälper till med nätverksfunktioner såsom ro
     | Namn på virtuell dator | Ange *myVmNva*. |
     | Region | Välj **USA, östra**. |
     | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
-    | Image | Lämna kvar standardinställningen **Windows Server 2016 Datacenter**. |
+    | Bild | Lämna kvar standardinställningen **Windows Server 2016 Datacenter**. |
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett valfritt användarnamn. |
@@ -171,21 +171,21 @@ NVA:er är virtuella datorer som hjälper till med nätverksfunktioner såsom ro
     | **SPARA PENGAR** |  |
     | Har du redan en Windows-licens? | Lämna kvar standardinställningen **Nej**. |
 
-1. Välj **Nästa: Diskar**.
+1. Välj **Nästa: diskar**.
 
 1. I **Skapa en virtuell dator – Diskar** väljer du de inställningar som passar dina behov.
 
-1. Välj **Nästa: Nätverk**.
+1. Välj **Nästa: nätverk**.
 
-1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
+1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna kvar standardinställningen **myVirtualNetwork**. |
-    | Undernät | Välj **DMZ (10.0.2.0/24)**. |
+    | Undernät | Välj **DMZ (10.0.2.0/24)** . |
     | Offentlig IP-adress | Välj **Ingen**. Du behöver inte en offentlig IP-adress. Den virtuella datorn ansluter inte via Internet.|
 
-1. Lämna resten av standardinställningarna och välj **Nästa: Hantering**.
+1. Lämna resten av standardinställningarna och välj **Nästa: hantering**.
 
 1. I **Skapa en virtuell dator – Hantering** går du till **Diagnostiklagringskonto** och väljer **Skapa nytt**.
 
@@ -194,9 +194,9 @@ NVA:er är virtuella datorer som hjälper till med nätverksfunktioner såsom ro
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange *mynvastorageaccount*. |
-    | Typ av konto | Lämna kvar standardinställningen **Lagring (generell användning v1)**. |
+    | Typ av konto | Lämna kvar standardinställningen **Lagring (generell användning v1)** . |
     | Prestanda | Lämna kvar standardinställningen **Standard**. |
-    | Replikering | Lämna kvar standardinställningen **Lokalt redundant lagring (LRS)**.
+    | Replikering | Lämna kvar standardinställningen **Lokalt redundant lagring (LRS)** .
 
 1. Välj **OK**
 
@@ -236,7 +236,7 @@ Slutför steg 1–12 i [Skapa en NVA](#create-an-nva). Använd de flesta av samm
 | GRUNDLÄGGANDE |  |
 | Namn på virtuell dator | Ange *myVmPublic*. |
 | NÄTVERK | |
-| Undernät | Välj **Offentligt (10.0.0.0/24)**. |
+| Undernät | Välj **Offentligt (10.0.0.0/24)** . |
 | Offentlig IP-adress | Acceptera standardinställningarna. |
 | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
 | Välj inkommande portar | Välj **HTTP** och **RDP**. |
@@ -246,7 +246,7 @@ Slutför steg 1–12 i [Skapa en NVA](#create-an-nva). Använd de flesta av samm
 | GRUNDLÄGGANDE |  |
 | Namn på virtuell dator | Ange *myVmPrivate*. |
 | NÄTVERK | |
-| Undernät | Välj **Privat (10.0.1.0/24)**. |
+| Undernät | Välj **Privat (10.0.1.0/24)** . |
 | Offentlig IP-adress | Acceptera standardinställningarna. |
 | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
 | Välj inkommande portar | Välj **HTTP** och **RDP**. |
@@ -277,7 +277,7 @@ Du kan skapa den virtuella datorn *myVmPrivate* medan Azure skapar den virtuella
 
 1. Välj **OK**.
 
-    Du kan få en certifikatvarning under inloggningsprocessen.
+    Du kan få en certifikatvarning under inloggningen.
 
 1. Välj **Ja** för att ansluta till den virtuella datorn.
 
@@ -290,7 +290,7 @@ I ett senare steg använder du vägspårningsverktyget för att testa routningen
 1. Ange följande kommando:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     Du använder vägspårning för att testa routning i den här självstudien. För produktionsmiljöer rekommenderar vi inte att du tillåter ICMP via Windows-brandväggen.
@@ -311,7 +311,7 @@ Du [aktiverade IP-vidarebefordran](#turn-on-ip-forwarding) för den virtuella da
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Starta om den virtuella datorn *myVmNva*. I verktygsfältet väljer du **Start-knappen** > **Strömknappen**, **Annat (planerat)** > **Fortsätt**.
+1. Starta om den virtuella datorn *myVmNva*. I verktygsfältet väljer du **Start-knappen** > **Strömknappen**, **Annat (planerat)**  > **Fortsätt**.
 
     Detta kopplar även från fjärrskrivbordssessionen.
 
@@ -325,7 +325,7 @@ Du [aktiverade IP-vidarebefordran](#turn-on-ip-forwarding) för den virtuella da
 1. Aktivera ICMP via Windows-brandväggen genom att ange följande kommando:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
 ## <a name="test-the-routing-of-network-traffic"></a>Testa routningen av nätverkstrafik
@@ -350,7 +350,7 @@ Först testar vi att dirigera nätverkstrafik från den virtuella datorn *myVmPu
     Trace complete.
     ```
 
-    Du kan se att det första hoppet är 10.0.2.4. Det är NVA:ns privata IP-adress. Det andra hoppet är till den privata IP-adressen för den virtuella datorn *myVmPrivate*: 10.0.1.4. Tidigare lade du till vägen till vägtabellen *myRouteTablePublic* och associerade den till det *offentliga* undernätet. Därför skickade Azure trafiken via NVA och inte direkt till det *privata* undernätet.
+    Du kan se att det första hoppet är 10.0.2.4. Det är NVA:ns privata IP-adress. Det andra hoppet är till den privata IP-adressen för den virtuella datorn *myVmPrivate* : 10.0.1.4. Tidigare lade du till vägen till vägtabellen *myRouteTablePublic* och associerade den till det *offentliga* undernätet. Därför skickade Azure trafiken via NVA och inte direkt till det *privata* undernätet.
 
 1. Stäng fjärrskrivbordssession för den virtuella datorn *myVmPublic*. Du är fortfarande ansluten till *myVmPrivate*.
 
@@ -385,7 +385,7 @@ Ta bort resursgruppen och alla dess resurser när de inte längre behövs:
 
 1. Välj **Ta bort resursgrupp**.
 
-1. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
+1. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

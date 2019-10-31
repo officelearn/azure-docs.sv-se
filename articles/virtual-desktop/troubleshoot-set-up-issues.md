@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 811fdd0b177e3a255ca91145e39005de1d2328ad
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e2d2da5e2c8c0236a4f42bc69a521891616df0d4
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676454"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163300"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -20,11 +20,11 @@ Den här artikeln beskriver problem under den första installationen av Windows-
 
 ## <a name="provide-feedback"></a>Ge feedback
 
-Besök [Windows-Tech](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) -communityn för Windows för att diskutera Windows Virtual Desktop-tjänsten med produkt teamet och aktiva community-medlemmar.
+Besök [Windows-Tech-communityn för Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) för att diskutera Windows Virtual Desktop-tjänsten med produkt teamet och aktiva community-medlemmar.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Hämtar Windows 10 Enterprise-avbildningen för flera sessioner
 
-Om du vill använda Windows 10 Enterprise multi-session-avbildningen går du till Azure Marketplace och väljer **Kom igång** > **Microsoft Windows 10** > och [Windows 10 Enterprise för virtuella skriv bord, version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Om du vill använda Windows 10 Enterprise multi-session-avbildningen går du till Azure Marketplace, väljer **Kom igång** > **Microsoft Windows 10** > och [Windows 10 Enterprise för virtuella skriv bord, version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ![En skärm bild av att välja Windows 10 Enterprise för virtuella skriv bord, version 1809.](media/AzureMarketPlace.png)
 
@@ -32,7 +32,7 @@ Om du vill använda Windows 10 Enterprise multi-session-avbildningen går du til
 
 I det här avsnittet beskrivs möjliga problem när du skapar Windows-klienten för virtuella skriv bord.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: Användaren har inte behörighet att fråga hanterings tjänsten
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: användaren har inte behörighet att fråga hanterings tjänsten
 
 ![Skärm bild av PowerShell-fönstret där en användare inte har behörighet att fråga hanterings tjänsten.](media/UserNotAuthorizedNewTenant.png)
 
@@ -51,9 +51,9 @@ Exempel på RAW-fel:
        + FullyQualifiedErrorId : UnauthorizedAccess,Microsoft.RDInfra.RDPowershell.Tenant.NewRdsTenant
 ```
 
-**Orsak** Användaren som är inloggad har inte tilldelats rollen TenantCreator i sina Azure Active Directory.
+**Orsak:** Användaren som är inloggad har inte tilldelats rollen TenantCreator i sina Azure Active Directory.
 
-**Fix:** Följ instruktionerna i [tilldela program rollen TenantCreator till en användare i din Azure Active Directory-klient](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). När du har följt anvisningarna får du en användare som tilldelats rollen TenantCreator.
+**KORRIGERA:** Följ instruktionerna i [tilldela program rollen TenantCreator till en användare i din Azure Active Directory-klient](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). När du har följt anvisningarna får du en användare som tilldelats rollen TenantCreator.
 
 ![Skärm bild av TenantCreator-rollen har tilldelats.](media/TenantCreatorRoleAssigned.png)
 
@@ -65,7 +65,7 @@ Virtuella datorers VM-datorer kan skapas på flera sätt, men Fjärrskrivbordstj
 
 Den virtuella Windows-datorn – etablera en mall för värd pool är tillgänglig från Azure Marketplace.
 
-### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Fel: När du använder länken från GitHub visas meddelandet "skapa ett kostnads fritt konto"
+### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Fel: när du använder länken från GitHub visas meddelandet "skapa ett kostnads fritt konto"
 
 ![Skärm bild för att skapa ett kostnads fritt konto.](media/be615904ace9832754f0669de28abd94.png)
 
@@ -75,7 +75,7 @@ Den virtuella Windows-datorn – etablera en mall för värd pool är tillgängl
 
 **Orsak 2:** Den prenumeration som används är en del av en Microsoft Cloud tjänst leverantörs klient (CSP).
 
-**Fix 2:** Gå till GitHub-platsen för att **skapa och etablera nya Windows-värdar för virtuella skriv bord** och följ dessa anvisningar:
+**Korrigera 2:** Gå till GitHub-platsen för att **skapa och etablera nya Windows-värdar för virtuella skriv bord** och följ dessa anvisningar:
 
 1. Högerklicka på **distribuera till Azure** och välj **Kopiera länk adress**.
 2. Öppna **anteckningar** och klistra in länken.
@@ -97,7 +97,7 @@ Följ dessa anvisningar för att felsöka misslyckade distributioner av Azure Re
 3. När felet har identifierats använder du fel meddelandet och resurserna i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) för att åtgärda problemet.
 4. Ta bort alla resurser som har skapats under den tidigare distributionen och försök att distribuera mallen igen.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: Distributionen misslyckades...\<hostname >/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: distributionen misslyckades....\<värdnamn >/JoinDomain
 
 ![Det gick inte att distribuera skärm bilden.](media/e72df4d5c05d390620e07f0d7328d50f.png)
 
@@ -117,18 +117,18 @@ Exempel på RAW-fel:
 
 **Orsak 2:** Domän namnet matchar inte.
 
-**Fix 2:** Se fel meddelandet "domän namnet matchar inte" för virtuella datorer är inte anslutna till domänen i [VM-konfigurationen för fjärrskrivbordssessioner](troubleshoot-vm-configuration.md).
+**Korrigera 2:** Se fel meddelandet "domän namnet matchar inte" för virtuella datorer är inte anslutna till domänen i [VM-konfigurationen för fjärrskrivbordssessioner](troubleshoot-vm-configuration.md).
 
 
-### <a name="error-your-deployment-failedunauthorized"></a>Fel: Distributionen misslyckades. ..\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>Fel: distributionen misslyckades. ..\Unauthorized
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
 ```
 
-**Orsak** Den prenumeration du använder är en typ som inte har åtkomst till nödvändiga funktioner i den region där kunden försöker distribuera. Till exempel kan MSDN, kostnads fria eller utbildnings prenumerationer Visa det här felet.
+**Orsak:** Den prenumeration du använder är en typ som inte har åtkomst till nödvändiga funktioner i den region där kunden försöker distribuera. Till exempel kan MSDN, kostnads fria eller utbildnings prenumerationer Visa det här felet.
 
-**Fix:** Ändra din prenumerations typ eller region till en som har åtkomst till de funktioner som krävs.
+**KORRIGERA:** Ändra din prenumerations typ eller region till en som har åtkomst till de funktioner som krävs.
 
 ### <a name="error-vmextensionprovisioningerror"></a>Fel: VMExtensionProvisioningError
 
@@ -138,9 +138,9 @@ Exempel på RAW-fel:
 
 **Orsak 2:** Tillfälligt fel med anslutning.
 
-**Fix:** Bekräfta att Windows Virtual Desktop-miljön är felfri genom att logga in med PowerShell. Slutför VM-registreringen manuellt i [skapa en adresspool med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**KORRIGERA:** Bekräfta att Windows Virtual Desktop-miljön är felfri genom att logga in med PowerShell. Slutför VM-registreringen manuellt i [skapa en adresspool med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fel: Det angivna administratörs användar namnet är inte tillåtet
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fel: det angivna administratörs användar namnet är inte tillåtet
 
 ![Skärm bild av distributionen misslyckades i vilken en angiven administratör inte tillåts.](media/f2b3d3700e9517463ef88fa41875bac9.png)
 
@@ -155,11 +155,11 @@ Exempel på RAW-fel:
  /resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demo", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demo" } }}
 ```
 
-**Orsak** Det angivna lösen ordet innehåller förbjudna del strängar (admin, administratör, rot).
+**Orsak:** Det angivna lösen ordet innehåller förbjudna del strängar (admin, administratör, rot).
 
-**Fix:** Uppdatera användar namn eller Använd olika användare.
+**KORRIGERA:** Uppdatera användar namn eller Använd olika användare.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fel: Den virtuella datorn rapporterade ett problem när tillägget behandlades
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fel: den virtuella datorn har rapporterat ett fel vid bearbetning av tillägget
 
 ![Skärm bild av resurs åtgärden slutfördes med etablerings statusen för terminalen i distributionen misslyckades.](media/49c4a1836a55d91cd65125cf227f411f.png)
 
@@ -181,9 +181,9 @@ Exempel på RAW-fel:
  "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
 ```
 
-**Orsak** PowerShell DSC-tillägget kunde inte få administratörs åtkomst på den virtuella datorn.
+**Orsak:** PowerShell DSC-tillägget kunde inte få administratörs åtkomst på den virtuella datorn.
 
-**Fix:** Bekräfta att användar namnet och lösen ordet har administrativ åtkomst till den virtuella datorn och kör Azure Resource Manager mallen igen.
+**KORRIGERA:** Bekräfta att användar namnet och lösen ordet har administrativ åtkomst till den virtuella datorn och kör Azure Resource Manager mallen igen.
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Fel: DeploymentFailed – PowerShell DSC-konfigurationen ' FirstSessionHost ' slutfördes med fel
 
@@ -213,9 +213,9 @@ Exempel på RAW-fel:
 
 ```
 
-**Orsak** PowerShell DSC-tillägget kunde inte få administratörs åtkomst på den virtuella datorn.
+**Orsak:** PowerShell DSC-tillägget kunde inte få administratörs åtkomst på den virtuella datorn.
 
-**Fix:** Bekräfta att användar namnet och lösen ordet har administratörs behörighet på den virtuella datorn och kör Azure Resource Manager mallen igen.
+**KORRIGERA:** Bekräfta att användar namnet och lösen ordet har administratörs behörighet på den virtuella datorn och kör Azure Resource Manager mallen igen.
 
 ### <a name="error-deploymentfailed--invalidresourcereference"></a>Fel: DeploymentFailed – InvalidResourceReference
 
@@ -240,9 +240,9 @@ the referenced resource exists, and that both resources are in the same
 region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r\n }\r\n}"}]}
 ```
 
-**Orsak** En del av resurs gruppens namn används för vissa resurser som skapas av mallen. På grund av namnet som matchar befintliga resurser kan mallen välja en befintlig resurs från en annan grupp.
+**Orsak:** En del av resurs gruppens namn används för vissa resurser som skapas av mallen. På grund av namnet som matchar befintliga resurser kan mallen välja en befintlig resurs från en annan grupp.
 
-**Fix:** När du kör Azure Resource Manager-mallen för att distribuera en virtuell dator med en virtuell dator, ska du göra de två första tecknen unika för prenumerationens resurs grupp namn.
+**KORRIGERA:** När du kör Azure Resource Manager-mallen för att distribuera en virtuell dator med en virtuell dator, ska du göra de två första tecknen unika för prenumerationens resurs grupp namn.
 
 ### <a name="error-deploymentfailed--invalidresourcereference"></a>Fel: DeploymentFailed – InvalidResourceReference
 
@@ -267,9 +267,9 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 }\r\n ]\r\n }\r\n ]\r\n }\r\n\
 ```
 
-**Orsak** Det här felet beror på att det nätverkskort som skapats med Azure Resource Manager-mallen har samma namn som ett annat nätverkskort som redan finns i VNET.
+**Orsak:** Det här felet beror på att det nätverkskort som skapats med Azure Resource Manager-mallen har samma namn som ett annat nätverkskort som redan finns i VNET.
 
-**Fix:** Använd ett annat prefix för värd.
+**KORRIGERA:** Använd ett annat prefix för värd.
 
 ### <a name="error-deploymentfailed--error-downloading"></a>Fel: DeploymentFailed – fel vid hämtning
 
@@ -286,11 +286,11 @@ be found in the logs located under
 the VM.\\\"
 ```
 
-**Orsak** Det här felet beror på en statisk väg, brand Väggs regel eller NSG blockerar hämtningen av zip-filen som är kopplad till Azure Resource Manager-mallen.
+**Orsak:** Det här felet beror på en statisk väg, brand Väggs regel eller NSG blockerar hämtningen av zip-filen som är kopplad till Azure Resource Manager-mallen.
 
-**Fix:** Ta bort blockerande statisk väg, brand Väggs regel eller NSG. Du kan också öppna JSON-filen Azure Resource Manager mall i en text redigerare, ta länken till zip-filen och ladda ned resursen till en tillåten plats.
+**KORRIGERA:** Ta bort blockerande statisk väg, brand Väggs regel eller NSG. Du kan också öppna JSON-filen Azure Resource Manager mall i en text redigerare, ta länken till zip-filen och ladda ned resursen till en tillåten plats.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: Användaren har inte behörighet att fråga hanterings tjänsten
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: användaren har inte behörighet att fråga hanterings tjänsten
 
 Exempel på RAW-fel:
 
@@ -305,16 +305,16 @@ Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed 
 The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d25b-47e5-8d70-a7493e9dc473" } } }}
 ```
 
-**Orsak** Den angivna Windows-innehavaradministratör för virtuella skriv bord har ingen giltig roll tilldelning.
+**Orsak:** Den angivna Windows-innehavaradministratör för virtuella skriv bord har ingen giltig roll tilldelning.
 
-**Fix:** Användaren som skapade den virtuella Windows-klienten för fjärr skrivbord måste logga in på Windows Virtual Desktop PowerShell och tilldela det försök användaren att tilldela en roll tilldelning. Om du kör parametrarna för GitHub Azure Resource Manager-mallen följer du de här anvisningarna med PowerShell-kommandon:
+**KORRIGERA:** Användaren som skapade den virtuella Windows-klienten för fjärr skrivbord måste logga in på Windows Virtual Desktop PowerShell och tilldela det försök användaren att tilldela en roll tilldelning. Om du kör parametrarna för GitHub Azure Resource Manager-mallen följer du de här anvisningarna med PowerShell-kommandon:
 
 ```PowerShell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName “RDS Contributor” -SignInName <UPN>
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Fel: Användaren måste ha Azure Multi-Factor Authentication (MFA)
+### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Fel: användaren måste använda Azure Multi-Factor Authentication (MFA)
 
 ![Skärm bild av distributionen misslyckades på grund av brist på Multi-Factor Authentication (MFA)](media/MFARequiredError.png)
 
@@ -324,22 +324,22 @@ Exempel på RAW-fel:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Orsak** Den angivna Windows-innehavaradministratör för virtuella skriv bord kräver Azure Multi-Factor Authentication (MFA) för att logga in.
+**Orsak:** Den angivna Windows-innehavaradministratör för virtuella skriv bord kräver Azure Multi-Factor Authentication (MFA) för att logga in.
 
-**Fix:** Skapa ett huvud namn för tjänsten och tilldela det en roll för din Windows-klient för virtuella skriv bord [genom att följa stegen i själv studie kursen: Skapa tjänstens huvud namn och roll tilldelningar](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)med PowerShell. När du har verifierat att du kan logga in på Windows Virtual Desktop med tjänstens huvud namn, kör du om Azure Marketplace-erbjudandet eller GitHub Azure Resource Manager-mallen, beroende på vilken metod du använder. Följ anvisningarna nedan för att ange rätt parametrar för din metod.
+**KORRIGERA:** Skapa ett huvud namn för tjänsten och tilldela det en roll för din Windows-klient för virtuella skriv bord genom att följa stegen i [Självstudier: skapa tjänstens huvud namn och roll tilldelningar med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). När du har verifierat att du kan logga in på Windows Virtual Desktop med tjänstens huvud namn, kör du om Azure Marketplace-erbjudandet eller GitHub Azure Resource Manager-mallen, beroende på vilken metod du använder. Följ anvisningarna nedan för att ange rätt parametrar för din metod.
 
 Om du använder Azure Marketplace-erbjudandet anger du värden för följande parametrar för att autentisera till Windows Virtual Desktop på rätt sätt:
 
-- RDS-ägare för Windows Virtual Desktop-klient: Tjänstens huvudnamn
-- Program-ID: Program identifieringen för det nya tjänstens huvud namn som du skapade
-- Lösen ord/bekräfta lösen ord: Lösen ords hemligheten som du skapade för tjänstens huvud namn
-- ID för Azure AD-klient organisation: Azure AD-klient-ID för tjänstens huvud namn som du skapade
+- RDS-ägare för Windows Virtual Desktop-klient: tjänstens huvud namn
+- Program-ID: program-ID för det nya tjänst objekt som du skapade
+- Lösen ord/bekräfta lösen ord: lösen ords hemligheten som du skapade för tjänstens huvud namn
+- Azure AD-klient-ID: Azure AD-klient-ID för tjänstens huvud namn som du skapade
 
 Om du kör GitHub-mallen för Azure Resource Manager anger du värden för följande parametrar för att autentisera till Windows Virtual Desktop korrekt:
 
-- Klient administratörs User Principal Name (UPN) eller program-ID: Program identifieringen för det nya tjänstens huvud namn som du skapade
-- Administratörs lösen ord för klient organisation: Lösen ords hemligheten som du skapade för tjänstens huvud namn
-- IsServicePrincipal: **true**
+- Klient administratörs User Principal Name (UPN) eller program-ID: program identifieringen för det nya tjänst objekt som du har skapat
+- Administratörs lösen ord för klient organisation: lösen ords hemligheten som du skapade för tjänstens huvud namn
+- IsServicePrincipal: **Sant**
 - AadTenantId: Azure AD-klient-ID för tjänstens huvud namn som du skapade
 
 ## <a name="next-steps"></a>Nästa steg
@@ -349,6 +349,6 @@ Om du kör GitHub-mallen för Azure Resource Manager anger du värden för följ
 - Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [fjärr skrivbords klient anslutningar](troubleshoot-client-connection.md).
 - Information om hur du felsöker problem när du använder PowerShell med Windows Virtual Desktop finns i [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Mer information om tjänsten finns i [Windows Virtual Desktop-miljö](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Information om hur du går igenom en fel [söknings kurs finns i Självstudier: Felsök distributioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)av Resource Manager-mallar.
+- Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka distributioner av Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

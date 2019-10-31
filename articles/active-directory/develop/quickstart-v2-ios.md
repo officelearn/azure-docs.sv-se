@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a96aab3fc5dfa62039732f7860f1e96e3f60e445
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b515a7954d82cdd377cec72fa8525fbd9691351d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964041"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149506"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabb start: Logga in användare och anropa Microsoft Graph API från en iOS-eller macOS-app
 
-Den här snabb starten innehåller ett kod exempel som visar hur ett inbyggt iOS-eller macOS-program kan logga in på personliga konton, arbets-och skol konton, hämta en åtkomsttoken och anropa Microsoft Graph API.
+Den här snabb starten innehåller ett kod exempel som visar hur ett inbyggt iOS-eller macOS-program kan använda Microsoft Identity Platform för att logga in på personliga konton, arbets-och skol konton, hämta en åtkomsttoken och anropa Microsoft Graph-API: et.
 
 Den här snabb starten gäller både iOS-och macOS-appar. Vissa steg behövs bara för iOS-appar. De här stegen anropar att de endast är för iOS.
 

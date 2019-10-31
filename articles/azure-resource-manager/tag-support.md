@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: eaf4ba303caa405a170322828add944487908365
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 6b64eb955476a8ab5307b7d508484c290fd7660a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968587"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162170"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](resource-group-using-tags.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten.
@@ -1445,7 +1445,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | publicIPPrefixes | Ja | Ja |
 > | routeFilters | Ja | Ja |
 > | routeTables | Ja | Ja |
-> | secureGateways | Ja | Ja |
 > | serviceEndpointPolicies | Ja | Ja |
 > | trafficManagerGeographicHierarchies | Nej | Nej |
 > | trafficmanagerprofiles | Ja | Ja |

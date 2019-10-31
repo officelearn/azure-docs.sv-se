@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: ca77cf6b838d2e10eab422f37ff55fbb43a2dba0
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 515d1da5333bb29237baa4bd941275f32ba754d3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677845"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161573"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API för anpassade händelser och mått
 
@@ -614,7 +614,7 @@ Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen
 
 ## <a name="trackdependency"></a>TrackDependency
 
-Använd TrackDependency-anropet för att spåra svars tiderna och framgångs frekvensen för anrop till en extern kod. Resultaten visas i beroende diagram i portalen.
+Använd TrackDependency-anropet för att spåra svars tiderna och framgångs frekvensen för anrop till en extern kod. Resultaten visas i beroende diagram i portalen. Kodfragmentet nedan måste läggas till överallt där ett beroende anrop görs.
 
 *C#*
 

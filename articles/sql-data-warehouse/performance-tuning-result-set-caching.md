@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: c659db91b8ca1ad65b00124bed347b8046328d2e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 6dd3172dd9098db0cb7ec09e812eec65f717340a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045001"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163192"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestanda justering med cachelagring av resultat uppsättningar  
 När cachelagring av resultat uppsättningar är aktiverat cachelagrar Azure SQL Data Warehouse automatiskt frågeresultat i användar databasen för upprepad användning.  Detta gör att efterföljande fråge körningar kan hämta resultat direkt från det sparade cacheminnet så att omberäkning inte behövs.   Cachelagring av resultat uppsättningar förbättrar prestanda för frågor och minskar användningen av beräknings resurser.  Dessutom använder frågor som använder cachelagrade resultat uppsättningar inte några samtidiga platser och räknas därför inte över mot befintliga samtidighets gränser. Användare kan bara komma åt de cachelagrade resultaten om de har samma data åtkomst behörigheter som de användare som skapar de cachelagrade resultaten.  
@@ -37,7 +37,24 @@ När cachelagring av resultat uppsättningar har Aktiver ATS för en databas cac
 - Frågor som använder tabeller med säkerhet på radnivå eller på kolumn nivå har Aktiver ATS
 - Frågor som returnerar data med en rad storlek som är större än 64 KB
 
-Frågor med stora resultat uppsättningar (till exempel > 1 000 000 rader) kan uppleva sämre prestanda under den första körningen när resultat-cachen skapas.
+> [!IMPORTANT]
+> Åtgärderna för att skapa cache för resultat uppsättning och hämta data från cachen sker på noden kontroll i en informations lager instans. När cachelagring av resultat uppsättningar är aktiverat, kan körnings frågor som returnerar stor resultat uppsättning (till exempel > 1 miljon rader) orsaka hög CPU-användning på noden kontroll och sakta ned det övergripande svaret på instansen.  Frågorna används ofta vid data utforskning eller ETL-åtgärder. För att undvika att kontrol lera noden och orsaka prestanda problem bör användarna stänga av resultat uppsättningens cachelagring i databasen innan du kör dessa typer av frågor.  
+
+Kör den här frågan för den tid som krävs för cachelagring av resultat uppsättningar för en fråga:
+
+```sql
+SELECT step_index, operation_type, location_type, status, total_elapsed_time, command 
+FROM sys.dm_pdw_request_steps 
+WHERE request_id  = <'request_id'>; 
+```
+
+Här är ett exempel på utdata för en fråga som körs med mellanlagring av resultat uppsättning inaktive rad.
+
+![Fråga – steg-med-RSC-inaktive rad](media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+
+Här är ett exempel på utdata för en fråga som körs med cachelagring av resultat uppsättningar aktiverat.
+
+![Fråga – steg-för-RSC-aktiverat](media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>När cachelagrade resultat används
 

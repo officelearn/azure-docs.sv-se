@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 69b3827bbb53a5f989f3bdec0d5c4ea6035130f0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 12ef5586ac1e7ecf27824f95add3355451cf555a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592313"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163768"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -66,13 +66,13 @@ Här följer kända begränsningar i Azure våren-molnet medan tjänsten är i f
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Hur kan jag ge feedback och rapportera problem?
 
-Om du har skapat vår tjänste instans i Azure våren-molnet kan du skapa en [support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Om du ännu inte har publicerat Azure våren-molnet kan du gå till [Azure feedback](https://feedback.azure.com/) för att begära funktioner eller ge feedback.
+Om du stöter på problem med Azure våren Cloud kan du skapa en [support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Om du vill ha funktions förfrågningar kan du gå till [Azure feedback](https://feedback.azure.com/forums/34192--general-feedback) för att begära funktioner eller ge feedback.
 
 ## <a name="development"></a>Utveckling
 
 ### <a name="i-am-a-spring-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-aazure-spring-cloud-application"></a>Jag är en våren-utvecklare men är nybörjare på Azure, vilket är det snabbaste sättet för mig att lära sig hur man utvecklar reserverade fjäder moln program?
 
-Det snabbaste sättet att komma igång med Azure våren-molnet är att följa [den här snabb starten](spring-cloud-quickstart-launch-app-portal.md).
+Det snabbaste sättet att komma igång med Azure våren Cloud är att följa [den här snabb](spring-cloud-quickstart-launch-app-portal.md)starten.
 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Vilken Java-körning stöder Azure våren Cloud?
 

@@ -4,15 +4,15 @@ description: En lokal gateway krävs om din Analysis Services-server i Azure ska
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294936"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146847"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
 
@@ -50,7 +50,7 @@ När du installerar för en Azure Analysis Services-miljö är det viktigt att d
 
 Gatewayen skapar en utgående anslutning till Azure Service Bus. Den kommunicerar via utgående portar: TCP 443 (standard), 5671, 5672, 9350 till 9354.  Gatewayen kräver inte inkommande portar.
 
-Du kan behöva vitlista IP-adresser för ditt data område i brand väggen. Du kan ladda ned [IP-listan Microsoft Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Listan uppdateras varje vecka. IP-adresserna i listan i Azure-datacenter-IP-listan är i CIDR-format. Mer information finns i [Interplatsroutning mellan domäner](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Du kan behöva inkludera IP-adresser för ditt data område i brand väggen. Du kan ladda ned [IP-listan Microsoft Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Listan uppdateras varje vecka. IP-adresserna i listan i Azure-datacenter-IP-listan är i CIDR-format. Mer information finns i [Interplatsroutning mellan domäner](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Följande är fullständigt kvalificerade domän namn som används av gatewayen.
 

@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: ed13735b4da4818e969c4dddff68b55af6e71a15
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 108eeb03c0ed484e40b884372018bbbef686ee62
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855429"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159852"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestanda justerings vägledning för storm på HDInsight och Azure Data Lake Storage Gen2
 
 Förstå faktorerna som bör övervägas när du justerar prestandan för en Azure Storm-topologi. Det är till exempel viktigt att förstå egenskaperna hos det arbete som utförs av kanaler och bultarna (oavsett om arbetet är I/O eller minnes krävande). Den här artikeln beskriver ett antal rikt linjer för prestanda justering, inklusive fel sökning av vanliga problem.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: Skapa ett lagrings konto för analys](data-lake-storage-quickstart-create-account.md).
+* **en Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: skapa ett lagrings konto för analys](data-lake-storage-quickstart-create-account.md).
 * **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Se till att aktivera fjärr skrivbord för klustret.
 * **Köra ett Storm-kluster på data Lake Storage Gen2**. Mer information finns i [storm på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Rikt linjer för prestanda justering på data Lake Storage Gen2**.  Allmänna prestanda koncept finns i [rikt linjer för data Lake Storage Gen2 prestanda justering](data-lake-storage-performance-tuning-guidance.md).   
@@ -110,8 +110,8 @@ Om du når gränserna för bandbredden som tillhandahålls av Data Lake Storage 
 
 Om du vill kontrol lera om du får en begränsning aktiverar du fel söknings loggning på klient sidan:
 
-1. I **Ambari** > **Storm** **config Advanced Storm-Work-log4j**, ändrar  **&lt;du rot nivå = "info&gt; "** till rot nivå = >  >   **&lt; "Felsök"&gt;** . Starta om alla noder/tjänster för att konfigurationen ska börja gälla.
-2. Övervaka loggfilerna för Storm-topologin på arbetsnoder&lt;(&gt;under&gt;/var/log/Storm/Worker-Artifacts/TopologyName/&lt;port/Worker.log) för data Lake Storage Gen2 begränsnings undantag.
+1. I **Ambari** > **Storm** > **config** > **Advanced Storm-Work-log4j**, ändra **&lt;root level = "info"&gt;** till **&lt;rot nivå = "Felsök"&gt;** . Starta om alla noder/tjänster för att konfigurationen ska börja gälla.
+2. Övervaka loggfilerna för Storm-topologin på arbetsnoder (under/var/log/Storm/Worker-Artifacts/&lt;TopologyName&gt;/&lt;port&gt;/Worker.log) för Data Lake Storage Gen2 begränsnings undantag.
 
 ## <a name="next-steps"></a>Nästa steg
 Ytterligare prestanda justering för Storm kan refereras till i [den här bloggen](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).

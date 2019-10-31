@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 502fb8b49770b4933c44aa1eb447abb746943c0d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554822"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151215"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -32,7 +32,7 @@ Följande säkerhetskonfigurationer aktive ras i din klient organisation.
 
 ## <a name="unified-multi-factor-authentication-registration"></a>Enhetlig Multi-Factor Authentication registrering
 
-Alla användare i din klient organisation måste registrera sig för multifaktorautentisering (MFA) i form av Azure Multi-Factor Authentication-tjänsten. Användare har 14 dagar på sig att registrera sig för Multi-Factor Authentication med hjälp av Microsoft Authenticator-appen. När 14 dagar har passerat kan användaren inte logga in förrän Multi-Factor Authentication registreringen är klar.
+Alla användare i din klient organisation måste registrera sig för Multi-Factor Authentication (MFA) i form av Azure Multi-Factor Authentication-tjänsten. Användare har 14 dagar på sig att registrera sig för Multi-Factor Authentication med hjälp av Microsoft Authenticator-appen. När 14 dagar har passerat kan användaren inte logga in förrän Multi-Factor Authentication registreringen är klar.
 
 Vi förstår att vissa användare kan vara frånvarande eller att inte logga in under 14 dagar omedelbart efter att säkerhets inställningarna har Aktiver ATS. För att säkerställa att varje användare har rimlig tid att registrera sig för Multi-Factor Authentication, är 14-dagars perioden unik för varje användare. En användares 14-dagars period börjar efter sin första lyckade interaktiva inloggning när du har aktiverat säkerhets inställningarna.
 
@@ -113,6 +113,7 @@ Här följer stegvisa guider om hur du kan använda villkorlig åtkomst för att
 - [Kräv MFA för administratörer](howto-conditional-access-policy-admin-mfa.md)
 - [Kräv MFA för Azure-hantering](howto-conditional-access-policy-azure-management.md)
 - [Blockera äldre autentisering](howto-conditional-access-policy-block-legacy.md)
+- [Kräv MFA för alla användare](howto-conditional-access-policy-all-users-mfa.md)
 
 ## <a name="enabling-security-defaults"></a>Aktivera säkerhets inställningar
 

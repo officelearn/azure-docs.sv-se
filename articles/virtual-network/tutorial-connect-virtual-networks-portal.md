@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515709"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164065"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
 
@@ -54,7 +54,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Resursgrupp| Välj **Skapa ny** och ange *myResourceGroup*.|
     |Region| Välj **USA, östra**.|
     |Namn|myVirtualNetwork1|
-    ! [Konfigurera grundläggande inställningar för virtuellt nätverk] (
+   
 4. På sidan **IP-adresser** anger du 10.0.0.0/16 för fältet **adress utrymme** . Klicka på knappen **Lägg till undernät** nedan och ange Subnet1 för **under nätets namn** och 10.0.0.0/24 för **under nätets adress intervall**.
    
 5. Utför steg 1–3 igen, med följande ändringar:
@@ -147,7 +147,7 @@ Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med åte
 6. I ett senare steg används ping för att kommunicera med den virtuella datorn *myVm2* från den virtuella datorn *myVm1*. Ping använder som standard ICMP (Internet Control Message Protocol), som nekas via Windows-brandväggen. På den virtuella datorn *myVm1* aktiverar du ICMP via Windows-brandväggen, så att du kan pinga den här virtuella datorn från *myVm2* i ett senare steg, med hjälp av PowerShell:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
     
     Även om ping används för att kommunicera mellan virtuella datorer i den här självstudien rekommenderar vi inte att du tillåter att ICMP kommer igenom Windows-brandväggen för produktionsdistribution.

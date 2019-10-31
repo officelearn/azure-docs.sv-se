@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: ff6fd45e0a68a3e93e4c62eb31a566a6dffa2344
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494953"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159691"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Översikt över Azure Kubernetes Network policies
 
@@ -51,7 +51,7 @@ Konfigurationen för följande JSON-exempel skapar ett nytt virtuellt nätverk o
   "properties": {
     "orchestratorProfile": {
       "orchestratorType": "Kubernetes",
-      “kubernetesConfig”: {
+      "kubernetesConfig": {
          "networkPolicy": "azure"
        }
     },
@@ -95,11 +95,11 @@ När klustret har distribuerats kör du följande `kubectl` kommando för att la
   kubectl apply -f https://raw.githubusercontent.com/Azure/acs-engine/master/parts/k8s/addons/kubernetesmasteraddons-azure-npm-daemonset.yaml
 
   ```
-Lösningen är också öppen källa och koden är tillgänglig på [Azure Container Networking](https://github.com/Azure/azure-container-networking/tree/master/npm)-lagringsplatsen.
+Lösningen är också öppen källa och koden är tillgänglig på [Azure Container Networking-lagringsplatsen](https://github.com/Azure/azure-container-networking/tree/master/npm).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Azure Kubernetes-tjänsten](../aks/intro-kubernetes.md).
--  Lär dig mer om behållar [nätverk](container-networking-overview.md).
+-  Lär dig mer om [behållar nätverk](container-networking-overview.md).
 - [Distribuera plugin-programmet](deploy-container-networking.md) för Kubernetes-kluster eller Docker-behållare.

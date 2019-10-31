@@ -1,0 +1,97 @@
+---
+title: Distribuera skalnings uppsättningar för virtuella datorer med IPv6 i Azure
+titlesuffix: Azure Virtual Network
+description: Den här artikeln visar hur du distribuerar skalnings uppsättningar för virtuella datorer med IPv6 i ett virtuellt Azure-nätverk.
+services: virtual-network
+documentationcenter: na
+author: KumudD
+manager: twooley
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/29/2019
+ms.author: kumud
+ms.openlocfilehash: b90910614bcd86a54198b1a0961a3378427ea87e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164996"
+---
+# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure-preview"></a>Distribuera skalnings uppsättningar för virtuella datorer med IPv6 i Azure (för hands version)
+
+Den här artikeln visar hur du distribuerar en skalnings uppsättning för virtuella datorer med dubbla stackar (IPv4 + IPv6) med en extern stack-extern belastningsutjämnare i ett virtuellt Azure-nätverk. Processen för att skapa en IPv6-kompatibel skalnings uppsättning för virtuella datorer är nästan identisk med processen för att skapa enskilda virtuella datorer som beskrivs [här](ipv6-configure-standard-load-balancer-template-json.md). Du börjar med stegen som liknar de som beskrivs för enskilda virtuella datorer:
+1.  Skapa IPv4-och IPv6-offentliga IP-adresser.
+2.  Skapa en belastningsutjämnare med dubbla stackar.  
+3.  Skapa regler för nätverks säkerhets grupper (NSG).  
+
+Det enda steg som skiljer sig från enskilda virtuella datorer är att skapa konfigurationen för nätverks gränssnitt (NIC) som använder resursen för skalnings uppsättning för virtuella datorer: networkProfile/networkInterfaceConfigurations. JSON-strukturen liknar den för Microsoft. Network/networkInterfaces-objektet som används för enskilda virtuella datorer med att lägga till NÄTVERKSKORTet och IPv4 IpConfiguration som primärt gränssnitt med hjälp av attributet **"Primary": true** som det visas i följande exempel:
+
+```json
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[variables('nicName')]",
+                "properties": {
+                  "primary": true,
+          "networkSecurityGroup": {
+            "id": "[resourceId('Microsoft.Network/networkSecurityGroups','VmssNsg')]"
+          },                  
+                  "ipConfigurations": [
+                    {
+                      "name": "[variables('ipConfigName')]",
+                      "properties": {
+                        "primary": true,
+                        "subnet": {
+                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'MyvirtualNetwork','Mysubnet')]"
+                        },
+                        "privateIPAddressVersion":"IPv4",                       
+                        "publicipaddressconfiguration": {
+                          "name": "pub1",
+                          "properties": {
+                            "idleTimeoutInMinutes": 15
+                          }
+                        },
+                        "loadBalancerBackendAddressPools": [
+                          {
+                            "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer', 'bePool'))]"
+                          }
+                        ],
+                        "loadBalancerInboundNatPools": [
+                          {
+                            "id": "[resourceId('Microsoft.Network/loadBalancers/inboundNatPools', 'loadBalancer', 'natPool')]"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "[variables('ipConfigNameV6')]",
+                      "properties": {
+                        "subnet": {
+                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets','MyvirtualNetwork','Mysubnet')]"
+                        },
+                        "privateIPAddressVersion":"IPv6",
+                        "loadBalancerBackendAddressPools": [
+                          {
+                            "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer','bePoolv6')]"
+                          }
+                        ],                        
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+
+```
+
+
+## <a name="sample-virtual-machine-scale-set-template-json"></a>Exempel på mall för skalnings uppsättning för virtuell dator
+
+Så här distribuerar du en skalnings uppsättning för virtuella datorer med dubbla stackar (IPv4 + IPv6) med externa stack-Load Balancer och exempel mal len för virtuella nätverk [här](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-vmss/).
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om IPv6-stöd i virtuella Azure-nätverk finns i [Vad är IPv6 för Azure Virtual Network?](ipv6-overview.md).

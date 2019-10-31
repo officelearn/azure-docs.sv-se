@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e1be41c854e212a7b673d8c2dff42d7b9981fb4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 101d478d37055a08a5ced9113e070bf826613bd3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616133"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160774"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Konfigurera säkerhets information (för hands version) för att använda en Authenticator-app
 
@@ -36,7 +36,7 @@ Beroende på din organisations inställningar kan du kanske använda en app för
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Konfigurera Microsoft Authenticator-appen
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
 
     ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 
@@ -148,6 +148,6 @@ Du har ytterligare alternativ för hur din organisation kontaktar dig för att v
 
 - Logga in med Microsoft Authenticator-appen genom att följa anvisningarna i artikeln [Logga in med tvåstegsverifiering eller säkerhets information](security-info-setup-signin.md) .
 
-- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md).
+- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](active-directory-passwords-update-your-own-password.md).
 
 - Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

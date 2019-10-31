@@ -49,6 +49,8 @@
       href: manage-stale-devices.md
     - name: Aktivera Enterprise State Roaming
       href: enterprise-state-roaming-enable.md
+    - name: Virtuella Windows Azure-datorer och Azure AD
+      href: howto-vm-sign-in-azure-ad-windows.md
     - name: Infrastruktur för virtuella skrivbord
       href: howto-device-identity-virtual-desktop-infrastructure.md
     - name: Distribuera hanterade Azure-arbetsstationer

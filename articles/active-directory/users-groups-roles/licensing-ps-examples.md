@@ -14,19 +14,19 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ac548a4b7599857b116e8059acc51c21fdf4e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8965f4872ac88601a4a77dc48ba430c2f419250f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812254"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160571"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-och Graph-exempel för gruppbaserad licensiering i Azure AD
 
 Fullständig funktionalitet för gruppbaserad licensiering är tillgänglig via [Azure Portal](https://portal.azure.com), och för närvarande är PowerShell-och Microsoft Graph-supporten begränsad till skrivskyddade åtgärder. Det finns dock några användbara uppgifter som kan utföras med hjälp av de befintliga [MSOnline PowerShell-cmdletarna](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) och Microsoft Graph. Det här dokumentet innehåller exempel på vad som är möjligt.
 
 > [!NOTE]
-> Innan du börjar köra cmdlets måste du först ansluta till din organisation genom att köra `Connect-MsolService`  cmdleten.
+> Innan du börjar köra cmdlet: ar, se till att du först ansluter till din organisation genom att köra cmdleten `Connect-MsolService` .
 
 > [!WARNING]
 > Den här koden anges som ett exempel i demonstrations syfte. Om du tänker använda den i din miljö kan du testa den först på en liten skala eller i en separat test klient. Du kan behöva justera koden för att uppfylla de speciella behoven i din miljö.
@@ -59,9 +59,9 @@ Resultat:
 ```
 HTTP/1.1 200 OK
 {
-  “value”: [
+  "value": [
 {
-  “assignedLicenses”: [
+  "assignedLicenses": [
      {
           "accountId":"f1b45b40-57df-41f7-9596-7f2313883635",
           "skuId":"c7df2760-2c81-4ef7-b578-5b5392b571df",
@@ -406,7 +406,7 @@ HTTP/1.1 200 OK
       "id": "e61ff361-5baf-41f0-b2fd-380a6a5e406a",
       "licenseAssignmentState":[
         {
-          "skuId": "157870f6-e050-4b3c-ad5e-0f0a377c8f4d”,
+          "skuId": "157870f6-e050-4b3c-ad5e-0f0a377c8f4d",
           "disabledPlans":[],
           "assignedByGroup": null, # assigned directly.
           "state": "Active",
@@ -415,7 +415,7 @@ HTTP/1.1 200 OK
         {
           "skuId": "1f3174e2-ee9d-49e9-b917-e8d84650f895",
           "disabledPlans":[],
-          "assignedByGroup": “e61ff361-5baf-41f0-b2fd-380a6a5e406a”, # assigned by this group.
+          "assignedByGroup": "e61ff361-5baf-41f0-b2fd-380a6a5e406a", # assigned by this group.
           "state": "Active",
           "error": "None"
         },
@@ -617,7 +617,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> Uppdatera värdena för variablerna `$skuId` och `$groupId`  som är avsedda för borttagning av direkta licenser enligt test miljön innan du kör skriptet ovan. 
+> Uppdatera värdena för variablerna `$skuId` och `$groupId` som är avsedda för borttagning av direkta licenser enligt test miljön innan du kör skriptet ovan. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -627,6 +627,6 @@ Mer information om funktions uppsättningen för licens hantering via grupper fi
 * [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
 * [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](licensing-groups-migrate-users.md)
-* [Så här migrerar du användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Så här migrerar du användare mellan produkt licenser med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
 * [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](licensing-group-advanced.md)
 * [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Neota Logic Studio | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Neota Logic Studio | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Neota Logic Studio.
 services: active-directory
 documentationCenter: na
@@ -8,51 +8,52 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 842605e6-a91d-42cc-a0bb-e23e67173ae2
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 477ccd87b84d4eb5ac6aa3e0dfcbdd8af6b07b6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9154f2eb04d8deade4bdcdf0b02ce0a5b59d7ac
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096464"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160353"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Självstudier: Azure Active Directory-integrering med Neota Logic Studio
+# <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Självstudie: Azure Active Directory integrering med Neota Logic Studio
 
-I den här självstudien får du lära dig hur du integrerar Neota Logic Studio med Azure Active Directory (AD Azure).
-Integrera Neota Logic Studio med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera Neota Logic Studio med Azure Active Directory (Azure AD).
+Genom att integrera Neota Logic Studio med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Neota Logic Studio.
-* Du kan aktivera användarna att vara automatiskt inloggad till Neota Logic Studio (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra Azure AD som har åtkomst till Neota Logic Studio.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Neota Logic Studio (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Neota Logic Studio, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Neota Logic Studio behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Neota Logic Studio enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Neota Logic Studio enkel inloggning aktive rad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Neota Logic Studio stöder **SP** -initierad SSO
+* Neota Logic Studio stöder **SP** -INITIERAd SSO
 
-## <a name="adding-neota-logic-studio-from-the-gallery"></a>Att lägga till Neota Logic Studio från galleriet
+## <a name="adding-neota-logic-studio-from-the-gallery"></a>Lägga till Neota Logic Studio från galleriet
 
-Om du vill konfigurera integreringen av Neota Logic Studio till Azure AD, som du behöver lägga till Neota Logic Studio från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Neota Logic Studio i Azure AD måste du lägga till Neota Logic Studio från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Neota Logic Studio från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -60,37 +61,37 @@ Om du vill konfigurera integreringen av Neota Logic Studio till Azure AD, som du
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Neota Logic Studio**väljer **Neota Logic Studio** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Neota Logic Studio**, väljer **Neota Logic Studio** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Neota Logic Studio i resultatlistan](common/search-new-app.png)
+     ![Neota Logic Studio i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Neota Logic Studio baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Neota Logic Studio upprättas.
+I det här avsnittet ska du konfigurera och testa enkel inloggning med Azure AD med Neota Logic Studio baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i Neota Logic Studio.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Neota Logic Studio, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Neota Logic Studio i Azure AD måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Neota Logic Studio enkel inloggning](#configure-neota-logic-studio-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Neota Logic Studio testanvändare](#create-neota-logic-studio-test-user)**  – du har en motsvarighet för Britta Simon i Neota Logic Studio som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Neota Logic Studio enkel inloggning](#configure-neota-logic-studio-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Neota Logic Studio Test User](#create-neota-logic-studio-test-user)** -om du vill ha en motsvarighet till Britta Simon i Neota Logic Studio som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Neota Logic Studio:
+Utför följande steg för att konfigurera enkel inloggning med Neota Logic Studio i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Neota Logic Studio** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **Neota Logic Studio** Application Integration i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,32 +103,32 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Neota L
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Neota Logic Studio domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![Information om enkel inloggning för Neota Logic Studio-domän och URL: er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<sub domain>.neotalogic.com/a/<sub application>`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<sub domain>.neotalogic.com/wb`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Neota Logic Studia supportteamet](https://www.neotalogic.com/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Neota Logic Studio client support team](https://www.neotalogic.com/contact-us/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. På den **konfigurera Neota Logic Studio** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera Neota Logic Studio** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-neota-logic-studio-single-sign-on"></a>Konfigurera enkel inloggning för Neota Logic-Studio
+### <a name="configure-neota-logic-studio-single-sign-on"></a>Konfigurera enkel inloggning för Neota Logic Studio
 
-Att konfigurera enkel inloggning på **Neota Logic Studio** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Neota Logic Studio supportteam](https://www.neotalogic.com/contact-us/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Neota Logic Studio** -sidan måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [Neota Logic Studio support team](https://www.neotalogic.com/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -147,26 +148,26 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Neota Logic Studio.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Neota Logic Studio.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Neota Logic Studio**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Neota Logic Studio**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Neota Logic Studio**.
+2. I listan program väljer du **Neota Logic Studio**.
 
-    ![Länken Neota Logic Studio i listan med program](common/all-applications.png)
+    ![Neota Logic Studio-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -180,15 +181,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-neota-logic-studio-test-user"></a>Skapa Neota Logic Studio testanvändare
+### <a name="create-neota-logic-studio-test-user"></a>Skapa Neota Logic Studio-Test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Neota Logic Studio. Arbeta med [Neota Logic Studio supportteamet](https://www.neotalogic.com/contact-us/) att lägga till användare i Neota Logic Studio-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Neota Logic Studio. Arbeta med [Neota Logic Studio support team](https://www.neotalogic.com/contact-us/) för att lägga till användarna i Neota Logic Studio-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Neota Logic Studio i åtkomstpanelen, bör det vara loggas in automatiskt till Neota Logic Studio som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Neota Logic Studio på åtkomst panelen, bör du loggas in automatiskt på Neota Logic Studio som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

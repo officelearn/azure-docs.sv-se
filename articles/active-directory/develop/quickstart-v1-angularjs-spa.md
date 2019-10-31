@@ -13,21 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380766"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150044"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Snabbstart: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> [Microsoft Identity Platform](v2-overview.md) är en utveckling av Azure Active Directory (Azure AD) Developer Platform. Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter och hämtar tokens för att anropa Microsoft API:er som Microsoft Graph eller API:er som utvecklare har byggt.
+> Om du behöver aktivera inloggning för personliga konton förutom arbets-och skol konton kan du använda *[Microsoft Identity Platform-slutpunkten](azure-ad-endpoint-comparison.md)* .
+> Den här snabb starten är för den äldre Azure AD v 1.0-slutpunkten. Vi rekommenderar att du använder v 2.0-slutpunkten för nya projekt. Mer information finns i [den här själv studie kursen om Java scripts Spa](tutorial-v2-javascript-spa.md) och [den här artikeln](active-directory-v2-limitations.md) förklarar *slut punkten för Microsoft Identity Platform*.
 
 Azure Active Directory (AD Azure) gör det enkelt att lägga till inloggning, utloggning och säkra OAuth API-anrop till enkelsidiga appar. Det gör att dina appar kan autentisera användare med deras Windows Server Active Directory-konton och använda valfritt webb-API som Azure AD hjälper till att skydda, till exempel Office 365-API:er eller Azure API.
 
@@ -46,10 +51,7 @@ Om du vill skapa ett komplett, fungerande program måste du:
 2. Installera ADAL och konfigurera ensidesappen.
 3. Använd ADAL för att säkra sidor i ensidesappen.
 
-> [!NOTE]
-> Om du behöver aktivera inloggningar för personliga konton förutom arbets-och skol konton kan du använda *[Microsoft Identity Platform](azure-ad-endpoint-comparison.md)* -slutpunkten. Mer information finns i [den här själv studie kursen om Java scripts Spa](tutorial-v2-javascript-spa.md) och [den här artikeln](active-directory-v2-limitations.md) förklarar *slut punkten för Microsoft Identity Platform*. 
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kom igång genom att slutföra följande krav:
 
@@ -60,21 +62,21 @@ Kom igång genom att slutföra följande krav:
 
 Om du vill göra så att appen kan autentisera användare och hämta token behöver du först registrera den i din Azure AD-klientorganisation:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Om du är inloggad i flera kataloger kan du behöva se till att du är i rätt katalog. Gör det genom att klicka på ditt konto i fältet längst upp. Under **kataloglistan** väljer du den Azure AD-klientorganisation där du vill registrera programmet.
 1. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
 1. Klicka på **Appregistreringar**och välj sedan **ny registrering**.
 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
-1. Välj webb plattformen under avsnittet omdirigerings **-** **URI** och ange värdet till `https://localhost:44326/` (platsen som Azure AD ska returnera tokens till).
+1. Välj **webb** plattformen under avsnittet **omdirigerings-URI** och ange värdet till `https://localhost:44326/` (platsen som Azure AD ska returnera token).
 1. När det är klart väljer du **Registrera**. På appens sida **Översikt** antecknar du värdet för **Application (client) ID** (Program-ID (klient)).
 1. Adal.js använder det implicita flödet för OAuth för att kommunicera med Azure AD. Du måste aktivera det implicita flödet för ditt program. I det vänstra navigeringsfönstret för det registrerade programmet väljer du **Autentisering**.
 1. I **Avancerade inställningar** går du till **Implicit beviljande** och aktiverar kryssrutorna **ID-token** och **Åtkomsttoken**. ID-token och åtkomsttoken krävs eftersom den här appen behöver logga in användare och anropa ett API.
 1. Välj **Spara**.
 1. Ge behörigheter till hela klientorganisationen för programmet. Gå till **API-behörigheter**och välj knappen **bevilja administratörs medgivande** under **bevilja medgivande**.
-1. Bekräfta genom att välja **Ja**.
+1. Välj **Ja** för att bekräfta.
 
-## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Steg 2: Installera ADAL och konfigurera den enkelsidiga appen
+## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Steg 2: Installera ADAL och konfigurera ensidesappen
 
 Nu när du har ett program i Azure AD kan du installera adal.js och skriva din identitetsrelaterade kod.
 
@@ -100,7 +102,7 @@ För att ensidesappens serverdels att göra-API ska kunna acceptera token från 
    * `ida:Tenant` är domänen för din Azure AD-klientorganisation – till exempel contoso.onmicrosoft.com.
    * `ida:Audience` är det klient-ID för din app som du kopierade från portalen.
 
-## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Steg 3: Använda ADAL för att skydda sidor i den enkelsidiga appen
+## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Steg 3: Använda ADAL för att säkra sidor i ensidesappen
 
 Adal.js integreras med AngularJS-vägen och HTTP-providers, så du kan hjälpa till att säkra enskilda vyer i din ensidesapp.
 

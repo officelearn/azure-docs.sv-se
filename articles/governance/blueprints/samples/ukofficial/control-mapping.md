@@ -7,18 +7,18 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 72b7b370158f228d725e9c6970dfcffb09e7986b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e86c7040e94553b032b565e282639047a1ed8750
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297114"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162954"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
 I följande artikel beskrivs hur NHS i Storbritannien och Storbritannien i Storbritannien mappas till de officiella NHS-kontrollerna i Storbritannien och Storbritannien. Mer information om kontrollerna finns i [Storbritannien officiellt](https://www.gov.uk/government/publications/government-security-classifications).
 
-Följande mappningar är de officiella NHS-kontrollerna i **Storbritannien** och **Storbritannien** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[Preview @ no__t-2 granskning UK officiella och Storbritannien NHS Controls och distribuera särskilda VM-tillägg för att ge stöd för det inbyggda princip initiativet för gransknings krav** .
+Följande mappningar är de officiella NHS-kontrollerna i **Storbritannien** och **Storbritannien** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[för hands versions\] granska de officiella och brittiska NHS-kontrollerna i Storbritannien och distribuera särskilda VM-tillägg för att få stöd för det inbyggda princip initiativet för gransknings krav** .
 
 > [!IMPORTANT]
 > Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
@@ -90,27 +90,27 @@ Den här skissen tilldelar också Azure Policy definitioner till gransknings kon
 
 Den här skissen tilldelar också en Azure Policy-definition som granskar Linux VM lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här designen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
 
-- \[Preview @ no__t-1: granskning av virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
+- \[för hands version\]: granskning av virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela Azure Policy definitioner som granskar virtuella Windows-datorer som inte uppfyller minimi kraven och andra lösen ords krav. Om de virtuella datorerna strider mot principen för lösen ords säkerhet kan du vidta åtgärder för att säkerställa att lösen ord för alla VM-användarkonton är kompatibla med principen.
 
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som saknar lägsta ålder för lösen ord på 1 dag
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[för hands version\]: granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[för hands version\]: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[för hands version\]: granska virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
+- \[för hands version\]: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[för hands version\]: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 
 Den här skissen hjälper dig också att styra åtkomsten till Azure-resurser genom att tilldela Azure Policy definitioner. Dessa principer granskar användningen av resurs typer och konfigurationer som kan tillåta mer åtkomst till resurser. Att förstå resurser som strider mot dessa principer kan hjälpa dig att vidta lämpliga åtgärder för att säkerställa åtkomst till Azure-resurser som är begränsade till behöriga användare.
 
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- \[Preview @ no__t-1: granska virtuella Linux-datorer som har konton utan lösen ord
-- \[Preview @ no__t-1: granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[för hands version\]: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
+- \[för hands version\]: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[för hands version\]: granska virtuella Linux-datorer som har konton utan lösen ord
+- \[för hands version\]: granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Lagrings konton ska migreras till nya Azure Resource Manager resurser
 - Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
 - Granska virtuella datorer som inte använder hanterade diskar
@@ -147,7 +147,7 @@ Den här skissen tilldelar också Azure Policy definitioner till gransknings kon
 
 Den här skissen tilldelar också en Azure Policy-definition som granskar Linux VM lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här designen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
 
-- \[Preview @ no__t-1: granskning av virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
+- \[för hands version\]: granskning av virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
 
 ## <a name="13-audit-information-for-users"></a>13 gransknings information för användare
 
@@ -156,8 +156,8 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 - Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Distribuera nätverks övervakare när virtuella nätverk skapas
 
 ## <a name="next-steps"></a>Nästa steg
@@ -168,7 +168,7 @@ Nu när du har granskat kontroll mappningen av NHS-ritningar från Storbritannie
 > De [officiella och brittiska NHS-skisserna – översikt](./index.md)
 > [UK officiella och UK NHS-ritningar – distribuera steg](./deploy.md)
 
-Ytterligare artiklar om skisser och hur de används:
+Ytterligare artiklar om ritningar och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

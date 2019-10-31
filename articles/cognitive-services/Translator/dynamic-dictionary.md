@@ -10,29 +10,29 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f586702350b38c6d546767f64a8e2f6115b59817
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c268616c015c1c8735b2bdddc057f235d02cdc2a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595301"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161753"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Så här använder du en dynamisk ord lista
 
 Om du redan vet vilken översättning du vill använda för ett ord eller en fras kan du ange den som markering i begäran. Den dynamiska ord listan är bara säker för sammansatta substantiv som rätt namn och produkt namn.
 
-**Syntax:**
+**Uttryck**
 
 < msTrans: Ordbok översättning = "översättning av fras" > fras </msTrans: ordbok >
 
 **Signaturkrav**
 
-* Språken `From` och`To` måste vara olika. 
-* Du måste inkludera `From` parametern i API-förflyttningsverktyget i stället för att använda funktionen för automatisk identifiering. 
+* `From` och `To` språk måste vara olika. 
+* Du måste inkludera parametern `From` i begäran om API-omvandling i stället för att använda funktionen för automatisk identifiering. 
 
 **Exempel: sv-de:**
 
-Käll ineffekt: Ordet < msTrans: ord lista översättning =\"WordOMatic\"> ord eller fras </msTrans: ord lista > är en post i ord listan.
+Käll inmatning: ordet < msTrans: ord lista översättning =\"WordOMatic\"> ord eller fras </msTrans: ordbok > är en post i ord listan.
 
 Mål utmatning: Das Wort "WordOMatic" ist Ein Wörterbucheintrag.
 

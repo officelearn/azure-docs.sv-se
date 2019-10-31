@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fd7a12dca92a4b84ecd3a2c9644509a1dc705c35
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727860"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161507"
 ---
-# <a name="security-frame-session-management"></a>Säkerhets ram: Sessionshantering
+# <a name="security-frame-session-management"></a>Säkerhets ram: sessionshantering
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implementera korrekt utloggning med ADAL-metoder när du använder Azure AD](#logout-adal)</li></ul> |
@@ -35,10 +35,10 @@ ms.locfileid: "68727860"
 
 ## <a id="logout-adal"></a>Implementera korrekt utloggning med ADAL-metoder när du använder Azure AD
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -70,10 +70,10 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 
 ## <a id="finite-tokens"></a>Använd begränsade livs längder för genererade SaS-token
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enhet | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -81,10 +81,10 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 
 ## <a id="resource-tokens"></a>Använd minsta livstid för token för genererade resurs-token
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -92,10 +92,10 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 
 ## <a id="wsfederation-logout"></a>Implementera korrekt utloggning med WsFederation-metoder när du använder ADFS
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | ADFS | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -141,10 +141,10 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 
 ## <a id="proper-logout"></a>Implementera korrekt utloggning när du använder identitets Server
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitets Server | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [IdentityServer3 – federerad utloggning](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
@@ -152,10 +152,10 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 
 ## <a id="https-secure-cookies"></a>Program som är tillgängliga via HTTPS måste använda säkra cookies
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | EnvironmentType – OnPrem |
 | **Reference**              | [httpCookies-element (ASP.net-inställnings schema)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie. Secure-egenskap](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
@@ -171,14 +171,14 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 ```
 Inställningen tillämpas även om HTTP används för att få åtkomst till programmet. Om HTTP används för att få åtkomst till programmet, bryter inställningen programmet eftersom cookies är inställda med attributet Secure och att webbläsaren inte skickar tillbaka dem till programmet.
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Webb formulär, MVC5 |
 | **Dokumentattribut**              | EnvironmentType – OnPrem |
 | **Reference**              | Gäller inte  |
-| **Steg** | När webb programmet är den förlitande parten och IDP är ADFS-servern, kan FedAuth token Secure-attribut konfigureras genom att ställa in requireSSL på True `system.identityModel.services` i avsnittet i Web. config:|
+| **Steg** | När webb programmet är den förlitande parten, och IdP är ADFS-servern, kan FedAuth token Secure-attribut konfigureras genom att ange requireSSL till true i avsnittet `system.identityModel.services` i Web. config:|
 
 ### <a name="example"></a>Exempel
 ```csharp
@@ -193,10 +193,10 @@ Inställningen tillämpas även om HTTP används för att få åtkomst till prog
 
 ## <a id="cookie-definition"></a>Alla HTTP-baserade program ska endast ange http för cookie-definition
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Attribut för säker cookie](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
@@ -214,10 +214,10 @@ Alla HTTP-baserade program som använder cookies bör ange HttpOnly i cookie-def
 </system.web>
 ```
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Webb formulär |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [FormsAuthentication. RequireSSL-egenskap](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
@@ -231,10 +231,10 @@ I följande kod exempel anges attributet requireSSL i filen Web. config.
 </authentication>
 ```
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | MVC5 |
 | **Dokumentattribut**              | EnvironmentType – OnPrem |
 | **Reference**              | [Konfiguration av Windows Identity Foundation (WIF) – del II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
@@ -256,23 +256,23 @@ Följande konfiguration visar rätt konfiguration:
 
 ## <a id="csrf-asp"></a>Minimera CSRF-attacker (Cross-Site request förfalskning) på ASP.NET-webbsidor
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
 | **Steg** | Förfalskning av begäran mellan webbplatser (CSRF eller XSRF) är en typ av attack där en angripare kan utföra åtgärder i säkerhets kontexten för en annan användares etablerade session på en webbplats. Målet är att ändra eller ta bort innehåll, om mål webbplatsen är exklusivt beroende av sessions-cookies för att autentisera mottagna begär Anden. En angripare kan utnyttja problemet genom att hämta en annan användares webbläsare för att läsa in en URL med ett kommando från en sårbar plats där användaren redan är inloggad. Det finns många sätt för en angripare att göra det, till exempel genom att vara värd för en annan webbplats som läser in en resurs från den sårbara servern eller att användaren klickar på en länk. Angreppet kan förhindras om servern skickar ytterligare en token till klienten, kräver att klienten inkluderar denna token i alla framtida begär Anden och verifierar att alla framtida förfrågningar innehåller en token som hör till den aktuella sessionen, till exempel med hjälp av ASP.NET AntiForgeryToken eller ViewState. |
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [XSRF/CSRF-skydd i ASP.NET MVC och Web pages](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
-| **Steg** | CSRF-och ASP.NET MVC-formulär – Använd `AntiForgeryToken` hjälp metoden för vyer, infoga en `Html.AntiForgeryToken()` i formuläret, till exempel|
+| **Steg** | CSRF-och ASP.NET MVC-formulär – Använd `AntiForgeryToken` Helper-metoden i vyer. Lägg till en `Html.AntiForgeryToken()` i formuläret, till exempel|
 
 ### <a name="example"></a>Exempel
 ```csharp
@@ -301,11 +301,11 @@ public ViewResult SubmitUpdate()
 ```
 Synkroniseringsfilter som kontrollerar att:
 * Inkommande begäran har en cookie med namnet __RequestVerificationToken
-* Inkommande begäran har en `Request.Form` post med namnet __RequestVerificationToken
-* Dessa cookie- `Request.Form` och värde matchningar antar att alla är väl, så går begäran till som normalt. Men om så inte är fallet angavs inte ett auktoriseringsfel med meddelandet "en obligatorisk token för att förhindra eller var ogiltig". 
+* Inkommande begäran har en `Request.Form` post som heter __RequestVerificationToken
+* Dessa cookie-och `Request.Form` värden stämmer överens med antagandet att alla är väl, så går begäran till som normalt. Men om så inte är fallet angavs inte ett auktoriseringsfel med meddelandet "en obligatorisk token för att förhindra eller var ogiltig". 
 
 ### <a name="example"></a>Exempel
-Anti-CSRF och AJAX: Form-token kan vara ett problem för AJAX-begäranden, eftersom en AJAX-begäran kan skicka JSON-data, inte HTML-formulär data. En lösning är att skicka tokens i en anpassad HTTP-rubrik. Följande kod använder kniv-syntax för att generera tokens och lägger sedan till token i en AJAX-begäran. 
+CSRF och AJAX: form-token kan vara ett problem för AJAX-begäranden, eftersom en AJAX-begäran kan skicka JSON-data, inte HTML-formulär data. En lösning är att skicka tokens i en anpassad HTTP-rubrik. Följande kod använder kniv-syntax för att generera tokens och lägger sedan till token i en AJAX-begäran. 
 ```csharp
 <script>
     @functions{
@@ -351,10 +351,10 @@ void ValidateRequestHeader(HttpRequestMessage request)
 }
 ```
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Webb formulär |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Dra nytta av ASP.NET inbyggda funktioner för att Fend bort webb attacker](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
@@ -371,10 +371,10 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="inactivity-lifetime"></a>Konfigurera session för inaktivitetens livs längd
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [HttpSessionState. timeout-egenskap](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
@@ -391,10 +391,10 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="threat-detection"></a>Aktivera hot identifiering i Azure SQL
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Webb formulär |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Formulär element för autentisering (ASP.NET Settings schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
@@ -406,10 +406,10 @@ void Page_Init (object sender, EventArgs e) {
 </forms>
 ```
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Webb formulär, MVC5 |
 | **Dokumentattribut**              | EnvironmentType – OnPrem |
 | **Reference**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
@@ -436,15 +436,15 @@ void Page_Init (object sender, EventArgs e) {
 ### <a name="example"></a>Exempel
 Även om AD FS utfärdade SAML-biljettens livs längd måste anges till 15 minuter, genom att köra följande PowerShell-kommando på ADFS-servern:
 ```csharp
-Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
+Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName @("Active Directory") -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
 ## <a id="proper-app-logout"></a>Implementera korrekt utloggning från programmet
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -452,23 +452,23 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ## <a id="csrf-api"></a>Minimera CSRF-attacker (Cross-Site request förfalskning) på ASP.NET webb-API: er
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
 | **Steg** | Förfalskning av begäran mellan webbplatser (CSRF eller XSRF) är en typ av attack där en angripare kan utföra åtgärder i säkerhets kontexten för en annan användares etablerade session på en webbplats. Målet är att ändra eller ta bort innehåll, om mål webbplatsen är exklusivt beroende av sessions-cookies för att autentisera mottagna begär Anden. En angripare kan utnyttja problemet genom att hämta en annan användares webbläsare för att läsa in en URL med ett kommando från en sårbar plats där användaren redan är inloggad. Det finns många sätt för en angripare att göra det, till exempel genom att vara värd för en annan webbplats som läser in en resurs från den sårbara servern eller att användaren klickar på en länk. Angreppet kan förhindras om servern skickar ytterligare en token till klienten, kräver att klienten inkluderar denna token i alla framtida begär Anden och verifierar att alla framtida förfrågningar innehåller en token som hör till den aktuella sessionen, till exempel med hjälp av ASP.NET AntiForgeryToken eller ViewState. |
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Förhindra förfalskning av CSRF-attacker (Cross-Site Request) i ASP.NET Web API](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| **Steg** | Anti-CSRF och AJAX: Form-token kan vara ett problem för AJAX-begäranden, eftersom en AJAX-begäran kan skicka JSON-data, inte HTML-formulär data. En lösning är att skicka tokens i en anpassad HTTP-rubrik. Följande kod använder kniv-syntax för att generera tokens och lägger sedan till token i en AJAX-begäran. |
+| **Steg** | CSRF och AJAX: form-token kan vara ett problem för AJAX-begäranden, eftersom en AJAX-begäran kan skicka JSON-data, inte HTML-formulär data. En lösning är att skicka tokens i en anpassad HTTP-rubrik. Följande kod använder kniv-syntax för att generera tokens och lägger sedan till token i en AJAX-begäran. |
 
 ### <a name="example"></a>Exempel
 ```Javascript
@@ -545,20 +545,20 @@ public ViewResult SubmitUpdate()
 ```
 Synkroniseringsfilter som kontrollerar att:
 * Inkommande begäran har en cookie med namnet __RequestVerificationToken
-* Inkommande begäran har en `Request.Form` post med namnet __RequestVerificationToken
-* Dessa cookie- `Request.Form` och värde matchningar antar att alla är väl, så går begäran till som normalt. Men om så inte är fallet angavs inte ett auktoriseringsfel med meddelandet "en obligatorisk token för att förhindra eller var ogiltig".
+* Inkommande begäran har en `Request.Form` post som heter __RequestVerificationToken
+* Dessa cookie-och `Request.Form` värden stämmer överens med antagandet att alla är väl, så går begäran till som normalt. Men om så inte är fallet angavs inte ett auktoriseringsfel med meddelandet "en obligatorisk token för att förhindra eller var ogiltig".
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Dokumentattribut**              | Identitetsprovider-ADFS, identitetsprovider – Azure AD |
 | **Reference**              | [Skydda ett webb-API med enskilda konton och lokal inloggning i ASP.NET Web API 2,2](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
 | **Steg** | Om webb-API: et skyddas med OAuth 2,0 förväntar det sig ett Bearer-token i begärans huvud för begäran och beviljar endast åtkomst till begäran om token är giltig. Till skillnad från cookie-baserad autentisering ansluter inte webbläsare de Bearer-token till begär Anden. Den begär ande klienten måste uttryckligen koppla Bearer-token i begär ande huvudet. För ASP.NET webb-API: er som skyddas med OAuth 2,0 anses därför Bearer-token vara försvars skydd mot CSRF-attacker. Observera att om MVC-delen av programmet använder formulärautentisering (t. ex. använder cookies), måste du använda antiförfalsknings-token i MVC-webbappen. |
 
 ### <a name="example"></a>Exempel
-Webb-API: et måste informeras om att endast förlita sig på Bearer-token och inte på cookies. Det kan göras med följande konfiguration i `WebApiConfig.Register` metoden:
+Webb-API: et måste informeras om att endast förlita sig på Bearer-token och inte på cookies. Det kan göras med följande konfiguration i `WebApiConfig.Register`-metoden:
 
 ```csharp
 config.SuppressDefaultHostAuthentication();

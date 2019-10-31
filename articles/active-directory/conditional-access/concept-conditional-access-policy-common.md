@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abcca0d2712a462e4d2ecf9c8023d0cb0e68ad6c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 1991a3fe844b3a8669a67e491359e1a96658c844
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576685"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151253"
 ---
 # <a name="common-conditional-access-policies"></a>Vanliga principer för villkorlig åtkomst
 
@@ -35,6 +35,7 @@ Mer information om konton för nöd åtkomst och varför de är viktiga finns i 
 
 * [Kräv MFA för administratörer](howto-conditional-access-policy-admin-mfa.md)
 * [Kräv MFA för Azure-hantering](howto-conditional-access-policy-azure-management.md)
+* [Kräv MFA för alla användare](howto-conditional-access-policy-all-users-mfa.md)
 * [Blockera äldre autentisering](howto-conditional-access-policy-block-legacy.md)
 * [Riskfylld villkorlig åtkomst (kräver Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Kräv betrodd plats för MFA-registrering](howto-conditional-access-policy-registration.md)

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: 22521a3619482361c8f556b05436bb3b78c7dc9b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0031a0c96ecadbb3c7d3a479384bee92ba4d102c
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932331"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161984"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Tjänster, scheman och kategorier som stöds för Azure-resurs loggar
 
@@ -222,8 +222,6 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 |Microsoft. Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway åtkomst logg|
 |Microsoft. Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway prestanda logg|
 |Microsoft. Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway brand Väggs logg|
-|Microsoft. Network/securegateways|AzureFirewallApplicationRule|Regel för Azure brand Väggs program|
-|Microsoft. Network/securegateways|AzureFirewallNetworkRule|Nätverks regel för Azure Firewall|
 |Microsoft. Network/azurefirewalls|AzureFirewallApplicationRule|Regel för Azure brand Väggs program|
 |Microsoft. Network/azurefirewalls|AzureFirewallNetworkRule|Nätverks regel för Azure Firewall|
 |Microsoft. Network/virtualNetworkGateways|GatewayDiagnosticLog|Gateway-diagnostikloggar|

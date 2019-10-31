@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 24863f00dcec78471cd187b64f6931b7b95124c9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0cfcbdaee5a39a947bd89c677f49214c8c3cb98a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100625"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162858"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automatisk säkerhets kopiering för SQL Server 2014 Virtual Machines (Resource Manager)
 
@@ -31,7 +31,7 @@ Automatisk säkerhets kopiering konfigurerar automatiskt [hanterad säkerhets ko
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda automatisk säkerhets kopiering bör du tänka på följande:
 
 **Operativ system**:
@@ -65,7 +65,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 | **Automatisk säkerhetskopiering** | Aktivera/inaktivera (inaktive rad) | Aktiverar eller inaktiverar automatisk säkerhets kopiering för en virtuell Azure-dator som kör SQL Server 2014 Standard eller Enterprise. |
 | **Kvarhållningsperiod** | 1-30 dagar (30 dagar) | Antalet dagar som säkerhets kopian ska sparas. |
 | **Lagringskonto** | Azure Storage-konto | Ett Azure Storage-konto som ska användas för att lagra automatiska säkerhetskopieringsfiler i Blob Storage. En behållare skapas på den här platsen för att lagra alla säkerhetskopieringsfiler. Fil namns konventionen för säkerhets kopiering innehåller datum, tid och dator namn. |
-| **Kryptering** | Aktivera/inaktivera (inaktive rad) | Aktiverar eller inaktiverar kryptering. När kryptering är aktiverat finns de certifikat som används för att återställa säkerhets kopian i det angivna lagrings kontot i `automaticbackup` samma behållare med samma namngivnings konvention. Om lösen ordet ändras genereras ett nytt certifikat med det lösen ordet, men det gamla certifikatet kvarstår för att återställa tidigare säkerhets kopior. |
+| **Kryptering** | Aktivera/inaktivera (inaktive rad) | Aktiverar eller inaktiverar kryptering. När kryptering är aktiverat finns de certifikat som används för att återställa säkerhets kopian i det angivna lagrings kontot i samma `automaticbackup` behållare med samma namngivnings konvention. Om lösen ordet ändras genereras ett nytt certifikat med det lösen ordet, men det gamla certifikatet kvarstår för att återställa tidigare säkerhets kopior. |
 | **Lösenord** | Lösen ords text | Ett lösen ord för krypterings nycklar. Detta krävs endast om kryptering har Aktiver ATS. För att kunna återställa en krypterad säkerhets kopia måste du ha rätt lösen ord och relaterat certifikat som användes när säkerhets kopieringen gjordes. |
 
 ## <a name="configure-in-the-portal"></a>Konfigurera i portalen
@@ -164,7 +164,7 @@ Du kan använda PowerShell för att aktivera automatisk säkerhets kopiering sam
 Börja med att välja eller skapa ett lagrings konto för de säkerhetskopierade filerna. Följande skript väljer ett lagrings konto eller skapar det om det inte redan finns.
 
 ```powershell
-$storage_accountname = “yourstorageaccount”
+$storage_accountname = "yourstorageaccount"
 $storage_resourcegroupname = $resourcegroupname
 
 $storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
@@ -191,7 +191,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Det kan ta flera minuter att installera och konfigurera SQL Server IaaS-agenten.
 
 > [!NOTE]
-> Det finns andra inställningar för **New-AzVMSqlServerAutoBackupConfig** som endast gäller för SQL Server 2016 och automatisk säkerhets kopiering v2. SQL Server 2014 har inte stöd för följande inställningar: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**och **LogBackupFrequencyInMinutes**. Om du försöker konfigurera de här inställningarna på en virtuell SQL Server 2014-dator finns det inget fel, men inställningarna tillämpas inte. Om du vill använda de här inställningarna på en SQL Server 2016 virtuell dator, se [Automatisk säkerhets kopiering v2 för SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
+> Det finns andra inställningar för **New-AzVMSqlServerAutoBackupConfig** som endast gäller för SQL Server 2016 och automatisk säkerhets kopiering v2. SQL Server 2014 har inte stöd för följande inställningar: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**och  **LogBackupFrequencyInMinutes**. Om du försöker konfigurera de här inställningarna på en virtuell SQL Server 2014-dator finns det inget fel, men inställningarna tillämpas inte. Om du vill använda de här inställningarna på en SQL Server 2016 virtuell dator, se [Automatisk säkerhets kopiering v2 för SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
 
 Om du vill aktivera kryptering ändrar du det tidigare skriptet för att skicka parametern **EnableEncryption** tillsammans med ett lösen ord (säker sträng) för parametern **CertificatePassword** . Följande skript aktiverar de automatiska säkerhets kopierings inställningarna i föregående exempel och lägger till kryptering.
 
@@ -228,8 +228,8 @@ Följande skript innehåller en uppsättning variabler som du kan anpassa för a
 ```powershell
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
-$region = “Azure region name such as EASTUS2”
-$storage_accountname = “storageaccountname”
+$region = "Azure region name such as EASTUS2"
+$storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 
@@ -280,7 +280,7 @@ Ett annat alternativ är att dra nytta av den inbyggda Database Mail funktionen 
 
 Automatisk säkerhets kopiering konfigurerar hanterad säkerhets kopiering på virtuella Azure-datorer. Det är därför viktigt att [granska dokumentationen för hanterad säkerhets kopiering på SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
 
-Du hittar ytterligare vägledning för säkerhets kopiering och återställning av SQL Server på virtuella Azure-datorer i följande artikel: [Säkerhets kopiering och återställning av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+Du hittar ytterligare vägledning för säkerhets kopiering och återställning av SQL Server på virtuella Azure-datorer i följande artikel: [säkerhets kopiering och återställning för SQL Server i Azure-Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
 Information om andra tillgängliga Automation-uppgifter finns [SQL Server IaaS agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 

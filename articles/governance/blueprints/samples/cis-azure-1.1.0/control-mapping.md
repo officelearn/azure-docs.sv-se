@@ -6,19 +6,19 @@ ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: fa683206ec1ff4d02298fd2689791601ff11f85c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 64af398ec4829a0336294b33fef102392b9a4099
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297790"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163870"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Rekommendations mappning av CIS-exemplet för benchmark-Microsoft Azure grunderna
 
 I följande artikel beskrivs hur Azure-ritningar CIS-Microsoft Azure Base-exempel kartor mappar till CIS-Microsoft Azure grunderna för benchmark-rekommendationer. Mer information om rekommendationerna finns i [CIS Microsoft Azure stiftelser benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 Följande mappningar är till **CIS Microsoft Azure grunderna 1.1.0** -rekommendationer för benchmark. Använd navigeringen till höger om du vill gå direkt till en bestämd rekommendations mappning.
-Många av de mappade rekommendationerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[Preview @ no__t-2 audit CIS Microsoft Azure grunderna för benchmark v-1.1.0 och distribuera särskilda VM-tillägg för att stödja gransknings krav** inbyggda princip initiativ.
+Många av de mappade rekommendationerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[för hands versions\] granska CIS Microsoft Azure grunderna för benchmark v-1.1.0 och distribuera särskilda VM-tillägg för att stödja gransknings krav** inbyggda princip initiativ.
 
 > [!IMPORTANT]
 > Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
@@ -346,7 +346,7 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att rollbaserad åtkomst kontroll används för hanterade behörigheter i Kubernetes-tjänstekluster
 
-- \[Preview @ no__t-1: rollbaserad Access Control (RBAC) ska användas på Kubernetes-tjänster
+- \[för hands version\]: rollbaserad Access Control (RBAC) ska användas på Kubernetes-tjänster
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9,2 se till att webbapp omdirigerar all HTTP-trafik till HTTPS i Azure App Service
 
@@ -362,7 +362,7 @@ Nu när du har granskat kontroll mappningen av CIS Microsoft Azure grunderna ben
 > [CIS Microsoft Azure grunderna benchmark-skiss – översikt](./index.md)
 > [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
 
-Ytterligare artiklar om skisser och hur de används:
+Ytterligare artiklar om ritningar och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

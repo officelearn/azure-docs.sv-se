@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: f74f9ba55f3593ed31994b83bb9bda1501445e0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100670"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159740"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurera en tillgänglighets grupp som alltid är tillgänglig på virtuella Azure-datorer i olika regioner
 
@@ -130,7 +130,7 @@ Kör PowerShell-skriptet med klustrets nätverks namn, IP-adress och avsöknings
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
+   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
 
    Import-Module FailoverClusters
@@ -142,7 +142,7 @@ Kör PowerShell-skriptet med klustrets nätverks namn, IP-adress och avsöknings
 
 Repliken i det fjärranslutna data centret är en del av tillgänglighets gruppen men finns i ett annat undernät. Om den här repliken blir den primära repliken kan det uppstå tids gränser för program anslutningen. Detta är samma sak som en lokal tillgänglighets grupp i en distribution med flera undernät. Om du vill tillåta anslutningar från klient program uppdaterar du antingen klient anslutningen eller konfigurerar cachelagring av namn matchning i kluster nätverks namn resursen.
 
-Du kan helst uppdatera de klient anslutnings strängar som `MultiSubnetFailover=Yes`ska anges. Se [ansluta till MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+Du kan helst uppdatera klient anslutnings strängarna för att ange `MultiSubnetFailover=Yes`. Se [ansluta till MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
 Om du inte kan ändra anslutnings strängarna kan du konfigurera cachelagring av namn matchning. Se [timeout-fel och du kan inte ansluta till en SQL Server 2012 AlwaysOn tillgänglighets grupps lyssnare i en miljö med flera undernät](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
@@ -152,7 +152,7 @@ Om du vill testa lyssnare anslutningen till fjärrregionen kan du växla över r
 
 1. I **Object Explorer**ansluter du till den instans av SQL Server som är värd för den primära repliken.
 1. Under **AlwaysOn-tillgänglighetsgrupper**, **tillgänglighets grupper**, högerklickar du på din tillgänglighets grupp och klickar på **Egenskaper**.
-1. På sidan **Allmänt** , under **tillgänglighets repliker**, anger du den sekundära repliken på Dr-platsen så att den använder synkront **genomförande** läge för tillgänglighet och **automatiskt** växlings läge.
+1. På sidan **Allmänt** , under **tillgänglighets repliker**, anger du den sekundära repliken på Dr-platsen så att den använder **synkront genomförande** läge för tillgänglighet och **automatiskt** växlings läge.
 1. Om du har en sekundär replik på samma plats som din primära replik för hög tillgänglighet anger du den här repliken till **asynkron incheckning** och **manuell**.
 1. Klicka på OK.
 1. I **Object Explorer**högerklickar du på tillgänglighets gruppen och klickar på **Visa instrument panel**.
@@ -164,11 +164,11 @@ Om du vill testa lyssnare anslutningen till fjärrregionen kan du växla över r
 
 När du har testat anslutningen flyttar du tillbaka den primära repliken till ditt primära Data Center och återställer tillgänglighets läget till sina normala drift inställningar. I följande tabell visas de normala drift inställningarna för den arkitektur som beskrivs i det här dokumentet:
 
-| Location | Server instans | Role | Tillgänglighets läge | Växlings läge
+| Plats | Server instans | Roll | Tillgänglighets läge | Växlings läge
 | ----- | ----- | ----- | ----- | -----
-| Primärt Data Center | SQL-1 | Primär | Synkron | Automatiskt
-| Primärt Data Center | SQL-2 | Sekundär | Synkron | Automatiskt
-| Sekundärt eller fjärranslutna Data Center | SQL-3 | Sekundär | Asynkron | Manuell
+| Primärt Data Center | SQL-1 | Primär | Synkron | Automatisk
+| Primärt Data Center | SQL-2 | Sekundär | Synkron | Automatisk
+| Sekundärt eller fjärranslutna Data Center | SQL-3 | Sekundär | Asynkron | Manuellt
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Mer information om planerade och forced manual failover

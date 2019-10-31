@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med New Relic | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och New Relic.
+title: 'Självstudie: Azure Active Directory integrering med New Relic | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och nya Relic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,51 +8,52 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd75cc392bb30d15b665190eef8fbea39d692ee3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096271"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160335"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Självstudier: Azure Active Directory-integrering med New Relic
+# <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Självstudie: Azure Active Directory integrering med nya Relic
 
-I den här självstudien får du lära dig hur du integrerar New Relic med Azure Active Directory (AD Azure).
-Integrera New Relic med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera nya Relic med Azure Active Directory (Azure AD).
+Genom att integrera nya Relic med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till New Relic.
-* Du kan aktivera användarna att vara automatiskt inloggad till New Relic (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra Azure AD som har åtkomst till nya Relic.
+* Du kan göra det möjligt för användarna att logga in automatiskt till nya Relic (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med New Relic, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med nya Relic behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Nya Relic enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Ny Relic-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* New Relic stöder **SP** -initierad SSO
+* New Relic stöder **SP** -INITIERAd SSO
 
-## <a name="adding-new-relic-from-the-gallery"></a>Lägger till New Relic från galleriet
+## <a name="adding-new-relic-from-the-gallery"></a>Lägga till nya Relic från galleriet
 
-Om du vill konfigurera integreringen av New Relic till Azure AD, som du behöver lägga till New Relic från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrering av nya Relic i Azure AD måste du lägga till nya Relic från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till nya Relic från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -60,37 +61,37 @@ Om du vill konfigurera integreringen av New Relic till Azure AD, som du behöver
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **New Relic**väljer **New Relic** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du in **New Relic**, väljer **ny Relic** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![New Relic i resultatlistan](common/search-new-app.png)
+     ![Ny Relic i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med New Relic baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i New Relic upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med nya Relic baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i nya Relic upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med New Relic, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med nya Relic måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera nya Relic enkel inloggning](#configure-new-relic-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare i New Relic](#create-new-relic-test-user)**  – du har en motsvarighet för Britta Simon i New Relic som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera en ny Relic-enkel inloggning](#configure-new-relic-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa en ny Relic-test](#create-new-relic-test-user)** för att få en motsvarighet till Britta Simon i New Relic som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med New Relic:
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med nya Relic:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **New Relic** application integration markerar **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **ny Relic** program integration väljer du **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,49 +103,49 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med New Rel
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Nya Relic domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![Ny information om enkel inloggning för Relic-domän och URL: er](common/sp-identifier.png)
 
-    a. I den **inloggnings-URL** text skriver en URL med hjälp av följande mönster: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` – se till att ersätta ditt eget New Relic-konto-ID.
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` – se till att du ersätter ditt eget nya konto-ID för Relic.
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `rpm.newrelic.com`
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **ställa in New Relic** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera nya Relic** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-new-relic-single-sign-on"></a>Konfigurera nya Relic enkel inloggning
+### <a name="configure-new-relic-single-sign-on"></a>Konfigurera ny Relic enkel inloggning
 
-1. I ett annat webbläsarfönster, loggar du in på ditt **New Relic** företagets plats som administratör.
+1. Logga in på din **nya Relic** företags webbplats som administratör i ett annat webbläsarfönster.
 
-2. Klicka på menyn längst upp **kontoinställningar**.
+2. Klicka på **konto inställningar**på menyn högst upp.
    
-    ![Kontoinställningar](./media/new-relic-tutorial/ic797036.png "kontoinställningar")
+    ![Konto inställningar](./media/new-relic-tutorial/ic797036.png "Konto inställningar")
 
-3. Klicka på den **säkerhet och autentisering** fliken och klicka sedan på den **enkel inloggning** fliken.
+3. Klicka på fliken **säkerhet och autentisering** och klicka sedan på fliken **enkel inloggning** .
    
-    ![Enkel inloggning](./media/new-relic-tutorial/ic797037.png "Enkel inloggning")
+    ![Enkel inloggning](./media/new-relic-tutorial/ic797037.png "för Aha!")
 
-4. Utför följande steg på sidan SAML dialogrutan:
+4. Utför följande steg på sidan SAML-dialog:
    
     ![SAML](./media/new-relic-tutorial/ic797038.png "SAML")
    
-    a. Klicka på **Välj fil** att ladda upp din hämtade Azure Active Directory-certifikatet.
+    a. Klicka på **Välj fil** för att ladda upp ditt hämtade Azure Active Directory certifikat.
 
-    b. I den **fjärrinloggning URL** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
+    b. I text rutan **fjärrinloggnings-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
    
-    c. I den **utloggning landing URL** textrutan klistra in värdet för **URL för utloggning**, som du har kopierat från Azure-portalen.
+    c. I text rutan **Logga ut landnings-URL** klistrar du in värdet för **utloggnings-URL**, som du har kopierat från Azure Portal.
 
-    d. Klicka på **spara mina ändringar**.
+    d. Klicka på **Spara mina ändringar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -164,26 +165,26 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till New Relic.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till nya Relic.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **New Relic**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **ny Relic**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **New Relic**.
+2. I listan program väljer du **ny Relic**.
 
-    ![New Relic-länk i listan med program](common/all-applications.png)
+    ![Den nya Relic-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -197,41 +198,41 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-new-relic-test-user"></a>Skapa nya Relic testanvändare
+### <a name="create-new-relic-test-user"></a>Skapa en ny Relic-test användare
 
-För att aktivera Azure Active Directory-användare att logga in på New Relic, måste de etableras i New Relic. När det gäller New Relic är etablering en manuell aktivitet.
+För att Azure Active Directory användare ska kunna logga in på nya Relic måste de tillhandahållas i nya Relic. När det gäller nya Relic är etableringen en manuell uppgift.
 
-**Om du vill konfigurera ett användarkonto till New Relic, utför du följande steg:**
+**Utför följande steg för att etablera ett användar konto till en ny Relic:**
 
-1. Logga in på din **New Relic** företagets plats som administratör.
+1. Logga in på den **nya Relic** företags webbplatsen som administratör.
 
-2. Klicka på menyn längst upp **kontoinställningar**.
+2. Klicka på **konto inställningar**på menyn högst upp.
    
-    ![Kontoinställningar](./media/new-relic-tutorial/ic797040.png "kontoinställningar")
+    ![Konto inställningar](./media/new-relic-tutorial/ic797040.png "Konto inställningar")
 
-3. I den **konto** fönstret till vänster, klickar du på **sammanfattning**, och klicka sedan på **Lägg till användare**.
+3. I fönstret **konto** till vänster klickar du på **Sammanfattning**och sedan på **Lägg till användare**.
    
-    ![Kontoinställningar](./media/new-relic-tutorial/ic797041.png "kontoinställningar")
+    ![Konto inställningar](./media/new-relic-tutorial/ic797041.png "Konto inställningar")
 
-4. På den **aktiva användare** dialogrutan utför följande steg:
+4. I dialog rutan **aktiva användare** utför du följande steg:
    
-    ![Aktiva användare](./media/new-relic-tutorial/ic797042.png "aktiva användare")
+    ![Aktiva användare](./media/new-relic-tutorial/ic797042.png "Aktiva användare")
    
-    a. I den **e-post** textrutan skriver du en giltig Azure Active Directory-användare som du vill etablera e-postadress.
+    a. I text rutan **e-post** anger du e-postadressen till en giltig Azure Active Directory användare som du vill etablera.
 
-    b. Som **rollen** Välj **användaren**.
+    b. Som **roll** väljer du **användare**.
 
-    c. Klicka på **Lägg till användaren**.
+    c. Klicka på **Lägg till den här användaren**.
 
 >[!NOTE]
->Du kan använda New Relic användaren-konto skapas verktyg från någon annan eller API: er fås från New Relic för att etablera AAD-användarkonton.
+>Du kan använda andra nya Relic-verktyg för användar konton eller API: er som tillhandahålls av New Relic för att etablera AAD-användarkonton.
 > 
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på New Relic-panelen i åtkomstpanelen, bör det vara loggas in automatiskt till New Relic som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen ny Relic på åtkomst panelen, bör du loggas in automatiskt på den nya Relic som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

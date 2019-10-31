@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717391"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160701"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Konfigurera säkerhets information för att använda en säkerhets nyckel (förhands granskning)
 
@@ -47,11 +47,11 @@ Innan du kan registrera din säkerhets nyckel måste följande vara sant:
 
 - Du har en fysisk säkerhets nyckel som har godkänts av administratören eller din organisation. Din säkerhets nyckel måste vara både FIDO2 och Microsoft-kompatibel. Om du har frågor om din säkerhets nyckel och om den är kompatibel kontaktar du din organisations supportavdelning.
 
-## <a name="register-your-security-key"></a>Registrera din säkerhetsnyckel
+## <a name="register-your-security-key"></a>Registrera din säkerhets nyckel
 
 Du måste skapa din säkerhets nyckel och ge den en unik PIN-kod innan du kan logga in på ditt arbets-eller skol konto med hjälp av nyckeln. Du kan ha upp till 10 nycklar registrerade med ditt konto. 
 
-1. Gå till sidan **min profil** i https://myprofile.microsoft.com och logga in om du inte redan har gjort det.
+1. Gå till sidan **min profil** på https://myprofile.microsoft.com och logga in om du inte redan har gjort det.
 
 2. Välj **säkerhets information**, Välj **Lägg till metod**och välj sedan **säkerhets nyckel** i list rutan **Lägg till en metod** .
 
@@ -150,10 +150,10 @@ För att kunna registrera en säkerhets nyckel måste du ha minst en annan metod
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om metoder för lösen ords skydds metoder finns i [Microsofts Azure AD påbörjar en offentlig för hands version av FIDO2-säkerhetsnycklar, aktiverar](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blogg inloggnings blogg eller läser [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md) [ Översikt över Windows Hello](https://www.microsoft.com/windows/windows-hello) -artiklar.
+- Mer information om metoder för lösen ords skydds metoder finns i [Microsofts Azure AD påbörjar en offentlig för hands version av FIDO2-säkerhetsnycklar, aktiverar blogg inloggnings](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blogg eller läser [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md) [ Översikt över Windows Hello](https://www.microsoft.com/windows/windows-hello) -artiklar.
 
 - Mer detaljerad information om [Microsoft-kompatibla säkerhets nycklar](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
-- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md).
+- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](active-directory-passwords-update-your-own-password.md).
 
 - Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

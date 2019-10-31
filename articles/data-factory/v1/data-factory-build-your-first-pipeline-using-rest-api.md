@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 5fe554371e54c6f67ae714084f110319b43fe54c
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: da62b07b03aea94749f1d0a332d52790a06635ce
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140425"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162545"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Självstudier: Skapa din första Azure-datafabrik med hjälp av REST-API:et för Data Factory
 > [!div class="op_single_selector"]
@@ -24,17 +24,17 @@ ms.locfileid: "70140425"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
 
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten bör du läsa [Snabbstart: Skapa en datafabrik med hjälp av gränssnittet i Azure Data Factory](../quickstart-create-data-factory-rest-api.md).
+> Den här artikeln gäller för version 1 av Data Factory. Läs [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-rest-api.md) (Snabbstart: Skapa en datafabrik med Azure Data Factory) om du använder den aktuella versionen av Data Factory-tjänsten.
 
 I den här artikeln använder du REST-API:et för Data Factory för att skapa din första Azure-datafabrik. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan.
 
-Pipeline i den här självstudien har en aktivitet: **HDInsight Hive-aktiviteten**. Aktiviteten kör ett Hive-skript i ett Azure HDInsight-kluster som omvandlar indata för till utdata. Denna pipeline är schemalagd att köras en gång i månaden mellan angivna start- och sluttider.
+Pipeline i den här självstudiekursen har en aktivitet: **HDInsight Hive-aktivitet**. Aktiviteten kör ett Hive-skript i ett Azure HDInsight-kluster som omvandlar indata för till utdata. Denna pipeline är schemalagd att köras en gång i månaden mellan angivna start- och sluttider.
 
 > [!NOTE]
 > Den här artikeln beskriver inte hela REST-API:et. Omfattande dokumentation om REST API finns i [referensen för REST-API för Data Factory](/rest/api/datafactory/).
@@ -42,7 +42,7 @@ Pipeline i den här självstudien har en aktivitet: **HDInsight Hive-aktiviteten
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och utförande i Data Factory).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -168,13 +168,13 @@ Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| type |Typegenskapen har angetts till AzureBlob eftersom det finns data i Azure Blob-lagringen. |
+| typ |Typegenskapen har angetts till AzureBlob eftersom det finns data i Azure Blob-lagringen. |
 | linkedServiceName |refererar till den StorageLinkedService som du skapade tidigare. |
 | fileName |Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I det här fallet bearbetas bara input.log. |
-| type |Loggfilerna är i textformat, så vi använder TextFormat. |
+| typ |Loggfilerna är i textformat, så vi använder TextFormat. |
 | columnDelimiter |kolumner i loggfilerna avgränsas med kommatecken () |
-| frequency/interval |frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
-| external |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
+| frekvens/intervall |frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
+| extern |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
 
@@ -299,7 +299,7 @@ I det här steget ska du skapa en Azure Data Factory-fabrik med namnet **FirstDa
     Bekräfta att namnet på datafabriken som du anger här (ADFCopyTutorialDF) matchar namnet i **datafactory.json**.
 
     ```powershell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@datafactory.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
     ```
 2. Kör kommandot med **Invoke-Command**.
 
@@ -320,7 +320,7 @@ Observera följande punkter:
   3. Anropa REST-API:et genom att köra de följande två kommandona för att skapa datafabriken och skriva ut resultatet av åtgärden.
 * Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen
 * Namnet på datafabriken kan registreras som ett DNS-namn i framtiden och blir då synligt offentligt.
-* Om du får felet: ”**This subscription is not registered to use namespace Microsoft.DataFactory**” (Den här prenumerationen har inte registrerats för användning av namnrymden Microsoft.DataFactory) gör du något av följande och provar sedan att publicera igen:
+* Om du får felet: ”**Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory**” gör du något av följande och försöker att publicera igen:
 
   * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern:
 
@@ -339,7 +339,7 @@ Du måste först skapa några Data Factory-entiteter innan du skapar en pipeline
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 I det här steget länkar du ditt Azure Storage-konto och ett Azure HDInsight-kluster på begäran till din datafabrik. In- och utdata för pipelinen i det här exemplet lagras i Azure Storage-kontot. En länkad HDInsight-tjänst används för att köra Hive-skriptet som anges i pipeline-aktiviteten i det här exemplet.
 
-### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
+### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
 I det här steget länkar du ditt Azure-lagringskonto till datafabriken. I den här självstudiekursen använder du samma Azure Storage-konto för att lagra indata/utdata och HQL-skriptfilen.
 
 1. Tilldela kommandot till variabeln med namnet **cmd**.
@@ -419,7 +419,7 @@ I det här steget skapar du utdatauppsättningen som ska representera utdata som
     ```
 
 ## <a name="create-pipeline"></a>Skapa pipeline
-I det här steget ska du skapa din första pipeline med en **HDInsightHive**-aktivitet. Indatasektorn är tillgänglig månadsvis (frequency: Month, Interval: 1), utdatasektorn skapas varje månad och schemaegenskapen för aktiviteten har också inställningen Month. Inställningarna för utdatauppsättningen och aktivitetsschemaläggaren måste matcha. För närvarande är det utdatauppsättningen som skapar schemat. Därför måste du skapa en utdatauppsättning även om aktiviteten inte genererar några utdata. Om aktiviteten inte får några indata, kan du hoppa över att skapa indatauppsättningen.
+I det här steget skapar du din första pipeline med en **HDInsightHive**-aktivitet. Indatasektorn är tillgänglig månadsvis (frequency: Month, Interval: 1), utdatasektorn skapas varje månad och schemaegenskapen för aktiviteten har också inställningen Month. Inställningarna för utdatauppsättningen och aktivitetsschemaläggaren måste matcha. För närvarande är det utdatauppsättningen som skapar schemat. Därför måste du skapa en utdatauppsättning även om aktiviteten inte genererar några utdata. Om aktiviteten inte får några indata, kan du hoppa över att skapa indatauppsättningen.
 
 Kontrollera att du ser filen **input.log** i mappen **adfgetstarted/inputdata** i Azure-blobblagringen och kör följande kommando för att distribuera pipelinen. Eftersom tiderna för **start** och **slut** har angetts tidigare och **isPaused** har angetts till false, kommer pipelinen (aktiviteten i pipelinen) köras omedelbart efter att du har distribuerat.
 
@@ -478,16 +478,16 @@ I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom
 
 1. Du skapade en Azure **Data Factory**.
 2. Du skapade två **länkade tjänster**:
-   1. En länkad **Azure Storage-** tjänst som länkar din Azure Blob-lagring med in-/utdatafiler till datafabriken.
+   1. En länkad **Azure-lagrings**tjänst som länkar din Azure blobblagring med in-/utdatafiler till datafabriken.
    2. En länkad **Azure HDInsight**-tjänst på begäran som länkar ett Hadoop-kluster i HDInsight på begäran till datafabriken. Azure Data Factory skapar ett Hadoop-kluster i HDInsight i rätt tid för att bearbeta indata och skapa utdata.
 3. Du skapade två **datauppsättningar** som beskriver in- och utdata för Hive-aktiviteten för HDInsight i pipelinen.
 4. Du skapade en **pipeline** med en **HDInsight Hive**-aktivitet.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript på ett Azure HDInsight-kluster på begäran. Information om hur du använder en kopieringsaktivitet för att kopiera data från en Azure-blob till Azure SQL finns i [Självstudie: Kopiera data från en Azure-blob till Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript på ett Azure HDInsight-kluster på begäran. Om du vill se hur du använder en kopieringsaktivitet till att kopiera data från en Azure-blobb till Azure SQL kan du läsa mer i [Självstudie: Kopiera data från en Azure-blobb till Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Se även
-| Avsnitt | Beskrivning |
+| Ämne | Beskrivning |
 |:--- |:--- |
 | [Referens för REST-API:et för Data Factory](/rest/api/datafactory/) |Se den omfattande dokumentationen för Data Factory-cmdletar |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |

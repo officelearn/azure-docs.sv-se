@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Novatus | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Novatus | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Novatus.
 services: active-directory
 documentationCenter: na
@@ -8,53 +8,54 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d2f13779-bdb7-4408-9738-be67ed3de4e5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 43d85d93f9520da168aa50b68c30aa4f590895dc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: fd4fdbdee4a7f01e0abf11121b8b53f29217b9ee
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588095"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160266"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Självstudier: Azure Active Directory-integrering med Novatus
+# <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Självstudie: Azure Active Directory integrering med Novatus
 
-I den här självstudien får du lära dig hur du integrerar Novatus med Azure Active Directory (AD Azure).
-Integrera Novatus med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Novatus med Azure Active Directory (Azure AD).
+Genom att integrera Novatus med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Novatus.
-* Du kan aktivera användarna att vara automatiskt inloggad till Novatus (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Novatus (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Novatus, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Novatus behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Novatus enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Novatus-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Novatus **SP** -initierad SSO
+* Novatus stöder **SP** -INITIERAd SSO
 
-* Har stöd för Novatus **Just In Time** etableringen av användare
+* Novatus stöder **just-in-Time** User-etablering
 
-## <a name="adding-novatus-from-the-gallery"></a>Att lägga till Novatus från galleriet
+## <a name="adding-novatus-from-the-gallery"></a>Lägga till Novatus från galleriet
 
-För att konfigurera integrering av Novatus i Azure AD, som du behöver lägga till Novatus från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Novatus i Azure AD måste du lägga till Novatus från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Novatus från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +63,37 @@ För att konfigurera integrering av Novatus i Azure AD, som du behöver lägga t
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Novatus**väljer **Novatus** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Novatus**, väljer **Novatus** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Novatus i resultatlistan](common/search-new-app.png)
+     ![Novatus i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Novatus baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Novatus upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Novatus baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Novatus upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Novatus, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Novatus i Azure AD måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Novatus Single Sign-On](#configure-novatus-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Novatus](#create-novatus-test-user)**  – du har en motsvarighet för Britta Simon i Novatus som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Novatus-enkel inloggning](#configure-novatus-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Novatus test User](#create-novatus-test-user)** – om du vill ha en motsvarighet till Britta Simon i Novatus som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Novatus:
+Utför följande steg för att konfigurera enkel inloggning med Novatus i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Novatus** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **Novatus** Application Integration i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,30 +105,30 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Novatus
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Novatus domän och URL: er med enkel inloggning för information](common/sp-signonurl.png)
+    ![Information om enkel inloggning för Novatus-domän och URL: er](common/sp-signonurl.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://sso.novatuscontracts.com/<companyname>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Novatus klienten supportteamet](mailto:jvinci@novatusinc.com) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Novatus client support team](mailto:jvinci@novatusinc.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **konfigurera Novatus** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera Novatus** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-novatus-single-sign-on"></a>Konfigurera Novatus Single Sign-On
+### <a name="configure-novatus-single-sign-on"></a>Konfigurera Novatus enkel inloggning
 
-Att konfigurera enkel inloggning på **Novatus** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [Novatus supportteam](mailto:jvinci@novatusinc.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Novatus** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för Novatus](mailto:jvinci@novatusinc.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -147,26 +148,26 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Novatus.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Novatus.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Novatus**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Novatus**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Novatus**.
+2. I listan program väljer du **Novatus**.
 
-    ![Länken Novatus i listan med program](common/all-applications.png)
+    ![Novatus-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -180,19 +181,19 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-novatus-test-user"></a>Skapa Novatus testanvändare
+### <a name="create-novatus-test-user"></a>Skapa Novatus test användare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Novatus. Novatus stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Novatus, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i Novatus. Novatus stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Novatus skapas en ny efter autentiseringen.
 
 >[!NOTE]
->Om du vill skapa en användare manuellt kan du behöva kontakta den [Novatus supportteam](mailto:jvinci@novatusinc.com). 
+>Om du behöver skapa en användare manuellt måste du kontakta [Novatus support-teamet](mailto:jvinci@novatusinc.com). 
 > 
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Novatus i åtkomstpanelen, bör det vara loggas in automatiskt till Novatus som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Novatus på åtkomst panelen, bör du loggas in automatiskt på den Novatus som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

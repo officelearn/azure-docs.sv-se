@@ -7,20 +7,20 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: fb39042e53795057a3404ba1e8cb5903188966f7
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 39c57c6afcf4f51bdda5830359bffcb13c3b5d8e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960449"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163417"
 ---
-# <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Snabbstart: Skapa en privat Azure-DNS-zon med hjälp av Azure PowerShell
+# <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Snabb start: skapa en privat Azure-DNS-zon med hjälp av Azure PowerShell
 
 Den här artikeln visar hur du skapar din första privata DNS-zon och DNS-post med Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
+En DNS-zon används som värd för DNS-poster för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
 
 I den här artikeln kan du se hur du:
 
@@ -68,7 +68,7 @@ $link = New-AzPrivateDnsVirtualNetworkLink -ZoneName private.contoso.com `
   -VirtualNetworkId $vnet.id -EnableRegistration
 ```
 
-Om du bara vill skapa en zon för namn matchning (ingen automatisk registrering av värdnamn) kan du utelämna parametern `-EnableRegistration`.
+Om du bara vill skapa en zon för namn matchning (ingen automatisk värdnamn registrering) kan du utelämna parametern `-EnableRegistration`.
 
 ### <a name="list-dns-private-zones"></a>Lista privata DNS-zoner
 
@@ -142,7 +142,7 @@ Du kan använda ping-kommandot för att testa namnmatchning. Konfigurera därfö
 2. Kör följande kommando:
 
    ```powershell
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
 Upprepa för myVM02.

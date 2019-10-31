@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: f5ae599b516ac3ce6a9fcc40c0e26d242134e7d7
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226627"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161773"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Skapa ett Pivotal Cloud Foundry-kluster i Azure
 
@@ -64,7 +64,7 @@ Mer information finns i [Använda SSH-nycklar med Windows i Azure](https://docs.
 
     > [!NOTE]
     >
-    > Välj ditt eget program startsida och identifierar-URI, till exempel http\://www\.contoso.com.
+    > Välj din egen program start sida och ID-URI, till exempel http\://www\.contoso.com.
 
 4. Skapa ett huvudnamn för tjänsten med ditt nya app-ID.
 
@@ -72,11 +72,11 @@ Mer information finns i [Använda SSH-nycklar med Windows i Azure](https://docs.
 
 5. Ange behörighetsrollen för tjänstens huvudnamn som Deltagare.
 
-    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor”`
+    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
 
     Du kan också använda
 
-    `az role assignment create --assignee {service-principal-name} --role “Contributor”`
+    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
 
     ![Rolltilldelning för tjänstens huvudnamn](media/deploy/svc-princ.png )
 

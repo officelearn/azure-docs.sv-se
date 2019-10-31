@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Mercer BenefitsCentral (av MBC) | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med Mercer BenefitsCentral (av MBC) | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mercer BenefitsCentral (av MBC).
 services: active-directory
 documentationCenter: na
@@ -8,51 +8,52 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3788b28c-49aa-4208-9acd-630362008e89
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ae074e8732898524d917f2537023c4b506cff80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cc49d41a3ae5777dae87c1730f8119a9e5b58e9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097472"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160682"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Självstudier: Azure Active Directory-integrering med Mercer BenefitsCentral (av MBC)
+# <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Självstudie: Azure Active Directory integrering med Mercer BenefitsCentral (av MBC)
 
-I den här självstudien får du lära dig hur du integrerar Mercer BenefitsCentral (av MBC) med Azure Active Directory (AD Azure).
-Integrera Mercer BenefitsCentral (av MBC) med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera Mercer-BenefitsCentral (av MBC) med Azure Active Directory (Azure AD).
+Genom att integrera Mercer-BenefitsCentral (av MBC) med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Mercer BenefitsCentral (av MBC).
-* Du kan aktivera användarna att vara automatiskt inloggad till Mercer BenefitsCentral (av MBC) (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till Mercer-BenefitsCentral (av MBC).
+* Du kan göra det möjligt för användarna att logga in automatiskt till Mercer-BenefitsCentral (av MBC) (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Mercer BenefitsCentral (av MBC), behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Mercer BenefitsCentral (av MBC) behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Mercer BenefitsCentral (av MBC) enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Mercer BenefitsCentral (av MBC) enkel inloggning aktive rad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Mercer BenefitsCentral (av MBC) stöder **IDP** -initierad SSO
+* Mercer BenefitsCentral (av MBC) stöder **IDP** INITIERAd SSO
 
-## <a name="adding-mercer-benefitscentral-mbc-from-the-gallery"></a>Att lägga till Mercer BenefitsCentral (av MBC) från galleriet
+## <a name="adding-mercer-benefitscentral-mbc-from-the-gallery"></a>Lägga till Mercer-BenefitsCentral (av MBC) från galleriet
 
-För att konfigurera integrering av Mercer BenefitsCentral (av MBC) till Azure AD, som du behöver lägga till Mercer BenefitsCentral (av MBC) från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Mercer BenefitsCentral (av MBC) i Azure AD måste du lägga till Mercer BenefitsCentral (av MBC) från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Mercer BenefitsCentral (av MBC) från galleriet:**
+**Gör så här om du vill lägga till Mercer-BenefitsCentral (av MBC) från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -60,37 +61,37 @@ För att konfigurera integrering av Mercer BenefitsCentral (av MBC) till Azure A
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Mercer BenefitsCentral (av MBC)** väljer **Mercer BenefitsCentral (av MBC)** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Mercer BenefitsCentral (av MBC)** , väljer **MERCER BenefitsCentral (av MBC)** från resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
-     ![Mercer BenefitsCentral (av MBC) i resultatlistan](common/search-new-app.png)
+     ![Mercer BenefitsCentral (av MBC) i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Mercer BenefitsCentral (av MBC) baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Mercer BenefitsCentral (av MBC) ska upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Mercer BenefitsCentral (av MBC) baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Mercer BenefitsCentral (av MBC) upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Mercer BenefitsCentral (av MBC), måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Mercer BenefitsCentral (av MBC) för Azure AD måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Mercer BenefitsCentral (av MBC) Single Sign-On](#configure-mercer-benefitscentral-mbc-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Mercer BenefitsCentral (av MBC)](#create-mercer-benefitscentral-mbc-test-user)**  – du har en motsvarighet för Britta Simon i Mercer BenefitsCentral (av MBC) som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Mercer BenefitsCentral (av MBC) enkel inloggning](#configure-mercer-benefitscentral-mbc-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Mercer BenefitsCentral (av MBC) test User](#create-mercer-benefitscentral-mbc-test-user)** – om du vill ha en motsvarighet till Britta Simon i Mercer BENEFITSCENTRAL (av MBC) som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Mercer BenefitsCentral (av MBC):
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med Mercer BenefitsCentral (av MBC):
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Mercer BenefitsCentral (av MBC)** application integration markerar **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **MERCER BenefitsCentral (av MBC)** program integration väljer du **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,32 +103,32 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Mercer 
 
 4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![Mercer BenefitsCentral (av MBC)-domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Mercer BenefitsCentral (av MBC) domän och URL enkel inloggning information](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du in en URL: `stg.mercerhrs.com/saml2.0`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
+    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
     > [!NOTE]
-    > Värdet för svars-URL:en är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL:en. Kontakta [Mercer BenefitsCentral (av MBC) klient-supportteamet](https://www.mercer.com/contact-us.html) att hämta det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för svars-URL:en är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL:en. Kontakta [Mercer BenefitsCentral (av MBC) support team](https://www.mercer.com/contact-us.html) för att hämta det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. På den **ange upp Mercer BenefitsCentral (av MBC)** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera Mercer BenefitsCentral (av MBC)** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-mercer-benefitscentral-mbc-single-sign-on"></a>Konfigurera enkel inloggning för Mercer-BenefitsCentral (av MBC)
+### <a name="configure-mercer-benefitscentral-mbc-single-sign-on"></a>Konfigurera Mercer BenefitsCentral (av MBC) enkel inloggning
 
-Att konfigurera enkel inloggning på **Mercer BenefitsCentral (av MBC)** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Mercer BenefitsCentral (av MBC) supportteamet](https://www.mercer.com/contact-us.html). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Mercer BenefitsCentral (av MBC)** måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [Mercer BenefitsCentral (av MBC) support team](https://www.mercer.com/contact-us.html). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -147,26 +148,26 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att ge åtkomst till Mercer BenefitsCentral (av MBC).
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Mercer BenefitsCentral (av MBC).
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Mercer BenefitsCentral (av MBC)** .
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Mercer BenefitsCentral (av MBC)** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Mercer BenefitsCentral (av MBC)** .
+2. I listan program väljer du **Mercer BenefitsCentral (av MBC)** .
 
-    ![Länken Mercer BenefitsCentral (av MBC) i listan med program](common/all-applications.png)
+    ![Länken Mercer BenefitsCentral (av MBC) i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -180,15 +181,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-mercer-benefitscentral-mbc-test-user"></a>Skapa testanvändare Mercer BenefitsCentral (av MBC)
+### <a name="create-mercer-benefitscentral-mbc-test-user"></a>Skapa Mercer BenefitsCentral (av MBC)-test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Mercer BenefitsCentral (av MBC). Arbeta med [Mercer BenefitsCentral (av MBC) supportteamet](https://www.mercer.com/contact-us.html) att lägga till användare i Mercer BenefitsCentral (av MBC)-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Mercer BenefitsCentral (av MBC). Arbeta med [Mercer BenefitsCentral (av MBC) support team](https://www.mercer.com/contact-us.html) för att lägga till användarna på Mercer BenefitsCentral-plattformen (av MBC). Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Mercer BenefitsCentral (av MBC) i åtkomstpanelen bör du vara loggas in automatiskt till den Mercer BenefitsCentral (av MBC) som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Mercer BenefitsCentral (av MBC) på åtkomst panelen, bör du loggas in automatiskt på Mercer BenefitsCentral (av MBC) som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 3a58894f8033e1f837a3b8ac64438337c3a7f0a5
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 43b3eb76de4e180f002379198d363a6852ab9e3b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299099"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162502"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuera skiss exemplet för delade tjänster i ISO 27001
 
@@ -106,10 +106,10 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 |Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
+|\[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
+|\[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
+|\[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
+|\[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
 |Tillåtna resurstyper|Principtilldelning|Tillåtna resurstyper|Lista över resurs typer som får distribueras. Den här listan består av alla resurs typer som distribueras i delade tjänster.|
 |Tillåtna SKU:er för lagringskonto|Principtilldelning|Tillåtna lagrings-SKU: er|Lista över diagnostiska loggar lagrings konto SKU: er tillåts. Standardvärdet är _["Standard_LRS"]_ .|
 |Tillåtna SKU: er för virtuella datorer|Principtilldelning|Lista över virtuella dator-SKU: er som kan distribueras. Standardvärdet är _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
@@ -163,7 +163,7 @@ Nu när du har granskat stegen för att distribuera ISO 27001-skissen för delad
 > [Iso 27001 delade tjänster skiss – översikt](./index.md)
 > [ISO 27001 delade tjänster skiss-kontroll mappning](./control-mapping.md)
 
-Ytterligare artiklar om skisser och hur de används:
+Ytterligare artiklar om ritningar och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

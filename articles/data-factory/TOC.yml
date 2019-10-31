@@ -80,9 +80,9 @@
           items:
             - name: Kopiera data-verktyg
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Omvandla data med Mappa dataflöden
+    - name: Omvandla data genom att mappa dataflöden
       href: tutorial-data-flow.md
-    - name: Omvandla data i molnet
+    - name: Externa omvandlingar
       items:
         - name: HDInsight Spark
           items:
@@ -94,7 +94,7 @@
           items:
             - name: Användargränssnitt
               href: transform-data-using-databricks-notebook.md
-    - name: Transformera data i virtuellt nätverk
+    - name: Hive-transformering i virtuella nätverk
       items:
         - name: Användargränssnitt
           href: tutorial-transform-data-hive-virtual-network-portal.md
@@ -622,6 +622,8 @@
       items:
         - name: Bearbeta textfiler med fast bredd
           href: how-to-fixed-width.md
+        - name: Felhantering av poster
+          href: how-to-data-flow-error-rows.md
     - name: SSIS-migrering från lokal plats
       items:
         - name: Översikt över SSIS-migrering

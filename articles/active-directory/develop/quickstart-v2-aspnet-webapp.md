@@ -17,18 +17,18 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1b4d33ca5f195d7b4aabc1bc905bd8db1406e8f
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: d03bb9ede4bbbfdc1c902fec755425a433fea07a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964098"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149466"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
+# <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Snabb start: lägga till Microsoft Identity Platform-inloggning till en ASP.NET-webbapp
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-I den här snabbstarten lär du dig hur en ASP.NET-webbapp kan logga in personliga konton (hotmail.com, outlook.com osv.) och arbets- och skolkonton från alla instanser av Active Directory (Azure AD).
+I den här snabb starten ska du aktivera en ASP.NET-webbapp för att logga in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans.
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 

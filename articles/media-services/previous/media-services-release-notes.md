@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7684acbd26848bbccb09416df44a9669965dcfe9
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f76a2eb098e2d96f617d19de089e56c7e8a497fd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720146"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162761"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -29,7 +29,7 @@ I den här versionen av Azure Media Services sammanfattas ändringar från tidig
 
 Vi vill höra från våra kunder så att vi kan fokusera på att åtgärda problem som påverkar dig. Om du vill rapportera ett problem eller ställa frågor kan du skicka in ett inlägg i [Azure Media Services MSDN-forum]. 
 
-## <a name="a-idissuesknown-issues"></a><a id="issues"/>Kända problem
+## <a name="a-idissuesknown-issues"></a><a id="issues"/>kända problem
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services allmänna problem
 
 | Problem | Beskrivning |
@@ -54,7 +54,7 @@ Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 fö
 
 Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
 
-## <a name="august-2019"></a>2019 augusti
+## <a name="august-2019"></a>Augusti 2019
 
 ### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
 
@@ -111,7 +111,7 @@ Med början den 12 maj 2018 kommer Live Channels inte längre att ha stöd för 
     * Förbättringar av H. 264-avkodaren som används i Standard-kodaren eliminerar vissa ovanliga artefakter. 
 
 #### <a name="media-analytics"></a>Medieanalys
-Allmän tillgänglighet för Azure Media Redactor: Den här medie processorn utför anonymisering genom att oskärpa på de valda individerna suddas ut och är idealisk för användning i offentliga säkerhets-och nyhets medie scenarier. 
+Allmän tillgänglighet för Azure Media Redactor: den här medie processorn utför anonymisering genom att oskärpa av de valda individerna och är perfekt för användning i offentliga säkerhets-och nyhets medie scenarier. 
 
 En översikt över den nya processorn finns i [det här blogg inlägget](https://azure.microsoft.com/blog/azure-media-redactor/). Information om dokumentation och inställningar finns i [bortredigering ansikten med Azure-medieanalys](media-services-face-redaction.md).
 
@@ -153,7 +153,7 @@ Mer information om dessa egenskaper finns i [StreamingEndpoint](https://docs.mic
 
  Nu kan du använda Media Services för att få åtkomst till telemetri/Mät data för sina tjänster. Du kan använda den aktuella versionen av Media Services för att samla in telemetridata för Live Channel, direkt uppspelnings slut punkt och Arkiv-entiteter. Mer information finns i [Media Services telemetri](media-services-telemetry-overview.md).
 
-## <a name="a-idjuly_changes16july-2016-release"></a><a id="july_changes16"/>Version juli 2016
+## <a name="a-idjuly_changes16july-2016-release"></a><a id="july_changes16"/>juli 2016-utgåva
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Uppdateringar av manifest filen (*. ISM) som skapats av kodnings aktiviteter
 När en kodnings uppgift skickas till Media Encoder Standard eller Media Encoder Premium genererar encoding-aktiviteten en [strömmande manifest fil](media-services-deliver-content-overview.md) (*. ISM) i utmatnings till gången. Med den senaste tjänst versionen har syntaxen för den här strömmande manifest filen uppdaterats.
 
@@ -206,12 +206,12 @@ De reserverade enheterna Basic, standard och Premium har bytt namn till S1-, S2-
 ### <a name="azure-sdk-for-php"></a>Azure SDK för PHP
 Azure SDK-teamet publicerade en ny version av [Azure SDK för php](https://github.com/Azure/azure-sdk-for-php) -paketet som innehåller uppdateringar och nya funktioner för Media Services. I synnerhet stöder Media Services SDK för PHP de senaste funktionerna för [innehålls skydd](media-services-content-protection-overview.md) . Dessa funktioner är dynamiska kryptering med AES och DRM (PlayReady och Widevine) med och utan token-begränsningar. Det stöder också skalnings [kodnings enheter](media-services-dotnet-encoding-units.md).
 
-Mer information finns i:
+Mer information finns här:
 
 * Följande [kod exempel](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) hjälper dig att komma igång snabbt:
-  * **vodworkflow_aes. php**: Den här PHP-filen visar hur du använder AES-128 dynamisk kryptering och Key Delivery Service. Det baseras på .NET-exemplet som beskrivs i [använda AES-128 dynamisk kryptering och Key Delivery Service](media-services-protect-with-aes128.md).
-  * **vodworkflow_aes. php**: Den här PHP-filen visar hur du använder PlayReady Dynamic Encryption och licens leverans tjänsten. Det baseras på .NET-exemplet som beskrivs i [använda PlayReady och/eller Widevine Dynamic common Encryption](media-services-protect-with-playready-widevine.md).
-  * **scale_encoding_units.php**: Den här PHP-filen visar hur du skalar kodade reserverade enheter.
+  * **vodworkflow_aes. php**: den här php-filen visar hur du använder aes-128 dynamisk kryptering och Key Delivery Service. Det baseras på .NET-exemplet som beskrivs i [använda AES-128 dynamisk kryptering och Key Delivery Service](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes. php**: den här php-filen visar hur du använder PlayReady Dynamic Encryption och licens leverans tjänsten. Det baseras på .NET-exemplet som beskrivs i [använda PlayReady och/eller Widevine Dynamic common Encryption](media-services-protect-with-playready-widevine.md).
+  * **scale_encoding_units. php**: den här php-filen visar hur du skalar kodade reserverade enheter.
 
 ## <a id="nov_changes_15"></a>Version november 2015
  Media Services erbjuder nu licens leverans tjänsten för Widevine i molnet. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Se även [den här självstudien](media-services-protect-with-playready-widevine.md) och [GitHub-lagringsplatsen](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
@@ -219,10 +219,10 @@ Mer information finns i:
 Widevine licens leverans tjänster som tillhandahålls av Media Services är i för hands version. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Utgåva från oktober 2015
-Media Services är nu Live i följande data Center: Södra Brasilien, västra Indien, västra Indien, södra Indien och centrala Indien. Du kan nu använda Azure Portal för att [skapa media service-konton](media-services-portal-create-account.md) och utföra olika uppgifter som beskrivs på [webb sidan för Media Services dokumentation](https://azure.microsoft.com/documentation/services/media-services/). Live Encoding är inte aktive rad i dessa data Center. Dessutom är inte alla typer av kodnings bara reserverade enheter tillgängliga i dessa data Center.
+Media Services är nu Live i följande data Center: södra Brasilien, västra Indien, södra Indien och centrala Indien. Du kan nu använda Azure Portal för att [skapa media service-konton](media-services-portal-create-account.md) och utföra olika uppgifter som beskrivs på [webb sidan för Media Services dokumentation](https://azure.microsoft.com/documentation/services/media-services/). Live Encoding är inte aktive rad i dessa data Center. Dessutom är inte alla typer av kodnings bara reserverade enheter tillgängliga i dessa data Center.
 
-* Södra Brasilien:                                          Endast standard-och Basic encoding-reserverade enheter är tillgängliga.
-* Västra Indien, södra Indien och centrala Indien:             Endast standard-encoding-reserverade enheter är tillgängliga.
+* Södra Brasilien: endast standard-och Basic encoding-reserverade enheter är tillgängliga.
+* Västra Indien, södra Indien, södra Indien och centrala Indien: det finns bara reserverade enheter för Basic encoding.
 
 ## <a id="september_changes_15"></a>Version september 2015
 Media Services erbjuder nu möjlighet att skydda både video på begäran och direktsända strömmar med Widevine modulära DRM-teknik. Du kan använda följande leverans tjänst partner för att få hjälp att leverera Widevine-licenser:
@@ -245,7 +245,7 @@ Du kan använda [Media Services .NET SDK](https://www.nuget.org/packages/windows
 Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a id="august_changes_15"></a>Version augusti 2015
-* Media Services SDK för Java-version 0.8.0-versionen och nya exempel är nu tillgängliga. Mer information finns i:
+* Media Services SDK för Java-version 0.8.0-versionen och nya exempel är nu tillgängliga. Mer information finns här:
     
 * Azure Media Player har uppdaterats med stöd för flera ljud strömmar. Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
@@ -294,7 +294,7 @@ Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/2015
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-uppdateringar
 Media Services .NET SDK är nu version 3.2.0.0. Följande uppdateringar har gjorts:
 
-* Icke-bakåtkompatibel ändring: TokenRestrictionTemplate. Issuer och TokenRestrictionTemplate. Audience har ändrats till en sträng typ.
+* Överordnad ändring: TokenRestrictionTemplate. Issuer och TokenRestrictionTemplate. Audience har ändrats till en sträng typ.
 * Uppdateringar har gjorts relaterade till att skapa anpassade principer för återförsök.
 * Fel korrigeringar har gjorts relaterade till överföring och hämtning av filer.
 * MediaServicesCredentials-klassen accepterar nu primära och sekundära slut punkter för åtkomst kontroll för autentisering mot.
@@ -394,8 +394,8 @@ När du kodar en till gång skapas en utmatnings till gång när kodnings jobbet
 ## <a id="july_changes_14"></a>Version juli 2014
 Följande fel korrigeringar har gjorts för Azure Media Services Paketeraren och Krypteraren:
 
-* När en Live Archive-till gång överförs till HLS spelas bara ljud tillbaka upp: Det här problemet har åtgärd ATS och nu kan både ljud och video spelas upp.
-* När en till gång är paketerad för HLS och AES 128-bitars kryptering, spelas de paketerade strömmarna inte tillbaka på Android-enheter: Den här buggen har åtgärd ATS och den paketerade strömmen spelar tillbaka på Android-enheter som stöder HLS.
+* När en Live Archive-till gång överförs till HLS spelas bara ljud tillbaka upp: det här problemet har åtgärd ATS och nu kan både ljud och video spelas upp.
+* När en till gång är paketerad för HLS-och AES 128-bitars kryptering spelas de paketerade strömmarna inte tillbaka på Android-enheter: det här felet har åtgärd ATS och den paketerade strömmen spelas upp på Android-enheter som stöder HLS.
 
 ## <a id="may_changes_14"></a>Version maj 2014
 ### <a id="may_14_changes"></a>Allmänna Media Services uppdateringar
@@ -455,13 +455,13 @@ Följande Media Services PowerShell-cmdletar ingår nu i [Azure SDK-verktyg](htt
     Exempel: `Get-AzureMediaServicesAccount`
 * New-AzureMediaServicesAccount 
   
-    Exempel: `New-AzureMediaServicesAccount -Name “MediaAccountName” -Location “Region” -StorageAccountName “StorageAccountName”`
+    Exempel: `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
 * New-AzureMediaServicesKey 
   
-    Exempel: `New-AzureMediaServicesKey -Name “MediaAccountName” -KeyType Secondary -Force`
+    Exempel: `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
 * Remove-AzureMediaServicesAccount 
   
-    Exempel: `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`
+    Exempel: `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
 
 ## <a id="june_changes_13"></a>Version från juni 2013
 ### <a name="june_13_general_changes"></a>Media Services ändringar
@@ -501,22 +501,22 @@ Följande ändringar ingår i juni 2013 Media Services SDK-versionerna. Den sena
 
 ## <a id="december_changes_12"></a>Version december 2012
 ### <a name="dec_12_dotnet_changes"></a>Media Services ändringar i .NET SDK
-* Tillhandahåller En IntelliSense-dokumentation som saknas har lagts till för många typer.
-* Microsoft.Practices.TransientFaultHandling.Core: Ett problem har åtgärd ATS där SDK fortfarande hade ett beroende till en gammal version av den här sammansättningen. SDK refererar nu till version 5.1.1209.1 av den här sammansättningen.
+* IntelliSense: IntelliSense-dokumentation som saknas har lagts till för många typer.
+* Microsoft. Practices. TransientFaultHandling. Core: ett problem har åtgärd ATS där SDK fortfarande hade ett beroende till en gammal version av den här sammansättningen. SDK refererar nu till version 5.1.1209.1 av den här sammansättningen.
 
 Korrigeringar för problem som finns i november 2012 SDK:
 
-* IAsset. Locators. Count: Det här antalet rapporteras nu korrekt på nya IAsset-gränssnitt när alla positioner har tagits bort.
-* IAssetFile.ContentFileSize: Det här värdet anges nu korrekt efter en uppladdning av IAssetFile. upload (sökväg).
-* IAssetFile.ContentFileSize: Den här egenskapen kan nu anges när du skapar en till gångs fil. Den har redan lästs.
-* IAssetFile. upload (sökväg): Ett problem har åtgärd ATS där denna synkrona överförings metod returnerade följande fel när flera filer överfördes till till gången. Felet var "servern kunde inte autentisera begäran. Se till att värdet för Authorization-huvudet skapas korrekt, inklusive signaturen. "
-* IAssetFile.UploadAsync: Ett problem har åtgärd ATS som begränsar den samtidiga överföringen av filer till fem filer.
-* IAssetFile.UploadProgressChanged: Den här händelsen tillhandahålls nu av SDK: n.
-* IAssetFile. DownloadAsync (sträng, BlobTransferClient, ILocator, CancellationToken): Den här metoden överbelastning har nu tillhandahållits.
-* IAssetFile.DownloadAsync: Ett problem har åtgärd ATS som begränsade den samtidiga nedladdningen av filer till fem filer.
-* IAssetFile.Delete(): Ett problem har åtgärd ATS där anrop av Delete kan utlösa ett undantag om ingen fil har laddats upp för IAssetFile.
-* Utskrifts Ett problem har åtgärd ATS vid länkning av "MP4 till smidiga strömmar" med en "PlayReady-skydds uppgift" med hjälp av en jobbmall som inte skapade några aktiviteter alls.
-* EncryptionUtils.GetCertificateFromStore(): Den här metoden returnerar inte längre ett null-referensundantag på grund av ett fel vid sökning efter certifikat baserat på problem med certifikat konfigurationen.
+* IAsset. locations. Count: det här antalet rapporteras nu korrekt på nya IAsset-gränssnitt när alla positioner har tagits bort.
+* IAssetFile. ContentFileSize: det här värdet anges nu korrekt efter en uppladdning av IAssetFile. upload (sökväg).
+* IAssetFile. ContentFileSize: den här egenskapen kan nu anges när du skapar en till gångs fil. Den har redan lästs.
+* IAssetFile. upload (sökväg): ett problem har åtgärd ATS där denna synkrona överförings metod returnerade följande fel när flera filer överfördes till till gången. Felet var "servern kunde inte autentisera begäran. Se till att värdet för Authorization-huvudet skapas korrekt, inklusive signaturen. "
+* IAssetFile. UploadAsync: ett problem har åtgärd ATS som begränsade den samtidiga överföringen av filer till fem filer.
+* IAssetFile. UploadProgressChanged: den här händelsen tillhandahålls nu av SDK: n.
+* IAssetFile. DownloadAsync (sträng, BlobTransferClient, ILocator, CancellationToken): den här metoden överbelastning har nu angetts.
+* IAssetFile. DownloadAsync: ett problem har åtgärd ATS som begränsade den samtidiga nedladdningen av filer till fem filer.
+* IAssetFile. Delete (): ett problem har åtgärd ATS där anropet ta bort kan utlösa ett undantag om ingen fil har laddats upp för IAssetFile.
+* Jobb: ett problem har åtgärd ATS vid länkning av en "MP4-till jämna strömmar" med en "PlayReady-skydds uppgift" med hjälp av en jobbmall som inte skapade några aktiviteter alls.
+* EncryptionUtils. GetCertificateFromStore (): den här metoden returnerar inte längre ett null-referensundantag på grund av ett fel när certifikatet skulle hittas baserat på certifikat konfigurations problem.
 
 ## <a id="november_changes_12"></a>Version november 2012
 Ändringarna som nämns i det här avsnittet var uppdateringar som ingår i november 2012-SDK: n (version 2.0.0.0). Dessa ändringar kan kräva all kod som skrivits för Preview SDK-versionen från juni 2012 för att ändras eller skrivas över.
@@ -533,10 +533,10 @@ Korrigeringar för problem som finns i november 2012 SDK:
   
     * IAssetFile ersätter FileInfo och har ett annat beteende. Om du vill använda den instansierar du IAssetFiles-objektet följt av en fil uppladdning antingen med hjälp av Media Services SDK eller SDK för lagring. Du kan använda följande IAssetFile. upload Overloads:
   
-        * IAssetFile.Upload(filePath): Den här synkrona metoden blockerar tråden och vi rekommenderar den endast när du laddar upp en enskild fil.
-        * IAssetFile. UploadAsync (sökväg, blobTransferClient, lokaliserare, cancellationToken): Den här asynkrona metoden är den prioriterade överförings mekanismen. 
+        * IAssetFile. upload (sökväg): den här synkrona metoden blockerar tråden och vi rekommenderar den bara när du laddar upp en enskild fil.
+        * IAssetFile. UploadAsync (sökväg, blobTransferClient, Locator, cancellationToken): den här asynkrona metoden är den prioriterade överförings mekanismen. 
     
-            Känt fel: Om du använder token för avbrytande avbryts överföringen. Aktiviteterna kan ha många avbrotts tillstånd. Du måste fånga och hantera undantag på rätt sätt.
+            Känt fel: om du använder token för annullering avbryts överföringen. Aktiviteterna kan ha många avbrotts tillstånd. Du måste fånga och hantera undantag på rätt sätt.
 * Positionerare
   
     * De ursprungs versioner som är aktuella har tagits bort. Den SAS-speciella kontexten. Lokaliserare. CreateSasLocator (till gång, Access policy) kommer att markeras som inaktuellt eller tas bort av allmän tillgänglighet. Se avsnittet "Locators" under "nya funktioner" för det uppdaterade beteendet.

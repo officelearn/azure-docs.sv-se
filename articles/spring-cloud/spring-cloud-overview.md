@@ -6,21 +6,20 @@ ms.service: spring-cloud
 ms.topic: overview
 ms.date: 10/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c58e6b2a0c0de8295df65b44fbdeaeb2d4461948
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d79ad88cf87e0ac8a08245558233eb92008f11e2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166540"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163660"
 ---
-# <a name="what-is-azure-spring-cloud"></a>Vad är Azure våren Cloud?
+# <a name="what-is-azure-spring-cloud"></a>Vad är Azure Spring Cloud?
 
 Azure våren Cloud gör det enkelt att distribuera våren Boot-baserade mikroservice-program till Azure utan kod ändringar.  Med Azure våren Cloud kan utvecklare fokusera på sin kod genom att hantera livs cykeln för våren Cloud-program.  Våren Cloud tillhandahåller livs cykel hantering med omfattande övervakning och diagnostik, konfigurations hantering, tjänst identifiering, CI/CD-integrering, blå-grön distributioner med mera.
 
 Som en del av Azures eko system gör Azure våren Cloud enkel bindning till andra Azure-tjänster, inklusive lagring, databaser, övervakning och mycket annat.
 
-Azure våren Cloud är för närvarande en för hands version.  [Fyll i det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-)om du vill ha åtkomst till den här tjänsten medan den är i för hands version.
+Azure våren Cloud är för närvarande en för hands version.  [Fyll i det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u)om du vill ha åtkomst till den här tjänsten medan den är i för hands version.  Även om Azure våren-molnet är i för hands version erbjuder Microsoft begränsad support utan service avtal.  Mer information om support under för hands versionerna finns i [vanliga frågor och svar om support](https://azure.microsoft.com/support/faq/).
 
 Kom igång genom att slutföra snabb starten för fjäder molnet med hjälp av [Azure CLI](spring-cloud-quickstart-launch-app-cli.md), [Azure Portal](spring-cloud-quickstart-launch-app-portal.md)eller [maven](spring-cloud-quickstart-launch-app-maven.md).
 

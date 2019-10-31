@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Bime | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Bime | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bime.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,30 +16,30 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f792798e724387b6917c23d1bde0c2c68fa8a270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106268"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157685"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Självstudier: Azure Active Directory-integrering med Bime
+# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Självstudie: Azure Active Directory integrering med Bime
 
 I den här självstudien lär du dig att integrera Bime med Azure Active Directory (AD Azure).
 Integreringen av Bime med Azure AD medför följande fördelar:
 
 * Du kan i Azure AD styra vem som har åtkomst till Bime.
 * Du kan göra så att dina användare automatiskt loggas in på Bime (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Bime behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Bime-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -53,7 +54,7 @@ För att konfigurera integrering av Bime i Azure AD behöver du lägga till Bime
 
 **Utför följande steg för att lägga till Bime från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,7 +62,7 @@ För att konfigurera integrering av Bime i Azure AD behöver du lägga till Bime
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +70,19 @@ För att konfigurera integrering av Bime i Azure AD behöver du lägga till Bime
 
      ![Bime i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD till Bime baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Bime upprättas.
 
 För att konfigurera och testa enkel inloggning för Azure AD med Bime behöver du slutföra följande byggstenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Bime](#configure-bime-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Bime-testanvändare](#create-bime-test-user)** – för att ha en motsvarighet för Britta Simon i Bime som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bi
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Bime** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -124,7 +125,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bi
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
@@ -136,7 +137,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bi
 
 2. I verktygsfältet klickar du på **Admin** och sedan på **Konto**.
   
-    ![Admin](./media/bime-tutorial/ic775558.png "Admin")
+    ![Innehavaradministration](./media/bime-tutorial/ic775558.png "Innehavaradministration")
 
 3. På sidan för kontokonfiguration utför du följande steg:
   
@@ -148,7 +149,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bi
 
     c. I textrutan **Certificate Fingerprint** (Fingeravtryck för certifikat) klistrar du in värdet för det **THUMBPRINT** (tumavtryck) som du har kopierat från Azure-portalen.
 
-    d. Klicka på **Spara**.
+    d. Klicka på **Save** (Spara).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -168,14 +169,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Bime.
 
@@ -187,7 +188,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken för Bime i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -211,7 +212,7 @@ För att göra det möjligt för Azure AD-användare att logga in på Bime måst
 
 2. I verktygsfältet klickar du på **Admin** och sedan på **Användare**.
 
-    ![Admin](./media/bime-tutorial/ic775561.png "Admin")
+    ![Innehavaradministration](./media/bime-tutorial/ic775561.png "Innehavaradministration")
 
 3. I **användarlistan** klickar du på **Lägg till ny användare** (”+”).
 
@@ -219,24 +220,24 @@ För att göra det möjligt för Azure AD-användare att logga in på Bime måst
 
 4. I dialogrutan **Användarinformation** utför du följande steg:
 
-    ![Användarinformation](./media/bime-tutorial/ic775563.png "Användarinformation")
+    ![Användar information](./media/bime-tutorial/ic775563.png "Användar information")
 
     a. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
 
     b. I textrutan **Efternamn** skriver du efternamnet på användaren: **Simon**.
 
-    c. I den **e-post** textrutan Ange e-postadress för användaren som **brittasimon\@contoso.com**.
+    c. I text rutan **e-post** anger du e-postmeddelandet som **brittasimon\@contoso.com**.
 
-    d. Klicka på **Spara**.
+    d. Klicka på **Save** (Spara).
 
 > [!NOTE]
 > Du kan använda andra verktyg eller API:er för Bime-kontoskapande som tillhandahålls av Bime för att etablera AAD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Bime-panelen i åtkomstpanelen bör du automatiskt loggas in på Bime som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Bime-panelen i åtkomstpanelen bör du automatiskt loggas in på Bime som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

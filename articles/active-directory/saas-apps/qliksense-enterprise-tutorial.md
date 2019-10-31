@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Qlik Sense Enterprise | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med Qlik Sense Enterprise | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Qlik Sense Enterprise.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8c27e340-2b25-47b6-bf1f-438be4c14f93
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,14 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9265a5951ceb7b0cb757e392c2e26aa19bfefd06
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7886c863dd50fd3f09d782f892bdebabceb73546
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678496"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160091"
 ---
-# <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Självstudier: Integrera Qlik Sense Enterprise med Azure Active Directory
+# <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Självstudie: integrera Qlik Sense Enterprise med Azure Active Directory
 
 I den här självstudien får du lära dig att integrera Qlik Sense Enterprise med Azure Active Directory (Azure AD). När du integrerar Qlik Sense Enterprise med Azure AD kan du:
 
@@ -32,7 +33,7 @@ I den här självstudien får du lära dig att integrera Qlik Sense Enterprise m
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -54,7 +55,7 @@ För att konfigurera integreringen av Qlik Sense Enterprise med Azure AD behöve
 1. I avsnittet **Lägg till från galleriet** , Skriv **Qlik Sense Enterprise** i sökrutan.
 1. Välj **Qlik Sense Enterprise** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 Konfigurera och testa Azure AD SSO med Qlik Sense Enterprise med en test användare som kallas **Britta Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i Qlik Sense Enterprise.
 
@@ -62,8 +63,8 @@ Om du vill konfigurera och testa Azure AD SSO med Qlik Sense Enterprise, fyller 
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera Qlik Sense Enterprise SSO](#configure-qlik-sense-enterprise-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Qlik Sense Enterprise-testanvändare](#create-qlik-sense-enterprise-test-user)** – för att ha en motsvarighet till Britta Simon i Qlik Sense Enterprise som är länkad till Azure AD-representationen för användaren.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -79,7 +80,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/hub`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/hub`
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster:
 
@@ -98,7 +99,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML-metadata för federationsmetadata** från de angivna alternativen enligt ditt krav och sparar det på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 ### <a name="configure-qlik-sense-enterprise-sso"></a>Konfigurera Qlik Sense Enterprise SSO
 
@@ -222,14 +223,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas Britta Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `Britta Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Qlik Sense Enterprise.
 
@@ -237,7 +238,7 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 1. I listan program väljer du **Qlik Sense Enterprise**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -253,7 +254,7 @@ I det här avsnittet skapar du en användare som heter Britta Simon i Qlik Sense
 
 ### <a name="test-sso"></a>Testa SSO
 
-När du väljer Qlik Sense Enterprise-panelen på åtkomst panelen, bör du loggas in automatiskt till det Qlik Sense-företag som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer Qlik Sense Enterprise-panelen på åtkomst panelen, bör du loggas in automatiskt till det Qlik Sense-företag som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

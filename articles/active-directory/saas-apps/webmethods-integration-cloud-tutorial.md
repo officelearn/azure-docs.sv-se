@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med webMethods Integreringsprogramsviten | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och webMethods Integreringsprogramsviten.
+title: 'Självstudie: Azure Active Directory integration med webMethods integration Suite | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och webMethods integration Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,53 +8,54 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 97261535-7a2d-4d73-94c8-38116b8a776e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 4dfed25e61183f828bf421cecfc13001289915fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30fc55cb608189e1be82c2b28393c5e242e262fd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087274"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160855"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Självstudier: Azure Active Directory-integrering med webMethods Integreringsprogramsviten
+# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Självstudie: Azure Active Directory integration med webMethods integration Suite
 
-I den här självstudien får du lära dig hur du integrerar webMethods Integreringsprogramsviten med Azure Active Directory (AD Azure).
-Integrera webMethods Integreringsprogramsviten med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar webMethods integration Suite med Azure Active Directory (Azure AD).
+Integrering av webMethods integration Suite med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till webMethods Integreringsprogramsviten.
-* Du kan aktivera användarna att vara automatiskt inloggad till webMethods Integreringsprogramsviten (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra Azure AD som har till gång till integrerings paket för webMethods.
+* Du kan göra det möjligt för användarna att vara automatiskt inloggade till webMethods integration Suite (enkel inloggning) med deras Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med webMethods Integreringsprogramsviten, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med webMethods integration Suite behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
-* webMethods Integreringsprogramsviten enkel inloggning aktiverad prenumeration
+* webMethods aktive rad prenumeration för enkel inloggning i integrerings paket
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* har stöd för webMethods Integreringsprogramsviten **SP** och **IDP** -initierad SSO
+* webMethods integration Suite stöder **SP** -och **IDP** -initierad SSO
 
-* har stöd för webMethods Integreringsprogramsviten **just-in-time** etableringen av användare
+* webMethods integration Suite stöder **just-in-Time-** etablering av användare
 
-## <a name="adding-webmethods-integration-suite-from-the-gallery"></a>Att lägga till webMethods Integreringsprogramsviten från galleriet
+## <a name="adding-webmethods-integration-suite-from-the-gallery"></a>Lägga till webMethods integration Suite från galleriet
 
-För att konfigurera integrering av webMethods Integreringsprogramsviten i Azure AD, som du behöver lägga till webMethods Integreringsprogramsviten från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av webMethods integration Suite i Azure AD måste du lägga till webMethods integration Suite från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till webMethods Integreringsprogramsviten från galleriet:**
+**Utför följande steg för att lägga till webMethods integration Suite från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +63,37 @@ För att konfigurera integrering av webMethods Integreringsprogramsviten i Azure
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **webMethods Integreringsprogramsviten**väljer **webMethods Integreringsprogramsviten** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **webMethods integration Suite**, väljer **webMethods integration Suite** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![webMethods Integreringsprogramsviten i resultatlistan](common/search-new-app.png)
+     ![webMethods integration Suite i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med webMethods Integreringsprogramsviten baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i webMethods Integreringsprogramsviten upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med webMethods integration Suite baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i webMethods integration Suite.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med webMethods Integreringsprogramsviten, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning i Azure AD med webMethods integration Suite måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera webMethods Single Sign On Integration-Suite](#configure-webmethods-integration-suite-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa webMethods Integreringsprogramsviten testanvändare](#create-webmethods-integration-suite-test-user)**  – du har en motsvarighet för Britta Simon i webMethods Integreringsprogramsviten som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera webMethods enkel inloggning för integrerings paket](#configure-webmethods-integration-suite-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa webb metoden integration Suite-test användare](#create-webmethods-integration-suite-test-user)** – om du vill ha en motsvarighet till Britta Simon i webMethods integration Suite som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med webMethods Integreringsprogramsviten:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med webMethods integration Suite:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **webMethods Integreringsprogramsviten** application integration markerar **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)väljer du **enkel inloggning**på sidan **WebMethod integration Suite** -program integration.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,9 +103,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med webMeth
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Så här konfigurerar du den **webMethods integrering molnet**på den **grundläggande SAML-konfiguration** om du vill konfigurera programmet i **IDP** initierade läge, utföra följande steg:
+4. Om du vill konfigurera **integrerings molnet för webbmetoder**går du till avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![information om webMethods integrering Suite domän och URL: er enkel inloggning](common/idp-intiated.png)
+    ![webbmetoder integration Suite-domän och enkel inloggnings information för URL: er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:
 
@@ -124,7 +125,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med webMeth
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![information om webMethods integrering Suite domän och URL: er enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![webbmetoder integration Suite-domän och enkel inloggnings information för URL: er](common/metadata-upload-additional-signon.png)
 
     d. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
@@ -135,11 +136,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med webMeth
     | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest` |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [webMethods Integration Suite klienten supportteam](https://empower.softwareag.com/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [webbmetoder integration Suite-klientens support team](https://empower.softwareag.com/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Så här konfigurerar du den **webMethods API molnet**på den **grundläggande SAML-konfiguration** om du vill konfigurera programmet i **IDP** initierade läge, utför den följande steg:
+5. Gör så här om du vill konfigurera **webbmetods-API-molnet**i avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge:
 
-    ![information om webMethods integrering Suite domän och URL: er enkel inloggning](common/idp-intiated.png)
+    ![webbmetoder integration Suite-domän och enkel inloggnings information för URL: er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:
 
@@ -159,7 +160,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med webMeth
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![information om webMethods integrering Suite domän och URL: er enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![webbmetoder integration Suite-domän och enkel inloggnings information för URL: er](common/metadata-upload-additional-signon.png)
 
     d. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
@@ -170,25 +171,25 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med webMeth
     | `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>` |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [webMethods Integration Suite klienten supportteam](https://empower.softwareag.com/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [webbmetoder integration Suite-klientens support team](https://empower.softwareag.com/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+6. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-7. På den **konfigurera webMethods Integreringsprogramsviten** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+7. I avsnittet **Konfigurera webMethods integration Suite** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-webmethods-integration-suite-single-sign-on"></a>Konfigurera webMethods integrering Suite enkel inloggning
+### <a name="configure-webmethods-integration-suite-single-sign-on"></a>Konfigurera enkel inloggning för webMethods integration Suite
 
-Att konfigurera enkel inloggning på **webMethods Integreringsprogramsviten** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [webMethods Integrering Suite supportteamet](https://empower.softwareag.com/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **webMethods** -sidan för integration Suite måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [webMethods support team för integration Suite](https://empower.softwareag.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -206,28 +207,28 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till webMethods Integreringsprogramsviten.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till webMethods integration Suite.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **webMethods Integreringsprogramsviten**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **webMethods integration Suite**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **webMethods Integreringsprogramsviten**.
+2. I listan program väljer du **webMethods integration Suite**.
 
-    ![WebMethods Integreringsprogramsviten länk i listan med program](common/all-applications.png)
+    ![Länken webMethods integration Suite i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -241,15 +242,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-webmethods-integration-suite-test-user"></a>Skapa webMethods Integreringsprogramsviten testanvändare
+### <a name="create-webmethods-integration-suite-test-user"></a>Skapa webb metods test användare för integration Suite
 
-I det här avsnittet skapas en användare som kallas Britta Simon i webMethods Integreringsprogramsviten. webMethods Integreringsprogramsviten stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i webMethods Integreringsprogramsviten, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i webMethods integration Suite. webMethods integration Suite stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i webMethods integration Suite skapas en ny efter autentiseringen.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på webMethods Integreringsprogramsviten panel i åtkomstpanelen, bör det vara loggas in automatiskt till webMethods Integreringsprogramsviten som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen webMethods integration Suite på åtkomst panelen, bör du loggas in automatiskt på den webMethods integration Suite som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

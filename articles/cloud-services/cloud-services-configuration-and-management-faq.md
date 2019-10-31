@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154728"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161762"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure-Cloud Services: Vanliga frågor och svar
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
 Den här artikeln innehåller vanliga frågor om konfigurations-och hanterings problem för [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Du kan också se storleks information på [sidan Cloud Services virtuell dator storlek](cloud-services-sizes-specs.md) .
 
@@ -52,7 +52,7 @@ Den här artikeln innehåller vanliga frågor om konfigurations-och hanterings p
 **Behörigheter**
 
 - [Kan Microsoft Internal Engineers fjärr skrivbord till moln tjänst instanser utan behörighet?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Jag kan inte fjärr skrivbord till moln tjänstens virtuella dator med hjälp av RDP-filen. Jag får följande fel meddelande: Ett autentiseringsfel har inträffat (kod: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Jag kan inte fjärr skrivbord till moln tjänstens virtuella dator med hjälp av RDP-filen. Jag får följande fel meddelande: ett autentiseringsfel har inträffat (kod: 0x80004005 visas)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Skalning**
 
@@ -100,7 +100,7 @@ Du kan använda följande PowerShell-kommandon för att förnya hanterings certi
     Select-AzureSubscription -Current -SubscriptionName <your subscription name>
     Get-AzurePublishSettingsFile
 
-**Get-AzurePublishSettingsFile** skapar ett nytt hanterings certifikat i **prenumerations** > **hanterings certifikaten** i Azure Portal. Namnet på det nya certifikatet ser ut som "YourSubscriptionNam]-[CurrentDate]-credentials".
+**Get-AzurePublishSettingsFile** skapar ett nytt hanterings certifikat i **prenumerations** > **hanterings certifikat** i Azure Portal. Namnet på det nya certifikatet ser ut som "YourSubscriptionNam]-[CurrentDate]-credentials".
 
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Hur automatiserar du installationen av huvud-SSL-certifikat (. pfx) och mellanliggande certifikat (. p7b)?
 
@@ -169,7 +169,7 @@ Du kan ange timeout i csdef-filen (service definition) så här:
     </Endpoints>
   </WorkerRole>
 ```
-Se [nytt: Konfigurerbar tids gräns för inaktivitet för Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) för mer information.
+Se [ny: konfigurerbar tids gräns för inaktivitet för Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) för mer information.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Hur gör jag för att associera en statisk IP-adress till min moln tjänst?
 Om du vill konfigurera en statisk IP-adress måste du skapa en reserverad IP-adress. Den här reserverade IP-adressen kan kopplas till en ny moln tjänst eller till en befintlig distribution. Mer information finns i följande dokument:
@@ -193,12 +193,12 @@ Windows 10 och Windows Server 2016 levereras med stöd för HTTP/2 på både kli
 3. Skapa ett nytt DWORD-värde med namnet **DuoEnabled**.
 4. Ange värdet 1.
 5. Starta om servern.
-6. Gå till **standard webbplatsen** och under bindningarskapar du en ny TLS-bindning med det självsignerade certifikatet som du nyss skapade. 
+6. Gå till **standard webbplatsen** och under **bindningar**skapar du en ny TLS-bindning med det självsignerade certifikatet som du nyss skapade. 
 
-Mer information finns i:
+Mer information finns här:
 
 - [HTTP/2 i IIS](https://blogs.iis.net/davidso/http2)
-- [Video: HTTP/2 i Windows 10: Webbläsare, appar och webb server](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [Video: HTTP/2 i Windows 10: webbläsare, appar och webb server](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 De här stegen kan automatiseras via en start åtgärd, så när en ny PaaS-instans skapas, kan ändringarna placeras ovan i system registret. Mer information finns i [så här konfigurerar och kör du Start åtgärder för en moln tjänst](cloud-services-startup-tasks.md).
@@ -218,12 +218,12 @@ Cloud Services stöder inte RBAC-modellen (rollbaserad åtkomst kontroll) efters
 
 Se [förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Fjärrskrivbord
+## <a name="remote-desktop"></a>Fjärr skrivbord
 
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kan Microsoft Internal Engineers fjärr skrivbord till moln tjänst instanser utan behörighet?
 Microsoft följer en strikt process som inte tillåter interna tekniker att använda fjärr skrivbord i moln tjänsten utan skriftligt tillstånd (e-post eller annan skriftlig kommunikation) från ägaren eller deras utformning.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Jag kan inte fjärr skrivbord till moln tjänstens virtuella dator med hjälp av RDP-filen. Jag får följande fel meddelande: Ett autentiseringsfel har inträffat (kod: 0x80004005 visas
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Jag kan inte fjärr skrivbord till moln tjänstens virtuella dator med hjälp av RDP-filen. Jag får följande fel meddelande: ett autentiseringsfel har inträffat (kod: 0x80004005 visas)
 
 Det här felet kan inträffa om du använder RDP-filen från en dator som är ansluten till Azure Active Directory. Följ dessa anvisningar för att lösa problemet:
 
@@ -281,7 +281,7 @@ Se [tjänstspecifika gränser](../azure-subscription-service-limits.md#subscript
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Varför visar enheten i min moln tjänst VM mycket ledigt disk utrymme?
 Detta är ett förväntat beteende och det bör inte orsaka något problem med ditt program. Journalering har Aktiver ATS för% appens rot%-enheten i virtuella Azure PaaS-datorer, vilket i princip förbrukar dubbelt så mycket utrymme som filer normalt tar upp. Det finns dock flera saker som du bör känna till, vilket innebär att det innebär ett icke-problem.
 
-Enhets storleken% appens rot% beräknas som \<storlek på. cspkg + Max Journal storlek + en marginal på det lediga utrymmet >, eller 1,5 GB, beroende på vilket som är störst. Den virtuella datorns storlek har ingen betydelse för den här beräkningen. (Storleken på den virtuella datorn påverkar endast storleken på den temporära enheten C:.) 
+Enhets storleken% appens rot% beräknas som \<storlek för. cspkg + Max Journal storlek + en marginal på det lediga utrymmet > eller 1,5 GB, beroende på vilket som är störst. Den virtuella datorns storlek har ingen betydelse för den här beräkningen. (Storleken på den virtuella datorn påverkar endast storleken på den temporära enheten C:.) 
 
 Det går inte att skriva till% appens rot%-enheten. Om du skriver till den virtuella Azure-datorn måste du göra det i en tillfällig LocalStorage-resurs (eller något annat alternativ, till exempel Blob Storage, Azure Files osv.). Därför är mängden ledigt utrymme i mappen% appens rot% inte meningsfull. Om du inte är säker på om ditt program skriver till% appens rot%-enheten, kan du alltid låta tjänsten köras i några dagar och sedan jämföra storlekarna "före" och "efter". 
 
@@ -310,12 +310,12 @@ SNI-bindningen kan konfigureras med PowerShell **-cmdlet New-webbinding** i en s
     
 Som beskrivs [här](https://technet.microsoft.com/library/ee790567.aspx)kan $sslFlags vara ett av värdena som följande:
 
-|Value|Betydelse|
+|Värde|Betydelse|
 ------|------
 |0|Ingen SNI|
-|1|SNI aktiverat |
-|2 |Icke-SNI bindning som använder centralt certifikat Arkiv|
-|3|SNI-bindning som använder centralt certifikat Arkiv |
+|1|SNI aktiverat|
+|2|Icke-SNI bindning som använder centralt certifikat Arkiv|
+|3|SNI-bindning som använder centralt certifikat Arkiv|
  
 **Metod 2: Använd kod**
 
@@ -325,8 +325,8 @@ SNI-bindningen kan också konfigureras via kod i roll starten enligt beskrivning
     //<code snip> 
                     var serverManager = new ServerManager(); 
                     var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
-                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
                     serverManager.CommitChanges(); 
     //</code snip> 
     

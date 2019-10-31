@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: c9dfd3bfcacc1f50bb9be04c927bf3cbb4895f6d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e19ba55e48c537974ad4136d40505514b92d387d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555254"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162288"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Förstå hälso tillståndet för dina virtuella Azure-datorer
 
@@ -339,7 +339,7 @@ Följande exempel visar hur du frågar efter värdet för villkoret **LogicalDis
 2. Ange följande kommando för att hämta alla hälso kriterier som är aktiva på en speciell virtuell dator och identifiera värdet för egenskapen *monitorId* :
 
     ```
-    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview"
     ```
 
     I följande exempel visas utdata från kommandot *ARMCLIENT get* . Anteckna värdet för *MonitorId*. Det här värdet krävs för nästa steg, där vi måste ange ID för hälso kriterierna och ändra dess egenskap för att skapa en avisering.

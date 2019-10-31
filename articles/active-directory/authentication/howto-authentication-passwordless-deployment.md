@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6996b6163c1d5a2a4747093743a937dfd9eb7d4f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933125"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151630"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Slutför en distribution av lösenordsskyddad autentisering
 
@@ -104,18 +104,27 @@ Säkerhets nycklar ger åtkomst till dina resurser och du bör planera hantering
 
 Aktivering av Windows 10-inloggning med FIDO2-säkerhetsnycklar kräver aktivering av funktionen för Credential-Provider i Windows 10. Aktivera det på något av två sätt:
 
-- [Aktivera autentiseringsprovider via riktad Intune-distribution](howto-authentication-passwordless-security-key.md#enable-targeted-intune-deployment)
-   - Intune-distribution är det rekommenderade alternativet för Azure Active Directory anslutna datorer.
-- [Aktivera autentiseringsprovider via ett etablerings paket](howto-authentication-passwordless-security-key.md#enable-credential-provider-via-provisioning-package)
+- [Aktivera autentiseringsprovider för autentiseringsuppgifter med Intune](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
+   - Intune-distributionen är det rekommenderade alternativet.
+- [Aktivera autentiseringsprovider med ett konfigurations paket](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Om Intune-distributionen inte är möjlig måste administratörerna distribuera ett paket på varje dator för att aktivera funktionen för Credential-Provider. Paket installationen kan utföras med ett av följande alternativ:
       - Grupprincip eller System Center Configuration Manager (SCCM)
       - Lokal installation på en Windows 10-dator
+- [Aktivera autentiseringsprovider för autentiseringsuppgifter med grupprincip](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
+   - Stöds endast för Hybrid Azure AD-anslutna enheter.
+
+#### <a name="enable-on-premises-integration"></a>Aktivera lokal integrering
+
+Följ stegen i artikeln [Aktivera lösen ords lös säkerhets nyckel logga in till lokala resurser (för hands version)](howto-authentication-passwordless-security-key-on-premises.md) för att ge åtkomst till lokala resurser.
+
+> [!IMPORTANT]
+> De här stegen måste också utföras för alla hybrid Azure AD-anslutna enheter för att använda FIDO2-säkerhetsnycklar för Windows 10-inloggning.
 
 ### <a name="register-security-keys"></a>Registrera säkerhets nycklar
 
 Användarna måste registrera sina säkerhets nycklar på var och en av sina Azure Active Directory anslutna Windows 10-datorer.
 
-Mer information finns i [användar registrering och hantering av säkerhets nycklar för FIDO2](howto-authentication-passwordless-security-key.md).
+Mer information finns i [användar registrering och hantering av säkerhets nycklar för FIDO2](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys).
 
 ### <a name="licensing-for-passwordless-authentication"></a>Licensiering för lösenordsskyddad autentisering
 
@@ -257,7 +266,7 @@ Följ anvisningarna i artikeln [Aktivera lösen ords lös inloggning med Microso
 ### <a name="deploy-fido2-security-key-sign-in"></a>Distribuera FIDO2-inloggning för säkerhets nyckel
 
 Följ anvisningarna i artikeln [Aktivera lösen ords lös säkerhets nyckel logga in för Azure AD](howto-authentication-passwordless-security-key.md) för att aktivera FIDO2-säkerhetsnycklar som lösen ords skydds metoder i din organisation.
- 
+
 ### <a name="troubleshoot-phone-sign-in"></a>Felsöka telefonin loggning
 
 | Scenario | Lösning |

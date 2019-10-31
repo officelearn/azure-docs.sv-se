@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/10/2019
-ms.openlocfilehash: 7363f1ec11974dab3e0c0149c18ac4f0bf1c86ee
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/29/2019
+ms.openlocfilehash: 69ed49c0e1b90b4086a40bd15f5d276c6cfe137f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555187"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162218"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Så här frågar du efter loggar från Azure Monitor for VMs (för hands version)
 Azure Monitor for VMs samlar in prestanda-och anslutnings mått, dator-och process inventerings data och hälso tillstånds information och vidarebefordrar den till arbets ytan Log Analytics i Azure Monitor.  Dessa data är tillgängliga för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data i scenarier som omfattar migrerings planering, kapacitets analys, identifiering och prestanda fel sökning på begäran.
@@ -25,7 +25,7 @@ Det finns internt genererade egenskaper som du kan använda för att identifiera
 - Dator: Använd *ResourceID* eller *ResourceName_s* för att unikt identifiera en dator i en Log Analytics-arbetsyta.
 - Process: Använd *ResourceID* för att unikt identifiera en process inom en Log Analytics-arbetsyta. *ResourceName_s* är unikt inom kontexten för den dator där processen körs (MachineResourceName_s) 
 
-Eftersom det kan finnas flera poster för en angiven process och dator inom ett angivet tidsintervall, kan frågor returnera fler än en post för samma dator eller process. Om du bara vill ta med den senaste posten lägger du till | deduplicera ResourceId "till frågan.
+Eftersom det kan finnas flera poster för en angiven process och dator inom ett angivet tidsintervall, kan frågor returnera fler än en post för samma dator eller process. Om du bara vill ta med den senaste posten lägger du till `| summarize arg_max(TimeGenerated, *) by ResourceId` i frågan.
 
 ### <a name="connections-and-ports"></a>Anslutningar och portar
 Funktionen anslutnings mått introducerar två nya tabeller i Azure Monitor loggar – VMConnection och VMBoundPort. Tabellerna innehåller information om anslutningarna för en dator (inkommande och utgående) samt de Server portar som är öppna/aktiva på dem. ConnectionMetrics exponeras också via API: er som gör det möjligt att hämta ett mått i ett tids fönster. TCP-anslutningar som orsakas av att de *godkänns* på en lyssnande socket är inkommande, medan de som skapas genom att *ansluta* till en specifik IP-adress och port är utgående. Riktningen för en anslutning representeras av egenskapen Direction, som kan anges till antingen **inkommande** eller **utgående**. 
@@ -198,82 +198,82 @@ Poster med en typ av *ServiceMapProcess_CL* har inventerings data för TCP-anslu
 
 ### <a name="list-all-known-machines"></a>Visa en lista med alla kända datorer
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### <a name="when-was-the-vm-last-rebooted"></a>När den virtuella datorn startades om senast
 ```kusto
-let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc
 ```
 
 ### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Översikt över virtuella Azure-datorer efter avbildning, plats och SKU
 ```kusto
-ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s
 ```
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Ange kapaciteten för fysiskt minne för alla hanterade datorer.
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 ```
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Visa dator namn, DNS, IP och OS.
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 ```
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Hitta alla processer med "SQL" på kommando raden
 ```kusto
-ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Hitta en dator (senaste posten) efter resurs namn
 ```kusto
-search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Hitta en dator (senaste posten) via IP-adress
 ```kusto
-search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Visa en lista med alla kända processer på en angiven dator
 ```kusto
-ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 ```
 
 ### <a name="list-all-computers-running-sql-server"></a>Visa en lista med alla datorer som kör SQL Server
 ```kusto
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 ```
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Visa en lista med alla unika produkt versioner av sväng i mitt Data Center
 ```kusto
-ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 ```
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Skapa en dator grupp för alla datorer som kör CentOS
 ```kusto
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 ```
 
 ### <a name="bytes-sent-and-received-trends"></a>Trender för skickade och mottagna byte
 ```kusto
-VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart
 ```
 
 ### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Vilka virtuella Azure-datorer som överför de flesta byte
 ```kusto
-VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc
 ```
 
 ### <a name="link-status-trends"></a>Länka status trender
 ```kusto
-VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart
 ```
 
 ### <a name="connection-failures-trend"></a>Trend för anslutnings problem
 ```kusto
-VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
+VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart
 ```
 
 ### <a name="bound-ports"></a>Kopplade portar
@@ -357,4 +357,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du inte har använt att skriva logg frågor i Azure Monitor kan du läsa om [hur du använder Log Analytics](../../azure-monitor/log-query/get-started-portal.md) i Azure Portal för att skriva logg frågor.
+
 * Lär dig mer om att [skriva Sök frågor](../../azure-monitor/log-query/search-queries.md).

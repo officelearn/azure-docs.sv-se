@@ -27,6 +27,8 @@
       href: storage-files-planning.md
     - name: Planera för distribution av Azure File Sync
       href: storage-sync-files-planning.md
+    - name: Nätverksöverväganden för direkt åtkomst
+      href: storage-files-networking-overview.md
     - name: Om molnnivåindelning
       href: storage-sync-cloud-tiering.md
     - name: Om lagringskonton
@@ -101,6 +103,8 @@
           href: storage-sync-files-deployment-guide.md
         - name: Konfigurera inställningar för File Sync-proxy och brandvägg
           href: storage-sync-files-firewall-and-proxy.md
+        - name: SQL Server FCI med premium-filresurser
+          href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Montera
       items:
         - name: Använda Azure Files med Windows
@@ -109,6 +113,14 @@
           href: storage-how-to-use-files-linux.md
         - name: Använda Azure Files med macOS
           href: storage-how-to-use-files-mac.md
+    - name: Nätverk
+      items:
+        - name: Konfigurera en plats-till-plats-anslutning via VPN
+          href: storage-files-configure-s2s-vpn.md
+        - name: Konfigurera en punkt-till-plats-anslutning via VPN på Windows
+          href: storage-files-configure-p2s-vpn-windows.md
+        - name: Konfigurera en punkt-till-plats-anslutning via VPN på Linux
+          href: storage-files-configure-p2s-vpn-linux.md
     - name: Hantera
       items:
         - name: Registrera en server med Azure File Sync
@@ -169,6 +181,8 @@
           href: storage-troubleshooting-files-performance.md
         - name: Felsök Azure File Sync
           href: storage-sync-files-troubleshoot.md
+        - name: Felsöka borttagning av Azure Files
+          href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: Referens
   items:
     - name: Azure PowerShell

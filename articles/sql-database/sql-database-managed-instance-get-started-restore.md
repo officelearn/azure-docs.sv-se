@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: ca0dcc850b2db513c8d85d43ad76bc75053c0d04
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: c07daf4cf9f355e8eccfe618262dd06b4216106e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514020"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146390"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Snabb start: återställa en databas till en hanterad instans
 
@@ -35,12 +35,12 @@ Den här snabbstarten:
 - Använder resurser från snabbstarten [Skapa en hanterad instans](sql-database-managed-instance-get-started.md).
 - Kräver att datorn har den senaste versionen av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) installerad.
 - Kräver att du använder SSMS för att kunna ansluta till din hanterade instans. Läs följande snabbstarter om hur man ansluter:
+  - [Aktivera offentlig slut punkt](sql-database-managed-instance-public-endpoint-configure.md) på hanterad instans – det här tillvägagångs sättet rekommenderas för den här självstudien.
   - [Connect to an Azure SQL Database Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md) (Ansluta till en hanterad Azure SQL Database-instans från en virtuell Azure-dator)
   - [Konfigurera en punkt-till-plats-anslutning till en hanterad Azure SQL Database-instans lokalt](sql-database-managed-instance-configure-p2s.md).
-- Kräver Azure Blob Storage-konto (till exempel Standard_LRS v2) på **offentlig IP-** skyddad med **SAS-autentiseringsuppgifter** som har `rw` behörighet. [Privata IP-adresser för blob-lagring som skyddas av brand vägg](https://docs.microsoft.com/azure/storage/common/storage-network-security) och Azure Blob Storage tjänst slut punkter stöds inte för närvarande.
 
 > [!NOTE]
-> Mer information om hur du säkerhetskopierar och återställer en SQL Server-databas med hjälp av Azure Blob Storage och en [SAS-nyckel](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) finns i [SQL Server-säkerhetskopiering till URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> Mer information om hur du säkerhetskopierar och återställer en SQL Server-databas med hjälp av Azure Blob Storage och en [SAS-nyckel](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) finns i [SQL Server-säkerhetskopiering till URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-the-database-from-a-backup-file"></a>Återställ databasen från en säkerhetskopia
 
@@ -86,7 +86,11 @@ Den här snabbstarten:
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. När återställningen är klar kan du visa den i Object Explorer.
+7. När återställningen är klar kan du Visa databasen i Object Explorer. Du kan kontrol lera att databas återställningen har slutförts med hjälp av [sys. DM _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) -vyn.
+
+> [!NOTE]
+> Databas återställnings åtgärden är asynkron och återförsöksbar. Du kan få ett fel SQL Server Management Studio om anslutningen bryts eller om tids gränsen upphör att gälla. Azure SQL Database fortsätter att försöka återställa databasen i bakgrunden och du kan följa förloppet för återställningen med hjälp av [sys. DM _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys. DM _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) views.
+> I vissa faser av återställnings processen kommer du att se unik identifierare i stället för det faktiska databas namnet i systemvyerna. Lär dig mer om skillnader i `RESTORE`s satsen [här](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Nästa steg
 

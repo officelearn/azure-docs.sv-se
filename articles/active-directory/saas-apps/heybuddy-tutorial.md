@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory integrering med HeyBuddy | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med HeyBuddy | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och HeyBuddy.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d51b5af6-018e-4678-9a3f-b70438394f67
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,30 +16,30 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e00cc46385f5d60b28607bfc08b9ca9540f152c6
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7edfc0a90a8477bdee50b871e00cd988e511b401
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944966"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159056"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Självstudier: Azure Active Directory integrering med HeyBuddy
+# <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Självstudie: Azure Active Directory integrering med HeyBuddy
 
 I den här självstudien får du lära dig hur du integrerar HeyBuddy med Azure Active Directory (Azure AD).
 Genom att integrera HeyBuddy med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till HeyBuddy.
 * Du kan göra det möjligt för användarna att logga in automatiskt till HeyBuddy (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med HeyBuddy behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * HeyBuddy-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +55,7 @@ Om du vill konfigurera integreringen av HeyBuddy i Azure AD måste du lägga til
 
 **Utför följande steg för att lägga till HeyBuddy från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,7 +63,7 @@ Om du vill konfigurera integreringen av HeyBuddy i Azure AD måste du lägga til
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -70,19 +71,19 @@ Om du vill konfigurera integreringen av HeyBuddy i Azure AD måste du lägga til
 
      ![HeyBuddy i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med HeyBuddy baserat på en test användare som kallas **Britta Simon**.
 För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i HeyBuddy upprättas.
 
 Om du vill konfigurera och testa enkel inloggning med HeyBuddy i Azure AD måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera HeyBuddy-enkel inloggning](#configure-heybuddy-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa HeyBuddy test User](#create-heybuddy-test-user)** – om du vill ha en motsvarighet till Britta Simon i HeyBuddy som är länkad till Azure AD-representation av användare.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -92,7 +93,7 @@ Utför följande steg för att konfigurera enkel inloggning med HeyBuddy i Azure
 
 1. Välj **enkel inloggning**på sidan **HeyBuddy** Application Integration i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -111,11 +112,11 @@ Utför följande steg för att konfigurera enkel inloggning med HeyBuddy i Azure
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `YourCompanyInstanceofHeyBuddy`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en och identifieraren (enhets-ID). `Entity ID` I inloggnings-URL: en genereras automatiskt för varje organisation. Kontakta [HeyBuddy client support team](mailto:support@heybuddy.com) för att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en och identifieraren (enhets-ID). `Entity ID` i inloggnings-URL: en genereras automatiskt för varje organisation. Kontakta [HeyBuddy client support team](mailto:support@heybuddy.com) för att hämta dessa värden.
 
 5. Ditt HeyBuddy-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
     > [!NOTE]
     > Se den här [länken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) om hur du konfigurerar och konfigurerar roller för programmet.
@@ -129,9 +130,9 @@ Utför följande steg för att konfigurera enkel inloggning med HeyBuddy i Azure
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![mallar](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![mallar](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -143,15 +144,15 @@ Utför följande steg för att konfigurera enkel inloggning med HeyBuddy i Azure
 
     f. Klicka på **Ok**
 
-    g. Klicka på **Spara**.
+    g. Klicka på **Save** (Spara).
 
 7. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
 ### <a name="configure-heybuddy-single-sign-on"></a>Konfigurera HeyBuddy enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **HeyBuddy** sida måste du skicka **URL: en** för appens Federations-metadata till [support teamet för HeyBuddy](mailto:support@heybuddy.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **HeyBuddy** sida måste du skicka **URL: en för appens Federations-metadata** till [support teamet för HeyBuddy](mailto:support@heybuddy.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -178,7 +179,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till HeyBuddy.
 
@@ -190,7 +191,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
     ![HeyBuddy-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -213,9 +214,9 @@ I det här avsnittet skapas en användare som kallas Britta Simon i HeyBuddy. He
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen HeyBuddy på åtkomst panelen, bör du loggas in automatiskt på den HeyBuddy som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen HeyBuddy på åtkomst panelen, bör du loggas in automatiskt på den HeyBuddy som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

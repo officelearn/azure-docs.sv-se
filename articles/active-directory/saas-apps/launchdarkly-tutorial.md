@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med LaunchDarkly | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med LaunchDarkly | Microsoft Docs'
 description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Directory och LaunchDarkly.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3f0671bc-f93f-496e-b465-b9ce8c6633fa
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,30 +16,30 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de59ce587facb94728e0652f47c7cdfce0ab4388
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e32f8c3ea300960893163264e99bd6c51138c7c5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098430"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159657"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Självstudier: Azure Active Directory-integrering med LaunchDarkly | Microsoft Docs
+# <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Självstudie: Azure Active Directory integrering med LaunchDarkly
 
 I den här självstudien får du lära dig hur du integrerar LaunchDarkly med Azure Active Directory (Azure AD).
 Integrera LaunchDarkly med Azure AD ger dig följande fördelar:
 
 * Du kan styra i Azure AD vem som har åtkomst till LaunchDarkly.
 * Du kan låta dina användare automatiskt loggas in på LaunchDarkly (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med LaunchDarkly så behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * LaunchDarkly-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +55,7 @@ Om du vill konfigurera integrering av LaunchDarkly i Azure AD så behöver du l�
 
 **Utför följande steg för att lägga till LaunchDarkly från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,7 +63,7 @@ Om du vill konfigurera integrering av LaunchDarkly i Azure AD så behöver du l�
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -70,19 +71,19 @@ Om du vill konfigurera integrering av LaunchDarkly i Azure AD så behöver du l�
 
      ![LaunchDarkly i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar och testar du enkel inloggning Azure AD med [programnamn] baserat på en testanvändare som kallas **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i [Programnamn] upprättas.
 
 För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] behöver du utföra följande byggstenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för LaunchDarkly](#configure-launchdarkly-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa en LaunchDarkly-testanvändare](#create-launchdarkly-test-user)** – så att du har en motpart för Britta Simon i LaunchDarkly som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -92,7 +93,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 1. I [Azure Portal](https://portal.azure.com/), på sidan för **LaunchDarkly**-programintegrering, väljer du **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -108,7 +109,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     a. I textrutan **Identifierare** skriver du in en URL: `app.launchdarkly.com`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>`
+    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>`
 
     > [!NOTE]
     > Värdet för svars-URL:en är inte verkligt. Du uppdaterar värdet med den faktiska svars-URL:en, som förklaras senare i självstudiekursen. Om du har för avsikt att använda programmet i **IDP**-läge så behöver du lämna fältet **Inloggnings-URL** tomt annars kommer du inte att kunna initiera inloggningen från **IDP**. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -121,13 +122,13 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
 7. I avsnittet **Konfigurera LaunchDarkly** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
@@ -179,14 +180,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet låter du Britta Simon använda enkel inloggning med Azure genom att bevilja åtkomst till LaunchDarkly.
 
@@ -198,7 +199,7 @@ I det här avsnittet låter du Britta Simon använda enkel inloggning med Azure 
 
     ![LaunchDarkly-länken i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -221,9 +222,9 @@ Målet med det här avsnittet är att skapa en användare som heter Britta Simon
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på LaunchDarkly-panelen i åtkomstpanelen bör du automatiskt loggas in på LaunchDarkly som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på LaunchDarkly-panelen i åtkomstpanelen bör du automatiskt loggas in på LaunchDarkly som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

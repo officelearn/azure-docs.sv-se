@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/24/2019
-ms.openlocfilehash: ba0ee29b48be259bddd898c3d1119b77f6ee5228
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/30/2019
+ms.openlocfilehash: 87e1995a84ae2b598b8097d4910914831a75a318
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932309"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162014"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
 
@@ -22,7 +22,7 @@ ms.locfileid: "72932309"
 
 Den här artikeln beskriver hur du konfigurerar kommunikation med Azure Automation och Azure Monitor med hjälp av Log Analytics gateway när datorer som är direktanslutna eller som övervakas av Operations Manager inte har någon Internet åtkomst. 
 
-Log Analytics Gateway är en HTTP-proxy för vidarebefordran som stöder HTTP-tunnlar med hjälp av HTTP CONNECT-kommandot. Den här gatewayen skickar data till Azure Automation och en Log Analytics arbets yta i Azure Monitor åt datorer som inte kan ansluta direkt till Internet. Den cachelagrar inte data från agenterna, agenten hanterar cachelagring av data i den här situationen tills kommunikationen återställs.
+Log Analytics Gateway är en HTTP-proxy för vidarebefordran som stöder HTTP-tunnlar med hjälp av HTTP CONNECT-kommandot. Den här gatewayen skickar data till Azure Automation och en Log Analytics arbets yta i Azure Monitor åt datorer som inte kan ansluta direkt till Internet. 
 
 Log Analytics Gateway stöder:
 
@@ -33,7 +33,7 @@ Log Analytics Gateway stöder:
 
 Vissa IT-säkerhetsprinciper tillåter inte Internet anslutning för nätverks datorer. Dessa frånkopplade datorer kan vara kassa enheter eller servrar som har stöd för IT-tjänster, till exempel. Om du vill ansluta dessa enheter till Azure Automation eller en Log Analytics arbets yta så att du kan hantera och övervaka dem, konfigurerar du dem för att kommunicera direkt med Log Analytics Gateway. Log Analytics Gateway kan ta emot konfigurations information och vidarebefordra data för deras räkning. Om datorerna har kon figurer ATS med Log Analytics agent för att ansluta direkt till en Log Analytics arbets yta, kommunicerar datorerna i stället med Log Analytics Gateway.  
 
-Log Analytics gatewayen överför data från agenterna till tjänsten direkt. Det går inte att analysera några av de data som överförs.
+Log Analytics gatewayen överför data från agenterna till tjänsten direkt. Det går inte att analysera data under överföringen och gatewayen cachelagrar inte data när den förlorar anslutningen till tjänsten. När gatewayen inte kan kommunicera med tjänsten fortsätter agenten att köras och köar insamlade data från den övervakade datorns disk. När anslutningen har återställts skickar agenten cachelagrade data som samlas in till Azure Monitor.
 
 När en Operations Manager hanterings grupp är integrerad med Log Analytics kan hanterings servrarna konfigureras för att ansluta till Log Analytics Gateway för att ta emot konfigurations information och skicka insamlade data, beroende på vilken lösning du har aktiverat .  Operations Manager agenter skickar data till hanterings servern. Agenter kan till exempel skicka Operations Manager aviseringar, konfigurations bedömnings data, instans utrymmes data och kapacitets data. Andra data med hög volym, till exempel Internet Information Services (IIS)-loggar, prestanda data och säkerhets händelser, skickas direkt till Log Analytics Gateway. 
 
@@ -167,7 +167,7 @@ I följande tabell beskrivs de parametrar som stöds av installations programmet
 Om du vill installera gatewayen i tyst läge och konfigurera den med en angiven proxyadress, port nummer, skriver du följande:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 LicenseAccepted=1 
 ```
 
 Om du använder kommando rads alternativet/Qn döljer installations programmet,/QB, visar installations programmet vid tyst installation.  
@@ -175,7 +175,7 @@ Om du använder kommando rads alternativet/Qn döljer installations programmet,/
 Om du behöver ange autentiseringsuppgifter för att autentisera med proxyservern skriver du följande:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
 Efter installationen kan du bekräfta att inställningarna godkänns (exlcuding användar namn och lösen ord) med hjälp av följande PowerShell-cmdletar:

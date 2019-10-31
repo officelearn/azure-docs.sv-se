@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: 24f27dfde34413d1ac98f795eddc07103d3cbf3c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b809171549a8f3cbbbb6ccad1553608598afa345
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515255"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161711"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3,0: Översätt
 
@@ -153,7 +153,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
       * `text`: en sträng som ger den översatta texten i mål skriptet.
 
-    @No__t_0-objektet tas inte med om transkriberingsspråk inte sker.
+    `transliteration`-objektet tas inte med om transkriberingsspråk inte sker.
 
     * `alignment`: ett objekt med en enskild sträng egenskap med namnet `proj`, som mappar inmatad text till översatt text. Justerings informationen anges bara när parametern för begäran `includeAlignment` är `true`. Justeringen returneras som ett sträng värde av följande format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Kolonet separerar start-och slut index, strecket separerar språken och blank steg separerar orden. Ett ord kan justeras med noll, ett eller flera ord på det andra språket och de justerade orden kan vara icke-sammanhängande. Om ingen justerings information är tillgänglig är justerings elementet tomt. Se [Hämta justerings information](#obtain-alignment-information) för ett exempel och begränsningar.
 
@@ -510,7 +510,7 @@ Om du redan vet vilken översättning du vill använda för ett ord eller en fra
 Den markering som ska tillhandahållas använder följande syntax.
 
 ``` 
-<mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
+<mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 
 Anta till exempel den engelska meningen "ordet WordOMatic är en ord lista." Om du vill behålla ordet _WordOMatic_ i översättningen skickar du begäran:
@@ -525,7 +525,7 @@ Resultatet är:
 [
     {
         "translations":[
-            {"text":"Das Wort "wordomatic" ist ein Wörterbucheintrag.","to":"de"}
+            {"text":"Das Wort \"wordomatic\" ist ein Wörterbucheintrag.","to":"de"}
         ]
     }
 ]

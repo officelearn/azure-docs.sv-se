@@ -38,6 +38,8 @@
       href: spring-cloud-quotas.md
     - name: Förstå mått i Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
+    - name: Förbereda för haveriberedskap
+      href: disaster-recovery.md
 - name: Instruktionsguider
   items:
     - name: 'Så här gör du för att starta, stoppa och ta bort ett Azure Spring Cloud-program'

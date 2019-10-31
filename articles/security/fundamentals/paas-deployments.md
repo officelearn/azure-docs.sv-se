@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ddcf5a1df31b4b36e25b2522ada21deab19fe032
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999048"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159875"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -34,28 +34,14 @@ Den här artikeln innehåller information som hjälper dig att:
 Att [utveckla säkra program på Azure](abstract-develop-secure-apps.md) är en allmän guide för de säkerhets frågor och kontroller som du bör tänka på i varje fas i livs cykeln för program utveckling när du utvecklar program för molnet.
 
 ## <a name="cloud-security-advantages"></a>Fördelar med moln säkerhet
-Det finns säkerhets för delar i molnet. I en lokal miljö har organisationer troligen ouppfyllda ansvar och begränsade resurser som är tillgängliga för att investera i säkerhet, vilket skapar en miljö där angripare kan utnyttja sårbarheter på alla nivåer.
+Det är viktigt att förstå [delningen av ansvaret](shared-responsibility.md) mellan dig och Microsoft. Lokalt, du äger hela stacken, men när du flyttar till molnet kan du överföra vissa ansvars områden till Microsoft.
 
-![Säkerhets fördelarna med moln era](./media/paas-deployments/advantages-of-cloud.png)
+Det finns [säkerhets för delar i molnet](shared-responsibility.md#cloud security advantages). I en lokal miljö har organisationer troligen ouppfyllda ansvar och begränsade resurser som är tillgängliga för att investera i säkerhet, vilket skapar en miljö där angripare kan utnyttja sårbarheter på alla nivåer.
 
 Organisationer kan förbättra sina hot identifierings-och svars tider genom att använda en providers molnbaserade säkerhetsfunktioner och Cloud Intelligence.  Genom att ändra ansvars områden till moln leverantören kan organisationer få mer säkerhets täckning, vilket gör att de kan allokera om säkerhets resurser och budget till andra affärs prioriteringar.
 
-## <a name="division-of-responsibility"></a>Ansvars Division
-Det är viktigt att förstå delningen av ansvaret mellan dig och Microsoft. Lokalt, du äger hela stacken, men när du flyttar till molnet kan du överföra vissa ansvars områden till Microsoft. Följande matris för ansvars områden visar de områden i stacken i en SaaS-, PaaS-och IaaS-distribution som du ansvarar för och Microsoft ansvarar för.
-
-![Ansvars zoner](./media/paas-deployments/responsibility-zones.png)
-
-Du äger dina data och identiteter för alla typer av moln distributioner. Du ansvarar för att skydda säkerheten för dina data och identiteter, lokala resurser och de moln komponenter som du styr (beroende på tjänst typ).
-
-Ansvars områden som alltid behålls av dig, oavsett typ av distribution, är:
-
-- Data
-- Slutpunkter
-- Konto
-- Åtkomst hantering
-
 ## <a name="security-advantages-of-a-paas-cloud-service-model"></a>Säkerhets fördelarna med en PaaS Cloud Service-modell
-Vi använder samma ansvars mat ris för att ta en titt på säkerhets fördelarna med en Azure PaaS-distribution i stället för lokalt.
+Nu ska vi ta en titt på säkerhets fördelarna med en Azure PaaS-distribution kontra lokalt.
 
 ![Säkerhets fördelarna med PaaS](./media/paas-deployments/advantages-of-paas.png)
 
@@ -87,14 +73,14 @@ Principer och mönster för nätverks perimetern har varit tillgängliga i årti
 
 Följande är metod tips för att hantera identitets omkretsen.
 
-**Bästa praxis**: Skydda dina nycklar och autentiseringsuppgifter för att skydda din PaaS-distribution.   
-**Information**: Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i HSM: er (Hardware Security modules). [Azure Key Vault](../../key-vault/key-vault-overview.md) skyddar dina nycklar och hemligheter genom att kryptera autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar, PFX-filer och lösen ord med hjälp av nycklar som skyddas av HSM: er.
+**Bästa praxis**: skydda dina nycklar och autentiseringsuppgifter för att skydda din PaaS-distribution.   
+**Information**: att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i HSM: er (Hardware Security modules). [Azure Key Vault](../../key-vault/key-vault-overview.md) skyddar dina nycklar och hemligheter genom att kryptera autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar, PFX-filer och lösen ord med hjälp av nycklar som skyddas av HSM: er.
 
-**Bästa praxis**: Lägg inte till autentiseringsuppgifter och andra hemligheter i käll koden eller GitHub.   
-**Information**: Det enda som är sämre än att förlora nycklar och autentiseringsuppgifter är att en obehörig part får till gång till dem. Angripare kan dra nytta av bot-teknikerna för att hitta nycklar och hemligheter som lagras i kod databaser, till exempel GitHub. Lägg inte till nyckel och hemligheter i dessa offentliga kod databaser.
+**Bästa praxis**: Ange inte autentiseringsuppgifter och andra hemligheter i käll kod eller GitHub.   
+**Information**: det enda som är sämre än att förlora dina nycklar och autentiseringsuppgifter är att en obehörig part får till gång till dem. Angripare kan dra nytta av bot-teknikerna för att hitta nycklar och hemligheter som lagras i kod databaser, till exempel GitHub. Lägg inte till nyckel och hemligheter i dessa offentliga kod databaser.
 
-**Bästa praxis**: Skydda dina hanterings gränssnitt för virtuella datorer på Hybrid PaaS-och IaaS-tjänster med hjälp av ett hanterings gränssnitt som gör att du kan fjärrhantera de virtuella datorerna direkt.   
-**Information**: Fjärrhanterings protokoll som [SSH](https://en.wikipedia.org/wiki/Secure_Shell)-, [RDP](https://support.microsoft.com/kb/186607)-och [PowerShell-fjärrkommunikation](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet.
+**Bästa praxis**: skydda dina hanterings gränssnitt för virtuella datorer på Hybrid PaaS-och IaaS-tjänster med hjälp av ett hanterings gränssnitt som gör att du kan fjärrhantera de virtuella datorerna direkt.   
+**Information**: fjärrhanterings protokoll som [SSH](https://en.wikipedia.org/wiki/Secure_Shell)-, [RDP](https://support.microsoft.com/kb/186607)-och [PowerShell-fjärrkommunikation](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet.
 
 Använd om möjligt alternativa metoder som att använda virtuella privata nätverk i ett virtuellt Azure-nätverk. Om alternativa metoder inte är tillgängliga kontrollerar du att du använder komplexa lösen fraser och tvåfaktorautentisering (till exempel [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)).
 
@@ -114,31 +100,31 @@ I följande tabell visas kliv-hoten och innehåller några exempel på åtgärde
 
 | Säkerhetshot | Säkerhets egenskap | Potentiella Azure-plattforms begränsningar |
 | --- | --- | --- |
-| Förfalskning | Authentication | Kräv HTTPS-anslutningar. |
+| Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
 | Manipulation | Integritet | Verifiera SSL-certifikat. |
 | Avvislighet | Oavvislig het | Aktivera [övervakning och diagnostik](/azure/architecture/best-practices/monitoring)i Azure. |
 | Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänst certifikat](/rest/api/appservice/certificates). |
-| Denial of Service | Tillgänglighet | Övervaka prestanda mått för potentiella denial-of-service-villkor. Implementera anslutnings filter. |
-| Upphöjning av rättigheter | Authorization | Använd [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
+| Denial of service | Tillgänglighet | Övervaka prestanda mått för potentiella denial-of-service-villkor. Implementera anslutnings filter. |
+| Behörighets höjning | Autentisering | Använd [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
 
 ## <a name="develop-on-azure-app-service"></a>Utveckla på Azure App Service
 [Azure App Service](/azure/app-service/overview) är ett PaaS-erbjudande som gör att du kan skapa webb-och mobilappar för alla plattformar och enheter och ansluta till data var som helst, i molnet eller lokalt. App Service innehåller de webb-och mobil funktioner som tidigare levererades separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. Som en enda integrerad tjänst ger App Service en omfattande uppsättning funktioner för webb-, mobil-och integrations scenarier.
 
 Nedan följer metod tips för hur du använder App Service.
 
-**Bästa praxis**: [Autentisera via Azure Active Directory](/azure/app-service/overview-authentication-authorization).   
-**Information**: App Service tillhandahåller en OAuth 2,0-tjänst för din identitets leverantör. OAuth 2,0 fokuserar på Client Developer enkelhet samtidigt som du tillhandahåller vissa auktoriseringsarkiv för webb program, skriv bords program och mobil telefoner. Azure AD använder OAuth 2,0 för att ge åtkomst till mobil-och webb program.
+**Bästa praxis**: [autentisera via Azure Active Directory](/azure/app-service/overview-authentication-authorization).   
+**Information**: App Service tillhandahåller en OAuth 2,0-tjänst för din identitetsprovider. OAuth 2,0 fokuserar på Client Developer enkelhet samtidigt som du tillhandahåller vissa auktoriseringsarkiv för webb program, skriv bords program och mobil telefoner. Azure AD använder OAuth 2,0 för att ge åtkomst till mobil-och webb program.
 
-**Bästa praxis**: Begränsa åtkomsten baserat på behovet av att känna till och minst behörighets säkerhets principer.   
-**Information**: Det är absolut nödvändigt att begränsa åtkomsten för organisationer som vill tillämpa säkerhets principer för data åtkomst. Du kan använda RBAC för att tilldela behörigheter till användare, grupper och program i ett visst omfång. Mer information om hur du beviljar användare åtkomst till program finns i [Kom igång med åtkomst hantering](/azure/role-based-access-control/overview).
+**Bästa praxis**: begränsa åtkomsten baserat på behovet av att känna till och minsta behörighets säkerhets principer.   
+**Information**: att begränsa åtkomsten är absolut nödvändig för organisationer som vill tillämpa säkerhets principer för data åtkomst. Du kan använda RBAC för att tilldela behörigheter till användare, grupper och program i ett visst omfång. Mer information om hur du beviljar användare åtkomst till program finns i [Kom igång med åtkomst hantering](/azure/role-based-access-control/overview).
 
-**Bästa praxis**: Skydda dina nycklar.   
-**Information**: Azure Key Vault hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och tjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Mer information finns i [Azure Key Vault](/azure/key-vault/key-vault-overview) . Du kan också använda Key Vault för att hantera dina TLS-certifikat med automatisk förnyelse.
+**Bästa praxis**: skydda dina nycklar.   
+**Information**: Azure Key Vault hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och tjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). För extra säkerhet kan du importera eller skapa nycklar i maskinvarusäkerhetsmoduler. Mer information finns i [Azure Key Vault](/azure/key-vault/key-vault-overview) . Du kan också använda Key Vault för att hantera dina TLS-certifikat med automatisk förnyelse.
 
-**Bästa praxis**: Begränsa inkommande käll-IP-adresser.   
+**Bästa praxis**: begränsa inkommande käll-IP-adresser.   
 **Information**: [App Service-miljön](/azure/app-service/environment/intro) har en funktion för integrering av virtuella nätverk som hjälper dig att begränsa inkommande käll-IP-adresser via nätverks säkerhets grupper. Med virtuella nätverk kan du placera Azure-resurser i ett nätverk som inte är Internet och som du styr åtkomsten till. Mer information finns i [integrera din app med ett virtuellt Azure-nätverk](/azure/app-service/web-sites-integrate-with-vnet).
 
-**Bästa praxis**: Övervaka säkerhets status för dina App Services miljöer.   
+**Bästa praxis**: övervaka säkerhets läget för dina app Services miljöer.   
 **Information**: Använd Azure Security Center för att övervaka App Service miljöer. När Security Center identifierar potentiella säkerhets problem skapas [rekommendationer](../../security-center/security-center-virtual-machine-protection.md) som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna.
 
 > [!NOTE]
@@ -167,7 +153,7 @@ Fuzz-test är en metod för att hitta program fel (kod fel) genom att tillhandah
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln fokuserar vi på säkerhets fördelarna med en Azure PaaS-distribution och rekommenderade säkerhets metoder för moln program. Nu ska du läsa rekommendationer för att skydda dina PaaS webb-och mobil lösningar med hjälp av vissa Azure-tjänster. Vi börjar med Azure App Service, Azure SQL Database och Azure SQL Data Warehouse och Azure Storage. När artiklar om rekommenderade metoder för andra Azure-tjänster blir tillgängliga kommer länkar att tillhandahållas i följande lista:
 
-- [Azure App Service](paas-applications-using-app-services.md)
+- [Azure Apptjänst](paas-applications-using-app-services.md)
 - [Azure SQL Database och Azure SQL Data Warehouse](paas-applications-using-sql.md)
 - [Azure Storage](paas-applications-using-storage.md)
 - Azure Cache for Redis
@@ -180,6 +166,4 @@ Se [metod tips och mönster för Azure-säkerhet](best-practices-and-patterns.md
 
 Följande resurser är tillgängliga för att ge mer allmän information om Azure-säkerhet och relaterade Microsoft-tjänster:
 * [Azure Security Team-bloggen](https://blogs.msdn.microsoft.com/azuresecurity/) – för uppdaterad information om det senaste i Azure-säkerhet
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post tillsecure@microsoft.com
-
-
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post till secure@microsoft.com

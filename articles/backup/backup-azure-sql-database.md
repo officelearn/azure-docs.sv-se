@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 202d608e5d994cabd3d7e2e9a0887c8aab75af31
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e5d24c35fd2fafc27f2339af5b1c92875b0138d9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437833"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162211"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -45,20 +45,10 @@ Innan du börjar ska du kontrol lera följande:
 **Support** | **Detaljer**
 --- | ---
 **Distributioner som stöds** | Virtuella SQL Marketplace Azure-datorer och virtuella icke-Marketplace-datorer (manuellt installerat SQL Server) stöds.
-**Geografiska områden som stöds** | Sydöstra Australien (ASE), östra Australien (AE), Australien, centrala (AC), Australien, centrala 2 (AC) <br> Brasilien, södra (BRS)<br> Kanada, centrala (CNC), Kanada, östra (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> Östra USA (EUS), östra USA 2 (EUS2), västra centrala USA (WCUS), västra USA (WUS); Västra USA 2 (WUS 2) norra centrala USA (NCUS) centrala USA (CUS) södra centrala USA (SCUS) <br> Indien, centrala (INC), Indien, södra (moduler), västra Indien <br> Japan, östra (JPE), Japan, väst (JPW) <br> Korea, centrala (KRC), Korea, södra (KRS) <br> Nord Europa (NE), Västeuropa <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW) <br> US Gov, Arizona, US Gov, Virginia, US Gov, Texas, US DoD, centrala, US DoD, östra <br> Tyskland, norra Tyskland, västra centrala <br> Schweiz, norra Schweiz, västra
-**Operativsystem som stöds** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux stöds inte för närvarande.
-**SQL Server-versioner som stöds** | SQL Server 2017 som beskrivs [här](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 och SPS som beskrivs [här](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014 SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
-**.NET-versioner som stöds** | .NET Framework 4.5.2 och senare installerat på den virtuella datorn
-
-### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Stöd för SQL Server 2008 och SQL Server 2008 R2
-
-Azure Backup har nyligen lanserat stöd för [EOS SQL-servrar](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support) – SQL Server 2008 och SQL Server 2008 R2. Lösningen är för närvarande en för hands version för EOS SQL Server och har stöd för följande konfiguration:
-
-1. SQL Server 2008 och SQL Server 2008 R2 som körs på Windows 2008 R2 SP1
-2. .NET Framework 4.5.2 och senare måste installeras på den virtuella datorn
-3. Säkerhets kopiering för FCI och speglade databaser stöds inte
-
-Användarna kommer inte att debiteras för den här funktionen förrän den är allmänt tillgänglig. Alla andra [funktions överväganden och begränsningar](#feature-consideration-and-limitations) gäller även för dessa versioner. Se till att kraven är [uppfyllda](backup-sql-server-database-azure-vms.md#prerequisites) innan du konfigurerar skydd på SQL Server 2008 och 2008 R2.
+**Geografiska områden som stöds** | Sydöstra Australien (ASE), östra Australien (AE), Australien, centrala (AC), Australien, centrala 2 (AC) <br> Brasilien, södra (BRS)<br> Kanada, centrala (CNC), Kanada, östra (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> Östra USA (EUS), östra USA 2 (EUS2), västra centrala USA (WCUS), västra USA (WUS); Västra USA 2 (WUS 2) norra centrala USA (NCUS) centrala USA (CUS) södra centrala USA (SCUS) <br> Indien, centrala (INC), Indien, södra (moduler), västra Indien <br> Japan, östra (JPE), Japan, väst (JPW) <br> Korea, centrala (KRC), Korea, södra (KRS) <br> Nord Europa (NE), Västeuropa <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW) <br> US Gov, Arizona, US Gov, Virginia, US Gov, Texas, US DoD, centrala, US DoD, östra <br> Tyskland, norra Tyskland, västra centrala <br> Schweiz, norra Schweiz, västra <br> Frankrike, centrala <br> Kina, östra, Kina, östra 2, Kina, norra, Kina, norra 2
+**Operativsystem som stöds** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux stöds inte för närvarande.
+**SQL Server-versioner som stöds** | SQL Server 2019, SQL Server 2017 som beskrivs på [sidan Sök produktens livs cykel](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 och SPS enligt beskrivningen på [sidan Sök produkt livs cykel](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
+**.NET-versioner som stöds** | .NET Framework 4.5.2 eller senare installerat på den virtuella datorn
 
 ## <a name="feature-consideration-and-limitations"></a>Funktions överväganden och begränsningar
 

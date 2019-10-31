@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Etablera en Azure Database for MySQL-server med Azure Resource Manager-mallar'
+title: 'Självstudie: etablera en Azure Database for MySQL server med Azure Resource Manager-mall'
 description: Den här självstudien beskriver hur du etablerar och automatiserar Azure Database for MySQL-serverdistributioner med Azure Resource Manager-mallar.
 author: savjani
 ms.author: pariks
@@ -8,14 +8,14 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e4bb7622fe51c0cab4fc45e945e5bb07b1d32f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 69025dd70ffe88c1592cf656e956b3e78a97a5e7
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925844"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163897"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Självstudier: Etablera en Azure Database for MySQL-server med Azure Resource Manager-mallar
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Självstudie: etablera en Azure Database for MySQL server med Azure Resource Manager-mall
 
 [Azure Database for MySQL REST API](https://docs.microsoft.com/rest/api/mysql/) låter DevOps-tekniker automatisera och integrera etablering, konfiguration och drift för hanterade MySQL-servrar och databaser i Azure.  API:et låter dig skapa, uppräkna, hantera och ta bort MySQL-servrar och databaser på Azure Database for MySQL-tjänsten.
 
@@ -26,7 +26,7 @@ I den här självstudien ska du använda Azure Resource Manager-mallar och andra
 > [!div class="checklist"]
 > * Skapa en Azure Database for MySQL-server med VNet-tjänstslutpunkt med en Azure Resource Manager-mall
 > * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) till att skapa en databas
-> * Läsa in exempeldata
+> * Läs in exempeldata
 > * Söka i data
 > * Uppdatera data
 
@@ -87,7 +87,7 @@ I den här begäran är de värden som måste anpassas:
 +   `storageProfile/geoRedundantBackup` – Ange aktiverat/inaktiverat beroende på kraven för geohaveriberedskap.
 +   `sku/tier` – Ange nivån Basic, GeneralPurpose eller MemoryOptimized för distributionen.
 +   `sku/capacity` – Ange vCore-kapacitet. Möjliga värden är 2, 4, 8, 16, 32 eller 64.
-+   `sku/family` -Ange Gen5 om du vill välja maskinvara generation för server-distributionen.
++   `sku/family`-ange Gen5 för att välja maskin varu generering för Server distribution.
 +   `sku/name` – Ange TierPrefix_family_capacity. Till exempel B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Se dokumentationen [prissättningsnivåer](./concepts-pricing-tiers.md) för att se giltiga värden per region och nivå.
 +   `resources/properties/virtualNetworkSubnetId` – Ange Azure-identifieraren för undernätet i det virtuella nätverket där Azure MySQL-servern ska placeras. 
 +   `tags(optional)` – Ange valfria taggar är nyckelvärdepar som du använder för att kategorisera resurser för fakturering osv.
@@ -105,7 +105,7 @@ Du kan använda Azure Cloud Shell i webbläsaren eller installera Azure CLI på 
 
 ```azurecli-interactive
 az login
-az group create -n ExampleResourceGroup  -l “West US2”
+az group create -n ExampleResourceGroup  -l "West US2"
 az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
 ```
 
@@ -174,7 +174,7 @@ CREATE TABLE inventory (
 );
 ```
 
-## <a name="load-data-into-the-tables"></a>Läs in data till tabellerna
+## <a name="load-data-into-the-tables"></a>Läs in data i tabellerna
 Nu när du har en tabell kan du infoga lite data i den. Kör följande fråga i den öppna kommandotolken så at du löser in några datarader.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
@@ -200,11 +200,11 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien fick du lärda dig att:
+I de här självstudierna lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en Azure Database for MySQL-server med VNet-tjänstslutpunkt med en Azure Resource Manager-mall
 > * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) till att skapa en databas
-> * Läsa in exempeldata
+> * Läs in exempeldata
 > * Söka i data
 > * Uppdatera data
 > 

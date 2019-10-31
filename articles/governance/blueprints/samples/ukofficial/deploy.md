@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: ea58ef49aa4d901339bf87343f0eea8eb517011d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1898820276d1906a49a95bc513a6689fce177f7d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299028"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162932"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuera de NHSa skiss exemplen från Storbritannien och Storbritannien
 
@@ -98,8 +98,8 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
 |Skiss initiativ för NHS Storbritannien eller Storbritannien|Principtilldelning |Resurs typer för att granska diagnostikloggar (princip: skiss initiativ för brittisk eller brittisk NHS) |Lista över resurs typer som ska granskas om diagnostisk logg inställning är antecknings aktive rad.  För acceptabla värden, se [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget (princip: \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget (princip: \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i området (princip: \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i området (princip: \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -109,7 +109,7 @@ Nu när du har granskat stegen för att distribuera NHS-skisserna från Storbrit
 > [Officiella och brittiska NHS-ritningar – översikt](./index.md)
 > [UK officiella och UK NHS-ritningar-kontroll mappning](./control-mapping.md)
 
-Ytterligare artiklar om skisser och hur de används:
+Ytterligare artiklar om ritningar och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

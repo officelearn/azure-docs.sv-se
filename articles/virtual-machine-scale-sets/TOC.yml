@@ -125,6 +125,8 @@
     - name: Underhåll och uppdateringar
       href: ../virtual-machines/windows/maintenance-and-updates.md
       maintainContext: true
+    - name: Orkestreringslägen
+      href: orchestration-modes.md
     - name: Disklagring
       items:
         - name: Managed Disks

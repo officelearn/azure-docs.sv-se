@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: e2c061b69771214a770b3b42626d28672bd9fe77
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 22806f497283c1885446eadd5f444dacf3769c12
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297821"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163320"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Distribuera de federala PBMM-skiss exemplen i Kanada
 
@@ -97,14 +97,14 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Linux-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget |En tom matris kan användas för att indikera inga valfria parametrar: `[]` |
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget |En tom matris kan användas för att indikera inga valfria parametrar: `[]` |
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Windows-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Preview @ no__t-1: granska Kanadas federala PBMM kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Log Analytics arbetsyte-ID som virtuella datorer ska konfigureras för |Detta är ID (GUID) för Log Analytics arbets ytan som de virtuella datorerna ska konfigureras för. |
-|\[Preview @ no__t-1: granska Kanadas federala PBMM kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över resurs typer som ska ha diagnostiska loggar aktiverade |Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
-|\[Preview @ no__t-1: granska Kanadas federala PBMM kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Administratörs grupp |Grupp. Exempel: `Administrator; myUser1; myUser2` |
-|\[Preview @ no__t-1: granska Kanadas federala PBMM kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över användare som ska ingå i administratörs gruppen för en virtuell Windows-dator |En semikolonavgränsad lista med medlemmar som ska ingå i den lokala gruppen Administratörer. Exempel: `Administrator; myUser1; myUser2` |
+|\[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Linux-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget |En tom matris kan användas för att indikera inga valfria parametrar: `[]` |
+|\[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget |En tom matris kan användas för att indikera inga valfria parametrar: `[]` |
+|\[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Windows-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[för hands version\]: granska federala PBMM-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Log Analytics arbetsyte-ID som virtuella datorer ska konfigureras för |Detta är ID (GUID) för Log Analytics arbets ytan som de virtuella datorerna ska konfigureras för. |
+|\[för hands version\]: granska federala PBMM-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över resurs typer som ska ha diagnostiska loggar aktiverade |Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[för hands version\]: granska federala PBMM-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Administratörs grupp |Grupp. Exempel: `Administrator; myUser1; myUser2` |
+|\[för hands version\]: granska federala PBMM-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över användare som ska ingå i administratörs gruppen för en virtuell Windows-dator |En semikolonavgränsad lista med medlemmar som ska ingå i den lokala gruppen Administratörer. Exempel: `Administrator; myUser1; myUser2` |
 |Distribuera Avancerat skydd på lagrings konton |Principtilldelning |Verkan |Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md). |
 |Distribuera granskning på SQL-servrar |Principtilldelning |Värdet i dagar för kvarhållningsperioden (0 anger obegränsad kvarhållning) |Retentions dagar (valfritt, _180_ dagar om inget anges) |
 |Distribuera granskning på SQL-servrar |Principtilldelning |Resurs grupp namn för lagrings konto för SQL Server-granskning |Granskning skriver databas händelser till en Gransknings logg i ditt Azure Storage konto (ett lagrings konto skapas i varje region där ett SQL Server skapas som delas av alla servrar i regionen). Viktigt – för att granskningen ska fungera korrekt tar du inte bort eller byter namn på resurs gruppen eller lagrings kontona. |
@@ -119,7 +119,7 @@ Nu när du har granskat stegen för att distribuera Kanadas federala PBMM-exempe
 > [Kanadas federala PBMM-ritningar – översikt](./index.md)
 > [Kanadas federala PBMM-ritningar-kontroll mappning](./control-mapping.md)
 
-Ytterligare artiklar om skisser och hur de används:
+Ytterligare artiklar om ritningar och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

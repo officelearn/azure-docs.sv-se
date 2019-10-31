@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 6f7bb1cfdb36bcaa8545fba8767b20d974c8e073
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 57e8eab6413efa25eb03c48a968ca2b671b8c8d6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968391"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162114"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -25,6 +25,9 @@ Azure Backup använder MARS-agenten för att säkerhetskopiera data från lokala
 - Kör på lokala Windows-datorer så att de kan säkerhetskopiera direkt till ett säkerhets kopierings Recovery Services valv i Azure.
 - Körs på virtuella Windows-datorer så att de kan säkerhetskopiera direkt till ett valv.
 - Kör på Microsoft Azure Backup Server (MABS) eller en System Center Data Protection Manager-Server (DPM). I det här scenariot kan datorer och arbets belastningar säkerhetskopiera till MABS eller till DPM-servern. MARS-agenten säkerhetskopierar sedan servern till ett valv i Azure.
+
+> [!NOTE]
+>Azure Backup stöder inte automatisk justering av klockan för sommar tid (DST). Ändra principen för att säkerställa att sommar tid tas med i beräkningen för att förhindra avvikelse mellan faktisk tid och schemalagd tid för säkerhets kopiering.
 
 Dina säkerhets kopierings alternativ beror på var agenten är installerad. Mer information finns i [Azure Backup-arkitektur med mars-agenten](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Information om MABS och DPM backup-arkitekturen finns i [säkerhetskopiera till DPM eller Mabs](backup-architecture.md#architecture-back-up-to-dpmmabs). Se även [kraven](backup-support-matrix-mabs-dpm.md) för säkerhets kopierings arkitekturen.
 

@@ -68,7 +68,7 @@
       items:
         - name: Tabellmodellering
           href: 'https://docs.microsoft.com/analysis-services/tabular-models/tabular-models-ssas'
-        - name: Distribuera från Visual Studio (SSDT)
+        - name: Distribuera från Visual Studio
           href: analysis-services-deploy.md
         - name: Uppdatera med REST API
           href: analysis-services-async-refresh.md

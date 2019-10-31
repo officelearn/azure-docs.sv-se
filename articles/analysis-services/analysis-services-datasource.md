@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6043d9e18c364073ad1ea46e26335577e0ec3b2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cc47ff50aa7bb6dce58ed83f75f69fb600ad040b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512454"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146938"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data källor som stöds i Azure Analysis Services
 
@@ -97,12 +97,12 @@ När du migrerar en lokal SQL Server Analysis Services tabell modell till Azure 
 
 **Ange en provider**
 
-1. I SSDT > **tabell modell utforskaren** > **data källor**högerklickar du på en anslutning till en data källa och klickar sedan på **Redigera data källa**.
+1. I Visual Studio > **tabell modell utforskaren** > **data källor**, högerklickar du på en anslutning till en data källa och klickar sedan på **Redigera data källa**.
 2. I **Redigera anslutning**klickar du på **Avancerat** för att öppna fönstret avancerade egenskaper.
 3. I **Ange avancerade egenskaper** > -**providers**väljer du lämplig Provider.
 
 ## <a name="impersonation"></a>Personifiering
-I vissa fall kan det vara nödvändigt att ange ett annat konto för personifiering. Personifierings konto kan anges i Visual Studio (SSDT) eller SSMS.
+I vissa fall kan det vara nödvändigt att ange ett annat konto för personifiering. Personifierings konto kan anges i Visual Studio eller SSMS.
 
 För lokala data Källor:
 

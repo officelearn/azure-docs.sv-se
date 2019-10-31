@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Bynder | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Bynder | Microsoft Docs'
 description: Lär dig att konfigurera enkel inloggning mellan Azure Active Directory och Bynder.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 250dbdf2-faf5-48dd-be7c-d54502ef7528
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fbced9c0fae41c747804c488e27a3beebf0bfa7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 456fc2a736b3213a14e5704f89a808c120c45b33
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879646"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158677"
 ---
-# <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Självstudier: Integrera Bynder med Azure Active Directory
+# <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Självstudie: integrera Bynder med Azure Active Directory
 
 I den här självstudien får du lära dig hur du integrerar Bynder med Azure Active Directory (Azure AD). När du integrerar Bynder med Azure AD kan du:
 
@@ -32,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Bynder med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -58,7 +59,7 @@ När du konfigurerar integreringen av Bynder i Azure AD, måste du lägga till B
 1. Välj **Bynder** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 Konfigurera och testa Azure AD SSO med Bynder med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Bynder.
 
@@ -66,8 +67,8 @@ Om du vill konfigurera och testa Azure AD SSO med Bynder, slutför du följande 
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera BYNDER SSO](#configure-bynder-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Bynder-testanvändare](#create-bynder-test-user)** – för att ha en motsvarighet till Britta Simon i Bynder som är länkad till Azure AD-representationen av användaren.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -85,7 +86,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<company name>.getbynder.com`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<company name>.getbynder.com/sso/SAML/authenticate/`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -96,7 +97,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Bynder-programmet förväntar sig SAML-intyg i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
 1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
@@ -106,13 +107,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     1. Välj **källattribut** för **grupp-ID**.
 
-    1. Klicka på **Spara**.
+    1. Klicka på **Save** (Spara).
 
-        ![image](./media/bynder-tutorial/config08.png)
+        ![mallar](./media/bynder-tutorial/config08.png)
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **metadata-XML** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 1. I avsnittet **Konfigurera Bynder** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -120,21 +121,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 ### <a name="configure-bynder-sso"></a>Konfigurera Bynder SSO
 
-Om du vill konfigurera enkel inloggning på **Bynder** sida måste du skicka den hämtade **metadata-XML** och lämpliga kopierade url: er från Azure Portal till [support teamet för Bynder](https://www.bynder.com/en/support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Bynder** sida måste du skicka den hämtade **metadata-XML** och lämpliga kopierade url: er från Azure Portal till [support teamet för Bynder](https://www.bynder.com/en/support/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Bynder.
 
@@ -142,7 +143,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan med program väljer du **Bynder**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -161,9 +162,9 @@ I det här avsnittet skapas en användare som heter Britta Simon i Bynder. Bynde
 
 ### <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Bynder-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Bynder som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Bynder-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Bynder som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

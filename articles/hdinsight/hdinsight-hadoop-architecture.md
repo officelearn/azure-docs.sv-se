@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.openlocfilehash: 3767ea10d777a0ea7ad88a2ffa4793e866ffbe6c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 10/28/2019
+ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091472"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162891"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Apache Hadoop-arkitektur i HDInsight
 
@@ -24,20 +24,20 @@ ms.locfileid: "71091472"
 
 I den här artikeln introduceras garn och hur det koordinerar körningen av program i HDInsight.
 
-## <a name="apache-hadoop-yarn-basics"></a>Grunderna för Apache Hadoop garn 
+## <a name="apache-hadoop-yarn-basics"></a>Grunderna för Apache Hadoop garn
 
-GARN styr och dirigerar data bearbetning i Hadoop. GARN har två kärn tjänster som körs som processer på noder i klustret: 
+GARN styr och dirigerar data bearbetning i Hadoop. GARN har två kärn tjänster som körs som processer på noder i klustret:
 
-* ResourceManager 
+* Hanteraren
 * NodeManager
 
-Resurs hanteraren ger kluster beräknings resurser till program som MapReduce-jobb. Resurs hanteraren beviljar dessa resurser som behållare, där varje behållare består av en allokering av processor kärnor och RAM-minne. Om du kombinerar alla resurser som är tillgängliga i ett kluster och sedan distribuerar kärnor och minne i block, är varje resurs block en behållare. Varje nod i klustret har en kapacitet för ett visst antal behållare, och därför har klustret en fast gräns för antalet behållare som är tillgängliga. Tilldelningen av resurser i en behållare kan konfigureras. 
+Resurs hanteraren ger kluster beräknings resurser till program som MapReduce-jobb. Resurs hanteraren beviljar dessa resurser som behållare, där varje behållare består av en allokering av processor kärnor och RAM-minne. Om du kombinerar alla resurser som är tillgängliga i ett kluster och sedan distribuerar kärnor och minne i block, är varje resurs block en behållare. Varje nod i klustret har en kapacitet för ett visst antal behållare, och därför har klustret en fast gräns för antalet behållare som är tillgängliga. Tilldelningen av resurser i en behållare kan konfigureras.
 
-När ett MapReduce-program körs i ett kluster, tillhandahåller ResourceManager programmet de behållare som ska köras. ResourceManager spårar statusen för program som körs, tillgänglig kluster kapacitet och spårar program när de är klara och släpper ut resurserna. 
+När ett MapReduce-program körs i ett kluster, tillhandahåller ResourceManager programmet de behållare som ska köras. ResourceManager spårar statusen för program som körs, tillgänglig kluster kapacitet och spårar program när de är klara och släpper ut resurserna.
 
 ResourceManager kör också en webb Server process som tillhandahåller ett webb användar gränssnitt för att övervaka program status.
 
-När en användare skickar ett MapReduce-program för att köras i klustret skickas programmet till ResourceManager. I sin tur allokerar ResourceManager en behållare på tillgängliga NodeManager-noder. NodeManager-noderna är där programmet faktiskt körs. Den första behållaren som tilldelas kör ett särskilt program som kallas ApplicationMaster. Den här ApplicationMaster ansvarar för att förvärva resurser i form av efterföljande behållare som behövs för att köra programmet som skickas. ApplicationMaster undersöker programmets stadier, till exempel kart steget och minskar fasen, samt faktorer i hur mycket data som behöver bearbetas. ApplicationMaster begär sedan (*förhandlar*) resurserna från ResourceManager för programmets räkning. Resurs hanteraren i ger sin tur till gång till resurser från) Nodemanagers i klustret till ApplicationMaster som används för att köra programmet. 
+När en användare skickar ett MapReduce-program för att köras i klustret skickas programmet till ResourceManager. I sin tur allokerar ResourceManager en behållare på tillgängliga NodeManager-noder. NodeManager-noderna är där programmet faktiskt körs. Den första behållaren som tilldelas kör ett särskilt program som kallas ApplicationMaster. Den här ApplicationMaster ansvarar för att förvärva resurser i form av efterföljande behållare som behövs för att köra programmet som skickas. ApplicationMaster undersöker programmets stadier, till exempel kart steget och minskar fasen, samt faktorer i hur mycket data som behöver bearbetas. ApplicationMaster begär sedan (*förhandlar*) resurserna från ResourceManager för programmets räkning. Resurs hanteraren i ger sin tur till gång till resurser från) Nodemanagers i klustret till ApplicationMaster som används för att köra programmet.
 
 ) Nodemanagers kör de uppgifter som utgör programmet och rapporterar sedan deras förlopp och status tillbaka till ApplicationMaster. ApplicationMaster i sin tur rapporterar status för programmet tillbaka till ResourceManager. ResourceManager returnerar alla resultat till klienten.
 

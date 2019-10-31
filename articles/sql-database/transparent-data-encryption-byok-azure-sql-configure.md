@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: f191a9f589f54bdd657c017060f501b176a8647d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: beeb5fa4f979ac457db8a779dd8f8f2e94ef87f5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596715"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163849"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 
@@ -89,7 +89,7 @@ Använd cmdleten [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set
 > 
 
 >[!Tip]
->Ett exempel på en KeyId från Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>Ett exempel på KeyId från Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
 >
 
    ```powershell
@@ -153,7 +153,7 @@ Använd [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/g
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -DatabaseName <DatabaseName> `
-   -State "Disabled”
+   -State "Disabled"
    ```
  
 - Använd cmdleten [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) för att returnera listan över Key Vault nycklar som har lagts till på servern.
@@ -175,7 +175,7 @@ Använd [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/g
    -ResourceGroupName <SQLDatabaseResourceGroupName>   
    ```
  
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Kontrol lera följande om ett problem inträffar:
 - Om nyckel valvet inte hittas kontrollerar du att du har rätt prenumeration med hjälp av cmdleten [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) .
@@ -187,12 +187,12 @@ Kontrol lera följande om ett problem inträffar:
 
 - Om den nya nyckeln inte kan läggas till på servern, eller om den nya nyckeln inte kan uppdateras som TDE-skydd, kontrollerar du följande:
    - Nyckeln ska inte ha ett utgångs datum
-   - Nyckeln måste ha de *Get*-, *wrap*-och unwrap-nycklar som är aktiverade.
+   - Nyckeln måste ha de *Get*-, *wrap*-och *unwrap* -nycklar som är aktiverade.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du roterar TDE-skyddet för en server för att uppfylla säkerhets kraven: [Rotera Transparent datakryptering-skydd med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
-- I händelse av en säkerhets risk lär du dig hur du tar bort ett potentiellt komprometterat TDE-skydd: [Ta bort en potentiellt komprometterad nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
+- Lär dig hur du roterar TDE-skyddet för en server för att uppfylla säkerhets kraven: [rotera Transparent datakryptering-skyddet med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- I händelse av en säkerhets risk lär du dig hur du tar bort ett potentiellt komprometterat TDE-skydd: [ta bort en potentiellt komprometterad nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
 
 ## <a name="prerequisites-for-cli"></a>Krav för CLI
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cf384f29bcc82c80c94e1408f535c592b8b728cb
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 89fa06dda418f328b3bc07aada49aa347e35220a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285727"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182290"
 ---
 ## <a name="rootcert"></a>Skapa ett självsignerat rot certifikat
 
@@ -58,7 +58,7 @@ Använd följande steg om du skapar ytterligare klient certifikat eller inte anv
 1. Identifiera det självsignerade rot certifikatet som är installerat på datorn. Den här cmdleten returnerar en lista över certifikat som är installerade på datorn.
 
    ```powershell
-   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
 2. Leta upp ämnes namnet i den returnerade listan och kopiera sedan det tumavtryck som finns bredvid den till en textfil. I följande exempel finns det två certifikat. CN-namnet är namnet på det självsignerade rot certifikat som du vill skapa ett underordnat certifikat från. I det här fallet "P2SRootCert".
 

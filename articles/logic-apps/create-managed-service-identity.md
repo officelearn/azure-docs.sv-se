@@ -9,16 +9,16 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: fdc5340c9affa7137815577af842aa8b43a552a8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2d1dbde2499dbe793a895f894e5ae83c36c54449
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799629"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200623"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps
 
-För att få åtkomst till resurser i andra Azure Active Directory (Azure AD)-klienter och autentisera din identitet utan att logga in, kan din Logic app använda den systemtilldelade [hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md) (tidigare kallat HANTERAD TJÄNSTIDENTITET eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter. Den här artikeln visar hur du konfigurerar och använder den systemtilldelade hanterade identiteten i din Logic app.
+För att få åtkomst till resurser i andra Azure Active Directory (Azure AD)-klienter och autentisera din identitet utan att logga in, kan din Logic app använda den systemtilldelade [hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md) (tidigare kallat HANTERAD TJÄNSTIDENTITET eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter. Den här artikeln visar hur du konfigurerar och använder den systemtilldelade hanterade identiteten i din Logic app. För närvarande fungerar hanterade identiteter enbart med [vissa inbyggda utlösare och åtgärder](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls), inte hanterade anslutningar eller anslutningar.
 
 Mer information finns i följande avsnitt:
 
@@ -155,7 +155,7 @@ När du har konfigurerat en hanterad identitet för din Logic-app kan du [ge den
 
 ## <a name="authenticate-access-with-managed-identity"></a>Autentisera åtkomst med hanterad identitet
 
-När du har [aktiverat den hanterade identiteten för din Logic app](#azure-portal-system-logic-app) och [ger den identitets åtkomst till mål resursen](#access-other-resources), kan du använda den identiteten i [utlösare och åtgärder som stöder hanterade identiteter](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+När du har [aktiverat den hanterade identiteten för din Logic app](#azure-portal-system-logic-app) och [ger den identitets åtkomst till mål resursen eller entiteten](#access-other-resources)kan du använda identiteten i [utlösare och åtgärder som stöder hanterade identiteter](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 > [!IMPORTANT]
 > Om du har en Azure-funktion där du vill använda den systemtilldelade identiteten aktiverar du först [autentisering för Azure Functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
@@ -164,27 +164,34 @@ De här stegen visar hur du använder den hanterade identiteten med en utlösare
 
 1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-1. Om du inte har gjort det lägger du till utlösaren eller åtgärden [som har stöd för hanterade identiteter](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+1. Om du inte har gjort det lägger du till [utlösaren eller åtgärden som har stöd för hanterade identiteter](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
-   Anta till exempel att du vill köra [ögonblicks bilds-bloben](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) på en Blob i Azure Storage-kontot där du tidigare har konfigurerat åtkomst till din identitet, men [Azure Blob Storage-anslutningen](/connectors/azureblob/) har för närvarande inte den här åtgärden. I stället kan du använda [http-åtgärden](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) för att köra åtgärden eller någon annan [BLOB service REST API åtgärder](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs). För autentisering kan HTTP-åtgärden använda den systemtilldelade identitet som du har aktiverat för din Logic app. HTTP-åtgärden använder också dessa egenskaper för att ange den resurs som du vill få åtkomst till:
+   HTTP-utlösaren eller åtgärden kan till exempel använda den systemtilldelade identitet som du har aktiverat för din Logic app. I allmänhet använder HTTP-utlösaren eller åtgärden dessa egenskaper för att ange den resurs eller entitet som du vill få åtkomst till:
 
-   * **URI** -egenskapen anger slut punkts-URL: en för att komma åt Azure-resursen. Denna URI-syntax innehåller vanligt vis [resurs-ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) för Azure-resursen eller-tjänsten.
+   | Egenskap | Krävs | Beskrivning |
+   |----------|----------|-------------|
+   | **Metod** | Ja | HTTP-metoden som används av den åtgärd som du vill köra |
+   | **URI** | Ja | Slut punkts-URL för åtkomst till Azure-resursen eller-entiteten. URI-syntaxen innehåller vanligt vis [resurs-ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) för Azure-resursen eller-tjänsten. |
+   | **Headers** | Nej | Eventuella rubrik värden som du behöver eller vill inkludera i den utgående begäran, till exempel innehålls typen |
+   | **Frågor** | Nej | Alla frågeparametrar som du behöver eller vill inkludera i begäran, till exempel parametern för en åtgärd eller API-versionen för den åtgärd som du vill köra |
+   | **Autentisering** | Ja | Autentiseringstypen som används för att autentisera åtkomsten till mål resursen eller entiteten |
+   ||||
 
-   * Egenskapen **headers** anger eventuella rubrik värden som du behöver eller vill inkludera i begäran, till exempel API-versionen för den åtgärd som du vill köra på mål resursen.
+   Som ett särskilt exempel förutsätter vi att du vill köra [ögonblicks bilds-bloben](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) på en BLOB i det Azure Storage konto där du tidigare har konfigurerat åtkomst till din identitet. Men [Azure Blob Storage-anslutningen](https://docs.microsoft.com/connectors/azureblob/) har för närvarande inte den här åtgärden. I stället kan du köra den här åtgärden med hjälp av [http-åtgärden](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) eller någon annan [REST API åtgärd för BLOB service](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs).
 
-   * Egenskapen **frågor** anger alla frågeparametrar som du behöver ta med i begäran, till exempel parametern för en enskild åtgärd eller en speciell API-version vid behov.
+   > [!IMPORTANT]
+   > Om du vill komma åt Azure Storage-konton bakom brand väggar genom att använda HTTP-förfrågningar och hanterade identiteter, kontrollerar du att du även konfigurerar ditt lagrings konto med [undantaget som ger åtkomst av betrodda Microsoft-tjänster](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
 
    För att köra [ögonblicks bildens BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)-åtgärd anger http-åtgärden följande egenskaper:
 
-   * **Metod**: anger `PUT` åtgärden.
-
-   * **URI**: anger resurs-ID för en Azure Blob Storage-fil i Azure Global (offentlig) miljö och använder den här syntaxen:
-
-     `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}`
-
-   * **Huvuden**: anger `x-ms-blob-type` som `BlockBlob` och `x-ms-version` som `2019-02-02` för BLOB-åtgärden för ögonblicks bilder. Mer information finns i [begärandehuvuden – ögonblicks bilds-BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) och [versions hantering för Azure Storage Services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services).
-
-   * **Frågor**: anger `comp` som parameter namn och `snapshot` som parameter värde.
+   | Egenskap | Krävs | Exempelvärde | Beskrivning |
+   |----------|----------|---------------|-------------|
+   | **Metod** | Ja | `PUT`| HTTP-metoden som ögonblicks bildens BLOB-åtgärd använder |
+   | **URI** | Ja | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | Resurs-ID för en Azure Blob Storage-fil i den globala Azure-miljön (offentlig) som använder den här syntaxen |
+   | **Headers** | Ja, för Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | De `x-ms-blob-type`-och `x-ms-version` rubrik värden som krävs för Azure Storage åtgärder. <p><p>**Viktigt**: i utgående http-utlösare och åtgärds begär anden för Azure Storage, kräver huvudet `x-ms-version`-egenskapen och API-versionen för den åtgärd som du vill köra. <p>Mer information finns i följande avsnitt: <p><p>- begärandehuvuden [– ögonblicks bilds-BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [versions hantering för Azure Storage tjänster](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Frågor** | Ja, för den här åtgärden | `comp` = `snapshot` | Frågeparametern och värdet för ögonblicks bildens BLOB-åtgärd. |
+   | **Autentisering** | Ja | `Managed Identity` | Autentiseringstypen som används för att autentisera åtkomsten till Azure-blobben |
+   |||||
 
    Här är exempel på HTTP-åtgärd som visar alla dessa egenskaps värden:
 

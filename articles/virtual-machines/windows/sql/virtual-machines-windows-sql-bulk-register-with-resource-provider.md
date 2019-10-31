@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b9d4b99447e7c814d737def54dce03c4acc0e5ca
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 80a1ac3ebe5f49d6a63f47e08e0b16114d75e91f
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172974"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199215"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Mass registrering av virtuella SQL-datorer i Azure med providern för SQL VM-resurs
 
@@ -37,6 +37,7 @@ Du behöver följande för att kunna registrera SQL Server VM med resurs leveran
 - En [Azure-prenumeration](https://azure.microsoft.com/free/) som har [registrerats med resurs leverantören](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp) och innehåller oregistrerade SQL Server virtuella datorer. 
 - De klientautentiseringsuppgifter som används för att registrera de virtuella datorerna finns i någon av följande RBAC-roller: **virtuell dator**, **deltagare**eller **ägare**. 
 - Den senaste versionen av [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
+- Den senaste versionen av [AZ. SqlVirtualMachine] (https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -228,6 +229,7 @@ Tänk på följande när du registrerar SQL Server virtuella datorer med resurs 
 
 Det fullständiga skriptet på GitHub finns i [Mass registrering av SQL-VM: ar med AZ PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
+Kopiera det fullständiga skriptet och spara det som `RegisterSqLVMs.psm1`.
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 

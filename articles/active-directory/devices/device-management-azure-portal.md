@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60f38b60b5fbf0166f25c423663d157cf8f13ee2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b1b44a7df499dc0b6ce4370bf74ece35c99a4493
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860901"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200239"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhets identiteter med hjälp av Azure Portal
 
@@ -34,11 +34,11 @@ Azure AD-portalen ger dig en central plats för att hantera dina enhets identite
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
 2. Klicka på **Active Directory**i det vänstra navigerings fältet.
 
-   ![Konfigurera enhetsinställningar](./media/device-management-azure-portal/01.png)
+   ![Konfigurera enhets inställningar](./media/device-management-azure-portal/01.png)
 
 3. I avsnittet **Hantera** klickar du på **enheter**.
 
-   ![Konfigurera enhetsinställningar](./media/device-management-azure-portal/74.png)
+   ![Konfigurera enhets inställningar](./media/device-management-azure-portal/74.png)
 
 På sidan **enheter** kan du:
 
@@ -47,11 +47,11 @@ På sidan **enheter** kan du:
 - Utföra hanterings uppgifter för enhets identitet
 - Granska enhets relaterade gransknings loggar  
   
-## <a name="configure-device-settings"></a>Konfigurera enhetsinställningar
+## <a name="configure-device-settings"></a>Konfigurera enhets inställningar
 
 Om du vill hantera enhets identiteter med Azure AD-portalen måste enheterna antingen vara [registrerade eller anslutna](overview.md) till Azure AD. Som administratör kan du finjustera processen för att registrera och ansluta enheter genom att konfigurera enhets inställningarna.
 
-![Konfigurera enhetsinställningar](./media/device-management-azure-portal/22.png)
+![Konfigurera enhets inställningar](./media/device-management-azure-portal/22.png)
 
 På sidan enhets inställningar kan du konfigurera:
 
@@ -136,6 +136,7 @@ Om du vill aktivera/inaktivera en enhet har du två alternativ:
 
 - Du måste vara global administratör eller en moln enhets administratör i Azure AD för att aktivera/inaktivera en enhet. 
 - Inaktive ring av en enhet förhindrar att en enhet autentiseras med Azure AD, vilket hindrar enheten från att komma åt dina Azure AD-resurser som skyddas av enhets certifikat utfärdare eller med dina WH4B-autentiseringsuppgifter.
+- Om du inaktiverar enheten återkallas både den primära uppdateringstoken (PRT) och eventuella uppdateringstoken (RT) på enheten.
 
 ### <a name="delete-an-azure-ad-device"></a>Ta bort en Azure AD-enhet
 
@@ -173,12 +174,12 @@ Du kan visa och kopiera BitLocker-nycklar för att hjälpa användarna att åter
 
 Om du vill visa eller kopiera BitLocker-nycklarna måste du antingen vara ägare till enheten eller en användare som har minst en av följande roller tilldelade:
 
-- Molnenhetsadministratör
+- Moln enhets administratör
 - Global administratör
-- Supportavdelningsadministratör
+- Support administratör
 - Administratör för Intune-tjänsten
-- Säkerhetsadministratör
-- Säkerhetsläsare
+- Säkerhets administratör
+- Säkerhets läsare
 
 > [!NOTE]
 > Hybrid Azure AD-anslutna Windows 10-enheter har inte någon ägare. Så om du söker efter en enhet efter ägare och inte har hittat den, kan du söka efter enhets-ID.
@@ -210,11 +211,11 @@ Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
 Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera granskningsdata med hjälp av följande fält:
 
-- Category
+- Kategori
 - Resurstyp för aktivitet
 - Aktivitet
 - Datumintervall
-- Mål
+- Målinrikta
 - Initierad av (aktör)
 
 Förutom filtren kan du söka efter vissa poster.

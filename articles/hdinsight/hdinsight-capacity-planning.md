@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529163"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200600"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitets planering för HDInsight-kluster
 
@@ -68,13 +68,7 @@ Varje kluster typ har en uppsättning nodtyper och varje nodtyp har olika altern
 
 För att fastställa den optimala kluster storleken för ditt program kan du öka kluster kapaciteten och öka storleken enligt vad som anges. Du kan till exempel använda en simulerad arbets belastning eller en *Kanarie-fråga*. Med en simulerad arbets belastning kan du köra dina förväntade arbets belastningar i olika storleks kluster, vilket ökar storleken gradvis tills önskade prestanda uppnås. En Kanarie-fråga kan infogas med jämna mellanrum bland de andra produktions frågorna för att visa om klustret har tillräckligt med resurser.
 
-VM-storlek och-typ bestäms av processor processor kraft, RAM-storlek och nätverks fördröjning:
-
-* CPU: storleken på den virtuella datorn avgör antalet kärnor. Fler kärnor, desto högre grad av parallell beräkning som varje nod kan uppnå. Vissa VM-typer har dessutom snabbare kärnor.
-
-* RAM: den virtuella datorns storlek avgör också mängden tillgängligt RAM-minne på den virtuella datorn. För arbets belastningar som lagrar data i minnet för bearbetning, i stället för att läsa från disk, se till att arbetsnoderna har tillräckligt med minne för att passa data.
-
-* Nätverk: för de flesta kluster typer finns inte de data som bearbetas av klustret på en lokal disk, utan i stället i en extern lagrings tjänst som Data Lake Storage eller Azure Storage. Överväg nätverks bandbredden och data flödet mellan den virtuella noden och lagrings tjänsten. Nätverks bandbredden som är tillgänglig för en virtuell dator ökar vanligt vis med större storlekar. Mer information finns i [Översikt över VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Mer information om hur du väljer rätt VM-familj för din arbets belastning finns i [välja rätt VM-storlek för klustret](hdinsight-selecting-vm-size.md).
 
 ## <a name="choose-the-cluster-scale"></a>Välj kluster skala
 
@@ -104,10 +98,11 @@ När du har fastställt storlek, skalning och typ för mål klustret, kontroller
 1. Välj **Hjälp + Support** längst ned till vänster på sidan.
 1. Välj **Ny supportbegäran**.
 1. På sidan **ny supportbegäran** , under fliken **grundläggande** , väljer du följande alternativ:
+
    - **Typ av problem**: **begränsningar för tjänsten och prenumerationen (kvoter)**
    - **Prenumeration**: den prenumeration du vill ändra
    - **Typ av kvot**: **HDInsight**
-    
+
      ![Skapa en support förfrågan för att öka HDInsight Core-kvoten](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Välj **Nästa: lösningar > >** .

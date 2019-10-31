@@ -379,7 +379,11 @@
         - name: Hög tillgänglighet
           href: manage-availability.md
         - name: Skapa en närhetsplaceringsgrupp
-          href: proximity-placement-groups.md
+          items:
+            - name: CLI
+              href: proximity-placement-groups.md
+            - name: Portalen
+              href: ../windows/proximity-placement-groups-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Skapa virtuell dator i tillgänglighetszon
           href: create-cli-availability-zone.md
     - name: Använda automatiseringsverktyg

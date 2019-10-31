@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391799"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182293"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -140,7 +140,7 @@ En IO-begäran är en enhet med in-/utdata-åtgärd som programmet kommer att ut
 I/o-storlek är en av de viktiga faktorerna. I/o-storleken är storleken på begäran om indata/utdata som genererats av ditt program. I/o-storleken har en betydande inverkan på prestanda, särskilt på den IOPS och bandbredd som programmet kan uppnå. Följande formel visar förhållandet mellan IOPS, IO-storlek och bandbredd/data flöde.  
     ![](media/premium-storage-performance/image1.png)
 
-I vissa program kan du ändra deras IO-storlek, medan vissa program inte gör det. SQL Server bestämmer till exempel den optimala i/o-storleken och ger inte användare med någon ratt att ändra den. Å andra sidan tillhandahåller Oracle en parameter med namnet [db @ no__t-1BLOCK @ no__t-2SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) som du kan använda för att konfigurera storleken på i/O-begäran för databasen.
+I vissa program kan du ändra deras IO-storlek, medan vissa program inte gör det. SQL Server bestämmer till exempel den optimala i/o-storleken och ger inte användare med någon ratt att ändra den. Å andra sidan tillhandahåller Oracle en parameter med namnet [DB\_BLOCK\_storlek](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) som du kan använda för att konfigurera i/O-begäranden för databasen.
 
 Om du använder ett program, som inte tillåter att du ändrar i/o-storlek, använder du rikt linjerna i den här artikeln för att optimera prestanda-KPI: n som är mest relevant för ditt program. Exempel:
 
@@ -189,15 +189,15 @@ Anta till exempel att ett program krav är högst 4 000 IOPS. För att åstadkom
 *Drifts kostnader*  
 I många fall är det möjligt att den totala kostnaden för åtgärden med Premium Storage är lägre än att använda standard lagring.
 
-Överväg till exempel ett program som kräver 16 000 IOPS. För att uppnå den här prestandan behöver du en standard @ no__t-0D14 Azure IaaS VM, som kan ge en maximal IOPS på 16 000 med 32 standard lagring 1 TB diskar. Varje 1 – TB standard lagrings disk kan uppnå högst 500 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 570. Månads kostnaden för 32 standard lagrings diskar är $1 638. Den uppskattade totala månads kostnaden blir $3 208.
+Överväg till exempel ett program som kräver 16 000 IOPS. För att uppnå den här prestandan behöver du en standard\_D14 Azure IaaS VM, som kan ge en maximal IOPS på 16 000 med 32 standard lagring 1 TB diskar. Varje 1 – TB standard lagrings disk kan uppnå högst 500 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 570. Månads kostnaden för 32 standard lagrings diskar är $1 638. Den uppskattade totala månads kostnaden blir $3 208.
 
-Men om du har samma program på Premium Storage behöver du en mindre VM-storlek och färre Premium Storage-diskar, vilket minskar den totala kostnaden. En standard @ no__t-0DS13 VM kan uppfylla 16 000 IOPS-kravet med fyra P30-diskar. Den virtuella datorn DS13 har en maximal IOPS på 25 600 och varje P30-disk har maximalt IOPS på 5 000. Som helhet kan den här konfigurationen uppnå 5 000 x 4 = 20 000 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 003. Månads kostnaden för fyra P30 Premium Storage-diskar är $544,34. Den uppskattade totala månads kostnaden blir $1 544.
+Men om du har samma program på Premium Storage behöver du en mindre VM-storlek och färre Premium Storage-diskar, vilket minskar den totala kostnaden. En standard-\_DS13 VM kan uppfylla 16 000 IOPS-kravet med fyra P30-diskar. Den virtuella datorn DS13 har en maximal IOPS på 25 600 och varje P30-disk har maximalt IOPS på 5 000. Som helhet kan den här konfigurationen uppnå 5 000 x 4 = 20 000 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 003. Månads kostnaden för fyra P30 Premium Storage-diskar är $544,34. Den uppskattade totala månads kostnaden blir $1 544.
 
 I tabellen nedan sammanfattas kostnads nedbrytningen för det här scenariot för standard och Premium Storage.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Kostnad för virtuell dator per månad** |$1 570,58 (standard @ no__t-0D14) |$1 003,66 (standard @ no__t-0DS13) |
+| **Kostnad för virtuell dator per månad** |$1 570,58 (standard\_D14) |$1 003,66 (standard\_DS13) |
 | **Kostnad för diskar per månad** |$1 638,40 (32 x 1 – TB diskar) |$544,34 (4 x P30 diskar) |
 | **Total kostnad per månad** |$3 208,98 |$1 544,34 |
 
@@ -298,12 +298,12 @@ Vissa av versionerna kräver de senaste Linux Integration Services (LIS), v 4.0,
 | SUSE | SLES 12 eller senare| 3.12.36-38.1 + | SUSE-SLES-12-Priority-v20150213 <br> SUSE-SLES – 12-v20150213 |
 | SUSE | SLES 11 SP4 eller senare| 3.0.101-0.63.1 + | &nbsp; |
 | CoreOS | 584.0.0 + eller senare| 3.18.4 + | 584.0.0 för kärnor |
-| CentOS | 6,5, 6,6, 6,7, 7,0 eller senare| &nbsp; | [LIS4 krävs](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se Obs! i nästa avsnitt* |
-| CentOS | 7.1 + eller senare| 3.10.0-229.1.2. el7 + | [LIS4 rekommenderas](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se Obs! i nästa avsnitt* |
+| CentOS | 6,5, 6,6, 6,7, 7,0 eller senare| &nbsp; | [LIS4 krävs](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Se Obs! i nästa avsnitt* |
+| CentOS | 7.1 + eller senare| 3.10.0-229.1.2. el7 + | [LIS4 rekommenderas](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Se Obs! i nästa avsnitt* |
 | Red Hat Enterprise Linux (RHEL) | 6,8 +, 7.2 + eller senare | &nbsp; | &nbsp; |
 | Oracle | 6.0 +, 7.2 + eller senare | &nbsp; | UEK4 eller RHCK |
-| Oracle | 7.0 – 7.1 eller senare | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6,7 eller senare | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0 – 7.1 eller senare | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 6.4-6,7 eller senare | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://www.microsoft.com/download/details.aspx?id=51612) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>LIS-drivrutiner för OpenLogic-CentOS
 

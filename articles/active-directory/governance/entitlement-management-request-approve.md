@@ -16,12 +16,12 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf254f06c14afa7ee32f27d6632ab33665cf31c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 3eb7960d58723d6fdd165841baea3416d5a84348
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173455"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199795"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Godkänn eller neka åtkomst begär anden i hantering av Azure AD-rättigheter
 
@@ -35,7 +35,7 @@ Det första steget för att godkänna eller neka åtkomst begär Anden är att h
 
 1. Sök efter ett e-postmeddelande från Microsoft Azure som ber dig godkänna eller neka en begäran. Här är ett exempel på ett e-postmeddelande:
 
-    ![Godkänn begäran om åtkomst till paket e-post](./media/entitlement-management-shared/email-approve-request.png)
+    ![Godkänn begäran om åtkomst till paket e-post](./media/entitlement-management-shared/approver-request-email.png)
 
 1. Klicka på länken **Godkänn eller neka begäran** för att öppna åtkomstbegäran.
 

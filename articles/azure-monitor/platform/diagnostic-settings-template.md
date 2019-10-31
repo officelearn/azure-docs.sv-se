@@ -1,5 +1,5 @@
 ---
-title: Skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall | Microsoft Docs
+title: Skapa diagnostisk inställning i Azure med Resource Manager-mall
 description: Skapa diagnostiska inställningar med en Resource Manager-mall för att vidarebefordra Azure-plattforms loggar till Azure Monitor loggar, Azure Storage eller Azure Event Hubs.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0cb4cee732b1784de489d97769294c455cfd5efd
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597292"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200485"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall
 [Plattforms loggar](platform-logs-overview.md) i Azure ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. Den här artikeln innehåller information om hur du använder en [Azure Resource Manager mall](../../azure-resource-manager/resource-group-authoring-templates.md) för att konfigurera diagnostikinställningar för att samla in plattforms loggar till olika mål. På så sätt kan du automatiskt börja samla in plattforms loggar när en resurs skapas.

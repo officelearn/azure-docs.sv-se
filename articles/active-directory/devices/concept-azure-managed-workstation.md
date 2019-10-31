@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00e5e4a9751a03fe961fe02fec28f41b49e5ba43
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175154"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200214"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Förstå säkra, Azure-hanterade arbets stationer
 
@@ -91,7 +91,7 @@ Den här vägledningen hänvisar till flera säkerhets profiler och roller som k
 
 * **Förbättrad säkerhet** – den skyddade lösningen på ingångs nivå är lämplig för hemmaanvändare, små företags användare och allmänna utvecklare.
 
-   Den förbättrade arbets stationen är ett princip-baserat sätt för att öka säkerheten för låg säkerhets profil. Det är ett säkert sätt att arbeta med kunddata samtidigt som du använder produktivitets verktyg som e-post och Webbs ökning. Du kan använda gransknings principer och Intune för att övervaka en förbättrad arbets station för användar beteende och profil användning. Du distribuerar den förbättrade arbets Stations profilen med skriptet windows10 (1809) och drar nytta av avancerat skydd mot skadlig kod med hjälp av [Avancerat skydd (ATP)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp).
+   Den förbättrade arbets stationen är ett princip-baserat sätt för att öka säkerheten för låg säkerhets profil. Det är ett säkert sätt att arbeta med kunddata samtidigt som du använder produktivitets verktyg som e-post och Webbs ökning. Du kan använda gransknings principer och Intune för att övervaka en förbättrad arbets station för användar beteende och profil användning. Du distribuerar den förbättrade arbets Stations profilen med skriptet windows10 (1809) och drar nytta av avancerat skydd mot skadlig kod med hjälp av [Avancerat skydd (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **Hög säkerhet** – det mest effektiva sättet att minska angrepps ytan på en arbets Station är att ta bort möjligheten att själv administrera arbets stationen. Att ta bort lokala administrativa rättigheter är ett steg som förbättrar säkerheten, men det kan påverka produktiviteten om den implementeras felaktigt. Profilen för hög säkerhet bygger på den förbättrade säkerhets profilen med en betydande ändring: borttagning av den lokala administratören. Den här profilen är avsedd för användare med hög profil: chefer, löner och känsliga data användare, god kännare för tjänster och processer.
 

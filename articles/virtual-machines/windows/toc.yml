@@ -447,7 +447,11 @@
         - name: Hög tillgänglighet
           href: manage-availability.md
         - name: Skapa en närhetsplaceringsgrupp
-          href: proximity-placement-groups.md
+          items:
+            - name: Portalen
+              href: proximity-placement-groups-portal.md
+            - name: PowerShell
+              href: proximity-placement-groups.md
         - name: Lodrätt skalning
           items:
             - name: PowerShell

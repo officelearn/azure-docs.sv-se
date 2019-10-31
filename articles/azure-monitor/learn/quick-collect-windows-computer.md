@@ -1,5 +1,5 @@
 ---
-title: Samla in data från en hybrid Windows-dator med Azure Monitor | Microsoft Docs
+title: Samla in data från hybrid Windows-datorer med Azure Monitor
 description: I den här snabb starten får du lära dig hur du distribuerar Log Analytics agent för Windows-datorer som körs utanför Azure och aktiverar data insamling med Azure Monitor-loggar.
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 26919a64313df823dddad5dcfca6de5d08dcd993
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677224"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199024"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Samla in data från en Windows-dator i en hybrid miljö med Azure Monitor
 
@@ -99,7 +99,7 @@ Följande steg installerar och konfigurerar agenten för Log Analytics i Azure o
 
 10. På sidan **konfigurationen har slutförts** väljer du **Slutför**.
 
-När installationen och installationen är slutförd visas Microsoft Monitoring Agent i kontroll panelen. Du kan granska konfigurationen och kontrol lera att agenten är ansluten till Log Analytics arbets ytan. När du är ansluten på fliken **Azure-Log Analytics** visar agenten följande meddelande: **Microsoft Monitoring Agent har anslutit till Microsoft Log Analytics-tjänsten.**<br><br> ![MMA anslutnings status ](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+När installationen och installationen är slutförd visas Microsoft Monitoring Agent i kontroll panelen. Du kan granska konfigurationen och kontrol lera att agenten är ansluten till Log Analytics arbets ytan. När du är ansluten på fliken **Azure-Log Analytics** visar agenten följande meddelande: **Microsoft Monitoring Agent har anslutit till Microsoft Log Analytics-tjänsten.**<br><br> anslutnings status för ![MMA](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Samla in data om händelser och prestanda
 

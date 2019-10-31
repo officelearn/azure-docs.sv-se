@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 10/07/2019
+ms.date: 10/29/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9c53aac47e965a6eba681008d6b6476142190ef8
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1f6c65d6d8da275d6c52ac2802092dbb5e4e507d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72023091"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182286"
 ---
 ### <a name="what-is-expressroute-direct"></a>Vad är ExpressRoute Direct?
 
@@ -25,31 +25,7 @@ Kunderna måste arbeta med sina lokala operatörer och samlokaliserings leverant
 
 ### <a name="what-locations-currently-support-expressroute-direct"></a>Vilka platser stöder för närvarande ExpressRoute Direct? 
 
-De tillgängliga portarna är dynamiska och kommer att vara tillgängliga av PowerShell för att Visa kapaciteten. Platser är och *kan komma att ändras baserat på tillgängligheten*:
-
-* Amsterdam
-* Amsterdam2
-* Auckland 
-* Chicago
-* Dallas
-* Dublin
-* Hongkong SAR
-* London
-* London2
-* Melbourne
-* New York City
-* Perth
-* San-Antonio
-* Seattle
-* Seoul
-* Silicon Valley
-* Singapore2 
-* Sydney
-* Taipei
-* Tokyo
-* Toronto
-* Washington DC
-* Washington DC2
+Kontrol lera tillgängligheten på [sidan plats](../articles/expressroute/expressroute-locations-providers.md). 
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>Vad är service avtalet för ExpressRoute Direct?
 
@@ -57,7 +33,7 @@ ExpressRoute Direct kommer att använda samma [ExpressRoute i företags klass](h
 
 ### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Vilka scenarier bör kunderna överväga med ExpressRoute Direct?  
 
-ExpressRoute Direct tillhandahåller kunder med port par för Direct 100 eller 10 Gbit/s i Microsofts globala stamnät. De scenarier som ger kunderna de största fördelarna är: Massiv data inmatning, fysisk isolering för reglerade marknader och dedikerad kapacitet för burst-scenario, t. ex. åter givning. 
+ExpressRoute Direct tillhandahåller kunder med port par för Direct 100 eller 10 Gbit/s i Microsofts globala stamnät. De scenarier som ger kunderna de största fördelarna är: massiv data inmatning, fysisk isolering för reglerade marknader och dedikerad kapacitet för burst-scenario, som åter givning. 
 
 ### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Vad är fakturerings modellen för ExpressRoute Direct? 
 

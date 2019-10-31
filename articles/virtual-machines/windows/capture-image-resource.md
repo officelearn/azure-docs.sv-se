@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fd2b3a8a09ce69c07cc7d4715a4aaeacf64f0817
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273870"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200649"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
@@ -44,7 +44,7 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
 1. Logga in på din virtuella Windows-dator.
    
-2. Öppna ett kommando tolks fönster som administratör. Ändra katalogen till%WINDIR%\system32\sysprep och kör `sysprep.exe`sedan.
+2. Öppna ett kommando tolks fönster som administratör. Ändra katalogen till%WINDIR%\system32\sysprep och kör sedan `sysprep.exe`.
    
 3. I dialog rutan **system förberedelse verktyg** väljer du **Skriv system out-of-Box Experience (OOBE)** och markerar kryss rutan **generalisera** .
    
@@ -56,6 +56,17 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
 6. När Sysprep har slutförts stängs den virtuella datorn av. Starta inte om den virtuella datorn.
 
+> [!TIP]
+> **Valfritt** Använd [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) för att optimera din avbildning och minska den första start tiden för den virtuella datorn.
+>
+> För att optimera din avbildning, montera din virtuella hård disk genom att dubbelklicka på den i Utforskaren och kör sedan DISM med parametern `/optimize-image`.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> Där D: är den monterade virtuella hård diskens sökväg.
+>
+> Att köra `DISM /optimize-image` bör vara den senaste ändringen du gör till din virtuella hård disk. Om du gör några ändringar i din virtuella hård disk innan du distribuerar måste du köra `DISM /optimize-image` igen.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Skapa en hanterad avbildning i portalen 
 
@@ -87,11 +98,11 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
 Genom att skapa en avbildning direkt från den virtuella datorn kan du se till att avbildningen innehåller alla diskar som är associerade med den virtuella datorn, inklusive OS-disken och eventuella data diskar. Det här exemplet visar hur du skapar en hanterad avbildning från en virtuell dator som använder hanterade diskar.
 
-Kontrol lera att du har den senaste versionen av Azure PowerShell-modulen innan du börjar. Du hittar versionen genom att köra `Get-Module -ListAvailable Az` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt kör `Connect-AzAccount` du för att skapa en anslutning till Azure.
+Kontrol lera att du har den senaste versionen av Azure PowerShell-modulen innan du börjar. Du hittar versionen genom att köra `Get-Module -ListAvailable Az` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 
 > [!NOTE]
-> Om du vill lagra avbildningen i zoner – redundant lagring måste du skapa den i en region som har stöd för [tillgänglighets zoner](../../availability-zones/az-overview.md) och inkludera `-ZoneResilient` parametern i avbildnings konfigurationen (`New-AzImageConfig` kommandot).
+> Om du vill lagra avbildningen i zoner – redundant lagring måste du skapa den i en region som stöder [tillgänglighets zoner](../../availability-zones/az-overview.md) och inkludera `-ZoneResilient`-parametern i avbildnings konfigurationen (`New-AzImageConfig` kommandot).
 
 Följ dessa steg om du vill skapa en avbildning av en virtuell dator:
 
@@ -207,7 +218,7 @@ Du kan skapa en hanterad avbildning från en ögonblicks bild av en generalisera
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Skapa en avbildning från en virtuell dator som använder ett lagrings konto
 
-Om du vill skapa en hanterad avbildning från en virtuell dator som inte använder hanterade diskar behöver du URI för OS-VHD: n i lagrings kontot i följande format: https://*mystorageaccount*. blob.Core.Windows.net/*vhdcontainer* /  *vhdfilename. VHD*. I det här exemplet är den virtuella hård disken i *mystorageaccount*, i en behållare med namnet *vhdcontainer*och VHD-filnamnet är *vhdfilename. VHD*.
+Om du vill skapa en hanterad avbildning från en virtuell dator som inte använder hanterade diskar behöver du URI för OS-VHD: n i lagrings kontot i följande format: https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename. VHD* . I det här exemplet är den virtuella hård disken i *mystorageaccount*, i en behållare med namnet *vhdcontainer*och VHD-filnamnet är *vhdfilename. VHD*.
 
 
 1.  Skapa vissa variabler.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.custom: ''
-ms.openlocfilehash: d1b6444b8512b1b55ac46370e805f8f662f5f555
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 121ea4b7e29510ef86b61350ed97ffca5d133d56
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070684"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199487"
 ---
 # <a name="deployment-best-practices"></a>Metod tips för distribution
 
@@ -28,11 +28,11 @@ Alla utvecklings team har unika krav som kan göra det svårt att implementera e
 
 ## <a name="deployment-components"></a>Distributions komponenter
 
-### <a name="deployment-source"></a>Distributionskälla
+### <a name="deployment-source"></a>Distributions källa
 
 En distributions källa är platsen för program koden. För produktions program är distributions källan vanligt vis en lagrings plats som är värd för program vara för versions kontroll, till exempel [GitHub, BitBucket eller Azure databaser](deploy-continuous-deployment.md). I utvecklings-och test scenarier kan distributions källan vara [ett projekt på din lokala dator](deploy-local-git.md). App Service stöder även [OneDrive-och Dropbox-mappar](deploy-content-sync.md) som distributions källor. Även om Cloud Folders kan göra det enkelt att komma igång med App Service, rekommenderar vi vanligt vis inte att använda den här källan för produktions program på företags nivå. 
 
-### <a name="build-pipeline"></a>Bygg-pipeline
+### <a name="build-pipeline"></a>Bygg pipeline
 
 När du bestämmer dig för en distributions källa är nästa steg att välja en pipeline för bygge. En build-pipeline läser din käll kod från distributions källan och kör en serie steg (till exempel kompilera kod, minifying HTML och Java Script, köra tester och paket komponenter) för att hämta programmet i ett körbara-tillstånd. Specifika kommandon som körs av bygg pipelinen beror på din språks tack. Dessa åtgärder kan utföras på en build-Server, till exempel Azure-pipelines eller som körs lokalt.
 
@@ -40,8 +40,8 @@ När du bestämmer dig för en distributions källa är nästa steg att välja e
 
 Distributions mekanismen är den åtgärd som används för att publicera det inbyggda programmet i */Home/site/wwwroot* -katalogen för din webbapp. */Wwwroot* -katalogen är en monterad lagrings plats som delas av alla instanser av din webbapp. När mekanismen för distribution placerar ditt program i den här katalogen, får dina instanser ett meddelande om att synkronisera de nya filerna. App Service stöder följande distributions metoder:
 
-- Kudu-slutpunkter: [Kudu](https://github.com/projectkudu/kudu/wiki) är ett produktivitets verktyg för utvecklare med öppen källkod som körs som en separat process i Windows app service och som en andra behållare i Linux-app service. Kudu hanterar kontinuerliga distributioner och tillhandahåller HTTP-slutpunkter för distribution, till exempel zipdeploy.
-- FTP och WebDeploy: Med hjälp av dina [webbplats-eller användarautentiseringsuppgifter](deploy-configure-credentials.md)kan du ladda upp filer [via FTP](deploy-ftp.md) eller WebDeploy. Dessa mekanismer går inte igenom kudu.  
+- Kudu-slutpunkter: [kudu](https://github.com/projectkudu/kudu/wiki) är utvecklar produktivitets verktyget öppen källkod som körs som en separat process i Windows app service och som en andra behållare i Linux app service. Kudu hanterar kontinuerliga distributioner och tillhandahåller HTTP-slutpunkter för distribution, till exempel zipdeploy.
+- FTP och WebDeploy: om du använder dina [webbplats-eller användarautentiseringsuppgifter](deploy-configure-credentials.md)kan du ladda upp filer [via FTP](deploy-ftp.md) eller WebDeploy. Dessa mekanismer går inte igenom kudu.  
 
 Distributions verktyg som Azure-pipeline, Jenkins och redigerings-plugin-program använder en av dessa distributions mekanismer.
 
@@ -53,11 +53,11 @@ Använd kudu [-zipdeploy/](deploy-zip.md) API för att distribuera jar-program o
 
 ### <a name="node"></a>Nod
 
-Som standard kör kudu Bygg stegen för Node-programmet (`npm install`). Om du använder en build-tjänst, till exempel Azure DevOps, är kudu-versionen onödig. Om du vill inaktivera kudu skapar du en app-inställning `SCM_DO_BUILD_DURING_DEPLOYMENT`med `false`värdet.
+Som standard kör kudu Bygg stegen för Node-programmet (`npm install`). Om du använder en build-tjänst, till exempel Azure DevOps, är kudu-versionen onödig. Om du vill inaktivera kudu skapar du en app-inställning `SCM_DO_BUILD_DURING_DEPLOYMENT`med värdet `false`.
 
 ### <a name="net"></a>.NET 
 
-Som standard kör kudu Bygg stegen för ditt .NET-program (`dotnet build`). Om du använder en build-tjänst, till exempel Azure DevOps, är kudu-versionen onödig. Om du vill inaktivera kudu skapar du en app-inställning `SCM_DO_BUILD_DURING_DEPLOYMENT`med `false`värdet.
+Som standard kör kudu build-stegen för ditt .NET-program (`dotnet build`). Om du använder en build-tjänst, till exempel Azure DevOps, är kudu-versionen onödig. Om du vill inaktivera kudu skapar du en app-inställning `SCM_DO_BUILD_DURING_DEPLOYMENT`med värdet `false`.
 
 ## <a name="other-deployment-considerations"></a>Andra distributions överväganden
 
@@ -69,7 +69,7 @@ När det är möjligt ska du använda [distributions platser](deploy-staging-slo
 
 Azure App Service innehåll lagras på Azure Storage och placeras på ett hållbart sätt som en innehålls resurs. Vissa appar behöver dock bara ett skrivskyddat innehålls lager med hög prestanda som de kan köra med hög tillgänglighet. De här apparna kan dra nytta av [lokal cache](overview-local-cache.md). Local cache rekommenderas inte för innehålls hanterings webbplatser som WordPress.
 
-Använd alltid lokalt cacheminne tillsammans med [distributions platser] (distribuera-mellanlagrings platser MD) för att förhindra stillestånds tid. I [det här avsnittet](overview-local-cache.md#best-practices-for-using-app-service-local-cache) finns information om hur du använder dessa funktioner tillsammans.
+Använd alltid lokalt cacheminne tillsammans med [distributions platser](deploy-staging-slots.md) för att förhindra stillestånds tid. I [det här avsnittet](overview-local-cache.md#best-practices-for-using-app-service-local-cache) finns information om hur du använder dessa funktioner tillsammans.
 
 ### <a name="high-cpu-or-memory"></a>Hög CPU eller minne
 

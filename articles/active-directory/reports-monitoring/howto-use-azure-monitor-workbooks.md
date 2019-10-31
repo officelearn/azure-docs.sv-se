@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a073a476043fc6570a42cc142e01f2c6f98c7741
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175919"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200129"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Använda Azure Monitor-arbetsböcker för Azure Active Directory rapporter
 
@@ -65,7 +65,7 @@ Om du vill använda övervaknings arbets böcker behöver du:
 - [Åtkomst](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) till Log Analytics-arbetsytan
 - Följande roller i Azure Active Directory (om du får åtkomst till Log Analytics via Azure Active Directory Portal)
     - Säkerhetsadministratör
-    - Säkerhets läsare
+    - Säkerhetsläsare
     - Rapport läsare
     - Global administratör
 
@@ -73,10 +73,9 @@ Om du vill använda övervaknings arbets böcker behöver du:
 Du måste vara i någon av följande roller och ha [åtkomst till underliggande Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) arbets yta för att hantera arbets böckerna:
 -   Global administratör
 -   Säkerhetsadministratör
--   Säkerhets läsare
+-   Säkerhetsläsare
 -   Rapport läsare
 -   Program administratör
-
 
 ## <a name="workbook-access"></a>Arbets boks åtkomst 
 
@@ -84,16 +83,11 @@ För att få åtkomst till arbets böcker:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. I det vänstra navigerings fönstret väljer du **Azure Active Directory**.
+1. Navigera till **Azure Active Directory** > **övervakning** > **arbets böcker**. 
 
-3. I avsnittet **övervakning** väljer du **arbets böcker**. 
+1. Välj en rapport eller mall eller Välj **Öppna**i verktygsfältet. 
 
-    ![Välj insikter](./media/howto-use-azure-monitor-workbooks/41.png)
-
-4. Välj en rapport eller mall eller Välj **Öppna**i verktygsfältet. 
-
-    ![Välj öppna](./media/howto-use-azure-monitor-workbooks/42.png)
-
+![Hitta Azure Monitor arbets böcker i Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>Inloggnings analys
 

@@ -5,7 +5,7 @@
   items:
     - name: Vad är Identity Governance?
       href: identity-governance-overview.md
-    - name: Vad är berättigandehantering? (Förhandsversion)
+    - name: Vad är berättigandehantering?
       href: entitlement-management-overview.md
     - name: Vad är åtkomstgranskningar?
       href: access-reviews-overview.md

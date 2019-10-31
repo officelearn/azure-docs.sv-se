@@ -1,5 +1,5 @@
 ---
-title: Skapa interaktiva rapporter med Azure Monitor arbets böcker | Microsoft Docs
+title: Skapa interaktiva rapporter Azure Monitor for VMs med arbets böcker | Microsoft Docs
 description: Förenkla komplex rapportering med fördefinierade och anpassade parameterstyrda arbets böcker för Azure Monitor for VMs.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553727"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200540"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor arbets böcker
+# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Skapa interaktiva rapporter Azure Monitor for VMs med arbets böcker
 
 Arbets böcker kombinerar text, [logg frågor](../log-query/query-language.md), mått och parametrar till omfattande interaktiva rapporter. Arbets böcker kan redige ras av andra team medlemmar som har åtkomst till samma Azure-resurser.
 
@@ -105,7 +105,7 @@ Ta med data från andra Log Analytics arbets ytor eller från en speciell Applic
 
 ### <a name="advanced-analytic-query-settings"></a>Avancerade inställningar för analys fråga
 
-Varje avsnitt har sina egna avancerade inställningar, som är tillgängliga via inställningarna ![Workbooks avsnittet Redigera kontroller ](media/vminsights-workbooks/006-settings.png) ikonen som finns till höger om knappen **Lägg till parametrar** .
+Varje avsnitt har sina egna avancerade inställningar, som är tillgängliga via inställningarna ![arbets boks avsnitt redigera kontroller](media/vminsights-workbooks/006-settings.png) ikonen som finns till höger om knappen **Lägg till parametrar** .
 
 ![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/007-settings-expanded.png)
 

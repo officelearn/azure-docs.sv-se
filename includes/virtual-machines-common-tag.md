@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f6bd574c83d309ce6d6f54fdb1c7d23cb713420d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67187283"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182289"
 ---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>Tagga en virtuell dator med hjälp av mallar
 Först ska vi titta på taggning genom mallar. [Den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) placerar taggar på följande resurser: Compute (virtuell dator), lagring (lagrings konto) och nätverk (offentlig IP-adress, Virtual Network och nätverks gränssnitt). Den här mallen gäller för en virtuell Windows-dator men kan anpassas för virtuella Linux-datorer.
@@ -18,15 +18,15 @@ Klicka på knappen **distribuera till Azure** från [länken mall](https://githu
 
 ![Enkel distribution med Taggar](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Den här mallen innehåller följande Taggar: *Avdelning*, *program*och *skapad av*. Du kan lägga till/redigera taggarna direkt i mallen om du vill ha olika taggnamn.
+Den här mallen innehåller följande Taggar: *avdelning*, *program*och *skapade av*. Du kan lägga till/redigera taggarna direkt i mallen om du vill ha olika taggnamn.
 
 ![Azure-Taggar i en mall](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
 Som du kan se definieras taggarna som nyckel/värde-par, avgränsade med kolon (:). Taggarna måste definieras i följande format:
 
-        “tags”: {
-            “Key1” : ”Value1”,
-            “Key2” : “Value2”
+        "tags": {
+            "Key1" : "Value1",
+            "Key2" : "Value2"
         }
 
 Spara mallfilen när du är klar med att redigera den med de taggar du väljer.

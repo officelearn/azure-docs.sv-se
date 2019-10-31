@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 14789549218d46dc0eb147bc659fce7adba0a9bd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 17dd4862a02a736237257c50802135fb62883d77
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953244"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200610"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application-preview-features"></a>Hantera användare och roller i ditt IoT Central program (för hands versions funktioner)
 
@@ -40,6 +40,9 @@ Mer information finns i [Microsoft-konto Hjälp](https://support.microsoft.com/p
 
     > [!div class="mx-imgBorder"]
     >![lägga till användare och välj en roll](media/howto-manage-users-roles-pnp/add-user-pnp.png)
+
+    > [!NOTE]
+    > En användare som har en anpassad roll som ger dem behörighet att lägga till andra användare, kan bara lägga till användare till en roll med samma eller färre behörigheter än den egna rollen.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Redigera de roller som är tilldelade till användare
 
@@ -195,6 +198,9 @@ När du definierar en anpassad roll väljer du den uppsättning behörigheter so
 | Lägg till | Visa <br/> Andra beroenden: Visa anpassade roller |
 | Ta bort | Visa <br/> Andra beroenden: Visa anpassade roller |
 | Fullständig behörighet | Visa, lägga till, ta bort <br/> Andra beroenden: Visa anpassade roller |
+
+> [!NOTE]
+> En användare som har en anpassad roll som ger dem behörighet att lägga till andra användare, kan bara lägga till användare till en roll med samma eller färre behörigheter än den egna rollen.
 
 #### <a name="customizing-the-app"></a>Anpassa appen
 

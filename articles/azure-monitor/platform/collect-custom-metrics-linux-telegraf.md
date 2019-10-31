@@ -1,5 +1,5 @@
 ---
-title: Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
+title: Samla in anpassade mått för virtuella Linux-datorer med InfluxData-agenten för teleympkvistar
 description: Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e8164a111b9ad5ebcc67c248586e2576046334b0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883246"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200517"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
 
@@ -27,9 +27,9 @@ Genom att använda Azure Monitor kan du samla in anpassade mått via din program
 
 ## <a name="send-custom-metrics"></a>Skicka anpassade mått 
 
-I den här självstudien distribuerar vi en virtuell Linux-dator som kör operativ systemet Ubuntu 16,04 LTS. Teleympkvistar-agenten stöds för de flesta Linux-operativsystem. Både Debian-och RPM-paket är tillgängliga tillsammans med unpaketerade Linux-binärfiler på [InfluxData nedladdnings Portal](https://portal.influxdata.com/downloads). I den här [installations guiden](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) för netympkvistar finns ytterligare installationsinstruktioner och alternativ. 
+I den här självstudien distribuerar vi en virtuell Linux-dator som kör operativ systemet Ubuntu 16,04 LTS. Teleympkvistar-agenten stöds för de flesta Linux-operativsystem. Både Debian-och RPM-paket är tillgängliga tillsammans med unpaketerade Linux-binärfiler på [InfluxData nedladdnings Portal](https://portal.influxdata.com/downloads). I den här [installations guiden för netympkvistar](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) finns ytterligare installationsinstruktioner och alternativ. 
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 Skapa en ny virtuell Linux-dator: 
 
@@ -47,13 +47,13 @@ Skapa en ny virtuell Linux-dator:
 
     ![Översikt över virtuella datorers storlek Telegraph-agent](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. På sidan **Inställningar** i **nätverks** > **nätverks säkerhets grupp** > **väljer du offentliga inkommande portar**, väljer **http** och **SSH (22)** . Lämna resten av standardinställningarna och välj **OK**. 
+1. På sidan **Inställningar** i **nätverks** > **nätverks säkerhets grupp** > **Välj offentliga inkommande portar**, väljer du **http** och **SSH (22)** . Lämna resten av standardinställningarna och välj **OK**. 
 
 1. På sammanfattningssidan klickar du på **Skapa** för att starta distributionen av den virtuella datorn. 
 
 1. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnas den virtuella dator sammanfattningen automatiskt. 
 
-1. I fönstret virtuell dator går du till fliken **identitet** . Se till att den virtuella datorn har en tilldelad identitet inställd **på**. 
+1. I fönstret virtuell dator navigerar du till fliken **identitet** . kontrol lera att den virtuella datorn har en tilldelad identitet inställd **på**. 
  
     ![För hands version av netympkvistar VM-identitet](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  

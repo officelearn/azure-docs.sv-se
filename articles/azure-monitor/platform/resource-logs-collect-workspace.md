@@ -1,5 +1,5 @@
 ---
-title: Samla in Azures resurs loggar i Log Analytics arbets yta i Azure Monitor
+title: Samla in Azures resurs loggar i Log Analytics arbets yta
 description: Lär dig hur du direktuppspelar Azures resurs loggar till en Log Analytics arbets yta i Azure Monitor.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 2f5dba7c36ec04263f6d227d82b9fc50b82890a3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262445"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200514"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in Azures resurs loggar i Log Analytics arbets yta i Azure Monitor
 [Resurs loggar](resource-logs-overview.md) i Azure ger omfattande, frekventa data om den interna driften av en Azure-resurs. I den här artikeln beskrivs hur du samlar in resurs loggar på en Log Analytics arbets yta som gör att du kan analysera den med andra övervaknings data som samlas in i Azure Monitor loggar med kraftfulla logg frågor och även för att utnyttja andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. 
@@ -26,7 +26,7 @@ Genom att samla in resurs loggar i en Log Analytics arbets yta kan du analysera 
 * **Avisering** – få proaktiva meddelanden om kritiska villkor och mönster som identifieras i resurs loggarna med [logg aviseringar i Azure Monitor](alerts-log.md).
 * **Visualiseringar** – fäst resultatet av en logg fråga på en Azure-instrumentpanel eller ta med den i en arbets bok som en del av en interaktiv rapport.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste [skapa en ny arbets yta](../learn/quick-create-workspace.md) om du inte redan har en. Arbets ytan behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
 ## <a name="create-a-diagnostic-setting"></a>Skapa en diagnostisk inställning
@@ -51,14 +51,14 @@ Tänk på följande exempel där diagnostikinställningar samlas in i samma arbe
 
 AzureDiagnostics-tabellen ser ut så här:  
 
-| ResourceProvider    | Category     | A  | B  | C  | D  | E  | Fr  | G  | H  | I  |
+| ResourceProvider    | Kategori     | A  | B  | C  | D  | Ö  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft. Service1 | AuditLogs    | x1 | Y1 | z1 |    |    |    |    |    |    |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | e1 |    |    |    |
+| Microsoft. Service1 | AuditLogs    | PCIe | Y1 | z1 |    |    |    |    |    |    |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | bästa | W1 | E1 |    |    |    |
 | Microsoft. service2 | AuditLogs    |    |    |    |    |    |    | j1 | K1 | L1 |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
-| Microsoft. service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
-| Microsoft. Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
+| Microsoft. Service1 | ErrorLogs    |    |    |    | Q2 | w2 | E2 |    |    |    |
+| Microsoft. service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | L3 |
+| Microsoft. Service1 | AuditLogs    | GPS | y5 värdefält | z5 |    |    |    |    |    |    |
 | ... |
 
 ### <a name="resource-specific"></a>Resurs-/regionsspecifika
@@ -68,26 +68,26 @@ Exemplet ovan skulle resultera i att tre tabeller skapas:
  
 - Tabell *Service1AuditLogs* enligt följande:
 
-    | Resursprovider | Category | A | B | C |
+    | Resurs leverantör | Kategori | A | B | C |
     | -- | -- | -- | -- | -- |
-    | Service1 | AuditLogs | x1 | Y1 | z1 |
-    | Service1 | AuditLogs | x5 | y5 | z5 |
+    | Service1 | AuditLogs | PCIe | Y1 | z1 |
+    | Service1 | AuditLogs | GPS | y5 värdefält | z5 |
     | ... |
 
 - Tabell *Service1ErrorLogs* enligt följande:  
 
-    | Resursprovider | Category | D | E | Fr |
+    | Resurs leverantör | Kategori | D | Ö | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  q1 | W1 | e1 |
-    | Service1 | ErrorLogs |  q2 | w2 | e2 |
+    | Service1 | ErrorLogs |  bästa | W1 | E1 |
+    | Service1 | ErrorLogs |  Q2 | w2 | E2 |
     | ... |
 
 - Tabell *Service2AuditLogs* enligt följande:  
 
-    | Resursprovider | Category | G | H | I |
+    | Resurs leverantör | Kategori | G | H | I |
     | -- | -- | -- | -- | -- |
     | Service2 | AuditLogs | j1 | K1 | L1|
-    | Service2 | AuditLogs | j3 | k3 | l3|
+    | Service2 | AuditLogs | j3 | k3 | L3|
     | ... |
 
 

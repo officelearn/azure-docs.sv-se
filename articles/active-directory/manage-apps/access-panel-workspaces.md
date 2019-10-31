@@ -16,19 +16,19 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9efe76f15e2f07495a9d95f69b0c21d2bca4ea8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180555"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199820"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>Skapa arbets ytor på portalen Mina appar (för hands version)
 
 Användarna kan använda portalen Mina appar (för hands version) för att visa och starta de molnbaserade program som de har åtkomst till. Som standard visas alla program som en användare har åtkomst till tillsammans på en enda sida. Om du har en Azure AD Premium P1-eller P2-licens för att bättre organisera den här sidan för dina användare kan du konfigurera arbets ytor. Med en arbets yta kan du gruppera program som är relaterade (till exempel efter jobb roll, uppgift eller projekt) och visa dem på en separat flik. En arbets yta tillämpar i princip ett filter på de program som en användare redan har åtkomst till, så att användaren bara ser de programmen på arbets ytan som har tilldelats dem.
 
 > [!NOTE]
-> Den här artikeln beskriver hur en administratör kan aktivera och skapa arbets ytor. Information för slutanvändaren om hur du använder portalen för Mina appar och arbets ytor finns i [åtkomst till och använda arbets ytor](https://docs.microsoft.com/azure/active-directory/user-help/).
+> Den här artikeln beskriver hur en administratör kan aktivera och skapa arbets ytor. Information för slutanvändaren om hur du använder portalen för Mina appar och arbets ytor finns i [åtkomst till och använda arbets ytor](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
 ## <a name="enable-my-apps-preview-features"></a>Aktivera för hands versions funktioner för Mina appar
 

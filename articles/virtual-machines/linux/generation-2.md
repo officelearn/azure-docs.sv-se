@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 10/29/2019
 ms.author: lahugh
-ms.openlocfilehash: 3d4585e032d92049a4f087cd510bdef963025250
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: afec40216695ed19cddb4e93b6523cf30251f2e4
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550145"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063150"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Stöd för virtuella datorer i generation 2 (för hands version) på Azure
 
@@ -65,6 +65,7 @@ Virtuella datorer i generation 2 stöder följande Marketplace-avbildningar:
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
+* Ubuntu Server 16.04 +
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Lokala eller Azure generation 2-datorer
 

@@ -5,20 +5,20 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 0a678023b1097c4bdec70d866632da6ae4ad57bb
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992397"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100702"
 ---
 # <a name="delivery-and-retry"></a>Leverans och nytt försök
 
-Event Grid tillhandahåller varaktig leverans. Det försöker leverera varje meddelande minst en gång för varje matchande prenumeration direkt. Om en prenumerants slut punkt inte bekräftar mottagandet av en händelse eller om det uppstår ett fel, Event Grid försöker leverera igen baserat på ett fast **schema för omförsök** och **försök igen**.  För närvarande Event Grid modulen leverera en händelse i taget till prenumeranten. Nytto lasten är dock en matris med en enda händelse.
+Event Grid tillhandahåller varaktig leverans. Det försöker leverera varje meddelande minst en gång för varje matchande prenumeration direkt. Om en prenumerants slut punkt inte bekräftar mottagandet av en händelse eller om det uppstår ett fel, Event Grid försöker leverera igen baserat på ett fast **schema för omförsök** och **försök igen**.  Som standard skickar modulen Event Grid en händelse i taget till prenumeranten. Nytto lasten är dock en matris med en enda händelse. Du kan låta modulen leverera mer än en händelse i taget genom att aktivera batch-funktionen för utdata. Mer information om den här funktionen finns i [batching av utdata](delivery-output-batching.md).  
 
 > [!IMPORTANT]
 >Det finns inget beständigt stöd för händelse data. Det innebär att omdistribution eller omstart av Event Grid-modulen gör att du förlorar eventuella händelser som ännu inte har levererats.

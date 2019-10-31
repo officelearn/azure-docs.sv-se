@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa42c63809472e1681a820031e48fe4f86fb584
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 189b8666adde0eedcb451655657a4a82dc5e4fec
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756519"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062532"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurera anpassade domäner med Azure AD-programproxy
 
@@ -77,38 +77,40 @@ Mer detaljerade instruktioner finns i [lägga till ditt anpassade domän namn me
 
 Publicera din app via Application Proxy med en anpassad domän:
 
-1. För en ny app, i Azure Active Directory väljer du **företags program** i det vänstra navigerings fältet, väljer **nytt program**och väljer sedan **lokalt program**. 
+1. För en ny app väljer du **företags program** i Azure Active Directory i det vänstra navigerings fältet. Välj **Nytt program**. I avsnittet **lokala program** väljer du **Lägg till ett lokalt program**. 
    
    För en app som redan finns i **företags program**markerar du den i listan och väljer sedan **Application Proxy** i det vänstra navigerings fältet. 
 
-1. På sidan **Application Proxy** i fältet **intern URL** anger du den interna URL: en för din app. 
+2. På sidan Inställningar för programproxy anger du ett **namn** om du vill lägga till ett eget lokalt program.
+
+3.  I fältet **intern URL** anger du den interna URL: en för din app.
    
-1. I fältet **extern URL** markerar du List rutan och väljer den anpassade domän som du vill använda.
+4. I fältet **extern URL** markerar du List rutan och väljer den anpassade domän som du vill använda.
    
-1. Välj **Spara**.
+5. Välj **Lägg till**.
    
    ![Välj anpassad domän](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-1. Om domänen redan har ett certifikat visas certifikat informationen i fältet **certifikat** . Annars väljer du fältet **certifikat** . 
+6. Om domänen redan har ett certifikat visas certifikat informationen i fältet **certifikat** . Annars väljer du fältet **certifikat** . 
    
    ![Klicka om du vill överföra ett certifikat](./media/application-proxy-configure-custom-domain/certificate.png)
    
-1. På sidan **SSL-certifikat** bläddrar du till och väljer din PFX-certifikatfil. Ange lösen ordet för certifikatet och välj **Ladda upp certifikat**. Mer information om certifikat finns i avsnittet [certifikat för anpassade domäner](#certificates-for-custom-domains) .
+7. På sidan **SSL-certifikat** bläddrar du till och väljer din PFX-certifikatfil. Ange lösen ordet för certifikatet och välj **Ladda upp certifikat**. Mer information om certifikat finns i avsnittet [certifikat för anpassade domäner](#certificates-for-custom-domains) .
    
    ![Ladda upp certifikat](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
    > [!TIP] 
    > En anpassad domän behöver bara ett certifikat laddas upp en gång. Därefter tillämpas det överförda certifikatet automatiskt när du använder den anpassade domänen för andra appar.
    
-1. Om du har lagt till ett certifikat går du till sidan **Application Proxy** och väljer **Spara**. 
+8. Om du har lagt till ett certifikat går du till sidan **Application Proxy** och väljer **Spara**. 
    
-1. I informations fältet på sidan **Application Proxy** noterar du den CNAME-post som du behöver lägga till i din DNS-zon. 
+9. I informations fältet på sidan **Application Proxy** noterar du den CNAME-post som du behöver lägga till i din DNS-zon. 
    
    ![Lägg till CNAME DNS-post](./media/application-proxy-configure-custom-domain/dns-info.png)
    
-1. Följ instruktionerna i [hantera DNS-poster och post uppsättningar med hjälp av Azure Portal](../../dns/dns-operations-recordsets-portal.md) för att lägga till en DNS-post som omdirigerar den nya externa URL: en till *msappproxy.net* -domänen.
+10. Följ instruktionerna i [hantera DNS-poster och post uppsättningar med hjälp av Azure Portal](../../dns/dns-operations-recordsets-portal.md) för att lägga till en DNS-post som omdirigerar den nya externa URL: en till *msappproxy.net* -domänen.
    
-1. Kontrol lera att DNS-posten har kon figurer ATS korrekt genom att använda kommandot [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) för att bekräfta att din externa URL är nåbar och att *msapproxy.net* -domänen visas som ett alias.
+11. Kontrol lera att DNS-posten har kon figurer ATS korrekt genom att använda kommandot [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) för att bekräfta att din externa URL är nåbar och att *msapproxy.net* -domänen visas som ett alias.
 
 Ditt program har nu kon figurer ATS för att använda den anpassade domänen. Se till att tilldela användare till ditt program innan du testar eller släpper det. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: cc0539462fad0a73d5fc7eb75d2078e513df4e5d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 12976e2b2dd37b640efe1823fc8d2ca7048ebcdb
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926541"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097368"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
 
@@ -126,7 +126,7 @@ Vissa Linux-distributioner stöder inte ännu krypteringsfunktionerna i SMB 3.0.
 
 ### <a name="solution"></a>Lösning
 
-Krypteringsfunktionen för SMB 3.0 för Linux introducerades i kernel 4.11. Den här funktionen möjliggör montering av en Azure-filresurs från en lokal plats eller från en annan Azure-region. Den här funktionen ingår i Linux-distributionerna som anges i [Minsta rekommenderade versioner med motsvarande monteringsfunktioner (SMB-version 2.1 eller SMB-version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Andra distributioner kräver kernel 4.11 och senare versioner.
+Krypteringsfunktionen för SMB 3.0 för Linux introducerades i kernel 4.11. Den här funktionen möjliggör montering av en Azure-filresurs från en lokal plats eller från en annan Azure-region. Vissa Linux-distributioner kan ha omportade ändringar från 4,11-kärnan till äldre versioner av Linux-kärnan som de underhåller. För att hjälpa till att avgöra om din version av Linux stöder SMB 3,0 med kryptering, se med att [använda Azure Files med Linux](storage-how-to-use-files-linux.md). 
 
 Om din Linux SMB-klient inte stöder kryptering monterar du Azure Files med SMB 2.1 från en virtuell Linux-dator på Azure som är i samma datacenter som filresursen. Kontrollera att inställningen [Säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad för lagringskontot. 
 
@@ -281,7 +281,7 @@ Det här återanslutningsproblemet i Linux-kernel har nu åtgärdats som en del 
 - [CIFS: åtgärda en möjlig minnes skada under åter anslutning](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: åtgärda en möjlig dubbel låsning av mutex under åter anslutning (för kernel v 4.9 och senare)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-De här ändringarna kan emellertid inte portas ännu till alla Linux-distributioner. Den här korrigeringen och andra återanslutningskorrigeringar finns i avsnittet [Minsta rekommenderade versioner med motsvarande monteringsfunktioner (SMB-version 2.1 eller SMB-version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) i artikeln [Använda Azure Files med Linux](storage-how-to-use-files-linux.md). Du kan få den här korrigeringen genom att uppgradera till någon av dessa rekommenderade kernel-versioner.
+De här ändringarna kan emellertid inte portas ännu till alla Linux-distributioner. Om du använder en populär Linux-distribution kan du kontrol lera om du använder [Azure Files med Linux](storage-how-to-use-files-linux.md) för att se vilken version av distributionen som har nödvändiga kernel-ändringar.
 
 ### <a name="workaround"></a>Lösning
 

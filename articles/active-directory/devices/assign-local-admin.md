@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f50ace6d707db35dfd7cf9f14026d755093a038c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802441"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062262"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
@@ -59,10 +59,10 @@ Om du vill ändra rollen som enhets administratör konfigurerar du **ytterligare
 >[!NOTE]
 > Det här alternativet kräver en Azure AD Premium klient. 
 
-Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. Du kan inte begränsa enhets administratörer till en speciell uppsättning enheter. Uppdatering av enhets administratörs rollen behöver inte nödvändigt vis påverka de berörda användarna direkt. För enheterna är en användare redan inloggad i, behörighets uppdateringen äger rum:
+Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. Du kan inte begränsa enhets administratörer till en speciell uppsättning enheter. Uppdatering av enhets administratörs rollen behöver inte nödvändigt vis påverka de berörda användarna direkt. På enheter där en användare redan har loggat in, sker privilegie uppdateringen när *båda* åtgärderna nedan inträffar:
 
-- När en användare loggar ut.
-- Efter 4 timmar när en ny primär uppdateringstoken utfärdas. 
+- 4 timmar har slutförts för att Azure AD ska kunna utfärda en ny primär uppdateringstoken med rätt behörigheter. 
+- Användaren loggar ut och loggar in igen, inte låsa/låsa upp, för att uppdatera profilen.
 
 ## <a name="manage-regular-users"></a>Hantera vanliga användare
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 920419bf10634e8be15e05a89d547a5a9d1430b7
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 4dd4831d6437b7026459dc358455335dd0fa221b
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027789"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063105"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar om ExpressRoute
 
@@ -43,7 +43,7 @@ Nej. Du kan köpa en VPN-anslutning för valfri hastighet från din tjänst leve
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Har jag möjlighet att överföra upp till högre hastigheter om jag betalar för en ExpressRoute-krets för en specifik bandbredd om det behövs?
 
-Ja. ExpressRoute-kretsar har kon figurer ATS så att du kan överföra upp till två gånger till en bandbredds gräns som du har tilldelat utan extra kostnad. Kontakta tjänst leverantören för att se om de stöder den här funktionen. Detta är inte en längre tids period och är inte garanterad. 
+Ja. ExpressRoute-kretsar har kon figurer ATS så att du kan överföra upp till två gånger till en bandbredds gräns som du har tilldelat utan extra kostnad. Kontakta tjänst leverantören för att se om de stöder den här funktionen. Detta är inte en längre tids period och är inte garanterad.  Om trafiken flödar genom en ExpressRoute-Gateway, är bandbredden för SKU: n fast och inte burstbar.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Kan jag använda samma privata nätverks anslutning med virtuella nätverk och andra Azure-tjänster samtidigt?
 

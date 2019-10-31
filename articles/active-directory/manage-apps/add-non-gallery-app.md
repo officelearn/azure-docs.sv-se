@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8d8d6df16c5df7e29d8bb870c5d5eda6d8a2d3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6656361fd4634c46cd5216b57eb8465536319f09
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477266"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062779"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Lägg till ett ej listat program (ej Galleri) i din Azure AD-organisation
 
-Förutom valen i [Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)-programgalleriet har du möjlighet att lägga till ett **program som inte är ett galleri program**. Du kan lägga till alla program som redan finns i din organisation eller program från tredje part från en leverantör som inte redan ingår i Azure AD-galleriet. Beroende på ditt [licens avtal](https://azure.microsoft.com/pricing/details/active-directory/)är följande funktioner tillgängliga:
+Förutom valen i [Azure AD-programgalleriet](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)har du möjlighet att lägga till ett **program som inte är ett galleri program**. Du kan lägga till alla program som redan finns i din organisation eller program från tredje part från en leverantör som inte redan ingår i Azure AD-galleriet. Beroende på ditt [licens avtal](https://azure.microsoft.com/pricing/details/active-directory/)är följande funktioner tillgängliga:
 
 - Självbetjänings integrering av alla program som stöder [Security Assertion Markup Language (SAML) 2,0](https://wikipedia.org/wiki/SAML_2.0) identitets leverantörer (SP-initierad eller IDP-initierad)
 - Självbetjänings integrering av alla webb program som har en HTML-baserad inloggnings sida med [LÖSENORDSBASERAD SSO](what-is-single-sign-on.md#password-based-sso)
@@ -33,21 +33,36 @@ I den här artikeln beskrivs hur du lägger till ett program som inte är ett ga
 ## <a name="add-a-non-gallery-application"></a>Lägg till ett program som inte är ett galleri program
 
 1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com/) med ditt administratörs konto för Microsoft Identity Platform.
-1. Välj **företags program** > **nytt program**.
-2. (Valfritt men rekommenderas) I sökrutan **Lägg till** i galleriet, anger du visnings namnet för programmet. Om programmet visas i Sök resultaten väljer du det och hoppar över resten av den här proceduren.
-3. Välj **program som inte är Galleri**. Sidan **Lägg till ett eget program** visas.
 
-   ![Lägg till program](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Ange visnings namnet för det nya programmet.
-6. Välj **Lägg till**. Sidan program **Översikt** öppnas.
+2. Välj **företags program** > **nytt program**.
+
+3. (Valfritt men rekommenderas) I sökrutan Sök **efter Azure AD-Galleri** anger du visnings namnet för programmet. 
+
+4. Välj **skapa ett eget program**. Sidan **skapa ett eget program** visas.
+
+   ![Lägga till ett program](media/add-non-gallery-app/create-your-own-application.png)
+
+5. Börja skriva visnings namnet för det nya programmet. Om det finns några Galleri program med liknande namn visas de i en lista med Sök resultat.
+
+   > [!NOTE]
+   > Vi rekommenderar att du använder Galleri versionen av programmet när det är möjligt. Om det program som du vill lägga till visas i Sök resultaten väljer du programmet och hoppar över resten av den här proceduren.
+
+6. Under **vad vill du göra med ditt program?** Välj **integrera andra program som du inte hittar i galleriet**. Det här alternativet används vanligt vis för SAML-och WS-utfodras program.
+
+   > [!NOTE]
+   > De andra två alternativen används i följande scenarier:
+   >* **Konfigurera programproxy för säker fjärråtkomst till ett lokalt program** öppnar konfigurations sidan för Azure AD-programproxy och anslutningar.
+   >* **Registrera ett program som du arbetar med för att integrera med Azure AD** öppnar sidan **Appregistreringar** . Det här alternativet används vanligt vis för OpenID Connect-program.
+
+7. Välj **Skapa**. Sidan program **Översikt** öppnas.
 
 ## <a name="configure-user-sign-in-properties"></a>Konfigurera egenskaper för användarinloggning
 
 1. Välj **Egenskaper** för att öppna rutan Egenskaper för redigering.
 
-    ![Rutan Redigera egenskaper](media/add-application-portal/edit-properties.png)
+    ![Rutan Redigera egenskaper](media/add-non-gallery-app/edit-properties.png)
 
-1. Ange följande alternativ för att avgöra hur användare som är tilldelade eller otilldelade till programmet kan logga in på programmet och om en användare kan se programmet i åtkomst panelen.
+2. Ange följande alternativ för att avgöra hur användare som är tilldelade eller otilldelade till programmet kan logga in på programmet och om en användare kan se programmet i åtkomst panelen.
 
     - **Aktiverad för användare att logga in** bestämmer huruvida användare som är tilldelade till programmet kan logga in.
     - **Användar tilldelning krävs** avgör om användare som inte är tilldelade till programmet kan logga in.
@@ -83,11 +98,11 @@ I den här artikeln beskrivs hur du lägger till ett program som inte är ett ga
 
      *Kan användaren se programmet i åtkomstpanelen och Office 365-appfönstret?
 
-1. Om du vill använda en anpassad logo typ skapar du en logo typ som är 215 x 215 bild punkter och sparar den i PNG-format. Bläddra sedan till din logo typ och ladda upp den.
+3. Om du vill använda en anpassad logo typ skapar du en logo typ som är 215 x 215 bild punkter och sparar den i PNG-format. Bläddra sedan till din logo typ och ladda upp den.
 
-    ![Ändra logotypen](media/add-application-portal/change-logo.png)
+    ![Ändra logotypen](media/add-non-gallery-app/change-logo.png)
 
-1. När du är klar väljer du **Spara**.
+4. När du är klar väljer du **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

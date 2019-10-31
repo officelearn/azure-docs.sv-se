@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ac483a338b7d71142b89b13e41fc048346ac037f
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: e0d746f1b01784bc383c12543936f06dae66ca09
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802653"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063262"
 ---
 # <a name="azure-block-blob-storage-performance-tiers"></a>Prestanda nivåer för Azure Block Blob Storage
 
@@ -28,7 +28,7 @@ Följande överväganden gäller för de olika prestanda nivåerna:
 
 - Standard prestanda är tillgängligt i alla [Azure-regioner](https://azure.microsoft.com/global-infrastructure/services/?products=storage). Premium-prestanda finns i [utvalda regioner](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 - Premium-prestanda ger optimerade priser för program med höga transaktions priser för att [minska den totala lagrings kostnaden](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) för dessa arbets belastningar.
-- Premium-prestanda kräver att du använder Block Blob Storage-konton, som stöder Block-Blob och tillägg av BLOB.
+- För att få förstklassiga prestanda för block-blobbar måste du använda konto typen BlockBlobStorage.
 - Standard prestanda är tillgängligt med Generell användning v1-, Generell användning v2-och Blob Storage-konton.
 - Premium-och standard-prestanda har både stöd för [block blobbar med högt genomflöde](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/). Block blobbar med höga data flöden är tillgängliga för förstklassiga prestanda med mer än 256 KiB. Block blobbar med höga data flöden är tillgängliga för standard prestanda på över 4 MiB-block eller i stället för att ange BLOB-storlekar.
 - Premium prestanda är för närvarande endast tillgängligt med lokalt redundant lagring (LRS).

@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: b484306504af8f83a393feb0469fff5b524948ab
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992215"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098621"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Självstudie: publicera, prenumerera på händelser lokalt
 
@@ -81,6 +81,8 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
     >[!IMPORTANT]
     > I den här självstudien ska du distribuera Event Grid-modulen med klientautentisering inaktive rad och tillåta HTTP-prenumeranter. För produktions arbets belastningar rekommenderar vi att du aktiverar klientautentisering och bara tillåter HTTPs-prenumeranter. Mer information om hur du konfigurerar Event Grid modul på ett säkert sätt finns i [säkerhet och autentisering](security-authentication.md).
+    > 
+    > Om du använder en virtuell Azure-dator som gräns enhet lägger du till en regel för inkommande port för att tillåta inkommande trafik på port 4438. Anvisningar om hur du lägger till regeln finns i [så här öppnar du portar till en virtuell dator](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
 ## <a name="deploy-azure-function-iot-edge-module"></a>Distribuera Azure Function IoT Edge-modulen
@@ -257,7 +259,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
     Kör följande kommando i Windows:
 
     ```sh
-    iotedge logs subscriber -f
+    docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
     ```
 
    Kör följande kommando i Linux:
@@ -299,6 +301,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du skapat ett event Grid-ämne, prenumeration och publicerade händelser. Nu när du känner till de grundläggande stegen kan du läsa följande artiklar: 
 
+- Information om hur du felsöker problem med att använda Azure Event Grid på IoT Edge finns i [fel söknings guide](troubleshoot.md).
 - Skapa/uppdatera prenumeration med [filter](advanced-filtering.md).
 - Aktivera persistence för Event Grid modul i [Linux](persist-state-linux.md) eller [Windows](persist-state-windows.md)
 - Följ [dokumentationen](configure-client-auth.md) om du vill konfigurera klientautentisering

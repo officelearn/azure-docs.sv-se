@@ -1,6 +1,6 @@
 ---
-title: 'Få tillgång till lokala API: er med Azure AD Application Proxy'
-description: 'Azure Active Directory Application Proxy kan inbyggda appar på ett säkert sätt få åtkomst till API: er och affärslogik som värd för en lokal eller på virtuella datorer.'
+title: 'Få åtkomst till lokala API: er med Azure AD-programproxy'
+description: 'Azure Active Directoryens programproxy tillåter inbyggda appar säker åtkomst till API: er och affärs logik som du är värd för lokalt eller på virtuella datorer i molnet.'
 services: active-directory
 author: jeevanbisht
 manager: mtillman
@@ -8,135 +8,135 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/24/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: c2b99525e3d0a61c02dc502fcd0927ea65993e5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b741f42bb215df59903fed7ed84094b7d037ce65
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108492"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063010"
 ---
-# <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Säker åtkomst till lokala API: er med Azure AD Application Proxy
+# <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Säker åtkomst till lokala API: er med Azure AD-programproxy
 
-Du kan ha affärslogik API: er som körs lokalt eller körs på virtuella datorer i molnet. Dina interna Android, iOS, Mac eller Windows-appar måste interagera med API-slutpunkter som används av data och ge interaktion från användaren. Azure AD Application Proxy och [Azure Active Directory Authentication Libraries (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) nu kan dina interna appar säker åtkomst till din lokala API: er. Azure Active Directory Application Proxy är en lösning för snabbare och säkrare än att öppna portar i brandväggen och styra autentisering och auktorisering i appnivån. 
+Du kan ha affärs logik-API: er som körs lokalt eller som finns på virtuella datorer i molnet. Dina inbyggda Android-, iOS-, Mac-eller Windows-appar behöver interagera med API-slutpunkterna för att använda data eller tillhandahålla användar interaktion. Azure AD-programproxy och [Azure Active Directory Authentication libraries (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) gör det möjligt för dina inbyggda appar att få säker åtkomst till dina lokala API: er. Azure Active Directory-programproxy är en snabbare och säkrare lösning än att öppna brand Väggs portar och kontrol lera autentisering och auktorisering på App-lagret. 
 
-Den här artikeln vägleder dig genom att ställa in en Azure AD Application Proxy-lösning för värd för en webb-API-tjänst som har åtkomst till inbyggda appar. 
+Den här artikeln beskriver hur du konfigurerar en Azure AD-programproxy-lösning som är värd för en webb-API-tjänst som interna appar kan komma åt. 
 
 ## <a name="overview"></a>Översikt
 
-I följande diagram visas ett traditionellt sätt att publicera lokala API: er. Den här metoden kräver att öppna inkommande portarna 80 och 443.
+Följande diagram visar ett traditionellt sätt att publicera lokala API: er. Den här metoden kräver att du öppnar inkommande portar 80 och 443.
 
-![Traditionella API-åtkomst](./media/application-proxy-secure-api-access/overview-publish-api-open-ports.png)
+![Traditionell API-åtkomst](./media/application-proxy-secure-api-access/overview-publish-api-open-ports.png)
 
-Följande diagram visar hur du kan använda Azure AD-programproxy för att säkert publicera API: er utan att öppna några inkommande portar:
+Följande diagram visar hur du kan använda Azure-AD-programproxy för att publicera API: er på ett säkert sätt utan att öppna några inkommande portar:
 
-![Azure AD Application Proxy API-åtkomst](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
+![Azure AD-programproxy API-åtkomst](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-Azure AD-programproxyn utgör ryggraden för lösningen, som fungerar som en offentlig slutpunkt för API-åtkomst och att tillhandahålla autentisering och auktorisering. Du kan komma åt dina API: er från ett brett utbud av plattformar med hjälp av den [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries) bibliotek. 
+Azure AD-programproxy bildar lösningens stamnät, arbetar som en offentlig slut punkt för API-åtkomst och tillhandahåller autentisering och auktorisering. Du kan komma åt dina API: er från en mängd olika plattformar med hjälp av [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries) -biblioteken. 
 
-Eftersom Azure AD Application Proxy-autentisering och auktorisering bygger på Azure AD, kan du kan använda Azure AD villkorlig åtkomst för att se till att endast betrodda enheter kan komma åt API: er som publicerats via programproxy. Använd Azure AD Join- eller Azure AD-Hybrid anslutits för stationära datorer och hanteras av Intune för enheter. Du kan också dra nytta av Azure Active Directory Premium-funktioner som Azure Multi-Factor Authentication och machine learning-stödda säkerheten i [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
+Eftersom Azure AD-programproxy-autentisering och-auktorisering bygger på Azure AD kan du använda villkorlig åtkomst för Azure AD för att se till att endast betrodda enheter kan komma åt API: er som publicerats via programproxy. Använd Azure AD Join eller Azure AD hybrid anslutet för Station ära datorer och Intune Hanterat för enheter. Du kan också dra nytta av Azure Active Directory Premium funktioner som Azure Multi-Factor Authentication och datorn inlärnings skydd för [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill följa den här genomgången behöver du:
+För att följa den här genom gången behöver du:
 
-- Administratörsåtkomst till en Azure-katalog, med ett konto som kan skapa och registrera appar
-- Exemplet webb-API eller interna klientprogram från [https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp) 
+- Administratörs åtkomst till en Azure-katalog med ett konto som kan skapa och registrera appar
+- Exempel webb-API och interna klient program från [https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp) 
 
-## <a name="publish-the-api-through-application-proxy"></a>Publicera API: et via programproxy
+## <a name="publish-the-api-through-application-proxy"></a>Publicera API: t via Application Proxy
 
-Om du vill publicera en API utanför intranätet via programproxy följer samma mönster som publicerar webbappar. Mer information finns i [Självstudie: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory](application-proxy-add-on-premises-application.md).
+Om du vill publicera ett API utanför intranätet via Application Proxy följer du samma mönster som för att publicera webbappar. Mer information finns i [Självstudier: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](application-proxy-add-on-premises-application.md).
 
-Publicera på webben SecretAPI API via programproxy:
+Så här publicerar du SecretAPI Web API via Application Proxy:
 
-1. Skapa och publicera SecretAPI exempelprojektet som en ASP.NET-webbapp på din lokala dator eller intranätet. Kontrollera att du kan komma åt webbappen lokalt. 
+1. Bygg och publicera SecretAPI-projektet som en ASP.NET-webbapp på din lokala dator eller intranät. Se till att du har åtkomst till webbappen lokalt. 
    
-1. I den [Azure-portalen](https://portal.azure.com)väljer **Azure Active Directory** i det vänstra navigeringsfönstret. Klicka på den **översikt** väljer **företagsprogram**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **Azure Active Directory** i det vänstra navigerings fältet. På sidan **Översikt** väljer du sedan **företags program**.
    
-1. Överst på den **företagsprogram – alla program** väljer **nytt program**.
+1. Överst på sidan **företags program – alla program** väljer du **nytt program**.
    
-1. På den **lägga till ett program** sidan under **lägga till din egen app**väljer **lokala program**. 
+1. På sidan **Bläddra i Azure AD-galleriet** , under **lokala program**, väljer du **Lägg till ett lokalt program**. Sidan **Lägg till ett eget lokalt program** visas.
    
-1. Om du inte har en Application Proxy Connector installerat, uppmanas du att installera den. Välj **ladda ned Application Proxy Connector** att ladda ned och installera anslutningen. 
+1. Om du inte har någon Application Proxy-anslutning installerad uppmanas du att installera den. Välj **Hämta Application Proxy Connector** för att ladda ned och installera anslutningen. 
    
-1. När du har installerat Application Proxy Connector på den **lägga till dina egna lokala program** sidan:
+1. När du har installerat Application Proxy Connector går du till sidan **Lägg till en egen lokal app** :
    
    1. Ange *SecretAPI* bredvid **namn**.
       
-   1. Ange URL: en som du använder för att få åtkomst till API från i intranätet bredvid **interna URL: en**. 
+   1. Ange den URL som du använder för att få åtkomst till API: et inifrån intranätet bredvid **intern URL**. 
       
-   1. Se till att **förautentisering** är inställd på **Azure Active Directory**. 
+   1. Se till att **förautentisering** har angetts till **Azure Active Directory**. 
       
-   1. Välj **Lägg till** överst på sidan och vänta tills appen som ska skapas.
+   1. Välj **Lägg till** överst på sidan och vänta tills appen har skapats.
    
    ![Lägg till API-app](./media/application-proxy-secure-api-access/3-add-api-app.png)
    
-1. På den **företagsprogram – alla program** väljer den **SecretAPI** app. 
+1. På sidan **företags program – alla program** väljer du appen **SecretAPI** . 
    
-1. På den **SecretAPI - översikt** väljer **egenskaper** i det vänstra navigeringsfönstret.
+1. På sidan **SecretAPI-Overview** väljer du **Egenskaper** i det vänstra navigerings fältet.
    
-1. Du inte vill att API: er ska vara tillgängliga för slutanvändare i den **MyApps** panelen, så ange **synlig för användarna** till **nr** längst ned på den **egenskaper**och välj sedan **spara**.
+1. Du vill inte att API: er ska vara tillgängliga för slutanvändare på panelen mina **appar** , så Ställ in **Visible för användare** till **Nej** längst ned på sidan **Egenskaper** och välj sedan **Spara**.
    
-   ![Inte synligt för användarna](./media/application-proxy-secure-api-access/5-not-visible-to-users.png)
+   ![Inte synlig för användare](./media/application-proxy-secure-api-access/5-not-visible-to-users.png)
    
-Du har publicerat ditt webb-API via Azure AD-programproxy. Lägg till användare med åtkomst till appen. 
+Du har publicerat ditt webb-API via Azure AD-programproxy. Lägg nu till användare som har åtkomst till appen. 
 
-1. På den **SecretAPI - översikt** väljer **användare och grupper** i det vänstra navigeringsfönstret.
+1. På sidan **SecretAPI-översikt** väljer **du användare och grupper** i det vänstra navigerings fältet.
    
-1. På den **användare och grupper** väljer **Lägg till användare**.  
+1. På sidan **användare och grupper** väljer du **Lägg till användare**.  
    
-1. På den **Lägg till tilldelning** väljer **användare och grupper**. 
+1. På sidan **Lägg till tilldelning** väljer **du användare och grupper**. 
    
-1. På den **användare och grupper** , söka efter och Välj användare med åtkomst till appen, inklusive minst själv. När du har valt alla användare, Välj **Välj**. 
+1. På sidan **användare och grupper** söker du efter och väljer användare som har åtkomst till appen, inklusive minst själv. När du har valt alla användare väljer du **Välj**. 
    
    ![Välj och tilldela användare](./media/application-proxy-secure-api-access/7-select-admin-user.png)
    
-1. Gå tillbaka till den **Lägg till tilldelning** väljer **tilldela**. 
+1. Tillbaka på sidan **Lägg till tilldelning** väljer du **tilldela**. 
 
 > [!NOTE]
 > API: er som använder integrerad Windows-autentisering kan kräva [ytterligare steg](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd).
 
 ## <a name="register-the-native-app-and-grant-access-to-the-api"></a>Registrera den inbyggda appen och bevilja åtkomst till API: et
 
-Inbyggda appar är program som har utvecklats för att använda på en viss plattform eller enhet. Innan den inbyggda appen kan ansluta och få åtkomst till ett API, måste du registrera den i Azure AD. Följande steg visar hur du registrerar en inbyggd app och ge åtkomst till webb-API som du har publicerats via programproxy.
+Inbyggda appar är program som har utvecklats för att användas på en viss plattform eller enhet. Innan din inbyggda app kan ansluta till och komma åt ett API måste du registrera den i Azure AD. Följande steg visar hur du registrerar en inbyggd app och ger den åtkomst till webb-API: t som du har publicerat via programproxyn.
 
-Registrera den inbyggda appen AppProxyNativeAppSample:
+Registrera den inbyggda AppProxyNativeAppSample-appen:
 
-1. På Azure Active Directory **översikt** väljer **appregistreringar**, och överst i den **appregistreringar** väljer **ny registrering** .
+1. På sidan Azure Active Directory **Översikt** väljer du **Appregistreringar**. överst i fönstret **Appregistreringar** väljer du **ny registrering**.
    
-1. På den **registrera ett program** sidan:
+1. På sidan **Registrera ett program** :
    
-   1. Under **namn**, ange *AppProxyNativeAppSample*. 
+   1. Under **namn**anger du *AppProxyNativeAppSample*. 
       
    1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton). 
       
-   1. Under **omdirigerings-URL**, nedrullningsbar listruta och välj **offentlig klient (mobilappar och skrivbordsappar)** , och ange sedan *https:\//appproxynativeapp*. 
+   1. Under **omdirigerings-URL**, listruta och välj **offentlig klient (mobilt & skriv bord)** och ange sedan *https:\//appproxynativeapp*. 
       
-   1. Välj **registrera**, och vänta tills appen registreras har. 
+   1. Välj **register**och vänta tills appen har registrerats. 
       
       ![Ny programregistrering](./media/application-proxy-secure-api-access/8-create-reg-ga.png)
    
-Du har nu registrerats AppProxyNativeAppSample-app i Azure Active Directory. Ge din inbyggd app-åtkomst till SecretAPI webb-API:
+Nu har du registrerat AppProxyNativeAppSample-appen i Azure Active Directory. Så här ger du din inbyggda app åtkomst till SecretAPI webb-API:
 
-1. På Azure Active Directory **översikt** > **Appregistreringar** väljer den **AppProxyNativeAppSample** app. 
+1. På sidan Azure Active Directory **översikt** > **app Registration** väljer du appen **AppProxyNativeAppSample** . 
    
-1. På den **AppProxyNativeAppSample** väljer **API-behörigheter** i det vänstra navigeringsfönstret. 
+1. På sidan **AppProxyNativeAppSample** väljer du **API-behörigheter** i det vänstra navigerings fältet. 
    
-1. På den **API-behörigheter** väljer **lägga till en behörighet**.
+1. På sidan **API-behörigheter** väljer du **Lägg till en behörighet**.
    
-1. Första **begär API-behörigheter** väljer den **API: er som min organisation använder** fliken och sök sedan efter och välj **SecretAPI**. 
+1. På sidan första **API-behörighet för begäran** väljer du fliken **API: er min organisation använder** och söker sedan efter och väljer **SecretAPI**. 
    
-1. På nästa **begär API-behörigheter** markerar du kryssrutan bredvid **user_impersonation**, och välj sedan **Lägg till behörigheter**. 
+1. På sidan nästa **begär ande-API-behörighet** markerar du kryss rutan bredvid **user_impersonation**och väljer sedan **Lägg till behörigheter**. 
    
     ![Välj ett API](./media/application-proxy-secure-api-access/10-secretapi-added.png)
    
-1. Gå tillbaka till den **API-behörigheter** kan du välja **bevilja administratörens godkännande för Contoso** att förhindra att andra användare behöva individuellt godkänna appen. 
+1. På sidan **API-behörigheter** kan du välja **bevilja administrativt godkännande för Contoso** för att förhindra att andra användare behöver ett individuellt medgivande till appen. 
 
-## <a name="configure-the-native-app-code"></a>Konfigurera inbyggd app-kod
+## <a name="configure-the-native-app-code"></a>Konfigurera koden för den inbyggda appen
 
-Det sista steget är att konfigurera den inbyggda appen. Följande kodavsnitt från den *Form1.cs* fil i exempelappen NativeClient orsakar ADAL-biblioteket att hämta token för att begära API-anrop och kopplar den som ägar till app-rubrik. 
+Det sista steget är att konfigurera den inbyggda appen. Följande kodfragment från *Form1.cs* -filen i NativeClient-exempel appen gör att ADAL-biblioteket hämtar token för att begära API-anropet och kopplar det som innehavare till app-huvudet. 
    
    ```csharp
        AuthenticationResult result = null;
@@ -155,24 +155,24 @@ Det sista steget är att konfigurera den inbyggda appen. Följande kodavsnitt fr
        MessageBox.Show(s);
    ```
    
-Om du vill konfigurera den inbyggda appen för att ansluta till Azure Active Directory och anropa API App Proxy, uppdatera platshållarvärdena i den *App.config* fil för NativeClient exempelapp med värden från Azure AD: 
+Om du vill konfigurera den interna appen så att den ansluter till Azure Active Directory och anropa API app proxy, uppdaterar du plats hållarnas värden i filen *app. config* i NativeClient-exempel appen med värden från Azure AD: 
 
-- Klistra in den **katalog (klient)-ID** i den `<add key="ida:Tenant" value="" />` fält. Du kan hitta och kopiera det här värdet (en GUID) från den **översikt** för någon av dina appar. 
+- Klistra in **katalog-ID: t** i fältet `<add key="ida:Tenant" value="" />`. Du kan hitta och kopiera det här värdet (ett GUID) från sidan **Översikt** i någon av dina appar. 
   
-- Klistra in AppProxyNativeAppSample **(klient)-ID: T** i den `<add key="ida:ClientId" value="" />` fält. Du kan hitta och kopiera det här värdet (en GUID) från AppProxyNativeAppSample **översikt** sidan.
+- Klistra in AppProxyNativeAppSample **-program-ID: t (Client)** i fältet `<add key="ida:ClientId" value="" />`. Du kan hitta och kopiera det här värdet (ett GUID) från **översikts** sidan för AppProxyNativeAppSample.
   
-- Klistra in AppProxyNativeAppSample **omdirigerings-URI** i den `<add key="ida:RedirectUri" value="" />` fält. Du kan hitta och kopiera det här värdet (en URI) från AppProxyNativeAppSample **autentisering** sidan. 
+- Klistra in **omdirigerings-URI** för AppProxyNativeAppSample i fältet `<add key="ida:RedirectUri" value="" />`. Du kan hitta och kopiera det här värdet (en URI) från sidan AppProxyNativeAppSample- **autentisering** . 
   
-- Klistra in SecretAPI **program-ID-URI** i den `<add key="todo:TodoListResourceId" value="" />` fält. Du kan hitta och kopiera det här värdet (en URI) från SecretAPI **exponerar ett API** sidan.
+- Klistra in SecretAPI **program-ID-URI** i fältet `<add key="todo:TodoListResourceId" value="" />`. Du kan hitta och kopiera det här värdet (en URI) från SecretAPI **exponera en API** -sida.
   
-- Klistra in SecretAPI **URL-Adressen** i den `<add key="todo:TodoListBaseAddress" value="" />` fält. Du kan hitta och kopiera det här värdet (en URL) från SecretAPI **varumärkesriktlinjer** sidan.
+- Klistra in **URL: en för SecretAPI start sida** i fältet `<add key="todo:TodoListBaseAddress" value="" />`. Du kan hitta och kopiera det här värdet (en URL) från sidan för SecretAPI- **anpassning** .
 
-När du har konfigurerat parametrarna, skapa och köra den inbyggda appen. När du väljer den **logga In** knappen appen kan du logga in och sedan visas en skärm för lyckad att bekräfta att den har anslutit SecretAPI.
+När du har konfigurerat parametrarna skapar och kör du den inbyggda appen. När du väljer knappen **Logga in** kan du använda appen för att logga in och sedan Visa skärmen lyckades för att bekräfta att den har anslutits till SecretAPI.
 
-![Klart](./media/application-proxy-secure-api-access/success.png)
+![Lyckades](./media/application-proxy-secure-api-access/success.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory](application-proxy-add-on-premises-application.md)
-- [Snabbstart: Konfigurera ett klientprogram för att få åtkomst till webb-API: er](../develop/quickstart-configure-app-access-web-apis.md)
-- [Så här aktiverar du interna klientprogram att interagera med proxy-program](application-proxy-configure-native-client-application.md)
+- [Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Snabb start: Konfigurera ett klient program för åtkomst till webb-API: er](../develop/quickstart-configure-app-access-web-apis.md)
+- [Så här aktiverar du interna klient program för att interagera med proxyprogram](application-proxy-configure-native-client-application.md)

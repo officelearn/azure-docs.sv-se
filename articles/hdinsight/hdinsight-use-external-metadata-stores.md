@@ -7,15 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: a876269b2746a1065cee2639cfc5804aff0b3446
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 10/29/2019
+ms.openlocfilehash: 33302f3760cc750bfc41386aaf17368abc15ba5d
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027705"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063295"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använd externa metadata butiker i Azure HDInsight
+
+Med HDInsight kan du ta kontroll över dina data och metadata genom att distribuera lösningar för nyckel metadata och hanterings databaser till externa data lager. Den här funktionen är för närvarande tillgänglig för [Apache Hive metaarkiv](#custom-metastore), [Apache Oozie Metaarkiv](#apache-oozie-metastore) och [Apache Ambari Database](#custom-ambari-db).
 
 Apache Hive metaarkiv i HDInsight är en viktig del av Apache Hadoop arkitekturen. En metaarkiv är den centrala schema lagrings platsen som kan användas av andra Big Data Access-verktyg som Apache Spark, Interactive Query (LLAP), Presto eller Apache gris. HDInsight använder en Azure SQL Database som Hive-metaarkiv.
 
@@ -92,6 +94,10 @@ Här följer några allmänna HDInsight-Hive-metaarkiv bästa praxis:
 Apache Oozie är ett system för arbets flödes koordinering som hanterar Hadoop-jobb.  Oozie stöder Hadoop-jobb för Apache MapReduce, gris, Hive och andra.  Oozie använder en metaarkiv för att lagra information om aktuella och slutförda arbets flöden. Om du vill öka prestandan när du använder Oozie kan du använda Azure SQL Database som en anpassad metaarkiv. Metaarkiv kan även ge åtkomst till Oozie-jobb data när du har tagit bort klustret.
 
 Anvisningar om hur du skapar en Oozie-metaarkiv med Azure SQL Database finns i [använda Apache Oozie för arbets flöden](hdinsight-use-oozie-linux-mac.md).
+
+## <a name="custom-ambari-db"></a>Anpassad Ambari-databas
+
+Om du vill använda din egen externa databas med Apache Ambari på HDInsight, se [anpassad Apache Ambari-databas](hdinsight-custom-ambari-db.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

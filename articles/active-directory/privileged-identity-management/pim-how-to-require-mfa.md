@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12b6cd17fac77361fa20d3b3e048e64228a2ed3d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 2aa58c354198e648227b9b0b43d1f60546f87d32
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809022"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063068"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Multi-Factor Authentication och Privileged Identity Management
 
 Vi rekommenderar att du kräver Multi-Factor Authentication (MFA) för alla administratörer. Detta minskar risken för angrepp på grund av ett komprometterat lösen ord.
 
-Du kan kräva att användarna slutför en Multi = Factor Authentication-utmaning när de loggar in. Du kan också kräva att användarna slutför en Multi = Factor Authentication-utmaning när de aktiverar en roll i Azure Active Directory (Azure AD) Privileged Identity Management (PIM). På så sätt, om användaren inte har slutfört en Multi = Factor Authentication-utmaning när de loggade in, kommer de att uppmanas att göra det genom att Privileged Identity Management.
+Du kan kräva att användarna slutför en Multi-Factor Authentication-utmaning när de loggar in. Du kan också kräva att användarna slutför en Multi-Factor Authentication-utmaning när de aktiverar en roll i Azure Active Directory (Azure AD) Privileged Identity Management (PIM). På så sätt, om användaren inte slutförde en Multi-Factor Authentication-utmaning när de loggade in, uppmanas de att göra det genom att Privileged Identity Management.
 
 > [!IMPORTANT]
 > Just nu fungerar Azure Multi-Factor Authentication bara med arbets-eller skol konton, inte Microsofts personliga konton (vanligt vis ett personligt konto som används för att logga in på Microsoft-tjänster som Skype, Xbox eller Outlook.com). Därför kan alla som använder ett personligt konto inte vara en berättigad administratör eftersom de inte kan använda Multi-Factor Authentication för att aktivera sina roller. Om dessa användare behöver fortsätta hantera arbets belastningar med hjälp av en Microsoft-konto kan du höja dem till permanenta administratörer för tillfället.

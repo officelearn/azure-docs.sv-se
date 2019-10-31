@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 86c0fe8b0846350f74c90dfbd229510d28ce9499
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 5fb6cab4bfeea4308873210fb5f9122b37b61dcd
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992228"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100312"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Självstudie: publicera, prenumerera på händelser i molnet
 
@@ -198,6 +198,7 @@ Du kan visa händelsen som levererats i Azure Portal under alternativet **överv
 
 I den här självstudien har du skapat ett event Grid-ämne, prenumeration och publicerade händelser. Nu när du känner till de grundläggande stegen kan du läsa följande artiklar:
 
+* Information om hur du felsöker problem med att använda Azure Event Grid på IoT Edge finns i [fel söknings guide](troubleshoot.md).
 * Skapa/uppdatera prenumeration med [filter](advanced-filtering.md).
 * Konfigurera persistence för Event Grid modul i [Linux](persist-state-linux.md) eller [Windows](persist-state-windows.md)
 * Följ [dokumentationen](configure-client-auth.md) om du vill konfigurera klientautentisering

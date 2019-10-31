@@ -1,7 +1,7 @@
 ---
 title: Ändra åtkomst nycklar för lagrings kontot
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du ändrar åtkomst nycklarna för det Azure Storage konto som används av din arbets yta. Azure Machine Learning använder ett Azure Storage konto för att lagra data och modeller. När du återskapar åtkomst nyckeln för lagrings kontot måste du uppdatera Azure Machine Learning för att använda de nya nycklarna.
+description: Lär dig hur du ändrar åtkomst nycklarna för det Azure Storage konto som används av din arbets yta. Azure Machine Learning använder ett Azure Storage konto för att lagra data och modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/16/2019
-ms.openlocfilehash: 6c87d4553c7b0fd34513d761558a06cd527c4e3b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 77cafceee35f00a81b2e07b59f0f4a13146fd906
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034954"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063324"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 
@@ -23,7 +23,7 @@ Lär dig hur du ändrar åtkomst nycklarna för Azure Storage konton som använd
 
 Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure Storage-konto. När du återskapar åtkomst nyckeln måste Azure Machine Learning uppdateras för att använda den nya nyckeln. Azure Machine Learning kan använda lagrings kontot för både modell lagring och som ett data lager.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 
@@ -64,9 +64,9 @@ for name, ds in datastores.items():
 
 Den här koden söker efter registrerade data lager som använder Azure Storage och visar följande information:
 
-* Data lager namn: Namnet på det data lager som lagrings kontot är registrerat under.
-* Lagringskontots namn: Namnet på Azure Storage kontot.
-* Fönster Den behållare i lagrings kontot som används vid registreringen.
+* Data lager namn: namnet på det data lager som lagrings kontot är registrerat under.
+* Lagrings konto namn: namnet på Azure Storage kontot.
+* Container: den behållare i lagrings kontot som används vid registreringen.
 
 Det visar också om data lagret är för en Azure-Blob eller en Azure-filresurs eftersom det finns olika metoder för att omregistrera varje typ av data lager.
 
@@ -89,7 +89,7 @@ Om du vill uppdatera Azure Machine Learning att använda den nya nyckeln använd
         az login
         ```
 
-    1. Använd följande kommando för att uppdatera arbets ytan för att använda den nya nyckeln. Ersätt `myworkspace` med namnet på din Azure Machine Learning arbets yta och `myresourcegroup` Ersätt med namnet på den Azure-resurs grupp som innehåller arbets ytan.
+    1. Använd följande kommando för att uppdatera arbets ytan för att använda den nya nyckeln. Ersätt `myworkspace` med namnet på din Azure Machine Learning arbets yta och ersätt `myresourcegroup` med namnet på den Azure-resurs grupp som innehåller arbets ytan.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
@@ -119,8 +119,8 @@ Om du vill uppdatera Azure Machine Learning att använda den nya nyckeln använd
     
     ```
 
-    Eftersom `overwrite=True` har angetts skriver den här koden över den befintliga registreringen och uppdaterar den för att använda den nya nyckeln.
+    Eftersom `overwrite=True` anges skriver den här koden över den befintliga registreringen och uppdaterar den för att använda den nya nyckeln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du registrerar data lager finns i [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klass referensen.
+Mer information om hur du registrerar data lager finns i referens för [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) -klassen.

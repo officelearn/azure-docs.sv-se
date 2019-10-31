@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7a9f726273dc3c5b336b22588d49704ffc2d8192
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: HT
+ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043379"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064109"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
 
@@ -105,7 +105,8 @@ Det här felet uppstår om ditt Azure Functions-projekt (eller ett refererat pro
 Lös problemet genom att ta bort den manuella NuGet-referensen som lades till och låt Azure Cosmos DB SDK-referensen matcha genom Azure Functions Cosmos DB tilläggs paketet.
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Ändra avsöknings intervall för Azure Function för att identifiera ändringar
-Som förklaras tidigare för [# # # mina ändringar tar för lång tid att ta emot](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-be-received), Azure-funktionen försätts i vilo läge under en konfigurerbar tids period (5 sekunder som standard) innan du söker efter nya ändringar (för att undvika hög ru-förbrukning). Du kan ändra vilotiden med inställningen `FeedPollDelay/feedPollDelay` i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) för utlösaren (värdet förväntas anges i millisekunder).
+
+Som förklarat tidigare för [mina ändringar tar](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)det för lång tid att ta emot, Azure-funktionen försätts i vilo läge under en konfigurerbar tids period (5 sekunder som standard) innan du söker efter nya ändringar (för att undvika hög ru-förbrukning). Du kan ändra vilotiden med inställningen `FeedPollDelay/feedPollDelay` i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) för utlösaren (värdet förväntas anges i millisekunder).
 
 ## <a name="next-steps"></a>Nästa steg
 

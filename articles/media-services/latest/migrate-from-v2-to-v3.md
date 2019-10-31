@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 901542e2a69d2c7880825d76c1d69d3795713ed2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 003cc54a07455118969a2dd497e9b963c03f68f2
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231167"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099496"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
 
@@ -73,7 +73,8 @@ Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services
     * Live Event ersätter kanal.<br/>Faktureringen av Live-händelser baseras på Live Channel-mätare. Mer information finns i [fakturering](live-event-states-billing.md) och [priser](https://azure.microsoft.com/pricing/details/media-services/).
     * Live output ersätter program.
 * Liveutdata startar när de skapas och avbryts när de tas bort. Program fungerade annorlunda i v2-API: er, de var igång när de har skapats.
-*  Om du vill hämta information om ett jobb måste du känna till Transformations namnet som jobbet skapades under. 
+* Om du vill hämta information om ett jobb måste du känna till Transformations namnet som jobbet skapades under. 
+* I v2 skapas filer för XML- [indata](../previous/media-services-input-metadata-schema.md) och [utdata](../previous/media-services-output-metadata-schema.md) som genereras som ett resultat av ett kodnings jobb. I v3 har metadata-formatet ändrats från XML till JSON. 
 
 > [!NOTE]
 > Granska de namngivnings konventioner som tillämpas på [Media Services v3-resurser](media-services-apis-overview.md#naming-conventions). Granska också [namngivning av blobbar](assets-concept.md#naming-blobs).
@@ -82,7 +83,7 @@ Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services
 
 V3-API: et har följande funktions luckor i relation till v2-API: et. Att stänga luckorna är pågående arbete.
 
-* [Premium](../previous/media-services-premium-workflow-encoder-formats.md) -kodaren och de äldre [Media Analytics](../previous/media-services-analytics-overview.md) -processorerna (Azure Media Services indexerare 2 för hands version, ansikts bortredigering osv.) är inte tillgängliga via v3.<br/>Kunder som vill migrera från Media Indexer 1 eller 2 för hands versionen kan omedelbart använda AudioAnalyzer-förvalet i v3-API: et.  Den här nya för inställningen innehåller fler funktioner än den äldre Media Indexer 1 eller 2. 
+* [Premium-kodaren](../previous/media-services-premium-workflow-encoder-formats.md) och de äldre [Media Analytics-processorerna](../previous/media-services-analytics-overview.md) (Azure Media Services indexerare 2 för hands version, ansikts bortredigering osv.) är inte tillgängliga via v3.<br/>Kunder som vill migrera från Media Indexer 1 eller 2 för hands versionen kan omedelbart använda AudioAnalyzer-förvalet i v3-API: et.  Den här nya för inställningen innehåller fler funktioner än den äldre Media Indexer 1 eller 2. 
 * Många av de [avancerade funktionerna i Media Encoder Standard i v2](../previous/media-services-advanced-encoding-with-mes.md) API: er är för närvarande inte tillgängliga i v3, till exempel:
   
     * Häftning av till gångar
@@ -104,7 +105,7 @@ I följande tabell visas kod skillnaderna mellan v2 och v3 för vanliga scenarie
 |---|---|---|
 |Skapa en till gång och ladda upp en fil |[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Skicka ett jobb|[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Visar hur du först skapar en transformering och sedan skickar ett jobb.|
-|Publicera en till gång med AES-kryptering |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Skapa ContentKeyAuthorizationPolicy<br/>3. Skapa AssetDeliveryPolicy<br/>4. Skapa till gång och ladda upp innehåll eller skicka jobb och Använd utgående till gång<br/>5. Koppla AssetDeliveryPolicy till till gång<br/>6. Skapa ContentKey<br/>7. Bifoga ContentKey till till gång<br/>8. Skapa Access policy<br/>9. Skapa lokaliserare<br/><br/>[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Skapa princip för innehålls nyckel<br/>2. Skapa till gång<br/>3. Ladda upp innehåll eller använd till gång som JobOutput<br/>4. Skapa strömmande Locator<br/><br/>[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Publicera en till gång med AES-kryptering |1. skapa ContentKeyAuthorizationPolicyOption<br/>2. skapa ContentKeyAuthorizationPolicy<br/>3. skapa AssetDeliveryPolicy<br/>4. Skapa till gång och ladda upp innehåll eller skicka jobb och Använd utgående till gång<br/>5. associera AssetDeliveryPolicy med till gång<br/>6. skapa ContentKey<br/>7. bifoga ContentKey till till gång<br/>8. skapa Access policy<br/>9. skapa lokaliserare<br/><br/>[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. skapa en princip för innehålls nyckel<br/>2. Skapa till gång<br/>3. Ladda upp innehåll eller använd till gång som JobOutput<br/>4. skapa strömmande Locator<br/><br/>[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 |Hämta jobb information och hantera jobb |[Hantera jobb med v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Hantera jobb med v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Kända problem

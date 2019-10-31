@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3f3d7eb0fe544316aec1ce1ece45b2c7c1d9085
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: a8d6297a32cd0f85cf354a93bfdac72cbad9603d
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694723"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062833"
 ---
-# <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudier: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory
+# <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
 Azure Active Directory (Azure AD) innehåller en programproxytjänst som gör att användarna kan komma åt lokala program genom att logga in med sitt Azure AD-konto. Den här självstudien förbereder din miljö för användning med programproxy. När din miljö är redo använder du Azure-portalen för att lägga till ett lokalt program till Azure AD-klientorganisationen.
 
@@ -40,7 +40,7 @@ Om du vill lägga till ett lokalt program i Azure AD behöver du:
 * Ett program administratörs konto
 * Användar identiteter måste synkroniseras från en lokal katalog eller skapas direkt i dina Azure AD-klienter. Identitetssynkronisering gör det möjligt för Azure AD att förautentisera användare innan de beviljar åtkomst till App proxy-publicerade program och att ha nödvändig information om användar-ID för att utföra enkel inloggning (SSO).
 
-### <a name="windows-server"></a>Windows server
+### <a name="windows-server"></a>Windows-server
 
 Om du vill använda programproxy behöver du en Windows-server som kör Windows Server 2012 R2 eller senare. Du installerar anslutningsappen för programproxy på servern. Anslutningsservern måste ansluta till programproxytjänsten i Azure och de lokala programmen som du har för avsikt att publicera.
 
@@ -97,9 +97,9 @@ Tillåt åtkomst till följande webbadresser:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Kommunikation mellan anslutningsprogrammet och molntjänsten för programproxy |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure använder dessa URL: er för att verifiera certifikat. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*. microsoftonline-p.com<br>\*. msauth.net<br>\*. msauthimages.net<br>\*. msecnd.net<br>\*. msftauth.net<br>\*. msftauthimages.net<br>\*. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 
-Du kan tillåta anslutningar till \*.msappproxy.net och \*.servicebus.windows.net om din brand vägg eller proxy låter dig konfigurera listan över tillåtna DNS-listor. Om inte, måste du tillåta åtkomst till [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). IP-adressintervallen uppdateras varje vecka.
+Du kan tillåta anslutningar till \*. msappproxy.net och \*. servicebus.windows.net om din brand vägg eller proxy låter dig konfigurera listan över tillåtna DNS-listor. Om inte, måste du tillåta åtkomst till [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). IP-adressintervallen uppdateras varje vecka.
 
 ## <a name="install-and-register-a-connector"></a>Installera och registrera ett anslutningsprogram
 
@@ -122,7 +122,7 @@ Så här installerar du anslutningsprogrammet:
 
 ### <a name="general-remarks"></a>Allmänna anmärkningar
 
-Om du tidigare har installerat ett anslutningsprogram måste du installera om för att hämta den senaste versionen. Om du vill se information om tidigare utgivna versioner och vilka ändringar de innehåller, se [Application proxy: Versions historik @ no__t-0.
+Om du tidigare har installerat ett anslutningsprogram måste du installera om för att hämta den senaste versionen. Information om tidigare utgivna versioner och vilka ändringar de innehåller finns i [Application Proxy: versions historik](application-proxy-release-version-history.md).
 
 Väljer du att ha mer än en Windows-server för dina lokala program måste du installera och registrera anslutningsprogrammet på varje server. Du kan ordna anslutningsprogrammen i anslutningsgrupper. Mer information finns i [anslutningsgrupper](application-proxy-connector-groups.md).
 
@@ -142,7 +142,7 @@ Så här bekräftar du att anslutningsprogrammet installerats och registrerats p
 1. Välj **Azure Active Directory**i den vänstra navigerings panelen och välj sedan **programproxy** under avsnittet **Hantera** . Alla dina anslutningsprogram och anslutningsgrupper visas på den här sidan.
 1. Visa en koppling för att verifiera dess information. Kopplingarna bör expanderas som standard. Om den koppling som du vill visa inte är expanderad expanderar du kopplingen så att du kan se informationen. En aktiv grön etikett innebär att ditt anslutningsprogram kan ansluta till tjänsten. Även om etiketten är grön kan dock ett nätverksproblem fortfarande blockera anslutningsprogrammet från att ta emot meddelanden.
 
-    ![Azure AD-programproxy-kopplingar](./media/application-proxy-connectors/app-proxy-connectors.png)
+    ![Azure AD-programproxy-kopplingar](./media/application-proxy-add-on-premises-application/app-proxy-connectors.png)
 
 Mer hjälp om hur du installerar en anslutning finns i [problem med att installera Application Proxy Connector](application-proxy-connector-installation-problem.md).
 
@@ -155,7 +155,7 @@ Så här bekräftar du att anslutningsprogrammet installerats och registrerats p
    - **Microsoft AAD Application Proxy Connector** möjliggör anslutning.
    - **Microsoft AAD Application Proxy Connector Updater** är en tjänst för automatiska uppdateringar. Uppdateringsverktyget söker efter nya versioner av anslutningsprogrammet och uppdaterar det efter behov.
 
-     ![Application Proxy Connector-tjänster – skärmbild](./media/application-proxy-enable/app_proxy_services.png)
+     ![Application Proxy Connector-tjänster – skärmbild](./media/application-proxy-add-on-premises-application/app_proxy_services.png)
 
 1. Om statusen för tjänsterna inte **körs**, högerklickar du på varje tjänst och väljer **Starta**.
 
@@ -164,20 +164,20 @@ Så här bekräftar du att anslutningsprogrammet installerats och registrerats p
 Nu när du har förberett din miljö och installerat ett anslutningsprogram är du redo att lägga till lokala program till Azure Active Directory.  
 
 1. Logga in som administratör i [Azure-portalen](https://portal.azure.com/).
-1. I den vänstra navigerings panelen väljer du **Azure Active Directory**.
-1. Välj **företags program**och välj sedan **nytt program**.
-1. Välj **lokala program**.  
-1. I avsnittet **Lägg till ett eget lokalt program** anger du följande information om ditt program:
+2. I den vänstra navigerings panelen väljer du **Azure Active Directory**.
+3. Välj **företags program**och välj sedan **nytt program**.
+4. I avsnittet **lokala program** väljer du **Lägg till ett lokalt program**.
+5. I avsnittet **Lägg till ett eget lokalt program** anger du följande information om ditt program:
 
     | Fält | Beskrivning |
     | :---- | :---------- |
     | **Namn** | Namnet på programmet som ska visas på åtkomstpanelen och i Azure-portalen. |
-    | **Intern webbadress** | Det här är webbadressen för att komma åt programmet från inuti ditt privata nätverk. Du kan ange en specifik sökväg på backend-servern som du vill publicera, medan resten av servern är opublicerad. På så sätt kan du publicera olika webbplatser på samma server som olika program och ge varje webbplats sitt eget namn och sina egna åtkomstregler.<br><br>Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Om din app till exempel är på https: \//yourapp/app och använder avbildningar som finns på https: \//yourapp/media, ska du publicera https: \//yourapp/som sökvägen. Den interna webbadressen måste inte vara landningssidan som användarna ser. Mer information finns i [Ange en anpassad startsida för publicerade program](application-proxy-configure-custom-home-page.md). |
+    | **Intern webbadress** | Det här är webbadressen för att komma åt programmet från inuti ditt privata nätverk. Du kan ange en specifik sökväg på backend-servern som du vill publicera, medan resten av servern är opublicerad. På så sätt kan du publicera olika webbplatser på samma server som olika program och ge varje webbplats sitt eget namn och sina egna åtkomstregler.<br><br>Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Om din app till exempel är på https:\//yourapp/app och använder avbildningar som finns på https:\//yourapp/media, ska du publicera https:\//yourapp/som sökväg. Den interna webbadressen måste inte vara landningssidan som användarna ser. Mer information finns i [Ange en anpassad startsida för publicerade program](application-proxy-configure-custom-home-page.md). |
     | **Extern webbadress** | Adressen som ger användare åtkomst till programmet från utanför ditt nätverk. Om du inte vill använda standarddomänen för programproxy kan du läsa om [anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).|
     | **Förautentisering** | Hur programproxyn verifierar användare innan de ges åtkomst till ditt program.<br><br>**Azure Active Directory** – Programproxyn omdirigerar användarna till att logga in med Azure AD, som autentiserar deras katalog- och programbehörigheter. Vi rekommenderar att du behåller det här alternativet som standard så att du kan utnyttja Azure AD-säkerhetsfunktioner som villkorlig åtkomst och Multi-Factor Authentication. **Azure Active Directory** krävs för övervakning av program med Microsoft Cloud Application Security.<br><br>**Genom strömning** – användarna behöver inte autentisera sig mot Azure AD för att få åtkomst till programmet. Du kan fortfarande konfigurera autentiseringskrav från serverdelen. |
     | **Anslutningsgrupp** | Anslutningsprogram bearbetar fjärråtkomsten till programmet och anslutningsgrupper hjälper dig att organisera anslutningsprogram och program efter region, nätverk eller syfte. Om du inte har skapat några anslutningsgrupper än kommer programmet att tilldelas **Standard**.<br><br>Om ditt program använder WebSockets för att ansluta måste alla anslutningsprogram i gruppen vara version 1.5.612.0 eller senare.|
 
-1. Konfigurera **ytterligare inställningar** om det behövs. De flesta programmen bör behålla dessa inställningarna i standardtillstånden. 
+6. Konfigurera **ytterligare inställningar** om det behövs. De flesta programmen bör behålla dessa inställningarna i standardtillstånden. 
 
     | Fält | Beskrivning |
     | :---- | :---------- |
@@ -188,7 +188,7 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
     | **Översätt webbadresser i rubriker** | Behåll det här värdet som **Ja** såvida inte programmets ursprungliga värdrubrik krävs i autentiseringsbegäran. |
     | **Översätt webbadresser i brödtext för program** | Behåll detta värde som **Nej** om du inte har hårdkodad HTML-länkar till andra lokala program och inte använder anpassade domäner. Mer information finns i [Länka översättning med programproxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Ställ in det här värdet på **Ja** om du planerar att övervaka programmet med Microsoft Cloud App Security (MCAS). Mer information finns i [Konfigurera övervakning av program åtkomst i real tid med Microsoft Cloud App Security och Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 
-1. Välj **Lägg till**.
+7. Välj **Lägg till**.
 
 ## <a name="test-the-application"></a>Testa programmet
 
@@ -201,11 +201,11 @@ Verifiera att användarkontot redan har behörighet att komma åt programmet ini
 Lägga till en testanvändare:
 
 1. Välj **företags program**och välj sedan det program som du vill testa.
-1. Välj **Kom igång**och välj sedan **tilldela en användare för testning**.
-1. Under **användare och grupper**väljer du **Lägg till användare**.
-1. Under **Lägg till tilldelning**väljer **du användare och grupper**. Avsnittet **användare och grupper** visas.
-1. Välj det konto som du vill lägga till.
-1. Välj **Välj**och välj sedan **tilldela**.
+2. Välj **Kom igång**och välj sedan **tilldela en användare för testning**.
+3. Under **användare och grupper**väljer du **Lägg till användare**.
+4. Under **Lägg till tilldelning**väljer **du användare och grupper**. Avsnittet **användare och grupper** visas.
+5. Välj det konto som du vill lägga till.
+6. Välj **Välj**och välj sedan **tilldela**.
 
 ### <a name="test-the-sign-on"></a>Testa inloggningen
 

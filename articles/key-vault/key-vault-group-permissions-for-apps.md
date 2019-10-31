@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b472d36f17853549f2bfc773bdcb65faf0421b3f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718994"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102371"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll
 
@@ -22,9 +22,9 @@ ms.locfileid: "71718994"
 
 Det enklaste sättet att autentisera ett molnbaserad program till Key Vault är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](managed-identity.md) .  Om du skapar ett lokal program, gör en lokal utveckling eller inte kan använda en hanterad identitet, kan du istället registrera ett huvud namn för tjänsten manuellt och ge åtkomst till ditt nyckel valv med hjälp av en princip för åtkomst kontroll.  
 
-Key Vault har stöd för upp till 1024 åtkomst princip poster, med varje post som beviljar en särskild uppsättning behörigheter till en "huvud konto":   Detta är till exempel hur konsolens app i [Azure Key Vault klient biblioteket för .net snabb start](quick-create-net.md) kommer åt nyckel valvet.
+Key Vault har stöd för upp till 1024 åtkomst princip poster, med varje post som beviljar en distinkt uppsättning behörigheter till en "huvud konto": Detta är till exempel hur konsolens app i [Azure Key Vault klient bibliotek för .net snabb start](quick-create-net.md) har åtkomst till nyckel valvet.
 
-Fullständig information om Key Vault åtkomst kontroll finns i [Azure Key Vault säkerhet: Identitets-och åtkomst hantering @ no__t-0. Fullständig information om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md) åtkomst kontroll finns i: 
+Fullständig information om Key Vault åtkomst kontroll finns i [Azure Key Vault säkerhet: identitets-och åtkomst hantering](overview-security.md#identity-and-access-management). Fullständig information om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md) åtkomst kontroll finns i: 
 
 - [Åtkomst kontroll för nycklar](about-keys-secrets-and-certificates.md#key-access-control)
 - [Åtkomst kontroll för hemligheter](about-keys-secrets-and-certificates.md#secret-access-control)
@@ -32,7 +32,7 @@ Fullständig information om Key Vault åtkomst kontroll finns i [Azure Key Vault
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett nyckel valv. Du kan använda ett befintligt nyckel valv eller skapa ett nytt genom att följa stegen i någon av följande snabb starter:
    - [Skapa ett nyckel valv med Azure CLI](quick-create-cli.md)
@@ -46,14 +46,14 @@ Varje post för åtkomst principer för nyckel valv ger en distinkt uppsättning
 
 - **Ett program** Om programmet är molnbaserad bör du i stället [använda en hanterad identitet för att få åtkomst till Azure Key Vault](managed-identity.md), om möjligt
 - **En Azure AD-grupp** Även om Key Vault bara stöder 1024 åtkomst princip poster, kan du lägga till flera program och användare till en enda Azure AD-grupp och sedan lägga till gruppen som en enda post i din princip för åtkomst kontroll.
-- **En användare** Att ge användare direkt åtkomst till ett nyckel valv **rekommenderas inte.** Vi rekommenderar att användare läggs till i en Azure AD-grupp, vilket i sin tur har gett åtkomst till nyckel valvet. Se [Azure Key Vault säkerhet: Identitets-och åtkomst hantering @ no__t-0.
+- **En användare** Att ge användare direkt åtkomst till ett nyckel valv **rekommenderas inte.** Vi rekommenderar att användare läggs till i en Azure AD-grupp, vilket i sin tur har gett åtkomst till nyckel valvet. Se [Azure Key Vault säkerhet: identitets-och åtkomst hantering](overview-security.md#identity-and-access-management).
 
 
 ### <a name="get-the-objectid"></a>Hämta objectID
 
 Om du vill ge ett program, Azure AD-grupp eller användar åtkomst till ditt nyckel valv måste du först hämta dess objectId.
 
-#### <a name="applications"></a>Program
+#### <a name="applications"></a>Appar
 
 ObjectId för ett program motsvarar dess associerade tjänst huvud namn. Fullständig information om tjänstens huvud namn. Se [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
 
@@ -83,7 +83,7 @@ Du kan lägga till flera program och användare i en Azure AD-grupp och ge grupp
 Använd kommandot [AZ AD Group List](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) för att hitta ObjectID för en Azure AD-grupp med Azure CLI. På grund av det stora antalet grupper som kan finnas i din organisation, bör du även ange en Sök sträng till parametern `--display-name`.
 
 ```azurecli-interactive
-az ad group list --displayname <search-string>
+az ad group list --display-name <search-string>
 ```
 ObjectId kommer att returneras i JSON:
 
@@ -111,7 +111,7 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 
 Du kan också lägga till en enskild användare i ett nyckel valvs princip för åtkomst kontroll. **Vi rekommenderar inte detta.** I stället rekommenderar vi att du lägger till användare i en Azure AD-grupp och lägger till gruppen på principerna.
 
-Om du ändå vill hitta en användare med Azure CLI använder du kommandot [AZ AD User show](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show) och skickar användarens e-postadress till parametern `--id`.
+Om du ändå vill hitta en användare med Azure CLI använder du kommandot [AZ AD User show](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show) och skickar användarens e-postadress till `--id`-parametern.
 
 
 ```azurecli-interactive
@@ -127,7 +127,7 @@ Användarens objectId kommer att returneras i utdata:
   ...
 ```
 
-Om du vill hitta en användare med Azure PowerShell använder du cmdleten [Get-AzADUser](/powershell/module/az.resources/get-azaduser?view=azps-2.7.0) och skickar e-postadressen för användarna till parametern `-UserPrincipalName`.
+Om du vill hitta en användare med Azure PowerShell använder du cmdleten [Get-AzADUser](/powershell/module/az.resources/get-azaduser?view=azps-2.7.0) och skickar användarens e-postadress till `-UserPrincipalName`-parametern.
 
 ```azurepowershell-interactive
  Get-AzAdUser -UserPrincipalName <email-address-of-user>
@@ -185,7 +185,7 @@ I båda fallen noterar du den nyskapade gruppen för användar-och skriv åtgär
 
 ### <a name="find-the-objectids-of-your-applications-and-users"></a>Hitta objectIds för dina program och användare
 
-Du kan hitta objectIds för dina program med hjälp av Azure CLI med kommandot [AZ AD SP List](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) med parametern `--show-mine`.
+Du kan hitta objectIds för dina program med hjälp av Azure CLI med kommandot [AZ AD SP List](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) , med parametern `--show-mine`.
 
 ```azurecli-interactive
 az ad sp list --show-mine
@@ -203,14 +203,14 @@ Följ stegen i avsnittet [användare](#users) ovan för att hitta objectIds för
 
 Lägg nu till objectIds i din nya Azure AD-grupp.
 
-Med Azure CLI använder du AD- [AZ AD-gruppmedlem Lägg till](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add), och skickar ObjectID till parametern `--member-id`.
+Med Azure CLI använder du AD- [AZ AD-gruppmedlem Lägg till](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add), och skickar objectId till `--member-id`-parametern.
 
 
 ```azurecli-interactive
 az ad group member add -g <groupId> --member-id <objectId>
 ```
 
-Med Azure PowerShell använder du cmdleten [Add-AzADGroupMember](/powershell/module/az.resources/add-azadgroupmember?view=azps-2.7.0) och skickar ObjectID till parametern `-MemberObjectId`.
+Med Azure PowerShell använder du cmdleten [Add-AzADGroupMember](/powershell/module/az.resources/add-azadgroupmember?view=azps-2.7.0) och skickar objectId till `-MemberObjectId`-parametern.
 
 ```azurepowershell-interactive
 Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId> 
@@ -223,7 +223,7 @@ Till sist ger du AD-gruppen behörighet till ditt nyckel valv med hjälp av Azur
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Key Vault säkerhet: Identitets-och åtkomst hantering @ no__t-0
+- [Azure Key Vault säkerhet: identitets-och åtkomst hantering](overview-security.md#identity-and-access-management)
 - [Tillhandahålla Key Vault autentisering med en App Service hanterad identitet](managed-identity.md)
 - [Om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
 - [Skydda nyckel valvet](key-vault-secure-your-key-vault.md).

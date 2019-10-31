@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: d73f64463d3e56d7bd2e59fcb719c6320cbc6321
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992358"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100659"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Självstudie: vidarebefordra händelser till Event Grid Cloud
 
@@ -102,7 +102,7 @@ Om du till exempel har skapat ett ämne med namnet `testegcloudtopic` i västra 
    ```
 
    >[!NOTE]
-   > **EndpointUrl** anger att URL: en för Event Grid avsnittet i molnet. **SasKey** refererar till Event Grid moln ämnets nyckel. Värdet i **topicName** kommer att användas för att stämpla alla utgående händelser till Event Grid. Detta kan vara användbart när du publicerar i ett Event Grid domän ämne. Mer information om Event Grid domän finns i [händelse domäner]] (.. /event-domains.md)
+   > **EndpointUrl** anger att URL: en för Event Grid avsnittet i molnet. **SasKey** refererar till Event Grid moln ämnets nyckel. Värdet i **topicName** kommer att användas för att stämpla alla utgående händelser till Event Grid. Detta kan vara användbart när du publicerar i ett Event Grid domän ämne. Mer information om Event Grid domän finns i [händelse domäner](../event-domains.md)
 
     Exempel:
   
@@ -198,5 +198,6 @@ Information om hur du visar händelser som levereras av moln ämnet finns i [sj�
 
 I den här självstudien publicerade du en händelse på gränsen och vidarebefordrad till Event Grid i Azure-molnet. Nu när du känner till de grundläggande stegen för att vidarebefordra till Event Grid i molnet:
 
+* Information om hur du felsöker problem med att använda Azure Event Grid på IoT Edge finns i [fel söknings guide](troubleshoot.md).
 * Vidarebefordra händelser till IoTHub genom att följa den här [självstudien](forward-events-iothub.md)
 * Vidarebefordra händelser till webhook i molnet genom att följa den här [självstudien](pub-sub-events-webhook-cloud.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 02a1c12957570f0e798c5abfd88562128ea1cf76
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053070"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101410"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -175,21 +175,21 @@ Azure AD Identity Protection ger två viktiga rapporter som du bör övervaka da
 
 Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, t. ex. e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna.
 
-## <a name="step-5---enable-end-user-self-help"></a>Steg 5 – aktivera själv hjälp för slutanvändare
+## <a name="step-5---enable-end-user-self-service"></a>Steg 5 – aktivera självbetjäning för slutanvändare
 
-Så mycket som möjligt bör du utjämna säkerheten med produktiviteten. På samma sätt som du närmar dig resan med tänkesätt som du ställer in en grund för säkerhet i den långa körningen kan du ta bort friktion från din organisation genom att ge användarna möjlighet att göra återstående vigilant. 
+Så mycket som möjligt bör du utjämna säkerheten med produktiviteten. På samma sätt som du närmar dig resan med tänkesätt som du ställer in en grund för säkerhet i den långa körningen kan du ta bort friktion från din organisation genom att ge användarna möjlighet att göra återstående vigilant.
 
 ### <a name="implement-self-service-password-reset"></a>Implementera återställning av lösen ord för självbetjäning
 
-Azures självbetjäning för [återställning av lösen ord (SSPR)](../../active-directory/authentication/quickstart-sspr.md) erbjuder ett enkelt sätt för IT-administratörer att tillåta användare att återställa eller låsa upp sina lösen ord eller konton utan Administratörs åtgärder. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk. 
+Azure ADs självbetjäning för [återställning av lösen ord (SSPR)](../../active-directory/authentication/quickstart-sspr.md) erbjuder ett enkelt sätt för IT-administratörer att tillåta användare att återställa eller låsa upp sina lösen ord eller konton utan supportavdelningen eller administratörs åtgärder. Systemet innehåller detaljerad rapportering som spårar när användare har återställt sina lösen ord, tillsammans med aviseringar för att varna dig om missbruk eller missbruk.
 
-### <a name="implement-self-service-group-management"></a>Implementera hantering av självbetjänings grupper
+### <a name="implement-self-service-group-and-application-access"></a>Implementera självbetjänings grupp-och program åtkomst
 
-Azure AD ger möjlighet att hantera åtkomst till resurser med hjälp av säkerhets grupper och Office 365-grupper. Dessa grupper kan hanteras av grupp ägare i stället för IT-administratörer. Den här funktionen är känd som självbetjänings [grupp hantering](../../active-directory/users-groups-roles/groups-self-service-management.md)och gör det möjligt för grupp ägare som inte har tilldelats en administrativ roll att skapa och hantera grupper utan att förlita dig på att administratörer hanterar sina begär Anden.
+Azure AD ger möjlighet till icke-administratörer att hantera åtkomst till resurser, med hjälp av säkerhets grupper, Office 365-grupper, program roller och åtkomst paket kataloger.  [Grupp hantering via självbetjäning](../../active-directory/users-groups-roles/groups-self-service-management.md) gör det möjligt för grupp ägare att hantera sina egna grupper, utan att behöva tilldelas en administrativ roll. Användare kan också skapa och hantera Office 365-grupper utan att behöva förlita sig på administratörer för att hantera sina förfrågningar, och oanvända grupper upphör automatiskt att gälla.  [Hantering av Azure AD](../../active-directory/governance/entitlement-management-overview.md) -behörighet ger ytterligare delegering och synlighet, med omfattande åtkomst begär ande arbets flöden och automatiskt upphör Ande.  Du kan delegera till icke-administratörer möjligheten att konfigurera sina egna åtkomst paket för grupper, grupper, program och SharePoint Online-webbplatser som de äger, med anpassade principer för vem som krävs för att godkänna åtkomst, inklusive konfiguration av medarbetare chefer och affärs partner sponsorer som god kännare.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementera åtkomst granskningar för Azure AD
 
-Med [åtkomst granskningar i Azure AD](../../active-directory/governance/access-reviews-overview.md)kan du hantera grupp medlemskap, åtkomst till företags program och privilegierade roll tilldelningar för att se till att du upprätthåller en säkerhets standard som inte ger användare åtkomst under längre tid när de inte behöver det.
+Med [åtkomst granskningar i Azure AD](../../active-directory/governance/access-reviews-overview.md)kan du hantera åtkomst paket och grupp medlemskap, åtkomst till företags program och privilegierade roll tilldelningar för att se till att du upprätthåller en säkerhets standard.  Regelbundna tillsyn av användarna själva, resurs ägare och andra granskare ser till att användarna inte behåller åtkomsten under längre tid när de inte längre behöver det.
 
 ## <a name="summary"></a>Sammanfattning
 

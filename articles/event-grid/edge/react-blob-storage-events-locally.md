@@ -9,12 +9,12 @@ ms.date: 10/02/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 851b5607ad5413cd1a594f788cb294ee7790e8eb
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a074abf494e155e0dc088d0db6af7eba0b3cf3c2
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043173"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100243"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Självstudie: reagera på Blob Storage händelser på IoT Edge (förhands granskning)
 Den här artikeln visar hur du distribuerar Azure Blob Storage i IoT-modulen, som fungerar som en Event Grid utgivare för att skicka händelser vid skapande av BLOB och blob-borttagning till Event Grid.  
@@ -167,7 +167,10 @@ I det här avsnittet visas hur du distribuerar Azure Blob Storage-modulen, som f
 5. Klicka på **Spara**
 6. Klicka på **Nästa** för att fortsätta till avsnittet vägar
 
- ### <a name="setup-routes"></a>Installations vägar
+    > [!NOTE]
+    > Om du använder en virtuell Azure-dator som gräns enhet lägger du till en regel för inkommande port för att tillåta inkommande trafik på de värd portar som används i den här självstudien: 4438, 5888, 8080 och 11002. Anvisningar om hur du lägger till regeln finns i [så här öppnar du portar till en virtuell dator](../../virtual-machines/windows/nsg-quickstart-portal.md).
+
+### <a name="setup-routes"></a>Installations vägar
 
 Behåll standard vägarna och välj **Nästa** för att fortsätta till gransknings avsnittet
 
@@ -184,7 +187,7 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
 
    Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan om du vill se en uppdaterad status.
 
-## <a name="publish-created-and-deleted-events"></a>Publicera skapade och borttagna händelser
+## <a name="publish-blobcreated-and-blobdeleted-events"></a>Publicera BlobCreated-och BlobDeleted-händelser
 
 1. I den här modulen skapas automatiskt ämnet **MicrosoftStorage**. Kontrol lera att den finns
     ```sh

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 948712b684d1cd1b072862b7253d745f89b0cc56
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b4795eeb24d1d0ac373a700a6b60b8facec0e37d
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244998"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064012"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption scenarier på virtuella Windows-datorer
 
@@ -26,15 +26,12 @@ Du kan bara använda disk kryptering för virtuella datorer med [stödda VM-stor
 - [grupprincip krav](disk-encryption-overview.md#group-policy-requirements)
 - [Lagrings krav för krypterings nyckel](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-
-
 >[!IMPORTANT]
 > - Om du tidigare har använt Azure Disk Encryption med Azure AD för att kryptera en virtuell dator måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Mer information finns i [Azure Disk Encryption med Azure AD (tidigare version)](disk-encryption-overview-aad.md) . 
 >
 > - Du bör [ta en ögonblicks bild](snapshot-copy-managed-disk.md) och/eller skapa en säkerhets kopia innan diskarna krypteras. Säkerhets kopieringar säkerställer att ett återställnings alternativ är möjligt om ett oväntat fel uppstår under krypteringen. Virtuella datorer med hanterade diskar kräver en säkerhets kopia innan krypteringen utförs. När du har gjort en säkerhets kopia kan du använda [cmdleten Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att kryptera hanterade diskar genom att ange parametern-skipVmBackup. Mer information om hur du säkerhetskopierar och återställer krypterade virtuella datorer finns i [säkerhetskopiera och återställa krypterade virtuella Azure-datorer](../../backup/backup-azure-vms-encryption.md). 
 >
 > - Kryptering eller inaktivera kryptering kan leda till att en virtuell dator startas om.
-
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installera verktyg och Anslut till Azure
 
@@ -139,7 +136,7 @@ I följande tabell visas parametrarna för Resource Manager-mallen för befintli
 | vmName | Namnet på den virtuella dator som ska köra krypterings åtgärden. |
 | keyVaultName | Namnet på nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI-kommandot `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Namnet på den resurs grupp som innehåller nyckel valvet|
-|  keyEncryptionKeyURL | URL: en för nyckel krypterings nyckeln, i formatet https://@no__t -0keyvault-name&gt;.vault.azure.net/Key/&lt;key-Name @ no__t-3. Lämna fältet tomt om du inte vill använda en KEK. |
+|  keyEncryptionKeyURL | URL: en för nyckel krypterings nyckeln i formatet https://&lt;nyckel valv-Name&gt;. vault.azure.net/key/&lt;nyckel namn&gt;. Lämna fältet tomt om du inte vill använda en KEK. |
 | volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_, _data_och _alla_. 
 | forceUpdateTag | Skicka ett unikt värde som ett GUID varje gång åtgärden måste tvingas köras. |
 | resizeOSDisk | Vill du ändra storlek på operativ systemets partition så att den upptar full OS VHD innan du delar upp system volymen. |
@@ -244,7 +241,8 @@ Du kan inaktivera kryptering med Azure PowerShell, Azure CLI eller med en Resour
 Azure Disk Encryption fungerar inte för följande scenarier, funktioner och teknik:
 
 - Kryptering av virtuella datorer på Basic-nivå eller virtuella datorer som skapats via den klassiska skapande metoden för virtuella datorer.
-- Kryptera virtuella Windows-datorer som kon figurer ATS med programvarubaserade RAID-system.
+- Kryptera virtuella datorer som kon figurer ATS med programvarubaserade RAID-system.
+- Kryptering av virtuella datorer som kon figurer ATS med Lagringsdirigering (S2D) eller Windows Server-versioner innan 2016 har kon figurer ATS med Windows lagrings utrymmen.
 - Integrering med ett lokalt nyckel hanterings system.
 - Azure Files (delat fil system).
 - NFS (Network File System).

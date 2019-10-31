@@ -2,18 +2,18 @@
 title: Använda Apache Ambari Hive-vy med Apache Hadoop i Azure HDInsight
 description: Lär dig hur du använder Hive-vyn från webbläsaren för att skicka Hive-frågor. Hive-vyn är en del av Ambari-webbgränssnittet som medföljer ditt Linux-baserade HDInsight-kluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 10/24/2019
+ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044815"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097104"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använda Apache Ambari Hive-vy med Apache Hadoop i HDInsight
 
@@ -30,9 +30,9 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-v
 
 1. Välj ditt kluster från [Azure Portal](https://portal.azure.com/).  Instruktioner finns i [lista och Visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters) . Klustret öppnas på ett nytt Portal blad.
 
-2. Välj **Ambari vyer**från **kluster instrument paneler**. När du uppmanas att autentisera ska du använda det konto namn och lösen ord för kluster inloggning (standard `admin`) som du angav när du skapade klustret.
+1. Välj **Ambari vyer**från **kluster instrument paneler**. När du uppmanas att autentisera ska du använda det konto namn och lösen ord för kluster inloggning (standard `admin`) som du angav när du skapade klustret. Du kan också navigera till `https://CLUSTERNAME.azurehdinsight.net/#/main/views` i webbläsaren där `CLUSTERNAME` är namnet på klustret.
 
-3. I listan med vyer väljer du __Hive-vy__.
+1. I listan med vyer väljer du __Hive-vy__.
 
     ![Apache Ambari Välj Apache Hive vy](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -40,7 +40,7 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-v
 
     ![Bild av fråge kalkyl bladet för Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-4. Från fliken __fråga__ klistrar du in följande HiveQL-instruktioner i kalkyl bladet:
+1. Från fliken __fråga__ klistrar du in följande HiveQL-instruktioner i kalkyl bladet:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -54,8 +54,8 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-v
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' 
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]'
         GROUP BY t4;
     ```
 
@@ -75,9 +75,9 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-v
    > [!IMPORTANT]  
    > Låt __databasen__ vara markerad som __standard__. I exemplen i det här dokumentet används standard databasen som ingår i HDInsight.
 
-5. Om du vill starta frågan väljer du **Kör** nedanför kalkyl bladet. Knappen aktiverar orange och texten ändras till **stoppa**.
+1. Om du vill starta frågan väljer du **Kör** nedanför kalkyl bladet. Knappen aktiverar orange och texten ändras till **stoppa**.
 
-6. När frågan har slutförts visas resultatet av åtgärden i fliken **resultat** . Följande text är resultatet av frågan:
+1. När frågan har slutförts visas resultatet av åtgärden i fliken **resultat** . Följande text är resultatet av frågan:
 
         loglevel       count
         [ERROR]        3

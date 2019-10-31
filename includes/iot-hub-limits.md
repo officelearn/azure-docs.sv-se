@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2d9549c88ace63997ff6d17568b6ba5131e8a15f
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391797"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73083753"
 ---
 I följande tabell visas de gränser som är associerade med de olika tjänst nivåerna S1, S2, S3 och F1. Information om kostnaden för varje *enhet* i varje nivå finns i [Azure IoT Hub prissättning](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -27,7 +27,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub resurser.
 
 | Resurs | Gräns |
 | --- | --- |
-| Maximalt antal betalda IoT-hubbar per Azure-prenumeration |50 |
+| Maximalt antal betalda IoT-hubbar per Azure-prenumeration |100 |
 | Maximalt antal kostnadsfria IoT-hubbar per Azure-prenumeration |1 |
 | Maximalt antal tecken i ett enhets-ID | 128 |
 | Maximalt antal enhetsidentiteter<br/> som returneras i ett enskilt anrop |1,000 |
@@ -53,7 +53,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub resurser.
 | Maximal data överföring för enhets ström | 300 MB per dag (endast för S1, S2, S3 och F1) |
 
 > [!NOTE]
-> Kontakta Microsoft Support om du behöver fler än 50 betalda IoT-hubbar i en Azure-prenumeration.
+> Kontakta Microsoft Support om du behöver fler än 100 betalda IoT-hubbar i en Azure-prenumeration.
 
 > [!NOTE]
 > För närvarande är det totala antalet enheter plus moduler som kan registreras för en enda IoT Hub som är ett tak på 1 000 000. Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka den här gränsen.

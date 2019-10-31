@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/22/2019
+ms.date: 10/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 31e19034f6a2c6f5ab52cbc34d8b3f6e0a1051bc
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dff222788480eea882614ad29478df1dce359199
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803586"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101281"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -114,6 +114,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Läsare för hanterade program](#managed-applications-reader) | Låter dig läsa resurser i en hanterad app och begära JIT-åtkomst. |
 | [Hanterad identitets deltagare](#managed-identity-contributor) | Skapa, läsa, uppdatera och ta bort användare tilldelad identitet |
 | [Hanterad identitets operator](#managed-identity-operator) | Läs och tilldela en tilldelad identitet |
+| [Borttagnings roll för registrering av hanterade tjänster](#managed-services-registration-assignment-delete-role) | Ta bort roll för registrering av hanterade tjänster för att hantera klient organisations användare kan ta bort den registrerings tilldelning som tilldelats till klienten. |
 | [Deltagare i hanterings grupp](#management-group-contributor) | Rollen hanterings grupp deltagare |
 | [Hanterings grupp läsare](#management-group-reader) | Rollen hanterings grupp läsare |
 | [Övervaknings deltagare](#monitoring-contributor) | Kan läsa alla övervaknings data och redigera övervaknings inställningar. Se även [komma igång med roller, behörigheter och säkerhet med Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
@@ -1963,6 +1964,23 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. Resources/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
 > | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
 > | Microsoft. support/* | Skapa och hantera support biljetter |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="managed-services-registration-assignment-delete-role"></a>Borttagnings roll för registrering av hanterade tjänster
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Ta bort roll för registrering av hanterade tjänster för att hantera klient organisations användare kan ta bort den registrerings tilldelning som tilldelats till klienten. |
+> | **Id** | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | **Åtgärder** |  |
+> | Microsoft. ManagedServices/registrationAssignments/Read | Hämtar en lista över uppgifter för registrering av hanterade tjänster. |
+> | Microsoft. ManagedServices/registrationAssignments/Delete | Tar bort registrering av hanterade tjänster. |
+> | Microsoft. ManagedServices/operationStatuses/Read | Läser åtgärds statusen för resursen. |
 > | **NotActions** |  |
 > | *alternativet* |  |
 > | **DataActions** |  |

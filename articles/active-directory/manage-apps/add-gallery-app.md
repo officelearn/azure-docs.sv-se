@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdf275bbafa9c46cfc4577ac2843da0be74c7ef
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477271"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062591"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Lägg till en Galleri-app i Azure AD-organisationen
 
@@ -28,33 +28,36 @@ Azure Active Directory (Azure AD) har ett galleri som innehåller tusentals för
 
 ## <a name="add-a-gallery-application"></a>Lägg till ett galleri program
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) som global administratör för din Azure AD-klientorganisation, som administratör för molnprogram eller som programadministratör.
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör för din Azure AD-klientorganisation, som administratör för molnprogram eller som programadministratör.
 
 1. Välj **Azure Active Directory**på den vänstra navigerings panelen i [Azure Portal](https://portal.azure.com).
 
 1. I fönstret **Azure Active Directory** väljer du **företags program**.
 
-    ![Öppna företagsprogram](media/add-application-portal/open-enterprise-apps.png)
+    ![Öppna företagsprogram](media/add-gallery-app/open-enterprise-apps.png)
 
-1. Välj **Nytt program**.
 
-    ![Nytt program](media/add-application-portal/new-application.png)
+3. Om du vill lägga till en Galleri-app till klienten väljer du **nytt program**.
 
-1. Under **Lägg till från galleriet**i rutan Sök anger du namnet på det program som du vill lägga till. 
+    ![Välj nytt program för att lägga till en Galleri-app till din klient organisation](media/add-gallery-app/new-application.png)
 
-    ![Sök efter namn eller kategori](media/add-application-portal/categories.png)
+ 4. Växla till den nya Galleri förhands granskningen: i banderollen högst upp på **sidan Lägg till ett program**väljer du den länk som visas **Klicka här för att prova det nya och förbättrade app-galleriet**.
 
-1. Välj programmet från resultaten.
+5. Fönstret **Bläddra i Azure AD-Galleri** öppnas och visar paneler för moln plattform, lokala program och aktuella program. Observera att programmen som listas i avsnittet **aktuella program** innehåller ikoner som visar om de stöder federerad enkel inloggning (SSO) och etablering.
 
-1. Valfritt I det programspecifika formuläret kan du redigera namnet på programmet så att det matchar organisationens behov.
+    ![Sök efter en app efter namn eller kategori](media/add-gallery-app/browse-gallery.png)
 
-1. Välj **Lägg till**. Sidan program **Översikt** öppnas.
+6. Bläddra i galleriet efter det program som du vill lägga till eller Sök efter programmet genom att ange dess namn i sökrutan. Välj sedan programmet från resultaten. Valfritt I formuläret kan du redigera program namnet så att det matchar organisationens behov.
+
+    ![Visar hur du lägger till ett program från galleriet](media/add-gallery-app/create-application.png)
+
+7. Välj **Skapa**. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation.
 
 ## <a name="configure-user-sign-in-properties"></a>Konfigurera egenskaper för användarinloggning
 
 1. Välj **Egenskaper** för att öppna rutan Egenskaper för redigering.
 
-    ![Rutan Redigera egenskaper](media/add-application-portal/edit-properties.png)
+    ![Rutan Redigera egenskaper](media/add-gallery-app/edit-properties.png)
 
 1. Ange följande alternativ för att avgöra hur användare som är tilldelade eller otilldelade till programmet kan logga in på programmet och om en användare kan se programmet i åtkomst panelen.
 
@@ -94,7 +97,7 @@ Azure Active Directory (Azure AD) har ett galleri som innehåller tusentals för
 
 1. Om du vill använda en anpassad logo typ skapar du en logo typ som är 215 x 215 bild punkter och sparar den i PNG-format. Bläddra sedan till din logo typ och ladda upp den.
 
-    ![Ändra logotypen](media/add-application-portal/change-logo.png)
+    ![Ändra logotypen](media/add-gallery-app/change-logo.png)
 
 1. När du är klar väljer du **Spara**.
 

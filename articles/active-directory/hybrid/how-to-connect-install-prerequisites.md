@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2db8d5881b5847adca4fffb72c0a678e1ec550c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3a1906b8ac281620381176a2a11dff3841069f69
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596315"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062677"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Krav för Azure AD Connect
 I det här avsnittet beskrivs krav och maskin varu krav för Azure AD Connect.
@@ -221,7 +221,7 @@ I tabellen nedan visas minimi kraven för Azure AD Connect Sync-datorn.
 | 300000 – 600 000 |1,6 GHz |32 GB |450 GB |
 | Mer än 600 000 |1,6 GHz |32 GB |500 GB |
 
-Minimi kraven för datorer som kör AD FS-eller webb program servrar är följande:
+Minimi kraven för datorer som kör AD FS-eller Webbprogramproxy-servrar är följande:
 
 * PROCESSOR: Dual Core 1,6 GHz eller snabbare
 * MINNE: 2 GB eller högre

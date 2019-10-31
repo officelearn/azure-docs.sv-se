@@ -8,16 +8,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755350"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063957"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
-I världen för mikrotjänster kräver varje logisk åtgärd att arbete utförs i olika komponenter i tjänsten. Var och en av dessa komponenter kan övervakas separat genom att [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md). Komponenten Web-App kommunicerar med komponenten autentiseringsprovider för att verifiera användarautentiseringsuppgifter och med API-komponenten för att hämta data för visualisering. API-komponenten kan fråga efter data från andra tjänster och använda cache-Provider-komponenter för att meddela fakturerings komponenten om det här anropet. Application Insights stöder korrelation med distribuerad telemetri, som du använder för att identifiera vilken komponent som ansvarar för misslyckanden eller prestanda försämring.
+I världen för mikrotjänster kräver varje logisk åtgärd att arbete utförs i olika komponenter i tjänsten. Var och en av dessa komponenter kan övervakas separat genom att [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md). Application Insights stöder korrelation med distribuerad telemetri, som du använder för att identifiera vilken komponent som ansvarar för misslyckanden eller prestanda försämring.
 
 I den här artikeln förklaras data modellen som används av Application Insights för att korrelera telemetri som skickas av flera komponenter. Den täcker tekniker och protokoll för kontext spridning. Det omfattar också implementeringen av korrelations begrepp för olika språk och plattformar.
 
@@ -29,7 +29,7 @@ En distribuerad logisk åtgärd består vanligt vis av en uppsättning mindre å
 
 Varje utgående åtgärd, till exempel ett HTTP-anrop till en annan komponent, representeras av [beroende telemetri](../../azure-monitor/app/data-model-dependency-telemetry.md). Beroende telemetri definierar också sin egen `id` som är globalt unik. Telemetri för begäran, som initieras av det här beroende anropet, använder den här `id` som `operation_parentId`.
 
-Du kan bygga en vy av den distribuerade logiska åtgärden genom att använda `operation_Id`, `operation_parentId` och `request.id` med `dependency.id`. Dessa fält definierar också orsakssambandet för telemetri samtal.
+Du kan bygga en vy av den distribuerade logiska åtgärden genom att använda `operation_Id`, `operation_parentId`och `request.id` med `dependency.id`. Dessa fält definierar också orsakssambandet för telemetri samtal.
 
 I en miljö med mikrotjänster kan spår från komponenter gå till olika lagrings objekt. Varje komponent kan ha sin egen Instrumentation-nyckel i Application Insights. För att få telemetri för den logiska åtgärden frågar Application Insights-UX data från varje lagrings objekt. När antalet lagrings objekt är enorma, behöver du ett tips om var du kan se nästa. Application Insights data modellen definierar två fält för att lösa det här problemet: `request.source` och `dependency.target`. Det första fältet identifierar komponenten som initierade beroende förfrågningen och den andra identifierar vilken komponent som returnerade svaret på beroende anropet.
 
@@ -221,7 +221,7 @@ Openräkning python följer de `OpenTracing` data modell specifikationer som bes
 
 ### <a name="incoming-request-correlation"></a>Inkommande begäran-korrelation
 
-Openräkning python korrelerar W3C trace context-rubriker från inkommande begär anden till de intervall som genereras från själva begär Anden. Openräkning sker automatiskt med integreringar för populära ramverk för webb program, till exempel `flask`, `django` och `pyramid`. W3C-spårningens kontext rubriker behöver bara fyllas i med [rätt format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)och skickas med begäran. Nedan visas ett exempel `flask` program som demonstrerar detta.
+Openräkning python korrelerar W3C trace context-rubriker från inkommande begär anden till de intervall som genereras från själva begär Anden. Openräkning sker automatiskt med integreringar för följande populära ramverk för webb program: `flask`, `django` och `pyramid`. W3C-spårningens kontext rubriker behöver bara fyllas i med [rätt format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) och skickas med begäran. Nedan visas ett exempel `flask` program som demonstrerar detta.
 
 ```python
 from flask import Flask
@@ -253,13 +253,13 @@ När du tittar på [huvud formatet för spårnings kontexten](https://www.w3.org
  `parent-id/span-id`: `00f067aa0ba902b7` 
  0: 1
 
-Om vi tar en titt på posten för begäran som skickades till Azure Monitor kan vi se fält som är ifyllda med spårnings huvud informationen.
+Om vi tar en titt på posten för begäran som skickades till Azure Monitor kan vi se fält som är ifyllda med spårnings huvud informationen. Du kan hitta dessa data under loggar (analys) i Azure Monitor Application Insights resurs.
 
 ![Skärm bild av telemetri för begäran i loggar (analys) med fält för spårnings huvud markerade i röd ruta](./media/opencensus-python/0011-correlation.png)
 
-@No__t_0 fältet har formatet `<trace-id>.<span-id>` där `trace-id` tas från spårnings huvudet som skickades i begäran och `span-id` är en genererad 8-byte-matris för det här intervallet. 
+`id` fältet har formatet `<trace-id>.<span-id>`där `trace-id` tas från spårnings huvudet som skickades i begäran och `span-id` är en genererad 8-byte-matris för det här intervallet. 
 
-@No__t_0 fältet har formatet `<trace-id>.<parent-id>` där både `trace-id` och `parent-id` tas från spårnings huvudet som skickades i begäran.
+`operation_ParentId` fältet har formatet `<trace-id>.<parent-id>`där både `trace-id` och `parent-id` tas från spårnings huvudet som skickades i begäran.
 
 ### <a name="logs-correlation"></a>Loggar korrelation
 
@@ -290,6 +290,8 @@ När den här koden körs får vi följande i-konsolen:
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
 Observera att det finns en spanId för det logg meddelande som ligger inom intervallet, som är samma spanId som tillhör det intervall som heter `hello`.
+
+Du kan exportera loggdata med hjälp av `AzureLogHandler`. Mer information finns [här](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
 
 ## <a name="telemetry-correlation-in-net"></a>Telemetri-korrelation i .NET
 

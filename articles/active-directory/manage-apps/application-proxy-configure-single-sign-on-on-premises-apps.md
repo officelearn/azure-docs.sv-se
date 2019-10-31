@@ -11,25 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5152a2d65ea3921f0fef7f3a020bcea80d1769
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: d004d1183c9f5c1aec2dae7ab2d638528f164cd9
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421266"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062505"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML enkel inloggning för lokala program med programproxy
 
-Du kan tillhandahålla enkel inloggning (SSO) till lokala program som skyddas med SAML-autentisering och ge fjärråtkomst till dessa program via programproxyn. Med enkel inloggning med SAML kan Azure Active Directory (Azure AD) autentiseras för programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Du kan också mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. Genom att aktivera Application Proxy förutom SAML SSO får användarna extern åtkomst till programmet och en sömlös SSO-upplevelse.
+Du kan tillhandahålla enkel inloggning (SSO) till lokala program som skyddas med SAML-autentisering och ge fjärråtkomst till dessa program via programproxyn. Med enkel inloggning med SAML kan Azure Active Directory (Azure AD) autentiseras för programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar inloggnings informationen till programmet via ett anslutnings protokoll. Du kan också mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. Genom att aktivera Application Proxy förutom SAML SSO får användarna extern åtkomst till programmet och en sömlös SSO-upplevelse.
 
 Programmen måste kunna använda SAML-token som utfärdats av **Azure Active Directory**. Den här konfigurationen gäller inte för program som använder en lokal identitetsprovider. I dessa scenarier rekommenderar vi att du visar [resurser för att migrera program till Azure AD](migration-resources.md).
 
-SAML SSO med Application Proxy fungerar också med krypterings funktionen för SAML-token. Mer information finns i [Konfigurera Azure AD SAML](howto-saml-token-encryption.md)-token-kryptering.
+SAML SSO med Application Proxy fungerar också med krypterings funktionen för SAML-token. Mer information finns i [Konfigurera Azure AD SAML-token-kryptering](howto-saml-token-encryption.md).
 
 Protokoll diagrammen nedan beskriver den enkla inloggnings ordningen för både ett SP-initierat flöde av en tjänst leverantör och ett initierat IdP-flöde (Identity Provider – initierat). Application Proxy fungerar med SAML SSO genom att cachelagring av SAML-begäranden och-svar till och från det lokala programmet cachelagras.
 
@@ -41,7 +41,7 @@ Protokoll diagrammen nedan beskriver den enkla inloggnings ordningen för både 
 
 1. I Azure Portal väljer du **Azure Active Directory > företags program** och väljer **nytt program**.
 
-2. Under **Lägg till din egen app väljer du** **program som inte är Galleri**.
+2. I avsnittet **lokala program** väljer du **Lägg till ett lokalt program**.
 
 3. Ange visnings namnet för det nya programmet och välj sedan **Lägg till**.
 
@@ -74,30 +74,30 @@ Innan du kan ange SSO för lokala program måste du aktivera programproxyn och i
 
 1. När programmet fortfarande öppnas i Azure Portal väljer du **enkel inloggning**. 
 
-2. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Den **externa URL** som du konfigurerade i Application Proxy fyller automatiskt i fälten **identifierare**, svars- **URL**och **utloggning URL** . Redigera inte dessa URL: er eftersom de krävs för att Application Proxy ska fungera korrekt.
+2. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Den **externa URL** som du konfigurerade i Application Proxy fyller automatiskt i fälten **identifierare**, **svars-URL**och **utloggning URL** . Redigera inte dessa URL: er eftersom de krävs för att Application Proxy ska fungera korrekt.
 
-3. Redigera svars- **URL: en** som kon figurer ATS tidigare så att dess domän kan kontaktas av programproxyn. Om din **externa URL** till `https://contosotravel-f128.msappproxy.net` exempel är och den ursprungliga svars- **URL: en** `https://contosotravel.com/acs`var, måste du uppdatera den ursprungliga svars-URL **: en** till. `https://contosotravel-f128.msappproxy.net/acs` 
+3. Redigera **svars-URL: en** som kon figurer ATS tidigare så att dess domän kan kontaktas av programproxyn. Om din **externa URL** till exempel är `https://contosotravel-f128.msappproxy.net` och den ursprungliga **svars-URL: en** var `https://contosotravel.com/acs`, måste du uppdatera den ursprungliga **svars-URL: en** till `https://contosotravel-f128.msappproxy.net/acs`. 
 
     ![Ange grundläggande konfigurations data för SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
 
-4. Markera kryss rutan bredvid den uppdaterade svars- **URL: en** för att markera den som standard.
+4. Markera kryss rutan bredvid den uppdaterade **svars-URL: en** för att markera den som standard.
 
-   * Om den begärda svars- **URL: en** redan visas markerar du denna svars- **URL** som standard och tar bort den tidigare konfigurerade svars- **URL**
+   * Om den begärda **svars-URL: en** redan visas markerar du denna **svars-URL** som standard och tar bort den tidigare konfigurerade **svars-URL**
 
-   * För ett SP-initierat flöde kontrollerar du att Server dels programmet anger rätt svars- **URL** eller URL-adress för intygs mottagare för att ta emot autentiseringstoken.
+   * För ett SP-initierat flöde kontrollerar du att Server dels programmet anger rätt **svars-URL** eller URL-adress för intygs mottagare för att ta emot autentiseringstoken.
 
     > [!NOTE]
     > Om backend-appen förväntar sig att **svars-URL: en** ska vara den interna URL: en måste du antingen använda [anpassade domäner](application-proxy-configure-custom-domain.md) för att matcha interna och externa URL: er eller installera det säkra inloggnings tillägget Mina appar på användarnas enheter. Det här tillägget omdirigeras automatiskt till rätt Application Proxy-tjänst. Information om hur du installerar tillägget finns i avsnittet [Mina appar säkra inloggnings tillägg](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
     
 ## <a name="test-your-app"></a>Testa din app
 
-När du har slutfört de här stegen, men det är din app ska vara igång. Så här testar du appen:
+När du har slutfört alla dessa steg ska appen vara igång. Så här testar du appen:
 
 1. Öppna en webbläsare och navigera till den **externa URL** som du skapade när du publicerade appen. 
-1. Logga in med kontot test som du tilldelade till appen. Du bör kunna läsa in programmet och ha SSO i programmet.
+1. Logga in med det test konto som du har tilldelat till appen. Du bör kunna läsa in programmet och ha SSO i programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hur tillhandahåller Azure AD Application Proxy enkel inloggning?](application-proxy-single-sign-on.md)
-- [Felsöka programproxyn](application-proxy-troubleshoot.md)
+- [Hur ger Azure AD-programproxy enkel inloggning?](application-proxy-single-sign-on.md)
+- [Felsöka programproxy](application-proxy-troubleshoot.md)

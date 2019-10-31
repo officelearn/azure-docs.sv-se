@@ -1,7 +1,7 @@
 ---
 title: Djup inlärning eller Machine Learning
 titleSuffix: Azure Machine Learning
-description: Lär dig mer om djup inlärning jämfört med Machine Learning och hur båda begreppen relaterar till artificiell intelligens. Djup inlärning kan användas i scenarier som bedrägeri identifiering, röst-och ansikts igenkänning, sentiment analys och tids serie prognoser.
+description: Lär dig hur djup inlärningen rör maskin inlärning och artificiell intelligens. Djup inlärning används i scenarier som bedrägeri identifiering, röst & ansikts igenkänning, sentiment analys och tids serie prognoser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ffc71cf8b2f60568e3c4bc63a3751bc44be66e58
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123146"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063127"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Djup inlärning eller Machine Learning
 
@@ -22,9 +22,9 @@ Den här artikeln hjälper dig att jämföra djup inlärningen jämfört med Mac
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Djup inlärning, maskin inlärning och AI
 
-![Relations diagram: AI vs. Machine Learning jämfört med djup inlärning](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
+![Relations diagram: AI kontra Machine Learning jämfört med djup inlärning](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
-Överväg följande definitioner för att förstå djup inlärningen jämfört med Machine Learning jämfört med AI
+Överväg följande definitioner för att förstå djup inlärningen jämfört med Machine Learning vs. AI:
 
 - **Djup inlärning** är en del av maskin inlärning som baseras på artificiella neurala nätverk. _Inlärnings processen_ är _djupgående_ eftersom strukturen hos artificiellt neurala-nätverk består av flera indata, utdata och dolda lager. Varje lager innehåller enheter som omvandlar indata till information som nästa lager kan använda för en viss förutsägelse aktivitet. Tack vare den här strukturen kan en dator lära sig genom sin egen data bearbetning.
 

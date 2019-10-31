@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fab9a8a8c28f2f75e7e5af69b70229c1de74c684
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8656bbb070e2b05a06ea22dd1634a40182b440cb
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992293"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098673"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Distribuera Event Grid IoT Edge modul
 
@@ -24,7 +24,7 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
 
 >[!IMPORTANT]
 > I den här självstudien distribueras Event Grid-modulen med klientautentisering inaktive rad och tillåta HTTP-prenumeranter. För produktions arbets belastningar rekommenderar vi att du bara aktiverar HTTPS-förfrågningar och-prenumeranter med klientautentisering aktive rad. Mer information om hur du konfigurerar Event Grid modul på ett säkert sätt finns i [säkerhet och autentisering](../articles/event-grid/edge/security-authentication.md).
-
+ 
 ### <a name="select-your-iot-edge-device"></a>Välj din IoT Edge enhet
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
@@ -67,6 +67,10 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
  1. Klicka på **Spara**
  1. Klicka på **Nästa** för att fortsätta till avsnittet vägar
+
+    > [!NOTE]
+    > Om du använder en virtuell Azure-dator som gräns enhet lägger du till en regel för inkommande port för att tillåta inkommande trafik på port 4438. Anvisningar om hur du lägger till regeln finns i [så här öppnar du portar till en virtuell dator](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
+
 
 ### <a name="setup-routes"></a>Installations vägar
 

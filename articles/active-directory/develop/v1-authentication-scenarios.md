@@ -1,5 +1,5 @@
 ---
-title: Autentisering i Microsoft Identity Platform (v1) | Azure
+title: Autentisering i Microsoft Identity Platform (v 1.0) | Azure
 description: Lär dig grunderna om autentisering i Microsoft Identity Platform – appens modell, API, etablering och de vanligaste autentiserings scenarier som stöds av Microsoft Identity Platform.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f64b16bde149c4dddd77ccec227781f45176a27d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7c7bf80c0471853008573bbcbb918fb33c6c43cd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377465"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149190"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
 
@@ -73,7 +73,7 @@ Beroende på hur din klient har skapats kan den använda en (eller flera) av de 
 |[On-Behalf-Of-flöde](v1-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
 |[Klientautentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |
 
-Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL: en (där `response_mode` är `query` eller @no__t 2).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Dessa tokens har därför inte `groups`-eller `wids`-anspråk. 
+Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL: en (där `response_mode` är `query` eller `fragment`).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Dessa tokens har därför inte `groups`-eller `wids`-anspråk. 
 
 Nu när du har en översikt över grunderna kan du läsa om hur du kan förstå Identity app-modellen och API, hur etablering fungerar i Microsoft Identity Platform och länkar till detaljerad information om vanliga scenarier som stöds av Microsoft Identity Platform.
 

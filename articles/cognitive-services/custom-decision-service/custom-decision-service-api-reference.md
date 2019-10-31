@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f263e3b57103174f0084ab3d25430d8c47359fd
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 569a1c83562a995f15e12013c864ef4c0447d963
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707303"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161694"
 ---
 # <a name="api"></a>API
 
-Azure Custom Decision Service tillhandahåller två API: er som anropas för varje beslut: rangordnings- [API: et](#ranking-api) för att mata in åtgärdernas rangordning och belönings- [API: et](#reward-api) för att ge belöningen. Dessutom anger du ett API för [Åtgärds uppsättning](#action-set-api-customer-provided) för att ange åtgärder till Azure Custom Decision service. Den här artikeln beskriver dessa tre API: er. Ett typiskt scenario används nedan för att visa när Custom Decision Service optimerar rankningen av artiklar.
+Azure Custom Decision Service tillhandahåller två API: er som anropas för varje beslut: [rangordnings-API: et](#ranking-api) för att mata in åtgärdernas rangordning och [belönings-API: et](#reward-api) för att ge belöningen. Dessutom anger du ett API för [Åtgärds uppsättning](#action-set-api-customer-provided) för att ange åtgärder till Azure Custom Decision service. Den här artikeln beskriver dessa tre API: er. Ett typiskt scenario används nedan för att visa när Custom Decision Service optimerar rankningen av artiklar.
 
 ## <a name="ranking-api"></a>Rangordnings-API
 
@@ -45,7 +45,7 @@ Infoga det här kodfragmentet i HTML-huvudet på den första sidan (där en anpa
 > Motringningsfunktionen måste definieras innan anropet till ranknings-API: et.
 
 > [!TIP]
-> För att förbättra svars tiden exponeras ranknings-API: t via HTTP i `https://ds.microsoft.com/api/v2/<appId>/rank/*`stället för https, som i.
+> För att förbättra svars tiden exponeras ranknings-API: t via HTTP i stället för HTTPS, som i `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
 > En HTTPS-slutpunkt måste dock användas om den första sidan betjänas via HTTPS.
 
 När parametrar inte används, är HTTP-svaret från rangordnings-API: et en JSONP-formaterad sträng:
@@ -63,32 +63,32 @@ Webbläsaren kör sedan den här strängen som ett anrop till `callback()`-funkt
 
 Parametern till callback-funktionen i föregående exempel har följande schema:
 
-- `ranking`visar rangordningen för URL: er som ska visas.
-- `eventId`används internt av Custom Decision Service för att matcha den här rangordningen med motsvarande musklick.
-- `appId`tillåter callback-funktionen att skilja mellan flera program Custom Decision Service som körs på samma webb sida.
-- `actionSets`listar varje åtgärds uppsättning som används i ranknings-API-anropet, tillsammans med UTC-tidsstämpeln för den senaste lyckade uppdateringen. Custom Decision Service uppdaterar regelbundet åtgärds uppsättningens feeds. Om vissa av åtgärds uppsättningarna t. ex. inte är aktuella kan callback-funktionen behöva återgå till sin standard rangordning.
+- `ranking` tillhandahåller rangordningen för URL: er som ska visas.
+- `eventId` används internt av Custom Decision Service för att matcha den här rangordningen med motsvarande musklick.
+- `appId` tillåter motringningsfunktionen att skilja mellan flera program Custom Decision Service som körs på samma webb sida.
+- `actionSets` listar varje åtgärds uppsättning som används i ranknings-API-anropet, tillsammans med UTC-tidsstämpeln för den senaste lyckade uppdateringen. Custom Decision Service uppdaterar regelbundet åtgärds uppsättningens feeds. Om vissa av åtgärds uppsättningarna t. ex. inte är aktuella kan callback-funktionen behöva återgå till sin standard rangordning.
 
 > [!IMPORTANT]
 > De angivna åtgärds uppsättningarna bearbetas och kan eventuellt rensas för att utgöra standard rangordningen för artiklar. Standard rangordningen får sedan en omordning och returneras i HTTP-svaret. Standard rangordningen definieras här:
 >
 > - I varje åtgärds uppsättning rensas artiklarna till de 15 senaste artiklarna (om fler än 15 returneras).
 > - När flera åtgärds uppsättningar anges slås de samman i samma ordning som i API-anropet. Den ursprungliga ordningen på artiklarna bevaras i varje åtgärds uppsättning. Dubbletter tas bort till förmån för de tidigare kopiorna.
-> - De första `n` artiklarna sparas i listan över sammanfogade artiklar, där `n=20` som standard.
+> - De första `n` artiklarna sparas i den sammanslagna artikel listan, där `n=20` som standard.
 
 ### <a name="ranking-api-with-parameters"></a>Rangordnings-API med parametrar
 
 Rangordnings-API: et tillåter följande parametrar:
 
-- `details=1`och `details=2` infogar ytterligare information om varje artikel som anges `ranking`i.
-- `limit=<n>`anger maximalt antal artiklar i standard rangordningen. `n`måste vara mellan `2` och `30` (eller annars trunkerade till `2` `30`respektive).
-- `dnt=1`inaktiverar användar-cookies.
+- `details=1` och `details=2` infogar ytterligare information om varje artikel som anges i `ranking`.
+- `limit=<n>` anger maximalt antal artiklar i standard rangordningen. `n` måste vara mellan `2` och `30` (eller annars trunkeras de till `2` respektive `30`).
+- `dnt=1` inaktiverar användar-cookies.
 
-Parametrar kan kombineras med standard-, frågesträng-syntax, till `details=2&dnt=1`exempel.
+Parametrar kan kombineras med standard syntax, frågesträng, till exempel `details=2&dnt=1`.
 
 > [!IMPORTANT]
-> Standardvärdet i Europa bör vara `dnt=1` tills kunden accepterar cookie-banderollen. Det bör också vara standardinställningen för webbplatser som är riktade mot minderåriga. Mer information finns i användnings [villkoren](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804).
+> Standardinställningen i Europa bör vara `dnt=1` tills kunden accepterar cookie-banderollen. Det bör också vara standardinställningen för webbplatser som är riktade mot minderåriga. Mer information finns i [användnings villkoren](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804).
 
-Elementet infogar varje `guid`artikel, om den hanteras av åtgärds uppsättnings-API: et. `details=1` HTTP-svaret:
+`details=1`-elementet infogar varje artikels `guid`, om den hanteras av åtgärds uppsättnings-API: et. HTTP-svaret:
 
 ```json
 callback({
@@ -101,12 +101,12 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
--Elementet lägger till mer information som Custom Decision service kan extrahera från artiklar "SEO-metataggar [funktionalisering Code:](https://github.com/Microsoft/mwt-ds/tree/master/Crawl) `details=2`
+`details=2`-elementet lägger till mer information som Custom Decision Service kan extrahera från artiklar "SEO-metataggar [funktionalisering Code](https://github.com/Microsoft/mwt-ds/tree/master/Crawl):
 
-- `title`från `<meta property="og:title" content="..." />` eller `<meta property="twitter:title" content="..." />` eller`<title>...</title>`
-- `description`från `<meta property="og:description" ... />` eller `<meta property="twitter:description" content="..." />` eller`<meta property="description" content="..." />`
-- `image`som`<meta property="og:image" content="..." />`
-- `ds_id`som`<meta name=”microsoft:ds_id” content="..." />`
+- `title` från `<meta property="og:title" content="..." />` eller `<meta property="twitter:title" content="..." />` eller `<title>...</title>`
+- `description` från `<meta property="og:description" ... />` eller `<meta property="twitter:description" content="..." />` eller `<meta property="description" content="..." />`
+- `image` från `<meta property="og:image" content="..." />`
+- `ds_id` från `<meta name="microsoft:ds_id" content="..." />`
 
 HTTP-svaret:
 
@@ -121,7 +121,7 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-`<details>` Elementet:
+`<details>`-elementet:
 
 ```json
 [{"guid":"123"}, {"description":"some text", "ds_id":"234", "image":"ImageUrl1", "title":"some text"}]
@@ -140,9 +140,9 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Här `data` är argumentet `callback()` till funktionen, enligt beskrivningen ovan. Om `data` du använder i Klicka på hanterings koden måste du ha lite omsorg. Ett exempel visas i den här [](custom-decision-service-tutorial-news.md#use-the-apis)självstudien.
+Här `data` är argumentet till `callback()`-funktionen, enligt beskrivningen ovan. Att använda `data` i för att klicka på hanterings koden kräver lite skötsel. Ett exempel visas i den här [självstudien](custom-decision-service-tutorial-news.md#use-the-apis).
 
-För testning kan du ställa in belönings-API: [](https://en.wikipedia.org/wiki/CURL)t via svängen:
+För testning kan du ställa in belönings-API: t via [svängen](https://en.wikipedia.org/wiki/CURL):
 
 ```sh
 curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
@@ -172,20 +172,20 @@ Varje åtgärds uppsättnings-API kan implementeras på två sätt: som en RSS-f
 </rss>
 ```
 
-Varje element på översta `<item>` nivån beskriver en åtgärd:
+Varje `<item>` element på översta nivån beskriver en åtgärd:
 
-- `<link>`är obligatoriskt och används som åtgärds-ID.
-- `<date>`ignoreras om det är mindre än eller lika med 15 objekt. annars är det obligatoriskt.
+- `<link>` är obligatoriskt och används som åtgärds-ID.
+- `<date>` ignoreras om det är mindre än eller lika med 15 objekt. annars är det obligatoriskt.
   - Om det finns fler än 15 objekt används de 15 senaste.
   - Det måste vara i standardformat för RSS eller Atom:
-    - [RFC 822](https://tools.ietf.org/html/rfc822) för RSS: till exempel`"Fri, 28 Apr 2017 18:02:06 GMT"`
-    - [RFC 3339](https://tools.ietf.org/html/rfc3339) för atom: till exempel`"2016-12-19T16:39:57-08:00"`
-- `<title>`är valfritt och används för att generera funktioner som beskriver artikeln.
-- `<guid>`är valfritt och skickas genom systemet till motringningsfunktionen (om `?details` parametern anges i ranknings-API-anropet).
+    - [RFC 822](https://tools.ietf.org/html/rfc822) för RSS: till exempel `"Fri, 28 Apr 2017 18:02:06 GMT"`
+    - [RFC 3339](https://tools.ietf.org/html/rfc3339) för atom: till exempel `"2016-12-19T16:39:57-08:00"`
+- `<title>` är valfritt och används för att generera funktioner som beskriver artikeln.
+- `<guid>` är valfritt och skickas genom systemet till callback-funktionen (om `?details`-parametern anges i API-anropet rankning).
 
 Andra element i en `<item>` ignoreras.
 
 I Atom-matnings versionen används samma XML-syntax och konventioner.
 
 > [!TIP]
-> Om systemet använder sina egna artikel-ID: n, kan de skickas till callback-funktionen med `<guid>`hjälp av.
+> Om systemet använder sina egna artikel-ID: n, kan de skickas till callback-funktionen med hjälp av `<guid>`.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef8ab4b24d223f372ae3704b00ba6ff090fb039
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: b992973beb7cb132075e47e104733d812dc06ca0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169986"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151081"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: blockera äldre autentisering
 
@@ -40,7 +40,7 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
 1. Under **villkor** > **klient program (för hands version)** anger du **Konfigurera** till **Ja**.
    1. Kontrol lera bara rutorna **mobilappar och skriv bords klienter** > **andra klienter**.
    2. Välj **Done** (Klar).
-1. Under **åtkomst kontroller**@no__t 1-**tilldelning**väljer du **blockera åtkomst**.
+1. Under **åtkomst kontroller** > **bevilja**väljer du **blockera åtkomst**.
    1. Välj **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.

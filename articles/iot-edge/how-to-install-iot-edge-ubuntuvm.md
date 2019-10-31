@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 0e5bec7d3e1ecd63541a319cd5a9151560ef4139
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: fec39a9e788debcd9c3ac707a0431e268d87ed35
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964652"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146198"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på Ubuntu Virtual Machines
 
@@ -36,7 +36,7 @@ Vid den första starten förinstallerar Azure IoT Edge Ubuntu VM den senaste ver
     1.  Kopiera enhets anslutnings strängen från din IoT Edge enhet som skapats i din IoT Hub (du kan följa anvisningarna för att [Hämta anslutnings strängen i Azure Portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) om du inte är bekant med den här processen)
     1.  Välj den virtuella dator resurs som du skapade nyligen från Azure Portal och öppna **kommando alternativet Kör**
     1.  Välj alternativet **RunShellScript**
-    1.  Kör skriptet nedan via kommando fönstret med enhets anslutnings strängen: `/etc/iotedge/configedge.sh “{device_connection_string}”`
+    1.  Kör skriptet nedan via kommando fönstret med enhets anslutnings strängen: `/etc/iotedge/configedge.sh "{device_connection_string}"`
     1.  Välj **Kör**
     1.  Vänta en stund och skärmen bör sedan ange ett meddelande som anger att anslutnings strängen har angetts.
 

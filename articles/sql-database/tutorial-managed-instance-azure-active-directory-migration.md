@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/22/2019
-ms.openlocfilehash: ca0997010fef40c0927960c04588c031dd85fff8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 10/30/2019
+ms.openlocfilehash: b27c9991fd86334c87806772cbd641dd72aad1f6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795282"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163965"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Självstudie: Migrera SQL Server lokala Windows-användare och grupper till Azure SQL Database Hanterad instans med T-SQL DDL-syntax
 
@@ -41,6 +41,8 @@ Följande krav gäller för att slutföra den här självstudien:
 - Åtkomst till Active Directory för att skapa användare/grupper.
 - En befintlig SQL Server i din lokala miljö.
 - En befintlig hanterad instans. Se [snabb start: skapa en Azure SQL Database Hanterad instans](sql-database-managed-instance-get-started.md).
+  - En `sysadmin` i den hanterade instansen måste användas för att skapa Azure AD-inloggningar.
+- [Skapa en Azure AD-administratör för en hanterad instans](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - Du kan ansluta till din hanterade instans i nätverket. Mer information finns i följande artiklar: 
     - [Anslut ditt program till Azure SQL Database Hanterad instans](sql-database-managed-instance-connect-app.md)
     - [Snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala platsen](sql-database-managed-instance-configure-p2s.md)
@@ -214,7 +216,7 @@ Följ vår [snabb start: Återställ en databas till en hanterad instans](sql-da
 
 Kör kommandot ALTER USER för att slutföra migreringsprocessen på den hanterade instansen.
 
-1. Logga in på den hanterade instansen med hjälp av SQL-administratörskontot för hanterad instans. Skapa sedan din Azure AD-inloggning i den hanterade instansen med hjälp av följande syntax:
+1. Logga in på den hanterade instansen med hjälp av SQL-administratörskontot för hanterad instans. Skapa sedan din Azure AD-inloggning i den hanterade instansen med hjälp av följande syntax. Mer information finns i [Självstudier: hanterad instans säkerhet i Azure SQL Database att använda Azure AD server-Huvudkonton (inloggningar)](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 

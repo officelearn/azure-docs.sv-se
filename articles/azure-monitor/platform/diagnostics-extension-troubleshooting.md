@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 63ddb329e37ea3da589e7d2eeaebabb42aa2b467
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 24a2b8a3c190ed440684ea3aa0ab35ebbf93fca0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555517"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161966"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure-diagnostik fel sökning
 I den här artikeln beskrivs felsöknings information som är relevant för att använda Azure-diagnostik. Mer information om Azure Diagnostics finns i [Azure-diagnostik översikt](diagnostics-extension-overview.md).
@@ -30,13 +30,13 @@ Här följer Sök vägarna till några viktiga loggar och artefakter. Vi referer
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 | Artefakt | Sökväg |
 | --- | --- |
-| **Azure-diagnostik konfigurations fil** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics \<version > \Config.txt |
+| **Azure-diagnostik konfigurations fil** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > \Config.txt |
 | **Loggfiler** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics \<version > \ |
 | **Lokalt Arkiv för diagnostikdata** | C:\Resources\Directory \<CloudServiceDeploymentID >. \<RoleName >. DiagnosticStore\WAD0107\Tables |
 | **Övervaknings agentens konfigurations fil** | C:\Resources\Directory \<CloudServiceDeploymentID >. \<RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Azure-diagnostik tilläggs paket** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics \<version > |
+| **Azure-diagnostik tilläggs paket** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > |
 | **Sökväg till logg insamlings verktyget** | %SystemDrive%\Packages\GuestAgent\ |
-| **MonAgentHost logg fil** | C:\Resources\Directory \<CloudServiceDeploymentID >. \<RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num >. log |
+| **MonAgentHost logg fil** | C:\Resources\Directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num >. log |
 
 ### <a name="virtual-machines"></a>Virtuella maskiner
 | Artefakt | Sökväg |
@@ -48,7 +48,7 @@ Här följer Sök vägarna till några viktiga loggar och artefakter. Vi referer
 | **Status fil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<version > \Status |
 | **Azure-diagnostik tilläggs paket** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion >|
 | **Sökväg till logg insamlings verktyget** | C:\WindowsAzure\Logs\WaAppAgent.log |
-| **MonAgentHost logg fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num >. log |
+| **MonAgentHost logg fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num >. log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mått data visas inte i Azure Portal
 Azure-diagnostik tillhandahåller mått data som kan visas i Azure Portal. Om du har problem med att se data i portalen kontrollerar du tabellen WADMetrics \* i Azure-diagnostik lagrings konto för att se om motsvarande mått poster finns där.
@@ -64,14 +64,14 @@ Om det inte finns några data för det här måttet kontrollerar du **diagnostis
 - \ ASP.NET program (__totalt__) \Errors totalt/SEK
 - \ASP.NET\Requests i kö
 - \ASP.NET\Requests nekades
-- \Processor (W3wp) \% processor tid
+- \Processor (W3wp)\% processor tid
 - \Process (W3wp) \Privata byte
-- \Process (WaIISHost) \% processor tid
+- \Process (WaIISHost)\% processor tid
 - \Process (WaIISHost) \Privata byte
-- \Process (WaWorkerHost) \% processor tid
+- \Process (WaWorkerHost)\% processor tid
 - \Process (WaWorkerHost) \Privata byte
 - \Memory\Page-fel/SEK
-- \.NET CLR-minne (_Global_) \% tid i GC
+- \.NET CLR-minne (_Global_)\% tid i GC
 - \Logisk disk (C:) \ disk skrivna byte/s
 - \Logisk disk (C:) \ disk lästa byte/s
 - \Logisk disk (D:) \ disk skrivna byte/s
@@ -134,7 +134,7 @@ Om du inte ser spårnings loggar som genereras, se mer information om spårnings
 Se sedan till att data samlas in lokalt.
 Data lagras lokalt i `*.tsf` filer i det lokala arkivet för diagnostikdata. Olika typer av loggar samlas in i olika `.tsf`-filer. Namnen liknar tabell namnen i Azure Storage.
 
-@No__t_0 till exempel hämtas i `PerformanceCountersTable.tsf`. Händelse loggar samlas in i `WindowsEventLogsTable.tsf`. Använd instruktionerna i avsnittet [lokal logg extrahering](#local-log-extraction) för att öppna de lokala samlings filerna och kontrol lera att de samlas in på disk.
+`Performance Counters` till exempel hämtas i `PerformanceCountersTable.tsf`. Händelse loggar samlas in i `WindowsEventLogsTable.tsf`. Använd instruktionerna i avsnittet [lokal logg extrahering](#local-log-extraction) för att öppna de lokala samlings filerna och kontrol lera att de samlas in på disk.
 
 Om du inte ser loggar som samlas in lokalt och redan har verifierat att värden genererar data, så har du troligen ett konfigurations problem. Granska konfigurationen noggrant.
 
@@ -208,8 +208,8 @@ Den här koden genererar fyra tabeller:
 
 | Händelse | Tabellnamn |
 | --- | --- |
-| Provider = "Prov1" &lt;Event-ID = "1"/&gt; |WADEvent + MD5 ("Prov1") + "1" |
-| Provider = "Prov1" &lt;Event ID = "2" eventDestination = "dest1"/&gt; |WADdest1 |
+| Provider = "Prov1" &lt;händelse-ID = "1"/&gt; |WADEvent + MD5 ("Prov1") + "1" |
+| Provider = "Prov1" &lt;händelse-ID = "2" eventDestination = "dest1"/&gt; |WADdest1 |
 | Provider = "Prov1" &lt;DefaultEvents/&gt; |WADDefault + MD5 ("Prov1") |
 | Provider = "prov2" &lt;DefaultEvents eventDestination = "dest2"/&gt; |WADdest2 |
 
@@ -252,7 +252,7 @@ Plugin-programmet returnerar följande avslutnings koder:
 | – 112 |Allmänt fel |
 
 ### <a name="local-log-extraction"></a>Lokal logg extrahering
-Övervaknings agenten samlar in loggar och artefakter som `.tsf` filer. @No__t_0-filen kan inte läsas, men du kan konvertera den till en `.csv` enligt följande:
+Övervaknings agenten samlar in loggar och artefakter som `.tsf` filer. `.tsf`-filen kan inte läsas, men du kan konvertera den till en `.csv` enligt följande:
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
@@ -260,7 +260,7 @@ Plugin-programmet returnerar följande avslutnings koder:
 En ny fil med namnet `<relevantLogFile>.csv` skapas i samma sökväg som motsvarande `.tsf`s fil.
 
 >[!NOTE]
-> Du behöver bara köra det här verktyget mot filen main. TSF (till exempel PerformanceCountersTable. TSF). De medföljande filerna (till exempel PerformanceCountersTables_ \* \*001. TSF, PerformanceCountersTables_ \* \*002. TSF och så vidare) bearbetas automatiskt.
+> Du behöver bara köra det här verktyget mot filen main. TSF (till exempel PerformanceCountersTable. TSF). De medföljande filerna (till exempel PerformanceCountersTables_\*\*001. TSF, PerformanceCountersTables_\*\*002. TSF och så vidare) bearbetas automatiskt.
 
 ### <a name="more-about-missing-trace-logs"></a>Mer om spårnings loggar som saknas
 

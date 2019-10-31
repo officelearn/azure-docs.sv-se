@@ -7,14 +7,14 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 240e0dadaebde6725974604b578328ede0b20652
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 13392644ebe5e163e946deceeec5fcab8f5085cc
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129061"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159731"
 ---
-# <a name="preview-create-an-azure-image-builder-template"></a>Förhandsversion: Skapa en Azure Image Builder-mall 
+# <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
 Azure Image Builder använder en. JSON-fil för att skicka information till Image Builder-tjänsten. I den här artikeln går vi igenom avsnitten i JSON-filen så att du kan bygga egna. Se exempel på fullständiga. JSON-filer i [Azure Image Builder-GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 
@@ -44,29 +44,29 @@ Detta är det grundläggande mallformat:
 
 ## <a name="type-and-api-version"></a>Typ-och API-version
 
-Är resurs typen, som måste vara `"Microsoft.VirtualMachineImages/imageTemplates"`. `type` Kommer att ändras med tiden som API-ändringar, men bör vara `"2019-05-01-preview"` för hands version. `apiVersion`
+`type` är resurs typen, som måste vara `"Microsoft.VirtualMachineImages/imageTemplates"`. `apiVersion` ändras med tiden som API-ändringar, men ska vara `"2019-05-01-preview"` för för hands version.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>Plats
 
 Platsen är den region där den anpassade avbildningen kommer att skapas. För för hands versionen av Image Builder stöds följande regioner:
 
-- East US
+- USA, östra
 - USA, östra 2
-- Västra centrala USA
-- Västra USA
-- Västra USA 2
+- USA, västra centrala
+- USA, västra
+- USA, västra 2
 
 
 ```json
     "location": "<region>",
 ```
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>Taggar
 
 Detta är nyckel/värde-par som du kan ange för den bild som genereras.
 
@@ -104,7 +104,7 @@ Mer information om hur du distribuerar den här funktionen finns i [Konfigurera 
 
 ## <a name="properties-source"></a>Egenskaper: källa
 
-`source` Avsnittet innehåller information om käll avbildningen som ska användas av Image Builder.
+Avsnittet `source` innehåller information om käll avbildningen som ska användas av Image Builder.
 
 API: t kräver en ' SourceType ' som definierar källan för avbildnings versionen, för närvarande finns det tre typer:
 - ISO – Använd detta när källan är en RHEL ISO.
@@ -127,7 +127,7 @@ Azure Image Builder har endast stöd för användning av publicerade Red Hat Ent
 }
 ```
 
-Hämta `sourceURI` värdena och `sha256Checksum` genom att gå till `https://access.redhat.com/downloads` och sedan välja produkt **Red Hat Enterprise Linux**och en version som stöds. 
+Om du vill hämta `sourceURI` och `sha256Checksum` värden går du till `https://access.redhat.com/downloads` och väljer sedan produkt **Red Hat Enterprise Linux**och en version som stöds. 
 
 I listan över **installations program och avbildningar för Red Hat Enterprise Linux server**måste du kopiera länken för Red Hat Enterprise Linux 7. x binär DVD och kontroll summan.
 
@@ -139,7 +139,7 @@ Azure Image Builder har stöd för följande Azure Marketplace-avbildningar:
 * Ubuntu 18.04
 * Ubuntu 16.04
 * RHEL 7,6
-* CentOS 7.6
+* CentOS 7,6
 * Windows 2016
 * Windows 2019
 
@@ -174,7 +174,7 @@ Anger käll avbildningen som en befintlig hanterad avbildning av en generalisera
         }
 ```
 
-`imageId` Ska vara den hanterade avbildningens ResourceID. Använd `az image list` för att visa en lista över tillgängliga avbildningar.
+`imageId` ska vara den hanterade avbildningens ResourceId. Använd `az image list` för att visa en lista över tillgängliga avbildningar.
 
 
 ### <a name="sharedimageversion-source"></a>SharedImageVersion-källa
@@ -187,7 +187,7 @@ Anger käll avbildningen av en befintlig avbildnings version i ett galleri för 
    } 
 ```
 
-`imageVersionId` Ska vara avbildnings versionens ResourceID. Använd [AZ sig-avbildning – versions lista](/cli/azure/sig/image-version#az-sig-image-version-list) för att lista avbildnings versioner.
+`imageVersionId` ska vara en ResourceId för avbildnings versionen. Använd [AZ sig-avbildning – versions lista](/cli/azure/sig/image-version#az-sig-image-version-list) för att lista avbildnings versioner.
 
 ## <a name="properties-buildtimeoutinminutes"></a>Egenskaper: buildTimeoutInMinutes
 
@@ -207,8 +207,8 @@ Om du upptäcker att du behöver mer tid för att anpassningarna ska slutföras,
 
 Avbildnings verktyget stöder flera "anpassningar". Anpassningar är funktioner som används för att anpassa din avbildning, till exempel köra skript eller starta om servrar. 
 
-När du `customize`använder: 
-- Du kan använda flera anpassningar, men de måste ha ett unikt `name`.
+När du använder `customize`: 
+- Du kan använda flera anpassningar, men de måste ha en unik `name`.
 - Anpassningar körs i den ordning som anges i mallen.
 - Om en anpassning Miss lyckas, kommer hela anpassnings komponenten att Miss lyckas och rapportera ett fel.
 - Det rekommenderas starkt att du testar skriptet noggrant innan du använder det i en mall. Det blir enklare att felsöka skriptet på din egen virtuella dator.
@@ -288,7 +288,7 @@ Anpassa egenskaper:
 - **Typ**: WindowsRestart
 - **restartCommand** -kommando för att köra omstarten (valfritt). Standardvärdet är `'shutdown /r /f /t 0 /c \"packer restart\"'`.
 - **restartCheckCommand** – kommando för att kontrol lera om omstart lyckades (valfritt). 
-- **restartTimeout** – timeout för omstart har angetts som en sträng med storlek och enhet. Till exempel `5m` (5 minuter) eller `2h` (2 timmar). Standardvärdet är: 5 m
+- **restartTimeout** – timeout för omstart har angetts som en sträng med storlek och enhet. Till exempel `5m` (5 minuter) eller `2h` (2 timmar). Standardvärdet är: ' 5 m '
 
 
 ### <a name="powershell-customizer"></a>PowerShell-anpassning 
@@ -349,7 +349,7 @@ Detta stöds av Windows-kataloger och Linux-sökvägar, men det finns vissa skil
 Om det uppstår ett fel vid försök att hämta filen, eller om den placeras i en angiven katalog, kommer anpassnings steget inte att fungera, och detta görs i anpassnings loggen.
 
 > [!NOTE]
-> Fil anpassningen är bara lämplig för små fil hämtningar, < 20 MB. För större fil hämtningar används ett skript eller ett infogat kommando, koden används för att ladda ned filer, till `wget` exempel `curl`Linux eller Windows `Invoke-WebRequest`,.
+> Fil anpassningen är bara lämplig för små fil hämtningar, < 20 MB. För större fil hämtningar används ett skript eller ett infogat kommando, koden används för att ladda ned filer, till exempel Linux `wget` eller `curl`Windows `Invoke-WebRequest`.
 
 Filer i fil anpassningen kan laddas ned från Azure Storage med [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
@@ -383,7 +383,7 @@ while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Window
 Om du vill åsidosätta kommandona använder du PowerShell-eller Shell-skript provisioor för att skapa kommando filerna med det exakta fil namnet och lägga dem i rätt kataloger:
 
 * Windows: c:\DeprovisioningScript.ps1
-* Linux: /tmp/DeprovisioningScript.sh
+* Linux:/tmp/DeprovisioningScript.sh
 
 Image Builder läser dessa kommandon, de skrivs ut till AIB-loggarna, anpassning. log. Se [fel sökning](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) för insamling av loggar.
  
@@ -397,7 +397,7 @@ Azure Image Builder stöder tre distributions mål:
 
 Du kan distribuera en avbildning till båda mål typerna i samma konfiguration, se [exempel](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Eftersom du kan ha fler än ett mål att distribuera till, har Image Builder ett tillstånd för varje distributions mål som kan nås genom att fråga `runOutputName`.  `runOutputName` Är ett objekt som du kan skicka frågor till efter distribution för information om distributionen. Du kan till exempel fråga platsen för den virtuella hård disken eller regioner där avbildnings versionen replikeras till. Detta är en egenskap för varje distributions mål. `runOutputName` Måste vara unik för varje distributions mål.
+Eftersom du kan ha fler än ett mål att distribuera till, har Image Builder ett tillstånd för varje distributions mål som kan nås genom att fråga `runOutputName`.  `runOutputName` är ett objekt som du kan skicka frågor till efter distribution för information om distributionen. Du kan till exempel fråga platsen för den virtuella hård disken eller regioner där avbildnings versionen replikeras till. Detta är en egenskap för varje distributions mål. `runOutputName` måste vara unikt för varje distributions mål.
  
 ### <a name="distribute-managedimage"></a>Distribuera: managedImage
 
@@ -419,7 +419,7 @@ Avbildningens utdata är en hanterad avbildnings resurs.
  
 Distribuera egenskaper:
 - **typ** – managedImage 
-- **imageId** – resurs-ID för mål avbildningen, förväntat\<format:/Subscriptions/\<subscriptionId >/resourceGroups/\< destinationResourceGroupName >/providers/Microsoft.Compute/images/ imageName >
+- **imageId** – resurs-ID för mål avbildningen, förväntat format:/Subscriptions/\<subscriptionId >/ResourceGroups/\<destinationResourceGroupName >/providers/Microsoft.Compute/images/\<imageName >
 - **plats** – plats för den hanterade avbildningen.  
 - **runOutputName** – unikt namn för identifiering av distributionen.  
 - **artifactTags** – valfri användardefinierad nyckel värde par taggar.
@@ -442,23 +442,24 @@ Innan du kan distribuera till avbildnings galleriet måste du skapa ett galleri 
 
 ```json
 {
-     "type": "sharedImage",
-     "galleryImageId": “<resource ID>”,
-     "runOutputName": "<name>",
-     "artifactTags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
-     "replicationRegions": [
+    "type": "sharedImage",
+    "galleryImageId": "<resource ID>",
+    "runOutputName": "<name>",
+    "artifactTags": {
+        "<name>": "<value>",
+        "<name>": "<value>"
+    },
+    "replicationRegions": [
         "<region where the gallery is deployed>",
         "<region>"
-    ]}
+    ]
+}
 ``` 
 
 Distribuera egenskaper för delade avbildnings gallerier:
 
 - **typ** -sharedImage  
-- **galleryImageId** – ID för det delade avbildnings galleriet. \<Formatet är:/Subscriptions/subscriptionId >/resourceGroups/\<resourceGroupName >/providers/Microsoft.Compute/Galleries/\<sharedImageGalleryName >/images/\< imageGalleryName >.
+- **galleryImageId** – ID för det delade avbildnings galleriet. Formatet är:/Subscriptions/\<subscriptionId >/resourceGroups/\<resourceGroupName >/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName >/images/\<imageGalleryName >.
 - **runOutputName** – unikt namn för identifiering av distributionen.  
 - **artifactTags** – valfri användardefinierad nyckel värde par taggar.
 - **replicationRegions** -matris för replikering. En av regionerna måste vara den region där galleriet har distribuerats.
@@ -466,18 +467,18 @@ Distribuera egenskaper för delade avbildnings gallerier:
 > [!NOTE]
 > Du kan använda Azure Image Builder i en annan region i galleriet, men tjänsten Azure Image Builder måste överföra avbildningen mellan data centret och det tar längre tid. Bildverktyget skapar automatiskt en version av bilden, baserat på ett enkel färgs heltal, men du kan inte ange den för närvarande. 
 
-### <a name="distribute-vhd"></a>Levereras VHD  
+### <a name="distribute-vhd"></a>Distribuera: virtuell hård disk  
 Du kan skriva utdata till en virtuell hård disk. Du kan sedan kopiera den virtuella hård disken och använda den för att publicera på Azure MarketPlace eller använda med Azure Stack.  
 
 ```json
- { 
-     "type": "VHD",
-     "runOutputName": "<VHD name>",
-     "tags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
- }
+{ 
+    "type": "VHD",
+    "runOutputName": "<VHD name>",
+    "tags": {
+        "<name": "<value>",
+        "<name>": "<value>"
+    }
+}
 ```
  
 OS-support: Windows och Linux
@@ -488,7 +489,7 @@ Distribuera VHD-parametrar:
 - **runOutputName** – unikt namn för identifiering av distributionen.  
 - **taggar** – valfritt användardefinierat nyckel värde par.
  
-Azure Image Builder tillåter inte användaren att ange en lagrings konto plats, men du kan fråga efter status för `runOutputs` att hämta platsen.  
+Azure Image Builder tillåter inte användaren att ange en lagrings konto plats, men du kan fråga status för `runOutputs` för att hämta platsen.  
 
 ```azurecli-interactive
 az resource show \

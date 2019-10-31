@@ -43,6 +43,8 @@
       items:
         - name: Så här fungerar MFA
           href: concept-mfa-howitworks.md
+        - name: Aktivera MFA
+          href: concept-mfa-get-started.md
         - name: Licensiera dina användare
           href: concept-mfa-licensing.md
         - name: Hantera en autentiseringsleverantör
@@ -135,6 +137,10 @@
           href: howto-authentication-passwordless-deployment.md
         - name: Lösenordsfria säkerhetsnycklar
           href: howto-authentication-passwordless-security-key.md
+        - name: Lösenordsfritt Windows 10
+          href: howto-authentication-passwordless-security-key-windows.md
+        - name: Lösenordsfritt lokalt
+          href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Lösenordslös inloggning via telefon
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello för företag

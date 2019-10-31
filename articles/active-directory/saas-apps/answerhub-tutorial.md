@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med AnswerHub | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med AnswerHub | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och AnswerHub.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227483"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152985"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Självstudier: Azure Active Directory-integrering med AnswerHub
+# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Självstudie: Azure Active Directory integrering med AnswerHub
 
 I den här självstudien lär du dig att integrera AnswerHub med Azure Active Directory (Azure AD).
 När du integrerar AnswerHub med Azure AD innebär det följande fördelar:
@@ -34,7 +35,7 @@ När du integrerar AnswerHub med Azure AD innebär det följande fördelar:
 Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att konfigurera Azure AD-integrering med AnswerHub:
 
@@ -80,10 +81,10 @@ Du behöver utföra följande uppgifter för att konfigurera och testa enkel inl
 2. [Konfigurera enkel inloggning för AnswerHub](#configure-answerhub-single-sign-on) för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) med namnet Britta Simon.
 4. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) så att Britta Simon kan använda enkel inloggning i Azure AD.
-5. Skapa en testanvändare i AnswerHub som motsvarar och länkas till Azure AD-testanvändare.
+5. Skapa en AnswerHub-test användare som motsvarar och är länkad till test användaren i Azure AD.
 6. [Testa enkel inloggning](#test-single-sign-on) för att verifiera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar du enkel inloggning med Azure AD i Azure-portalen.
 
@@ -121,9 +122,9 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD i Azure-porta
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
    Du kan kopiera dessa URL:er:
-    - Inloggningswebbadress
+    - Inloggnings-URL
 
-    - Microsoft Azure Active Directory-identifierare
+    - Azure AD-identifierare
 
     - Utloggnings-URL
 
@@ -144,7 +145,7 @@ I det här avsnittet konfigurerar du enkel inloggning för AnswerHub.
 
 4. På fliken **IDP Config** (IDP-konfiguration) utför du följande steg:
 
-    ![Fliken Användare och grupper](./media/answerhub-tutorial/ic785172.png "SAML-konfiguration")  
+    ![Fliken användare & grupper](./media/answerhub-tutorial/ic785172.png "SAML-konfiguration")  
   
     a. I rutan för **inloggnings-URL för IDP** klistrar du in den **inloggnings-URL** som du kopierade från Azure-portalen.
   
@@ -156,7 +157,7 @@ I det här avsnittet konfigurerar du enkel inloggning för AnswerHub.
 
 5. I avsnittet **Nycklar och certifikat** utför du följande steg:
 
-    ![Avsnittet Nycklar och certifikat](./media/answerhub-tutorial/ic785173.png "Nycklar och certifikat")  
+    ![Avsnittet nycklar och certifikat](./media/answerhub-tutorial/ic785173.png "Nycklar och certifikat")  
 
     a. Öppna det base64-kodade certifikatet som du laddade ned från Azure-portalen i Anteckningar, kopiera innehållet och klistra sedan in det i rutan för **offentlig nyckel för IDP (x509-format)** .
   
@@ -170,11 +171,11 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
 **Så här skapar du en Azure AD-testanvändare:**
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Välj Azure Active Directory, Användare, Alla användare](common/users.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -184,16 +185,16 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     a. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** anger **brittasimon\@< yourcompanydomain.extension >** .  
+    b. I rutan **användar namn** anger du **brittasimon\@< yourcompanydomain. extension >** .  
     Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
     d. Välj **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska ställa du in användaren Britta Simon att använda Azure AD enkel inloggning genom att bevilja användaråtkomst till AnswerHub.
+I det här avsnittet konfigurerar du User Britta Simon till att använda enkel inloggning med Azure AD genom att bevilja användaren åtkomst till AnswerHub.
 
 **Så här tilldelar du Azure AD-testanvändaren:**
 
@@ -205,7 +206,7 @@ I det här avsnittet ska ställa du in användaren Britta Simon att använda Azu
 
     ![Programlista](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Välj Användare och grupper](common/users-groups-blade.png)
 
@@ -235,7 +236,7 @@ Om du vill ge Azure AD-användare möjlighet att logga in på AnswerHub måste d
 
 4. I den vänstra rutan går du till avsnittet **Hantera användare**, väljer **Skapa eller importera användare** och väljer sedan **Användare och grupper**.
 
-   ![Fliken Användare och grupper](./media/answerhub-tutorial/ic785175.png "Användare och grupper")
+   ![Fliken användare & grupper](./media/answerhub-tutorial/ic785175.png "Användare & grupper")
 
 5. I motsvarande rutor anger du **E-postadress**, **Användarnamn** och **Lösenord** för ett giltigt Azure AD-konto som du vill lägga till, och väljer sedan **Spara**.
 

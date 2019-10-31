@@ -1,5 +1,5 @@
 ---
-title: Hantera token (Microsoft Authentication Library)
+title: Hämta och cachelagra token med MSAL
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att förvärva och cachelagra token med hjälp av Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa6a939fce3eae8b1367c2d01e947e813fa5437
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 0d47fa92de8365ed3a5e0349b78899ff7fde1375
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803294"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150639"
 ---
-# <a name="acquiring-and-caching-tokens-using-msal"></a>Förvärva och cachelagra token med MSAL
+# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Hämta och cachelagra token med Microsoft Authentication Library (MSAL)
+
 [Åtkomsttoken gör det](access-tokens.md) möjligt för klienter att på ett säkert sätt anropa webb-API: er som skyddas av Azure. Det finns många sätt att hämta en token med hjälp av Microsoft Authentication Library (MSAL). På vissa sätt krävs användar interaktioner via en webbläsare. Vissa kräver ingen interaktion från användaren. I allmänhet beror det på hur du kan hämta en token på om programmet är ett offentligt klient program (stationär eller mobilapp) eller ett konfidentiellt klient program (webbapp, webb-API eller daemon-program som en Windows-tjänst).
 
 MSAL cachelagrar en token efter att den har hämtats.  Program koden bör försöka hämta en token tyst (från cachen), först innan du hämtar en token på annat sätt.

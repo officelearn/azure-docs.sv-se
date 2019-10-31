@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c782c8bb2807017053375b45560685acf78161e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 64b7add9ddb1734d763c46e93d6788ce21a2c321
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169972"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150890"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Villkorlig åtkomst: blockera åtkomst efter plats
 
@@ -49,7 +49,7 @@ Mer information om plats villkoret i villkorlig åtkomst finns i artikeln, [Vad 
    1. **Konfigurera** till **Ja**
    1. **Inkludera** utvalda **valda platser**
    1. Välj den blockerade plats som du har skapat för din organisation.
-   1. Klicka på **välj**@no__t-**1 @no__t**-3 har**gjorts**.
+   1. Klicka på **välj** > **gjorda** > har **slutförts**.
 1. Under **åtkomst kontroller** > -**block**och välj **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.

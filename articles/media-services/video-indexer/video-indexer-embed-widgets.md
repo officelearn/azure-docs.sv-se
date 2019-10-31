@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71036631"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162607"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -253,7 +253,7 @@ Exempel:
 
 Som standard innehåller Video Indexer Player automatiskt skapade stängda under texter som baseras på avskriften av videon. Avskriften extraheras från videon med det käll språk som valdes när videon laddades upp.
 
-Om du vill bädda in med ett annat språk kan du lägga till `&captions=< Language | ”all” | “false” >` till URL: en för inbäddning av spelare. Om du vill ha beskrivningar i alla tillgängliga språk texter använder du värdet `all`. Om du vill att rubrikerna ska visas som standard kan du skicka `&showCaptions=true`.
+Om du vill bädda in med ett annat språk kan du lägga till `&captions=< Language | "all" | "false" >` till URL: en för inbäddning av spelare. Om du vill ha beskrivningar i alla tillgängliga språk texter använder du värdet `all`. Om du vill att rubrikerna ska visas som standard kan du skicka `&showCaptions=true`.
 
 Inbäddnings-URL: en kommer sedan att se ut så här: 
 

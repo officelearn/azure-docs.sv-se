@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e6973ee311f1d3f5ba19714695f67bd321d953b7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c104af3bcfddb4b0863f69b6571d4cd62ca9c2b8
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295048"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147116"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Snabbstart: Skapa en server – portalen
 
@@ -45,7 +45,7 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
    * **Inställning för lagring av säkerhetskopior**: Valfritt. Om du redan har ett [lagringskonto](../storage/common/storage-introduction.md) kan du ange det som standard för modelldatabasens säkerhetskopia. Du kan även ange inställningar för [säkerhetskopia och återställning](analysis-services-backup.md) senare.
    * **Upphörande av lagringsnyckel**: Valfritt. Ange en upphörandeperiod för lagringsnyckeln.
 
-Det tar vanligtvis mindre än en minut att skapa servern. Om du valde **Lägg till i portalen** går du till din portal för att se den nya servern. Eller så kan du gå till **Alla tjänster** > **Analysis Services** för att se om servern är klar. Servrar stöder tabell modeller på kompatibilitetsnivån 1200 och högre. Modellens kompatibilitetsnivå anges i SSDT eller SSMS.
+Det tar vanligtvis mindre än en minut att skapa servern. Om du valde **Lägg till i portalen** går du till din portal för att se den nya servern. Eller så kan du gå till **Alla tjänster** > **Analysis Services** för att se om servern är klar. Servrar stöder tabell modeller på kompatibilitetsnivån 1200 och högre. Modellens kompatibilitetsnivå anges i Visual Studio eller SSMS.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

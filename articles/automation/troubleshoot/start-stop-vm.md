@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe4317c193e8aa6c6723556ef36d6111df6f51cd
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 860a47386b31403b6a3d41fc2473b1e1040889a7
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240848"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162029"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Felsök lösningen starta/stoppa virtuella datorer under låg tid
 
-## <a name="deployment-failure"></a>Situationen Lösningen för att starta/stoppa VM-lösningen kan inte distribueras korrekt
+## <a name="deployment-failure"></a>Scenario: Starta/stoppa VM-lösningen kan inte distribueras korrekt
 
 ### <a name="issue"></a>Problem
 
@@ -29,7 +29,7 @@ Account already exists in another resourcegroup in a subscription. ResourceGroup
 ```
 
 ```error
-Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]".
 ```
 
 ```error
@@ -58,11 +58,11 @@ Distributioner kan Miss lyckas på grund av en av följande orsaker:
 
 1. Det finns redan ett Automation-konto med samma namn i den valda regionen.
 2. En princip är på plats som inte tillåter distribution av lösningen starta/stoppa virtuella datorer.
-3. Resurs typerna `Microsoft.Insights` ,eller`Microsoft.Automation` är inte registrerade. `Microsoft.OperationsManagement`
+3. Resurs typerna `Microsoft.OperationsManagement`, `Microsoft.Insights`eller `Microsoft.Automation` har inte registrerats.
 4. Din Log Analytics-arbetsyta har ett lås på den.
 5. Du har en inaktuell version av AzureRM-moduler eller starta/stoppa-lösningen.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Läs följande lista för eventuella lösningar på problemet eller platser att titta på:
 
@@ -77,7 +77,7 @@ Läs följande lista för eventuella lösningar på problemet eller platser att 
 4. Om du har ett lås på Log Analytics arbets ytan går du till din arbets yta i Azure Portal och tar bort eventuella lås på resursen.
 5. Om lösningarna ovan inte löser problemet följer du anvisningarna under [Uppdatera lösningen](../automation-solution-vm-management.md#update-the-solution) för att omdistribuera start-/stopp lösningen.
 
-## <a name="all-vms-fail-to-startstop"></a>Situationen Det gick inte att starta/stoppa alla virtuella datorer
+## <a name="all-vms-fail-to-startstop"></a>Scenario: alla virtuella datorer kan inte starta/stoppa
 
 ### <a name="issue"></a>Problem
 
@@ -92,7 +92,7 @@ Felet kan bero på någon av följande orsaker:
 3. En Runbook kan ha stött på fel
 4. De virtuella datorerna kan ha uteslutits
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Läs följande lista för eventuella lösningar på problemet eller platser att titta på:
 
@@ -110,7 +110,7 @@ Läs följande lista för eventuella lösningar på problemet eller platser att 
   * ScheduledStartStop_Parent
   * SequencedStartStop_Parent
 
-* Kontrol lera att ditt kör som- [konto](../manage-runas-account.md) har rätt behörigheter till de virtuella datorer som du försöker starta eller stoppa. Information om hur du kontrollerar behörigheter för en resurs finns i [snabb start: Visa roller som har tilldelats till en användare med](../../role-based-access-control/check-access.md)hjälp av Azure Portal. Du måste ange program-ID för tjänstens huvud namn som används av kör som-kontot. Du kan hämta det här värdet genom att gå till ditt Automation-konto i Azure Portal, välja **Kör som-konton** under **konto inställningar** och klicka på lämpligt kör som-konto.
+* Kontrol lera att ditt kör som- [konto](../manage-runas-account.md) har rätt behörigheter till de virtuella datorer som du försöker starta eller stoppa. Information om hur du kontrollerar behörigheter för en resurs finns i [snabb start: Visa roller tilldelade till en användare med hjälp av Azure Portal](../../role-based-access-control/check-access.md). Du måste ange program-ID för tjänstens huvud namn som används av kör som-kontot. Du kan hämta det här värdet genom att gå till ditt Automation-konto i Azure Portal, välja **Kör som-konton** under **konto inställningar** och klicka på lämpligt kör som-konto.
 
 * Det går inte att starta eller stoppa virtuella datorer om de uttryckligen utesluts. Undantagna virtuella datorer angavs i **External_ExcludeVMNames** -variabeln i Automation-kontot som lösningen distribueras till. I följande exempel visas hur du kan fråga det värdet med PowerShell.
 
@@ -118,7 +118,7 @@ Läs följande lista för eventuella lösningar på problemet eller platser att 
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-## <a name="some-vms-fail-to-startstop"></a>Situationen Några av mina virtuella datorer kan inte startas eller stoppas
+## <a name="some-vms-fail-to-startstop"></a>Scenario: vissa av mina virtuella datorer kan inte startas eller stoppas
 
 ### <a name="issue"></a>Problem
 
@@ -133,11 +133,11 @@ Felet kan bero på någon av följande orsaker:
 3. RunAs-kontot har kanske inte tillräckligt med behörigheter på den virtuella datorn
 4. Den virtuella datorn kan ha något som avbrutit den från att starta eller stoppa
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Läs följande lista för eventuella lösningar på problemet eller platser att titta på:
 
-* När du använder [sekvens scenariot](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) för lösningen starta/stoppa virtuell dator under inaktive ring av timmar, måste du se till att varje virtuell dator som du vill starta eller stoppa har rätt tagg. Se till att de virtuella datorer som du vill starta har `sequencestart` taggen och att de virtuella datorer som du vill stoppa `sequencestop` har taggen. Båda taggarna kräver ett positivt heltals värde. Du kan använda en fråga som liknar följande exempel för att söka efter alla virtuella datorer med taggarna och deras värden.
+* När du använder [sekvens scenariot](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) för lösningen starta/stoppa virtuell dator under inaktive ring av timmar, måste du se till att varje virtuell dator som du vill starta eller stoppa har rätt tagg. Se till att de virtuella datorer som du vill starta har taggen `sequencestart` och de virtuella datorer som du vill stoppa har `sequencestop`-taggen. Båda taggarna kräver ett positivt heltals värde. Du kan använda en fråga som liknar följande exempel för att söka efter alla virtuella datorer med taggarna och deras värden.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
@@ -149,13 +149,13 @@ Läs följande lista för eventuella lösningar på problemet eller platser att 
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-* För att starta och stoppa virtuella datorer måste kör som-kontot för Automation-kontot ha nödvändig behörighet för den virtuella datorn. Information om hur du kontrollerar behörigheter för en resurs finns i [snabb start: Visa roller som har tilldelats till en användare med](../../role-based-access-control/check-access.md)hjälp av Azure Portal. Du måste ange program-ID för tjänstens huvud namn som används av kör som-kontot. Du kan hämta det här värdet genom att gå till ditt Automation-konto i Azure Portal, välja **Kör som-konton** under **konto inställningar** och klicka på lämpligt kör som-konto.
+* För att starta och stoppa virtuella datorer måste kör som-kontot för Automation-kontot ha nödvändig behörighet för den virtuella datorn. Information om hur du kontrollerar behörigheter för en resurs finns i [snabb start: Visa roller tilldelade till en användare med hjälp av Azure Portal](../../role-based-access-control/check-access.md). Du måste ange program-ID för tjänstens huvud namn som används av kör som-kontot. Du kan hämta det här värdet genom att gå till ditt Automation-konto i Azure Portal, välja **Kör som-konton** under **konto inställningar** och klicka på lämpligt kör som-konto.
 
 * Om den virtuella datorn har problem med att starta eller att allokera kan det här beteendet orsakas av ett problem på den virtuella datorn. Några exempel eller potentiella problem är att en uppdatering tillämpas när du försöker stänga av, en tjänst låser sig och mer). Navigera till den virtuella dator resursen och kontrol lera **aktivitets loggarna** för att se om det finns några fel i loggarna. Du kan också försöka logga in på den virtuella datorn för att se om det finns några fel i händelse loggarna. Mer information om hur du felsöker din virtuella dator finns i [Felsöka Azure Virtual Machines](../../virtual-machines/troubleshooting/index.md)
 
 * Kontrol lera [jobb strömmarna](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) för att leta efter eventuella fel. I portalen går du till ditt Automation-konto och väljer **jobb** under **process automatisering**.
 
-## <a name="custom-runbook"></a>Situationen Min anpassade Runbook kan inte starta eller stoppa mina virtuella datorer
+## <a name="custom-runbook"></a>Scenario: min anpassade Runbook kan inte starta eller stoppa mina virtuella datorer
 
 ### <a name="issue"></a>Problem
 
@@ -165,11 +165,11 @@ Du har skapat en anpassad Runbook eller hämtat en från PowerShell-galleriet oc
 
 Orsaken till felet kan vara något av många saker. Gå till ditt Automation-konto i Azure Portal och välj **jobb** under **process automatisering**. På sidan **jobb** letar du efter jobb från din Runbook för att visa eventuella jobb haverier.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Vi rekommenderar att du använder [lösningen starta/stoppa virtuella datorer under låg belastning](../automation-solution-vm-management.md) för att starta och stoppa virtuella datorer i Azure Automation. Den här lösningen har skapats av Microsoft. Anpassade Runbooks stöds inte av Microsoft. Du kan hitta en lösning för din anpassade Runbook genom att gå till [fel söknings](runbooks.md) artikeln för Runbook. Den här artikeln innehåller allmän vägledning och fel sökning för Runbooks av alla typer. Kontrol lera [jobb strömmarna](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) för att leta efter eventuella fel. I portalen går du till ditt Automation-konto och väljer **jobb** under **process automatisering**.
 
-## <a name="dont-start-stop-in-sequence"></a>Situationen Virtuella datorer startar eller stoppas inte i rätt ordning
+## <a name="dont-start-stop-in-sequence"></a>Scenario: virtuella datorer startar eller stoppas inte i rätt ordning
 
 ### <a name="issue"></a>Problem
 
@@ -179,17 +179,17 @@ De virtuella datorer som du har konfigurerat i lösningen startar eller stoppas 
 
 Detta beror på felaktig taggning på de virtuella datorerna.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Utför följande steg för att säkerställa att lösningen är korrekt konfigurerad.
 
-1. Se till att alla virtuella datorer som startas eller stoppas `sequencestop` har en `sequencestart` or-tagg, beroende på din situation. Taggarna måste ha ett positivt heltal som värde. De virtuella datorerna bearbetas i stigande ordning baserat på det här värdet.
-2. Kontrol lera att resurs grupperna för de virtuella datorerna som ska startas eller stoppas `External_Start_ResourceGroupNames` finns `External_Stop_ResourceGroupNames` i variablerna eller, beroende på din situation.
-3. Testa ändringarna genom att köra `SequencedStartStop_Parent` runbooken med parametern WHATIF inställd på True för att förhandsgranska ändringarna.
+1. Se till att alla virtuella datorer som startas eller stoppas har en `sequencestart`-eller `sequencestop`-tagg, beroende på din situation. Taggarna måste ha ett positivt heltal som värde. De virtuella datorerna bearbetas i stigande ordning baserat på det här värdet.
+2. Kontrol lera att resurs grupperna för de virtuella datorerna som ska startas eller stoppas finns i `External_Start_ResourceGroupNames` eller `External_Stop_ResourceGroupNames` variabler, beroende på din situation.
+3. Testa ändringarna genom att köra `SequencedStartStop_Parent` Runbook med parametern WHATIF inställd på True för att förhandsgranska ändringarna.
 
 Mer detaljerad information och ytterligare instruktioner om hur du använder lösningen för att starta och stoppa virtuella datorer i sekvenser finns i [Starta/stoppa virtuella datorer i följd](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
 
-## <a name="403"></a>Situationen Starta/stoppa VM-jobb Miss lyckas med 403 status för förbjuden
+## <a name="403"></a>Scenario: det går inte att starta/stoppa VM-jobbet med status 403 förbjuden
 
 ### <a name="issue"></a>Problem
 
@@ -199,7 +199,7 @@ Du hittar jobb som misslyckades med ett `403 forbidden` fel för Runbooks för a
 
 Det här problemet kan orsakas av ett felaktigt konfigurerat eller utgånget kör som-konto. Det kan också bero på otillräcklig behörighet till VM-resurserna av kör som-kontot för Automation-konton.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 Om du vill kontrol lera att kör som-kontot är korrekt konfigurerat går du till ditt Automation-konto i Azure Portal och väljer **Kör som-konton** under **konto inställningar**. Här visas statusen för dina kör som-konton, om ett Kör som-konto är felaktigt konfigurerat eller upphör att gälla visas detta.
 
@@ -207,9 +207,9 @@ Om kör som-kontot är [felkonfigurerat](../manage-runas-account.md#misconfigura
 
 Om certifikatet har upphört att gälla för ditt kör som-konto följer du stegen i listan med [självsignerat certifikat för förnyelse](../manage-runas-account.md#cert-renewal) av certifikatet.
 
-Problemet kan bero på att behörigheter saknas. Information om hur du kontrollerar behörigheter för en resurs finns i [snabb start: Visa roller som har tilldelats till en användare med](../../role-based-access-control/check-access.md)hjälp av Azure Portal. Du måste ange program-ID för tjänstens huvud namn som används av kör som-kontot. Du kan hämta det här värdet genom att gå till ditt Automation-konto i Azure Portal, välja **Kör som-konton** under **konto inställningar** och klicka på lämpligt kör som-konto.
+Problemet kan bero på att behörigheter saknas. Information om hur du kontrollerar behörigheter för en resurs finns i [snabb start: Visa roller tilldelade till en användare med hjälp av Azure Portal](../../role-based-access-control/check-access.md). Du måste ange program-ID för tjänstens huvud namn som används av kör som-kontot. Du kan hämta det här värdet genom att gå till ditt Automation-konto i Azure Portal, välja **Kör som-konton** under **konto inställningar** och klicka på lämpligt kör som-konto.
 
-## <a name="other"></a>Situationen Mitt problem visas inte ovan
+## <a name="other"></a>Scenario: mitt problem visas inte ovan
 
 ### <a name="issue"></a>Problem
 
@@ -222,7 +222,7 @@ Många gånger kan fel uppstå genom att använda en gammal och inaktuell versio
 > [!NOTE]
 > Den Starta/stoppa virtuella datorer när de inte används lösningen har testats med Azure-modulerna som importeras till ditt Automation-konto när du distribuerar lösningen. Lösningen fungerar för närvarande inte med nyare versioner av Azure-modulen. Detta påverkar bara det Automation-konto som du använder för att köra Starta/stoppa virtuella datorer när de inte används-lösningen. Du kan fortfarande använda nyare versioner av Azure-modulen i andra Automation-konton, enligt beskrivningen i [så här uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md)
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 
 För att lösa många fel rekommenderar vi att du tar bort och uppdaterar lösningen. Information om hur du uppdaterar lösningen finns i [Uppdatera tjänsten starta/stoppa virtuella datorer vid inaktive ring av timmar](../automation-solution-vm-management.md#update-the-solution). Dessutom kan du kontrol lera [jobb strömmarna](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) för att söka efter eventuella fel. I portalen går du till ditt Automation-konto och väljer **jobb** under **process automatisering**.
 

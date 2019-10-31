@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Signagelive | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Signagelive | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Signagelive.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d923f0e7-ad31-4d59-a6fd-f0e895e1a32d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,30 +16,30 @@ ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c31f201179f9f0eb7077ed275aae927a2a4fe376
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6dab2fd0ee2f25e835b4bd07a3534475d3d93b5e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090725"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160938"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Självstudier: Azure Active Directory-integrering med Signagelive
+# <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Självstudie: Azure Active Directory integrering med Signagelive
 
 I den här självstudien lär du dig att integrera Signagelive med Azure Active Directory (AD Azure).
 Genom att integrera Signagelive med Azure AD får du följande fördelar:
 
 * Du kan i Azure AD styra vem som har åtkomst till Signagelive.
-* Du kan aktivera användarna att logga in automatiskt till Signagelive (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats: Azure-portalen.
+* Du kan göra det möjligt för användarna att logga in automatiskt på Signagelive (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats: Azure Portal.
 
-Mer information om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Signagelive behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/).
-* En Signagelive single-sign-på-aktiverade prenumeration.
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [utvärderings period](https://azure.microsoft.com/pricing/free-trial/)på en månad.
+* En Signagelive-aktiverad prenumeration med enkel inloggning.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -48,86 +49,86 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 ## <a name="add-signagelive-from-the-gallery"></a>Lägg till Signagelive från galleriet
 
-Att konfigurera integrering av Signagelive i Azure AD, Lägg först till Signagelive från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Signagelive i Azure AD måste du först lägga till Signagelive från galleriet i listan över hanterade SaaS-appar.
 
-Om du vill lägga till Signagelive från galleriet, gör du följande:
+Gör så här om du vill lägga till Signagelive från galleriet:
 
-1. I den [Azure-portalen](https://portal.azure.com), i rutan till vänster väljer du den **Azure Active Directory** ikon.
+1. I [Azure Portal](https://portal.azure.com)i det vänstra fönstret väljer du ikonen **Azure Active Directory** .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**, och välj sedan den **alla program** alternativet.
+2. Gå till **företags program**och välj alternativet **alla program** .
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i dialogrutan.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i dialog rutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger **Signagelive**. 
+4. Skriv **Signagelive**i rutan Sök. 
 
      ![Signagelive i resultatlistan](common/search-new-app.png)
 
-5. Välj **Signagelive** i resultatfönstret och väljer sedan den **Lägg till** för att lägga till programmet.
+5. Välj **Signagelive** i resultat fönstret och välj sedan knappen **Lägg till** för att lägga till programmet.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar och testar du enkel inloggning Azure AD med Signagelive baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning ska fungera, måste du upprätta en länk mellan en Azure AD-användare och relaterade användaren i Signagelive.
+För att enkel inloggning ska fungera måste du upprätta en länk mellan en Azure AD-användare och en relaterad användare i Signagelive.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Signagelive, slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Signagelive i Azure AD måste du först slutföra följande Bygg stenar:
 
 1. [Konfigurera enkel inloggning i Azure AD](#configure-azure-ad-single-sign-on) så att användarna kan använda den här funktionen.
-2. [Konfigurera Signagelive enkel inloggning](#configure-signagelive-single-sign-on) att konfigurera inställningar för enkel inloggning på programsidan.
+2. [Konfigurera Signagelive enkel inloggning](#configure-signagelive-single-sign-on) för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning för Azure AD med Britta Simon.
 4. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) så att Britta Simon kan använda enkel inloggning i Azure AD.
-5. [Skapa en testanvändare Signagelive](#create-a-signagelive-test-user) har en motsvarighet för Britta Simon i Signagelive som är länkad till en Azure AD-representation av användaren.
+5. [Skapa en Signagelive-testanvändare](#create-a-signagelive-test-user) för att få en motsvarighet till Britta Simon i Signagelive som är länkad till Azure AD-representationen av användaren.
 6. [Testa enkel inloggning](#test-single-sign-on) för att verifiera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Om du vill konfigurera Azure AD enkel inloggning med Signagelive, gör du följande:
+Utför följande steg för att konfigurera enkel inloggning med Signagelive i Azure AD:
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Signagelive**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
-2. I den **väljer du en metod för enkel inloggning** dialogrutan **SAML** att aktivera enkel inloggning.
+2. I dialog rutan **Välj metod för enkel inloggning** väljer du **SAML** för att aktivera enkel inloggning.
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På den **Konfigurera enkel inloggning med SAML** väljer **redigera** att öppna den **SAML grundkonfiguration** dialogrutan.
+3. På sidan **Konfigurera enkel inloggning med SAML** väljer du **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I den **SAML grundkonfiguration** avsnittet, gör följande:
+4. I avsnittet **grundläggande SAML-konfiguration** , utför följande steg:
 
     ![Signagelive-domän och information om URL:er för enkel inloggning](common/sp-signonurl.png)
 
-    I den **inloggnings-URL** anger en URL som använder följande mönster:  `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
+    I rutan **inloggnings-URL** anger du en URL som använder följande mönster: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med faktiska inloggnings-URL: en. För att få värdet kan kontakta den [Signagelive klienten supportteamet](mailto:support@signagelive.com) . Du kan också referera till de mönster som visas i den **SAML grundkonfiguration** avsnitt i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL: en. Kontakta [Signagelive-klientens support team](mailto:support@signagelive.com) för att få värdet. Du kan också se de mönster som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer **hämta** att ladda ned den **certifikat (Raw)** från de angivna alternativen per dina behov. Spara den på din dator.
+5. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Hämta** för att ladda ned **certifikatet (RAW)** från de angivna alternativen enligt ditt krav. Spara den sedan på din dator.
 
-    ![Länk för hämtning av certifikat](common/certificateraw.png)
+    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-6. I den **konfigurera Signagelive** avsnittet, Kopiera URL: er som du behöver.
+6. I avsnittet **Konfigurera Signagelive** kopierar du de URL: er som du behöver.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
 ### <a name="configure-signagelive-single-sign-on"></a>Konfigurera Signagelive enkel inloggning
 
-Om du vill konfigurera enkel inloggning på Signagelive sida, skicka de hämtade **certifikat (Raw)** och kopieras URL: er från Azure portal för att den [Signagelive supportteamet](mailto:support@signagelive.com). De säkerställer att SAML SSO-anslutningen är korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på Signagelive-sidan skickar du det hämtade **certifikatet (RAW)** och kopierade URL: er från Azure Portal till [support teamet för Signagelive](mailto:support@signagelive.com). De säkerställer att SAML SSO-anslutningen är korrekt inställd på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -137,27 +138,27 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
-3. I den **användaren** dialogrutan rutan, vidta följande steg.
+3. I dialog rutan **användare** utför du följande steg.
 
-    ![Dialogrutan användare](common/user-properties.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fältet, anger du ”brittasimon@yourcompanydomain.extension”. Exempel: i det här fallet, du kan ange ”BrittaSimon@contoso.com”.
+    b. Skriv "brittasimon@yourcompanydomain.extension" i fältet **användar namn** . I det här fallet kan du till exempel ange "BrittaSimon@contoso.com".
 
-    c. Välj den **Show lösenord** och anteckna värdet som visas i rutan lösenord.
+    c. Markera kryss rutan **Visa lösen ord** och anteckna värdet som visas i rutan lösen ord.
 
     d. Välj **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Signagelive.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**, och välj sedan **Signagelive**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Signagelive**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -165,33 +166,33 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Signagelive-länken i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”](common/users-groups-blade.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Välj den **Lägg till användare** knappen. I den **Lägg till tilldelning** dialogrutan **användare och grupper**.
+4. Välj knappen **Lägg till användare** . I dialog rutan **Lägg till tilldelning** väljer du sedan **användare och grupper**.
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I den **användare och grupper** i dialogrutan den **användare** väljer **Britta Simon**. Klicka sedan på den **Välj** längst ned på skärmen.
+5. I dialog rutan **användare och grupper** väljer du **Britta Simon**i listan **användare** . Klicka sedan på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran sedan, i den **Välj roll** dialogrutan väljer du rätt roll för användaren i listan. Klicka sedan på den **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-intyget väljer du i dialog rutan **Välj roll** lämplig roll för användaren i listan. Klicka sedan på knappen **Välj** längst ned på skärmen.
 
-7. I den **Lägg till tilldelning** dialogrutan den **tilldela** knappen.
+7. I dialog rutan **Lägg till tilldelning** väljer du knappen **tilldela** .
 
-### <a name="create-a-signagelive-test-user"></a>Skapa en Signagelive testanvändare
+### <a name="create-a-signagelive-test-user"></a>Skapa en Signagelive-test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Signagelive. Arbeta med den [Signagelive supportteamet](mailto:support@signagelive.com) att lägga till användare i Signagelive-plattformen. Du måste skapa och aktivera användare innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Signagelive. Arbeta med [Signagelive support team](mailto:support@signagelive.com) för att lägga till användare i Signagelive-plattformen. Du måste skapa och aktivera användare innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av MyApps-portalen.
+I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av portalen för Mina appar.
 
-När du väljer den **Signagelive** panelen i MyApps-portalen som du ska logga in automatiskt. Mer information om MyApps-portalen finns i [vad är MyApps-portalen?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen **Signagelive** på portalen för Mina appar, bör du loggas in automatiskt. Mer information om portalen för Mina appar finns i [Vad är portalen för Mina appar?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

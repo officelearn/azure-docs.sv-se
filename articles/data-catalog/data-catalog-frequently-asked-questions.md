@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 3877648723a8866ec7d9c5f1987ae3a276114d5e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898722"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152053"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Data Catalog
 Den här artikeln innehåller svar på vanliga frågor som rör tjänsten Azure Data Catalog.
@@ -25,20 +25,20 @@ Data Catalog behandlar utmaningarna med identifiering av data källor och "mörk
 ## <a name="what-are-its-target-audiences"></a>Vad är mål grupper?
 Data Catalog är utformad för tekniska och icke-tekniska användare, inklusive:
 
-* Data utvecklare och BI-och Analytics-proffs: Personer som ansvarar för att producera data-och analys innehåll som andra kan använda.
-* Data undervårder: Personer som har kunskap om data, vad det innebär och hur det är avsett att användas.
-* Data konsumenter: Personer som behöver kunna upptäcka, förstå och ansluta till de data som de behöver för att utföra sitt jobb, med hjälp av det verktyg som du väljer.
-* Centrala IT: Personer som behöver göra hundratals data källor synliga för företags användare och som behöver upprätthålla tillsyn över hur data används och av vem.
+* Data utvecklare och BI-och analys tekniker: personer som ansvarar för att producera data och analys innehåll som andra kan använda.
+* Data behållare: personer som har kunskap om data, vad det innebär och hur det är avsett att användas.
+* Data förbrukare: personer som behöver kunna upptäcka, förstå och ansluta till de data som de behöver för att utföra sitt arbete med hjälp av det verktyg som du väljer.
+* Centrala IT: personer som behöver göra hundratals data källor synliga för företags användare och som behöver upprätthålla tillsyn över hur data används och av vem.
 
 ## <a name="what-is-its-availability-by-region"></a>Vad är dess tillgänglighet per region?
 Data Catalog-tjänster är för närvarande tillgängliga i följande data Center:
 
-* Västra USA
-* East US
-* Västra Europa
-* Norra Europa
-* Östra Australien
-* Sydostasien
+* USA, västra
+* USA, östra
+* Europa, västra
+* Europa, norra
+* Australien, östra
+* Asien, sydöstra
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Vilka är gränserna för antalet data till gångar?
 Den kostnads fria versionen av Data Catalog är begränsad till 5 000 registrerade data till gångar.
@@ -75,7 +75,7 @@ Så här registrerar du data i Data Catalog:
 De angivna egenskaperna skiljer sig från data källan till data källan, men i allmänhet extraherar Data Catalog Publishing Service följande information:
 
 * Till gångs namn
-* Tillgångstyp
+* Till gångs typ
 * Till gångs Beskrivning
 * Attribut/kolumn namn
 * Attribut/kolumn data typer
@@ -87,7 +87,7 @@ De angivna egenskaperna skiljer sig från data källan till data källan, men i 
 >
 
 > [!NOTE]
-> För data källor som SQL Server Analysis Services som har en första klass **beskrivnings** egenskap, extraherar verktyget för registrering Data Catalog av data källor det egenskap svärdet. För SQL Server Relations databaser, som saknar en första klass **beskrivnings** egenskap, extraherar verktyget Data Catalog data källans registrerings verktyg värdet från den utökade egenskapen **ms_description** för objekt och kolumner. Mer information finns i [använda utökade egenskaper på databas objekt](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> För data källor som SQL Server Analysis Services som har en första klass **beskrivnings** egenskap, extraherar verktyget för registrering Data Catalog av data källor det egenskap svärdet. För den *lokala* SQL Server Relations databaser som saknar en första klass **beskrivnings** egenskap extraherar verktyget Data Catalog data källans registrerings verktyg värdet från den utökade egenskapen **ms_description** för objekt och kolumner. Mer information finns i [använda utökade egenskaper på databas objekt](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 

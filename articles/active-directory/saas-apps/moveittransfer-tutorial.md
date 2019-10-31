@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med MOVEit - överföring i Azure AD-integrering | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MOVEit överföringen – Azure AD-integrering.
+title: 'Självstudie: Azure Active Directory integrering med MOVEit-överföring – Azure AD-integrering | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MOVEit-överföring – Azure AD-integrering.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,51 +8,52 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8ff7102d-be73-4888-ae81-d8e3d01dd534
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 76f1f0d99b47b0a57f97f4fcdf721a78a77ba9b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43383e82d983c998d159728997da4757cc364999
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096904"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161318"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Självstudier: Azure Active Directory-integrering med MOVEit - överföring i Azure AD-integrering
+# <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Självstudie: Azure Active Directory integrering med MOVEit transfer – Azure AD-integrering
 
-Lär dig hur du integrerar MOVEit - överföring i Azure AD-integrering med Azure Active Directory (AD Azure) i den här självstudien.
-Integrera MOVEit - överföring i Azure AD-integrering med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera MOVEit-överföring – Azure AD-integrering med Azure Active Directory (Azure AD).
+Att integrera MOVEit-överföring – Azure AD-integrering med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till MOVEit - överföring i Azure AD-integrering.
-* Du kan aktivera användarna att vara automatiskt inloggad MOVEit - överföring i Azure AD-integrering (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra Azure AD som har åtkomst till MOVEit-överföring – Azure AD-integrering.
+* Du kan göra det möjligt för användarna att logga in automatiskt till MOVEit-överföring – Azure AD-integrering (enkel inloggning) med deras Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med MOVEit - överföring i Azure AD-integrering behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med MOVEit-överföring – Azure AD-integrering behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* MOVEit överföring - enkel inloggning för Azure AD-integrering aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* MOVEit-överföring – Azure AD-integrering med enkel inloggning aktive rad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för MOVEit - överföring i Azure AD-integrering **SP** -initierad SSO
+* MOVEit-överföring – Azure AD-integrering stöder **SP** -INITIERAd SSO
 
-## <a name="adding-moveit-transfer---azure-ad-integration-from-the-gallery"></a>Att lägga till MOVEit - överföring i Azure AD-integrering från galleriet
+## <a name="adding-moveit-transfer---azure-ad-integration-from-the-gallery"></a>Lägga till MOVEit-överföring – Azure AD-integrering från galleriet
 
-Om du vill konfigurera integreringen av MOVEit - överföring i Azure AD-integrering i Azure AD som du behöver lägga till MOVEit - överföring i Azure AD-integrering från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrationen av MOVEit transfer-Azure AD-integrering i Azure AD måste du lägga till MOVEit transfer-Azure AD integration från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till MOVEit - överföring i Azure AD-integrering från galleriet:**
+**Utför följande steg för att lägga till MOVEit transfer – Azure AD-integrering från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -60,37 +61,37 @@ Om du vill konfigurera integreringen av MOVEit - överföring i Azure AD-integre
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **MOVEit - överföring i Azure AD-integrering**väljer **MOVEit - överföring i Azure AD-integrering** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
+4. I sökrutan skriver du **MOVEit transfer-Azure AD integration**, väljer **MOVEit transfer – Azure AD integration** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![MOVEit - överföring i Azure AD-integrering i resultatlistan](common/search-new-app.png)
+     ![MOVEit-överföring – Azure AD-integrering i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med MOVEit - överföring i Azure AD-integrering baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning till arbete, en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i MOVEit överförings - måste Azure AD-integrering ska upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med MOVEit transfer – Azure AD-integration baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och en relaterad användare i MOVEit transfer – Azure AD-integrering etableras.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med MOVEit överföring – Azure AD-integrering, måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med MOVEit transfer – Azure AD-integrering måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera MOVEit - överföring i Azure AD-integrering för enkel inloggning](#configure-moveit-transfer---azure-ad-integration-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa MOVEit - överföring i Azure AD-integrering testanvändare](#create-moveit-transfer---azure-ad-integration-test-user)**  – du har en motsvarighet för Britta Simon i MOVEit överförings - Azure AD-integrering som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera MOVEit-överföring – enkel inloggning i Azure AD-integrering](#configure-moveit-transfer---azure-ad-integration-single-sign-on)** – så här konfigurerar du inställningar för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa MOVEit transfer – Azure AD integration test User](#create-moveit-transfer---azure-ad-integration-test-user)** – om du vill ha en motsvarighet till Britta Simon i MOVEit transfer – Azure AD-integrering som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med MOVEit - överföring i Azure AD-integrering:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med MOVEit transfer – Azure AD-integrering:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **MOVEit - överföring i Azure AD-integrering** application integration markerar **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **MOVEit transfer – Azure AD integration** Application Integration väljer du **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -110,75 +111,75 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med MOVEit 
 
     ![välj metadatafil](common/browse-upload-metadata.png)
 
-    c. När metadatafilen har överförts den **identifierare** och **svars-URL** värdet hämtar automatiskt ifylld i **SAML grundkonfiguration** avsnittet:
+    c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värde automatiskt i avsnittet **grundläggande SAML-konfiguration** :
 
-    ![MOVEit - överföring i Azure AD-integrering domän och URL: er enkel inloggning för information](common/sp-identifier-reply.png)
+    ![MOVEit-överföring – Azure AD-integrerings domän och enkel inloggnings information för URL: er](common/sp-identifier-reply.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://contoso.com`
 
     > [!NOTE]
-    > Den **inloggnings-URL** värdet är inte verkliga. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [MOVEit - överföring i Azure AD-integrering klientstöd](https://community.ipswitch.com/s/support) -teamet för att hämta värdet. Du kan ladda ned den **metadatafil för Service Provider** från den **URL för tjänstmetadata providern** som beskrivs senare i den **konfigurera MOVEit Transfer - Azure AD-integrering enskild Inloggning** avsnittet av självstudiekursen. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > **Inloggnings-URL** -värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [MOVEit transfer – support teamet för Azure AD integration client](https://community.ipswitch.com/s/support) för att hämta värdet. Du kan ladda ned **metadata filen för tjänst leverantören** från **providerns metadata-URL** , som beskrivs senare i avsnittet **Konfigurera Moveit-överföring – Azure AD-integrering** i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+4. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. På den **konfigurera MOVEit - överföring i Azure AD-integrering** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera MOVEit-överföring – Azure AD-integrering** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-moveit-transfer---azure-ad-integration-single-sign-on"></a>Konfigurera MOVEit - överföring i Azure AD-integrering för enkel inloggning
+### <a name="configure-moveit-transfer---azure-ad-integration-single-sign-on"></a>Konfigurera MOVEit-överföring – enkel inloggning med Azure AD-integrering
 
-1. Logga in på din MOVEit överföring-klient som administratör.
+1. Logga in på MOVEit transfer-klienten som administratör.
 
 2. I det vänstra navigeringsfönstret klickar du på **Inställningar**.
 
-    ![Inställningar för avsnittet på App-sida](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+    ![Avsnittet Inställningar på App-sidan](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
-3. Klicka på **enkel inloggning** länken, som finns under **säkerhetsprinciper -> användarautentisering**.
+3. Klicka på **single inloggning** Link, som finns under **säkerhets principer – > användarautentisering**.
 
-    ![Security principerna på appen på klientsidan](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
+    ![Säkerhets principer på App-sida](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
-4. Klicka på länken Metadata-URL för att hämta för Metadatadokumentet.
+4. Hämta Metadatadokumentet genom att klicka på länken för metadata-URL.
 
-    ![URL för tjänstmetadata Provider](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
+    ![Metadata-URL för tjänste leverantör](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
     
-   * Kontrollera **entityID** matchar **identifierare** i den **SAML grundkonfiguration** avsnittet.
-   * Kontrollera **AssertionConsumerService** plats-URL: en matchar **SVARS-URL** i den **SAML grundkonfiguration** avsnittet.
+   * Verifiera **entityId** matchar **identifieraren** i avsnittet **grundläggande SAML-konfiguration** .
+   * Verifiera **AssertionConsumerService** -platsens URL matchar **svars-URL** i avsnittet **grundläggande SAML-konfiguration** .
     
      ![Konfigurera enkel inloggning på appsidan](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
-5. Klicka på **Lägg till identitetsprovider** för att lägga till en ny Provider för federerad identitet.
+5. Klicka på knappen **Lägg till identitetsprovider** för att lägga till en ny federerad identitets leverantör.
 
     ![Lägg till identitetsprovider](./media/moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 
-6. Klicka på **Bläddra...**  för att välja metadatafilen som du laddade ned från Azure-portalen, klicka sedan på **Lägg till identitetsprovider** att ladda upp den hämta filen.
+6. Klicka på **Bläddra...** om du vill välja den metadatafil som du laddade ned från Azure Portal, klickar du på **Lägg till identitets leverantör** för att ladda upp den nedladdade filen.
 
     ![SAML Identity Provider](./media/moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
-7. Välj ”**Ja**” som **aktiverat** i den **redigera federerad identitet providerinställningar...**  och klicka på **spara**.
+7. Välj "**Ja**" som **aktive rad** på sidan **Redigera inställningar för federerad identitetsprovider...** och klicka på **Spara**.
 
-    ![Federerad identitet providerinställningar](./media/moveittransfer-tutorial/tutorial_moveittransfer_005.png)
+    ![Inställningar för federerade identitets leverantörer](./media/moveittransfer-tutorial/tutorial_moveittransfer_005.png)
 
-8. I den **redigera federerad identitet providern användarinställningar** utför följande åtgärder:
+8. På sidan **Redigera användar inställningar för federerad identitetsprovider** utför du följande åtgärder:
     
-    ![Redigera inställningar för federerad identitet Provider](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
+    ![Redigera inställningar för federerade identitets leverantörer](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
     
-    a. Välj **SAML NameID** som **inloggningsnamn**.
+    a. Välj **SAML-NameID** som **inloggnings namn**.
     
-    b. Välj **andra** som **fullständigt namn** och i den **attributnamnet** textrutan anger du värdet: `http://schemas.microsoft.com/identity/claims/displayname`.
+    b. Välj **annat** som **fullständigt namn** och ange värdet: `http://schemas.microsoft.com/identity/claims/displayname`i text rutan **attributnamn** .
     
-    c. Välj **andra** som **e-post** och i den **attributnamnet** textrutan anger du värdet: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Välj **annan** som **e-post** och i text rutan **attributnamn** sätter du in värdet: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     
-    d. Välj **Ja** som **skapa automatiskt konto på inloggning**.
+    d. Välj **Ja** som **Skapa automatiskt konto på inloggning**.
     
-    e. Klicka på **spara** knappen.
+    e. Klicka på knappen **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -198,26 +199,26 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till MOVEit - överföring i Azure AD-integrering.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till MOVEit-överföring – Azure AD-integrering.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **MOVEit - överföring i Azure AD-integrering**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **MOVEit transfer – Azure AD-integrering**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **MOVEit - överföring i Azure AD-integrering**.
+2. I listan program väljer du **MOVEit transfer – Azure AD-integrering**.
 
-    ![MOVEit överföringen – Azure AD-integrering länk i listan med program](common/all-applications.png)
+    ![Länken MOVEit transfer – Azure AD integration i listan program](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -231,22 +232,22 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-moveit-transfer---azure-ad-integration-test-user"></a>Skapa MOVEit överföring - testanvändare i Azure AD-integrering
+### <a name="create-moveit-transfer---azure-ad-integration-test-user"></a>Skapa MOVEit-överföring – test användare för Azure AD-integration
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i MOVEit överförings - Azure AD-integrering. MOVEit - överföring i Azure AD-integrering har stöd för just-in-time-etablering, som du har aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt MOVEit - överföring i Azure AD-integrering om det inte finns ännu.
+Syftet med det här avsnittet är att skapa en användare med namnet Britta Simon i MOVEit transfer – Azure AD-integrering. MOVEit-överföring – Azure AD-integration stöder just-in-Time-etablering, som du har aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt MOVEit-överföring – Azure AD-integration om den inte finns ännu.
 
 >[!NOTE]
->Om du vill skapa en användare manuellt kan du behöva kontakta den [MOVEit överföring - supportteamet för Azure AD-integrering klienten](https://community.ipswitch.com/s/support).
+>Om du behöver skapa en användare manuellt måste du kontakta [support teamet MOVEit transfer-Azure AD integration-klient](https://community.ipswitch.com/s/support).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på MOVEit överföringen - panelen för Azure AD-integrering i åtkomstpanelen, du bör vara loggas in automatiskt MOVEit överföringen – Azure AD-integrering som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen MOVEit transfer-Azure AD-integration på åtkomst panelen, bör du loggas in automatiskt på den MOVEit-överföring – Azure AD-integration som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

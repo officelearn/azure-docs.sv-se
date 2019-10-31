@@ -7,17 +7,17 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: e2e051db00c9b8de5268e64be70ab99752bf7a55
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 34f5daaf074e011176610caed883cef9d1dbb2ea
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001408"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152033"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av en Azure Resource Manager mall
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portalen](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -26,7 +26,7 @@ ms.locfileid: "72001408"
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. 
 
-I den här artikeln skapar du ett Azure Datautforskaren-kluster och-databas med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/resource-group-overview.md). Artikeln visar hur du definierar vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](/azure/azure-resource-manager/resource-group-authoring-templates). För JSON-syntax och egenskaper som ska användas i en mall, se [resurs typer för Microsoft. Kusto](/azure/templates/microsoft.kusto/allversions).
+I den här artikeln skapar du ett Azure Datautforskaren-kluster och-databas med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/resource-group-overview.md). Artikeln visar hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](/azure/azure-resource-manager/resource-group-authoring-templates). För JSON-syntax och egenskaper som ska användas i en mall, se [resurs typer för Microsoft. Kusto](/azure/templates/microsoft.kusto/allversions).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -129,7 +129,7 @@ Det tar några minuter att skapa ett Azure Datautforskaren-kluster och-databas.
     $resourceGroupName = "${projectName}rg"
     $clusterName = "${projectName}cluster"
     $parameters = @{}
-    $parameters.Add(“clusters_kustocluster_name”, $clusterName)
+    $parameters.Add("clusters_kustocluster_name", $clusterName)
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-kusto-cluster-database/azuredeploy.json"
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -TemplateParameterObject $parameters

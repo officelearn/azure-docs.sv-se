@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med förklaring granskning prissystem | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och förklaring-baserat System för granskning.
+title: 'Självstudie: Azure Active Directory integration med ett välklarande gransknings system | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och det Förklaringarbaserade gransknings systemet.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,53 +8,54 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 419744c2-3b71-4953-9434-99b632a10854
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 6df24cd663165095b6681df1e7e62c35770573c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49c15365b60359bc393dcd854c7f9487810f0a7d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102866"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73156304"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-explanation-based-auditing-system"></a>Självstudier: Azure Active Directory-integrering med förklaring-baserat System för granskning
+# <a name="tutorial-azure-active-directory-integration-with-explanation-based-auditing-system"></a>Självstudie: Azure Active Directory integration med förklarings-baserade gransknings system
 
-I den här självstudien får du lära dig hur du integrerar förklaring-granskning dator med Azure Active Directory (AD Azure).
-Integrera förklaring-granskning dator med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar förklarings-baserade gransknings system med Azure Active Directory (Azure AD).
+Genom att integrera ett förklarings-baserat gransknings system med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till förklaring-baserat System för granskning.
-* Du kan aktivera användarna att vara automatiskt inloggad till förklaring granskning prissystem (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till förklarings-baserade gransknings system.
+* Du kan göra det möjligt för användarna att logga in automatiskt till förklarings systemet (enkel inloggning) med deras Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med förklaring-baserat System för granskning, behöver du följande objekt:
+Du behöver följande om du vill konfigurera Azure AD-integrering med förklarings-baserat gransknings system:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Förklaring-baserade granskning System enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Förklarings baserad gransknings system med enkel inloggning aktive rad
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Förklaring-granskning dator stöder **SP** -initierad SSO
+* Beskrivnings baserat gransknings system har stöd för **SP** -INITIERAd SSO
 
-* Förklaring-granskning dator stöder **just-in-time** användaren etablering 
+* Förklaringen-baserat gransknings system har stöd **för just-in-Time-** etablering av användare 
 
-## <a name="adding-explanation-based-auditing-system-from-the-gallery"></a>Att lägga till förklaring-granskning dator från galleriet
+## <a name="adding-explanation-based-auditing-system-from-the-gallery"></a>Lägga till förklarings baserat gransknings system från galleriet
 
-För att konfigurera integrering av förklaring-granskning dator i Azure AD, som du behöver lägga till förklaring-granskning dator från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera en integrering av ett förklarings-baserat gransknings system i Azure AD måste du lägga till ett utförligt gransknings system från galleriet till din lista över hanterade SaaS-appar.
 
-**Lägg till förklaring-granskning dator från galleriet, utför du följande steg:**
+**Utför följande steg för att lägga till förklarings baserat gransknings system från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +63,37 @@ För att konfigurera integrering av förklaring-granskning dator i Azure AD, som
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **förklaring granskning prissystem**väljer **förklaring granskning prissystem** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
+4. I sökrutan skriver du **förklaringar-baserade gransknings system**, väljer **förklaringar baserat gransknings system** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Förklaring-granskning dator i listan med resultat](common/search-new-app.png)
+     ![Beskrivnings baserat gransknings system i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med förklaring-granskning dator utifrån en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i förklaring granskning prissystem upprättas.
+I det här avsnittet ska du konfigurera och testa enkel inloggning med Azure AD med förklarings-baserat gransknings system baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i det förklarings-baserade gransknings systemet upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med förklaring-granskning dator, måste du utföra följande byggblock:
+För att konfigurera och testa enkel inloggning med Azure AD med förklarings-baserat gransknings system måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera förklaring-baserade granskning System enkel inloggning](#configure-explanation-based-auditing-system-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa förklaring granskning prissystem testanvändare](#create-explanation-based-auditing-system-test-user)**  – du har en motsvarighet för Britta Simon i förklaring-granskning dator som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera beskrivnings baserat gransknings system enkel inloggning](#configure-explanation-based-auditing-system-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa en förklaring baserad gransknings system test användare](#create-explanation-based-auditing-system-test-user)** – för att få en motsvarighet till Britta Simon i ett beskrivande gransknings system som är länkat till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med förklaring-baserat System för granskning:
+Utför följande steg för att konfigurera enkel inloggning med förklarings systemet i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **förklaring granskning prissystem** application integration markerar **enkel inloggning**.
+1. På sidan [Azure Portal](https://portal.azure.com/)går du till sidan för **beskrivnings-baserad gransknings system** program integration och väljer **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,17 +105,17 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med förkla
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Förklaring-granskning System domän och URL: er med enkel inloggning för information](common/sp-signonurl.png)
+    ![Beskrivning-baserad gransknings system domän och enkel inloggnings information för URL: er](common/sp-signonurl.png)
 
     I rutan **Inloggnings-URL** anger du en URL: `https://ebas.maizeanalytics.com`
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
+5. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-explanation-based-auditing-system-single-sign-on"></a>Konfigurera förklaring-baserade granskning System enkel inloggning
+### <a name="configure-explanation-based-auditing-system-single-sign-on"></a>Konfigurera förklarings baserad gransknings system enkel inloggning
 
-Att konfigurera enkel inloggning på **förklaring granskning prissystem** sida, som du behöver skicka den **Appfederationsmetadata** till [förklaring granskning prissystem supportteamet](mailto:support@maizeanalytics.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Välklarande gransknings system** sidan måste du skicka **URL: en för appens Federations-metadata** till det [förklarings-baserade gransknings systemets support team](mailto:support@maizeanalytics.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -134,26 +135,26 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till förklaring-baserat System för granskning.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till förklarings-baserade gransknings system.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **förklaring granskning prissystem**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **beskrivnings baserat gransknings system**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **förklaring granskning prissystem**.
+2. I listan program väljer du **förklaringar-baserat gransknings system**.
 
-    ![Förklaring-granskning dator länken i listan med program](common/all-applications.png)
+    ![Den förklarings-baserade gransknings system länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -167,15 +168,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-explanation-based-auditing-system-test-user"></a>Skapa förklaring granskning prissystem testanvändare
+### <a name="create-explanation-based-auditing-system-test-user"></a>Skapa en förklaring baserad på test användare av gransknings system
 
-I det här avsnittet skapas en användare som kallas Britta Simon i förklaring-baserat System för granskning. Förklaring-granskning dator stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i förklaring-baserat System för granskning, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i ett utförligt gransknings system. Förklaringen-baserat gransknings system har stöd för just-in-Time-etablering av användare, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i det förklarings-baserade gransknings systemet, skapas en ny efter autentisering.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen förklaring-baserat System för granskning i åtkomstpanelen, bör det vara loggas in automatiskt till en förklaring-granskning dator som du konfigurerar enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på den förklarings-baserade gransknings system panelen på åtkomst panelen, bör du loggas in automatiskt på det förklarings-baserade gransknings systemet som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

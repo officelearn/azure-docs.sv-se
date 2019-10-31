@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2019
-ms.openlocfilehash: 83c2264cd3aa3025e911db5079747930d1ae096b
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.date: 10/29/2019
+ms.openlocfilehash: 7e3dad5405289ee2d1f4ec8f7a586da70db9d56f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809452"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162255"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Aktivera Azure Monitor for VMs (för hands version) – Översikt
 
@@ -37,14 +37,20 @@ Innan du börjar ska du se till att du förstår informationen i följande avsni
 Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 
 - USA, västra centrala
+- USA, västra<sup>1</sup>
 - USA, västra 2<sup>1</sup>
+- Södra centrala USA<sup>1</sup>
 - USA, östra
 - Östra 2; USA<sup>1</sup>
+- USA, centrala<sup>1</sup>
+- Norra centrala USA<sup>1</sup>
 - Kanada, centrala
 - Storbritannien, södra
 - Norra Europa<sup>1</sup>
 - Europa, västra
+- Asien, östra<sup>1</sup>
 - Asien, sydöstra
+- Centrala Indien<sup>1</sup>
 - Japan, östra<sup>1</sup>
 - Östra Australien<sup>1</sup>
 - Australien, sydöstra<sup>1</sup>
@@ -199,6 +205,9 @@ Aktivera Azure Monitor for VMs med någon av de metoder som beskrivs i den här 
 ## <a name="performance-counters-enabled"></a>Aktiverade prestanda räknare 
 
 Azure Monitor for VMs konfigurerar en Log Analytics arbets yta för att samla in de prestanda räknare som används. I följande tabeller visas de objekt och räknare som samlas in var 60: e sekund.
+
+>[!NOTE]
+>I följande lista över prestanda räknare som har Aktiver ATS av Azure Monitor for VMs begränsar du inte hur du aktiverar ytterligare räknare som du behöver samla in från virtuella datorer som rapporterar till arbets ytan. Om du inaktiverar de här räknarna kan du också förhindra att de prestanda diagram som ingår i prestanda funktionen visar resursutnyttjande från dina virtuella datorer.
 
 ### <a name="windows-performance-counters"></a>Windows-prestandaräknare
 

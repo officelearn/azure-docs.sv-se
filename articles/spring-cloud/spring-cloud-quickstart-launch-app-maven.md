@@ -9,19 +9,19 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 5777d728f61b3ffe7d0fdaaac1391f600dca12fd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
-ms.translationtype: HT
+ms.openlocfilehash: ce07d43a289cf527664b120dd832cf832fb2b05e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097843"
+ms.locfileid: "73161412"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-by-using-the-maven-plug-in"></a>Snabb start: starta en Azure våren Cloud-App med hjälp av maven-plugin-programmet
 
 Med Azure våren Cloud maven-plugin-programmet kan du enkelt skapa och uppdatera Azure våren Cloud Service-programmen. Genom att fördefiniera en konfiguration kan du distribuera program till din befintliga Azure våren Cloud-tjänst. I den här artikeln använder du ett exempel program som heter PiggyMetrics för att demonstrera den här funktionen.
 
 >[!Note]
-> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud. Som för hands versions tjänst ber vi dig att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna. Om du vill utforska funktionerna i Azure våren Cloud, fyller du i och skickar [Azure våren Cloud (privat för hands version) – intresse form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).
+> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud. Som för hands versions tjänst ber vi dig att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna. Om du vill utforska funktionerna i Azure våren Cloud, fyller du i och skickar [Azure våren Cloud (privat för hands version) – intresse form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u). Även om Azure våren-molnet är i för hands version erbjuder Microsoft begränsad support utan service avtal.  Mer information om support under för hands versionerna finns i [vanliga frågor och svar om support](https://azure.microsoft.com/support/faq/).
 
 >[!TIP]
 > Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt som du kan använda för att köra kommandona i den här artikeln. Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, Java Development Kit (JDK), Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com). Mer information finns i [Översikt över Azure Cloud Shell](../cloud-shell/overview.md).

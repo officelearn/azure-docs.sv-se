@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec93574a8da051b5cf77a37af1030d0c22dfc4a9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c8f5590cb528082a73cbdf92850218993a1a6b95
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382894"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161016"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Konfigurera säkerhets information (för hands version) för att använda din e-postadress
 
@@ -36,7 +36,7 @@ Beroende på din organisations inställningar kanske du kan använda din e-posta
 
 ### <a name="to-set-up-your-email-address"></a>Konfigurera din e-postadress
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
 
     ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 
@@ -48,7 +48,7 @@ Beroende på din organisations inställningar kanske du kan använda din e-posta
 
     ![Rutan Lägg till metod, med e-post valt](media/security-info/securityinfo-myprofile-addemail.png)
 
-4. På sidan **e-post** anger du din e-postadress (till alain@gmail.comexempel) och väljer sedan **Nästa**.
+4. På sidan **e-post** anger du din e-postadress (till exempel alain@gmail.com) och väljer sedan **Nästa**.
 
     ![Lägg till telefonnummer och välj telefonsamtal](media/security-info/securityinfo-myprofile-emailaddress.png)
 
@@ -95,6 +95,6 @@ Du har ytterligare alternativ för hur din organisation kontaktar dig för att v
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md).
+- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](active-directory-passwords-update-your-own-password.md).
 
 - Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5704d151-afb8-40a4-b286-8bacd4f279ee
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 635d04e049b66452fa000048082aced9aa62c20a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e0c4cb553ee7edc92b5cb3d319631a985de476b8
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241368"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Självstudie: Azure Active Directory integrering med CS-stjärnor
 
@@ -110,7 +111,7 @@ Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Kontakta [CS Stars-klientsupporten](http://www.riskonnectclearsight.com/support/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [CS Stars-klientsupporten](http://www.riskonnectclearsight.com/support/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
@@ -148,7 +149,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon @ no__t-2yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

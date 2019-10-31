@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 021560f9538d2a95492ee04467e8733caa226eec
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 38d9a2dda945f3a9459aa8e3360012c6ef422608
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679429"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163317"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
@@ -20,37 +20,37 @@ Använd den här artikeln för att lösa fel och problem när du använder Power
 
 ## <a name="provide-feedback"></a>Ge feedback
 
-Besök [Windows-Tech](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) -communityn för Windows för att diskutera Windows Virtual Desktop-tjänsten med produkt teamet och aktiva community-medlemmar.
+Besök [Windows-Tech-communityn för Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) för att diskutera Windows Virtual Desktop-tjänsten med produkt teamet och aktiva community-medlemmar.
 
 ## <a name="powershell-commands-used-during-windows-virtual-desktop-setup"></a>PowerShell-kommandon som används vid installation av virtuella Windows-datorer
 
 Det här avsnittet innehåller PowerShell-kommandon som vanligt vis används när du konfigurerar Windows Virtual Desktop och ger möjlighet att lösa problem som kan uppstå när du använder dem.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Fel: Add-RdsAppGroupUser-kommandot--angivet UserPrincipalName har redan tilldelats en RemoteApp-app-grupp i den angivna poolen
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Fel: Add-RdsAppGroupUser-kommandot--angivet UserPrincipalName har redan kopplats till en RemoteApp-app-grupp i den angivna poolen
 
 ```Powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
-**Orsak** Det användar namn som används har redan tilldelats en app-grupp av en annan typ. Användare kan inte tilldelas både till en fjärr skrivbord och en fjärran sluten program grupp under samma sessions värd pool.
+**Orsak:** Det användar namn som används har redan tilldelats en app-grupp av en annan typ. Användare kan inte tilldelas både till en fjärr skrivbord och en fjärran sluten program grupp under samma sessions värd pool.
 
-**Fix:** Om användaren behöver både fjärrappar och fjärr skrivbord, kan du skapa olika lagringspooler eller bevilja användar åtkomst till fjärr skrivbordet, vilket innebär att alla program kan användas på den virtuella datorn för sessionen.
+**KORRIGERA:** Om användaren behöver både fjärrappar och fjärr skrivbord, kan du skapa olika lagringspooler eller bevilja användar åtkomst till fjärr skrivbordet, vilket innebär att alla program kan användas på den virtuella datorn för sessionen.
 
 ### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Fel: Add-RdsAppGroupUser-kommandot--angivet UserPrincipalName finns inte i den Azure Active Directory som är kopplad till fjärr skrivbords klienten
 
 ```PowerShell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
+Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
 ```
 
-**Orsak** Användaren som anges av-UserPrincipalName går inte att hitta i den Azure Active Directory som är kopplad till den virtuella Windows-klienten för fjärr skrivbord.
+**Orsak:** Användaren som anges av-UserPrincipalName går inte att hitta i den Azure Active Directory som är kopplad till den virtuella Windows-klienten för fjärr skrivbord.
 
-**Fix:** Bekräfta objekten i följande lista.
+**KORRIGERA:** Bekräfta objekten i följande lista.
 
 - Användaren är synkroniserad med Azure Active Directory.
 - Användaren är inte knuten till B2C-eller Business-to-Business-handel (B2B).
 - Windows-klienten för virtuella skriv bord är kopplad till rätt Azure Active Directory.
 
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Fel: Get-RdsDiagnosticActivities – användaren har inte behörighet att fråga hanterings tjänsten
+### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Fel: get-RdsDiagnosticActivities – användaren har inte behörighet att fråga hanterings tjänsten
 
 ```PowerShell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
@@ -58,15 +58,15 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **Orsak:** -TenantName-parameter
 
-**Fix:** Utfärda get-RdsDiagnosticActivities med-TenantName \<TenantName >.
+**KORRIGERA:** Utfärda get-RdsDiagnosticActivities med-TenantName \<TenantName >.
 
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Fel: Get-RdsDiagnosticActivities – användaren har inte behörighet att fråga hanterings tjänsten
+### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Fel: get-RdsDiagnosticActivities – användaren har inte behörighet att fråga hanterings tjänsten
 
 ```PowerShell
 Get-RdsDiagnosticActivities -Deployment -username <username>
 ```
 
-**Orsak** Använd växeln-Deployment.
+**Orsak:** Använd växeln-Deployment.
 
 **KORRIGERA:** -distributions växeln kan endast användas av distributions administratörer. Dessa administratörer är vanligt vis medlemmar i den virtuella Skriv bords gruppen Fjärrskrivbordstjänster/Windows. Ersätt växeln-Deployment med-TenantName \<TenantName >.
 
@@ -78,7 +78,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Orsak 2:** Kontot som används har Fjärrskrivbordstjänster ägar behörighet men är inte en del av klientens Azure Active Directory eller har inte behörighet att fråga den Azure Active Directory där användaren finns.
 
-**Fix 2:** En användare med Active Directory behörigheter måste köra roll tilldelningen.
+**Korrigera 2:** En användare med Active Directory behörigheter måste köra roll tilldelningen.
 
 >[!Note]
 >New-RdsRoleAssignment kan inte ge behörighet till en användare som inte finns i Azure Active Directory (AD).
@@ -90,6 +90,6 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 - Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
 - Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [fjärr skrivbords klient anslutningar](troubleshoot-client-connection.md).
 - Mer information om tjänsten finns i [Windows Virtual Desktop-miljö](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Information om hur du går igenom en fel [söknings kurs finns i Självstudier: Felsök distributioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)av Resource Manager-mallar.
+- Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka distributioner av Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

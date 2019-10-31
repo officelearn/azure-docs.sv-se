@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: conceptual
 tags: connectors
 ms.date: 10/14/2019
-ms.openlocfilehash: 6c86ef26bbf7bd9dbce8aa77aef2213b14b57f5f
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 880ae4b661d247889815fc5b9ad08a759fe0aa5b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312059"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161608"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för SQL Server eller Azure SQL Database med Azure Logic Apps
 
@@ -68,7 +68,7 @@ I Azure Logic Apps måste varje Logi Kap par starta med en [utlösare](../logic-
 
 1. Ange egenskaper för **intervall** och **frekvens** , som anger hur ofta din Logic App kontrollerar tabellen.
 
-   Den här utlösaren returnerar bara en rad från den valda tabellen, ingen annan. Om du vill utföra andra uppgifter lägger du till andra åtgärder som utför de uppgifter du vill. Om du till exempel vill visa data på den här raden kan du lägga till andra åtgärder som skapar en fil som innehåller fälten från den returnerade raden och sedan skicka e-postaviseringar. Information om andra tillgängliga åtgärder för den här anslutningen finns på [kopplingens referens sida](/connectors/sql/).
+   Den här utlösaren returnerar bara en rad från den valda tabellen, ingen annan. Om du vill utföra andra uppgifter lägger du till andra åtgärder som utför de uppgifter du vill. Om du till exempel vill visa data på den här raden kan du lägga till andra åtgärder som skapar en fil som innehåller fälten från den returnerade raden och sedan skicka e-postaviseringar. Information om andra tillgängliga åtgärder för den här anslutningen finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/sql/).
 
 1. När du är klar väljer du **Spara**i verktygsfältet designer.
 
@@ -84,7 +84,7 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
 1. Under utlösaren eller åtgärden där du vill lägga till SQL-åtgärden väljer du **nytt steg**.
 
-   ![Välj "nytt steg"](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+   ![Lägg till nytt steg i din Logic app](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
    Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
@@ -92,13 +92,13 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
    I det här exemplet används åtgärden **Hämta rad** som hämtar en enda post.
 
-   ![Sök efter och välj SQL-åtgärden Hämta rad](./media/connectors-create-api-sqlazure/select-sql-get-row.png)
+   ![Sök efter och välj SQL-åtgärden Hämta rad](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
 
-   Den här åtgärden returnerar bara en rad från den valda tabellen, inget annat. Om du vill visa data i den här raden kan du lägga till andra åtgärder som skapar en fil som innehåller fälten från den returnerade raden och lagra filen i ett moln lagrings konto. Information om andra tillgängliga åtgärder för den här anslutningen finns på [kopplingens referens sida](/connectors/sql/).
+   Den här åtgärden returnerar bara en rad från den valda tabellen, inget annat. Om du vill visa data i den här raden kan du lägga till andra åtgärder som skapar en fil som innehåller fälten från den returnerade raden och lagra filen i ett moln lagrings konto. Information om andra tillgängliga åtgärder för den här anslutningen finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/sql/).
 
 1. Om du uppmanas att skapa en anslutning [skapar du din SQL-anslutning nu](#create-connection). Om anslutningen finns väljer du ett **tabell namn**och anger **rad-ID** : t för den post som du vill använda.
 
-   ![Ange tabell namn och rad-ID](./media/connectors-create-api-sqlazure/table-row-id.png)
+   ![Ange tabell namn och rad-ID](./media/connectors-create-api-sqlazure/specify-table-row-id-property-value.png)
 
 1. När du är klar väljer du **Spara**i verktygsfältet designer.
 
@@ -132,7 +132,7 @@ Ibland måste du arbeta med resultat uppsättningar så att kopplingen inte retu
 
 ## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
-Teknisk information om den här anslutningens utlösare, åtgärder och gränser finns på [kopplingens referens sida](/connectors/sql/).
+Teknisk information om den här anslutningens utlösare, åtgärder och gränser finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/sql/).
 
 ## <a name="next-steps"></a>Nästa steg
 

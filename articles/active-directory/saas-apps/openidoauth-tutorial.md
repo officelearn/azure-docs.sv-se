@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 166452b052313397f1ec17adb59cad3c20fab1f9
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: dbf9cde8dd2032e81abe0fb2572c2181d4ba21ee
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497405"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160208"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurera ett OpenID/OAuth-program från Azure AD-appgalleri
 
@@ -32,7 +33,7 @@ ms.locfileid: "66497405"
 
 2. Gå till **Företagsprogram** > **Alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Välj **Nytt program** överst i dialogrutan.
 
@@ -98,17 +99,17 @@ Graph API tillhandahåller även åtkomst till användare och grupper från Azur
 
 Följande steg visar hur medgivande fungerar för programutvecklare och användaren:
 
-1. Anta att du har ett webbklientprogram som behöver begära särskild behörighet för att komma åt en resurs eller ett API. Azure-portalen används för att deklarera behörighetsbegäranden vid konfigurationen. De blir en del av Azure AD programregistreringar som andra konfigurationsinställningar. För sökvägen för begäran till behörighet du behöver Följ de stegen nedan:
+1. Anta att du har ett webbklientprogram som behöver begära särskild behörighet för att komma åt en resurs eller ett API. Azure-portalen används för att deklarera behörighetsbegäranden vid konfigurationen. Precis som andra konfigurations inställningar blir de en del av programmets Azure AD-registreringar. Du behöver följa stegen nedan för sökvägen till behörighets begär Anden:
 
-    a. Klicka på den **appregistreringar** från vänster sida av menyn och öppna programmet genom att skriva programmet namn i sökrutan.
+    a. Klicka på **Appregistreringar** på menyns vänstra sida och öppna programmet genom att skriva in program namnet i sökrutan.
 
     ![Graph API](./media/openidoauth-tutorial/application.png)
 
-    b. Klicka på **visa API-behörigheter**.
+    b. Klicka på **Visa API-behörigheter**.
 
     ![Graph API](./media/openidoauth-tutorial/api-permission.png)
 
-    c. Klicka på **lägga till en behörighet**.
+    c. Klicka på **Lägg till en behörighet**.
 
     ![Graph API](./media/openidoauth-tutorial/add-permission.png)
 
@@ -116,7 +117,7 @@ Följande steg visar hur medgivande fungerar för programutvecklare och använda
 
     ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
 
-    e. Välj obligatoriska alternativ från **delegerade behörigheter** och **programbehörigheter**.
+    e. Välj nödvändiga alternativ från **delegerade behörigheter** och **program behörigheter**.
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
@@ -136,12 +137,12 @@ En vanlig användare kan godkänna vissa behörigheter. Andra behörigheter krä
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Skillnaden mellan administratörens och användarens medgivande
 
-Som administratör kan du även samtycka till ett programs delegerade behörigheter för samtliga användare i klienten. Administratörens medgivande förhindrar att dialogrutan för medgivande visas för varje användare i klienten. Användare som har administratörsrollen kan ge sitt medgivande i Azure-portalen. Från den **inställningar** sidan för ditt program, Välj **nödvändiga behörigheter** > **bevilja administratörens godkännande**.
+Som administratör kan du även samtycka till ett programs delegerade behörigheter för samtliga användare i klienten. Administratörens medgivande förhindrar att dialogrutan för medgivande visas för varje användare i klienten. Användare som har administratörsrollen kan ge sitt medgivande i Azure-portalen. På sidan **Inställningar** för ditt program väljer du **nödvändiga behörigheter** > **bevilja administrativt medgivande**.
 
 ![Knappen Bevilja behörigheter](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Bevilja uttryckliga medgivande med hjälp av den **bevilja administratörens godkännande** är nu krävs för enkelsidigt program (SPA) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs.
+> Att bevilja explicit medgivande genom att använda knappen **bevilja administratörs medgivande** krävs nu för program med en enda sida (SPAs) som använder ADAL. js. Annars misslyckas programmet när åtkomsttoken begärs.
 
 Appspecifika behörigheter kräver alltid medgivande av en klientadministratör. Om ditt program begär en appspecifik behörighet och en användare försöker logga in på programmet visas ett felmeddelande. Meddelandet säger att användaren inte kan godkänna.
 

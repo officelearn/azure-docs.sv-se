@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Firstbird | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory-integrering med Firstbird | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Firstbird.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: acab1200-32d3-4f4b-953f-f2a7e812b6a3
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f192b402aebcaeb87e068a4248c0794484e6c313
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2aa9a5151433649e9f4d6cd383d33ee62cc34256
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102444"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158108"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Självstudier: Azure Active Directory-integrering med Firstbird
+# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Självstudie: Azure Active Directory-integrering med Firstbird
 
 I den här självstudien får du lära dig hur du integrerar Firstbird med Azure Active Directory (AD Azure).
 Genom att integrera Firstbird med Azure AD får du följande fördelar:
@@ -34,11 +35,11 @@ Genom att integrera Firstbird med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Firstbird behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Firstbird-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +55,7 @@ För att konfigurera integrering av Firstbird till Azure AD behöver du först l
 
 **Lägg till Firstbird från galleriet genom att utföra följande steg:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select_azuread.png)
 
@@ -62,7 +63,7 @@ För att konfigurera integrering av Firstbird till Azure AD behöver du först l
 
     ![Bladet Företagsprogram](common/enterprise_applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add_new_app.png)
 
@@ -79,10 +80,10 @@ För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] b
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Firstbird](#configure-firstbird-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Firstbird-testanvändare](#create-firstbird-test-user)** – för att ha en motsvarighet för Britta Simon i Firstbird som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -92,7 +93,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Firstbird**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select_sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select_sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -108,7 +109,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<company-domain>.auth.1brd.com/saml/sp`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company-domain>.auth.1brd.com/saml/callback`
+    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<company-domain>.auth.1brd.com/saml/callback`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -117,11 +118,11 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<company-domain>.1brd.com/login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för Firstbird-klienten](mailto:support@firstbird.com) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för Firstbird-klienten](mailto:support@firstbird.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. Firstbird-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![image](common/edit_attribute.png)
+    ![mallar](common/edit_attribute.png)
 
 7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
@@ -133,9 +134,9 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new_save_attribute.png)
+    ![mallar](common/new_save_attribute.png)
 
-    ![image](common/new_attribute_details.png)
+    ![mallar](common/new_attribute_details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -147,7 +148,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     f. Klicka på **Ok**
 
-    g. Klicka på **Spara**.
+    g. Klicka på **Save** (Spara).
 
 8. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **XML för federationsmetadata** och spara den på datorn.
 
@@ -178,9 +179,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user_properties.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
 
-    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -199,7 +200,7 @@ I det här avsnittet gör du så att Britta Simon kan använda enkel inloggning 
 
     ![Firstbird-länken i listan med program](common/all_applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users_groups_blade.png)
 
@@ -221,7 +222,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i Firstbird. Fi
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Firstbird-panelen i åtkomstpanelen bör du automatiskt loggas in på Firstbird som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Firstbird-panelen i åtkomstpanelen bör du automatiskt loggas in på Firstbird som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

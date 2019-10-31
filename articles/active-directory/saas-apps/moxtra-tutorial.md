@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory integrering med Moxtra | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Moxtra | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Moxtra.
 services: active-directory
 documentationCenter: na
@@ -8,36 +8,37 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2aed2d4b-1dcd-4839-8fed-9419d107c61c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f64597d8da183a24bcf87543a448442052e5f77
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: fb8262a75b688f754c26fd82e3ca7f06851e5453
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944268"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161298"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Självstudier: Azure Active Directory integrering med Moxtra
+# <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Självstudie: Azure Active Directory integrering med Moxtra
 
 I den här självstudien får du lära dig hur du integrerar Moxtra med Azure Active Directory (Azure AD).
 Genom att integrera Moxtra med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Moxtra.
 * Du kan göra det möjligt för användarna att logga in automatiskt till Moxtra (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Moxtra behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Moxtra-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -52,7 +53,7 @@ Om du vill konfigurera integreringen av Moxtra i Azure AD måste du lägga till 
 
 **Utför följande steg för att lägga till Moxtra från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -60,7 +61,7 @@ Om du vill konfigurera integreringen av Moxtra i Azure AD måste du lägga till 
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -68,19 +69,19 @@ Om du vill konfigurera integreringen av Moxtra i Azure AD måste du lägga till 
 
      ![Moxtra i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Moxtra baserat på en test användare som kallas **Britta Simon**.
 För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Moxtra upprättas.
 
 Om du vill konfigurera och testa enkel inloggning med Moxtra i Azure AD måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera Moxtra-enkel inloggning](#configure-moxtra-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Moxtra test User](#create-moxtra-test-user)** – om du vill ha en motsvarighet till Britta Simon i Moxtra som är länkad till Azure AD-representation av användare.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -90,7 +91,7 @@ Utför följande steg för att konfigurera enkel inloggning med Moxtra i Azure A
 
 1. Välj **enkel inloggning**på sidan **Moxtra** Application Integration i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -108,14 +109,14 @@ Utför följande steg för att konfigurera enkel inloggning med Moxtra i Azure A
 
 5. Moxtra-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
 6. Utöver ovan förväntar sig Moxtra-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
 
     | Namn | Källattribut|
     | ------------------- | -------------------- |    
     | förnamn | user.givenname |
-    | lastname | user.surname |
+    | efternamn | user.surname |
     | idpid    | < Azure AD-identifierare >
 
     > [!Note]
@@ -123,9 +124,9 @@ Utför följande steg för att konfigurera enkel inloggning med Moxtra i Azure A
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![mallar](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![mallar](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -137,19 +138,19 @@ Utför följande steg för att konfigurera enkel inloggning med Moxtra i Azure A
 
     f. Klicka på **Ok**
 
-    g. Klicka på **Spara**.
+    g. Klicka på **Save** (Spara).
 
 7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
 8. I avsnittet **Konfigurera Moxtra** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
@@ -167,7 +168,7 @@ Utför följande steg för att konfigurera enkel inloggning med Moxtra i Azure A
  
     a. I text rutan **namn** anger du ett namn för din konfiguration (t. ex.: *SAML*). 
   
-    b. I text rutan för **entitets-ID för IDP** klistrar du in värdet för **Azure AD** -identifieraren som du kopierade från Azure Portal. 
+    b. I text rutan för **entitets-ID för IDP** klistrar du in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal. 
  
     c. I textrutan för **inloggnings-URL** klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen. 
  
@@ -209,7 +210,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Moxtra.
 
@@ -221,7 +222,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
     ![Moxtra-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -265,9 +266,9 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Moxtra på åtkomst panelen, bör du loggas in automatiskt på den Moxtra som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Moxtra på åtkomst panelen, bör du loggas in automatiskt på den Moxtra som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

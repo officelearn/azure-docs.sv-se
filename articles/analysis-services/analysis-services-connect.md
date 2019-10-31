@@ -4,25 +4,25 @@ description: Lär dig hur du ansluter till och hämtar data från en Analysis Se
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a8059ac748f73ad8f9036f8e675e876e3a8716be
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3231b46060cbb755ada000473c8fbe873cc51ef1
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295180"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147310"
 ---
 # <a name="connecting-to-servers"></a>Ansluta till servrar
 
-Den här artikeln beskriver hur du ansluter till en server med hjälp av data modellering och hanterings program som SQL Server Management Studio (SSMS) eller SQL Server Data Tools (SSDT). Eller, med klient rapporterings program som Microsoft Excel, Power BI Desktop eller anpassade program. Anslutningar till Azure Analysis Services använda HTTPS.
+Den här artikeln beskriver hur du ansluter till en server med hjälp av data modellering och hanterings program som SQL Server Management Studio (SSMS) eller Visual Studio med Analysis Services projekt eller med klient rapporterings program som Microsoft Excel, Power BI Desktop eller anpassade program. Anslutningar till Azure Analysis Services använda HTTPS.
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
 [Hämta de senaste klient biblioteken](analysis-services-data-providers.md)
 
-Alla anslutningar till en server, oavsett typ, kräver uppdaterade AMO-, ADOMD.NET-och OLEDB-klientcertifikat för att ansluta till och gränssnitt med en Analysis Services-server. För SSMS, SSDT, Excel 2016 och senare, och Power BI, installeras eller uppdateras de senaste klient biblioteken med månads versioner. Men i vissa fall är det möjligt att ett program kanske inte har det senaste. Till exempel när principer skjuter uppdateringar eller uppdateringar av Office 365 finns på den uppskjutna kanalen.
+Alla anslutningar till en server, oavsett typ, kräver uppdaterade AMO-, ADOMD.NET-och OLEDB-klientcertifikat för att ansluta till och gränssnitt med en Analysis Services-server. För SSMS, Visual Studio, Excel 2016 och senare och Power BI, installeras eller uppdateras de senaste klient biblioteken med månads versioner. Men i vissa fall är det möjligt att ett program kanske inte har det senaste. Till exempel när principer skjuter uppdateringar eller uppdateringar av Office 365 finns på den uppskjutna kanalen.
 
 ## <a name="server-name"></a>servernamn
 

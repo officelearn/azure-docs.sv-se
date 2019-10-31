@@ -1,6 +1,6 @@
 ---
-title: SAML-tokenkryptering i Azure Active Directory
-description: Lär dig hur du konfigurerar Azure Active Directory SAML-tokenkryptering.
+title: Kryptering med SAML-token i Azure Active Directory
+description: Lär dig hur du konfigurerar Azure Active Directory SAML-token-kryptering.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,86 +16,86 @@ ms.date: 02/06/2019
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f8b785b8eadd21f1f94cf82fe137d6f747e738
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824759"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73148639"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Anvisningar: Konfigurera Azure AD SAML-tokenkryptering (förhandsversion)
+# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Gör så här: Konfigurera Azure AD SAML token Encryption (för hands version)
 
 > [!NOTE]
-> Kryptering av säkerhetstoken är en Azure Active Directory (Azure AD) premium-funktion. Läs mer om Azure AD-versioner, funktioner och priser i [priser för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+> Token Encryption är en Azure Active Directory (Azure AD) Premium-funktion. Mer information om Azure AD-utgåvor, funktioner och priser finns i [priser för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
-SAML-tokenkryptering kan du använda den krypterade SAML intyg med ett program som stöder den. När konfigureras för ett program, krypteras SAML-intyg det genererar för programmet med hjälp av den offentliga nyckeln hämtas från ett certifikat som lagras i Azure AD med Azure AD. Programmet måste använda den matchande privata nyckeln för att dekryptera token innan den kan användas som bevis på autentisering för den inloggade användaren.
+Kryptering med SAML-token möjliggör användning av krypterade SAML-kontroller med ett program som stöder det. När Azure AD har kon figurer ATS för ett program krypteras den SAML-kontroll som den genererar för programmet med hjälp av den offentliga nyckeln som hämtats från ett certifikat som lagras i Azure AD. Programmet måste använda den matchande privata nyckeln för att dekryptera token innan den kan användas som bevis på autentisering för den inloggade användaren.
 
-Kryptera SAML-intyg mellan Azure AD och programmet tillhandahåller ytterligare trygghet som inte kan fångas upp innehållet i token och personlig eller företagsdata äventyras.
+Kryptering av SAML-kontroller mellan Azure AD och programmet ger ytterligare garantier för att innehållet i token inte kan fångas upp och personliga eller företags data komprometteras.
 
-Även om du inte tokenkryptering skickas aldrig Azure AD SAML-tokens i nätverket i klartext. Azure AD kräver token begäran/svar-utbyten ska göras för krypterade HTTPS/TLS-kanaler så att kommunikationen mellan IDP: N, webbläsare och program kan ske under krypterade länkar. Överväg att värdet för kryptering av säkerhetstoken för din situation jämfört med arbetet med att hantera ytterligare certifikat.   
+Även om du inte har kryptering med token, skickas inte Azure AD SAML-tokens i nätverket i klartext. Azure AD kräver att en token-begäran/svar-utbyte sker över krypterade HTTPS/TLS-kanaler så att kommunikation mellan IDP, webbläsare och program sker över krypterade länkar. Överväg värdet för token-kryptering för din situation jämfört med att hantera ytterligare certifikat.   
 
-Om du vill konfigurera tokenkryptering, måste du överföra en fil för X.509-certifikat som innehåller den offentliga nyckeln till programmet Azure AD-objekt som representerar programmet. För att få X.509-certifikat kan hämta du den från programmet sig själv eller hämta det från programleverantören i fall där programleverantören ger krypteringsnycklar eller i fall där programmet förväntar sig att du kan ange en privat nyckel kan det vara skapas med hjälp av kryptografi-verktyg, den privata nyckeldelen överförs till programmets nyckelarkivet och matchande offentliga nyckelcertifikat som överförts till Azure AD.
+Om du vill konfigurera token-kryptering måste du ladda upp en X. 509-certifikat fil som innehåller den offentliga nyckeln till det Azure AD-programobjekt som representerar programmet. Om du vill hämta X. 509-certifikatet kan du ladda ned det från själva programmet eller hämta det från program leverantören i de fall där program leverantören tillhandahåller krypterings nycklar eller i fall där programmet förväntar dig att du anger en privat nyckel, det kan vara som skapats med kryptografi verktyg, den privata nyckel delen som överförts till programmets nyckel lager och det matchande offentliga nyckel certifikatet som överförts till Azure AD.
 
-Azure AD använder AES-256 för att kryptera SAML assertion data.
+Azure AD använder AES-256 för att kryptera SAML Assertion-data.
 
-## <a name="configure-saml-token-encryption"></a>Konfigurera SAML-tokenkryptering
+## <a name="configure-saml-token-encryption"></a>Konfigurera kryptering av SAML-token
 
-Följ dessa steg för att konfigurera SAML-tokenkryptering:
+Följ dessa steg om du vill konfigurera kryptering av SAML-token:
 
-1. Hämta ett certifikat med offentlig nyckel som matchar en privat nyckel som har konfigurerats i programmet.
+1. Hämta ett certifikat för en offentlig nyckel som matchar en privat nyckel som har kon figurer ATS i programmet.
 
-    Skapa ett asymmetriskt nyckelpar ska användas för kryptering. Eller om programmet tillhandahåller en offentlig nyckel ska användas för kryptering, följ programmets anvisningar för att hämta X.509-certifikat.
+    Skapa ett asymmetriskt nyckel par som ska användas för kryptering. Eller, om programmet tillhandahåller en offentlig nyckel som ska användas för kryptering, följer du programmets instruktioner för att ladda ned X. 509-certifikatet.
 
-    Den offentliga nyckeln ska lagras i en fil med X.509-certifikatet i .cer-format.
+    Den offentliga nyckeln ska lagras i en X. 509-certifikat fil i. cer-format.
 
-    Om programmet använder en nyckel som du skapar för din instans, följer du instruktionerna från ditt program för att installera den privata nyckeln som programmet använder för att dekryptera token från Azure AD-klienten.
+    Om programmet använder en nyckel som du skapar för din instans följer du anvisningarna i programmet för att installera den privata nyckel som programmet ska använda för att dekryptera tokens från din Azure AD-klient.
 
-1. Lägga till certifikatet programkonfiguration i Azure AD.
+1. Lägg till certifikatet i program konfigurationen i Azure AD.
 
-### <a name="to-configure-token-encryption-in-the-azure-portal"></a>Konfigurera kryptering av säkerhetstoken i Azure portal
+### <a name="to-configure-token-encryption-in-the-azure-portal"></a>Konfigurera token-kryptering i Azure Portal
 
-Du kan lägga till offentligt certifikat till din programkonfiguration i Azure-portalen.
+Du kan lägga till det offentliga certifikatet i program konfigurationen i Azure Portal.
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
 
-1. Gå till den **Azure Active Directory > företagsprogram** bladet och välj sedan det program som du vill konfigurera kryptering av säkerhetstoken för.
+1. Gå till bladet **Azure Active Directory > företags program** och välj sedan det program som du vill konfigurera token-kryptering för.
 
-1. På sidan för programmets väljer **Token kryptering**.
+1. På programmets sida väljer du **token-kryptering**.
 
-    ![Token krypteringsalternativet i Azure portal](./media/howto-saml-token-encryption/token-encryption-option-small.png)
+    ![Alternativet för token-kryptering i Azure Portal](./media/howto-saml-token-encryption/token-encryption-option-small.png)
 
     > [!NOTE]
-    > Den **Token kryptering** alternativet är bara tillgängligt för SAML-program som har ställts in från den **företagsprogram** bladet i Azure-portalen, antingen från Programgalleriet eller en Icke-galleri-app. Alternativet är inaktiverat för andra program. För program som är registrerade via den **appregistreringar** upplevelse i Azure-portalen kan du konfigurera kryptering för SAML-token med hjälp av programmet manifest via Microsoft Graph eller PowerShell.
+    > Alternativet för **token-kryptering** är bara tillgängligt för SAML-program som har kon figurer ATS från bladet **företags program** i Azure Portal, antingen från program galleriet eller en app som inte är en Galleri. Det här meny alternativet är inaktiverat för andra program. För program som registrerats via **Appregistreringars** upplevelse i Azure Portal kan du konfigurera kryptering för SAML-token med hjälp av applikations manifestet, via Microsoft Graph eller via PowerShell.
 
-1. På den **Token kryptering** väljer **Importera certifikat** att importera CER-filen som innehåller din offentliga X.509-certifikat.
+1. På sidan **token-kryptering** väljer du **Importera certifikat** för att importera. CER-filen som innehåller ditt offentliga X. 509-certifikat.
 
-    ![Importera CER-filen som innehåller X.509-certifikat](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Importera. CER-filen som innehåller X. 509-certifikatet](./media/howto-saml-token-encryption/import-certificate-small.png)
 
-1. När certifikatet har importerats och den privata nyckeln är konfigurerad för användning på programsidan, aktivera kryptering genom att välja den **...**  Nästa om du vill tumavtryck status och välj sedan **Aktivera kryptering av säkerhetstoken** från alternativen i den nedrullningsbara menyn.
+1. När certifikatet har importer ATS och den privata nyckeln har kon figurer ATS för användning på program Sidan aktiverar du kryptering genom att välja **...** bredvid tumavtrycket och väljer sedan **Aktivera token-kryptering** från alternativen i List Rute meny.
 
-1. Välj **Ja** att bekräfta aktivering av certifikat för tokenkryptering.
+1. Välj **Ja** för att bekräfta aktiveringen av token Encryption-certifikatet.
 
-1. Bekräfta att SAML-intyg som genereras för programmet är krypterad.
+1. Bekräfta att SAML-kontroller som har avsänts för programmet är krypterade.
 
-### <a name="to-deactivate-token-encryption-in-the-azure-portal"></a>Så här inaktiverar du tokenkryptering i Azure portal
+### <a name="to-deactivate-token-encryption-in-the-azure-portal"></a>Inaktivera token-kryptering i Azure Portal
 
-1. I Azure-portalen går du till **Azure Active Directory > företagsprogram**, och välj sedan det program som har SAML-tokenkryptering aktiverat.
+1. I Azure Portal går du till **Azure Active Directory > företags program**och väljer sedan det program som har SAML token Encryption aktiverat.
 
-1. På sidan för programmets väljer **Token kryptering**, hitta certifikatet och välj sedan den **...**  alternativet för att visa den nedrullningsbara menyn.
+1. På sidan program väljer du **token-kryptering**, letar reda på certifikatet och väljer sedan alternativet **...** för att Visa List menyn.
 
-1. Välj **inaktivera tokenkryptering**.
+1. Välj **inaktivera token-kryptering**.
 
-## <a name="configure-saml-token-encryption-using-graph-api-powershell-or-app-manifest"></a>Konfigurera SAML-tokenkryptering med Graph API, PowerShell eller appmanifestet
+## <a name="configure-saml-token-encryption-using-graph-api-powershell-or-app-manifest"></a>Konfigurera SAML-token-kryptering med hjälp av Graph API, PowerShell eller app manifest
 
-Krypteringscertifikat lagras på programobjektet i Azure AD med en `encrypt` användning taggen. Du kan konfigurera flera krypteringscertifikat och det som är aktiv för kryptering av token har identifierats av den `tokenEncryptionKeyID` attribut.
+Krypterings certifikat lagras på programobjektet i Azure AD med en `encrypt` användnings tag gen. Du kan konfigurera flera krypterings certifikat och det som är aktivt för kryptering av tokens identifieras av `tokenEncryptionKeyID`-attributet.
 
-Du måste programmets objekt-ID för att konfigurera kryptering av säkerhetstoken med Microsoft Graph API eller PowerShell. Du hittar det här värdet programmässigt eller genom att gå till programmets **egenskaper** sida i Azure-portalen och vid den **objekt-ID** värde.
+Du behöver programmets objekt-ID för att konfigurera token-kryptering med Microsoft Graph API eller PowerShell. Du kan hitta det här värdet program mässigt eller genom att gå till programmets **egenskaps** sida i Azure Portal och notera värdet för **objekt-ID** .
 
-När du konfigurerar en keyCredential med hjälp av Graph, PowerShell, eller i applikationsmanifestet, ska du skapa ett GUID för keyId.
+När du konfigurerar en inloggnings information med Graph, PowerShell eller i program manifestet, bör du skapa ett GUID som ska användas för keyId.
 
-### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Konfigurera kryptering av säkerhetstoken med hjälp av Microsoft Graph
+### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Konfigurera token-kryptering med Microsoft Graph
 
-1. Uppdatera programmets `keyCredentials` med ett X.509-certifikat för kryptering. I följande exempel visas hur du gör detta.
+1. Uppdatera programmets `keyCredentials` med ett X. 509-certifikat för kryptering. I följande exempel visas hur du gör detta.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>
@@ -111,7 +111,7 @@ När du konfigurerar en keyCredential med hjälp av Graph, PowerShell, eller i a
     }
     ```
 
-1. Identifiera det krypteringscertifikat som är aktiv för kryptering av token. I följande exempel visas hur du gör detta.
+1. Identifiera det krypterings certifikat som är aktivt för kryptering av tokens. I följande exempel visas hur du gör detta.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid> 
@@ -121,7 +121,7 @@ När du konfigurerar en keyCredential med hjälp av Graph, PowerShell, eller i a
     }
     ```
 
-### <a name="to-configure-token-encryption-using-powershell"></a>Konfigurera kryptering av säkerhetstoken med hjälp av PowerShell
+### <a name="to-configure-token-encryption-using-powershell"></a>Konfigurera token-kryptering med PowerShell
 
 Den här funktionen kommer snart. 
 
@@ -131,7 +131,7 @@ Den här funktionen kommer snart.
 1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
 
     ```
-    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials “<KeyCredentialsObject>”  -TokenEncryptionKeyId <keyID>
+    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
 1. Read the token encryption settings using the following commands.
@@ -144,17 +144,17 @@ Den här funktionen kommer snart.
 
 -->
 
-### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Konfigurera kryptering av säkerhetstoken med hjälp av manifestet
+### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Konfigurera token-kryptering med hjälp av applikations manifestet
 
-1. Från Azure-portalen går du till **Azure Active Directory > appregistreringar**.
+1. Från Azure Portal går du till **Azure Active Directory > Appregistreringar**.
 
-1. Välj **alla appar** i listrutan för att visa alla appar och välj sedan det enterprise-program som du vill konfigurera.
+1. Välj **alla appar** i list rutan för att visa alla appar och välj sedan det företags program som du vill konfigurera.
 
-1. Programmets på sidan Välj **Manifest** att redigera den [programmanifestet](../develop/reference-app-manifest.md).
+1. På sidan program väljer du **manifest** för att redigera [applikations manifestet](../develop/reference-app-manifest.md).
 
-1. Ange värdet för den `tokenEncryptionKeyId` attribut.
+1. Ange värdet för attributet `tokenEncryptionKeyId`.
 
-    I följande exempel visas ett programmanifest konfigurerad med två krypteringscertifikat och andra valt som den aktiva partitionen med hjälp av tokenEnryptionKeyId.
+    I följande exempel visas ett program manifest som kon figurer ATS med två krypterings certifikat och med det andra som är markerat som det aktiva med hjälp av tokenEnryptionKeyId.
 
     ```json
     { 
@@ -225,5 +225,5 @@ Den här funktionen kommer snart.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Ta reda på [hur Azure AD använder SAML-protokoll](../develop/active-directory-saml-protocol-reference.md)
-* Lär dig format, security egenskaperna och innehållet i [SAML-token i Azure AD](../develop/reference-saml-tokens.md)
+* Ta reda [på hur Azure AD använder SAML-protokollet](../develop/active-directory-saml-protocol-reference.md)
+* Lär dig formatet, säkerhets egenskaperna och innehållet i [SAML-token i Azure AD](../develop/reference-saml-tokens.md)

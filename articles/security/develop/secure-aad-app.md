@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: v-fehase
-ms.openlocfilehash: 87df7824a182e68d849fdf967f96b2974b7e0c16
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148177"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159848"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Utveckla en säker app för en Azure AD-App
 ## <a name="overview"></a>Översikt
@@ -71,7 +71,7 @@ Några exempel på hot och eventuella sårbarheter som verktyget för Threat Mod
 
 ![Hot modellens utdata](./media/secure-aad-app/threat-model-output.png)
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 För att komma igång med programmet måste du installera följande verktyg:
 
 - En kod redigerare för att ändra och Visa program koden. [Visual Studio Code](https://code.visualstudio.com/) är ett alternativ med öppen källkod.
@@ -235,7 +235,7 @@ $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1
 
 #Configure the HTTP settings for the application gateway back end
 
-$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting01" -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
 
 #Create a load-balancer routing rule that configures the load balancer
 
@@ -259,13 +259,13 @@ Med Azure App Service kan du bygga och vara värd för webbappar med hjälp av s
 #### <a name="create-an-app-service-plan-in-free-tier"></a>Skapa en App Service plan på den kostnads fria nivån
     New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $webappname -Tier Free
 
-#### <a name="create-a-web-app"></a>Skapa en webbapp
+#### <a name="create-a-web-app"></a>Skapa ett webbprogram
     New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $webappname
 
     Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
     Read-Host "Press [Enter] key when ready ..."
 
-#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Innan du fortsätter går du till ditt Azure Domain Name System konfigurations gränssnitt för din anpassade domän och följer anvisningarna https://aka.ms/appservicecustomdns i Konfigurera en CNAME-post för värd namnet "www" och pekar på webbappens standard domän namn
+#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Innan du fortsätter går du till ditt Azure Domain Name System konfigurations gränssnitt för din anpassade domän och följer anvisningarna på https://aka.ms/appservicecustomdns för att konfigurera en CNAME-post för värd namnet "www" och pekar den på webbappens standard domän namn
 
 #### <a name="upgrade-app-service-plan-to-shared-tier-minimum-required-by-custom-domains"></a>Uppgradera App Service plan till delad nivå (minimum krävs av anpassade domäner)
     Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
@@ -320,7 +320,7 @@ Nu när du har aktiverat integrering av virtuella nätverk kan du lägga till n�
 
    *Konfigurera NSG*
 
-4. I utgående regler för gateway-NSG lägger du till en regel som tillåter utgående anslutningar till App Service-instansen genom att skapa en regel som är riktad mot tjänst tag gen`AppService`
+4. I utgående regler för gateway-NSG lägger du till en regel som tillåter utgående anslutningar till App Service-instansen genom att skapa en regel som är riktad mot tjänst tag gen `AppService`
 
    ![Lägg till utgående regler för NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
@@ -343,7 +343,7 @@ Nu när du har aktiverat integrering av virtuella nätverk kan du lägga till n�
     *Lägg till regler för Azure Service Health avsökningar (endast App Service-miljön)*
 
 Om du vill begränsa angrepps ytan ändrar du App Service nätverks inställningar så att endast programgatewayen får åtkomst till programmet.
-Om du vill tillämpa inställningarna går du till fliken App Service nätverk, väljer fliken **IP-begränsningar** och skapar en Tillåt-regel som endast tillåter programgatewayens IP att komma åt tjänsten direkt. Du kan hämta IP-adressen för gatewayen från sidan Översikt. På fliken **CIDR för IP-adress** anger du IP-adressen i följande format `<GATEWAY_IP_ADDRESS>/32`:.
+Om du vill tillämpa inställningarna går du till fliken App Service nätverk, väljer fliken **IP-begränsningar** och skapar en Tillåt-regel som endast tillåter programgatewayens IP att komma åt tjänsten direkt. Du kan hämta IP-adressen för gatewayen från sidan Översikt. På fliken **CIDR för IP-adress** anger du IP-adressen i följande format: `<GATEWAY_IP_ADDRESS>/32`.
 
 ![Tillåt endast gatewayen](./media/secure-web-app/app-allow-gw-only.png)
 
@@ -389,16 +389,16 @@ Med Azure Security Center kan kunder centralt tillämpa och hantera säkerhets p
    - Azure Security Center och en Azure Advisor ger ytterligare skydd och aviseringar. Azure Security Center ger också ett ryktes system.
 ### <a name="logging-and-auditing"></a>Loggning och granskning
 Azure-tjänster loggar system-och användar aktiviteter i stor utsträckning, samt systemets hälso tillstånd:
-   - Aktivitets loggar: [Aktivitets loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger inblick i åtgärder som utförs på resurser i en prenumeration. Aktivitets loggar kan hjälpa till att bestämma en åtgärds initierare, tidpunkt för förekomst och status.
-   - Diagnostikloggar: [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar innehåller loggar för Windows Event system, Azure Storage loggar, Key Vault gransknings loggar och Application Gateway åtkomst-och brand Väggs loggar. Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering. Kvarhållning är en användare som kan konfigureras, upp till 730 dagar, för att uppfylla organisationens särskilda krav för kvarhållning.
+   - Aktivitets loggar: [aktivitets loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger inblick i åtgärder som utförs på resurser i en prenumeration. Aktivitets loggar kan hjälpa till att bestämma en åtgärds initierare, tidpunkt för förekomst och status.
+   - Diagnostikloggar: [diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar innehåller loggar för Windows Event system, Azure Storage loggar, Key Vault gransknings loggar och Application Gateway åtkomst-och brand Väggs loggar. Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering. Kvarhållning är en användare som kan konfigureras, upp till 730 dagar, för att uppfylla organisationens särskilda krav för kvarhållning.
 ### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
    Dessa loggar konsol IDE ras i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och instrument panels rapportering. När data har samlats in ordnas de i separata tabeller för varje datatyp inom Log Analytics arbets ytor, vilket innebär att alla data kan analyseras tillsammans oavsett den ursprungliga källan. Dessutom kan Azure Security Center integreras med Azure Monitor loggar som gör det möjligt för kunder att använda Kusto-frågor för att komma åt sina säkerhets händelse data och kombinera dem med data från andra tjänster.
 
    Följande lösningar för Azure- [övervakning](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ingår som en del av den här arkitekturen
 
-   - [Active Directory-utvärdering](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Den Active Directory hälso kontroll lösningen utvärderar risker och hälso tillstånd för Server miljöer med jämna mellanrum och ger en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
-   - [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): Agenthälsa lösning rapporterar hur många agenter som distribueras och deras geografiska distribution, samt hur många agenter som inte svarar och antalet agenter som skickar drift data.
-   - [Aktivitetslogganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Aktivitetslogganalys lösning hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
+   - [Active Directory-utvärdering](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): den Active Directory hälso kontroll lösningen utvärderar hälso-och hälso tillståndet i Server miljöer med jämna mellanrum och ger en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
+   - [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): agenthälsa lösning rapporterar hur många agenter som distribueras och deras geografiska distribution, samt hur många agenter som inte svarar och antalet agenter som skickar drift data.
+   - [Aktivitetslogganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Aktivitetslogganalys lösningen hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
 ### <a name="azure-monitor"></a>Azure Monitor
    [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)hjälper användare att spåra prestanda, upprätthålla säkerhet och identifiera trender genom att göra det möjligt för organisationer att granska, skapa aviseringar och arkivera data, inklusive att spåra API-anrop i sina Azure-resurser.
 ### <a name="application-insights"></a>Application Insights 
@@ -443,14 +443,14 @@ Azure-tjänster loggar system-och användar aktiviteter i stor utsträckning, sa
 1.  Gå tillbaka till Azure Portal. I det vänstra navigerings fönstret väljer du tjänsten Azure Active Directory och väljer sedan Appregistreringar.
 2.  I den resulterande skärmen väljer du programmet WebApp-OpenIDConnect-DotNet-Code-v2.
 3.  På fliken autentisering o i avsnittet omdirigerings-URI väljer du webb i kombinations rutan och lägger till följande omdirigerings-URI: er.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.nethttps://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o i avsnittet Avancerade inställningar ange utloggnings-URL till https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
-4.  På fliken anpassning o uppdaterar du till exempel https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net start sidans URL till adressen till din app service.
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o i avsnittet Avancerade inställningar ange utloggnings-URL till https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+4.  På fliken anpassning o uppdaterar du Start sidans URL till adressen till din app service, till exempel https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         o Spara konfigurationen.
 5.  Om programmet anropar ett webb-API ska du se till att tillämpa de nödvändiga ändringarna på projektet appSettings. JSON, så att den anropar den publicerade API-URL: en i stället för localhost.
 Publicera exemplet
     1.  På fliken Översikt i App Service laddar du ned publicerings profilen genom att klicka på länken Hämta publicerings profil och spara den. Andra distributions metoder, till exempel från käll kontroll, kan också användas.
     2.  Växla till Visual Studio och gå till projektet WebApp-OpenIDConnect-DotNet-Code-v2. Högerklicka på projektet i Solution Explorer och välj publicera. Klicka på Importera profil i det nedre fältet och importera den publicerings profil som du laddade ned tidigare.
-    3.  Klicka på Konfigurera och på fliken anslutning uppdaterar du mål-URL: en så att den är en https på Start sidans URL, till https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net exempel. Klicka på Nästa.
+    3.  Klicka på Konfigurera och på fliken anslutning uppdaterar du mål-URL: en så att den är en https på Start sidans URL, till exempel https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net. Klicka på Next.
     4.  På fliken Inställningar kontrollerar du att aktivera organisations autentisering inte är markerat. Klicka på Spara. Klicka på Publicera på huvud skärmen.
     5.  Visual Studio kommer att publicera projektet och automatiskt öppna en webbläsare till projektets URL. Om du ser projektets standard webb sida slutfördes publikationen.
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementera Multi-Factor Authentication för Azure Active Directory
@@ -512,9 +512,9 @@ Skapa den här arbets ytan
    *Sök efter Log Analytics arbets ytor*
 
    2. På nästa sida väljer du **Lägg till** och anger sedan ett namn, en resurs grupp och en plats för arbets ytan.
-   ![Skapa en Log Analytics-arbetsyta](./media/secure-aad-app/sentinel-log-analytics-create.png)
+   ![skapa en Log Analytics arbets yta](./media/secure-aad-app/sentinel-log-analytics-create.png)
 
-   *Skapa en Log Analytics-arbetsyta*
+   *Skapa en Log Analytics arbets yta*
 
    3. Använd sökrutan för att söka efter **Azure Sentinel**.
 
@@ -537,7 +537,7 @@ Skapa den här arbets ytan
    Gör så här för att ansluta Application Gateway:
 
    1. Öppna bladet Azure Application Gateway-instans.
-   2. Under **övervakning**väljer **diagnostikinställningar**.
+   2. Under **övervakning**väljer du **diagnostikinställningar**.
    3. Välj **Lägg till diagnostisk inställning**.
 
    ![Lägg till Application Gateway diagnostik](./media/secure-aad-app/sentinel-gateway-connector.png)
@@ -558,6 +558,6 @@ Skapa den här arbets ytan
 ## <a name="next-steps"></a>Nästa steg
    Följande artiklar kan hjälpa dig att utforma, utveckla och distribuera säkra program.
 
-- [Design](secure-design.md)
+- [Fördefinierade](secure-design.md)
 - [Utveckla](secure-develop.md)
 - [Distribuera](secure-deploy.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Expensify | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Expensify | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Expensify.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1e761484-7a2f-4321-91f4-6d5d0b69344e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe57c0655cf01f8dfa0f9cd0d75584fd4f130c0a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: e9ed129bccbd763bf4459fa7818e0dba4e7e65b5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976107"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73156523"
 ---
-# <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Självstudier: Integrera Expensify med Azure Active Directory
+# <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Självstudie: integrera Expensify med Azure Active Directory
 
 I den här självstudien får du lära dig hur du integrerar Expensify med Azure Active Directory (Azure AD). När du integrerar Expensify med Azure AD kan du:
 
@@ -32,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Expensify med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -64,7 +65,7 @@ Om du vill konfigurera och testa Azure AD SSO med Expensify, slutför du följan
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 2. **[Konfigurera EXPENSIFY SSO](#configure-expensify-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa Expensify test User](#create-expensify-test-user)** -om du vill ha en motsvarighet till B. Simon i Expensify som är länkad till Azure AD-representation av användare.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -85,14 +86,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://www.expensify.com`
 
-    c. b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
+    c. b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
 
     > [!NOTE]
     > Värdet för svars-URL:en är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL:en. Kontakta [supportteamet för Expensify-klienten](mailto:help@expensify.com) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **metadata-XML** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 1. I avsnittet **Konfigurera Expensify** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -103,14 +104,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Expensify.
 
@@ -118,7 +119,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan med program väljer du **Expensify**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -148,9 +149,9 @@ I det här avsnittet skapar du en användare som heter B. Simon i Expensify. Ta 
 
 ## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Expensify-panelen i åtkomstpanelen så borde du automatiskt loggas in på den Expensify som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Expensify-panelen i åtkomstpanelen så borde du automatiskt loggas in på den Expensify som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

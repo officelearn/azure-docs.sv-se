@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Merchlogix | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Merchlogix | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Merchlogix.
 services: active-directory
 documentationCenter: na
@@ -8,51 +8,52 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a1f49bb8-6b17-433d-8f25-9d26fb390e77
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: c6863987771d6ca4f18451846d5506796d605565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28831cf1e80257315c04cc342b2a119ff89c2459
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097273"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161451"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Självstudier: Azure Active Directory-integrering med Merchlogix
+# <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Självstudie: Azure Active Directory integrering med Merchlogix
 
-I den här självstudien får du lära dig hur du integrerar Merchlogix med Azure Active Directory (AD Azure).
-Integrera Merchlogix med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Merchlogix med Azure Active Directory (Azure AD).
+Genom att integrera Merchlogix med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Merchlogix.
-* Du kan aktivera användarna att vara automatiskt inloggad till Merchlogix (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Merchlogix (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Merchlogix, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Merchlogix behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Merchlogix enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Merchlogix-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Merchlogix **SP** -initierad SSO
+* Merchlogix stöder **SP** -INITIERAd SSO
 
-## <a name="adding-merchlogix-from-the-gallery"></a>Att lägga till Merchlogix från galleriet
+## <a name="adding-merchlogix-from-the-gallery"></a>Lägga till Merchlogix från galleriet
 
-För att konfigurera integrering av Merchlogix i Azure AD, som du behöver lägga till Merchlogix från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Merchlogix i Azure AD måste du lägga till Merchlogix från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Merchlogix från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -60,37 +61,37 @@ För att konfigurera integrering av Merchlogix i Azure AD, som du behöver lägg
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Merchlogix**väljer **Merchlogix** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Merchlogix**, väljer **Merchlogix** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Merchlogix i resultatlistan](common/search-new-app.png)
+     ![Merchlogix i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Merchlogix baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Merchlogix upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Merchlogix baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Merchlogix upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Merchlogix, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Merchlogix i Azure AD måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Merchlogix Single Sign-On](#configure-merchlogix-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Merchlogix](#create-merchlogix-test-user)**  – du har en motsvarighet för Britta Simon i Merchlogix som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Merchlogix-enkel inloggning](#configure-merchlogix-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Merchlogix test User](#create-merchlogix-test-user)** – om du vill ha en motsvarighet till Britta Simon i Merchlogix som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Merchlogix:
+Utför följande steg för att konfigurera enkel inloggning med Merchlogix i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Merchlogix** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **Merchlogix** Application Integration i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,32 +103,32 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Merchlo
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Merchlogix domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![Information om enkel inloggning för Merchlogix-domän och URL: er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<DOMAIN>/login.php?saml=true`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Merchlogix klienten supportteamet](https://www.merchlogix.com/contact/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Merchlogix client support team](https://www.merchlogix.com/contact/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **konfigurera Merchlogix** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera Merchlogix** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-merchlogix-single-sign-on"></a>Konfigurera Merchlogix Single Sign-On
+### <a name="configure-merchlogix-single-sign-on"></a>Konfigurera Merchlogix enkel inloggning
 
-Att konfigurera enkel inloggning på **Merchlogix** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [Merchlogix supportteamet](https://www.merchlogix.com/contact/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Merchlogix** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för Merchlogix](https://www.merchlogix.com/contact/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -147,26 +148,26 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Merchlogix.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Merchlogix.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Merchlogix**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Merchlogix**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Merchlogix**.
+2. I listan program väljer du **Merchlogix**.
 
-    ![Länken Merchlogix i listan med program](common/all-applications.png)
+    ![Merchlogix-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -180,15 +181,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-merchlogix-test-user"></a>Skapa Merchlogix testanvändare
+### <a name="create-merchlogix-test-user"></a>Skapa Merchlogix test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Merchlogix. Arbeta med [Merchlogix supportteamet](https://www.merchlogix.com/contact/) att lägga till användare i Merchlogix-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Merchlogix. Arbeta med [Merchlogix support team](https://www.merchlogix.com/contact/) för att lägga till användare i Merchlogix-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Merchlogix i åtkomstpanelen, bör det vara loggas in automatiskt till Merchlogix som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Merchlogix på åtkomst panelen, bör du loggas in automatiskt på den Merchlogix som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

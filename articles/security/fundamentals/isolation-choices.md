@@ -1,10 +1,10 @@
 ---
 title: Isolering i det offentliga Azure-molnet | Microsoft Docs
-description: Lär dig mer om molnbaserad data behandlings tjänster som innehåller ett brett urval av beräknings instanser & tjänster som kan skala upp och ned automatiskt för att möta behoven hos ditt program eller företag.
+description: Lär dig hur Azure ger isolering för både skadliga och icke-skadliga användare och erbjuder olika isolerings alternativ till arkitekter.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,38 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123061"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159752"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
-##  <a name="introduction"></a>Introduktion
-### <a name="overview"></a>Översikt
-För att hjälpa aktuella och potentiella Azure-kunder att förstå och använda de olika säkerhetsrelaterade funktionerna i och runt Azure-plattformen har Microsoft utvecklat en serie fakta blad, säkerhets översikter, bästa praxis och Check listor.
-Ämnena varierar i förhållande till bredd och djup och uppdateras regelbundet. Det här dokumentet ingår i den serien som sammanfattas i sammanfattnings avsnittet nedan.
+Med Azure kan du köra program och virtuella datorer (VM) på en delad fysisk infrastruktur. Ett av de viktigaste ekonomiska motivationen att köra program i en moln miljö är möjligheten att distribuera kostnaden för delade resurser mellan flera kunder. Den här övningen av flera innehavare förbättrar effektiviteten genom att Multiplexing-resurser delas mellan olika kunder med låga kostnader. Tyvärr introduceras risken för att dela fysiska servrar och andra infrastruktur resurser för att köra känsliga program och virtuella datorer som tillhör en godtycklig och potentiellt skadlig användare.
 
-### <a name="azure-platform"></a>Azure-plattform
-Azure är en öppen och flexibel moln tjänst plattform som stöder det bredaste urvalet av operativ system, programmeringsspråk, ramverk, verktyg, databaser och enheter. Du kan till exempel:
-- Kör Linux-behållare med Docker-integrering;
-- Bygg appar med Java Script, python, .NET, PHP, Java och Node. js. särskilt
-- Bygg Server delar för iOS-, Android-och Windows-enheter.
-
-Microsoft Azure stöder samma teknik miljon tals utvecklare och IT-proffs är redan förlitande på och litar på.
-
-När du bygger på, eller migrerar IT-tillgångar till, en offentlig moln tjänst leverantör, förlitar du dig på den organisationens möjligheter att skydda dina program och data med tjänsterna och de kontroller som de tillhandahåller för att hantera säkerheten för dina molnbaserade till gångar.
-
-Allt i Azures infrastruktur, från anläggning till tillämpningar, är utformat för att fungera som värd för miljoner kunder samtidigt, och den tillhandahåller en säker grund som företaget kan använda sig av för att möta de interna säkerhetsbehoven. Dessutom erbjuder Azure dig en mängd olika konfigurerbara säkerhetsalternativ samt möjligheten att kontrollera dem, så att du kan anpassa säkerheten för att uppfylla de specifika behoven hos dina distributioner. Det här dokumentet hjälper dig att uppfylla dessa krav.
-
-### <a name="abstract"></a>Abstrakt
-
-Med Microsoft Azure kan du köra program och virtuella datorer (VM) på en delad fysisk infrastruktur. Ett av de viktigaste ekonomiska motivationen att köra program i en moln miljö är möjligheten att distribuera kostnaden för delade resurser mellan flera kunder. Den här övningen av flera innehavare förbättrar effektiviteten genom att Multiplexing-resurser delas mellan olika kunder med låga kostnader. Tyvärr introduceras risken för att dela fysiska servrar och andra infrastruktur resurser för att köra känsliga program och virtuella datorer som tillhör en godtycklig och potentiellt skadlig användare.
-
-Den här artikeln beskriver hur Microsoft Azure ger isolering för både skadliga och icke-skadliga användare och fungerar som en vägledning för att skapa moln lösningar genom att erbjuda olika isolerings alternativ till arkitekter. Den här white paper fokuserar på tekniken i Azure-plattform och kundrelaterade säkerhets kontroller och försöker inte adressera service avtal, pris modeller och DevOps.
+Den här artikeln beskriver hur Azure tillhandahåller isolering för både skadliga och icke-skadliga användare och fungerar som en vägledning för att skapa moln lösningar genom att erbjuda olika isolerings alternativ till arkitekter.
 
 ## <a name="tenant-level-isolation"></a>Isolering av klient nivå
 En av de främsta fördelarna med molnbaserad data behandling är begreppet en delad, gemensam infrastruktur över flera kunder samtidigt, vilket leder till stor drifts skala. Det här konceptet kallas för flera innehavare. Microsoft arbetar kontinuerligt för att säkerställa att arkitekturen för flera klienter i Microsoft Cloud Azure stöder säkerhet, sekretess, sekretess, integritet och tillgänglighets standarder.
@@ -284,7 +265,7 @@ SQL Database är en relationsdatabastjänst i Microsoft Cloud som är baserad p�
 
 [Microsoft SQL Azure](../../sql-database/sql-database-single-database-get-started.md) Database är en molnbaserad Relations databas tjänst som bygger på SQL Server tekniker. Det ger en skalbar databas tjänst med hög tillgänglighet som Microsoft i molnet har hög tillgänglighet.
 
-I ett program perspektiv SQL Azure tillhandahåller följande hierarki: Varje nivå har en-till-många-inne slutning av nivåer nedan.
+I ett program perspektiv SQL Azure tillhandahåller följande hierarki: varje nivå har en-till-många-inne slutning av nivåer nedan.
 
 ![SQL Azure program modell](./media/isolation-choices/azure-isolation-fig10.png)
 
@@ -350,4 +331,3 @@ Microsoft Azure tillhandahåller en mängd olika molnbaserade data behandlings t
 - [Lagrings isolering](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure separerar kundens VM-baserade beräkning från Storage. Den här separationen gör att beräkning och lagring kan skalas oberoende av varandra, vilket gör det enklare att tillhandahålla flera innehavare och isolering. Därför körs Azure Storage på separat maskin vara utan nätverks anslutning till Azure Compute, förutom logiskt. Alla begär Anden körs via HTTP eller HTTPS baserat på kundens val.
-

@@ -13,29 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9ed2d00d6f229d958e0df024c70381051840548c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727006"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162741"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Översikt över Azure Security Management och Monitoring
 Den här artikeln innehåller en översikt över de säkerhetsfunktioner och tjänster som Azure tillhandahåller för att hjälpa till med hantering och övervakning av Azure Cloud Services och Virtual Machines.
-
-## <a name="shared-responsibility"></a>Delat ansvar
-
-Säkerheten för dina Microsoft Cloud Services är ett partnerskap och ett delat ansvar mellan dig och Microsoft. Microsoft ansvarar för Azure-plattformen och den fysiska säkerheten för sina data Center (genom att använda säkerhets skydd som låsta badge, avgränsningar och skydd). Azure tillhandahåller starka moln säkerhet på program varu lagret som uppfyller kundernas krav på säkerhet, sekretess och efterlevnad.
-
-Du äger dina data och identiteter, ansvaret för att skydda dem, säkerheten för dina lokala resurser och säkerheten för moln komponenter som du har kontroll över. Microsoft ger dig säkerhets kontroller och funktioner som hjälper dig att skydda dina data och program. Din ansvars grad för säkerhet baseras på typen av moln tjänst.
-
-Följande diagram sammanfattar balansen mellan Microsoft och kunden.
-
-![Delat ansvar](./media/management-monitoring-overview/shared-responsibility.png)
-
-Mer information om säkerhets hantering finns [i säkerhets hantering i Azure](management.md).
 
 ## <a name="role-based-access-control"></a>Rollbaserad Access Control
 
@@ -46,7 +34,7 @@ Läs mer:
 * [Active Directory Team blogg på RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Rollbaserad Access Control i Azure](../../role-based-access-control/role-assignments-portal.md)
 
-## <a name="antimalware"></a>Program mot skadlig kod
+## <a name="antimalware"></a>Programvara mot skadlig kod
 
 Med Azure kan du använda program mot skadlig kod från stora säkerhets leverantörer som Microsoft, Symantec, Trend Micro, McAfee och Kasper Sky. Den här program varan hjälper till att skydda dina virtuella datorer från skadliga filer, annons program och andra hot.
 
@@ -125,9 +113,9 @@ Genom att tillhandahålla meddelanden och Rekommenderad reparation bidrar identi
 Läs mer:
 
 * [Identitetsskydd för Azure Active Directory](/azure/active-directory/active-directory-identityprotection)
-* [Kanal 9: Azure AD och identitet visar: För hands version av identitets skydd](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Kanal 9: Azure AD och identitet Visa: identitets skydd för hands version](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-## <a name="security-center"></a>Security Center
+## <a name="security-center"></a>Säkerhetscenter
 
 Azure Security Center hjälper dig att förhindra, identifiera och svara på hot. Security Center ger ökad insyn i och kontroll över säkerheten för dina Azure-resurser. Den ger integrerad säkerhetsövervakning och princip hantering i dina Azure-prenumerationer. Den hjälper till att upptäcka hot som annars kan gå vidare och fungerar med ett brett eko system med säkerhetslösningar.
 
@@ -150,3 +138,7 @@ Intelligent Security Graph ger skydd mot hot i real tid i Microsofts produkter o
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
+## <a name="next-steps"></a>Nästa steg
+Lär dig mer om den [delade ansvars modellen](shared-responsibility.md) och vilka säkerhets uppgifter som hanteras av Microsoft och vilka aktiviteter som hanteras av dig.
+
+Mer information om säkerhets hantering finns [i säkerhets hantering i Azure](management.md).

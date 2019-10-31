@@ -1,33 +1,33 @@
 ---
-title: Automatisera erbjudandet publicering | Azure Marketplace
-description: Beskriver hur du programmässigt automatisera VM-publicering.
+title: Automatisera erbjudande publicering | Azure Marketplace
+description: Förklarar hur du automatiserar publiceringen av arbets flödet för virtuella datorer program mässigt.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 0a927c72a82c6aa3c79988c599ea8b840821a2b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50b785ed9456b0b112dea01a219e988b81094571
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935889"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154653"
 ---
-<a name="automate-offer-publishing"></a>Automatisera erbjudandet publicering
+<a name="automate-offer-publishing"></a>Automatisera erbjudande publicering
 =========================
 
-Du kan även programmässigt automatisera VM publicera arbetsflöde, med hjälp av API: er i den [API-referens](./cloud-partner-portal-api-overview.md) avsnittet. Det finns två olika scenarier för att tänka på när du planerar automation: erbjuder inledande publicering och efterföljande erbjudandet publicering.
+Du kan också automatisera arbets flödet för VM-publicering program mässigt genom att använda API: erna i [referens avsnittet API](./cloud-partner-portal-api-overview.md) . Det finns två olika scenarier som du bör tänka på när du planerar automatisering: erbjuda inledande publicering och efterföljande publicering av erbjudanden.
 
 
 <a name="offer-initial-publishing"></a>Erbjud inledande publicering
 -------------------------
 
-När du publicerar ett erbjudande för första gången måste några ytterligare steg innan du laddar upp till marketplace.  Till exempel måste du förbereda metadata och skapa ett utkast till en erbjudandet. Inledande publishing arbetsflödet illustreras i följande diagram.
+När du publicerar ett erbjudande för första gången kräver det ytterligare några steg innan du laddar upp till Marketplace.  Du måste till exempel förbereda metadata och skapa ett erbjudande utkast. Det första publicerings arbets flödet visas i följande diagram.
 
-![Interaktion mellan en inledande erbjuder publikationen](media/cloud-partner-portal-automate-offer-publishing/first-time-offer-publishing.png)
+![Interaktioner för en inledande erbjudande publikation](media/cloud-partner-portal-automate-offer-publishing/first-time-offer-publishing.png)
 
-Följande exempelkod visar de här stegen.
+Följande exempel kod visar de här stegen.
 
 ``` csharp
   CreateOfferAndPublish()
@@ -55,7 +55,7 @@ Följande exempelkod visar de här stegen.
   ValidateAndGoLive()    
   {
       // Confirm the version in preview slot is the version that needs to go live
-      offer = CloudPartnerPortal.Client.GetOffer(offerName, “Preview”);
+      offer = CloudPartnerPortal.Client.GetOffer(offerName, "Preview");
       if(!offer[skuName].containsVersion(VMDisk.Version))
       {
           UpdateOfferAndPublish()
@@ -74,12 +74,12 @@ Följande exempelkod visar de här stegen.
 ```
 
 
-<a name="subsequent-offer-publishing"></a>Efterföljande erbjudandet publicering
+<a name="subsequent-offer-publishing"></a>Efterföljande publicering av erbjudande
 ---------------------------
 
-När erbjudande för virtuell dator (VM) är integrerad i en pipeline för kontinuerlig integrering, kan du automatisera publishing arbetsflödet ska köras varje gång en ny virtuell hårddisk (VHD) skapas.  Det här arbetsflödet illustreras med följande kod för diagram och exempel.
+När erbjudandet för den virtuella datorn (VM) är integrerat i en pipeline för kontinuerlig integrering kan du automatisera publicerings arbets flödet så att det körs varje gång en ny virtuell hård disk (VHD) skapas.  Det här arbets flödet illustreras med följande diagram och exempel kod.
 
-![Interaktion mellan efterföljande erbjuder publikationer](media/cloud-partner-portal-automate-offer-publishing/update-offer-and-publish.png)
+![Interaktioner för efterföljande erbjudande-publikationer](media/cloud-partner-portal-automate-offer-publishing/update-offer-and-publish.png)
 
 ``` csharp
     UpdateOfferAndPublish()
@@ -127,7 +127,7 @@ När erbjudande för virtuell dator (VM) är integrerad i en pipeline för konti
     ValidateAndGoLive()
     {
         // Confirm the version in preview slot is the version that needs to go live
-        offer = CloudPartnerPortal.Client.GetOffer(offerName, “Preview”);
+        offer = CloudPartnerPortal.Client.GetOffer(offerName, "Preview");
         if(!offer[skuName].containsVersion(VMDisk.Version))
         {
             UpdateOfferAndPublish()

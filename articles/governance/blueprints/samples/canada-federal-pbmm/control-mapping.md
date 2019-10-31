@@ -6,18 +6,18 @@ ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: b16ad4fd08776312d318067b4bc84f79b9797e70
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e74d3328e1ed41a7184569d30cc46ae7cd29a5ba
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299155"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163508"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Kontroll av kart provet i Kanadas federala PBMM-utkast
 
 Följande artikel innehåller information om hur Azure-ritningar Canada Federal Protected B, medium Integrity, medel tillgänglighet (PBMM) skisser mappar till de federala PBMM-kontrollerna i Kanada. Mer information om kontrollerna finns i [Kanadas federala PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4).
 
-Följande mappningar är till de **federala PBMM** -kontrollerna i Kanada. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[Preview @ no__t-2: Audit Canada Federal PBMM Controls** -det inbyggda princip initiativet.
+Följande mappningar är till de **federala PBMM** -kontrollerna i Kanada. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[för hands versions\]: granska Kanadas federala PBMM kontroller** inbyggt princip initiativ.
 
 > [!IMPORTANT]
 > Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md).
@@ -88,8 +88,8 @@ Funktionerna för data identifiering och klassificering av avancerad data säker
 
 Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att övervaka att fjärrfelsökning för Azure App Service program är inaktive rad. Skissen tilldelar också princip definitioner som granskar virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord. Dessutom tilldelar skissen en Azure Policy definition som hjälper dig att övervaka obegränsad åtkomst till lagrings konton. Genom att övervaka dessa indikatorer kan du se till att du ser till att fjärranslutna metoder överensstämmer med din säkerhets princip.
 
-- \[Preview @ no__t-1: granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[för hands version\]: granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[för hands version\]: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Fjärrfelsökning bör inaktive ras för API-appen
 - Fjärrfelsökning bör inaktive ras för Funktionsapp
@@ -99,11 +99,11 @@ Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst geno
 
 Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som möjliggör centraliserad konfiguration och hantering. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar och tillämpar distribution av log Analyticss agenten på virtuella Azure-datorer.
 
-- \[Preview @ no__t-1: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[Preview @ no__t-1: granska Log Analytics agent distribution i VMSS-VM Image (OS) inte listad
-- \[Preview @ no__t-1: granska Log Analytics arbets yta för VM-rapportera fel
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-svar på gransknings bearbetnings problem
 
@@ -118,21 +118,21 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 
 Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som möjliggör central rapportering och analys. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar och tillämpar distribution av log Analyticss agenten på virtuella Azure-datorer.
 
-- \[Preview @ no__t-1: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[Preview @ no__t-1: granska Log Analytics agent distribution i VMSS-VM Image (OS) inte listad
-- \[Preview @ no__t-1: granska Log Analytics arbets yta för VM-rapportera fel
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-12-audit-generation"></a>AU – 12 gransknings generation
 
 Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser. Dessa princip definitioner granskar och tillämpar distributionen av Log Analytics agent på Azure Virtual Machines och konfigurationen av gransknings inställningar för andra Azure-resurs typer. Dessa princip definitioner granskar också konfigurationen av diagnostikloggar för att ge inblick i åtgärder som utförs i Azure-resurser. Dessutom konfigureras granskning och avancerad data säkerhet på SQL-servrar.
 
-- \[Preview @ no__t-1: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[Preview @ no__t-1: granska Log Analytics agent distribution i VMSS-VM Image (OS) inte listad
-- \[Preview @ no__t-1: granska Log Analytics arbets yta för VM-rapportera fel
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
@@ -143,13 +143,13 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM – 7 (5) de lägsta funktionerna | Auktoriserad program vara/vit listning
 
-Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Med program kontroll kan du skapa godkända program listor för dina virtuella datorer. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där en lista med tillåtna program rekommenderas men inte har konfigurerats än.
+Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Med program kontroll kan du skapa godkända program listor för dina virtuella datorer. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men inte har kon figurer ATS än.
 
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
 
 ## <a name="cm-11-user-installed-software"></a>CM – 11 användare-installerad program vara
 
-Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Program kontroll kan hjälpa dig att upprätthålla och övervaka efterlevnaden av principer för begränsning av program vara. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där en lista med tillåtna program rekommenderas men inte har konfigurerats än.
+Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Program kontroll kan hjälpa dig att upprätthålla och övervaka efterlevnaden av principer för begränsning av program vara. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men inte har kon figurer ATS än.
 
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
 
@@ -170,25 +170,25 @@ Den här skissen hjälper dig att begränsa och kontrol lera privilegie rad åtk
 
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord och/eller har felaktiga behörigheter som angetts för passwd-filen. Den här skissen tilldelar också princip definitioner som granskar konfigurationen av lösen ords krypterings typen för virtuella Windows-datorer. Genom att övervaka dessa indikatorer kan du se till att system autentiserare följer organisationens principer för identifiering och autentisering.
 
-- \[Preview @ no__t-1: granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
-- \[Preview @ no__t-1: granska virtuella Linux-datorer som har konton utan lösen ord
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
+- \[för hands version\]: granska virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644
+- \[för hands version\]: granska virtuella Linux-datorer som har konton utan lösen ord
+- \[för hands version\]: Distribuera krav för att granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
+- \[för hands version\]: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Authenticator-hantering | Lösenordsbaserad autentisering
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte kräver lägsta möjliga styrka och andra lösen ords krav. Medvetenheten om virtuella datorer som strider mot principen för lösen ords styrka hjälper dig att vidta åtgärder för att se till att lösen ord för alla virtuella dator användar konton följer organisationens lösen ords princip.
 
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som saknar lägsta ålder för lösen ord på 1 dag
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[för hands version\]: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[för hands version\]: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[för hands version\]: granska virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
+- \[för hands version\]: granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[för hands version\]: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
 
 ## <a name="ia-8-100-identification-and-authentication-non-organizational-users--identity-and-credential-assurance-levels"></a>IA-8 (100) identifiering och autentisering (icke-organisatoriska användare) | Nivåer för identitet och autentiseringsuppgifter
 
@@ -292,11 +292,11 @@ Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig
 
 Den här skissen hjälper dig att övervaka systemet genom att granska och framtvinga loggning och data säkerhet i Azure-resurser. Mer specifikt är principerna tilldelade granskning och tillämpar distribution av Log Analytics agenten och förbättrade säkerhets inställningar för SQL-databaser, lagrings konton och nätverks resurser. Dessa funktioner kan hjälpa dig att identifiera avvikande beteende och indikatorer på attacker så att du kan vidta lämpliga åtgärder.
 
-- \[Preview @ no__t-1: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[Preview @ no__t-1: granska Log Analytics agent distribution i VMSS-VM Image (OS) inte listad
-- \[Preview @ no__t-1: granska Log Analytics arbets yta för VM-rapportera fel
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
@@ -316,7 +316,7 @@ Du har granskat kontroll mappningen av det federala PBMM skiss-exemplet. Gå sed
 > [Kanadas federala PBMM skiss – översikt](./control-mapping.md)
 > [Canada Federal PBMM-skiss – distribuera steg](./deploy.md)
 
-Ytterligare artiklar om skisser och hur de används:
+Ytterligare artiklar om ritningar och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

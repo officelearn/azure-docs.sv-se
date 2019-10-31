@@ -1,19 +1,19 @@
 ---
 title: Resurser som stöds för mått varningar i Azure Monitor
 description: Referens för support mått och loggar för mått varningar i Azure Monitor
-author: snehithm
+author: harelbr
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 37ef1cda37e1799a4dc488947e6c9ed4c9ad4055
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: fe7f7b8fae988a6e3f95b4fbade6296f4e6ac3f6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636174"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162005"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Resurser som stöds för mått varningar i Azure Monitor
 
@@ -33,9 +33,9 @@ Här är en fullständig lista över Azure Monitors mått källor som stöds av 
 |---------|---------|----------------|
 |Microsoft.ApiManagement/service     | Ja        | [API Management](../../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)|
 |Microsoft. Automation/automationAccounts     |     Ja   | [Automation-konton](../../azure-monitor/platform/metrics-supported.md#microsoftautomationautomationaccounts)|
-|Microsoft.Batch/batchAccounts | Gäller inte| [Batch-konton](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
-|Microsoft.Cache/Redis     |    Gäller inte     |[Azure Cache for Redis](../../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
-|Microsoft.CognitiveServices/accounts     |    Gäller inte     | [Cognitive Services](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
+|Microsoft. batch/batchAccounts | Gäller inte| [Batch-konton](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
+|Microsoft. cache/Redis     |    Ja     |[Azure Cache for Redis](../../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
+|Microsoft. CognitiveServices/konton     |    Gäller inte     | [Cognitive Services](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    Gäller inte     | [Virtual Machines](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   Gäller inte      |[Skaluppsättningar för virtuella datorer](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft. ContainerInstance/containerGroups | Ja| [Behållar grupper](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
@@ -43,28 +43,33 @@ Här är en fullständig lista över Azure Monitors mått källor som stöds av 
 |Microsoft. DataFactory/datafactories| Ja| [Data fabriker v1](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactorydatafactories)|
 |Microsoft. DataFactory/fabriker     |   Ja     |[Data fabriker v2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
 |Microsoft. DBforMySQL/servers     |   Gäller inte      |[DB för MySQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/servers     |    Gäller inte     | [DATABAS för PostgreSQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
-|Microsoft.Devices/IotHubs    | Gäller inte     |[IoT Hub mått](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)
-|Microsoft.Devices/provisioningServices    | Ja     |[DPS-mått](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)
-|Microsoft.EventHub/namespaces     |  Ja      |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
-|Microsoft.KeyVault/vaults| Nej | [Valv](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
-|Microsoft.Logic/workflows     |     Gäller inte    |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
-|Microsoft.Network/applicationGateways     |    Gäller inte     | [Programgateways](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkapplicationgateways) |
+|Microsoft. DBforPostgreSQL/servers     |    Gäller inte     | [DATABAS för PostgreSQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
+|Microsoft. Devices/IotHubs    | Gäller inte     |[IoT Hub mått](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)|
+|Microsoft. Devices/provisioningServices    | Ja     |[DPS-mått](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)|
+|Microsoft. EventGrid/ämnen     |  Ja      |[Event Grid ämnen](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
+|Microsoft. EventHub/Clusters     |  Ja      |[Event Hubs kluster](../../azure-monitor/platform/metrics-supported.md#microsofteventhubclusters)|
+|Microsoft. EventHub/Namespaces     |  Ja      |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
+|Microsoft. nyckel valv/-valv| Nej | [Valv](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
+|Microsoft. Logic/arbets flöden     |     Gäller inte    |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
+|Microsoft. MachineLearningServices/arbets ytor     |    Ja     | [Machine Learning](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft. Network/applicationGateways     |    Gäller inte     | [Programgateways](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft. Network/dnsZones | Gäller inte| [DNS-zoner](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | Gäller inte |  [ExpressRoute-kretsar](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft. Network/expressRouteCircuits | Gäller inte |  [ExpressRoute-kretsar](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft. Network/belastningsutjämnare (endast för standard-SKU: er)| Ja| [Belastnings utjämning](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft. Network/publicipaddresses     |  Gäller inte       |[offentliga IP-adresser](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.Network/trafficManagerProfiles | Ja | [Traffic Manager profiler](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
-|Microsoft. OperationalInsights/arbets ytor| Ja|[Log Analytics arbets ytor](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft. Network/trafficManagerProfiles | Ja | [Traffic Manager profiler](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft. OperationalInsights/arbets ytor| Ja | [Log Analytics arbets ytor](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft. Relay/namnrymder | Ja | [Reläer](../../azure-monitor/platform/metrics-supported.md#microsoftrelaynamespaces)|
 |Microsoft. PowerBIDedicated/kapacitet | Gäller inte | [Kapaciteter](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
-|Microsoft.Search/searchServices     |   Gäller inte      |[Sök tjänster](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
-|Microsoft.ServiceBus/namespaces     |  Ja       |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
+|Microsoft. search/searchServices     |   Gäller inte      |[Sök tjänster](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
+|Microsoft. Service Bus/namnrymder     |  Ja       |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    Ja     | [Lagringskonton](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAccounts/services     |     Ja    | [BLOB Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices), [fil tjänster](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices), [Queue Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) och [tabell tjänster](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
-|Microsoft.StreamAnalytics/streamingjobs     |  Gäller inte       | [Stream Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
+|Microsoft. Storage/storageAccounts/Services     |     Ja    | [BLOB Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices), [fil tjänster](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices), [Queue Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) och [tabell tjänster](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft. StreamAnalytics/streamingjobs     |  Gäller inte       | [Stream Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
+|Microsoft. Microsoft. VMWareCloudSimple/virtualMachines     |  Ja       | [CloudSimple Virtual Machines](../../azure-monitor/platform/metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines)|
 | Microsoft.Web/serverfarms | Ja | [App Services planer](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)  |
 | Microsoft.Web/sites | Ja | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) och [funktioner](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
-| Microsoft.Web/sites/slots | Ja | [App Service platser](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
+| Microsoft. Web/Sites/lotss | Ja | [App Service platser](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 
 
 ## <a name="payload-schema"></a>Nytto Last schema
@@ -128,6 +133,6 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla nära 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om den [](../../azure-monitor/platform/alerts-overview.md)nya aviserings upplevelsen.
+* Lär dig mer om den nya [aviserings upplevelsen](../../azure-monitor/platform/alerts-overview.md).
 * Lär dig mer om [logg aviseringar i Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Lär dig mer om [aviseringar i Azure](../../azure-monitor/platform/alerts-overview.md).

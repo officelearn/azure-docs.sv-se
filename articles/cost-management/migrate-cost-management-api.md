@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 53c171df47dde58b264b354eea5ff1ccca9f5256
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ee4b2196240ceff1351b7ea310d9660ed613d075
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374716"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152077"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrera från Enterprise-avtal till Microsoft kund avtals-API: er
 
@@ -352,15 +352,15 @@ Gör ett annat anrop till platsen. Svaret på GET-anropet är detsamma tills åt
 ```
 HTTP Status 200
 
-                                    {
-                            “id”: “providers/Microsoft.Consumption/operationresults/{operationId}”,
-                            “name”: {operationId},
-                           “type”: “Microsoft.Consumption/operationResults”,
-                           “properties” : {
-                                  “downloadUrl”: {urltoblob},
-                                  “vaildTill”: “Date”
+{
+  "id": "providers/Microsoft.Consumption/operationresults/{operationId}",
+  "name": {operationId},
+  "type": “Microsoft.Consumption/operationResults",
+  "properties" : {
+    "downloadUrl": {urltoblob},
+    "validTill": "Date"
+  }
 }
-                     }
 ```
 
 Klienten kan också göra ett GET-anrop för `Azure-AsyncOperation`. Slut punkten returnerar status för åtgärden.
@@ -432,7 +432,7 @@ De äldre egenskaperna för [Azure Resource Manager pris dokuments-API: er](/res
 | --- | --- | --- |
 | Mätar-ID | _meterId_ | Unik identifierare för mätaren. Samma som meterId. |
 | Mätar namn | meterName | Namnet på mätaren. Mätaren visar den Azure-tjänst som är distributions bara resurs. |
-| Mätar kategori  | tjänst | Namnet på mätarens klassificeringskategori. Samma som tjänsten i pris dokumentet för Microsofts kund avtal. Exakta sträng värden skiljer sig åt. |
+| Mätar kategori  | tjänst | Namn på mätarens klassificeringskategori. Samma som tjänsten i pris dokumentet för Microsofts kund avtal. Exakta sträng värden skiljer sig åt. |
 | Mätar under kategori | meterSubCategory | Namn på kategorin för mätarens underklassificering. Baserat på klassificeringen av funktions uppsättnings differentiering på hög nivå i tjänsten. Till exempel Basic SQL DB vs standard SQL DB. |
 | Mätar region | meterRegion | &nbsp;  |
 | Enhet | _Ej tillämpligt_ | Kan parsas från unitOfMeasure. |

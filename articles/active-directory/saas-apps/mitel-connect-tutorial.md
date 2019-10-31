@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Mitel ansluta | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mitel ansluta.
+title: 'Självstudie: Azure Active Directory integrering med spets anslutning | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory-och avgränsnings anslutning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,218 +8,219 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e03870322df94a4c9587a3395c70925d2d2e838d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588227"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160533"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Självstudier: Azure Active Directory-integrering med Mitel MiCloud ansluta
+# <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Självstudie: Azure Active Directory integrering med MiCloud-anslutning
 
-I de här självstudierna lär du dig att integrera Mitel MiCloud ansluta med Azure Active Directory (AD Azure). Integrera MiCloud ansluta med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera MiCloud anslutning med Azure Active Directory (Azure AD). Att integrera MiCloud Connect med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till MiCloud ansluta appar med sina autentiseringsuppgifter för företaget.
-* Du kan aktivera användare på ditt konto för att vara automatiskt inloggad MiCloud ansluta (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till MiCloud Connect-appar med sina företags uppgifter.
+* Du kan låta användare på ditt konto loggas in automatiskt till MiCloud Connect (enkel inloggning) med sina Azure AD-konton.
 
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med MiCloud ansluta, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med MiCloud Connect behöver du följande objekt:
 
 * En Azure AD-prenumeration
 
-  Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Ett Mitel MiCloud ansluta konto
+  Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Ett MiCloud Connect-konto
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien får du konfigurera och testa Azure AD enkel inloggning (SSO).
+I den här självstudien får du konfigurera och testa enkel inloggning (SSO) för Azure AD.
 
-* Har stöd för Mitel ansluta **SP** -initierad SSO
+* Spetsig anslutning stöder **SP** -INITIERAd SSO
 
-## <a name="adding-mitel-connect-from-the-gallery"></a>Att lägga till Mitel ansluta från galleriet
+## <a name="adding-mitel-connect-from-the-gallery"></a>Lägga till spetsig anslutning från galleriet
 
-Du måste lägga till Mitel ansluta från galleriet i din lista över hanterade SaaS-appar i Azure portal om du vill konfigurera integreringen av Mitel ansluta till Azure AD.
+Om du vill konfigurera integrering av tusentals anslutning till Azure AD måste du lägga till ett spets koppling från galleriet till listan över hanterade SaaS-appar i Azure Portal.
 
-**Om du vill lägga till Mitel ansluta från galleriet, gör du följande:**
+**Gör så här om du vill lägga till en spetsig anslutning från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**.
+1. Klicka på **Azure Active Directory** på den vänstra navigeringspanelen på **[Azure Portal](https://portal.azure.com)** .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Klicka på **företagsprogram** och klicka sedan på **alla program**.
+2. Klicka på **företags program** och klicka sedan på **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Klicka på **nytt program**.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Typ **Mitel ansluta** i sökfältet, klickar du på **Mitel ansluta** resultatrutan och klicka sedan på **Lägg till**.
+4. Skriv "på sidan **Anslut** i Sök fältet, klicka på **spets koppling** från resultat panelen och klicka sedan på **Lägg till**.
 
-     ![Mitel ansluta i resultatlistan](common/search-new-app.png)
+     ![Spets koppling i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet får du konfigurera och testa Azure AD enkel inloggning med MiCloud ansluta baserat på en användare med namnet **Britta Simon**. För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i MiCloud ansluta upprättas.
+I det här avsnittet ska du konfigurera och testa enkel inloggning med Azure AD med MiCloud Connect baserat på en test användare som heter **Britta Simon**. För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i MiCloud Connect upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med MiCloud Connect, måste du utföra följande steg:
+Du måste utföra följande steg för att konfigurera och testa enkel inloggning med MiCloud Connect för Azure AD:
 
-1. **[Konfigurera MiCloud ansluta för enkel inloggning med Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)**  – om du vill ge användarna att använda den här funktionen och konfigurera inställningar för enkel inloggning på programsidan.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-4. **[Skapa en testanvändare Mitel MiCloud ansluta](#create-a-mitel-micloud-connect-test-user)**  – du har en motsvarighet för Britta Simon på ditt MiCloud Connect-konto som är länkad till en Azure AD-representation av användaren.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera MiCloud Connect för enkel inloggning med Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)** – så att användarna kan använda den här funktionen och konfigurera SSO-inställningar på program sidan.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Skapa en MiCloud Connect-test](#create-a-mitel-micloud-connect-test-user)** för att få en motsvarighet till Britta Simon på ditt MiCloud Connect-konto som är länkat till användarens Azure AD-representation.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-micloud-connect-for-sso-with-azure-ad"></a>Konfigurera MiCloud ansluta för enkel inloggning med Azure AD
+### <a name="configure-micloud-connect-for-sso-with-azure-ad"></a>Konfigurera MiCloud Connect för enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning för MiCloud Anslut i Azure-portalen och konfigurera ditt MiCloud Connect-konto för att tillåta SSO med hjälp av Azure AD.
+I det här avsnittet ska du aktivera enkel inloggning med Azure AD för MiCloud Connect i Azure Portal och konfigurera ditt MiCloud Connect-konto för att tillåta enkel inloggning med Azure AD.
 
-Om du vill konfigurera MiCloud ansluta med enkel inloggning för för Azure AD, är det enklast att öppna Azure portal och Mitel kontoportalen sida vid sida. Du behöver kopiera information från Azure-portalen till Mitel kontoportalen och vissa från Mitel-kontoportalen på Azure Portal.
+Om du vill konfigurera MiCloud ansluta med SSO för Azure AD är det enklast att öppna Azure Portal och säga konto portalen sida vid sida. Du måste kopiera lite information från Azure Portal till den säga konto portalen och vissa från den säga konto portalen till Azure Portal.
 
 
-1. Att öppna konfigurationssidan i den [Azure-portalen](https://portal.azure.com/), gör du följande:
+1. Om du vill öppna konfigurations sidan i [Azure Portal](https://portal.azure.com/)gör du följande:
 
-    a. På den **Mitel ansluta** program integration-sidan klickar du på **enkel inloggning**.
+    a. På sidan för att **ansluta** program integrering klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
-    b. I den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **SAML**.
+    b. Klicka på **SAML**i dialog rutan **Välj metod för enkel inloggning** .
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
     
-    SAML-baserad inloggning på sidan visas.
+    Sidan SAML-baserad inloggning visas.
 
-2. Öppna konfigurationsdialogrutan i Mitel-kontoportalen genom att göra följande:
+2. Så här öppnar du dialog rutan konfiguration i den säga konto portalen:
 
-    a. På den **Phone System** -menyn klickar du på **tilläggsfunktioner**.
+    a. På **telefon system** -menyn klickar du på **Lägg till funktioner**.
 
-    b. Till höger om **enkel inloggning**, klickar du på **aktivera** eller **inställningar**.
+    b. Till höger om **enkel inloggning**klickar du på **Aktivera** eller **Inställningar**.
     
-    Dialogrutan Anslut enkel inloggning inställningar visas.
+    Dialog rutan Anslut inställningar för enkel inloggning visas.
     
-3. Välj den **aktivera enkel inloggning** markerar du kryssrutan.
-    ![image](./media/mitel-connect-tutorial/Mitel_Connect_Enable.png)
+3. Markera kryss rutan **aktivera enkel inloggning** .
+    ![avbildning](./media/mitel-connect-tutorial/Mitel_Connect_Enable.png)
 
 
-4. I Azure-portalen klickar du på den **redigera** ikon i den **SAML grundkonfiguration** avsnittet.
-    ![image](common/edit-urls.png)
+4. Klicka på ikonen **Redigera** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+    ![avbildning](common/edit-urls.png)
 
-    Dialogrutan grundläggande SAML-konfiguration visas.
+    Dialog rutan grundläggande SAML-konfiguration visas.
 
-5.  Kopiera Webbadressen från den **Mitel identifierare (entitets-ID)** fältet Mitel-kontoportalen och klistra in den i den **identifierare (entitets-ID)** i Azure-portalen.
+5.  Kopiera URL: en från området **avgränsnings identifierare (enhets-ID)** i den säga konto portalen och klistra in den i fältet **identifierare (enhets-id)** i Azure Portal.
 
-6. Kopiera Webbadressen från den **svars-URL (försäkran URL för Konsumenttjänst)** fältet Mitel-kontoportalen och klistra in den i den **svars-URL (försäkran URL för Konsumenttjänst)** i Azure-portalen.  
-   ![image](./media/mitel-connect-tutorial/Mitel_Azure_BasicConfig.png)
+6. Kopiera URL: en från fältet **svars-URL (intyg om mottagar tjänst)** i den säga konto portalen och klistra in den i fältet **svars-URL (intyg om mottagar tjänst-url)** i Azure Portal.  
+   ![avbildning](./media/mitel-connect-tutorial/Mitel_Azure_BasicConfig.png)
 
-7. I den **inloggnings-URL** textruta, skriver du något av följande webbadresser:
+7. I text rutan **inloggnings-URL** skriver du en av följande URL: er:
 
-    * **https://portal.shoretelsky.com** – att använda Mitel kontoportalen som standardprogram för Mitel
-    * **https://teamwork.shoretel.com** – att använda samarbete som standardprogram för Mitel
+    * **https://portal.shoretelsky.com** – om du vill använda en spetsig konto portal som standard program
+    * **https://teamwork.shoretel.com** – om du vill använda lag lag som standard program
 
-    **Obs!** Standard Mitel programmet är program som nås när en användare klickar på panelen Mitel ansluta i åtkomstpanelen. Det här är program som nås när du gör en test-installation från Azure AD.
+    **Obs! standard märkningen**är programmet som används när en användare klickar på panelen för att ansluta på åtkomst panelen. Detta är också det program som nås när du gör en test installation från Azure AD.
 
-8. Klicka på **spara** i den **SAML grundkonfiguration** dialogrutan i Azure-portalen.
+8. Klicka på **Spara** i dialog rutan **grundläggande SAML-konfiguration** i Azure Portal.
 
-9. I den **SAML-signeringscertifikat** avsnittet på den **SAML-baserad inloggning** i Azure portal, klickar du på **hämta** bredvid **certifikat (Base64)** att ladda ned den **signeringscertifikat** och spara det på din dator.
-    ![image](./media/mitel-connect-tutorial/Azure_SigningCert.png)
+9. I avsnittet **SAML-signeringscertifikat** på sidan **SAML-baserad inloggning** i Azure Portal klickar du på **Hämta** bredvid **certifikat (base64)** för att ladda ned **signerings certifikatet** och spara det på din dator.
+    ![avbildning](./media/mitel-connect-tutorial/Azure_SigningCert.png)
 
-10. Öppna filen signeringscertifikat i en textredigerare, kopiera alla data i filen och klistra sedan in data i den **signeringscertifikat** i Mitel kontoportalen. 
-    ![image](./media/mitel-connect-tutorial/Mitel_Connect_SigningCert.png)
+10. Öppna signerings certifikat filen i en text redigerare, kopiera alla data i filen och klistra sedan in data i fältet **signerings certifikat** på konto portalen. 
+    ![avbildning](./media/mitel-connect-tutorial/Mitel_Connect_SigningCert.png)
 
-11. I den **det Mitel ansluta** avsnittet på den **SAML-baserad inloggning** sida av Azure-portalen gör du följande:
+11. I avsnittet **installations avgränsning** på sidan **SAML-baserad inloggning** i Azure Portal gör du följande:
 
-    a. Kopiera Webbadressen från den **inloggnings-URL** fältet och klistrar in den i den **logga in URL: en** i Mitel kontoportalen.
+    a. Kopiera URL: en från fältet **inloggnings-URL** och klistra in den i fältet **inloggnings-URL** i den högra konto portalen.
 
-    b. Kopiera Webbadressen från den **Azure AD-identifierare** fältet och klistrar in den i den **entitets-ID** i Mitel kontoportalen.
-    ![image](./media/mitel-connect-tutorial/Mitel_Azure_SetupConnect.png)
+    b. Kopiera URL: en från fältet för **Azure AD-identifieraren** och klistra in den i fältet **entitets-ID** på mål portalen.
+    ![avbildning](./media/mitel-connect-tutorial/Mitel_Azure_SetupConnect.png)
 
-12. Klicka på **spara** på den **ansluta inloggnings-inställningar för enkel** dialogrutan Mitel-kontoportalen.
+12. Klicka på **Spara** i dialog rutan **Anslut inställningar för enkel inloggning** på den högra konto portalen.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-portalen.
+I det här avsnittet ska du skapa en test användare med namnet Britta Simon i Azure Portal.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på **Azure Active Directory**, klickar du på **användare**, och klicka sedan på **alla användare**.
+1. Klicka på **Azure Active Directory**i Azure Portal i den vänstra rutan, klicka på **användare**och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](common/users.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
 2. Klicka på **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
-3. Gör följande i egenskapsdialogrutan för användaren:
+3. I dialog rutan användar egenskaper utför du följande steg:
 
-    ![Dialogrutan användare](common/user-properties.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** skriver **BrittaSimon**.
+    a. I fältet **namn** skriver du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver brittasimon @\<företagsdomänen\>.\< tillägget\>.  
+    b. I fältet **användar namn** skriver du brittasimon @\<yourcompanydomain\>.\<-tillägg\>.  
 Till exempel BrittaSimon@contoso.com.
 
-    c. Välj den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Mitel ansluta.
+I det här avsnittet ska du aktivera Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till spets anslutning.
 
-1. I Azure-portalen klickar du på **företagsprogram**, och klicka sedan på **alla program**.
+1. Klicka på **företags program**i Azure Portal och klicka sedan på **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program klickar du på **Mitel ansluta**.
+2. I listan program klickar du på **spets anslutning**.
 
-    ![Länken Mitel ansluta i listan med program](common/all-applications.png)
+    ![Länken för att ansluta i program listan](common/all-applications.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. I menyn till vänster klickar du på **användare och grupper**.
 
-    ![Länken ”användare och grupper”](common/users-groups-blade.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på **Lägg till användare**, klicka sedan på **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+4. Klicka på **Lägg till användare**och sedan på **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I den **användare och grupper** dialogrutan **Britta Simon** i den **användare** klicka sedan på **Välj** längst ned på skärmen.
+5. I dialog rutan **användare och grupper** väljer du **Britta Simon** i listan **användare** och klickar sedan på **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran, väljer du rätt roll för användaren i listan i den **Välj roll** dialogrutan och klicka sedan på **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på **Välj** längst ned på skärmen.
 
-7. I den **Lägg till tilldelning** dialogrutan klickar du på **tilldela**.
+7. I dialog rutan **Lägg till tilldelning** klickar du på **tilldela**.
 
-### <a name="create-a-mitel-micloud-connect-test-user"></a>Skapa en Mitel MiCloud ansluta testanvändare
+### <a name="create-a-mitel-micloud-connect-test-user"></a>Skapa en spetsig MiCloud Connect test User
 
-I det här avsnittet skapar du en användare med namnet Britta Simon på ditt MiCloud Connect-konto. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon på ditt MiCloud Connect-konto. Användare måste skapas och aktive ras innan enkel inloggning används.
 
-Mer information om att lägga till användare i Mitel-kontoportalen, finns i den [att lägga till en användare](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) artikel i Mitel Knowledge Base.
+Mer information om hur du lägger till användare på den säga konto portalen finns i artikeln [lägga till en användare](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) i den spetsa kunskaps basen.
 
-Skapa en användare på ditt MiCloud Connect-konto med följande uppgifter:
+Skapa en användare på ditt MiCloud Connect-konto med följande information:
 
   * **Namn:** Britta Simon
 
-* **Företagets e-postadress:** `brittasimon@<yourcompanydomain>.<extension>`   
-(Exempel: [ brittasimon@contoso.com ](mailto:brittasimon@contoso.com))
+* **Företagets e-post adress:** `brittasimon@<yourcompanydomain>.<extension>`   
+(Exempel: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))
 
-* **Användarnamn:** `brittasimon@<yourcompanydomain>.<extension>`  
-(Exempel: [ brittasimon@contoso.com ](mailto:brittasimon@contoso.com); användarens användarnamn är vanligtvis samma som användarens företags e-postadress)
+* **Användar namn:** `brittasimon@<yourcompanydomain>.<extension>`  
+(Exempel: [brittasimon@contoso.com](mailto:brittasimon@contoso.com). användarens användar namn är vanligt vis samma som användarens e-postadress till företaget)
 
-**Obs!** Användarens MiCloud ansluta användarnamnet måste vara identiska med användarens e-postadress i Azure.
+**Obs:** Användarens MiCloud Connect-användarnamn måste vara identiskt med användarens e-postadress i Azure.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska du testa Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet ska du testa konfigurationen för enkel inloggning med Azure AD via åtkomst panelen.
 
-När du klickar på panelen Mitel ansluta i åtkomstpanelen du ska omdirigeras automatiskt för att logga in till programmet MiCloud ansluter du har konfigurerat som standard i den **inloggnings-URL** fält. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för att ansluta på åtkomst panelen bör du omdirigeras automatiskt för att logga in på MiCloud Connect-programmet som du konfigurerade som standard i fältet för **inloggnings-URL** . I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

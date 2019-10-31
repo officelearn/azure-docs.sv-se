@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: ba594a2bc0f0cb50eb515a24255a3f9ad56a10a3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 05f7d022588eee0e5e97f10d6300da04c4be6270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931876"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161954"
 ---
 # <a name="move-operation-support-for-resources"></a>Åtgärds stöd för flytt av resurser
 Den här artikeln visar om en Azure-resurs har stöd för flytt åtgärden. Den innehåller också information om särskilda villkor att tänka på när du flyttar en resurs.
@@ -941,7 +941,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | publicipprefixes | Ja | Ja |
 > | routefilters | Nej | Nej |
 > | routetables | Ja | Ja |
-> | securegateways | Ja | Ja |
 > | serviceendpointpolicies | Ja | Ja |
 > | trafficmanagerprofiles | Ja | Ja |
 > | virtualhubs | Nej | Nej |

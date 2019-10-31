@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Mercell | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Mercell | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mercell.
 services: active-directory
 documentationCenter: na
@@ -8,53 +8,54 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bb94c288-2ed4-4683-acde-62474292df29
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: b37e35eb0314de25dad2ce07175a774f921fe4cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af51d76b3a500d7cc5edb0c21b893473e581acd6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097465"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160697"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Självstudier: Azure Active Directory-integrering med Mercell
+# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Självstudie: Azure Active Directory integrering med Mercell
 
-I den här självstudien får du lära dig hur du integrerar Mercell med Azure Active Directory (AD Azure).
-Integrera Mercell med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Mercell med Azure Active Directory (Azure AD).
+Genom att integrera Mercell med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Mercell.
-* Du kan aktivera användarna att vara automatiskt inloggad till Mercell (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Mercell (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Mercell, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Mercell behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Mercell enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Mercell-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Mercell **IDP** -initierad SSO
+* Mercell stöder **IDP** INITIERAd SSO
 
-* Har stöd för Mercell **Just In Time** etableringen av användare
+* Mercell stöder **just-in-Time** User-etablering
 
-## <a name="adding-mercell-from-the-gallery"></a>Att lägga till Mercell från galleriet
+## <a name="adding-mercell-from-the-gallery"></a>Lägga till Mercell från galleriet
 
-För att konfigurera integrering av Mercell i Azure AD, som du behöver lägga till Mercell från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Mercell i Azure AD måste du lägga till Mercell från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Mercell från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -62,37 +63,37 @@ För att konfigurera integrering av Mercell i Azure AD, som du behöver lägga t
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Mercell**väljer **Mercell** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Mercell**, väljer **Mercell** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Mercell i resultatlistan](common/search-new-app.png)
+     ![Mercell i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Mercell baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Mercell upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Mercell baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Mercell upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Mercell, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Mercell i Azure AD måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Mercell Single Sign-On](#configure-mercell-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Mercell](#create-mercell-test-user)**  – du har en motsvarighet för Britta Simon i Mercell som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Mercell-enkel inloggning](#configure-mercell-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Mercell test User](#create-mercell-test-user)** – om du vill ha en motsvarighet till Britta Simon i Mercell som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Mercell:
+Utför följande steg för att konfigurera enkel inloggning med Mercell i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Mercell** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **Mercell** Application Integration i [Azure Portal](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,17 +105,17 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Mercell
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Mercell domän och URL: er med enkel inloggning för information](common/idp-identifier.png)
+    ![Information om enkel inloggning för Mercell-domän och URL: er](common/idp-identifier.png)
 
     I textrutan **Identifierare** skriver du en URL: `https://my.mercell.com/`
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
+5. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-mercell-single-sign-on"></a>Konfigurera Mercell Single Sign-On
+### <a name="configure-mercell-single-sign-on"></a>Konfigurera Mercell enkel inloggning
 
-Att konfigurera enkel inloggning på **Mercell** sida, som du behöver skicka den **Appfederationsmetadata** till [Mercell supportteamet](mailto:webmaster@mercell.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Mercell** sida måste du skicka **URL: en för appens Federations-metadata** till [support teamet för Mercell](mailto:webmaster@mercell.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -134,26 +135,26 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Mercell.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Mercell.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Mercell**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Mercell**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Mercell**.
+2. I listan program väljer du **Mercell**.
 
-    ![Länken Mercell i listan med program](common/all-applications.png)
+    ![Mercell-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -167,18 +168,18 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-mercell-test-user"></a>Skapa Mercell testanvändare
+### <a name="create-mercell-test-user"></a>Skapa Mercell test användare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Mercell. Mercell stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Mercell, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i Mercell. Mercell stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Mercell skapas en ny efter autentiseringen.
 
 >[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [Mercell supportteamet](mailto:webmaster@mercell.com).
+>Kontakta [Mercell support team](mailto:webmaster@mercell.com)om du behöver skapa en användare manuellt.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Mercell i åtkomstpanelen, bör det vara loggas in automatiskt till Mercell som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Mercell på åtkomst panelen, bör du loggas in automatiskt på den Mercell som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

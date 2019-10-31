@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14146be73de309a7119f5c7b416c4e02f3bb4285
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383094"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160763"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Uppdatera din profil och konto information från portalen Mina appar
 
@@ -65,7 +65,7 @@ Uppdatera och hantera ditt arbets-eller skol konto information från sidan **pro
 
 - Logga ut från överallt.
 
-## <a name="change-your-password"></a>Ändra ditt lösenord
+## <a name="change-your-password"></a>Ändra ditt lösen ord
 
 Om du vill ändra lösen ordet för ditt arbets-eller skol konto kan du välja **ändra lösen ord** i avsnittet **Hantera konto** på **profil** sidan.
 
@@ -77,7 +77,7 @@ Om du vill ändra lösen ordet för ditt arbets-eller skol konto kan du välja *
 
     ![Sidan Ändra lösen ord](media/my-apps-portal/my-apps-portal-change-password-page.png)
 
-3. Välj **skicka**.
+3. Välj **Skicka**.
 
     Ditt lösen ord har ändrats. Du måste logga in till appar som du tidigare har loggat in på för att använda ditt arbets-eller skol konto.
 
@@ -86,7 +86,7 @@ Om du vill ändra lösen ordet för ditt arbets-eller skol konto kan du välja *
 Om du har glömt ditt lösen ord, fick du aldrig ett från företagets support eller har låsts av ditt konto, kan du återställa ditt eget lösen ord.
 
 >[!Important]
->Administratören måste aktivera den här funktionen och du måste registrera dig för att delta. Mer information om hur du registrerar och hur du återställer ditt lösen ord finns i [Registrera för lösen ords återställning](active-directory-passwords-reset-register.md) via självbetjäning och [återställa lösen ordet för ditt arbets-eller skol](user-help-reset-password.md)konto.
+>Administratören måste aktivera den här funktionen och du måste registrera dig för att delta. Mer information om hur du registrerar och hur du återställer ditt lösen ord finns i [Registrera för lösen ords återställning via självbetjäning](active-directory-passwords-reset-register.md) och [återställa lösen ordet för ditt arbets-eller skol](active-directory-passwords-update-your-own-password.md)konto.
 
 ## <a name="change-your-security-verification-information"></a>Ändra din säkerhets verifierings information
 
@@ -108,7 +108,7 @@ Tvåstegsverifiering kräver att du använder två olika verifierings uppgifter,
 
     - **Konfigurera Microsoft Authenticator-appen.** Du kan välja att konfigurera Microsoft Authenticator-appen så att den fungerar som din verifierings metod. Mer information om Microsoft Authenticator-appen finns i [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md)
 
-3. Välj **spara** att spara dina ändringar.
+3. Spara ändringarna genom att välja **Spara** .
 
 ## <a name="review-your-organizations-terms-of-use-statement"></a>Granska din organisations användnings villkors uttryck
 

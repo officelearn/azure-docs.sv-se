@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Visitly | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Visitly.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3ae085fb-ca60-4f41-96a0-068e5febf943
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,30 +16,30 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18517f8f0022b8347d8a3bb8a978c513db5f6f85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82efc34bf580ef204a04268e861a0ff214d97572
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087382"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160921"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-visitly"></a>Självstudier: Azure Active Directory-integrering med Visitly
+# <a name="tutorial-azure-active-directory-integration-with-visitly"></a>Självstudie: Azure Active Directory integration med på gång
 
 I den här självstudien lär du dig att integrera Visitly med Azure Active Directory (AD Azure).
 Integreringen av Visitly med Azure AD medför följande fördelar:
 
 * Du kan i Azure AD styra vem som har åtkomst till Visitly.
 * Du kan göra så att dina användare automatiskt loggas in på Visitly (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Visitly behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Visitly-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -53,7 +54,7 @@ För att konfigurera integreringen av Visitly med Azure AD måste du lägga till
 
 **Utför följande steg för att lägga till Visitly från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,7 +62,7 @@ För att konfigurera integreringen av Visitly med Azure AD måste du lägga till
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +70,19 @@ För att konfigurera integreringen av Visitly med Azure AD måste du lägga till
 
      ![Visitly i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Visitly baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera så måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Visitly upprättas.
 
 För att konfigurera och testa enkel inloggning för Azure AD med Visitly behöver du slutföra följande byggstenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Visitly](#configure-visitly-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Visitly-testanvändare](#create-visitly-test-user)** – för att ha en motsvarighet för Britta Simon i Visitly som är länkad till en Azure AD-representation av användaren. 
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Visit
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Visitly**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -107,7 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Visit
 
 5. Visitly-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** redigerar du anspråket för **namnidentifierarvärde** genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut såsom det visas i bilden ovan och utföra följande steg:
     
@@ -117,9 +118,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Visit
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![mallar](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![mallar](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -131,17 +132,17 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Visit
 
     f. Klicka på **Ok**
 
-    g. Klicka på **Spara**.
+    g. Klicka på **Save** (Spara).
 
 7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **XML-federationsmetadata** från de angivna alternativen enligt dina behov och sparar dem på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 8. I avsnittet **Konfigurera Visitly** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
@@ -149,7 +150,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Visit
 
 ### <a name="configure-visitly-single-sign-on"></a>Konfigurera enkel inloggning för Visitly
 
-För att konfigurera enkel inloggning på **Visitly**-sidan behöver du skicka nedladdade **XML-federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Visitly](mailto:support@visitly.io). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+För att konfigurera enkel inloggning på **Visitly**-sidan behöver du skicka nedladdade **XML-federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Visitly](mailto:support@visitly.io). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -167,16 +168,16 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Visitly.
 
@@ -188,7 +189,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Visitly-länk i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -208,9 +209,9 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i Visitly. 
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Visitly-panelen i åtkomstpanelen bör du automatiskt loggas in på Visitly som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Visitly-panelen i åtkomstpanelen bör du automatiskt loggas in på Visitly som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

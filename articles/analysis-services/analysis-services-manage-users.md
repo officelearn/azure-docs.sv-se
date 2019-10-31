@@ -4,15 +4,15 @@ description: Läs mer om autentisering och användar behörigheter i Azure Analy
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc66b34492b34a6e0f239d19ee10fbd79b683a14
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a48292b7600d8b9e400bf1e2d61aec313ce29f4b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294921"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146870"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 
@@ -28,11 +28,11 @@ Alla klient program och verktyg använder ett eller flera av de Analysis Service
 
 Alla tre klient biblioteken stöder både det interaktiva flödet i Azure AD och icke-interaktiva autentiseringsmetoder. De två icke-interaktiva metoderna, Active Directory lösen ord och Active Directory integrerade autentiseringsmetoder kan användas i program som använder AMOMD och MSOLAP. Dessa två metoder resulterar aldrig i popup-dialogrutor.
 
-Klient program som Excel och Power BI Desktop och verktyg som SSMS och SSDT installerar de senaste versionerna av biblioteken när de har uppdaterats till den senaste versionen. Power BI Desktop, SSMS och SSDT uppdateras varje månad. Excel har [uppdaterats med Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Office 365-uppdateringar är mindre frekventa och vissa organisationer använder den uppskjutna kanalen, vilket innebär att uppdateringar uppskjuts upp till tre månader.
+Klient program som Excel och Power BI Desktop och verktyg som SSMS och Analysis Services projekt tillägget för Visual Studio installerar de senaste versionerna av biblioteken när de har uppdaterats till den senaste versionen. Power BI Desktop, SSMS och Analysis Services projekt tillägget uppdateras varje månad. Excel har [uppdaterats med Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Office 365-uppdateringar är mindre frekventa och vissa organisationer använder den uppskjutna kanalen, vilket innebär att uppdateringar uppskjuts upp till tre månader.
 
 Beroende på vilket klient program eller verktyg du använder kan typen av autentisering och hur du loggar in vara annorlunda. Varje program kan ha stöd för olika funktioner för att ansluta till moln tjänster som Azure Analysis Services.
 
-Power BI Desktop, SSDT och SSMS-stöd Active Directory Universal Authentication, en interaktiv metod som också stöder Azure-Multi-Factor Authentication (MFA). Azure MFA hjälper till att skydda åtkomsten till data och program samtidigt som du ger en enkel inloggnings process. Den ger stark autentisering med flera verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande om mobilapp). Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering. **Universal Authentication rekommenderas**.
+Power BI Desktop-, Visual Studio-och SSMS-support Active Directory Universal Authentication, en interaktiv metod som också stöder Azure-Multi-Factor Authentication (MFA). Azure MFA hjälper till att skydda åtkomsten till data och program samtidigt som du ger en enkel inloggnings process. Den ger stark autentisering med flera verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande om mobilapp). Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering. **Universal Authentication rekommenderas**.
 
 Om du loggar in på Azure med hjälp av ett Windows-konto och universell autentisering inte är markerat eller tillgängligt (Excel) krävs [Active Directory Federation Services (AD FS) (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) . Med Federation autentiseras Azure AD-och Office 365-användare med lokala autentiseringsuppgifter och kan komma åt Azure-resurser.
 
@@ -46,9 +46,9 @@ Azure Analysis Services-servrar stöder anslutningar från [SSMS v 17.1](https:/
 
 *  Stöder Multi-Factor Authentication (MFA). Azure MFA hjälper till att skydda åtkomsten till data och program med ett antal verifierings alternativ: telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande om mobilapp. Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering.
 
-### <a name="sql-server-data-tools-ssdt"></a>SQL Server Data Tools (SSDT)
+### <a name="visual-studio"></a>Visual Studio
 
-SSDT ansluter till Azure Analysis Services genom att använda Active Directory Universal-autentisering med MFA-stöd. Användarna uppmanas att logga in på Azure vid den första distributionen. Användarna måste logga in på Azure med ett konto med Server administratörs behörighet på den server som de distribuerar till. När du loggar in på Azure första gången tilldelas en token. SSDT cachelagrar token i minnet för framtida åter anslutning.
+Visual Studio ansluter till Azure Analysis Services med hjälp av Active Directory Universal Authentication med MFA-stöd. Användarna uppmanas att logga in på Azure vid den första distributionen. Användarna måste logga in på Azure med ett konto med Server administratörs behörighet på den server som de distribuerar till. När du loggar in på Azure första gången tilldelas en token. Token cachelagras i minnet för framtida åter anslutning.
 
 ### <a name="power-bi-desktop"></a>Power BI Desktop
 
@@ -60,7 +60,7 @@ Excel-användare kan ansluta till en server med hjälp av ett Windows-konto, ett
 
 ## <a name="user-permissions"></a>Användarbehörigheter
 
-**Server administratörer** är bara för en Azure Analysis Services Server instans. De ansluter till verktyg som Azure Portal, SSMS och SSDT för att utföra åtgärder som att lägga till databaser och hantera användar roller. Som standard läggs den användare som skapar-servern automatiskt som en Analysis Services Server administratör. Andra administratörer kan läggas till med hjälp av Azure Portal eller SSMS. Server administratörer måste ha ett konto i Azure AD-klienten i samma prenumeration. Mer information finns i [hantera Server administratörer](analysis-services-server-admins.md). 
+**Server administratörer** är bara för en Azure Analysis Services Server instans. De ansluter till verktyg som Azure Portal, SSMS och Visual Studio för att utföra åtgärder som att lägga till databaser och hantera användar roller. Som standard läggs den användare som skapar-servern automatiskt som en Analysis Services Server administratör. Andra administratörer kan läggas till med hjälp av Azure Portal eller SSMS. Server administratörer måste ha ett konto i Azure AD-klienten i samma prenumeration. Mer information finns i [hantera Server administratörer](analysis-services-server-admins.md). 
 
 **Databas användare** ansluter till modell databaser med hjälp av klient program som Excel eller Power BI. Användare måste läggas till i databas roller. Databas roller definierar administratörs-, process-eller Läs behörighet för en databas. Det är viktigt att förstå databas användare i en roll med administratörs behörighet skiljer sig från Server administratörer. Som standard är Server administratörer också databas administratörer. Mer information finns i [Hantera databas roller och användare](analysis-services-database-users.md).
 
@@ -74,7 +74,7 @@ Roller på den här nivån gäller för användare eller konton som behöver utf
 
  Roller som definierats för en tabell modell är databas roller. Det vill säga rollerna innehåller medlemmar som består av Azure AD-användare och säkerhets grupper som har särskilda behörigheter som definierar de åtgärder som medlemmarna kan vidta på en modell databas. En databasroll skapas som ett separat objekt i databasen och gäller endast för databasen som rollen har skapats i.   
   
- När du skapar ett nytt projekt för tabell modeller har modell projektet som standard inga roller. Roller kan definieras med hjälp av dialog rutan roll hanterare i SSDT. När roller definieras under modell projektets design, tillämpas de bara på modell arbets ytans databas. När modellen distribueras tillämpas samma roller på den distribuerade modellen. När en modell har distribuerats kan Server-och databas administratörer hantera roller och medlemmar med hjälp av SSMS. Mer information finns i [Hantera databas roller och användare](analysis-services-database-users.md).
+ När du skapar ett nytt projekt för tabell modeller har modell projektet som standard inga roller. Roller kan definieras med hjälp av dialog rutan roll hanterare i Visual Studio. När roller definieras under modell projektets design, tillämpas de bara på modell arbets ytans databas. När modellen distribueras tillämpas samma roller på den distribuerade modellen. När en modell har distribuerats kan Server-och databas administratörer hantera roller och medlemmar med hjälp av SSMS. Mer information finns i [Hantera databas roller och användare](analysis-services-database-users.md).
   
 ## <a name="next-steps"></a>Nästa steg
 

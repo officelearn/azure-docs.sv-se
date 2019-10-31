@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Moxi engagera | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Moxi engagera.
+title: 'Självstudie: Azure Active Directory integrering med Moxi engagera | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory-och Moxi-engagemang.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,51 +8,52 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1135a879-8f00-43b0-ac8a-831593d9586d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f12b564ac2827cae98e9029fc9c6ce20862fa6ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85e025355d914f95c2be221341b5eff08d1378e5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096821"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160487"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Självstudier: Azure Active Directory-integrering med Moxi engagera
+# <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Självstudie: Azure Active Directory integrering med Moxi engagera
 
-I den här självstudien får du lära dig hur du integrerar Moxi interagera med Azure Active Directory (AD Azure).
-Integrera Moxi interagera med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera Moxi engagera med Azure Active Directory (Azure AD).
+Att integrera Moxi engagera med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Moxi engagera.
-* Du kan aktivera användarna att vara automatiskt inloggad till Moxi engagera (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till Moxi-engagemang.
+* Du kan göra det möjligt för användarna att vara automatiskt inloggade att Moxi engagera (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Moxi engagera, behöver du följande objekt:
+För att konfigurera Azure AD-integrering med Moxi engagera behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Moxi engagera enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Moxi engagerande prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Moxi engagera **SP** -initierad SSO
+* Moxi engagera stöder **SP** -INITIERAd SSO
 
-## <a name="adding-moxi-engage-from-the-gallery"></a>Att lägga till Moxi engagera från galleriet
+## <a name="adding-moxi-engage-from-the-gallery"></a>Lägga till Moxi engagera från galleriet
 
-För att konfigurera integrering av Moxi engagera i Azure AD, som du behöver lägga till Moxi engagera från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Moxi i Azure AD måste du lägga till Moxi engagera från galleriet till listan över hanterade SaaS-appar.
 
-**Om du vill lägga till Moxi engagera från galleriet, utför du följande steg:**
+**Gör så här om du vill lägga till Moxi från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -60,37 +61,37 @@ För att konfigurera integrering av Moxi engagera i Azure AD, som du behöver l�
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Moxi engagera**väljer **Moxi engagera** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Moxi engagera**, väljer **Moxi engagera** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Moxi engagera i resultatlistan](common/search-new-app.png)
+     ![Moxi engagera i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Moxi engagera baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Moxi engagera upprättas.
+I det här avsnittet ska du konfigurera och testa enkel inloggning med Azure AD med Moxi engagera dig baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Moxi.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Moxi engagera, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Moxi i Azure AD måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Moxi engagera enkel inloggning](#configure-moxi-engage-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Moxi engagera testanvändare](#create-moxi-engage-test-user)**  – du har en motsvarighet för Britta Simon i Moxi engagera som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Moxi engagera enkel inloggning](#configure-moxi-engage-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Moxi engagera test User](#create-moxi-engage-test-user)** – om du vill ha en motsvarighet till Britta Simon i Moxi engagera som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Moxi engagera:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med Moxi:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Moxi engagera** application integration markerar **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Moxi engagera** program integration väljer du **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,30 +103,30 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Moxi en
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Moxi engagera domän och URL: er med enkel inloggning för information](common/sp-signonurl.png)
+    ![Moxi engagera domän-och webb adresser information om enkel inloggning](common/sp-signonurl.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Moxi engagera klienten supportteamet](mailto:support@moxiworks.com) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Moxi engagera klient support teamet](mailto:support@moxiworks.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. På den **konfigurera Moxi engagera** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera Moxi-engagemang** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-moxi-engage-single-sign-on"></a>Konfigurera Moxi delta enkel inloggning
+### <a name="configure-moxi-engage-single-sign-on"></a>Konfigurera Moxi engagera enkel inloggning
 
-Att konfigurera enkel inloggning på **Moxi engagera** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Moxi engagera supportteamet](mailto:support@moxiworks.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Moxi** -sidan, måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [Moxi engagera support teamet](mailto:support@moxiworks.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -143,28 +144,28 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Moxi engagera.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Moxi-engagemang.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Moxi engagera**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Moxi engagera**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Moxi engagera**.
+2. I listan program väljer du **Moxi engagera**.
 
-    ![Länken Moxi engagera i listan med program](common/all-applications.png)
+    ![Moxi engagera-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -172,21 +173,21 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
 6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-moxi-engage-test-user"></a>Skapa Moxi engagera testanvändare
+### <a name="create-moxi-engage-test-user"></a>Skapa Moxi engagera test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Moxi engagera. Arbeta med [Moxi engagera supportteamet](mailto:support@moxiworks.com) att lägga till användare i Moxi engagera-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare som kallas Britta Simon i Moxi-engagemang. Arbeta med [Moxi engagera support team](mailto:support@moxiworks.com) för att lägga till användare i Moxi-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Moxi engagera i åtkomstpanelen, bör det vara loggas in automatiskt att engagera Moxi som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Moxi engagera i åtkomst panelen, bör du loggas in automatiskt på det Moxi-engagera som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

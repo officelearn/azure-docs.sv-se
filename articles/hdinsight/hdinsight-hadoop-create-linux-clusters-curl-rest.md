@@ -1,6 +1,6 @@
 ---
-title: Skapa Apache Hadoop-kluster med Azure REST-API – Azure
-description: Lär dig hur du skapar HDInsight-kluster genom att skicka in Azure Resource Manager-mallar till Azure REST-API.
+title: Skapa Apache Hadoop kluster med Azure REST API – Azure
+description: Lär dig hur du skapar HDInsight-kluster genom att skicka Azure Resource Manager mallar till Azure-REST API.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,29 +8,29 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 963dc71097a1ac53df77f3ab9c804b53597adeb5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059410"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152010"
 ---
-# <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Skapa Apache Hadoop-kluster med Azure REST-API
+# <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Skapa Apache Hadoop kluster med Azure-REST API
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Lär dig hur du skapar ett HDInsight-kluster med hjälp av en Azure Resource Manager-mall och Azure REST-API.
+Lär dig hur du skapar ett HDInsight-kluster med hjälp av en Azure Resource Manager-mall och Azure-REST API.
 
-Azure REST-API kan du utföra hanteringsåtgärder på tjänster som finns i Azure-plattformen, inklusive att skapa nya resurser, till exempel HDInsight-kluster.
+Med Azure-REST API kan du utföra hanterings åtgärder på tjänster som körs på Azure-plattformen, inklusive att skapa nya resurser som HDInsight-kluster.
 
 > [!NOTE]  
-> Stegen i det här dokumentet används de [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) verktyg för att kommunicera med Azure REST-API.
+> Stegen i det här dokumentet använder [vändningen (https://curl.haxx.se/) -](https://curl.haxx.se/) verktyget för att kommunicera med Azure-REST API.
 
 ## <a name="create-a-template"></a>Skapa en mall
 
-Azure Resource Manager-mallar är JSON-dokument som beskriver en **resursgrupp** och alla resurser i den (t.ex HDInsight). Mallbaserade så sätt kan du definiera de resurser som du behöver för HDInsight i en mall.
+Azure Resource Manager mallar är JSON-dokument som beskriver en **resurs grupp** och alla resurser i den (till exempel HDInsight.) Med hjälp av den här mallbaserade metoden kan du definiera de resurser som du behöver för HDInsight i en mall.
 
-Följande JSON-dokumentet är en sammanslagning av mall och parametrar filerna från [ https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), vilket skapar ett Linux-baserade kluster som använder ett lösenord för att skydda SSH-användarkontot.
+Följande JSON-dokument är en sammanslagning av mall-och parameter filen från [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), vilket skapar ett Linux-baserat kluster med ett lösen ord för att skydda SSH-användarkontot.
 
    ```json
    {
@@ -145,7 +145,7 @@ Följande JSON-dokumentet är en sammanslagning av mall och parametrar filerna f
                                "name": "headnode",
                                "targetInstanceCount": "2",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}" 
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -158,7 +158,7 @@ Följande JSON-dokumentet är en sammanslagning av mall och parametrar filerna f
                                "name": "workernode",
                                "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}"
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -205,29 +205,29 @@ Följande JSON-dokumentet är en sammanslagning av mall och parametrar filerna f
    }
    ```
 
-Det här exemplet används i stegen i det här dokumentet. Ersätta exemplet *värden* i den **parametrar** med värdena för ditt kluster.
+Det här exemplet används i stegen i det här dokumentet. Ersätt exempel *värden* i avsnittet **parametrar** med värdena för klustret.
 
 > [!IMPORTANT]  
-> Mallen använder standardvärdet för antal arbetsnoder (4) för ett HDInsight-kluster. Om du planerar att mer än 32 arbetsnoder, måste du välja en head nodstorlek med minst 8 kärnor och 14 GB RAM-minne.
+> Mallen använder standardvärdet för arbetsnoder (4) för ett HDInsight-kluster. Om du planerar över 32 arbetsnoder måste du välja en huvudnods storlek med minst 8 kärnor och 14 GB RAM.
 >
 > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 
-Följ stegen i [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) och ansluta till din prenumeration med hjälp av den `az login` kommando.
+Följ stegen som beskrivs i [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) och Anslut till din prenumeration med kommandot `az login`.
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
 > [!NOTE]  
-> De här stegen är en förkortad version av den *skapa tjänstens huvudnamn med lösenord* delen av den [används Azure CLI för att skapa ett huvudnamn för tjänsten för resursåtkomst](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) dokumentet. De här stegen skapar ett huvudnamn för tjänsten som används för att autentisera till Azure REST-API.
+> De här stegen är en förkortad version av avsnittet *skapa tjänstens huvud namn med lösen ord* i [använda Azure CLI för att skapa ett tjänst huvud namn för att få åtkomst till resurs](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) dokument. De här stegen skapar ett huvud namn för tjänsten som används för att autentisera till Azure-REST API.
 
-1. Använd kommandot för att lista dina Azure-prenumerationer från en kommandorad.
+1. Använd följande kommando från en kommando rad för att visa en lista över dina Azure-prenumerationer.
 
    ```bash
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    I listan, Välj den prenumeration som du vill använda och anteckna den **Subscription_ID** och __Tenant_ID__ kolumner. Spara dessa värden.
+    I listan väljer du den prenumeration som du vill använda och noterar kolumnerna **Subscription_ID** och __Tenant_ID__ . Spara dessa värden.
 
 2. Använd följande kommando för att skapa ett program i Azure Active Directory.
 
@@ -235,30 +235,30 @@ Följ stegen i [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/g
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    Ersätt värdena för den `--display-name`, `--homepage`, och `--identifier-uris` med dina egna värden. Ange ett lösenord för den nya Active Directory-posten.
+    Ersätt värdena för `--display-name`, `--homepage`och `--identifier-uris` med dina egna värden. Ange ett lösen ord för den nya Active Directorys posten.
 
    > [!NOTE]  
-   > Den `--home-page` och `--identifier-uris` värden behöver inte referera till en webbsida som finns på internet. De måste vara unik URI: er.
+   > Värdena för `--home-page` och `--identifier-uris` behöver inte referera till en faktisk webb sida som finns på Internet. De måste vara unika URI: er.
 
-   Värdet som returneras från det här kommandot är den __App-ID__ för det nya programmet. Spara det här värdet.
+   Värdet som returneras från det här kommandot är __app-ID:__ t för det nya programmet. Spara det här värdet.
 
-3. Använd följande kommando för att skapa ett huvudnamn för tjänsten med hjälp av den **App-ID**.
+3. Använd följande kommando för att skapa ett huvud namn för tjänsten med **app-ID**.
 
    ```bash
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     Värdet som returneras från det här kommandot är den __objekt-ID__. Spara det här värdet.
+     Värdet som returneras från det här kommandot är __objekt-ID: t__. Spara det här värdet.
 
-4. Tilldela den **ägare** roll till tjänstens huvudnamn med den **objekt-ID** värde. Använd den **prenumerations-ID** du fick tidigare.
+4. Tilldela **ägar** rollen till tjänstens huvud namn med hjälp av värdet **objekt-ID** . Använd det **prenumerations-ID** som du fick tidigare.
 
    ```bash
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 
-## <a name="get-an-authentication-token"></a>Få en autentiseringstoken
+## <a name="get-an-authentication-token"></a>Hämta en autentiseringstoken
 
-Använd följande kommando för att hämta någon autentiseringstoken:
+Använd följande kommando för att hämta en autentiseringstoken:
 
 ```bash
 curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
@@ -270,11 +270,11 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 --data-urlencode "resource=https://management.azure.com/"
 ```
 
-Ange `$TENANTID`, `$APPID`, och `$PASSWORD` till värdena som anskaffats eller använts tidigare.
+Ange `$TENANTID`, `$APPID`och `$PASSWORD` till värdena som hämtats eller använts tidigare.
 
-Om den här begäran lyckas får du svaret 200 serien och svarstexten innehåller ett JSON-dokument.
+Om den här begäran lyckas får du ett svar på 200-serien och svars texten innehåller ett JSON-dokument.
 
-JSON-dokumentet som returneras av den här begäran innehåller ett element med namnet **access_token**. Värdet för **access_token** används för att autentiseringsbegäranden till REST-API.
+JSON-dokumentet som returnerades av denna begäran innehåller ett element med namnet **access_token**. Värdet för **access_token** används för att autentisera begär anden till REST API.
 
 ```json
 {
@@ -288,12 +288,12 @@ JSON-dokumentet som returneras av den här begäran innehåller ett element med 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Använd följande för att skapa en resursgrupp.
+Använd följande för att skapa en resurs grupp.
 
-* Ange `$SUBSCRIPTIONID` till prenumerationen ID fick när du skapar tjänstens huvudnamn.
-* Ange `$ACCESSTOKEN` till den åtkomst-token som tas emot i föregående steg.
-* Ersätt `DATACENTERLOCATION` med datacenter som du vill skapa resursgrupp och resurser i. Till exempel ”USA, södra centrala”.
-* Ange `$RESOURCEGROUPNAME` till namn som du vill använda för den här gruppen:
+* Ange `$SUBSCRIPTIONID` till det prenumerations-ID som togs emot när tjänstens huvud namn skapades.
+* Ange `$ACCESSTOKEN` till den åtkomsttoken som togs emot i föregående steg.
+* Ersätt `DATACENTERLOCATION` med data centret som du vill skapa resurs gruppen och resurserna i. Till exempel "södra centrala USA".
+* Ange `$RESOURCEGROUPNAME` till det namn som du vill använda för den här gruppen:
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME?api-version=2015-01-01" \
@@ -304,13 +304,13 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 }'
 ```
 
-Om den här begäran lyckas får du svaret 200 serien och svarstexten innehåller ett JSON-dokument som innehåller information om gruppen. Den `"provisioningState"` elementet innehåller ett värde av `"Succeeded"`.
+Om den här begäran lyckas får du ett svar på 200-serien och svars texten innehåller ett JSON-dokument som innehåller information om gruppen. `"provisioningState"`-elementet innehåller värdet `"Succeeded"`.
 
 ## <a name="create-a-deployment"></a>Skapa en distribution
 
-Använd följande kommando för att distribuera mallen till resursgruppen.
+Använd följande kommando för att distribuera mallen till resurs gruppen.
 
-* Ange `$DEPLOYMENTNAME` till namn som du vill använda för den här distributionen.
+* Ange `$DEPLOYMENTNAME` till det namn som du vill använda för den här distributionen.
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
@@ -320,18 +320,18 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 ```
 
 > [!NOTE]  
-> Om du har sparat mallen till en fil kan du använda följande kommando i stället för `-d "{ template and parameters}"`:
+> Om du har sparat mallen i en fil kan du använda följande kommando i stället för `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
-Om den här begäran lyckas får du svaret 200 serien och svarstexten innehåller ett JSON-dokument som innehåller information om distributionen igen.
+Om den här begäran lyckas får du ett 200-seriens svar och svars texten innehåller ett JSON-dokument som innehåller information om distributions åtgärden.
 
 > [!IMPORTANT]  
-> Distributionen har skickats, men har inte slutförts. Det kan ta flera minuter, vanligen cirka 15 för distributionen har slutförts.
+> Distributionen har skickats, men inte slutförts. Det kan ta flera minuter, vanligt vis runt 15, för att distributionen ska kunna slutföras.
 
-## <a name="check-the-status-of-a-deployment"></a>Kontrollera status för en distribution
+## <a name="check-the-status-of-a-deployment"></a>Kontrol lera status för en distribution
 
-Om du vill kontrollera status för distributionen, använder du följande kommando:
+Använd följande kommando för att kontrol lera distributionens status:
 
 ```bash
 curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
@@ -339,20 +339,20 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -H "Content-Type: application/json"
 ```
 
-Det här kommandot returnerar ett JSON-dokument som innehåller information om distributionen igen. Den `"provisioningState"` elementet innehåller statusen för distributionen. Om det här elementet innehåller ett värde av `"Succeeded"`, och sedan distributionen har slutförts.
+Det här kommandot returnerar ett JSON-dokument som innehåller information om distributions åtgärden. `"provisioningState"`-elementet innehåller distributionens status. Om det här elementet innehåller värdet `"Succeeded"`har distributionen slutförts.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
 Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat ett HDInsight-kluster, kan du använda följande för att lära dig hur du arbetar med ditt kluster.
+Nu när du har skapat ett HDInsight-kluster kan du använda följande för att lära dig hur du arbetar med klustret.
 
-### <a name="apache-hadoop-clusters"></a>Apache Hadoop-kluster
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop kluster
 
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använda Apache Pig med HDInsight](hadoop/hdinsight-use-pig.md)
+* [Använda Apache gris med HDInsight](hadoop/hdinsight-use-pig.md)
 * [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase-kluster
@@ -360,8 +360,8 @@ Nu när du har skapat ett HDInsight-kluster, kan du använda följande för att 
 * [Kom igång med Apache HBase på HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Utveckla Java-program för Apache HBase på HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="apache-storm-clusters"></a>Apache Storm-kluster
+### <a name="apache-storm-clusters"></a>Apache Storm kluster
 
-* [Utveckla Java-topologier för Apache Storm på HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Använda Python-komponenter i Apache Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Utveckla Java-topologier för Apache Storm i HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Använda python-komponenter i Apache Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Distribuera och övervaka topologier med Apache Storm på HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

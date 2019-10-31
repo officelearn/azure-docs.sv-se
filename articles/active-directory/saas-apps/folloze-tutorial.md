@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Folloze | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory-integrering med Folloze | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Folloze.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b6265bbf-8216-4229-bda7-8dd1023a5f80
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d7d9115ba7b5d60c6fbf61590aebd47a00c4b2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb5fe50d6d6dfe74b5ecceae2c8defe45c3c86d9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102171"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73156101"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Självstudier: Azure Active Directory-integrering med Folloze
+# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Självstudie: Azure Active Directory-integrering med Folloze
 
 I den här självstudien får du lära dig hur du integrerar Folloze med Azure Active Directory (AD Azure).
 Integrering av Folloze med Azure AD ger dig följande fördelar:
@@ -34,11 +35,11 @@ Integrering av Folloze med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Folloze behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Folloze-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +55,7 @@ För att konfigurera integreringen av Folloze till Azure AD behöver du lägga t
 
 **Lägg till Folloze från galleriet genom att utföra följande steg:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select_azuread.png)
 
@@ -62,7 +63,7 @@ För att konfigurera integreringen av Folloze till Azure AD behöver du lägga t
 
     ![Bladet Företagsprogram](common/enterprise_applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add_new_app.png)
 
@@ -79,10 +80,10 @@ För att konfigurera och testa enkel inloggning med Azure AD med Folloze måste 
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Folloze](#configure-folloze-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Folloze-testanvändare](#create-folloze-test-user)** – för att ha en motsvarighet för Britta Simon i Folloze som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -92,7 +93,7 @@ Konfigurera enkel inloggning med Azure AD med Folloze genom att utföra följand
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Folloze**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select_sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select_sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -108,7 +109,7 @@ Konfigurera enkel inloggning med Azure AD med Folloze genom att utföra följand
 
 5. Folloze-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![image](common/edit_attribute.png)
+    ![mallar](common/edit_attribute.png)
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
@@ -119,9 +120,9 @@ Konfigurera enkel inloggning med Azure AD med Folloze genom att utföra följand
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new_save_attribute.png)
+    ![mallar](common/new_save_attribute.png)
 
-    ![image](common/new_attribute_details.png)
+    ![mallar](common/new_attribute_details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -133,7 +134,7 @@ Konfigurera enkel inloggning med Azure AD med Folloze genom att utföra följand
 
     f. Klicka på **Ok**
 
-    g. Klicka på **Spara**.
+    g. Klicka på **Save** (Spara).
 
 7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -143,7 +144,7 @@ Konfigurera enkel inloggning med Azure AD med Folloze genom att utföra följand
 
     ![Kopiera konfigurations-URL:er](common/copy_configuration_urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
@@ -171,7 +172,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -190,7 +191,7 @@ I det här avsnittet gör du så att Britta Simon kan använda enkel inloggning 
 
     ![Folloze-länken i listan med program](common/all_applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users_groups_blade.png)
 
@@ -212,7 +213,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i Folloze. Foll
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Folloze-panelen i åtkomstpanelen bör du automatiskt loggas in på Folloze som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Folloze-panelen i åtkomstpanelen bör du automatiskt loggas in på Folloze som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

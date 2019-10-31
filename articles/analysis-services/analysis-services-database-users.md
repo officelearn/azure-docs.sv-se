@@ -4,15 +4,15 @@ description: Lär dig hur du hanterar databas roller och användare på en Analy
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 426b69173994fc94a52ef0fcccb0dbc6315de14a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301144"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147005"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databas roller och användare
 
@@ -25,14 +25,14 @@ Roll behörigheter är:
 *  **Process** -användare kan ansluta till och utföra process åtgärder på databasen och analysera modell databas data.
 *  **Read** -Users kan använda ett klient program för att ansluta till och analysera modell databas data.
 
-När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i SQL Server Data Tools (SSDT). När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell-cmdletar](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)eller TMSL ( [tabell modell skript språk](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) för att lägga till eller ta bort roller och användar medlemmar.
+När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i Visual Studio med Analysis Services projekt. När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell-cmdletar](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)eller TMSL ( [tabell modell skript språk](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) för att lägga till eller ta bort roller och användar medlemmar.
 
 **Säkerhets grupper** måste vara [e-postaktiverade](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) med egenskapen `MailEnabled` inställd på `True`. Använd `obj:groupid@tenantid` när du anger en grupp per e-postadress.
 
 
-## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Lägga till eller hantera roller och användare i SSDT  
+## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Lägga till eller hantera roller och användare i Visual Studio  
   
-1.  Högerklicka på **roller**i SSDT > **tabell modell Utforskaren**.  
+1.  Högerklicka på **roller**i **tabell modell Utforskaren**.  
   
 2.  Klicka på **Ny** i **rollhanteraren**.  
   

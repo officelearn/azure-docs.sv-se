@@ -1,5 +1,6 @@
 ---
-title: Microsoft Identity Platform JavaScript-snabb start – Azure
+title: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA | Azure
+titleSuffix: Microsoft identity platform
 description: Lär dig hur JavaScript-program kan anropa ett API som kräver åtkomsttoken med hjälp av Microsoft Identity Platform.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,14 +17,14 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51ef62d84d2744b595cfb946b7720f8b2a5dcd77
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: ad79ee0fd1d421c7e869424ccb8daa595e51a970
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964057"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149409"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Snabb start: Logga in användare och hämta en åtkomsttoken från ett program med en enda sida med Java Script
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton. En JavaScript-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 

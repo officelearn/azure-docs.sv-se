@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/29/2019
+ms.openlocfilehash: b60906df01f640877e90281812acf64082ffad01
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71266191"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162833"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Förbättra prestanda för Apache Spark arbets belastningar med Azure HDInsight IO-cache
 
@@ -22,6 +22,7 @@ De flesta SSD tillhandahåller mer än 1 GByte per sekund för bandbredden. Den 
 
 > [!Note]  
 > I/o-cachen använder för närvarande RubiX som en caching-komponent, men detta kan ändras i framtida versioner av tjänsten. Använd gränssnitt för IO-cachen och ta inga beroenden direkt i RubiX-implementeringen.
+>IO-cache stöds bara med Azure BLOB Storage för tillfället. 
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Fördelar med Azure HDInsight IO-cache
 

@@ -1,5 +1,6 @@
 ---
-title: Microsoft Identity Platform .NET Core daemon | Azure
+title: Hämta en token och anropa Microsoft Graph-API med hjälp av appens identitet | Azure
+titleSuffix: Microsoft identity platform
 description: Lär dig hur en .NET Core-process kan få en åtkomsttoken och anropa ett API som skyddas av Microsoft Identity Platform-slutpunkten med appens egen identitet
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,20 +18,20 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a130878baa10be426072dfe79284a1d602dfb6ff
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: a2617013b90cc9709a27ff8ab8c5046ebdcc9951
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211858"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149427"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph-API med hjälp av appens identitet
 
 I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta en åtkomsttoken med hjälp av appens egen identitet och sedan anropa Microsoft Graph API för att visa en [lista över användare](https://docs.microsoft.com/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet.
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
@@ -39,7 +40,7 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> Det finns två alternativ för att starta snabbstartsprogrammet: Express (alternativ 1 nedan) och manuell (alternativ 2)
+> Det finns två alternativ för att starta ditt snabb starts program: Express (alternativ 1 nedan) och manuell (alternativ 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
@@ -47,10 +48,10 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
 
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
@@ -68,13 +69,13 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Hämta och konfigurera din app för Snabbstart
 > 
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app på Azure Portal
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
 > För att kodexemplet för den här snabbstarten ska fungera måste du skapa en klienthemlighet och lägga till Graph-API:ts programbehörighet **User.Read.All**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-netcore-daemon/green-check.png) Programmet konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-netcore-daemon/green-check.png) Appen konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
@@ -99,7 +100,7 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
     > > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
     
     > [!div renderon="docs"]
-    >> Där:
+    >> Var:
     >> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
     >> * `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` – ersätt det här värdet med klienthemligheten som skapades i steg 1.
@@ -131,14 +132,14 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> Där:
+>> Var:
 >> * `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
 
 > [!NOTE]
-> Du kan se felet *”AADSTS50011: Ingen svarsadress registrerad för programmet”* när du har beviljat åtkomst till appen med föregående URL. Det här händer eftersom den här appen och URL:en inte har en omdirigerings-URI – ignorera felet.
+> Du kan se felmeddelandet *”AADSTS50011: Ingen svarsadress registrerad för programmet”* när du har beviljat åtkomst till appen med föregående URL. Det här händer eftersom den här appen och URL:en inte har en omdirigerings-URI – ignorera felet.
 
-#### <a name="step-5-run-the-application"></a>Steg 5: Köra programmet
+#### <a name="step-5-run-the-application"></a>Steg 5: Köra appen
 
 Om du använder Visual Studio trycker du på **F5** för att köra programmet, annars kör du programmet via kommando tolken eller konsolen:
 
@@ -147,7 +148,7 @@ cd {ProjectFolder}\daemon-console\1-Call-Graph
 dotnet run
 ```
 
-> Där:
+> Var:
 > * *{ProjectFolder}* är den mapp där du har extraherat zip-filen. Exempel **C:\Azure-Samples\active-directory-dotnetcore-daemon-v2**
 
 Du bör se en lista över användare i Azure AD-katalogen som resultat.
@@ -192,7 +193,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 );
 ```
 
-> | Där: ||
+> | Var: ||
 > |---------|---------|
 > | `config.ClientSecret` | Är klienthemligheten som skapats för appen i Azure-portalen. |
 > | `config.ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
@@ -209,7 +210,7 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Där:| |
+> |Var:| |
 > |---------|---------|
 > | `scopes` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API:er definieras `{Application ID URI}` under avsnittet **Exponera ett API** i Programregistrering (förhandsversion) i Azure-portalen. |
 

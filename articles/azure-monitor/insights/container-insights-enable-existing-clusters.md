@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/12/2019
-ms.openlocfilehash: e9837aaf538648fe24a762f83a2e855f432df2a5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0ca73d75751259eccd9e952c2d704a09fc081396
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555473"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162280"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Aktivera övervakning av AKS-kluster (Azure Kubernetes service) redan distribuerat
 
@@ -80,7 +80,7 @@ Om du hellre vill integrera med en befintlig arbets yta utför du följande steg
 4. Kör följande kommando för att aktivera övervaknings tillägget, och Ersätt värdet för parametern `--workspace-resource-id`. Strängvärdet måste vara inom dubbla citat tecken:
 
     ```azurecli
-    az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id  “/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>”
+    az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
     ```
 
     Utdata ser ut ungefär så här:

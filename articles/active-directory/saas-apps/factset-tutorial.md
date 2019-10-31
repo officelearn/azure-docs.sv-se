@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med FactSet | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med FactSet | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och FactSet.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f41072d1-b2a4-4c4d-9deb-101b52e29096
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,30 +16,30 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27b154c5374fb16388e0ae72243fb7b32a400d96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 414ccdfb497e8ef18833fadf8c0cd495583179ad
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102762"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73156285"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-factset"></a>Självstudier: Azure Active Directory-integrering med FactSet
+# <a name="tutorial-azure-active-directory-integration-with-factset"></a>Självstudie: Azure Active Directory integrering med FactSet
 
 I den här självstudien lär du dig att integrera FactSet med Azure Active Directory (AD Azure).
 Integreringen av FactSet med Azure AD medför följande fördelar:
 
 * Du kan i Azure AD styra vem som har åtkomst till FactSet.
 * Du kan göra så att dina användare automatiskt loggas in på FactSet (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med FactSet behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * FactSet-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -53,7 +54,7 @@ För att konfigurera integrering av FactSet i Azure AD behöver du lägga till F
 
 **Utför följande steg för att lägga till FactSet från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,7 +62,7 @@ För att konfigurera integrering av FactSet i Azure AD behöver du lägga till F
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +70,19 @@ För att konfigurera integrering av FactSet i Azure AD behöver du lägga till F
 
      ![FactSet i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD till FactSet baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i FactSet upprättas.
 
 För att konfigurera och testa enkel inloggning för Azure AD med FactSet behöver du slutföra följande byggstenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för FactSet](#configure-factset-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa FactSet-testanvändare](#create-factset-test-user)** – för att ha en motsvarighet för Britta Simon i FactSet som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fa
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **FactSet** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -110,17 +111,17 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fa
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://login.factset.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta representanten för ditt FactSet konto för att få dessa värden. Om du inte vet vem din representant FactSet är kan du få hjälp på den [FactSet siffror supportsidan](https://www.factset.com/support-numbers). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta FactSet-kontots representant för att få dessa värden. Om du inte vet vem din FactSet-representant är kan du hitta hjälp på [sidan med support nummer för FactSet](https://www.factset.com/support-numbers). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 6. I avsnittet **Konfigurera FactSet** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
@@ -128,7 +129,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fa
 
 ### <a name="configure-factset-single-sign-on"></a>Konfigurera enkel inloggning för FactSet
 
-Att konfigurera enkel inloggning på **FactSet** sida, som du behöver skicka de hämtade **Federation Metadata XML** och lämpliga kopierade URL: er från Azure-portalen till FactSet Support personer som du är i kontakt med. De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **FactSet** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till FactSet support för enskilda användare som du är kontakt med. De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -148,14 +149,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till FactSet.
 
@@ -167,7 +168,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken för FactSet i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -183,13 +184,13 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-factset-test-user"></a>Skapa FactSet-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i FactSet. Arbeta med din FactSet support kontorepresentanter för att lägga till användare i FactSet-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i FactSet. Arbeta med ditt FactSet-konto för support för att lägga till användare i FactSet-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på FactSet-panelen i åtkomstpanelen bör du automatiskt loggas in på FactSet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på FactSet-panelen i åtkomstpanelen bör du automatiskt loggas in på FactSet som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

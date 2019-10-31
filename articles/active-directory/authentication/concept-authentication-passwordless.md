@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac59dbed0ba2766f3367e19c5fddeed52e250a5b
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: e17a99a522c6ab960c2ccd0cc2729076c54ed07f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880162"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151847"
 ---
 # <a name="passwordless-authentication-options"></a>Alternativ för lösenordsskyddad autentisering
 
@@ -28,13 +28,13 @@ Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation,
 
 Varje organisation har olika behov när den kommer till autentiseringen. Microsoft erbjuder tre alternativ för lösenordsbaserad autentisering:
 
-- Windows Hello för företag 
-- Microsoft Authenticator-appen 
+- Windows Hello för företag
+- Microsoft Authenticator-appen
 - FIDO2 säkerhets nycklar
 
 ![Autentisering: säkerhet jämfört med bekvämlighet](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello för företag 
+## <a name="windows-hello-for-business"></a>Windows Hello för företag
 
 Windows Hello för företag är idealiskt för informations anställda som har sin egen angivna Windows-dator. Bio måttet och PIN-koden är direkt knutna till användarens dator, vilket förhindrar åtkomst från någon annan än ägaren. Med PKI-integrering och inbyggt stöd för enkel inloggning (SSO) är Windows Hello för företag en enkel och smidig metod för sömlös åtkomst till företagets resurser lokalt och i molnet.
 
@@ -52,7 +52,7 @@ Den vänder sig till en stark och lösenordsskyddad autentiseringsuppgift genom 
 
 FIDO2-säkerhetsnycklar är en unphishable standard-baserad autentiseringsmetod för lösen ords skydd som kan komma i vilken form som helst. Snabb identitet Online (FIDO) är en öppen standard för lösen ords mässig autentisering. Det gör att användare och organisationer kan använda standard för att logga in på sina resurser utan användar namn eller lösen ord med hjälp av en extern säkerhets nyckel eller en plattforms nyckel som är inbyggd i en enhet.
 
-För en offentlig för hands version kan anställda använda externa säkerhets nycklar för att logga in på sina Azure Active Directory anslutna Windows 10-datorer (som kör version 1809 eller senare) och få enkel inloggning till deras moln resurser. De kan också logga in i webbläsare som stöds.
+För en offentlig för hands version kan anställda använda säkerhets nycklar för att logga in på sina Azure AD-eller hybrid Azure AD-anslutna Windows 10-enheter och få enkel inloggning till sina moln resurser och lokala resurser. De kan också logga in i webbläsare som stöds.
 
 ![Logga in på Microsoft Edge med en säkerhets nyckel](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -78,6 +78,9 @@ Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer so
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 
+> [!NOTE]
+> Om du köper och planerar att använda NFC-baserade säkerhets nycklar behöver du en NFC-läsare som stöds.
+
 Kontakta [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)om du är en leverantör och vill hämta din enhet i listan.
 
 FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket känsliga eller har scenarier eller anställda som inte är villiga eller kan använda sin telefon som en andra faktor.
@@ -89,7 +92,7 @@ FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket kän
 - Slutanvändare kan registrera och hantera dessa metoder för lösen ords kryptering i sin konto Portal
 - Slutanvändare kan logga in med dessa metoder för lösen ords kryptering
    - Microsoft Authenticator app: fungerar i scenarier där Azure AD-autentisering används, inklusive i alla webbläsare, under installationen av OOBE-installationen (Windows 10 out of Box) och med integrerade mobilappar på alla operativ system.
-   - Säkerhets nycklar: fungerar på Lås skärmen för Windows 10 version 1809 eller senare och webben i webbläsare som stöds, t. ex. Microsoft Edge.
+   - Säkerhets nycklar: fungerar på Lås skärmen för Windows 10 och webben i webbläsare som stöds, t. ex. Microsoft Edge.
 
 ## <a name="next-steps"></a>Nästa steg
 

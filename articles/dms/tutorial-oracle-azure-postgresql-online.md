@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Använd Azure Database Migration Service för att utföra en online-migrering av Oracle till Azure Database for PostgreSQL | Microsoft Docs'
+title: 'Självstudie: använda Azure Database Migration Service för att utföra en online-migrering av Oracle till Azure Database for PostgreSQL | Microsoft Docs'
 description: Lär dig att utföra en online-migrering från Oracle lokalt eller på virtuella datorer för att Azure Database for PostgreSQL genom att använda Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 8944a5adbe1b9e129b4a95c64aaa7a75fb96ac82
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1ac5e4dd28f7565f546c700a4bbb0076fd793bb7
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845567"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163426"
 ---
-# <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Självstudier: Migrera Oracle till Azure Database for PostgreSQL online med DMS (för hands version)
+# <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Självstudie: Migrera Oracle till Azure Database for PostgreSQL online med DMS (för hands version)
 
 Du kan använda Azure Database Migration Service för att migrera databaserna från Oracle-databaser som finns lokalt eller på virtuella datorer för att [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal stillestånds tid. Med andra ord kan du slutföra migreringen med minimal stillestånds tid för programmet. I den här självstudien migrerar du exempel databasen **HR** från en lokal eller virtuell dator instans av Oracle-11g till Azure Database for PostgreSQL med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 
 I den här artikeln beskrivs hur du utför en online-migrering från Oracle till Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -84,7 +84,7 @@ För att slutföra den här kursen behöver du:
       SHUTDOWN IMMEDIATE;
       ```
 
-      Vänta på bekräftelsen `'ORACLE instance shut down'`.
+      Vänta tills bekräftelsen `'ORACLE instance shut down'`.
 
     * Starta den nya instansen och montera (men öppna inte) databasen för att aktivera eller inaktivera arkivering Bu som kör följande kommando:
 
@@ -114,12 +114,12 @@ För att slutföra den här kursen behöver du:
       SELECT log_mode FROM v$database;
       ```
 
-      Du bör få ett svar `'ARCHIVELOG'`. Om svaret är är `'NOARCHIVELOG'`kravet inte uppfyllt.
+      Du bör få ett svar `'ARCHIVELOG'`. Om svaret är `'NOARCHIVELOG'`uppfylls inte kravet.
 
   * Aktivera kompletterande loggning för replikering med något av följande alternativ.
 
     * **Alternativ 1**.
-      Ändra den kompletterande loggningen på databas nivå för att avse alla tabeller med PK och unikt index. Identifierings frågan kommer att `'IMPLICIT'`returneras.
+      Ändra den kompletterande loggningen på databas nivå för att avse alla tabeller med PK och unikt index. Identifierings frågan returnerar `'IMPLICIT'`.
 
       ```
       ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY, UNIQUE) COLUMNS;
@@ -168,15 +168,15 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="assess-the-effort-for-an-oracle-to-azure-database-for-postgresql-migration"></a>Utvärdera ansträngningen för en Oracle att Azure Database for PostgreSQL migrering
 
-Vi rekommenderar att du använder ora2pg för att bedöma den ansträngning som krävs för att migrera från Oracle till Azure Database for PostgreSQL. `ora2pg -t SHOW_REPORT` Använd direktivet för att skapa en rapport som visar alla Oracle-objekt, den uppskattade kostnaden för migrering (i utvecklings dagar) och vissa databas objekt som kan kräva särskild uppmärksamhet som en del av konverteringen.
+Vi rekommenderar att du använder ora2pg för att bedöma den ansträngning som krävs för att migrera från Oracle till Azure Database for PostgreSQL. Använd `ora2pg -t SHOW_REPORT`-direktivet för att skapa en rapport som visar alla Oracle-objekt, den uppskattade kostnaden för migrering (i utvecklings dagar) och vissa databas objekt som kan kräva särskild uppmärksamhet som en del av konverteringen.
 
 De flesta kunder kommer att ägna en lång tid att granska utvärderings rapporten och beakta den automatiska och manuella konverteringen.
 
-Information om hur du konfigurerar och kör ora2pg för att skapa en utvärderings rapport finns i för **-migrering: Avsnittet** om utvärdering av [Oracle till Azure Database for PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). En utvärderings rapport för ora2pg finns tillgänglig för referens [här](http://ora2pg.darold.net/report.html).
+Information om hur du konfigurerar och kör ora2pg för att skapa en utvärderings rapport finns i avsnittet om att **migrera: utvärdering** i [Oracle för att Azure Database for PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). En utvärderings rapport för ora2pg finns tillgänglig för referens [här](http://ora2pg.darold.net/report.html).
 
 ## <a name="export-the-oracle-schema"></a>Exportera Oracle-schemat
 
-Vi rekommenderar att du använder ora2pg för att konvertera Oracle-schemat och andra Oracle-objekt (typer, procedurer, funktioner osv) till ett schema som är kompatibelt med Azure Database for PostgreSQL. ora2pg innehåller många direktiv som hjälper dig att fördefiniera vissa data typer. Du kan till exempel använda `DATA_TYPE` direktivet för att ersätta alla siffror (*, 0) med bigint i stället för numeriska (38).
+Vi rekommenderar att du använder ora2pg för att konvertera Oracle-schemat och andra Oracle-objekt (typer, procedurer, funktioner osv) till ett schema som är kompatibelt med Azure Database for PostgreSQL. ora2pg innehåller många direktiv som hjälper dig att fördefiniera vissa data typer. Du kan till exempel använda `DATA_TYPE`-direktivet för att ersätta alla tal (*, 0) med bigint i stället för numeriska (38).
 
 Du kan köra ora2pg för att exportera varje databas objekt i. SQL-filer. Du kan sedan granska. SQL-filerna innan du importerar dem till Azure Database for PostgreSQL med psql eller så kan du köra. SQL-skript i PgAdmin.
 
@@ -190,7 +190,7 @@ Exempel:
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
 ```
 
-Information om hur du konfigurerar och kör ora2pg för schema konvertering **finns i migreringen: Avsnittet schema och** data i [Oracle för att Azure Database for PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf).
+Om du vill konfigurera och köra ora2pg för schema konvertering, se avsnittet **migrering: schema och data** i [Oracle för att Azure Database for PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf).
 
 ## <a name="set-up-the-schema-in-azure-database-for-postgresql"></a>Konfigurera schemat i Azure Database for PostgreSQL
 
@@ -219,7 +219,7 @@ Om du skapar ett PostgreSQL-schema med verktyg som ora2pg innan du påbörjar da
     ![Visa portalprenumerationer](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> Om du behöver mappa käll tabell namn till tabeller med olika namn, e- [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) post och vi kan tillhandahålla ett skript för att automatisera processen.
+> Om du behöver mappa käll tabell namn till tabeller med olika namn, e- [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) och vi kan tillhandahålla ett skript för att automatisera processen.
 
 ### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>När tabell schemat PostgreSQL inte finns
 
@@ -241,17 +241,17 @@ Så här kommer du igång:
 
     | Käll-Oracle-schema | Mål PostgreSQL Database. schema | DMS skapade schema. tabell. Column |
     | ------------- | ------------- | ------------- |
-    | HR | targetHR. public | offentlig. länder. country_id |
-    | HR | targetHR.trgthr | trgthr. länder. country_id |
-    | HR | targetHR.TARGETHR | "TARGETHR"." LÄNDER "." COUNTRY_ID" |
-    | HR | targetHR.HR | "HR". LÄNDER "." COUNTRY_ID" |
-    | HR | targetHR.Hr | \* Det går inte att mappa blandade fall |
+    | Personal | targetHR. public | offentlig. länder. country_id |
+    | Personal | targetHR.trgthr | trgthr. länder. country_id |
+    | Personal | targetHR.TARGETHR | "TARGETHR"." LÄNDER "." COUNTRY_ID" |
+    | Personal | targetHR.HR | "HR". LÄNDER "." COUNTRY_ID" |
+    | Personal | targetHR.Hr | \* Det går inte att mappa blandade fall |
 
-    \* Om du vill skapa blandade Skift läges schema och tabell namn i [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)mål postgresql, kontaktar du. Vi kan tillhandahålla ett skript för att konfigurera tabell scheman för blandade fall i mål PostgreSQL-databasen.
+    \* Om du vill skapa blandade Skift läges schema och tabell namn i mål PostgreSQL, kontaktar du [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). Vi kan tillhandahålla ett skript för att konfigurera tabell scheman för blandade fall i mål PostgreSQL-databasen.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
 
    ![Visa portalprenumerationer](media/tutorial-oracle-azure-postgresql-online/portal-select-subscriptions.png)
 
@@ -320,7 +320,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="upload-oracle-oci-driver"></a>Ladda upp Oracle OCI-drivrutin
 
-1. Välj **Spara**och på skärmen **Installera OCI-drivrutin** loggar du in på ditt Oracle-konto och laddar ned driv rutinen **instantclient-basiclite-Windows. x64-12.2.0.1.0. zip** (37 128 586 byte (s)) (SHA1-kontrollsumma: 865082268) härifrån [.](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)
+1. Välj **Spara**och på skärmen **Installera OCI-drivrutin** loggar du in på ditt Oracle-konto och laddar ned driv rutinen **instantclient-basiclite-Windows. x64-12.2.0.1.0. zip** (37 128 586 byte (s)) (SHA1-kontrollsumma: 865082268) [härifrån ](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
 2. Ladda ned driv rutinen till en delad mapp.
 
    Kontrol lera att mappen delas med det användar namn som du angav med minst skrivskyddad åtkomst. Azure Database Migration Service åtkomst och läsningar från resursen för att överföra OCI-drivrutinen till Azure genom att personifiera det användar namn som du anger.

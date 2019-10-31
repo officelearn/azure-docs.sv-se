@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera ExpressRoute och plats-till-plats-VPN-anslutningar – samexistera: klassiska: Azure | Microsoft Docs'
+title: 'Konfigurera ExpressRoute-anslutningar och VPN-anslutningar för plats-till-plats som samexisterar: Azure (klassisk) | Microsoft Docs'
 description: Den här artikeln vägleder dig genom att konfigurera ExpressRoute och en VPN-anslutning för plats till plats som kan samexistera för den klassiska distributionsmodellen.
 documentationcenter: na
 services: expressroute
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8eb1d7da9c588aedaedb37dc50c69970fe79ac2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370431"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162711"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Konfigurera ExpressRoute-anslutningar och VPN-anslutningar för plats-till-plats som kan samexistera (klassisk)
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "60370431"
 > 
 > 
 
-Den här artikeln hjälper dig att konfigurera ExpressRoute och VPN för plats-till-plats-anslutningar som samexistera. Att kunna konfigurera VPN för plats till plats och ExpressRoute har flera fördelar. Du kan konfigurera en VPN för plats till plats som en säker redundanssökväg för ExpressRoute, eller använda plats-till-plats-VPN för att ansluta till platser som inte är anslutna via ExpressRoute. Vi beskriver stegen för att konfigurera båda scenarierna i den här artikeln. Den här artikeln gäller den klassiska distributionsmodellen. Den här konfigurationen är inte tillgänglig i portalen.
+Den här artikeln hjälper dig att konfigurera ExpressRoute och VPN-anslutningar för plats till plats som samexisterar. Att kunna konfigurera VPN för plats till plats och ExpressRoute har flera fördelar. Du kan konfigurera en VPN för plats till plats som en säker redundanssökväg för ExpressRoute, eller använda plats-till-plats-VPN för att ansluta till platser som inte är anslutna via ExpressRoute. Vi beskriver stegen för att konfigurera båda scenarierna i den här artikeln. Den här artikeln gäller den klassiska distributionsmodellen. Den här konfigurationen är inte tillgänglig i portalen.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -200,7 +200,7 @@ Om gateway-undernätet är /27 eller större och det virtuella nätverket är an
         Remove-AzureVNetGateway –VnetName MyAzureVNET
 3. Exportera det virtuella nätverksschemat. Använd följande PowerShell-cmdlet och ersätt värdena med dina egna.
    
-        Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”
+        Get-AzureVNetConfig –ExportToFile "C:\NetworkConfig.xml"
 4. Redigera nätverksschemat för konfigurationsfilen så att gateway-undernätet är /27 eller ett kortare prefix (till exempel /26 eller /25). Se följande exempel. 
    
    > [!NOTE]

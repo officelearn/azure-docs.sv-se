@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3eadb7a431d74a7a5f76c35b38c9d19fcfcf0d1
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 55edc69e706fad8888146e9d97541a1c2bae821d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72987947"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163809"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Lagra data på gränsen med Azure Blob Storage på IoT Edge
 
@@ -140,8 +140,8 @@ Exempel:<br>
 Om du behöver köra tjänsten som en annan användare än **absie**kan du ange ditt anpassade användar-ID i createOptions under egenskapen User i distributions manifestet. I så fall måste du använda standard-eller rot grupp-ID `0`.
 
 ```json
-“createOptions”: { 
-  “User”: “<custom user ID>:0” 
+"createOptions": { 
+  "User": "<custom user ID>:0" 
 } 
 ```
 Bevilja nu behållar användaren åtkomst till katalogen

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0e6a234e8b69eb48f00687916d4a7b48d3ba1040
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: af1a0db397510014301a58aea7238b695a6c0740
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301181"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146442"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Utskalning för Azure Analysis Services
 
@@ -138,7 +138,7 @@ På serverns översikts sida finns det två server namn. Om du ännu inte har ko
 
 För slut användar klient anslutningar som Power BI Desktop, Excel och anpassade appar använder du **Server namn**. 
 
-För SSMS, SSDT och anslutnings strängar i PowerShell, Azure Function-appar och AMO använder du **hanterings serverns namn**. Hanterings serverns namn innehåller en viss `:rw` (Läs-och skriv)-kvalificerare. Alla bearbetnings åtgärder sker på (den primära) hanterings servern.
+För SSMS, Visual Studio och anslutnings strängar i PowerShell, Azure Function-appar och AMO använder du **hanterings serverns namn**. Hanterings serverns namn innehåller en viss `:rw` (Läs-och skriv)-kvalificerare. Alla bearbetnings åtgärder sker på (den primära) hanterings servern.
 
 ![Server namn](media/analysis-services-scale-out/aas-scale-out-name.png)
 

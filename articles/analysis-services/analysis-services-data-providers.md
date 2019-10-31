@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 89f8ffc58458ce75d1acd897f224f61bab9158b4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 8ce5083d444aa05b59677fb46e7aa80200835412
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512767"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147088"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klient bibliotek för anslutning till Azure Analysis Services
 
-Klient bibliotek krävs för klient program och-verktyg för att ansluta till Analysis Services-servrar. Microsoft-klientprogram som Power BI Desktop, Excel, SQL Server Management Studio (SSMS) och SQL Server Data Tools (SSDT) installerar alla tre klient biblioteken och uppdaterar dem tillsammans med regelbundna program uppdateringar. I vissa fall kan du behöva installera nyare versioner av klient biblioteken. Klient bibliotek måste också vara installerade för anpassade klient program.
+Klient bibliotek krävs för klient program och-verktyg för att ansluta till Analysis Services-servrar. Microsoft-klientprogram som Power BI Desktop, Excel, SQL Server Management Studio (SSMS) och Analysis Services Projects-tillägg för Visual Studio installerar alla tre klient biblioteken och uppdaterar dem tillsammans med regelbundna program uppdateringar. I vissa fall kan du behöva installera nyare versioner av klient biblioteken. Klient bibliotek måste också vara installerade för anpassade klient program.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Hämta de senaste klient biblioteken (Windows Installer)  
 
@@ -58,7 +58,7 @@ Klient bibliotek för klient anslutningar skiljer sig från data leverantörer s
 
 ### <a name="amo"></a>AMO  
 
- AMO är ett hanterat klient bibliotek som används för Server Administration och data definition. Den installeras och används av verktyg och klient program. Exempel: SQL Server Management Studio (SSMS) använder AMO för att ansluta till Analysis Services. En anslutning med AMO är vanligt vis minimal, bestående av `"data source=\<servername>"`. När en anslutning har upprättats använder du API: et för att arbeta med databas samlingar och större objekt. Både SSDT och SSMS använder AMO för att ansluta till en Analysis Services-instans.  
+ AMO är ett hanterat klient bibliotek som används för Server Administration och data definition. Den installeras och används av verktyg och klient program. Exempel: SQL Server Management Studio (SSMS) använder AMO för att ansluta till Analysis Services. En anslutning med AMO är vanligt vis minimal, bestående av `"data source=\<servername>"`. När en anslutning har upprättats använder du API: et för att arbeta med databas samlingar och större objekt. Både Visual Studio och SSMS använder AMO för att ansluta till en Analysis Services-instans.  
 
   
 ### <a name="adomd"></a>ADOMD

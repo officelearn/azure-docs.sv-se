@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory integrering med en netstack | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med en flygstack | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och en netstack.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6a7b5675-f09d-4c1f-8f20-1a60cb8f9187
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,14 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9497a85ba82cb0605b9e931a4af539c6c9b4c45
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 310a6a14cf8d1dbe66c28e6529e4ae6993896177
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879766"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73153686"
 ---
-# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Självstudier: Integrera en flygstack med Azure Active Directory
+# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Självstudie: integrera en netstack med Azure Active Directory
 
 I den här självstudien får du lära dig hur du integrerar en netstack med Azure Active Directory (Azure AD). När du integrerar en netstack med Azure AD kan du:
 
@@ -32,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar en netstack med Azu
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -53,10 +54,10 @@ Om du vill konfigurera en integrering av netstack i Azure AD måste du lägga ti
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet skriver du** in netstack i sökrutan.
-1. Välj en flygstack från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I avsnittet **Lägg till från galleriet skriver du** in **netstack** i sökrutan.
+1. Välj en **flygstack** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 Konfigurera och testa Azure AD SSO med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i en flygstack.
 
@@ -65,7 +66,7 @@ Om du vill konfigurera och testa Azure AD SSO med en netstack slutför du följa
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera netstack SSO](#configure-airstack-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 5. **[Skapa ett test](#create-airstack-test-user)** för att lägga till en användare i B. Simon i en flygstack som är länkad till Azure AD-representation av användare.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -73,7 +74,7 @@ Om du vill konfigurera och testa Azure AD SSO med en netstack slutför du följa
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för integration av program integration och letar reda på avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan **för integration av program integration** och letar reda på avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
@@ -88,31 +89,31 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     I rutan **Inloggnings-URL** anger du en URL: `https://airstack.lenovosoftware.com`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [support teamet](mailto:jsinger@lenovo.com) för netstack-klienten för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [support teamet för netstack-klienten](mailto:jsinger@lenovo.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 1. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
 ### <a name="configure-airstack-sso"></a>Konfigurera netstack SSO
 
-Om du vill konfigurera enkel inloggning på en flyg **stack** sida måste du skicka **URL: en** för appens Federations-metadata till [support teamet](mailto:jsinger@lenovo.com)för flyg stacken. De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på en flyg **stack** sida måste du skicka **URL: en för appens Federations-metadata** till [support teamet för flyg stacken](mailto:jsinger@lenovo.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till en flygstack.
 
@@ -120,7 +121,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **flygstack**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -136,9 +137,9 @@ I det här avsnittet skapar du en användare som heter B. Simon i en netstack. A
 
 ### <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen för att öppna panelen i åtkomst panelen bör du loggas in automatiskt på den netstack som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för att öppna panelen i åtkomst panelen bör du loggas in automatiskt på den netstack som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

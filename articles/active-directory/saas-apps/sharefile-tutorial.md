@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Citrix ShareFile | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Citrix ShareFile | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Citrix ShareFile.
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,30 +16,30 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9904ba14e8d5a518807eda371ba655963b33bd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71d2fe97a4af07f48038ffd88de648247b56bb80
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091016"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160030"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Självstudier: Azure Active Directory-integrering med Citrix ShareFile
+# <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Självstudie: Azure Active Directory integrering med Citrix ShareFile
 
 I den här självstudien lär du dig hur du integrerar Citrix ShareFile med Azure Active Directory (Azure AD).
 Du får följande fördelar när du integrerar Citrix ShareFile med Azure AD:
 
 * Du kan styra i Azure AD vilka som har åtkomst till Citrix ShareFile.
 * Du kan göra så att dina användare automatiskt loggas in på Citrix ShareFile (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna konfigurera Azure AD-integrering med Citrix ShareFile behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Citrix ShareFile-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -53,7 +54,7 @@ För att kunna konfigurera integreringen av Citrix ShareFile i Azure AD måste d
 
 **Gör följande för att lägga till Citrix ShareFile från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,7 +62,7 @@ För att kunna konfigurera integreringen av Citrix ShareFile i Azure AD måste d
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +70,19 @@ För att kunna konfigurera integreringen av Citrix ShareFile i Azure AD måste d
 
      ![Citrix ShareFile i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Citrix ShareFile baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Citrix ShareFile upprättas.
 
 För att kunna konfigurera och testa enkel inloggning i Azure AD med Citrix ShareFile måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Citrix ShareFile](#configure-citrix-sharefile-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Citrix ShareFile-testanvändare](#create-citrix-sharefile-test-user)** – så att det finns en motsvarighet till Britta Simon i Citrix ShareFile som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +92,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Citrix Sha
 
 1. I [Azure-portalen](https://portal.azure.com/), på sidan för **Citrix ShareFile**-programintegrering, väljer du **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -127,17 +128,17 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Citrix Sha
     | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Citrix ShareFile-kundsupporten](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Citrix ShareFile-kundsupporten](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
 6. I avsnittet **om att konfigurera Citrix ShareFile** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
@@ -151,11 +152,11 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Citrix Sha
 
 3. Välj **Konfigurera enkel inloggning** i det vänstra navigeringsfönstret.
    
-    ![Kontoadministration](./media/sharefile-tutorial/ic773627.png "Kontoadministration")
+    ![Konto administration](./media/sharefile-tutorial/ic773627.png "Konto administration")
 
 4. Gör följande i dialogrutan **Single Sign-On/SAML 2.0 Configuration** (Konfiguration av enkel inloggning/SAML 2.0) under **Basic Settings** (Grundinställningar):
    
-    ![Single sign-on (Enkel inloggning)](./media/sharefile-tutorial/ic773628.png "Single sign-on (Enkel inloggning)")
+    ![Enkel inloggning](./media/sharefile-tutorial/ic773628.png "Enkel inloggning")
    
     a. Klicka på **Aktivera SAML**.
     
@@ -187,14 +188,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att bevilja åtkomst till Citrix ShareFile.
 
@@ -206,7 +207,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Citrix ShareFile-länken i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -230,13 +231,13 @@ För att kunna göra det möjligt för Azure AD-användare att logga in på Citr
 
 2. Klicka på **Hantera användare \> Manage Users Home \> + Create Employee** (Hantera användare > Hantera användares startsida > + Skapa medarbetare).
    
-    ![Create Employee (Skapa medarbetare)](./media/sharefile-tutorial/IC781050.png "Create Employee (Skapa medarbetare)")
+    ![Skapa anställd](./media/sharefile-tutorial/IC781050.png "Skapa anställd")
 
 3. Gör följande i avsnittet **Grundläggande information**:
    
     ![Grundläggande information](./media/sharefile-tutorial/IC799951.png "Grundläggande information")
    
-    a. I den **e-postadress** textrutan skriver du e-postadressen för Britta Simon som **brittasimon\@contoso.com**.
+    a. I text rutan **e-postadress** skriver du e-postadressen för Britta Simon som **brittasimon\@contoso.com**.
    
     b. I textrutan **Förnamn** anger du **förnamnet** på användaren: **Britta**.
    
@@ -249,9 +250,9 @@ För att kunna göra det möjligt för Azure AD-användare att logga in på Citr
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Citrix ShareFile-panelen i åtkomstpanelen bör du automatiskt loggas in på Citrix ShareFile som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Citrix ShareFile-panelen i åtkomstpanelen bör du automatiskt loggas in på Citrix ShareFile som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

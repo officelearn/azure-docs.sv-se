@@ -50,6 +50,8 @@
           href: howto-conditional-access-policy-admin-mfa.md
         - name: Kräv MFA för Azure-hantering
           href: howto-conditional-access-policy-azure-management.md
+        - name: Kräv MFA för alla användare
+          href: howto-conditional-access-policy-all-users-mfa.md
         - name: Blockera äldre autentisering
           href: howto-conditional-access-policy-block-legacy.md
         - name: Risk- och villkorsbaserad åtkomst

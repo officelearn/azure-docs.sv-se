@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f54ad6de21f05c76ca021e172a041563e3d688a8
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 771e4e0ecbda4baf1f38aacd1f39397875bbd0dc
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576568"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150757"
 ---
 # <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Villkorlig åtkomst: Kräv betrodd plats för MFA-registrering
 
-Nu är det möjligt att skydda när och hur användare registrerar sig för Azure Multi-Factor Authentication och återställning av lösen ord med hjälp av användar åtgärder i principer för villkorlig åtkomst. Den här förhands gransknings funktionen är tillgänglig för organisationer som har aktiverat den [kombinerade](../authentication/concept-registration-mfa-sspr-combined.md)förhands granskningen. Den här funktionen kan vara aktive rad i organisationer där de vill att användarna ska kunna registrera sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrott nätverks plats under en TIMMEs onboarding. Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md#named-locations)
+Att skydda när och hur användare registrerar sig för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning är nu möjligt med användar åtgärder i princip för villkorlig åtkomst. Den här förhands gransknings funktionen är tillgänglig för organisationer som har aktiverat den [kombinerade förhands granskningen](../authentication/concept-registration-mfa-sspr-combined.md). Den här funktionen kan vara aktive rad i organisationer där de vill att användarna ska kunna registrera sig för Azure Multi-Factor Authentication och SSPR från en central plats, till exempel en betrott nätverks plats under en inledande registrering. Mer information om hur du skapar betrodda platser i villkorlig åtkomst finns i artikeln [Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?](../conditional-access/location-condition.md#named-locations)
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Skapa en princip för att kräva registrering från en betrodd plats
 
@@ -41,7 +41,7 @@ Följande princip gäller för alla valda användare, som försöker registrera 
    1. Undanta **alla betrodda platser**.
    1. Klicka på **Done** på bladet platser.
    1. Klicka på **färdig** på bladet villkor.
-1. Under **åtkomst kontroller** > beviljar.
+1. Under **åtkomst kontroller** > **bevilja**.
    1. Klicka på **blockera åtkomst**.
    1. Klicka sedan på **Välj**.
 1. Ange **Aktivera princip** till **på**.

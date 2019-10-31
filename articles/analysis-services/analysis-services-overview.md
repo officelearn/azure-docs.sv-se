@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2c7cd377929d1dd6d2e6ed8831597695ae02d21c
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512606"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146242"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -200,9 +200,9 @@ Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Utveckla och distribuera modeller med kostnadsfria [SQL Server Data Tools (SSDT) för Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). SSDT innehåller Analysis Services-projektmallar som du kommer igång med snabbare. SSDT innehåller nu fråga för modern hämta data data källa och kombinations program för tabell 1400-modeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. 
+Utveckla och distribuera modeller med Visual Studio med Analysis Services projekt. Tillägget Analysis Services projekt innehåller mallar och guider som hjälper dig att komma igång snabbt. Modell redigerings miljön i Visual Studio innehåller nu en modern get data source-fråga och kombinations funktioner för tabell 1400 och högre modeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. 
 
-Om du använder Visual Studio 2017 eller senare är Microsoft Analysis Services-projekt tillgängliga som ett kostnads fritt installerbart VSIX-paket. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Microsoft Analysis Services-projekt finns som ett kostnads fritt installerbart VSIX-paket. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). Tillägget fungerar med valfri version av Visual Studio 2017 och senare, inklusive den kostnads fria community-versionen.
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

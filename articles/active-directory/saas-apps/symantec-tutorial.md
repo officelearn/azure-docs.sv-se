@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Symantec Web Security Service (WSS) | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integrering med Symantec Web Security Service (WSS) | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Symantec Web Security Service (WSS).
 services: active-directory
 documentationCenter: na
@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d6e4d893-1f14-4522-ac20-0c73b18c72a5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,14 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95ce68547ca13d2395fcd447990c42c48c04eb5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d496015440deb80a0159ed0ec234ae60c2c64a66
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089374"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159943"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Självstudier: Azure Active Directory-integrering med Symantec Web Security Service (WSS)
+# <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Självstudie: Azure Active Directory integrering med Symantec Web Security Service (WSS)
 
 I den här självstudien får du lära dig hur du integrerar ditt Symantec Web Security Service-konto (WSS) med ditt Azure Active Directory-konto (Azure AD) så att WSS kan autentisera en slutanvändare som har etablerats i Azure AD med hjälp av SAML-autentisering och tillämpa principregler på användar- eller gruppnivå.
 
@@ -37,11 +38,11 @@ Integreringen av Symantec Web Security Service (WSS) med Azure AD medför följa
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Symantec Web Security Service (WSS) behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * En Symantec Web Security Service-prenumeration (WSS) med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -56,7 +57,7 @@ För att konfigurera integreringen av Symantec Web Security Service (WSS) med Az
 
 **Utför följande steg för att lägga till Symantec Web Security Service (WSS) från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -64,7 +65,7 @@ För att konfigurera integreringen av Symantec Web Security Service (WSS) med Az
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -72,19 +73,19 @@ För att konfigurera integreringen av Symantec Web Security Service (WSS) med Az
 
      ![Symantec Web Security Service (WSS) i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Symantec Web Security Service (WSS) baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Symantec Web Security Service (WSS) upprättas.
 
 För att konfigurera och testa enkel inloggning i Azure AD med Symantec Web Security Service (WSS) måste du utföra följande uppgifter:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **Konfigurera enkel inloggning för Symantec Web Security Service (WSS)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa testanvändare för Symantec Web Security Service (WSS)](#create-symantec-web-security-service-wss-test-user)** – för att skapa en motsvarighet till Britta Simon i Symantec Web Security Service (WSS) som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -94,7 +95,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Syman
 
 1. Välj **Enkel inloggning** på sidan för programintegrering med **Symantec Web Security Service (WSS)** på [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -110,14 +111,14 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Syman
 
     a. I textrutan **Identifierare** skriver du in en URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
 
-    b. Skriv en URL i textrutan **Svars-URL**: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
+    b. I textrutan **Svars-URL** skriver du en URL: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
 
     > [!NOTE]
     > Kontakta [Symantec Web Security Service-kundsupporten ](https://www.symantec.com/contact-us) om värdena för **Identifierare** och **Svars-URL** inte fungerar. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 ### <a name="configure-symantec-web-security-service-wss-single-sign-on"></a>Konfigurera enkel inloggning för Symantec Web Security Service (WSS)
 
@@ -141,14 +142,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du göra det möjligt för Britta Simon att använda enkel inloggning i Azure genom att ge åtkomst till Symantec Web Security Service (WSS).
 
@@ -160,7 +161,7 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
     ![Symantec Web Security Service-länken (WSS) i listan med program](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 

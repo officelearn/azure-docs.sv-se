@@ -232,6 +232,8 @@
           href: backup-azure-restore-windows-server.md
         - name: Återställa Windows Server System-tillstånd
           href: backup-azure-restore-system-state.md
+        - name: Hantera säkerhetskopiering av Windows Server-filer och -mappar
+          href: backup-azure-manage-mars.md
     - name: Recovery Services-valv
       items:
         - name: Översikt över Recovery Services-valv

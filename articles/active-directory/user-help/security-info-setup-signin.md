@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 705e3818aef0338d9b34da7b0320b99594573fca
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e05515c2fd118c21f891be86fae6423affab0324
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985971"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160903"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Konfigurera din säkerhetsinformation (förhandsversion) från uppmaningen på inloggningssidan
 
@@ -132,7 +132,7 @@ När du använder applösenord är det viktigt att komma ihåg:
 
     ![Sidan applösenord med lösen ord för kopiering](media/security-info/app-password-copy-password.png)
 
-4. När du har kopierat lösen ordet och klistrat in det i appen går du tillbaka till den här guiden för att se till att all information om inloggnings metoden ärkorrekt och väljer sedan slutförd.
+4. När du har kopierat lösen ordet och klistrat in det i appen går du tillbaka till den här guiden för att se till att all information om inloggnings metoden är korrekt och väljer sedan **slutförd**.
 
     ![Sidan applösenord, med kompletterings meddelande](media/security-info/app-password-complete.png)
 
@@ -152,6 +152,6 @@ När du använder applösenord är det viktigt att komma ihåg:
 
 - Information om hur du loggar in med din angivna metod finns i [Så loggar du in](user-help-sign-in.md).
 
-- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md).
+- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](active-directory-passwords-update-your-own-password.md).
 
 - Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -4,15 +4,15 @@ description: Lär dig hur du skapar en Office-dataanslutnings fil för att anslu
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e12717b37171df55c7559bb1b05c467f332236bc
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5aa9645ec3138ed661305e1019b3e6dadfe4d212
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294835"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146682"
 ---
 # <a name="create-an-office-data-connection-file"></a>Skapa en fil för Office-dataanslutning
 
@@ -29,7 +29,7 @@ Informationen i den här artikeln beskriver hur du kan skapa en Office-dataanslu
 
 3. I `<odc:CommandText>Model</odc:CommandText>` ändrar du `Model` till namnet på din modell eller ditt perspektiv. 
 
-4. Spara filen med ett `.odc`-tillägg i mappen C:\Users @ no__t-1*användar namn*\Documents\My data källor.
+4. Spara filen med ett `.odc`-tillägg i mappen C:\Users\\*användar namn*\Documents\My data källor.
 
 5. Högerklicka på filen och klicka sedan på **Öppna i Excel**. I Excel, i menyfliksområdet **data** , klickar du på **befintliga anslutningar**, väljer filen och klickar sedan på **Öppna**.
 

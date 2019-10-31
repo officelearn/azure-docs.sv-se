@@ -137,6 +137,8 @@
               href: ./hdinsight-autoscale-clusters.md
             - name: Använda extern metadatalagring
               href: ./hdinsight-use-external-metadata-stores.md
+            - name: Anpassad Ambari-databas
+              href: ./hdinsight-custom-ambari-db.md
             - name: Hantera loggar för ett HDInsight-kluster
               href: ./hdinsight-log-management.md
             - name: Lägga till lagringskonton

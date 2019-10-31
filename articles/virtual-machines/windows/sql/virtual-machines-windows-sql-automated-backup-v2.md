@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 066c154c0ba3e62ac4f441e268c657dd5e991220
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 452dfcc04d9fc9048493222ad2a82a5bcc8b78f4
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102126"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162865"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatisk säkerhets kopiering v2 för Azure Virtual Machines (Resource Manager)
 
@@ -31,7 +31,7 @@ Automatisk säkerhets kopiering v2 konfigurerar automatiskt [hanterad säkerhets
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda automatisk säkerhets kopiering v2 granskar du följande krav:
 
 **Operativ system**:
@@ -41,8 +41,8 @@ Om du vill använda automatisk säkerhets kopiering v2 granskar du följande kra
 
 **SQL Server version/utgåva**:
 
-- SQL Server 2016: Utvecklare, standard eller Enterprise
-- SQL Server 2017: Utvecklare, standard eller Enterprise
+- SQL Server 2016: Developer, standard eller Enterprise
+- SQL Server 2017: Developer, standard eller Enterprise
 
 > [!IMPORTANT]
 > Automatisk säkerhets kopiering v2 fungerar med SQL Server 2016 eller högre. Om du använder SQL Server 2014 kan du använda automatisk säkerhets kopiering v1 för att säkerhetskopiera dina databaser. Mer information finns i [Automatisk säkerhets kopiering för SQL Server 2014 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
@@ -59,7 +59,7 @@ Om du vill använda automatisk säkerhets kopiering v2 granskar du följande kra
 ## <a name="settings"></a>Inställningar
 I följande tabell beskrivs de alternativ som kan konfigureras för automatisk säkerhets kopiering v2. De faktiska konfigurations stegen varierar beroende på om du använder Azure Portal-eller Azure Windows PowerShell-kommandon.
 
-### <a name="basic-settings"></a>Grundinställningar
+### <a name="basic-settings"></a>Grundläggande inställningar
 
 | Inställning | Intervall (standard) | Beskrivning |
 | --- | --- | --- |
@@ -83,13 +83,13 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 ## <a name="understanding-full-backup-frequency"></a>Förstå fullständig säkerhets kopierings frekvens
 Det är viktigt att förstå skillnaden mellan dagliga och veckovis fullständiga säkerhets kopieringar. Tänk på följande två exempel scenarier.
 
-### <a name="scenario-1-weekly-backups"></a>Scenario 1: Vecko Visa säkerhets kopior
+### <a name="scenario-1-weekly-backups"></a>Scenario 1: vecko Visa säkerhets kopior
 Du har ett SQL Server VM som innehåller ett antal stora databaser.
 
 På måndag aktiverar du automatisk säkerhets kopiering v2 med följande inställningar:
 
-- Schema för säkerhets kopiering: **Bok**
-- Frekvens för fullständig säkerhets kopiering: **Veckorna**
+- Schema för säkerhets kopiering: **manuell**
+- Frekvens för fullständig säkerhets kopiering: **varje vecka**
 - Start tid för fullständig säkerhets kopiering: **01:00**
 - Tids period för fullständig säkerhets kopiering: **1 timme**
 
@@ -101,13 +101,13 @@ När den når tisdag igen börjar den automatiska säkerhets kopieringen säkerh
 
 Det här scenariot visar att automatisk säkerhets kopiering endast fungerar inom den angivna tids perioden och att varje databas säkerhets kopie ras en gång per vecka. Detta visar också att det är möjligt för säkerhets kopieringar att omfatta flera dagar i fall där det inte går att slutföra alla säkerhets kopieringar på en enda dag.
 
-### <a name="scenario-2-daily-backups"></a>Scenario 2: Säkerhetskopiera en gång per dag
+### <a name="scenario-2-daily-backups"></a>Scenario 2: dagliga säkerhets kopieringar
 Du har ett SQL Server VM som innehåller ett antal stora databaser.
 
 På måndag aktiverar du automatisk säkerhets kopiering v2 med följande inställningar:
 
-- Schema för säkerhets kopiering: Manuell
-- Frekvens för fullständig säkerhets kopiering: Dagligen
+- Schema för säkerhets kopiering: manuell
+- Frekvens för fullständig säkerhets kopiering: varje dag
 - Start tid för fullständig säkerhets kopiering: 22:00
 - Tids period för fullständig säkerhets kopiering: 6 timmar
 
@@ -170,7 +170,7 @@ Om tillägget SQL Server IaaS agent är installerat bör det visas som "Sqliaasa
 Om den inte är installerad eller inte gick att tillhandahålla, kan du installera den med följande kommando. Förutom namnet på den virtuella datorn och resurs gruppen måste du också ange den region ( **$region**) som den virtuella datorn finns i.
 
 ```powershell
-$region = “EASTUS2”
+$region = "EASTUS2"
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region 
@@ -211,7 +211,7 @@ Du kan använda PowerShell för att aktivera automatisk säkerhets kopiering sam
 Börja med att välja eller skapa ett lagrings konto för de säkerhetskopierade filerna. Följande skript väljer ett lagrings konto eller skapar det om det inte redan finns.
 
 ```powershell
-$storage_accountname = “yourstorageaccount”
+$storage_accountname = "yourstorageaccount"
 $storage_resourcegroupname = $resourcegroupname
 
 $storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
@@ -276,8 +276,8 @@ Följande skript innehåller en uppsättning variabler som du kan anpassa för a
 ```powershell
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
-$region = “Azure region name such as EASTUS2”
-$storage_accountname = “storageaccountname”
+$region = "Azure region name such as EASTUS2"
+$storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 $backupscheduletype = "Manual"
@@ -332,7 +332,7 @@ Ett annat alternativ är att dra nytta av den inbyggda Database Mail funktionen 
 ## <a name="next-steps"></a>Nästa steg
 Automatisk säkerhets kopiering v2 konfigurerar hanterad säkerhets kopiering på virtuella Azure-datorer. Det är därför viktigt att [granska dokumentationen för hanterad säkerhets kopiering](https://msdn.microsoft.com/library/dn449496.aspx) för att förstå beteendet och konsekvenserna.
 
-Du hittar ytterligare vägledning för säkerhets kopiering och återställning av SQL Server på virtuella Azure-datorer i följande artikel: [Säkerhets kopiering och återställning av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+Du hittar ytterligare vägledning för säkerhets kopiering och återställning av SQL Server på virtuella Azure-datorer i följande artikel: [säkerhets kopiering och återställning för SQL Server i Azure-Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
 Information om andra tillgängliga Automation-uppgifter finns [SQL Server IaaS agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 

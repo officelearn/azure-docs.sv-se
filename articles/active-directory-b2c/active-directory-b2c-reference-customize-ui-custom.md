@@ -1,6 +1,6 @@
 ---
-title: Anpassa Användargränssnittet för en användarresa med anpassade principer | Microsoft Docs
-description: Läs mer om Azure Active Directory B2C anpassade principer.
+title: Anpassa användar gränssnittet för en användar resa med anpassade principer | Microsoft Docs
+description: Lär dig mer om att Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,40 +10,40 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e4714de9868dbd540e2e662b22a22da6df6514b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509593"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147529"
 ---
-# <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa Användargränssnittet för en användarresa med anpassade principer
+# <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa användar gränssnittet för en användar resa med anpassade principer
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> Den här artikeln är en avancerad beskrivning av hur anpassningar fungerar och hur du aktiverar med Azure AD B2C anpassade principer med hjälp av den Identitetsramverk.
+> Den här artikeln är en avancerad Beskrivning av hur UI-anpassning fungerar och hur du aktiverar med Azure AD B2C anpassade principer med hjälp av identitets miljö ramverket.
 
 
-En smidig användarupplevelse är nyckeln för alla företag till konsument – lösningar. En smidig användarupplevelse är en upplevelse på enheten eller webbläsaren, där en användarresa genom tjänsten går att skilja från som den kundtjänst som de använder.
+En smidig användar upplevelse är nyckeln till all företags lösning. En smidig användar upplevelse är en upplevelse, oavsett om enheten eller webbläsaren, där en användares resa via tjänsten inte kan särskiljas från den kund tjänst som de använder.
 
-## <a name="understand-the-cors-way-for-ui-customization"></a>Förstå hur CORS för anpassning av Användargränssnittet
+## <a name="understand-the-cors-way-for-ui-customization"></a>Förstå CORS-metoden för UI-anpassning
 
-Azure AD B2C kan du anpassa den utseende och känslan av användarupplevelsen (UX) på olika sidor som hanteras och visas i Azure AD B2C med hjälp av dina anpassade principer.
+Med Azure AD B2C kan du anpassa utseendet på användar upplevelsen (UX) på de olika sidor som hanteras och visas av Azure AD B2C med hjälp av dina anpassade principer.
 
-För detta ändamål, Azure AD B2C körs koden i din konsument webbläsare och använder den moderna och standard-metoden [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) att läsa in anpassat innehåll från en specifik URL som du anger i en anpassad princip för att peka mot dina HTML5/CSS-mallar. CORS är en mekanism som gör att begränsade resurser, t.ex. teckensnitt, på en webbsida begäras från en annan domän utanför domänen som resursen har sitt ursprung.
+I detta syfte kör Azure AD B2C kod i din konsument webbläsare och använder modern och standard metoden [resurs delning mellan ursprung (CORS)](https://www.w3.org/TR/cors/) för att läsa in anpassat innehåll från en viss URL som du anger i en anpassad princip för att peka på din HTML5/CSS onlinemallar. CORS är en mekanism som tillåter att begränsade resurser, t. ex. teckensnitt, på en webb sida begärs från en annan domän utanför domänen som resursen kommer från.
 
-Jämfört med den gamla traditionell, där mallen sidor ägs av den information du hittar där du begränsad text och bilder, där det är begränsad kontroll över layout och känslan fanns leder till mer än problem med att uppnå en sömlös upplevelse CORS-sätt har stöd för HTML5 och CSS och gör att du kan:
+Jämfört med det tidigare traditionella sättet, där mallarna ägs av lösningen där du angav begränsad text och bilder, där begränsad kontroll av layout och känsla erbjöds leda till mer än svårigheter för att uppnå en sömlös upplevelse, är CORS-metoden stöder HTML5 och CSS och gör att du kan:
 
-- Vara värd för innehåll och lösningen lägger in dess kontroller med hjälp av skript på klientsidan.
-- Har fullständig kontroll över varje bildpunkt layout och utseende.
+- Värd för innehållet och lösningen matar in sina kontroller med skript på klient sidan.
+- Ha fullständig kontroll över varje pixel av layout och känsla.
 
-Du kan ange så många innehållssidor som du vill genom att utforma HTML5/CSS-filer vid behov.
+Du kan ange så många innehålls sidor som du vill genom att utforma HTML5-/CSS-filer efter behov.
 
 > [!NOTE]
-> Användning av JavaScript är för närvarande blockerad för anpassning av säkerhetsskäl. 
+> Av säkerhets skäl är användningen av Java Script för närvarande blockerad för anpassning. 
 
-I var och en av dina HTML5/CSS-mallar, anger du ett *förtroendeankare* element som motsvarar de nödvändiga `<div id=”api”>` element i HTML eller sidan innehåll som illustrerar nedan. Azure AD B2C kräver att alla innehållssidor har den här specifika div.
+I var och en av dina HTML5-/CSS-mallar anger du ett *Fäst punkts* element, som motsvarar det obligatoriska `<div id="api">`-elementet i HTML-filen eller innehålls sidan, som illustreras nedan. Azure AD B2C kräver att alla innehålls sidor har denna speciella div.
 
 ```
 <!DOCTYPE html>
@@ -57,115 +57,115 @@ I var och en av dina HTML5/CSS-mallar, anger du ett *förtroendeankare* element 
 </html>
 ```
 
-Azure AD B2C-relaterat innehåll för sidan är införs i den här div, medan resten av sidan är ditt att styra. Azure AD B2C JavaScript-koden hämtar i ditt innehåll och lägger in HTML i det här specifika div-elementet. Azure AD B2C lägger in följande kontroller efter behov: Väljaren kontroll, logga in kontroller, Multi-Factor Authentication (för närvarande telefon) kontroller och attributet samling kontroller. Azure AD B2C garanterar att alla kontroller är HTML5 kompatibla och kan nås, alla kontroller kan vara fullständigt formaterad och som en kontroll-version inte affärsmöjlighetens.
+Azure AD B2C-relaterat innehåll för sidan matas in i div-filen, medan resten av sidan är din att styra. Den Azure AD B2C JavaScript-koden hämtar innehåll och infogar HTML i detta speciella div-element. Azure AD B2C infogar följande kontroller efter behov: konto väljar kontroll, inloggnings kontroller, Multi-Factor (för närvarande telefonbaserade) kontroller och attribut insamlings kontroller. Azure AD B2C säkerställer att alla kontroller är HTML5-kompatibla och tillgängliga, att alla kontroller kan skrivas helt och att en kontroll version inte regress.
 
-Det sammanlagda innehållet visas så småningom som dynamiskt dokument till ditt konsument.
+Det sammanfogade innehållet visas slutligen som det dynamiska dokumentet till din konsument.
 
-För att säkerställa att allt fungerar som förväntat, måste du:
+För att se till att allt fungerar som förväntat måste du:
 
-- Se till att ditt innehåll är HTML5 kompatibla och kan nås
-- Se till att innehållsservern har aktiverats för CORS.
-- Leverera innehåll över HTTPS.
-- Använda absoluta URL-adresser som `https://yourdomain/content` för alla länkar och CSS-innehåll.
-
-> [!TIP]
-> Du kan använda webbplatsen för att kontrollera att du är värd för ditt innehåll på platsen har CORS aktiverat och testa CORS-förfrågningar, https://test-cors.org/. Tack vare den här platsen kan antingen skicka CORS-begäran till en fjärransluten server (för att testa om det finns stöd för CORS) eller skicka CORS-begäran till en testserver (för att utforska vissa funktioner i CORS).
+- Se till att innehållet är HTML5 kompatibelt och tillgängligt
+- Se till att innehålls servern är aktive rad för CORS.
+- Hantera innehåll via HTTPS.
+- Använd absoluta URL: er som `https://yourdomain/content` för alla länkar och CSS-innehåll.
 
 > [!TIP]
-> Webbplatsen https://enable-cors.org/ också utgör en mer än användbara resurser på CORS.
+> För att kontrol lera att platsen som du är värd för ditt innehåll på har CORS aktiverat och test-CORS-begäranden kan du använda plats https://test-cors.org/. Tack vare den här webbplatsen kan du antingen skicka CORS-begäran till en fjärrserver (om du vill testa om CORS stöds) eller skicka CORS-begäran till en test Server (för att utforska vissa funktioner i CORS).
 
-Tack vare den här CORS-baserade metoden har slutanvändarna konsekventa erfarenheter mellan programmet och de sidor som hanteras av Azure AD B2C.
+> [!TIP]
+> Plats https://enable-cors.org/ utgör också en mer användbar resurs på CORS.
+
+Tack vare den här CORS-baserade metoden har slutanvändarna konsekventa upplevelser mellan ditt program och de sidor som hanteras av Azure AD B2C.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Som ett krav måste du skapa ett lagringskonto. Du behöver en Azure-prenumeration att skapa ett Azure Blob Storage-konto. Du kan registrera dig gratis på den [Azure-webbplatsen](https://azure.microsoft.com/pricing/free-trial/).
+Som en förutsättning måste du skapa ett lagrings konto. Du behöver en Azure-prenumeration för att skapa ett Azure Blob Storage-konto. Du kan registrera dig för en kostnads fri utvärderings version på [Azure-webbplatsen](https://azure.microsoft.com/pricing/free-trial/).
 
-1. Öppna en webbläsarsession och navigera till den [Azure-portalen](https://portal.azure.com).
-2. Logga in med dina administratörsautentiseringsuppgifter.
-3. Klicka på **skapa en resurs** > **Storage** > **lagringskonto**.  En **skapa lagringskonto** fönstret som öppnas.
-4. I **namn**, ange ett namn för lagringskontot, till exempel *contoso369b2c*. Det här värdet senare som anges på *storageAccountName*.
-5. Välj lämpliga val för prisnivå, resursgruppen och prenumerationen. Se till att du har den **fäst på startsidan** alternativet är markerat. Klicka på **Skapa**.
-6. Gå tillbaka till startsidan och klicka på det lagringskonto som du skapade.
-7. I den **Services** klickar du på **Blobar**. En **Blob service-fönstret** öppnas.
-8. Klicka på **+ behållare**.
-9. I **namn**, ange ett namn för behållaren, till exempel *b2c*. Det här värdet senare kallas *containerName*.
-9. Välj **Blob** som den **åtkomsttyp**. Klicka på **Skapa**.
-10. Den behållare som du har skapat visas i listan på den **Blob service-fönstret**.
-11. Stäng den **Blobar** fönstret.
-12. På den **storage-konto fönstret**, klickar du på den **nyckel** ikon. En **åtkomst nycklar fönstret** öppnas.  
-13. Anteckna värdet för **key1**. Det här värdet kallas senare *key1*.
+1. Öppna en webbläsarsession och navigera till [Azure Portal](https://portal.azure.com).
+2. Logga in med dina administrativa autentiseringsuppgifter.
+3. Klicka på **skapa en resurs** > **lagrings** > **lagrings konto**.  Ett fönster för att **skapa lagrings konton** öppnas.
+4. I **namn**anger du ett namn för lagrings kontot, till exempel *contoso369b2c*. Det här värdet anges senare som *storageAccountName*.
+5. Välj lämpliga val för pris nivån, resurs gruppen och prenumerationen. Kontrol lera att alternativet **Fäst på Start sidan** är markerat. Klicka på **Skapa**.
+6. Gå tillbaka till start sidan och klicka på det lagrings konto som du skapade.
+7. I avsnittet **tjänster** klickar du på **blobbar**. En **BLOB service fönstret** öppnas.
+8. Klicka på **+ container**.
+9. I **namn**anger du ett namn för behållaren, till exempel *B2C*. Det här värdet kallas senare för *containerName*.
+9. Välj **BLOB** som **åtkomst typ**. Klicka på **Skapa**.
+10. Den behållare som du har skapat visas i listan i rutan **BLOB service**.
+11. Stäng fönstret **blobbar** .
+12. I **fönstret lagrings konto**klickar du på **nyckel** ikonen. **Fönstret åtkomst nycklar** öppnas.  
+13. Skriv ned värdet för **KEY1**. Det här värdet är senare kallat *KEY1*.
 
-## <a name="downloading-the-helper-tool"></a>Hämta helper-verktyget
+## <a name="downloading-the-helper-tool"></a>Hjälp verktyget hämtas
 
-1.  Ladda ned hjälpverktyg från [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
-2.  Spara den *B2C-AzureBlobStorage-klient-master.zip* filen på den lokala datorn.
-3.  Extrahera innehållet i filen B2C-AzureBlobStorage-klient-master.zip på den lokala hårddisken, till exempel den **UI-anpassning-Pack** -mappen, som skapar en *B2C-AzureBlobStorage-klient-master*mapp under.
-4.  Öppna mappen och extrahera innehållet i arkivfilen *B2CAzureStorageClient.zip* i den.
+1.  Hämta hjälp verktyget från [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
+2.  Spara filen *B2C-AzureBlobStorage-client-Master. zip* på den lokala datorn.
+3.  Extrahera innehållet i filen B2C-AzureBlobStorage-Client-master. zip på din lokala disk, till exempel under mappen **UI-Customization-Pack** , som skapar en *B2C-AzureBlobStorage-client-Master-* mapp under.
+4.  Öppna mappen och extrahera innehållet i Arkiv filen *B2CAzureStorageClient. zip* i den.
 
-## <a name="upload-the-ui-customization-pack-sample-files"></a>Ladda upp exempelfilerna UI-anpassning-Pack
+## <a name="upload-the-ui-customization-pack-sample-files"></a>Överför exempel filen UI-anpassnings paket
 
-1.  Använd Windows Explorer, navigera till mappen *B2C-AzureBlobStorage-klient-master* finns under den *UI-anpassning-Pack* mapp som skapades i föregående avsnitt.
-2.  Kör den *B2CAzureStorageClient.exe* fil. Det här programmet överför alla filer i den katalog du anger till ditt lagringskonto och aktivera CORS-åtkomst för dessa filer.
-3.  När du uppmanas, ange: en.  Namnet på ditt lagringskonto *storageAccountName*, till exempel *contoso369b2c*.
-    b.  Den primära åtkomstnyckeln för ditt azure blob storage *key1*, till exempel *contoso369b2c*.
-    c.  Namnet på din storage blob storage-behållare, *containerName*, till exempel *b2c*.
-    d.  Sökvägen till den *-startpaket* exempelfiler, till exempel *... \B2CTemplates\wingtiptoys*.
+1.  Använd Utforskaren i Windows och navigera till mappen *B2C-AzureBlobStorage-client-Master* som finns under mappen *UI-Customization-Pack* som skapades i föregående avsnitt.
+2.  Kör filen *B2CAzureStorageClient. exe* . Det här programmet överför alla filer i den katalog som du anger till ditt lagrings konto och aktiverar CORS-åtkomst för dessa filer.
+3.  När du uppmanas anger du: a.  Namnet på ditt lagrings konto, *storageAccountName*, till exempel *contoso369b2c*.
+    b.  Den primära åtkomst nyckeln för Azure Blob Storage, *KEY1*, till exempel *contoso369b2c*.
+    c.  Namnet på lagrings-Blob storage-behållaren, *containerName*, till exempel *B2C*.
+    d.  Sökvägen till exempel filen *startpack* , till exempel *. \B2CTemplates\wingtiptoys*.
 
-Om du har följt föregående steg, HTML5 och CSS-filer av den *UI-anpassning-Pack* för det fiktiva företaget **VingspetsLeksaker** nu pekar på ditt lagringskonto.  Du kan kontrollera att innehållet har laddats upp korrekt genom att öppna fönstret relaterade behållare i Azure-portalen. Du kan också kontrollera att innehållet har laddats upp korrekt genom att gå till sidan från en webbläsare. Mer information finns i [Azure Active Directory B2C: En hjälpverktyg som används för att visa sidan användare användargränssnitt (UI) anpassning av funktionen](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Om du följde föregående steg, pekar HTML5-och CSS-filerna i *UI-anpassnings paketet* för den fiktiva företags **wingtiptoys** nu till ditt lagrings konto.  Du kan kontrol lera att innehållet har laddats upp korrekt genom att öppna fönstret relaterad behållare i Azure Portal. Du kan också kontrol lera att innehållet har laddats upp korrekt genom att öppna sidan från en webbläsare. Mer information finns i [Azure Active Directory B2C: ett hjälp verktyg som används för att demonstrera anpassnings funktionen för sid användar gränssnitt (UI)](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
-## <a name="ensure-the-storage-account-has-cors-enabled"></a>Se till att lagringskontot har CORS aktiverat
+## <a name="ensure-the-storage-account-has-cors-enabled"></a>Se till att lagrings kontot har CORS aktiverat
 
-CORS (Cross-Origin Resource Sharing) måste aktiveras på din slutpunkt för Azure AD B2C att läsa in ditt innehåll. Det beror på att innehållet finns på en annan domän än den Azure AD B2C kommer betjänar sidan från.
+CORS (resurs delning mellan ursprung) måste vara aktiverat på slut punkten för att Azure AD B2C ska kunna läsa in ditt innehåll. Detta beror på att ditt innehåll finns i en annan domän än den domän Azure AD B2C kommer att betjäna sidan från.
 
-Om du vill kontrollera att den lagring som du är värd för ditt innehåll på har CORS aktiverat, fortsätter du med följande steg:
+Fortsätt med följande steg för att kontrol lera att lagrings utrymmet som du är värd för innehållet på har CORS aktiverat:
 
-1. Öppna en webbläsarsession och gå till sidan *unified.html* med hjälp av den fullständiga URL: en för dess plats i ditt storage-konto `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Till exempel https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Navigera till https://test-cors.org. Den här platsen kan du kontrollera att den sidan som du använder har CORS aktiverat.  
+1. Öppna en webbläsarsession och navigera till sidan *Unified. html* med den fullständiga URL: en för platsen i ditt lagrings konto `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Till exempel https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
+2. Navigera till https://test-cors.org. På den här platsen kan du kontrol lera att CORS är aktiverat på sidan som du använder.  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
    -->
 
-3. I **Remote URL**, ange den fullständiga URL: en för ditt unified.html innehåll och på **skicka förfrågan**.
-4. Kontrollera att utdata i den **resultat** innehåller *XHR status: 200*, vilket betyder att CORS är aktiverat.
+3. I **fjärr-URL**anger du den fullständiga URL: en för det enhetliga HTML-innehållet och klickar på **skicka begäran**.
+4. Kontrol lera att utdata i avsnittet **Results** innehåller *XHR status: 200*, vilket anger att CORS är aktiverat.
    <!--
    ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
    -->
-   Lagringskontot ska nu innehålla en blobbehållare med namnet *b2c* bilden innehåller följande VingspetsLeksaker mallar från den *-startpaket*.
+   Lagrings kontot bör nu innehålla en BLOB-behållare med namnet *B2C* i bilden som innehåller följande wingtiptoys-mallar från *Start paketet*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
 -->
 
-I följande tabell beskrivs syftet med de föregående HTML5-sidorna.
+I följande tabell beskrivs syftet med föregående HTML5-sidor.
 
 | HTML5-mall | Beskrivning |
 |----------------|-------------|
-| *phonefactor.HTML* | Den här sidan kan användas som en mall för en sida för multifaktorautentisering. |
-| *resetpassword.html* | Den här sidan kan användas som en mall för en sida för glömt lösenord. |
-| *selfasserted.html* | Den här sidan kan användas som en mall för ett socialt konto registrera sida, en registreringssida för lokalt konto eller ett lokalt konto på inloggningssidan. |
-| *unified.html* | Den här sidan kan användas som en mall för en enhetlig registrering eller på inloggningssidan. |
-| *updateprofile.html* | Den här sidan kan användas som en mall för en uppdatering profilsida. |
+| *phonefactor. html* | Den här sidan kan användas som mall för en Multi-Factor Authentication-sida. |
+| *ResetPassword. html* | Den här sidan kan användas som mall för en glömt lösen ords sida. |
+| *selfasserted. html* | Den här sidan kan användas som mall för registrering av ett socialt konto, ett lokalt konto registrerings sida eller en inloggnings sida för lokalt konto. |
+| *Unified. html* | Den här sidan kan användas som mall för en enhetlig registrering eller inloggnings sida. |
+| *updateprofile. html* | Den här sidan kan användas som mall för en profil uppdaterings sida. |
 
-## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>Lägg till en länk till dina HTML5/CSS-mallar till din användarresa
+## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>Lägg till en länk till HTML5-/CSS-mallarna till din användar resa
 
-Du kan lägga till en länk till dina HTML5/CSS-mallar till din användarresa genom att redigera en anpassad princip direkt.
+Du kan lägga till en länk i HTML5-/CSS-mallarna till din användar resa genom att redigera en anpassad princip direkt.
 
-Anpassade HTML5/CSS-mallarna för att använda i din användarresan måste anges i en lista över innehållsdefinitioner som kan användas i dessa användare-utbildning. För detta ändamål, en valfri  *\<ContentDefinitions >* XML-element måste deklareras den  *\<BuildingBlocks >* i din anpassad princip för XML-fil.
+De anpassade HTML5-/CSS-mallarna som ska användas i din användar resa måste anges i en lista över innehålls definitioner som kan användas i användar resan. För detta ändamål måste ett valfritt *\<ContentDefinitions >* XML-element deklareras under *\<BuildingBlocks >* -avsnittet i din anpassade princip-XML-fil.
 
-I följande tabell beskriver uppsättningen innehåll definition-ID: N som identifieras av Azure AD B2C-identitet uppleva-motorn och vilken typ av sidor som relaterar till dem.
+I följande tabell beskrivs de innehålls Definitions-ID: n som identifieras av Azure AD B2C Identity Experience Engine och vilken typ av sidor som relaterar till dem.
 
-| Innehållsdefinition-ID | Beskrivning |
+| ID för innehålls definition | Beskrivning |
 |-----------------------|-------------|
-| *api.error* | **Felsida**. Den här sidan visas när ett undantag eller ett fel har påträffats. |
-| *api.idpselections* | **Sida för val av identitet**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja mellan under inloggning. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-postadress eller användarnamn namn). |
-| *api.idpselections.signup* | **Identitets-provider-markeringen för registrering**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja mellan under registreringen. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-postadress eller användarnamn namn). |
-| *api.localaccountpasswordreset* | **Sida för glömt lösenord**. Den här sidan innehåller ett formulär som användaren har att fylla för att initiera sina återställning av lösenord.  |
-| *api.localaccountsignin* | **Lokalt konto på inloggningssidan**. Den här sidan innehåller en inloggningsformuläret som användaren har att fylla i när du loggar in med ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla ett textinmatningsrutan och lösenordsruta. |
-| *api.localaccountsignup* | **Registreringssida för lokalt konto**. Den här sidan innehåller en fyllt i registreringsformuläret som användaren har att fylla i när du registrerar dig för ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika indatakontroller, till exempel textinmatningsrutan, lösenordsruta, alternativknappen, flervals-listrutorna och välja flera kryssrutor. |
-| *api.phonefactor* | **Multifaktorautentiseringssidan**. Användare kan verifiera sina telefonnummer (med text eller röst) under registrering eller inloggning på den här sidan. |
-| *api.selfasserted* | **Registreringssida för socialt konto**. Den här sidan innehåller en fyllt i registreringsformuläret som användaren har att fylla i när du registrerar dig med ett befintligt konto från en social identitetsprovider, till exempel Facebook eller Google +. Den här sidan liknar föregående socialt konto registreringssidan med undantag för inmatningsfält för lösenord. |
-| *api.selfasserted.profileupdate* | **Uppdatera profilsida**. Den här sidan innehåller ett formulär som användaren kan använda för att uppdatera sina profiler. Den här sidan liknar föregående socialt konto registreringssidan med undantag för inmatningsfält för lösenord. |
-| *api.signuporsignin* | **Sida för enhetlig registrering eller inloggning**.  Den här sidan hanterar både registrering och inloggning av användare som kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.
+| *API. error* | **Felsida**. Den här sidan visas när ett undantag eller ett fel påträffas. |
+| *API. idpselections* | **Sidan Val av identitets leverantör**. Den här sidan innehåller en lista över identitets leverantörer som användaren kan välja från vid inloggning. Dessa leverantörer är antingen företags identitets leverantörer, sociala identitets leverantörer som Facebook och Google + eller lokala konton (baserat på e-postadress eller användar namn). |
+| *API. idpselections. signup* | **Val av identitets leverantör för registrering**. Den här sidan innehåller en lista över identitets leverantörer som användaren kan välja från vid registrering. Dessa leverantörer är antingen företags identitets leverantörer, sociala identitets leverantörer som Facebook och Google + eller lokala konton (baserat på e-postadress eller användar namn). |
+| *API. localaccountpasswordreset* | **Sidan glömt lösen ord**. Den här sidan innehåller ett formulär som användaren måste fylla i för att initiera lösen ords återställning.  |
+| *API. localaccountsignin* | **Inloggnings sida för lokalt konto**. Den här sidan innehåller ett inloggnings formulär som användaren måste fylla i när de loggar in med ett lokalt konto som är baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla text rutorna text rutor och lösen ord. |
+| *API. localaccountsignup* | **Registrerings sida för lokalt konto**. Den här sidan innehåller ett registrerings formulär som användaren måste fylla i när de registrerar sig för ett lokalt konto som är baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla olika inmatnings kontroller, till exempel text inmatnings ruta, rutan lösen ords post, alternativ knapp, list rutor med flera val och kryss rutor med flera val. |
+| *API. phonefactor* | **Sidan Multi-Factor Authentication**. På den här sidan kan användarna verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
+| *API. selfasserted* | **Registrerings sida för socialt konto**. Den här sidan innehåller ett registrerings formulär som användaren måste fylla i när de registrerar sig med ett befintligt konto från en social identitetsprovider som Facebook eller Google +. Den här sidan påminner om den föregående registrerings sidan för sociala konton med undantag för fälten för lösen ords inmatning. |
+| *API. selfasserted. profileupdate* | **Sidan profil uppdatering**. Den här sidan innehåller ett formulär som användaren kan använda för att uppdatera sin profil. Den här sidan påminner om den föregående registrerings sidan för sociala konton med undantag för fälten för lösen ords inmatning. |
+| *API. signuporsignin* | **Enhetlig registrerings-eller inloggnings sida**.  Den här sidan hanterar både registrering & inloggnings användare, som kan använda företags identitets leverantörer, sociala identitets leverantörer som Facebook, Google + eller lokala konton.
 
 ## <a name="next-steps"></a>Nästa steg
-[Referens: Förstå hur anpassade principer fungerar med Identitetsramverk i B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)
+[Referens: förstå hur anpassade principer fungerar med identitets miljö ramverket i B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

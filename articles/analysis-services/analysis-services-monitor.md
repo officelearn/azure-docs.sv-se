@@ -4,15 +4,15 @@ description: Lär dig hur du övervakar Analysis Services server mått i Azure P
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a66089d01ed9eabdb78975eb1738b87c99fbf311
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 57bcffad2634ea556cc0dd53763011f921acc5e0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294866"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146794"
 ---
 # <a name="monitor-server-metrics"></a>Övervaka servermått
 
@@ -27,7 +27,7 @@ Använd [Azure Monitor](../azure-monitor/overview.md)för att utföra mer djupg�
 
     ![Övervaka i Azure Portal](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. I **tillgängliga mått**väljer du de mått som ska ingå i diagrammet. 
+2. I **mått**väljer du de mått som ska ingå i diagrammet. 
 
     ![Övervaka diagram](./media/analysis-services-monitor/aas-monitor-chart.png)
 

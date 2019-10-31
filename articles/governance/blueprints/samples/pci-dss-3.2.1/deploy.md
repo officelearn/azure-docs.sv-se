@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 85f9eab29411ac896f73eed7aba607c733e4b95e
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b765782adfa5fd63bc270ad28b74cf3bd1ca1d4a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299039"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163045"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuera skiss exemplet PCI-DSS v 3.2.1
 
@@ -97,7 +97,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 |Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[Preview @ no__t-1 audit PCI v 3.2.1:2018 kontrollerar och distribuerar särskilda VM-tillägg så att de stöder gransknings krav|Principtilldelning|Lista över resurs typer | Granska diagnostikinställningar för valda resurs typer. Standardvärdet är alla resurser markerade| 
+|\[för hands version\] granskning PCI v 3.2.1:2018 kontrollerar och distribuerar särskilda VM-tillägg så att de stöder gransknings krav|Principtilldelning|Lista över resurs typer | Granska diagnostikinställningar för valda resurs typer. Standardvärdet är alla resurser markerade| 
 |Tillåtna platser|Principtilldelning|Lista över tillåtna platser|Lista över data Center platser som tillåts för alla resurser som ska distribueras till. Den här listan kan anpassas till önskade Azure-platser globalt. Välj de platser som du vill tillåta.| 
 |Tillåtna platser för resurs grupper|Principtilldelning |Tillåten plats |Med den här principen kan du begränsa vilka platser som organisationen kan skapa resurs grupper i. Den används för att genomdriva kraven på geo-efterlevnad.| 
 |Distribuera granskning på SQL-servrar|Principtilldelning|Kvarhållning dagar|Data kvarhållning i antal dagar. Standardvärdet är 180 men PCI kräver 365.| 
@@ -111,7 +111,7 @@ Nu när du har granskat stegen för att distribuera PCI-DSS v 3.2.1-skissen kan 
 > [PCI-DSS v 3.2.1 skiss – översikt](./index.md)
 > [PCI-DSS v 3.2.1 skiss-kontroll mappning](./control-mapping.md)
 
-Ytterligare artiklar om skisser och hur de används:
+Ytterligare artiklar om ritningar och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

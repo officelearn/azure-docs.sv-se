@@ -1,5 +1,5 @@
 ---
-title: Skyddad Web API – app Code Configuration Active Directory
+title: Verifiera omfattningar och app-roller med skyddat webb-API
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du skapar ett skyddat webb-API och konfigurerar programmets kod.
 services: active-directory
@@ -17,14 +17,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7044180c72f92b70e0c3a2085eca043f44da45f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4340d92bdfe871010021edcbefcde62ab8202462
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803625"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149232"
 ---
-# <a name="protected-web-api-adding-authorization-to-your-api"></a>Skyddat webb-API: lägga till auktorisering till ditt API
+# <a name="protected-web-api-verify-scopes-and-app-roles"></a>Skyddat webb-API: kontrol lera omfattningar och app-roller
 
 I den här artikeln beskrivs hur du kan lägga till auktorisering i ditt webb-API. Det här skyddet säkerställer att API: et endast anropas av:
 

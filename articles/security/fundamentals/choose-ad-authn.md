@@ -4,17 +4,17 @@ description: 'Den här guiden hjälper CEOs, CIO: er, ciso, Chief Identity Archi
 keywords: ''
 author: martincoetzer
 ms.author: martinco
-ms.date: 04/12/2018
+ms.date: 10/30/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 4de4da63abea1c4f6ab006ffd65a58ea0e34c015
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 524e923f005e2631e42f1d6b89b13cafdd646c2a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529390"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159706"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning 
 
@@ -69,13 +69,13 @@ Information om besluts frågor:
 
 1. Azure AD kan hantera inloggning för användare utan att behöva lita på lokala komponenter för att verifiera lösen ord.
 2. Azure AD kan lämna ut användar inloggningen till en betrodd autentiseringsprovider, till exempel Microsofts AD FS.
-3. Om du behöver använda Active Directory säkerhets principer på användar nivå, till exempel kontot som har upphört att gälla, inaktiverat konto, lösen ord har upphört att gälla, utelåst konto och inloggnings timmar för varje användar inloggning, kräver Azure AD vissa lokala komponenter.
+3. Om du behöver tillämpa Active Directory säkerhets principer på användar nivå, till exempel kontot som har upphört att gälla, inaktiverat konto, lösen ord har upphört att gälla, utelåst konto och inloggnings timmar för varje användar inloggning, kräver Azure AD några lokala komponenter.
 4. Inloggnings funktioner som inte stöds internt av Azure AD:
    * Logga in med smartkort eller certifikat.
    * Logga in med lokal MFA-Server.
-   * Logga in med hjälp av autentisering med tredje part.
+   * Logga in med hjälp av en tredjeparts Authentication-lösning.
    * Lösning för lokal autentisering med flera platser.
-5. Azure AD Identity Protection kräver en hash-synkronisering av lösen ord oavsett vilken inloggnings metod du väljer för att ge *användarna med läcka autentiseringsuppgifter* . Organisationer kan redundansväxla lösen ordets hash-synkronisering om deras primära inloggnings metod Miss lyckas och den har kon figurer ATS före fel händelsen.
+5. Azure AD Identity Protection kräver en hash-synkronisering av lösen ord oavsett vilken inloggnings metod du väljer för att ge *användarna med läcka autentiseringsuppgifter* . Organisationer kan redundansväxla till hash-synkronisering av lösen ord om deras primära inloggnings metod Miss lyckas och den har kon figurer ATS före fel händelsen.
 
 > [!NOTE]
 > Azure AD Identity Protection kräver [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) -licenser.
@@ -88,7 +88,7 @@ Information om besluts frågor:
 
 * **Användar upplevelse**. Du kan förbättra användarnas inloggnings upplevelser genom att distribuera sömlös SSO med hash-synkronisering av lösen ord. Sömlös SSO eliminerar onödiga meddelanden när användare är inloggade.
 
-* **Avancerade scenarier**. Om organisationer väljer att göra det, är det möjligt att använda insikter från identiteter med Azure AD Identity Protection rapporter med Azure AD Premium P2. Ett exempel är rapporten läckta autentiseringsuppgifter. Windows Hello för företag har [specifika krav när du använder hash-synkronisering av lösen ord](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) kräva hash-synkronisering av lösen ord för att etablera användare med sina företags autentiseringsuppgifter i den hanterade domänen.
+* **Avancerade scenarier**. Om organisationer väljer att göra det, är det möjligt att använda insikter från identiteter med Azure AD Identity Protection rapporter med Azure AD Premium P2. Ett exempel är rapporten läckta autentiseringsuppgifter. Windows Hello för företag har [specifika krav när du använder hash-synkronisering av lösen ord](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) kräver synkronisering av lösen ords-hash för att etablera användare med sina företags uppgifter i den hanterade domänen.
 
     Organisationer som kräver multifaktorautentisering med hash-synkronisering måste använda multifaktor-autentisering i Azure AD eller [anpassade kontroller för villkorlig åtkomst](../../active-directory/conditional-access/controls.md#custom-controls-preview). Dessa organisationer kan inte använda tredjeparts autentiseringsmetoder eller lokala metoder för multifaktorautentisering som förlitar sig på Federation.
 
@@ -112,7 +112,7 @@ Se [implementera synkronisering av lösen ords-hash](../../active-directory/hybr
 
 * **Användar upplevelse**. För att förbättra användarnas inloggnings upplevelser distribuerar du sömlös SSO med direktautentisering. Sömlös SSO eliminerar onödiga meddelanden när användarna loggar in.
 
-* **Avancerade scenarier**. Genom direktautentisering används den lokala konto principen vid tidpunkten för inloggningen. Till exempel nekas åtkomst när en lokal användares konto status är inaktive rad, låst eller om [lösen ordet har upphört att gälla](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) eller faller utanför de timmar då användaren får logga in. 
+* **Avancerade scenarier**. Direktautentisering använder den lokala konto principen vid tidpunkten för inloggningen. Till exempel nekas åtkomst när en lokal användares konto status är inaktive rad, låst eller om [lösen ordet har upphört att gälla](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) eller faller utanför de timmar då användaren får logga in. 
 
     Organisationer som kräver multifaktorautentisering med direktautentisering måste använda Azure Multi-Factor Authentication (MFA) eller [anpassade kontroller för villkorlig åtkomst](../../active-directory/conditional-access/controls.md#custom-controls-preview). Dessa organisationer kan inte använda en tredjeparts-autentiseringsmetod eller en lokal autentiseringsmetod som förlitar sig på Federation. Avancerade funktioner kräver att hash-synkronisering av lösen ord distribueras oavsett om du väljer direktautentisering eller inte. Ett exempel är en avslöjad identifierings rapport för identitets skydd.
 
@@ -120,7 +120,7 @@ Se [implementera synkronisering av lösen ords-hash](../../active-directory/hybr
 
     Det finns en annan fördel med att distribuera hash-synkronisering av lösen ord, förutom direktautentisering. Den fungerar som en autentiseringsmetod för säkerhets kopiering när den primära autentiseringsmetoden inte längre är tillgänglig.
 
-* **Överväganden**. Du kan använda Password hash-synkronisering som en autentiseringsmetod för säkerhets kopiering för direktautentisering, när agenterna inte kan verifiera en användares autentiseringsuppgifter på grund av ett betydande lokalt haveri. Det sker ingen växling till hash-synkronisering automatiskt och du måste använda Azure AD Connect för att byta inloggnings metod manuellt. 
+* **Överväganden**. Du kan använda Password hash-synkronisering som en autentiseringsmetod för säkerhets kopiering för direktautentisering, när agenterna inte kan verifiera en användares autentiseringsuppgifter på grund av ett betydande lokalt haveri. Växling vid växling till hash-synkronisering sker inte automatiskt och du måste använda Azure AD Connect för att byta inloggnings metod manuellt. 
 
     Andra överväganden vid direktautentisering, inklusive stöd för alternativa ID: n, finns i [vanliga frågor och svar](../../active-directory/hybrid/how-to-connect-pta-faq.md).
 
@@ -207,8 +207,6 @@ Använd eller aktivera hash-synkronisering av lösen ord för vilken autentiseri
 
 3. **Identitets skydd**. Ett av de bästa sätten att skydda användare i molnet är Azure AD Identity Protection med Azure AD Premium P2. Microsoft genomsöker kontinuerligt Internet efter användar-och lösen ords listor som dåliga aktörer säljer och gör tillgängliga på den mörka webben. Azure AD kan använda den här informationen för att kontrol lera om något av användar namn och lösen ord i din organisation har komprometterats. Det är därför viktigt att aktivera Lösenordssynkronisering oavsett vilken autentiseringsmetod du använder, oavsett om det är federerad eller direktautentisering. Läckta autentiseringsuppgifter visas som en rapport. Använd den här informationen för att blockera eller tvinga användare att ändra sina lösen ord när de försöker logga in med läckta lösen ord.
 
-I enlighet med [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html)har Microsoft till sist den mest kompletta uppsättningen identitets-och åtkomst hanterings funktioner. Microsoft hanterar [450 000 000 000 autentiseringsbegäranden](https://www.microsoft.com/en-us/security/intelligence-report) varje månad för att ge åtkomst till tusentals SaaS-program som Office 365 från i princip vilken enhet som helst. 
-
 ## <a name="conclusion"></a>Sammanfattning
 
 Den här artikeln beskriver olika autentiseringsalternativ som organisationer kan konfigurera och distribuera för att ge stöd åt molnappar. För att möta olika affärs-, säkerhets-och teknik krav kan organisationer välja mellan Lösenordssynkronisering, direktautentisering och Federation. 
@@ -221,4 +219,4 @@ I dagens värld är Hot tillgängliga dygnet runt, och kommer från var som än 
 
 [Kom igång](../../active-directory/fundamentals/get-started-azure-ad.md) med Azure AD och distribuera rätt autentiserings lösning för din organisation.
 
-Om du funderar på att migrera från federerade till molnbaserad autentisering, lär du dig mer om [att ändra inloggnings metoden](../../active-directory/hybrid/plan-connect-user-signin.md). För att hjälpa dig att planera och implementera migreringen använder du [de här projekt distributions planerna](https://aka.ms/deploymentplans).
+Om du funderar på att migrera från federerade till molnbaserad autentisering, lär du dig mer om [att ändra inloggnings metoden](../../active-directory/hybrid/plan-connect-user-signin.md). För att hjälpa dig att planera och implementera migreringen använder du [de här distributions planerna för projekt](https://aka.ms/deploymentplans) eller funderar på att använda den nya [stegvisa](../../active-directory/hybrid/how-to-connect-staged-rollout.md) distributions funktionen för att migrera federerade användare till att använda molnbaserad autentisering i en stegvis metod.

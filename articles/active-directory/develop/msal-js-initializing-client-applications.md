@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4cd3e2ab18c05c8adfda1a54ea4f7820916eab5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 25f2776b9b5683a345c55af4bc0020fef8109edd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934890"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150661"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klient program med MSAL. js
 I den här artikeln beskrivs hur du initierar Microsoft Authentication Library för Java Script (MSAL. js) med en instans av ett användar agent program. Användar agent programmet är en form av ett offentligt klient program där klient koden körs i en användar agent, till exempel en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig. Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
@@ -46,7 +46,7 @@ För autentiseringsmetoder med omdirigerings flöden (`loginRedirect` och `acqui
 // Configuration object constructed
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     }
 }
 

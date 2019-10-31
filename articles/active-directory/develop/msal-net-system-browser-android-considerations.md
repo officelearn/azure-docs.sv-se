@@ -1,7 +1,7 @@
 ---
-title: Xamarin Android-överväganden (Microsoft Authentication Library för .NET)
+title: Xamarin Android system Browser-överväganden (Microsoft Authentication Library för .NET)
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om att tänka på när du använder Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
+description: Lär dig mer om att tänka på när du använder system webbläsare på Xamarin Android när du använder Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5caad4b136c9ef2686cc4befc70e6720e27855
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802746"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150358"
 ---
-# <a name="xamarin-android-specific-considerations-with-msalnet"></a>Xamarin Android-/regionsspecifika överväganden med MSAL.NET
+#  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Xamarin Android system Browser-överväganden med MSAL.NET
+
 I den här artikeln beskrivs olika saker som du bör tänka på när du använder system läsaren på Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
 
 Från och med MSAL.NET 2.4.0-Preview har MSAL.NET stöd för andra webbläsare än Chrome och kräver inte längre att Chrome installeras på Android-enheten för autentisering.

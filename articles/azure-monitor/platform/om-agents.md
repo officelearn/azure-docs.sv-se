@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 08/13/2019
-ms.openlocfilehash: c5ac8cfe2971d1163c00383b4604a9a5b49558b0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 79fcbb6f972eb022ce4d0e47a608e6f0d053a9ad
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932159"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162235"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Anslut Operations Manager till Azure Monitor
 
@@ -227,7 +227,7 @@ Hanterings paket för de lösningar som du har aktiverat och som integreras med 
     >
 
 1. Från kommandotolken skriver du: `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-1. Skriv sedan `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. Skriv sedan `Get-SCOMManagementPack -name "*IntelligencePack*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. För att ta bort återstående hanteringspaket med beroenden till andra System Center Advisor-hanteringspaket använder du skriptet *RecursiveRemove.ps1* som du laddade ned innan från TechNet Script Center.  
 
     > [!NOTE]
@@ -253,8 +253,8 @@ Hanterings paket för de lösningar som du har aktiverat och som integreras med 
 För att radera de två anslutningsprogrammen – Microsoft.SystemCenter.Advisor.DataConnector och Advisor Connector – sparar du PowerShell-skriptet nedan på datorn och kör det med följande exempel:
 
 ```
-    .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
-    .\OM2012_DeleteConnectors.ps1 “Microsoft.SystemCenter.Advisor.DataConnector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 "Advisor Connector" <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 "Microsoft.SystemCenter.Advisor.DataConnector" <ManagementServerName>
 ```
 
 > [!NOTE]

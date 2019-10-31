@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 9f1580a9a43781996afadde5487adcafec860e26
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 99159b15ea663d43d125748d6db1f334b72931ae
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029694"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161795"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrering av Azure blockchain Workbench-meddelanden
 
@@ -158,7 +158,7 @@ Blockchain Workbench returnerar ett svar med följande fält:
 | connectionId             | Unikt ID för blockchain-anslutningen                               |
 | messageSchemaVersion     | Meddelande schema version                                                         |
 | messageName              | **CreateContractUpdate**                                                      |
-| status                   | Status för begäran om att skapa kontrakt.  Möjliga värden: **Skickad**, **genomförd**, **Miss lyckas**.  |
+| status                   | Status för begäran om att skapa kontrakt.  Möjliga värden: **skickade**, **bekräftade**, **felaktiga**.  |
 | additionalInformation    | Ytterligare information som tillhandahålls utifrån status                              |
 
 Exempel på ett skickat **kontrakts** svar från blockchain Workbench:
@@ -261,7 +261,7 @@ Blockchain Workbench returnerar ett svar med följande fält:
 | connectionId          | Unikt ID för blockchain-anslutningen |
 | messageSchemaVersion  | Meddelande schema version |
 | messageName           | **CreateContractActionUpdate** |
-| status                | Status för kontrakts åtgärds förfrågan. Möjliga värden: **Skickad**, **genomförd**, **Miss lyckas**.                         |
+| status                | Status för kontrakts åtgärds förfrågan. Möjliga värden: **skickade**, **bekräftade**, **felaktiga**.                         |
 | additionalInformation | Ytterligare information som tillhandahålls utifrån status |
 
 Exempel på en skickad åtgärds svar för att **skapa kontrakt** från blockchain Workbench:
@@ -311,7 +311,7 @@ Om begäran Miss lyckas ingår information om felen i ytterligare information.
 
 ### <a name="input-api-error-codes-and-messages"></a>Felkoder och meddelanden för API för indataport
 
-**Error kod 4000: Fel i felaktig begäran @ no__t-0
+**Felkod 4000: fel vid felaktig begäran**
 - Ogiltig connectionId
 - CreateUserRequest-deserialiseringen misslyckades
 - CreateContractRequest-deserialiseringen misslyckades
@@ -323,12 +323,12 @@ Om begäran Miss lyckas ingår information om felen i ytterligare information.
 - Kontraktet {som identifieras av redovisnings-ID: n} saknar funktion {arbets flödes funktions namn}
 - UserChainIdentifier finns inte
 
-**Error kod 4090: Konflikt fel @ no__t-0
+**Felkod 4090: konflikt fel**
 - Användaren finns redan
 - Kontraktet finns redan
 - Kontrakt åtgärden finns redan
 
-**Error kod 5000: Internt Server fel @ no__t-0
+**Felkod 5000: internt Server fel**
 - Undantags meddelanden
 
 ## <a name="event-notifications"></a>Händelseaviseringar
@@ -381,7 +381,7 @@ Beroende på **messageName**har aviseringarna en av följande typer av meddeland
 
 Innehåller information om enskilda block. *BlockMessage* innehåller ett avsnitt med information om block nivå och ett avsnitt med transaktionsinformation.
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | undantaget | Innehåller [block information](#block-information) |
 | transaktioner | Innehåller en samlings [transaktions information](#transaction-information) för blocket |
@@ -392,7 +392,7 @@ Innehåller information om enskilda block. *BlockMessage* innehåller ett avsnit
 
 #### <a name="block-information"></a>Blockera information
 
-| Name              | Beskrivning |
+| Namn              | Beskrivning |
 |-------------------|-------------|
 | Block           | Unikt ID för blocket i Azure blockchain Workbench |
 | blockNumber       | Unikt ID för ett block i redovisningen |
@@ -402,13 +402,13 @@ Innehåller information om enskilda block. *BlockMessage* innehåller ett avsnit
 
 #### <a name="transaction-information"></a>Transaktionsinformation
 
-| Name               | Beskrivning |
+| Namn               | Beskrivning |
 |--------------------|-------------|
 | transactionId      | Unikt ID för transaktionen i Azure blockchain Workbench |
 | transactionHash    | Hash för transaktionen i redovisningen |
-| from               | Unikt ID i redovisningen för transaktions ursprunget |
+| som               | Unikt ID i redovisningen för transaktions ursprunget |
 | till                 | Unikt ID i redovisningen för transaktions målet |
-| provisioningStatus | Identifierar den aktuella statusen för etablerings processen för transaktionen. Möjliga värden är: </br>0 – transaktionen har skapats av API: t i databasen</br>1 – transaktionen har skickats till redovisningen</br>2 – transaktionen har allokerats till redovisningen</br>3 eller 4-transaktionen kunde inte allokeras till redovisningen</br>5 – transaktionen har allokerats till redovisningen |
+| provisioningStatus | Identifierar den aktuella statusen för etablerings processen för transaktionen. Möjliga värden: </br>0 – transaktionen har skapats av API: t i databasen</br>1 – transaktionen har skickats till redovisningen</br>2 – transaktionen har allokerats till redovisningen</br>3 eller 4-transaktionen kunde inte allokeras till redovisningen</br>5 – transaktionen har allokerats till redovisningen |
 
 Exempel på en *BlockMessage* från blockchain Workbench:
 
@@ -448,7 +448,7 @@ Exempel på en *BlockMessage* från blockchain Workbench:
 
 Innehåller information om ett kontrakt. Meddelandet innehåller ett avsnitt med kontrakt egenskaper och ett avsnitt med transaktionsinformation. Alla transaktioner som har ändrat kontraktet för det specifika blocket ingår i transaktions avsnittet.
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | Block | Unikt ID för blocket i Azure blockchain Workbench |
 | blockHash | Hash för blocket |
@@ -464,20 +464,20 @@ Innehåller information om ett kontrakt. Meddelandet innehåller ett avsnitt med
 
 #### <a name="modifying-transaction-information"></a>Ändra transaktionsinformation
 
-| Name               | Beskrivning |
+| Namn               | Beskrivning |
 |--------------------|-------------|
 | transactionId | Unikt ID för transaktionen i Azure blockchain Workbench |
 | transactionHash | Hash för transaktionen i redovisningen |
-| from | Unikt ID i redovisningen för transaktions ursprunget |
+| som | Unikt ID i redovisningen för transaktions ursprunget |
 | till | Unikt ID i redovisningen för transaktions målet |
 
 #### <a name="contract-properties"></a>Kontrakts egenskaper
 
-| Name               | Beskrivning |
+| Namn               | Beskrivning |
 |--------------------|-------------|
 | workflowPropertyId | Unikt ID för arbets flödes egenskapen i Azure blockchain Workbench |
-| name | Namn på arbets flödes egenskapen |
-| value | Värdet för arbets flödes egenskapen |
+| namn | Namn på arbets flödes egenskapen |
+| värde | Värdet för arbets flödes egenskapen |
 
 Exempel på en *ContractMessage* från blockchain Workbench:
 
@@ -556,11 +556,11 @@ Exempel på en *ContractMessage* från blockchain Workbench:
 }
 ```
 
-### <a name="event-message-contract-function-invocation"></a>Händelse meddelande: Anrop till kontrakts funktion
+### <a name="event-message-contract-function-invocation"></a>Händelse meddelande: kontrakts funktion anrop
 
 Innehåller information när en kontrakts funktion anropas, t. ex. funktions namn, parameter indata och anroparen för funktionen.
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
 | anroparen                      | [Information om anropare](#caller-information) |
@@ -577,26 +577,26 @@ Innehåller information när en kontrakts funktion anropas, t. ex. funktions nam
 
 #### <a name="caller-information"></a>Information om anropare
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
-| type | Typ av anropare, t. ex. en användare eller ett kontrakt |
+| typ | Typ av anropare, t. ex. en användare eller ett kontrakt |
 | id | Unikt ID för anroparen i Azure blockchain Workbench |
 | ledgerIdentifier | Unikt ID för anroparen i redovisningen |
 
 #### <a name="parameter-information"></a>Parameter information
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
-| name | Parameternamn |
-| value | Parametervärde |
+| namn | Parameternamn |
+| värde | Parametervärde |
 
 #### <a name="event-message-transaction-information"></a>Transaktions information för händelse meddelande
 
-| Name               | Beskrivning |
+| Namn               | Beskrivning |
 |--------------------|-------------|
 | transactionId      | Unikt ID för transaktionen i Azure blockchain Workbench |
 | transactionHash    | Hash för transaktionen i redovisningen |
-| from               | Unikt ID i redovisningen för transaktions ursprunget |
+| som               | Unikt ID i redovisningen för transaktions ursprunget |
 | till                 | Unikt ID i redovisningen för transaktions målet |
 
 Exempel på en *EventMessage-ContractFunctionInvocation* från blockchain Workbench:
@@ -636,11 +636,11 @@ Exempel på en *EventMessage-ContractFunctionInvocation* från blockchain Workbe
 }
 ```
 
-### <a name="event-message-application-ingestion"></a>Händelse meddelande: Program inmatning
+### <a name="event-message-application-ingestion"></a>Händelse meddelande: program inmatning
 
 Innehåller information när ett program laddas upp till Workbench, till exempel namn och version för det program som laddas upp.
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | eventName | **ApplicationIngestion** |
 | applicationId | Unikt ID för programmet i Azure blockchain Workbench |
@@ -658,7 +658,7 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 
 #### <a name="contract-code-information"></a>Information om kontrakt kod
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | id | Unik identifierare för kontrakts kod filen i Azure blockchain Workbench |
 | ledgerId | Unikt ID för redovisningen i Azure blockchain Workbench |
@@ -666,17 +666,17 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 
 #### <a name="application-role-information"></a>Information om program roll
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | id | Unikt ID för program rollen i Azure blockchain Workbench |
-| name | Namn på program rollen |
+| namn | Namn på program rollen |
 
 #### <a name="application-workflow-information"></a>Information om program arbets flöde
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | id | Unikt ID för program arbets flödet i Azure blockchain Workbench |
-| name | Namn på program arbets flöde |
+| namn | Namn på program arbets flöde |
 | displayName | Visnings namn för program arbets flöde |
 | functions | Insamling av [funktioner för program arbets flödet](#workflow-function-information)|
 | USA | Insamling av [tillstånd för program arbets flödet](#workflow-state-information) |
@@ -684,27 +684,27 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 
 ##### <a name="workflow-function-information"></a>Information om arbets flödes funktion
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | id | Unik identifierare för program arbets flödes funktionen i Azure blockchain Workbench |
-| name | Funktions namn |
+| namn | Funktions namn |
 | parameters | Parametrar för funktionen |
 
 ##### <a name="workflow-state-information"></a>Information om arbets flödes tillstånd
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
-| name | Tillstånds namn |
+| namn | Tillstånds namn |
 | displayName | Visnings namn för tillstånd |
-| style | Tillstånds format (lyckades eller misslyckades) |
+| ATS | Tillstånds format (lyckades eller misslyckades) |
 
 ##### <a name="workflow-property-information"></a>Information om arbets flödes egenskaper
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | id | Unikt ID för egenskapen för program arbets flödet i Azure blockchain Workbench |
-| name | Egenskapsnamn |
-| type | Egenskaps typ |
+| namn | Egenskapsnamn |
+| typ | Egenskaps typ |
 
 Exempel på en *EventMessage-ApplicationIngestion* från blockchain Workbench:
 
@@ -714,7 +714,7 @@ Exempel på en *EventMessage-ApplicationIngestion* från blockchain Workbench:
     "applicationId": 31,
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
-    "applicationVersion": “1.0”,
+    "applicationVersion": "1.0",
     "applicationDefinitionLocation": "http://url",
     "contractCodes": [
         {
@@ -793,14 +793,14 @@ Exempel på en *EventMessage-ApplicationIngestion* från blockchain Workbench:
                     "id": 879,
                     "name": "Description",
                     "type": {
-                                "name": "string"
+                        "name": "string"
                      }
                 },
                 {
                     "id": 880,
                     "name": "Price",
                     "type": {
-                                "name": "int"
+                        "name": "int"
                      }
                 }
             ]
@@ -830,11 +830,11 @@ Exempel på en *EventMessage-ApplicationIngestion* från blockchain Workbench:
 }
 ```
 
-### <a name="event-message-role-assignment"></a>Händelse meddelande: Rolltilldelning
+### <a name="event-message-role-assignment"></a>Händelse meddelande: roll tilldelning
 
 Innehåller information när en användare tilldelas en roll i Workbench, till exempel vem som utförde roll tilldelningen och namnet på rollen och motsvarande program.
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | eventName | **RoleAssignment** |
 | applicationId | Unikt ID för programmet i Azure blockchain Workbench |
@@ -851,25 +851,25 @@ Innehåller information när en användare tilldelas en roll i Workbench, till e
 
 #### <a name="roleassignment-application-role"></a>RoleAssignment program roll
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | id | Unikt ID för program rollen i Azure blockchain Workbench |
-| name | Namn på program rollen |
+| namn | Namn på program rollen |
 
 #### <a name="roleassignment-assigner"></a>RoleAssignment tilldelas
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | id | Unikt ID för användaren i Azure blockchain Workbench |
-| type | Typ av tilldelare |
+| typ | Typ av tilldelare |
 | chainIdentifier | Unikt ID för användaren i redovisningen |
 
 #### <a name="roleassignment-assignee"></a>RoleAssignment tilldelas
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | id | Unikt ID för användaren i Azure blockchain Workbench |
-| type | Typ av tilldelad person |
+| typ | Typ av tilldelad person |
 | chainIdentifier | Unikt ID för användaren i redovisningen |
 
 Exempel på en *EventMessage-RoleAssignment* från blockchain Workbench:
@@ -880,7 +880,7 @@ Exempel på en *EventMessage-RoleAssignment* från blockchain Workbench:
     "applicationId": 31,
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
-    "applicationVersion": “1.0”,
+    "applicationVersion": "1.0",
     "applicationRole": {
         "id": 134,
         "name": "Buyer"

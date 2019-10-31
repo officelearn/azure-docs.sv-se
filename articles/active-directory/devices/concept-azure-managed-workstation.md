@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba53049d580f3f90499dc0471b9ac981f4a374f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 00e5e4a9751a03fe961fe02fec28f41b49e5ba43
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562176"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175154"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Förstå säkra, Azure-hanterade arbets stationer
 
@@ -63,7 +63,7 @@ Alla användare och operatörer har nytta av en säker arbets Station. En angrip
 * Mycket känslig arbets Station, till exempel en SWIFT-betalningsterminal
 * Arbets station som hanterar affärs hemligheter
 
-För att minska risken bör du implementera utökade säkerhets kontroller för privilegierade arbets stationer som använder dessa konton. Mer information finns i distributions [guiden för Azure Active Directory Feature](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365-översikt](https://aka.ms/o365secroadmap)och [skydd av Privileged Access Planning](https://aka.ms/sparoadmap).
+För att minska risken bör du implementera utökade säkerhets kontroller för privilegierade arbets stationer som använder dessa konton. Mer information finns i [distributions guiden för Azure Active Directory Feature](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365-översikt](https://aka.ms/o365secroadmap)och [skydd av Privileged Access Planning](https://aka.ms/sparoadmap).
 
 ## <a name="why-use-dedicated-workstations"></a>Varför ska jag använda dedikerade arbets stationer?
 
@@ -85,7 +85,7 @@ Nödvändig för en säker arbets Station är en lösning för leverans kedja d�
 ## <a name="device-roles-and-profiles"></a>Enhets roller och profiler
 
 Den här vägledningen hänvisar till flera säkerhets profiler och roller som kan hjälpa dig att skapa säkrare lösningar för användare, utvecklare och IT-personal. Dessa profiler balanserar användbarhet och risker för vanliga användare som kan dra nytta av en förbättrad eller säker arbets Station. De inställnings konfigurationer som anges här baseras på bransch godkända standarder. Den här vägledningen visar hur du skärper Windows 10 och minskar riskerna med enhets-eller användar problem. Det gör det genom att använda princip och teknik för att hjälpa dig att hantera säkerhetsfunktioner och risker.
-![Skydda arbets Stations nivåer](./media/concept-azure-managed-workstation/seccon-levels.png)
+![säkra arbets Stations nivåer](./media/concept-azure-managed-workstation/seccon-levels.png)
 
 * **Låg säkerhet** – en hanterad, standard arbets Station ger en välgrundad utgångs punkt för de flesta hem-och små företags användning. Dessa enheter är registrerade i Azure AD och hanteras med Intune. Den här profilen tillåter användare att köra program och bläddra på alla webbplatser. En lösning mot skadlig kod som [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) ska vara aktive rad.
 

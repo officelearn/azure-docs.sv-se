@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0823b4b7e19bec9d8efc83dbb3996076425cb4f1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756888"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176926"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Arbeta med databaser, behållare och objekt i Azure Cosmos DB
 
@@ -82,10 +82,10 @@ En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Ber
 
 | Systemdefinierad egenskap | Systemgenererad eller användare kan konfigureras | Syfte | API för SQL | API för Cassandra | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Systemgenererad | Unikt ID för behållare | Ja | Nej | Nej | Nej | Nej |
+|\_-ID | Systemgenererad | Unikt ID för behållare | Ja | Nej | Nej | Nej | Nej |
 |\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Ja | Nej | Nej | Nej | Nej |
-|\_ts | Systemgenererad | Senast uppdaterad tidsstämpel för behållaren | Ja | Nej | Nej | Nej | Nej |
-|\_self | Systemgenererad | Adresser bara URI för behållaren | Ja | Nej | Nej | Nej | Nej |
+|\_TS | Systemgenererad | Senast uppdaterad tidsstämpel för behållaren | Ja | Nej | Nej | Nej | Nej |
+|\_själv | Systemgenererad | Adresser bara URI för behållaren | Ja | Nej | Nej | Nej | Nej |
 |id | Kan konfigureras av användare | Användardefinierat unikt namn på behållaren | Ja | Ja | Ja | Ja | Ja |
 |indexingPolicy | Kan konfigureras av användare | Ger möjlighet att ändra index Sök väg, index typ och index läge | Ja | Nej | Nej | Nej | Ja |
 |TimeToLive | Kan konfigureras av användare | Ger möjlighet att ta bort objekt automatiskt från en behållare efter en angiven tids period. Mer information finns i [Time to Live](time-to-live.md). | Ja | Nej | Nej | Nej | Ja |
@@ -118,11 +118,11 @@ Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende p
 
 | Systemdefinierad egenskap | Systemgenererad eller användare kan konfigureras| Syfte | API för SQL | API för Cassandra | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Systemgenererad | Unikt ID för objektet | Ja | Nej | Nej | Nej | Nej |
+|\_-ID | Systemgenererad | Unikt ID för objektet | Ja | Nej | Nej | Nej | Nej |
 |\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Ja | Nej | Nej | Nej | Nej |
-|\_ts | Systemgenererad | Tidsstämpel för den senaste uppdateringen av objektet | Ja | Nej | Nej | Nej | Nej |
-|\_self | Systemgenererad | Adresser bara URI för objektet | Ja | Nej | Nej | Nej | Nej |
-|id | Antingen | Användardefinierat unikt namn i en logisk partition. Om användaren inte anger något ID genererar systemet automatiskt ett. | Ja | Ja | Ja | Ja | Ja |
+|\_TS | Systemgenererad | Tidsstämpel för den senaste uppdateringen av objektet | Ja | Nej | Nej | Nej | Nej |
+|\_själv | Systemgenererad | Adresser bara URI för objektet | Ja | Nej | Nej | Nej | Nej |
+|id | Antingen | Användardefinierat unikt namn i en logisk partition. | Ja | Ja | Ja | Ja | Ja |
 |Godtyckliga användardefinierade egenskaper | Användardefinierade | Användardefinierade egenskaper som representeras i API – intern representation (inklusive JSON, BSON och CQL) | Ja | Ja | Ja | Ja | Ja |
 
 > [!NOTE]

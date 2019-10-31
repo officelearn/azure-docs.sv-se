@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.reviewer: jeconnoc
 ms.author: v-vasuke
 author: v-vasuke
-ms.date: 08/08/2019
-ms.openlocfilehash: 31ef82976a1c6938ae0bf591b2f8c8b1a0040466
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/18/2019
+ms.openlocfilehash: 3a091c22f49ec31029a1808c10e675a4d0960fb4
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928945"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177884"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>Självstudie: Konfigurera en fjäder moln konfigurations Server för din tjänst
 
@@ -52,7 +52,7 @@ När du använder ett offentligt lager kommer dina konfigurerbara egenskaper att
 Alla konfigurerbara egenskaper som används för att konfigurera den offentliga `Git`-lagringsplatsen visas nedan.
 
 > [!NOTE]
-> Att använda bindestreck ("-") för att avgränsa ord är den enda namngivnings konventionen som stöds för närvarande. Använd till exempel `default-label` inte `defaultLabel`.
+> Att använda bindestreck ("-") för att avgränsa ord är den enda namngivnings konventionen som stöds för närvarande. Du kan till exempel använda `default-label`, men inte `defaultLabel`.
 
 | Egenskap        | Krävs | Funktion                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
@@ -67,7 +67,7 @@ Alla konfigurerbara egenskaper som används för att konfigurera den offentliga 
 Alla konfigurerbara egenskaper som används för att konfigurera en privat `Git`-lagringsplats med `Ssh` visas nedan.
 
 > [!NOTE]
-> Att använda bindestreck ("-") för att avgränsa ord är den enda namngivnings konventionen som stöds för närvarande. Använd till exempel `default-label` inte `defaultLabel`.
+> Att använda bindestreck ("-") för att avgränsa ord är den enda namngivnings konventionen som stöds för närvarande. Du kan till exempel använda `default-label`, men inte `defaultLabel`.
 
 | Egenskap                   | Krävs | Funktion                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
@@ -121,10 +121,6 @@ Alla konfigurerbara egenskaper som används för att konfigurera git-databaser m
 | `repos."host-key-algorithm"`       | `no`             | Algoritmen för värd nycklar ska vara `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`eller `ecdsa-sha2-nistp521`. __Krävs__ endast om `host-key` finns. |
 | `repos."strict-host-key-checking"` | `no`             | Anger om konfigurations servern inte kan starta när den privata `host-key`används. Ska vara `true` (standardvärde) eller `false`. |
 
-### <a name="import-applicationyml-file-from-spring-cloud-config"></a>Importera `application.yml`-filen från vår moln konfiguration
-
-Du kan importera vissa standardinställningar för konfigurations servern direkt från [konfigurations webbplatsen för vår moln konfiguration](https://spring.io/projects/spring-cloud-config) . Du kan göra detta direkt från Azure Portal, så du behöver inte vidta några steg nu för att förbereda dina config server-filer eller-lagrings platser.
-
 ## <a name="attaching-your-config-server-repository-to-azure-spring-cloud"></a>Ansluta din konfigurations Server databas till Azure våren Cloud
 
 Nu när du har sparat konfigurationsfilerna i en lagrings plats måste du ansluta Azure våren Cloud till den.
@@ -135,19 +131,60 @@ Nu när du har sparat konfigurationsfilerna i en lagrings plats måste du anslut
 
 1. Gå till fliken **konfigurations Server** under rubriken **Inställningar** på menyn på vänster sida.
 
-### <a name="public-repository"></a>Offentligt lager
+![fönster skärm bild](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 
-Om lagrings platsen är offentlig klickar du bara på knappen **offentlig** och klistrar in URL: en.
+### <a name="input-repository-information-directly-to-the-azure-portal"></a>Information om indata från lagrings plats direkt till Azure Portal
 
-### <a name="private-repository"></a>Privat lagring
+#### <a name="default-repository"></a>Standard databas
 
-Azure våren Cloud stöder SSH-autentisering. Följ anvisningarna på Azure Portal för att lägga till den offentliga nyckeln till din lagrings plats. Var noga med att ta med din privata nyckel i konfigurations filen.
+* Offentligt lager: i avsnittet **standard databas** klistrar du in lagrings-URI i **URI** -avsnittet och kontrollerar att **autentiseringsinställningarna** är **offentlig**. Klicka sedan på **Verkställ** för att slutföra. 
 
-Klicka på **tillämpa** för att slutföra konfigurationen av konfigurations servern.
+* Privat lagrings plats: Azure våren Cloud har stöd för grundläggande lösen ords-/token-baserad autentisering och SSH.
+
+    * Grundläggande autentisering: i avsnittet **standard databas** klistrar du in lagrings platsens URI i **URI** -avsnittet och klickar sedan på **autentiseringen**. Välj **grundläggande** som **Autentiseringstyp** och ange ditt användar namn och lösen ord/token för att bevilja åtkomst till Azure våren Cloud. Klicka på **OK** och **Verkställ** för att slutföra konfigurationen av konfigurations servern.
+
+    ![fönster skärm bild](media/spring-cloud-tutorial-config-server/basic-auth.png)
+    
+    > [!CAUTION]
+    > Vissa git-lagringsplatser som GitHub använder en `personal-token` eller en `access-token` som ett lösen ord för **grundläggande autentisering**. Du kan använda den typen av token som lösen ord i Azure våren Cloud, eftersom den aldrig upphör att gälla. Men för andra git-lagringsplatser som BitBucket och Azure DevOps går `access-token` ut om en eller två timmar. Det innebär att alternativet inte är livskraftigt när du använder dessa databas servrar med Azure våren Cloud.]
+
+    * SSH: i avsnittet **standard databas** klistrar du in lagrings platsens URI i **URI** -avsnittet och klickar sedan på **autentiseringen**. Välj **SSH** som **Autentiseringstyp** och ange din **privata nyckel**. Du kan också ange **värd nyckel** och **värd**nyckelalgoritm. Se till att inkludera din offentliga nyckel i konfigurations serverns lagrings plats. Klicka på **OK** och **Verkställ** för att slutföra konfigurationen av konfigurations servern.
+
+    ![fönster skärm bild](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+
+#### <a name="pattern-repository"></a>Mönster Central
+
+Om du vill använda en valfri **mönster lagrings plats** för att konfigurera tjänsten anger du **URI** och **autentisering** på samma sätt som **standard lagrings platsen**. Se till att lägga till ett **namn** för mönstret och klicka sedan på **Använd** för att koppla det till din instans. 
+
+### <a name="enter-repository-information-into-a-yaml-file"></a>Ange lagrings plats information i en YAML-fil
+
+Om du har skrivit en YAML-fil med dina lagrings plats inställningar kan du importera YAML-filen direkt från den lokala datorn till Azure våren Cloud. En enkel YAML-fil för ett privat lager med grundläggande autentisering ser ut så här:
+
+```yml
+spring:
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/azure-spring-cloud-samples/config-server-repository.git
+                    username: <username>
+                    password: <password/token>
+
+```
+
+Klicka på knappen **Importera inställningar** och välj sedan `.yml`-filen från projekt katalogen. Klicka på **Importera**. därefter visas en `async` åtgärd från dina **aviseringar** . Efter 1-2 minuter bör det rapporteras som slutfört.
+
+![fönster skärm bild](media/spring-cloud-tutorial-config-server/local-yml-success.png)
+
+
+Du bör se informationen från din YAML-fil som visas i Azure Portal. Klicka på **tillämpa** för att slutföra. 
+
 
 ## <a name="delete-your-app-configuration"></a>Ta bort din app-konfiguration
 
 När du har sparat en konfigurations fil visas knappen **ta bort app-konfiguration** på fliken **konfiguration** . Detta tar bort dina befintliga inställningar helt. Du bör göra detta om du vill ansluta din konfigurations server till en annan källa, till exempel flytta från GitHub till Azure DevOps.
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

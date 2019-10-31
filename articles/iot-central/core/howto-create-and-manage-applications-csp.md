@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 2acac429dc8f0d9981e4c952702edd24b598881b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8e9c2077960dc64aa7bac13a53e0b3f74062aa55
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950904"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177271"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
 
@@ -33,7 +33,7 @@ Du land på sidan för Azure IoT Central Application Manager. Azure IoT Central 
 
 ![Skapa hanterare för kryptografiproviders](media/howto-create-application-csp/image3.png)
 
-Välj panelen **ny program** om du vill skapa ett Azure IoT Central-program. Då öppnas sidan Skapa program. Du måste fylla i alla fält på den här sidan och sedan välja **skapa**. Du hittar mer information om vart och ett av fälten nedan.
+Om du vill skapa ett Azure IoT Central-program väljer du **skapa** på den vänstra menyn. Välj en av idustry-mallarna eller Välj **anpassad app** för att skapa ett program från grunden. Då öppnas sidan Skapa program. Du måste fylla i alla fält på den här sidan och sedan välja **skapa**. Du hittar mer information om vart och ett av fälten nedan.
 
 ![Skapa program sida för kryptografiproviders](media/howto-create-application-csp/image4.png)
 

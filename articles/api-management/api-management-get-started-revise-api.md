@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: dd591f18ad2abb8603270f4c570c7ef311bdadae
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 811591a3340f07b08b3a954ccd475e926b73a9cf
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072571"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176770"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Använd revideringar för att göra bakåtkompatibla ändringar på ett säkert sätt
 När ditt API är klart och börjar användas av utvecklare, måste du så småningom göra ändringar för det API:et och samtidigt se till att du inte stör anropen till API:et. Det är också bra att informera utvecklarna om de ändringar du gjort. Det kan vi göra i Azure API Management med hjälp av **revisioner**. Mer information finns i avsnittet om [versioner & revisioner](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) och [API-versioner med Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 ![Ändringslogg på utvecklarportalen](media/api-management-getstarted-revise-api/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -83,7 +83,7 @@ I den här guiden får du lära dig att:
 
 2. Öppna snabbmenyn ( **...** ) för **revision 2**.
 3. Välj **Make Current** (Gör aktuell).
-4. Markera **Post to Public Change log for this API** (Posta till publik ändringslogg för detta API) för att skicka meddelanden om ändringen. Ange en beskrivning av din ändring som utvecklarna ser, till exempel: **Testa revisioner. Ny ”teståtgärd” tillagd.**
+4. Markera **Post to Public Change log for this API** (Posta till publik ändringslogg för detta API) för att skicka meddelanden om ändringen. Ange en beskrivning av din ändring som utvecklarna ser, till exempel: **testa revisioner. Ny "test"-åtgärd har lagts till.**
 5. Nu är **Revision 2** aktuell.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Gå till utvecklarportalen för att se dina ändringar och ändringsloggen
@@ -92,10 +92,8 @@ I den här guiden får du lära dig att:
 2. Välj **Utvecklarportal** i den översta menyn.
 3. Välj **API:er** och sedan **Demo Conference API**.
 4. Lägg märke till att din nya **teståtgärd** nu är tillgänglig.
-5. Välj **ändringshistoriken för API** under namnet på API:et.
+5. Klicka på **ändringsloggen** nära API-namnet.
 6. Observera att din post i ändringsloggen visas i den här listan.
-
-    ![Utvecklarportal](media/api-management-getstarted-revise-api/developer_portal.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 

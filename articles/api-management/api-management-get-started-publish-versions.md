@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1be70d3eb74d3a8f0eddb1e5c22e4234987276b3
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073696"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176834"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicera flera versioner av ditt API 
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 ![Versionen som visas på utvecklarportalen](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -94,11 +94,10 @@ För att en anropare ska kunna se den nya versionen, måste den läggas till en 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Gå till utvecklarportalen för att se versionen
 
 1. Välj **Utvecklarportal** i den översta menyn.
-2. Välj **API:er**, kontrollera att **Demo konferens-API** visar versionerna **Ursprunglig** och **v1**.
-3. Välj **v1**.
-4. Observera **Fråge-URL** för den första åtgärden i listan. Det visar att URL-sökvägen för API:et innehåller **v1**.
-
-    ![Snabbmenyn för API – lägg till version](media/api-management-getstarted-publish-versions/developer_portal.png)
+2. Välj **API: er** och klicka på **demo konferens-API: et**.
+3. Du bör se en listruta med flera versioner bredvid API-namnet.
+4. Välj **v1**.
+5. Observera **Fråge-URL** för den första åtgärden i listan. Det visar att URL-sökvägen för API:et innehåller **v1**.
 
 ## <a name="next-steps"></a>Nästa steg
 

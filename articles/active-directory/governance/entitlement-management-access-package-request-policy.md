@@ -1,6 +1,6 @@
 ---
-title: Inställningar för ändring av begäran och godkännande för ett Access-paket i Azure AD-hantering av rättigheter (för hands version) – Azure Active Directory
-description: Lär dig hur du ändrar inställningar för begäran och godkännande för ett Access-paket i Azure Active Directory hantering av rättigheter (för hands version).
+title: Inställningar för ändring av begäran och godkännande för ett Access-paket i Azure AD-hantering av rättigheter – Azure Active Directory
+description: Lär dig hur du ändrar inställningar för begäran och godkännande för ett Access-paket i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b060a17d9e7f795b6aad7df0e3e6349bbbd81b3
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392506"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174671"
 ---
-# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Inställningar för ändring av begäran och godkännande för ett Access-paket i Azure AD-hantering av rättigheter (för hands version)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Inställningar för ändring av begäran och godkännande för ett Access-paket i Azure AD-hantering av rättigheter
 
 Som en Access Package Manager kan du när som helst ändra vilka användare som kan begära ett åtkomst paket genom att redigera principen eller lägga till en ny princip. Du kan också ändra inställningarna för godkännande.
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a353b4577f8cfa9ba279ad2793e1a7ab8b27e55
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268324"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175546"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Skriv bords app som anropar webb-API: er – flytta till produktion
 
@@ -37,14 +37,14 @@ I de olika flödena har du lärt dig hur du hanterar felen för de tysta flöden
 > [!NOTE]
 > Att få ett medgivande för flera resurser fungerar för Microsoft Identity Platform, men inte för Azure Active Directory (Azure AD) B2C. Azure AD B2C stöder endast administrativt godkännande, inte användar medgivande.
 
-Slut punkten för Microsoft Identity Platform (v 2.0) låter dig inte hämta en token för flera resurser på en gång. `scopes` Parametern kan därför bara innehålla omfång för en enskild resurs. Du kan se till att användaren i förväg samtycka till flera resurser genom att `extraScopesToConsent` använda-parametern.
+Slut punkten för Microsoft Identity Platform (v 2.0) låter dig inte hämta en token för flera resurser på en gång. Därför kan `scopes`-parametern bara innehålla omfång för en enskild resurs. Du kan se till att användaren har samtyckt till flera resurser genom att använda `extraScopesToConsent`-parametern.
 
 Om du till exempel har två resurser som har två omfång:
 
-- `https://mytenant.onmicrosoft.com/customerapi`– med 2 omfattningar `customer.read` och`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`– med 2 omfattningar `vendor.read` och`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`-med 2 omfattningar `customer.read` och `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`-med 2 omfattningar `vendor.read` och `vendor.write`
 
-Du bör använda `.WithAdditionalPromptToConsent` modifieraren som `extraScopesToConsent` har parametern.
+Du bör använda `.WithAdditionalPromptToConsent` modifierare som har parametern `extraScopesToConsent`.
 
 Exempel:
 
@@ -76,10 +76,10 @@ Mål-C:
 ```objc
 NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
                                 @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
-    
+
 NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                               @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-    
+
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
 interactiveParams.extraScopesToConsent = scopesForVendorApi;
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
@@ -90,10 +90,10 @@ Införliva
 ```swift
 let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
                             "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
-        
+
 let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                           "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-        
+
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
 interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
@@ -101,7 +101,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 Det här anropet får du en åtkomsttoken för det första webb-API: et.
 
-När du behöver anropa det andra webb-API: et kan du `AcquireTokenSilent` anropa API:
+När du behöver anropa det andra webb-API: et kan du anropa `AcquireTokenSilent` API:
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

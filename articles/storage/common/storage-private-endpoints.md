@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b94d376ee107f9acd45dff5b96fc43722f2fe208
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 00de95f3b3e6eddd1f45be830202ba3ec8772bfd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965469"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176164"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Använda privata slut punkter för Azure Storage (för hands version)
 
@@ -48,7 +48,7 @@ När du skapar den privata slut punkten måste du ange det lagrings konto och de
 > [!TIP]
 > Skapa en separat privat slut punkt för den sekundära instansen av lagrings tjänsten för bättre Läs prestanda på RA-GRS-konton.
 
-Om du vill läsa tillgänglighet på ett [Geo-redundant lagrings konto med Läs åtkomst](storage-redundancy-grs.md#read-access-geo-redundant-storage)behöver du separata privata slut punkter för både den primära och sekundära tjänstens instanser. Du behöver inte skapa en privat slut punkt för den sekundära instansen för redundansväxling. Den privata slut punkten ansluts automatiskt till den nya primära instansen efter redundansväxlingen.
+Om du vill läsa tillgänglighet på ett [Geo-redundant lagrings konto med Läs åtkomst](storage-redundancy-grs.md#read-access-geo-redundant-storage)behöver du separata privata slut punkter för både den primära och sekundära tjänstens instanser. Du behöver inte skapa en privat slut punkt för den sekundära instansen för **redundansväxling**. Den privata slut punkten ansluts automatiskt till den nya primära instansen efter redundansväxlingen. git 
 
 #### <a name="resources"></a>Resurser
 
@@ -91,14 +91,14 @@ Den här metoden ger åtkomst till lagrings kontot med samma anslutnings sträng
 
 De rekommenderade DNS-zonnamn för privata slut punkter för lagrings tjänster är:
 
-| Lagrings tjänst       | Zonnamn                          |
-| :-------------------- | :--------------------------------- |
-| Blob Service          | privatelink.blob.core.windows.net  |
-| Data Lake fil system | privatelink.dfe.core.windows.net   |
-| Fil tjänst          | privatelink.file.core.windows.net  |
-| Kötjänst         | privatelink.queue.core.windows.net |
-| Table service         | privatelink.table.core.windows.net |
-| Statiska webbplatser       | privatelink.web.core.windows.net   |
+| Lagrings tjänst        | Zonnamn                            |
+| :--------------------- | :----------------------------------- |
+| Blob Service           | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
+| Fil tjänst           | `privatelink.file.core.windows.net`  |
+| Kötjänst          | `privatelink.queue.core.windows.net` |
+| Table service          | `privatelink.table.core.windows.net` |
+| Statiska webbplatser        | `privatelink.web.core.windows.net`   |
 
 ## <a name="pricing"></a>Prissättning
 
@@ -119,6 +119,6 @@ Klienter i virtuella nätverk med befintliga privata slut punkter möter begrän
 
 Den här begränsningen beror på DNS-ändringar som gjorts när konto a2 skapar en privat slut punkt.
 
-### <a name="network-security-group-rules-on-subnets-with-private-endpoints"></a>Regler för nätverks säkerhets grupper i undernät med privata slut punkter
+### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regler för nätverks säkerhets grupper för undernät med privata slut punkter
 
-Regler för [nätverks säkerhets gruppen](../../virtual-network/security-overview.md) (NSG) kan inte konfigureras för undernät med privata slut punkter, för tillfället. En begränsad lösning för det här problemet är att implementera åtkomst regler för privata slut punkter på käll under näten, även om den här metoden kan kräva en högre hanterings kostnad.
+För närvarande kan du inte konfigurera regler för [nätverks säkerhets grupper](../../virtual-network/security-overview.md) (NSG) för undernät med privata slut punkter. En begränsad lösning för det här problemet är att implementera åtkomst regler för privata slut punkter på käll under näten, även om den här metoden kan kräva en högre hanterings kostnad.

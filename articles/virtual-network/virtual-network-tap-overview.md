@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 3ea1b97855e5c060b6cbb6c43ce5111506bf4c20
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 99cd9fc1da009660023a246c5210e7f54bdebcfd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676921"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177419"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
 Med hjälp av Azure Virtual Network-TRYCKNINGen (Terminal Access Point) kan du kontinuerligt strömma din virtuella dators nätverks trafik till en insamlare eller ett analys verktyg för nätverks paket. Insamlings-eller analys verktyget tillhandahålls av en [virtuell nätverks utrustnings](https://azure.microsoft.com/solutions/network-appliances/) partner. För en lista över partner lösningar som har verifierats för att fungera med Virtual Network-tryckning, se [partner lösningar](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Det virtuella nätverkets tryckning är för närvarande en för hands version i alla Azure-regioner. Om du vill använda ett virtuellt nätverk trycker du på för hands versionen genom att skicka ett e-postmeddelande till @ no__t-0 med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du kan inte använda funktionen förrän du får ett bekräftelse meddelande. Den här för hands versionen tillhandahålls utan service nivå avtal och bör inte användas för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se [kompletterande användnings villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna  for information.
+> Det virtuella nätverkets tryckning är för närvarande en för hands version i alla Azure-regioner. Om du vill använda ett virtuellt nätverk trycker du på för hands versionen genom att skicka ett e-postmeddelande till <azurevnettap@microsoft.com> med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du kan inte använda funktionen förrän du får ett bekräftelse meddelande. Den här för hands versionen tillhandahålls utan service nivå avtal och bör inte användas för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se [kompletterande användnings villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna för mer information.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Virtuella nätverk tryck på partner lösningar
 
@@ -43,7 +43,7 @@ Med hjälp av Azure Virtual Network-TRYCKNINGen (Terminal Access Point) kan du k
 - [Aktiv säkerhet](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Cisco Stealthwatch-moln](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Darktrace](https://www.darktrace.com/en/azure/)
-- [ExtraHop (x)](https://www.extrahop.com/company/tech-partners/microsoft/)
+- [ExtraHop (x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
 - [Fidelis cybersäkerhet](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
@@ -56,7 +56,7 @@ Följande bild visar hur det virtuella nätverket trycker på Works. Du kan läg
 
 ![Hur det virtuella nätverket trycker på Works](./media/virtual-network-tap/architecture.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du skapar ett virtuellt nätverk trycker du på en bekräftelse av e-post som du har registrerat i förhands granskningen och har en eller flera virtuella datorer som skapats med [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) distributions modell och en partner lösning för att aggregera Tryck på trafik i samma Azure-region. Om du inte har en partner lösning i ditt virtuella nätverk, se [partner lösningar](#virtual-network-tap-partner-solutions) för att distribuera en. Du kan använda samma virtuella nätverk för att aggregera trafik från flera nätverks gränssnitt i samma eller olika prenumerationer. Om de övervakade nätverks gränssnitten finns i olika prenumerationer måste prenumerationerna vara kopplade till samma Azure Active Directory-klient. Dessutom kan de övervakade nätverks gränssnitten och mål slut punkten för att aggregera trafikövervakningen vara i peer-kopplat virtuella nätverk i samma region. Om du använder den här distributions modellen kontrollerar du att [peering av virtuella nätverk](virtual-network-peering-overview.md) är aktiverat innan du konfigurerar det virtuella nätverket.
 
@@ -64,11 +64,11 @@ Innan du skapar ett virtuellt nätverk trycker du på en bekräftelse av e-post 
 
 De konton som du använder för att tillämpa tryck på konfiguration på nätverks gränssnitt måste tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats nödvändiga åtgärder från följande tabell:
 
-| Action | Name |
+| Åtgärd | Namn |
 |---|---|
-| Microsoft.Network/virtualNetworkTaps/* | Krävs för att skapa, uppdatera, läsa och ta bort ett virtuellt nätverk tryck på resurs |
-| Microsoft.Network/networkInterfaces/read | Krävs för att läsa nätverks gränssnitts resursen där TRYCKNINGen ska konfigureras |
-| Microsoft.Network/tapConfigurations/* | Krävs för att skapa, uppdatera, läsa och ta bort TRYCKNINGs konfigurationen på ett nätverks gränssnitt |
+| Microsoft. Network/virtualNetworkTaps/* | Krävs för att skapa, uppdatera, läsa och ta bort ett virtuellt nätverk tryck på resurs |
+| Microsoft. Network/networkInterfaces/Read | Krävs för att läsa nätverks gränssnitts resursen där TRYCKNINGen ska konfigureras |
+| Microsoft. Network/tapConfigurations/* | Krävs för att skapa, uppdatera, läsa och ta bort TRYCKNINGs konfigurationen på ett nätverks gränssnitt |
 
 ## <a name="next-steps"></a>Nästa steg
 

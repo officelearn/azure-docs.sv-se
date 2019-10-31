@@ -4,24 +4,34 @@ description: Lär dig hur du startar ditt Azure våren Cloud-program direkt frå
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 9/27/2019
+ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 445cac1494828362d54a8c15e68d27f01b165841
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 573baa242c06868326568a82bc358e136f1ece2c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170536"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177972"
 ---
 # <a name="launch-your-spring-cloud-application-from-source-code"></a>Starta ditt våren Cloud-program från käll koden
 
+Med Azures våren Cloud kan du enkelt köra vår molnbaserade mikrotjänstprogram på Azure.
+
 Med Azures våren Cloud kan du starta ditt program direkt från Java-källkoden eller från en redan utformad JAR. Den här artikeln vägleder dig genom de steg som krävs.
+
+Efter den här snabb starten får du lära dig att:
+
+> [!div class="checklist"]
+> * Etablera en tjänst instans
+> * Ange en konfigurations Server för en instans
+> * Bygg ett program för mikrotjänster lokalt
+> * Distribuera varje mikrotjänst
+> * Tilldela en offentlig slut punkt för ditt program
 
 ## <a name="prerequisites"></a>Krav
 
 >[!Note]
-> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi dig att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud kan du [fylla i det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi dig att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud kan du [fylla i det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).  Även om Azure våren-molnet är i för hands version erbjuder Microsoft begränsad support utan service avtal.  Mer information om support under för hands versionerna finns i [vanliga frågor och svar om support](https://azure.microsoft.com/support/faq/).
 
 Innan du börjar ska du se till att din Azure-prenumeration har de nödvändiga beroendena:
 

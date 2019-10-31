@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0f7c1987cd4184ba6cda37d4d1894f0dba0b2f1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: ea38317868d183bd02958398b51ef906eb78e799
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024636"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177024"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -236,6 +236,10 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 > Dessa funktioner håller på att utvecklas.
 >
 
+### <a name="group-administratorgroup-administrator"></a>[Grupp administratör](#group-administrator)
+
+Användare med den här rollen kan skapa/hantera grupper och dess inställningar, t. ex. namn och förfallo principer. Det är viktigt att förstå att tilldela en användare till den här rollen och ger dem möjlighet att hantera alla grupper i klient organisationen över olika arbets belastningar som team, SharePoint, Yammer, förutom Outlook. Användaren kan också hantera de olika grupp inställningarna över olika administrations portaler som Microsoft administrations Center, Azure Portal, samt arbets belastningar som är speciella som team och administrations Center för SharePoint.
+
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Gäst deltagare](#guest-inviter-permissions)
 
 Användare med den här rollen kan hantera Azure Active Directory B2B-gäst användare om **medlemmar kan bjuda** in användar inställningen till Nej. Mer information om B2B-samarbete vid [Azure AD B2B-samarbete](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Den innehåller inga andra behörigheter.
@@ -286,6 +290,10 @@ Användare med den här rollen kan övervaka alla meddelanden i meddelande centr
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[Meddelande Center läsare](#message-center-reader-permissions)
 
 Användare i den här rollen kan övervaka meddelanden och råd om hälso uppdateringar i [Office 365 meddelande Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) för deras organisation på konfigurerade tjänster som Exchange, Intune och Microsoft Teams. Meddelande Center läsare får veckovis e-postsammandrag av inlägg, uppdateringar och kan dela meddelande Center inlägg i Office 365. I Azure AD kommer användare som tilldelats den här rollen bara att ha skrivskyddad åtkomst till Azure AD-tjänster, till exempel användare och grupper. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
+
+### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Office Apps-administratör](#office-apps-administrator-permissions)
+
+Användare med den här rollen kan hantera moln inställningar för Office 365-appar. Detta omfattar hantering av moln principer, hantering av självbetjänings hantering och möjligheten att visa Office apps-relaterade rapporter. Den här rollen ger dessutom möjlighet att hantera support biljetter och övervaka tjänstens hälsa i huvud administrations centret. Användare som har tilldelats den här rollen kan även hantera kommunikation av nya funktioner i Office-appar. 
 
 ### <a name="partner-tier1-supportpartner-tier1-support-permissions"></a>[Support för partner 1](#partner-tier1-support-permissions)
 
@@ -1060,6 +1068,28 @@ Kan läsa allt som en global administratör kan, men inte redigera något.
 | Microsoft. Office365. usageReports/upplånade/upplånade/lästa | Läs Office 365-användnings rapporter. |
 | Microsoft. Office365. webports/-upplånare/standard/Read   | Läsa standard egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
+### <a name="group-administrator"></a>Grupp administratör
+Kan hantera alla aspekter av grupper och grupp inställningar som namngivnings-och förfallo principer
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft. Directory/grupper/Basic/Read | Läsa standard egenskaper för grupper i Azure Active Directory.  |
+| Microsoft. Directory/grupper/Basic/Update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
+| Microsoft. Directory/grupper/ta bort | Ta bort grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/hiddenMembers/Read | Läs Groups. hiddenMembers-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/Återställ | Återställ grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/inställningar/uppdatera | Uppdatera Groups. Settings-egenskapen i Azure Active Directory. |
+| Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
+| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
+| Microsoft. Office365. messageCenter/meddelanden/läsa | Läs meddelanden i Microsoft. Office365. messageCenter. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
+| Microsoft. Office365. usageReports/upplånade/upplånade/lästa | Läs Office 365-användnings rapporter. |
+
 ### <a name="guest-inviter-permissions"></a>Gäst deltagares behörigheter
 Kan bjuda in gäst användare oberoende av inställningen medlemmar kan bjuda in gäster.
 
@@ -1201,6 +1231,25 @@ Kan endast läsa meddelanden och uppdateringar för sin organisation i meddeland
 | --- | --- |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. messageCenter/meddelanden/läsa | Läs meddelanden i Microsoft. Office365. messageCenter. |
+
+### <a name="office-apps-administrator-permissions"></a>Administratörs behörighet för Office-appar
+Kan hantera Office-appars moln tjänster, inklusive hantering av principer och inställningar, och hantera möjligheten att välja, avmarkera och publicera "Nyheter"-funktions innehåll till slutanvändarens enheter.
+
+> [!NOTE]
+> Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i roll beskrivning ovan.
+>
+>
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
+| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
+| Microsoft. Office365. messageCenter/meddelanden/läsa | Läs meddelanden i Microsoft. Office365. messageCenter. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
+| Microsoft. Office365. usageReports/upplånade/upplånade/lästa | Läs Office 365-användnings rapporter. |
+| Microsoft. Office365. userCommunication/uplånar/allTasks | Läs och uppdatera visningen av nya meddelanden. |
+| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
 ### <a name="partner-tier1-support-permissions"></a>Support behörigheter för partner 1
 
@@ -1636,6 +1685,7 @@ Katalog skrivare | Katalog skrivare | 9360feb5-F418-4baa-8175-e2a00bac4301
 Exchange service-administratör | Exchange-administratör | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administratör för extern identitetsprovider | Administratör för extern identitetsprovider | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Global läsare | Global läsare | f2ef992c-3afb-46b9-b7cf-a126ee74c451
+Grupp administratör | Grupp administratör | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Gäst deltagare | Gäst deltagare | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Support administratör | Lösen ords administratör | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administratör för Intune-tjänsten | Intune-administratör | 3a2c62db-5318-420d-8d74-23affee5d9d5
@@ -1644,6 +1694,7 @@ Licens administratör | Licens administratör | 4d6ac14f-3453-41d0-bef9-a3e0c569
 Administratör för Lync-tjänsten | Skype för företag-administratör | 75941009-915a-4869-abe7-691bff18279e
 Meddelande Center sekretess läsare | Meddelande Center sekretess läsare | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Meddelande Center läsare | Meddelande Center läsare | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Office Apps-administratör | Office Apps-administratör | 2b745bdf-0803-4d80-aa65-822c4493daac
 Support för partner 1 | Support för partner 1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Support för partner – nivå 2 | Support för partner – nivå 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Lösen ords administratör | Lösen ords administratör | 966707d0-3269-4727-9be2-8c3a10f19b9d

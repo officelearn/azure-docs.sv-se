@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: efb668971bc4a8c5a0968836aab71107aa6b88d5
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072657"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176906"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Programmallar i Azure API Management
 Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), glyf- [resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna som du ser får plats med mallarna.  
@@ -27,10 +27,12 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
   
 -   [Program lista](#ProductList)  
   
--   [Programmet](#Application)  
+-   [Applicering](#Application)  
   
 > [!NOTE]
 >  Exempel på standardmallar finns i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa standardmallarna för Live i Developer-portalen genom att gå till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -72,13 +74,13 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Mallen kan använda följande [sid kontroller.](api-management-page-controls.md) `Product list`  
+ `Product list` mal len kan använda följande [sid kontroller](api-management-page-controls.md).  
   
--   [paging-control](api-management-page-controls.md#paging-control)  
+-   [sid kontroll](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Type|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`Paging`|[Växlings](api-management-template-data-model-reference.md#Paging) enhet.|Växlings informationen för program samlingen.|  
 |`Applications`|Samling av [](api-management-template-data-model-reference.md#Application) programentiteter.|De program som är synliga för den aktuella användaren.|  
@@ -179,7 +181,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Mallen tillåter inte användning av några [sid kontroller.](api-management-page-controls.md) `Application`  
+ `Application` mal len tillåter inte användning av några [sid kontroller](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Datamodell  
  [Program](api-management-template-data-model-reference.md#Application) enhet.  

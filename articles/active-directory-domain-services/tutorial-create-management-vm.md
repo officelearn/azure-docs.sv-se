@@ -7,16 +7,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e7c3ccb553010b84a30ccdad875ea0362112d830
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619098"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172322"
 ---
-# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudier: Skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
+# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
 
 Azure Active Directory Domain Services (AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP och Kerberos/NTLM-autentisering som är helt kompatibelt med Windows Server Active Directory. Du administrerar den här hanterade domänen med samma verktyg för fjärrserveradministration (RSAT) som med en lokal Active Directory Domain Services domän. Eftersom Azure AD DS är en hanterad tjänst finns det några administrativa uppgifter som du inte kan utföra, till exempel att använda Remote Desktop Protocol (RDP) för att ansluta till domän kontrol Lanterna.
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -43,7 +43,7 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Vid behov [skapar och konfigurerar][create-azure-ad-ds-instance]den första självstudien en Azure Active Directory Domain Services-instans.
 * En virtuell Windows Server-dator som är ansluten till den hanterade Azure AD DS-domänen.
     * Vid behov skapar den tidigare själv studie kursen [en virtuell Windows Server-dator och kopplar den till en hanterad domän][create-join-windows-vm].
-* Ett användar konto som är medlem i administratörs gruppen för *Azure AD DC* i din Azure AD-klient.
+* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -92,7 +92,7 @@ Kom igång genom att ansluta till den virtuella Windows Server-datorn enligt fö
 
 1. Välj alternativet för att *Ladda ned RDP-filen*. Spara den här RDP-filen i webbläsaren.
 1. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Välj **Anslut** om du uppmanas att göra det.
-1. Ange autentiseringsuppgifterna för en användare som är en del av administratörs gruppen för *Azure AD DC* , till exempel *contoso\dee*
+1. Ange autentiseringsuppgifterna för en användare som är en del av *Administratörs gruppen för Azure AD DC* , till exempel *contoso\dee*
 1. Om du ser en certifikat varning under inloggnings processen väljer du **Ja** eller **Fortsätt** för att ansluta.
 
 ## <a name="install-active-directory-administrative-tools"></a>Installera Active Directory administrations verktyg
@@ -101,7 +101,7 @@ Hanterade Azure AD DS-domäner hanteras med samma administrativa verktyg som lok
 
 Slutför följande steg för att installera Active Directory administrations verktyg på en domänansluten virtuell dator:
 
-1. **Serverhanteraren** bör öppnas som standard när du loggar in på den virtuella datorn. Annars väljer du **Serverhanteraren**på **Start** -menyn.
+1. Om **Serverhanteraren** inte öppnas som standard när du loggar in på den virtuella datorn väljer du **Start** -menyn och väljer **Serverhanteraren**.
 1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
 1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
 1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
@@ -118,7 +118,7 @@ Slutför följande steg för att installera Active Directory administrations ver
 
 ## <a name="use-active-directory-administrative-tools"></a>Använda Active Directory administrations verktyg
 
-När de administrativa verktygen är installerade ska vi se hur de används för att administrera den hanterade Azure AD DS-domänen. Kontrol lera att du är inloggad på den virtuella datorn med ett användar konto som är medlem i administratörs gruppen för *AAD* -domänkontrollanten.
+När de administrativa verktygen är installerade ska vi se hur de används för att administrera den hanterade Azure AD DS-domänen. Kontrol lera att du är inloggad på den virtuella datorn med ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
 1. Välj **Windows administrations verktyg**på **Start** -menyn. De administrations verktyg för AD som installeras i föregående steg visas.
 
@@ -131,13 +131,15 @@ När de administrativa verktygen är installerade ska vi se hur de används för
 
 1. Om du vill se de användare och grupper som hör till den hanterade Azure AD DS-domänen väljer du behållaren **AADDC Users** . Användar kontona och grupperna från din Azure AD-klient listas i den här behållaren.
 
-    I följande exempel utdata visas ett användar konto med namnet *contosoadmin* och en grupp för *AAD DC-administratörer* i den här behållaren.
+    I följande exempel utdata visas ett användar konto med namnet *contoso admin* och en grupp för *AAD DC-administratörer* i den här behållaren.
 
     ![Visa listan över Azure AD DS-domän användare i Active Directory Administrationscenter](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. Om du vill se de datorer som är anslutna till den hanterade Azure AD DS-domänen väljer du behållaren **AADDC Computers** . En post för den aktuella virtuella datorn, till exempel *myVM*, visas. Dator konton för alla datorer som är anslutna till den hanterade Azure AD DS-domänen lagras i behållaren för *AADDC-datorer* .
 
-Vanliga Active Directory Administrationscenter åtgärder som att återställa användar kontots lösen ord eller hantera grupp medlemskap är tillgängliga. Du kan också använda *Active Directory-modulen för Windows PowerShell*som installeras som en del av administrations verktygen för att hantera vanliga åtgärder i din Azure AD DS-hanterade domän.
+Vanliga Active Directory Administrationscenter åtgärder som att återställa användar kontots lösen ord eller hantera grupp medlemskap är tillgängliga. Dessa åtgärder fungerar bara för användare och grupper som skapats direkt i den hanterade Azure AD DS-domänen. Identitets information synkroniseras bara *från* Azure AD till Azure AD DS. Det går inte att skriva tillbaka från Azure AD DS till Azure AD. Du kan inte ändra lösen ord eller hanterad grupp medlemskap för användare som synkroniseras från Azure AD och som synkroniseras igen.
+
+Du kan också använda *Active Directory-modulen för Windows PowerShell*som installeras som en del av administrations verktygen för att hantera vanliga åtgärder i din Azure AD DS-hanterade domän.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: efa44df378e88b870654111295c10bec06539adb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b6a437af33e3e85b8dc07de223b6e1fd7ce6cb03
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950527"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176250"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportera data till Azure Blob Storage
 
@@ -85,7 +85,7 @@ Nu när du har ett lagrings mål att exportera data till, följer du dessa steg 
 
 9. Om du vill aktivera kontinuerlig data export kontrollerar du att aktivera **data export** är **aktiverat**. Välj **Spara**.
 
-   ![Konfigurera kontinuerlig data export](media/howto-export-data/export-list-blob2.png)
+   ![Konfigurera kontinuerlig dataexport](media/howto-export-data/export-list-blob2.png)
 
 10. Efter några minuter visas dina data i ditt lagrings konto.
 
@@ -132,7 +132,7 @@ I följande exempel visas en post i en avkodad avro-fil:
 När kontinuerlig data export först aktive ras, exporteras en enda ögonblicks bild med alla enheter. Varje enhet innehåller:
 - enhetens `id` i IoT Central
 - enhetens `name`
-- `deviceId` från [enhets etablerings tjänsten](https://aka.ms/iotcentraldocsdps)
+- `deviceId` från [enhets etablerings tjänsten](/azure/iot-central/core/howto-connect-nodejs)
 - Information om enhets mal len
 - Egenskaps värden
 - Inställnings värden

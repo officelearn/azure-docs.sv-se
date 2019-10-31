@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric fristående kluster Distributionsförberedelser | Microsoft Docs
-description: Dokumentation för att förbereda miljön och skapa klusterkonfigurationen, för att anses vara innan du distribuerar ett kluster som är avsedd för hantering av en produktionsarbetsbelastning.
+title: Förberedelse av fristående kluster distribution i Azure Service Fabric | Microsoft Docs
+description: Dokumentation som rör förberedelse av miljön och skapandet av kluster konfigurationen som ska övervägas innan du distribuerar ett kluster som är avsett för hantering av produktions belastningar.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -13,133 +13,132 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 96956e1ad935933572b1f2d31b70ef64f8b92501
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130317"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175855"
 ---
-# <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planera och förbereda distributionen av Service Fabric fristående kluster
+# <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planera och förbereda din Service Fabric fristående kluster distribution
 
 <a id="preparemachines"></a>Utför följande steg innan du skapar klustret.
 
-## <a name="plan-your-cluster-infrastructure"></a>Planera klusterinfrastrukturen för
-Du kommer att skapa ett Service Fabric-kluster på datorer som du ”äger”, så att du kan avgöra vilka typer av fel som du vill att klustret ska överleva. Till exempel du behöver separata power linjer eller Internet-anslutningar som angetts för dessa datorer? Dessutom kan du överväga att den fysiska säkerheten för dessa datorer. Var finns datorerna och vilka som behöver åtkomst till dem? När du har gjort dessa beslut mappa du logiskt datorerna till olika feldomäner (se nästa steg). Planera för produktionskluster infrastrukturen är mer komplicerat än för testkluster.
+## <a name="plan-your-cluster-infrastructure"></a>Planera din kluster infrastruktur
+Du håller på att skapa ett Service Fabric-kluster på datorer som du "äger", så att du kan bestämma vilka typer av fel som du vill att klustret ska överleva. Behöver du till exempel separata strömförsörjnings linjer eller Internet-anslutningar som tillhandahålls till de här datorerna? Tänk också på den fysiska säkerheten för de här datorerna. Var finns datorerna och vem behöver ha åtkomst till dem? När du har fattat dessa beslut kan du logiskt mappa datorerna till olika fel domäner (se nästa steg). Infrastruktur planeringen för produktions kluster är mer engagerad än för test kluster.
 
-## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Bestämma antalet feldomäner och uppgraderingsdomäner
-En [ *feldomän* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) är en fysisk enhet med fel och är direkt relaterad till den fysiska infrastrukturen i datacenter. En feldomän består av maskinvarukomponenter (datorer, växlar, nätverk och mer) som delar en enskild felpunkt. Även om det finns ingen 1:1-mappning mellan feldomäner och rack, kan löst talar varje rack betraktas som en feldomän.
+## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Fastställa antalet fel domäner och uppgraderings domäner
+En [ *feldomän* (fd)](service-fabric-cluster-resource-manager-cluster-description.md) är en fysisk felkod som är direkt relaterad till den fysiska infrastrukturen i data centren. En feldomän består av maskin varu komponenter (datorer, växlar, nätverk med mera) som delar en enskild felpunkt. Även om det inte finns någon 1:1-mappning mellan fel domäner och rack, kan du lösa problemet genom att betrakta varje rack som en feldomän.
 
-När du anger FD i ClusterConfig.json, väljer du namnet för varje FD. Service Fabric har stöd för hierarkisk FD, så du kan din infrastruktur-topologi i dem.  Till exempel är följande FD giltiga:
+När du anger fd i ClusterConfig. JSON kan du välja namnet för varje FD. Service Fabric stöder hierarkisk fd, så att du kan återspegla din infrastruktur sto pol Ogin i dem.  Till exempel är följande fd giltiga:
 
-* ”faultDomain” ”: fd: / Dator1-Room1/Rack1”
-* ”faultDomain” ”: fd: / FD1”
-* ”faultDomain” ”: fd: / Room1/Rack1/PDU1/M1”
+* "Faulydomain": "fd:/Room1/Rack1/machine1"
+* "Faulydomain": "fd:/FD1"
+* "Faulydomain": "fd:/Room1/Rack1/PDU1/M1"
 
-En *uppgraderingsdomän* (UD) är en logisk enhet för noder. Under Service Fabric dirigerad uppgraderingar (en uppgradering av programmet eller en uppgradering av klustret) tas alla noder i en UD bort att utföra uppgraderingen även noder i andra ud är tillgänglig för att hantera begäranden. Firmware-uppgraderingar som du utför på dina datorer inte respekterar ud, så måste du göra dem något datorer i taget.
+En *uppgraderings domän* (UD) är en logisk enhet med noder. Under Service Fabric dirigerade uppgraderingar (antingen en program uppgradering eller en kluster uppgradering) tas alla noder i en UD nedåt för att utföra uppgraderingen medan noder i andra UDs är tillgängliga för att betjäna begär Anden. De uppgraderingar av inbyggd program vara som du utför på dina datorer följer inte UDs, så du måste göra dem en dator i taget.
 
-Det enklaste sättet att tänka på de här koncepten är att tänka på FD som oplanerade fel och ud som måttenhet för planerat underhåll.
+Det enklaste sättet att tänka på dessa begrepp är att överväga fd som enhet för oplanerat haveri och UDs som enhet för planerat underhåll.
 
-När du anger ud i ClusterConfig.json, väljer du namnet för varje UD. Till exempel är följande namn giltiga:
+När du anger UDs i ClusterConfig. JSON kan du välja namnet för varje UD. Följande namn är till exempel giltiga:
 
 * "upgradeDomain": "UD0"
 * "upgradeDomain": "UD1A"
 * "upgradeDomain": "DomainRed"
-* "upgradeDomain": Blåskärm
+* "upgradeDomain": "blå"
 
-Mer information om FD och ud finns [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md).
+Mer detaljerad information om fd och UDs finns i [beskriva ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Ett kluster i produktionen ska omfatta minst tre Feldomäner för att kunna användas i en produktionsmiljö, om du har fullständig kontroll över underhåll och hantering av noderna, det vill säga du ansvarar för att uppdatera och ersätta datorer. Du bör ha minst fem FD för kluster som körs i (det vill säga Amazon Web Services VM-instanser) där du inte har fullständig kontroll över datorerna i klustret. Varje FD kan ha en eller flera noder. Det här är att förhindra problem som orsakas av datorn uppgraderingar och uppdateringar som beroende på deras tidsinställning kan störa körning av program och tjänster i kluster.
+Ett kluster i produktionen bör omfatta minst tre fd för att stödjas i en produktions miljö, om du har fullständig kontroll över underhållet och hanteringen av noderna, det vill säga att du ansvarar för att uppdatera och ersätta datorer. För kluster som körs i miljöer (det vill säga Amazon Web Services VM-instanser) där du inte har fullständig kontroll över datorerna bör du ha minst fem fd i klustret. Varje FD kan ha en eller flera noder. Detta är för att förhindra problem som orsakas av dator uppgraderingar och uppdateringar, beroende på deras tids inställning, kan störa körningen av program och tjänster i kluster.
 
-## <a name="determine-the-initial-cluster-size"></a>Fastställa inledande klusterstorleken
+## <a name="determine-the-initial-cluster-size"></a>Fastställ storleken på den ursprungliga klustret
 
-I allmänhet bör antalet noder i klustret bestäms utifrån dina affärsbehov som är, hur många tjänster och behållare körs på klustret och hur många resurser behöver du för hantering av dina arbetsbelastningar. För produktionskluster rekommenderar vi att minst fem noder i klustret, med 5 fd. Dock som beskrivs ovan, om du har fullständig kontroll över dina noder och kan sträcka sig över tre Feldomäner, bör sedan tre noder också göra jobbet.
+Normalt bestäms antalet noder i klustret utifrån dina affärs behov, det vill säga hur många tjänster och behållare som körs i klustret och hur många resurser du behöver för att hantera dina arbets belastningar. För produktions kluster rekommenderar vi att du har minst fem noder i klustret och spänner över 5 fd. Om du däremot har fullständig kontroll över dina noder och kan omfatta tre fd, bör tre noder också utföra jobbet.
 
-Testkluster tillståndskänsliga arbetsbelastningar som körs ska ha tre noder, medan testkluster som endast kör tillståndslösa arbetsbelastningar måste en nod. Det bör också noteras att utvecklingssyfte kan du kan ha fler än en nod på en viss dator. I en produktionsmiljö stöder Service Fabric dock bara en nod per fysisk eller virtuell dator.
+Test kluster som kör tillstånds känsliga arbets belastningar ska ha tre noder, medan test kluster bara kör tillstånds lösa arbets belastningar behöver bara en nod. Det bör även noteras att du kan ha mer än en nod på en specifik dator i utvecklings syfte. I en produktions miljö Service Fabric bara stöd för en nod per fysisk eller virtuell dator.
 
-## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Förbereda datorer som fungerar som noder
+## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Förbereda de datorer som ska fungera som noder
 
 Här är några rekommenderade specifikationer för varje dator som du vill lägga till i klustret:
 
-* Minst 16 GB RAM
-* Minst 40 GB ledigt diskutrymme
-* En 4 kärnor eller större processor
+* Minst 16 GB RAM-minne
+* Minst 40 GB ledigt disk utrymme
+* En processor på 4 kärnor eller större
 * Anslutning till ett säkert nätverk eller nätverk för alla datorer
 * Windows Server OS installerat (giltiga versioner: 2012 R2, 2016, 1709 eller 1803). Service Fabric version 6.4.654.9590 och senare stöder också Server 2019 och 1809.
-* [.NET framework 4.5.1 eller senare](https://www.microsoft.com/download/details.aspx?id=40773), fullständig installation
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
-* Den [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) måste köras på alla datorer
+* [.NET Framework 4.5.1 eller senare](https://www.microsoft.com/download/details.aspx?id=40773), fullständig installation
+* [Windows PowerShell 3,0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* [RemoteRegistry-tjänsten](https://technet.microsoft.com/library/cc754820) ska köras på alla datorer
 * Service Fabric installations enhet måste vara NTFS-filsystem
 
-Klusteradministratören som distribuerar och konfigurerar klustret måste ha [administratörsbehörighet](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) på varje dator. Du kan inte installera Service Fabric på en domänkontrollant.
+Kluster administratören som distribuerar och konfigurerar klustret måste ha [administratörs behörighet](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) på var och en av datorerna. Du kan inte installera Service Fabric på en domänkontrollant.
 
-## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Ladda ned det fristående paketet för Service Fabric för Windows Server
-[Hämta länk - Service Fabric fristående Package - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) och packa upp paketet till en dator för distribution som inte ingår i klustret eller till en av de datorer som ska ingå i klustret.
+## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Hämta det fristående Service Fabric-paketet för Windows Server
+[Hämta länk-Service Fabric fristående paket – Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) och packa upp paketet, antingen till en distributions dator som inte ingår i klustret eller till en av de datorer som ska ingå i klustret.
 
-## <a name="modify-cluster-configuration"></a>Ändra klusterkonfiguration
-Om du vill skapa ett fristående kluster som du behöver skapa en fristående kluster ClusterConfig.json konfigurationsfil, som beskriver specifikation av klustret. Du kan basera konfigurationsfilen om mallar finns i länken nedan. <br>
-[Konfigurationer för fristående kluster](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+## <a name="modify-cluster-configuration"></a>Ändra kluster konfiguration
+Om du vill skapa ett fristående kluster måste du skapa en fristående kluster konfiguration ClusterConfig. JSON-fil som beskriver kluster specifikationen. Du kan basera konfigurations filen på mallarna som finns på länken nedan. <br>
+[Fristående klusterkonfigurationer](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
-Mer information om avsnitten i den här filen finns [konfigurationsinställningar för fristående Windows-kluster](service-fabric-cluster-manifest.md).
+Mer information om avsnitten i den här filen finns i [konfigurations inställningar för fristående Windows-kluster](service-fabric-cluster-manifest.md).
 
-Öppna en av filerna ClusterConfig.json från paketet som du hämtade och ändra följande inställningar:
+Öppna en av ClusterConfig. JSON-filerna från paketet som du laddade ned och ändra följande inställningar:
 
-| **Konfigurationsinställningen** | **Beskrivning** |
+| **Konfigurations inställning** | **Beskrivning** |
 | --- | --- |
-| **NodeTypes** |Nodtyper kan du dela dina klusternoder i olika grupper. Ett kluster måste ha minst en NodeType. Alla noder i en grupp har de vanliga förekommande egenskaperna: <br> **Namn på** – det här är namnet på nodtypen. <br>**Slutpunktsportar** – dessa är olika namngivna slutpunkter (portar) som är associerade med den här nodtypen. Du kan använda valfri portnummer som du vill, förutsatt att de inte står i konflikt med något annat i manifestet och som inte redan används av andra program som körs på datorn och VM. <br> **Placeringsegenskaper** -dessa beskriver egenskaperna för den här nodtypen som du använder som placeringsbegränsningar för systemtjänster eller dina tjänster. Dessa egenskaper är en användardefinierad nyckel/värde-par som ger extra metadata för en viss nod. Exempel på nodegenskaper skulle vara om noden har en hårddisk eller grafikkort, antalet spindlar i dess hårddisken, kärnor och andra fysiska egenskaper. <br> **Kapaciteter** -nodkapaciteterna definiera namn och beloppet för en viss resurs att en särskild nod har tillgängligt för förbrukning. En nod kan till exempel ange att den har kapacitet för ett mått som kallas ”MemoryInMb” och att det finns 2 048 MB tillgängligt som standard. Dessa kapaciteter för att säkerställa att tjänster som kräver viss mängder resurser placeras på noder som har resurser som är tillgängliga i de obligatoriska mängder som anges vid körning.<br>**IsPrimary** – om du har mer än en NodeType definierats se till att endast en har angetts till primära med värdet *SANT*, vilket är där systemet services körs. Alla andra typer av noden ska vara inställd på värdet *FALSKT* |
-| **Noder** |Det här är informationen för varje nod som ingår i klustret (nodtyp, nodnamnet, IP-adress, feldomän och uppgraderingsdomän för noden). Datorerna du vill att klustret ska skapas på behovet av att listas här med sina IP-adresser. <br> Om du använder samma IP-adress för alla noder, skapas en en-box-kluster, som du kan använda i testsyfte. Använd inte One-box-kluster för att distribuera arbetsbelastningar i produktion. |
+| **NodeTypes** |Med nodtyper kan du avgränsa klusternoderna i olika grupper. Ett kluster måste ha minst en NodeType. Alla noder i en grupp har följande gemensamma egenskaper: <br> **Namn** – det här är namnet på nodtypen. <br>**Slut punkts portar** – dessa är olika namngivna slut punkter (portar) som är associerade med den här nodtypen. Du kan använda vilket port nummer som helst, så länge de inte står i konflikt med något annat i det här manifestet och som inte redan används av andra program som körs på datorn/den virtuella datorn. <br> **Placerings egenskaper** – dessa beskriver egenskaper för den här nodtypen som du använder som placerings begränsningar för system tjänsterna eller dina tjänster. De här egenskaperna är användardefinierade nyckel/värde-par som tillhandahåller extra metadata för en viss nod. Exempel på Egenskaper för Node är om noden har en hård disk eller ett grafik kort, antalet spindlar på hård disken, kärnor och andra fysiska egenskaper. <br> **Kapacitet** – nodens kapacitet definierar namnet och mängden för en viss resurs som en viss nod har till gång till för användning. En nod kan till exempel definiera att den har kapacitet för ett Mät värde med namnet "MemoryInMb" och att den har 2048 MB tillgängligt som standard. Dessa kapaciteter används vid körning för att säkerställa att tjänster som kräver särskilda mängder resurser placeras på noderna som har dessa resurser tillgängliga i de nödvändiga beloppen.<br>**IsPrimary** – om du har mer än en NodeType definierad ser du till att endast en är inställd på primär med värdet *True*, vilket är den plats där system tjänsterna körs. Alla andra nodtyper måste anges till värdet *false* |
+| **Artikelnoder** |Detta är information om var och en av noderna som ingår i klustret (nodtyp, nodnamn, IP-adress, feldomän och uppgraderings domän för noden). De datorer som du vill att klustret ska skapas på måste anges här med deras IP-adresser. <br> Om du använder samma IP-adress för alla noder skapas ett kluster med en ruta, som du kan använda i test syfte. Använd inte kluster med en enda ruta för att distribuera arbets belastningar för produktion. |
 
-Efter att klusterkonfigurationen har haft alla inställningar som konfigurerats i miljön, kan du testa den mot klustermiljön (steg 7).
+När konfigurations inställningarna för klustret har kon figurer ATS för miljön kan den testas mot kluster miljön (steg 7).
 
 <a id="environmentsetup"></a>
 
 ## <a name="environment-setup"></a>Konfigurera miljön
 
-När en Klusteradministratör konfigurerar fristående Service Fabric-kluster, måste miljön konfigureras med följande kriterier: <br>
-1. Den användare som skapar klustret bör ha administratörsrättigheter säkerhetsrättigheter för att alla datorer som listas som noder i klustret konfigurationsfilen.
-2. Datorn där klustret har skapats, samt varje noddatorn i klustret måste du göra följande:
-   * Har avinstallerat Service Fabric SDK
-   * Har avinstallerat Service Fabric-körningen 
-   * Har aktiverat tjänsten Windows-brandväggen (mpssvc)
-   * Har aktiverat tjänsten Remote Registry (remote registry)
-   * Har aktiverat delning (SMB)-fil
-   * Ha nödvändiga portar öppnas, baserat på klustret configuration portar
-   * Har nödvändiga portar öppnats för Windows SMB och tjänsten Remote Registry: 135, 137, 138, 139 och 445
-   * Ha en nätverksanslutning till varandra
-3. Ingen av de kluster nod-datorerna ska vara en domänkontrollant.
-4. Om klustret distribueras är ett säkert kluster kan verifiera den säkerhet som behövs krav är placera och är korrekt konfigurerade mot konfigurationen.
-5. Om klustret datorer inte är tillgängligt via internet, kan du ange följande i klusterkonfigurationen:
-   * Inaktivera telemetri: Under *Egenskaper* set *"enableTelemetry": false*
-   * Inaktivera automatisk hantering av infrastruktur resurser & meddelanden som den aktuella kluster versionen närmar sig slutet på supporten: Under *Egenskaper* set *"fabricClusterAutoupgradeEnabled": false*
-   * Alternativt, om Internetåtkomst för nätverk är begränsad till vitt visas domäner, domäner nedan krävs för automatisk uppgradering: go.microsoft.com download.microsoft.com
+När en kluster administratör konfigurerar ett Service Fabric fristående kluster, måste miljön konfigureras med följande kriterier: <br>
+1. Användaren som skapar klustret bör ha säkerhets behörighet på administratörs nivå för alla datorer som listas som noder i kluster konfigurations filen.
+2. Datorn från vilken klustret skapas, samt varje klusternod måste:
+   * Låta Service Fabric SDK avinstalleras
+   * Kör Service Fabric Runtime har avinstallerats 
+   * Aktivera Windows-brandväggen (MPSSVC)
+   * Aktivera Remote Registry-tjänsten (fjär registret)
+   * Har nödvändiga portar öppna, baserat på kluster konfigurations portar
+   * Har nödvändiga portar öppna för tjänsten Remote Registry: 135, 137, 138 och 139
+   * Ha nätverks anslutning till varandra
+3. Ingen av klusternoderna ska vara en domänkontrollant.
+4. Om det kluster som ska distribueras är ett säkert kluster, verifierar du nödvändiga säkerhets krav på plats och är korrekt konfigurerade för konfigurationen.
+5. Om kluster datorerna inte är Internet-tillgängliga, ställer du in följande i kluster konfigurationen:
+   * Inaktivera telemetri: under *Egenskaper* ange *"enableTelemetry": falskt*
+   * Inaktivera automatisk hantering av infrastruktur resurser & meddelanden som den aktuella kluster versionen närmar sig slutet på supporten: under *Egenskaper* set *"fabricClusterAutoupgradeEnabled": false*
+   * Alternativt, om nätverks Internet åtkomst är begränsad till vita domäner i listan, krävs nedanstående domäner för automatisk uppgradering: go.microsoft.com download.microsoft.com
 
-6. Ange rätt Service Fabric-antivirusundantag:
+6. Ange lämpliga Service Fabric Antivirus undantag:
 
-| **Antivirus uteslutna kataloger** |
+| **Undantagna Antivirus kataloger** |
 | --- |
-| Program Files\Microsoft Service Fabric |
-| FabricDataRoot (från klusterkonfiguration) |
-| FabricLogRoot (från klusterkonfiguration) |
+| Program\Microsoft Service Fabric |
+| FabricDataRoot (från kluster konfiguration) |
+| FabricLogRoot (från kluster konfiguration) |
 
-| **Antivirus undantagna processer** |
+| **Undantagna Antivirus processer** |
 | --- |
-| Fabric.exe |
-| FabricHost.exe |
-| FabricInstallerService.exe |
-| FabricSetup.exe |
-| FabricDeployer.exe |
-| ImageBuilder.exe |
-| FabricGateway.exe |
-| FabricDCA.exe |
-| FabricFAS.exe |
-| FabricUOS.exe |
-| FabricRM.exe |
-| FileStoreService.exe |
+| Fabric. exe |
+| Fabrichost returnerar. exe |
+| FabricInstallerService. exe |
+| FabricSetup. exe |
+| FabricDeployer. exe |
+| ImageBuilder. exe |
+| FabricGateway. exe |
+| FabricDCA. exe |
+| FabricFAS. exe |
+| FabricUOS. exe |
+| FabricRM. exe |
+| FileStoreService. exe |
 
-## <a name="validate-environment-using-testconfiguration-script"></a>Validera miljön med hjälp av TestConfiguration skript
-Skriptet TestConfiguration.ps1 finns i det fristående paketet. Den används som en Best Practices Analyzer för att verifiera några av villkoren ovan och bör användas som en förstånd-kontroll för att kontrollera om ett kluster kan distribueras på en viss miljö. Om det finns några fel, finns i listan under [Miljökonfiguration](service-fabric-cluster-standalone-deployment-preparation.md) för felsökning. 
+## <a name="validate-environment-using-testconfiguration-script"></a>Verifiera miljö med TestConfiguration-skript
+Du hittar skriptet TestConfiguration. ps1 i det fristående paketet. Den används som en Best Practices Analyzer för att validera några av kriterierna ovan och ska användas som en Sanity för att kontrol lera om ett kluster kan distribueras i en viss miljö. Om det uppstår ett fel, se listan under [miljö inställningar](service-fabric-cluster-standalone-deployment-preparation.md) för fel sökning. 
 
-Det här skriptet kan köras på en dator som har administratörsåtkomst till alla datorer som listas som noder i klustret konfigurationsfilen. Den dator som skriptet körs på behöver inte vara en del av klustret.
+Det här skriptet kan köras på alla datorer som har administratörs åtkomst till alla datorer som listas som noder i kluster konfigurations filen. Datorn som skriptet körs på behöver inte vara en del av klustret.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
@@ -160,10 +159,10 @@ FabricInstallable          : True
 Passed                     : True
 ```
 
-Den här konfigurationen testning modulen validerar för närvarande inte säkerhetskonfigurationen så detta måste göras oberoende av varandra.  
+För närvarande verifierar den här konfigurations testnings modulen säkerhets konfigurationen så att detta måste göras oberoende.  
 
 > [!NOTE]
-> Vi ständigt gör förbättringar för att göra den här modulen mer robust, så som du tror inte om det är felaktig eller saknas för närvarande fångas av TestConfiguration, meddela oss via vår [stöder kanaler](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
+> Vi gör kontinuerligt förbättringar för att göra den här modulen mer robust, så om det uppstår ett fel eller saknat fall som du anser inte har fångats av TestConfiguration, så låt oss ta reda på våra [Support kanaler](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
 > 
 > 
 

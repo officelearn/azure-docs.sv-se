@@ -11,17 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 10/29/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5e498dcb39f62fc870bc7efa989b91caeac0dedc
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
-ms.translationtype: MT
+ms.openlocfilehash: a073a476043fc6570a42cc142e01f2c6f98c7741
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819717"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175919"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Använda Azure Monitor-arbetsböcker för Azure Active Directory rapporter
+
+> [!IMPORTANT]
+> För att optimera de underliggande frågorna i den här arbets boken, klicka på "redigera", klicka på inställnings ikonen och välj den arbets yta där du vill köra frågorna. Arbets böcker som standard väljer alla arbets ytor där du dirigerar dina Azure AD-loggar. 
 
 Vill du:
 
@@ -31,7 +34,17 @@ Vill du:
 
 - Vet vem som använder äldre autentiseringar för att logga in i din miljö? (Genom att [blockera äldre autentisering](../conditional-access/block-legacy-authentication.md)kan du förbättra din klients skydd.)
 
-För att hjälpa dig att åtgärda de här frågorna innehåller Active Directory arbets böcker för övervakning. [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) kombinerar text, analys frågor, mått och parametrar till omfattande interaktiva rapporter. 
+- Behöver du känna till konsekvenserna av principer för villkorlig åtkomst i din klient organisation?
+
+- Vill du ha möjlighet att granska: inloggnings logg frågor, arbets boken rapporterar hur många användare som har beviljats eller nekats åtkomst, samt hur många användare som ignorerade principer för villkorlig åtkomst vid åtkomst till resurser?
+
+- Intresse rad av att utveckla en djupare förståelse av: arbets boks informationen per villkor så att en princips inverkan kan lösas per villkor, inklusive enhets plattform, enhets tillstånd, klient-app, inloggnings risk, plats och program?
+
+- Få djupare insikter om inloggnings logg frågor, arbets boken rapporterar hur många användare som har beviljats eller nekats åtkomst, samt hur många användare som ignorerade principer för villkorlig åtkomst vid åtkomst till resurser.
+
+- För att hjälpa dig att åtgärda de här frågorna innehåller Active Directory arbets böcker för övervakning. [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) kombinerar text, analys frågor, mått och parametrar till omfattande interaktiva rapporter.
+
+
 
 Den här artikeln:
 
@@ -57,7 +70,7 @@ Om du vill använda övervaknings arbets böcker behöver du:
     - Global administratör
 
 ## <a name="roles"></a>Roller
-Du måste vara i någon av följande roller och ha [åtkomst till underliggande Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) arbets yta för att hantera arbets böckerna:
+Du måste vara i någon av följande roller och ha [åtkomst till underliggande Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) arbets yta för att hantera arbets böckerna:
 -   Global administratör
 -   Säkerhetsadministratör
 -   Säkerhets läsare
@@ -170,7 +183,43 @@ För inaktiverade inloggningar får du en uppdelning av status för villkorlig �
 ![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
+## <a name="conditional-access-insights"></a>Conditional Access Insights
 
+### <a name="overview"></a>Översikt
+
+Arbets böcker innehåller inloggnings logg frågor som kan hjälpa IT-administratörer att övervaka effekten av principer för villkorlig åtkomst i sin klient organisation. Du kan rapportera om hur många användare som har beviljats eller nekats åtkomst. Arbets boken innehåller insikter om hur många användare som har kringgåt villkorliga åtkomst principer baserat på dessa användares attribut vid tidpunkten för inloggning. Den innehåller information per villkor så att påverkan av en princip kan lösas per villkor, inklusive enhets plattform, enhets tillstånd, klientens app, inloggnings risk, plats och program.
+
+### <a name="instructions"></a>Instruktioner 
+Om du vill få åtkomst till arbets boken för villkorlig åtkomst insikter väljer du arbets boken för **villkorlig åtkomst** i avsnittet villkorlig åtkomst. Den här arbets boken visar den förväntade effekten av varje princip för villkorlig åtkomst i din klient organisation. Välj en eller flera principer för villkorlig åtkomst i list rutan och begränsa arbets bokens omfattning genom att använda följande filter: 
+
+- **Tidsintervall**
+
+- **Användarvänlig**
+
+- **Antispionappar**
+
+- **Datavy**
+
+![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+
+
+Effekt sammanfattningen visar antalet användare eller inloggningar för vilka de valda principerna har ett visst resultat. Totalt antal användare eller inloggningar för vilka de valda principerna utvärderades under det valda tidsintervallet. Klicka på en panel för att filtrera data i arbets boken med den resultat typen. 
+
+![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+
+I den här arbets boken visas även effekten av de valda principerna uppdelade efter vart och ett av sex villkor: 
+- **Enhets tillstånd**
+- **Enhets plattform**
+- **Klient program**
+- **Inloggnings risk**
+- **Plats**
+- **Program**
+
+![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+
+Du kan också undersöka enskilda inloggningar som filtrerats efter de parametrar som valts i arbets boken. Sök efter enskilda användare, sorterade efter inloggnings frekvens och Visa motsvarande inloggnings händelser. 
+
+![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 
 
@@ -211,7 +260,7 @@ För varje trend får du en uppdelning efter app och protokoll.
 
 ## <a name="sign-ins-failure-analysis"></a>Analys av inloggnings problem
 
-Använd analys arbets boken för **inloggnings fel** för att felsöka fel med följande:
+Använd analys arbets boken för **inloggnings fel** för att felsöka fel med:
 
 - Inloggningar
 - Principer för villkorlig åtkomst

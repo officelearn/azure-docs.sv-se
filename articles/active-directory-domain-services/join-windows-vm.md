@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 00e717202116cf9a48c2c2d889374d451b8e4d45
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 164ba5ff7be38d3b11a8c5f8e5c76a3ff19ff508
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754361"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172937"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Självstudie: ansluta en virtuell Windows Server-dator till en hanterad domän
 
@@ -55,11 +55,11 @@ För att se hur du ansluter en dator till en Azure AD DS-hanterad domän, ska vi
 Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare till avsnittet för att [ansluta den virtuella datorn till den hanterade domänen i Azure AD DS](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
 1. I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs**.
-2. Från **Kom igång**väljer du **Windows Server 2016 Data Center**.
+1. Från **Kom igång**väljer du **Windows Server 2016 Data Center**.
 
     ![Välj att skapa en virtuell Windows Server 2016 datacenter-dator i Azure Portal](./media/join-windows-vm/select-vm-image.png)
 
-3. I fönstret **grundläggande** inställningar konfigurerar du kärn inställningarna för den virtuella datorn. Lämna standardinställningarna för *tillgänglighets alternativ*, *bild*och *storlek*.
+1. I fönstret **grundläggande** inställningar konfigurerar du kärn inställningarna för den virtuella datorn. Lämna standardinställningarna för *tillgänglighets alternativ*, *bild*och *storlek*.
 
     | Parameter            | Föreslaget värde   |
     |----------------------|-------------------|
@@ -69,17 +69,17 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
     | Användarnamn             | Ange ett användar namn för det lokala administratörs kontot som ska skapas på den virtuella datorn, till exempel *azureuser* |
     | Lösenord             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
 
-4. Som standard är virtuella datorer som skapats i Azure inte tillgängliga från Internet. Den här konfigurationen hjälper till att förbättra säkerheten på den virtuella datorn och minskar risken för potentiella angrepp. I nästa steg i den här självstudien måste du ansluta till den virtuella datorn med Remote Desktop Protocol (RDP) och sedan ansluta Windows Server till den hanterade domänen i Azure AD DS.
+1. Som standard är virtuella datorer som skapats i Azure inte tillgängliga från Internet. Den här konfigurationen hjälper till att förbättra säkerheten på den virtuella datorn och minskar risken för potentiella angrepp. I nästa steg i den här självstudien måste du ansluta till den virtuella datorn med Remote Desktop Protocol (RDP) och sedan ansluta Windows Server till den hanterade domänen i Azure AD DS.
 
     När RDP är aktiverat, kommer automatiska inloggnings attacker att uppstå, vilket kan inaktivera konton med vanliga namn som *administratör* eller *administratör* på grund av flera misslyckade inloggnings försök. RDP bör endast aktive ras vid behov, och begränsas till en uppsättning auktoriserade IP-intervall. [Azure just-in-Time-åtkomst för virtuella datorer][jit-access] som en del av Azure Security Center kan aktivera dessa korta, begränsade RDP-sessioner. Du kan också [skapa och använda en Azure skydds-värd (för närvarande i för hands version)][azure-bastion] för att bara tillåta åtkomst via Azure Portal via SSL.
 
     För den här själv studie kursen ska du aktivera RDP-anslutningar till den virtuella datorn manuellt.
 
-    Under **offentliga inkommande portar**väljer du alternativet för att **tillåta valda portar**. Välj *RDP*på den nedrullningsbara menyn för **Välj inkommande portar**.
+    Under **offentliga inkommande portar**väljer du alternativet för att **tillåta valda portar**. På den nedrullningsbara menyn för **Välj inkommande portar**väljer du *RDP (3389)* .
 
-5. När du är färdig väljer du **Nästa: diskar**.
-6. Välj *standard SSD*på den nedrullningsbara menyn för **typ av operativ system disk**och välj sedan **Nästa: nätverk**.
-7. Din virtuella dator måste ansluta till ett virtuellt nätverk i Azure som kan kommunicera med under nätet som din Azure AD DS-hanterade domän distribueras till. Vi rekommenderar att en Azure AD DS-hanterad domän distribueras till ett eget dedikerat undernät. Distribuera inte den virtuella datorn i samma undernät som din Azure AD DS-hanterade domän.
+1. När du är färdig väljer du **Nästa: diskar**.
+1. Välj *standard SSD*på den nedrullningsbara menyn för **typ av operativ system disk**och välj sedan **Nästa: nätverk**.
+1. Din virtuella dator måste ansluta till ett virtuellt nätverk i Azure som kan kommunicera med under nätet som din Azure AD DS-hanterade domän distribueras till. Vi rekommenderar att en Azure AD DS-hanterad domän distribueras till ett eget dedikerat undernät. Distribuera inte den virtuella datorn i samma undernät som din Azure AD DS-hanterade domän.
 
     Det finns två huvudsakliga sätt att distribuera den virtuella datorn och ansluta till ett lämpligt virtuellt nätverks under nät:
     
@@ -88,20 +88,30 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
     
     Om du väljer ett undernät för virtuellt nätverk som inte är anslutet till under nätet för din Azure AD DS-instans kan du inte ansluta den virtuella datorn till den hanterade domänen. I den här självstudien ska vi skapa ett nytt undernät i det virtuella Azure-nätverket.
 
-    I fönstret **nätverk** väljer du det virtuella nätverk där din Azure AD DS-hanterade domän distribueras, till exempel *myVnet*
-8. I det här exemplet visas det befintliga *DomainServices* -undernätet som den Azure AD DS-hanterade domänen är ansluten till. Anslut inte den virtuella datorn till det här under nätet. Om du vill skapa ett undernät för den virtuella datorn väljer du **Hantera under näts konfiguration**.
+    I fönstret **nätverk** väljer du det virtuella nätverk där din Azure AD DS-hanterade domän distribueras, t. ex. *aaads-VNet*
+1. I det här exemplet visas det befintliga *aaads-under nätet* som den hanterade Azure AD DS-domänen är ansluten till. Anslut inte den virtuella datorn till det här under nätet. Om du vill skapa ett undernät för den virtuella datorn väljer du **Hantera under näts konfiguration**.
 
     ![Välj att hantera under näts konfigurationen i Azure Portal](./media/join-windows-vm/manage-subnet.png)
 
-9. Välj **+ undernät**och ange sedan ett namn för under nätet, till exempel *ManagedVMs*. Ange ett **adress intervall (CIDR-block)** , till exempel *10.1.1.0/24*. Kontrol lera att detta IP-adressintervall inte överlappar andra befintliga Azure-eller lokala adress intervall. Lämna de andra alternativen som standardvärden och välj sedan **OK**.
+1. I den vänstra menyn i fönstret virtuellt nätverk väljer du **adress utrymme**. Det virtuella nätverket skapas med ett enda adress utrymme på *10.0.1.0/24*, som används av standard under nätet.
+
+    Lägg till ytterligare ett IP-adressintervall i det virtuella nätverket. Storleken på det här adress intervallet och det faktiska IP-adressintervall som ska användas beror på andra nätverks resurser som redan har distribuerats. IP-adressintervallet får inte överlappa några befintliga adress intervall i din Azure eller lokala miljö. Se till att du ändrar storlek på IP-adressintervallet tillräckligt stort för antalet virtuella datorer som du förväntar dig att distribuera till under nätet.
+
+    I följande exempel läggs ytterligare ett IP-adressintervall för *10.0.2.0/24* till. När du är klar väljer du **Spara**.
+
+    ![Lägg till ytterligare ett IP-adressintervall för virtuellt nätverk i Azure Portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
+
+1. Sedan väljer du **undernät**på menyn till vänster i fönstret virtuellt nätverk och väljer sedan **+ undernät** för att lägga till ett undernät.
+
+1. Välj **+ undernät**och ange sedan ett namn för under nätet, till exempel *hantering*. Ange ett **adress intervall (CIDR-block)** , till exempel *10.0.2.0/24*. Kontrol lera att detta IP-adressintervall inte överlappar andra befintliga Azure-eller lokala adress intervall. Lämna de andra alternativen som standardvärden och välj sedan **OK**.
 
     ![Skapa en under näts konfiguration i Azure Portal](./media/join-windows-vm/create-subnet.png)
 
-10. Det tar några sekunder att skapa under nätet. När den har skapats väljer du *X* för att stänga under näts fönstret.
-11. Gå tillbaka till fönstret **nätverk** och skapa en virtuell dator genom att välja det undernät som du skapade i den nedrullningsbara menyn, till exempel *ManagedVMs*. Se till att du väljer rätt undernät och distribuera inte den virtuella datorn i samma undernät som din Azure AD DS-hanterade domän.
-12. Lämna de andra alternativen som standardvärden och välj sedan **hantering**.
-13. Ange att **startdiagnostik** ska *stängas av*. Lämna de andra alternativen som standardvärden och välj sedan **Granska + skapa**.
-14. Granska inställningarna för den virtuella datorn och välj sedan **skapa**.
+1. Det tar några sekunder att skapa under nätet. När den har skapats väljer du *X* för att stänga under näts fönstret.
+1. Gå tillbaka till fönstret **nätverk** för att skapa en virtuell dator och välj det undernät som du skapade i den nedrullningsbara menyn, till exempel *hantering*. Se till att du väljer rätt undernät och distribuera inte den virtuella datorn i samma undernät som din Azure AD DS-hanterade domän.
+1. Lämna de andra alternativen som standardvärden och välj sedan **hantering**.
+1. Ange att **startdiagnostik** ska *stängas av*. Lämna de andra alternativen som standardvärden och välj sedan **Granska + skapa**.
+1. Granska inställningarna för den virtuella datorn och välj sedan **skapa**.
 
 Det tar några minuter att skapa den virtuella datorn. I Azure Portal visas distributionens status. När den virtuella datorn är klar väljer **du gå till resurs**.
 
@@ -124,7 +134,7 @@ Nu ska vi ansluta till den nya virtuella Windows Server-datorn med RDP och anslu
 
 När den virtuella datorn har skapats och en RDP-anslutning upprättar kan du nu ansluta den virtuella Windows Server-datorn till den hanterade domänen i Azure AD DS. Den här processen är samma som en dator som ansluter till en vanlig lokal Active Directory Domain Services domän.
 
-1. **Serverhanteraren** bör öppnas som standard när du loggar in på den virtuella datorn. Annars väljer du **Serverhanteraren**på **Start** -menyn.
+1. Om **Serverhanteraren** inte öppnas som standard när du loggar in på den virtuella datorn väljer du **Start** -menyn och väljer **Serverhanteraren**.
 1. I den vänstra rutan i fönstret **Serverhanteraren** väljer du **lokal server**. Välj **arbets grupp**under **Egenskaper** i den högra rutan.
 
     ![Öppna Serverhanteraren på den virtuella datorn och redigera arbets grupps egenskapen](./media/join-windows-vm/server-manager.png)
@@ -137,7 +147,7 @@ När den virtuella datorn har skapats och en RDP-anslutning upprättar kan du nu
 
     ![Ange den Azure AD DS-hanterade domänen som ska anslutas](./media/join-windows-vm/join-domain.png)
 
-1. Ange domänautentiseringsuppgifter för att ansluta till domänen. Använd autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* . Endast medlemmar i den här gruppen har behörighet att ansluta datorer till den hanterade Azure AD DS-domänen. Kontoautentiseringsuppgifter kan anges på något av följande sätt:
+1. Ange domänautentiseringsuppgifter för att ansluta till domänen. Använd autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* . Endast medlemmar i den här gruppen har behörighet att ansluta datorer till den hanterade Azure AD DS-domänen. Kontot måste ingå i den Azure AD DS-hanterade domänen eller Azure AD-klient-konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning. Kontoautentiseringsuppgifter kan anges på något av följande sätt:
 
     * **UPN-format** (rekommenderas) – ange suffixet User Principal Name (UPN) för användar kontot, enligt konfigurationen i Azure AD. UPN-suffixet för användar- *contosoadmin* skulle till exempel vara `contosoadmin@contoso.onmicrosoft.com`. Det finns ett par vanliga användnings fall där UPN-formatet kan användas på ett tillförlitligt sätt för att logga in på domänen snarare än *sAMAccountName* -formatet:
         * Om en användares UPN-prefix är långt, till exempel *deehasareallylongname*, kan *sAMAccountName* skapas automatiskt.
@@ -157,7 +167,7 @@ När den virtuella datorn har skapats och en RDP-anslutning upprättar kan du nu
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
 >
-> Om du vill ansluta till en virtuell dator utan att ansluta till den och manuellt konfigurera anslutningen kan du också utforska användningen av cmdleten [set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell.
+> Om du vill ansluta till en virtuell dator utan att ansluta till den och manuellt konfigurera anslutningen kan du använda cmdleten [set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell.
 
 När den virtuella Windows Server-datorn har startats om flyttas alla principer som tillämpas i den hanterade Azure AD DS-domänen till den virtuella datorn. Nu kan du logga in på den virtuella Windows Server-datorn med rätt domänautentiseringsuppgifter.
 
@@ -212,6 +222,7 @@ Om du får en uppmaning om att ange autentiseringsuppgifter för att ansluta til
 Försök att ansluta den virtuella Windows Server-datorn till den hanterade domänen igen efter att ha försökt med de här fel söknings stegen.
 
 * Kontrol lera att det användar konto som du anger tillhör gruppen *AAD DC-administratörer* .
+* Bekräfta att kontot ingår i den hanterade domänen för Azure AD DS eller Azure AD-klienten. Konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning.
 * Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `contosoadmin@contoso.onmicrosoft.com`. Om det finns många användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt, kan *sAMAccountName* för ditt konto skapas automatiskt. I dessa fall kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
 * Kontrol lera att du har [aktiverat][password-sync] Lösenordssynkronisering till din hanterade domän. Utan det här konfigurations steget finns de nödvändiga lösen ords-hasharna inte i den hanterade Azure AD DS-domänen för att korrekt autentisera ditt inloggnings försök.
 * Vänta tills Lösenordssynkronisering har slutförts. När ett användar kontos lösen ord ändras uppdaterar en automatisk Bakgrundssynkronisering från Azure AD lösen ordet i Azure AD DS. Det tar lite tid för lösen ordet att vara tillgängligt för domän kopplings användning.

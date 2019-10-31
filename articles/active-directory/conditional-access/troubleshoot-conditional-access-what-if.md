@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d463bc889385f8f157ebb9892acc7a4a8b2a2e
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278550"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175798"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Felsöka villkorlig åtkomst med hjälp av What If-verktyget
 
@@ -26,6 +26,9 @@ What If-verktyget finns i **Azure Portal** > **Azure Active Directory** > **vill
 
 ![What If verktyget för villkorlig åtkomst i standard läge](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
+> [!NOTE]
+> What If verktyget utvärderar för närvarande inte principer i endast rapport läge.
+
 ## <a name="gathering-information"></a>Samlar in information
 
 What If-verktyget kräver bara att en **användare** kommer igång. 
@@ -34,7 +37,7 @@ Följande ytterligare information är valfri, men kan hjälpa dig att begränsa 
 
 * Molnappar eller åtgärder
 * IP-adress 
-* Country
+* Land
 * Enhets plattform
 * Klient program (för hands version)
 * Enhets tillstånd (för hands version) 
@@ -75,4 +78,4 @@ Det här testet kan utökas för att omfatta andra data punkter för att begrän
 * [Vad är villkorlig åtkomst?](overview.md)
 * [Vad är Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
 * [Vad är en enhets identitet?](../devices/overview.md)
-* [Så här fungerar det: hur Azure Multi-Factor Authentication fungerar](../authentication/concept-mfa-howitworks.md)
+* [Så här fungerar Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1af622f4b483abec757d1392bfa4fefe91c8bc49
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 840280eecce60ac74514404497b857cd5362c9a0
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990009"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171643"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights för hands versions miljö
 
@@ -45,7 +45,7 @@ I det här avsnittet ska du skapa tre simulerade enheter som skickar data till e
 
 1. Gå till [Sidan för Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators). Sidan visar flera fördefinierade exempel. Logga in med ditt Azure-konto. Välj sedan **Enhetssimulering**.
 
-   [Sidan![Azure IoT Solution Accelerators](media/v2-update-provision/device-one-accelerator.png)](media/v2-update-provision/device-one-accelerator.png#lightbox)
+   [Sidan ![Azure IoT Solution Accelerators](media/v2-update-provision/device-one-accelerator.png)](media/v2-update-provision/device-one-accelerator.png#lightbox)
 
    Välj **Testa nu**.
 
@@ -60,7 +60,7 @@ I det här avsnittet ska du skapa tre simulerade enheter som skickar data till e
  
     Välj **skapa lösning**. Det kan ta upp till 20 minuter för lösningen att slutföra distributionen.
 
-    [Sidan![skapa lösning för enhets simulering](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
+    [Sidan ![skapa lösning för enhets simulering](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
 ## <a name="create-a-preview-payg-environment"></a>Skapa en förhands granskning PAYG-miljö
 
@@ -143,7 +143,7 @@ Nu när du har distribuerat din Time Series Insights-miljö, strömma data till 
 
 1. Du omdirigeras till sidan **Enhetssimulering för Microsoft Azure IoT**. I det övre högra hörnet på sidan väljer du **ny simulering**.
 
-    [Sidan![Azure IoT-simulering](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+    [Sidan ![Azure IoT-simulering](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
 
 1. I fönstret **simulerings konfiguration** anger du följande parametrar:
 
@@ -181,7 +181,7 @@ I det här avsnittet utför du grundläggande analys på dina tidsseriedata med 
 
     Ett tids serie diagram visas. Ändra **intervallet** till **15s**.
 
-    [diagram över![tids serie](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
+    [diagram över ![tids serie](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
 
 1. Upprepa steg 3 med de andra två tids serie instanserna. Du kan visa alla Time Series-instanser som visas i det här diagrammet:
 
@@ -197,7 +197,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
 1. I utforskaren väljer du fliken **Modell**:
 
-   [fliken![modell i Utforskaren](media/v2-update-provision/define-one-model.png)](media/v2-update-provision/define-one-model.png#lightbox)
+   [fliken ![modell i Utforskaren](media/v2-update-provision/define-one-model.png)](media/v2-update-provision/define-one-model.png#lightbox)
 
 1. Välj **Lägg** till för att lägga till en typ:
 
@@ -252,7 +252,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
 1. Nästa steg är att lägga till en hierarki. Välj **Lägg till**under **hierarkier**:
 
-    [fliken![hierarkier med knappen Lägg till](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
+    [fliken ![hierarkier med knappen Lägg till](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
 
 1. I fönstret **Redigera hierarki** anger du följande parametrar:
 

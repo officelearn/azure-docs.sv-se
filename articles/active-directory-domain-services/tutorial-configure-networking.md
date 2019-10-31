@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 8f4251c1cda27bab3e67e5272a0ef1a94595dac3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757947"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172643"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Självstudie: Konfigurera virtuella nätverk för en Azure Active Directory Domain Services instans
 
@@ -153,7 +153,7 @@ Om du vill se den här hanterade domänen i praktiken skapar du och ansluter en 
 > [!div class="nextstepaction"]
 > [Anslut en virtuell Windows Server-dator till din hanterade domän](join-windows-vm.md)
 
-<!-- INTERNAL LINKS -->
+<!-- INTERNAL LINKS --> 
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md

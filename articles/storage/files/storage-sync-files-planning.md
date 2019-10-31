@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7dfd7e29b119b5fe98b649b2e5f5f45b422c4634
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 698702e24f1f6dfc6b94b75de77c08156832e566
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053430"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177854"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -159,11 +159,14 @@ Windows Server-redundanskluster stöds av Azure File Sync för distributions alt
 
 ### <a name="data-deduplication"></a>Datadeduplicering
 **Agent version 5.0.2.0 eller nyare**   
-Datadeduplicering stöds på volymer med moln nivåer som är aktiverade på Windows Server 2016 och Windows Server 2019. Genom att aktivera datadeduplicering på en volym med aktive rad moln nivå kan du cachelagra fler filer lokalt utan att tillhandahålla mer lagrings utrymme. 
+Datadeduplicering stöds på volymer med moln skiktning aktiverat på Windows Server 2016. Genom att aktivera datadeduplicering på en volym med aktive rad moln nivå kan du cachelagra fler filer lokalt utan att tillhandahålla mer lagrings utrymme. 
 
 När datadeduplicering har Aktiver ATS på en volym med aktive rad moln nivå, kommer deduplicering av optimerade filer på serverns slut punkt att på samma sätt som en normal fil baserat på princip inställningarna för moln skiktet. När de deduplicerade filerna har flyttats, körs skräp insamlings jobbet för datadeduplicering automatiskt för att frigöra disk utrymme genom att ta bort onödiga segment som inte längre refereras till av andra filer på volymen.
 
 Observera att volym besparingarna gäller endast för servern. dina data i Azure-filresursen kommer inte att dedupliceras.
+
+> [!Note]  
+> Datadeduplicering och moln nivåer stöds inte för närvarande på samma volym på Server 2019 på grund av ett fel som åtgärdas i en framtida uppdatering.
 
 **Versioner av Windows Server 2012 R2 eller äldre agent**  
 För volymer som inte har aktiverat moln nivåer är Azure File Sync stöd för Windows Server-datadeduplicering som aktive ras på volymen.
@@ -274,6 +277,8 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Arizona (USA-förvaltad region) | Arizona |
 | Texas (USA-förvaltad region) | Texas |
 | USA Gov Virginia | Virginia |
+| Förenade Arabemiraten, norra | Dubai |
+| Förenade Arabemiraten Central * | Abu Dhabi |
 | Europa, västra | Nederländerna |
 | USA, västra centrala | Wyoming |
 | USA, västra | Kalifornien |

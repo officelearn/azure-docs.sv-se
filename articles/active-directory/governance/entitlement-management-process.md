@@ -1,6 +1,6 @@
 ---
-title: Begär process-och e-postaviseringar i Azure AD-hantering av rättigheter (för hands version) – Azure Active Directory
-description: Lär dig mer om process processen för ett Access-paket och när e-postmeddelanden skickas i Azure Active Directory rättighets hantering (för hands version).
+title: Begär process-och e-postaviseringar i Azure AD-hantering av rättigheter – Azure Active Directory
+description: Läs om process processen för ett Access-paket och när e-postmeddelanden skickas i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
-ms.translationtype: MT
+ms.openlocfilehash: 6a1ce3b2cb72a7b57e556e09264cb5bd421eda0f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678134"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173756"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Begär process och e-postmeddelanden i hantering av Azure AD-hantering (för hands version)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Begär process-och e-postaviseringar i hantering av Azure AD-berättigande
 
 När en användare skickar en begäran till ett Access-paket, startas en process för att leverera denna begäran. Hantering av Azure AD-behörighet skickar också e-postaviseringar till god kännare och beställare när viktiga händelser inträffar under processen.
 
@@ -40,14 +35,14 @@ En användare som behöver åtkomst till ett Access-paket kan skicka en åtkomst
 
 ![Diagram över godkännande process](./media/entitlement-management-process/request-process.png)
 
-| Tillstånd | Beskrivning |
+| Status | Beskrivning |
 | --- | --- |
-| Skickat | Användaren skickar en begäran. |
+| Läggs | Användaren skickar en begäran. |
 | Väntar på godkännande | Om principen för ett Access-paket kräver godkännande flyttas en begäran till väntar på godkännande. |
-| Har upphört att gälla | Om inga god kännare godkänner en begäran inom tids gränsen för godkännandebegäran, förfaller begäran. Användaren måste skicka in begäran igen för att försöka igen. |
-| Avvisad | God kännaren nekar en begäran. |
-| GODKÄND | God kännaren godkänner en begäran. |
-| Levererar | Användaren har **inte** tilldelats åtkomst till alla resurser i åtkomst paketet. Om det är en extern användare kanske användaren ännu inte har åtkomst till resurs katalogen och godkänt medgivande meddelandet. |
+| Upphörd | Om inga god kännare godkänner en begäran inom tids gränsen för godkännandebegäran, förfaller begäran. Användaren måste skicka in begäran igen för att försöka igen. |
+| Tillåts | God kännaren nekar en begäran. |
+| Godkända | God kännaren godkänner en begäran. |
+| Kvalitativ | Användaren har **inte** tilldelats åtkomst till alla resurser i åtkomst paketet. Om det är en extern användare kanske användaren ännu inte har åtkomst till resurs katalogen och godkänt medgivande meddelandet. |
 | Levererade | Användaren har tilldelats åtkomst till alla resurser i åtkomst paketet. |
 | Utökad åtkomst | Användaren utökat tilldelningen om tillägg tillåts i principen. |
 | Åtkomst upphör | Användarens åtkomst till Access-paketet har upphört att gälla. Användaren måste skicka en begäran för att få åtkomst igen. |
@@ -62,14 +57,14 @@ Följande tabell innehåller mer information om var och en av dessa e-postaviser
 
 | # | E-postämne | När det skickas | Skickat till |
 | --- | --- | --- | --- |
-| 1 | Åtgärd krävs: Granska åtkomstbegäran från *[Reber]* till *[Access Package]* senast *[datum]* | När en beställare skickar en begäran om ett Access-paket | Alla god kännare |
-| 2 | Åtgärd krävs: Granska åtkomstbegäran från *[Reber]* till *[Access Package]* senast *[datum]* | X dagar före tids gränsen för begäran om godkännande | Alla god kännare |
-| 3 | Status meddelande: *[begär ande]* åtkomst förfrågan till *[Access-paket]* har upphört att gälla | När god kännare inte godkänner eller nekar en åtkomstbegäran inom varaktigheten för begäran | Beställare |
+| 1 | Åtgärd krävs: granska åtkomstbegäran från *[rerequest]* till *[Access Package]* senast *[datum]* | När en beställare skickar en begäran om ett Access-paket | Alla god kännare |
+| 2 | Åtgärd krävs: granska åtkomstbegäran från *[rerequest]* till *[Access Package]* senast *[datum]* | X dagar före tids gränsen för begäran om godkännande | Alla god kännare |
+| 3 | Status meddelande: *[begär ande]* åtkomst förfrågan till *[Access-paket]* har upphört att gälla | När god kännare inte godkänner eller nekar en åtkomstbegäran inom varaktigheten för begäran | Begär Ande |
 | 4 | Status meddelande: *[refrågar]* åtkomstbegäran till *[Access Package]* har slutförts | När den första god kännaren godkänner eller nekar en åtkomstbegäran | Alla god kännare |
-| 5 | Du har nekats åtkomst till *[Access Package]* | När en begär ande har nekats åtkomst till Access-paketet | Beställare |
-| 6 | Du har nu åtkomst till *[Access Package]*  | När en begär ande har beviljats åtkomst till alla resurser i åtkomst paketet | Beställare |
-| 7 | Din åtkomst till *[Access Package]* upphör att gälla om X dag (ar) | X dagar innan begär ande åtkomst till åtkomst paketet upphör att gälla | Beställare |
-| 8 | Din åtkomst till *[Access Package]* har upphört att gälla | När beställarens åtkomst till ett Access-paket upphör att gälla | Beställare |
+| 5 | Du har nekats åtkomst till *[Access Package]* | När en begär ande har nekats åtkomst till Access-paketet | Begär Ande |
+| 6 | Du har nu åtkomst till *[Access Package]*  | När en begär ande har beviljats åtkomst till alla resurser i åtkomst paketet | Begär Ande |
+| 7 | Din åtkomst till *[Access Package]* upphör att gälla om X dag (ar) | X dagar innan begär ande åtkomst till åtkomst paketet upphör att gälla | Begär Ande |
+| 8 | Din åtkomst till *[Access Package]* har upphört att gälla | När beställarens åtkomst till ett Access-paket upphör att gälla | Begär Ande |
 
 ### <a name="access-request-emails"></a>E-postmeddelanden för åtkomstbegäran
 

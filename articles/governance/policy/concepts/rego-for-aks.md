@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 56bc8934db86bb03446a6d2637bd54daaf2b5fb9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6a3d1fb347819015887ffc4fd8089bbc1f3a70de
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254740"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176313"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Förstå Azure Policy för Azure Kubernetes-tjänsten
 
@@ -164,7 +164,7 @@ Var 5: e minut anropar tillägget för en fullständig genomsökning av klustret
 
 Azure Policy språk strukturen för att hantera AKS följer de befintliga principerna. _EnforceRegoPolicy_ används för att hantera dina AKS-kluster och har _information om information_ som är speciell för att arbeta med OPA och gatekeeper. Mer information och exempel finns i [EnforceRegoPolicy](effects.md#enforceregopolicy) -effekter.
 
-Som en del av egenskapen _information. policy_ i princip definitionen, Azure policy skickar en URI för en Rego-princip till tillägget. Rego är det språk som OPA och GateKeeper stöder för att verifiera eller undersöka en begäran till Kubernetes-klustret. Genom att stödja en befintlig standard för Kubernetes-hantering gör Azure Policy att du kan återanvända befintliga regler och koppla dem till Azure Policy för en enhetlig rapporterings upplevelse för moln efterlevnad. Mer information finns i [Vad är Rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
+Som en del av egenskapen _information. policy_ i princip definitionen, Azure policy skickar en URI för en Rego-princip till tillägget. Rego är det språk som OPA och GateKeeper stöder för att verifiera eller undersöka en begäran till Kubernetes-klustret. Genom att stödja en befintlig standard för Kubernetes-hantering gör Azure Policy att du kan återanvända befintliga regler och koppla dem till Azure Policy för en enhetlig rapporterings upplevelse för moln efterlevnad. Mer information finns i [Vad är Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
 ## <a name="built-in-policies"></a>Inbyggda principer
 

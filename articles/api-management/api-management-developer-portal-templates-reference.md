@@ -11,20 +11,22 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eb06c1c5db20f3216c5c8e81580e445f9c0ba804
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072605"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176788"
 ---
 # <a name="developer-portal-templates"></a>Mallar för utvecklare
 
 Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), glyf- [resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna som du ser får plats med mallarna.  
   
 Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -42,12 +44,12 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
         -   [PHP](api-management-api-templates.md#PHP)  
         -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  
--   [Produkter  
+-   [Produkter](api-management-product-templates.md)  
     -   [Produkt lista](api-management-product-templates.md#ProductList)  
     -   [Momsproduktbokföringsmallar](api-management-product-templates.md#Product)  
 -   [Program](api-management-application-templates.md)  
     -   [Program lista](api-management-application-templates.md#ProductList)  
-    -   [Programmet](api-management-application-templates.md#Application)  
+    -   [Applicering](api-management-application-templates.md#Application)  
 -   [Problem](api-management-issue-templates.md)  
     -   [Ärende lista](api-management-issue-templates.md#IssueList)  
 -   [Användar profil](api-management-user-profile-templates.md)  

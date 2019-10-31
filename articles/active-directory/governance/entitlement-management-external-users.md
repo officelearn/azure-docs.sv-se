@@ -1,5 +1,5 @@
 ---
-title: Styra åtkomsten för externa användare i Azure AD-hantering av rättigheter (för hands version) – Azure Active Directory
+title: Styra åtkomsten för externa användare i Azure AD-hantering av rättigheter – Azure Active Directory
 description: Lär dig mer om de inställningar som du kan ange för att styra åtkomsten för externa användare i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
@@ -12,23 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3794f409b2cdc11373dc330099e5ff93d65a2a1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9107471448a58dc7866fb2cd6052abf168437d2b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934400"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174175"
 ---
-# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Styra åtkomsten för externa användare i Azure AD-hantering av rättigheter (för hands version)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter
 
 Hantering av Azure AD-rättigheterna använder [Azure AD Business-to-Business (B2B)](../b2b/what-is-b2b.md) för att samar beta med personer utanför organisationen i en annan katalog. Med Azure AD B2B autentiserar externa användare till sin arbets katalog, men har en representation i din katalog. Representationen i din katalog gör det möjligt för användaren att tilldelas åtkomst till dina resurser.
 
@@ -74,6 +69,52 @@ Följande diagram och steg ger en översikt över hur externa användare bevilja
 
 1. Beroende på inställningarna för den externa användarens livs cykel, kommer den externa användaren att blockeras från att logga in och gäst användar kontot tas bort från din katalog när den externa användaren inte längre har några åtkomst paket tilldelningar.
 
+## <a name="settings-for-external-users"></a>Inställningar för externa användare
+
+För att säkerställa att personer utanför organisationen kan begära åtkomst paket och få åtkomst till resurserna i dessa åtkomst paket, finns det vissa inställningar som du bör kontrol lera korrekt.
+
+### <a name="enable-catalog-for-external-users"></a>Aktivera katalog för externa användare
+
+- När du skapar en [ny katalog](entitlement-management-catalog-create.md)är den som standard aktive rad så att externa användare kan begära åtkomst paket i katalogen. Se till att **Aktivera för externa användare** har angetts till **Ja**.
+
+    ![Redigera katalog inställningar](./media/entitlement-management-shared/catalog-edit.png)
+
+### <a name="configure-your-azure-ad-b2b-external-collaboration-settings"></a>Konfigurera dina externa samarbets inställningar för Azure AD B2B
+
+- Genom att tillåta gäster att bjuda in andra gäster till katalogen innebär det att gäst inbjudningar kan ske utanför hantering av rättigheter. Vi rekommenderar att du ställer in **gäster kan bjuda in** till **Nej** för att endast tillåta korrekt reglerade inbjudningar.
+- Om du använder listan B2B-Tillåt måste du kontrol lera att alla domäner som du vill använda som partner med hjälp av hantering av rättigheter läggs till i listan. Alternativt, om du använder listan B2B-neka, måste du se till att alla domäner som du vill partner med inte läggs till i listan.
+- Om du skapar en rättighets hanterings princip för **alla användare** (alla anslutna organisationer och alla nya externa användare) har alla inställningar för B2B-Tillåt eller neka-lista som du har företräde. Se därför till att inkludera de domäner som du vill inkludera i den här principen i listan över tillåtna om du använder en, och exkluderar dem från listan över nekade om du använder en neka-lista.
+- Om du vill skapa en princip för hantering av rättigheter som innehåller **alla användare** (alla anslutna organisationer och nya externa användare) måste du först aktivera e-postautentisering med eng ång slö sen ord för din katalog. Mer information finns i [e-mail Authentication eng ång slö sen ord (för hands version)](../b2b/one-time-passcode.md#opting-in-to-the-preview).
+- Mer information om inställningar för externa samarbets funktioner i Azure AD B2B finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../b2b/delegate-invitations.md).
+
+    ![Externa samarbets inställningar för Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
+
+### <a name="review-your-conditional-access-policies"></a>Granska dina principer för villkorlig åtkomst
+
+- Se till att undanta gäster från alla principer för villkorlig åtkomst som nya gäst användare inte kan uppfylla eftersom det gör att de inte kan logga in i din katalog. Gäster har till exempel troligen ingen registrerad enhet, inte på en känd plats och vill inte registrera sig för Multi-Factor Authentication (MFA), så att de här kraven i en princip för villkorlig åtkomst blockerar gäster från att använda rättigheten hanterings. Mer information finns i [Vad är villkor i Azure Active Directory villkorlig åtkomst?](../conditional-access/conditions.md).
+
+    ![Undantags inställningar för villkorlig åtkomst policy för Azure AD](./media/entitlement-management-external-users/conditional-access-exclude.png)
+
+### <a name="review-your-sharepoint-online-external-sharing-settings"></a>Granska dina inställningar för extern SharePoint Online-delning
+
+- Om du vill inkludera SharePoint Online-webbplatser i dina åtkomst paket för externa användare ser du till att inställningen för extern delning på organisations nivå har angetts till **vem som helst** (användarna behöver inte logga in) eller **nya och befintliga gäster** (gäster måste signera i eller ange en verifierings kod). Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Om du vill begränsa en extern delning utanför hantering av rättigheter kan du ange inställningen för extern delning till **befintliga gäster**. Sedan kommer endast nya användare som bjuds in via rättighets hantering att kunna få åtkomst till dessa webbplatser. Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Se till att inställningarna för webbplats nivå aktiverar gäst åtkomst (samma alternativ för val som tidigare i listan). Mer information finns i [Aktivera och inaktivera extern delning på en plats](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
+
+### <a name="review-your-office-365-group-sharing-settings"></a>Granska inställningarna för Office 365-grupp delning
+
+- Om du vill inkludera Office 365-grupper i dina Access-paket för externa användare ser du till att **Låt användarna lägga till nya gäster till organisationen** är inställda på **på** för att tillåta gäst åtkomst. Mer information finns i [Hantera gäst åtkomst till Office 365-grupper](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups).
+
+- Om du vill att externa användare ska kunna komma åt SharePoint Online-webbplatsen och resurser som är kopplade till en Office 365-grupp, se till att aktivera extern SharePoint Online-delning. Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Information om hur du ställer in gäst principen för Office 365-grupper på katalog nivå i PowerShell finns i [exempel: Konfigurera gäst princip för grupper på katalog nivå](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+
+### <a name="review-your-teams-sharing-settings"></a>Granska dina team delnings inställningar
+
+- Om du vill inkludera team i dina åtkomst paket för externa användare ser du till att **Tillåt gäst åtkomst i Microsoft Teams** är **aktiverat** för att tillåta gäst åtkomst. Mer information finns i [Konfigurera gäst åtkomst i administrations Center för Microsoft Teams](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center).
+
 ## <a name="manage-the-lifecycle-of-external-users"></a>Hantera livs cykeln för externa användare
 
 Du kan välja vad som händer när en extern användare, som har bjudits in till din katalog via en begäran om åtkomst paket, inte längre ha några åtkomst paket tilldelningar. Detta kan inträffa om användaren låser alla tilldelningar av åtkomst paket eller om den senaste tilldelningen av åtkomst paket upphör att gälla. När en extern användare inte längre har några åtkomst paket tilldelningar blockeras som standard från att logga in till din katalog. Efter 30 dagar tas deras gäst användar konto bort från katalogen.
@@ -104,20 +145,8 @@ Du kan välja vad som händer när en extern användare, som har bjudits in till
 
 1. Klicka på **Save** (Spara).
 
-## <a name="enable-a-catalog-for-external-users"></a>Aktivera en katalog för externa användare
-
-När du skapar en [ny katalog](entitlement-management-catalog-create.md)finns det en inställning för att ge användare från externa kataloger möjlighet att begära åtkomst paket i katalogen. Om du inte vill att externa användare ska ha behörighet att begära åtkomst paket i katalogen ställer du in **aktiverat för externa användare** på **Nej**.
-
-**Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
-
-![Fönstret ny katalog](./media/entitlement-management-shared/new-catalog.png)
-
-Du kan också ändra den här inställningen när du har skapat katalogen.
-
-![Redigera katalog inställningar](./media/entitlement-management-shared/catalog-edit.png)
-
 ## <a name="next-steps"></a>Nästa steg
 
 - [Lägg till en ansluten organisation](entitlement-management-organization.md)
 - [För användare som inte är i din katalog](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
-- [Skapa och hantera en katalog med resurser](entitlement-management-catalog-create.md)
+- [Felsöka](entitlement-management-troubleshoot.md)

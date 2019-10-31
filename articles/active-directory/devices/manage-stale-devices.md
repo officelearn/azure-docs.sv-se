@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ddda8ff67cfdfebcf19f53c307c689884baf4d
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a2e92ca85c485f8c93fc9202b9084ec37d7506e1
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942900"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175067"
 ---
-# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instruktioner: Hantera inaktuella enheter i Azure AD
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Gör så här: hantera inaktuella enheter i Azure AD
 
 Vi rekommenderar att avregistrera registrerade enheter när det inte behövs längre, och när livscykeln ska avslutas. Men på grund av, till exempel, förlorade, stulna eller trasiga enheter, eller ominstallationer av operativsystem har du vanligtvis enheter i din miljö. Som IT-administratör vill du troligen ha en metod för att ta bort inaktuella enheter, så att du kan fokusera dina resurser på att hantera enheter som faktiskt kräver hantering.
 
@@ -70,7 +70,7 @@ Om du vill rensa inaktuella enheter effektivt i din miljö bör du definiera en 
 Om du vill uppdatera en enhet i Azure AD behöver du ett kont som har någon av följande roller tilldelade:
 
 - Global administratör
-- Molnenhetsadministratör
+- Moln enhets administratör
 - Administratör för Intune-tjänsten
 
 I din rensningsprincip väljer du konton som har de roller som krävs tilldelade. 

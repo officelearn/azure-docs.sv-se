@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: d1ab7089ba76890488aa73d03e0fd9fc8efbe4d5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193950"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176736"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt VNET med Application Gateway
 
@@ -34,7 +34,7 @@ Om du kombinerar API Management som har skapats i ett internt virtuellt nätverk
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -46,7 +46,7 @@ För att följa stegen som beskrivs i den här artikeln måste du ha:
 
 * Certifikat – PFX och CER för API hostname och PFX för Developer-portalens värdnamn.
 
-## <a name="scenario"> </a> Scenario
+## <a name="scenario"></a> Scenario
 
 Den här artikeln beskriver hur du använder en enskild API Management tjänst för både interna och externa konsumenter och gör att den fungerar som en enda klient del för både lokala och molnbaserade API: er. Du kommer också att se hur du exponerar endast en delmängd av dina API: er (i exemplet är de markerade i grönt) för extern förbrukning med hjälp av routningsfunktioner som är tillgängliga i Application Gateway.
 
@@ -60,9 +60,9 @@ I det första installations exemplet hanteras bara dina API: er från din Virtua
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Vad krävs för att skapa en integration mellan API Management och Application Gateway?
 
-* **Backend-serverpool:** Det här är den interna virtuella IP-adressen för den API Management tjänsten.
-* **Inställningar för backend-serverpool:** Varje pool har inställningar som port, protokoll och cookie-baserad tillhörighet. De här inställningarna tillämpas på alla servrar i poolen.
-* **Klientdelsport:** Detta är den offentliga porten som öppnas på Application Gateway. Trafiken som påträffas omdirigeras till en av backend-servrarna.
+* **Backend-serverpoolen:** Det här är den interna virtuella IP-adressen för den API Management tjänsten.
+* **Inställningar för backend-serverpool:** Varje pool har inställningar som port, protokoll och cookiebaserad tillhörighet. De här inställningarna tillämpas på alla servrar i poolen.
+* **Klient dels port:** Detta är den offentliga porten som öppnas på Application Gateway. Trafiken som påträffas omdirigeras till en av backend-servrarna.
 * **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
 * **Regel:** Regeln binder en lyssnare till backend-serverpoolen.
 * **Anpassad hälso avsökning:** Application Gateway används som standard IP-baserade avsökningar för att ta reda på vilka servrar i BackendAddressPool som är aktiva. Tjänsten API Management svarar bara på begär Anden med rätt värd huvud, och därför fungerar inte standard avsökningarna. En anpassad hälso avsökning måste definieras för att hjälpa Application Gateway att fastställa att tjänsten är aktiv och att den vidarebefordrar begär Anden.
@@ -86,7 +86,7 @@ I den här guiden kommer vi också att exponera **utvecklings portalen** för ex
 > Om du använder autentisering med Azure AD eller tredje part, aktiverar du funktionen [cookie-baserad sessionsgräns](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) i Application Gateway.
 
 > [!WARNING]
-> Om du vill förhindra att Application Gateway WAF avbryter hämtningen av OpenAPI-specifikationen i Developer-portalen måste du `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`inaktivera brand Väggs regeln.
+> Om du vill förhindra att Application Gateway WAF avbryter hämtningen av OpenAPI-specifikationen i Developer-portalen måste du inaktivera brand Väggs regeln `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
 
@@ -119,7 +119,7 @@ $location = "West US"           # Azure region
 New-AzResourceGroup -Name $resGroupName -Location $location
 ```
 
-Azure Resource Manager kräver att alla resursgrupper anger en plats. Detta används som standardplatsen för resurser i resursgruppen. Se till att alla kommandon för att skapa en Application Gateway använder samma resurs grupp.
+Azure Resource Manager kräver att alla resursgrupper definierar en plats. Detta används som standardplatsen för resurser i resursgruppen. Se till att alla kommandon för att skapa en Application Gateway använder samma resurs grupp.
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Skapa en Virtual Network och ett undernät för Application Gateway
 
@@ -208,12 +208,15 @@ Skapa och ange värd namns konfigurations objekt för proxyservern och för port
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
-$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 Set-AzApiManagement -InputObject $apimService
 ```
+
+> [!NOTE]
+> Om du vill konfigurera den äldre anslutningen för utvecklare-portalen måste du ersätta `-HostnameType DeveloperPortal` med `-HostnameType Portal`.
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Skapa en offentlig IP-adress för frontend-konfigurationen
 
@@ -273,10 +276,10 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>Steg 6
 
-Skapa anpassade avsökningar till domän slut `ContosoApi` punkten för API Management tjänstens proxy. Sökvägen `/status-0123456789abcdef` är en standard hälso slut punkt som finns på alla API Management-tjänster. Ange `api.contoso.net` som ett anpassat avsöknings-värdnamn för att skydda det med SSL-certifikat.
+Skapa anpassade avsökningar till den API Management tjänsten `ContosoApi` proxy-domänens slut punkt. Sökvägen `/status-0123456789abcdef` är en standard hälso slut punkt som finns på alla API Management-tjänster. Ange `api.contoso.net` som ett anpassat avsöknings-värdnamn för att skydda det med SSL-certifikat.
 
 > [!NOTE]
-> Hostname `contosoapi.azure-api.net` är standardvärdet för proxy som konfigureras när en `contosoapi` tjänst med namnet skapas i en offentlig Azure.
+> Värd namnet `contosoapi.azure-api.net` är det standardproxy-värdnamn som kon figurer ATS när en tjänst med namnet `contosoapi` skapas i offentlig Azure.
 >
 
 ```powershell
@@ -350,7 +353,7 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $resGroupN
 
 När du har skapat gatewayen, är nästa steg att konfigurera klientprogrammet för kommunikation. När du använder en offentlig IP-adress kräver Application Gateway ett dynamiskt tilldelat DNS-namn, vilket kanske inte är enkelt att använda.
 
-Application gatewayens DNS-namn ska användas för att skapa en CNAME-post som pekar på APIM (t. ex. `api.contoso.net` i exemplen ovan) till det här DNS-namnet. Om du vill konfigurera klient delens IP CNAME-post hämtar du information om Application Gateway och dess associerade IP/DNS-namn med hjälp av PublicIPAddress-elementet. Användning av A-poster rekommenderas inte eftersom VIP kan ändras vid omstart av gatewayen.
+Application Gatewayens DNS-namn ska användas för att skapa en CNAME-post som pekar på APIM-proxyns värdnamn (t. ex. `api.contoso.net` i exemplen ovan) till det här DNS-namnet. Om du vill konfigurera klient delens IP CNAME-post hämtar du information om Application Gateway och dess associerade IP/DNS-namn med hjälp av PublicIPAddress-elementet. Användning av A-poster rekommenderas inte eftersom VIP kan ändras vid omstart av gatewayen.
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"

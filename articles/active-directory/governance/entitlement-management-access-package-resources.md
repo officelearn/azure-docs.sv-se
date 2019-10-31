@@ -1,6 +1,6 @@
 ---
-title: Ändra resurs roller för ett Access-paket i Azure AD-hantering av rättigheter (för hands version) – Azure Active Directory
-description: Lär dig hur du ändrar resurs roller för ett befintligt Access-paket i Azure Active Directory rättighets hantering (för hands version).
+title: Ändra resurs roller för ett Access-paket i Azure AD-hantering av rättigheter – Azure Active Directory
+description: Lär dig hur du ändrar resurs roller för ett befintligt Access-paket i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b719546ec598f2e99061597e99a3d4e875b12cf
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429806"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174656"
 ---
-# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Ändra resurs roller för ett Access-paket i Azure AD-hantering av rättigheter (för hands version)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Ändra resurs roller för ett Access-paket i hantering av Azure AD-rättigheter
 
 Som en Access Package Manager kan du när som helst ändra resurserna i ett Access-paket utan att behöva oroa dig för att du ska få åtkomst till de nya resurserna eller ta bort åtkomsten från de tidigare resurserna. I den här artikeln beskrivs hur du ändrar resurs roller för ett befintligt Access-paket.
 

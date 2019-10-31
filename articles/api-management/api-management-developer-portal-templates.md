@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: a8b250c45716146c505a803046b18bf5d05cf116
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9657414c56296ee710f17663bf0bbdd3a4d67ac8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073776"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176810"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Anpassa Azure API Management Developer-portalen med hjälp av mallar
 
@@ -30,11 +30,13 @@ Det finns tre grundläggande metoder för att anpassa utvecklarportalen i Azure 
 
 Mallar används för att anpassa innehållet i systemgenererade utvecklings Portal sidor (till exempel API-dokument, produkter, användarautentisering osv.). Genom att använda [DotLiquid](http://dotliquidmarkup.org/) -syntax och en angiven uppsättning lokaliserade sträng resurser, ikoner och sid kontroller har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa.
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="developer-portal-templates-overview"></a>Översikt över utvecklare Portal mallar
 
-Redigera mallar görs från Developer- **portalen** när du är inloggad som administratör. Börja med att öppna Azure Portal och klicka på **Developer Portal** från service-verktygsfältet för API Management-instansen.
+Redigera mallar görs från **Developer-portalen** när du är inloggad som administratör. Börja med att öppna Azure Portal och klicka på **Developer Portal** i tjänst verktygsfältet i API Management-instansen.
 
 Du kommer åt Developer Portal-mallarna genom att klicka på anpassnings ikonen till vänster för att Visa anpassnings menyn och klicka på **mallar**.
 
@@ -100,7 +102,7 @@ I föregående exempel finns det två produkter som visas i Developer-portalen s
 }
 ```
 
-Markeringen i **produkt list** mal len bearbetar data för att tillhandahålla önskade utdata genom att gå igenom insamling av produkter för att visa information och en länk till varje enskild produkt. Observera elementen `<page-control>`ochimarkeringen `<search-control>` . Dessa styr visningen av Sök-och sid kontroller på sidan. `ProductsStrings|PageTitleProducts`är en lokaliserad sträng referens som innehåller `h2` sidans sidhuvud text. En lista över sträng resurser, sid kontroller och ikoner som är tillgängliga för användning i mallar för utvecklare finns i [API Management Developer Portal templates Reference](api-management-developer-portal-templates-reference.md).
+Markeringen i **produkt list** mal len bearbetar data för att tillhandahålla önskade utdata genom att gå igenom insamling av produkter för att visa information och en länk till varje enskild produkt. Observera `<search-control>` och `<page-control>` element i markeringen. Dessa styr visningen av Sök-och sid kontroller på sidan. `ProductsStrings|PageTitleProducts` är en lokaliserad sträng referens som innehåller `h2` rubrik texten för sidan. En lista över sträng resurser, sid kontroller och ikoner som är tillgängliga för användning i mallar för utvecklare finns i [API Management Developer Portal templates Reference](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>
@@ -176,7 +178,7 @@ Bekräfta genom att klicka på **Ja**.
 
 ![Bekräfta][api-management-reset-template-confirm]
 
-Om du vill återställa alla mallar till sina standard versioner klickar du på **Återställ** standardmallar i mal listan.
+Om du vill återställa alla mallar till sina standard versioner klickar du på **Återställ standardmallar** i mal listan.
 
 ![Återställa mallar][api-management-restore-templates]
 

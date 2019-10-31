@@ -1,6 +1,6 @@
 ---
-title: Vanliga scenarier i hantering av Azure AD-rättigheter (för hands version) – Azure Active Directory
-description: Lär dig mer om de övergripande steg som du bör följa för vanliga scenarier i Azure Active Directory hantering av rättigheter (för hands version).
+title: Vanliga scenarier i hantering av Azure AD-rättigheter – Azure Active Directory
+description: Lär dig mer om de övergripande steg som du bör följa för vanliga scenarier i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,116 +12,146 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/23/2019
+ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81382ebecdff6c7b146386b3ae2b0768a7c834bf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 24d2dc82d0e81c9ac374d96387677774dc916b8c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389073"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173497"
 ---
-# <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Vanliga scenarier i hantering av Azure AD-rättigheter (för hands version)
+# <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Vanliga scenarier i hantering av Azure AD-berättigande
 
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Det finns flera sätt som du kan konfigurera rättighets hantering för din organisation. Men om du precis är igång är det bra att förstå vanliga scenarier för administratörer, katalog ägare, åtkomst till paket hanterare, god kännare och beställare.
 
-Det finns flera sätt som du kan konfigurera rättighets hantering för din organisation. Men om du precis är igång är det bra att förstå vanliga scenarier för administratörer, god kännare och beställare.
+## <a name="delegate"></a>Administration
 
-## <a name="administrators"></a>Administratörer
+### <a name="administrator-delegate-management-of-resources"></a>Administratör: delegera hantering av resurser
 
-### <a name="im-new-to-entitlement-management-and-i-want-help-with-getting-started"></a>Jag är nybörjare på hantering av rättigheter och jag vill ha hjälp med att komma igång
+1. [Titta på video: delegering från IT till avdelnings chef](https://www.microsoft.com/videoplayer/embed/RE3Lq00)
+1. [Delegera användare till katalog skapare roll](entitlement-management-delegate-catalog.md)
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | [Följ själv studie kursen för att skapa ditt första Access-paket](entitlement-management-access-package-first.md) | [![Azure Portal ikon](./media/entitlement-management-scenarios/azure-portal.png)](./media/entitlement-management-scenarios/azure-portal-expanded.png#lightbox) |
+### <a name="catalog-creator-delegate-management-of-resources"></a>Katalog skapare: delegera hantering av resurser
 
-### <a name="i-want-to-allow-users-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Jag vill tillåta användare i min katalog att begära åtkomst till grupper, program eller SharePoint-webbplatser
+- [Skapa en ny katalog](entitlement-management-catalog-create.md#create-a-catalog)
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | **1.** [skapa ett nytt Access-paket i en katalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Skapa ett Access-paket](./media/entitlement-management-scenarios/access-package.png) |
-> | **2.** [Lägg till resurs roller för åtkomst till paketet](entitlement-management-access-package-resources.md#add-resource-roles)<ul><li>Grupper</li><li>Appar</li><li>SharePoint-webbplatser</li></ul> | ![Lägg till resurs roller](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Lägg till en princip](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)<ul><li>För användare i din katalog</li><li>Kräv godkännande</li><li>Livs cykel inställningar</li></ul> | ![Lägg till princip](./media/entitlement-management-scenarios/policy.png) |
+### <a name="catalog-owner-delegate-management-of-resources"></a>Katalog ägare: delegera hantering av resurser
 
-### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Jag vill tillåta användare från min affärs partner katalog (inklusive användare som ännu inte finns i min katalog) för att begära åtkomst till grupper, program eller SharePoint-webbplatser
+1. [Lägg till medägare i katalogen](entitlement-management-catalog-create.md#add-additional-catalog-owners)
+1. [Lägga till resurser i katalogen](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | **1.** [skapa ett nytt Access-paket i en katalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Skapa ett Access-paket](./media/entitlement-management-scenarios/access-package.png) |
-> | **2.** [Lägg till resurs roller för åtkomst till paketet](entitlement-management-access-package-resources.md#add-resource-roles) | ![Lägg till resurs roller](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Lägg till en princip för externa användare](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)<ul><li>För användare som inte är i din katalog</li><li>Kräv godkännande</li><li>Livs cykel inställningar</li></ul> | ![Lägg till princip för externa användare](./media/entitlement-management-scenarios/policy-external.png) |
-> | **4.** [Skicka länken för att begära ett Access-paket till din affärs partner](entitlement-management-access-package-settings.md)<ul><li>Företags partner kan dela länkar med sina användare</li></ul> |  |
+### <a name="catalog-owner-delegate-management-of-access-packages"></a>Katalog ägare: delegera hantering av åtkomst paket
 
-### <a name="i-want-to-change-the-groups-applications-or-sharepoint-sites-in-an-access-package"></a>Jag vill ändra grupper, program eller SharePoint-webbplatser i ett Access-paket
+1. [Titta på video: delegering från katalog ägare för att komma åt paket hanteraren](https://www.microsoft.com/videoplayer/embed/RE3Lq08)
+1. [Delegera användare åtkomst till Package Manager-rollen](entitlement-management-delegate-managers.md)
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | **1.** öppna Access-paketet | ![Lägg till resurs roller](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **2.** [Lägg till eller ta bort resurs roller](entitlement-management-access-package-resources.md#add-resource-roles) | ![Lägg till resurs roller](./media/entitlement-management-scenarios/resource-roles-add.png) |
+## <a name="govern-access-for-users-in-your-organization"></a>Styr åtkomsten för användare i din organisation
 
-### <a name="i-want-to-view-who-has-an-assignment-to-groups-applications-or-sharepoint-sites"></a>Jag vill visa vem som har en tilldelning till grupper, program eller SharePoint-webbplatser
+### <a name="access-package-manager-allow-employees-in-your-organization-to-request-access-to-resources"></a>Åtkomst till paket hanteraren: Tillåt anställda i din organisation att begära åtkomst till resurser
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | **1.** öppna ett Access-paket | ![Lägg till resurs roller](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **2.** [Visa tilldelningar](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)<ul><li>Visa vilka användare som har åtkomst till ett Access-paket</li><li>Visa vilken användares åtkomst har upphört att gälla</li></ul> |  |
+1. [Skapa ett nytt Access-paket](entitlement-management-access-package-create.md#start-new-access-package)
+1. [Lägg till grupper, team, program eller SharePoint-platser för att få åtkomst till paketet](entitlement-management-access-package-create.md#resource-roles)
+1. [Lägg till en princip för begäran för att tillåta användare i katalogen att begära åtkomst](entitlement-management-access-package-create.md#for-users-in-your-directory)
+1. [Ange inställningar för förfallo datum](entitlement-management-access-package-create.md#lifecycle)
 
-### <a name="i-want-to-view-groups-applications-or-sharepoint-sites-a-user-has-access-to"></a>Jag vill visa grupper, program eller SharePoint-webbplatser som en användare har åtkomst till
+### <a name="requestor-request-access-to-resources"></a>Beställare: begär åtkomst till resurser
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | [Visa användar tilldelnings rapport](entitlement-management-reports.md)<ul><li>Visa när de begärde och vem som godkänt</li></ul> |  |
+1. [Logga in på portalen för åtkomst](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
+1. Hitta Access-paket
+1. [Begär åtkomst](entitlement-management-request-access.md#request-an-access-package)
 
-## <a name="approvers"></a>Godkännare
+### <a name="approver-approve-requests-to-resources"></a>God kännare: Godkänn begär anden till resurser
 
-### <a name="i-want-to-approve-requests-to-access-groups-applications-or-sharepoint-sites"></a>Jag vill godkänna begär Anden för åtkomst till grupper, program eller SharePoint-webbplatser
+1. [Öppna begäran i min åtkomst Portal](entitlement-management-request-approve.md#open-request)
+1. [Godkänn eller neka åtkomst förfrågan](entitlement-management-request-approve.md#approve-or-deny-request)
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | **1.** [Öppna begäran i min åtkomst Portal](entitlement-management-request-approve.md#open-request) | [ikon för @no__t åtkomst portalen för 1My](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** [Godkänn åtkomstbegäran](entitlement-management-request-approve.md#approve-or-deny-request) | ![Godkänn åtkomst](./media/entitlement-management-scenarios/approve-access.png) |
+### <a name="requestor-view-the-resources-you-already-have-access-to"></a>Begär ande: Visa de resurser du redan har åtkomst till
 
-## <a name="requestors"></a>Beställare
+1. [Logga in på portalen för åtkomst](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
+1. Visa aktiva åtkomst paket
 
-### <a name="i-want-to-view-the-groups-applications-or-sharepoint-sites-available-to-me-and-request-access"></a>Jag vill visa de grupper, program eller SharePoint-webbplatser som är tillgängliga för mig och begära åtkomst
+## <a name="govern-access-for-users-outside-your-organization"></a>Styra åtkomsten för användare utanför organisationen
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | **1.** [Logga in på min åtkomst Portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [ikon för @no__t åtkomst portalen för 1My](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** Sök efter Access-paket |  |
-> | **3.** [begär åtkomst](entitlement-management-request-access.md#request-an-access-package) | ![Begär åtkomst](./media/entitlement-management-scenarios/request-access.png) |
+### <a name="administrator-collaborate-with-an-external-partner-organization"></a>Administratör: samar beta med en extern partner organisation
 
-### <a name="im-an-external-user-and-i-want-to-request-access-to-groups-applications-or-sharepoint-sites-with-a-direct-link"></a>Jag är extern användare och vill begära åtkomst till grupper, program eller SharePoint-webbplatser med en direkt länk
+1. [Läs hur åtkomst fungerar för externa användare](entitlement-management-external-users.md#how-access-works-for-external-users)
+1. [Granska inställningar för externa användare](entitlement-management-external-users.md#settings-for-external-users)
+1. [Lägg till en anslutning till den externa organisationen](entitlement-management-organization.md)
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | **1.** [hitta länken till Access-paketet som du fick](entitlement-management-access-package-settings.md) |  |
-> | **2.** [Logga](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) in på portalen för åtkomst | [ikon för @no__t åtkomst portalen för 1My](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **3.** [begär åtkomst](entitlement-management-request-access.md#request-an-access-package) | ![Begär åtkomst till extern användare](./media/entitlement-management-scenarios/request-access-external.png) |
+### <a name="access-package-manager-collaborate-with-an-external-partner-organization"></a>Access Package Manager: samar beta med en extern partner organisation
 
-### <a name="i-want-to-view-the-groups-applications-or-sharepoint-sites-i-already-have-access-to"></a>Jag vill visa de grupper, program eller SharePoint-webbplatser som jag redan har åtkomst till
+1. [Skapa ett nytt Access-paket](entitlement-management-access-package-create.md#start-new-access-package)
+1. [Lägg till grupper, team, program eller SharePoint-platser för att få åtkomst till paketet](entitlement-management-access-package-resources.md#add-resource-roles)
+1. [Lägg till en princip för begäran för att tillåta användare som inte i din katalog att begära åtkomst](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
+1. [Ange inställningar för förfallo datum](entitlement-management-access-package-create.md#lifecycle)
+1. [Kopiera länken för att begära åtkomst paketet](entitlement-management-access-package-settings.md)
+1. Skicka länken till din externa partner kontakt partner för att dela med sina användare
 
-> [!div class="mx-tableFixed"]
-> | Steg | Exempel |
-> | --- | --- |
-> | **1.** [Logga in på min åtkomst Portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [ikon för @no__t åtkomst portalen för 1My](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** Visa aktiva åtkomst paket |  |
+### <a name="requestor-request-access-to-resources-as-an-external-user"></a>Beställare: begär åtkomst till resurser som en extern användare
+
+1. Hitta länken till det Access-paket som du fick från din kontakt
+1. [Logga in på portalen för åtkomst](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
+1. [Begär åtkomst](entitlement-management-request-access.md#request-an-access-package)
+
+### <a name="approver-approve-requests-to-resources"></a>God kännare: Godkänn begär anden till resurser
+
+1. [Öppna begäran i min åtkomst Portal](entitlement-management-request-approve.md#open-request)
+1. [Godkänn eller neka åtkomst förfrågan](entitlement-management-request-approve.md#approve-or-deny-request)
+
+### <a name="requestor-view-the-resources-your-already-have-access-to"></a>Begär ande: Visa de resurser som du redan har åtkomst till
+
+1. [Logga in på portalen för åtkomst](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
+1. Visa aktiva åtkomst paket
+
+## <a name="day-to-day-management"></a>Daglig hantering
+
+### <a name="access-package-manager-update-the-resources-for-a-project"></a>Access Package Manager: uppdatera resurserna för ett projekt
+
+1. [Titta på video: daglig hantering: saker har ändrats](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
+1. Öppna Access-paketet
+1. [Lägga till eller ta bort grupper, team, program eller SharePoint-webbplatser](entitlement-management-access-package-resources.md#add-resource-roles)
+
+### <a name="access-package-manager-update-the-duration-for-a-project"></a>Access Package Manager: uppdatera varaktigheten för ett projekt
+
+1. [Titta på video: daglig hantering: saker har ändrats](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
+1. Öppna Access-paketet
+1. [Öppna livs cykel inställningarna](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
+1. [Uppdatera inställningarna för förfallo datum](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+
+### <a name="access-package-manager-update-how-access-is-approved-for-a-project"></a>Access Package Manager: uppdatera hur åtkomst godkänns för ett projekt
+
+1. [Titta på video: daglig hantering: saker har ändrats](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
+1. [Öppna en befintlig princip för inställningar för begäran och godkännande](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Uppdatera godkännande inställningarna](entitlement-management-access-package-request-policy.md#approval)
+
+### <a name="access-package-manager-update-the-people-for-a-project"></a>Access Package Manager: uppdatera personerna för ett projekt
+
+1. [Titta på video: daglig hantering: saker har ändrats](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
+1. [Ta bort användare som inte längre behöver åtkomst](entitlement-management-access-package-assignments.md)
+1. [Öppna en befintlig princip för inställningar för begäran och godkännande](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Lägg till användare som behöver åtkomst](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
+
+### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>Access Package Manager: tilldela vissa användare direkt till ett Access-paket
+
+1. [Om användarna behöver olika livs cykel inställningar lägger du till en ny princip i Access-paketet](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [Tilldela åtkomst paketet vissa användare direkt](entitlement-management-access-package-assignments.md#directly-assign-a-user)
+
+## <a name="assignments-and-reports"></a>Tilldelningar och rapporter
+
+### <a name="administrator-view-who-has-assignments-to-an-access-package"></a>Administratör: Visa vem som har tilldelningar till ett Access-paket
+
+1. Öppna ett Access-paket
+1. [Visa tilldelningar](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)
+
+### <a name="administrator-view-resources-assigned-to-users"></a>Administratör: Visa resurser som är tilldelade till användare
+
+1. [Visa åtkomst paket för en användare](entitlement-management-reports.md#view-access-packages-for-a-user)
+1. [Visa resurstilldelningar för en användare](entitlement-management-reports.md#view-resource-assignments-for-a-user)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: skapa ditt första Access-paket](entitlement-management-access-package-first.md)
 - [Delegering och roller](entitlement-management-delegate.md)
+- [Begär process och e-postmeddelanden](entitlement-management-process.md)

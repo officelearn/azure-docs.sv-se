@@ -1,6 +1,6 @@
 ---
-title: Visa rapporter och loggar i Azure AD-hantering av rättigheter (för hands version) – Azure Active Directory
-description: Lär dig hur du visar rapporten användar tilldelningar och gransknings loggar i Azure Active Directory hantering av rättigheter (för hands version).
+title: Visa rapporter och loggar i Azure AD-hantering av rättigheter – Azure Active Directory
+description: Lär dig hur du visar rapporten användar tilldelningar och gransknings loggar i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,49 +12,74 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3302fc3b2513794cd66d1ebf6db2cbcdb0f713dd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032443"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173894"
 ---
-# <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Visa rapporter och loggar i Azure AD-hantering av rättigheter (för hands version)
+# <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visa rapporter och loggar i hantering av Azure AD-berättigande
 
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Hanterings rapporterna för Azure AD-rapportering och Azure AD audit-loggen innehåller ytterligare information om vilka resurser som användare har åtkomst till. Som administratör kan du Visa åtkomst paketen och resurs tilldelningarna för en användare och Visa begär ande loggar för gransknings syfte eller för att fastställa status för en användares begäran. Den här artikeln beskriver hur du använder hanterings rapporter för rättigheter och Azure AD audit-loggar.
 
-Rapporten användar tilldelning och Azure Active Directory Gransknings logg innehåller ytterligare information om användarna i din katalog. Som administratör kan du Visa resurser som en användare har åtkomst till och Visa förfrågnings loggar för gransknings syfte eller för att fastställa status för en användares begäran. Den här artikeln beskriver hur du använder rapporten användar tilldelning och gransknings loggar för Azure AD.
-
-Titta på följande video och lär dig hur du använder rättighets hantering för att hantera åtkomst för användare i Azure Active Directory:
+Titta på följande video och lär dig hur du visar vilka resurser som användare har åtkomst till i hantering av rättigheter:
 
 >[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
-## <a name="view-resources-a-user-has-access-to"></a>Visa resurser som en användare har åtkomst till
+## <a name="view-access-packages-for-a-user"></a>Visa åtkomst paket för en användare
+
+Med den här rapporten kan du Visa en lista över alla åtkomst paket som en användare kan begära och de åtkomst paket som för närvarande är tilldelade till användaren.
+
+**Nödvändig roll:** Global administratör eller användar administratör
 
 1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
-1. På den vänstra menyn klickar du på **användar tilldelnings rapport**.
+1. På den vänstra menyn klickar du på **rapporter**.
+
+1. Klicka på **åtkomst paket för en användare**.
 
 1. Klicka på **Välj användare** för att öppna fönstret Välj användare.
 
-1. Hitta användaren i listan som du vill visa de resurser som de har åtkomst till.
+1. Hitta användaren i listan och klicka sedan på **Välj**.
 
-1. Klicka på användaren och sedan på **Välj**.
+    Fliken **kan begära** visar en lista över de åtkomst paket som användaren kan begära. Den här listan bestäms av de [förfrågnings principer](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) som definierats för åtkomst paketen. 
 
-    En lista över resurser som användaren har åtkomst till visas. Den innehåller åtkomst paketet, principen och datumen.
+    ![Åtkomst till paket för en användare](./media/entitlement-management-reports/access-packages-report.png)
 
-    ![Rapport om användartilldelningar](./media/entitlement-management-reports/user-assignments-report.png)
+1. Om det finns fler än en resurs roll eller principer för ett åtkomst paket klickar du på posten resurs roller eller principer för att se urvals information.
+
+1. Klicka på fliken **tilldela** om du vill se en lista över de åtkomst paket som för närvarande har tilldelats användaren. När ett åtkomst paket tilldelas till en användare innebär det att användaren har åtkomst till alla resurs roller i åtkomst paketet.
+
+## <a name="view-resource-assignments-for-a-user"></a>Visa resurstilldelningar för en användare
+
+Med den här rapporten kan du Visa en lista över resurser som är kopplade till en användare i hantering av rättigheter. Observera att den här rapporten gäller resurser som hanteras med rättighets hantering. Användaren kan ha åtkomst till andra resurser i din katalog utanför hantering av rättigheter.
+
+**Nödvändig roll:** Global administratör eller användar administratör
+
+1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
+
+1. På den vänstra menyn klickar du på **rapporter**.
+
+1. Klicka på **resurstilldelningar för en användare**.
+
+1. Klicka på **Välj användare** för att öppna fönstret Välj användare.
+
+1. Hitta användaren i listan och klicka sedan på **Välj**.
+
+    En lista över de resurser som för närvarande är tilldelade till användaren visas. I listan visas även det åtkomst paket och den princip som de fick resurs rollen från, tillsammans med start-och slutdatum för åtkomst.
+    
+    Om en användare har åtkomst till samma resurs i två eller flera paket kan du klicka på en pil för att se varje paket och princip.
+
+    ![Resurstilldelningar för en användare](./media/entitlement-management-reports/resource-assignments-report.png)
 
 ## <a name="determine-the-status-of-a-users-request"></a>Fastställa status för en användares begäran
 
-Om du vill ha mer information om hur en användare begärde och fick åtkomst till ett Access-paket kan du använda Azure AD-gransknings loggen. I synnerhet kan du använda logg posterna i `EntitlementManagement` kategorierna och `UserManagement` för att få ytterligare information om bearbetnings stegen för varje begäran.  
+Om du vill ha mer information om hur en användare begärde och fick åtkomst till ett Access-paket kan du använda Azure AD-gransknings loggen. I synnerhet kan du använda logg posterna i `EntitlementManagement` och `UserManagement` kategorier för att få mer information om bearbetnings stegen för varje begäran.  
 
 1. Klicka på **Azure Active Directory** och klicka sedan på **gransknings loggar**.
 
@@ -64,11 +89,11 @@ Om du vill ha mer information om hur en användare begärde och fick åtkomst ti
 
 1. Klicka på **Hämta**om du vill hämta loggarna.
 
-När Azure AD tar emot en ny begäran skriver den en gransknings post i vilken **kategorin** `EntitlementManagement` är och **aktiviteten** är vanligt vis `User requests access package assignment`.  Om det finns en direkt tilldelning som skapats i Azure Portal, är `Administrator directly assigns user to access package` **aktivitets** fältet för gransknings posten och den användare som utför tilldelningen identifieras av **ActorUserPrincipalName**.
+När Azure AD tar emot en ny begäran skriver den en gransknings post där **kategorin** är `EntitlementManagement` och **aktiviteten** vanligt vis `User requests access package assignment`.  Om det finns en direkt tilldelning som skapats i Azure Portal, är **aktivitets** fältet i gransknings posten `Administrator directly assigns user to access package`och användaren som utför tilldelningen identifieras av **ActorUserPrincipalName**.
 
 Azure AD skriver ytterligare gransknings poster medan begäran pågår, inklusive:
 
-| Category | Aktivitet | Status för begäran |
+| Kategori | Aktivitet | Status för begäran |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | Begäran kräver inte godkännande |
 | `UserManagement` | `Create request approval` | Begäran kräver godkännande |
@@ -76,11 +101,11 @@ Azure AD skriver ytterligare gransknings poster medan begäran pågår, inklusiv
 | `EntitlementManagement` | `Approve access package assignment request` | Begäran godkänd |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |Begäran godkänd eller kräver inte godkännande |
 
-När en användare tilldelas åtkomst skriver Azure AD en gransknings post för `EntitlementManagement` kategorin med **aktivitet** `Fulfill access package assignment`.  Användaren som har tagit emot åtkomsten identifieras av **ActorUserPrincipalName** -fältet.
+När en användare tilldelas åtkomst skriver Azure AD en gransknings post för kategorin `EntitlementManagement` med **aktivitet** `Fulfill access package assignment`.  Användaren som har tagit emot åtkomsten identifieras av **ActorUserPrincipalName** -fältet.
 
-Om åtkomst inte har tilldelats skriver Azure `EntitlementManagement` AD en gransknings post för kategorin med **aktivitet** antingen `Deny access package assignment request`, om begäran nekades av en god kännare, eller `Access package assignment request timed out (no approver action taken)`om tids gränsen nåddes för begäran innan en god kännare kan godkänna.
+Om åtkomst inte har tilldelats skriver Azure AD en gransknings post för kategorin `EntitlementManagement` med **aktivitet** , antingen `Deny access package assignment request`, om begäran nekades av en god kännare eller `Access package assignment request timed out (no approver action taken)`, om begäran överskreds innan en god kännare kan godkänna.
 
-När användarens åtkomst paket tilldelning går ut, annulleras av användaren eller tas bort av en administratör, skriver Azure AD en gransknings post för `EntitlementManagement` kategorin med **aktivitet** i. `Remove access package assignment`
+När användarens åtkomst paket tilldelning går ut, annulleras av användaren eller tas bort av en administratör, skriver Azure AD en gransknings post för kategorin `EntitlementManagement` med **aktiviteten** `Remove access package assignment`.
 
 ## <a name="next-steps"></a>Nästa steg
 

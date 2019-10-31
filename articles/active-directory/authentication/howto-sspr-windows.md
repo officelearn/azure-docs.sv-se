@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aa0480e95fa072b6fa87aea8debd3dafc8ebcab
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 519993be873e7864dab4de4f66919c56aebfc379
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042067"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171862"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Gör så här: Aktivera lösen ords återställning från Windows inloggnings skärm
 
@@ -24,29 +24,10 @@ För datorer som kör Windows 7, 8, 8,1 och 10 kan du göra det möjligt för an
 
 ![Exempel på Windows 7-och 10 inloggnings skärmar med SSPR-länk visas](./media/howto-sspr-windows/windows-reset-password.png)
 
-## <a name="general-prerequisites"></a>Allmänna krav
-
-- En administratör måste aktivera lösen ords återställning via självbetjäning i Azure AD från Azure Portal.
-- **Användarna måste registrera sig för SSPR innan de kan använda den här funktionen**
-- Krav för nätverks proxy
-   - Windows 10-enheter 
-       - Port 443 till `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com`
-       - Windows 10-enheter stöder endast konfiguration av proxykonfigurationen på dator nivå
-   - Windows 7-, 8-och 8,1-enheter
-       - Port 443 till `passwordreset.microsoftonline.com`
-
 ## <a name="general-limitations"></a>Allmänna begränsningar
 
 - Lösen ords återställning stöds för närvarande inte från ett fjärr skrivbord eller från utökade Hyper-V-sessioner.
 - Den här funktionen fungerar inte för nätverk som distribuerar nätverksautentisering 802.1x och alternativet ”Utför omedelbart innan användaren loggar in”. Nätverk med nätverksautentiseringen 802.1x distribuerad rekommenderas att använda datorautentisering för att aktivera funktionen.
-
-## <a name="windows-10-password-reset"></a>Lösen ords återställning för Windows 10
-
-### <a name="windows-10-specific-prerequisites"></a>Windows 10-särskilda krav
-
-- Kör minst Windows 10, version april 2018 Update (v1803) och enheterna måste vara antingen:
-    - Azure AD-ansluten
-    - Hybrid Azure AD-ansluten
 - Hybrid Azure AD-anslutna datorer måste ha en nätverks anslutning till en domänkontrollant för att kunna använda det nya lösen ordet och uppdatera cachelagrade autentiseringsuppgifter.
 - Om du använder en avbildning innan du kör Sysprep kontrollerar du att webbcachen har rensats för den inbyggda administratören innan du utför CopyProfile-steget. Mer information om det här steget finns i Support artikeln [dåliga prestanda när du använder anpassad standard användar profil](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Följande inställningar är kända för att störa möjligheten att använda och återställa lösen ord på Windows 10-enheter
@@ -60,7 +41,21 @@ För datorer som kör Windows 7, 8, 8,1 och 10 kan du göra det möjligt för an
 - Kombinationen av följande tre inställningar kan orsaka att funktionen inte fungerar.
     - Interaktiv inloggning: Kräv inte CTRL + ALT + DEL = inaktive rad
     - DisableLockScreenAppNotifications = 1 eller aktive rad
-    - IsContentDeliveryPolicyEnforced = 1 eller True 
+    - IsContentDeliveryPolicyEnforced = 1 eller True
+
+## <a name="windows-10-password-reset"></a>Lösen ords återställning för Windows 10
+
+### <a name="windows-10-prerequisites"></a>Krav för Windows 10
+
+- En administratör måste aktivera lösen ords återställning via självbetjäning i Azure AD från Azure Portal.
+- **Användarna måste registrera sig för SSPR innan de kan använda den här funktionen**
+- Krav för nätverks proxy
+   - Windows 10-enheter 
+       - Port 443 till `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com`
+       - Windows 10-enheter stöder endast konfiguration av proxykonfigurationen på dator nivå
+- Kör minst Windows 10, version april 2018 Update (v1803) och enheterna måste vara antingen:
+    - Azure AD-ansluten
+    - Hybrid Azure AD-ansluten
 
 ### <a name="enable-for-windows-10-using-intune"></a>Aktivera för Windows 10 med Intune
 
@@ -94,7 +89,6 @@ Att distribuera konfigurationsändringen för att aktivera lösenordsåterställ
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
 
-
 #### <a name="troubleshooting-windows-10-password-reset"></a>Fel sökning av lösen ords återställning i Windows 10
 
 Azure AD-granskningsloggen innehåller information om IP-adressen och klienttypen där lösenordsåterställningen har gjorts.
@@ -105,8 +99,13 @@ När användarna återställer sina lösen ord från inloggnings skärmen på en
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Lösen ords återställning för Windows 7, 8 och 8,1
 
-### <a name="windows-7-8-and-81-specific-prerequisites"></a>Windows 7, 8 och 8,1 särskilda krav
+### <a name="windows-7-8-and-81-prerequisites"></a>Krav för Windows 7, 8 och 8,1
 
+- En administratör måste aktivera lösen ords återställning via självbetjäning i Azure AD från Azure Portal.
+- **Användarna måste registrera sig för SSPR innan de kan använda den här funktionen**
+- Krav för nätverks proxy
+   - Windows 7-, 8-och 8,1-enheter
+       - Port 443 till `passwordreset.microsoftonline.com`
 - Operativ systemet Windows 7 eller Windows 8,1 har korrigerats.
 - TLS 1,2 aktiverat med hjälp av rikt linjer som finns i [register inställningarna för Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12).
 - Om fler än en leverantör av autentiseringsuppgifter för tredje part är aktive rad på datorn visas fler än en användar profil på inloggnings skärmen.
@@ -151,7 +150,7 @@ Nu när du har konfigurerat lösen ords återställning för dina Windows-enhete
 
 När användarna försöker logga in ser de nu länken **Återställ lösen ord** eller **glömt lösen** ord som öppnar självbetjäningen för återställning av lösen ord på inloggnings skärmen. Via den här funktionen kan användarna återställa sina lösenord utan att de behöver använda en annan enhet för att få åtkomst till webbläsaren.
 
-Dina användare får hjälp med att använda funktionen i [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Återställa ditt arbets- eller skollösenord)
+Dina användare får hjälp med att använda funktionen i [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md) (Återställa ditt arbets- eller skollösenord)
 
 ## <a name="next-steps"></a>Nästa steg
 

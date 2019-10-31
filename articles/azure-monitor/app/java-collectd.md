@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 6c74684ac45a040be154a1e6406c1e7a5e0dd253
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 47e5e9dd81174b79e149ba29eec725c8c17eb1a6
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817145"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176401"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>insamlad: prestanda mått för Linux i Application Insights
 
@@ -32,7 +32,7 @@ Ta en kopia av Instrumentation-nyckeln, som identifierar resursen.
 På dina Linux Server-datorer:
 
 1. Installera [samlad](https://collectd.org/) version 5.4.0 eller senare.
-2. Hämta [plugin-programmet för Application Insights-insamlade skrivaren](https://aka.ms/aijavasdk). Notera versions numret.
+2. Hämta [plugin-programmet för Application Insights-insamlade skrivaren](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Notera versions numret.
 3. Kopiera plugin-programmet JAR till `/usr/share/collectd/java`.
 4. Redigera `/etc/collectd/collectd.conf`:
    * Se till att [Java-plugin-programmet](https://collectd.org/wiki/index.php/Plugin:Java) är aktiverat.

@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Import/Export för att överföra data till Azure BLOB | Microsoft Docs
-description: Lär dig hur du skapar import och export-jobb i Azure portal för att överföra data till och från Azure Blobs.
+title: Använda Azure import/export för att överföra data till Azure-blobbar | Microsoft Docs
+description: Lär dig hur du skapar import-och export jobb i Azure Portal för att överföra data till och från Azure-blobbar.
 author: alkohli
 services: storage
 ms.service: storage
@@ -8,144 +8,144 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 72a91fefc26e9c0b6d5a91223119815c4fcb9551
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd15e406cdbee57112ff8ecba158d503e908b73f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808596"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73178010"
 ---
-# <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
+# <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använd Azure import/export-tjänsten för att importera data till Azure Blob Storage
 
-Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att importera stora mängder data på ett säkert sätt till Azure Blob storage. Om du vill importera data till Azure Blobs, måste tjänsten du skicka krypterade hårddiskar som innehåller dina data till ett Azure-datacenter.  
+Den här artikeln innehåller stegvisa instruktioner för hur du använder Azure import/export-tjänsten för att importera stora mängder data på ett säkert sätt till Azure Blob Storage. För att kunna importera data till Azure-blobbar kräver tjänsten att du levererar krypterade disk enheter som innehåller dina data till ett Azure-datacenter.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Innan du skapar ett importjobb för att överföra data till Azure Blob Storage måste du noggrant granska och slutför följande lista över kraven för den här tjänsten. Måste du:
+Innan du skapar ett import jobb för att överföra data till Azure Blob Storage bör du noggrant granska och slutföra följande lista över nödvändiga komponenter för den här tjänsten. Du måste:
 
-- Ha en aktiv Azure-prenumeration som kan användas för Import/Export-tjänsten.
-- Har minst en Azure Storage-konto med en lagringsbehållare. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). 
-    - Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-quickstart-create-account.md). 
-    - För information om storage-behållare, går du till [skapa en lagringsbehållare](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
-- Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
-- Har ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems). 
-- Aktivera BitLocker på Windows-system. Se [hur du aktiverar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Ladda ned WAImportExport version 1](https://aka.ms/waiev1) på Windows-system. Packa upp i standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
-- Ha ett FedEx/DHL-konto. Om du vill använda en operatör än FedEx/DHL kontakta Azure Data Box Operations-teamet på `adbops@microsoft.com`.  
-    - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.
-    - Generera en spårningsnummer för export-jobbet.
-    - Alla jobb bör ha en separat spårningsnummer. Flera jobb med samma Spårningsnumret stöds inte.
-    - Om du inte har en transportföretagskonto går du till:
-        - [Skapa ett konto för FedEX](https://www.fedex.com/en-us/create-account.html), eller 
-        - [Skapa ett konto för DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+- Ha en aktiv Azure-prenumeration som kan användas för import/export-tjänsten.
+- Ha minst ett Azure Storage konto med en lagrings behållare. Se listan över [lagrings konton och lagrings typer som stöds för import/export-tjänsten](storage-import-export-requirements.md). 
+    - Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-quickstart-create-account.md). 
+    - Information om lagrings behållare finns i [skapa en lagrings behållare](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
+- Har tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
+- Ha ett Windows-system som kör en [operativ system version som stöds](storage-import-export-requirements.md#supported-operating-systems). 
+- Aktivera BitLocker på Windows-systemet. Se [hur du aktiverar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+- [Ladda ned WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet. Zippa upp till standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
+- Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL, kontaktar du Azure Data Box Operations team på `adbops@microsoft.com`.  
+    - Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
+    - Generera ett spårnings nummer för export jobbet.
+    - Varje jobb bör ha ett separat spårnings nummer. Det finns inte stöd för flera jobb med samma spårnings nummer.
+    - Om du inte har ett transport företags konto går du till:
+        - [Skapa ett FedEX-konto](https://www.fedex.com/en-us/create-account.html)eller 
+        - [Skapa ett DHL-konto](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-prepare-the-drives"></a>Steg 1: Förbereda enheterna
+## <a name="step-1-prepare-the-drives"></a>Steg 1: Förbered enheterna
 
-Det här steget genererar en journalfil. Journalfilen lagrar grundläggande information, till exempel serienumret för enheten och krypteringsnyckeln lagringskontouppgifter. 
+I det här steget skapas en journal fil. Journal filen lagrar grundläggande information, till exempel enhets serie nummer, krypterings nyckel och lagrings konto information. 
 
 Utför följande steg för att förbereda enheterna.
 
-1.  Ansluta dina enheter till Windows-systemet via SATA-kopplingar.
-1.  Skapa en enskild NTFS-volym på varje enhet. Tilldela en enhetsbeteckning till volymen. Använd inte monteringspunkter.
-2.  Aktivera BitLocker-kryptering på NTFS-volym. Om du använder ett Windows Server-system, följ instruktionerna i [hur du aktiverar BitLocker på Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-3.  Kopiera data till krypterade volymen. Använd dra och släppa eller Robocopy eller sådana kopieringsverktyget.
-4.  Öppna ett fönster med PowerShell eller Kommandotolken med administratörsbehörighet. Om du vill ändra katalogen till mappen uppzippade, kör du följande kommando:
+1.  Anslut dina disk enheter till Windows-systemet via SATA-anslutningar.
+1.  Skapa en enda NTFS-volym på varje enhet. Tilldela volymen en enhets beteckning. Använd inte mountpoints.
+2.  Aktivera BitLocker-kryptering på NTFS-volymen. Om du använder ett Windows Server-system kan du använda instruktionerna i [så här aktiverar du BitLocker på Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+3.  Kopiera data till krypterad volym. Använd dra och släpp-eller Robocopy eller ett sådant kopierings verktyg.
+4.  Öppna ett PowerShell-eller kommando rads fönster med administratörs behörighet. Kör följande kommando för att ändra katalogen till den zippade mappen:
     
     `cd C:\WaImportExportV1`
-5.  Hämta BitLocker-nyckel på enheten genom att köra följande kommando:
+5.  Kör följande kommando för att hämta BitLocker-nyckeln till enheten:
     
     `manage-bde -protectors -get <DriveLetter>:`
-6.  Kör följande kommando för att förbereda disken. **Det kan ta flera timmar och dagar beroende på storleken på data.** 
+6.  Kör följande kommando för att förbereda disken. **Beroende på data storleken kan detta ta flera timmar till dagar.** 
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
-    En journalfil skapas i samma mapp där du körde verktyget. Två filer skapas också – en *.xml* fil (mapp där du kör verktyget) och en *enhet manifest.xml* fil (mapp där data finns).
+    En journal fil skapas i samma mapp som du körde verktyget. Två andra filer skapas också – en *. XML* -fil (mapp där du kör verktyget) och en *Drive-manifest. XML-* fil (mapp där data finns).
     
-    I följande tabell beskrivs de parametrar som används:
+    De parametrar som används beskrivs i följande tabell:
 
     |Alternativ  |Beskrivning  |
     |---------|---------|
-    |/j:     |Namnet på journal-fil med tillägget .jrn. En journalfil genereras per enhet. Vi rekommenderar att du använder disk-serienummer som namn på filen.         |
-    |/ ID:     |Sessions-ID. Använd ett unikt sessions-nummer för varje instans av kommandot.      |
-    |/t:     |Enhetsbeteckningen för disken som ska levereras. Till exempel enhet `D`.         |
-    |/bk:     |BitLocker-nyckel för enheten. Dess numeriskt lösenord från utdata för `manage-bde -protectors -get D:`      |
-    |/srcdir:     |Enhetsbeteckningen för disken som ska levereras följt av `:\`. Till exempel `D:\`.         |
-    |/dstdir:     |Namnet på Målbehållaren i Azure Storage.         |
-    |/blobtype:     |Det här alternativet anger vilken typ av BLOB-objekt som du vill importera data till. Detta är för blockblob-objekt, `BlockBlob` och för sidblobar, är det `PagaBlob`.         |
-    |/skipwrite:     |Det alternativ som anger att det finns inga nya data som krävs för att kopiera och befintliga data på disken är förberedas.          |
-    |/enablecontentmd5:     |Alternativet när aktiverad säkerställer att MD5 beräknas och anges som `Content-md5` egenskapen för varje blob. Använd det här alternativet endast om du vill använda den `Content-md5` fältet när data har överförts till Azure. <br> Det här alternativet påverkar inte dataintegritetskontroll (som sker som standard). Inställningen ökar den tid det tar att överföra data till molnet.          |
-7. Upprepa föregående steg för varje disk som ska levereras. En journalfil med det angivna namnet skapas för varje körning av kommandoraden.
+    |/j     |Namnet på Journal filen med fil namns tillägget. jrn. En journal fil skapas per enhet. Vi rekommenderar att du använder diskens serie nummer som Journal fil namn.         |
+    |/ID     |Sessions-ID. Använd ett unikt sessions nummer för varje instans av kommandot.      |
+    |/t     |Enhets beteckningen för den disk som ska levereras. Till exempel enhets `D`.         |
+    |/bk:     |Enhetens BitLocker-nyckel. Det numeriska lösen ordet från utdata från `manage-bde -protectors -get D:`      |
+    |/srcdir:     |Enhets beteckningen för disken som ska levereras följt av `:\`. Till exempel `D:\`.         |
+    |/dstdir:     |Namnet på mål behållaren i Azure Storage.         |
+    |/blobtype:     |Det här alternativet anger vilken typ av blobbar som du vill importera data till. För block-blobbar är detta `BlockBlob` och för sid blobbar är det `PagaBlob`.         |
+    |/skipwrite:     |Alternativet som anger att det inte finns några nya data som behöver kopieras och befintliga data på disken måste förberedas.          |
+    |/enablecontentmd5:     |Alternativet när det är aktiverat, säkerställer att MD5 beräknas och anges som `Content-md5` egenskap på varje blob. Använd bara det här alternativet om du vill använda `Content-md5` fältet när data har överförts till Azure. <br> Det här alternativet påverkar inte data integritets kontrollen (som inträffar som standard). Inställningen ökar den tid det tar att ladda upp data till molnet.          |
+7. Upprepa föregående steg för varje disk som måste levereras. En journal fil med det angivna namnet skapas för varje körning av kommando raden.
     
     > [!IMPORTANT]
-    > - Tillsammans med journalfil, en `<Journal file name>_DriveInfo_<Drive serial ID>.xml` fil skapas också i samma mapp där verktyget finns. XML-filen används i stället journalfil när du skapar ett jobb om ändringsjournalen-filen är för stor. 
+    > - Tillsammans med journal filen skapas även en `<Journal file name>_DriveInfo_<Drive serial ID>.xml`-fil i samma mapp som verktyget finns i. XML-filen används i stället för journal filen när du skapar ett jobb om journal filen är för stor. 
 
-## <a name="step-2-create-an-import-job"></a>Steg 2: Skapa ett importjobb
+## <a name="step-2-create-an-import-job"></a>Steg 2: skapa ett import jobb
 
-Utför följande steg för att skapa ett importjobb i Azure-portalen.
+Utför följande steg för att skapa ett import jobb i Azure Portal.
 
 1. Logga in på https://portal.azure.com/.
-2. Gå till **alla tjänster > Storage > Import/export-jobb**. 
+2. Gå till **alla tjänster > lagring > import/export-jobb**. 
     
-    ![Gå till Import/export-jobb](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Gå till import/export-jobb](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Klicka på **skapa Import/export-jobbet**.
+3. Klicka på **skapa import/export-jobb**.
 
-    ![Klicka på Skapa Import/export-jobbet](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Klicka på Skapa import/export-jobb](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
 4. I **grunderna**:
 
-   - Välj **importera till Azure**.
-   - Ange ett beskrivande namn för importjobbet. Använd namnet för att följa förloppet för dina jobb.
-       - Namnet får innehålla endast gemener, siffror och bindestreck.
-       - Namnet måste börja med en bokstav och får inte innehålla blanksteg.
+   - Välj **Importera till Azure**.
+   - Ange ett beskrivande namn för import jobbet. Använd namnet för att följa förloppet för dina jobb.
+       - Namnet får bara innehålla gemena bokstäver, siffror och bindestreck.
+       - Namnet måste börja med en bokstav och får inte innehålla blank steg.
    - Välj en prenumeration.
-   - Ange eller välj en resursgrupp.  
+   - Ange eller Välj en resurs grupp.  
 
-     ![Skapa importjobb – steg 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Skapa import jobb – steg 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-3. I **Jobbdetaljer**:
+3. I **jobb information**:
 
-    - Ladda upp journalfiler för enheten som du fick vid förberedelsen för enheten. Om `waimportexport.exe version1` har använt, ladda upp en fil för varje enhet som du förberedde. Om ändringsjournalen filstorleken överskrider 2 MB, så kan du använda den `<Journal file name>_DriveInfo_<Drive serial ID>.xml` också skapats med journal-fil. 
-    - Välj mållagringskontot var data kommer att finnas. 
-    - Dropoff platsen fylls i automatiskt baserat på regionen som det valda lagringskontot.
+    - Ladda upp filerna för enhets journaler som du fick under steget förberedelse av enhet. Om `waimportexport.exe version1` användes laddar du upp en fil för varje enhet som du har för berett. Om journal filens storlek överskrider 2 MB kan du använda `<Journal file name>_DriveInfo_<Drive serial ID>.xml` som också skapats med journal filen. 
+    - Välj det mål lagrings konto där data ska finnas. 
+    - DropOff-platsen fylls i automatiskt baserat på den region där det valda lagrings kontot finns.
    
-   ![Skapa importjobb – steg 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![Skapa import jobb – steg 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. I **returnera leveransinformation**:
+4. I **information om retur leverans**:
 
-   - Välj vilken operatör i listrutan. Om du vill använda en operatör än FedEx/DHL väljer du ett befintligt alternativ i listrutan. Kontakta Azure Data Box Operations team på `adbops@microsoft.com` med information om vilken operatör du tänker använda.
-   - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. Om du inte har ett kontonummer, skapar du en [FedEx](https://www.fedex.com/us/oadr/) eller [DHL](https://www.dhl.com/) transportföretagskonto.
-   - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region. 
+   - Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com` med informationen om den operatör som du planerar att använda.
+   - Ange ett giltigt transportföretags konto nummer som du har skapat med transport företaget. Microsoft använder det här kontot för att skicka tillbaka enheterna till dig när ditt import jobb har slutförts. Om du inte har ett konto nummer skapar du ett [FedEx](https://www.fedex.com/us/oadr/) -eller [DHL](https://www.dhl.com/) -konto.
+   - Ange ett fullständigt och giltigt kontakt namn, telefon, e-postadress, gatuadress, ort, post, delstat/provins och land/region. 
         
        > [!TIP] 
-       > Ange en gruppens e-post istället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar företaget.
+       > Ange en grupp-e-postadress i stället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar.
 
-     ![Skapa importjobb – steg3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Skapa import jobb – steg 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
-5. I den **sammanfattning**:
+5. I **sammanfattningen**:
 
-   - Granska Jobbinformationen i sammanfattningen. Anteckna Jobbnamnet på och Azure-datacentret leveransadress för att skicka tillbaka diskarna till Azure. Den här informationen används senare på adressetikett.
-   - Klicka på **OK** skapa importjobbet.
+   - Granska jobb informationen som visas i sammanfattningen. Anteckna jobb namnet och leverans adressen till Azure-datacenter för att leverera diskar tillbaka till Azure. Den här informationen används senare på frakt etiketten.
+   - Skapa import jobbet genom att klicka på **OK** .
 
-     ![Skapa importjobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Skapa import jobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives"></a>Steg 3: Leverera enheterna 
+## <a name="step-3-ship-the-drives"></a>Steg 3: leverera enheterna 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>Steg 4: Uppdatera jobbet med spårningsinformation
+## <a name="step-4-update-the-job-with-tracking-information"></a>Steg 4: uppdatera jobbet med spårnings information
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Steg 5: Kontrollera datauppladdning till Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Steg 5: kontrol lera att data laddas upp till Azure
 
-Spåra jobbet kan slutföras. När jobbet har slutförts, kan du kontrollera att dina data har överförts till Azure. Ta bort lokalt data endast när du har kontrollerat att överföringen har slutförts.
+Spåra jobbet till slutfört. När jobbet har slutförts kontrollerar du att dina data har laddats upp till Azure. Ta bara bort lokala data när du har verifierat att överföringen har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Visa status för jobbet och enhet](storage-import-export-view-drive-status.md)
-* [Granska kraven för Import/Export](storage-import-export-requirements.md)
+* [Visa jobb-och enhets status](storage-import-export-view-drive-status.md)
+* [Granska import/export-krav](storage-import-export-requirements.md)
 
 

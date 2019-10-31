@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c509e061c43c81f72682fb428529a8e72b34066a
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056328"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175407"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Daemon-app som anropar webb-API: er – flytta till produktion
 
@@ -63,11 +63,10 @@ Här följer några länkar för att lära dig mer:
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-MSAL python är för närvarande en offentlig för hands version.
-Mer information finns [i MSAL python: s in-lagringsplats-exempel](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample).
+Försök att [Hämta en token med snabb start och anropa Microsoft Graph API från en python-konsol app med appens identitet](./quickstart-v2-python-daemon.md).
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-msal4j (MSAL. Java) är för närvarande en offentlig för hands version. Mer information finns i [MSAL Java in-lagringsplats-exempel](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+MSAL Java är för närvarande en offentlig för hands version. Mer information finns i [MSAL java dev-exempel](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
 
 ---

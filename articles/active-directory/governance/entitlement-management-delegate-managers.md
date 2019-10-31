@@ -1,5 +1,5 @@
 ---
-title: Delegera åtkomst styrning för åtkomst till paket hanterare i Azure AD-hantering av rättigheter (för hands version) – Azure Active Directory
+title: Delegera åtkomst styrning för åtkomst till paket hanterare i Azure AD-hantering av rättigheter – Azure Active Directory
 description: Lär dig hur du delegerar åtkomst styrning från IT-administratörer till att komma åt paket hanterare och projekt hanterare så att de kan hantera åtkomst själva.
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a2b6bfdb4904e11ffba3a9fe1097c7f5cfe9d6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: efdc61b82a19cc5d370d6069e8c9dcd3ce5e8ae5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170742"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174370"
 ---
-# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management-preview"></a>Delegera åtkomst styrning för åtkomst till paket hanterare i Azure AD-hantering av rättigheter (för hands version)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delegera åtkomst styrning för att få åtkomst till paket hanterare i Azure AD-hantering av rättigheter
 
 För att delegera skapandet och hanteringen av åtkomst paket i en katalog lägger du till användare till Access Package Manager-rollen. Åtkomst till paket hanterare måste vara bekant med användarnas behov av att begära åtkomst till resurser i en katalog. Om en katalog till exempel används för ett projekt kan ett projekt lead vara en Access Package Manager för katalogen.  Åtkomst till paket hanterare kan inte lägga till resurser i en katalog, men de kan hantera åtkomst paket och principer i en katalog.  När du delegerar till en Access Package Manager kan den personen ansvara för:
 

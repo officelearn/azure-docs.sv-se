@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0926e6800dbcd81d2e542e27afe3afb1240cff22
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6baf7d21748b5b524745f26302e70612dab29a8d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268418"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175433"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Skriv bords app som anropar webb-API: er – kod konfiguration
 
@@ -28,13 +28,22 @@ Nu när du har skapat ditt program får du lära dig hur du konfigurerar koden m
 
 ## <a name="msal-libraries"></a>MSAL-bibliotek
 
-Det enda MSAL-biblioteket som stöder Skriv bords program på flera plattformar idag är MSAL.NET.
+Microsoft-bibliotek som stöder Desktop-program är:
 
-MSAL för iOS och macOS stöder endast Skriv bords program som körs på macOS. 
+  MSAL-bibliotek | Beskrivning
+  ------------ | ----------
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Har stöd för att skapa ett Skriv bords program på flera plattformar – Linux, Windows och MacOS
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Har stöd för att skapa ett Skriv bords program på flera plattformar. Utveckling pågår – i offentlig för hands version
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Har stöd för att skapa ett Skriv bords program på flera plattformar. Utveckling pågår – i offentlig för hands version
+  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Stöd för Skriv bords program som körs på macOS
 
-## <a name="public-client-application-with-msalnet"></a>Offentligt klient program med MSAL.NET
+## <a name="public-client-application"></a>Offentligt klient program
 
-Från en kodvyn i vyn är Skriv bords program offentliga klient program och det är därför som du ska bygga och manipulera MSAL.NET `IPublicClientApplication`. Återigen är det lite annorlunda om du använder interaktiv autentisering eller inte.
+I kodvyn är Skriv bords program offentliga klient program. Konfigurationen är lite annorlunda beroende på om du använder interaktiv autentisering eller inte.
+
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+
+Du behöver bygga och manipulera MSAL.NET-`IPublicClientApplication`.
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
@@ -47,7 +56,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-Om du avser att använda interaktiv autentisering eller enhets kod flöde, som visas ovan, vill du använda `.WithRedirectUri` modifieraren:
+Om du avser att använda interaktiv autentisering eller enhets kod flöde, som du ser ovan, vill du använda `.WithRedirectUri` modifieraren:
 
 ```CSharp
 IPublicClientApplication app;
@@ -98,16 +107,16 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Lär dig mer
+### <a name="learn-more"></a>Läs mer
 
 Lär dig mer om hur du konfigurerar ett MSAL.NET Desktop-program:
 
 - Listan över alla modifierare som är tillgängliga på `PublicClientApplicationBuilder`finns i referens dokumentationen [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
-- Beskrivning av alla alternativ som visas i `PublicClientApplicationOptions` se [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)i referens dokumentationen
+- För en beskrivning av alla alternativ som visas i `PublicClientApplicationOptions` se [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), i referens dokumentationen
 
-## <a name="complete-example-with-configuration-options"></a>Slutför exempel med konfigurations alternativ
+### <a name="complete-example-with-configuration-options"></a>Slutför exempel med konfigurations alternativ
 
-Föreställ dig ett .net Core-konsolprogram som har `appsettings.json` följande konfigurations fil:
+Föreställ dig ett .NET Core-konsolprogram med följande `appsettings.json` konfigurations fil:
 
 ```JSon
 {
@@ -175,9 +184,32 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-och före anropet till `.Build()` -metoden kan du åsidosätta konfigurationen med anrop till `.WithXXX` metoder som visas ovan.
+innan anropet till `.Build()`-metoden kan du åsidosätta konfigurationen med anrop till `.WithXXX` metoder som visas ovan.
 
-## <a name="public-client-application-with-msal-for-ios-and-macos"></a>Offentligt klient program med MSAL för iOS och macOS
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Här är klassen som används i MSAL java dev-exempel för att konfigurera exemplen: [testdata](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+
+```Java
+PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
+        .authority(TestData.AUTHORITY_COMMON)
+        .build();
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+config = json.load(open(sys.argv[1]))
+
+app = msal.PublicClientApplication(
+    config["client_id"], authority=config["authority"],
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
+```
+
+# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
 Följande kod instansierar ett offentligt klient program, inloggnings användare i det Microsoft Azure offentliga molnet, med ett arbets-och skol konto eller en personlig Microsoft-konto.
 
@@ -187,7 +219,7 @@ Mål-C:
 
 ```objc
 NSError *msalError = nil;
-    
+
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
@@ -210,12 +242,12 @@ MSALAADAuthority *aadAuthority =
                                                    audienceType:MSALAzureADMultipleOrgsAudience
                                                       rawTenant:nil
                                                           error:nil];
-                                                          
+
 MSALPublicClientApplicationConfig *config =
                 [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
                                                                 redirectUri:@"<your-redirect-uri-here>"
                                                                   authority:aadAuthority];
-                                                                  
+
 NSError *applicationError = nil;
 MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
@@ -225,10 +257,11 @@ Införliva
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
+
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

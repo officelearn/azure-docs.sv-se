@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: 7e155df62d05045ceed4479643ed13a8ba6fa06d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bf6efbdbe19be28c005e2081c99827734ef10174
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958303"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176991"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Självstudie: använda formulär igenkänning med Azure Logic Apps för att analysera fakturor
 
@@ -62,7 +62,7 @@ Du använder den här behållaren för att ladda upp exempel data som krävs fö
 
 Ladda ned exempel data som är tillgängliga på [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Extrahera data till en lokal mapp och överför innehållet i mappen **/Train** till den **formrecocontainer** som du skapade tidigare. Följ anvisningarna i [Ladda upp en Block-Blob](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) för att ladda upp data till en behållare.
 
-Kopiera URL: en för behållaren. Du kommer att behöva detta senare i den här självstudien. Om du har skapat lagrings kontot och behållaren med samma namn som visas i den här självstudien kommer URL: en att *https://formrecostorage.blob.core.windows.net/formrecocontainer/* .
+Kopiera URL: en för behållaren. Du kommer att behöva detta senare i den här självstudien. Om du har skapat lagrings kontot och behållaren med samma namn som visas i den här självstudien blir URL *: en https:\//formrecostorage.blob.Core.Windows.net/formrecocontainer/* .
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 60127a8aebaf45969ba78a65676093210ea6de78
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a65a36734af235312f3b8edd3d18ba5b3e0645c6
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804214"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177050"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Om Azure Network MSP-partner
 
@@ -34,11 +34,13 @@ Använd länkarna i det här avsnittet för mer information om hanterade moln n�
 
 [BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)
 
+[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)
+
 [Dimensions data](https://www.dimensiondata.com/)
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://intercloud.com/partners/get-to-azure-via-expressroute/)
+[InterCloud](https://intercloud.com/partners/microsoft-azure/)
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
@@ -48,13 +50,21 @@ Använd länkarna i det här avsnittet för mer information om hanterade moln n�
 
 [KINX](https://www.kinx.net/service/cloud/?lang=en)
 
+[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)
+
 [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+
+[OmniClouds](https://omniclouds.com/services/)
 
 [OnCore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
 [Orixcom]( https://www.orixcom.com/cloud-solutions/)
 
+[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
+
 [Tata-kommunikation](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
+
+[Teknisk Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
 
 [Vandis](https://www.vandis.com/microsoft-azure-practice/)
 

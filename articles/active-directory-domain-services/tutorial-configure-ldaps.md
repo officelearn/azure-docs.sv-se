@@ -7,16 +7,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2eaae9093614f1512dcd75d23c98bca871bf2850
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5422298bf782944f10b60e98b5f251d8088f36ed
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193327"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172781"
 ---
-# <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudier: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
+# <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
 För att kommunicera med din Azure Active Directory Domain Services (Azure AD DS)-hanterade domän används LDAP (Lightweight Directory Access Protocol). Som standard är LDAP-trafiken inte krypterad, vilket är ett säkerhets problem i många miljöer. Med Azure AD DS kan du konfigurera den hanterade domänen för att använda säkra LDAP-protokoll (Lightweight Directory Access Protocol). När du använder säker LDAP krypteras trafiken. Säkert LDAP kallas även LDAP över Secure Sockets Layer (SSL)/Transport Layer Security (TLS).
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -68,7 +68,7 @@ Det certifikat som du begär eller skapar måste uppfylla följande krav. Din ha
 * **Nyckel användning** – certifikatet måste konfigureras för *digitala signaturer* och *nyckelchiffrering*.
 * **Certifikat syfte** – certifikatet måste vara giltigt för SSL-serverautentisering.
 
-I den här självstudien ska vi skapa ett självsignerat certifikat för säker LDAP med hjälp av PowerShell. Öppna ett PowerShell-fönster som **administratör** och kör följande kommandon. Ersätt *$dnsName* variabeln med DNS-namnet som används av din egen hanterade domän, till exempel *contoso.com*:
+I den här självstudien ska vi skapa ett självsignerat certifikat för säker LDAP med cmdleten [New-SelfSignedCertificate][New-SelfSignedCertificate] . Öppna ett PowerShell-fönster som **administratör** och kör följande kommandon. Ersätt *$dnsName* variabeln med DNS-namnet som används av din egen hanterade domän, till exempel *contoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -176,7 +176,7 @@ Klient datorerna måste ha förtroende för utfärdaren av det säkra LDAP-certi
 
 Med ett digitalt certifikat som har skapats och exporter ATS som innehåller den privata nyckeln, och klient datorn är inställd på att lita på anslutningen, aktiverar du nu säker LDAP på den hanterade domänen i Azure AD DS. Utför följande konfigurations steg för att aktivera säker LDAP på en Azure AD DS-hanterad domän:
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter *domän tjänster* i rutan **Sök resurser** . Välj **Azure AD Domain Services** från Sök resultatet.
+1. I [Azure Portal](https://portal.azure.com)anger du *domän tjänster* i rutan **Sök resurser** . Välj **Azure AD Domain Services** från Sök resultatet.
 
     ![Sök efter och välj din Azure AD DS-hanterade domän i Azure Portal](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
@@ -207,21 +207,21 @@ När du aktiverar säker LDAP-åtkomst över Internet till din Azure AD DS-hante
 Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via TCP-port 636 från en angiven uppsättning IP-adresser. En standard regel för *denyall* med lägre prioritet gäller för all annan inkommande trafik från Internet, så bara de angivna adresserna kan nå din Azure AD DS-hanterade domän med hjälp av säker LDAP.
 
 1. I Azure Portal väljer du *resurs grupper* i navigeringen till vänster.
-1. Välj resurs grupp, till exempel *myResourceGroup*, och välj sedan din nätverks säkerhets grupp, till exempel *AADDS-contoso.com-NSG*.
+1. Välj resurs grupp, till exempel *myResourceGroup*, och välj sedan din nätverks säkerhets grupp, till exempel *aaads-NSG*.
 1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **säkerhets > inkommande säkerhets regler**till vänster i rutan nätverks säkerhets grupp.
 1. Välj **Lägg till**och skapa sedan en regel för att tillåta *TCP* -port *636*. För förbättrad säkerhet väljer du källan som *IP-adresser* och anger sedan din egen giltiga IP-adress eller intervall för din organisation.
 
-    | Inställning                           | Value        |
+    | Inställning                           | Värde        |
     |-----------------------------------|--------------|
-    | Source                            | IP-adresser |
+    | Källa                            | IP-adresser |
     | Käll-IP-adresser/CIDR-intervall | En giltig IP-adress eller ett giltigt intervall för din miljö |
-    | Source port ranges                | *            |
-    | Mål                       | Any          |
-    | Målportsintervall           | 636          |
-    | Protocol                          | TCP          |
-    | Action                            | Allow        |
-    | Priority                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | Källportintervall                | *            |
+    | Mål                       | Alla          |
+    | Målportintervall           | 636          |
+    | Protokoll                          | TCP          |
+    | Åtgärd                            | Tillåt        |
+    | Prioritet                          | 401          |
+    | Namn                              | AllowLDAPS   |
 
 1. När du är klar väljer du **Lägg till** för att spara och tillämpa regeln.
 
@@ -233,7 +233,7 @@ Med säker LDAP-åtkomst aktive rad via Internet uppdaterar du DNS-zonen så att
 
 ![Visa den externa skyddade LDAP-IP-adressen för din Azure AD DS-hanterade domän i Azure Portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Konfigurera den externa DNS-providern för att skapa en värd post, till exempel LDAPS, för att matcha den externa IP-adressen. Du kan skapa en post i Windows hosts-filen för att testa lokalt på datorn först. För att kunna redigera hosts-filen på den lokala datorn öppnar du *anteckningar* som administratör och öppnar sedan filen *C:\WINDOWS\SYSTEM32\DRIVERS\ETC*
+Konfigurera den externa DNS-providern för att skapa en värd post, till exempel *LDAPS*, för att matcha den externa IP-adressen. Du kan skapa en post i Windows hosts-filen för att testa lokalt på datorn först. För att kunna redigera hosts-filen på den lokala datorn öppnar du *anteckningar* som administratör och öppnar sedan filen *C:\WINDOWS\SYSTEM32\DRIVERS\ETC*
 
 I följande exempel DNS-post, antingen med den externa DNS-providern eller i den lokala värd filen, löser trafik för *LDAPS.contoso.com* till den externa IP-adressen för *40.121.19.239*:
 
@@ -252,7 +252,7 @@ Om du vill ansluta och binda till din Azure AD DS-hanterade domän och söka via
 Bind sedan till din Azure AD DS-hanterade domän. Användare (och tjänst konton) kan inte utföra enkla LDAP-bindningar om du har inaktiverat NTLM Password hash-synkronisering på Azure AD DS-instansen. Mer information om hur du inaktiverar hash-synkronisering av NTLM-lösenord finns i [skydda din Azure AD DS-hanterade domän][secure-domain].
 
 1. Välj meny alternativet **anslutning** och välj sedan **BIND...** .
-1. Ange autentiseringsuppgifterna för ett användar konto som hör till administratörs gruppen för *AAD-domänkontrollant* , till exempel *contosoadmin*. Ange användar kontots lösen ord och ange sedan din domän, till exempel *contoso.com*.
+1. Ange autentiseringsuppgifterna för ett användar konto som hör till *Administratörs* gruppen för AAD-domänkontrollant, till exempel *contosoadmin*. Ange användar kontots lösen ord och ange sedan din domän, till exempel *contoso.com*.
 1. För **bindnings typ**väljer du alternativet för *BIND med autentiseringsuppgifter*.
 1. Välj **OK** för att binda till din Azure AD DS-hanterade domän.
 
@@ -273,7 +273,7 @@ Om du har lagt till en DNS-post i den lokala värd filen på datorn för att tes
 
 1. Öppna *anteckningar* som administratör på den lokala datorn
 1. Bläddra till och öppna filen *C:\WINDOWS\SYSTEM32\DRIVERS\ETC*
-1. Ta bort raden för den post som du har lagt till, till exempel`40.121.19.239    ldaps.contoso.com`
+1. Ta bort raden för den post som du har lagt till, till exempel `40.121.19.239    ldaps.contoso.com`
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -297,3 +297,4 @@ I den här självstudiekursen lärde du dig att:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate

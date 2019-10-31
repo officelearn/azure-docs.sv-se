@@ -1,28 +1,27 @@
 ---
-title: Använd Azure Storage som terraform-backend
+title: Självstudie – lagra terraform tillstånd i Azure Storage
 description: En introduktion till att lagra terraform-tillstånd i Azure Storage.
-services: terraform
+ms.service: terraform
 author: tomarchermsft
-ms.service: azure
-ms.topic: article
-ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: e9b447f4f4dc9d0ee090da9729e483cc17ac7c15
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.topic: tutorial
+ms.date: 10/26/2019
+ms.openlocfilehash: f024fd7886ec6f192c440cca6951e3aeb66ad22d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169940"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177805"
 ---
-# <a name="store-terraform-state-in-azure-storage"></a>Lagra terraform-tillstånd i Azure Storage
+# <a name="tutorial-store-terraform-state-in-azure-storage"></a>Självstudie: lagra terraform-tillstånd i Azure Storage
 
-Terraform-status används för att stämma av distribuerade resurser med terraform-konfigurationer. Med hjälp av State vet terraform vilka Azure-resurser som ska läggas till, uppdateras eller tas bort. Som standard lagras terraform-tillstånd lokalt när du kör *terraform Apply*. Den här konfigurationen är inte idealisk av några anledningar:
+Terraform-status används för att stämma av distribuerade resurser med terraform-konfigurationer. Tillstånd gör att terraform vet vilka Azure-resurser som ska läggas till, uppdateras eller tas bort. Som standard lagras terraform-tillstånd lokalt när du kör kommandot `terraform apply`. Den här konfigurationen är inte idealisk av följande anledningar:
 
-- Lokalt tillstånd fungerar inte bra i ett team eller en samarbets miljö
+- Lokalt tillstånd fungerar inte bra i ett team eller i en samarbets miljö
 - Terraform-tillstånd kan innehålla känslig information
 - Lagrings tillstånd lokalt ökar risken för oavsiktlig borttagning
 
-Terraform innehåller konceptet för en tillstånds Server del, som är Fjärrlagring för terraform-tillstånd. När du använder en tillstånds Server del lagras tillstånds filen i ett data lager, till exempel Azure Storage. Det här dokumentet innehåller information om hur du konfigurerar och använder Azure Storage som terraform tillstånds Server.
+Terraform stöder tillstånds beständighet i Fjärrlagring. En sådan server del som stöds är Azure Storage. Det här dokumentet visar hur du konfigurerar och använder Azure Storage för detta ändamål.
 
 ## <a name="configure-storage-account"></a>Konfigurera lagrings konto
 
@@ -56,7 +55,7 @@ Anteckna lagrings kontots namn, behållar namnet och lagrings åtkomst nyckeln. 
 
 ## <a name="configure-state-backend"></a>Konfigurera tillstånds Server del
 
-Den terraform tillstånds Server delen konfigureras när du kör *terraform init*. Följande data krävs för att du ska kunna konfigurera tillstånds Server delen.
+Den terraform tillstånds Server delen konfigureras när du kör kommandot `terraform init`. följande data krävs för att konfigurera tillstånds Server delen:
 
 - storage_account_name – namnet på Azure Storage kontot.
 - container_name – namnet på BLOB-behållaren.
@@ -65,21 +64,25 @@ Den terraform tillstånds Server delen konfigureras när du kör *terraform init
 
 Vart och ett av dessa värden kan anges i konfigurations filen för terraform eller på kommando raden, men vi rekommenderar att du använder en miljö variabel för `access_key`. Om du använder en miljö variabel förhindrar du att nyckeln skrivs till disk.
 
-Skapa en miljö variabel med `ARM_ACCESS_KEY` namnet med värdet för Azure Storage åtkomst nyckel.
+Skapa en miljö variabel med namnet `ARM_ACCESS_KEY` med värdet för åtkomst nyckeln Azure Storage.
 
 ```bash
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-Om du vill skydda åtkomst nyckeln för Azure Storage konto måste du lagra den i Azure Key Vault. Miljövariabeln kan sedan anges med ett kommando som liknar följande. Mer information om Azure Key Vault finns i Azure Key Vault- [dokumentationen][azure-key-vault].
+Om du vill skydda åtkomst nyckeln för Azure Storage konto måste du lagra den i Azure Key Vault. Miljövariabeln kan sedan anges med ett kommando som liknar följande. Mer information om Azure Key Vault finns i Azure Key Vault- [dokumentationen](../key-vault/quick-create-cli.md).
 
 ```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
-Om du vill konfigurera terraform för att använda Server delen inkluderar du en *Server dels* konfiguration med en typ av *azurerm* inuti terraform-konfigurationen. Lägg till värdena *storage_account_name*, *container_name*och *Key* i konfigurations blocket.
+Följande steg måste utföras för att konfigurera terraform till att använda Server delen:
+- Inkludera ett konfigurations block för `backend` med en typ av `azurerm`.
+- Lägg till ett `storage_account_name`-värde i konfigurations blocket.
+- Lägg till ett `container_name`-värde i konfigurations blocket.
+- Lägg till ett `key`-värde i konfigurations blocket.
 
-I följande exempel konfigureras en terraform-Server del och en Azure-resurs grupp skapas. Ersätt värdena med värden från din miljö.
+I följande exempel konfigureras en terraform-Server del och en Azure-resurs grupp skapas.
 
 ```hcl
 terraform {
@@ -96,11 +99,18 @@ resource "azurerm_resource_group" "state-demo-secure" {
 }
 ```
 
-Initiera nu konfigurationen med *terraform init* och kör sedan konfigurationen med *terraform Apply*. När du är klar kan du hitta tillstånds filen i Azure Storage Blob.
+Initiera konfigurationen genom att utföra följande steg:
+
+1. Kör `terraform init`-kommandot.
+1. Kör `terraform apply`-kommandot.
+
+Nu kan du hitta tillstånds filen i Azure Storage Blob.
 
 ## <a name="state-locking"></a>Tillstånds låsning
 
-När du använder en Azure Storage Blob för tillstånds lagring låses bloben automatiskt före varje åtgärd som skriver tillstånd. Den här konfigurationen förhindrar flera samtidiga tillstånds åtgärder, vilket kan orsaka skada. Mer information finns i [tillstånds låsning][terraform-state-lock] i terraform-dokumentationen.
+Azure Storage blobbar låses automatiskt före varje åtgärd som skriver tillstånd. Det här mönstret förhindrar samtidiga tillstånds åtgärder, vilket kan orsaka skada. 
+
+Mer information finns i [tillstånds låsning](https://www.terraform.io/docs/state/locking.html) i terraform-dokumentationen.
 
 Du kan se låset när du undersöker blobben via Azure Portal eller andra hanterings verktyg för Azure.
 
@@ -108,19 +118,11 @@ Du kan se låset när du undersöker blobben via Azure Portal eller andra hanter
 
 ## <a name="encryption-at-rest"></a>Vilande kryptering
 
-Som standard krypteras data som lagras i en Azure-Blob innan de sparas i lagrings infrastrukturen. När terraform behöver status hämtas den från Server delen och lagras i minnet i utvecklings systemet. I den här konfigurationen skyddas tillstånd i Azure Storage och skrivs inte till din lokala disk.
+Data som lagras i en Azure-Blob krypteras innan de sparas. Vid behov hämtar terraform tillstånd från Server delen och lagrar den i lokalt minne. Med det här mönstret skrivs tillstånd aldrig till din lokala disk.
 
-Mer information om Azure Storage kryptering finns i [Azure Storage tjänst kryptering för vilande data][azure-storage-encryption].
+Mer information om Azure Storage kryptering finns i [Azure Storage tjänst kryptering för vilande data](../storage/common/storage-service-encryption.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om terraform-backend-konfiguration i [terraform-backend-dokumentationen][terraform-backend].
-
-<!-- LINKS - internal -->
-[azure-key-vault]: ../key-vault/quick-create-cli.md
-[azure-storage-encryption]: ../storage/common/storage-service-encryption.md
-
-<!-- LINKS - external -->
-[terraform-azurerm]: https://www.terraform.io/docs/backends/types/azurerm.html
-[terraform-backend]: https://www.terraform.io/docs/backends/
-[terraform-state-lock]: https://www.terraform.io/docs/state/locking.html
+> [!div class="nextstepaction"] 
+> [Terraform på Azure](/azure/ansible/)

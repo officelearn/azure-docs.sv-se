@@ -15,34 +15,34 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 048051a612793cbe82f82fbde482ed470ad3758c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302483"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177838"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudier: Skapa AWS-infrastruktur för att vara värd för Service Fabric-kluster
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: Skapa en AWS-infrastruktur som är värd för ett Service Fabric-kluster
 
-Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudieserien skapar du ett fristående kluster som hanteras av AWS och installerar ett program i det.
+Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här serien självstudiekurser skapar du ett fristående kluster som hanteras av AWS och installerar ett program i det.
 
-Den här självstudien ingår i en serie. I den här artikeln genererar du de AWS-resurser som krävs för att vara värd för ditt fristående kluster i Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
+Den här självstudien är del ett i en serie. I den här artikeln genererar du de AWS-resurser som krävs för att vara värd för ditt fristående kluster i Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
 
 I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en uppsättning med EC2-instanser
 > * Ändra säkerhetsgruppen
-> * Logga in på någon av instanserna
+> * Logga in på en av instanserna
 > * Förbereda instansen för Service Fabric
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Du behöver ett AWS-konto för att kunna slutföra den här självstudien.  Om du inte redan har ett konto kan du gå till [AWS-konsolen](https://aws.amazon.com/) för att skapa ett.
 
 ## <a name="create-ec2-instances"></a>Skapa EC2-instanser
 
-Logga in på AWS-konsolen > RETUR **EC2** i sökrutan > **EC2 virtuella servrar i molnet**
+Logga in på AWS-konsolen > Ange **EC2** i rutan Sök > **EC2 virtuella servrar i molnet**
 
 ![AWS-konsolsökning][aws-console]
 
@@ -50,7 +50,7 @@ Välj **Starta instans**. På nästa skärm väljer du **Välj** bredvid Microso
 
 ![Val av EC2-instans][aws-ec2instance]
 
-Välj **t2.medium**och välj sedan **nästa: Konfigurera instansinformation**på nästa skärm ändra antalet instanser som `3`och välj sedan **avancerad information** att expandera avsnittet.
+Välj **t2.medium** och välj sedan **Nästa: Konfigurera instansinformation**. På nästa skärm ändrar du antalet instanser till `3` och väljer **Avancerad information** för att expandera avsnittet.
 
 För att du ska kunna ansluta dina virtuella datorer tillsammans i Service Fabric, måste de virtuella datorer som är värd för din infrastruktur ha samma autentiseringsuppgifter.  Det finns två vanliga metoder för att få likadana autentiseringsuppgifter: Anslut dem till samma domän, eller ange samma administratörslösenord på varje virtuell dator.  I den här självstudien använder du ett användardataskript till att ange att EC2-instanserna ska ha samma lösenord.  I en produktionsmiljö är det säkrare att ansluta värdarna till en Windows-domän.
 
@@ -82,7 +82,7 @@ Service Fabric kräver att ett antal portar är öppna mellan värdarna i klustr
 
 För att undvika att portarna öppnas för alla, kan du i stället öppna dem enbart för värdarna i samma säkerhetsgrupp. Anteckna säkerhetsgruppens ID. I detta exempel är det **sg-c4fb1eba**.  Välj sedan **Redigera**.
 
-Lägg sedan till fyra regler i säkerhetsgruppen för tjänstens beroenden, och därefter tre i för själva Service Fabric. Den första regeln är att tillåta ICMP-trafik för grundläggande anslutningskontroller. De andra reglerna öppnar de portar som krävs för att aktivera SMB och Remote Registry.
+Lägg sedan till fyra regler i säkerhetsgruppen för tjänstens beroenden, och därefter tre i för själva Service Fabric. Den första regeln är att tillåta ICMP-trafik för grundläggande anslutningskontroller. De andra reglerna öppnar de portar som krävs för att aktivera fjär register.
 
 För den första regeln väljer du **Lägg till regel** och sedan **Alla ICMP – IPv4** i listrutan. Välj inmatningsrutan bredvid den anpassade och ange ditt säkerhetsgrupps-ID enligt ovan.
 
@@ -110,7 +110,7 @@ När du har alla IP-adresser väljer du en av instanserna som du vill ansluta ti
 
 När du har anslutit till din instans kontrollerar du att du har en anslutning mellan dem och att du kan dela filer.  Du har samlat in IP-adresser för alla instanser. Välj en som du för närvarande inte är ansluten till. Gå till **Start**, ange `cmd` och välj **Kommandotolk**.
 
-I de här exemplen har RDP-anslutningen upprättats till följande IP-adress: 172.31.21.141. Alla anslutningar testa och sedan slutföras till den andra IP-adressen: 172.31.20.163.
+I dessa exempel har RDP-anslutningen upprättats till följande IP-adress: 172.31.21.141. Alla anslutningstest utförs till den andra IP-adressen: 172.31.20.163.
 
 Om du vill kontrollera att den grundläggande anslutningen fungerar, använder du ping-kommandot.
 
@@ -118,30 +118,18 @@ Om du vill kontrollera att den grundläggande anslutningen fungerar, använder d
 ping 172.31.20.163
 ```
 
-Om dina utdata ser ut så här `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` upprepade fyra gånger, fungerar anslutningen mellan instanserna.  Nu ska du kontrollera att din SMB-delning fungerar med följande kommando:
-
-```
-net use * \\172.31.20.163\c$
-```
-
-`Drive Z: is now connected to \\172.31.20.163\c$.` ska returneras som utdata.
+Om dina utdata ser ut så här `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` upprepade fyra gånger, fungerar anslutningen mellan instanserna.  
 
 ## <a name="prep-instances-for-service-fabric"></a>Förbereda instanserna för Service Fabric
 
-Om du har skapat detta från grunden, behöver du utföra några fler steg.  Du måste kontrollera att fjärregistret kördes, aktivera SMB och öppna portarna som krävs för SMB och fjärregistret.
+Om du har skapat detta från grunden, behöver du utföra några fler steg.  Du måste alltså verifiera att fjärrregistret kördes och öppna de nödvändiga portarna.
 
 För att göra det enklare bäddade du in allt detta när du startade instanserna med ditt användardataskript.
-
-Detta är det PowerShell-kommando som du använde för att aktivera SMB:
-
-```powershell
-netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
-```
 
 Om du vill öppna portarna i brandväggen använder du följande PowerShell-kommando:
 
 ```powershell
-New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
+New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -151,7 +139,7 @@ I del ett i serien lärde du dig att starta tre EC2-instanser och du konfigurera
 > [!div class="checklist"]
 > * Skapa en uppsättning med EC2-instanser
 > * Ändra säkerhetsgruppen
-> * Logga in på någon av instanserna
+> * Logga in på en av instanserna
 > * Förbereda instansen för Service Fabric
 
 Gå vidare till avsnitt två i serien för att konfigurera Service Fabric på klustret.

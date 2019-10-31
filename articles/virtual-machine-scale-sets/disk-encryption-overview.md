@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 69197b9c0d2a60e1833d03a3f12802221a8307e2
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 0097d0e1d5ea7de092da14683d4bab3d673b2219
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530841"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177776"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Azure Disk Encryption för Virtual Machine Scale Sets
 
@@ -23,7 +23,7 @@ Azure Disk Encryption kan också tillämpas på skalnings uppsättningar för vi
 - OS-och data volymer i Windows skalnings uppsättningar.
 - Data volymer i Linux-skalnings uppsättningar. Operativ system disk kryptering stöds inte för närvarande för Linux Scale Sets.
 
-Du kan lära dig grunderna i Azure Disk Encryption för skalnings uppsättningar för virtuella datorer på bara några minuter med [krypteringen av skalnings uppsättningar för virtuella datorer med hjälp av Azure CLI](disk-encryption-cli.md) eller [kryptera en virtuell dators skalnings uppsättningar med hjälp av Azure CLI](disk-encryption-powershell.md) -självstudierna.
+Du kan lära dig grunderna i Azure Disk Encryption för skalnings uppsättningar för virtuella datorer på bara några minuter med [kryptering av skalnings uppsättningar för virtuella datorer med hjälp av Azure CLI](disk-encryption-cli.md) eller [kryptera en virtuell dators skalnings uppsättningar med hjälp av Azure PowerShell](disk-encryption-powershell.md) Självstudier.
 
 ## <a name="next-steps"></a>Nästa steg
 

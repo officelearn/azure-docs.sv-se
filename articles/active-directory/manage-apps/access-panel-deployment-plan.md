@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41cc8114061ff7d23951baa3e6215d4332dff0ed
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 99c52f65bdec2b164cca86a6346d8865d210cf38
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258505"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176059"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planera en Azure Active Directory åtkomst panels distribution
 
@@ -36,8 +36,8 @@ Med hjälp av Azure AD-åtkomst panelen kan du:
 
 Administratörer kan också hantera:
 
-* Användningsvillkor
-* Organisationer
+* Villkor för tjänsten
+* Företag
 * Åtkomstgranskningar
 
 
@@ -45,21 +45,21 @@ Administratörer kan också hantera:
 
 Azure AD Access-panelen fördelar företag på följande sätt:
 
-**Ger intuitiv användar upplevelse**: Åtkomst panelen ger dig en enda plattform för alla dina Azure-anslutna program för enkel inloggning (SSO). Du har en enhetlig Portal för att hitta befintliga inställningar och nya funktioner, t. ex. grupp hantering och lösen ords återställning via självbetjäning, när de läggs till. Den intuitiva upplevelsen gör det möjligt för användarna att återgå till att arbeta snabbare och bli mer produktiva, samtidigt som de minskar sin syn.
+**Ger intuitiv användar upplevelse**: åtkomst panelen ger dig en enda plattform för alla dina Azure Single Sign-on-Connected-program. Du har en enhetlig Portal för att hitta befintliga inställningar och nya funktioner, t. ex. grupp hantering och lösen ords återställning via självbetjäning, när de läggs till. Den intuitiva upplevelsen gör det möjligt för användarna att återgå till att arbeta snabbare och bli mer produktiva, samtidigt som de minskar sin syn.
 
-**Ökar produktiviteten**: Alla användar program på åtkomst panelen har SSO aktive rad. Att aktivera SSO över företags program och Office 365 skapar en överlägsen inloggning genom att minska eller eliminera ytterligare prompter för inloggning. Åtkomst panelen använder självbetjäning och dynamiskt medlemskap och förbättrar den övergripande säkerheten för ditt identitets system. Det gör det genom att se till att rätt personer hanterar åtkomst till programmen. Åtkomst panelen fungerar som en enhetlig landnings sida där du snabbt kan hitta resurser och fortsätta arbeta aktiviteter.
+**Ökar produktiviteten**: alla användar program på åtkomst panelen har SSO aktive rad. Att aktivera SSO över företags program och Office 365 skapar en överlägsen inloggning genom att minska eller eliminera ytterligare prompter för inloggning. Åtkomst panelen använder självbetjäning och dynamiskt medlemskap och förbättrar den övergripande säkerheten för ditt identitets system. Det gör det genom att se till att rätt personer hanterar åtkomst till programmen. Åtkomst panelen fungerar som en enhetlig landnings sida där du snabbt kan hitta resurser och fortsätta arbeta aktiviteter.
 
-**Hanterar kostnad**: Att aktivera åtkomst panelen med Azure AD kan hjälpa dig med divestment av lokala infrastrukturer. Det minskar support kostnaderna genom att tillhandahålla en konsekvent Portal för att hitta alla dina appar, begära åtkomst till resurser och hantera konton.
+**Hanterar kostnad**: att aktivera åtkomst panelen med Azure AD kan hjälpa dig med divestment av lokala infrastrukturer. Det minskar support kostnaderna genom att tillhandahålla en konsekvent Portal för att hitta alla dina appar, begära åtkomst till resurser och hantera konton.
 
-**Ökar flexibiliteten och säkerheten**: Åtkomst panelen ger dig till gång till den säkerhet och flexibilitet som en moln plattform erbjuder. Administratörer kan enkelt ändra inställningar till program och resurser och kan hantera nya säkerhets krav utan att påverka användarna.
+**Ökar flexibiliteten och säkerheten**: åtkomst panelen ger dig till gång till den säkerhet och flexibilitet som en moln plattform erbjuder. Administratörer kan enkelt ändra inställningar till program och resurser och kan hantera nya säkerhets krav utan att påverka användarna.
 
-**Möjliggör robust gransknings-och användnings spårning**: Granskning och användnings spårning för alla användar funktioner gör att du vet när användarna använder sina resurser och ser till att du kan utvärdera säkerheten.
+**Möjliggör robust gransknings-och användnings spårning**: gransknings-och användnings spårning för alla användar funktioner gör att du vet när användarna använder sina resurser och ser till att du kan utvärdera säkerheten.
 
 ### <a name="licensing-considerations"></a>Licens överväganden
 
 Åtkomst panelen är kostnads fri och kräver inga licenser för användning på en grundläggande nivå. Antalet objekt i din katalog och de ytterligare funktioner som du vill distribuera kan dock kräva ytterligare licenser. Några vanliga Azure AD-scenarier som har licensierings krav omfattar följande säkerhetsfunktioner:
 
-* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
+* [Azure-Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
 
 * [Grupp-baserat medlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
@@ -83,8 +83,8 @@ I följande tabell beskrivs de viktigaste användnings fallen för en åtkomst p
 
 | Område| Beskrivning |
 | - | - |
-| Åtkomst| Åtkomst panels portalen är tillgänglig från företags-och personliga enheter inom företags nätverket. |
-|Åtkomst | Åtkomst panels portalen är tillgänglig från företags enheter utanför företags nätverket. |
+| Access| Åtkomst panels portalen är tillgänglig från företags-och personliga enheter inom företags nätverket. |
+|Access | Åtkomst panels portalen är tillgänglig från företags enheter utanför företags nätverket. |
 | Granskning| Användnings data hämtas till företags system minst var 29: e dag. |
 | Styrning| Livs cykeln för användar tilldelningarna till Azure AD-anslutna program och grupper definieras och övervakas. |
 | Säkerhet| Åtkomst till resurser styrs via användar-och grupp tilldelningar. Endast auktoriserade användare kan hantera resurs åtkomst. |
@@ -181,7 +181,7 @@ Azure AD har stöd för tre olika sätt att aktivera [enkel inloggning i program
     * Aktiverar ytterligare rapportering i Azure AD när programmen startas där. 
     * Inkluderar användning av Azure Application Proxy och länkat läge för enkel inloggning.
 
-Lär dig hur du konfigurerar ett programs SSO-läge här: [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Lär dig hur du konfigurerar ett programs SSO-läge här: [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 För bästa möjliga upplevelse med sidan Mina appar börjar du med integrering av moln program som är tillgängliga för federerad SSO. Federerad SSO gör det möjligt för användare att ha en enhetlig upplevelse med ett klick i appen och är mer robust i konfigurations kontrollen.
 
@@ -201,7 +201,7 @@ Om du måste integrera lösenordsbaserade SSO-program bör du definiera en mekan
 
 * [Användar driven nedladdning och konfiguration för Chrome, Firefox, Microsoft Edge eller IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-Läs mer: [Konfigurera enkel inloggning med lösen ord](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
+Läs mer: [så här konfigurerar du enkel inloggning för lösen ord](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 
 Användare som inte använder lösenordsbaserade SSO-program drar också nytta av tillägget. De här fördelarna är möjligheten att starta alla appar från Sök fältet, hitta åtkomst till nyligen använda program och att ha en länk till sidan Mina appar.
 
@@ -211,11 +211,11 @@ Så här ser användaren när ett lösenordsbaserade SSO-program startas för f�
 
 #### <a name="plan-for-mobile-access"></a>Planera för mobil åtkomst
 
-En webbläsare som skyddas med Intune-principer (Microsoft Edge eller Intune Managed Browser) krävs för att mobila användare ska kunna starta lösenordsbaserade SSO-program. En princip – skyddad webbläsare möjliggör överföring av lösen ordet som sparats för programmet. Microsoft Edge eller Managed Browser innehåller en uppsättning funktioner för webb data skydd. Du kan också använda Microsoft Edge för företags scenarier på iOS-och Android-enheter. Microsoft Edge stöder samma hanterings scenarier som Intune Managed Browser och förbättrar användar upplevelsen. Läs mer: [Hantera webb åtkomst med hjälp av en Microsoft Intune princip-skyddad webbläsare](https://docs.microsoft.com/intune/app-configuration-managed-browser).
+En webbläsare som skyddas med Intune-principer (Microsoft Edge eller Intune Managed Browser) krävs för att mobila användare ska kunna starta lösenordsbaserade SSO-program. En princip – skyddad webbläsare möjliggör överföring av lösen ordet som sparats för programmet. Microsoft Edge eller Managed Browser innehåller en uppsättning funktioner för webb data skydd. Du kan också använda Microsoft Edge för företags scenarier på iOS-och Android-enheter. Microsoft Edge stöder samma hanterings scenarier som Intune Managed Browser och förbättrar användar upplevelsen. Läs mer: [Hantera webb åtkomst med hjälp av en Microsoft Intune-princip-skyddad webbläsare](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
 ## <a name="plan-your-my-apps-deployment"></a>Planera distributionen av mina appar
 
-Grunden för åtkomst panelen är programmet som används för att starta Mina appar, som användare kommer [https://myapps.microsoft.com](https://myapps.microsoft.com/)åt på. Sidorna Mina appar ger användare en enda plats för att starta sitt arbete och få de program som behövs. Här hittar användarna en lista över alla program som de har enkel inloggning till. 
+Grunden för åtkomst panelen är programmet som används för att starta Mina appar, som användare kommer åt på [https://myapps.microsoft.com](https://myapps.microsoft.com/). Sidorna Mina appar ger användare en enda plats för att starta sitt arbete och få de program som behövs. Här hittar användarna en lista över alla program som de har enkel inloggning till. 
 
 ![En skärm bild av panelen appar](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
@@ -226,6 +226,10 @@ Planera i vilken ordning du ska lägga till program i Start programmet för Mina
 #### <a name="add-applications-to-the-my-apps-panel"></a>Lägg till program i panelen Mina appar
 
 Alla Azure AD SSO-aktiverade program kan läggas till i Start programmet för Mina appar. Andra program läggs till med hjälp av det länkade SSO-alternativet. Du kan konfigurera en program panel som länkar till URL: en för ditt befintliga webb program. Med länkad SSO kan du börja dirigera användare till portalen för Mina appar utan att migrera alla program till Azure AD SSO. Du kan gradvis flytta till Azure AD SSO-konfigurerade program utan att störa användarnas upplevelse.
+
+#### <a name="use-my-apps-workspaces-preview"></a>Använda arbets ytor för Mina appar (för hands version)
+
+Som standard visas alla program på en enda sida. Men du kan använda arbets ytor för att gruppera relaterade program och presentera dem på en separat flik, vilket gör dem lättare att hitta. Du kan till exempel använda arbets ytor för att skapa logiska grupperingar av program för vissa jobb roller, aktiviteter, projekt och så vidare. Mer information finns i så [här använder du arbets ytor i Mina appar för att anpassa användar åtkomst paneler (för hands version)](access-panel-workspaces.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Planera om du ska använda Mina appar eller en befintlig Portal
 
@@ -259,7 +263,7 @@ Azure AD tillhandahåller [rapporter som ger teknisk och affärs insikter](https
 
 |   | Hantera risk| Öka produktiviteten| Styrning och efterlevnad |
 |  - |- | - | - |
-| Rapporttyper|  Program behörigheter och användning| Konto etablerings aktivitet| Granska vem som har åtkomst till programmen |
+| Rapport typer|  Program behörigheter och användning| Konto etablerings aktivitet| Granska vem som har åtkomst till programmen |
 | Möjliga åtgärder| Granska åtkomst; återkalla behörigheter| Åtgärda eventuella etablerings fel| Återkalla åtkomst |
 
 Azure AD behåller de flesta gransknings data i 30 dagar. Data är tillgängliga via Azure Admin Portal eller API som du kan ladda ned till analys systemen.
@@ -292,7 +296,7 @@ Med program åtkomst via självbetjäning kan användare själv identifiera och 
 
 Du kan delegera godkännande av program åtkomst förfrågningar till affärs god kännare. Affärs god kännaren kan ställa in appens åtkomst lösen ord på sidan Mina appar i affärs god kännaren.
 
-Läs mer: [Använda självbetjäning för program åtkomst](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
+Läs mer: [så här använder du självbetjäning för program åtkomst](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
 
 ![En skärm bild av konfigurering av hantering av självbetjänings program](media/access-panel-deployment-plan/ap-dp-salesforce.png)
 
@@ -334,11 +338,11 @@ Du bör använda den minst privilegierade rollen för att utföra en obligatoris
 
 | Profiler| Roller| Azure AD-roll  |
 | - | -| -|
-| Supportavdelningen-administratör| Nivå 1-stöd| Inga |
+| Supportavdelningen-administratör| Nivå 1-stöd| Inget |
 | Identitets administratör| Konfigurera och Felsök när problem påverkar Azure AD| Global administratör |
-| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
+| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
 | Infrastruktur administratörer| Certifikat förnyelse ägare| Global administratör |
-| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
+| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
 
 Du kan använda [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 

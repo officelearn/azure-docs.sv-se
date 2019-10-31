@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: de7858be4ac4e392b4fb92cacf55882378ba9813
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568988"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177712"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Data Sync-agent för Azure SQL Data Sync
 
@@ -33,9 +33,9 @@ Om du vill ladda ned agenten för data synkronisering går du till [SQL Azure Da
 
 Om du vill installera Data Sync-agenten tyst från kommando tolken anger du ett kommando som liknar följande exempel. Kontrol lera fil namnet för den hämtade. msi-filen och ange dina egna värden för argumenten **TARGETDIR** och **SERVICEACCOUNT** .
 
-- Standardvärdet är `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`om du inte anger något värde för **TARGETDIR**.
+- Om du inte anger något värde för **TARGETDIR**är standardvärdet `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`.
 
-- Om du ger `LocalSystem` värdet **SERVICEACCOUNT**använder du SQL Server autentisering när du konfigurerar agenten för att ansluta till den lokala SQL Server.
+- Om du anger `LocalSystem` som värde för **SERVICEACCOUNT**använder du SQL Server autentisering när du konfigurerar agenten för att ansluta till den lokala SQL Server.
 
 - Om du anger ett domän användar konto eller ett lokalt användar konto som värde för **SERVICEACCOUNT**måste du också ange lösen ordet med argumentet **SERVICEPASSWORD** . Till exempel `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
 
@@ -99,10 +99,10 @@ Om du vill köra den lokala agenten från en annan dator än den för närvarand
 
 - **Orsak**. Många scenarier kan orsaka detta fel. Ta reda på orsaken till felet genom att titta på loggarna.
 
-- **Lösning**. Om du vill hitta den speciella orsaken till felet genererar du och tittar på Windows Installer loggar. Du kan aktivera loggning vid en kommando tolk. Om den nedladdade installations filen `SQLDataSyncAgent-2.0-x86-ENU.msi`t. ex. genererar och undersöker loggfiler med hjälp av följande kommando rader:
+- **Lösning**. Om du vill hitta den speciella orsaken till felet genererar du och tittar på Windows Installer loggar. Du kan aktivera loggning vid en kommando tolk. Om den nedladdade installations filen exempelvis är `SQLDataSyncAgent-2.0-x86-ENU.msi`, generera och granska loggfiler med hjälp av följande kommando rader:
 
-  - För-installationer:`msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
-  - För avinstallationer:`msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - För-installationer: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - För avinstallationer: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     Du kan också aktivera loggning för alla installationer som utförs av Windows Installer. I Microsoft Knowledge Base-artikeln [så här aktiverar du Windows Installer loggning](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) ger en lösning med ett klick för att aktivera loggning för Windows Installer. Den innehåller också platsen för loggarna.
 
@@ -115,7 +115,7 @@ Klient agenten fungerar inte, även när du har avbrutit avinstallationen.
 - **Lösning**. Du kan prova de här två lösningarna:
 
     -   Använd Services. msc för att ange autentiseringsuppgifterna för klient agenten igen.
-    -   Avinstallera den här klient agenten och installera sedan en ny. Hämta och installera den senaste klient agenten från [Download Center](https://go.microsoft.com/fwlink/?linkid=221479).
+    -   Avinstallera den här klient agenten och installera sedan en ny. Hämta och installera den senaste klient agenten från [Download Center](https://www.microsoft.com/download/details.aspx?id=27693).
 
 ### <a name="agent-list"></a>Min databas visas inte i agent listan
 
@@ -138,7 +138,7 @@ Dessa scenarier kan orsaka det här problemet:
 
 ### <a name="agent-start"></a>Klient agenten startar inte (fel 1069)
 
-Du upptäcker att agenten inte körs på en dator som är värd för SQL Server. När du försöker starta agenten manuellt visas en dialog ruta som visar meddelandet "fel 1069: Tjänsten startades inte på grund av ett inloggnings problem. "
+Du upptäcker att agenten inte körs på en dator som är värd för SQL Server. När du försöker starta agenten manuellt visas en dialog ruta som visar meddelandet "fel 1069: tjänsten startades inte på grund av ett inloggnings fel."
 
 ![Dialog rutan Data Sync-fel 1069](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
@@ -147,10 +147,10 @@ Du upptäcker att agenten inte körs på en dator som är värd för SQL Server.
 - **Lösning**. Uppdatera agentens lösen ord till det aktuella Server lösen ordet:
 
   1. Leta upp tjänsten SQL Data Sync Client Agent.  
-    a. Välj **starta**.  
+    a. Välj **Starta**.  
     b. I rutan Sök anger du **Services. msc**.  
     c. I Sök resultaten väljer du **tjänster**.  
-    d. I fönstret **tjänster** bläddrar du till posten för **SQL Data Sync**-agenten.  
+    d. I fönstret **tjänster** bläddrar du till posten för **SQL Data Sync-agenten**.  
   1. Högerklicka på **SQL Data Sync agent**och välj sedan **stoppa**.
   1. Högerklicka på **SQL Data Sync agent**och välj sedan **Egenskaper**.
   1. Välj fliken **Logga** in på **SQL Data Sync agent egenskaper**.
@@ -166,7 +166,7 @@ När du har skapat eller återskapat en nyckel för en agent försöker du skick
 
 ![Dialog rutan synkroniseringsfel – det går inte att skicka agent nyckel](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
 
-- **Krav för**. Innan du fortsätter kontrollerar du följande krav:
+- **Krav**. Innan du fortsätter kontrollerar du följande krav:
 
   - SQL Data Sync Windows-tjänsten körs.
 
@@ -205,7 +205,7 @@ Om en lokal slut punkt (dvs. en databas) som har registrerats med en SQL Data Sy
 - **Lösning**. Använd "framtvinga borttagning" för att ta bort den oåtkomliga databasen.
 
 > [!NOTE]
-> Om Sync metadata-tabeller är kvar efter en "tvångs borttagning `deprovisioningutil.exe` " använder du för att rensa dem.
+> Om Sync metadata-tabeller är kvar efter en "tvångs borttagning", kan du använda `deprovisioningutil.exe` för att rensa dem.
 
 ### <a name="agent-connect"></a>Den lokala Sync-appen kan inte ansluta till den lokala synkroniseringstjänsten
 
@@ -298,7 +298,7 @@ SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesd
 SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -databaseName testdb
 ```
 
-### <a name="update-credentials"></a>Uppdatera autentiseringsuppgifterna
+### <a name="update-credentials"></a>Uppdatera autentiseringsuppgifter
 
 #### <a name="usage"></a>Användning
 
@@ -320,10 +320,10 @@ Mer information om SQL Data Sync finns i följande artiklar:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
 -   Konfigurera Data Sync
-    - I portalen – [Självstudie: Konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
+    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Använd PowerShell för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Övervaka [SQL Data Sync med Azure Monitor loggar](sql-database-sync-monitor-oms.md)
 -   Felsökning – [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)

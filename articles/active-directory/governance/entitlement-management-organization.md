@@ -1,5 +1,5 @@
 ---
-title: Lägg till en ansluten organisation i Azure AD-hantering av rättigheter (för hands version) – Azure Active Directory
+title: Lägg till en ansluten organisation i Azure AD-hantering av rättigheter – Azure Active Directory
 description: Lär dig hur du tillåter att personer utanför organisationen kan begära åtkomst paket så att du kan samar beta med projekt.
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d45db1f62b370a2692ed932572e16c247b8903
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952490"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174133"
 ---
-# <a name="add-a-connected-organization-in-azure-ad-entitlement-management-preview"></a>Lägga till en ansluten organisation i Azure AD-hantering av rättigheter (för hands version)
+# <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
 Hantering av Azure AD-berättigande ger dig möjlighet att samar beta med personer utanför organisationen. Om du ofta samarbetar med användare i en extern Azure AD-katalog eller domän kan du lägga till dem som en ansluten organisation. Den här artikeln beskriver hur du lägger till en ansluten organisation så att du kan tillåta användare utanför organisationen att begära resurser i din katalog.
 
@@ -39,13 +39,11 @@ Du kan konfigurera två anslutna organisationer – en för Graphic Design Insti
 
 Hur användare från Azure AD-katalogen eller domänen kommer att autentiseras beror på autentiseringstypen. Typerna av autentisering för anslutna organisationer är följande:
 
-| Autentiseringstyp | Status |
-| --- | --- |
-| Azure AD | Stöds |
-| [Direkt Federation](../b2b/direct-federation.md) | Förhandsversion |
-| [Eng ång slö sen ord](../b2b/one-time-passcode.md) (domän) | Förhandsversion |
+- Azure AD
+- [Direkt Federation](../b2b/direct-federation.md)
+- [Eng ång slö sen ord](../b2b/one-time-passcode.md) (domän)
 
-## <a name="add-a-connected-organization"></a>Lägg till en ansluten organisation
+## <a name="add-a-connected-organization"></a>Lägga till en ansluten organisation
 
 Följ dessa steg om du vill lägga till en extern Azure AD-katalog eller domän som en ansluten organisation.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Webbapp som anropar webb-API: er (anropa en webb-API) - Microsoft identity-plattformen'
-description: 'Lär dig att skapa en webbapp som anropar webb-API: er (anropa en webb-API)'
+title: 'Webbapp som anropar webb-API: er (anropar ett webb-API) – Microsoft Identity Platform'
+description: 'Lär dig hur du skapar en webbapp som anropar webb-API: er (anropar ett webb-API)'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3624f4e859081e53ee27b6f8415eb3f9b5a2a5fa
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: d971ec3c7cd82d6e028d0f96c8f52b897cedc351
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785463"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175298"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Webbapp som anropar webb-API: er – anropa ett webb-API
 
 Nu när du har en token kan du anropa ett skyddat webb-API.
 
-## <a name="aspnet-core"></a>ASP.NET Core
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Här är en förenklad kod åtgärd av den `HomeController`. Den här koden hämtar en token för att anropa Microsoft Graph. Den här tiden koden har lagts till, som visar hur du anropar Microsoft Graph som en REST-API. URL-Adressen för graph API finns i den `appsettings.json` filen och läsa i en variabel med namnet `webOptions`:
+Här är en förenklad kod för åtgärden i `HomeController`. Den här koden hämtar en token för att anropa Microsoft Graph. Den här tids koden lades till, som visar hur du anropar Microsoft Graph som en REST API. URL: en för Graph API finns i `appsettings.json`-filen och läsas i en variabel med namnet `webOptions`:
 
 ```JSon
 {
@@ -83,9 +83,52 @@ public async Task<IActionResult> Profile()
 ```
 
 > [!NOTE]
-> Du kan använda samma princip för att anropa alla webb-API.
+> Du kan använda samma princip för att anropa alla webb-API: er.
 >
-> De flesta Azure web API: er ger ett SDK som förenklar anropas. Detta gäller även för Microsoft Graph. I nästa artikel lär du dig var du hittar en självstudie som visar dessa aspekter.
+> De flesta Azure Web API: er tillhandahåller en SDK som fören klar anropet. Detta är även fallet med Microsoft Graph. Du lär dig mer i nästa artikel där du hittar en själv studie kurs som illustrerar dessa aspekter.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```Java
+private String getUserInfoFromGraph(String accessToken) throws Exception {
+    // Microsoft Graph user endpoint
+    URL url = new URL("https://graph.microsoft.com/v1.0/me");
+
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+    // Set the appropriate header fields in the request header.
+    conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+    conn.setRequestProperty("Accept", "application/json");
+
+    String response = HttpClientHelper.getResponseStringFromConn(conn);
+
+    int responseCode = conn.getResponseCode();
+    if(responseCode != HttpURLConnection.HTTP_OK) {
+        throw new IOException(response);
+    }
+
+    JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
+    return responseObject.toString();
+}
+
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+@app.route("/graphcall")
+def graphcall():
+    token = _get_token_from_cache(app_config.SCOPE)
+    if not token:
+        return redirect(url_for("login"))
+    graph_data = requests.get(  # Use token to call downstream service
+        app_config.ENDPOINT,
+        headers={'Authorization': 'Bearer ' + token['access_token']},
+        ).json()
+    return render_template('display.html', result=graph_data)
+```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

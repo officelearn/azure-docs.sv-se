@@ -1,6 +1,6 @@
 ---
-title: Aktivera lösen ords skydds nyckel inloggning för Azure AD (för hands version) – Azure Active Directory
-description: Aktivera lösen ords lös säkerhets nyckel logga in på Azure AD med hjälp av FIDO2-säkerhetsnycklar (för hands version)
+title: Aktivera lösen ords skydd för inloggning med lösen ord för Azure AD (för hands version) – Azure Active Directory
+description: Aktivera inloggning med lösen ord utan lösen ord till Azure AD med hjälp av säkerhets nycklar för FIDO2 (för hands version)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -9,88 +9,38 @@ ms.date: 08/05/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: librown
+ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316a523a6216354ae5b6166be55e183a4e050766
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 66102a92ce279b594d61c8b2d484c89a8532057a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305078"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171996"
 ---
-# <a name="enable-passwordless-security-key-sign-in-for-azure-ad-preview"></a>Aktivera lösen ords skydds nyckel inloggning för Azure AD (för hands version)
+# <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera lösen ords skydd med lösen ords skydd (för hands version)
+
+För företag som använder lösen ord idag och har en delad dator miljö, är säkerhets nycklar ett sömlöst sätt för arbetare att autentisera utan att ange användar namn eller lösen ord. Säkerhets nycklar ger förbättrad produktivitet för anställda och har bättre säkerhet.
+
+Det här dokumentet fokuserar på att aktivera säkerhets nyckel baserad lösen ords lös autentisering. I slutet av den här artikeln kan du logga in till webbaserade program med ditt Azure AD-konto med hjälp av en säkerhets nyckel för FIDO2.
+
+|     |
+| --- |
+| FIDO2 säkerhets nycklar är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
+|     |
 
 ## <a name="requirements"></a>Krav
 
-* Azure Multi-Factor Authentication
-* Kombinerad förhands granskning med användare aktiverade för SSPR
-* För hands versionen av FIDO2 för säkerhets nyckel krävs kompatibla FIDO2 säkerhets nycklar
-* Webauthn kräver Microsoft Edge på Windows 10 version 1809 eller senare
-* FIDO2-baserad Windows-inloggning kräver Azure AD-ansluten Windows 10 version 1809 eller senare
+- [Azure-Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
+- Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
+- Webauthn kräver Windows 10 version 1809 eller högre * *
+
+Om du vill använda säkerhets nycklar för att logga in på webbappar och tjänster måste du ha en webbläsare som stöder webauthn-protokollet. Det kan vara Microsoft Edge, Chrome, Firefox och Safari.
 
 ## <a name="prepare-devices-for-preview"></a>Förbereda enheter för för hands version
 
 Enheter som du ska pilot med måste köra Windows 10 version 1809 eller senare. Den bästa upplevelsen är i Windows 10 version 1903 eller senare.
-
-## <a name="enable-security-keys-for-windows-sign-in"></a>Aktivera säkerhets nycklar för Windows-inloggning
-
-Organisationer kan välja att använda en eller flera av följande metoder för att aktivera användning av säkerhets nycklar för Windows-inloggning.
-
-### <a name="enable-credential-provider-via-intune"></a>Aktivera autentiseringsprovider via Intune
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Bläddra till **Microsoft Intune** > **enhets registrering** > **Windows-registrering** > **Egenskaper** **för Windows Hello för företag** > .
-1. Under **Inställningar** anger du **använda säkerhets nycklar för inloggning** till **aktive rad**.
-
-Konfiguration av säkerhets nycklar för inloggning, är inte beroende av att konfigurera Windows Hello för företag.
-
-#### <a name="enable-targeted-intune-deployment"></a>Aktivera riktad Intune-distribution
-
-Om du vill använda specifika enhets grupper för att aktivera Credential-providern använder du följande anpassade inställningar via Intune. 
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Bläddra till **Microsoft Intune** > **enhets konfiguration** > **profiler** > **Skapa profil**.
-1. Konfigurera den nya profilen med följande inställningar
-   1. Namn: Säkerhets nycklar för Windows-inloggning
-   1. Beskrivning: Aktiverar FIDO-säkerhetsnycklar som ska användas under Windows-inloggning
-   1. Plattform: Windows 10 och senare
-   1. Profil typ: Anpassat
-   1. Anpassade OMA-URI-inställningar:
-      1. Namn: Aktivera säkerhets nycklar för FIDO för Windows-inloggning
-      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
-      1. Datatyp: Integer
-      1. Värde: 1 
-1. Den här principen kan tilldelas till vissa användare, enheter eller grupper. Mer information hittar du i artikeln [Tilldela användar-och enhets profiler i Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
-
-![Skapa anpassad enhets konfigurations princip för Intune](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
-
-### <a name="enable-credential-provider-via-provisioning-package"></a>Aktivera autentiseringsprovider via ett etablerings paket
-
-För enheter som inte hanteras av Intune kan ett konfigurations paket installeras för att aktivera funktionen. Windows Configuration designer-appen kan installeras från [Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22).
-
-1. Starta Windows Configuration designer.
-1. Välj **Arkiv** > **nytt projekt**.
-1. Ge projektet ett namn och anteckna sökvägen där projektet skapas.
-1. Välj **Nästa**.
-1. Lämna **etablerings paketet** valt som det **valda projekt arbets flödet** och välj **Nästa**.
-1. Välj **alla versioner av Windows-skrivbordet** under **Välj vilka inställningar du vill visa och konfigurera** och välj **Nästa**.
-1. Välj **Slutför**.
-1. I det nyskapade projektet bläddrar du till **körnings inställningar** > **WindowsHelloForBusiness** > **SecurityKeys** > **UseSecurityKeyForSignIn**.
-1. Ange **UseSecurityKeyForSignIn** till **aktive rad**.
-1. Välj **Exportera** > **etablerings paket**
-1. Lämna standardvärdena i fönstret **build** under **Beskriv etablerings paketet** och välj **Nästa**.
-1. Lämna standardvärdena i fönstret **build** under **Välj säkerhets information för etablerings paketet** och välj **Nästa**.
-1. Anteckna eller ändra sökvägen i **build** Windows under **Välj var du vill spara etablerings paketet** och välj **Nästa**.
-1. Välj **build** på sidan **bygga etablerings paket** .
-1. Spara de två filerna som skapats (ppkg och Cat) till en plats där du kan tillämpa dem på datorer senare.
-1. Följ anvisningarna i artikeln [tillämpa ett konfigurations paket](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package)för att tillämpa det konfigurations paket som du har skapat.
-
-## <a name="obtain-fido2-security-keys"></a>Hämta säkerhets nycklar för FIDO2
-
-Mer information om vilka nycklar och tillverkare som stöds finns i avsnittet om säkerhets nycklar för FIDO2 i artikeln [Vad är lösen ords skydd?](concept-authentication-passwordless.md)
-
-> [!NOTE]
-> Om du köper och planerar att använda NFC-baserade säkerhets nycklar behöver du en NFC-läsare som stöds.
 
 ## <a name="enable-passwordless-authentication-method"></a>Aktivera autentiseringsmetod för lösen ord
 
@@ -98,60 +48,44 @@ Mer information om vilka nycklar och tillverkare som stöds finns i avsnittet om
 
 Registrerings funktioner för metoder för lösen ords kryptering förlitar sig på den kombinerade förhands granskningen. Följ anvisningarna i artikeln [Aktivera kombinerad registrering av säkerhets information (för hands version)](howto-registration-mfa-sspr-combined.md)för att aktivera den kombinerade förhands granskningen.
 
-### <a name="enable-new-passwordless-authentication-method"></a>Aktivera ny autentiseringsmetod för lösen ord
+### <a name="enable-fido2-security-key-method"></a>Aktivera FIDO2 säkerhets nyckel metod
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Bläddra till **Azure Active Directory** > **säkerhets** > **autentiseringsmetoder**metoderprincip > för**autentisering (för hands version)**
-1. Under varje **metod**väljer du följande alternativ
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Bläddra till **Azure Active Directory** > **säkerhets** > **autentiseringsmetoder** > **principen för autentiserings metoden (för hands version)** .
+1. Under metod **FIDO2 säkerhets nyckel**väljer du följande alternativ:
    1. **Aktivera** – Ja eller Nej
    1. **Mål** – alla användare eller Välj användare
-1. **Spara** varje metod
-
-> [!WARNING]
-> FIDO2 "Key begränsning policies" fungerar inte ännu. Den här funktionen kommer att vara tillgänglig före allmän tillgänglighet. Ändra inte dessa principer från standard.
-
-> [!NOTE]
-> Du behöver inte välja båda metoderna utan lösen ord (om du bara vill förhandsgranska en enda metod för lösen ords skydd kan du bara aktivera den metoden). Vi rekommenderar att du testar båda metoderna eftersom de båda har sina egna förmåner.
+1. **Spara** konfigurationen.
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Användar registrering och hantering av säkerhets nycklar för FIDO2
 
-1. Bläddra till [https://myprofile.microsoft.com](https://myprofile.microsoft.com)
-1. Logga in om inte redan
-1. Klicka på **säkerhets information**
+1. Bläddra till [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+1. Logga in om du inte redan gjort det.
+1. Klicka på **säkerhets information**.
    1. Om användaren redan har minst en registrerad Azure-Multi-Factor Authentication kan de omedelbart registrera en säkerhets nyckel för FIDO2.
    1. Om de inte har minst en registrerad Azure-Multi-Factor Authentication måste de lägga till en.
-1. Lägg till en säkerhets nyckel för FIDO2 genom att klicka på **Lägg till metod** och välja **säkerhets nyckel**
-1. Välj **USB-enhet** eller **NFC-enhet**
-1. Låt din nyckel vara klar och välj **Nästa**
-1. En ruta visas och du uppmanas att skapa/ange en PIN-kod för din säkerhets nyckel och sedan utföra den önskade gesten för din nyckel, antingen bio metrisk eller touch.
-1. Du kommer tillbaka till den kombinerade registrerings upplevelsen och uppmanas att ange ett beskrivande namn för din token, så att du kan identifiera vilken som är en om du har flera. Klicka på **Nästa**.
-1. Slutför processen genom att klicka på **klar**
-
-### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Hantera säkerhets nyckel bio metrisk, PIN-kod eller återställning säkerhets nyckel
-
-* Windows 10 version 1809
-   * Den medföljande program varan från leverantören av säkerhets nyckeln krävs
-* Windows 10 version 1903 eller senare
-   * Användare kan öppna **Windows-inställningar** på sina enheter >**säkerhets nyckel** för **konton** > 
-   * Användare kan ändra sin PIN-kod, uppdatera biometrik eller återställa sin säkerhets nyckel
-
-## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Användar registrering och hantering av Microsoft Authenticator app
-
-Om du vill konfigurera Microsoft Authenticator appen för telefon inloggning, följer du anvisningarna i artikeln [Logga in på dina konton med hjälp av Microsoft Authenticator-appen](../user-help/user-help-auth-app-sign-in.md).
+1. Lägg till en säkerhets nyckel för FIDO2 genom att klicka på **Lägg till metod** och välja **säkerhets nyckel**.
+1. Välj **USB-enhet** eller **NFC-enhet**.
+1. Låt nyckeln vara klar och välj **Nästa**.
+1. En ruta visas och ber användaren att skapa/ange en PIN-kod för din säkerhets nyckel och sedan utföra den begärda gesten för nyckeln, antingen bio metrisk eller touch.
+1. Användaren kommer att returneras till den kombinerade registrerings upplevelsen och uppmanas att ange ett beskrivande namn för nyckeln så att användaren kan identifiera vilken av dem som har flera. Klicka på **Next**.
+1. Slutför processen genom att klicka på **klar** .
 
 ## <a name="sign-in-with-passwordless-credential"></a>Logga in med autentiseringsuppgifter för lösen ord
 
-### <a name="sign-in-at-the-lock-screen"></a>Logga in på Lås skärmen
+I exemplet nedan har en användare redan har etablerad sin FIDO2-säkerhetsnyckel. Användaren kan välja att logga in på webben med sin FIDO2 säkerhets nyckel i en webbläsare som stöds i Windows 10 version 1809 eller senare.
 
-I exemplet nedan har en användare Bala Sandhu redan har tillhandahållit sin FIDO2-säkerhetsnyckel. Bala kan välja providern för säkerhets nyckel autentiseringsuppgifter från Lås skärmen för Windows 10 och infoga säkerhets nyckeln för att logga in på Windows.
+![Inloggning av säkerhets nyckel Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 
-![Säkerhets nyckel logga in på Lås skärmen i Windows 10](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-sign-in-lock-screen.png)
+## <a name="troubleshooting-and-feedback"></a>Fel sökning och feedback
 
-### <a name="sign-in-on-the-web"></a>Logga in på webben
+Om du vill dela feedback eller om du får problem med att för hands Visa den här funktionen kan du dela via Windows Feedback Hub-appen.
 
-I exemplet nedan har en användare redan har etablerad sin FIDO2-säkerhetsnyckel. Användaren kan välja att logga in på webben med sin FIDO2 säkerhets nyckel i Microsoft Edge-webbläsaren på Windows 10 version 1809 eller senare.
-
-![Inloggning av säkerhets nyckel i Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
+1. Starta **feedback Hub** och se till att du är inloggad.
+1. Skicka feedback under följande kategorisering:
+   1. Kategori: säkerhet och sekretess
+   1. Under kategori: FIDO
+1. För att avbilda loggar använder du alternativet: **återskapa mitt problem**
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -159,16 +93,16 @@ I exemplet nedan har en användare redan har etablerad sin FIDO2-säkerhetsnycke
 
 Administratörs etablering och avetablering av säkerhets nycklar är inte tillgängligt i den offentliga för hands versionen.
 
-### <a name="hybrid-azure-ad-join"></a>Hybrid Azure AD-anslutning
-
-Användare som förlitar sig på WIA SSO som använder hanterade autentiseringsuppgifter som FIDO2 säkerhets nycklar eller lösen ords lös inloggning med Microsoft Authenticator appen behöver hybrid anslutning på Windows 10 för att få fördelarna med SSO. Säkerhets nycklar fungerar dock bara för Azure Active Directory anslutna datorer för tillfället. Vi rekommenderar att du bara provar FIDO2-säkerhetsnycklar för Windows Lås skärmen på rena Azure Active Directory anslutna datorer. Den här begränsningen gäller inte för webben.
-
 ### <a name="upn-changes"></a>UPN-ändringar
 
-Vi arbetar med att stödja en funktion som tillåter UPN-ändring på Hybrid AADJ-och AADJ-enheter. Om användarens UPN-ändringar ändras, kan du inte längre ändra FIDO2-säkerhetsnycklar för det. Det enda sättet är att återställa enheten och användaren måste registrera den igen.
+Vi arbetar med att stödja en funktion som tillåter UPN-ändring på Hybrid Azure AD-anslutna och Azure AD-anslutna enheter. Om en användares UPN-ändringar ändras kan du inte längre ändra FIDO2-säkerhetsnycklar för att ändra konto för ändringen. Lösningen är att återställa enheten och användaren måste registrera den igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
+[FIDO2 säkerhets nyckel Windows 10-inloggning](howto-authentication-passwordless-security-key-windows.md)
+
+[Aktivera FIDO2-autentisering för lokala resurser](howto-authentication-passwordless-security-key-on-premises.md)
+
 [Läs mer om enhets registrering](../devices/overview.md)
 
-[Lär dig mer om Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Läs mer om Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

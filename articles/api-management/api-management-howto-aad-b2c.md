@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 4260f4640f488e67d6bb3101ff2cf7d269e2bf3e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 62657134775d21ad6aabdf8f02a1e001de0a6094
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073659"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176845"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Så här auktoriserar du utvecklares konton med hjälp av Azure Active Directory B2C i Azure API Management
 
@@ -43,7 +43,7 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
     
    ![Lägg till AAD B2C som identitets leverantör][api-management-howto-add-b2c-identity-provider]
 
-3. Kopiera omdirigerings- **URL: en**.
+3. Kopiera **omdirigerings-URL: en**.
 
    ![Omdirigerings-URL för AAD B2C-identitetsprovider][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
@@ -55,7 +55,7 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
 
    ![Registrera ett nytt program 2][api-management-howto-aad-b2c-add-button]
 
-6. På bladet **ny program** anger du ett namn för programmet. Välj **Ja** under **Web App/Web API**och välj **Ja** under **Tillåt implicit flöde**. Klistra sedan in omdirigerings- **URL: en** som kopierades i steg 3 i text rutan svars- **URL** .
+6. På bladet **ny program** anger du ett namn för programmet. Välj **Ja** under **Web App/Web API**och välj **Ja** under **Tillåt implicit flöde**. Klistra sedan in **omdirigerings-URL: en** som kopierades i steg 3 i text rutan **svars-URL** .
 
    ![Registrera ett nytt program 3][api-management-howto-aad-b2c-app-details]
 
@@ -85,7 +85,17 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
 
     När ändringarna har sparats kommer utvecklare att kunna skapa nya konton och logga in på Developer-portalen med hjälp av Azure Active Directory B2C.
 
-## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>Registrera dig för ett utvecklar konto genom att använda Azure Active Directory B2C
+## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Utvecklings Portal – Lägg till Azure AD B2C konto-autentisering
+
+Om du vill aktivera inloggning med AAD B2C i Developer-portalen måste du lägga till widgeten **OAuth-knappar** i inloggnings formuläret.
+
+![Widgeten AAD-knappar](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+Även om ett nytt konto skapas automatiskt när en ny användare loggar in med AAD B2C, kan du överväga att lägga till samma widget i registrerings formuläret.
+
+## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>Äldre utvecklares Portal – så här registrerar du dig med Azure AD B2C
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 1. Om du vill registrera ett konto för utvecklare med hjälp av Azure Active Directory B2C öppnar du ett nytt webbläsarfönster och går till Developer-portalen. Klicka på knappen **Registrera dig** .
 
@@ -109,7 +119,7 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
 ## <a name="next-steps"></a>Nästa steg
 
 *  [Översikt över Azure Active Directory B2C]
-*  [Azure Active Directory B2C: Utöknings Bart princip ramverk]
+*  [Azure Active Directory B2C: utöknings Bart princip ramverk]
 *  [Använd en Microsoft-konto som identitets leverantör i Azure Active Directory B2C]
 *  [Använd ett Google-konto som identitets leverantör i Azure Active Directory B2C]
 *  [Använd ett LinkedIn-konto som identitets leverantör i Azure Active Directory B2C]
@@ -136,7 +146,6 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.PNG
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-b2c-security-tab.png
 [api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
@@ -180,7 +189,7 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
 [Accessing the Graph API]: https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 [Översikt över Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [Så här auktoriserar du utvecklares konton med Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
-[Azure Active Directory B2C: Utöknings Bart princip ramverk]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
+[Azure Active Directory B2C: utöknings Bart princip ramverk]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
 [Använd en Microsoft-konto som identitets leverantör i Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
 [Använd ett Google-konto som identitets leverantör i Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
 [Använd ett Facebook-konto som identitets leverantör i Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app

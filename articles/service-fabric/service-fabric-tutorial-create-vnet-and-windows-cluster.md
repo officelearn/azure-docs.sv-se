@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598886"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177982"
 ---
-# <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric kluster som kör Windows till ett virtuellt Azure-nätverk
+# <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric kluster som kör Windows till ett virtuellt Azure-nätverk
 
-Den här självstudien ingår i en serie. Du lär dig hur du distribuerar ett Azure Service Fabric-kluster som kör Windows till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md) och en [nätverks säkerhets grupp](../virtual-network/virtual-networks-nsg.md) med hjälp av PowerShell och en mall. När du är klar har du ett kluster som körs i molnet som du kan distribuera program till. Information om hur du skapar ett Linux-kluster som använder Azure CLI finns i [skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Den här självstudien är del ett i en serie. Du lär dig hur du distribuerar ett Azure Service Fabric-kluster som kör Windows till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md) och en [nätverks säkerhets grupp](../virtual-network/virtual-networks-nsg.md) med hjälp av PowerShell och en mall. När du är klar har du ett kluster som körs i molnet som du kan distribuera program till. Information om hur du skapar ett Linux-kluster som använder Azure CLI finns i [skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 I den här självstudien beskrivs ett produktionsscenario. Om du vill skapa ett mindre kluster i test syfte, se [skapa ett test kluster](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
@@ -38,9 +38,9 @@ I den här guiden får du lära dig att:
 > * Konfigurera EventStore-tjänsten
 > * Konfigurera Azure Monitor loggar
 > * skapa ett säkert Service Fabric-kluster i Azure med PowerShell
-> * skydda klustret med ett X.509-certifikat
+> * Gör klustret säkert med ett X.509-certifikat
 > * Ansluta till klustret med PowerShell
-> * ta bort ett kluster.
+> * Ta bort ett kluster
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
@@ -53,7 +53,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -87,7 +87,7 @@ I resursen **Microsoft.ServiceFabric/kluster** konfigureras ett Windows-kluster 
 * [Hållbarhets nivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) på brons nivå (kan konfigureras i mallparametrar).
 * [Tillförlitlighets nivån](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrar).
 * Klient anslutnings slut punkt: 19000 (kan konfigureras i mallparametrar).
-* HTTP-gatewayslutpunkt: 19080 (kan konfigureras i mallparametrar).
+* HTTP Gateway-slutpunkt: 19080 (kan konfigureras i mallparametrar).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
@@ -112,9 +112,8 @@ Följande regler för inkommande trafik är aktiverade i resursen **Microsoft.Ne
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
-* SMB: 445
 * Internodecommunication: 1025, 1026, 1027
-* Tillfälligt port intervall: 49152 till 65534 (kräver minst 256 portar).
+* Tillfälligt port intervall: 49152 till 65534 (minst 256 portar krävs).
 * Portar för programanvändning: 80 och 443
 * Program port intervall: 49152 till 65534 (används för kommunikation mellan tjänster och tjänster. Andra portar är inte öppna i belastningsutjämnaren.
 * Blockera alla andra portar
@@ -154,14 +153,14 @@ Som standard installeras [Windows Defender Antivirus program](/windows/security/
 
 Filen [azuredeploy. Parameters. JSON][parameters] Parameters deklarerar många värden som används för att distribuera klustret och associerade resurser. Följande är parametrar som ska ändras för distributionen:
 
-**Parametern** | **Exempel värde** | **Anteckningar** 
+**ProfileServiceApplicationProxy** | **Exempel värde** | **Anteckningar** 
 |---|---|---|
 |adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. [Användar namns krav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret. [Lösen ords krav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Namnet på klustret. Får endast innehålla bokstäver och siffror. Längden ska vara mellan 3 och 23 tecken.|
 |location|southcentralus| Klustrets placering. |
 |certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets SHA1-tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
-|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https:\//mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Konfigurera Azure Active Directory-klientautentisering
@@ -192,7 +191,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 ```
 
 > [!NOTE]
-> För nationella moln (till exempel Azure Government, Azure Kina, Azure Germany) anger du `-Location` parametern.
+> För nationella moln (till exempel Azure Government, Azure Kina, Azure Germany) anger du `-Location` parameter.
 
 *TenantId* eller katalog-ID finns i [Azure-portalen](https://portal.azure.com). Välj **Azure Active Directory** > **Egenskaper** och kopiera värdet för **katalog-ID** .
 
@@ -444,7 +443,7 @@ Om du vill aktivera EventStore-tjänsten i klustret lägger du till följande i 
 
 Azure Monitor loggar är vår rekommendation att övervaka händelser på kluster nivå. Om du vill konfigurera Azure Monitor loggar för att övervaka klustret måste du ha [aktiverat diagnostik för att visa händelser på kluster nivå](#configure-diagnostics-collection-on-the-cluster).  
 
-Arbetsytan måste vara anslutna till diagnostikdata som kommer från ditt kluster.  Dessa loggdata lagras i *applicationDiagnosticsStorageAccountName* lagrings konto, i tabellerna WADServiceFabric * EventTable, WADWindowsEventLogsTable och WADETWEventTable.
+Arbets ytan måste vara ansluten till de diagnostikdata som kommer från klustret.  Dessa loggdata lagras i *applicationDiagnosticsStorageAccountName* lagrings konto, i tabellerna WADServiceFabric * EventTable, WADWindowsEventLogsTable och WADETWEventTable.
 
 Lägg till Azure Log Analytics-arbetsytan och Lägg till lösningen i arbets ytan:
 
@@ -728,9 +727,9 @@ Gå vidare till följande självstudie för att lära dig hur du skalar klustret
 > * Konfigurera EventStore-tjänsten
 > * Konfigurera Azure Monitor loggar
 > * skapa ett säkert Service Fabric-kluster i Azure med PowerShell
-> * skydda klustret med ett X.509-certifikat
+> * Gör klustret säkert med ett X.509-certifikat
 > * Ansluta till klustret med PowerShell
-> * ta bort ett kluster.
+> * Ta bort ett kluster
 
 Fortsätt sedan till följande självstudie och lär dig hur du övervakar klustret.
 > [!div class="nextstepaction"]

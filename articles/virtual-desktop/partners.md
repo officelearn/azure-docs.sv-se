@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/30/2019
 ms.author: helohr
-ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b62351f1d99ef54d2416a2427264aea225afc5a8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300216"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171603"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -71,6 +71,16 @@ deviceTRUST är en Windows-Provider för mervärdes tjänster för virtuella dat
 deviceTRUST utökar värdet för virtuella Windows-datorer med deras sammanhangsbaserade säkerhets teknik. deviceTRUST möjliggör villkorlig åtkomst för en säker åtkomst till virtuella Windows-datorer, villkorlig program åtkomst i Windows Virtual Desktop och att tillämpa villkorliga Windows-principer för virtuella skriv bord utan ytterligare infrastruktur. Med deviceTRUST kan du använda en mobil, flexibel arbets yta som uppfyller alla krav på säkerhet, efterlevnad och regler. 
 
 - [Gå till partner webbplatsen](https://devicetrust.com/wvd).
+
+## <a name="ivanti"></a>Ivanti
+
+![Ivanti-logotyp](./media/partners/ivanti.png)
+
+Ivanti User Workspace Manager är en Windows-tjänst för virtuella skriv bord som är till för att under lätta Skriv bords distribution och-hantering genom att skilja användar data från Skriv bordet till sömlös portabilitet. Med Ivanti kan användarna leverera komplexa projekt som att migrera till Windows 10, anta Office 365 eller flytta tjänster till molnet snabbare. 
+
+När den används med Windows Virtual Desktop, ger Ivanti User Workspace Manager enkel kontext hantering av användar Skriv bords miljö, vilket eliminerar lång inloggnings tider och utrotning av Nightmares för grup principer. Ivanti User Workspace Manager är färdiga mallar som fören klar installationen av användare via agenter och den befintliga konsolen. Ivanti User Workspace Manager ger svar, säkra skriv bord som användare älskar, sparar pengar på servrar, hanterar användare effektivare och minskar slut punkts säkerhets risken. 
+
+- [Gå till partner webbplatsen](https://www.ivanti.com/products/user-workspace-manager).
 
 ## <a name="lakeside-software"></a>Lakeside-programvara
 
@@ -133,6 +143,26 @@ PrinterLogic-plattformen är tillgänglig som SaaS eller som en webbstack i ditt
 
 - [Gå till partner webbplatsen](https://www.printerlogic.com).
 
+## <a name="numecent"></a>Numecent
+
+![Numecent-logotyp](./media/partners/numecent.png)
+
+Numecent är en Windows Virtual Desktop-tjänst för mervärdes tjänster som avsevärt minskar den totala drift kostnaden genom snabb onboarding och migrering av komplicerade eller inkompatibla Windows-appar i Windows-miljöer för virtuella skriv bord. Numecent minimerar också mängden konfigurations användare som behöver göra, minskar program uppdateringar och fören klar komplexa processer. Eftersom Numecent Cloudpaging har stöd för fler program än något annat program leverans verktyg minskar tiden och IT-arbetsbelastningar i miljöer med en mängd olika program. 
+
+När det används med Windows Virtual Desktop minskar Cloudpaging ytterligare kostnader genom att slutföra livs cykeln för program varu till gång från distribution till uppgradering, avläsning och borttagning av program. Cloudpaging fören klar avbildnings hanteringen genom att dynamiskt konfigurera appar efter behov i real tid till Windows-distributioner för virtuella datorer. Cloudpaging gör det möjligt för program att köras utan administration eller åtgärder genom de periodiska Windows 10-uppdateringarna. Cloudpaging minskar också licens kostnaden för dyra program genom att aktivera effektivare distribution och användning av dessa program. 
+
+- [Gå till partner webbplatsen](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+
+## <a name="rdpsoft"></a>RDPSoft
+
+![RDPSoft-logotyp](./media/partners/rdpsoft.png)
+
+RDPSoft är en Windows-partner för virtuella datorer som tillhandahåller kraftfulla och billiga lösningar för övervakning, hantering och rapportering. Med sina tjänster för fjärr skrivbords inbefälhavare kan IT-proffs få insikt i hälsa, prestanda, användar aktivitet, licensiering och säkerhet för Windows-distributioner av virtuella datorer. 
+ 
+RDPSoft för fjärr skrivbords tjänster förbättrar Windows-administrationen för virtuella skriv bord. Premium Management-funktioner fören klar delegering av Windows hanterings uppgifter för virtuella skriv bord till support personal genom att tillhandahålla Fjärrhjälp, användarsessionen och process hantering. Samtidigt samlar Remote Desktop Commander-sviten omfattande statistik om prestanda och belastning för varje användare, användar aktivitet och granskning, Windows anslutning för virtuella Skriv bords anslutningar (latens och bandbredd), licensiering och säkerhet till en central Azure SQL databas instans för granskning. Med RDPSoft är utförlig historisk rapportering och omfattande instrument paneler bara ett klick bort.
+
+- [Gå till partner webbplatsen](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
 ## <a name="thinprint"></a>ThinPrint
 
 ![ThinPrint-logotyp](./media/partners/thinprint.png)
@@ -143,6 +173,16 @@ ThinPrint ezeep-lösningen utökar värdet för det virtuella Windows-skrivborde
 
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas).
 - [Gå till partner webbplatsen](https://www.ezeep.com/wvd-printing).
+
+## <a name="tricerat"></a>Tricerat
+
+![Tricerat-logotyp](./media/partners/tricerat.png)
+
+Tricerat erbjuder en överlägsen utskrifts hanterings lösning för virtuella Windows-datorer och andra Skriv bords plattformar. Tricerat-programvaran har robusta funktioner som ger en bättre upplevelse för både användare och administratörer. Administratörer får effektiv effektivitet genom fullständig driv rutins hantering, Förenklad distribution av utskrifts köer och konsekvent hantering över hybrid plattformar. Användar upplevelsen förbättras med kortare inloggnings tider, intelligenta utskrifts köer baserat på användare, enhet och nätverks plats, och självbetjänings alternativ för val av snabb utskrift. 
+
+Med Tricerat är utskriften sömlös i Windows Virtual Desktop och senare. Tricerat-programvaran gör det möjligt för administratörer att enkelt ansluta lokala skrivare till molnet, vilket utökar utskrifts hantering i företags miljö från traditionella miljöer till nya, moderna arbets ytor.
+
+- [Gå till partner webbplatsen](https://www.tricerat.com/solutions/wvd-microsoft/).
 
 ## <a name="workspot"></a>Workspot
 

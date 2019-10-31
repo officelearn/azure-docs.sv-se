@@ -1,36 +1,31 @@
 ---
-title: Använd närhets placerings grupper för virtuella Linux-datorer | Microsoft Docs
+title: Använd närhets placerings grupper för virtuella Linux-datorer
 description: Lär dig mer om att skapa och använda närhets placerings grupper för virtuella Linux-datorer i Azure.
 services: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/01/2019
+ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: a3009c9863d8322e3fe34bd99d64b93f0aa3d858
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 353a266b647c299515c15889c302ba4409aa511b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385743"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171049"
 ---
-# <a name="preview-deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Förhandsversion: Distribuera virtuella datorer till närhets placerings grupper med Azure CLI
+# <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Distribuera virtuella datorer till närhets placerings grupper med Azure CLI
 
-För att få virtuella datorer så nära som möjligt, vilket ger lägsta möjliga fördröjning, bör du distribuera dem i en [närhets placerings grupp](co-location.md#preview-proximity-placement-groups).
+För att få virtuella datorer så nära som möjligt, vilket ger lägsta möjliga fördröjning, bör du distribuera dem i en [närhets placerings grupp](co-location.md#proximity-placement-groups).
 
 En närhets placerings grupp är en logisk gruppering som används för att se till att Azure Compute-resurser är fysiskt placerade nära varandra. Placerings grupper för närhet är användbara för arbets belastningar där låg latens är ett krav.
 
-> [!IMPORTANT]
-> Närhets placerings grupper finns för närvarande i offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> Placerings grupper för närhet är inte tillgängliga i dessa regioner under för hands versionen: **Östra Japan**, östra **Australien** och **Indien, centrala**.
 
 ## <a name="create-the-proximity-placement-group"></a>Skapa placerings gruppen närhet
-Skapa en närhets placerings [`az ppg create`](/cli/azure/ppg#az-ppg-create)grupp med. 
+Skapa en närhets placerings grupp med hjälp av [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
 
 ```azurecli-interactive
 az group create --name myPPGGroup --location westus
@@ -52,6 +47,7 @@ az ppg list -o table
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
 Skapa en virtuell dator i närhets placerings gruppen med [den nya virtuella AZ-datorn](/cli/azure/vm#az-vm-create).
+
 ```azurecli-interactive
 az vm create \
    -n myVM \
@@ -70,11 +66,11 @@ az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
 ```
 
 ## <a name="availability-sets"></a>Tillgänglighetsuppsättningar
-Du kan också skapa en tillgänglighets uppsättning i närheten av placerings gruppen. Använd samma `--ppg` parameter med [AZ VM Availability-set Create](/cli/azure/vm/availability-set#az-vm-availability-set-create) för att skapa en tillgänglighets uppsättning och alla virtuella datorer i tillgänglighets uppsättningen kommer också att skapas i samma närhets placerings grupp.
+Du kan också skapa en tillgänglighets uppsättning i närheten av placerings gruppen. Använd samma `--ppg`-parameter med [AZ VM Availability-set Create](/cli/azure/vm/availability-set#az-vm-availability-set-create) för att skapa en tillgänglighets uppsättning och alla virtuella datorer i tillgänglighets uppsättningen skapas också i samma närhets placerings grupp.
 
 ## <a name="scale-sets"></a>Skalningsuppsättningar
 
-Du kan också skapa en skalnings uppsättning i närheten av placerings gruppen. Använd samma `--ppg` parameter med [AZ VMSS Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) för att skapa en skalnings uppsättning och alla instanser kommer att skapas i samma närhets placerings grupp.
+Du kan också skapa en skalnings uppsättning i närheten av placerings gruppen. Använd samma `--ppg`-parameter med [AZ VMSS Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) för att skapa en skalnings uppsättning och alla instanser skapas i samma närhets placerings grupp.
 
 ## <a name="next-steps"></a>Nästa steg
 

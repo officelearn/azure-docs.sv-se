@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: a3c25553e7abbe39c00407e8000880dc99056bcd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023838"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172993"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -81,7 +81,7 @@ Resurs ägaren för privata länkar kan utföra följande åtgärder över en pr
 > Endast en privat slut punkt i ett godkänt tillstånd kan skicka trafik till en specifik privat länk resurs. 
 
 ### <a name="connecting-using-alias"></a>Ansluta med alias
-Alias är en unik moniker som skapas när tjänst ägaren skapar en privat länk tjänst bakom en standard belastningsutjämnare. Tjänstens ägare kan dela det här aliaset med sina konsumenter offline. Konsumenter kan begära en anslutning till privata länk tjänster med antingen resurs-URI eller alias. Om du vill ansluta med alias måste du skapa en privat slut punkt med hjälp av metoden för godkännande av manuellt anslutning. För att använda en manuell metod för godkännande av anslutning ställer du in en manuell begär ande parameter till sant under skapa flöde för privat slut punkt. Titta på [New-AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) och [AZ Network Private-Endpoint Create](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) för information. 
+Alias är en unik moniker som skapas när tjänst ägaren skapar en privat länk tjänst bakom en standard belastningsutjämnare. Tjänstens ägare kan dela det här aliaset med sina konsumenter offline. Konsumenter kan begära en anslutning till privata länk tjänster med antingen resurs-URI eller alias. Om du vill ansluta med alias måste du skapa en privat slut punkt med hjälp av metoden för godkännande av manuellt anslutning. För att använda en manuell metod för godkännande av anslutning ställer du in en manuell begär ande parameter till sant under skapa flöde för privat slut punkt. Titta på [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) och [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) för information. 
 
 ## <a name="dns-configuration"></a>DNS-konfiguration 
 När du ansluter till en privat länk resurs med hjälp av ett fullständigt kvalificerat domän namn (FQDN) som en del av anslutnings strängen, är det viktigt att konfigurera dina DNS-inställningar på rätt sätt för att matcha den allokerade privata IP-adressen. Befintliga Azure-tjänster kanske redan har en DNS-konfiguration som ska användas vid anslutning via en offentlig slut punkt. Detta måste åsidosättas för att ansluta med hjälp av din privata slut punkt. 
@@ -91,7 +91,7 @@ Nätverks gränssnittet som är kopplat till den privata slut punkten innehålle
 Du kan använda följande alternativ för att konfigurera dina DNS-inställningar för privata slut punkter: 
 - **Använd värd filen (rekommenderas endast för testning)** . Du kan använda värd filen på en virtuell dator för att åsidosätta DNS.  
 - **Använd en privat DNS-zon**. Du kan använda privata DNS-zoner för att åsidosätta DNS-matchningen för en specifik privat slut punkt. En privat DNS-zon kan länkas till det virtuella nätverket för att lösa vissa domäner.
-- **Använd din anpassade DNS-Server**. Du kan använda din egen DNS-server för att åsidosätta DNS-matchningen för en specifik privat länk resurs. Om din [DNS-Server](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) finns i ett virtuellt nätverk kan du skapa en regel för vidarebefordran av DNS för att använda en privat DNS-zon för att förenkla konfigurationen för alla privata länk resurser.
+- **Använd din anpassade DNS-Server**. Du kan använda din egen DNS-server för att åsidosätta DNS-matchningen för en specifik privat länk resurs. Om din [DNS-Server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) finns i ett virtuellt nätverk kan du skapa en regel för vidarebefordran av DNS för att använda en privat DNS-zon för att förenkla konfigurationen för alla privata länk resurser.
  
 > [!IMPORTANT]
 > Vi rekommenderar inte att du åsidosätter en zon som används aktivt för att lösa offentliga slut punkter. Anslutningar till resurser kan inte lösas korrekt utan DNS-vidarebefordran till den offentliga DNS-tjänsten. Du kan undvika problem genom att skapa ett annat domän namn eller följa det föreslagna namnet för varje tjänst nedan. 
@@ -122,8 +122,6 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 |Begränsning |Beskrivning |Åtgärd  |
 |---------|---------|---------|
 |Regler för nätverks säkerhets gruppen (NSG) och användardefinierade vägar gäller inte för privat slut punkt    |NSG stöds inte för privata slut punkter. Medan undernät som innehåller den privata slut punkten kan ha NSG kopplade till sig, gäller inte reglerna för trafik som bearbetas av den privata slut punkten. Du måste ha [aktiverat tvingande nätverks principer](disable-private-endpoint-network-policy.md) för att distribuera privata slut punkter i ett undernät. NSG tillämpas fortfarande på andra arbets belastningar som finns i samma undernät. Vägar i alla klient under nät kommer att använda ett/32-prefix, och om du ändrar standarduppförandet för routning krävs ett liknande UDR  | Styr trafiken genom att använda NSG regler för utgående trafik på käll klienter. Distribuera enskilda vägar med/32-prefix för att åsidosätta privata slut punkts flöden        |
-|Det går inte att skapa privata slut punkter i undernät som är aktiverade för tjänst slut punkt eller specialiserade arbets belastningar    |Det går inte att distribuera privata slut punkter på undernät som är aktiverade för tjänst slut punkter eller undernät som har delegerats till specialiserade arbets belastningar|  Skapa ett separat undernät för att distribuera de privata slut punkterna.        |
-|privat slut punkt kan bara mappas till privata länk tjänst (kundens ägare) i samma region    |   Det går inte att ansluta till en privat länk tjänst från en annan region       |  Under för hands versionen måste du distribuera din privata länk tjänst i samma region.        |
 |  Peer-Virtual Network med enbart privata slut punkter stöds inte   |   När du ansluter till privata slut punkter på en peer-Virtual Network utan någon annan arbets belastning stöds inte       | Distribuera en enskild virtuell dator på peer-Virtual Network för att aktivera anslutningen |
 |Specialiserade arbets belastningar kan inte komma åt privata slut punkter    |   Följande tjänster som distribueras i det virtuella nätverket kan inte komma åt någon privat länk resurs med hjälp av privata slut punkter:<br>App Service-plan</br>Azure Container-instans</br>Azure NetApp Files</br>Dedikerad HSM i Azure<br>       |   Ingen minskning under för hands versionen.       |
 

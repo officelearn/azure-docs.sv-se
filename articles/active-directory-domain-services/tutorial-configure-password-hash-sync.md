@@ -7,16 +7,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 9f2edd99c50de332890fe862e7fb5e2405e2d369
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 41e61376d12d447dd480a39ef7200db6af7cca89
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014036"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172858"
 ---
-# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Självstudier: Aktivera Lösenordssynkronisering i Azure Active Directory Domain Services för Hybrid miljöer
+# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Självstudie: Aktivera Lösenordssynkronisering i Azure Active Directory Domain Services för Hybrid miljöer
 
 I hybrid miljöer kan en Azure Active Directory (Azure AD)-klient konfigureras för att synkroniseras med en lokal Active Directory Domain Services (AD DS)-miljö med hjälp av Azure AD Connect. Som standard synkroniserar Azure AD Connect inte äldre NTLM (NT LAN Manager) och Kerberos-hashvärden för lösen ord som behövs för Azure Active Directory Domain Services (Azure AD DS).
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser:
 
@@ -68,7 +68,7 @@ När Azure AD Connect installerats och kon figurer ATS för synkronisering med A
     * Azure AD-anslutningen heter *contoso.onmicrosoft.com-AAD*
     * Den lokala AD DS-anslutningen heter *OnPrem.contoso.com*
 
-1. Kopiera och klistra in följande PowerShell-skript till datorn med Azure AD Connect installerat. Skriptet utlöser en fullständig lösen ords synkronisering som innehåller äldre hashvärden för lösen ord. Uppdatera variablerna `$adConnector`ochmed kopplings namnen från föregående steg. `$azureadConnector`
+1. Kopiera och klistra in följande PowerShell-skript till datorn med Azure AD Connect installerat. Skriptet utlöser en fullständig lösen ords synkronisering som innehåller äldre hashvärden för lösen ord. Uppdatera `$azureadConnector` och `$adConnector` variabler med anslutnings namnen från föregående steg.
 
     Kör det här skriptet på varje AD-skog för att synkronisera lokala konton NTLM och Kerberos-hashvärden för lösen ord till Azure AD.
 

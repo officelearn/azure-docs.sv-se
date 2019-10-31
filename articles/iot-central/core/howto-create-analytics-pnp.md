@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 040874f0ba5e2766aab8aa399bcae65a6676fa53
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bcf19956d998ace88efbd4e1c9d787f1baeef642
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951138"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177383"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Använda analys för att analysera enhets data
 
@@ -39,7 +39,7 @@ Analytics User Interface består av tre huvud komponenter:
 
 Du måste starta genom att välja en **enhets grupp**och den telemetri som du vill analysera. När du är klar väljer du **analysera** för att börja visualisera dina data.
 
-- **Enhets grupp:** En [enhets grupp](howto-use-device-groups-pnp.md) är en användardefinierad grupp av dina enheter. Till exempel alla kyl skåp i Oakland eller alla version 2,0 lindnings turbiner.
+- **Enhets grupp:** En [enhets grupp](tutorial-use-device-groups-pnp.md) är en användardefinierad grupp av dina enheter. Till exempel alla kyl skåp i Oakland eller alla version 2,0 lindnings turbiner.
 
 - **Telemetri:** Välj den telemetri som du vill analysera och utforska. Du kan välja flera telemetrivärden för att analysera varandra. Standard agg regerings metoden har angetts till Average för numeriskt och antal för sträng data typerna. Sammansättnings metoder som stöds för numeriska data typer är genomsnitt, högsta, lägsta, antal och sum.  Sammansättnings metoder som stöds för data typen String är Count.
 

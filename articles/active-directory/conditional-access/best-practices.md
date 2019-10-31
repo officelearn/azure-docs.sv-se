@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980503"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175778"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metod tips för villkorlig åtkomst i Azure Active Directory
 
@@ -53,7 +53,7 @@ Alla principer tillämpas i två faser:
 
 - I den **andra** fasen uppmanas du att uppfylla de krav som du inte har uppfyllt. Om någon av principerna blockerar åtkomsten är du blockerad och uppmanas inte att uppfylla andra princip kontroller. Om ingen av principerna blockerar dig uppmanas du att uppfylla andra princip kontroller i följande ordning:
 
-   ![Beställa](./media/best-practices/06.png)
+   ![Beställning](./media/best-practices/06.png)
     
    Externa MFA-leverantörer och användnings villkor kommer härnäst.
 

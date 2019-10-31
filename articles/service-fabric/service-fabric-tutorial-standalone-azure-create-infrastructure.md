@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: v-vasuke
 ms.custom: mvc
-ms.openlocfilehash: d9db71a1b64ea6bf2dc73500160ce8e5e6022ef6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c9dd9cf0f0fb6d20d6837b07ab46d376e379ca25
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385023"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177722"
 ---
-# <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudier: Skapa en Azure VM-infrastruktur som värd för ett Service Fabric-kluster
+# <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: skapa en Azure VM-infrastruktur som värd för ett Service Fabric kluster
 
-Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på virtuella Azure-datorer och installerar ett program på den.
+Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på virtuella Azure-datorer och installerar ett program på den.
 
-Den här självstudien ingår i en serie. I den här artikeln skapar du de Azure VM-resurser som krävs för att vara värd för ditt fristående kluster med Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
+Den här självstudien är del ett i en serie. I den här artikeln skapar du de Azure VM-resurser som krävs för att vara värd för ditt fristående kluster med Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
 
 I del ett i den här serien lärde du dig att:
 
@@ -36,7 +36,7 @@ I del ett i den här serien lärde du dig att:
 > * Logga in på någon av instanserna
 > * Förbereda instansen för Service Fabric
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen.  Om du inte redan har ett konto går du till [Azure Portal](https://portal.azure.com) för att skapa ett.
 
@@ -63,9 +63,9 @@ Du behöver en Azure-prenumeration för att kunna utföra stegen i den här sjä
    ![SF-inkommande][sf-inbound]
 
    * Port `3389`, för RDP och ICMP (grundläggande anslutning).
-   * Portar `19000-19003`, för Service Fabric.
-   * Portar `19080-19081`, för Service Fabric.
-   * Port `8080`för webb läsar begär Anden.
+   * Port `19000-19003`för Service Fabric.
+   * Port `19080-19081`för Service Fabric.
+   * Port `8080`för webb läsar förfrågningar.
 
    > [!TIP]
    > För att du ska kunna ansluta dina virtuella datorer tillsammans i Service Fabric, måste de virtuella datorer som är värd för din infrastruktur ha samma autentiseringsuppgifter.  Det finns två vanliga metoder för att få likadana autentiseringsuppgifter: Anslut dem till samma domän, eller ange samma administratörslösenord på varje virtuell dator. Lyckligt vis tillåter Azure att alla virtuella datorer i samma **virtuella nätverk** är lätta att ansluta, så vi ska se till att ha alla våra instanser i samma nätverk.
@@ -90,18 +90,12 @@ Starta ytterligare två **Virtual Machines**, se till att behålla samma instäl
  
 4. Öppna RDP-filen och ange användar namn och lösen ord som du angav i VM-installationen när du uppmanas att göra det.
 
-5. När du är ansluten till en instans måste du verifiera att fjärrregistret kördes, Aktivera SMB och öppna de nödvändiga portarna för SMB och fjär registret.
-
-   Detta är PowerShell-kommandot för att aktivera SMB:
-
-   ```powershell
-   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
-   ```
+5. När du är ansluten till en instans måste du verifiera att fjärrregistret kördes och öppna de nödvändiga portarna.
 
 6. Om du vill öppna portarna i brandväggen använder du följande PowerShell-kommando:
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
    ```
 
 7. Upprepa den här processen för andra instanser och notera de privata IP-adresserna.
@@ -117,15 +111,6 @@ Starta ytterligare två **Virtual Machines**, se till att behålla samma instäl
    ```
 
    Om dina utdata ser ut så här `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` upprepade fyra gånger, fungerar anslutningen mellan instanserna.
-
-3. Nu ska du kontrollera att din SMB-delning fungerar med följande kommando:
-
-   ```
-   net use * \\172.31.20.163\c$
-   ```
-
-   `Drive Z: is now connected to \\172.31.20.163\c$.` ska returneras som utdata.
-
 
    Nu är dina instanser korrekt för beredda för Service Fabric.
 

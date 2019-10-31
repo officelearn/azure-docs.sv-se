@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4ec580c3d4c30fa4d86c24defb7eaded464dea3b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122179"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177327"
 ---
-# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Självstudier: Fråga Apache Hive med ODBC och PowerShell
+# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Självstudie: fråga Apache Hive med ODBC och PowerShell
 
 Microsoft ODBC-drivrutiner ger ett flexibelt sätt att interagera med olika typer av data källor, inklusive Apache Hive. Du kan skriva kod i skript språk som PowerShell som använder ODBC-drivrutinerna för att öppna en anslutning till Hive-klustret, skicka en fråga som du väljer och visa resultatet.
 
@@ -28,7 +28,7 @@ I den här självstudien ska du utföra följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudiekursen behöver du följande:
 
@@ -36,13 +36,13 @@ Innan du börjar den här självstudiekursen behöver du följande:
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installera Microsoft Hive ODBC-drivrutin
 
-Hämta och installera [Microsoft HIVE ODBC-drivrutinen](https://go.microsoft.com/fwlink/?LinkID=286698).
+Hämta och installera [Microsoft HIVE ODBC-drivrutinen](https://www.microsoft.com/download/details.aspx?id=40886).
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Skapa Apache Hive ODBC-datakälla
 
 Följande steg visar hur du skapar en ODBC-datakälla för Apache Hive.
 
-1. Från Windows navigerar du till **Starta** > **Windows Administration Tools** > **ODBC data sources (32-bitars)/(64-bitars)** .  En **Administratörs fönstret för ODBC-datakälla** öppnas.
+1. Från Windows navigerar du till **Start** > **administrations verktyg för Windows** > ODBC- **datakällor (32-bitars)/(64-bitars)** .  En **Administratörs fönstret för ODBC-datakälla** öppnas.
 
     ![OBDC data källans administratör](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Konfigurera en data källa med hjälp av administratör för ODBC-datakälla")
 
@@ -58,9 +58,9 @@ Följande steg visar hur du skapar en ODBC-datakälla för Apache Hive.
    |  Värd (er) |Ange `CLUSTERNAME.azurehdinsight.net`. Till exempel, `myHDICluster.azurehdinsight.net` |
    |  Port |Använd **443**.|
    |  Databas |Använd **standard**. |
-   |  Metod |Välj **Windows Azure HDInsight-tjänst** |
+   |  Mekanism |Välj **Windows Azure HDInsight-tjänst** |
    |  Användarnamn |Ange HDInsight-kluster HTTP användar namn användar namn. Standardanvändarnamnet är **admin**. |
-   |  lösenordsinställning |Ange användar lösen ord för HDInsight-kluster. Markera kryss rutan **Spara lösen ord (krypterad)** .|
+   |  Lösenord |Ange användar lösen ord för HDInsight-kluster. Markera kryss rutan **Spara lösen ord (krypterad)** .|
 
 1. Valfritt: Välj **Avancerade alternativ**.  
 

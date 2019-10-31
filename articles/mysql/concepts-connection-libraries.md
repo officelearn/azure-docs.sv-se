@@ -1,39 +1,39 @@
 ---
-title: Anslutningsbibliotek för Azure Database for MySQL
-description: Den här artikeln visas alla bibliotek eller en drivrutin som klientprogram kan använda när du ansluter till Azure Database för MySQL.
+title: Anslutnings bibliotek för Azure Database for MySQL
+description: I den här artikeln visas varje bibliotek eller driv rutin som klient program kan använda vid anslutning till Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6ce0f2c761ede7d326f52f4d93d7f1b0bfa98cb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2eda6986f0c7c2ab58849a5da6c355d458714f37
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525565"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177757"
 ---
-# <a name="connection-libraries-for-azure-database-for-mysql"></a>Anslutningsbibliotek för Azure Database for MySQL
-Den här artikeln visas alla bibliotek eller en drivrutin som klientprogram kan använda när du ansluter till Azure Database för MySQL.
+# <a name="connection-libraries-for-azure-database-for-mysql"></a>Anslutnings bibliotek för Azure Database for MySQL
+I den här artikeln visas varje bibliotek eller driv rutin som klient program kan använda vid anslutning till Azure Database for MySQL.
 
-## <a name="client-interfaces"></a>Klientgränssnitt
-MySQL erbjuder standarddatabasen drivrutinen anslutning för att använda MySQL med program och verktyg som är kompatibla med branschstandarder ODBC och JDBC. Alla system som fungerar med ODBC eller JDBC kan använda MySQL.
+## <a name="client-interfaces"></a>Klient gränssnitt
+MySQL erbjuder standard anslutning för databas driv rutiner för att använda MySQL med program och verktyg som är kompatibla med bransch standarder ODBC och JDBC. Alla system som fungerar med ODBC eller JDBC kan använda MySQL.
 
-| **Språk** | **Plattform** | **Ytterligare resurser** | **Ladda ned** |
+| **Språk** | **Systemet** | **Ytterligare resurs** | **Ladda ned** |
 | :----------- | :------------| :-----------------------| :------------|
-| PHP | Windows, Linux | [Interna MySQL-drivrutin för PHP - mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Ladda ned](https://secure.php.net/downloads.php) |
-| ODBC | Plattformar som Windows, Linux, Mac OS X och Unix | [Utvecklarguide för MySQL Connector/ODBC](https://dev.mysql.com/doc/connector-odbc/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/odbc/) |
-| ADO.NET | Windows | [Utvecklarguide för MySQL Connector/Net](https://dev.mysql.com/doc/connector-net/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/net/) |
-| JDBC | Plattformsoberoende | [Utvecklarguide för MySQL Connector/J 5.1](https://dev.mysql.com/doc/connector-j/5.1/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/j/) |
-| Node.js | Windows, Linux, Mac OS X | [sidorares/node-mysql2](https://github.com/sidorares/node-mysql2/tree/master/documentation) | [Ladda ned](https://github.com/sidorares/node-mysql2) |
-| Python | Windows, Linux, Mac OS X | [Utvecklarguide för MySQL Connector/Python](https://dev.mysql.com/doc/connector-python/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/python/) |
-| C++ | Windows, Linux, Mac OS X | [Utvecklarguide för MySQL Connector/C++](https://dev.mysql.com/doc/connector-cpp/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/python/) |
-| C | Windows, Linux, Mac OS X | [Utvecklarguide för MySQL Connector/C](https://dev.mysql.com/doc/connector-c/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/c/)
-| Perl | Plattformar som Windows, Linux, Mac OS X och Unix | [DBD::MySQL](https://metacpan.org/pod/DBD::mysql) | [Ladda ned](https://metacpan.org/pod/DBD::mysql) |
+| PHP | Windows, Linux | [MySQL-inbyggd driv rutin för PHP – mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Ladda ned](https://secure.php.net/downloads.php) |
+| ODBC | Windows-, Linux-, Mac OS X-och UNIX-plattformar | [Guide för MySQL Connector/ODBC-utvecklare](https://dev.mysql.com/doc/connector-odbc/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/odbc/) |
+| ADO.NET | Windows | [MySQL Connector/net Developer Guide](https://dev.mysql.com/doc/connector-net/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/net/) |
+| JDBC | Plattform oberoende | [MySQL Connector/J 5,1-guide för utvecklare](https://dev.mysql.com/doc/connector-j/5.1/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/j/) |
+| Node.js | Windows, Linux, Mac OS X | [sidorares/Node-mysql2](https://github.com/sidorares/node-mysql2/tree/master/documentation) | [Ladda ned](https://github.com/sidorares/node-mysql2) |
+| Python | Windows, Linux, Mac OS X | [MySQL Connector/python-guide för utvecklare](https://dev.mysql.com/doc/connector-python/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/python/) |
+| C++ | Windows, Linux, Mac OS X | [MySQL Connector/C++ guide för utvecklare](https://dev.mysql.com/doc/connector-cpp/en/) | [Ladda ned](https://dev.mysql.com/downloads/connector/python/) |
+| C | Windows, Linux, Mac OS X | [Guide för MySQL Connector/C-utvecklare](https://dev.mysql.com/doc/refman/8.0/en/c-api.html) | [Ladda ned](https://dev.mysql.com/downloads/connector/c/)
+| Perl | Windows-, Linux-, Mac OS X-och UNIX-plattformar | [DBD:: MySQL](https://metacpan.org/pod/DBD::mysql) | [Ladda ned](https://metacpan.org/pod/DBD::mysql) |
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs de här snabbstarterna på hur du ansluter till och fråga efter Azure Database för MySQL med hjälp av valfritt språk:
+Läs de här snabb starterna om hur du ansluter till och frågar Azure Database for MySQL med hjälp av ditt val av språk:
 
-[PHP](./connect-php.md) | [Java](./connect-java.md) |  [.NET (C#)](./connect-csharp.md) | [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md)  |  [Ruby](./connect-ruby.md) | [C++](connect-cpp.md) | [gå](./connect-go.md)
+[Php](./connect-php.md) | [Java](./connect-java.md) |  [.net (C#)](./connect-csharp.md) | [python](./connect-python.md) | [Node. js](./connect-nodejs.md) | [ruby](./connect-ruby.md) | [C++](connect-cpp.md) | [Go](./connect-go.md)
 

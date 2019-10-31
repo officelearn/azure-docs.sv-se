@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f558ecf583c96f36b8bbee19c7c9cbb2ee57aa31
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f52fc70b54c27362575bef00c39a93d13e77cc2e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596733"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175345"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Webbapp som loggar in användare – kod konfiguration
 
@@ -34,7 +34,7 @@ De bibliotek som används för att skydda en webbapp (och ett webb-API) är:
 | Plattform | Bibliotek | Beskrivning |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [Identitets modells tillägg för .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Microsoft Identity Extensions för .NET används direkt av ASP.NET och ASP.NET Core och avser en uppsättning dll: er som kör både på .NET Framework och .NET Core. Från en ASP.NET/ASP.NET Core-webbapp kan du kontrol lera token-verifiering med **TokenValidationParameters** -klassen (särskilt i vissa ISV-scenarier) |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL för Java – för närvarande i offentlig för hands version |
+| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL för Java – för närvarande i offentlig för hands version |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | MSAL för python – för närvarande i offentlig för hands version |
 
 Välj den flik som motsvarar den plattform som du är intresse rad av:
@@ -53,7 +53,7 @@ Du kanske vill referera till det här exemplet för fullständig implementerings
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Kodfragment i den här artikeln och följande extraheras från [Java-webbprogrammet som anropar Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp) msal4j-webbappens exempel
+Kodfragment i den här artikeln och följande extraheras från [Java-webbprogrammet som anropar](https://github.com/Azure-Samples/ms-identity-java-webapp) exempel för Java-webbappar i Microsoft Graph MSAL
 
 Du kanske vill referera till det här exemplet för fullständig implementerings information.
 
@@ -137,7 +137,7 @@ I ASP.NET Core finns det en annan fil- [properties\launchSettings.JSON](https://
 ```
 
 I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. det vill säga för de två konfigurationsfilerna ovan, `https://localhost:44321/signin-oidc` att applicationUrl är `http://localhost:3110` men `sslPort` anges (44321) och `CallbackPath` är `/signin-oidc` enligt definitionen i `appsettings.json`.
-  
+
 På samma sätt skulle utloggnings-URI: n vara inställd på `https://localhost:44321/signout-callback-oidc`.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
@@ -175,10 +175,10 @@ aad.clientId=Enter_the_Application_Id_here
 aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
 aad.secretKey=Enter_the_Client_Secret_Here
 aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
-aad.redirectUriGraphUsers=http://localhost:8080/msal4jsample/graph/users
+aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha de redirectUris som definieras av programmet, vilket är `http://localhost:8080/msal4jsample/secure/aad` och `http://localhost:8080/msal4jsample/graph/users`
+I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha de redirectUris som definieras av programmet, vilket är `http://localhost:8080/msal4jsample/secure/aad` och `http://localhost:8080/msal4jsample/graph/me`
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -194,7 +194,8 @@ SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side sess
 ```
 
 > [!NOTE]
-> Den här snabb starten planerar att lagra klient hemligheten i konfigurations filen för enkelhetens skull. I din webbapp skulle du vilja använda andra sätt att lagra din hemliga information, till exempel ett nyckel valv eller en miljö variabel enligt beskrivningen i dokumentationen för flaskor: https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
+> Den här snabb starten planerar att lagra klient hemligheten i konfigurations filen för enkelhetens skull.
+> I din webbapp skulle du vilja använda andra sätt att lagra din hemliga information, till exempel ett nyckel valv eller en miljö variabel enligt beskrivningen i dokumentationen för flaskor: https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
 >
 > ```python
 > CLIENT_SECRET = os.getenv("CLIENT_SECRET")
@@ -215,7 +216,7 @@ I ASP.NET Core Web Apps (och webb-API: er) skyddas programmet eftersom du har et
   > [!NOTE]
   > Om du startar projektet med standard ASP.NET Core-webbprojektet i Visual Studio eller använder `dotnet new mvc` metoden `AddAzureAD` är tillgänglig som standard eftersom de relaterade paketen läses in automatiskt.
   > Men om du skapar ett projekt från grunden och försöker använda koden nedan rekommenderar vi att du lägger till NuGet-paketet **"Microsoft. AspNetCore. Authentication. AzureAD. UI"** i projektet för att göra `AddAzureAD`-metoden tillgänglig.
-  
+
 Följande kod är tillgänglig från [Start. cs # L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34)
 
 ```CSharp
@@ -229,7 +230,7 @@ public class Startup
     ...
       // Sign-in users with the Microsoft identity platform
       services.AddMicrosoftIdentityPlatformAuthentication(Configuration);
-  
+
       services.AddMvc(options =>
       {
           var policy = new AuthorizationPolicyBuilder()
@@ -241,13 +242,13 @@ public class Startup
     }
 ```
 
-@No__t_0 är en tilläggs metod som definierats i [Microsoft. Identity. Web/WebAppServiceCollectionExtensions. cs # L23](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23). Företaget
+`AddMicrosoftIdentityPlatformAuthentication` är en tilläggs metod som definierats i [Microsoft. Identity. Web/WebAppServiceCollectionExtensions. cs # L23](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23). Företaget
 
 - lägger till Autentiseringstjänsten
 - Konfigurera alternativ för att läsa konfigurations filen
 - konfigurerar anslutnings alternativen för OpenID så att den använda utfärdaren är Microsoft Identity Platform (tidigare Azure AD v 2.0) slut punkt
 - utfärdaren av token verifieras
-- anspråken som motsvarar namnet mappas från "preferred_username"-anspråket i ID-token 
+- anspråken som motsvarar namnet mappas från "preferred_username"-anspråket i ID-token
 
 Förutom konfigurationen kan du ange när du anropar `AddMicrosoftIdentityPlatformAuthentication`:
 
@@ -313,7 +314,7 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
   ...
 ```
 
-@No__t_0-klassen gör att utfärdaren av token verifieras i många fall (v 1.0 eller v 2.0-token, en enskild klient eller ett program eller program för flera innehavare som loggar in användare med sina personliga Microsoft-konton, i det offentliga Azure-molnet eller i National moln). Den är tillgänglig från [Microsoft. Identity. Web/Resource/AadIssuerValidator. cs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
+`AadIssuerValidator`-klassen gör att utfärdaren av token verifieras i många fall (v 1.0 eller v 2.0-token, en enskild klient eller ett program eller program för flera innehavare som loggar in användare med sina personliga Microsoft-konton, i det offentliga Azure-molnet eller i National moln). Den är tillgänglig från [Microsoft. Identity. Web/Resource/AadIssuerValidator. cs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -347,7 +348,7 @@ Java-exemplet använder våren-ramverket. Programmet skyddas eftersom du impleme
 
 - verifierar om användaren är autentiserad (`isAuthenticated()` metod)
 - Om användaren inte är autentiserad, beräknar den URL: en för Azure AD-auktoriserans slut punkter och omdirigerar webbläsaren till denna URI
-- När svaret anländer, som innehåller det auth Code-flöde som kan msal4j förvärva token.
+- När svaret anländer, som innehåller den auth-kod som det hämtar token med MSAL Java.
 - När den slutligen tar emot token från token-slutpunkten (på omdirigerings-URI: n) är användaren inloggad.
 
 Mer information finns i `doFilter()`-metoden i [AuthFilter. java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)

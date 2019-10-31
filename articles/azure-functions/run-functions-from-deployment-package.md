@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: 549768473460dcb97b66c3589d71c02039220605
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: dc7f2b6c6e00477b6326e3277cb195aa0de6868c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389953"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176418"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Köra Azure Functions från en paketfil
 
@@ -42,10 +42,10 @@ Om du vill att din Function-app ska kunna köras från ett paket lägger du bara
 | Värde  | Beskrivning  |
 |---------|---------|
 | **`1`**  | Rekommenderas för Function-appar som körs i Windows. Kör från en paket fil i mappen `d:\home\data\SitePackages` i din Function-app. Om du inte [distribuerar med zip Deploy](#integration-with-zip-deployment)kräver det här alternativet att mappen också har en fil med namnet `packagename.txt`. Den här filen innehåller bara namnet på paket filen i mappen utan blank steg. |
-|**`<url>`**  | Platsen för en angiven paketfil som du vill köra. När du använder Blob Storage bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) för att göra det möjligt för functions-körningen att komma åt paketet. Du kan använda [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp paketfiler till ditt Blob Storage-konto.         |
+|**`<URL>`**  | Platsen för en angiven paketfil som du vill köra. När du använder Blob Storage bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) för att göra det möjligt för functions-körningen att komma åt paketet. Du kan använda [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp paketfiler till ditt Blob Storage-konto. När du anger en URL måste du även [Synkronisera utlösare](functions-deployment-technologies.md#trigger-syncing) när du har publicerat ett uppdaterat paket. |
 
 > [!CAUTION]
-> När du kör en Function-app i Windows ger det externa URL-alternativet sämre kall start prestanda. När du distribuerar din Function-app till Windows ska du ange `WEBSITE_RUN_FROM_PACKAGE` till `1` och publicera med zip-distribution.
+> När du kör en Function-app i Windows ger det externa URL-alternativet sämre kall start prestanda. När du distribuerar din Function-app till Windows ska du ställa in `WEBSITE_RUN_FROM_PACKAGE` till `1` och publicera med zip-distribution.
 
 Följande visar en Function-app som kon figurer ATS för att köras från en. zip-fil som finns i Azure Blob Storage:
 
@@ -56,7 +56,7 @@ Följande visar en Function-app som kon figurer ATS för att köras från en. zi
 
 ## <a name="integration-with-zip-deployment"></a>Integrering med zip-distribution
 
-[Zip-distribution][Zip deployment for Azure Functions] är en funktion i Azure App Service som gör att du kan distribuera ditt app-projekt till katalogen `wwwroot`. Projektet paketeras som en. zip-distributions fil. Samma API: er kan användas för att distribuera paketet till mappen `d:\home\data\SitePackages`. Med värdet för appen `WEBSITE_RUN_FROM_PACKAGE` för `1` kopierar API: erna för zip-distribution ditt paket till mappen `d:\home\data\SitePackages` i stället för att extrahera filerna till `d:\home\site\wwwroot`. Det skapar också filen `packagename.txt`. Efter en omstart monteras paketet till `wwwroot` som ett skrivskyddat fil system. Mer information om zip-distribution finns i [zip-distribution för Azure Functions](deployment-zip-push.md).
+[Zip-distribution][Zip deployment for Azure Functions] är en funktion i Azure App Service som gör att du kan distribuera ditt app-projekt till katalogen `wwwroot`. Projektet paketeras som en. zip-distributions fil. Samma API: er kan användas för att distribuera paketet till mappen `d:\home\data\SitePackages`. Med `WEBSITE_RUN_FROM_PACKAGE`-appens inställnings värde för `1`kopierar API: erna för zip-distribution ditt paket till `d:\home\data\SitePackages`-mappen i stället för att extrahera filerna till `d:\home\site\wwwroot`. Det skapar också filen `packagename.txt`. Efter en omstart monteras paketet till `wwwroot` som ett skrivskyddat fil system. Mer information om zip-distribution finns i [zip-distribution för Azure Functions](deployment-zip-push.md).
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Lägger till inställningen WEBSITE_RUN_FROM_PACKAGE
 
@@ -67,7 +67,7 @@ Följande visar en Function-app som kon figurer ATS för att köras från en. zi
 - Kör från paket gör `wwwroot` skrivskyddat, så att du får ett fel meddelande när du skriver filer till den här katalogen.
 - Tar-och gzip-format stöds inte.
 - Den här funktionen skapar inte lokal cache.
-- För förbättrad kall start prestanda använder du det lokala zip-alternativet (`WEBSITE_RUN_FROM_PACKAGE` = 1).
+- För förbättrad kall start prestanda använder du det lokala zip-alternativet (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -17,12 +17,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1ed81c03e7c5ba30b813897dac5796c550ed23
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679833"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175650"
 ---
 # <a name="brokered-auth-in-android"></a>Utjämnad autentisering i Android
 
@@ -64,7 +64,7 @@ Om en enhet inte redan har en Service Broker-app installerad instruerar MSAL anv
 
 När en Broker installeras på en enhet hanteras alla efterföljande interaktiva Tokenbegäran (anrop till `acquireToken()`) av Service Broker i stället för lokalt av MSAL. SSO-tillstånd som tidigare var tillgängligt för MSAL är inte tillgängligt för Broker. Detta innebär att användaren måste autentisera igen eller välja ett konto i den befintliga listan över konton som är kända för enheten.
 
-Att installera en Broker kräver inte att användaren loggar in igen. Endast när användaren behöver lösa en `MsalUiRequiredException` går nästa förfrågan till Service Broker. `MsalUiRequiredException` genereras av flera orsaker och måste lösas interaktivt. Detta är några vanliga orsaker:
+Att installera en Broker kräver inte att användaren loggar in igen. Endast när användaren behöver lösa ett `MsalUiRequiredException` skickas nästa begäran till Service Broker. `MsalUiRequiredException` genereras av flera orsaker och måste lösas interaktivt. Detta är några vanliga orsaker:
 
 - Användaren ändrade lösen ordet som är kopplat till sitt konto.
 - Användarens konto uppfyller inte längre en princip för villkorlig åtkomst.
@@ -122,9 +122,9 @@ MSAL kommunicerar med Service Broker på två sätt:
 - Service Broker-bindning
 - Android-AccountManager
 
-MSAL använder först den Broker-kopplade tjänsten eftersom anrop till den här tjänsten inte kräver några Android-behörigheter. Om bindningen till den kopplade tjänsten Miss lyckas använder MSAL Android AccountManager-API: et. MSAL gör detta endast om din app redan har beviljats behörigheten `"READ_CONTACTS"`.
+MSAL använder först den Broker-kopplade tjänsten eftersom anrop till den här tjänsten inte kräver några Android-behörigheter. Om bindningen till den kopplade tjänsten Miss lyckas använder MSAL Android AccountManager-API: et. MSAL gör detta endast om din app redan har beviljats `"READ_CONTACTS"`-behörighet.
 
-Om du får en `MsalClientException` med felkod `"BROKER_BIND_FAILURE"` finns det två alternativ:
+Om du får ett `MsalClientException` med felkod `"BROKER_BIND_FAILURE"`finns det två alternativ:
 
 - Be användaren att inaktivera energi optimering för Microsoft Authenticator-appen och Intune-företagsportal.
-- Be användaren att ge behörigheten `"READ_CONTACTS"`
+- Be användaren att bevilja `"READ_CONTACTS"` behörighet

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 10/31/2019
 ms.locfileid: "72167355"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
@@ -141,7 +141,7 @@ I föregående exempel utför HiveQL-instruktionerna följande åtgärder:
 
 * `STORED AS TEXTFILE LOCATION`: meddelar Hive var data lagras (`example/data`-katalogen) och att den lagras som text. Data kan finnas i en fil eller spridas över flera filer i katalogen.
 
-* `SELECT`: väljer antalet rader där kolumnen **T4** innehåller värdet **[Error]** . Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
+* `SELECT`: väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]** . Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
 
 * `INPUT__FILE__NAME LIKE '%.log'`-Hive försöker tillämpa schemat på alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra skräp data i resultaten anger den här instruktionen Hive att vi bara ska returnera data från filer som slutar med. log.
 

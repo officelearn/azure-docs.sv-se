@@ -116,3 +116,13 @@
       href: my-apps-portal-end-user-access-reviews.md
     - name: Felsöka problem
       href: my-apps-portal-end-user-troubleshoot.md
+- name: Hjälp för Mina appar (förhandsversion) på portalen
+  items:
+    - name: Översikt
+      href: my-applications-portal-overview.md
+    - name: Komma åt och använda portalen Mina appar
+      href: my-applications-portal-access.md
+    - name: Få åtkomst till och använda arbetsytor
+      href: my-applications-portal-workspaces.md
+    - name: Redigera eller återkalla appbehörigheter
+      href: my-applications-portal-permissions-saved-accounts.md

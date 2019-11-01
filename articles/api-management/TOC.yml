@@ -32,7 +32,7 @@
     - name: 8 – Lägg till flera versioner
       href: api-management-get-started-publish-versions.md
     - name: 9 – Anpassa utvecklarportalen
-      href: api-management-customize-styles.md
+      href: api-management-howto-developer-portal-customize.md
 - name: Exempel
   items:
     - name: Principer
@@ -123,15 +123,11 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Anpassa utvecklarupplevelsen
       items:
-        - name: Komma åt och anpassa den nya utvecklarportalen
+        - name: Förstå utvecklarportalen
           href: api-management-howto-developer-portal.md
-        - name: Ändra innehåll och layout
-          href: api-management-modify-content-layout.md
-        - name: Anpassa systemsidor med mallar
-          href: api-management-developer-portal-templates.md
-        - name: Autentisering med Azure AD
+        - name: Autentisera med Azure AD
           href: api-management-howto-aad.md
-        - name: Autentisering med Azure AD B2C
+        - name: Autentisera med Azure AD B2C
           href: api-management-howto-aad-b2c.md
         - name: Delegerad autentisering
           href: api-management-howto-setup-delegation.md
@@ -139,6 +135,34 @@
           href: api-management-howto-configure-notifications.md
         - name: Aktivera OAuth-stöd för konsolen
           href: api-management-howto-oauth2.md
+        - name: Äldre portalen – anpassa portalen
+          href: api-management-customize-styles.md
+        - name: Äldre portalen – ändra sidor och layouter
+          href: api-management-modify-content-layout.md
+        - name: Äldre portalen – anpassa med mallar
+          href: api-management-developer-portal-templates.md
+    - name: Mallar för den äldre portalen
+      items:
+        - name: Referens för datamodell
+          href: api-management-template-data-model-reference.md
+        - name: Sidkontroller
+          href: api-management-page-controls.md
+        - name: Mallar
+          href: api-management-developer-portal-templates-reference.md
+        - name: 'API:er'
+          href: api-management-api-templates.md
+        - name: Produkter
+          href: api-management-product-templates.md
+        - name: Program
+          href: api-management-application-templates.md
+        - name: Problem
+          href: api-management-issue-templates.md
+        - name: Användarprofil
+          href: api-management-user-profile-templates.md
+        - name: Sidor
+          href: api-management-page-templates.md
+        - name: Mallresurser
+          href: api-management-template-resources.md
     - name: Definiera principer
       items:
         - name: Ange eller redigera principer
@@ -167,28 +191,6 @@
           href: api-management-cross-domain-policies.md
         - name: Omvandlingsprinciper
           href: api-management-transformation-policies.md
-    - name: Mallreferens
-      items:
-        - name: Mallar
-          href: api-management-developer-portal-templates-reference.md
-        - name: 'API:er'
-          href: api-management-api-templates.md
-        - name: Produkter
-          href: api-management-product-templates.md
-        - name: Program
-          href: api-management-application-templates.md
-        - name: Problem
-          href: api-management-issue-templates.md
-        - name: Användarprofil
-          href: api-management-user-profile-templates.md
-        - name: Sidor
-          href: api-management-page-templates.md
-        - name: Mallresurser
-          href: api-management-template-resources.md
-    - name: Referens för datamodell
-      href: api-management-template-data-model-reference.md
-    - name: Sidkontroller
-      href: api-management-page-controls.md
     - name: Hantera i produktionen
       items:
         - name: Hantera grupper

@@ -1,17 +1,17 @@
 ---
 title: Exempel på IRS 1075-skiss – översikt
-description: Översikt över IRS 1075-skissexemplet. Det här skissexemplet hjälper kunderna att bedöma specifika IRS 1075-kontroller.
+description: Översikt över IRS 1075-skissexemplet. Det här skissexemplet hjälper kunderna att utvärdera specifika IRS 1075-kontroller.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 0f24cf54dbd41b84e723673e42bc44b7d5aa6ab5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 43578f0600b4f4359e52f310366ccac1aff3acb1
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163275"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200694"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Översikt över IRS 1075-skissexemplet
 

@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a770fca4f14e5441e5ef4f7bc99d9c0abd9a59d3
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105417"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241627"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Maskin inlärning på HDInsight
 
-HDInsight möjliggör maskin inlärning med Big data, vilket ger möjlighet att få värdefulla insikter från stora mängder (petabyte, eller till och med exabyte) av strukturerade, ostrukturerade och snabbt föränderliga data. Det finns flera maskin inlärnings alternativ i HDInsight:  SparkML och Apache Spark MLlib, R, Apache Hive och Microsoft Cognitive Toolkit.
+HDInsight möjliggör maskin inlärning med Big data, vilket ger möjlighet att få värdefulla insikter från stora mängder (petabyte, eller till och med exabyte) av strukturerade, ostrukturerade och snabbt föränderliga data. Det finns flera maskin inlärnings alternativ i HDInsight: SparkML och Apache Spark MLlib, R, Apache Hive och Microsoft Cognitive Toolkit.
 
 ## <a name="sparkml-and-mllib"></a>SparkML och MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md) är ett Azure-värd erbjudande för [Apache Spark](https://spark.apache.org/), en enhetlig, öppen källa, Parallel Data processing Framework som stöder minnes intern bearbetning för att förbättra stor data analys. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. Det finns två skalbara Machine Learning-bibliotek som ger algoritmiska modellerings funktioner till den här distribuerade miljön: MLlib och SparkML. MLlib innehåller det ursprungliga API som byggts ovanpå RDD. SparkML är ett nyare paket som ger ett API på högre nivå som bygger på DataFrames för att konstruera ML-pipeliner. SparkML har ännu inte stöd för alla funktioner i MLlib, men ersätter MLlib som Spark standard Machine Learning-bibliotek.
+[HDInsight Spark](spark/apache-spark-overview.md) är ett Azure-värd erbjudande för [Apache Spark](https://spark.apache.org/), en enhetlig, öppen källa, Parallel Data processing Framework som stöder minnes intern bearbetning för att förbättra stor data analys. Motorn för Spark-bearbetning är byggd för hastighet, enkel användning och avancerad analys. Spark: s InMemory-distribuerade beräknings funktioner gör det ett bra val för de iterativa algoritmerna som används i maskin inlärnings-och diagram beräkningar. Det finns två skalbara Machine Learning-bibliotek som ger algoritmiska modellerings funktioner till den här distribuerade miljön: MLlib och SparkML. MLlib innehåller det ursprungliga API som byggts ovanpå RDD. SparkML är ett nyare paket som ger ett API på högre nivå som bygger på DataFrames för att konstruera ML-pipeliner. SparkML har ännu inte stöd för alla funktioner i MLlib, men ersätter MLlib som Spark standard Machine Learning-bibliotek.
 
 Microsoft Machine Learning-biblioteket för Apache Spark är [MMLSpark](https://github.com/Azure/mmlspark). Det här biblioteket är utformat för att göra data experter mer produktiva i Spark, öka frekvensen för experimentering och utnyttja de senaste teknikerna för maskin inlärning, inklusive djup inlärning, på mycket stora data uppsättningar. MMLSpark tillhandahåller ett lager ovanpå SparkMLs lågnivå-API: er när du skapar skalbara ML-modeller, t. ex. indexering av strängar, data som ska förväntas av Machine Learning-algoritmer och sammansättning av funktions vektorer. MMLSpark-biblioteket fören klar dessa och andra vanliga uppgifter för att skapa modeller i PySpark.
 
@@ -41,7 +41,7 @@ Azure Machine Learning innehåller verktyg för att modellera förutsägelse ana
 
 ![Översikt över Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-Skapa funktioner för data i ett HDInsight Hadoop-kluster med [Hive-frågor](../machine-learning/team-data-science-process/create-features-hive.md). *Funktions teknikerna* försöker öka förutsägelse kraften hos Learning-algoritmer genom att skapa funktioner från rå data som underlättar inlärnings processen. Du kan köra HiveQL-frågor från Azure Machine Learning Studio och komma åt data som bearbetas i Hive och lagras i Blob Storage med hjälp av [modulen importera data](../machine-learning/studio/import-data.md).
+Skapa funktioner för data i ett HDInsight Hadoop-kluster med [Hive-frågor](../machine-learning/team-data-science-process/create-features-hive.md). *Funktions teknikerna* försöker öka förutsägelse kraften hos Learning-algoritmer genom att skapa funktioner från rå data som underlättar inlärnings processen. Du kan köra HiveQL-frågor från Azure Machine Learning Studio (klassisk) och komma åt data som bearbetas i Hive och lagras i Blob Storage med hjälp av [modulen importera data](../machine-learning/studio/import-data.md).
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 
@@ -53,8 +53,8 @@ För att få fram sitt eget arbete i djup inlärning har Microsoft utvecklat den
 
 ### <a name="scenarios"></a>Scenarier
 
-* [Apache Spark med Machine Learning: Använda spark i HDInsight för analys av bygg temperatur med HVAC-data](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Skapa film rekommendationer med Apache Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Apache Hive och Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
 * [Apache Hive och Azure Machine Learning slut punkt till slut punkt](../machine-learning/team-data-science-process/hive-walkthrough.md)

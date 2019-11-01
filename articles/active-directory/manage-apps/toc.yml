@@ -131,10 +131,14 @@
           items:
             - name: Konfigurera användarmedgivande
               href: configure-user-consent.md
+            - name: Konfigurera arbetsflöde för administratörsmedgivande (förhandsversion)
+              href: configure-admin-consent-workflow.md
             - name: Metoder för tilldelning av användare och grupper i en app
               href: methods-for-assigning-users-and-groups.md
             - name: Tilldela en användare till en app
               href: assign-user-or-group-access-portal.md
+            - name: Skapa arbetsytor i Mina appar (förhandsversion)
+              href: access-panel-workspaces.md
             - name: Använda appåtkomst via självbetjäning
               href: access-panel-manage-self-service-access.md
             - name: Metoder för att ta bort en användares åtkomst till en app
@@ -155,6 +159,8 @@
               href: migration-resources.md
             - name: Migrera en ADFS-app till Azure
               href: migrate-adfs-apps-to-azure.md
+            - name: Använda AD FS-programaktivitetsrapporten (förhandsversion)
+              href: migrate-adfs-application-activity.md
         - name: Felsöka
           items:
             - name: Felsöka processen för att lägga till appar

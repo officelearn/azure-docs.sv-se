@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Apache Storm skriver till Storage/Data Lake Storage – Azure HDInsight
+title: 'Självstudie: HDInsight Apache Storm till lagring – Azure/Data Lake'
 description: Självstudie – lär dig hur du använder Apache Storm för att skriva till den HDFS-kompatibla lagringen för Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: b6114a764d0834b7bcfe4b95d34fae6a03a8a40e
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181021"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241205"
 ---
-# <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Självstudier: Skriv till Apache Hadoop HDFS från Apache Storm på Azure HDInsight
+# <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Självstudie: skriva till Apache Hadoop HDFS från Apache Storm på Azure HDInsight
 
 Den här självstudien visar hur du använder Apache Storm för att skriva data till den HDFS-kompatibla lagring som används av Apache Storm i HDInsight. HDInsight kan använda både Azure Storage och Azure Data Lake Storage som HDFS-kompatibel lagring. Storm tillhandahåller en [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) -komponent som skriver data till HDFS. Det här dokumentet innehåller information om hur du skriver till valfri typ av lagring från HdfsBolt.
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Visa utdata
 > * Stoppa topologin
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
 
@@ -38,11 +38,11 @@ I den här guiden får du lära dig att:
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta gäller Azure Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. `wasb://` Om säker överföring har Aktiver ATS för Azure Storage är URI: `wasbs://`n.  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
+* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta är `wasb://` för Azure Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Azure Storage blir URI: n `wasbs://`.  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
 
 ### <a name="example-configuration"></a>Exempelkonfiguration
 
-Följande yaml är ett utdrag från `resources/writetohdfs.yaml` filen som ingår i exemplet. Den här filen definierar Storm-topologin med [flödes](https://storm.apache.org/releases/current/flux.html) ramverket för Apache storm.
+Följande YAML är ett utdrag från `resources/writetohdfs.yaml`-filen som ingår i exemplet. Den här filen definierar Storm-topologin med [flödes](https://storm.apache.org/releases/current/flux.html) ramverket för Apache storm.
 
 ```yaml
 components:
@@ -100,30 +100,30 @@ bolts:
 
 Den här YAML definierar följande objekt:
 
-* `syncPolicy`: Definierar när filer synkroniseras/töms i fil systemet. I det här exemplet var 1000 tupler.
-* `fileNameFormat`: Definierar sökväg och fil namns mönster som ska användas vid skrivning av filer. I det här exemplet anges sökvägen vid körning med ett filter och fil namns tillägget är `.txt`.
-* `recordFormat`: Definierar det interna formatet för de filer som skrivs. I det här exemplet är fälten avgränsade med `|` specialtecknet.
-* `rotationPolicy`: Definierar när filer ska roteras. I det här exemplet utförs ingen rotation.
-* `hdfs-bolt`: Använder de tidigare komponenterna som konfigurations parametrar för `HdfsBolt` klassen.
+* `syncPolicy`: definierar när filer synkroniseras/töms i fil systemet. I det här exemplet var 1000 tupler.
+* `fileNameFormat`: definierar sökväg och fil namns mönster som ska användas vid skrivning av filer. I det här exemplet anges sökvägen vid körning med ett filter och fil namns tillägget är `.txt`.
+* `recordFormat`: definierar det interna formatet för de filer som skrivs. I det här exemplet är fälten avgränsade med `|`-tecknen.
+* `rotationPolicy`: definierar när filer ska roteras. I det här exemplet utförs ingen rotation.
+* `hdfs-bolt`: använder de tidigare komponenterna som konfigurations parametrar för klassen `HdfsBolt`.
 
-Mer information om flödes ramverket finns i [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
+Mer information om flödes ramverket finns [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
 ## <a name="configure-the-cluster"></a>Konfigurera klustret
 
-Storm på HDInsight innehåller som standard inte de komponenter som `HdfsBolt` används för att kommunicera med Azure Storage eller data Lake Storage i Storms Klas Sök väg. Använd följande skript åtgärd för att lägga till dessa komponenter i `extlib` katalogen för storm i klustret:
+Storm på HDInsight innehåller som standard inte de komponenter som `HdfsBolt` använder för att kommunicera med Azure Storage eller Data Lake Storage i storm-classpath. Använd följande skript åtgärd för att lägga till dessa komponenter i `extlib` katalog för storm i klustret:
 
-| Egenskap | Value |
+| Egenskap | Värde |
 |---|---|
-|Skripttyp |– Anpassad|
+|Skript typ |– Anpassad|
 |Bash-skript-URI |`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`|
 |Node-typ (er) |Nimbus, ansvarig|
-|Parametrar |Inga|
+|Parametrar |Inget|
 
 Information om hur du använder det här skriptet med klustret finns i avsnittet [Anpassa HDInsight-kluster med skript åtgärder](./../hdinsight-hadoop-customize-cluster-linux.md) .
 
 ## <a name="build-and-package-the-topology"></a>Bygg och paketera topologin
 
-1. Ladda ned exempel projektet från [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) till utvecklings miljön.
+1. Ladda ned exempel projektet från [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) till din utvecklings miljö.
 
 2. Ändra kataloger till roten för det nedladdade projektet från en kommando tolk, Terminal eller Shell-session. Använd följande kommando för att bygga och paketera topologin:
 
@@ -131,7 +131,7 @@ Information om hur du använder det här skriptet med klustret finns i avsnittet
     mvn compile package
     ```
 
-    När bygget och packningen är slutfört finns det en ny katalog `target`med namnet, som innehåller en `StormToHdfs-1.0-SNAPSHOT.jar`fil med namnet. Den här filen innehåller den kompilerade topologin.
+    När bygget och packningen är slutfört finns det en ny katalog med namnet `target`, som innehåller en fil med namnet `StormToHdfs-1.0-SNAPSHOT.jar`. Den här filen innehåller den kompilerade topologin.
 
 ## <a name="deploy-and-run-the-topology"></a>Distribuera och köra topologin
 
@@ -147,13 +147,13 @@ Information om hur du använder det här skriptet med klustret finns i avsnittet
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. När du är ansluten använder du följande kommando för att skapa en `dev.properties`fil med namnet:
+1. När du är ansluten använder du följande kommando för att skapa en fil med namnet `dev.properties`:
 
     ```bash
     nano dev.properties
     ```
 
-1. Använd följande text som `dev.properties` filens innehåll. Ändra efter behov baserat på ditt [URI-schema](../hdinsight-hadoop-linux-information.md#URI-and-scheme).
+1. Använd följande text som innehåll i `dev.properties`s filen. Ändra efter behov baserat på ditt [URI-schema](../hdinsight-hadoop-linux-information.md#URI-and-scheme).
 
     ```
     hdfs.write.dir: /stormdata/
@@ -168,7 +168,7 @@ Information om hur du använder det här skriptet med klustret finns i avsnittet
     storm jar StormToHdfs-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writetohdfs.yaml --filter dev.properties
     ```
 
-    Det här kommandot startar topologin med flödes ramverket genom att skicka den till Nimbus-noden i klustret. Topologin definieras av `writetohdfs.yaml` filen som ingår i burken. `dev.properties` Filen skickas som ett filter och de värden som finns i filen läses av topologin.
+    Det här kommandot startar topologin med flödes ramverket genom att skicka den till Nimbus-noden i klustret. Topologin definieras av `writetohdfs.yaml`-filen som ingår i burken. `dev.properties`-filen skickas som ett filter och de värden som finns i filen läses av topologin.
 
 ## <a name="view-output-data"></a>Visa utdata
 

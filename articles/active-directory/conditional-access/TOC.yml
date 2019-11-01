@@ -31,6 +31,8 @@
       href: location-condition.md
     - name: Kontroller
       href: controls.md
+    - name: Läget Endast rapport
+      href: concept-conditional-access-report-only.md
     - name: Tjänstberoenden
       href: service-dependencies.md
     - name: Konsekvensverktyg
@@ -76,6 +78,8 @@
       href: untrusted-networks.md
     - name: Kräva användningsvillkor
       href: terms-of-use.md
+    - name: Läget Konfigurera endast rapport
+      href: howto-conditional-access-report-only.md
     - name: Inloggningsfrekvens och kontroll av webbläsarpersistens
       href: howto-conditional-access-session-lifetime.md
     - name: Migrera klassiska principer

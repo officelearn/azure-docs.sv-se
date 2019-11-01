@@ -1,5 +1,5 @@
 ---
-title: RpcTimeoutException för Apache Spark Thrift-server i Azure HDInsight
+title: RpcTimeoutException för Apache Spark Thrift – Azure HDInsight
 description: Du ser 502 fel vid bearbetning av stora data mängder med hjälp av Apache Spark Thrift-Server
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 220465105733b715c1990fd73904b9dc095637d4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: c9e71c745d62432af3c0fe035d28009e3e5be761
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088601"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241032"
 ---
 # <a name="scenario-rpctimeoutexception-for-apache-spark-thrift-server-in-azure-hdinsight"></a>Scenario: RpcTimeoutException för Apache Spark Thrift-server i Azure HDInsight
 
@@ -20,14 +20,14 @@ I den här artikeln beskrivs fel söknings steg och möjliga lösningar på prob
 
 ## <a name="issue"></a>Problem
 
-Spark-programmet Miss lyckas `org.apache.spark.rpc.RpcTimeoutException` med ett undantag och ett `Futures timed out`meddelande:, som i följande exempel:
+Spark-programmet Miss lyckas med ett `org.apache.spark.rpc.RpcTimeoutException` undantag och ett meddelande: `Futures timed out`, som i följande exempel:
 
 ```
 org.apache.spark.rpc.RpcTimeoutException: Futures timed out after [120 seconds]. This timeout is controlled by spark.rpc.askTimeout
  at org.apache.spark.rpc.RpcTimeout.org$apache$spark$rpc$RpcTimeout$$createRpcTimeoutException(RpcTimeout.scala:48)
 ```
 
-`OutOfMemoryError`och `overhead limit exceeded` fel kan också visas `sparkthriftdriver.log` i som i följande exempel:
+`OutOfMemoryError` och `overhead limit exceeded` fel kan också visas i `sparkthriftdriver.log` som i följande exempel:
 
 ```
 WARN  [rpc-server-3-4] server.TransportChannelHandler: Exception in connection from /10.0.0.17:53218
@@ -36,13 +36,13 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 ## <a name="cause"></a>Orsak
 
-Dessa fel orsakas av brist på minnes resurser under data bearbetning. Om Java skräp insamlings processen startar kan det leda till att Spark-programmet låser sig. Frågorna börjar ta slut och stoppa bearbetningen. `Futures timed out` Felet indikerar ett kluster under allvarlig stress.
+Dessa fel orsakas av brist på minnes resurser under data bearbetning. Om Java skräp insamlings processen startar kan det leda till att Spark-programmet låser sig. Frågorna börjar ta slut och stoppa bearbetningen. `Futures timed out` felet indikerar ett kluster under allvarlig stress.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 Öka kluster storleken genom att lägga till fler arbetsnoder eller öka minnes kapaciteten för de befintliga klusternoderna. Du kan också justera data pipelinen för att minska mängden data som bearbetas samtidigt.
 
-`spark.network.timeout` Kontrollerar tids gränsen för alla nätverks anslutningar. Om du ökar nätverks tids gränsen kan det ta längre tid för vissa kritiska åtgärder att slutföras, men problemet löses inte helt och hållet.
+`spark.network.timeout` styr tids gränsen för alla nätverks anslutningar. Om du ökar nätverks tids gränsen kan det ta längre tid för vissa kritiska åtgärder att slutföras, men problemet löses inte helt och hållet.
 
 ## <a name="next-steps"></a>Nästa steg
 

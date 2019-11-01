@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8eb329ae019f125b98c475b4a77d19e9cafe23fa
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 57f37808f3f90863079ba73f7899f142d32951d3
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053826"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242964"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Återställa en virtuell Azure-dator mellan Azure-regioner
 
@@ -58,7 +58,7 @@ När de virtuella datorerna har återskyddats kan du växla tillbaka till den pr
     ![VM i primär och sekundär region](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> För datorer som kör Site Recovery Extension-versionen 9.28. x. x och senare samlad [uppdatering 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery rensar datorer i den sekundära återställnings regionen, nafter återställning efter fel har slutförts och virtuella datorer skyddas igen. Det finns inget behov av att manuellt ta bort virtuella datorer och nätverkskort.
+> För datorer som kör Site Recovery Extension-versionen 9.28. x. x och med [Samlad uppdatering 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery rensar datorer i den sekundära katastrof återställnings regionen efter att återställning efter fel har slutförts och virtuella datorer skyddas på nytt. Det finns inget behov av att manuellt ta bort virtuella datorer och nätverkskort i den sekundära regionen. Om du inaktiverar replikeringen helt efter att du har återställt igen rensar Site Recovery diskarna i Disaster Recovery-regionen, utöver de virtuella datorerna och nätverkskorten.
 
 ## <a name="next-steps"></a>Nästa steg
 

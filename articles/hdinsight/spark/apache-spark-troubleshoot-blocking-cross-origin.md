@@ -1,5 +1,5 @@
 ---
-title: Jupyter Server 404-fel på grund av "blockering av cross origin API" i Azure HDInsight
+title: Jupyter 404-fel-"blockering av cross origin API" – Azure HDInsight
 description: Det gick inte att hitta Jupyter Server 404 på grund av "blockering av cross origin API" i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: f5ac70381f0879a896e96cb37a70c1b1a1f0b5da
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7f8eb000533673d243258d569834869bbb2a1778
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091009"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241123"
 ---
-# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Scenario: Det gick inte att hitta Jupyter Server 404 på grund av "blockering av cross origin API" i Azure HDInsight
+# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Scenario: det gick inte att hitta Jupyter Server 404 på grund av "blockering av cross origin API" i Azure HDInsight
 
 I den här artikeln beskrivs fel söknings steg och möjliga lösningar på problem när du använder Apache Spark-komponenter i Azure HDInsight-kluster.
 
@@ -36,9 +36,9 @@ Det här felet kan orsakas av ett par saker:
 
 - Om du har konfigurerat regler för nätverks säkerhets grupper (NSG) för att begränsa åtkomsten till klustret. Genom att begränsa åtkomsten med NSG-regler kan du fortfarande komma åt Apache Ambari och andra tjänster direkt med hjälp av IP-adressen i stället för kluster namnet. Men vid åtkomst till Jupyter kan du se ett 404-fel som inte hittades.
 
-- Om du har gett din HDInsight-Gateway ett anpassat DNS-namn som inte `xxx.azurehdinsight.net`är standard.
+- Om du har gett din HDInsight-Gateway ett anpassat DNS-namn som inte är standard `xxx.azurehdinsight.net`.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 1. Ändra jupyter.py-filerna på följande två platser:
 
@@ -47,11 +47,11 @@ Det här felet kan orsakas av ett par saker:
     /var/lib/ambari-agent/cache/common-services/JUPYTER/1.0.0/package/scripts/jupyter.py
     ```
 
-1. Hitta den rad som säger: `NotebookApp.allow_origin='\"https://{2}.{3}\"'`Och ändra den till: `NotebookApp.allow_origin='\"*\"'`.
+1. Hitta raden som säger: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` och ändra den till: `NotebookApp.allow_origin='\"*\"'`.
 
 1. Starta om Jupyter-tjänsten från Ambari.
 
-1. Om `ps aux | grep jupyter` du skriver i kommando tolken bör du visa att den tillåter alla URL: er att ansluta till den.
+1. Om du skriver `ps aux | grep jupyter` i kommando tolken bör du visa att den tillåter alla URL: er att ansluta till den.
 
 Detta är ett mindre säkert än den inställning som vi redan hade på plats. Men det förutsätts att åtkomst till klustret är begränsad och att en från utsidan tillåts ansluta till klustret eftersom vi har NSG på plats.
 

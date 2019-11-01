@@ -9,16 +9,16 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: c4dec98b66c5074acd6c2350a125c65e448e4878
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992384"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242460"
 ---
 # <a name="event-schemas"></a>Händelsescheman
 
-Event Grid-modulen accepterar och levererar händelser i JSON-format. Det finns för närvarande två scheman som stöds av Event Grid:-
+Event Grid-modulen accepterar och levererar händelser i JSON-format. Det finns för närvarande tre scheman som stöds av Event Grid:-
 
 * **EventGridSchema**
 * **CustomSchema**

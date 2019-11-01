@@ -8,12 +8,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0b51617966ad85037ad29f3e5005a17f66602e01
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5c07fac0590b833aa19909849271c59d65d42ad6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677128"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242454"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 
@@ -40,6 +40,7 @@ Application Insights SDK: er för .NET, .NET Core, Java, Node. js och Java Scrip
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Python (för hands version)](opencensus-python.md)
 
 När du har installerat och konfigurerat rätt Application Insights SDK samlas spårnings information automatiskt in för populära ramverk, bibliotek och tekniker med SDK-beroenden automatiskt insamlare. En fullständig lista över tekniker som stöds finns i [den beroende automatiska insamlings dokumentationen](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
@@ -49,7 +50,7 @@ När du har installerat och konfigurerat rätt Application Insights SDK samlas s
 
 Utöver Application Insights SDK: er Application Insights även stöd för distribuerad spårning via [openräkning](https://opencensus.io/). Openräkning är en öppen källkod, en oberoende, en enda distribution av bibliotek, som tillhandahåller statistik insamling och distribuerad spårning för tjänster. Den gör det också möjligt för communityn för öppen källkod att aktivera distribuerad spårning med populära tekniker som Redis, memcached eller MongoDB. [Microsoft samarbetar om openräkning med flera andra övervaknings-och moln partner](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-Om du vill lägga till distribuerade spårnings funktioner i ett program med openräkning måste [du först installera och konfigurera den Application Insights lokala vidarebefordraren](./../../azure-monitor/app/opencensus-local-forwarder.md). Därifrån konfigurerar du openinventering för att dirigera distribuerade spårnings data via den lokala vidarebefordraren. Både [python](./../../azure-monitor/app/opencensus-python.md) och [Go](./../../azure-monitor/app/opencensus-go.md) stöds.
+[Python (för hands version)](opencensus-python.md) 
 
 Webbplatsen för opensite innehåller API-referens dokumentation för [python](https://opencensus.io/api/python/trace/usage.html) och [Go](https://godoc.org/go.opencensus.io), samt olika guider för att använda openräkning. 
 

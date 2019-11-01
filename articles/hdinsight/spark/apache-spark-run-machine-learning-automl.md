@@ -1,5 +1,5 @@
 ---
-title: Kör Azure Machine Learning arbets belastningar på Apache Spark i Azure HDInsight
+title: Kör Azure Machine Learning arbets belastningar på Apache Spark i HDInsight
 description: Lär dig hur du kör Azure Machine Learning arbets belastningar med automatiserad Machine Learning (AutoML) på Apache Spark i Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 599fa62d253eda7992d7d7db4f5178d3ce428a9c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 14cb4f02bc18bda24f022f1ccf41a06776a5136b
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814051"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241481"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Kör Azure Machine Learning arbets belastningar med automatiserad maskin inlärning på Apache Spark i HDInsight
 
@@ -21,7 +21,7 @@ Azure Machine Learning fören klar och påskyndar byggnaden, utbildningen och di
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Installera Azure Machine Learning i ett HDInsight-kluster
 
-Allmän själv studie kurs om automatisk maskin inlärning finns [i Självstudier: Använd automatisk maskin inlärning för att bygga Regressions](../../machine-learning/service/tutorial-auto-train-models.md)modellen.
+Allmän själv studie kurs om automatisk maskin inlärning finns i [Självstudier: använda Automatisk maskin inlärning för att bygga Regressions modellen](../../machine-learning/service/tutorial-auto-train-models.md).
 Alla nya HDInsight-Spark-kluster levereras förinstallerade med AzureML-AutoML SDK. Du kan komma igång med AutoML på HDInsight med den här [exempel Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). Den här Jupyter Notebook visar hur du använder en automatiserad Machine Learning-klassificerare för ett enkelt klassificerings problem.
 
 > [!Note]
@@ -71,10 +71,10 @@ Du kan också registrera data lagret med arbets ytan med en engångs registrerin
 
 ## <a name="experiment-submission"></a>Experiment överföring
 
-I den [automatiserade konfigurationen av Machine Learning](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)ska `spark_context` egenskapen anges för det paket som ska köras i distribuerat läge. Egenskapen `concurrent_iterations`, som är det högsta antalet iterationer som körs parallellt, ska anges till ett tal som är mindre än utförar-kärnan för Spark-appen.
+I den [automatiserade konfigurationen av Machine Learning](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)bör egenskapen `spark_context` anges för det paket som ska köras i distribuerat läge. Egenskaps `concurrent_iterations`, som är det högsta antalet iterationer som körs parallellt, ska anges till ett tal som är mindre än utförar-kärnan för Spark-appen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om motiveringen bakom Automatisk maskin inlärning finns i [versions modeller i takt med Microsofts automatiserade maskin inlärning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
-* Mer information om hur du använder Azure ML automatiserade ML-funktioner finns i [nya funktioner för automatisk maskin inlärning i Azure Machine Learning-tjänsten](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
+* Mer information om hur du använder Azure ML automatiserade ML-funktioner finns i [nya funktioner för automatisk maskin inlärning i Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [AutoML-projekt från Microsoft Research](https://www.microsoft.com/research/project/automl/)

@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/31/2019
 ms.author: raynew
-ms.openlocfilehash: 144050bd29e8d2ec56c1347d60fd7452ea60b9cf
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 54416faa9140cf6e7c7c471e4b4c62db5f6f079b
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053628"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242935"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -41,14 +41,45 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 
 **Uppdatering** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Samlad uppdatering 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 9.29.5367.1 | 5.15000.0 | 9.29.5367.1 | 5.15000.0 | 2.0.9165.0
 [Samlad uppdatering 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Samlad uppdatering 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [Samlad uppdatering 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [Samlad uppdatering 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
-[Samlad uppdatering 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
         
 
 [Läs mer](service-updates-how-to.md) om installation och stöd för uppdateringar.
+
+
+## <a name="updates-october-2019"></a>Uppdateringar (oktober 2019)
+
+### <a name="update-rollup-41"></a>Samlad uppdatering 41
+
+Samlad [uppdatering 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) innehåller följande uppdateringar.
+
+**Uppdatering** | **Detaljer**
+--- | ---
+**Leverantörer och agenter** | Uppdateringar av Site Recovery agenter och providers (enligt beskrivningen i den samlade uppdateringen)
+**Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Haveri beredskap för Azure VM
+
+Nya funktioner för haveri beredskap för virtuella Azure-datorer sammanfattas i tabellen.
+
+**Funktion** | **Detaljer**
+--- | ---
+**Inställningar för redundanstest** | När du konfigurerar ett redundanstest kan du nu konfigurera inställningarna för den virtuella datorn för redundanstest och nätverket, inklusive IP-adress, NSG, intern belastnings utjämning och den offentliga IP-adressen för varje maskin-NIC. De här inställningarna är valfria och ändrar inte det aktuella beteendet. Om du inte konfigurerar de här inställningarna kan du välja ett Azure VNet vid tidpunkten för redundanstest. [Läs mer](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
+**Återställnings planer** | Återställnings planer är nu begränsade till 100 virtuella datorer för att säkerställa tillförlitlighet för redundans.
+
+### <a name="vmware-to-azure-disaster-recovery"></a>Haveriberedskap för VMware till Azure
+
+Nya funktioner för haveri beredskap i VMware till Azure sammanfattas i tabellen.
+
+**Funktion** | **Detaljer**
+--- | ---
+**Återställnings planer** | Återställnings planer är nu begränsade till 100 virtuella datorer för att säkerställa tillförlitlighet för redundans.
 
 
 ## <a name="updates-september-2019"></a>Uppdateringar (september 2019)

@@ -41,6 +41,10 @@
           href: ./hdinsight-streaming-at-scale-overview.md
         - name: Apache Hadoop-arkitektur i HDInsight
           href: ./hdinsight-hadoop-architecture.md
+        - name: Storlekar för virtuella datorer som stöds med HDInsight
+          href: ./hdinsight-supported-node-configuration.md
+        - name: Välj rätt storlek för virtuell dator
+          href: ./hdinsight-selecting-vm-size.md
         - name: Kapacitetsplanering för kluster
           href: ./hdinsight-capacity-planning.md
         - name: Tillgänglighet och tillförlitlighet

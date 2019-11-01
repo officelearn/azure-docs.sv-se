@@ -11,26 +11,34 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b29e5815ec39e850bee0707a9c92c12201c7f21e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5417c29b62414468064338a67b188c7b7f832ac5
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934535"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242219"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Logga in användare och anropa Microsoft Graph från en Android-app
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Självstudie: Logga in användare och anropa Microsoft Graph från en Android-app
 
 > [!NOTE]
 > Den här självstudien har ännu inte uppdaterats för att fungera med MSAL för Android version 1,0-biblioteket. Det fungerar med en tidigare version, enligt konfigurationen i den här självstudien.
 
 I den här självstudien får du lära dig hur du integrerar en Android-app med Microsoft Identity Platform. Din app kommer att logga in en användare, hämta en åtkomsttoken för att anropa Microsoft Graph-API: et och göra en begäran till Microsoft Graph API.  
 
-När du har slutfört guiden kommer ditt program att godkänna inloggningar med personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory.
+> [!div class="checklist"]
+> * Integrera en Android-app med Microsoft Identity Platform
+> * Logga in en användare
+> * Hämta en åtkomsttoken för att anropa API: et för Microsoft Graph
+> * Anropa Microsoft Graph-API: et.  
+
+När du har slutfört den här självstudien accepterar programmet inloggnings uppgifter för personliga Microsoft-konton (inklusive outlook.com, live.com och andra) samt arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="how-this-tutorial-works"></a>Hur den här självstudien fungerar
 
@@ -56,7 +64,7 @@ I det här exemplet används Microsoft Authentication Library för Android (MSAL
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
-I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda självstudien i stället [laddar du ned koden](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
+I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda självstudien i stället [laddar du ned koden](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 
 1. Öppna Android Studio och välj **starta ett nytt Android Studio-projekt**.
 2. Välj **grundläggande aktivitet** och välj **Nästa**.
@@ -538,6 +546,10 @@ När du har loggat in visar appen de data som returneras från Microsoft Graph `
 ### <a name="consent"></a>Givit
 
 Första gången användaren loggar in i din app uppmanas de av Microsoft-identiteten att godkänna de behörigheter som begärs.  Även om de flesta användare kan samtycka har vissa Azure AD-klienter inaktiverat användar medgivande som kräver att administratörer samtycker till alla användares räkning. För att stödja det här scenariot registrerar du appens scope i Azure Portal.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort app-objektet som du skapade i steget [Registrera ditt program](#register-your-application) när de inte längre behövs.
 
 ## <a name="get-help"></a>Få hjälp
 

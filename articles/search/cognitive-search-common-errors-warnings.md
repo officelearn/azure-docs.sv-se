@@ -1,23 +1,24 @@
 ---
-title: Vanliga fel och varningar
-titleSuffix: Azure Cognitive Search
-description: Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Kognitiv sökning.
-manager: nitinme
+title: Vanliga fel och varningar – Azure Search
+description: Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Search.
+services: search
+manager: heidist
 author: amotley
-ms.author: abmotley
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 09/18/2019
+ms.author: abmotley
+ms.openlocfilehash: 6455ac9dbe0933f6d46d1137e0a19dcc388d8c80
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787982"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243051"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Vanliga fel och varningar för AI-pipeline i Azure Kognitiv sökning
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Vanliga fel och varningar i AI-pipeline för anrikning i Azure Search
 
-Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Kognitiv sökning.
+Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Search.
 
 ## <a name="errors"></a>Fel
 Indexeringen stoppas när antalet fel överstiger ["maxFailedItems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -131,6 +132,10 @@ Dokumentet lästes och bearbetades, men på grund av ett matchnings fel i konfig
 | En inkompatibel notation för geografi punkter användes i käll dokumentet. | Sträng litteraler för well punkt stöds inte. Använd ingångar av polyjson-punkter i stället |
 
 I alla dessa fall refererar du till [data typer som stöds (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) och [data typs mappning för indexerare i Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) för att se till att du skapar index schemat korrekt och har konfigurerat lämpliga [fält mappningar för indexeraren](search-indexer-field-mappings.md). Fel meddelandet innehåller information som kan hjälpa till att spåra källan till matchnings felet.
+
+### <a name="could-not-process-document-within-indexer-max-run-time"></a>Det gick inte att bearbeta dokumentet inom den maximala körnings tiden för indexeraren
+
+Det här felet uppstår när indexeraren inte kan slutföra bearbetningen av ett enstaka dokument från data källan inom den tillåtna körnings tiden. [Maximal kör tid](search-limits-quotas-capacity.md#indexer-limits) är kortare när färdighetsuppsättningar används. Om det här felet uppstår, om maxFailedItems har angetts till ett annat värde än 0, hoppar indexeraren över dokumentet vid framtida körningar så att indexeringen kan fortsätta. Om du inte kan välja att hoppa över några dokument, eller om du ser det här felet konsekvent, bör du överväga att dela upp dokument i mindre dokument så att delvis förloppet kan göras inom en enskild indexerare-körning.
 
 ##  <a name="warnings"></a>Varna
 Varningar slutar inte att indexera, men de anger villkor som kan leda till oväntade resultat. Oavsett om du vidtar åtgärder eller inte beror på data och ditt scenario.

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: RStudio-Server för att köra R mot ML-tjänster – Azure HDInsight'
+title: 'Snabb start: RStudio Server & ML-tjänster för R-Azure HDInsight'
 description: I snabb starten kör du ett R-skript i ett ML Services-kluster i Azure HDInsight med hjälp av RStudio Server.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: e2fcdeb91517b048766d59a9714346f76091a8c8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123131"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241881"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Snabbstart: Köra ett R-skript i ett ML Services-kluster i Azure HDInsight med RStudio-Server
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Snabb start: köra ett R-skript i ett ML Services-kluster i Azure HDInsight med RStudio-Server
 
 Med ML-tjänster i Azure HDInsight kan R-skript använda Apache Spark och Apache Hadoop MapReduce för att köra distribuerade beräkningar. ML-tjänster styr hur anrop utförs genom att ange beräknings kontexten. Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript. Med en Edge-nod kan du välja att köra de parallella distribuerade funktionerna i RevoScaleR över kärnorna i Edge-nodens Server. Du kan också köra dem på noderna i klustret genom att använda RevoScaleR för att minska eller Apache Spark Compute-kontexter.
 
@@ -27,13 +27,13 @@ Ett ML Services-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure P
 
 ## <a name="connect-to-rstudio-server"></a>Anslut till RStudio Server
 
-RStudio-servern körs på klustrets Edge-nod. Gå till följande URL där `CLUSTERNAME` är namnet på det ml Services-kluster som du skapade:
+RStudio-servern körs på klustrets Edge-nod. Gå till följande URL där `CLUSTERNAME` är namnet på det ML Services-kluster som du skapade:
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-Första gången du loggar in måste du autentisera dig två gånger. För den första autentiseringen anger du inloggning och lösen ord för kluster administratören. standard `admin`är. För den andra verifierings frågan anger du SSH-inloggning och lösen ord. `sshuser`standard är. Efterföljande inloggningar kräver bara SSH-autentiseringsuppgifter.
+Första gången du loggar in måste du autentisera dig två gånger. För den första autentiseringen anger du inloggning och lösen ord för kluster administratören. standard är `admin`. För den andra verifierings frågan anger du SSH-inloggning och lösen ord. standard är `sshuser`. Efterföljande inloggningar kräver bara SSH-autentiseringsuppgifter.
 
 När du är ansluten, bör din skärm likna följande skärmbild:
 

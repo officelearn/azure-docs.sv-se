@@ -1,5 +1,5 @@
 ---
-title: RequestBodyTooLarge i loggar för Apache Spark strömmande app i Azure HDInsight
+title: RequestBodyTooLarge-fel från Apache Spark app – Azure HDInsight
 description: NativeAzureFileSystem ... RequestBodyTooLarge visas i loggen för Apache Spark streaming-appen i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: b6e6d3eeff8569c8b00ac16310da3c94e484b32f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 2d2e929335f6af2ee24a81e719d9d0d899f7b8ef
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088709"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241850"
 ---
 # <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem... RequestBodyTooLarge "visas i Apache Spark strömmande app-logg i HDInsight
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs fel söknings steg och möjliga lösningar på prob
 
 ## <a name="issue"></a>Problem
 
-Felet: `NativeAzureFileSystem ... RequestBodyTooLarge` visas i driv rutins loggen för en Apache Spark streaming-app.
+Felet: `NativeAzureFileSystem ... RequestBodyTooLarge` visas i driv rutins loggen för en Apache Spark strömmande app.
 
 ## <a name="cause"></a>Orsak
 
@@ -28,7 +28,7 @@ Logg filen för Spark-händelseloggen når förmodligen fil längds gränsen fö
 
 I Spark 2,3 genererar varje spark-app en spark-händelseloggen. Händelse logg filen för Spark för en spark streaming-app fortsätter att växa medan appen körs. I dag är en fil på WASB en 50000 block gräns och standard block storleken är 4 MB. Så i standard konfiguration är den maximala fil storleken 195 GB. Azure Storage har dock ökat Max block storleken till 100 MB, vilket faktiskt gjorde gränsen för en enskild fil till 4,75 TB. Mer information finns i [Azure Storage skalbarhets-och prestanda mål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 Det finns tre lösningar som är tillgängliga för det här felet:
 

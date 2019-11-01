@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356f2eac06365b90052cab214d9d1ac318710730
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 70de9da44d52bd6e93377776a2dbfc1b802dd412
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389673"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241708"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera hantering av autentisering med villkorlig åtkomst
 
@@ -53,7 +53,7 @@ Med Azure AD-beständighet för webbläsarsessionen kan användare på personlig
 Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-licens. Om du vill veta mer om villkorlig åtkomst, se [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Observera att vi inte har stöd för att skapa två olika principer för samma användar-eller app-kombination om du använder den [konfigurerbara livs längden för token](../develop/active-directory-configurable-token-lifetimes.md) i en offentlig för hands version. en med den här funktionen och en annan med konfigurerbar token livs längds funktion. Microsoft planerar att dra tillbaka den konfigurerbara livs längden för token den 1 november och ersätta den med funktionen för hantering av autentisering med villkorlig åtkomst.  
+> Observera att vi inte har stöd för att skapa två olika principer för samma användar-eller app-kombination om du använder den [konfigurerbara livs längden för token](../develop/active-directory-configurable-token-lifetimes.md) i en offentlig för hands version. en med den här funktionen och en annan med konfigurerbar token livs längds funktion. Microsoft planerar att dra tillbaka den konfigurerbara livs längden för token den 1 maj 2020 och ersätta den med funktionen för hantering av autentisering med villkorlig åtkomst.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Princip 1: kontroll för inloggnings frekvens
 

@@ -1,5 +1,5 @@
 ---
-title: Hämtnings problem med JDBC/ODBC och Apache Thrift Framework – Azure HDInsight
+title: Problem med JDBC/ODBC & Apache Thrift Framework – Azure HDInsight
 description: Det går inte att hämta stora data mängder med JDBC/ODBC och Apache Thrift Software Framework i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 939d94d0fdf07a67f2ad151b45494f03ce184d62
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7423687cbca069792a584277699c6bf8ce904d5d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087113"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241752"
 ---
 # <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>Det går inte att hämta stora data mängder med JDBC/ODBC och Apache Thrift Software Framework i HDInsight
 
@@ -31,9 +31,9 @@ Buffer overflow. Available: 0, required: 36518. To avoid this, increase spark.kr
 
 Detta undantag orsakas av att serialiserings processen försöker använda mer buffertutrymme än vad som tillåts. I Spark-2.0.0 används klassen `org.apache.spark.serializer.KryoSerializer` för att serialisera objekt när data nås via Apache Thrift Software Framework. En annan klass används för data som ska skickas via nätverket eller cachelagras i serialiserat format.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
-Öka värdet `Kryoserializer` för bufferten. Lägg till en nyckel `spark.kryoserializer.buffer.max` med namnet och Ställ `2048` in den på i `Custom spark2-thrift-sparkconf`spark2 config.
+Öka värdet för `Kryoserializer`-bufferten. Lägg till en nyckel med namnet `spark.kryoserializer.buffer.max` och ange den som `2048` i spark2 config under `Custom spark2-thrift-sparkconf`.
 
 ## <a name="next-steps"></a>Nästa steg
 

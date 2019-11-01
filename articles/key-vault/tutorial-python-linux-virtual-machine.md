@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 48095a2d446c8f85bab9d9268e924e29fe9a9f21
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 15650de776b481d1635b58f2b8ecf2bf2921d12f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003894"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242417"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudier: Använda en virtuell Linux-dator och en Python-app för att lagra hemligheter i Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudie: Använd en virtuell Linux-dator och en python-app för att lagra hemligheter i Azure Key Vault
 
 Med Azure Key Vault kan du skydda hemligheter, till exempel API-nycklar och databasanslutningssträngar som behövs för att komma åt dina program, tjänster samt IT-resurser.
 
@@ -32,7 +32,7 @@ I den här självstudien konfigurerar du en Azure-webbapp till att läsa informa
 
 Innan du fortsätter behöver du känna till [grundbegreppen om nyckelvalv](basic-concepts.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Git](https://git-scm.com/downloads).
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -75,7 +75,7 @@ Du använder den här resursgruppen i hela självstudien.
 
 I nästa steg skapar du ett nyckelvalv i den resursgrupp som du skapade i föregående steg. Ange följande information:
 
-* Key Vault-namn: Namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla 0–9, a–z, A–Z och bindestreck (-).
+* Namn på nyckel valv: namnet måste vara en sträng med 3-24 tecken och får bara innehålla 0-9, a-z, A-Z och bindestreck (-).
 * Namn på resursgrupp.
 * Plats: **USA, västra**.
 
@@ -174,20 +174,20 @@ Skapa en Python-fil som heter **Sample.py**.
 
 ```python
 # importing the requests library
-  import requests
-  
+import requests
+
 # Step 1: Fetch an access token from an MSI-enabled Azure resource      
-  # Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
-  MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
-  r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
+# Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
+MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
+r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
 
 # Extracting data in JSON format 
-  # This request gets an access token from Azure Active Directory by using the local MSI endpoint
-  data = r.json()
+# This request gets an access token from Azure Active Directory by using the local MSI endpoint
+data = r.json()
 
 # Step 2: Pass the access token received from the previous HTTP GET call to the key vault
-  KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
-  kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
+KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
+kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
 
 print(kvSecret.json()["value"])
 ```

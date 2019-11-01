@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: atsenthi
-ms.openlocfilehash: aa388a688e76b0ba69231d8a11aa1bfa686f7f51
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166553"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242917"
 ---
 # <a name="resource-governance"></a>Resursstyrning
 
@@ -110,6 +110,18 @@ För optimala prestanda bör följande inställning också aktive ras i kluster 
 </Section>
 ```
 
+> [!IMPORTANT]
+> Från och med Service Fabric version 7,0 har vi uppdaterat regeln för hur resurs kapacitet för noder beräknas i de fall där användaren manuellt tillhandahåller värdena för resurs kapacitet. Vi tar hänsyn till följande scenario:
+>
+> * Det finns 10 CPU-kärnor totalt på noden
+> * SF är konfigurerat för att använda 80% av det totala antalet resurser för användar tjänsterna (standardinställning), vilket lämnar en buffert på 20% för de andra tjänsterna som körs på noden (inklusive Service Fabric system tjänster)
+> * Användaren bestämmer sig för att manuellt åsidosätta resurs kapaciteten för processor kärnor, och ställer in den på 5 kärnor
+>
+> Vi har ändrat regeln för hur den tillgängliga kapaciteten för Service Fabric användar tjänster beräknas på följande sätt:
+>
+> * Innan Service Fabric 7,0 beräknas tillgänglig kapacitet för användar tjänster till **5 kärnor** (kapacitets bufferten på 20% ignoreras)
+> * Från och med Service Fabric 7,0 beräknas tillgänglig kapacitet för användar tjänster till **4 kärnor** (kapacitets bufferten på 20% ignoreras inte)
+
 ## <a name="specify-resource-governance"></a>Ange resurs styrning
 
 Resurs styrnings gränser anges i avsnittet applikations manifest (service manifest import), som du ser i följande exempel:
@@ -141,7 +153,7 @@ Minnes gränserna är absoluta, så båda kod paketen är begränsade till 1024 
 
 ### <a name="using-application-parameters"></a>Använda program parametrar
 
-När du anger resurs styrning är det möjligt att använda [program parametrar](service-fabric-manage-multiple-environment-app-configuration.md) för att hantera flera AppData. I följande exempel visas användningen av program parametrarna:
+När du anger resurs styrnings inställningar är det möjligt att använda [program parametrar](service-fabric-manage-multiple-environment-app-configuration.md) för att hantera flera AppData. I följande exempel visas användningen av program parametrarna:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -185,6 +197,27 @@ I det här exemplet anges standard parameter värden för produktions miljön, d
 > Att ange resurs styrning med program parametrar är tillgängligt från och med Service Fabric version 6,1.<br>
 >
 > När program parametrar används för att ange resurs styrning kan Service Fabric inte nedgraderas till en tidigare version än version 6,1.
+
+## <a name="enforcing-the-resource-limits-for-user-services"></a>Tvinga resurs begränsningar för användar tjänster
+
+När du använder resurs styrning för Service Fabric tjänster garanterar det att de resursbaserade tjänsterna inte får överskrida sina resursers kvoter, men många användare behöver fortfarande köra vissa av deras Service Fabric tjänster i ett icke-styrd läge. När du använder unreglerade Service Fabric-tjänster är det möjligt att köra i situationer där "lediga" ej styrda tjänster förbrukar alla tillgängliga resurser på Service Fabric-noderna, vilket kan leda till allvarliga problem som:
+
+* Resurs-effekter för andra tjänster som körs på noderna (inklusive Service Fabric system tjänster)
+* Noder som slutar i ett ohälsosamt tillstånd
+* Inga svar på Service Fabric kluster hanterings-API: er
+
+För att förhindra att dessa situationer inträffar kan du med Service Fabric *tvinga resurs gränserna för alla Service Fabric användar tjänster som körs på noden* (både styrd och utan regler) för att garantera att användar tjänsterna aldrig kommer att använda mer än angiven mängd resurser. Detta uppnås genom att ange värdet för EnforceUserServiceMetricCapacities-konfigurationen i avsnittet PlacementAndLoadBalancing i ClusterManifest till true. Den här inställningen är inaktive rad som standard.
+
+```xml
+<SectionName="PlacementAndLoadBalancing">
+    <ParameterName="EnforceUserServiceMetricCapacities" Value="false"/>
+</Section>
+```
+
+Ytterligare anmärkningar:
+
+* Tvingande resurs gräns gäller endast för `servicefabric:/_CpuCores` och `servicefabric:/_MemoryInMB` resurs mått
+* Tillämpning av resurs begränsningen fungerar bara om nodens kapacitet för resurs måtten är tillgängligt för Service Fabric, antingen via mekanismen för automatisk identifiering eller genom att användare manuellt anger nodens kapacitet (enligt beskrivningen i [kluster konfigurationen för aktivering avsnittet resurs styrning](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) ). Om nodens kapacitet inte har kon figurer ATS kan du inte använda funktionen för tvingande resurs gräns eftersom Service Fabric inte vet hur mycket resurser som ska reserveras för användar tjänster. Service Fabric kommer att utfärda en hälso varning om "EnforceUserServiceMetricCapacities" är sant men nodens kapacitet inte har kon figurer ATS.
 
 ## <a name="other-resources-for-containers"></a>Andra resurser för behållare
 

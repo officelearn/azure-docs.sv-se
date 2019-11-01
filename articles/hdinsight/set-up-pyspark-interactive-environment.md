@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight-verktyg – PySpark interaktiv miljö för Visual Studio Code
+title: PySpark interaktiv miljö med Azure HDInsight-verktyg
 description: Lär dig hur du använder Azure HDInsight-verktyg för Visual Studio Code för att skapa och skicka frågor och skript.
 keywords: VScode, Azure HDInsight tools, Hive, python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, interaktiv fråga
 author: jejiang
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f62f7994818e487202e35e4931472355fb6ac3d2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: db2336fb79207ada24b71e0e64f0aaaab543e4da
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130179"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241556"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurera den interaktiva PySpark-miljön för Visual Studio Code
 
@@ -52,12 +52,12 @@ sudo apt-get install libkrb5-dev
 sudo apt-get install python-dev
 ```
 
-Starta om vs Code och gå sedan tillbaka till den skript redigerare som kör **HDInsight: PySpark Interactive**.
+Starta om VS Code och gå sedan tillbaka till skript redigeraren som kör **HDInsight: PySpark Interactive**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 ### <a name="demo"></a>Demo
-* HDInsight för VS-kod: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight för VS Code: [video](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda Azure HDInsight-verktyget för Visual Studio Code](hdinsight-for-vscode.md)

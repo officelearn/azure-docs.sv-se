@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Apache Kafka på HDInsight med Azure Resource Manager-snabb start
+title: 'Snabb start: Apache Kafka att använda Azure Resource Manager-HDInsight'
 description: I den här snabb starten får du lära dig hur du skapar ett Apache Kafka kluster på Azure HDInsight med Azure Resource Manager-mall. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: deae58c30e37aa4df1dd8ca9b1b64cc79e9509ae
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: d908d210ff0448069a9abc76209c72d9b2a7595c
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123180"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242018"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Skapa Apache Kafka kluster i Azure HDInsight med Resource Manager-mall
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med Resource Manager-mall
 
 [Apache Kafka](https://kafka.apache.org/) är en distribuerad strömningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
 
@@ -27,7 +27,7 @@ Kafka-API:et kan endast användas av resurser i samma virtuella nätverk. I den 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -39,11 +39,11 @@ En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) m
 
 2. Om du vill skapa Kafka-klustret använder du följande värden:
 
-    | Egenskap | Value |
+    | Egenskap | Värde |
     | --- | --- |
-    | Subscription | Din Azure-prenumeration. |
-    | Resource group | Den resursgrupp i vilken klustret har skapats. |
-    | Location | Den Azure-region i vilken klustret har skapats. |
+    | Prenumeration | Din Azure-prenumeration. |
+    | Resursgrupp | Den resursgrupp i vilken klustret har skapats. |
+    | Plats | Den Azure-region i vilken klustret har skapats. |
     | Klusternamn | Namnet på Kafka-klustret. |
     | Användarnamn för klusterinloggning | Det kontonamn som används för att logga in på HTTPs-baserade tjänster som finns i klustret. |
     | Lösenord för klusterinloggning | Ange lösenordet för det inloggande användarnamnet. |

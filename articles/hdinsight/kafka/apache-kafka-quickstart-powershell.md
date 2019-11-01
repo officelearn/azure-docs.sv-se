@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Apache Kafka på HDInsight med Azure PowerShell-snabb start
+title: 'Snabb start: skapa Apache Kafka med Azure PowerShell-HDInsight'
 description: I den här snabbstarten lär du dig hur du skapar ett Apache Kafka-kluster på Azure HDInsight med hjälp av Azure PowerShell. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 79224879dc0f23c7ad022134c6add087b90304b7
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 082be3630474ec5f97ab7d80a3ee1b92cdc28fd7
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123158"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242324"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Snabbstart: Skapa Apache Kafka kluster i Azure HDInsight med hjälp av PowerShell
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med hjälp av PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) är en distribuerad strömningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
 
@@ -27,7 +27,7 @@ Kafka-API:et kan endast användas av resurser i samma virtuella nätverk. I den 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * PowerShell- [modulen för AZ](https://docs.microsoft.com/powershell/azure/overview) är installerad.
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på din Azure-prenumeration med `Connect-AzAccount` cmdleten och följ anvisningarna på skärmen.
+Logga in på din Azure-prenumeration med `Connect-AzAccount`-cmdlet och följ anvisningarna på skärmen.
 
 ```azurepowershell-interactive
 # Login to your Azure subscription
@@ -65,7 +65,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 Medan Kafka på HDInsight använder Azure-hanterade diskar för att lagra Kafka-data så använder klustret även Azure Storage för att lagra information, t.ex. loggar. Använd [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) för att skapa ett nytt lagrings konto.
 
 > [!IMPORTANT]  
-> Lagrings kontots typ `BlobStorage` kan bara användas som sekundär lagring för HDInsight-kluster.
+> Typ `BlobStorage` för lagrings konto kan endast användas som sekundär lagring för HDInsight-kluster.
 
 ```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"

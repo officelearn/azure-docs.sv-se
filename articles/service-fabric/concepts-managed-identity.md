@@ -7,16 +7,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333127"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243024"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Hanterad identitet för Service Fabric program (förhands granskning)
 
-En vanlig utmaning vid utvecklingen av molnprogram är hur man ska hantera autentiseringsuppgifterna i koden som krävs för autentisering mot molntjänsterna. Att skydda dina autentiseringsuppgifter är en viktig uppgift, eftersom de aldrig visas på arbets stationer för utvecklare och inte checkas in i käll kontrollen. Funktionen för hanterad identitet för Azure-resurser i Azure Active Directory (Azure AD) löser problemet. Funktionen tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Du kan använda identiteten för att autentisera mot alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att du behöver lägga in några autentiseringsuppgifter i din kod.
+En vanlig utmaning vid utvecklingen av molnprogram är hur man ska hantera autentiseringsuppgifterna i koden som krävs för autentisering mot molntjänsterna. Att skydda dina autentiseringsuppgifter är en viktig uppgift, eftersom de aldrig visas på arbets stationer för utvecklare och inte checkas in i käll kontrollen. Funktionen för hanterad identitet för Azure-resurser i Azure Active Directory (Azure AD) löser problemet. Funktionen förser Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Du kan använda identiteten för att autentisera mot alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att du behöver lägga in några autentiseringsuppgifter i din kod.
 
 Funktionen för hanterad identitet för Azure-resurser är kostnads fri med Azure AD för Azure-prenumerationer. Det kostar inget extra.
 
@@ -45,7 +45,7 @@ Följande villkor används i dokumentations uppsättningen för hanterade identi
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Scenarier som stöds för Service Fabric program
 
-Hanterade identiteter för Service Fabric stöds bara i Azure-distribuerade Service Fabric-kluster och endast för program som distribueras som Azure-resurser. Det går inte att tilldela en identitet till ett program som inte har distribuerats som en Azure-resurs. Det är konceptuellt att prata, stöd för hanterade identiteter i Azure Service Fabric-klustret består av två faser:
+Hanterade identiteter för Service Fabric stöds bara i Azure-distribuerade Service Fabric-kluster och endast för program som distribueras som Azure-resurser. ett program som inte har distribuerats som en Azure-resurs kan inte tilldelas en identitet. Det är konceptuellt att prata, stöd för hanterade identiteter i Azure Service Fabric-klustret består av två faser:
 
 1. Tilldela program resursen en eller flera hanterade identiteter. ett program kan tilldelas en enda tilldelad system identitet och/eller upp till 32 användarspecifika identiteter.
 
@@ -78,3 +78,4 @@ Följande scenarier stöds inte eller rekommenderas inte. Observera att de här 
 * [Distribuera ett Azure Service Fabric-program med en användardefinierad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Utnyttja den hanterade identiteten för ett Service Fabric program från service code](./how-to-managed-identity-service-fabric-app-code.md)
 * [Bevilja ett Azure Service Fabric program åtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)
+* [Deklarera och använda program hemligheter som KeyVaultReferences](./service-fabric-keyvault-references.md) 

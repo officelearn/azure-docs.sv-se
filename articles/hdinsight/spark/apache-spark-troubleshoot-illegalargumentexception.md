@@ -1,5 +1,5 @@
 ---
-title: IllegalArgumentException för Apache Spark-aktivitet i Azure HDInsight
+title: IllegalArgumentException-fel för Apache Spark – Azure HDInsight
 description: IllegalArgumentException för Apache Spark-aktivitet i Azure HDInsight för Azure Data Factory
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 57ba285b7de34dd548128b1f58644a32e153d056
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f922df5d5d7bbd6d90a2b7e208a346b773a3dc2f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087167"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241818"
 ---
 # <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>Scenario: IllegalArgumentException för Apache Spark-aktivitet i Azure HDInsight
 
@@ -31,11 +31,11 @@ Wrong FS: wasbs://additional@xxx.blob.core.windows.net/spark-examples_2.11-2.1.0
 
 Ett Spark-jobb kommer att Miss förväntas om programmets jar-fil inte finns i Spark-klustrets standard-/primär lagring.
 
-Detta är ett känt problem med Spark-ramverket med öppen källkod som spåras i det här felet: [Spark-jobbet fungerar inte om FS. defaultFS och Application jar är olika URL: er](https://issues.apache.org/jira/browse/SPARK-22587).
+Detta är ett känt problem med Spark-ramverket med öppen källkod som spåras i det här felet: [Spark-jobb Miss lyckas om FS. defaultFS och Application jar är olika URL: er](https://issues.apache.org/jira/browse/SPARK-22587).
 
 Det här problemet har lösts i Spark 2.3.0.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 Se till att programmet jar är lagrat på standard-/primär lagrings platsen för HDInsight-klustret. Om Azure Data Factory ska du kontrol lera att den länkade ADF-tjänsten pekar mot standard behållaren för HDInsight i stället för en sekundär behållare.
 

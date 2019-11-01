@@ -1,5 +1,5 @@
 ---
-title: Konfigurera SSL-kryptering och autentisering för Apache Kafka i Azure HDInsight
+title: Apache Kafka SSL-kryptering & autentisering – Azure HDInsight
 description: Konfigurera SSL-kryptering för kommunikation mellan Kafka-klienter och Kafka-utjämnare samt mellan Kafka-utjämnare. Konfigurera SSL-autentisering av klienter.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: d555c51838f3595367e931341a3cf6161857faef
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5dd698b28a01ed251492cf34e9da2dda4d0c2580
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554601"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241991"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Konfigurera Secure Sockets Layer (SSL) kryptering och autentisering för Apache Kafka i Azure HDInsight
 

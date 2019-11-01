@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: 5108424c4e39c1c47710c0e25e4e22c4474e68ad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: bd9b9edde0f4c5e3bea6e31342298f2df5a2b5fe
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941698"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241868"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
 
@@ -23,7 +23,7 @@ Med ML tjänster i HDInsight får du de senaste funktionerna för R-baserade ana
 
 Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript. Med en Edge-nod kan du välja att köra de parallellt distribuerade funktionerna i skalan över gränserna för Edge-nodens Server. Du kan också köra dem över noderna i klustret med hjälp av skalnings tjänstens Hadoop-karta minska eller Apache Spark Compute-kontexter.
 
-De modeller eller förutsägelser som orsakas av analyser kan laddas ned för lokal användning. De kan också användas på andra platser i Azure, särskilt via [Azure Machine Learning Studio](https://studio.azureml.net) [-webbtjänst](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
+De modeller eller förutsägelser som orsakas av analyser kan laddas ned för lokal användning. De kan också användas på andra platser i Azure, särskilt via [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) [-webb tjänst](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Kom igång med ML-tjänster i HDInsight
 
@@ -102,7 +102,7 @@ Om du vill att poängen ska vara lokalt när du har skapat din modell kan du ser
 
 ### <a name="install-and-maintain-r-packages"></a>Installera och underhålla R-paket
 
-De flesta R-paket som du använder krävs på Edge-noden eftersom de flesta stegen i dina R-skript körs där. Om du vill installera ytterligare R-paket på Edge-noden kan du `install.packages()` använda-metoden i R.
+De flesta R-paket som du använder krävs på Edge-noden eftersom de flesta stegen i dina R-skript körs där. Om du vill installera ytterligare R-paket på Edge-noden kan du använda metoden `install.packages()` i R.
 
 Om du bara använder rutiner från skalnings biblioteket i klustret, behöver du vanligt vis inte installera ytterligare R-paket på datanoderna. Du kan dock behöva ytterligare paket för att stödja användningen av **rxExec** -eller **RxDataStep** -körning på datanoderna.
 
@@ -110,7 +110,7 @@ I sådana fall kan du installera ytterligare paket med en skript åtgärd när d
 
 ### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Ändra Apache Hadoop MapReduce minnes inställningar
 
-Ett kluster kan ändras för att ändra mängden minne som är tillgängligt för ML-tjänster när ett MapReduce-jobb körs. Om du vill ändra ett kluster använder du Apache Ambari-ANVÄNDARGRÄNSSNITTET som är tillgängligt via bladet Azure Portal för klustret. Anvisningar om hur du kommer åt Ambari-ANVÄNDARGRÄNSSNITTET för klustret finns i [Hantera HDInsight-kluster med hjälp av Ambari-](../hdinsight-hadoop-manage-ambari.md)webbgränssnittet.
+Ett kluster kan ändras för att ändra mängden minne som är tillgängligt för ML-tjänster när ett MapReduce-jobb körs. Om du vill ändra ett kluster använder du Apache Ambari-ANVÄNDARGRÄNSSNITTET som är tillgängligt via bladet Azure Portal för klustret. Anvisningar om hur du kommer åt Ambari-ANVÄNDARGRÄNSSNITTET för klustret finns i [Hantera HDInsight-kluster med hjälp av Ambari-WEBBgränssnittet](../hdinsight-hadoop-manage-ambari.md).
 
 Det är också möjligt att ändra mängden minne som är tillgängligt för ML-tjänster med hjälp av Hadoop-växlar i anropet till **RxHadoopMR** på följande sätt:
 

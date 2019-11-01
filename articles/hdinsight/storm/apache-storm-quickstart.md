@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa och övervaka Apache Storm topologi i Azure HDInsight'
+title: 'Snabb start: skapa/hantera Apache Storm topologi – Azure HDInsight'
 description: I snabb starten lär du dig hur du skapar och övervakar en Apache Storm topologi i Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,20 +8,20 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 9e48cb53b55cdc4200498a54dba31ae93ca8b31a
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 24173b553f30f652caf20b1ec7500fd9c4d2f7a0
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018586"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241217"
 ---
-# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Snabbstart: Skapa och övervaka en Apache Storm topologi i Azure HDInsight
+# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Snabb start: skapa och övervaka en Apache Storm topologi i Azure HDInsight
 
 Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkningar i realtid för bearbetning av dataströmmar. Du kan skapa ett molnbaserat Storm-kluster som utför analyser av stordata i realtid med Storm på Azure HDInsight.
 
 I den här snabb starten använder du ett exempel från Apache [Storm-starter-](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) projektet för att skapa och övervaka en Apache Storm topologi till ett befintligt Apache Storm-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 
@@ -64,7 +64,7 @@ Genomför följande för att övervaka topologin med hjälp av Storm-användargr
     |Aktivera|Återupptar bearbetning av en inaktive rad topologi.|
     |Inaktivera|Pausar en topologi som körs.|
     |Balansera om|Justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [förstå parallellitet för en Apache Storm topologi](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).|
-    |Avsluta|Avslutar en Storm-topologi efter den angivna tids gränsen.|
+    |Döda|Avslutar en Storm-topologi efter den angivna tids gränsen.|
 
 3. På den här sidan väljer du en post från avsnittet **Spouts** (Kanaler) eller **Bolts** (Bultar). Detta visar information om den valda komponenten.
 

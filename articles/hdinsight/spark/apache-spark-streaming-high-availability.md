@@ -1,5 +1,5 @@
 ---
-title: Skapa jobb med hög tillgänglighet Spark-direktuppspelning i garn – Azure HDInsight
+title: Spark streaming-jobb med hög tillgänglighet i garn – Azure HDInsight
 description: Konfigurera Apache Spark strömning för ett scenario med hög tillgänglighet i Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: e4414a64b2ee34ec16fde56dd750f2faa26b2e09
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 3e48f220035c56d34d6ca5a7347e9a4ee100e1f1
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002940"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241238"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Skapa Apache Spark strömnings jobb med hög tillgänglighet med garn
 
@@ -72,7 +72,7 @@ Men om en **driv rutin** Miss lyckas, Miss lyckas alla tillhör ande körningar 
 Återställa driv rutiner med DStream-kontroll punkter:
 
 * Konfigurera automatisk omstart av driv rutin på garn med konfigurations inställningen `yarn.resourcemanager.am.max-attempts`.
-* Ange en kontroll punkts katalog i ett HDFS-kompatibelt fil `streamingContext.checkpoint(hdfsDirectory)`system med.
+* Ange en kontroll punkts katalog i ett HDFS-kompatibelt fil system med `streamingContext.checkpoint(hdfsDirectory)`.
 * Omstrukturera käll koden för att använda kontroll punkter för återställning, till exempel:
 
     ```scala
@@ -88,7 +88,7 @@ Men om en **driv rutin** Miss lyckas, Miss lyckas alla tillhör ande körningar 
         context.start()
     ```
 
-* Konfigurera förlorad återställning av data genom att aktivera loggen för Skriv åtgärder (Wal `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`) med och inaktivera minnes intern replikering för indata- `StorageLevel.MEMORY_AND_DISK_SER`DStreams med.
+* Konfigurera förlorad data återställning genom att aktivera loggen för Skriv åtgärder (WAL) med `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`och inaktivera InMemory-replikering för indata-DStreams med `StorageLevel.MEMORY_AND_DISK_SER`.
 
 För att sammanfatta, med hjälp av kontroll punkter + WAL + Reliable receiver, kan du leverera "minst en gång" Data återställning:
 
@@ -122,5 +122,5 @@ För att sammanfatta, med hjälp av kontroll punkter + WAL + Reliable receiver, 
 * [Översikt över Apache Spark strömning](apache-spark-streaming-overview.md)
 * [Skapa Apache Spark strömmande jobb med exakt en händelse bearbetning](apache-spark-streaming-exactly-once.md)
 * [Tids krävande Apache Spark strömnings jobb på garn](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
-* [Strukturerad strömning: Feltolerant semantik](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Diskretiserade strömmar: En feltolerant modell för bearbetning av skalbara data strömmar](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Strukturerad strömning: feltolerant semantik](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [Diskretiserade-strömmar: en feltolerant modell för skalbar data ström bearbetning](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbb4668ae87404771513ca5825482efe9206308d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: d0cb5becd8375c393031892efb0b6c54786eeb8f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025010"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242224"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -73,7 +73,7 @@ Om du använder en offentlig IP-adress som en slut punkt hittar du IP-och DNS-in
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Ändras IP-eller DNS-namn under programgatewayens livs längd?
 
-VIP kan ändras om du stoppar och startar Application Gateway. Men det DNS-namn som är associerat med programgatewayen ändras inte över gatewayens livstid. Eftersom DNS-namnet inte ändras bör du använda ett CNAME-alias och peka det mot DNS-adressen för Application Gateway.
+I Application Gateway v1 SKU: n kan du ändra VIP om du stoppar och startar programgatewayen. Men det DNS-namn som är associerat med programgatewayen ändras inte över gatewayens livstid. Eftersom DNS-namnet inte ändras bör du använda ett CNAME-alias och peka det mot DNS-adressen för Application Gateway. I Application Gateway v2 SKU: n kan du ange IP-adressen som statisk, så IP-och DNS-namn kommer inte att ändras under programmets livs längd. 
 
 ### <a name="does-application-gateway-support-static-ip"></a>Stöder Application Gateway statisk IP?
 

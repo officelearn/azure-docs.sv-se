@@ -1,5 +1,5 @@
 ---
-title: Apache Spark jobbet Miss lyckas med InvalidClassException i Azure HDInsight
+title: InvalidClassException-fel från Apache Spark – Azure HDInsight
 description: Apache Spark jobbet Miss lyckas med InvalidClassException, klassen stämmer inte överens i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: c32b6a5ed7e8c052096f6125a5246fc9685302d4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ad9ec8e97827fb6158476165a610c9d69b12a528
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088690"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241172"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Apache Spark jobbet Miss lyckas med InvalidClassException, klassen stämmer inte överens i Azure HDInsight
 
@@ -34,9 +34,9 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## <a name="cause"></a>Orsak
 
-Det här felet kan orsakas av att lägga till en ytterligare jar `spark.yarn.jars` -konfiguration, som är en "skuggad" jar-version som innehåller en `commons-lang3` annan version av paketet och som introducerar en klass matchning. Som standard använder Spark 2.1/2/3 version 3,5 av `commons-lang3`.
+Felet kan bero på att du lägger till en ytterligare jar till `spark.yarn.jars` config, som är en "skuggad" jar-version som innehåller en annan version av `commons-lang3`-paketet och som introducerar en klass matchning. Som standard använder Spark 2.1/2/3 version 3,5 av `commons-lang3`.
 
-## <a name="resolution"></a>Lösning
+## <a name="resolution"></a>Upplösning
 
 Ta antingen bort burken eller kompilera om den anpassade jar-filen (AzureLogAppender) och Använd [maven-Shader-plugin](https://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html) för att flytta om klasser.
 

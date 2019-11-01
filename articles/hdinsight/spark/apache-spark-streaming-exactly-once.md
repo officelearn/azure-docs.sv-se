@@ -1,5 +1,5 @@
 ---
-title: Spark streaming-jobb med exakt en händelse bearbetning – Azure HDInsight
+title: Spark-direktuppspelning & händelse bearbetning exakt en gång – Azure HDInsight
 description: Så här konfigurerar du Apache Spark streaming för att bearbeta en händelse en gång och bara en gång.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,20 +8,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 908c49a46fe7993bc20bcb63a3c15758e2de5343
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 34cb3f4cdcc5bfc11bba300ff1aa04422e0fcc57
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091028"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241149"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Skapa Apache Spark strömmande jobb med exakt en händelse bearbetning
 
 Program för strömnings bearbetning tar olika metoder för hur de hanterar ombearbetning av meddelanden efter fel i systemet:
 
-* Minst en gång: Varje meddelande garanterar att bearbetas, men det kan bearbetas mer än en gång.
-* Högst en gång: Varje meddelande kanske inte bearbetas. Om ett meddelande bearbetas bearbetas det bara en gång.
-* Exakt en gång: Varje meddelande garanterar att bearbetas en gång och bara en gång.
+* Minst en gång: varje meddelande garanterat bearbetas, men det kan bearbetas mer än en gång.
+* Högst en gång: varje meddelande kanske inte bearbetas. Om ett meddelande bearbetas bearbetas det bara en gång.
+* Exakt en gång: varje meddelande garanteras att bearbetas en gång och bara en gång.
 
 Den här artikeln visar hur du konfigurerar Spark-direktuppspelning för att uppnå exakt bearbetning.
 
@@ -49,7 +49,7 @@ I Spark-direktuppspelning har källor som Event Hubs och Kafka *pålitliga motta
 
 ### <a name="use-the-write-ahead-log"></a>Använd loggen för att skriva framåt
 
-Spark streaming har stöd för att skriva över gångs logg, där varje mottagen händelse först skrivs till Spark-katalogen i feltolerant lagring och sedan lagras i en elastisk distribuerad data uppsättning (RDD). I Azure har den feltoleranta lagringen HDFS som backas upp av antingen Azure Storage eller Azure Data Lake Storage. I ditt Spark streaming-program aktive ras loggen för Skriv åtgärder för alla mottagare genom att ställa `spark.streaming.receiver.writeAheadLog.enable` in konfigurations `true`inställningen på. Loggen för Skriv åtgärder ger fel tolerans för fel i både driv rutinen och körningarna.
+Spark streaming har stöd för att skriva över gångs logg, där varje mottagen händelse först skrivs till Spark-katalogen i feltolerant lagring och sedan lagras i en elastisk distribuerad data uppsättning (RDD). I Azure har den feltoleranta lagringen HDFS som backas upp av antingen Azure Storage eller Azure Data Lake Storage. I ditt Spark streaming-program aktive ras loggen för Skriv åtgärder för alla mottagare genom att ställa in `spark.streaming.receiver.writeAheadLog.enable` konfigurations inställningen på `true`. Loggen för Skriv åtgärder ger fel tolerans för fel i både driv rutinen och körningarna.
 
 För arbets uppgifter som kör uppgifter mot händelse data sker varje RDD av definition både replikerad och fördelad över flera arbetare. Om en aktivitet Miss lyckas eftersom den arbets rutin som körs kraschar, kommer aktiviteten att startas om på en annan arbets tagare som har en replik av händelse data, så händelsen förloras inte.
 

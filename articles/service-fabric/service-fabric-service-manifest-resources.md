@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: a795e01d37504dad360dc094b6b2aea2955b6a4a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bb3fd77df60be68408fceea683ee4b8b74d77427
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170442"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242904"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänstmanifest
 ## <a name="overview"></a>Översikt
@@ -30,6 +30,8 @@ När en slut punkts resurs definieras i tjänst manifestet tilldelar Service Fab
 
 > [!WARNING] 
 > Genom att definiera statiska portar ska inte överlappa med det applikations port intervall som anges i ClusterManifest. Om du anger en statisk port tilldelar du den utanför program port intervallet, annars leder det till port konflikter. Med version 6.5 CU2 kommer vi att utfärda en **hälso varning** när vi identifierar en sådan konflikt men låter distributionen fortsätta att synkroniseras med den levererade 6,5 beteendet. Vi kan dock förhindra program distributionen från nästa större versioner.
+>
+> Med version 7,0 kommer vi att utfärda en **hälso varning** när vi identifierar användningen av användnings port intervallet går utöver HostingConfig:: ApplicationPortExhaustThresholdPercentage (standard 80%).
 >
 
 ```xml
@@ -56,7 +58,7 @@ Om det finns flera kod paket i ett enda tjänst paket måste kod paketet också 
 Läs mer om att [Konfigurera tillstånds känsliga Reliable Services](service-fabric-reliable-services-configuration.md) för att läsa mer om att referera till slut punkter från konfigurations filen för konfigurations paket (Settings. xml).
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exempel: Ange en HTTP-slutpunkt för din tjänst
-Följande tjänst manifest definierar en resurs för TCP-slutpunkten och två HTTP-slutpunkter i elementet &lt;Resources @ no__t-1.
+Följande tjänst manifest definierar en resurs för TCP-slutpunkten och två HTTP-slutpunkts resurser i &lt;resurser&gt;-elementet.
 
 HTTP-slutpunkter är automatiskt ACL med Service Fabric.
 

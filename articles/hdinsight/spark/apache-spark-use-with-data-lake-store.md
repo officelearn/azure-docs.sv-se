@@ -1,5 +1,5 @@
 ---
-title: Använd Apache Spark för att analysera data i Azure Data Lake Storage Gen1
+title: Analysera Azure Data Lake Storage Gen1 med HDInsight Apache Spark
 description: Kör Apache Spark jobb för att analysera data som lagras i Azure Data Lake Storage Gen1
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,22 +8,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: b8e830cb187b375e17b3dc33c582126adfa32f3e
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 7c60fdfd4d8e579c24da3c43501e4437806becc6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002500"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241714"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Använd HDInsight Spark-kluster för att analysera data i Data Lake Storage Gen1
 
 I den här artikeln använder du [Jupyter Notebook](https://jupyter.org/) som är tillgängliga med HDInsight Spark-kluster för att köra ett jobb som läser data från ett data Lake Storage-konto.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure Data Lake Storage Gen1 konto. Följ anvisningarna i [Kom igång med Azure Data Lake Storage gen1 med hjälp av Azure Portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark kluster med Data Lake Storage Gen1 som lagring. Följ anvisningarna i [snabbstarten: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Azure HDInsight Spark kluster med Data Lake Storage Gen1 som lagring. Följ anvisningarna i [snabb start: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 ## <a name="prepare-the-data"></a>Förbereda data
 
@@ -32,7 +32,7 @@ I den här artikeln använder du [Jupyter Notebook](https://jupyter.org/) som ä
 
 Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lagrings utrymme och Azure Storage Blob som standard lagring, bör du först kopiera några exempel data till Data Lake Storage-kontot. Du kan använda exempel data från Azure Storage Blob som är associerade med HDInsight-klustret. Du kan använda [verktyget ADLCopy](https://aka.ms/downloadadlcopy) för att göra det. Hämta och installera verktyget från länken.
 
-1. Öppna en kommando tolk och navigera till den katalog där AdlCopy är installerat, vanligt `%HOMEPATH%\Documents\adlcopy`vis.
+1. Öppna en kommando tolk och navigera till den katalog där AdlCopy är installerat, vanligt vis `%HOMEPATH%\Documents\adlcopy`.
 
 2. Kör följande kommando för att kopiera en angiven BLOB från käll behållaren till Data Lake Storage:
 
@@ -75,7 +75,7 @@ Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lag
 
     Varje gång du kör ett jobb i Jupyter kommer fönsterrubriken i din webbläsare att visa statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du kan även se en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras denna till en tom cirkel.
 
-     ![Status för ett Jupyter-anteckningsboksjobb](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status för ett Jupyter-anteckningsboksjobb")
+     ![Status för ett Jupyter Notebook-jobb](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status för ett Jupyter-anteckningsboksjobb")
 
 5. Läs in exempel data i en tillfällig tabell med hjälp av filen **HVAC. csv** som du kopierade till data Lake Storage gen1-kontot. Du kan komma åt data i Data Lake Storage-kontot med hjälp av följande URL-mönster.
 
@@ -115,11 +115,11 @@ Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lag
 
 7. När jobbet har slutförts visas följande tabellutdata som standard.
 
-      ![Tabellutdata från frågeresultat](./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Tabellutdata från frågeresultat")
+      ![Tabell resultat för frågeresultat](./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Tabellutdata från frågeresultat")
 
      Du kan också visa resultaten i andra visualiseringar. Ett områdesdiagram för samma utdata skulle som exempel se ut enligt nedan.
 
-     ![Områdesdiagram över frågeresultat](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Områdesdiagram över frågeresultat")
+     ![Ytdiagram för frågeresultat](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Områdesdiagram över frågeresultat")
 
 8. När du har kört appen bör du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Då avslutas anteckningsboken och stängs ned.
 

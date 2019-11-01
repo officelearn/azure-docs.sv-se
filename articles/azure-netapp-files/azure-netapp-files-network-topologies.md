@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984123"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242491"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
@@ -31,7 +31,7 @@ Azure NetApp Files volymer är utformade för att ingå i ett särskilt syfte un
 
 Du bör förstå några saker som du bör tänka på när du planerar för Azure NetApp Files nätverk.
 
-### <a name="constraints"></a>Begränsningar
+### <a name="constraints"></a>Villkor
 
 Funktionerna nedan stöds för närvarande inte för Azure NetApp Files: 
 
@@ -50,11 +50,11 @@ Följande nätverks begränsningar gäller för Azure NetApp Files:
 
 I följande tabell beskrivs de nätverkstopologier som stöds av Azure NetApp Files.  Den beskriver också lösningarna för topologier som inte stöds. 
 
-|    Topologier    |    Stöds    |     Lösning:    |
+|    Topologier    |    Stöds    |     Lösning    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
 |    Anslutning till volym i ett lokalt virtuellt nätverk    |    Ja    |         |
 |    Anslutning till volym i ett peer-kopplat VNet (samma region)    |    Ja    |         |
-|    Anslutning till volym i ett peer-kopplat VNet (mellan regioner eller global peering)    |    Nej    |    Inga    |
+|    Anslutning till volym i ett peer-kopplat VNet (mellan regioner eller global peering)    |    Nej    |    Inget    |
 |    Anslutning till en volym över ExpressRoute-Gateway    |    Ja    |         |
 |    Anslutning från lokal plats till en volym i ett eker VNet över ExpressRoute-gateway och VNet-peering med Gateway-överföring    |    Ja    |        |
 |    Anslutning från lokal plats till en volym i en eker VNet över VPN-gateway    |    Ja    |         |
@@ -99,7 +99,7 @@ Ett grundläggande scenario är att skapa eller ansluta till en Azure NetApp Fil
 
 Om du har ytterligare virtuella nätverk i samma region som behöver åtkomst till var and ras resurser, kan virtuella nätverk anslutas med VNet- [peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) för att möjliggöra säker anslutning via Azure-infrastrukturen. 
 
-Betrakta VNet 2 och VNet 3 i diagrammet ovan. Om VM 2 måste ansluta till den virtuella datorn 3 eller volym 2, eller om VM 3 måste ansluta till VM 2 eller volym 1, måste du aktivera VNet-peering mellan VNet 2 och VNet 3. 
+Betrakta VNet 2 och VNet 3 i diagrammet ovan. Om VM 1 behöver ansluta till den virtuella datorn 2 eller volym 2, eller om VM 2 måste ansluta till den virtuella datorn 1 eller volym 1, måste du aktivera VNet-peering mellan VNet 2 och VNet 3. 
 
 Tänk också på ett scenario där VNet 1 peer-kopplas med VNet 2 och VNet 2 peer-kopplas med VNet 3 i samma region. Resurserna från VNet 1 kan ansluta till resurser i VNet 2, men det går inte att ansluta till resurser i VNet 3, om inte VNet 1 och VNet 3 är peer-kopplade. 
 

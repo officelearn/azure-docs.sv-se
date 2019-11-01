@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: ff7563a9ebbbc996af56f94b8e23d349752ef9f4
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 0046443bef0e71215157dfe89aaae45b2a91c330
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964109"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200269"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -58,14 +58,15 @@ Om du vill köra det här exemplet behöver du:
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 > 
-> 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/linkid=2083908) .
+> 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](/azure/active-directory/develop/) .
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `java-webapp`.
 >    - Lämna **omdirigerings-URI** tomt för tillfället och välj **Registrera**.
 > 1. På sidan **Översikt** hittar du program- **ID: t** och **katalogens ID-** värden för programmet. Kopiera dessa värden för senare.
 > 1. Välj **autentiseringen** på menyn och Lägg till följande information:
->    - I **omdirigerings-URI: er**lägger du till `http://localhost:8080/msal4jsamples/secure/aad` och `https://localhost:8080/msal4jsamples/graph/me`.
+>    - I **omdirigerings-URI: er**lägger du till `http://localhost:8080/msal4jsamples/secure/aad` och `http://localhost:8080/msal4jsamples/graph/me`.
+>    - I **Avancerade inställningar**lägger du till `https://localhost:8080/msal4jsample/sign-out` till **utloggnings-URL**.
 >    - Välj **Spara**.
 > 1. Välj **certifikaten & hemligheter** på menyn och klicka på **ny klient hemlighet**i avsnittet **klient hemligheter** :
 > 
@@ -79,10 +80,10 @@ Om du vill köra det här exemplet behöver du:
 > 
 > För att kod exemplet för den här snabb starten ska fungera måste du:
 > 
-> 1. Lägg till svars-URL: er som `http://localhost:8080/msal4jsamples/secure/aad` och `https://localhost:8080/msal4jsamples/graph/me`.
+> 1. Lägg till svars-URL: er som `http://localhost:8080/msal4jsamples/secure/aad` och `http://localhost:8080/msal4jsamples/graph/me`.
 > 1. Skapa en klient hemlighet.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen åt mig]()
+> > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen konfigureras med de här attributen.
@@ -100,7 +101,7 @@ Om du vill köra det här exemplet behöver du:
 
     ```file
     aad.clientId=Enter_the_Application_Id_here
-    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Name_Here/
+    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
     aad.secretKey=Enter_the_Client_Secret_Here
     aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
     aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
@@ -111,7 +112,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
-> - `Enter_the_Tenant_Name_Here`-är **katalog-ID** -värdet för det program som du har registrerat.
+> - `Enter_the_Tenant_Info_Here`-är **katalog-ID** -värdet för det program som du har registrerat.
 
 #### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
 
@@ -149,7 +150,7 @@ Lägg till MSAL4J i ditt program genom att använda maven eller Gradle för att 
 ```
 
 ```$xslt
-compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
+compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.6.0-preview'
 ```
 
 ### <a name="msal-initialization"></a>MSAL-initiering

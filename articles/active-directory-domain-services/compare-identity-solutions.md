@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: f1759bd2cc82073378c5668682f4cecf8482c2d3
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: e3ef082f19f979f1b8b0c2ba4afd9712b34b7321
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042260"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173168"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Jämför självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services
 
-För att tillhandahålla program, tjänster eller enheter åtkomst till en central identitet finns det tre vanliga sätt att använda Active Directory-baserade tjänster i Azure. Det här valet i identitets lösningar ger dig flexibilitet att använda den lämpligaste katalogen för organisationens behov. Om du till exempel främst hanterar molnbaserade användare som kör mobila enheter, kan det vara klokt att skapa och köra en egen Active Directory Domain Services identitets lösning. I stället kan du bara använda Azure Active Directory.
+För att tillhandahålla program, tjänster eller enheter åtkomst till en central identitet finns det tre vanliga sätt att använda Active Directory-baserade tjänster i Azure. Det här valet i identitets lösningar ger dig flexibilitet att använda den lämpligaste katalogen för organisationens behov. Om du till exempel främst hanterar molnbaserade användare som kör mobila enheter, kan det vara klokt att skapa och köra din egen Active Directory Domain Services (AD DS)-identitets lösning. I stället kan du bara använda Azure Active Directory.
 
 Även om de tre Active Directory-baserade identitets lösningarna delar ett gemensamt namn och teknik, är de utformade för att tillhandahålla tjänster som uppfyller olika kund krav. På hög nivå är dessa identitets lösningar och funktions uppsättningar:
 
@@ -36,12 +36,16 @@ I den här översikts artikeln jämförs och kontrasterar vi hur dessa identitet
 
 Om du har program och tjänster som behöver åtkomst till traditionella autentiseringsmekanismer, till exempel Kerberos eller NTLM, finns det två sätt att tillhandahålla Active Directory Domain Services i molnet:
 
-* En *hanterad* domän som du skapar med hjälp av Azure Active Directory Domain Services. Microsoft skapar och hanterar de resurser som krävs.
-* En *egen hanterad* domän som du skapar och konfigurerar med hjälp av traditionella resurser, till exempel virtuella datorer, Windows Server gäst operativ system och Active Directory Domain Services. Sedan fortsätter du att administrera resurserna.
+* En *hanterad* domän som du skapar med hjälp av Azure Active Directory Domain Services (Azure AD DS). Microsoft skapar och hanterar de resurser som krävs.
+* En *egen hanterad* domän som du skapar och konfigurerar med hjälp av traditionella resurser, till exempel virtuella datorer, Windows Server gäst operativ system och Active Directory Domain Services (AD DS). Sedan fortsätter du att administrera resurserna.
 
-Med Azure AD DS distribueras och underhålls kärn tjänst komponenterna av Microsoft som en *hanterad* domän upplevelse. Du distribuerar, hanterar, korrigerar och skyddar AD DS-infrastrukturen för komponenter som de virtuella datorerna, Windows Server-OPERATIVSYSTEMen eller domän kontrol Lanterna (DCs). Azure AD DS innehåller en mindre delmängd av funktioner för traditionell självhanterad AD DS-miljö, vilket minskar risken för design och hantering. Det finns till exempel inga AD-skogar, domäner, platser och länkar för att utforma och underhålla. För program och tjänster som körs i molnet och som behöver åtkomst till traditionella autentiseringsmekanismer som Kerberos eller NTLM ger Azure AD DS en hanterad domän upplevelse med minsta möjliga administrativa kostnader.
+Med Azure AD DS distribueras och underhålls kärn tjänst komponenterna av Microsoft som en *hanterad* domän upplevelse. Du distribuerar, hanterar, korrigerar och skyddar AD DS-infrastrukturen för komponenter som de virtuella datorerna, Windows Server-OPERATIVSYSTEMen eller domän kontrol Lanterna (DCs).
 
-När du distribuerar och kör en självhanterad AD DS-miljö måste du upprätthålla alla associerade infrastruktur-och katalog komponenter. Det finns ytterligare underhålls kostnader med en självhanterad AD DS-miljö, men du kan sedan utföra ytterligare åtgärder, till exempel utöka schemat eller skapa skogs förtroenden. Vanliga distributions modeller för en självhanterad AD DS-miljö som tillhandahåller identitet för program och tjänster i molnet omfattar följande:
+ Azure AD DS innehåller en mindre delmängd av funktioner för traditionell självhanterad AD DS-miljö, vilket minskar risken för design och hantering. Det finns till exempel inga AD-skogar, domäner, platser och länkar för att utforma och underhålla. För program och tjänster som körs i molnet och som behöver åtkomst till traditionella autentiseringsmekanismer som Kerberos eller NTLM ger Azure AD DS en hanterad domän upplevelse med minsta möjliga administrativa kostnader.
+
+När du distribuerar och kör en självhanterad AD DS-miljö måste du upprätthålla alla associerade infrastruktur-och katalog komponenter. Det finns ytterligare underhålls kostnader med en självhanterad AD DS-miljö, men du kan sedan utföra ytterligare åtgärder, till exempel utöka schemat eller skapa skogs förtroenden.
+
+Vanliga distributions modeller för en självhanterad AD DS-miljö som tillhandahåller identitet för program och tjänster i molnet omfattar följande:
 
 * **Fristående endast MOLNBASERAD AD DS** – virtuella Azure-datorer konfigureras som domänkontrollanter och en separat MOLNBASERAD AD DS-miljö skapas. Den här AD DS-miljön integreras inte med en lokal AD DS-miljö. En annan uppsättning autentiseringsuppgifter används för att logga in på och administrera virtuella datorer i molnet.
 * **Distribution av resurs skog** – virtuella Azure-datorer konfigureras som domänkontrollanter och en AD DS-domän som en del av en befintlig skog skapas. En förtroende relation konfigureras sedan till en lokal AD DS-miljö. Andra virtuella Azure-datorer kan domän anslutning till den här resurs skogen i molnet. Användarautentisering körs via en VPN/ExpressRoute-anslutning till den lokala AD DS-miljön.
@@ -70,9 +74,11 @@ I följande tabell beskrivs några av de funktioner som du kan behöva för din 
 
 ## <a name="azure-ad-ds-and-azure-ad"></a>Azure AD DS och Azure AD
 
-Med Azure AD kan du hantera identiteten för enheter som används av organisationen och kontrol lera åtkomsten till företags resurser från dessa enheter. Användare kan registrera sina personliga enheter (en egen eller BYOD modell) med Azure AD, som tillhandahåller enheten med en identitet. Azure AD kan sedan autentisera enheten när en användare loggar in på Azure AD och använder enheten för att komma åt skyddade resurser. Enheten kan hanteras med MDM-programvara (Mobile Device Management) som Microsoft Intune. Med den här hanterings möjligheten kan du begränsa åtkomsten till känsliga resurser till hanterade och princip kompatibla enheter.
+Med Azure AD kan du hantera identiteten för enheter som används av organisationen och kontrol lera åtkomsten till företags resurser från dessa enheter. Användare kan även registrera sin personliga enhet (en egen eller BYOD modell) med Azure AD, som tillhandahåller enheten med en identitet. Azure AD autentiserar sedan enheten när en användare loggar in på Azure AD och använder enheten för att komma åt skyddade resurser. Enheten kan hanteras med MDM-programvara (Mobile Device Management) som Microsoft Intune. Med den här hanterings möjligheten kan du begränsa åtkomsten till känsliga resurser till hanterade och princip kompatibla enheter.
 
-Traditionella datorer och bärbara datorer kan även ansluta till Azure AD. Den här mekanismen ger samma fördelar med att registrera en personlig enhet med Azure AD, till exempel för att tillåta att användare loggar in på enheten med sina företags uppgifter. Azure AD-anslutna enheter ger dig följande fördelar:
+Traditionella datorer och bärbara datorer kan även ansluta till Azure AD. Den här mekanismen ger samma fördelar med att registrera en personlig enhet med Azure AD, till exempel för att tillåta att användare loggar in på enheten med sina företags uppgifter.
+
+Azure AD-anslutna enheter ger dig följande fördelar:
 
 * Enkel inloggning (SSO) till program som skyddas av Azure AD.
 * Företags princip – kompatibel roaming av användar inställningar på enheter.
@@ -88,7 +94,9 @@ Enheter kan anslutas till Azure AD med eller utan en hybrid distribution som inn
 | Organisationen ägd enhet är inte ansluten till en lokal AD DS | Windows 10                       | Azure AD-ansluten        |
 | Organisationens ägda enhet är ansluten till en lokal AD DS  | Windows 10                       | Hybrid Azure AD-ansluten |
 
-På en Azure AD-ansluten eller registrerad enhet sker användarautentisering med moderna OAuth/OpenID Connect-baserade protokoll. Dessa protokoll är utformade för att fungera via Internet, så det är bra för mobila scenarier där användare kommer åt företags resurser från valfri plats. Med Azure AD DS-anslutna enheter kan program använda Kerberos-och NTLM-protokoll för autentisering, så att äldre program kan användas för att köras på virtuella Azure-datorer som en del av en lyft-och-Shift-strategi. I följande tabell beskrivs skillnaderna i hur enheterna representeras och kan autentisera sig mot katalogen:
+På en Azure AD-ansluten eller registrerad enhet sker användarautentisering med moderna OAuth/OpenID Connect-baserade protokoll. Dessa protokoll är utformade för att fungera via Internet, så det är bra för mobila scenarier där användare kommer åt företags resurser från valfri plats.
+
+Med Azure AD DS-anslutna enheter kan program använda Kerberos-och NTLM-protokoll för autentisering, så att äldre program kan användas för att köras på virtuella Azure-datorer som en del av en lyft-och-Shift-strategi. I följande tabell beskrivs skillnaderna i hur enheterna representeras och kan autentisera sig mot katalogen:
 
 | **16:10**                      | **Azure AD-ansluten**                                 | **Azure AD DS-ansluten**                                                    |
 |:--------------------------------| --------------------------------------------------- | ------------------------------------------------------------------------- |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d7d2ad6adefb83c3c313063a9e630458ccebc5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 07c1d6e3c622a76a1e625962ad5f08d414ad8cef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851772"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175042"
 ---
 # <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
@@ -56,7 +56,7 @@ För att få en enhet i Azure AD har du flera alternativ:
 
 Enheter i Azure AD kan hanteras med verktyg för hantering av mobila enheter (MDM) som Microsoft Intune, System Center Configuration Manager, grupprincip (hybrid Azure AD Join), verktyg för hantering av mobila program (MAM) eller andra verktyg från tredje part.
 
-## <a name="resource-access"></a>Resursåtkomst
+## <a name="resource-access"></a>Resurs åtkomst
 
 Genom att registrera och ansluta får användarna sömlös inloggning (SSO) till moln resurser och administratörer möjlighet att tillämpa principer för villkorlig åtkomst för dessa resurser. 
 
@@ -65,15 +65,15 @@ Enheter som är Azure AD-anslutna eller hybrid Azure AD-anslutna fördelar från
 ## <a name="device-security"></a>Enhetssäkerhet
 
 - **Registrerade Azure AD-enheter** använder ett konto som hanteras av slutanvändaren. det här kontot är antingen en Microsoft-konto eller en annan lokalt hanterad autentiseringsuppgift som skyddas med ett eller flera av följande.
-   - lösenordsinställning
-   - PIN
+   - Lösenord
+   - PUK
    - Mönster
    - Windows Hello
 - **Azure AD-anslutna eller hybrid Azure AD-anslutna enheter** använder ett organisations konto i Azure AD som skyddas med en eller flera av följande.
-   - lösenordsinställning
+   - Lösenord
    - Windows Hello för företag
 
-## <a name="provisioning"></a>Etableras
+## <a name="provisioning"></a>Etablering
 
 Att hämta enheter i till Azure AD kan göras i ett självbetjänings sätt eller en kontrollerad etablerings process av administratörer.
 

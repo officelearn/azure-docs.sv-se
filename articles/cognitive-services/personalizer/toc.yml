@@ -65,7 +65,7 @@
   items:
     - name: Skapa och konfigurera Personanpassning
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
     - name: Analysera
       items:
         - name: Offlineutvärdering

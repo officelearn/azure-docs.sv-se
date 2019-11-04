@@ -46,6 +46,12 @@
           href: prevent-translation.md
         - name: Använda funktionen för dynamisk ordlista
           href: dynamic-dictionary.md
+        - name: Använda containrar
+          items:
+            - name: Installera och köra containrar
+              href: how-to-install-containers.md
+            - name: Konfigurera containrar
+              href: translator-text-container-config.md
         - name: Översätta bakom brandväggar
           href: firewalls.md
     - name: Exempel
